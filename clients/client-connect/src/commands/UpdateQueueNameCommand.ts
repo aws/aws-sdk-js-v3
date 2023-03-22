@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQueueNameCommand}.
  */
 export interface UpdateQueueNameCommandInput extends UpdateQueueNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQueueNameCommand}.
  */
 export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the name and description of a queue. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQueueNameCommandInput - {@link UpdateQueueNameCommandInput}
+ * @returns {@link UpdateQueueNameCommandOutput}
  * @see {@link UpdateQueueNameCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateQueueNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQueueNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateQueueNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQueueNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateQueueNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQueueNameCommandOutput> {
     return deserializeAws_restJson1UpdateQueueNameCommand(output, context);
   }

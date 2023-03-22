@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserPoolDomainCommand}.
  */
 export interface DescribeUserPoolDomainCommandInput extends DescribeUserPoolDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserPoolDomainCommand}.
  */
 export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDom
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserPoolDomainCommandInput - {@link DescribeUserPoolDomainCommandInput}
+ * @returns {@link DescribeUserPoolDomainCommandOutput}
  * @see {@link DescribeUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeUserPoolDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserPoolDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeUserPoolDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserPoolDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserPoolDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserPoolDomainCommandOutput> {
     return deserializeAws_json1_1DescribeUserPoolDomainCommand(output, context);
   }

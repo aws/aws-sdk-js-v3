@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPipelineDefinitionCommand}.
  */
 export interface GetPipelineDefinitionCommandInput extends GetPipelineDefinitionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPipelineDefinitionCommand}.
  */
 export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve
  *             the pipeline definition that you provided using <a>PutPipelineDefinition</a>.</p>
  *
@@ -50,7 +55,7 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * Authorization: AuthParams
  *
  *
- * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+ * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
  *
  *             </request>
  *             <response>
@@ -60,43 +65,43 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * Content-Length: 890
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"pipelineObjects":
+ * \{"pipelineObjects":
  *   [
- *     {"fields":
+ *     \{"fields":
  *       [
- *         {"key": "workerGroup",
- *          "stringValue": "workerGroup"}
+ *         \{"key": "workerGroup",
+ *          "stringValue": "workerGroup"\}
  *       ],
  *      "id": "Default",
- *      "name": "Default"},
- *     {"fields":
+ *      "name": "Default"\},
+ *     \{"fields":
  *       [
- *         {"key": "startDateTime",
- *          "stringValue": "2012-09-25T17:00:00"},
- *         {"key": "type",
- *          "stringValue": "Schedule"},
- *         {"key": "period",
- *          "stringValue": "1 hour"},
- *         {"key": "endDateTime",
- *          "stringValue": "2012-09-25T18:00:00"}
+ *         \{"key": "startDateTime",
+ *          "stringValue": "2012-09-25T17:00:00"\},
+ *         \{"key": "type",
+ *          "stringValue": "Schedule"\},
+ *         \{"key": "period",
+ *          "stringValue": "1 hour"\},
+ *         \{"key": "endDateTime",
+ *          "stringValue": "2012-09-25T18:00:00"\}
  *       ],
  *      "id": "Schedule",
- *      "name": "Schedule"},
- *     {"fields":
+ *      "name": "Schedule"\},
+ *     \{"fields":
  *       [
- *         {"key": "schedule",
- *          "refValue": "Schedule"},
- *         {"key": "command",
- *          "stringValue": "echo hello"},
- *         {"key": "parent",
- *          "refValue": "Default"},
- *         {"key": "type",
- *          "stringValue": "ShellCommandActivity"}
+ *         \{"key": "schedule",
+ *          "refValue": "Schedule"\},
+ *         \{"key": "command",
+ *          "stringValue": "echo hello"\},
+ *         \{"key": "parent",
+ *          "refValue": "Default"\},
+ *         \{"key": "type",
+ *          "stringValue": "ShellCommandActivity"\}
  *       ],
  *      "id": "SayHello",
- *      "name": "SayHello"}
+ *      "name": "SayHello"\}
  *   ]
- * }
+ * \}
  *
  *             </response>
  *         </examples>
@@ -110,6 +115,8 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPipelineDefinitionCommandInput - {@link GetPipelineDefinitionCommandInput}
+ * @returns {@link GetPipelineDefinitionCommandOutput}
  * @see {@link GetPipelineDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetPipelineDefinitionCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -145,6 +152,9 @@ export class GetPipelineDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPipelineDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -184,10 +194,16 @@ export class GetPipelineDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPipelineDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPipelineDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPipelineDefinitionCommandOutput> {
     return deserializeAws_json1_1GetPipelineDefinitionCommand(output, context);
   }

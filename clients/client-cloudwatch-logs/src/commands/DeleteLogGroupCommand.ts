@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLogGroupCommand}.
  */
 export interface DeleteLogGroupCommandInput extends DeleteLogGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLogGroupCommand}.
  */
 export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified log group and permanently deletes all the archived
  *       log events associated with the log group.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLogGroupCommandInput - {@link DeleteLogGroupCommandInput}
+ * @returns {@link DeleteLogGroupCommandOutput}
  * @see {@link DeleteLogGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteLogGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogGroupCommandOutput> {
     return deserializeAws_json1_1DeleteLogGroupCommand(output, context);
   }

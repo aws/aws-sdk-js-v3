@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBuildCommand}.
  */
 export interface DeleteBuildCommandInput extends DeleteBuildInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBuildCommand}.
  */
 export interface DeleteBuildCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a build. This operation permanently deletes the build resource and any
  *             uploaded build files. Deleting a build does not affect the status of any active fleets
  *             using the build, but you can no longer create new fleets with the deleted build.</p>
@@ -54,6 +59,8 @@ export interface DeleteBuildCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBuildCommandInput - {@link DeleteBuildCommandInput}
+ * @returns {@link DeleteBuildCommandOutput}
  * @see {@link DeleteBuildCommandInput} for command's `input` shape.
  * @see {@link DeleteBuildCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBuildCommandOutput> {
     return deserializeAws_json1_1DeleteBuildCommand(output, context);
   }

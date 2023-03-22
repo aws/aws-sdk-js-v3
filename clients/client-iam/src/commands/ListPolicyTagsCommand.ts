@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListPolicyTagsCommand}.
  */
 export interface ListPolicyTagsCommandInput extends ListPolicyTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPolicyTagsCommand}.
  */
 export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified IAM customer managed policy.
  *       The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPolicyTagsCommandInput - {@link ListPolicyTagsCommandInput}
+ * @returns {@link ListPolicyTagsCommandOutput}
  * @see {@link ListPolicyTagsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListPolicyTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPolicyTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListPolicyTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPolicyTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListPolicyTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyTagsCommandOutput> {
     return deserializeAws_queryListPolicyTagsCommand(output, context);
   }

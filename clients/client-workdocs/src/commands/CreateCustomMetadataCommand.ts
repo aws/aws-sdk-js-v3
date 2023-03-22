@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomMetadataCommand}.
  */
 export interface CreateCustomMetadataCommandInput extends CreateCustomMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomMetadataCommand}.
  */
 export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more custom properties to the specified resource (a folder, document,
  *             or version).</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomMetadataCommandInput - {@link CreateCustomMetadataCommandInput}
+ * @returns {@link CreateCustomMetadataCommandOutput}
  * @see {@link CreateCustomMetadataCommandInput} for command's `input` shape.
  * @see {@link CreateCustomMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateCustomMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateCustomMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCustomMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomMetadataCommandOutput> {
     return deserializeAws_restJson1CreateCustomMetadataCommand(output, context);
   }

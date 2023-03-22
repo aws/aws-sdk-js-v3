@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySecurityGroupRulesCommand}.
  */
 export interface ModifySecurityGroupRulesCommandInput extends ModifySecurityGroupRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifySecurityGroupRulesCommand}.
  */
 export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGroupRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the rules of a security group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySecurityGroupRulesCommandInput - {@link ModifySecurityGroupRulesCommandInput}
+ * @returns {@link ModifySecurityGroupRulesCommandOutput}
  * @see {@link ModifySecurityGroupRulesCommandInput} for command's `input` shape.
  * @see {@link ModifySecurityGroupRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ModifySecurityGroupRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySecurityGroupRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ModifySecurityGroupRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySecurityGroupRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifySecurityGroupRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySecurityGroupRulesCommandOutput> {
     return deserializeAws_ec2ModifySecurityGroupRulesCommand(output, context);
   }

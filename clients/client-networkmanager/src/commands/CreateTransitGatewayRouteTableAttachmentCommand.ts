@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayRouteTableAttachmentCommand}.
  */
 export interface CreateTransitGatewayRouteTableAttachmentCommandInput
   extends CreateTransitGatewayRouteTableAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayRouteTableAttachmentCommand}.
  */
 export interface CreateTransitGatewayRouteTableAttachmentCommandOutput
@@ -38,6 +42,7 @@ export interface CreateTransitGatewayRouteTableAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a transit gateway route table attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface CreateTransitGatewayRouteTableAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayRouteTableAttachmentCommandInput - {@link CreateTransitGatewayRouteTableAttachmentCommandInput}
+ * @returns {@link CreateTransitGatewayRouteTableAttachmentCommandOutput}
  * @see {@link CreateTransitGatewayRouteTableAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayRouteTableAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateTransitGatewayRouteTableAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayRouteTableAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class CreateTransitGatewayRouteTableAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateTransitGatewayRouteTableAttachmentCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class CreateTransitGatewayRouteTableAttachmentCommand extends $Command<
     return serializeAws_restJson1CreateTransitGatewayRouteTableAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

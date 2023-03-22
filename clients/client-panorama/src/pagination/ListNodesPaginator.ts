@@ -6,7 +6,7 @@ import { PanoramaClient } from "../PanoramaClient";
 import { PanoramaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PanoramaClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNodesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListNodes(
   config: PanoramaPaginationConfiguration,
   input: ListNodesCommandInput,

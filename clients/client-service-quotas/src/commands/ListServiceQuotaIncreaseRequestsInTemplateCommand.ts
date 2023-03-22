@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceQuotaIncreaseRequestsInTemplateCommand}.
  */
 export interface ListServiceQuotaIncreaseRequestsInTemplateCommandInput
   extends ListServiceQuotaIncreaseRequestsInTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceQuotaIncreaseRequestsInTemplateCommand}.
  */
 export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
@@ -38,6 +42,7 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the quota increase requests in the specified quota request template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceQuotaIncreaseRequestsInTemplateCommandInput - {@link ListServiceQuotaIncreaseRequestsInTemplateCommandInput}
+ * @returns {@link ListServiceQuotaIncreaseRequestsInTemplateCommandOutput}
  * @see {@link ListServiceQuotaIncreaseRequestsInTemplateCommandInput} for command's `input` shape.
  * @see {@link ListServiceQuotaIncreaseRequestsInTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -98,6 +105,9 @@ export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command<
     return serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

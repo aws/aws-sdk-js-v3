@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmForgotPasswordCommand}.
  */
 export interface ConfirmForgotPasswordCommandInput extends ConfirmForgotPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmForgotPasswordCommand}.
  */
 export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a user to enter a confirmation code to reset a forgotten password.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmForgotPasswordCommandInput - {@link ConfirmForgotPasswordCommandInput}
+ * @returns {@link ConfirmForgotPasswordCommandOutput}
  * @see {@link ConfirmForgotPasswordCommandInput} for command's `input` shape.
  * @see {@link ConfirmForgotPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -129,6 +136,9 @@ export class ConfirmForgotPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmForgotPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class ConfirmForgotPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmForgotPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ConfirmForgotPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmForgotPasswordCommandOutput> {
     return deserializeAws_json1_1ConfirmForgotPasswordCommand(output, context);
   }

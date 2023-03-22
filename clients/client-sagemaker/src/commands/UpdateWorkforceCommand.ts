@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkforceCommand}.
  */
 export interface UpdateWorkforceCommandInput extends UpdateWorkforceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkforceCommand}.
  */
 export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to update your workforce. You can use this operation to
  *         require that workers use specific IP addresses to work on tasks
  *         and to update your OpenID Connect (OIDC) Identity Provider (IdP) workforce configuration.</p>
@@ -71,6 +76,8 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkforceCommandInput - {@link UpdateWorkforceCommandInput}
+ * @returns {@link UpdateWorkforceCommandOutput}
  * @see {@link UpdateWorkforceCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateWorkforceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkforceCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateWorkforceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkforceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateWorkforceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkforceCommandOutput> {
     return deserializeAws_json1_1UpdateWorkforceCommand(output, context);
   }

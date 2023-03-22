@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddCommunicationToCaseCommand}.
  */
 export interface AddCommunicationToCaseCommandInput extends AddCommunicationToCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddCommunicationToCaseCommand}.
  */
 export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds additional customer communication to an Amazon Web Services Support case. Use the <code>caseId</code>
  *             parameter to identify the case to which to add communication. You can list a set of
  *             email addresses to copy on the communication by using the <code>ccEmailAddresses</code>
@@ -64,6 +69,8 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * const response = await client.send(command);
  * ```
  *
+ * @param AddCommunicationToCaseCommandInput - {@link AddCommunicationToCaseCommandInput}
+ * @returns {@link AddCommunicationToCaseCommandOutput}
  * @see {@link AddCommunicationToCaseCommandInput} for command's `input` shape.
  * @see {@link AddCommunicationToCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -100,6 +107,9 @@ export class AddCommunicationToCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddCommunicationToCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class AddCommunicationToCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddCommunicationToCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddCommunicationToCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddCommunicationToCaseCommandOutput> {
     return deserializeAws_json1_1AddCommunicationToCaseCommand(output, context);
   }

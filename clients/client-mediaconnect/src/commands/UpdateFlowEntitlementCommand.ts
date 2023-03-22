@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFlowEntitlementCommand}.
  */
 export interface UpdateFlowEntitlementCommandInput extends UpdateFlowEntitlementRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFlowEntitlementCommand}.
  */
 export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * You can change an entitlement's description, subscribers, and encryption. If you change the subscribers, the service will remove the outputs that are are used by the subscribers that are removed.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlemen
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFlowEntitlementCommandInput - {@link UpdateFlowEntitlementCommandInput}
+ * @returns {@link UpdateFlowEntitlementCommandOutput}
  * @see {@link UpdateFlowEntitlementCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowEntitlementCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateFlowEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFlowEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateFlowEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFlowEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFlowEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowEntitlementCommandOutput> {
     return deserializeAws_restJson1UpdateFlowEntitlementCommand(output, context);
   }

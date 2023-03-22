@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link RejectEnvironmentAccountConnectionCommand}.
  */
 export interface RejectEnvironmentAccountConnectionCommandInput extends RejectEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link RejectEnvironmentAccountConnectionCommand}.
  */
 export interface RejectEnvironmentAccountConnectionCommandOutput
@@ -37,6 +41,7 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>In a management account, reject an environment account connection from another environment account.</p>
  *          <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account
  *       connection.</p>
@@ -53,6 +58,8 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectEnvironmentAccountConnectionCommandInput - {@link RejectEnvironmentAccountConnectionCommandInput}
+ * @returns {@link RejectEnvironmentAccountConnectionCommandOutput}
  * @see {@link RejectEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +101,9 @@ export class RejectEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class RejectEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RejectEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class RejectEnvironmentAccountConnectionCommand extends $Command<
     return serializeAws_json1_0RejectEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStreamSummaryCommand}.
  */
 export interface DescribeStreamSummaryCommandInput extends DescribeStreamSummaryInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStreamSummaryCommand}.
  */
 export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummaryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a summarized description of the specified Kinesis data stream without the
  *             shard list.</p>
  *          <note>
@@ -57,6 +62,8 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStreamSummaryCommandInput - {@link DescribeStreamSummaryCommandInput}
+ * @returns {@link DescribeStreamSummaryCommandOutput}
  * @see {@link DescribeStreamSummaryCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamSummaryCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeStreamSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStreamSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DescribeStreamSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStreamSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStreamSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamSummaryCommandOutput> {
     return deserializeAws_json1_1DescribeStreamSummaryCommand(output, context);
   }

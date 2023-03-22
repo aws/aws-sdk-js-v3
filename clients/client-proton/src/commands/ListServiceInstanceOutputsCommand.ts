@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceInstanceOutputsCommand}.
  */
 export interface ListServiceInstanceOutputsCommandInput extends ListServiceInstanceOutputsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceInstanceOutputsCommand}.
  */
 export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInstanceOutputsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list service of instance Infrastructure as Code (IaC) outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInst
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceInstanceOutputsCommandInput - {@link ListServiceInstanceOutputsCommandInput}
+ * @returns {@link ListServiceInstanceOutputsCommandOutput}
  * @see {@link ListServiceInstanceOutputsCommandInput} for command's `input` shape.
  * @see {@link ListServiceInstanceOutputsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListServiceInstanceOutputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceInstanceOutputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListServiceInstanceOutputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceInstanceOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListServiceInstanceOutputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

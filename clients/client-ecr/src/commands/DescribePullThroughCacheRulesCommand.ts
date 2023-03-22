@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePullThroughCacheRulesCommand}.
  */
 export interface DescribePullThroughCacheRulesCommandInput extends DescribePullThroughCacheRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePullThroughCacheRulesCommand}.
  */
 export interface DescribePullThroughCacheRulesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribePullThroughCacheRulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the pull through cache rules for a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribePullThroughCacheRulesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePullThroughCacheRulesCommandInput - {@link DescribePullThroughCacheRulesCommandInput}
+ * @returns {@link DescribePullThroughCacheRulesCommandOutput}
  * @see {@link DescribePullThroughCacheRulesCommandInput} for command's `input` shape.
  * @see {@link DescribePullThroughCacheRulesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribePullThroughCacheRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePullThroughCacheRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribePullThroughCacheRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePullThroughCacheRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePullThroughCacheRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPortfolioPreferencesCommand}.
  */
 export interface PutPortfolioPreferencesCommandInput extends PutPortfolioPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPortfolioPreferencesCommand}.
  */
 export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPreferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Saves the specified migration and modernization preferences. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPortfolioPreferencesCommandInput - {@link PutPortfolioPreferencesCommandInput}
+ * @returns {@link PutPortfolioPreferencesCommandOutput}
  * @see {@link PutPortfolioPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutPortfolioPreferencesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutPortfolioPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPortfolioPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PutPortfolioPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPortfolioPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutPortfolioPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPortfolioPreferencesCommandOutput> {
     return deserializeAws_restJson1PutPortfolioPreferencesCommand(output, context);
   }

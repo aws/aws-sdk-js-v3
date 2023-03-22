@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceTemplateCommand}.
  */
 export interface DeleteServiceTemplateCommandInput extends DeleteServiceTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceTemplateCommand}.
  */
 export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If no other major or minor versions of the service template exist, delete the service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceTemplateCommandInput - {@link DeleteServiceTemplateCommandInput}
+ * @returns {@link DeleteServiceTemplateCommandOutput}
  * @see {@link DeleteServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteServiceTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteServiceTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteServiceTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceTemplateCommandOutput> {
     return deserializeAws_json1_0DeleteServiceTemplateCommand(output, context);
   }

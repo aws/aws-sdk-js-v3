@@ -26,9 +26,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UploadArchiveCommand}.
  */
-type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
+export type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
   /**
    * For *`UploadArchiveInput["body"]`*, see {@link UploadArchiveInput.body}.
    */
@@ -39,11 +41,14 @@ type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
  */
 export interface UploadArchiveCommandInput extends UploadArchiveCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link UploadArchiveCommand}.
  */
 export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation adds an archive to a vault. This is a synchronous operation, and for a
  *          successful upload, your data is durably persisted. Amazon S3 Glacier returns the archive ID in
  *          the <code>x-amz-archive-id</code> header of the response. </p>
@@ -86,6 +91,8 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadArchiveCommandInput - {@link UploadArchiveCommandInput}
+ * @returns {@link UploadArchiveCommandOutput}
  * @see {@link UploadArchiveCommandInput} for command's `input` shape.
  * @see {@link UploadArchiveCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -148,6 +155,9 @@ export class UploadArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,10 +195,16 @@ export class UploadArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UploadArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadArchiveCommandOutput> {
     return deserializeAws_restJson1UploadArchiveCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableZonesCommand}.
  */
 export interface ListAvailableZonesCommandInput extends ListAvailableZonesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableZonesCommand}.
  */
 export interface ListAvailableZonesCommandOutput extends ListAvailableZonesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -56,6 +61,8 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableZonesCommandInput - {@link ListAvailableZonesCommandInput}
+ * @returns {@link ListAvailableZonesCommandOutput}
  * @see {@link ListAvailableZonesCommandInput} for command's `input` shape.
  * @see {@link ListAvailableZonesCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListAvailableZonesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableZonesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListAvailableZonesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAvailableZonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAvailableZonesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAvailableZonesCommandOutput> {
     return deserializeAws_json1_1ListAvailableZonesCommand(output, context);
   }

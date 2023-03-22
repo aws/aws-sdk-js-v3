@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDetectorModelCommand}.
  */
 export interface DeleteDetectorModelCommandInput extends DeleteDetectorModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDetectorModelCommand}.
  */
 export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a detector model. Any active instances of the detector model are also
  *       deleted.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDetectorModelCommandInput - {@link DeleteDetectorModelCommandInput}
+ * @returns {@link DeleteDetectorModelCommandOutput}
  * @see {@link DeleteDetectorModelCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteDetectorModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDetectorModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteDetectorModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDetectorModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDetectorModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorModelCommandOutput> {
     return deserializeAws_restJson1DeleteDetectorModelCommand(output, context);
   }

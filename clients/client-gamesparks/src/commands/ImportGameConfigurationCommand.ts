@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportGameConfigurationCommand}.
  */
 export interface ImportGameConfigurationCommandInput extends ImportGameConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportGameConfigurationCommand}.
  */
 export interface ImportGameConfigurationCommandOutput extends ImportGameConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a game configuration.</p>
  *          <p>
  *       This operation replaces the current configuration of the game with the provided input.
@@ -51,6 +56,8 @@ export interface ImportGameConfigurationCommandOutput extends ImportGameConfigur
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportGameConfigurationCommandInput - {@link ImportGameConfigurationCommandInput}
+ * @returns {@link ImportGameConfigurationCommandOutput}
  * @see {@link ImportGameConfigurationCommandInput} for command's `input` shape.
  * @see {@link ImportGameConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -92,6 +99,9 @@ export class ImportGameConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportGameConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ImportGameConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportGameConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ImportGameConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportGameConfigurationCommandOutput> {
     return deserializeAws_restJson1ImportGameConfigurationCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMatchmakingConfigurationsCommand}.
  */
 export interface DescribeMatchmakingConfigurationsCommandInput extends DescribeMatchmakingConfigurationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMatchmakingConfigurationsCommand}.
  */
 export interface DescribeMatchmakingConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeMatchmakingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of FlexMatch matchmaking configurations. </p>
  *         <p>This operation offers the following options: (1) retrieve all matchmaking
  *             configurations, (2) retrieve configurations for a specified list, or (3) retrieve all
@@ -60,6 +65,8 @@ export interface DescribeMatchmakingConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMatchmakingConfigurationsCommandInput - {@link DescribeMatchmakingConfigurationsCommandInput}
+ * @returns {@link DescribeMatchmakingConfigurationsCommandOutput}
  * @see {@link DescribeMatchmakingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeMatchmakingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMatchmakingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DescribeMatchmakingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMatchmakingConfigurationsCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DescribeMatchmakingConfigurationsCommand extends $Command<
     return serializeAws_json1_1DescribeMatchmakingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionDefinitionsCommand}.
  */
 export interface ListFunctionDefinitionsCommandInput extends ListFunctionDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionDefinitionsCommand}.
  */
 export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves a list of Lambda function definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionDefinitionsCommandInput - {@link ListFunctionDefinitionsCommandInput}
+ * @returns {@link ListFunctionDefinitionsCommandOutput}
  * @see {@link ListFunctionDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListFunctionDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListFunctionDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFunctionDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFunctionDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionDefinitionsCommandOutput> {
     return deserializeAws_restJson1ListFunctionDefinitionsCommand(output, context);
   }

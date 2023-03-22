@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListElasticsearchVersionsCommand}.
  */
 export interface ListElasticsearchVersionsCommandInput extends ListElasticsearchVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListElasticsearchVersionsCommand}.
  */
 export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearchVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all supported Elasticsearch versions</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearc
  * const response = await client.send(command);
  * ```
  *
+ * @param ListElasticsearchVersionsCommandInput - {@link ListElasticsearchVersionsCommandInput}
+ * @returns {@link ListElasticsearchVersionsCommandOutput}
  * @see {@link ListElasticsearchVersionsCommandInput} for command's `input` shape.
  * @see {@link ListElasticsearchVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListElasticsearchVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListElasticsearchVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListElasticsearchVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListElasticsearchVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListElasticsearchVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

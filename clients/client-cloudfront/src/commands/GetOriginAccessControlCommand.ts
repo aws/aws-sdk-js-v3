@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetOriginAccessControlCommand}.
  */
 export interface GetOriginAccessControlCommandInput extends GetOriginAccessControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOriginAccessControlCommand}.
  */
 export interface GetOriginAccessControlCommandOutput extends GetOriginAccessControlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a CloudFront origin access control, including its unique identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetOriginAccessControlCommandOutput extends GetOriginAccessCont
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOriginAccessControlCommandInput - {@link GetOriginAccessControlCommandInput}
+ * @returns {@link GetOriginAccessControlCommandOutput}
  * @see {@link GetOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link GetOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetOriginAccessControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOriginAccessControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetOriginAccessControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOriginAccessControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetOriginAccessControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOriginAccessControlCommandOutput> {
     return deserializeAws_restXmlGetOriginAccessControlCommand(output, context);
   }

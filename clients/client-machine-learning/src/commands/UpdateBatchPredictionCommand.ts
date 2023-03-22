@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBatchPredictionCommand}.
  */
 export interface UpdateBatchPredictionCommandInput extends UpdateBatchPredictionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBatchPredictionCommand}.
  */
 export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>
  *         <p>You can use the <code>GetBatchPrediction</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBatchPredictionCommandInput - {@link UpdateBatchPredictionCommandInput}
+ * @returns {@link UpdateBatchPredictionCommandOutput}
  * @see {@link UpdateBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link UpdateBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateBatchPredictionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBatchPredictionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateBatchPredictionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateBatchPredictionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBatchPredictionCommandOutput> {
     return deserializeAws_json1_1UpdateBatchPredictionCommand(output, context);
   }

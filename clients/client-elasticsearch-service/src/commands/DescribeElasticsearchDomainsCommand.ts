@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticsearchDomainsCommand}.
  */
 export interface DescribeElasticsearchDomainsCommandInput extends DescribeElasticsearchDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticsearchDomainsCommand}.
  */
 export interface DescribeElasticsearchDomainsCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeElasticsearchDomainsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeElasticsearchDomainsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticsearchDomainsCommandInput - {@link DescribeElasticsearchDomainsCommandInput}
+ * @returns {@link DescribeElasticsearchDomainsCommandOutput}
  * @see {@link DescribeElasticsearchDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticsearchDomainsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeElasticsearchDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticsearchDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeElasticsearchDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeElasticsearchDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeElasticsearchDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

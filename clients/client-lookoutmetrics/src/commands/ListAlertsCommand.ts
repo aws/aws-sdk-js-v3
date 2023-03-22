@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAlertsCommand}.
  */
 export interface ListAlertsCommandInput extends ListAlertsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAlertsCommand}.
  */
 export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the alerts attached to a detector.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -48,6 +53,8 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAlertsCommandInput - {@link ListAlertsCommandInput}
+ * @returns {@link ListAlertsCommandOutput}
  * @see {@link ListAlertsCommandInput} for command's `input` shape.
  * @see {@link ListAlertsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListAlertsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAlertsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListAlertsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAlertsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAlertsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlertsCommandOutput> {
     return deserializeAws_restJson1ListAlertsCommand(output, context);
   }

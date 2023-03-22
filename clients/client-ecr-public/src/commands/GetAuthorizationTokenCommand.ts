@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAuthorizationTokenCommand}.
  */
 export interface GetAuthorizationTokenCommandInput extends GetAuthorizationTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAuthorizationTokenCommand}.
  */
 export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an authorization token. An authorization token represents your IAM
  *          authentication credentials. You can use it to access any Amazon ECR registry that your IAM
  *          principal has access to. The authorization token is valid for 12 hours. This API requires
@@ -50,6 +55,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAuthorizationTokenCommandInput - {@link GetAuthorizationTokenCommandInput}
+ * @returns {@link GetAuthorizationTokenCommandOutput}
  * @see {@link GetAuthorizationTokenCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetAuthorizationTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAuthorizationTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetAuthorizationTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAuthorizationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAuthorizationTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthorizationTokenCommandOutput> {
     return deserializeAws_json1_1GetAuthorizationTokenCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachThingPrincipalCommand}.
  */
 export interface AttachThingPrincipalCommandInput extends AttachThingPrincipalRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachThingPrincipalCommand}.
  */
 export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified principal to the specified thing. A principal can be X.509
  * 			certificates, Amazon Cognito identities or federated identities.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachThingPrincipal</a> action.</p>
@@ -48,6 +53,8 @@ export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalR
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachThingPrincipalCommandInput - {@link AttachThingPrincipalCommandInput}
+ * @returns {@link AttachThingPrincipalCommandOutput}
  * @see {@link AttachThingPrincipalCommandInput} for command's `input` shape.
  * @see {@link AttachThingPrincipalCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -89,6 +96,9 @@ export class AttachThingPrincipalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachThingPrincipalCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class AttachThingPrincipalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachThingPrincipalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AttachThingPrincipalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachThingPrincipalCommandOutput> {
     return deserializeAws_restJson1AttachThingPrincipalCommand(output, context);
   }

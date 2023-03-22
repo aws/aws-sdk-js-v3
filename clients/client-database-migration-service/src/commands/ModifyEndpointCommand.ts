@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyEndpointCommand}.
  */
 export interface ModifyEndpointCommandInput extends ModifyEndpointMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyEndpointCommand}.
  */
 export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified endpoint.</p>
  *          <note>
  *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
@@ -57,6 +62,8 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyEndpointCommandInput - {@link ModifyEndpointCommandInput}
+ * @returns {@link ModifyEndpointCommandOutput}
  * @see {@link ModifyEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyEndpointCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -123,6 +130,9 @@ export class ModifyEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class ModifyEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEndpointCommandOutput> {
     return deserializeAws_json1_1ModifyEndpointCommand(output, context);
   }

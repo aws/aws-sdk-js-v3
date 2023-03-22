@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInboundConnectionsCommand}.
  */
 export interface DescribeInboundConnectionsCommandInput extends DescribeInboundConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInboundConnectionsCommand}.
  */
 export interface DescribeInboundConnectionsCommandOutput extends DescribeInboundConnectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the inbound cross-cluster search connections for a destination (remote) Amazon
  *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeInboundConnectionsCommandOutput extends DescribeInbound
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInboundConnectionsCommandInput - {@link DescribeInboundConnectionsCommandInput}
+ * @returns {@link DescribeInboundConnectionsCommandOutput}
  * @see {@link DescribeInboundConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeInboundConnectionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeInboundConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInboundConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeInboundConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInboundConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeInboundConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

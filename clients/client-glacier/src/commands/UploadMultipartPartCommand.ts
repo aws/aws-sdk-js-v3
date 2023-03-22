@@ -26,9 +26,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UploadMultipartPartCommand}.
  */
-type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"> & {
+export type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"> & {
   /**
    * For *`UploadMultipartPartInput["body"]`*, see {@link UploadMultipartPartInput.body}.
    */
@@ -39,11 +41,14 @@ type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"
  */
 export interface UploadMultipartPartCommandInput extends UploadMultipartPartCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link UploadMultipartPartCommand}.
  */
 export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation uploads a part of an archive. You can upload archive parts in any
  *          order. You can also upload them in parallel. You can upload up to 10,000 parts for a
  *          multipart upload.</p>
@@ -105,6 +110,8 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadMultipartPartCommandInput - {@link UploadMultipartPartCommandInput}
+ * @returns {@link UploadMultipartPartCommandOutput}
  * @see {@link UploadMultipartPartCommandInput} for command's `input` shape.
  * @see {@link UploadMultipartPartCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -166,6 +173,9 @@ export class UploadMultipartPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadMultipartPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -205,10 +215,16 @@ export class UploadMultipartPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadMultipartPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UploadMultipartPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadMultipartPartCommandOutput> {
     return deserializeAws_restJson1UploadMultipartPartCommand(output, context);
   }

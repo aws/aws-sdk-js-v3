@@ -9,6 +9,7 @@ import { Readable } from "stream";
 import { LexRuntimeServiceServiceException as __BaseException } from "./LexRuntimeServiceServiceException";
 
 /**
+ * @public
  * <p>The length of time or number of turns that a context remains
  *       active.</p>
  */
@@ -30,6 +31,7 @@ export interface ActiveContextTimeToLive {
 }
 
 /**
+ * @public
  * <p>A context is a variable that contains information about the current
  *       state of the conversation between a user and Amazon Lex. Context can be set
  *       automatically by Amazon Lex when an intent is fulfilled, or it can be set at
@@ -56,6 +58,7 @@ export interface ActiveContext {
 }
 
 /**
+ * @public
  * <p> Request validation failed, there is no usable message in the context,
  *       or the bot build failed, is still in progress, or contains unbuilt
  *       changes. </p>
@@ -77,6 +80,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Two clients are using the same AWS account, Amazon Lex bot, and user
  *       ID. </p>
  */
@@ -96,6 +100,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSessionRequest {
   /**
    * <p>The name of the bot that contains the session data.</p>
@@ -113,6 +120,9 @@ export interface DeleteSessionRequest {
   userId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSessionResponse {
   /**
    * <p>The name of the bot associated with the session data.</p>
@@ -136,6 +146,7 @@ export interface DeleteSessionResponse {
 }
 
 /**
+ * @public
  * <p>Internal service error. Retry the call.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -155,6 +166,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exceeded a limit.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -176,6 +188,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource (such as the Amazon Lex bot or an alias) that is referred
  *       to is not found.</p>
  */
@@ -195,6 +208,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetSessionRequest {
   /**
    * <p>The name of the bot that contains the session data.</p>
@@ -222,12 +238,18 @@ export interface GetSessionRequest {
   checkpointLabelFilter?: string;
 }
 
+/**
+ * @public
+ */
 export enum FulfillmentState {
   FAILED = "Failed",
   FULFILLED = "Fulfilled",
   READY_FOR_FULFILLMENT = "ReadyForFulfillment",
 }
 
+/**
+ * @public
+ */
 export enum MessageFormatType {
   COMPOSITE = "Composite",
   CUSTOM_PAYLOAD = "CustomPayload",
@@ -235,6 +257,9 @@ export enum MessageFormatType {
   SSML = "SSML",
 }
 
+/**
+ * @public
+ */
 export enum DialogActionType {
   CLOSE = "Close",
   CONFIRM_INTENT = "ConfirmIntent",
@@ -244,6 +269,7 @@ export enum DialogActionType {
 }
 
 /**
+ * @public
  * <p>Describes the next action that the bot should take in its interaction
  *       with the user and provides information about the context in which the
  *       action takes place. Use the <code>DialogAction</code> data type to set the
@@ -358,6 +384,9 @@ export interface DialogAction {
   messageFormat?: MessageFormatType | string;
 }
 
+/**
+ * @public
+ */
 export enum ConfirmationStatus {
   CONFIRMED = "Confirmed",
   DENIED = "Denied",
@@ -365,6 +394,7 @@ export enum ConfirmationStatus {
 }
 
 /**
+ * @public
  * <p>Provides information about the state of an intent. You can use this
  *       information to get the current state of an intent so that you can process
  *       the intent, or so that you can return the intent to its previous
@@ -477,6 +507,9 @@ export interface IntentSummary {
   slotToElicit?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionResponse {
   /**
    * <p>An array of information about the intents used in the session. The
@@ -517,6 +550,7 @@ export interface GetSessionResponse {
 }
 
 /**
+ * @public
  * <p>Either the Amazon Lex bot is still building, or one of the dependent
  *       services (Amazon Polly, AWS Lambda) failed with an internal service
  *       error.</p>
@@ -540,6 +574,7 @@ export class BadGatewayException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
  *       exception. For example, </p>
  *          <ul>
@@ -576,6 +611,7 @@ export class DependencyFailedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is not used.</p>
  */
 export class LoopDetectedException extends __BaseException {
@@ -597,6 +633,7 @@ export class LoopDetectedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The accept header in the request does not have a valid value.</p>
  */
 export class NotAcceptableException extends __BaseException {
@@ -615,6 +652,9 @@ export class NotAcceptableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PostContentRequest {
   /**
    * <p>Name of the Amazon Lex bot.</p>
@@ -793,6 +833,9 @@ export interface PostContentRequest {
   activeContexts?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export enum DialogState {
   CONFIRM_INTENT = "ConfirmIntent",
   ELICIT_INTENT = "ElicitIntent",
@@ -802,6 +845,9 @@ export enum DialogState {
   READY_FOR_FULFILLMENT = "ReadyForFulfillment",
 }
 
+/**
+ * @public
+ */
 export interface PostContentResponse {
   /**
    * <p>Content type as specified in the <code>Accept</code> HTTP header in
@@ -1068,6 +1114,7 @@ export interface PostContentResponse {
 }
 
 /**
+ * @public
  * <p>The input speech is too long.</p>
  */
 export class RequestTimeoutException extends __BaseException {
@@ -1087,6 +1134,7 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Content-Type header (<code>PostContent</code> API) has an invalid
  *       value. </p>
  */
@@ -1106,6 +1154,9 @@ export class UnsupportedMediaTypeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PostTextRequest {
   /**
    * <p>The name of the Amazon Lex bot.</p>
@@ -1184,6 +1235,7 @@ export interface PostTextRequest {
 }
 
 /**
+ * @public
  * <p>Provides a score that indicates the confidence that Amazon Lex has that an
  *       intent is the one that satisfies the user's intent.</p>
  */
@@ -1197,6 +1249,7 @@ export interface IntentConfidence {
 }
 
 /**
+ * @public
  * <p>An intent that Amazon Lex suggests satisfies the user's intent. Includes
  *       the name of the intent, the confidence that Amazon Lex has that the user's
  *       intent is satisfied, and the slots defined for the intent.</p>
@@ -1220,11 +1273,15 @@ export interface PredictedIntent {
   slots?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ContentType {
   GENERIC = "application/vnd.amazonaws.card.generic",
 }
 
 /**
+ * @public
  * <p>Represents an option to be shown on the client platform (Facebook,
  *       Slack, etc.)</p>
  */
@@ -1243,6 +1300,7 @@ export interface Button {
 }
 
 /**
+ * @public
  * <p>Represents an option rendered to the user when a prompt is shown. It
  *       could be an image, a button, a link, or text. </p>
  */
@@ -1274,6 +1332,7 @@ export interface GenericAttachment {
 }
 
 /**
+ * @public
  * <p>If you configure a response card when creating your bots, Amazon Lex
  *       substitutes the session attributes and slot values that are available, and
  *       then returns it. The response card can also come from a Lambda function (
@@ -1298,6 +1357,7 @@ export interface ResponseCard {
 }
 
 /**
+ * @public
  * <p>The sentiment expressed in an utterance.</p>
  *          <p>When the bot is configured to send utterances to Amazon Comprehend for
  *       sentiment analysis, this field structure contains the result of the
@@ -1316,6 +1376,9 @@ export interface SentimentResponse {
   sentimentScore?: string;
 }
 
+/**
+ * @public
+ */
 export interface PostTextResponse {
   /**
    * <p>The current user intent that Amazon Lex is aware of.</p>
@@ -1515,6 +1578,9 @@ export interface PostTextResponse {
   activeContexts?: ActiveContext[];
 }
 
+/**
+ * @public
+ */
 export interface PutSessionRequest {
   /**
    * <p>The name of the bot that contains the session data.</p>
@@ -1640,6 +1706,9 @@ export interface PutSessionRequest {
   activeContexts?: ActiveContext[];
 }
 
+/**
+ * @public
+ */
 export interface PutSessionResponse {
   /**
    * <p>Content type as specified in the <code>Accept</code> HTTP header in

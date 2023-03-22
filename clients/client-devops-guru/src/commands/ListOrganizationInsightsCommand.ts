@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationInsightsCommand}.
  */
 export interface ListOrganizationInsightsCommandInput extends ListOrganizationInsightsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationInsightsCommand}.
  */
 export interface ListOrganizationInsightsCommandOutput extends ListOrganizationInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of insights associated with the account or OU Id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListOrganizationInsightsCommandOutput extends ListOrganizationI
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationInsightsCommandInput - {@link ListOrganizationInsightsCommandInput}
+ * @returns {@link ListOrganizationInsightsCommandOutput}
  * @see {@link ListOrganizationInsightsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListOrganizationInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListOrganizationInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrganizationInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListOrganizationInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrganizationInsightsCommandOutput> {
     return deserializeAws_restJson1ListOrganizationInsightsCommand(output, context);
   }

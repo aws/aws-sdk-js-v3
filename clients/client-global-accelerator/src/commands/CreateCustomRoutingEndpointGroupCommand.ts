@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomRoutingEndpointGroupCommand}.
  */
 export interface CreateCustomRoutingEndpointGroupCommandInput extends CreateCustomRoutingEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomRoutingEndpointGroupCommand}.
  */
 export interface CreateCustomRoutingEndpointGroupCommandOutput
@@ -41,6 +45,7 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an endpoint group for the specified listener for a custom routing accelerator.
  * 	    An endpoint group is a collection of endpoints in one Amazon Web Services
  * 		Region. </p>
@@ -54,6 +59,8 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomRoutingEndpointGroupCommandInput - {@link CreateCustomRoutingEndpointGroupCommandInput}
+ * @returns {@link CreateCustomRoutingEndpointGroupCommandOutput}
  * @see {@link CreateCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateCustomRoutingEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomRoutingEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class CreateCustomRoutingEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateCustomRoutingEndpointGroupCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class CreateCustomRoutingEndpointGroupCommand extends $Command<
     return serializeAws_json1_1CreateCustomRoutingEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

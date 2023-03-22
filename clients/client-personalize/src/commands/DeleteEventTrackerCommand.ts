@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventTrackerCommand}.
  */
 export interface DeleteEventTrackerCommandInput extends DeleteEventTrackerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventTrackerCommand}.
  */
 export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the event tracker. Does not delete the event-interactions dataset from
  *         the associated dataset group. For more
  *         information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
@@ -43,6 +48,8 @@ export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventTrackerCommandInput - {@link DeleteEventTrackerCommandInput}
+ * @returns {@link DeleteEventTrackerCommandOutput}
  * @see {@link DeleteEventTrackerCommandInput} for command's `input` shape.
  * @see {@link DeleteEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteEventTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteEventTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEventTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventTrackerCommandOutput> {
     return deserializeAws_json1_1DeleteEventTrackerCommand(output, context);
   }

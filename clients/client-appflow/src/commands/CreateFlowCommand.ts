@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFlowCommand}.
  */
 export interface CreateFlowCommandInput extends CreateFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFlowCommand}.
  */
 export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Enables your application to create a new flow using Amazon AppFlow. You must create
  *       a connector profile before calling this API. Please note that the Request Syntax below shows
  *       syntax for multiple destinations, however, you can only transfer data to one item in this list
@@ -50,6 +55,8 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFlowCommandInput - {@link CreateFlowCommandInput}
+ * @returns {@link CreateFlowCommandOutput}
  * @see {@link CreateFlowCommandInput} for command's `input` shape.
  * @see {@link CreateFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowCommandOutput> {
     return deserializeAws_restJson1CreateFlowCommand(output, context);
   }

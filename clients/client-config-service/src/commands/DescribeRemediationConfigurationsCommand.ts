@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRemediationConfigurationsCommand}.
  */
 export interface DescribeRemediationConfigurationsCommandInput extends DescribeRemediationConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRemediationConfigurationsCommand}.
  */
 export interface DescribeRemediationConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRemediationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of one or more remediation configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeRemediationConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRemediationConfigurationsCommandInput - {@link DescribeRemediationConfigurationsCommandInput}
+ * @returns {@link DescribeRemediationConfigurationsCommandOutput}
  * @see {@link DescribeRemediationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRemediationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRemediationConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeRemediationConfigurationsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
     return serializeAws_json1_1DescribeRemediationConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

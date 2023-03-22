@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFleetCommand}.
  */
 export interface UpdateFleetCommandInput extends UpdateFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFleetCommand}.
  */
 export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified fleet.</p>
  *          <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
  *             the fleet name.</p>
@@ -67,6 +72,8 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetCommandInput - {@link UpdateFleetCommandInput}
+ * @returns {@link UpdateFleetCommandOutput}
  * @see {@link UpdateFleetCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -123,6 +130,9 @@ export class UpdateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class UpdateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetCommandOutput> {
     return deserializeAws_json1_1UpdateFleetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRateBasedRuleCommand}.
  */
 export interface GetRateBasedRuleCommandInput extends GetRateBasedRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRateBasedRuleCommand}.
  */
 export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -56,6 +61,8 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRateBasedRuleCommandInput - {@link GetRateBasedRuleCommandInput}
+ * @returns {@link GetRateBasedRuleCommandOutput}
  * @see {@link GetRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetRateBasedRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRateBasedRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetRateBasedRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRateBasedRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRateBasedRuleCommandOutput> {
     return deserializeAws_json1_1GetRateBasedRuleCommand(output, context);
   }

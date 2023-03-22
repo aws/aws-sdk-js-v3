@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoutesCommand}.
  */
 export interface ListRoutesCommandInput extends ListRoutesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRoutesCommand}.
  */
 export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing routes in a service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoutesCommandInput - {@link ListRoutesCommandInput}
+ * @returns {@link ListRoutesCommandOutput}
  * @see {@link ListRoutesCommandInput} for command's `input` shape.
  * @see {@link ListRoutesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutesCommandOutput> {
     return deserializeAws_restJson1ListRoutesCommand(output, context);
   }

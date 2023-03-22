@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationAggregatorSourcesStatusCommand}.
  */
 export interface DescribeConfigurationAggregatorSourcesStatusCommandInput
   extends DescribeConfigurationAggregatorSourcesStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationAggregatorSourcesStatusCommand}.
  */
 export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns status information for sources within an aggregator.
  * 			The status includes information about the last time Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message. </p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationAggregatorSourcesStatusCommandInput - {@link DescribeConfigurationAggregatorSourcesStatusCommandInput}
+ * @returns {@link DescribeConfigurationAggregatorSourcesStatusCommandOutput}
  * @see {@link DescribeConfigurationAggregatorSourcesStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationAggregatorSourcesStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationAggregatorSourcesStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConfigurationAggregatorSourcesStatusCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
     return serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

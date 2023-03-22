@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRepositoryCommand}.
  */
 export interface CreateRepositoryCommandInput extends CreateRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRepositoryCommand}.
  */
 export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Creates a repository.
  *       </p>
@@ -48,6 +53,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
+ * @returns {@link CreateRepositoryCommandOutput}
  * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRepositoryCommandOutput> {
     return deserializeAws_restJson1CreateRepositoryCommand(output, context);
   }

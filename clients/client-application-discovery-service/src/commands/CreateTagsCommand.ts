@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTagsCommand}.
  */
 export interface CreateTagsCommandInput extends CreateTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTagsCommand}.
  */
 export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more tags for configuration items. Tags are metadata that help you
  *       categorize IT assets. This API accepts a list of multiple configuration items.</p>
  *          <important>
@@ -54,6 +59,8 @@ export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
+ * @returns {@link CreateTagsCommandOutput}
  * @see {@link CreateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagsCommandOutput> {
     return deserializeAws_json1_1CreateTagsCommand(output, context);
   }

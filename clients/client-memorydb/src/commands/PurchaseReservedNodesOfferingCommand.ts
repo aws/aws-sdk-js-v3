@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedNodesOfferingCommand}.
  */
 export interface PurchaseReservedNodesOfferingCommandInput extends PurchaseReservedNodesOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedNodesOfferingCommand}.
  */
 export interface PurchaseReservedNodesOfferingCommandOutput
@@ -37,6 +41,7 @@ export interface PurchaseReservedNodesOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedNodesOfferingCommandInput - {@link PurchaseReservedNodesOfferingCommandInput}
+ * @returns {@link PurchaseReservedNodesOfferingCommandOutput}
  * @see {@link PurchaseReservedNodesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedNodesOfferingCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -94,6 +101,9 @@ export class PurchaseReservedNodesOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedNodesOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class PurchaseReservedNodesOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseReservedNodesOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PurchaseReservedNodesOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

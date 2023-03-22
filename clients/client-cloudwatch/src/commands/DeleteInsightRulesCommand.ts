@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInsightRulesCommand}.
  */
 export interface DeleteInsightRulesCommandInput extends DeleteInsightRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInsightRulesCommand}.
  */
 export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the specified Contributor Insights rules.</p>
  *          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
  * 			the rule was created might
@@ -49,6 +54,8 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInsightRulesCommandInput - {@link DeleteInsightRulesCommandInput}
+ * @returns {@link DeleteInsightRulesCommandOutput}
  * @see {@link DeleteInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DeleteInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteInsightRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInsightRulesCommandOutput> {
     return deserializeAws_queryDeleteInsightRulesCommand(output, context);
   }

@@ -143,10 +143,12 @@ import {
 } from "./commands/UpdateBackendStorageCommand";
 
 /**
+ * @public
  * <p>AWS Amplify Admin API</p>
  */
 export class AmplifyBackend extends AmplifyBackendClient {
   /**
+   * @public
    * <p>This operation clones an existing backend.</p>
    */
   public cloneBackend(
@@ -176,6 +178,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>This operation creates a backend for an Amplify app. Backends are automatically created at the time of app creation.</p>
    */
   public createBackend(
@@ -208,6 +211,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Creates a new backend API resource.</p>
    */
   public createBackendAPI(
@@ -240,6 +244,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Creates a new backend authentication resource.</p>
    */
   public createBackendAuth(
@@ -272,6 +277,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Creates a config object for a backend.</p>
    */
   public createBackendConfig(
@@ -304,6 +310,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Creates a backend storage resource.</p>
    */
   public createBackendStorage(
@@ -336,6 +343,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>
    */
   public createToken(args: CreateTokenCommandInput, options?: __HttpHandlerOptions): Promise<CreateTokenCommandOutput>;
@@ -362,6 +370,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Removes an existing environment from your Amplify project.</p>
    */
   public deleteBackend(
@@ -394,6 +403,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing backend API resource.</p>
    */
   public deleteBackendAPI(
@@ -426,6 +436,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing backend authentication resource.</p>
    */
   public deleteBackendAuth(
@@ -458,6 +469,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified backend storage resource.</p>
    */
   public deleteBackendStorage(
@@ -490,6 +502,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Deletes the challenge token based on the given appId and sessionId.</p>
    */
   public deleteToken(args: DeleteTokenCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTokenCommandOutput>;
@@ -516,6 +529,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Generates a model schema for an existing backend API resource.</p>
    */
   public generateBackendAPIModels(
@@ -548,6 +562,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Provides project-level details for your Amplify UI project.</p>
    */
   public getBackend(args: GetBackendCommandInput, options?: __HttpHandlerOptions): Promise<GetBackendCommandOutput>;
@@ -574,6 +589,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Gets the details for a backend API.</p>
    */
   public getBackendAPI(
@@ -606,6 +622,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Gets a model introspection schema for an existing backend API resource.</p>
    */
   public getBackendAPIModels(
@@ -638,6 +655,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Gets a backend auth details.</p>
    */
   public getBackendAuth(
@@ -670,6 +688,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific job.</p>
    */
   public getBackendJob(
@@ -702,6 +721,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Gets details for a backend storage resource.</p>
    */
   public getBackendStorage(
@@ -734,6 +754,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Gets the challenge token based on the given appId and sessionId.</p>
    */
   public getToken(args: GetTokenCommandInput, options?: __HttpHandlerOptions): Promise<GetTokenCommandOutput>;
@@ -760,6 +781,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Imports an existing backend authentication resource.</p>
    */
   public importBackendAuth(
@@ -792,6 +814,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Imports an existing backend storage resource.</p>
    */
   public importBackendStorage(
@@ -824,6 +847,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Lists the jobs for the backend of an Amplify app.</p>
    */
   public listBackendJobs(
@@ -856,6 +880,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>The list of S3 buckets in your account.</p>
    */
   public listS3Buckets(
@@ -888,6 +913,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Removes all backend environments from your Amplify project.</p>
    */
   public removeAllBackends(
@@ -920,6 +946,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Removes the AWS resources required to access the Amplify Admin UI.</p>
    */
   public removeBackendConfig(
@@ -952,6 +979,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing backend API resource.</p>
    */
   public updateBackendAPI(
@@ -984,6 +1012,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing backend authentication resource.</p>
    */
   public updateBackendAuth(
@@ -1016,6 +1045,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Updates the AWS resources required to access the Amplify Admin UI.</p>
    */
   public updateBackendConfig(
@@ -1048,6 +1078,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Updates a specific job.</p>
    */
   public updateBackendJob(
@@ -1080,6 +1111,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing backend storage resource.</p>
    */
   public updateBackendStorage(

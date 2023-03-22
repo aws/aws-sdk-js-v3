@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergeBranchesByThreeWayCommand}.
  */
 export interface MergeBranchesByThreeWayCommandInput extends MergeBranchesByThreeWayInput {}
 /**
+ * @public
+ *
  * The output of {@link MergeBranchesByThreeWayCommand}.
  */
 export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThreeWayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Merges two specified branches using the three-way merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeBranchesByThreeWayCommandInput - {@link MergeBranchesByThreeWayCommandInput}
+ * @returns {@link MergeBranchesByThreeWayCommandOutput}
  * @see {@link MergeBranchesByThreeWayCommandInput} for command's `input` shape.
  * @see {@link MergeBranchesByThreeWayCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -200,6 +207,9 @@ export class MergeBranchesByThreeWayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeBranchesByThreeWayCommandInput) {
     // Start section: command_constructor
     super();
@@ -239,10 +249,16 @@ export class MergeBranchesByThreeWayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeBranchesByThreeWayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MergeBranchesByThreeWayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeBranchesByThreeWayCommandOutput> {
     return deserializeAws_json1_1MergeBranchesByThreeWayCommand(output, context);
   }

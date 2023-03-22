@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBGPPeerCommand}.
  */
 export interface CreateBGPPeerCommandInput extends CreateBGPPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBGPPeerCommand}.
  */
 export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a BGP peer on the specified virtual interface.</p>
  *          <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to
  *       access Amazon Web Services resources that also use that address family.</p>
@@ -61,6 +66,8 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBGPPeerCommandInput - {@link CreateBGPPeerCommandInput}
+ * @returns {@link CreateBGPPeerCommandOutput}
  * @see {@link CreateBGPPeerCommandInput} for command's `input` shape.
  * @see {@link CreateBGPPeerCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateBGPPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBGPPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateBGPPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBGPPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBGPPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBGPPeerCommandOutput> {
     return deserializeAws_json1_1CreateBGPPeerCommand(output, context);
   }

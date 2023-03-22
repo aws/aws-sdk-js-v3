@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBInstanceToPointInTimeCommand}.
  */
 export interface RestoreDBInstanceToPointInTimeCommandInput extends RestoreDBInstanceToPointInTimeMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBInstanceToPointInTimeCommand}.
  */
 export interface RestoreDBInstanceToPointInTimeCommandOutput
@@ -37,6 +41,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p>
  *          <p>The target database is created with most of the original configuration, but in a
  *             system-selected Availability Zone, with the default security group, the default subnet
@@ -57,6 +62,8 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBInstanceToPointInTimeCommandInput - {@link RestoreDBInstanceToPointInTimeCommandInput}
+ * @returns {@link RestoreDBInstanceToPointInTimeCommandOutput}
  * @see {@link RestoreDBInstanceToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreDBInstanceToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -259,6 +266,9 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBInstanceToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -298,6 +308,9 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RestoreDBInstanceToPointInTimeCommandInput,
     context: __SerdeContext
@@ -305,6 +318,9 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     return serializeAws_queryRestoreDBInstanceToPointInTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceConnectorStreamingConfigurationCommand}.
  */
 export interface DeleteVoiceConnectorStreamingConfigurationCommandInput
   extends DeleteVoiceConnectorStreamingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceConnectorStreamingConfigurationCommand}.
  */
 export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the streaming configuration for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceConnectorStreamingConfigurationCommandInput - {@link DeleteVoiceConnectorStreamingConfigurationCommandInput}
+ * @returns {@link DeleteVoiceConnectorStreamingConfigurationCommandOutput}
  * @see {@link DeleteVoiceConnectorStreamingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorStreamingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceConnectorStreamingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVoiceConnectorStreamingConfigurationCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<
     return serializeAws_restJson1DeleteVoiceConnectorStreamingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

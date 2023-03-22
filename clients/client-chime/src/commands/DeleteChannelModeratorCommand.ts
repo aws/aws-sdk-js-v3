@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelModeratorCommand}.
  */
 export interface DeleteChannelModeratorCommandInput extends DeleteChannelModeratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelModeratorCommand}.
  */
 export interface DeleteChannelModeratorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a channel moderator.</p>
  *
  *          <note>
@@ -47,6 +52,8 @@ export interface DeleteChannelModeratorCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelModeratorCommandInput - {@link DeleteChannelModeratorCommandInput}
+ * @returns {@link DeleteChannelModeratorCommandOutput}
  * @see {@link DeleteChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelModeratorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteChannelModeratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelModeratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteChannelModeratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelModeratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteChannelModeratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelModeratorCommandOutput> {
     return deserializeAws_restJson1DeleteChannelModeratorCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDestinationCommand}.
  */
 export interface UpdateDestinationCommandInput extends UpdateDestinationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDestinationCommand}.
  */
 export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified destination of the specified delivery stream.</p>
  *
  *          <p>Use this operation to change the destination type (for example, to replace the Amazon
@@ -69,6 +74,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDestinationCommandInput - {@link UpdateDestinationCommandInput}
+ * @returns {@link UpdateDestinationCommandOutput}
  * @see {@link UpdateDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateDestinationCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -105,6 +112,9 @@ export class UpdateDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class UpdateDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDestinationCommandOutput> {
     return deserializeAws_json1_1UpdateDestinationCommand(output, context);
   }

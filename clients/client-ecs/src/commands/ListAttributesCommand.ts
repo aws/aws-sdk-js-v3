@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttributesCommand}.
  */
 export interface ListAttributesCommandInput extends ListAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttributesCommand}.
  */
 export interface ListAttributesCommandOutput extends ListAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the attributes for Amazon ECS resources within a specified target type and cluster.
  * 			When you specify a target type and cluster, <code>ListAttributes</code> returns a list
  * 			of attribute objects, one for each attribute on each resource. You can filter the list
@@ -52,6 +57,8 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttributesCommandInput - {@link ListAttributesCommandInput}
+ * @returns {@link ListAttributesCommandOutput}
  * @see {@link ListAttributesCommandInput} for command's `input` shape.
  * @see {@link ListAttributesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttributesCommandOutput> {
     return deserializeAws_json1_1ListAttributesCommand(output, context);
   }

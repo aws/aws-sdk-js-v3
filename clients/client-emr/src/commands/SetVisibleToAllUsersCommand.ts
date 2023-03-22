@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetVisibleToAllUsersCommand}.
  */
 export interface SetVisibleToAllUsersCommandInput extends SetVisibleToAllUsersInput {}
 /**
+ * @public
+ *
  * The output of {@link SetVisibleToAllUsersCommand}.
  */
 export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <important>
  *             <p>The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be
  *             visible to all users in your account. To restrict cluster access using an IAM policy, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-iam.html">Identity and Access
@@ -54,6 +59,8 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetVisibleToAllUsersCommandInput - {@link SetVisibleToAllUsersCommandInput}
+ * @returns {@link SetVisibleToAllUsersCommandOutput}
  * @see {@link SetVisibleToAllUsersCommandInput} for command's `input` shape.
  * @see {@link SetVisibleToAllUsersCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -81,6 +88,9 @@ export class SetVisibleToAllUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetVisibleToAllUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class SetVisibleToAllUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetVisibleToAllUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetVisibleToAllUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetVisibleToAllUsersCommandOutput> {
     return deserializeAws_json1_1SetVisibleToAllUsersCommand(output, context);
   }

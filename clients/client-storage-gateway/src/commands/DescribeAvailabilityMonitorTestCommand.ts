@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAvailabilityMonitorTestCommand}.
  */
 export interface DescribeAvailabilityMonitorTestCommandInput extends DescribeAvailabilityMonitorTestInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAvailabilityMonitorTestCommand}.
  */
 export interface DescribeAvailabilityMonitorTestCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the most recent high availability monitoring test that was
  *          performed on the host in a cluster. If a test isn't performed, the status and start
  *          time in the response would be null.</p>
@@ -50,6 +55,8 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAvailabilityMonitorTestCommandInput - {@link DescribeAvailabilityMonitorTestCommandInput}
+ * @returns {@link DescribeAvailabilityMonitorTestCommandOutput}
  * @see {@link DescribeAvailabilityMonitorTestCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailabilityMonitorTestCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAvailabilityMonitorTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAvailabilityMonitorTestCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
     return serializeAws_json1_1DescribeAvailabilityMonitorTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

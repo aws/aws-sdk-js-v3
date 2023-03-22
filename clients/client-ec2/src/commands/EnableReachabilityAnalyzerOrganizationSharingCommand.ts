@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableReachabilityAnalyzerOrganizationSharingCommand}.
  */
 export interface EnableReachabilityAnalyzerOrganizationSharingCommandInput
   extends EnableReachabilityAnalyzerOrganizationSharingRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableReachabilityAnalyzerOrganizationSharingCommand}.
  */
 export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
@@ -38,6 +42,7 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Establishes a trust relationship between Reachability Analyzer and Organizations.
  *          This operation must be performed by the management account for the organization.</p>
  *          <p>After you establish a trust relationship, a user in the management account or
@@ -53,6 +58,8 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableReachabilityAnalyzerOrganizationSharingCommandInput - {@link EnableReachabilityAnalyzerOrganizationSharingCommandInput}
+ * @returns {@link EnableReachabilityAnalyzerOrganizationSharingCommandOutput}
  * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommandInput} for command's `input` shape.
  * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableReachabilityAnalyzerOrganizationSharingCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
     return serializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNotebookMetadataCommand}.
  */
 export interface GetNotebookMetadataCommandInput extends GetNotebookMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link GetNotebookMetadataCommand}.
  */
 export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves notebook metadata for the specified notebook ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNotebookMetadataCommandInput - {@link GetNotebookMetadataCommandInput}
+ * @returns {@link GetNotebookMetadataCommandOutput}
  * @see {@link GetNotebookMetadataCommandInput} for command's `input` shape.
  * @see {@link GetNotebookMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetNotebookMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNotebookMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetNotebookMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNotebookMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNotebookMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNotebookMetadataCommandOutput> {
     return deserializeAws_json1_1GetNotebookMetadataCommand(output, context);
   }

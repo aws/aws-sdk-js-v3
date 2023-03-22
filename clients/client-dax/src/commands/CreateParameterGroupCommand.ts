@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateParameterGroupCommand}.
  */
 export interface CreateParameterGroupCommandInput extends CreateParameterGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateParameterGroupCommand}.
  */
 export interface CreateParameterGroupCommandOutput extends CreateParameterGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new parameter group. A parameter group is a collection of parameters that
  *             you apply to all of the nodes in a DAX cluster.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateParameterGroupCommandInput - {@link CreateParameterGroupCommandInput}
+ * @returns {@link CreateParameterGroupCommandOutput}
  * @see {@link CreateParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParameterGroupCommandOutput> {
     return deserializeAws_json1_1CreateParameterGroupCommand(output, context);
   }

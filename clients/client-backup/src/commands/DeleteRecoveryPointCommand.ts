@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecoveryPointCommand}.
  */
 export interface DeleteRecoveryPointCommandInput extends DeleteRecoveryPointInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecoveryPointCommand}.
  */
 export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the recovery point specified by a recovery point ID.</p>
  *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
  *          the existing continuous backup and stops future continuous backup.</p>
@@ -53,6 +58,8 @@ export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecoveryPointCommandInput - {@link DeleteRecoveryPointCommandInput}
+ * @returns {@link DeleteRecoveryPointCommandOutput}
  * @see {@link DeleteRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DeleteRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecoveryPointCommandOutput> {
     return deserializeAws_restJson1DeleteRecoveryPointCommand(output, context);
   }

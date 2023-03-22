@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyGlobalReplicationGroupCommand}.
  */
 export interface ModifyGlobalReplicationGroupCommandInput extends ModifyGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyGlobalReplicationGroupCommand}.
  */
 export interface ModifyGlobalReplicationGroupCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a Global datastore.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ModifyGlobalReplicationGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyGlobalReplicationGroupCommandInput - {@link ModifyGlobalReplicationGroupCommandInput}
+ * @returns {@link ModifyGlobalReplicationGroupCommandOutput}
  * @see {@link ModifyGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -80,6 +87,9 @@ export class ModifyGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ModifyGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyGlobalReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

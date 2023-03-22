@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddressTransfersCommand}.
  */
 export interface DescribeAddressTransfersCommandInput extends DescribeAddressTransfersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddressTransfersCommand}.
  */
 export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTransfersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTr
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddressTransfersCommandInput - {@link DescribeAddressTransfersCommandInput}
+ * @returns {@link DescribeAddressTransfersCommandOutput}
  * @see {@link DescribeAddressTransfersCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressTransfersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeAddressTransfersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddressTransfersCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeAddressTransfersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddressTransfersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeAddressTransfersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddressTransfersCommandOutput> {
     return deserializeAws_ec2DescribeAddressTransfersCommand(output, context);
   }

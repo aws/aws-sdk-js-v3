@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainEntryCommand}.
  */
 export interface DeleteDomainEntryCommandInput extends DeleteDomainEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainEntryCommand}.
  */
 export interface DeleteDomainEntryCommandOutput extends DeleteDomainEntryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific domain entry.</p>
  *          <p>The <code>delete domain entry</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>domain name</code>. For more
@@ -49,6 +54,8 @@ export interface DeleteDomainEntryCommandOutput extends DeleteDomainEntryResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainEntryCommandInput - {@link DeleteDomainEntryCommandInput}
+ * @returns {@link DeleteDomainEntryCommandOutput}
  * @see {@link DeleteDomainEntryCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainEntryCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class DeleteDomainEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DeleteDomainEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDomainEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainEntryCommandOutput> {
     return deserializeAws_json1_1DeleteDomainEntryCommand(output, context);
   }

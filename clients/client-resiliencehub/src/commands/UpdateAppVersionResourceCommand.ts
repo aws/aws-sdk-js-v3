@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppVersionResourceCommand}.
  */
 export interface UpdateAppVersionResourceCommandInput extends UpdateAppVersionResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppVersionResourceCommand}.
  */
 export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the resource details in the AWS Resilience Hub application.</p>
  *          <note>
  *             <ul>
@@ -60,6 +65,8 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppVersionResourceCommandInput - {@link UpdateAppVersionResourceCommandInput}
+ * @returns {@link UpdateAppVersionResourceCommandOutput}
  * @see {@link UpdateAppVersionResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateAppVersionResourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -111,6 +118,9 @@ export class UpdateAppVersionResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppVersionResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class UpdateAppVersionResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppVersionResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAppVersionResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppVersionResourceCommandOutput> {
     return deserializeAws_restJson1UpdateAppVersionResourceCommand(output, context);
   }

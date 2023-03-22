@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPortalServiceProviderMetadataCommand}.
  */
 export interface GetPortalServiceProviderMetadataCommandInput extends GetPortalServiceProviderMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPortalServiceProviderMetadataCommand}.
  */
 export interface GetPortalServiceProviderMetadataCommandOutput
@@ -37,6 +41,7 @@ export interface GetPortalServiceProviderMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the service provider metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetPortalServiceProviderMetadataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPortalServiceProviderMetadataCommandInput - {@link GetPortalServiceProviderMetadataCommandInput}
+ * @returns {@link GetPortalServiceProviderMetadataCommandOutput}
  * @see {@link GetPortalServiceProviderMetadataCommandInput} for command's `input` shape.
  * @see {@link GetPortalServiceProviderMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetPortalServiceProviderMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPortalServiceProviderMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetPortalServiceProviderMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetPortalServiceProviderMetadataCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetPortalServiceProviderMetadataCommand extends $Command<
     return serializeAws_restJson1GetPortalServiceProviderMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

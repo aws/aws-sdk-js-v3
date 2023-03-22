@@ -23,15 +23,20 @@ import { deserializeAws_restJson1UntagCommand, serializeAws_restJson1UntagComman
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UntagCommand}.
  */
 export interface UntagCommandInput extends UntagInput {}
 /**
+ * @public
+ *
  * The output of {@link UntagCommand}.
  */
 export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes tags from a specified resource group.</p>
  *          <p>
  *             <b>Minimum permissions</b>
@@ -54,6 +59,8 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagCommandInput - {@link UntagCommandInput}
+ * @returns {@link UntagCommandOutput}
  * @see {@link UntagCommandInput} for command's `input` shape.
  * @see {@link UntagCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -92,6 +99,9 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UntagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagCommandOutput> {
     return deserializeAws_restJson1UntagCommand(output, context);
   }

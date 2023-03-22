@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainCommand}.
  */
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainCommand}.
  */
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters,
  *             customer audio, and voiceprints. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
+ * @returns {@link CreateDomainCommandOutput}
  * @see {@link CreateDomainCommandInput} for command's `input` shape.
  * @see {@link CreateDomainCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
     return deserializeAws_json1_0CreateDomainCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectionCommand}.
  */
 export interface DescribeConnectionCommandInput extends DescribeConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectionCommand}.
  */
 export interface DescribeConnectionCommandOutput extends DescribeConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about a connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionCommandInput - {@link DescribeConnectionCommandInput}
+ * @returns {@link DescribeConnectionCommandOutput}
  * @see {@link DescribeConnectionCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionCommandOutput> {
     return deserializeAws_json1_1DescribeConnectionCommand(output, context);
   }

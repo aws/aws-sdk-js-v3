@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchRevokePermissionsCommand}.
  */
 export interface BatchRevokePermissionsCommandInput extends BatchRevokePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchRevokePermissionsCommand}.
  */
 export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Batch operation to revoke permissions from the principal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchRevokePermissionsCommandInput - {@link BatchRevokePermissionsCommandInput}
+ * @returns {@link BatchRevokePermissionsCommandOutput}
  * @see {@link BatchRevokePermissionsCommandInput} for command's `input` shape.
  * @see {@link BatchRevokePermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchRevokePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchRevokePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class BatchRevokePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchRevokePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchRevokePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchRevokePermissionsCommandOutput> {
     return deserializeAws_restJson1BatchRevokePermissionsCommand(output, context);
   }

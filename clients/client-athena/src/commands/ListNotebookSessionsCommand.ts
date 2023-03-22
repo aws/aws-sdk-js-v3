@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotebookSessionsCommand}.
  */
 export interface ListNotebookSessionsCommandInput extends ListNotebookSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNotebookSessionsCommand}.
  */
 export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists, in descending order, the sessions that have been created in a notebook that are
  *             in an active state like <code>CREATING</code>, <code>CREATED</code>, <code>IDLE</code>
  *             or <code>BUSY</code>. Newer sessions are listed first; older sessions are listed
@@ -49,6 +54,8 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookSessionsCommandInput - {@link ListNotebookSessionsCommandInput}
+ * @returns {@link ListNotebookSessionsCommandOutput}
  * @see {@link ListNotebookSessionsCommandInput} for command's `input` shape.
  * @see {@link ListNotebookSessionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListNotebookSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListNotebookSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotebookSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListNotebookSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookSessionsCommandOutput> {
     return deserializeAws_json1_1ListNotebookSessionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ReplicateSecretToRegionsCommand}.
  */
 export interface ReplicateSecretToRegionsCommandInput extends ReplicateSecretToRegionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplicateSecretToRegionsCommand}.
  */
 export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretToRegionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region secrets</a>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
@@ -53,6 +58,8 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplicateSecretToRegionsCommandInput - {@link ReplicateSecretToRegionsCommandInput}
+ * @returns {@link ReplicateSecretToRegionsCommandOutput}
  * @see {@link ReplicateSecretToRegionsCommandInput} for command's `input` shape.
  * @see {@link ReplicateSecretToRegionsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -103,6 +110,9 @@ export class ReplicateSecretToRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplicateSecretToRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class ReplicateSecretToRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplicateSecretToRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ReplicateSecretToRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateSecretToRegionsCommandOutput> {
     return deserializeAws_json1_1ReplicateSecretToRegionsCommand(output, context);
   }

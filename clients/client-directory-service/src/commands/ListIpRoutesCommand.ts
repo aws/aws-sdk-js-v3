@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIpRoutesCommand}.
  */
 export interface ListIpRoutesCommandInput extends ListIpRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIpRoutesCommand}.
  */
 export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the address blocks that you have added to a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIpRoutesCommandInput - {@link ListIpRoutesCommandInput}
+ * @returns {@link ListIpRoutesCommandOutput}
  * @see {@link ListIpRoutesCommandInput} for command's `input` shape.
  * @see {@link ListIpRoutesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListIpRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIpRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListIpRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIpRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListIpRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIpRoutesCommandOutput> {
     return deserializeAws_json1_1ListIpRoutesCommand(output, context);
   }

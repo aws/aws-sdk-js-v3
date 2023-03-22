@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterSnapshotCommand}.
  */
 export interface DeleteClusterSnapshotCommandInput extends DeleteClusterSnapshotInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterSnapshotCommand}.
  */
 export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapshotOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a Elastic DocumentDB snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterSnapshotCommandInput - {@link DeleteClusterSnapshotCommandInput}
+ * @returns {@link DeleteClusterSnapshotCommandOutput}
  * @see {@link DeleteClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterSnapshotCommandOutput> {
     return deserializeAws_restJson1DeleteClusterSnapshotCommand(output, context);
   }

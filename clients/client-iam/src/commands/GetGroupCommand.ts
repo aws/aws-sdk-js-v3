@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryGetGroupCommand, serializeAws_queryGetGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupCommand}.
  */
 export interface GetGroupCommandInput extends GetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupCommand}.
  */
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of IAM users that are in the specified IAM group. You can paginate
  *             the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
  * @example
@@ -44,6 +49,8 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupCommandInput - {@link GetGroupCommandInput}
+ * @returns {@link GetGroupCommandOutput}
  * @see {@link GetGroupCommandInput} for command's `input` shape.
  * @see {@link GetGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -71,6 +78,9 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupCommandOutput> {
     return deserializeAws_queryGetGroupCommand(output, context);
   }

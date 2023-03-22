@@ -26,10 +26,14 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatalakeExceptionsExpiryCommand}.
  */
 export interface GetDatalakeExceptionsExpiryCommandInput extends GetDatalakeExceptionsExpiryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatalakeExceptionsExpiryCommand}.
  */
 export interface GetDatalakeExceptionsExpiryCommandOutput
@@ -37,6 +41,7 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the expiration period and time-to-live (TTL) for which the exception message
  *          will remain. Exceptions are stored by default, for 2 weeks from when a record was created
  *          in Amazon Security Lake. This API does not take input parameters.</p>
@@ -50,6 +55,8 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatalakeExceptionsExpiryCommandInput - {@link GetDatalakeExceptionsExpiryCommandInput}
+ * @returns {@link GetDatalakeExceptionsExpiryCommandOutput}
  * @see {@link GetDatalakeExceptionsExpiryCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeExceptionsExpiryCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatalakeExceptionsExpiryCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatalakeExceptionsExpiryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDatalakeExceptionsExpiryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SplitShardCommand}.
  */
 export interface SplitShardCommandInput extends SplitShardInput {}
 /**
+ * @public
+ *
  * The output of {@link SplitShardCommand}.
  */
 export interface SplitShardCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Splits a shard into two new shards in the Kinesis data stream, to increase the
  *             stream's capacity to ingest and transport data. <code>SplitShard</code> is called when
  *             there is a need to increase the overall capacity of a stream because of an expected
@@ -85,6 +90,8 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SplitShardCommandInput - {@link SplitShardCommandInput}
+ * @returns {@link SplitShardCommandOutput}
  * @see {@link SplitShardCommandInput} for command's `input` shape.
  * @see {@link SplitShardCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -135,6 +142,9 @@ export class SplitShardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SplitShardCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class SplitShardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SplitShardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SplitShardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SplitShardCommandOutput> {
     return deserializeAws_json1_1SplitShardCommand(output, context);
   }

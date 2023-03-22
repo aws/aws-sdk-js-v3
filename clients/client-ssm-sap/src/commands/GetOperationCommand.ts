@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetOperationCommand}.
  */
 export interface GetOperationCommandInput extends GetOperationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOperationCommand}.
  */
 export interface GetOperationCommandOutput extends GetOperationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of an operation by specifying the operation ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOperationCommandInput - {@link GetOperationCommandInput}
+ * @returns {@link GetOperationCommandOutput}
  * @see {@link GetOperationCommandInput} for command's `input` shape.
  * @see {@link GetOperationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationCommandOutput> {
     return deserializeAws_restJson1GetOperationCommand(output, context);
   }

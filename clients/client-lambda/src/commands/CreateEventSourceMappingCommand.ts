@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventSourceMappingCommand}.
  */
 export interface CreateEventSourceMappingCommandInput extends CreateEventSourceMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventSourceMappingCommand}.
  */
 export interface CreateEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and invokes the function.</p>
  *          <p>For details about how to configure different event sources, see the following topics. </p>
  *          <ul>
@@ -147,6 +152,8 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventSourceMappingCommandInput - {@link CreateEventSourceMappingCommandInput}
+ * @returns {@link CreateEventSourceMappingCommandOutput}
  * @see {@link CreateEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link CreateEventSourceMappingCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -185,6 +192,9 @@ export class CreateEventSourceMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventSourceMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -224,10 +234,16 @@ export class CreateEventSourceMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventSourceMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateEventSourceMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSourceMappingCommandOutput> {
     return deserializeAws_restJson1CreateEventSourceMappingCommand(output, context);
   }

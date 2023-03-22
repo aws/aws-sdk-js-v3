@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SimulatePrincipalPolicyCommand}.
  */
 export interface SimulatePrincipalPolicyCommandInput extends SimulatePrincipalPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link SimulatePrincipalPolicyCommand}.
  */
 export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulate how a set of IAM policies attached to an IAM entity works with a list of
  *             API operations and Amazon Web Services resources to determine the policies' effective permissions. The
  *             entity can be an IAM user, group, or role. If you specify a user, then the simulation
@@ -78,6 +83,8 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  * const response = await client.send(command);
  * ```
  *
+ * @param SimulatePrincipalPolicyCommandInput - {@link SimulatePrincipalPolicyCommandInput}
+ * @returns {@link SimulatePrincipalPolicyCommandOutput}
  * @see {@link SimulatePrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link SimulatePrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -113,6 +120,9 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimulatePrincipalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimulatePrincipalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySimulatePrincipalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimulatePrincipalPolicyCommandOutput> {
     return deserializeAws_querySimulatePrincipalPolicyCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CloudHSMServiceException as __BaseException } from "./CloudHSMServiceException";
 
 /**
+ * @public
  * <p>A key-value pair that identifies or specifies metadata about an AWS CloudHSM
  *       resource.</p>
  */
@@ -19,6 +20,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsToResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>
@@ -31,6 +35,9 @@ export interface AddTagsToResourceRequest {
   TagList: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsToResourceResponse {
   /**
    * <p>The status of the operation.</p>
@@ -39,6 +46,7 @@ export interface AddTagsToResourceResponse {
 }
 
 /**
+ * @public
  * <p>Indicates that an internal error occurred.</p>
  */
 export class CloudHsmInternalException extends __BaseException {
@@ -64,6 +72,7 @@ export class CloudHsmInternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
  */
 export class CloudHsmServiceException extends __BaseException {
@@ -89,6 +98,7 @@ export class CloudHsmServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that one or more of the request parameters are not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -113,12 +123,16 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ClientVersion {
   FIVE_ONE = "5.1",
   FIVE_THREE = "5.3",
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>CreateHapgRequest</a> action.</p>
  */
 export interface CreateHapgRequest {
@@ -129,6 +143,7 @@ export interface CreateHapgRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>CreateHAPartitionGroup</a> action.</p>
  */
 export interface CreateHapgResponse {
@@ -138,11 +153,15 @@ export interface CreateHapgResponse {
   HapgArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum SubscriptionType {
   PRODUCTION = "PRODUCTION",
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <code>CreateHsm</code> operation.</p>
  */
 export interface CreateHsmRequest {
@@ -205,6 +224,7 @@ export interface CreateHsmRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <code>CreateHsm</code> operation.</p>
  */
 export interface CreateHsmResponse {
@@ -215,6 +235,7 @@ export interface CreateHsmResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>CreateLunaClient</a> action.</p>
  */
 export interface CreateLunaClientRequest {
@@ -231,6 +252,7 @@ export interface CreateLunaClientRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>CreateLunaClient</a> action.</p>
  */
 export interface CreateLunaClientResponse {
@@ -241,6 +263,7 @@ export interface CreateLunaClientResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DeleteHapg</a> action.</p>
  */
 export interface DeleteHapgRequest {
@@ -251,6 +274,7 @@ export interface DeleteHapgRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>DeleteHapg</a> action.</p>
  */
 export interface DeleteHapgResponse {
@@ -261,6 +285,7 @@ export interface DeleteHapgResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DeleteHsm</a> operation.</p>
  */
 export interface DeleteHsmRequest {
@@ -271,6 +296,7 @@ export interface DeleteHsmRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>DeleteHsm</a> operation.</p>
  */
 export interface DeleteHsmResponse {
@@ -280,6 +306,9 @@ export interface DeleteHsmResponse {
   Status: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLunaClientRequest {
   /**
    * <p>The ARN of the client to delete.</p>
@@ -287,6 +316,9 @@ export interface DeleteLunaClientRequest {
   ClientArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLunaClientResponse {
   /**
    * <p>The status of the action.</p>
@@ -295,6 +327,7 @@ export interface DeleteLunaClientResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DescribeHapg</a> action.</p>
  */
 export interface DescribeHapgRequest {
@@ -304,6 +337,9 @@ export interface DescribeHapgRequest {
   HapgArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CloudHsmObjectState {
   DEGRADED = "DEGRADED",
   READY = "READY",
@@ -311,6 +347,7 @@ export enum CloudHsmObjectState {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>DescribeHapg</a> action.</p>
  */
 export interface DescribeHapgResponse {
@@ -362,6 +399,7 @@ export interface DescribeHapgResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>DescribeHsm</a> operation.</p>
  */
 export interface DescribeHsmRequest {
@@ -378,6 +416,9 @@ export interface DescribeHsmRequest {
   HsmSerialNumber?: string;
 }
 
+/**
+ * @public
+ */
 export enum HsmStatus {
   DEGRADED = "DEGRADED",
   PENDING = "PENDING",
@@ -389,6 +430,7 @@ export enum HsmStatus {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>DescribeHsm</a> operation.</p>
  */
 export interface DescribeHsmResponse {
@@ -510,6 +552,9 @@ export interface DescribeHsmResponse {
   Partitions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLunaClientRequest {
   /**
    * <p>The ARN of the client.</p>
@@ -522,6 +567,9 @@ export interface DescribeLunaClientRequest {
   CertificateFingerprint?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLunaClientResponse {
   /**
    * <p>The ARN of the client.</p>
@@ -549,6 +597,9 @@ export interface DescribeLunaClientResponse {
   Label?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigRequest {
   /**
    * <p>The ARN of the client.</p>
@@ -567,6 +618,9 @@ export interface GetConfigRequest {
   HapgList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigResponse {
   /**
    * <p>The type of credentials.</p>
@@ -585,10 +639,14 @@ export interface GetConfigResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>ListAvailableZones</a> action.</p>
  */
 export interface ListAvailableZonesRequest {}
 
+/**
+ * @public
+ */
 export interface ListAvailableZonesResponse {
   /**
    * <p>The list of Availability Zones that have available AWS CloudHSM capacity.</p>
@@ -596,6 +654,9 @@ export interface ListAvailableZonesResponse {
   AZList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListHapgsRequest {
   /**
    * <p>The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass
@@ -604,6 +665,9 @@ export interface ListHapgsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHapgsResponse {
   /**
    * <p>The list of high-availability partition groups.</p>
@@ -617,6 +681,9 @@ export interface ListHapgsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHsmsRequest {
   /**
    * <p>The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass
@@ -626,6 +693,7 @@ export interface ListHsmsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <code>ListHsms</code> operation.</p>
  */
 export interface ListHsmsResponse {
@@ -641,6 +709,9 @@ export interface ListHsmsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLunaClientsRequest {
   /**
    * <p>The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>.
@@ -649,6 +720,9 @@ export interface ListLunaClientsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLunaClientsResponse {
   /**
    * <p>The list of clients.</p>
@@ -662,6 +736,9 @@ export interface ListLunaClientsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
@@ -669,6 +746,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>One or more tags.</p>
@@ -676,6 +756,9 @@ export interface ListTagsForResourceResponse {
   TagList: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyHapgRequest {
   /**
    * <p>The ARN of the high-availability partition group to modify.</p>
@@ -694,6 +777,9 @@ export interface ModifyHapgRequest {
   PartitionSerialList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyHapgResponse {
   /**
    * <p>The ARN of the high-availability partition group.</p>
@@ -702,6 +788,7 @@ export interface ModifyHapgResponse {
 }
 
 /**
+ * @public
  * <p>Contains the inputs for the <a>ModifyHsm</a> operation.</p>
  */
 export interface ModifyHsmRequest {
@@ -742,6 +829,7 @@ export interface ModifyHsmRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of the <a>ModifyHsm</a> operation.</p>
  */
 export interface ModifyHsmResponse {
@@ -751,6 +839,9 @@ export interface ModifyHsmResponse {
   HsmArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyLunaClientRequest {
   /**
    * <p>The ARN of the client.</p>
@@ -763,6 +854,9 @@ export interface ModifyLunaClientRequest {
   Certificate: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyLunaClientResponse {
   /**
    * <p>The ARN of the client.</p>
@@ -770,6 +864,9 @@ export interface ModifyLunaClientResponse {
   ClientArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
@@ -784,6 +881,9 @@ export interface RemoveTagsFromResourceRequest {
   TagKeyList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromResourceResponse {
   /**
    * <p>The status of the operation.</p>

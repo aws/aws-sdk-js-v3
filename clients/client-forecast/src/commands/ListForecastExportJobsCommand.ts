@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListForecastExportJobsCommand}.
  */
 export interface ListForecastExportJobsCommandInput extends ListForecastExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListForecastExportJobsCommand}.
  */
 export interface ListForecastExportJobsCommandOutput extends ListForecastExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of forecast export jobs created using the <a>CreateForecastExportJob</a> operation. For each forecast export job, this operation
  *       returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the
  *       complete set of properties, use the ARN with the <a>DescribeForecastExportJob</a>
@@ -49,6 +54,8 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  * const response = await client.send(command);
  * ```
  *
+ * @param ListForecastExportJobsCommandInput - {@link ListForecastExportJobsCommandInput}
+ * @returns {@link ListForecastExportJobsCommandOutput}
  * @see {@link ListForecastExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListForecastExportJobsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListForecastExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListForecastExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListForecastExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListForecastExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListForecastExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListForecastExportJobsCommandOutput> {
     return deserializeAws_json1_1ListForecastExportJobsCommand(output, context);
   }

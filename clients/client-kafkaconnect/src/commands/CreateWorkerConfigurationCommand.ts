@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkerConfigurationCommand}.
  */
 export interface CreateWorkerConfigurationCommandInput extends CreateWorkerConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkerConfigurationCommand}.
  */
 export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a worker configuration using the specified properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkerConfigurationCommandInput - {@link CreateWorkerConfigurationCommandInput}
+ * @returns {@link CreateWorkerConfigurationCommandOutput}
  * @see {@link CreateWorkerConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateWorkerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
@@ -100,6 +107,9 @@ export class CreateWorkerConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkerConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateWorkerConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkerConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWorkerConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

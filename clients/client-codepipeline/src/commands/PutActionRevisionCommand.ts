@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutActionRevisionCommand}.
  */
 export interface PutActionRevisionCommandInput extends PutActionRevisionInput {}
 /**
+ * @public
+ *
  * The output of {@link PutActionRevisionCommand}.
  */
 export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information to AWS CodePipeline about new revisions to a source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutActionRevisionCommandInput - {@link PutActionRevisionCommandInput}
+ * @returns {@link PutActionRevisionCommandOutput}
  * @see {@link PutActionRevisionCommandInput} for command's `input` shape.
  * @see {@link PutActionRevisionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutActionRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutActionRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutActionRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutActionRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutActionRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutActionRevisionCommandOutput> {
     return deserializeAws_json1_1PutActionRevisionCommand(output, context);
   }

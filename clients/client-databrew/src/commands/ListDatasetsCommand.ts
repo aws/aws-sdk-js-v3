@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetsCommand}.
  */
 export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetsCommand}.
  */
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the DataBrew datasets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
+ * @returns {@link ListDatasetsCommandOutput}
  * @see {@link ListDatasetsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListDatasetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListDatasetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDatasetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetsCommandOutput> {
     return deserializeAws_restJson1ListDatasetsCommand(output, context);
   }

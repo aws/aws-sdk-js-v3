@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BulkPublishCommand}.
  */
 export interface BulkPublishCommandInput extends BulkPublishRequest {}
 /**
+ * @public
+ *
  * The output of {@link BulkPublishCommand}.
  */
 export interface BulkPublishCommandOutput extends BulkPublishResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param BulkPublishCommandInput - {@link BulkPublishCommandInput}
+ * @returns {@link BulkPublishCommandOutput}
  * @see {@link BulkPublishCommandInput} for command's `input` shape.
  * @see {@link BulkPublishCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -91,6 +98,9 @@ export class BulkPublishCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BulkPublishCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class BulkPublishCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BulkPublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BulkPublishCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BulkPublishCommandOutput> {
     return deserializeAws_restJson1BulkPublishCommand(output, context);
   }

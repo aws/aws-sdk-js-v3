@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSubscriptionFilterCommand}.
  */
 export interface PutSubscriptionFilterCommandInput extends PutSubscriptionFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSubscriptionFilterCommand}.
  */
 export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a subscription filter and associates it with the specified log
  *       group. With subscription filters, you can subscribe to a real-time stream of log events
  *       ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>
@@ -68,6 +73,8 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSubscriptionFilterCommandInput - {@link PutSubscriptionFilterCommandInput}
+ * @returns {@link PutSubscriptionFilterCommandOutput}
  * @see {@link PutSubscriptionFilterCommandInput} for command's `input` shape.
  * @see {@link PutSubscriptionFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -106,6 +113,9 @@ export class PutSubscriptionFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSubscriptionFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class PutSubscriptionFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSubscriptionFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutSubscriptionFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSubscriptionFilterCommandOutput> {
     return deserializeAws_json1_1PutSubscriptionFilterCommand(output, context);
   }

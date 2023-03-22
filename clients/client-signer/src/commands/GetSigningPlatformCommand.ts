@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSigningPlatformCommand}.
  */
 export interface GetSigningPlatformCommandInput extends GetSigningPlatformRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSigningPlatformCommand}.
  */
 export interface GetSigningPlatformCommandOutput extends GetSigningPlatformResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information on a specific signing platform.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSigningPlatformCommandInput - {@link GetSigningPlatformCommandInput}
+ * @returns {@link GetSigningPlatformCommandOutput}
  * @see {@link GetSigningPlatformCommandInput} for command's `input` shape.
  * @see {@link GetSigningPlatformCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetSigningPlatformCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSigningPlatformCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetSigningPlatformCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSigningPlatformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSigningPlatformCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningPlatformCommandOutput> {
     return deserializeAws_restJson1GetSigningPlatformCommand(output, context);
   }

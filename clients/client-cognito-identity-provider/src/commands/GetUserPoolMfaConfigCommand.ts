@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserPoolMfaConfigCommand}.
  */
 export interface GetUserPoolMfaConfigCommandInput extends GetUserPoolMfaConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserPoolMfaConfigCommand}.
  */
 export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserPoolMfaConfigCommandInput - {@link GetUserPoolMfaConfigCommandInput}
+ * @returns {@link GetUserPoolMfaConfigCommandOutput}
  * @see {@link GetUserPoolMfaConfigCommandInput} for command's `input` shape.
  * @see {@link GetUserPoolMfaConfigCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetUserPoolMfaConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserPoolMfaConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetUserPoolMfaConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserPoolMfaConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUserPoolMfaConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserPoolMfaConfigCommandOutput> {
     return deserializeAws_json1_1GetUserPoolMfaConfigCommand(output, context);
   }

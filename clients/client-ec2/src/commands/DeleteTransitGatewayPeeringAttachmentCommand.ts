@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTransitGatewayPeeringAttachmentCommand}.
  */
 export interface DeleteTransitGatewayPeeringAttachmentCommandInput
   extends DeleteTransitGatewayPeeringAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTransitGatewayPeeringAttachmentCommand}.
  */
 export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a transit gateway peering attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayPeeringAttachmentCommandInput - {@link DeleteTransitGatewayPeeringAttachmentCommandInput}
+ * @returns {@link DeleteTransitGatewayPeeringAttachmentCommandOutput}
  * @see {@link DeleteTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayPeeringAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTransitGatewayPeeringAttachmentCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
     return serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

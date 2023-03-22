@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetHealthCheckCommand}.
  */
 export interface GetHealthCheckCommandInput extends GetHealthCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHealthCheckCommand}.
  */
 export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified health check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHealthCheckCommandInput - {@link GetHealthCheckCommandInput}
+ * @returns {@link GetHealthCheckCommandOutput}
  * @see {@link GetHealthCheckCommandInput} for command's `input` shape.
  * @see {@link GetHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -79,6 +86,9 @@ export class GetHealthCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHealthCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetHealthCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetHealthCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHealthCheckCommandOutput> {
     return deserializeAws_restXmlGetHealthCheckCommand(output, context);
   }

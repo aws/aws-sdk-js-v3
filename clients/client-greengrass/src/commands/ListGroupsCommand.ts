@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupsCommand}.
  */
 export interface ListGroupsCommandInput extends ListGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupsCommand}.
  */
 export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves a list of groups.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
+ * @returns {@link ListGroupsCommandOutput}
  * @see {@link ListGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class ListGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupsCommandOutput> {
     return deserializeAws_restJson1ListGroupsCommand(output, context);
   }

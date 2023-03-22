@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetHealthEventCommand}.
  */
 export interface GetHealthEventCommandInput extends GetHealthEventInput {}
 /**
+ * @public
+ *
  * The output of {@link GetHealthEventCommand}.
  */
 export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information the Amazon CloudWatch Internet Monitor has created and stored about a health event for a specified monitor. This information includes the impacted locations,
  * 			and all of the information related to the event by location.</p>
  *          <p>The information returned includes the performance, availability, and round-trip time impact, information about the network providers, the event type,
@@ -50,6 +55,8 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHealthEventCommandInput - {@link GetHealthEventCommandInput}
+ * @returns {@link GetHealthEventCommandOutput}
  * @see {@link GetHealthEventCommandInput} for command's `input` shape.
  * @see {@link GetHealthEventCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetHealthEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHealthEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetHealthEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHealthEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetHealthEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHealthEventCommandOutput> {
     return deserializeAws_restJson1GetHealthEventCommand(output, context);
   }

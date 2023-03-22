@@ -24,11 +24,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface PutVoiceConnectorTerminationCredentialsCommandInput
   extends PutVoiceConnectorTerminationCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
@@ -50,6 +54,9 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorTerminationCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,6 +102,9 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
@@ -102,6 +112,9 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     return serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

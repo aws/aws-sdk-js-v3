@@ -23,15 +23,20 @@ import {
 import { deserializeAws_restJson1GetBotCommand, serializeAws_restJson1GetBotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotCommand}.
  */
 export interface GetBotCommandInput extends GetBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotCommand}.
  */
 export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details for the specified bot, such as bot email address, bot type, status, and display name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotCommandInput - {@link GetBotCommandInput}
+ * @returns {@link GetBotCommandOutput}
  * @see {@link GetBotCommandInput} for command's `input` shape.
  * @see {@link GetBotCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotCommandOutput> {
     return deserializeAws_restJson1GetBotCommand(output, context);
   }

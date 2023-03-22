@@ -215,6 +215,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptAdministratorInvitationCommandInput
   | AcceptInvitationCommandInput
@@ -282,6 +285,9 @@ export type ServiceInputTypes =
   | UpdatePublishingDestinationCommandInput
   | UpdateThreatIntelSetCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptAdministratorInvitationCommandOutput
   | AcceptInvitationCommandOutput
@@ -349,6 +355,9 @@ export type ServiceOutputTypes =
   | UpdatePublishingDestinationCommandOutput
   | UpdateThreatIntelSetCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -356,7 +365,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -465,11 +474,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type GuardDutyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -480,10 +492,15 @@ type GuardDutyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of GuardDutyClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of GuardDutyClient class constructor that set the region, credentials and other options.
  */
 export interface GuardDutyClientConfig extends GuardDutyClientConfigType {}
 
+/**
+ * @public
+ */
 type GuardDutyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -494,11 +511,14 @@ type GuardDutyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of GuardDutyClient class. This is resolved and normalized from the {@link GuardDutyClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of GuardDutyClient class. This is resolved and normalized from the {@link GuardDutyClientConfig | constructor configuration interface}.
  */
 export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
  *       the following data sources: VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event
  *       logs, EKS audit logs, DNS logs, and Amazon EBS volume data.

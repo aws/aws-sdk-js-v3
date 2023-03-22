@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetTransitGatewayPrefixListReferencesCommand}.
  */
 export interface GetTransitGatewayPrefixListReferencesCommandInput
   extends GetTransitGatewayPrefixListReferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTransitGatewayPrefixListReferencesCommand}.
  */
 export interface GetTransitGatewayPrefixListReferencesCommandOutput
@@ -38,6 +42,7 @@ export interface GetTransitGatewayPrefixListReferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetTransitGatewayPrefixListReferencesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayPrefixListReferencesCommandInput - {@link GetTransitGatewayPrefixListReferencesCommandInput}
+ * @returns {@link GetTransitGatewayPrefixListReferencesCommandOutput}
  * @see {@link GetTransitGatewayPrefixListReferencesCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayPrefixListReferencesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayPrefixListReferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayPrefixListReferencesCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
     return serializeAws_ec2GetTransitGatewayPrefixListReferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

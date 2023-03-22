@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStageDevicesCommand}.
  */
 export interface ListStageDevicesCommandInput extends ListStageDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStageDevicesCommand}.
  */
 export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists devices allocated to the stage, containing detailed device information and deployment status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStageDevicesCommandInput - {@link ListStageDevicesCommandInput}
+ * @returns {@link ListStageDevicesCommandOutput}
  * @see {@link ListStageDevicesCommandInput} for command's `input` shape.
  * @see {@link ListStageDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListStageDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStageDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListStageDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStageDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStageDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStageDevicesCommandOutput> {
     return deserializeAws_json1_1ListStageDevicesCommand(output, context);
   }

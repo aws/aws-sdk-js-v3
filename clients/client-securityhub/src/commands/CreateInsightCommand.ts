@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInsightCommand}.
  */
 export interface CreateInsightCommandInput extends CreateInsightRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInsightCommand}.
  */
 export interface CreateInsightCommandOutput extends CreateInsightResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate
  *          to a security issue that requires attention or remediation.</p>
  *          <p>To group the related findings in the insight, use the
@@ -49,6 +54,8 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInsightCommandInput - {@link CreateInsightCommandInput}
+ * @returns {@link CreateInsightCommandOutput}
  * @see {@link CreateInsightCommandInput} for command's `input` shape.
  * @see {@link CreateInsightCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateInsightCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInsightCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateInsightCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateInsightCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInsightCommandOutput> {
     return deserializeAws_restJson1CreateInsightCommand(output, context);
   }

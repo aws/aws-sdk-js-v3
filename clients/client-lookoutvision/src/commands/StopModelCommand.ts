@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopModelCommand}.
  */
 export interface StopModelCommandInput extends StopModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopModelCommand}.
  */
 export interface StopModelCommandOutput extends StopModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the hosting of a running model. The operation might take a while to complete. To
  *          check the current status, call <a>DescribeModel</a>. </p>
  *          <p>After the model hosting stops, the <code>Status</code> of the model is <code>TRAINED</code>.</p>
@@ -50,6 +55,8 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StopModelCommandInput - {@link StopModelCommandInput}
+ * @returns {@link StopModelCommandOutput}
  * @see {@link StopModelCommandInput} for command's `input` shape.
  * @see {@link StopModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -92,6 +99,9 @@ export class StopModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class StopModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopModelCommandOutput> {
     return deserializeAws_restJson1StopModelCommand(output, context);
   }

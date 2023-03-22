@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDiskFromSnapshotCommand}.
  */
 export interface CreateDiskFromSnapshotCommandInput extends CreateDiskFromSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDiskFromSnapshotCommand}.
  */
 export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting
  *       disk can be attached to an Amazon Lightsail instance in the same Availability Zone (e.g.,
  *         <code>us-east-2a</code>).</p>
@@ -51,6 +56,8 @@ export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnaps
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDiskFromSnapshotCommandInput - {@link CreateDiskFromSnapshotCommandInput}
+ * @returns {@link CreateDiskFromSnapshotCommandOutput}
  * @see {@link CreateDiskFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateDiskFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateDiskFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDiskFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateDiskFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDiskFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDiskFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDiskFromSnapshotCommandOutput> {
     return deserializeAws_json1_1CreateDiskFromSnapshotCommand(output, context);
   }

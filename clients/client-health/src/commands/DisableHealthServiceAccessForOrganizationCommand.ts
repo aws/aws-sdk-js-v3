@@ -20,15 +20,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableHealthServiceAccessForOrganizationCommand}.
  */
 export interface DisableHealthServiceAccessForOrganizationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableHealthServiceAccessForOrganizationCommand}.
  */
 export interface DisableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Health from working with Organizations. To call this operation, you must sign
  *          in as an Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not
  *          recommended) in the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
@@ -54,6 +59,8 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableHealthServiceAccessForOrganizationCommandInput - {@link DisableHealthServiceAccessForOrganizationCommandInput}
+ * @returns {@link DisableHealthServiceAccessForOrganizationCommandOutput}
  * @see {@link DisableHealthServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DisableHealthServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -82,6 +89,9 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableHealthServiceAccessForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableHealthServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     return serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

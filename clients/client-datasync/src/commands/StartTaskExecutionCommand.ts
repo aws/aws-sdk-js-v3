@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTaskExecutionCommand}.
  */
 export interface StartTaskExecutionCommandInput extends StartTaskExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTaskExecutionCommand}.
  */
 export interface StartTaskExecutionCommandOutput extends StartTaskExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an DataSync task. For each task, you can only run one task execution at a time.</p>
  *          <p>There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTaskExecutionCommandInput - {@link StartTaskExecutionCommandInput}
+ * @returns {@link StartTaskExecutionCommandOutput}
  * @see {@link StartTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link StartTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -76,6 +83,9 @@ export class StartTaskExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTaskExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class StartTaskExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartTaskExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskExecutionCommandOutput> {
     return deserializeAws_json1_1StartTaskExecutionCommand(output, context);
   }

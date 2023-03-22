@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopGameSessionPlacementCommand}.
  */
 export interface StopGameSessionPlacementCommandInput extends StopGameSessionPlacementInput {}
 /**
+ * @public
+ *
  * The output of {@link StopGameSessionPlacementCommand}.
  */
 export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a game session placement that is in <code>PENDING</code> status. To stop a
  *             placement, provide the placement ID values. If successful, the placement is moved to
  *                 <code>CANCELLED</code> status.</p>
@@ -48,6 +53,8 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  * const response = await client.send(command);
  * ```
  *
+ * @param StopGameSessionPlacementCommandInput - {@link StopGameSessionPlacementCommandInput}
+ * @returns {@link StopGameSessionPlacementCommandOutput}
  * @see {@link StopGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link StopGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -85,6 +92,9 @@ export class StopGameSessionPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopGameSessionPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class StopGameSessionPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopGameSessionPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopGameSessionPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopGameSessionPlacementCommandOutput> {
     return deserializeAws_json1_1StopGameSessionPlacementCommand(output, context);
   }

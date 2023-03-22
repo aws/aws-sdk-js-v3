@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SuggestCommand}.
  */
 export interface SuggestCommandInput extends SuggestRequest {}
 /**
+ * @public
+ *
  * The output of {@link SuggestCommand}.
  */
 export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves autocomplete suggestions for a partial query string. You can use suggestions enable you to display likely matches before users finish typing. In Amazon CloudSearch, suggestions are based on the contents of a particular text field. When you request suggestions, Amazon CloudSearch finds all of the documents whose values in the suggester field start with the specified query string. The beginning of the field must match the query string to be considered a match. </p>
  *       <p>For more information about configuring suggesters and retrieving suggestions, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html">Getting Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
  *
@@ -53,6 +58,8 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param SuggestCommandInput - {@link SuggestCommandInput}
+ * @returns {@link SuggestCommandOutput}
  * @see {@link SuggestCommandInput} for command's `input` shape.
  * @see {@link SuggestCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.
@@ -79,6 +86,9 @@ export class SuggestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SuggestCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class SuggestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SuggestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SuggestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuggestCommandOutput> {
     return deserializeAws_restJson1SuggestCommand(output, context);
   }

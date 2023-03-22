@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMonitorsCommand}.
  */
 export interface ListMonitorsCommandInput extends ListMonitorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMonitorsCommand}.
  */
 export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of monitors created with the <a>CreateMonitor</a> operation and <a>CreateAutoPredictor</a> operation. For each monitor resource, this operation returns of a summary of its properties, including its Amazon Resource Name (ARN). You
  *          can retrieve a complete set of properties of a monitor resource by specify the monitor's ARN in the <a>DescribeMonitor</a> operation.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitorsCommandInput - {@link ListMonitorsCommandInput}
+ * @returns {@link ListMonitorsCommandOutput}
  * @see {@link ListMonitorsCommandInput} for command's `input` shape.
  * @see {@link ListMonitorsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListMonitorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListMonitorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMonitorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitorsCommandOutput> {
     return deserializeAws_json1_1ListMonitorsCommand(output, context);
   }

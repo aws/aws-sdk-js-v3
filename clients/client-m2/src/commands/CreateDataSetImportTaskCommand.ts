@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSetImportTaskCommand}.
  */
 export interface CreateDataSetImportTaskCommandInput extends CreateDataSetImportTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSetImportTaskCommand}.
  */
 export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImportTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a data set import task for a specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImpor
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSetImportTaskCommandInput - {@link CreateDataSetImportTaskCommandInput}
+ * @returns {@link CreateDataSetImportTaskCommandOutput}
  * @see {@link CreateDataSetImportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateDataSetImportTaskCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -90,6 +97,9 @@ export class CreateDataSetImportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSetImportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateDataSetImportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSetImportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDataSetImportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSetImportTaskCommandOutput> {
     return deserializeAws_restJson1CreateDataSetImportTaskCommand(output, context);
   }

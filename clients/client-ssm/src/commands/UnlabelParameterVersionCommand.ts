@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UnlabelParameterVersionCommand}.
  */
 export interface UnlabelParameterVersionCommandInput extends UnlabelParameterVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnlabelParameterVersionCommand}.
  */
 export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a label or labels from a parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  * const response = await client.send(command);
  * ```
  *
+ * @param UnlabelParameterVersionCommandInput - {@link UnlabelParameterVersionCommandInput}
+ * @returns {@link UnlabelParameterVersionCommandOutput}
  * @see {@link UnlabelParameterVersionCommandInput} for command's `input` shape.
  * @see {@link UnlabelParameterVersionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -82,6 +89,9 @@ export class UnlabelParameterVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnlabelParameterVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UnlabelParameterVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnlabelParameterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UnlabelParameterVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlabelParameterVersionCommandOutput> {
     return deserializeAws_json1_1UnlabelParameterVersionCommand(output, context);
   }

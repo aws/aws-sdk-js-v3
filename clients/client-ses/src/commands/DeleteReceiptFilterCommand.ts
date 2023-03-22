@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReceiptFilterCommand}.
  */
 export interface DeleteReceiptFilterCommandInput extends DeleteReceiptFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReceiptFilterCommand}.
  */
 export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified IP address filter.</p>
  *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -49,6 +54,8 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReceiptFilterCommandInput - {@link DeleteReceiptFilterCommandInput}
+ * @returns {@link DeleteReceiptFilterCommandOutput}
  * @see {@link DeleteReceiptFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteReceiptFilterCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteReceiptFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReceiptFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteReceiptFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReceiptFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteReceiptFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReceiptFilterCommandOutput> {
     return deserializeAws_queryDeleteReceiptFilterCommand(output, context);
   }

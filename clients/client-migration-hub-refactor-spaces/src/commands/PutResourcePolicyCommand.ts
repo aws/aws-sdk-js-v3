@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a resource-based permission policy to the Amazon Web Services Migration Hub Refactor Spaces environment. The policy
  *       must contain the same actions and condition statements as the
  *         <code>arn:aws:ram::aws:permission/AWSRAMDefaultPermissionRefactorSpacesEnvironment</code>
@@ -54,6 +59,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -96,6 +103,9 @@ export class PutResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class PutResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
     return deserializeAws_restJson1PutResourcePolicyCommand(output, context);
   }

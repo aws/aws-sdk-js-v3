@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingProfileNameCommand}.
  */
 export interface UpdateRoutingProfileNameCommandInput extends UpdateRoutingProfileNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingProfileNameCommand}.
  */
 export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format.
  *    At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingProfileNameCommandInput - {@link UpdateRoutingProfileNameCommandInput}
+ * @returns {@link UpdateRoutingProfileNameCommandOutput}
  * @see {@link UpdateRoutingProfileNameCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateRoutingProfileNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingProfileNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateRoutingProfileNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoutingProfileNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRoutingProfileNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoutingProfileNameCommandOutput> {
     return deserializeAws_restJson1UpdateRoutingProfileNameCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSSHPublicKeyCommand}.
  */
 export interface DeleteSSHPublicKeyCommandInput extends DeleteSSHPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSSHPublicKeyCommand}.
  */
 export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified SSH public key.</p>
  *          <p>The SSH public key deleted by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -45,6 +50,8 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSSHPublicKeyCommandInput - {@link DeleteSSHPublicKeyCommandInput}
+ * @returns {@link DeleteSSHPublicKeyCommandOutput}
  * @see {@link DeleteSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteSSHPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteSSHPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteSSHPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSSHPublicKeyCommandOutput> {
     return deserializeAws_queryDeleteSSHPublicKeyCommand(output, context);
   }

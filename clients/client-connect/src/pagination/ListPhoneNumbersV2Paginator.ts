@@ -10,7 +10,7 @@ import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPhoneNumbersV2Command(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPhoneNumbersV2(
   config: ConnectPaginationConfiguration,
   input: ListPhoneNumbersV2CommandInput,

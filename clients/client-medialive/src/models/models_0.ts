@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 /**
+ * @public
  * Input Channel Level
  */
 export interface InputChannelLevel {
@@ -15,6 +16,7 @@ export interface InputChannelLevel {
 }
 
 /**
+ * @public
  * Audio Channel Mapping
  */
 export interface AudioChannelMapping {
@@ -29,16 +31,23 @@ export interface AudioChannelMapping {
   OutputChannel: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AudioNormalizationAlgorithm {
   ITU_1770_1 = "ITU_1770_1",
   ITU_1770_2 = "ITU_1770_2",
 }
 
+/**
+ * @public
+ */
 export enum AudioNormalizationAlgorithmControl {
   CORRECT_AUDIO = "CORRECT_AUDIO",
 }
 
 /**
+ * @public
  * Audio Normalization Settings
  */
 export interface AudioNormalizationSettings {
@@ -58,6 +67,9 @@ export interface AudioNormalizationSettings {
   TargetLkfs?: number;
 }
 
+/**
+ * @public
+ */
 export enum AudioType {
   CLEAN_EFFECTS = "CLEAN_EFFECTS",
   HEARING_IMPAIRED = "HEARING_IMPAIRED",
@@ -65,17 +77,24 @@ export enum AudioType {
   VISUAL_IMPAIRED_COMMENTARY = "VISUAL_IMPAIRED_COMMENTARY",
 }
 
+/**
+ * @public
+ */
 export enum AudioDescriptionAudioTypeControl {
   FOLLOW_INPUT = "FOLLOW_INPUT",
   USE_CONFIGURED = "USE_CONFIGURED",
 }
 
+/**
+ * @public
+ */
 export enum NielsenWatermarksCbetStepaside {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Nielsen CBET
  */
 export interface NielsenCBET {
@@ -95,11 +114,17 @@ export interface NielsenCBET {
   Csid: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NielsenWatermarksDistributionTypes {
   FINAL_DISTRIBUTOR = "FINAL_DISTRIBUTOR",
   PROGRAM_CONTENT = "PROGRAM_CONTENT",
 }
 
+/**
+ * @public
+ */
 export enum NielsenWatermarkTimezones {
   AMERICA_PUERTO_RICO = "AMERICA_PUERTO_RICO",
   US_ALASKA = "US_ALASKA",
@@ -114,6 +139,7 @@ export enum NielsenWatermarkTimezones {
 }
 
 /**
+ * @public
  * Nielsen Naes Ii Nw
  */
 export interface NielsenNaesIiNw {
@@ -135,6 +161,7 @@ export interface NielsenNaesIiNw {
 }
 
 /**
+ * @public
  * Nielsen Watermarks Settings
  */
 export interface NielsenWatermarksSettings {
@@ -157,6 +184,7 @@ export interface NielsenWatermarksSettings {
 }
 
 /**
+ * @public
  * Audio Watermark Settings
  */
 export interface AudioWatermarkSettings {
@@ -166,6 +194,9 @@ export interface AudioWatermarkSettings {
   NielsenWatermarksSettings?: NielsenWatermarksSettings;
 }
 
+/**
+ * @public
+ */
 export enum AacCodingMode {
   AD_RECEIVER_MIX = "AD_RECEIVER_MIX",
   CODING_MODE_1_0 = "CODING_MODE_1_0",
@@ -174,32 +205,50 @@ export enum AacCodingMode {
   CODING_MODE_5_1 = "CODING_MODE_5_1",
 }
 
+/**
+ * @public
+ */
 export enum AacInputType {
   BROADCASTER_MIXED_AD = "BROADCASTER_MIXED_AD",
   NORMAL = "NORMAL",
 }
 
+/**
+ * @public
+ */
 export enum AacProfile {
   HEV1 = "HEV1",
   HEV2 = "HEV2",
   LC = "LC",
 }
 
+/**
+ * @public
+ */
 export enum AacRateControlMode {
   CBR = "CBR",
   VBR = "VBR",
 }
 
+/**
+ * @public
+ */
 export enum AacRawFormat {
   LATM_LOAS = "LATM_LOAS",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum AacSpec {
   MPEG2 = "MPEG2",
   MPEG4 = "MPEG4",
 }
 
+/**
+ * @public
+ */
 export enum AacVbrQuality {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -208,6 +257,7 @@ export enum AacVbrQuality {
 }
 
 /**
+ * @public
  * Aac Settings
  */
 export interface AacSettings {
@@ -259,6 +309,9 @@ export interface AacSettings {
   VbrQuality?: AacVbrQuality | string;
 }
 
+/**
+ * @public
+ */
 export enum Ac3BitstreamMode {
   COMMENTARY = "COMMENTARY",
   COMPLETE_MAIN = "COMPLETE_MAIN",
@@ -270,6 +323,9 @@ export enum Ac3BitstreamMode {
   VOICE_OVER = "VOICE_OVER",
 }
 
+/**
+ * @public
+ */
 export enum Ac3CodingMode {
   CODING_MODE_1_0 = "CODING_MODE_1_0",
   CODING_MODE_1_1 = "CODING_MODE_1_1",
@@ -277,22 +333,32 @@ export enum Ac3CodingMode {
   CODING_MODE_3_2_LFE = "CODING_MODE_3_2_LFE",
 }
 
+/**
+ * @public
+ */
 export enum Ac3DrcProfile {
   FILM_STANDARD = "FILM_STANDARD",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum Ac3LfeFilter {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Ac3MetadataControl {
   FOLLOW_INPUT = "FOLLOW_INPUT",
   USE_CONFIGURED = "USE_CONFIGURED",
 }
 
 /**
+ * @public
  * Ac3 Settings
  */
 export interface Ac3Settings {
@@ -332,12 +398,18 @@ export interface Ac3Settings {
   MetadataControl?: Ac3MetadataControl | string;
 }
 
+/**
+ * @public
+ */
 export enum Eac3AtmosCodingMode {
   CODING_MODE_5_1_4 = "CODING_MODE_5_1_4",
   CODING_MODE_7_1_4 = "CODING_MODE_7_1_4",
   CODING_MODE_9_1_6 = "CODING_MODE_9_1_6",
 }
 
+/**
+ * @public
+ */
 export enum Eac3AtmosDrcLine {
   FILM_LIGHT = "FILM_LIGHT",
   FILM_STANDARD = "FILM_STANDARD",
@@ -347,6 +419,9 @@ export enum Eac3AtmosDrcLine {
   SPEECH = "SPEECH",
 }
 
+/**
+ * @public
+ */
 export enum Eac3AtmosDrcRf {
   FILM_LIGHT = "FILM_LIGHT",
   FILM_STANDARD = "FILM_STANDARD",
@@ -357,6 +432,7 @@ export enum Eac3AtmosDrcRf {
 }
 
 /**
+ * @public
  * Eac3 Atmos Settings
  */
 export interface Eac3AtmosSettings {
@@ -397,11 +473,17 @@ export interface Eac3AtmosSettings {
   SurroundTrim?: number;
 }
 
+/**
+ * @public
+ */
 export enum Eac3AttenuationControl {
   ATTENUATE_3_DB = "ATTENUATE_3_DB",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum Eac3BitstreamMode {
   COMMENTARY = "COMMENTARY",
   COMPLETE_MAIN = "COMPLETE_MAIN",
@@ -410,17 +492,26 @@ export enum Eac3BitstreamMode {
   VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED",
 }
 
+/**
+ * @public
+ */
 export enum Eac3CodingMode {
   CODING_MODE_1_0 = "CODING_MODE_1_0",
   CODING_MODE_2_0 = "CODING_MODE_2_0",
   CODING_MODE_3_2 = "CODING_MODE_3_2",
 }
 
+/**
+ * @public
+ */
 export enum Eac3DcFilter {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Eac3DrcLine {
   FILM_LIGHT = "FILM_LIGHT",
   FILM_STANDARD = "FILM_STANDARD",
@@ -430,6 +521,9 @@ export enum Eac3DrcLine {
   SPEECH = "SPEECH",
 }
 
+/**
+ * @public
+ */
 export enum Eac3DrcRf {
   FILM_LIGHT = "FILM_LIGHT",
   FILM_STANDARD = "FILM_STANDARD",
@@ -439,31 +533,49 @@ export enum Eac3DrcRf {
   SPEECH = "SPEECH",
 }
 
+/**
+ * @public
+ */
 export enum Eac3LfeControl {
   LFE = "LFE",
   NO_LFE = "NO_LFE",
 }
 
+/**
+ * @public
+ */
 export enum Eac3LfeFilter {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum Eac3MetadataControl {
   FOLLOW_INPUT = "FOLLOW_INPUT",
   USE_CONFIGURED = "USE_CONFIGURED",
 }
 
+/**
+ * @public
+ */
 export enum Eac3PassthroughControl {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   WHEN_POSSIBLE = "WHEN_POSSIBLE",
 }
 
+/**
+ * @public
+ */
 export enum Eac3PhaseControl {
   NO_SHIFT = "NO_SHIFT",
   SHIFT_90_DEGREES = "SHIFT_90_DEGREES",
 }
 
+/**
+ * @public
+ */
 export enum Eac3StereoDownmix {
   DPL2 = "DPL2",
   LO_RO = "LO_RO",
@@ -471,12 +583,18 @@ export enum Eac3StereoDownmix {
   NOT_INDICATED = "NOT_INDICATED",
 }
 
+/**
+ * @public
+ */
 export enum Eac3SurroundExMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
   NOT_INDICATED = "NOT_INDICATED",
 }
 
+/**
+ * @public
+ */
 export enum Eac3SurroundMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -484,6 +602,7 @@ export enum Eac3SurroundMode {
 }
 
 /**
+ * @public
  * Eac3 Settings
  */
 export interface Eac3Settings {
@@ -588,12 +707,16 @@ export interface Eac3Settings {
   SurroundMode?: Eac3SurroundMode | string;
 }
 
+/**
+ * @public
+ */
 export enum Mp2CodingMode {
   CODING_MODE_1_0 = "CODING_MODE_1_0",
   CODING_MODE_2_0 = "CODING_MODE_2_0",
 }
 
 /**
+ * @public
  * Mp2 Settings
  */
 export interface Mp2Settings {
@@ -614,10 +737,14 @@ export interface Mp2Settings {
 }
 
 /**
+ * @public
  * Pass Through Settings
  */
 export interface PassThroughSettings {}
 
+/**
+ * @public
+ */
 export enum WavCodingMode {
   CODING_MODE_1_0 = "CODING_MODE_1_0",
   CODING_MODE_2_0 = "CODING_MODE_2_0",
@@ -626,6 +753,7 @@ export enum WavCodingMode {
 }
 
 /**
+ * @public
  * Wav Settings
  */
 export interface WavSettings {
@@ -646,6 +774,7 @@ export interface WavSettings {
 }
 
 /**
+ * @public
  * Audio Codec Settings
  */
 export interface AudioCodecSettings {
@@ -685,12 +814,16 @@ export interface AudioCodecSettings {
   WavSettings?: WavSettings;
 }
 
+/**
+ * @public
+ */
 export enum AudioDescriptionLanguageCodeControl {
   FOLLOW_INPUT = "FOLLOW_INPUT",
   USE_CONFIGURED = "USE_CONFIGURED",
 }
 
 /**
+ * @public
  * Remix Settings
  */
 export interface RemixSettings {
@@ -712,6 +845,7 @@ export interface RemixSettings {
 }
 
 /**
+ * @public
  * Audio Description
  */
 export interface AudioDescription {
@@ -775,6 +909,7 @@ export interface AudioDescription {
 }
 
 /**
+ * @public
  * Audio Hls Rendition Selection
  */
 export interface AudioHlsRenditionSelection {
@@ -789,12 +924,16 @@ export interface AudioHlsRenditionSelection {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AudioLanguageSelectionPolicy {
   LOOSE = "LOOSE",
   STRICT = "STRICT",
 }
 
 /**
+ * @public
  * Audio Language Selection
  */
 export interface AudioLanguageSelection {
@@ -810,6 +949,7 @@ export interface AudioLanguageSelection {
 }
 
 /**
+ * @public
  * Audio Pid Selection
  */
 export interface AudioPidSelection {
@@ -819,6 +959,9 @@ export interface AudioPidSelection {
   Pid: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DolbyEProgramSelection {
   ALL_CHANNELS = "ALL_CHANNELS",
   PROGRAM_1 = "PROGRAM_1",
@@ -832,6 +975,7 @@ export enum DolbyEProgramSelection {
 }
 
 /**
+ * @public
  * Audio Dolby EDecode
  */
 export interface AudioDolbyEDecode {
@@ -842,6 +986,7 @@ export interface AudioDolbyEDecode {
 }
 
 /**
+ * @public
  * Audio Track
  */
 export interface AudioTrack {
@@ -852,6 +997,7 @@ export interface AudioTrack {
 }
 
 /**
+ * @public
  * Audio Track Selection
  */
 export interface AudioTrackSelection {
@@ -867,6 +1013,7 @@ export interface AudioTrackSelection {
 }
 
 /**
+ * @public
  * Audio Selector Settings
  */
 export interface AudioSelectorSettings {
@@ -892,6 +1039,7 @@ export interface AudioSelectorSettings {
 }
 
 /**
+ * @public
  * Audio Selector
  */
 export interface AudioSelector {
@@ -907,6 +1055,7 @@ export interface AudioSelector {
 }
 
 /**
+ * @public
  * Details from a failed operation
  */
 export interface BatchFailedResultModel {
@@ -932,6 +1081,7 @@ export interface BatchFailedResultModel {
 }
 
 /**
+ * @public
  * Details from a successful operation
  */
 export interface BatchSuccessfulResultModel {
@@ -951,22 +1101,32 @@ export interface BatchSuccessfulResultModel {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export enum AccessibilityType {
   DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES = "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES",
   IMPLEMENTS_ACCESSIBILITY_FEATURES = "IMPLEMENTS_ACCESSIBILITY_FEATURES",
 }
 
 /**
+ * @public
  * Arib Destination Settings
  */
 export interface AribDestinationSettings {}
 
+/**
+ * @public
+ */
 export enum BurnInAlignment {
   CENTERED = "CENTERED",
   LEFT = "LEFT",
   SMART = "SMART",
 }
 
+/**
+ * @public
+ */
 export enum BurnInBackgroundColor {
   BLACK = "BLACK",
   NONE = "NONE",
@@ -974,6 +1134,7 @@ export enum BurnInBackgroundColor {
 }
 
 /**
+ * @public
  * Input Location
  */
 export interface InputLocation {
@@ -993,6 +1154,9 @@ export interface InputLocation {
   Username?: string;
 }
 
+/**
+ * @public
+ */
 export enum BurnInFontColor {
   BLACK = "BLACK",
   BLUE = "BLUE",
@@ -1002,6 +1166,9 @@ export enum BurnInFontColor {
   YELLOW = "YELLOW",
 }
 
+/**
+ * @public
+ */
 export enum BurnInOutlineColor {
   BLACK = "BLACK",
   BLUE = "BLUE",
@@ -1011,18 +1178,25 @@ export enum BurnInOutlineColor {
   YELLOW = "YELLOW",
 }
 
+/**
+ * @public
+ */
 export enum BurnInShadowColor {
   BLACK = "BLACK",
   NONE = "NONE",
   WHITE = "WHITE",
 }
 
+/**
+ * @public
+ */
 export enum BurnInTeletextGridControl {
   FIXED = "FIXED",
   SCALED = "SCALED",
 }
 
 /**
+ * @public
  * Burn In Destination Settings
  */
 export interface BurnInDestinationSettings {
@@ -1112,18 +1286,27 @@ export interface BurnInDestinationSettings {
   YPosition?: number;
 }
 
+/**
+ * @public
+ */
 export enum DvbSubDestinationAlignment {
   CENTERED = "CENTERED",
   LEFT = "LEFT",
   SMART = "SMART",
 }
 
+/**
+ * @public
+ */
 export enum DvbSubDestinationBackgroundColor {
   BLACK = "BLACK",
   NONE = "NONE",
   WHITE = "WHITE",
 }
 
+/**
+ * @public
+ */
 export enum DvbSubDestinationFontColor {
   BLACK = "BLACK",
   BLUE = "BLUE",
@@ -1133,6 +1316,9 @@ export enum DvbSubDestinationFontColor {
   YELLOW = "YELLOW",
 }
 
+/**
+ * @public
+ */
 export enum DvbSubDestinationOutlineColor {
   BLACK = "BLACK",
   BLUE = "BLUE",
@@ -1142,18 +1328,25 @@ export enum DvbSubDestinationOutlineColor {
   YELLOW = "YELLOW",
 }
 
+/**
+ * @public
+ */
 export enum DvbSubDestinationShadowColor {
   BLACK = "BLACK",
   NONE = "NONE",
   WHITE = "WHITE",
 }
 
+/**
+ * @public
+ */
 export enum DvbSubDestinationTeletextGridControl {
   FIXED = "FIXED",
   SCALED = "SCALED",
 }
 
 /**
+ * @public
  * Dvb Sub Destination Settings
  */
 export interface DvbSubDestinationSettings {
@@ -1243,17 +1436,24 @@ export interface DvbSubDestinationSettings {
   YPosition?: number;
 }
 
+/**
+ * @public
+ */
 export enum EbuTtDFillLineGapControl {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum EbuTtDDestinationStyleControl {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
 /**
+ * @public
  * Ebu Tt DDestination Settings
  */
 export interface EbuTtDDestinationSettings {
@@ -1290,46 +1490,57 @@ export interface EbuTtDDestinationSettings {
 }
 
 /**
+ * @public
  * Embedded Destination Settings
  */
 export interface EmbeddedDestinationSettings {}
 
 /**
+ * @public
  * Embedded Plus Scte20 Destination Settings
  */
 export interface EmbeddedPlusScte20DestinationSettings {}
 
 /**
+ * @public
  * Rtmp Caption Info Destination Settings
  */
 export interface RtmpCaptionInfoDestinationSettings {}
 
 /**
+ * @public
  * Scte20 Plus Embedded Destination Settings
  */
 export interface Scte20PlusEmbeddedDestinationSettings {}
 
 /**
+ * @public
  * Scte27 Destination Settings
  */
 export interface Scte27DestinationSettings {}
 
 /**
+ * @public
  * Smpte Tt Destination Settings
  */
 export interface SmpteTtDestinationSettings {}
 
 /**
+ * @public
  * Teletext Destination Settings
  */
 export interface TeletextDestinationSettings {}
 
+/**
+ * @public
+ */
 export enum TtmlDestinationStyleControl {
   PASSTHROUGH = "PASSTHROUGH",
   USE_CONFIGURED = "USE_CONFIGURED",
 }
 
 /**
+ * @public
  * Ttml Destination Settings
  */
 export interface TtmlDestinationSettings {
@@ -1339,12 +1550,16 @@ export interface TtmlDestinationSettings {
   StyleControl?: TtmlDestinationStyleControl | string;
 }
 
+/**
+ * @public
+ */
 export enum WebvttDestinationStyleControl {
   NO_STYLE_DATA = "NO_STYLE_DATA",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
 /**
+ * @public
  * Webvtt Destination Settings
  */
 export interface WebvttDestinationSettings {
@@ -1355,6 +1570,7 @@ export interface WebvttDestinationSettings {
 }
 
 /**
+ * @public
  * Caption Destination Settings
  */
 export interface CaptionDestinationSettings {
@@ -1425,6 +1641,7 @@ export interface CaptionDestinationSettings {
 }
 
 /**
+ * @public
  * Caption Description
  */
 export interface CaptionDescription {
@@ -1460,6 +1677,7 @@ export interface CaptionDescription {
 }
 
 /**
+ * @public
  * Maps a caption channel to an ISO 693-2 language code (http://www.loc.gov/standards/iso639-2), with an optional description.
  */
 export interface CaptionLanguageMapping {
@@ -1480,6 +1698,7 @@ export interface CaptionLanguageMapping {
 }
 
 /**
+ * @public
  * Ancillary Source Settings
  */
 export interface AncillarySourceSettings {
@@ -1490,10 +1709,14 @@ export interface AncillarySourceSettings {
 }
 
 /**
+ * @public
  * Arib Source Settings
  */
 export interface AribSourceSettings {}
 
+/**
+ * @public
+ */
 export enum DvbSubOcrLanguage {
   DEU = "DEU",
   ENG = "ENG",
@@ -1504,6 +1727,7 @@ export enum DvbSubOcrLanguage {
 }
 
 /**
+ * @public
  * Dvb Sub Source Settings
  */
 export interface DvbSubSourceSettings {
@@ -1519,17 +1743,24 @@ export interface DvbSubSourceSettings {
   Pid?: number;
 }
 
+/**
+ * @public
+ */
 export enum EmbeddedConvert608To708 {
   DISABLED = "DISABLED",
   UPCONVERT = "UPCONVERT",
 }
 
+/**
+ * @public
+ */
 export enum EmbeddedScte20Detection {
   AUTO = "AUTO",
   OFF = "OFF",
 }
 
 /**
+ * @public
  * Embedded Source Settings
  */
 export interface EmbeddedSourceSettings {
@@ -1554,12 +1785,16 @@ export interface EmbeddedSourceSettings {
   Source608TrackNumber?: number;
 }
 
+/**
+ * @public
+ */
 export enum Scte20Convert608To708 {
   DISABLED = "DISABLED",
   UPCONVERT = "UPCONVERT",
 }
 
 /**
+ * @public
  * Scte20 Source Settings
  */
 export interface Scte20SourceSettings {
@@ -1574,6 +1809,9 @@ export interface Scte20SourceSettings {
   Source608ChannelNumber?: number;
 }
 
+/**
+ * @public
+ */
 export enum Scte27OcrLanguage {
   DEU = "DEU",
   ENG = "ENG",
@@ -1584,6 +1822,7 @@ export enum Scte27OcrLanguage {
 }
 
 /**
+ * @public
  * Scte27 Source Settings
  */
 export interface Scte27SourceSettings {
@@ -1604,6 +1843,7 @@ export interface Scte27SourceSettings {
 }
 
 /**
+ * @public
  * Caption Rectangle
  */
 export interface CaptionRectangle {
@@ -1638,6 +1878,7 @@ export interface CaptionRectangle {
 }
 
 /**
+ * @public
  * Teletext Source Settings
  */
 export interface TeletextSourceSettings {
@@ -1653,6 +1894,7 @@ export interface TeletextSourceSettings {
 }
 
 /**
+ * @public
  * Caption Selector Settings
  */
 export interface CaptionSelectorSettings {
@@ -1693,6 +1935,7 @@ export interface CaptionSelectorSettings {
 }
 
 /**
+ * @public
  * Caption Selector
  */
 export interface CaptionSelector {
@@ -1713,6 +1956,7 @@ export interface CaptionSelector {
 }
 
 /**
+ * @public
  * Placeholder documentation for ChannelEgressEndpoint
  */
 export interface ChannelEgressEndpoint {
@@ -1722,6 +1966,9 @@ export interface ChannelEgressEndpoint {
   SourceIp?: string;
 }
 
+/**
+ * @public
+ */
 export enum CdiInputResolution {
   FHD = "FHD",
   HD = "HD",
@@ -1730,6 +1977,7 @@ export enum CdiInputResolution {
 }
 
 /**
+ * @public
  * Placeholder documentation for CdiInputSpecification
  */
 export interface CdiInputSpecification {
@@ -1739,12 +1987,16 @@ export interface CdiInputSpecification {
   Resolution?: CdiInputResolution | string;
 }
 
+/**
+ * @public
+ */
 export enum ChannelClass {
   SINGLE_PIPELINE = "SINGLE_PIPELINE",
   STANDARD = "STANDARD",
 }
 
 /**
+ * @public
  * MediaPackage Output Destination Settings
  */
 export interface MediaPackageOutputDestinationSettings {
@@ -1755,6 +2007,7 @@ export interface MediaPackageOutputDestinationSettings {
 }
 
 /**
+ * @public
  * Multiplex Program Input Destination Settings for outputting a Channel to a Multiplex
  */
 export interface MultiplexProgramChannelDestinationSettings {
@@ -1771,6 +2024,7 @@ export interface MultiplexProgramChannelDestinationSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for OutputDestinationSettings
  */
 export interface OutputDestinationSettings {
@@ -1796,6 +2050,7 @@ export interface OutputDestinationSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for OutputDestination
  */
 export interface OutputDestination {
@@ -1821,6 +2076,7 @@ export interface OutputDestination {
 }
 
 /**
+ * @public
  * Placeholder documentation for AudioSilenceFailoverSettings
  */
 export interface AudioSilenceFailoverSettings {
@@ -1836,6 +2092,7 @@ export interface AudioSilenceFailoverSettings {
 }
 
 /**
+ * @public
  * MediaLive will perform a failover if content is not detected in this input for the specified period.
  */
 export interface InputLossFailoverSettings {
@@ -1846,6 +2103,7 @@ export interface InputLossFailoverSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for VideoBlackFailoverSettings
  */
 export interface VideoBlackFailoverSettings {
@@ -1861,6 +2119,7 @@ export interface VideoBlackFailoverSettings {
 }
 
 /**
+ * @public
  * Settings for one failover condition.
  */
 export interface FailoverConditionSettings {
@@ -1881,6 +2140,7 @@ export interface FailoverConditionSettings {
 }
 
 /**
+ * @public
  * Failover Condition settings. There can be multiple failover conditions inside AutomaticInputFailoverSettings.
  */
 export interface FailoverCondition {
@@ -1890,12 +2150,16 @@ export interface FailoverCondition {
   FailoverConditionSettings?: FailoverConditionSettings;
 }
 
+/**
+ * @public
+ */
 export enum InputPreference {
   EQUAL_INPUT_PREFERENCE = "EQUAL_INPUT_PREFERENCE",
   PRIMARY_INPUT_PREFERRED = "PRIMARY_INPUT_PREFERRED",
 }
 
 /**
+ * @public
  * The settings for Automatic Input Failover.
  */
 export interface AutomaticInputFailoverSettings {
@@ -1920,28 +2184,41 @@ export interface AutomaticInputFailoverSettings {
   SecondaryInputId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InputDeblockFilter {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum InputDenoiseFilter {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum InputFilter {
   AUTO = "AUTO",
   DISABLED = "DISABLED",
   FORCED = "FORCED",
 }
 
+/**
+ * @public
+ */
 export enum HlsScte35SourceType {
   MANIFEST = "MANIFEST",
   SEGMENTS = "SEGMENTS",
 }
 
 /**
+ * @public
  * Hls Input Settings
  */
 export interface HlsInputSettings {
@@ -1971,12 +2248,16 @@ export interface HlsInputSettings {
   Scte35Source?: HlsScte35SourceType | string;
 }
 
+/**
+ * @public
+ */
 export enum NetworkInputServerValidation {
   CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME = "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME",
   CHECK_CRYPTOGRAPHY_ONLY = "CHECK_CRYPTOGRAPHY_ONLY",
 }
 
 /**
+ * @public
  * Network source to transcode. Must be accessible to the Elemental Live node that is running the live event through a network connection.
  */
 export interface NetworkInputSettings {
@@ -1991,16 +2272,25 @@ export interface NetworkInputSettings {
   ServerValidation?: NetworkInputServerValidation | string;
 }
 
+/**
+ * @public
+ */
 export enum Smpte2038DataPreference {
   IGNORE = "IGNORE",
   PREFER = "PREFER",
 }
 
+/**
+ * @public
+ */
 export enum InputSourceEndBehavior {
   CONTINUE = "CONTINUE",
   LOOP = "LOOP",
 }
 
+/**
+ * @public
+ */
 export enum VideoSelectorColorSpace {
   FOLLOW = "FOLLOW",
   HDR10 = "HDR10",
@@ -2010,6 +2300,7 @@ export enum VideoSelectorColorSpace {
 }
 
 /**
+ * @public
  * Hdr10 Settings
  */
 export interface Hdr10Settings {
@@ -2029,6 +2320,7 @@ export interface Hdr10Settings {
 }
 
 /**
+ * @public
  * Video Selector Color Space Settings
  */
 export interface VideoSelectorColorSpaceSettings {
@@ -2038,12 +2330,16 @@ export interface VideoSelectorColorSpaceSettings {
   Hdr10Settings?: Hdr10Settings;
 }
 
+/**
+ * @public
+ */
 export enum VideoSelectorColorSpaceUsage {
   FALLBACK = "FALLBACK",
   FORCE = "FORCE",
 }
 
 /**
+ * @public
  * Video Selector Pid
  */
 export interface VideoSelectorPid {
@@ -2054,6 +2350,7 @@ export interface VideoSelectorPid {
 }
 
 /**
+ * @public
  * Video Selector Program Id
  */
 export interface VideoSelectorProgramId {
@@ -2064,6 +2361,7 @@ export interface VideoSelectorProgramId {
 }
 
 /**
+ * @public
  * Video Selector Settings
  */
 export interface VideoSelectorSettings {
@@ -2079,6 +2377,7 @@ export interface VideoSelectorSettings {
 }
 
 /**
+ * @public
  * Specifies a particular video stream within an input source. An input may have only a single video selector.
  */
 export interface VideoSelector {
@@ -2104,6 +2403,7 @@ export interface VideoSelector {
 }
 
 /**
+ * @public
  * Live Event input parameters. There can be multiple inputs in a single Live Event.
  */
 export interface InputSettings {
@@ -2169,6 +2469,7 @@ export interface InputSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for InputAttachment
  */
 export interface InputAttachment {
@@ -2193,18 +2494,27 @@ export interface InputAttachment {
   InputSettings?: InputSettings;
 }
 
+/**
+ * @public
+ */
 export enum InputCodec {
   AVC = "AVC",
   HEVC = "HEVC",
   MPEG2 = "MPEG2",
 }
 
+/**
+ * @public
+ */
 export enum InputMaximumBitrate {
   MAX_10_MBPS = "MAX_10_MBPS",
   MAX_20_MBPS = "MAX_20_MBPS",
   MAX_50_MBPS = "MAX_50_MBPS",
 }
 
+/**
+ * @public
+ */
 export enum InputResolution {
   HD = "HD",
   SD = "SD",
@@ -2212,6 +2522,7 @@ export enum InputResolution {
 }
 
 /**
+ * @public
  * Placeholder documentation for InputSpecification
  */
 export interface InputSpecification {
@@ -2231,6 +2542,9 @@ export interface InputSpecification {
   Resolution?: InputResolution | string;
 }
 
+/**
+ * @public
+ */
 export enum LogLevel {
   DEBUG = "DEBUG",
   DISABLED = "DISABLED",
@@ -2239,6 +2553,9 @@ export enum LogLevel {
   WARNING = "WARNING",
 }
 
+/**
+ * @public
+ */
 export enum MaintenanceDay {
   FRIDAY = "FRIDAY",
   MONDAY = "MONDAY",
@@ -2250,6 +2567,7 @@ export enum MaintenanceDay {
 }
 
 /**
+ * @public
  * Placeholder documentation for MaintenanceStatus
  */
 export interface MaintenanceStatus {
@@ -2274,6 +2592,9 @@ export interface MaintenanceStatus {
   MaintenanceStartTime?: string;
 }
 
+/**
+ * @public
+ */
 export enum ChannelState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATING = "CREATING",
@@ -2289,6 +2610,7 @@ export enum ChannelState {
 }
 
 /**
+ * @public
  * The properties for a private VPC Output
  */
 export interface VpcOutputSettingsDescription {
@@ -2317,6 +2639,7 @@ export interface VpcOutputSettingsDescription {
 }
 
 /**
+ * @public
  * Placeholder documentation for ChannelSummary
  */
 export interface ChannelSummary {
@@ -2403,6 +2726,9 @@ export interface ChannelSummary {
   Vpc?: VpcOutputSettingsDescription;
 }
 
+/**
+ * @public
+ */
 export enum HlsAdMarkers {
   ADOBE = "ADOBE",
   ELEMENTAL = "ELEMENTAL",
@@ -2410,6 +2736,7 @@ export enum HlsAdMarkers {
 }
 
 /**
+ * @public
  * The properties for a VPC type input destination.
  */
 export interface InputDestinationVpc {
@@ -2425,6 +2752,7 @@ export interface InputDestinationVpc {
 }
 
 /**
+ * @public
  * The settings for a PUSH type input.
  */
 export interface InputDestination {
@@ -2451,12 +2779,16 @@ export interface InputDestination {
   Vpc?: InputDestinationVpc;
 }
 
+/**
+ * @public
+ */
 export enum InputClass {
   SINGLE_PIPELINE = "SINGLE_PIPELINE",
   STANDARD = "STANDARD",
 }
 
 /**
+ * @public
  * Settings for an input device.
  */
 export interface InputDeviceSettings {
@@ -2466,12 +2798,16 @@ export interface InputDeviceSettings {
   Id?: string;
 }
 
+/**
+ * @public
+ */
 export enum InputSourceType {
   DYNAMIC = "DYNAMIC",
   STATIC = "STATIC",
 }
 
 /**
+ * @public
  * The settings for a MediaConnect Flow.
  */
 export interface MediaConnectFlow {
@@ -2482,6 +2818,7 @@ export interface MediaConnectFlow {
 }
 
 /**
+ * @public
  * The settings for a PULL type input.
  */
 export interface InputSource {
@@ -2502,6 +2839,9 @@ export interface InputSource {
   Username?: string;
 }
 
+/**
+ * @public
+ */
 export enum InputState {
   ATTACHED = "ATTACHED",
   CREATING = "CREATING",
@@ -2510,6 +2850,9 @@ export enum InputState {
   DETACHED = "DETACHED",
 }
 
+/**
+ * @public
+ */
 export enum InputType {
   AWS_CDI = "AWS_CDI",
   INPUT_DEVICE = "INPUT_DEVICE",
@@ -2524,6 +2867,7 @@ export enum InputType {
 }
 
 /**
+ * @public
  * Placeholder documentation for Input
  */
 export interface Input {
@@ -2611,6 +2955,7 @@ export interface Input {
 }
 
 /**
+ * @public
  * Endpoint settings for a PUSH type input.
  */
 export interface InputDestinationRequest {
@@ -2622,6 +2967,7 @@ export interface InputDestinationRequest {
 }
 
 /**
+ * @public
  * Settings for an input device.
  */
 export interface InputDeviceRequest {
@@ -2631,44 +2977,66 @@ export interface InputDeviceRequest {
   Id?: string;
 }
 
+/**
+ * @public
+ */
 export enum InputDeviceConnectionState {
   CONNECTED = "CONNECTED",
   DISCONNECTED = "DISCONNECTED",
 }
 
+/**
+ * @public
+ */
 export enum DeviceSettingsSyncState {
   SYNCED = "SYNCED",
   SYNCING = "SYNCING",
 }
 
+/**
+ * @public
+ */
 export enum DeviceUpdateStatus {
   NOT_UP_TO_DATE = "NOT_UP_TO_DATE",
   UPDATING = "UPDATING",
   UP_TO_DATE = "UP_TO_DATE",
 }
 
+/**
+ * @public
+ */
 export enum InputDeviceActiveInput {
   HDMI = "HDMI",
   SDI = "SDI",
 }
 
+/**
+ * @public
+ */
 export enum InputDeviceConfiguredInput {
   AUTO = "AUTO",
   HDMI = "HDMI",
   SDI = "SDI",
 }
 
+/**
+ * @public
+ */
 export enum InputDeviceState {
   IDLE = "IDLE",
   STREAMING = "STREAMING",
 }
 
+/**
+ * @public
+ */
 export enum InputDeviceScanType {
   INTERLACED = "INTERLACED",
   PROGRESSIVE = "PROGRESSIVE",
 }
 
 /**
+ * @public
  * Settings that describe the active source from the input device, and the video characteristics of that source.
  */
 export interface InputDeviceHdSettings {
@@ -2718,12 +3086,16 @@ export interface InputDeviceHdSettings {
   LatencyMs?: number;
 }
 
+/**
+ * @public
+ */
 export enum InputDeviceIpScheme {
   DHCP = "DHCP",
   STATIC = "STATIC",
 }
 
 /**
+ * @public
  * The network settings for the input device.
  */
 export interface InputDeviceNetworkSettings {
@@ -2753,12 +3125,16 @@ export interface InputDeviceNetworkSettings {
   SubnetMask?: string;
 }
 
+/**
+ * @public
+ */
 export enum InputDeviceType {
   HD = "HD",
   UHD = "UHD",
 }
 
 /**
+ * @public
  * Settings that describe the active source from the input device, and the video characteristics of that source.
  */
 export interface InputDeviceUhdSettings {
@@ -2809,6 +3185,7 @@ export interface InputDeviceUhdSettings {
 }
 
 /**
+ * @public
  * Details of the input device.
  */
 export interface InputDeviceSummary {
@@ -2873,6 +3250,9 @@ export interface InputDeviceSummary {
   UhdDeviceSettings?: InputDeviceUhdSettings;
 }
 
+/**
+ * @public
+ */
 export enum InputSecurityGroupState {
   DELETED = "DELETED",
   IDLE = "IDLE",
@@ -2881,6 +3261,7 @@ export enum InputSecurityGroupState {
 }
 
 /**
+ * @public
  * Whitelist rule
  */
 export interface InputWhitelistRule {
@@ -2891,6 +3272,7 @@ export interface InputWhitelistRule {
 }
 
 /**
+ * @public
  * An Input Security Group
  */
 export interface InputSecurityGroup {
@@ -2926,6 +3308,7 @@ export interface InputSecurityGroup {
 }
 
 /**
+ * @public
  * Settings for for a PULL type input.
  */
 export interface InputSourceRequest {
@@ -2947,6 +3330,7 @@ export interface InputSourceRequest {
 }
 
 /**
+ * @public
  * An IPv4 CIDR to whitelist.
  */
 export interface InputWhitelistRuleCidr {
@@ -2957,6 +3341,7 @@ export interface InputWhitelistRuleCidr {
 }
 
 /**
+ * @public
  * The settings for a MediaConnect Flow.
  */
 export interface MediaConnectFlowRequest {
@@ -2967,6 +3352,7 @@ export interface MediaConnectFlowRequest {
 }
 
 /**
+ * @public
  * Multiplex MediaConnect output destination settings.
  */
 export interface MultiplexMediaConnectOutputDestinationSettings {
@@ -2977,6 +3363,7 @@ export interface MultiplexMediaConnectOutputDestinationSettings {
 }
 
 /**
+ * @public
  * Multiplex output destination settings
  */
 export interface MultiplexOutputDestination {
@@ -2987,6 +3374,7 @@ export interface MultiplexOutputDestination {
 }
 
 /**
+ * @public
  * The current source for one of the pipelines in the multiplex.
  */
 export interface MultiplexProgramPipelineDetail {
@@ -3002,6 +3390,7 @@ export interface MultiplexProgramPipelineDetail {
 }
 
 /**
+ * @public
  * Placeholder documentation for MultiplexProgramSummary
  */
 export interface MultiplexProgramSummary {
@@ -3017,6 +3406,7 @@ export interface MultiplexProgramSummary {
 }
 
 /**
+ * @public
  * Contains summary configuration for a Multiplex event.
  */
 export interface MultiplexSettingsSummary {
@@ -3026,6 +3416,9 @@ export interface MultiplexSettingsSummary {
   TransportStreamBitrate?: number;
 }
 
+/**
+ * @public
+ */
 export enum MultiplexState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATING = "CREATING",
@@ -3039,6 +3432,7 @@ export enum MultiplexState {
 }
 
 /**
+ * @public
  * Placeholder documentation for MultiplexSummary
  */
 export interface MultiplexSummary {
@@ -3088,14 +3482,23 @@ export interface MultiplexSummary {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum OfferingDurationUnits {
   MONTHS = "MONTHS",
 }
 
+/**
+ * @public
+ */
 export enum OfferingType {
   NO_UPFRONT = "NO_UPFRONT",
 }
 
+/**
+ * @public
+ */
 export enum ReservationCodec {
   AUDIO = "AUDIO",
   AVC = "AVC",
@@ -3104,17 +3507,26 @@ export enum ReservationCodec {
   MPEG2 = "MPEG2",
 }
 
+/**
+ * @public
+ */
 export enum ReservationMaximumBitrate {
   MAX_10_MBPS = "MAX_10_MBPS",
   MAX_20_MBPS = "MAX_20_MBPS",
   MAX_50_MBPS = "MAX_50_MBPS",
 }
 
+/**
+ * @public
+ */
 export enum ReservationMaximumFramerate {
   MAX_30_FPS = "MAX_30_FPS",
   MAX_60_FPS = "MAX_60_FPS",
 }
 
+/**
+ * @public
+ */
 export enum ReservationResolution {
   FHD = "FHD",
   HD = "HD",
@@ -3122,6 +3534,9 @@ export enum ReservationResolution {
   UHD = "UHD",
 }
 
+/**
+ * @public
+ */
 export enum ReservationResourceType {
   CHANNEL = "CHANNEL",
   INPUT = "INPUT",
@@ -3129,6 +3544,9 @@ export enum ReservationResourceType {
   OUTPUT = "OUTPUT",
 }
 
+/**
+ * @public
+ */
 export enum ReservationSpecialFeature {
   ADVANCED_AUDIO = "ADVANCED_AUDIO",
   AUDIO_NORMALIZATION = "AUDIO_NORMALIZATION",
@@ -3136,6 +3554,9 @@ export enum ReservationSpecialFeature {
   MGUHD = "MGUHD",
 }
 
+/**
+ * @public
+ */
 export enum ReservationVideoQuality {
   ENHANCED = "ENHANCED",
   PREMIUM = "PREMIUM",
@@ -3143,6 +3564,7 @@ export enum ReservationVideoQuality {
 }
 
 /**
+ * @public
  * Resource configuration (codec, resolution, bitrate, ...)
  */
 export interface ReservationResourceSpecification {
@@ -3188,6 +3610,7 @@ export interface ReservationResourceSpecification {
 }
 
 /**
+ * @public
  * Reserved resources available for purchase
  */
 export interface Offering {
@@ -3247,42 +3670,64 @@ export interface Offering {
   UsagePrice?: number;
 }
 
+/**
+ * @public
+ */
 export enum M2tsAbsentInputAudioBehavior {
   DROP = "DROP",
   ENCODE_SILENCE = "ENCODE_SILENCE",
 }
 
+/**
+ * @public
+ */
 export enum M2tsArib {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum M2tsAribCaptionsPidControl {
   AUTO = "AUTO",
   USE_CONFIGURED = "USE_CONFIGURED",
 }
 
+/**
+ * @public
+ */
 export enum M2tsAudioBufferModel {
   ATSC = "ATSC",
   DVB = "DVB",
 }
 
+/**
+ * @public
+ */
 export enum M2tsAudioStreamType {
   ATSC = "ATSC",
   DVB = "DVB",
 }
 
+/**
+ * @public
+ */
 export enum M2tsBufferModel {
   MULTIPLEX = "MULTIPLEX",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum M2tsCcDescriptor {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * DVB Network Information Table (NIT)
  */
 export interface DvbNitSettings {
@@ -3302,6 +3747,9 @@ export interface DvbNitSettings {
   RepInterval?: number;
 }
 
+/**
+ * @public
+ */
 export enum DvbSdtOutputSdt {
   SDT_FOLLOW = "SDT_FOLLOW",
   SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
@@ -3310,6 +3758,7 @@ export enum DvbSdtOutputSdt {
 }
 
 /**
+ * @public
  * DVB Service Description Table (SDT)
  */
 export interface DvbSdtSettings {
@@ -3335,6 +3784,7 @@ export interface DvbSdtSettings {
 }
 
 /**
+ * @public
  * DVB Time and Date Table (SDT)
  */
 export interface DvbTdtSettings {
@@ -3344,51 +3794,81 @@ export interface DvbTdtSettings {
   RepInterval?: number;
 }
 
+/**
+ * @public
+ */
 export enum M2tsEbifControl {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum M2tsAudioInterval {
   VIDEO_AND_FIXED_INTERVALS = "VIDEO_AND_FIXED_INTERVALS",
   VIDEO_INTERVAL = "VIDEO_INTERVAL",
 }
 
+/**
+ * @public
+ */
 export enum M2tsEbpPlacement {
   VIDEO_AND_AUDIO_PIDS = "VIDEO_AND_AUDIO_PIDS",
   VIDEO_PID = "VIDEO_PID",
 }
 
+/**
+ * @public
+ */
 export enum M2tsEsRateInPes {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum M2tsKlv {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum M2tsNielsenId3Behavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum M2tsPcrControl {
   CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
   PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
 }
 
+/**
+ * @public
+ */
 export enum M2tsRateMode {
   CBR = "CBR",
   VBR = "VBR",
 }
 
+/**
+ * @public
+ */
 export enum M2tsScte35Control {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum M2tsSegmentationMarkers {
   EBP = "EBP",
   EBP_LEGACY = "EBP_LEGACY",
@@ -3398,17 +3878,24 @@ export enum M2tsSegmentationMarkers {
   RAI_SEGSTART = "RAI_SEGSTART",
 }
 
+/**
+ * @public
+ */
 export enum M2tsSegmentationStyle {
   MAINTAIN_CADENCE = "MAINTAIN_CADENCE",
   RESET_CADENCE = "RESET_CADENCE",
 }
 
+/**
+ * @public
+ */
 export enum M2tsTimedMetadataBehavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
 /**
+ * @public
  * M2ts Settings
  */
 export interface M2tsSettings {
@@ -3658,11 +4145,13 @@ export interface M2tsSettings {
 }
 
 /**
+ * @public
  * Raw Settings
  */
 export interface RawSettings {}
 
 /**
+ * @public
  * Archive Container Settings
  */
 export interface ArchiveContainerSettings {
@@ -3678,6 +4167,7 @@ export interface ArchiveContainerSettings {
 }
 
 /**
+ * @public
  * Archive Output Settings
  */
 export interface ArchiveOutputSettings {
@@ -3698,6 +4188,7 @@ export interface ArchiveOutputSettings {
 }
 
 /**
+ * @public
  * Frame Capture Output Settings
  */
 export interface FrameCaptureOutputSettings {
@@ -3707,11 +4198,17 @@ export interface FrameCaptureOutputSettings {
   NameModifier?: string;
 }
 
+/**
+ * @public
+ */
 export enum HlsH265PackagingType {
   HEV1 = "HEV1",
   HVC1 = "HVC1",
 }
 
+/**
+ * @public
+ */
 export enum AudioOnlyHlsTrackType {
   ALTERNATE_AUDIO_AUTO_SELECT = "ALTERNATE_AUDIO_AUTO_SELECT",
   ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT = "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
@@ -3719,12 +4216,16 @@ export enum AudioOnlyHlsTrackType {
   AUDIO_ONLY_VARIANT_STREAM = "AUDIO_ONLY_VARIANT_STREAM",
 }
 
+/**
+ * @public
+ */
 export enum AudioOnlyHlsSegmentType {
   AAC = "AAC",
   FMP4 = "FMP4",
 }
 
 /**
+ * @public
  * Audio Only Hls Settings
  */
 export interface AudioOnlyHlsSettings {
@@ -3763,17 +4264,24 @@ export interface AudioOnlyHlsSettings {
   SegmentType?: AudioOnlyHlsSegmentType | string;
 }
 
+/**
+ * @public
+ */
 export enum Fmp4NielsenId3Behavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum Fmp4TimedMetadataBehavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
 /**
+ * @public
  * Fmp4 Hls Settings
  */
 export interface Fmp4HlsSettings {
@@ -3794,31 +4302,45 @@ export interface Fmp4HlsSettings {
 }
 
 /**
+ * @public
  * Frame Capture Hls Settings
  */
 export interface FrameCaptureHlsSettings {}
 
+/**
+ * @public
+ */
 export enum M3u8NielsenId3Behavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum M3u8PcrControl {
   CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
   PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
 }
 
+/**
+ * @public
+ */
 export enum M3u8Scte35Behavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum M3u8TimedMetadataBehavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
 /**
+ * @public
  * Settings information for the .m3u8 container
  */
 export interface M3u8Settings {
@@ -3909,6 +4431,7 @@ export interface M3u8Settings {
 }
 
 /**
+ * @public
  * Standard Hls Settings
  */
 export interface StandardHlsSettings {
@@ -3924,6 +4447,7 @@ export interface StandardHlsSettings {
 }
 
 /**
+ * @public
  * Hls Settings
  */
 export interface HlsSettings {
@@ -3949,6 +4473,7 @@ export interface HlsSettings {
 }
 
 /**
+ * @public
  * Hls Output Settings
  */
 export interface HlsOutputSettings {
@@ -3975,16 +4500,21 @@ export interface HlsOutputSettings {
 }
 
 /**
+ * @public
  * Media Package Output Settings
  */
 export interface MediaPackageOutputSettings {}
 
+/**
+ * @public
+ */
 export enum MsSmoothH265PackagingType {
   HEV1 = "HEV1",
   HVC1 = "HVC1",
 }
 
 /**
+ * @public
  * Ms Smooth Output Settings
  */
 export interface MsSmoothOutputSettings {
@@ -4001,6 +4531,7 @@ export interface MsSmoothOutputSettings {
 }
 
 /**
+ * @public
  * Reference to an OutputDestination ID defined in the channel
  */
 export interface OutputLocationRef {
@@ -4011,6 +4542,7 @@ export interface OutputLocationRef {
 }
 
 /**
+ * @public
  * Multiplex Output Settings
  */
 export interface MultiplexOutputSettings {
@@ -4020,12 +4552,16 @@ export interface MultiplexOutputSettings {
   Destination: OutputLocationRef | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RtmpOutputCertificateMode {
   SELF_SIGNED = "SELF_SIGNED",
   VERIFY_AUTHENTICITY = "VERIFY_AUTHENTICITY",
 }
 
 /**
+ * @public
  * Rtmp Output Settings
  */
 export interface RtmpOutputSettings {
@@ -4051,6 +4587,7 @@ export interface RtmpOutputSettings {
 }
 
 /**
+ * @public
  * Udp Container Settings
  */
 export interface UdpContainerSettings {
@@ -4060,12 +4597,16 @@ export interface UdpContainerSettings {
   M2tsSettings?: M2tsSettings;
 }
 
+/**
+ * @public
+ */
 export enum FecOutputIncludeFec {
   COLUMN = "COLUMN",
   COLUMN_AND_ROW = "COLUMN_AND_ROW",
 }
 
 /**
+ * @public
  * Fec Output Settings
  */
 export interface FecOutputSettings {
@@ -4086,6 +4627,7 @@ export interface FecOutputSettings {
 }
 
 /**
+ * @public
  * Udp Output Settings
  */
 export interface UdpOutputSettings {
@@ -4111,6 +4653,7 @@ export interface UdpOutputSettings {
 }
 
 /**
+ * @public
  * Output Settings
  */
 export interface OutputSettings {
@@ -4156,6 +4699,7 @@ export interface OutputSettings {
 }
 
 /**
+ * @public
  * Output settings. There can be multiple outputs within a group.
  */
 export interface Output {
@@ -4185,6 +4729,9 @@ export interface Output {
   VideoDescriptionName?: string;
 }
 
+/**
+ * @public
+ */
 export enum S3CannedAcl {
   AUTHENTICATED_READ = "AUTHENTICATED_READ",
   BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
@@ -4193,6 +4740,7 @@ export enum S3CannedAcl {
 }
 
 /**
+ * @public
  * Archive S3 Settings
  */
 export interface ArchiveS3Settings {
@@ -4203,6 +4751,7 @@ export interface ArchiveS3Settings {
 }
 
 /**
+ * @public
  * Archive Cdn Settings
  */
 export interface ArchiveCdnSettings {
@@ -4213,6 +4762,7 @@ export interface ArchiveCdnSettings {
 }
 
 /**
+ * @public
  * Archive Group Settings
  */
 export interface ArchiveGroupSettings {
@@ -4233,6 +4783,7 @@ export interface ArchiveGroupSettings {
 }
 
 /**
+ * @public
  * Frame Capture S3 Settings
  */
 export interface FrameCaptureS3Settings {
@@ -4243,6 +4794,7 @@ export interface FrameCaptureS3Settings {
 }
 
 /**
+ * @public
  * Frame Capture Cdn Settings
  */
 export interface FrameCaptureCdnSettings {
@@ -4253,6 +4805,7 @@ export interface FrameCaptureCdnSettings {
 }
 
 /**
+ * @public
  * Frame Capture Group Settings
  */
 export interface FrameCaptureGroupSettings {
@@ -4267,43 +4820,65 @@ export interface FrameCaptureGroupSettings {
   FrameCaptureCdnSettings?: FrameCaptureCdnSettings;
 }
 
+/**
+ * @public
+ */
 export enum HlsCaptionLanguageSetting {
   INSERT = "INSERT",
   NONE = "NONE",
   OMIT = "OMIT",
 }
 
+/**
+ * @public
+ */
 export enum HlsClientCache {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum HlsCodecSpecification {
   RFC_4281 = "RFC_4281",
   RFC_6381 = "RFC_6381",
 }
 
+/**
+ * @public
+ */
 export enum HlsDirectoryStructure {
   SINGLE_DIRECTORY = "SINGLE_DIRECTORY",
   SUBDIRECTORY_PER_STREAM = "SUBDIRECTORY_PER_STREAM",
 }
 
+/**
+ * @public
+ */
 export enum HlsDiscontinuityTags {
   INSERT = "INSERT",
   NEVER_INSERT = "NEVER_INSERT",
 }
 
+/**
+ * @public
+ */
 export enum HlsEncryptionType {
   AES128 = "AES128",
   SAMPLE_AES = "SAMPLE_AES",
 }
 
+/**
+ * @public
+ */
 export enum HlsAkamaiHttpTransferMode {
   CHUNKED = "CHUNKED",
   NON_CHUNKED = "NON_CHUNKED",
 }
 
 /**
+ * @public
  * Hls Akamai Settings
  */
 export interface HlsAkamaiSettings {
@@ -4344,6 +4919,7 @@ export interface HlsAkamaiSettings {
 }
 
 /**
+ * @public
  * Hls Basic Put Settings
  */
 export interface HlsBasicPutSettings {
@@ -4368,11 +4944,15 @@ export interface HlsBasicPutSettings {
   RestartDelay?: number;
 }
 
+/**
+ * @public
+ */
 export enum HlsMediaStoreStorageClass {
   TEMPORAL = "TEMPORAL",
 }
 
 /**
+ * @public
  * Hls Media Store Settings
  */
 export interface HlsMediaStoreSettings {
@@ -4403,6 +4983,7 @@ export interface HlsMediaStoreSettings {
 }
 
 /**
+ * @public
  * Hls S3 Settings
  */
 export interface HlsS3Settings {
@@ -4412,12 +4993,16 @@ export interface HlsS3Settings {
   CannedAcl?: S3CannedAcl | string;
 }
 
+/**
+ * @public
+ */
 export enum HlsWebdavHttpTransferMode {
   CHUNKED = "CHUNKED",
   NON_CHUNKED = "NON_CHUNKED",
 }
 
 /**
+ * @public
  * Hls Webdav Settings
  */
 export interface HlsWebdavSettings {
@@ -4448,6 +5033,7 @@ export interface HlsWebdavSettings {
 }
 
 /**
+ * @public
  * Hls Cdn Settings
  */
 export interface HlsCdnSettings {
@@ -4477,37 +5063,56 @@ export interface HlsCdnSettings {
   HlsWebdavSettings?: HlsWebdavSettings;
 }
 
+/**
+ * @public
+ */
 export enum HlsId3SegmentTaggingState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum IFrameOnlyPlaylistType {
   DISABLED = "DISABLED",
   STANDARD = "STANDARD",
 }
 
+/**
+ * @public
+ */
 export enum HlsIncompleteSegmentBehavior {
   AUTO = "AUTO",
   SUPPRESS = "SUPPRESS",
 }
 
+/**
+ * @public
+ */
 export enum InputLossActionForHlsOut {
   EMIT_OUTPUT = "EMIT_OUTPUT",
   PAUSE_OUTPUT = "PAUSE_OUTPUT",
 }
 
+/**
+ * @public
+ */
 export enum HlsIvInManifest {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum HlsIvSource {
   EXPLICIT = "EXPLICIT",
   FOLLOWS_SEGMENT_NUMBER = "FOLLOWS_SEGMENT_NUMBER",
 }
 
 /**
+ * @public
  * Static Key Settings
  */
 export interface StaticKeySettings {
@@ -4523,6 +5128,7 @@ export interface StaticKeySettings {
 }
 
 /**
+ * @public
  * Key Provider Settings
  */
 export interface KeyProviderSettings {
@@ -4532,11 +5138,17 @@ export interface KeyProviderSettings {
   StaticKeySettings?: StaticKeySettings;
 }
 
+/**
+ * @public
+ */
 export enum HlsManifestCompression {
   GZIP = "GZIP",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum HlsManifestDurationFormat {
   FLOATING_POINT = "FLOATING_POINT",
   INTEGER = "INTEGER",

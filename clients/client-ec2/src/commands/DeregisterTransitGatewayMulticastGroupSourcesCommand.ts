@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTransitGatewayMulticastGroupSourcesCommand}.
  */
 export interface DeregisterTransitGatewayMulticastGroupSourcesCommandInput
   extends DeregisterTransitGatewayMulticastGroupSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTransitGatewayMulticastGroupSourcesCommand}.
  */
 export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
@@ -38,6 +42,7 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified sources (network interfaces) from the  transit gateway multicast group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTransitGatewayMulticastGroupSourcesCommandInput - {@link DeregisterTransitGatewayMulticastGroupSourcesCommandInput}
+ * @returns {@link DeregisterTransitGatewayMulticastGroupSourcesCommandOutput}
  * @see {@link DeregisterTransitGatewayMulticastGroupSourcesCommandInput} for command's `input` shape.
  * @see {@link DeregisterTransitGatewayMulticastGroupSourcesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTransitGatewayMulticastGroupSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
     return serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

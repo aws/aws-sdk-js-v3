@@ -235,6 +235,7 @@ import {
 } from "./commands/UpdateDeploymentGroupCommand";
 
 /**
+ * @public
  * <p>CodeDeploy is a deployment service that automates application deployments
  *             to Amazon EC2 instances, on-premises instances running in your own facility,
  *             serverless Lambda functions, or applications in an Amazon ECS
@@ -331,6 +332,7 @@ import {
  */
 export class CodeDeploy extends CodeDeployClient {
   /**
+   * @public
    * <p>Adds tags to on-premises instances.</p>
    */
   public addTagsToOnPremisesInstances(
@@ -363,6 +365,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more application revisions. The maximum number of
    *             application revisions that can be returned is 25.</p>
    */
@@ -396,6 +399,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more applications. The maximum number of applications
    *             that can be returned is 100.</p>
    */
@@ -429,6 +433,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more deployment groups.</p>
    */
   public batchGetDeploymentGroups(
@@ -461,6 +466,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <note>
@@ -502,6 +508,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more deployments. The maximum number of deployments that
    *             can be returned is 25.</p>
    */
@@ -535,6 +542,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p> Returns an array of one or more targets associated with a deployment. This method
    *             works with all compute types and should be used instead of the deprecated
    *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
@@ -593,6 +601,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more on-premises instances. The maximum number of
    *             on-premises instances that can be returned is 25.</p>
    */
@@ -626,6 +635,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>For a blue/green deployment, starts the process of rerouting traffic from instances in
    *             the original environment to instances in the replacement environment without waiting for
    *             a specified wait time to elapse. (Traffic rerouting, which is achieved by registering
@@ -662,6 +672,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Creates an application.</p>
    */
   public createApplication(
@@ -694,6 +705,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Deploys an application revision through the specified deployment group.</p>
    */
   public createDeployment(
@@ -726,6 +738,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p> Creates a deployment configuration. </p>
    */
   public createDeploymentConfig(
@@ -758,6 +771,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Creates a deployment group to which application revisions are deployed.</p>
    */
   public createDeploymentGroup(
@@ -790,6 +804,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Deletes an application.</p>
    */
   public deleteApplication(
@@ -822,6 +837,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Deletes a deployment configuration.</p>
    *         <note>
    *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
@@ -858,6 +874,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Deletes a deployment group.</p>
    */
   public deleteDeploymentGroup(
@@ -890,6 +907,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Deletes a GitHub account connection.</p>
    */
   public deleteGitHubAccountToken(
@@ -922,6 +940,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Deletes resources linked to an external ID.</p>
    */
   public deleteResourcesByExternalId(
@@ -954,6 +973,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Deregisters an on-premises instance.</p>
    */
   public deregisterOnPremisesInstance(
@@ -986,6 +1006,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an application.</p>
    */
   public getApplication(
@@ -1018,6 +1039,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an application revision.</p>
    */
   public getApplicationRevision(
@@ -1050,6 +1072,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a deployment.</p>
    *         <note>
    *             <p> The <code>content</code> property of the <code>appSpecContent</code> object in
@@ -1088,6 +1111,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a deployment configuration.</p>
    */
   public getDeploymentConfig(
@@ -1120,6 +1144,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a deployment group.</p>
    */
   public getDeploymentGroup(
@@ -1152,6 +1177,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets information about an instance as part of a deployment.</p>
@@ -1186,6 +1212,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p> Returns information about a deployment target. </p>
    */
   public getDeploymentTarget(
@@ -1218,6 +1245,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p> Gets information about an on-premises instance. </p>
    */
   public getOnPremisesInstance(
@@ -1250,6 +1278,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Lists information about revisions for an application.</p>
    */
   public listApplicationRevisions(
@@ -1282,6 +1311,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Lists the applications registered with the IAM user or Amazon Web Services account.</p>
    */
   public listApplications(
@@ -1314,6 +1344,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Lists the deployment configurations with the IAM user or Amazon Web Services account.</p>
    */
   public listDeploymentConfigs(
@@ -1346,6 +1377,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Lists the deployment groups for an application registered with the IAM
    *             user or Amazon Web Services account.</p>
    */
@@ -1379,6 +1411,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <note>
@@ -1420,6 +1453,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Lists the deployments in a deployment group for an application registered with the
    *                 IAM user or Amazon Web Services account.</p>
    */
@@ -1453,6 +1487,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p> Returns an array of target IDs that are associated a deployment. </p>
    */
   public listDeploymentTargets(
@@ -1485,6 +1520,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Lists the names of stored connections to GitHub accounts.</p>
    */
   public listGitHubAccountTokenNames(
@@ -1517,6 +1553,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of names for one or more on-premises instances.</p>
    *         <p>Unless otherwise specified, both registered and deregistered on-premises instance
    *             names are listed. To list only registered or deregistered on-premises instance names,
@@ -1552,6 +1589,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of tags for the resource identified by a specified Amazon Resource
    *             Name (ARN). Tags are used to organize and categorize your CodeDeploy resources. </p>
    */
@@ -1585,6 +1623,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p> Sets the result of a Lambda validation function. The function validates
    *             lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available
    *             lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>.
@@ -1625,6 +1664,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Registers with CodeDeploy a revision for the specified application.</p>
    */
   public registerApplicationRevision(
@@ -1657,6 +1697,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Registers an on-premises instance.</p>
    *         <note>
    *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.</p>
@@ -1692,6 +1733,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from one or more on-premises instances.</p>
    */
   public removeTagsFromOnPremisesInstances(
@@ -1724,6 +1766,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
@@ -1759,6 +1802,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Attempts to stop an ongoing deployment.</p>
    */
   public stopDeployment(
@@ -1791,6 +1835,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p> Associates the list of tags in the input <code>Tags</code> parameter with the
    *             resource identified by the <code>ResourceArn</code> input parameter. </p>
    */
@@ -1818,6 +1863,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p> Disassociates a resource from a list of tags. The resource is identified by the
    *                 <code>ResourceArn</code> input parameter. The tags are identified by the list of
    *             keys in the <code>TagKeys</code> input parameter. </p>
@@ -1852,6 +1898,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Changes the name of an application.</p>
    */
   public updateApplication(
@@ -1884,6 +1931,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @public
    * <p>Changes information about a deployment group.</p>
    */
   public updateDeploymentGroup(

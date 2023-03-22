@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFlowVpcInterfaceCommand}.
  */
 export interface RemoveFlowVpcInterfaceCommandInput extends RemoveFlowVpcInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFlowVpcInterfaceCommand}.
  */
 export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterfaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Removes a VPC Interface from an existing flow. This request can be made only on a VPC interface that does not have a Source or Output associated with it. If the VPC interface is referenced by a Source or Output, you must first delete or update the Source or Output to no longer reference the VPC interface.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterf
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFlowVpcInterfaceCommandInput - {@link RemoveFlowVpcInterfaceCommandInput}
+ * @returns {@link RemoveFlowVpcInterfaceCommandOutput}
  * @see {@link RemoveFlowVpcInterfaceCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowVpcInterfaceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class RemoveFlowVpcInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFlowVpcInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class RemoveFlowVpcInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFlowVpcInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveFlowVpcInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFlowVpcInterfaceCommandOutput> {
     return deserializeAws_restJson1RemoveFlowVpcInterfaceCommand(output, context);
   }

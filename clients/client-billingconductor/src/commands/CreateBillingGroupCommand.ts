@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBillingGroupCommand}.
  */
 export interface CreateBillingGroupCommandInput extends CreateBillingGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBillingGroupCommand}.
  */
 export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a billing group that resembles a consolidated billing family that Amazon Web Services charges, based off of the predefined pricing plan computation.
  *     </p>
@@ -48,6 +53,8 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBillingGroupCommandInput - {@link CreateBillingGroupCommandInput}
+ * @returns {@link CreateBillingGroupCommandOutput}
  * @see {@link CreateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBillingGroupCommandOutput> {
     return deserializeAws_restJson1CreateBillingGroupCommand(output, context);
   }

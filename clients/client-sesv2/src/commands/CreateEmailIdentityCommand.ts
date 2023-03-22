@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEmailIdentityCommand}.
  */
 export interface CreateEmailIdentityCommandInput extends CreateEmailIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEmailIdentityCommand}.
  */
 export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the process of verifying an email identity. An <i>identity</i> is
  *             an email address or domain that you use when you send email. Before you can use an
  *             identity to send email, you first have to verify it. By verifying an identity, you
@@ -71,6 +76,8 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEmailIdentityCommandInput - {@link CreateEmailIdentityCommandInput}
+ * @returns {@link CreateEmailIdentityCommandOutput}
  * @see {@link CreateEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link CreateEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -112,6 +119,9 @@ export class CreateEmailIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEmailIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class CreateEmailIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateEmailIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEmailIdentityCommandOutput> {
     return deserializeAws_restJson1CreateEmailIdentityCommand(output, context);
   }

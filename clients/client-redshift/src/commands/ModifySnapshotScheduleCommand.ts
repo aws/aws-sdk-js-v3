@@ -22,15 +22,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySnapshotScheduleCommand}.
  */
 export interface ModifySnapshotScheduleCommandInput extends ModifySnapshotScheduleMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifySnapshotScheduleCommand}.
  */
 export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a snapshot schedule. Any schedule associated with a cluster is modified
  *             asynchronously.</p>
  * @example
@@ -43,6 +48,8 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySnapshotScheduleCommandInput - {@link ModifySnapshotScheduleCommandInput}
+ * @returns {@link ModifySnapshotScheduleCommandOutput}
  * @see {@link ModifySnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -75,6 +82,9 @@ export class ModifySnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ModifySnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifySnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySnapshotScheduleCommandOutput> {
     return deserializeAws_queryModifySnapshotScheduleCommand(output, context);
   }

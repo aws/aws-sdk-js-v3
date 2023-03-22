@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterContainerInstanceCommand}.
  */
 export interface DeregisterContainerInstanceCommandInput extends DeregisterContainerInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterContainerInstanceCommand}.
  */
 export interface DeregisterContainerInstanceCommandOutput
@@ -37,6 +41,7 @@ export interface DeregisterContainerInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an Amazon ECS container instance from the specified cluster. This instance is
  * 			no longer available to run tasks.</p>
  *          <p>If you intend to use the container instance for some other purpose after
@@ -61,6 +66,8 @@ export interface DeregisterContainerInstanceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterContainerInstanceCommandInput - {@link DeregisterContainerInstanceCommandInput}
+ * @returns {@link DeregisterContainerInstanceCommandOutput}
  * @see {@link DeregisterContainerInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterContainerInstanceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -112,6 +119,9 @@ export class DeregisterContainerInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterContainerInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class DeregisterContainerInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterContainerInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterContainerInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

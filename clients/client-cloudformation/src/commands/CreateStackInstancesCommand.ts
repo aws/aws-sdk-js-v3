@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStackInstancesCommand}.
  */
 export interface CreateStackInstancesCommandInput extends CreateStackInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStackInstancesCommand}.
  */
 export interface CreateStackInstancesCommandOutput extends CreateStackInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates stack instances for the specified accounts, within the specified Amazon Web Services Regions. A stack instance refers to a stack in a specific account and Region.
  *          You must specify at least one value for either <code>Accounts</code> or
  *             <code>DeploymentTargets</code>, and you must specify at least one value for
@@ -49,6 +54,8 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStackInstancesCommandInput - {@link CreateStackInstancesCommandInput}
+ * @returns {@link CreateStackInstancesCommandOutput}
  * @see {@link CreateStackInstancesCommandInput} for command's `input` shape.
  * @see {@link CreateStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateStackInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStackInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateStackInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStackInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateStackInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackInstancesCommandOutput> {
     return deserializeAws_queryCreateStackInstancesCommand(output, context);
   }

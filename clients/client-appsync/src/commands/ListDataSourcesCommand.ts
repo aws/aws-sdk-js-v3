@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataSourcesCommand}.
  */
 export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataSourcesCommand}.
  */
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the data sources for a given API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSourcesCommandInput - {@link ListDataSourcesCommandInput}
+ * @returns {@link ListDataSourcesCommandOutput}
  * @see {@link ListDataSourcesCommandInput} for command's `input` shape.
  * @see {@link ListDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDataSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDataSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDataSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSourcesCommandOutput> {
     return deserializeAws_restJson1ListDataSourcesCommand(output, context);
   }

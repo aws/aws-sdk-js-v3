@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountModificationsCommand}.
  */
 export interface DescribeAccountModificationsCommandInput extends DescribeAccountModificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountModificationsCommand}.
  */
 export interface DescribeAccountModificationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAccountModificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own
  *          License (BYOL) for the specified account.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeAccountModificationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountModificationsCommandInput - {@link DescribeAccountModificationsCommandInput}
+ * @returns {@link DescribeAccountModificationsCommandOutput}
  * @see {@link DescribeAccountModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountModificationsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeAccountModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeAccountModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountModificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAccountModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

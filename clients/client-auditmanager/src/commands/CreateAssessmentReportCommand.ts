@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssessmentReportCommand}.
  */
 export interface CreateAssessmentReportCommandInput extends CreateAssessmentReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssessmentReportCommand}.
  */
 export interface CreateAssessmentReportCommandOutput extends CreateAssessmentReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates an assessment report for the specified assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssessmentReportCommandInput - {@link CreateAssessmentReportCommandInput}
+ * @returns {@link CreateAssessmentReportCommandOutput}
  * @see {@link CreateAssessmentReportCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentReportCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +90,9 @@ export class CreateAssessmentReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssessmentReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateAssessmentReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssessmentReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAssessmentReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssessmentReportCommandOutput> {
     return deserializeAws_restJson1CreateAssessmentReportCommand(output, context);
   }

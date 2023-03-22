@@ -21,10 +21,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGlobalSettingsCommand}.
  */
 export interface GetGlobalSettingsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetGlobalSettingsCommand}.
  */
 export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsResponse, __MetadataBearer {}
@@ -46,6 +50,9 @@ export class GetGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,10 +92,16 @@ export class GetGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGlobalSettingsCommandOutput> {
     return deserializeAws_restJson1GetGlobalSettingsCommand(output, context);
   }

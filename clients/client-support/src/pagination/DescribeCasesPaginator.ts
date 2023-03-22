@@ -10,7 +10,7 @@ import { SupportClient } from "../SupportClient";
 import { SupportPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SupportClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeCasesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeCases(
   config: SupportPaginationConfiguration,
   input: DescribeCasesCommandInput,

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSiteRackPhysicalPropertiesCommand}.
  */
 export interface UpdateSiteRackPhysicalPropertiesCommandInput extends UpdateSiteRackPhysicalPropertiesInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSiteRackPhysicalPropertiesCommand}.
  */
 export interface UpdateSiteRackPhysicalPropertiesCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateSiteRackPhysicalPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the physical and logistical details for a rack at a site. For more information
  *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
  *         readiness checklist</a> in the Amazon Web Services Outposts User Guide.
@@ -53,6 +58,8 @@ export interface UpdateSiteRackPhysicalPropertiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSiteRackPhysicalPropertiesCommandInput - {@link UpdateSiteRackPhysicalPropertiesCommandInput}
+ * @returns {@link UpdateSiteRackPhysicalPropertiesCommandOutput}
  * @see {@link UpdateSiteRackPhysicalPropertiesCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteRackPhysicalPropertiesCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSiteRackPhysicalPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSiteRackPhysicalPropertiesCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
     return serializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

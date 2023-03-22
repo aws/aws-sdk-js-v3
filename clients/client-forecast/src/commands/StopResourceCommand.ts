@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopResourceCommand}.
  */
 export interface StopResourceCommandInput extends StopResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopResourceCommand}.
  */
 export interface StopResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a resource.</p>
  *          <p>The resource undergoes the following states: <code>CREATE_STOPPING</code> and
  *             <code>CREATE_STOPPED</code>. You cannot resume a resource once it has been
@@ -69,6 +74,8 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopResourceCommandInput - {@link StopResourceCommandInput}
+ * @returns {@link StopResourceCommandOutput}
  * @see {@link StopResourceCommandInput} for command's `input` shape.
  * @see {@link StopResourceCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -103,6 +110,9 @@ export class StopResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class StopResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopResourceCommandOutput> {
     return deserializeAws_json1_1StopResourceCommand(output, context);
   }

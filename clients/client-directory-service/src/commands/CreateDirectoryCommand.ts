@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDirectoryCommand}.
  */
 export interface CreateDirectoryCommandInput extends CreateDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDirectoryCommand}.
  */
 export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>Directory Service Admin
  *         Guide</i>.</p>
  *          <p>Before you call <code>CreateDirectory</code>, ensure that all of the required permissions
@@ -51,6 +56,8 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectoryCommandInput - {@link CreateDirectoryCommandInput}
+ * @returns {@link CreateDirectoryCommandOutput}
  * @see {@link CreateDirectoryCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDirectoryCommandOutput> {
     return deserializeAws_json1_1CreateDirectoryCommand(output, context);
   }

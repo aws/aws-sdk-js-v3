@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationConfigurationCommand}.
  */
 export interface DeleteReplicationConfigurationCommandInput extends DeleteReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationConfigurationCommand}.
  */
 export interface DeleteReplicationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing replication configuration. To delete a replication configuration, you
  *       must make the request from the Amazon Web Services Region in which the destination file system
  *       is located. Deleting a replication configuration ends the replication process. After a
@@ -49,6 +54,8 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationConfigurationCommandInput - {@link DeleteReplicationConfigurationCommandInput}
+ * @returns {@link DeleteReplicationConfigurationCommandOutput}
  * @see {@link DeleteReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DeleteReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteReplicationConfigurationCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DeleteReplicationConfigurationCommand extends $Command<
     return serializeAws_restJson1DeleteReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

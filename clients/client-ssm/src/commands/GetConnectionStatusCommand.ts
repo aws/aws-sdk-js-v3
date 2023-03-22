@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectionStatusCommand}.
  */
 export interface GetConnectionStatusCommandInput extends GetConnectionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectionStatusCommand}.
  */
 export interface GetConnectionStatusCommandOutput extends GetConnectionStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Session Manager connection status for a managed node to determine whether it is running
  *    and ready to receive Session Manager connections.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectionStatusCommandInput - {@link GetConnectionStatusCommandInput}
+ * @returns {@link GetConnectionStatusCommandOutput}
  * @see {@link GetConnectionStatusCommandInput} for command's `input` shape.
  * @see {@link GetConnectionStatusCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -73,6 +80,9 @@ export class GetConnectionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetConnectionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetConnectionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionStatusCommandOutput> {
     return deserializeAws_json1_1GetConnectionStatusCommand(output, context);
   }

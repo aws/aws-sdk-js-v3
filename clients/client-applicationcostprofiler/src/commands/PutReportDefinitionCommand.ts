@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutReportDefinitionCommand}.
  */
 export interface PutReportDefinitionCommandInput extends PutReportDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutReportDefinitionCommand}.
  */
 export interface PutReportDefinitionCommandOutput extends PutReportDefinitionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the report definition for a report in Application Cost Profiler.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param PutReportDefinitionCommandInput - {@link PutReportDefinitionCommandInput}
+ * @returns {@link PutReportDefinitionCommandOutput}
  * @see {@link PutReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
@@ -88,6 +95,9 @@ export class PutReportDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutReportDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class PutReportDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutReportDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutReportDefinitionCommandOutput> {
     return deserializeAws_restJson1PutReportDefinitionCommand(output, context);
   }

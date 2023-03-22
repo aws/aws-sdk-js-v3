@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableAddressTransferCommand}.
  */
 export interface DisableAddressTransferCommandInput extends DisableAddressTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableAddressTransferCommand}.
  */
 export interface DisableAddressTransferCommandOutput extends DisableAddressTransferResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisableAddressTransferCommandOutput extends DisableAddressTrans
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAddressTransferCommandInput - {@link DisableAddressTransferCommandInput}
+ * @returns {@link DisableAddressTransferCommandOutput}
  * @see {@link DisableAddressTransferCommandInput} for command's `input` shape.
  * @see {@link DisableAddressTransferCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DisableAddressTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAddressTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DisableAddressTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableAddressTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisableAddressTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableAddressTransferCommandOutput> {
     return deserializeAws_ec2DisableAddressTransferCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountSubscriptionCommand}.
  */
 export interface DeleteAccountSubscriptionCommandInput extends DeleteAccountSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountSubscriptionCommand}.
  */
 export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>DeleteAccountSubscription</code> operation to delete an Amazon QuickSight account. This operation will result in an error message if you have configured your account termination protection settings to <code>True</code>. To change this setting and delete your account, call the <code>UpdateAccountSettings</code> API and set the value of the <code>TerminationProtectionEnabled</code> parameter to <code>False</code>, then make another call to the <code>DeleteAccountSubscription</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSub
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountSubscriptionCommandInput - {@link DeleteAccountSubscriptionCommandInput}
+ * @returns {@link DeleteAccountSubscriptionCommandOutput}
  * @see {@link DeleteAccountSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteAccountSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteAccountSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAccountSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

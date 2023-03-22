@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClustersCommand}.
  */
 export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClustersCommand}.
  */
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all provisioned DAX clusters if no cluster identifier
  *             is specified, or about a specific DAX cluster if a cluster identifier is
  *             supplied.</p>
@@ -58,6 +63,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClustersCommandInput - {@link DescribeClustersCommandInput}
+ * @returns {@link DescribeClustersCommandOutput}
  * @see {@link DescribeClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClustersCommandOutput> {
     return deserializeAws_json1_1DescribeClustersCommand(output, context);
   }

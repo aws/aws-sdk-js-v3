@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventSourcesConfigCommand}.
  */
 export interface UpdateEventSourcesConfigCommandInput extends UpdateEventSourcesConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventSourcesConfigCommand}.
  */
 export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSourcesConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables integration with a service that can be integrated with DevOps Guru. The
  * 			one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler, which
  * 			can produce proactive recommendations which can be stored and viewed in DevOps Guru.</p>
@@ -48,6 +53,8 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventSourcesConfigCommandInput - {@link UpdateEventSourcesConfigCommandInput}
+ * @returns {@link UpdateEventSourcesConfigCommandOutput}
  * @see {@link UpdateEventSourcesConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateEventSourcesConfigCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateEventSourcesConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventSourcesConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateEventSourcesConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventSourcesConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEventSourcesConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventSourcesConfigCommandOutput> {
     return deserializeAws_restJson1UpdateEventSourcesConfigCommand(output, context);
   }

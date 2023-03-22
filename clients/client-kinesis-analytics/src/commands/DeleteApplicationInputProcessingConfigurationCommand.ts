@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationInputProcessingConfigurationCommand}.
  */
 export interface DeleteApplicationInputProcessingConfigurationCommandInput
   extends DeleteApplicationInputProcessingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationInputProcessingConfigurationCommand}.
  */
 export interface DeleteApplicationInputProcessingConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -52,6 +57,8 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationInputProcessingConfigurationCommandInput - {@link DeleteApplicationInputProcessingConfigurationCommandInput}
+ * @returns {@link DeleteApplicationInputProcessingConfigurationCommandOutput}
  * @see {@link DeleteApplicationInputProcessingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationInputProcessingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationInputProcessingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteApplicationInputProcessingConfigurationCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
     return serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

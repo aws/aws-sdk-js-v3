@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link VoteOnProposalCommand}.
  */
 export interface VoteOnProposalCommandInput extends VoteOnProposalInput {}
 /**
+ * @public
+ *
  * The output of {@link VoteOnProposalCommand}.
  */
 export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same Amazon Web Services account as the principal that calls the action.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -51,6 +56,8 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param VoteOnProposalCommandInput - {@link VoteOnProposalCommandInput}
+ * @returns {@link VoteOnProposalCommandOutput}
  * @see {@link VoteOnProposalCommandInput} for command's `input` shape.
  * @see {@link VoteOnProposalCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -95,6 +102,9 @@ export class VoteOnProposalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VoteOnProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class VoteOnProposalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VoteOnProposalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1VoteOnProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VoteOnProposalCommandOutput> {
     return deserializeAws_restJson1VoteOnProposalCommand(output, context);
   }

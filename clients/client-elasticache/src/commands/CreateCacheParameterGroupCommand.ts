@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCacheParameterGroupCommand}.
  */
 export interface CreateCacheParameterGroupCommandInput extends CreateCacheParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateCacheParameterGroupCommand}.
  */
 export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache
  *             cache parameter group is a collection of parameters and their values that are applied to all of the nodes
  *             in any cluster or replication group using the CacheParameterGroup.</p>
@@ -61,6 +66,8 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCacheParameterGroupCommandInput - {@link CreateCacheParameterGroupCommandInput}
+ * @returns {@link CreateCacheParameterGroupCommandOutput}
  * @see {@link CreateCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -124,6 +131,9 @@ export class CreateCacheParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCacheParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class CreateCacheParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateCacheParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

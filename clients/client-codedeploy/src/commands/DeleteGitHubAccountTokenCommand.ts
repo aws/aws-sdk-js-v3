@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGitHubAccountTokenCommand}.
  */
 export interface DeleteGitHubAccountTokenCommandInput extends DeleteGitHubAccountTokenInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGitHubAccountTokenCommand}.
  */
 export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccountTokenOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a GitHub account connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGitHubAccountTokenCommandInput - {@link DeleteGitHubAccountTokenCommandInput}
+ * @returns {@link DeleteGitHubAccountTokenCommandOutput}
  * @see {@link DeleteGitHubAccountTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteGitHubAccountTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGitHubAccountTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGitHubAccountTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGitHubAccountTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGitHubAccountTokenCommandOutput> {
     return deserializeAws_json1_1DeleteGitHubAccountTokenCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedAssetsCommand}.
  */
 export interface ListAssociatedAssetsCommandInput extends ListAssociatedAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedAssetsCommand}.
  */
 export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of associated assets.</p>
  *          <p>You can use this operation to do the following:</p>
  *          <ul>
@@ -55,6 +60,8 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedAssetsCommandInput - {@link ListAssociatedAssetsCommandInput}
+ * @returns {@link ListAssociatedAssetsCommandOutput}
  * @see {@link ListAssociatedAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListAssociatedAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListAssociatedAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssociatedAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedAssetsCommandOutput> {
     return deserializeAws_restJson1ListAssociatedAssetsCommand(output, context);
   }

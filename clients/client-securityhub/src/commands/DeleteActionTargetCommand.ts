@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteActionTargetCommand}.
  */
 export interface DeleteActionTargetCommandInput extends DeleteActionTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteActionTargetCommand}.
  */
 export interface DeleteActionTargetCommandOutput extends DeleteActionTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom action target from Security Hub.</p>
  *          <p>Deleting a custom action target does not affect any findings or insights that were
  *          already sent to Amazon CloudWatch Events using the custom action.</p>
@@ -48,6 +53,8 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteActionTargetCommandInput - {@link DeleteActionTargetCommandInput}
+ * @returns {@link DeleteActionTargetCommandOutput}
  * @see {@link DeleteActionTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteActionTargetCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteActionTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteActionTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteActionTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteActionTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteActionTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteActionTargetCommandOutput> {
     return deserializeAws_restJson1DeleteActionTargetCommand(output, context);
   }

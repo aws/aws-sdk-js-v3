@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNatGatewayCommand}.
  */
 export interface DeleteNatGatewayCommandInput extends DeleteNatGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNatGatewayCommand}.
  */
 export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates its Elastic IP address,
  *           but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway
  *           routes in your route tables.</p>
@@ -48,6 +53,8 @@ export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNatGatewayCommandInput - {@link DeleteNatGatewayCommandInput}
+ * @returns {@link DeleteNatGatewayCommandOutput}
  * @see {@link DeleteNatGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteNatGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteNatGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNatGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteNatGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNatGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNatGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNatGatewayCommandOutput> {
     return deserializeAws_ec2DeleteNatGatewayCommand(output, context);
   }

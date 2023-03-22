@@ -376,6 +376,7 @@ import {
 import { ProtonClient } from "./ProtonClient";
 
 /**
+ * @public
  * <p>This is the Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the
  *     <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the Proton
  *    service.</p>
@@ -508,6 +509,7 @@ import { ProtonClient } from "./ProtonClient";
  */
 export class Proton extends ProtonClient {
   /**
+   * @public
    * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton
    *       can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
@@ -543,6 +545,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Attempts to cancel a component deployment (for a component that is in the <code>IN_PROGRESS</code> deployment status).</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -578,6 +581,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>. For more
    *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-update.html">Update an environment</a> in the <i>Proton
    *         User guide</i>.</p>
@@ -625,6 +629,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>.
    *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html">Update a service instance</a> in the
    *         <i>Proton User guide</i>.</p>
@@ -672,6 +677,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>.
    *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html">Update a service pipeline</a> in the
    *         <i>Proton User guide</i>.</p>
@@ -719,6 +725,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Create an Proton component. A component is an infrastructure extension for a service instance.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -754,6 +761,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can be
    *       shared across services.</p>
    *          <p class="title">
@@ -801,6 +809,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment
    *       account from a management account.</p>
    *          <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment
@@ -837,6 +846,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment Templates</a> in the <i>Proton User Guide</i>.</p>
    *          <p>You can create an environment template in one of the two following ways:</p>
    *          <ul>
@@ -883,6 +893,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Create a new major or minor version of an environment template. A major version of an environment template is a version that
    *         <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major
    *       version.</p>
@@ -917,6 +928,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Create and register a link to a repository. Proton uses the link to repeatedly access the repository, to either push to it (self-managed
    *       provisioning) or pull from it (template sync). You can share a linked repository across multiple resources (like environments using self-managed
    *       provisioning, or synced templates). When you create a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/userguide/using-service-linked-roles.html">service-linked role</a> for you.</p>
@@ -954,6 +966,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and pipeline.
    *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html">Services</a> in the <i>Proton User
    *         Guide</i>.</p>
@@ -988,6 +1001,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline.
    *       Developers, in turn, select the service template from Proton. If the selected service template includes a service pipeline definition, they provide a
    *       link to their source code repository. Proton then deploys and manages the infrastructure defined by the selected service template. For more
@@ -1024,6 +1038,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward
    *       compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
    */
@@ -1057,6 +1072,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Set up a template to create new template versions automatically by tracking a linked repository. A linked
    *    repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your repository template
@@ -1094,6 +1110,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Delete an Proton component resource.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -1129,6 +1146,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Delete an environment.</p>
    */
   public deleteEnvironment(
@@ -1161,6 +1179,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>In an environment account, delete an environment account connection.</p>
    *          <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the
    *       environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're
@@ -1198,6 +1217,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>If no other major or minor versions of an environment template exist, delete the environment template.</p>
    */
   public deleteEnvironmentTemplate(
@@ -1230,6 +1250,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the
    *         <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor versions
    *       of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p>
@@ -1267,6 +1288,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>De-register and unlink your repository.</p>
    */
   public deleteRepository(
@@ -1299,6 +1321,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Delete a service, with its instances and pipeline.</p>
    *          <note>
    *             <p>You can't delete a service if it has any service instances that have components attached to them.</p>
@@ -1337,6 +1360,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>If no other major or minor versions of the service template exist, delete the service template.</p>
    */
   public deleteServiceTemplate(
@@ -1369,6 +1393,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>If no other minor versions of a service template exist, delete a major version of the service template if it's not the <code>Recommended</code>
    *       version. Delete the <code>Recommended</code> version of the service template if no other major versions or minor versions of the service template exist. A
    *       major version of a service template is a version that <i>isn't</i> backwards compatible.</p>
@@ -1406,6 +1431,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Delete a template sync configuration.</p>
    */
   public deleteTemplateSyncConfig(
@@ -1438,6 +1464,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detail data for Proton account-wide settings.</p>
    */
   public getAccountSettings(
@@ -1470,6 +1497,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detailed data for a component.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -1502,6 +1530,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detailed data for an environment.</p>
    */
   public getEnvironment(
@@ -1534,6 +1563,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>In an environment account, get the detailed data for an environment account connection.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
    *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -1568,6 +1598,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detailed data for an environment template.</p>
    */
   public getEnvironmentTemplate(
@@ -1600,6 +1631,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detailed data for a major or minor version of an environment template.</p>
    */
   public getEnvironmentTemplateVersion(
@@ -1632,6 +1664,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detail data for a linked repository.</p>
    */
   public getRepository(
@@ -1664,6 +1697,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get the sync status of a repository used for Proton template sync. For more information about template sync, see .</p>
    *          <note>
    *             <p>A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource
@@ -1703,6 +1737,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get counts of Proton resources.</p>
    *          <p>For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action
    *    returns staleness counts. A resource is stale when it's behind the recommended version of the Proton template that it
@@ -1744,6 +1779,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detailed data for a service.</p>
    */
   public getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
@@ -1770,6 +1806,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detailed data for a service instance. A service instance is an instantiation of service template and it runs in a specific environment.</p>
    */
   public getServiceInstance(
@@ -1802,6 +1839,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detailed data for a service template.</p>
    */
   public getServiceTemplate(
@@ -1834,6 +1872,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detailed data for a major or minor version of a service template.</p>
    */
   public getServiceTemplateVersion(
@@ -1866,6 +1905,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get detail data for a template sync configuration.</p>
    */
   public getTemplateSyncConfig(
@@ -1898,6 +1938,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get the status of a template sync.</p>
    */
   public getTemplateSyncStatus(
@@ -1930,6 +1971,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get a list of component Infrastructure as Code (IaC) outputs.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -1965,6 +2007,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List provisioned resources for a component with details.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -2000,6 +2043,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -2035,6 +2079,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>View a list of environment account connections.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
    *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -2069,6 +2114,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List the infrastructure as code outputs for your environment.</p>
    */
   public listEnvironmentOutputs(
@@ -2101,6 +2147,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List the provisioned resources for your environment.</p>
    */
   public listEnvironmentProvisionedResources(
@@ -2133,6 +2180,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List environments with detail data summaries.</p>
    */
   public listEnvironments(
@@ -2165,6 +2213,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List environment templates.</p>
    */
   public listEnvironmentTemplates(
@@ -2197,6 +2246,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List major or minor versions of an environment template with detail data.</p>
    */
   public listEnvironmentTemplateVersions(
@@ -2229,6 +2279,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List linked repositories with detail data.</p>
    */
   public listRepositories(
@@ -2261,6 +2312,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List repository sync definitions with detail data.</p>
    */
   public listRepositorySyncDefinitions(
@@ -2293,6 +2345,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get a list service of instance Infrastructure as Code (IaC) outputs.</p>
    */
   public listServiceInstanceOutputs(
@@ -2325,6 +2378,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List provisioned resources for a service instance with details.</p>
    */
   public listServiceInstanceProvisionedResources(
@@ -2359,6 +2413,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List service instances with summary data. This action lists service instances of all services in the
    *    Amazon Web Services account.</p>
    */
@@ -2392,6 +2447,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Get a list of service pipeline Infrastructure as Code (IaC) outputs.</p>
    */
   public listServicePipelineOutputs(
@@ -2424,6 +2480,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List provisioned resources for a service and pipeline with details.</p>
    */
   public listServicePipelineProvisionedResources(
@@ -2458,6 +2515,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List services with summaries of detail data.</p>
    */
   public listServices(
@@ -2487,6 +2545,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List service templates with detail data.</p>
    */
   public listServiceTemplates(
@@ -2519,6 +2578,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List major or minor versions of a service template with detail data.</p>
    */
   public listServiceTemplateVersions(
@@ -2551,6 +2611,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>List tags for a resource. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the <i>Proton User
    *     Guide</i>.</p>
    */
@@ -2584,6 +2645,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
    *     provisioning</a> in the <i>Proton User Guide</i>.</p>
@@ -2618,6 +2680,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>In a management account, reject an environment account connection from another environment account.</p>
    *          <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account
    *       connection.</p>
@@ -2655,6 +2718,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
    *     resources and tagging</a> in the <i>Proton User Guide</i>.</p>
@@ -2683,6 +2747,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton
    *    resource.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
@@ -2718,6 +2783,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>
    */
   public updateAccountSettings(
@@ -2750,6 +2816,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update a component.</p>
    *          <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p>
    *          <note>
@@ -2790,6 +2857,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update an environment.</p>
    *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
    *         <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p>
@@ -2870,6 +2938,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
    *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -2904,6 +2973,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update an environment template.</p>
    */
   public updateEnvironmentTemplate(
@@ -2936,6 +3006,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update a major or minor version of an environment template.</p>
    */
   public updateEnvironmentTemplateVersion(
@@ -2968,6 +3039,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Edit a service description or use a spec to add and delete service instances.</p>
    *          <note>
    *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p>
@@ -3011,6 +3083,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update a service instance.</p>
    *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p>
    *          <note>
@@ -3051,6 +3124,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update the service pipeline.</p>
    *          <p>There are four modes for updating a service pipeline. The <code>deploymentType</code> field defines the mode.</p>
    *          <dl>
@@ -3117,6 +3191,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update a service template.</p>
    */
   public updateServiceTemplate(
@@ -3149,6 +3224,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update a major or minor version of a service template.</p>
    */
   public updateServiceTemplateVersion(
@@ -3181,6 +3257,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
+   * @public
    * <p>Update template sync configuration parameters, except for the <code>templateName</code> and
    *     <code>templateType</code>. Repository details (branch, name, and provider) should be of a linked repository. A
    *    linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>

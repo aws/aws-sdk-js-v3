@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationInstanceTaskLogsCommand}.
  */
 export interface DescribeReplicationInstanceTaskLogsCommandInput extends DescribeReplicationInstanceTaskLogsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationInstanceTaskLogsCommand}.
  */
 export interface DescribeReplicationInstanceTaskLogsCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the task logs for the specified task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationInstanceTaskLogsCommandInput - {@link DescribeReplicationInstanceTaskLogsCommandInput}
+ * @returns {@link DescribeReplicationInstanceTaskLogsCommandOutput}
  * @see {@link DescribeReplicationInstanceTaskLogsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationInstanceTaskLogsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationInstanceTaskLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationInstanceTaskLogsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     return serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

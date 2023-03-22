@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link TransactWriteItemsCommand}.
  */
 export interface TransactWriteItemsCommandInput extends TransactWriteItemsInput {}
 /**
+ * @public
+ *
  * The output of {@link TransactWriteItemsCommand}.
  */
 export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 100
  *             action requests. These actions can target items in different tables, but not in
@@ -118,6 +123,8 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param TransactWriteItemsCommandInput - {@link TransactWriteItemsCommandInput}
+ * @returns {@link TransactWriteItemsCommandOutput}
  * @see {@link TransactWriteItemsCommandInput} for command's `input` shape.
  * @see {@link TransactWriteItemsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -463,6 +470,9 @@ export class TransactWriteItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransactWriteItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -502,10 +512,16 @@ export class TransactWriteItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TransactWriteItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0TransactWriteItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransactWriteItemsCommandOutput> {
     return deserializeAws_json1_0TransactWriteItemsCommand(output, context);
   }

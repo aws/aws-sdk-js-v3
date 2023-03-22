@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartOutboundVoiceContactCommand}.
  */
 export interface StartOutboundVoiceContactCommandInput extends StartOutboundVoiceContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartOutboundVoiceContactCommand}.
  */
 export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoiceContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Places an outbound call to a contact, and then initiates the flow. It performs the actions
  *    in the flow that's specified (in <code>ContactFlowId</code>).</p>
  *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
@@ -63,6 +68,8 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * const response = await client.send(command);
  * ```
  *
+ * @param StartOutboundVoiceContactCommandInput - {@link StartOutboundVoiceContactCommandInput}
+ * @returns {@link StartOutboundVoiceContactCommandOutput}
  * @see {@link StartOutboundVoiceContactCommandInput} for command's `input` shape.
  * @see {@link StartOutboundVoiceContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -107,6 +114,9 @@ export class StartOutboundVoiceContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartOutboundVoiceContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class StartOutboundVoiceContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartOutboundVoiceContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartOutboundVoiceContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

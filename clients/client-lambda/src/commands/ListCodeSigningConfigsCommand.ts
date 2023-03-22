@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCodeSigningConfigsCommand}.
  */
 export interface ListCodeSigningConfigsCommandInput extends ListCodeSigningConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCodeSigningConfigsCommand}.
  */
 export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code
  *         signing configurations</a>. A request returns up to 10,000 configurations per
  *       call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
@@ -48,6 +53,8 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCodeSigningConfigsCommandInput - {@link ListCodeSigningConfigsCommandInput}
+ * @returns {@link ListCodeSigningConfigsCommandOutput}
  * @see {@link ListCodeSigningConfigsCommandInput} for command's `input` shape.
  * @see {@link ListCodeSigningConfigsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListCodeSigningConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCodeSigningConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListCodeSigningConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCodeSigningConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCodeSigningConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCodeSigningConfigsCommandOutput> {
     return deserializeAws_restJson1ListCodeSigningConfigsCommand(output, context);
   }

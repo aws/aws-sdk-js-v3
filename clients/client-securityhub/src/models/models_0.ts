@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptAdministratorInvitationRequest {
   /**
    * <p>The account ID of the Security Hub administrator account that sent the invitation.</p>
@@ -15,9 +18,13 @@ export interface AcceptAdministratorInvitationRequest {
   InvitationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AcceptAdministratorInvitationResponse {}
 
 /**
+ * @public
  * <p>Internal server error.</p>
  */
 export class InternalException extends __BaseException {
@@ -41,6 +48,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The account doesn't have permission to perform this action.</p>
  */
 export class InvalidAccessException extends __BaseException {
@@ -64,6 +72,7 @@ export class InvalidAccessException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because you supplied an invalid or out-of-range value for an
  *          input parameter.</p>
  */
@@ -88,6 +97,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  */
@@ -112,6 +122,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because we can't find the specified resource.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -134,6 +145,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AcceptInvitationRequest {
   /**
    * <p>The account ID of the Security Hub administrator account that sent the invitation.</p>
@@ -146,9 +160,13 @@ export interface AcceptInvitationRequest {
   InvitationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AcceptInvitationResponse {}
 
 /**
+ * @public
  * <p>You don't have permission to perform the action specified in the request.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -172,6 +190,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The details of an Amazon Web Services account.</p>
  */
 export interface AccountDetails {
@@ -187,6 +206,7 @@ export interface AccountDetails {
 }
 
 /**
+ * @public
  * <p>Provided if <code>CallerType</code> is <code>domain</code>. It provides information
  *          about the DNS domain that issued the API call.</p>
  */
@@ -198,6 +218,7 @@ export interface AwsApiCallActionDomainDetails {
 }
 
 /**
+ * @public
  * <p>Information about a city.</p>
  */
 export interface City {
@@ -208,6 +229,7 @@ export interface City {
 }
 
 /**
+ * @public
  * <p>Information about a country.</p>
  */
 export interface Country {
@@ -223,6 +245,7 @@ export interface Country {
 }
 
 /**
+ * @public
  * <p>Provides the latitude and longitude coordinates of a location.</p>
  */
 export interface GeoLocation {
@@ -238,6 +261,7 @@ export interface GeoLocation {
 }
 
 /**
+ * @public
  * <p>Provides information about an internet provider.</p>
  */
 export interface IpOrganizationDetails {
@@ -263,6 +287,7 @@ export interface IpOrganizationDetails {
 }
 
 /**
+ * @public
  * <p>For <code>AwsApiAction</code>, <code>NetworkConnectionAction</code>, and
  *             <code>PortProbeAction</code>, <code>RemoteIpDetails</code> provides information about
  *          the remote IP address that was involved in the action.</p>
@@ -296,6 +321,7 @@ export interface ActionRemoteIpDetails {
 }
 
 /**
+ * @public
  * <p>Provided if <code>ActionType</code> is <code>AWS_API_CALL</code>. It provides details
  *          about the API call that was detected.</p>
  */
@@ -349,6 +375,7 @@ export interface AwsApiCallAction {
 }
 
 /**
+ * @public
  * <p>Provided if <code>ActionType</code> is <code>DNS_REQUEST</code>. It provides details
  *          about the DNS request that was detected.</p>
  */
@@ -370,6 +397,7 @@ export interface DnsRequestAction {
 }
 
 /**
+ * @public
  * <p>For <code>NetworkConnectionAction</code> and <code>PortProbeDetails</code>,
  *             <code>LocalPortDetails</code> provides information about the local port that was
  *          involved in the action.</p>
@@ -387,6 +415,7 @@ export interface ActionLocalPortDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the remote port that was involved in an attempted network
  *          connection.</p>
  */
@@ -403,6 +432,7 @@ export interface ActionRemotePortDetails {
 }
 
 /**
+ * @public
  * <p>Provided if <code>ActionType</code> is <code>NETWORK_CONNECTION</code>. It provides
  *          details about the attempted network connection that was detected.</p>
  */
@@ -441,6 +471,7 @@ export interface NetworkConnectionAction {
 }
 
 /**
+ * @public
  * <p>Provides information about the IP address where the scanned port is located.</p>
  */
 export interface ActionLocalIpDetails {
@@ -451,6 +482,7 @@ export interface ActionLocalIpDetails {
 }
 
 /**
+ * @public
  * <p>A port scan that was part of the port probe. For each scan, PortProbeDetails provides
  *          information about the local IP address and port that were scanned, and the remote IP
  *          address that the scan originated from.</p>
@@ -473,6 +505,7 @@ export interface PortProbeDetail {
 }
 
 /**
+ * @public
  * <p>Provided if <code>ActionType</code> is <code>PORT_PROBE</code>. It provides details
  *          about the attempted port probe that was detected.</p>
  */
@@ -489,6 +522,7 @@ export interface PortProbeAction {
 }
 
 /**
+ * @public
  * <p>Provides details about one of the following actions that affects or that was taken on a resource:</p>
  *          <ul>
  *             <li>
@@ -559,6 +593,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>An <code>ActionTarget</code> object.</p>
  */
 export interface ActionTarget {
@@ -579,6 +614,7 @@ export interface ActionTarget {
 }
 
 /**
+ * @public
  * <p>An adjustment to the CVSS metric.</p>
  */
 export interface Adjustment {
@@ -593,12 +629,16 @@ export interface Adjustment {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export enum AdminStatus {
   DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Represents a Security Hub administrator account designated by an organization management
  *          account.</p>
  */
@@ -616,6 +656,7 @@ export interface AdminAccount {
 }
 
 /**
+ * @public
  * <p>
  *          Information about an enabled security standard in which a security control is enabled.
  *       </p>
@@ -629,17 +670,24 @@ export interface AssociatedStandard {
   StandardsId?: string;
 }
 
+/**
+ * @public
+ */
 export enum AssociationStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum AutoEnableStandards {
   DEFAULT = "DEFAULT",
   NONE = "NONE",
 }
 
 /**
+ * @public
  * <p>Information about an Availability Zone.</p>
  */
 export interface AvailabilityZone {
@@ -655,6 +703,7 @@ export interface AvailabilityZone {
 }
 
 /**
+ * @public
  * <p>Contains information about settings for logging access for the stage.</p>
  */
 export interface AwsApiGatewayAccessLogSettings {
@@ -672,6 +721,7 @@ export interface AwsApiGatewayAccessLogSettings {
 }
 
 /**
+ * @public
  * <p>Contains information about settings for canary deployment in the stage.</p>
  */
 export interface AwsApiGatewayCanarySettings {
@@ -700,6 +750,7 @@ export interface AwsApiGatewayCanarySettings {
 }
 
 /**
+ * @public
  * <p>Contains information about the endpoints for the API.</p>
  */
 export interface AwsApiGatewayEndpointConfiguration {
@@ -713,6 +764,7 @@ export interface AwsApiGatewayEndpointConfiguration {
 }
 
 /**
+ * @public
  * <p>Defines settings for a method for the stage.</p>
  */
 export interface AwsApiGatewayMethodSettings {
@@ -797,6 +849,7 @@ export interface AwsApiGatewayMethodSettings {
 }
 
 /**
+ * @public
  * <p>Contains information about a REST API in version 1 of Amazon API Gateway.</p>
  */
 export interface AwsApiGatewayRestApiDetails {
@@ -858,6 +911,7 @@ export interface AwsApiGatewayRestApiDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about a version 1 Amazon API Gateway stage.</p>
  */
 export interface AwsApiGatewayStageDetails {
@@ -962,6 +1016,7 @@ export interface AwsApiGatewayStageDetails {
 }
 
 /**
+ * @public
  * <p>Contains the cross-origin resource sharing (CORS) configuration for the API. CORS is
  *          only supported for HTTP APIs.</p>
  */
@@ -998,6 +1053,7 @@ export interface AwsCorsConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains information about a version 2 API in Amazon API Gateway.</p>
  */
 export interface AwsApiGatewayV2ApiDetails {
@@ -1054,7 +1110,7 @@ export interface AwsApiGatewayV2ApiDetails {
 
   /**
    * <p>The route selection expression for the API.</p>
-   *          <p>For HTTP APIs, must be <code>${request.method} ${request.path}</code>. This is the
+   *          <p>For HTTP APIs, must be <code>$\{request.method\} $\{request.path\}</code>. This is the
    *          default value for HTTP APIs.</p>
    *          <p>For WebSocket APIs, there is no default value.</p>
    */
@@ -1068,6 +1124,7 @@ export interface AwsApiGatewayV2ApiDetails {
 }
 
 /**
+ * @public
  * <p>Contains route settings for a stage.</p>
  */
 export interface AwsApiGatewayV2RouteSettings {
@@ -1106,6 +1163,7 @@ export interface AwsApiGatewayV2RouteSettings {
 }
 
 /**
+ * @public
  * <p>Contains information about a version 2 stage for Amazon API Gateway.</p>
  */
 export interface AwsApiGatewayV2StageDetails {
@@ -1196,6 +1254,7 @@ export interface AwsApiGatewayV2StageDetails {
 }
 
 /**
+ * @public
  * <p>An Availability Zone for the automatic scaling group.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
@@ -1206,6 +1265,7 @@ export interface AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
 }
 
 /**
+ * @public
  * <p>Details about the launch template to use.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification {
@@ -1226,6 +1286,7 @@ export interface AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpeci
 }
 
 /**
+ * @public
  * <p>Information about the instances distribution.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails {
@@ -1278,6 +1339,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDist
 }
 
 /**
+ * @public
  * <p>Details about the launch template to use for a mixed instances policy.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
@@ -1298,6 +1360,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
 }
 
 /**
+ * @public
  * <p>Property values to use to override the values in the launch template.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails {
@@ -1313,6 +1376,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
 }
 
 /**
+ * @public
  * <p>Describes a launch template and overrides for a mixed instances policy.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails {
@@ -1328,6 +1392,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
 }
 
 /**
+ * @public
  * <p>The mixed instances policy for the automatic scaling group.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
@@ -1343,6 +1408,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an auto scaling group.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupDetails {
@@ -1398,6 +1464,7 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
 }
 
 /**
+ * @public
  * <p>Parameters that are used to automatically set up EBS volumes when an instance is launched.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails {
@@ -1482,6 +1549,7 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails 
 }
 
 /**
+ * @public
  * <p>A block device for the instance.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
@@ -1509,6 +1577,7 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
 }
 
 /**
+ * @public
  * <p>Information about the type of monitoring for instances in the group.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
@@ -1522,6 +1591,7 @@ export interface AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
 }
 
 /**
+ * @public
  * <p>The metadata options for the instances.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationMetadataOptions {
@@ -1542,6 +1612,7 @@ export interface AwsAutoScalingLaunchConfigurationMetadataOptions {
 }
 
 /**
+ * @public
  * <p>Details about a launch configuration.</p>
  */
 export interface AwsAutoScalingLaunchConfigurationDetails {
@@ -1650,6 +1721,7 @@ export interface AwsAutoScalingLaunchConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Provides a list of backup options for each resource type.
  *       </p>
  */
@@ -1676,6 +1748,7 @@ export interface AwsBackupBackupPlanAdvancedBackupSettingsDetails {
 }
 
 /**
+ * @public
  * <p>Provides lifecycle details for the backup plan. A lifecycle defines when a backup is transitioned to cold storage and when it expires.
  *       </p>
  */
@@ -1694,6 +1767,7 @@ export interface AwsBackupBackupPlanLifecycleDetails {
 }
 
 /**
+ * @public
  * <p>An array of <code>CopyAction</code> objects, each of which contains details of the copy operation.
  *       </p>
  */
@@ -1715,6 +1789,7 @@ export interface AwsBackupBackupPlanRuleCopyActionsDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an array of <code>BackupRule</code> objects, each of which specifies a scheduled task that is used to back up a selection of resources.
  *       </p>
  */
@@ -1774,6 +1849,7 @@ export interface AwsBackupBackupPlanRuleDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an Backup backup plan and an array of <code>BackupRule</code> objects, each of which specifies a backup rule.
  *       </p>
  */
@@ -1798,6 +1874,7 @@ export interface AwsBackupBackupPlanBackupPlanDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an Backup backup plan and an array of <code>BackupRule</code> objects, each of which specifies a backup rule.
  *       </p>
  */
@@ -1828,6 +1905,7 @@ export interface AwsBackupBackupPlanDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the Amazon SNS event notifications for the specified backup vault.
  *       </p>
  */
@@ -1868,6 +1946,7 @@ export interface AwsBackupBackupVaultNotificationsDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an Backup backup vault. In Backup, a backup vault is
  * a container that stores and organizes your backups.
  *       </p>
@@ -1908,6 +1987,7 @@ export interface AwsBackupBackupVaultDetails {
 }
 
 /**
+ * @public
  * <p>Specifies how long in days before a recovery point transitions to cold storage or is deleted.
  *       </p>
  */
@@ -1927,6 +2007,7 @@ export interface AwsBackupRecoveryPointCalculatedLifecycleDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the backup plan and rule that Backup used to initiate the recovery point backup.
  *       </p>
  */
@@ -1958,6 +2039,7 @@ export interface AwsBackupRecoveryPointCreatedByDetails {
 }
 
 /**
+ * @public
  * <p>Contains an array of Transition objects specifying how long in days before a recovery point transitions to cold storage or is deleted.
  *       </p>
  */
@@ -1977,6 +2059,7 @@ export interface AwsBackupRecoveryPointLifecycleDetails {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about the recovery points stored in an Backup backup vault.
  * A backup, or recovery point, represents the content of a resource at a specified time.
  *       </p>
@@ -2148,6 +2231,7 @@ export interface AwsBackupRecoveryPointDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the CNAME record that is added to the DNS database for domain
  *          validation.</p>
  */
@@ -2169,6 +2253,7 @@ export interface AwsCertificateManagerCertificateResourceRecord {
 }
 
 /**
+ * @public
  * <p>Contains information about one of the following:</p>
  *          <ul>
  *             <li>
@@ -2215,6 +2300,7 @@ export interface AwsCertificateManagerCertificateDomainValidationOption {
 }
 
 /**
+ * @public
  * <p>Contains information about an extended key usage X.509 v3 extension object.</p>
  */
 export interface AwsCertificateManagerCertificateExtendedKeyUsage {
@@ -2232,6 +2318,7 @@ export interface AwsCertificateManagerCertificateExtendedKeyUsage {
 }
 
 /**
+ * @public
  * <p>Contains information about a key usage X.509 v3 extension object.</p>
  */
 export interface AwsCertificateManagerCertificateKeyUsage {
@@ -2242,6 +2329,7 @@ export interface AwsCertificateManagerCertificateKeyUsage {
 }
 
 /**
+ * @public
  * <p>Contains other options for the certificate.</p>
  */
 export interface AwsCertificateManagerCertificateOptions {
@@ -2254,6 +2342,7 @@ export interface AwsCertificateManagerCertificateOptions {
 }
 
 /**
+ * @public
  * <p>Contains information about the Certificate Manager managed renewal for an
  *             <code>AMAZON_ISSUED</code> certificate.</p>
  */
@@ -2297,6 +2386,7 @@ export interface AwsCertificateManagerCertificateRenewalSummary {
 }
 
 /**
+ * @public
  * <p>Provides details about an Certificate Manager certificate.</p>
  */
 export interface AwsCertificateManagerCertificateDetails {
@@ -2471,6 +2561,7 @@ export interface AwsCertificateManagerCertificateDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the stack's conformity to its expected template configuration.
  *       </p>
  */
@@ -2483,6 +2574,7 @@ export interface AwsCloudFormationStackDriftInformationDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the CloudFormation stack output.
  *       </p>
  */
@@ -2507,6 +2599,7 @@ export interface AwsCloudFormationStackOutputsDetails {
 }
 
 /**
+ * @public
  * <p>Nests a stack as a resource in a top-level template. Nested stacks are stacks created as resources for
  * another stack.</p>
  */
@@ -2604,6 +2697,7 @@ export interface AwsCloudFormationStackDetails {
 }
 
 /**
+ * @public
  * <p>Information about a cache behavior for the distribution.</p>
  */
 export interface AwsCloudFrontDistributionCacheBehavior {
@@ -2632,6 +2726,7 @@ export interface AwsCloudFrontDistributionCacheBehavior {
 }
 
 /**
+ * @public
  * <p>Provides information about caching for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionCacheBehaviors {
@@ -2642,6 +2737,7 @@ export interface AwsCloudFrontDistributionCacheBehaviors {
 }
 
 /**
+ * @public
  * <p>Contains information about the default cache configuration for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionDefaultCacheBehavior {
@@ -2670,6 +2766,7 @@ export interface AwsCloudFrontDistributionDefaultCacheBehavior {
 }
 
 /**
+ * @public
  * <p>A complex type that controls whether access logs are written for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionLogging {
@@ -2696,6 +2793,7 @@ export interface AwsCloudFrontDistributionLogging {
 }
 
 /**
+ * @public
  * <p>The status codes that cause an origin group to fail over.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
@@ -2711,6 +2809,7 @@ export interface AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
 }
 
 /**
+ * @public
  * <p>Provides information about when an origin group fails over.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroupFailover {
@@ -2721,6 +2820,7 @@ export interface AwsCloudFrontDistributionOriginGroupFailover {
 }
 
 /**
+ * @public
  * <p>Information about an origin group for the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroup {
@@ -2731,6 +2831,7 @@ export interface AwsCloudFrontDistributionOriginGroup {
 }
 
 /**
+ * @public
  * <p>Provides information about origin groups that are associated with the CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionOriginGroups {
@@ -2741,6 +2842,7 @@ export interface AwsCloudFrontDistributionOriginGroups {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
  * when establishing an HTTPS connection with your origin.
  *       </p>
@@ -2761,6 +2863,7 @@ export interface AwsCloudFrontDistributionOriginSslProtocols {
 }
 
 /**
+ * @public
  * <p>A custom origin. A custom origin is any origin that is not an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">configured with
  *             static website hosting</a> is a custom origin. </p>
  */
@@ -2803,6 +2906,7 @@ export interface AwsCloudFrontDistributionOriginCustomOriginConfig {
 }
 
 /**
+ * @public
  * <p>Information about an origin that is an Amazon S3 bucket that is not configured with static website
  *          hosting.</p>
  */
@@ -2814,6 +2918,7 @@ export interface AwsCloudFrontDistributionOriginS3OriginConfig {
 }
 
 /**
+ * @public
  * <p>A complex type that describes the
  *             Amazon S3 bucket, HTTP server (for example, a web server), AWS Elemental MediaStore, or other server from which CloudFront gets your files.</p>
  */
@@ -2851,6 +2956,7 @@ export interface AwsCloudFrontDistributionOriginItem {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about origins and origin groups for this CloudFront distribution.</p>
  */
 export interface AwsCloudFrontDistributionOrigins {
@@ -2861,6 +2967,7 @@ export interface AwsCloudFrontDistributionOrigins {
 }
 
 /**
+ * @public
  * <p>Provides information about the TLS/SSL configuration that the CloudFront distribution uses to communicate with viewers.</p>
  */
 export interface AwsCloudFrontDistributionViewerCertificate {
@@ -2901,6 +3008,7 @@ export interface AwsCloudFrontDistributionViewerCertificate {
 }
 
 /**
+ * @public
  * <p>A CloudFront distribution configuration.</p>
  */
 export interface AwsCloudFrontDistributionDetails {
@@ -2972,6 +3080,7 @@ export interface AwsCloudFrontDistributionDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about a CloudTrail trail.</p>
  */
 export interface AwsCloudTrailTrailDetails {
@@ -3056,6 +3165,7 @@ export interface AwsCloudTrailTrailDetails {
 }
 
 /**
+ * @public
  * <p>Details about the dimensions for the metric associated with the alarm.
  *       </p>
  */
@@ -3074,6 +3184,7 @@ export interface AwsCloudWatchAlarmDimensionsDetails {
 }
 
 /**
+ * @public
  * <p>Specifies an alarm and associates it with the specified metric or metric math expression.
  *       </p>
  */
@@ -3223,6 +3334,7 @@ export interface AwsCloudWatchAlarmDetails {
 }
 
 /**
+ * @public
  * <p>Information about the build artifacts for the CodeBuild project.</p>
  */
 export interface AwsCodeBuildProjectArtifactsDetails {
@@ -3273,6 +3385,7 @@ export interface AwsCodeBuildProjectArtifactsDetails {
 }
 
 /**
+ * @public
  * <p>Information about an environment variable that is available to builds for the build project.</p>
  */
 export interface AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
@@ -3293,6 +3406,7 @@ export interface AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
 }
 
 /**
+ * @public
  * <p>The credentials for access to a private registry.</p>
  */
 export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
@@ -3313,6 +3427,7 @@ export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
 }
 
 /**
+ * @public
  * <p>Information about the build environment for this build project.</p>
  */
 export interface AwsCodeBuildProjectEnvironment {
@@ -3381,6 +3496,7 @@ export interface AwsCodeBuildProjectEnvironment {
 }
 
 /**
+ * @public
  * <p>Information about CloudWatch Logs for the build project.</p>
  */
 export interface AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
@@ -3401,6 +3517,7 @@ export interface AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
 }
 
 /**
+ * @public
  * <p>Information about logs built to an S3 bucket for a build project.</p>
  */
 export interface AwsCodeBuildProjectLogsConfigS3LogsDetails {
@@ -3421,6 +3538,7 @@ export interface AwsCodeBuildProjectLogsConfigS3LogsDetails {
 }
 
 /**
+ * @public
  * <p>Information about logs for the build project.</p>
  */
 export interface AwsCodeBuildProjectLogsConfigDetails {
@@ -3436,6 +3554,7 @@ export interface AwsCodeBuildProjectLogsConfigDetails {
 }
 
 /**
+ * @public
  * <p>Information about the build input source code for this build project.</p>
  */
 export interface AwsCodeBuildProjectSource {
@@ -3530,6 +3649,7 @@ export interface AwsCodeBuildProjectSource {
 }
 
 /**
+ * @public
  * <p>Information about the VPC configuration that CodeBuild accesses.</p>
  */
 export interface AwsCodeBuildProjectVpcConfig {
@@ -3550,6 +3670,7 @@ export interface AwsCodeBuildProjectVpcConfig {
 }
 
 /**
+ * @public
  * <p>Information about an CodeBuild project.</p>
  */
 export interface AwsCodeBuildProjectDetails {
@@ -3604,6 +3725,7 @@ export interface AwsCodeBuildProjectDetails {
 }
 
 /**
+ * @public
  * <p>Contains a definition of an attribute for the table.</p>
  */
 export interface AwsDynamoDbTableAttributeDefinition {
@@ -3619,6 +3741,7 @@ export interface AwsDynamoDbTableAttributeDefinition {
 }
 
 /**
+ * @public
  * <p>Provides information about the billing for read/write capacity on the table.</p>
  */
 export interface AwsDynamoDbTableBillingModeSummary {
@@ -3638,6 +3761,7 @@ export interface AwsDynamoDbTableBillingModeSummary {
 }
 
 /**
+ * @public
  * <p>A component of the key schema for the DynamoDB table, a global secondary index, or a
  *          local secondary index.</p>
  */
@@ -3654,6 +3778,7 @@ export interface AwsDynamoDbTableKeySchema {
 }
 
 /**
+ * @public
  * <p>For global and local secondary indexes, identifies the attributes that are copied from
  *          the table into the index.</p>
  */
@@ -3688,6 +3813,7 @@ export interface AwsDynamoDbTableProjection {
 }
 
 /**
+ * @public
  * <p>Information about the provisioned throughput for the table or for a global secondary
  *          index.</p>
  */
@@ -3728,6 +3854,7 @@ export interface AwsDynamoDbTableProvisionedThroughput {
 }
 
 /**
+ * @public
  * <p>Information abut a global secondary index for the table.</p>
  */
 export interface AwsDynamoDbTableGlobalSecondaryIndex {
@@ -3800,6 +3927,7 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Information about a local secondary index for a DynamoDB table.</p>
  */
 export interface AwsDynamoDbTableLocalSecondaryIndex {
@@ -3826,6 +3954,7 @@ export interface AwsDynamoDbTableLocalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Replica-specific configuration for the provisioned throughput.</p>
  */
 export interface AwsDynamoDbTableProvisionedThroughputOverride {
@@ -3836,6 +3965,7 @@ export interface AwsDynamoDbTableProvisionedThroughputOverride {
 }
 
 /**
+ * @public
  * <p>Information about a global secondary index for a DynamoDB table replica.</p>
  */
 export interface AwsDynamoDbTableReplicaGlobalSecondaryIndex {
@@ -3851,6 +3981,7 @@ export interface AwsDynamoDbTableReplicaGlobalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Information about a replica of a DynamoDB table.</p>
  */
 export interface AwsDynamoDbTableReplica {
@@ -3914,6 +4045,7 @@ export interface AwsDynamoDbTableReplica {
 }
 
 /**
+ * @public
  * <p>Information about the restore for the table.</p>
  */
 export interface AwsDynamoDbTableRestoreSummary {
@@ -3942,6 +4074,7 @@ export interface AwsDynamoDbTableRestoreSummary {
 }
 
 /**
+ * @public
  * <p>Information about the server-side encryption for the table.</p>
  */
 export interface AwsDynamoDbTableSseDescription {
@@ -3972,6 +4105,7 @@ export interface AwsDynamoDbTableSseDescription {
 }
 
 /**
+ * @public
  * <p>The current DynamoDB Streams configuration for the table.</p>
  */
 export interface AwsDynamoDbTableStreamSpecification {
@@ -3987,6 +4121,7 @@ export interface AwsDynamoDbTableStreamSpecification {
 }
 
 /**
+ * @public
  * <p>Provides details about a DynamoDB table.</p>
  */
 export interface AwsDynamoDbTableDetails {
@@ -4127,6 +4262,7 @@ export interface AwsDynamoDbTableDetails {
 }
 
 /**
+ * @public
  * <p>Information about an Elastic IP address.</p>
  */
 export interface AwsEc2EipDetails {
@@ -4187,6 +4323,7 @@ export interface AwsEc2EipDetails {
 }
 
 /**
+ * @public
  * <p>Metadata options that allow you to configure and secure the Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceMetadataOptions {
@@ -4223,6 +4360,7 @@ export interface AwsEc2InstanceMetadataOptions {
 }
 
 /**
+ * @public
  * <p>Identifies a network interface for the Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceNetworkInterfacesDetails {
@@ -4233,6 +4371,7 @@ export interface AwsEc2InstanceNetworkInterfacesDetails {
 }
 
 /**
+ * @public
  * <p>The details of an Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceDetails {
@@ -4303,6 +4442,7 @@ export interface AwsEc2InstanceDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Parameters for a block device for an Amazon Elastic Block Store (Amazon EBS) volume in an Amazon EC2 launch template.
  *       </p>
@@ -4369,6 +4509,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Information about a block device mapping for an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
  *       </p>
@@ -4408,6 +4549,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Information about the target Capacity Reservation or Capacity Reservation group in which to run an Amazon EC2 instance.
  *       </p>
@@ -4429,6 +4571,7 @@ export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacit
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the Capacity Reservation targeting option of an Amazon EC2 instance.
  *       </p>
@@ -4451,6 +4594,7 @@ export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the CPU options for an Amazon EC2 instance. For more information, see
  *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -4474,6 +4618,7 @@ export interface AwsEc2LaunchTemplateDataCpuOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the credit option for CPU usage of a T2, T3, or T3a Amazon EC2 instance.
  *       </p>
@@ -4488,6 +4633,7 @@ export interface AwsEc2LaunchTemplateDataCreditSpecificationDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about an Elastic Graphics specification for an Amazon EC2 launch template.
  *       </p>
@@ -4502,6 +4648,7 @@ export interface AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details for an Amazon Elastic Inference accelerator.
  *       </p>
@@ -4523,6 +4670,7 @@ export interface AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.
  *       </p>
@@ -4537,6 +4685,7 @@ export interface AwsEc2LaunchTemplateDataEnclaveOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies whether your Amazon EC2 instance is configured for hibernation.
  *       </p>
@@ -4551,6 +4700,7 @@ export interface AwsEc2LaunchTemplateDataHibernationOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details for an Identity and Access Management (IAM) instance profile, which is a container for an IAM role for your instance.
  *       </p>
@@ -4572,6 +4722,7 @@ export interface AwsEc2LaunchTemplateDataIamInstanceProfileDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about the market (purchasing) options for Spot Instances.
  *       </p>
@@ -4614,6 +4765,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about the market (purchasing) option for an Amazon EC2 instance.
  *       </p>
@@ -4635,6 +4787,7 @@ export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on an Amazon EC2 instance.
  *       </p>
@@ -4656,6 +4809,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDet
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum amount of memory, in MiB, for the accelerators on an Amazon EC2 instance.
  *       </p>
@@ -4677,6 +4831,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMem
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum baseline bandwidth to Amazon Elastic Block Store (Amazon EBS), in Mbps. For more information,
  *          see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances </a> in the <i>Amazon EC2 User Guide</i>.
@@ -4699,6 +4854,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidt
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum amount of memory per vCPU, in GiB.
  *       </p>
@@ -4720,6 +4876,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDet
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum amount of memory, in MiB, for an Amazon EC2 instance.
  *       </p>
@@ -4741,6 +4898,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum number of network interfaces to be attached to an Amazon EC2 instance.
  *       </p>
@@ -4762,6 +4920,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCou
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum amount of total local storage, in GB, that an Amazon EC2 instance uses.
  *       </p>
@@ -4783,6 +4942,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGB
 }
 
 /**
+ * @public
  * <p>
  *          The minimum and maximum number of vCPUs for an Amazon EC2 instance.
  *       </p>
@@ -4804,6 +4964,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The attributes for the Amazon EC2 instance types.
  *       </p>
@@ -4962,6 +5123,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about the license configuration for an Amazon EC2 instance.
  *       </p>
@@ -4976,6 +5138,7 @@ export interface AwsEc2LaunchTemplateDataLicenseSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The maintenance options of an Amazon EC2 instance.
  *       </p>
@@ -4990,6 +5153,7 @@ export interface AwsEc2LaunchTemplateDataMaintenanceOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the metadata options for an Amazon EC2 instance.
  *       </p>
@@ -5034,6 +5198,7 @@ export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The monitoring for an Amazon EC2 instance.
  *       </p>
@@ -5050,6 +5215,7 @@ export interface AwsEc2LaunchTemplateDataMonitoringDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details on one or more IPv4 prefixes for a network interface.
  *       </p>
@@ -5064,6 +5230,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails 
 }
 
 /**
+ * @public
  * <p>
  *          Specifies an IPv6 address in an Amazon EC2 launch template.
  *       </p>
@@ -5078,6 +5245,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
 }
 
 /**
+ * @public
  * <p>
  *          Provides details on one or more IPv6 prefixes to be assigned to the network interface.
  *       </p>
@@ -5092,6 +5260,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails 
 }
 
 /**
+ * @public
  * <p>
  *          One or more private IPv4 addresses.
  *       </p>
@@ -5113,6 +5282,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDe
 }
 
 /**
+ * @public
  * <p>
  *          One or more network interfaces to attach to an Amazon EC2 instance. If you specify a network interface, you must specify
  *          security groups and subnets as part of the network interface.
@@ -5266,6 +5436,7 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Provides details about the placement of an Amazon EC2 instance.
  *       </p>
@@ -5329,6 +5500,7 @@ export interface AwsEc2LaunchTemplateDataPlacementDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Describes the options for Amazon EC2 instance hostnames.
  *       </p>
@@ -5357,6 +5529,7 @@ export interface AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails {
 }
 
 /**
+ * @public
  * <p>
  *          The information to include in an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
  *       </p>
@@ -5579,6 +5752,7 @@ export interface AwsEc2LaunchTemplateDataDetails {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
  *       </p>
@@ -5621,6 +5795,7 @@ export interface AwsEc2LaunchTemplateDetails {
 }
 
 /**
+ * @public
  * <p>An association between the network ACL and a subnet.</p>
  */
 export interface AwsEc2NetworkAclAssociation {
@@ -5641,6 +5816,7 @@ export interface AwsEc2NetworkAclAssociation {
 }
 
 /**
+ * @public
  * <p>An Internet Control Message Protocol (ICMP) type and code.</p>
  */
 export interface IcmpTypeCode {
@@ -5658,6 +5834,7 @@ export interface IcmpTypeCode {
 }
 
 /**
+ * @public
  * <p>A range of ports.</p>
  */
 export interface PortRangeFromTo {
@@ -5673,6 +5850,7 @@ export interface PortRangeFromTo {
 }
 
 /**
+ * @public
  * <p>A rule for the network ACL. Each rule allows or denies access based on the IP address, traffic direction, port, and protocol.</p>
  */
 export interface AwsEc2NetworkAclEntry {
@@ -5719,6 +5897,7 @@ export interface AwsEc2NetworkAclEntry {
 }
 
 /**
+ * @public
  * <p>Contains details about an Amazon EC2 network access control list (ACL).</p>
  */
 export interface AwsEc2NetworkAclDetails {
@@ -5754,6 +5933,7 @@ export interface AwsEc2NetworkAclDetails {
 }
 
 /**
+ * @public
  * <p>Information about the network interface attachment.</p>
  */
 export interface AwsEc2NetworkInterfaceAttachment {
@@ -5801,6 +5981,7 @@ export interface AwsEc2NetworkInterfaceAttachment {
 }
 
 /**
+ * @public
  * <p>Provides information about an IPV6 address that is associated with the network
  *          interface.</p>
  */
@@ -5812,6 +5993,7 @@ export interface AwsEc2NetworkInterfaceIpV6AddressDetail {
 }
 
 /**
+ * @public
  * <p>Provides information about a private IPv4 address that is with the network
  *          interface.</p>
  */
@@ -5828,6 +6010,7 @@ export interface AwsEc2NetworkInterfacePrivateIpAddressDetail {
 }
 
 /**
+ * @public
  * <p>A security group associated with the network interface.</p>
  */
 export interface AwsEc2NetworkInterfaceSecurityGroup {
@@ -5843,6 +6026,7 @@ export interface AwsEc2NetworkInterfaceSecurityGroup {
 }
 
 /**
+ * @public
  * <p>Details about the network interface</p>
  */
 export interface AwsEc2NetworkInterfaceDetails {
@@ -5888,6 +6072,7 @@ export interface AwsEc2NetworkInterfaceDetails {
 }
 
 /**
+ * @public
  * <p>A range of IPv4 addresses.</p>
  */
 export interface AwsEc2SecurityGroupIpRange {
@@ -5899,6 +6084,7 @@ export interface AwsEc2SecurityGroupIpRange {
 }
 
 /**
+ * @public
  * <p>A range of IPv6 addresses.</p>
  */
 export interface AwsEc2SecurityGroupIpv6Range {
@@ -5910,6 +6096,7 @@ export interface AwsEc2SecurityGroupIpv6Range {
 }
 
 /**
+ * @public
  * <p>A prefix list ID.</p>
  */
 export interface AwsEc2SecurityGroupPrefixListId {
@@ -5920,6 +6107,7 @@ export interface AwsEc2SecurityGroupPrefixListId {
 }
 
 /**
+ * @public
  * <p>A relationship between a security group and a user.</p>
  */
 export interface AwsEc2SecurityGroupUserIdGroupPair {
@@ -5960,6 +6148,7 @@ export interface AwsEc2SecurityGroupUserIdGroupPair {
 }
 
 /**
+ * @public
  * <p>An IP permission for an EC2 security group.</p>
  */
 export interface AwsEc2SecurityGroupIpPermission {
@@ -6017,6 +6206,7 @@ export interface AwsEc2SecurityGroupIpPermission {
 }
 
 /**
+ * @public
  * <p>Details about an Amazon EC2 security group.</p>
  */
 export interface AwsEc2SecurityGroupDetails {
@@ -6052,6 +6242,7 @@ export interface AwsEc2SecurityGroupDetails {
 }
 
 /**
+ * @public
  * <p>An IPV6 CIDR block association.</p>
  */
 export interface Ipv6CidrBlockAssociation {
@@ -6104,6 +6295,7 @@ export interface Ipv6CidrBlockAssociation {
 }
 
 /**
+ * @public
  * <p>Contains information about a subnet in Amazon EC2.</p>
  */
 export interface AwsEc2SubnetDetails {
@@ -6174,6 +6366,7 @@ export interface AwsEc2SubnetDetails {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon Web Services Amazon EC2 Transit Gateway that interconnects
  * virtual private clouds (VPCs) and on-premises networks.
  *       </p>
@@ -6253,6 +6446,7 @@ export interface AwsEc2TransitGatewayDetails {
 }
 
 /**
+ * @public
  * <p>An attachment to an Amazon EC2 volume.</p>
  */
 export interface AwsEc2VolumeAttachment {
@@ -6305,6 +6499,7 @@ export interface AwsEc2VolumeAttachment {
 }
 
 /**
+ * @public
  * <p>Details about an EC2 volume.</p>
  */
 export interface AwsEc2VolumeDetails {
@@ -6405,6 +6600,7 @@ export interface AwsEc2VolumeDetails {
 }
 
 /**
+ * @public
  * <p>An IPv4 CIDR block association.</p>
  */
 export interface CidrBlockAssociation {
@@ -6425,6 +6621,7 @@ export interface CidrBlockAssociation {
 }
 
 /**
+ * @public
  * <p>Details about an EC2 VPC.</p>
  */
 export interface AwsEc2VpcDetails {
@@ -6452,6 +6649,7 @@ export interface AwsEc2VpcDetails {
 }
 
 /**
+ * @public
  * <p>The service type information for a VPC endpoint service.</p>
  */
 export interface AwsEc2VpcEndpointServiceServiceTypeDetails {
@@ -6462,6 +6660,7 @@ export interface AwsEc2VpcEndpointServiceServiceTypeDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the service configuration for a VPC endpoint service.</p>
  */
 export interface AwsEc2VpcEndpointServiceDetails {
@@ -6549,6 +6748,7 @@ export interface AwsEc2VpcEndpointServiceDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the IPv4 CIDR blocks for the VPC.
  *       </p>
  */
@@ -6561,6 +6761,7 @@ export interface VpcInfoCidrBlockSetDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about the IPv6 CIDR blocks for the VPC.
  *       </p>
  */
@@ -6573,6 +6774,7 @@ export interface VpcInfoIpv6CidrBlockSetDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the VPC peering connection options for the accepter or requester VPC.
  *       </p>
  */
@@ -6597,6 +6799,7 @@ export interface VpcInfoPeeringOptionsDetails {
 }
 
 /**
+ * @public
  * <p>Describes a VPC in a VPC peering connection.
  *       </p>
  */
@@ -6645,6 +6848,7 @@ export interface AwsEc2VpcPeeringConnectionVpcInfoDetails {
 }
 
 /**
+ * @public
  * <p>Details about the status of the VPC peering connection.
  *       </p>
  */
@@ -6663,6 +6867,7 @@ export interface AwsEc2VpcPeeringConnectionStatusDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about a VPC peering connection between two VPCs: a requester VPC that you own and an
  * accepter VPC with which to create the connection.
  *       </p>
@@ -6700,6 +6905,7 @@ export interface AwsEc2VpcPeeringConnectionDetails {
 }
 
 /**
+ * @public
  * <p>The VPN tunnel options.</p>
  */
 export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
@@ -6794,6 +7000,7 @@ export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
 }
 
 /**
+ * @public
  * <p>VPN connection options.</p>
  */
 export interface AwsEc2VpnConnectionOptionsDetails {
@@ -6809,6 +7016,7 @@ export interface AwsEc2VpnConnectionOptionsDetails {
 }
 
 /**
+ * @public
  * <p>A static routes associated with
  *          the VPN connection.</p>
  */
@@ -6825,6 +7033,7 @@ export interface AwsEc2VpnConnectionRoutesDetails {
 }
 
 /**
+ * @public
  * <p>Information about the VPN tunnel.</p>
  */
 export interface AwsEc2VpnConnectionVgwTelemetryDetails {
@@ -6864,6 +7073,7 @@ export interface AwsEc2VpnConnectionVgwTelemetryDetails {
 }
 
 /**
+ * @public
  * <p>Details about an Amazon EC2 VPN
  *          connection.</p>
  */
@@ -6950,6 +7160,7 @@ export interface AwsEc2VpnConnectionDetails {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon ECR image.</p>
  */
 export interface AwsEcrContainerImageDetails {
@@ -7006,6 +7217,7 @@ export interface AwsEcrContainerImageDetails {
 }
 
 /**
+ * @public
  * <p>The image scanning configuration for a repository.</p>
  */
 export interface AwsEcrRepositoryImageScanningConfigurationDetails {
@@ -7016,6 +7228,7 @@ export interface AwsEcrRepositoryImageScanningConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Information about the lifecycle policy for the repository.</p>
  */
 export interface AwsEcrRepositoryLifecyclePolicyDetails {
@@ -7031,6 +7244,7 @@ export interface AwsEcrRepositoryLifecyclePolicyDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about an Amazon Elastic Container Registry repository.</p>
  */
 export interface AwsEcrRepositoryDetails {
@@ -7066,6 +7280,7 @@ export interface AwsEcrRepositoryDetails {
 }
 
 /**
+ * @public
  * <p>Indicates whether to enable CloudWatch Container Insights for the ECS cluster.</p>
  */
 export interface AwsEcsClusterClusterSettingsDetails {
@@ -7081,6 +7296,7 @@ export interface AwsEcsClusterClusterSettingsDetails {
 }
 
 /**
+ * @public
  * <p>The log configuration for the results of the run command actions.</p>
  */
 export interface AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails {
@@ -7111,6 +7327,7 @@ export interface AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigu
 }
 
 /**
+ * @public
  * <p>Contains the run command configuration for the cluster.</p>
  */
 export interface AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
@@ -7131,6 +7348,7 @@ export interface AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>The run command configuration for the cluster.</p>
  */
 export interface AwsEcsClusterConfigurationDetails {
@@ -7141,6 +7359,7 @@ export interface AwsEcsClusterConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.</p>
  */
 export interface AwsEcsClusterDefaultCapacityProviderStrategyDetails {
@@ -7161,6 +7380,7 @@ export interface AwsEcsClusterDefaultCapacityProviderStrategyDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an Amazon ECS cluster.</p>
  */
 export interface AwsEcsClusterDetails {
@@ -7224,6 +7444,7 @@ export interface AwsEcsClusterDetails {
 }
 
 /**
+ * @public
  * <p>Details for a volume mount point that's used in a container definition.
  *       </p>
  */
@@ -7243,6 +7464,7 @@ export interface AwsMountPoint {
 }
 
 /**
+ * @public
  * <p>Provides information about an Amazon ECS container.
  *       </p>
  */
@@ -7274,6 +7496,7 @@ export interface AwsEcsContainerDetails {
 }
 
 /**
+ * @public
  * <p>Strategy item for the capacity provider strategy that the service uses.</p>
  */
 export interface AwsEcsServiceCapacityProviderStrategyDetails {
@@ -7297,6 +7520,7 @@ export interface AwsEcsServiceCapacityProviderStrategyDetails {
 }
 
 /**
+ * @public
  * <p>Determines whether a service deployment fails if a service cannot reach a steady state.</p>
  */
 export interface AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails {
@@ -7312,6 +7536,7 @@ export interface AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDet
 }
 
 /**
+ * @public
  * <p>Optional deployment parameters for the service.</p>
  */
 export interface AwsEcsServiceDeploymentConfigurationDetails {
@@ -7336,6 +7561,7 @@ export interface AwsEcsServiceDeploymentConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Information about the deployment controller type that the service uses.</p>
  */
 export interface AwsEcsServiceDeploymentControllerDetails {
@@ -7350,6 +7576,7 @@ export interface AwsEcsServiceDeploymentControllerDetails {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer that the service uses.</p>
  */
 export interface AwsEcsServiceLoadBalancersDetails {
@@ -7377,6 +7604,7 @@ export interface AwsEcsServiceLoadBalancersDetails {
 }
 
 /**
+ * @public
  * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
  */
 export interface AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
@@ -7401,6 +7629,7 @@ export interface AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
  */
 export interface AwsEcsServiceNetworkConfigurationDetails {
@@ -7411,6 +7640,7 @@ export interface AwsEcsServiceNetworkConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>A placement constraint for the tasks in the service.</p>
  */
 export interface AwsEcsServicePlacementConstraintsDetails {
@@ -7428,6 +7658,7 @@ export interface AwsEcsServicePlacementConstraintsDetails {
 }
 
 /**
+ * @public
  * <p>A placement strategy that determines how to place the tasks for the service.</p>
  */
 export interface AwsEcsServicePlacementStrategiesDetails {
@@ -7451,6 +7682,7 @@ export interface AwsEcsServicePlacementStrategiesDetails {
 }
 
 /**
+ * @public
  * <p>Information about a service discovery registry to assign to the service.</p>
  */
 export interface AwsEcsServiceServiceRegistriesDetails {
@@ -7480,6 +7712,7 @@ export interface AwsEcsServiceServiceRegistriesDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about a service within an ECS cluster.</p>
  */
 export interface AwsEcsServiceDetails {
@@ -7604,6 +7837,7 @@ export interface AwsEcsServiceDetails {
 }
 
 /**
+ * @public
  * <p>A dependency that is defined for container startup and shutdown.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
@@ -7641,6 +7875,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
 }
 
 /**
+ * @public
  * <p>An environment variable to pass to the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
@@ -7656,6 +7891,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
 }
 
 /**
+ * @public
  * <p>A file that contain environment variables to pass to a container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails {
@@ -7671,6 +7907,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
 }
 
 /**
+ * @public
  * <p>A hostname and IP address mapping to append to the <b>/etc/hosts</b> file on the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
@@ -7686,6 +7923,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
 }
 
 /**
+ * @public
  * <p>The FireLens configuration for the container. The configuration specifies and configures a log router for container logs.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
@@ -7718,6 +7956,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDe
 }
 
 /**
+ * @public
  * <p>The container health check command and associated configuration parameters for the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
@@ -7748,6 +7987,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
 }
 
 /**
+ * @public
  * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
@@ -7791,6 +8031,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabili
 }
 
 /**
+ * @public
  * <p>A host device to expose to the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
@@ -7811,6 +8052,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesD
 }
 
 /**
+ * @public
  * <p>The container path, mount options, and size (in MiB) of a tmpfs mount.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
@@ -7844,6 +8086,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDet
 }
 
 /**
+ * @public
  * <p>>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
@@ -7884,6 +8127,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails 
 }
 
 /**
+ * @public
  * <p>A secret to pass to the log configuration.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
@@ -7901,6 +8145,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretO
 }
 
 /**
+ * @public
  * <p>The log configuration specification for the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
@@ -7987,6 +8232,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
 }
 
 /**
+ * @public
  * <p>A mount point for the data volumes in the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
@@ -8007,6 +8253,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
 }
 
 /**
+ * @public
  * <p>A port mapping for the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
@@ -8027,6 +8274,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
 }
 
 /**
+ * @public
  * <p>The private repository authentication credentials to use.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
@@ -8037,6 +8285,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDe
 }
 
 /**
+ * @public
  * <p>A resource to assign to a container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
@@ -8056,6 +8305,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDet
 }
 
 /**
+ * @public
  * <p>A secret to pass to the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
@@ -8072,6 +8322,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
 }
 
 /**
+ * @public
  * <p>A namespaced kernel parameter to set in the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
@@ -8087,6 +8338,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
 }
 
 /**
+ * @public
  * <p>A ulimit to set in the container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
@@ -8184,6 +8436,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
 }
 
 /**
+ * @public
  * <p>A data volume to mount from another container.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
@@ -8199,6 +8452,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
 }
 
 /**
+ * @public
  * <p>A container definition that describes a container in the task.</p>
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
@@ -8454,6 +8708,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
 }
 
 /**
+ * @public
  * <p>An Elastic Inference accelerator to use
  *          for the containers in the task.</p>
  */
@@ -8470,6 +8725,7 @@ export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
 }
 
 /**
+ * @public
  * <p>A placement constraint object to use for tasks.</p>
  */
 export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
@@ -8485,6 +8741,7 @@ export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
 }
 
 /**
+ * @public
  * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
  */
 export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
@@ -8500,6 +8757,7 @@ export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropert
 }
 
 /**
+ * @public
  * <p>The configuration details for the App Mesh
  *          proxy.</p>
  */
@@ -8521,6 +8779,7 @@ export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Information about a Docker volume.</p>
  */
 export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
@@ -8552,6 +8811,7 @@ export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
@@ -8567,6 +8827,7 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationC
 }
 
 /**
+ * @public
  * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
  */
 export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
@@ -8597,6 +8858,7 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
 }
 
 /**
+ * @public
  * <p>Information about a bind mount host volume.</p>
  */
 export interface AwsEcsTaskDefinitionVolumesHostDetails {
@@ -8607,6 +8869,7 @@ export interface AwsEcsTaskDefinitionVolumesHostDetails {
 }
 
 /**
+ * @public
  * <p>A data volume to mount from another container.</p>
  */
 export interface AwsEcsTaskDefinitionVolumesDetails {
@@ -8632,6 +8895,7 @@ export interface AwsEcsTaskDefinitionVolumesDetails {
 }
 
 /**
+ * @public
  * <p>Details about a task definition. A task definition describes the container and volume definitions
  *          of an Amazon Elastic Container Service task.</p>
  */
@@ -8778,6 +9042,7 @@ export interface AwsEcsTaskDefinitionDetails {
 }
 
 /**
+ * @public
  * <p>Provides details on a container instance bind mount host volume.
  *       </p>
  */
@@ -8791,6 +9056,7 @@ export interface AwsEcsTaskVolumeHostDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about a data volume that's used in a task definition.
  *       </p>
  */
@@ -8811,6 +9077,7 @@ export interface AwsEcsTaskVolumeDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about a task in a cluster.
  *       </p>
  */
@@ -8874,6 +9141,7 @@ export interface AwsEcsTaskDetails {
 }
 
 /**
+ * @public
  * <p>Provides details for all file system operations using this Amazon EFS access point.
  *       </p>
  */
@@ -8898,6 +9166,7 @@ export interface AwsEfsAccessPointPosixUserDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the settings that Amazon EFS uses to create the root directory
  * when a client connects to an access point.
  *       </p>
@@ -8924,6 +9193,7 @@ export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about the directory on the Amazon EFS file system that the access point exposes
  * as the root directory to NFS clients using the access point.
  *       </p>
@@ -8945,6 +9215,7 @@ export interface AwsEfsAccessPointRootDirectoryDetails {
 }
 
 /**
+ * @public
  * <p>Provides information about an Amazon EFS access point.
  *       </p>
  */
@@ -8988,6 +9259,7 @@ export interface AwsEfsAccessPointDetails {
 }
 
 /**
+ * @public
  * <p>Details for a cluster logging configuration.</p>
  */
 export interface AwsEksClusterLoggingClusterLoggingDetails {
@@ -9030,6 +9302,7 @@ export interface AwsEksClusterLoggingClusterLoggingDetails {
 }
 
 /**
+ * @public
  * <p>The logging configuration for an Amazon EKS cluster.</p>
  */
 export interface AwsEksClusterLoggingDetails {
@@ -9040,6 +9313,7 @@ export interface AwsEksClusterLoggingDetails {
 }
 
 /**
+ * @public
  * <p>Information about the VPC configuration used by the cluster control plane.</p>
  */
 export interface AwsEksClusterResourcesVpcConfigDetails {
@@ -9055,6 +9329,7 @@ export interface AwsEksClusterResourcesVpcConfigDetails {
 }
 
 /**
+ * @public
  * <p>Provides details about an Amazon EKS cluster.</p>
  */
 export interface AwsEksClusterDetails {
@@ -9137,6 +9412,7 @@ export interface AwsEksClusterDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about a link to another environment that is in the same group.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
@@ -9152,6 +9428,7 @@ export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
 }
 
 /**
+ * @public
  * <p>A configuration option setting for the environment.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentOptionSetting {
@@ -9177,6 +9454,7 @@ export interface AwsElasticBeanstalkEnvironmentOptionSetting {
 }
 
 /**
+ * @public
  * <p>Contains information about the tier of the environment.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentTier {
@@ -9197,6 +9475,7 @@ export interface AwsElasticBeanstalkEnvironmentTier {
 }
 
 /**
+ * @public
  * <p>Contains details about an Elastic Beanstalk environment.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentDetails {
@@ -9324,6 +9603,7 @@ export interface AwsElasticBeanstalkEnvironmentDetails {
 }
 
 /**
+ * @public
  * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
  *          traffic.</p>
  */
@@ -9352,6 +9632,7 @@ export interface AwsElasticsearchDomainDomainEndpointOptions {
 }
 
 /**
+ * @public
  * <p>Configuration options for zone awareness.</p>
  */
 export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails {
@@ -9362,6 +9643,7 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessCo
 }
 
 /**
+ * @public
  * <p>details about the configuration of an OpenSearch cluster.</p>
  */
 export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
@@ -9404,6 +9686,7 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
 }
 
 /**
+ * @public
  * <p>Details about the configuration for encryption at rest.</p>
  */
 export interface AwsElasticsearchDomainEncryptionAtRestOptions {
@@ -9419,6 +9702,7 @@ export interface AwsElasticsearchDomainEncryptionAtRestOptions {
 }
 
 /**
+ * @public
  * <p>The log configuration.</p>
  */
 export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
@@ -9434,6 +9718,7 @@ export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
 }
 
 /**
+ * @public
  * <p>configures the CloudWatch Logs to publish for the
  *          Elasticsearch domain.</p>
  */
@@ -9457,6 +9742,7 @@ export interface AwsElasticsearchDomainLogPublishingOptions {
 }
 
 /**
+ * @public
  * <p>Details about the configuration for node-to-node encryption.</p>
  */
 export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
@@ -9467,6 +9753,7 @@ export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
 }
 
 /**
+ * @public
  * <p>Information about the state of the domain relative to the latest service software.</p>
  */
 export interface AwsElasticsearchDomainServiceSoftwareOptions {
@@ -9535,6 +9822,7 @@ export interface AwsElasticsearchDomainServiceSoftwareOptions {
 }
 
 /**
+ * @public
  * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
  *          domain.</p>
  */
@@ -9561,6 +9849,7 @@ export interface AwsElasticsearchDomainVPCOptions {
 }
 
 /**
+ * @public
  * <p>Information about an Elasticsearch domain.</p>
  */
 export interface AwsElasticsearchDomainDetails {
@@ -9639,6 +9928,7 @@ export interface AwsElasticsearchDomainDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about a stickiness policy that was created using
  *             <code>CreateAppCookieStickinessPolicy</code>.</p>
  */
@@ -9656,6 +9946,7 @@ export interface AwsElbAppCookieStickinessPolicy {
 }
 
 /**
+ * @public
  * <p>Contains information about a stickiness policy that was created using
  *             <code>CreateLBCookieStickinessPolicy</code>.</p>
  */
@@ -9675,6 +9966,7 @@ export interface AwsElbLbCookieStickinessPolicy {
 }
 
 /**
+ * @public
  * <p>Contains information about the access log configuration for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerAccessLog {
@@ -9702,6 +9994,7 @@ export interface AwsElbLoadBalancerAccessLog {
 }
 
 /**
+ * @public
  * <p>Provides information about additional attributes for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerAdditionalAttribute {
@@ -9717,6 +10010,7 @@ export interface AwsElbLoadBalancerAdditionalAttribute {
 }
 
 /**
+ * @public
  * <p>Contains information about the connection draining configuration for the load
  *          balancer.</p>
  */
@@ -9734,6 +10028,7 @@ export interface AwsElbLoadBalancerConnectionDraining {
 }
 
 /**
+ * @public
  * <p>Contains connection settings for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerConnectionSettings {
@@ -9745,6 +10040,7 @@ export interface AwsElbLoadBalancerConnectionSettings {
 }
 
 /**
+ * @public
  * <p>Contains cross-zone load balancing settings for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerCrossZoneLoadBalancing {
@@ -9755,6 +10051,7 @@ export interface AwsElbLoadBalancerCrossZoneLoadBalancing {
 }
 
 /**
+ * @public
  * <p>Contains attributes for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerAttributes {
@@ -9794,6 +10091,7 @@ export interface AwsElbLoadBalancerAttributes {
 }
 
 /**
+ * @public
  * <p>Provides information about the configuration of an EC2 instance for the load
  *          balancer.</p>
  */
@@ -9810,6 +10108,7 @@ export interface AwsElbLoadBalancerBackendServerDescription {
 }
 
 /**
+ * @public
  * <p>Contains information about the health checks that are conducted on the load
  *          balancer.</p>
  */
@@ -9859,6 +10158,7 @@ export interface AwsElbLoadBalancerHealthCheck {
 }
 
 /**
+ * @public
  * <p>Provides information about an EC2 instance for a load balancer.</p>
  */
 export interface AwsElbLoadBalancerInstance {
@@ -9869,6 +10169,7 @@ export interface AwsElbLoadBalancerInstance {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer listener.</p>
  */
 export interface AwsElbLoadBalancerListener {
@@ -9908,6 +10209,7 @@ export interface AwsElbLoadBalancerListener {
 }
 
 /**
+ * @public
  * <p>Lists the policies that are enabled for a load balancer listener.</p>
  */
 export interface AwsElbLoadBalancerListenerDescription {
@@ -9923,6 +10225,7 @@ export interface AwsElbLoadBalancerListenerDescription {
 }
 
 /**
+ * @public
  * <p>Contains information about the policies for a load balancer.</p>
  */
 export interface AwsElbLoadBalancerPolicies {
@@ -9945,6 +10248,7 @@ export interface AwsElbLoadBalancerPolicies {
 }
 
 /**
+ * @public
  * <p>Contains information about the security group for the load balancer.</p>
  */
 export interface AwsElbLoadBalancerSourceSecurityGroup {
@@ -9960,6 +10264,7 @@ export interface AwsElbLoadBalancerSourceSecurityGroup {
 }
 
 /**
+ * @public
  * <p>Contains details about a Classic Load Balancer.</p>
  */
 export interface AwsElbLoadBalancerDetails {
@@ -10059,6 +10364,7 @@ export interface AwsElbLoadBalancerDetails {
 }
 
 /**
+ * @public
  * <p>A load balancer attribute.</p>
  */
 export interface AwsElbv2LoadBalancerAttribute {
@@ -10074,6 +10380,7 @@ export interface AwsElbv2LoadBalancerAttribute {
 }
 
 /**
+ * @public
  * <p>Information about the state of the load balancer.</p>
  */
 export interface LoadBalancerState {
@@ -10092,6 +10399,7 @@ export interface LoadBalancerState {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer.</p>
  */
 export interface AwsElbv2LoadBalancerDetails {
@@ -10157,6 +10465,7 @@ export interface AwsElbv2LoadBalancerDetails {
 }
 
 /**
+ * @public
  * <p>Attributes of the session that the key was used for.</p>
  */
 export interface AwsIamAccessKeySessionContextAttributes {
@@ -10175,6 +10484,7 @@ export interface AwsIamAccessKeySessionContextAttributes {
 }
 
 /**
+ * @public
  * <p>Information about the entity that created the session.</p>
  */
 export interface AwsIamAccessKeySessionContextSessionIssuer {
@@ -10206,6 +10516,7 @@ export interface AwsIamAccessKeySessionContextSessionIssuer {
 }
 
 /**
+ * @public
  * <p>Provides information about the session that the key was used for.</p>
  */
 export interface AwsIamAccessKeySessionContext {
@@ -10220,12 +10531,16 @@ export interface AwsIamAccessKeySessionContext {
   SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
 }
 
+/**
+ * @public
+ */
 export enum AwsIamAccessKeyStatus {
   ACTIVE = "Active",
   INACTIVE = "Inactive",
 }
 
 /**
+ * @public
  * <p>IAM access key details related to a finding.</p>
  */
 export interface AwsIamAccessKeyDetails {
@@ -10284,6 +10599,7 @@ export interface AwsIamAccessKeyDetails {
 }
 
 /**
+ * @public
  * <p>A managed policy that is attached to an IAM principal.</p>
  */
 export interface AwsIamAttachedManagedPolicy {

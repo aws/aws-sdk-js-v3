@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLinksCommand}.
  */
 export interface GetLinksCommandInput extends GetLinksRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLinksCommand}.
  */
 export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more links in a specified global network.</p>
  *          <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLinksCommandInput - {@link GetLinksCommandInput}
+ * @returns {@link GetLinksCommandOutput}
  * @see {@link GetLinksCommandInput} for command's `input` shape.
  * @see {@link GetLinksCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetLinksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLinksCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetLinksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLinksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinksCommandOutput> {
     return deserializeAws_restJson1GetLinksCommand(output, context);
   }

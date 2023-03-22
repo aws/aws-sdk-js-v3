@@ -10,7 +10,7 @@ import {
 import { AppRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppRunnerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListObservabilityConfigurationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListObservabilityConfigurations(
   config: AppRunnerPaginationConfiguration,
   input: ListObservabilityConfigurationsCommandInput,

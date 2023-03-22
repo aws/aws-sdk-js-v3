@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteImportDataCommand}.
  */
 export interface BatchDeleteImportDataCommandInput extends BatchDeleteImportDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteImportDataCommand}.
  */
 export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
  *       a number of records that can identify servers or applications. </p>
  *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
@@ -56,6 +61,8 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteImportDataCommandInput - {@link BatchDeleteImportDataCommandInput}
+ * @returns {@link BatchDeleteImportDataCommandOutput}
  * @see {@link BatchDeleteImportDataCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteImportDataCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -96,6 +103,9 @@ export class BatchDeleteImportDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteImportDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class BatchDeleteImportDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteImportDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteImportDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteImportDataCommandOutput> {
     return deserializeAws_json1_1BatchDeleteImportDataCommand(output, context);
   }

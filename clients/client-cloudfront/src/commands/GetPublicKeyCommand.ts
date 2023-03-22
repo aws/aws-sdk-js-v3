@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetPublicKeyCommand}.
  */
 export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPublicKeyCommand}.
  */
 export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a public key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
+ * @returns {@link GetPublicKeyCommandOutput}
  * @see {@link GetPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicKeyCommandOutput> {
     return deserializeAws_restXmlGetPublicKeyCommand(output, context);
   }

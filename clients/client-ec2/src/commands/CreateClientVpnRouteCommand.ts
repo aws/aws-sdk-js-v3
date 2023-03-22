@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClientVpnRouteCommand}.
  */
 export interface CreateClientVpnRouteCommandInput extends CreateClientVpnRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateClientVpnRouteCommand}.
  */
 export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the
  * 			available destination network routes. Each route in the route table specifies the path for traﬃc to speciﬁc resources or networks.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClientVpnRouteCommandInput - {@link CreateClientVpnRouteCommandInput}
+ * @returns {@link CreateClientVpnRouteCommandOutput}
  * @see {@link CreateClientVpnRouteCommandInput} for command's `input` shape.
  * @see {@link CreateClientVpnRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class CreateClientVpnRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClientVpnRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class CreateClientVpnRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClientVpnRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateClientVpnRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClientVpnRouteCommandOutput> {
     return deserializeAws_ec2CreateClientVpnRouteCommand(output, context);
   }

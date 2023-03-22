@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelMessageCommand}.
  */
 export interface GetChannelMessageCommandInput extends GetChannelMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelMessageCommand}.
  */
 export interface GetChannelMessageCommandOutput extends GetChannelMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the full details of a channel message.</p>
  *          <note>
  *             <p>The x-amz-chime-bearer request header is mandatory. Use the
@@ -55,6 +60,8 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelMessageCommandInput - {@link GetChannelMessageCommandInput}
+ * @returns {@link GetChannelMessageCommandOutput}
  * @see {@link GetChannelMessageCommandInput} for command's `input` shape.
  * @see {@link GetChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelMessageCommandOutput> {
     return deserializeAws_restJson1GetChannelMessageCommand(output, context);
   }

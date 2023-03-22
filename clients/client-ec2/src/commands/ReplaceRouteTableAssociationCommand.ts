@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReplaceRouteTableAssociationCommand}.
  */
 export interface ReplaceRouteTableAssociationCommandInput extends ReplaceRouteTableAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplaceRouteTableAssociationCommand}.
  */
 export interface ReplaceRouteTableAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface ReplaceRouteTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation
  *         completes, the subnet or gateway uses the routes in the new route table. For more
  *         information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
@@ -52,6 +57,8 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceRouteTableAssociationCommandInput - {@link ReplaceRouteTableAssociationCommandInput}
+ * @returns {@link ReplaceRouteTableAssociationCommandOutput}
  * @see {@link ReplaceRouteTableAssociationCommandInput} for command's `input` shape.
  * @see {@link ReplaceRouteTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -92,6 +99,9 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceRouteTableAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceRouteTableAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ReplaceRouteTableAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVaultCommand}.
  */
 export interface DescribeVaultCommandInput extends DescribeVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVaultCommand}.
  */
 export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns information about a vault, including the vault's Amazon
  *          Resource Name (ARN), the date the vault was created, the number of archives it contains,
  *          and the total size of all the archives in the vault. The number of archives and their total
@@ -63,6 +68,8 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVaultCommandInput - {@link DescribeVaultCommandInput}
+ * @returns {@link DescribeVaultCommandOutput}
  * @see {@link DescribeVaultCommandInput} for command's `input` shape.
  * @see {@link DescribeVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -120,6 +127,9 @@ export class DescribeVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class DescribeVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVaultCommandOutput> {
     return deserializeAws_restJson1DescribeVaultCommand(output, context);
   }

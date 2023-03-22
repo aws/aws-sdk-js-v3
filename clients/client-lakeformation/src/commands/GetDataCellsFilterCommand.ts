@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataCellsFilterCommand}.
  */
 export interface GetDataCellsFilterCommandInput extends GetDataCellsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataCellsFilterCommand}.
  */
 export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a data cells filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataCellsFilterCommandInput - {@link GetDataCellsFilterCommandInput}
+ * @returns {@link GetDataCellsFilterCommandOutput}
  * @see {@link GetDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link GetDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetDataCellsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetDataCellsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataCellsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataCellsFilterCommandOutput> {
     return deserializeAws_restJson1GetDataCellsFilterCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateResolverQueryLogConfigCommand}.
  */
 export interface AssociateResolverQueryLogConfigCommandInput extends AssociateResolverQueryLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateResolverQueryLogConfigCommand}.
  */
 export interface AssociateResolverQueryLogConfigCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateResolverQueryLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs
  * 			that are associated with a specified query logging configuration. To associate more than one VPC with a configuration, submit one <code>AssociateResolverQueryLogConfig</code>
  * 			request for each VPC.</p>
@@ -56,6 +61,8 @@ export interface AssociateResolverQueryLogConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResolverQueryLogConfigCommandInput - {@link AssociateResolverQueryLogConfigCommandInput}
+ * @returns {@link AssociateResolverQueryLogConfigCommandOutput}
  * @see {@link AssociateResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -103,6 +110,9 @@ export class AssociateResolverQueryLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResolverQueryLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class AssociateResolverQueryLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateResolverQueryLogConfigCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class AssociateResolverQueryLogConfigCommand extends $Command<
     return serializeAws_json1_1AssociateResolverQueryLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

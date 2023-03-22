@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketEncryptionCommand}.
  */
 export interface GetBucketEncryptionCommandInput extends GetBucketEncryptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketEncryptionCommand}.
  */
 export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default encryption configuration for an Amazon S3 bucket. If the bucket does not
  *          have a default encryption configuration, GetBucketEncryption returns
  *          <code>ServerSideEncryptionConfigurationNotFoundError</code>. </p>
@@ -67,6 +72,8 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketEncryptionCommandInput - {@link GetBucketEncryptionCommandInput}
+ * @returns {@link GetBucketEncryptionCommandOutput}
  * @see {@link GetBucketEncryptionCommandInput} for command's `input` shape.
  * @see {@link GetBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -96,6 +103,9 @@ export class GetBucketEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class GetBucketEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketEncryptionCommandOutput> {
     return deserializeAws_restXmlGetBucketEncryptionCommand(output, context);
   }

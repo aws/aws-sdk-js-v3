@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchPlaceIndexForTextCommand}.
  */
 export interface SearchPlaceIndexForTextCommandInput extends SearchPlaceIndexForTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchPlaceIndexForTextCommand}.
  */
 export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexForTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Geocodes free-form text, such as an address, name, city, or region to allow you to
  *             search for Places or points of interest. </p>
  *          <p>Optional parameters let you narrow your search results by bounding box or country, or
@@ -55,6 +60,8 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchPlaceIndexForTextCommandInput - {@link SearchPlaceIndexForTextCommandInput}
+ * @returns {@link SearchPlaceIndexForTextCommandOutput}
  * @see {@link SearchPlaceIndexForTextCommandInput} for command's `input` shape.
  * @see {@link SearchPlaceIndexForTextCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -94,6 +101,9 @@ export class SearchPlaceIndexForTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchPlaceIndexForTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class SearchPlaceIndexForTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchPlaceIndexForTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchPlaceIndexForTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchPlaceIndexForTextCommandOutput> {
     return deserializeAws_restJson1SearchPlaceIndexForTextCommand(output, context);
   }

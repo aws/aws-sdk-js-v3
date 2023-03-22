@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelManifestCommand}.
  */
 export interface CreateModelManifestCommandInput extends CreateModelManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelManifestCommand}.
  */
 export interface CreateModelManifestCommandOutput extends CreateModelManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a vehicle model (model manifest) that specifies signals (attributes,
  *             branches, sensors, and actuators). </p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html">Vehicle models</a>
@@ -49,6 +54,8 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelManifestCommandInput - {@link CreateModelManifestCommandInput}
+ * @returns {@link CreateModelManifestCommandOutput}
  * @see {@link CreateModelManifestCommandInput} for command's `input` shape.
  * @see {@link CreateModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateModelManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateModelManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateModelManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelManifestCommandOutput> {
     return deserializeAws_json1_0CreateModelManifestCommand(output, context);
   }

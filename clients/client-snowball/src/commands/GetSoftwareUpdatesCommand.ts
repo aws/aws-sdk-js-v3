@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSoftwareUpdatesCommand}.
  */
 export interface GetSoftwareUpdatesCommandInput extends GetSoftwareUpdatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSoftwareUpdatesCommand}.
  */
 export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an Amazon S3 presigned URL for an update file associated with a specified
  *         <code>JobId</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSoftwareUpdatesCommandInput - {@link GetSoftwareUpdatesCommandInput}
+ * @returns {@link GetSoftwareUpdatesCommandOutput}
  * @see {@link GetSoftwareUpdatesCommandInput} for command's `input` shape.
  * @see {@link GetSoftwareUpdatesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetSoftwareUpdatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSoftwareUpdatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetSoftwareUpdatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSoftwareUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSoftwareUpdatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSoftwareUpdatesCommandOutput> {
     return deserializeAws_json1_1GetSoftwareUpdatesCommand(output, context);
   }

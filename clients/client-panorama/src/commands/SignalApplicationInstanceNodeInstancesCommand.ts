@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SignalApplicationInstanceNodeInstancesCommand}.
  */
 export interface SignalApplicationInstanceNodeInstancesCommandInput
   extends SignalApplicationInstanceNodeInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SignalApplicationInstanceNodeInstancesCommand}.
  */
 export interface SignalApplicationInstanceNodeInstancesCommandOutput
@@ -38,6 +42,7 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Signal camera nodes to stop or resume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SignalApplicationInstanceNodeInstancesCommandInput - {@link SignalApplicationInstanceNodeInstancesCommandInput}
+ * @returns {@link SignalApplicationInstanceNodeInstancesCommandOutput}
  * @see {@link SignalApplicationInstanceNodeInstancesCommandInput} for command's `input` shape.
  * @see {@link SignalApplicationInstanceNodeInstancesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +91,9 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SignalApplicationInstanceNodeInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SignalApplicationInstanceNodeInstancesCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command<
     return serializeAws_restJson1SignalApplicationInstanceNodeInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainConfigurationCommand}.
  */
 export interface CreateDomainConfigurationCommandInput extends CreateDomainConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainConfigurationCommand}.
  */
 export interface CreateDomainConfigurationCommandOutput extends CreateDomainConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a domain configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDomainConfiguration</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainConfigurationCommandInput - {@link CreateDomainConfigurationCommandInput}
+ * @returns {@link CreateDomainConfigurationCommandOutput}
  * @see {@link CreateDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateDomainConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateDomainConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDomainConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

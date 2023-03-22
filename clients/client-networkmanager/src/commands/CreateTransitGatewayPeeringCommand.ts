@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayPeeringCommand}.
  */
 export interface CreateTransitGatewayPeeringCommandInput extends CreateTransitGatewayPeeringRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayPeeringCommand}.
  */
 export interface CreateTransitGatewayPeeringCommandOutput
@@ -37,6 +41,7 @@ export interface CreateTransitGatewayPeeringCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a transit gateway peering connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateTransitGatewayPeeringCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayPeeringCommandInput - {@link CreateTransitGatewayPeeringCommandInput}
+ * @returns {@link CreateTransitGatewayPeeringCommandOutput}
  * @see {@link CreateTransitGatewayPeeringCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayPeeringCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateTransitGatewayPeeringCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayPeeringCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateTransitGatewayPeeringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTransitGatewayPeeringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTransitGatewayPeeringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

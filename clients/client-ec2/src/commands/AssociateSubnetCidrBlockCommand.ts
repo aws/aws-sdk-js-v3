@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSubnetCidrBlockCommand}.
  */
 export interface AssociateSubnetCidrBlockCommandInput extends AssociateSubnetCidrBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSubnetCidrBlockCommand}.
  */
 export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCidrBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR
  *             block with your subnet. An IPv6 CIDR block must have a prefix length of /64.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSubnetCidrBlockCommandInput - {@link AssociateSubnetCidrBlockCommandInput}
+ * @returns {@link AssociateSubnetCidrBlockCommandOutput}
  * @see {@link AssociateSubnetCidrBlockCommandInput} for command's `input` shape.
  * @see {@link AssociateSubnetCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSubnetCidrBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSubnetCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateSubnetCidrBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSubnetCidrBlockCommandOutput> {
     return deserializeAws_ec2AssociateSubnetCidrBlockCommand(output, context);
   }

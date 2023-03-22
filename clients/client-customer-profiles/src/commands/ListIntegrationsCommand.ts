@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIntegrationsCommand}.
  */
 export interface ListIntegrationsCommandInput extends ListIntegrationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIntegrationsCommand}.
  */
 export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the integrations in your domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIntegrationsCommandInput - {@link ListIntegrationsCommandInput}
+ * @returns {@link ListIntegrationsCommandOutput}
  * @see {@link ListIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListIntegrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIntegrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListIntegrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIntegrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIntegrationsCommandOutput> {
     return deserializeAws_restJson1ListIntegrationsCommand(output, context);
   }

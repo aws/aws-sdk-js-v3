@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSystemTemplateCommand}.
  */
 export interface CreateSystemTemplateCommandInput extends CreateSystemTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSystemTemplateCommand}.
  */
 export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Creates a system. The system is validated against the entities in the
@@ -49,6 +54,8 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSystemTemplateCommandInput - {@link CreateSystemTemplateCommandInput}
+ * @returns {@link CreateSystemTemplateCommandOutput}
  * @see {@link CreateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateSystemTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSystemTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateSystemTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSystemTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSystemTemplateCommandOutput> {
     return deserializeAws_json1_1CreateSystemTemplateCommand(output, context);
   }

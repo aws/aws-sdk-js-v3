@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSiteToSiteVpnAttachmentCommand}.
  */
 export interface GetSiteToSiteVpnAttachmentCommandInput extends GetSiteToSiteVpnAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSiteToSiteVpnAttachmentCommand}.
  */
 export interface GetSiteToSiteVpnAttachmentCommandOutput extends GetSiteToSiteVpnAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a site-to-site VPN attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSiteToSiteVpnAttachmentCommandOutput extends GetSiteToSiteVp
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSiteToSiteVpnAttachmentCommandInput - {@link GetSiteToSiteVpnAttachmentCommandInput}
+ * @returns {@link GetSiteToSiteVpnAttachmentCommandOutput}
  * @see {@link GetSiteToSiteVpnAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetSiteToSiteVpnAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetSiteToSiteVpnAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSiteToSiteVpnAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetSiteToSiteVpnAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSiteToSiteVpnAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSiteToSiteVpnAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

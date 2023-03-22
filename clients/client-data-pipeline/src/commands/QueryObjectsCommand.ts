@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link QueryObjectsCommand}.
  */
 export interface QueryObjectsCommandInput extends QueryObjectsInput {}
 /**
+ * @public
+ *
  * The output of {@link QueryObjectsCommand}.
  */
 export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Queries the specified pipeline for the names of objects that match the specified set of conditions.</p>
  *
  *         <examples>
@@ -48,15 +53,15 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"pipelineId": "df-06372391ZG65EXAMPLE",
+ * \{"pipelineId": "df-06372391ZG65EXAMPLE",
  *  "query":
- *   {"selectors":
+ *   \{"selectors":
  *     [
  *     ]
- *   },
+ *   \},
  *  "sphere": "INSTANCE",
  *  "marker": "",
- *  "limit": 10}
+ *  "limit": 10\}
  *
  *             </request>
  *
@@ -68,10 +73,10 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * Content-Length: 72
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"hasMoreResults": false,
+ * \{"hasMoreResults": false,
  *  "ids":
  *   ["@SayHello_1_2012-09-25T17:00:00"]
- * }
+ * \}
  *          </response>
  *         </examples>
  * @example
@@ -84,6 +89,8 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryObjectsCommandInput - {@link QueryObjectsCommandInput}
+ * @returns {@link QueryObjectsCommandOutput}
  * @see {@link QueryObjectsCommandInput} for command's `input` shape.
  * @see {@link QueryObjectsCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -119,6 +126,9 @@ export class QueryObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class QueryObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1QueryObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryObjectsCommandOutput> {
     return deserializeAws_json1_1QueryObjectsCommand(output, context);
   }

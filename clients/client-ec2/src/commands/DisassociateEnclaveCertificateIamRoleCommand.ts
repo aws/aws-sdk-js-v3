@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateEnclaveCertificateIamRoleCommand}.
  */
 export interface DisassociateEnclaveCertificateIamRoleCommandInput
   extends DisassociateEnclaveCertificateIamRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateEnclaveCertificateIamRoleCommand}.
  */
 export interface DisassociateEnclaveCertificateIamRoleCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role
  * 			from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and
  * 			encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the
@@ -53,6 +58,8 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateEnclaveCertificateIamRoleCommandInput - {@link DisassociateEnclaveCertificateIamRoleCommandInput}
+ * @returns {@link DisassociateEnclaveCertificateIamRoleCommandOutput}
  * @see {@link DisassociateEnclaveCertificateIamRoleCommandInput} for command's `input` shape.
  * @see {@link DisassociateEnclaveCertificateIamRoleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateEnclaveCertificateIamRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,6 +125,9 @@ export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateEnclaveCertificateIamRoleCommandInput,
     context: __SerdeContext
@@ -122,6 +135,9 @@ export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
     return serializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,9 +21,11 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link WriteGetObjectResponseCommand}.
  */
-type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest, "Body"> & {
+export type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest, "Body"> & {
   /**
    * For *`WriteGetObjectResponseRequest["Body"]`*, see {@link WriteGetObjectResponseRequest.Body}.
    */
@@ -34,11 +36,14 @@ type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest
  */
 export interface WriteGetObjectResponseCommandInput extends WriteGetObjectResponseCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link WriteGetObjectResponseCommand}.
  */
 export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Passes transformed
  *          objects to a <code>GetObject</code> operation when using Object Lambda access points. For information about
  *          Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
@@ -72,6 +77,8 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param WriteGetObjectResponseCommandInput - {@link WriteGetObjectResponseCommandInput}
+ * @returns {@link WriteGetObjectResponseCommandOutput}
  * @see {@link WriteGetObjectResponseCommandInput} for command's `input` shape.
  * @see {@link WriteGetObjectResponseCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -101,6 +108,9 @@ export class WriteGetObjectResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: WriteGetObjectResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class WriteGetObjectResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: WriteGetObjectResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlWriteGetObjectResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WriteGetObjectResponseCommandOutput> {
     return deserializeAws_restXmlWriteGetObjectResponseCommand(output, context);
   }

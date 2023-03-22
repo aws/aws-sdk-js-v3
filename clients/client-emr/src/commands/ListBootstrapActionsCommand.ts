@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBootstrapActionsCommand}.
  */
 export interface ListBootstrapActionsCommandInput extends ListBootstrapActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBootstrapActionsCommand}.
  */
 export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the bootstrap actions associated with a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBootstrapActionsCommandInput - {@link ListBootstrapActionsCommandInput}
+ * @returns {@link ListBootstrapActionsCommandOutput}
  * @see {@link ListBootstrapActionsCommandInput} for command's `input` shape.
  * @see {@link ListBootstrapActionsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListBootstrapActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBootstrapActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListBootstrapActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBootstrapActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBootstrapActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBootstrapActionsCommandOutput> {
     return deserializeAws_json1_1ListBootstrapActionsCommand(output, context);
   }

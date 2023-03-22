@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeprovisionByoipCidrCommand}.
  */
 export interface DeprovisionByoipCidrCommandInput extends DeprovisionByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprovisionByoipCidrCommand}.
  */
 export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases the specified address range that you provisioned for use with your Amazon Web Services resources
  *          through bring your own IP addresses (BYOIP) and deletes the corresponding address pool.</p>
  *          <p>Before you can release an address range, you must stop advertising it using <a>WithdrawByoipCidr</a> and you must not have any IP addresses allocated from its
@@ -49,6 +54,8 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprovisionByoipCidrCommandInput - {@link DeprovisionByoipCidrCommandInput}
+ * @returns {@link DeprovisionByoipCidrCommandOutput}
  * @see {@link DeprovisionByoipCidrCommandInput} for command's `input` shape.
  * @see {@link DeprovisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeprovisionByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprovisionByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeprovisionByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprovisionByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeprovisionByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprovisionByoipCidrCommandOutput> {
     return deserializeAws_ec2DeprovisionByoipCidrCommand(output, context);
   }

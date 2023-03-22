@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFileSystemCommand}.
  */
 export interface CreateFileSystemCommandInput extends CreateFileSystemRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFileSystemCommand}.
  */
 export interface CreateFileSystemCommandOutput extends FileSystemDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new, empty file system. The operation requires a creation token in the
  *       request that Amazon EFS uses to ensure idempotent creation (calling the operation with same
  *       creation token has no effect). If a file system does not currently exist that is owned by the
@@ -94,6 +99,8 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFileSystemCommandInput - {@link CreateFileSystemCommandInput}
+ * @returns {@link CreateFileSystemCommandOutput}
  * @see {@link CreateFileSystemCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -187,6 +194,9 @@ export class CreateFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -226,10 +236,16 @@ export class CreateFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFileSystemCommandOutput> {
     return deserializeAws_restJson1CreateFileSystemCommand(output, context);
   }

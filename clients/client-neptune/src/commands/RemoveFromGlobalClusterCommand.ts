@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFromGlobalClusterCommand}.
  */
 export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFromGlobalClusterCommand}.
  */
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a Neptune DB cluster from a Neptune global database. A secondary
  *       cluster becomes a normal standalone cluster with read-write capability
  *       instead of being read-only, and no longer receives data from a the
@@ -49,6 +54,8 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFromGlobalClusterCommandInput - {@link RemoveFromGlobalClusterCommandInput}
+ * @returns {@link RemoveFromGlobalClusterCommandOutput}
  * @see {@link RemoveFromGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link RemoveFromGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -82,6 +89,9 @@ export class RemoveFromGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFromGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class RemoveFromGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFromGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRemoveFromGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFromGlobalClusterCommandOutput> {
     return deserializeAws_queryRemoveFromGlobalClusterCommand(output, context);
   }

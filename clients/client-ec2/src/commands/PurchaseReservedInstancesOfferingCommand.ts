@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedInstancesOfferingCommand}.
  */
 export interface PurchaseReservedInstancesOfferingCommandInput extends PurchaseReservedInstancesOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedInstancesOfferingCommand}.
  */
 export interface PurchaseReservedInstancesOfferingCommandOutput
@@ -37,6 +41,7 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower
  *        hourly rate compared to On-Demand instance pricing.</p>
  *          <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings
@@ -60,6 +65,8 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedInstancesOfferingCommandInput - {@link PurchaseReservedInstancesOfferingCommandInput}
+ * @returns {@link PurchaseReservedInstancesOfferingCommandOutput}
  * @see {@link PurchaseReservedInstancesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -83,6 +90,9 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedInstancesOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedInstancesOfferingCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     return serializeAws_ec2PurchaseReservedInstancesOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

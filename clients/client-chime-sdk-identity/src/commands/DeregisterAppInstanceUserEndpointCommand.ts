@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterAppInstanceUserEndpointCommand}.
  */
 export interface DeregisterAppInstanceUserEndpointCommandInput extends DeregisterAppInstanceUserEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterAppInstanceUserEndpointCommand}.
  */
 export interface DeregisterAppInstanceUserEndpointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an <code>AppInstanceUserEndpoint</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeregisterAppInstanceUserEndpointCommandOutput extends __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterAppInstanceUserEndpointCommandInput - {@link DeregisterAppInstanceUserEndpointCommandInput}
+ * @returns {@link DeregisterAppInstanceUserEndpointCommandOutput}
  * @see {@link DeregisterAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link DeregisterAppInstanceUserEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterAppInstanceUserEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterAppInstanceUserEndpointCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
     return serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

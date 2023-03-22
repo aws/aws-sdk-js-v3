@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInputsCommand}.
  */
 export interface ListInputsCommandInput extends ListInputsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInputsCommand}.
  */
 export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Produces list of inputs that have been created
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInputsCommandInput - {@link ListInputsCommandInput}
+ * @returns {@link ListInputsCommandOutput}
  * @see {@link ListInputsCommandInput} for command's `input` shape.
  * @see {@link ListInputsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListInputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListInputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputsCommandOutput> {
     return deserializeAws_restJson1ListInputsCommand(output, context);
   }

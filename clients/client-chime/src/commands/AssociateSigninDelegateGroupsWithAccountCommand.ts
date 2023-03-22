@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSigninDelegateGroupsWithAccountCommand}.
  */
 export interface AssociateSigninDelegateGroupsWithAccountCommandInput
   extends AssociateSigninDelegateGroupsWithAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSigninDelegateGroupsWithAccountCommand}.
  */
 export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
@@ -38,6 +42,7 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified sign-in delegate groups with the specified Amazon Chime account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSigninDelegateGroupsWithAccountCommandInput - {@link AssociateSigninDelegateGroupsWithAccountCommandInput}
+ * @returns {@link AssociateSigninDelegateGroupsWithAccountCommandOutput}
  * @see {@link AssociateSigninDelegateGroupsWithAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateSigninDelegateGroupsWithAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSigninDelegateGroupsWithAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateSigninDelegateGroupsWithAccountCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
     return serializeAws_restJson1AssociateSigninDelegateGroupsWithAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

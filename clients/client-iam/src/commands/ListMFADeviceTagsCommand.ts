@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListMFADeviceTagsCommand}.
  */
 export interface ListMFADeviceTagsCommandInput extends ListMFADeviceTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMFADeviceTagsCommand}.
  */
 export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified IAM virtual multi-factor authentication (MFA) device. The returned list of tags is
  *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMFADeviceTagsCommandInput - {@link ListMFADeviceTagsCommandInput}
+ * @returns {@link ListMFADeviceTagsCommandOutput}
  * @see {@link ListMFADeviceTagsCommandInput} for command's `input` shape.
  * @see {@link ListMFADeviceTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListMFADeviceTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMFADeviceTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListMFADeviceTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMFADeviceTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListMFADeviceTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMFADeviceTagsCommandOutput> {
     return deserializeAws_queryListMFADeviceTagsCommand(output, context);
   }

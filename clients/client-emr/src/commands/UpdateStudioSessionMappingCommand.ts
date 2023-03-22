@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStudioSessionMappingCommand}.
  */
 export interface UpdateStudioSessionMappingCommandInput extends UpdateStudioSessionMappingInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStudioSessionMappingCommand}.
  */
 export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the session policy attached to the user or group for the specified Amazon EMR Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStudioSessionMappingCommandInput - {@link UpdateStudioSessionMappingCommandInput}
+ * @returns {@link UpdateStudioSessionMappingCommandOutput}
  * @see {@link UpdateStudioSessionMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioSessionMappingCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -71,6 +78,9 @@ export class UpdateStudioSessionMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStudioSessionMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class UpdateStudioSessionMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStudioSessionMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateStudioSessionMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

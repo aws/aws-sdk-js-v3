@@ -30,15 +30,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcesCommand}.
  */
 export interface GetResourcesCommandInput extends GetResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcesCommand}.
  */
 export interface GetResourcesCommandOutput extends GetResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all the tagged or previously tagged resources that are located in the
  *             specified Amazon Web Services Region for the account.</p>
  *         <p>Depending on what information you want returned, you can also specify the
@@ -73,6 +78,8 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
+ * @returns {@link GetResourcesCommandOutput}
  * @see {@link GetResourcesCommandInput} for command's `input` shape.
  * @see {@link GetResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -130,6 +137,9 @@ export class GetResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,10 +177,16 @@ export class GetResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcesCommandOutput> {
     return deserializeAws_json1_1GetResourcesCommand(output, context);
   }

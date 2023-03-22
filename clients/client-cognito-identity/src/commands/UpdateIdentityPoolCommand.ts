@@ -22,15 +22,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIdentityPoolCommand}.
  */
 export interface UpdateIdentityPoolCommandInput extends IdentityPool {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIdentityPoolCommand}.
  */
 export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an identity pool.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
@@ -43,6 +48,8 @@ export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIdentityPoolCommandInput - {@link UpdateIdentityPoolCommandInput}
+ * @returns {@link UpdateIdentityPoolCommandOutput}
  * @see {@link UpdateIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateIdentityPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIdentityPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateIdentityPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIdentityPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateIdentityPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIdentityPoolCommandOutput> {
     return deserializeAws_json1_1UpdateIdentityPoolCommand(output, context);
   }

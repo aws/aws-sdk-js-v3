@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHealthCheckCommand}.
  */
 export interface DeleteHealthCheckCommandInput extends DeleteHealthCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHealthCheckCommand}.
  */
 export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a health check.</p>
  *          <important>
  *             <p>Amazon Route 53 does not prevent you from deleting a health check even if the
@@ -60,6 +65,8 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHealthCheckCommandInput - {@link DeleteHealthCheckCommandInput}
+ * @returns {@link DeleteHealthCheckCommandOutput}
  * @see {@link DeleteHealthCheckCommandInput} for command's `input` shape.
  * @see {@link DeleteHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteHealthCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHealthCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteHealthCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteHealthCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHealthCheckCommandOutput> {
     return deserializeAws_restXmlDeleteHealthCheckCommand(output, context);
   }

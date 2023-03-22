@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAlarmCommand}.
  */
 export interface DeleteAlarmCommandInput extends DeleteAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAlarmCommand}.
  */
 export interface DeleteAlarmCommandOutput extends DeleteAlarmResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an alarm.</p>
  *          <p>An alarm is used to monitor a single metric for one of your resources. When a metric
  *       condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
@@ -50,6 +55,8 @@ export interface DeleteAlarmCommandOutput extends DeleteAlarmResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAlarmCommandInput - {@link DeleteAlarmCommandInput}
+ * @returns {@link DeleteAlarmCommandOutput}
  * @see {@link DeleteAlarmCommandInput} for command's `input` shape.
  * @see {@link DeleteAlarmCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlarmCommandOutput> {
     return deserializeAws_json1_1DeleteAlarmCommand(output, context);
   }

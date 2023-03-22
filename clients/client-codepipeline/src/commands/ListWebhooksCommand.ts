@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWebhooksCommand}.
  */
 export interface ListWebhooksCommandInput extends ListWebhooksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListWebhooksCommand}.
  */
 export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a listing of all the webhooks in this AWS Region for this account. The output
  *             lists all webhooks and includes the webhook URL and ARN and the configuration for each
  *             webhook.</p>
@@ -48,6 +53,8 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWebhooksCommandInput - {@link ListWebhooksCommandInput}
+ * @returns {@link ListWebhooksCommandOutput}
  * @see {@link ListWebhooksCommandInput} for command's `input` shape.
  * @see {@link ListWebhooksCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListWebhooksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWebhooksCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListWebhooksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWebhooksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWebhooksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWebhooksCommandOutput> {
     return deserializeAws_json1_1ListWebhooksCommand(output, context);
   }

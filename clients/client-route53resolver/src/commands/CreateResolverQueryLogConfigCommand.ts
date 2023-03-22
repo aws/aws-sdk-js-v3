@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResolverQueryLogConfigCommand}.
  */
 export interface CreateResolverQueryLogConfigCommandInput extends CreateResolverQueryLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResolverQueryLogConfigCommand}.
  */
 export interface CreateResolverQueryLogConfigCommandOutput
@@ -37,6 +41,7 @@ export interface CreateResolverQueryLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.
  * 			Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.</p>
  *          <p>To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>. For more information, see
@@ -54,6 +59,8 @@ export interface CreateResolverQueryLogConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResolverQueryLogConfigCommandInput - {@link CreateResolverQueryLogConfigCommandInput}
+ * @returns {@link CreateResolverQueryLogConfigCommandOutput}
  * @see {@link CreateResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link CreateResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResolverQueryLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResolverQueryLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateResolverQueryLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

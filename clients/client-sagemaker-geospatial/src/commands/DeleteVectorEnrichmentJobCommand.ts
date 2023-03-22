@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVectorEnrichmentJobCommand}.
  */
 export interface DeleteVectorEnrichmentJobCommandInput extends DeleteVectorEnrichmentJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVectorEnrichmentJobCommand}.
  */
 export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to delete a Vector Enrichment job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVectorEnrichmentJobCommandInput - {@link DeleteVectorEnrichmentJobCommandInput}
+ * @returns {@link DeleteVectorEnrichmentJobCommandOutput}
  * @see {@link DeleteVectorEnrichmentJobCommandInput} for command's `input` shape.
  * @see {@link DeleteVectorEnrichmentJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVectorEnrichmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVectorEnrichmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVectorEnrichmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

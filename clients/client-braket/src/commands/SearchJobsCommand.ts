@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchJobsCommand}.
  */
 export interface SearchJobsCommandInput extends SearchJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchJobsCommand}.
  */
 export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for Amazon Braket jobs that match the specified filter values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchJobsCommandInput - {@link SearchJobsCommandInput}
+ * @returns {@link SearchJobsCommandOutput}
  * @see {@link SearchJobsCommandInput} for command's `input` shape.
  * @see {@link SearchJobsCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -82,6 +89,9 @@ export class SearchJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class SearchJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchJobsCommandOutput> {
     return deserializeAws_restJson1SearchJobsCommand(output, context);
   }

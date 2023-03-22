@@ -25,16 +25,21 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPointPolicyForObjectLambdaCommand}.
  */
 export interface DeleteAccessPointPolicyForObjectLambdaCommandInput
   extends DeleteAccessPointPolicyForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPointPolicyForObjectLambdaCommand}.
  */
 export interface DeleteAccessPointPolicyForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the resource policy for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *          <code>DeleteAccessPointPolicyForObjectLambda</code>:</p>
@@ -60,6 +65,8 @@ export interface DeleteAccessPointPolicyForObjectLambdaCommandOutput extends __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPointPolicyForObjectLambdaCommandInput - {@link DeleteAccessPointPolicyForObjectLambdaCommandInput}
+ * @returns {@link DeleteAccessPointPolicyForObjectLambdaCommandOutput}
  * @see {@link DeleteAccessPointPolicyForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointPolicyForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteAccessPointPolicyForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPointPolicyForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DeleteAccessPointPolicyForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAccessPointPolicyForObjectLambdaCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DeleteAccessPointPolicyForObjectLambdaCommand extends $Command<
     return serializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDocumentPermissionCommand}.
  */
 export interface DescribeDocumentPermissionCommandInput extends DescribeDocumentPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDocumentPermissionCommand}.
  */
 export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumentPermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions for a Amazon Web Services Systems Manager document (SSM document). If you created the
  *    document, you are the owner. If a document is shared, it can either be shared privately (by
  *    specifying a user's Amazon Web Services account ID) or publicly (<i>All</i>). </p>
@@ -48,6 +53,8 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDocumentPermissionCommandInput - {@link DescribeDocumentPermissionCommandInput}
+ * @returns {@link DescribeDocumentPermissionCommandOutput}
  * @see {@link DescribeDocumentPermissionCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentPermissionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeDocumentPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDocumentPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeDocumentPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDocumentPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDocumentPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExperimentCommand}.
  */
 export interface CreateExperimentCommandInput extends CreateExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExperimentCommand}.
  */
 export interface CreateExperimentCommandOutput extends CreateExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a SageMaker <i>experiment</i>. An experiment is a collection of
  *         <i>trials</i> that are observed, compared and evaluated as a group. A trial is
  *       a set of steps, called <i>trial components</i>, that produce a machine learning
@@ -66,6 +71,8 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExperimentCommandInput - {@link CreateExperimentCommandInput}
+ * @returns {@link CreateExperimentCommandOutput}
  * @see {@link CreateExperimentCommandInput} for command's `input` shape.
  * @see {@link CreateExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExperimentCommandOutput> {
     return deserializeAws_json1_1CreateExperimentCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTimeSeriesServiceStatisticsCommand}.
  */
 export interface GetTimeSeriesServiceStatisticsCommandInput extends GetTimeSeriesServiceStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTimeSeriesServiceStatisticsCommand}.
  */
 export interface GetTimeSeriesServiceStatisticsCommandOutput
@@ -37,6 +41,7 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get an aggregation of service statistics defined by a specific time
  *             range.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTimeSeriesServiceStatisticsCommandInput - {@link GetTimeSeriesServiceStatisticsCommandInput}
+ * @returns {@link GetTimeSeriesServiceStatisticsCommandOutput}
  * @see {@link GetTimeSeriesServiceStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetTimeSeriesServiceStatisticsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTimeSeriesServiceStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTimeSeriesServiceStatisticsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     return serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

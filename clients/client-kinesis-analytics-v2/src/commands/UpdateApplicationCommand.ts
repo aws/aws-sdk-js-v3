@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Kinesis Data Analytics application. Using this operation, you
  *       can update application code, input configuration, and output configuration. </p>
  *          <p>Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you update
@@ -58,6 +63,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
+ * @returns {@link UpdateApplicationCommandOutput}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -108,6 +115,9 @@ export class UpdateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class UpdateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
     return deserializeAws_json1_1UpdateApplicationCommand(output, context);
   }

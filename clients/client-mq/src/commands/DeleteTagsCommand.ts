@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTagsCommand}.
  */
 export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTagsCommand}.
  */
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a tag from a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
+ * @returns {@link DeleteTagsCommandOutput}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
     return deserializeAws_restJson1DeleteTagsCommand(output, context);
   }

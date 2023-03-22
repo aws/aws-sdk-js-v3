@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecommendationsCommand}.
  */
 export interface DescribeRecommendationsCommandInput extends DescribeRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecommendationsCommand}.
  */
 export interface DescribeRecommendationsCommandOutput extends DescribeRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of target engine recommendations for your source
  *             databases.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeRecommendationsCommandOutput extends DescribeRecommenda
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommendationsCommandInput - {@link DescribeRecommendationsCommandInput}
+ * @returns {@link DescribeRecommendationsCommandOutput}
  * @see {@link DescribeRecommendationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecommendationsCommandOutput> {
     return deserializeAws_json1_1DescribeRecommendationsCommand(output, context);
   }

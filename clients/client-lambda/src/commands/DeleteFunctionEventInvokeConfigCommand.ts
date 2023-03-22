@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionEventInvokeConfigCommand}.
  */
 export interface DeleteFunctionEventInvokeConfigCommandInput extends DeleteFunctionEventInvokeConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionEventInvokeConfigCommand}.
  */
 export interface DeleteFunctionEventInvokeConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the configuration for asynchronous invocation for a function, version, or alias.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionEventInvokeConfigCommandInput - {@link DeleteFunctionEventInvokeConfigCommandInput}
+ * @returns {@link DeleteFunctionEventInvokeConfigCommandOutput}
  * @see {@link DeleteFunctionEventInvokeConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionEventInvokeConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteFunctionEventInvokeConfigCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     return serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceSpecificCredentialCommand}.
  */
 export interface UpdateServiceSpecificCredentialCommandInput extends UpdateServiceSpecificCredentialRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceSpecificCredentialCommand}.
  */
 export interface UpdateServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the status of a service-specific credential to <code>Active</code> or
  *                 <code>Inactive</code>. Service-specific credentials that are inactive cannot be used
  *             for authentication to the service. This operation can be used to disable a user's
@@ -47,6 +52,8 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceSpecificCredentialCommandInput - {@link UpdateServiceSpecificCredentialCommandInput}
+ * @returns {@link UpdateServiceSpecificCredentialCommandOutput}
  * @see {@link UpdateServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -74,6 +81,9 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceSpecificCredentialCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateServiceSpecificCredentialCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
     return serializeAws_queryUpdateServiceSpecificCredentialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceRecordSetsCommand}.
  */
 export interface ListResourceRecordSetsCommandInput extends ListResourceRecordSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceRecordSetsCommand}.
  */
 export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource record sets in a specified hosted zone.</p>
  *          <p>
  *             <code>ListResourceRecordSets</code> returns up to 300 resource record sets at a time
@@ -117,6 +122,8 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceRecordSetsCommandInput - {@link ListResourceRecordSetsCommandInput}
+ * @returns {@link ListResourceRecordSetsCommandOutput}
  * @see {@link ListResourceRecordSetsCommandInput} for command's `input` shape.
  * @see {@link ListResourceRecordSetsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -146,6 +153,9 @@ export class ListResourceRecordSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceRecordSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class ListResourceRecordSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceRecordSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListResourceRecordSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceRecordSetsCommandOutput> {
     return deserializeAws_restXmlListResourceRecordSetsCommand(output, context);
   }

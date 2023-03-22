@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateThemePermissionsCommand}.
  */
 export interface UpdateThemePermissionsCommandInput extends UpdateThemePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateThemePermissionsCommand}.
  */
 export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the resource permissions for a theme. Permissions apply to the action to grant or
  * 			revoke permissions on, for example <code>"quicksight:DescribeTheme"</code>.</p>
  *          <p>Theme permissions apply in groupings. Valid groupings include the following for the three
@@ -139,6 +144,8 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateThemePermissionsCommandInput - {@link UpdateThemePermissionsCommandInput}
+ * @returns {@link UpdateThemePermissionsCommandOutput}
  * @see {@link UpdateThemePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateThemePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -189,6 +196,9 @@ export class UpdateThemePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateThemePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -228,10 +238,16 @@ export class UpdateThemePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateThemePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateThemePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThemePermissionsCommandOutput> {
     return deserializeAws_restJson1UpdateThemePermissionsCommand(output, context);
   }

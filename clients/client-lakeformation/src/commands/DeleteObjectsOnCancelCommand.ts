@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteObjectsOnCancelCommand}.
  */
 export interface DeleteObjectsOnCancelCommandInput extends DeleteObjectsOnCancelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteObjectsOnCancelCommand}.
  */
 export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCancelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a specific governed table, provides a list of Amazon S3 objects that will be written during the current transaction and that can be automatically deleted
  *       if the transaction is canceled. Without this call, no Amazon S3 objects are automatically deleted when a transaction cancels.
  *     </p>
@@ -53,6 +58,8 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObjectsOnCancelCommandInput - {@link DeleteObjectsOnCancelCommandInput}
+ * @returns {@link DeleteObjectsOnCancelCommandOutput}
  * @see {@link DeleteObjectsOnCancelCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectsOnCancelCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteObjectsOnCancelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObjectsOnCancelCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DeleteObjectsOnCancelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteObjectsOnCancelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteObjectsOnCancelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectsOnCancelCommandOutput> {
     return deserializeAws_restJson1DeleteObjectsOnCancelCommand(output, context);
   }

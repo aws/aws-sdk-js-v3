@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterDelegatedAdministratorCommand}.
  */
 export interface DeregisterDelegatedAdministratorCommandInput extends DeregisterDelegatedAdministratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterDelegatedAdministratorCommand}.
  */
 export interface DeregisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified member Amazon Web Services account as a delegated administrator for the
  *             specified Amazon Web Services service.</p>
  *          <important>
@@ -57,6 +62,8 @@ export interface DeregisterDelegatedAdministratorCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterDelegatedAdministratorCommandInput - {@link DeregisterDelegatedAdministratorCommandInput}
+ * @returns {@link DeregisterDelegatedAdministratorCommandOutput}
  * @see {@link DeregisterDelegatedAdministratorCommandInput} for command's `input` shape.
  * @see {@link DeregisterDelegatedAdministratorCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -418,6 +425,9 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterDelegatedAdministratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -457,6 +467,9 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterDelegatedAdministratorCommandInput,
     context: __SerdeContext
@@ -464,6 +477,9 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
     return serializeAws_json1_1DeregisterDelegatedAdministratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

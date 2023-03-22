@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLogSubscriptionCommand}.
  */
 export interface CreateLogSubscriptionCommandInput extends CreateLogSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLogSubscriptionCommand}.
  */
 export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a subscription to forward real-time Directory Service domain controller security
  *       logs to the specified Amazon CloudWatch log group in your Amazon Web Services account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLogSubscriptionCommandInput - {@link CreateLogSubscriptionCommandInput}
+ * @returns {@link CreateLogSubscriptionCommandOutput}
  * @see {@link CreateLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateLogSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateLogSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLogSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogSubscriptionCommandOutput> {
     return deserializeAws_json1_1CreateLogSubscriptionCommand(output, context);
   }

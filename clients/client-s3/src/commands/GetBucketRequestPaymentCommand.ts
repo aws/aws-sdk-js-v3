@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketRequestPaymentCommand}.
  */
 export interface GetBucketRequestPaymentCommandInput extends GetBucketRequestPaymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketRequestPaymentCommand}.
  */
 export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPaymentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the request payment configuration of a bucket. To use this version of the
  *          operation, you must be the bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays Buckets</a>.</p>
  *          <p>The following operations are related to <code>GetBucketRequestPayment</code>:</p>
@@ -55,6 +60,8 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketRequestPaymentCommandInput - {@link GetBucketRequestPaymentCommandInput}
+ * @returns {@link GetBucketRequestPaymentCommandOutput}
  * @see {@link GetBucketRequestPaymentCommandInput} for command's `input` shape.
  * @see {@link GetBucketRequestPaymentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -100,6 +107,9 @@ export class GetBucketRequestPaymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketRequestPaymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetBucketRequestPaymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketRequestPaymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketRequestPaymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketRequestPaymentCommandOutput> {
     return deserializeAws_restXmlGetBucketRequestPaymentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBSnapshotsCommand}.
  */
 export interface DescribeDBSnapshotsCommandInput extends DescribeDBSnapshotsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBSnapshotsCommand}.
  */
 export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about DB snapshots. This API action supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBSnapshotsCommandInput - {@link DescribeDBSnapshotsCommandInput}
+ * @returns {@link DescribeDBSnapshotsCommandOutput}
  * @see {@link DescribeDBSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeDBSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeDBSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSnapshotsCommandOutput> {
     return deserializeAws_queryDescribeDBSnapshotsCommand(output, context);
   }

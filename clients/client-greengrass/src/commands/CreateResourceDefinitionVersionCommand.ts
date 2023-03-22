@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceDefinitionVersionCommand}.
  */
 export interface CreateResourceDefinitionVersionCommandInput extends CreateResourceDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceDefinitionVersionCommand}.
  */
 export interface CreateResourceDefinitionVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateResourceDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a resource definition that has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceDefinitionVersionCommandInput - {@link CreateResourceDefinitionVersionCommandInput}
+ * @returns {@link CreateResourceDefinitionVersionCommandOutput}
  * @see {@link CreateResourceDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateResourceDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateResourceDefinitionVersionCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     return serializeAws_restJson1CreateResourceDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

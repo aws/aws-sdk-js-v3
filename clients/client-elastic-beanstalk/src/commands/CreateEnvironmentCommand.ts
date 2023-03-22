@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches an AWS Elastic Beanstalk environment for the specified application using the specified
  *       configuration.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
+ * @returns {@link CreateEnvironmentCommandOutput}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -111,6 +118,9 @@ export class CreateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class CreateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
     return deserializeAws_queryCreateEnvironmentCommand(output, context);
   }

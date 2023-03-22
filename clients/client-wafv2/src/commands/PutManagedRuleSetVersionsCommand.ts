@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutManagedRuleSetVersionsCommand}.
  */
 export interface PutManagedRuleSetVersionsCommandInput extends PutManagedRuleSetVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutManagedRuleSetVersionsCommand}.
  */
 export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSetVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines the versions of your managed rule set that you are offering to the customers.
  *          Customers see your offerings as managed rule groups with versioning.</p>
  *          <note>
@@ -57,6 +62,8 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  * const response = await client.send(command);
  * ```
  *
+ * @param PutManagedRuleSetVersionsCommandInput - {@link PutManagedRuleSetVersionsCommandInput}
+ * @returns {@link PutManagedRuleSetVersionsCommandOutput}
  * @see {@link PutManagedRuleSetVersionsCommandInput} for command's `input` shape.
  * @see {@link PutManagedRuleSetVersionsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -119,6 +126,9 @@ export class PutManagedRuleSetVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutManagedRuleSetVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class PutManagedRuleSetVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutManagedRuleSetVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutManagedRuleSetVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBClusterBacktracksCommand}.
  */
 export interface DescribeDBClusterBacktracksCommandInput extends DescribeDBClusterBacktracksMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBClusterBacktracksCommand}.
  */
 export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBacktrackMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about backtracks for a DB cluster.</p>
  *          <p>For more information on Amazon Aurora, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -52,6 +57,8 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterBacktracksCommandInput - {@link DescribeDBClusterBacktracksCommandInput}
+ * @returns {@link DescribeDBClusterBacktracksCommandOutput}
  * @see {@link DescribeDBClusterBacktracksCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterBacktracksCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeDBClusterBacktracksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterBacktracksCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeDBClusterBacktracksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBClusterBacktracksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBClusterBacktracksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

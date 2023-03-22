@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SetVaultNotificationsCommand}.
  */
 export interface SetVaultNotificationsCommandInput extends SetVaultNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link SetVaultNotificationsCommand}.
  */
 export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation configures notifications that will be sent when specific events happen
  *          to a vault. By default, you don't get any notifications.</p>
  *
@@ -78,6 +83,8 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetVaultNotificationsCommandInput - {@link SetVaultNotificationsCommandInput}
+ * @returns {@link SetVaultNotificationsCommandOutput}
  * @see {@link SetVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link SetVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -133,6 +140,9 @@ export class SetVaultNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetVaultNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class SetVaultNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SetVaultNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetVaultNotificationsCommandOutput> {
     return deserializeAws_restJson1SetVaultNotificationsCommand(output, context);
   }

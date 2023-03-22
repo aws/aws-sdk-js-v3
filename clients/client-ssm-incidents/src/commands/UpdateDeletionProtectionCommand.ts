@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeletionProtectionCommand}.
  */
 export interface UpdateDeletionProtectionCommandInput extends UpdateDeletionProtectionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeletionProtectionCommand}.
  */
 export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionProtectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update deletion protection to either allow or deny deletion of the final Region in a
  *             replication set.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeletionProtectionCommandInput - {@link UpdateDeletionProtectionCommandInput}
+ * @returns {@link UpdateDeletionProtectionCommandOutput}
  * @see {@link UpdateDeletionProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateDeletionProtectionCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateDeletionProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeletionProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateDeletionProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeletionProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDeletionProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeletionProtectionCommandOutput> {
     return deserializeAws_restJson1UpdateDeletionProtectionCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServerStrategiesCommand}.
  */
 export interface GetServerStrategiesCommandInput extends GetServerStrategiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServerStrategiesCommand}.
  */
 export interface GetServerStrategiesCommandOutput extends GetServerStrategiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves recommended strategies and tools for the specified server. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServerStrategiesCommandInput - {@link GetServerStrategiesCommandInput}
+ * @returns {@link GetServerStrategiesCommandOutput}
  * @see {@link GetServerStrategiesCommandInput} for command's `input` shape.
  * @see {@link GetServerStrategiesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetServerStrategiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServerStrategiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetServerStrategiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServerStrategiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetServerStrategiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServerStrategiesCommandOutput> {
     return deserializeAws_restJson1GetServerStrategiesCommand(output, context);
   }

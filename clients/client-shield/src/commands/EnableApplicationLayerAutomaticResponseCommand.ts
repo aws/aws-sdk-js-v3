@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableApplicationLayerAutomaticResponseCommand}.
  */
 export interface EnableApplicationLayerAutomaticResponseCommandInput
   extends EnableApplicationLayerAutomaticResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableApplicationLayerAutomaticResponseCommand}.
  */
 export interface EnableApplicationLayerAutomaticResponseCommandOutput
@@ -38,6 +42,7 @@ export interface EnableApplicationLayerAutomaticResponseCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable the Shield Advanced automatic application layer DDoS mitigation for the protected resource. </p>
  *          <note>
  *             <p>This feature is available for Amazon CloudFront distributions and Application Load Balancers only.</p>
@@ -63,6 +68,8 @@ export interface EnableApplicationLayerAutomaticResponseCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableApplicationLayerAutomaticResponseCommandInput - {@link EnableApplicationLayerAutomaticResponseCommandInput}
+ * @returns {@link EnableApplicationLayerAutomaticResponseCommandOutput}
  * @see {@link EnableApplicationLayerAutomaticResponseCommandInput} for command's `input` shape.
  * @see {@link EnableApplicationLayerAutomaticResponseCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -105,6 +112,9 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableApplicationLayerAutomaticResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableApplicationLayerAutomaticResponseCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command<
     return serializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupsCommand}.
  */
 export interface GetGroupsCommandInput extends GetGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupsCommand}.
  */
 export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all active group details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupsCommandInput - {@link GetGroupsCommandInput}
+ * @returns {@link GetGroupsCommandOutput}
  * @see {@link GetGroupsCommandInput} for command's `input` shape.
  * @see {@link GetGroupsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupsCommandOutput> {
     return deserializeAws_restJson1GetGroupsCommand(output, context);
   }

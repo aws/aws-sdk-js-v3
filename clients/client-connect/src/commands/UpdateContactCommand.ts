@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactCommand}.
  */
 export interface UpdateContactCommandInput extends UpdateContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactCommand}.
  */
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Adds or updates user-defined contact information associated with the specified contact. At
  *    least one field to be updated must be present in the request.</p>
@@ -52,6 +57,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
+ * @returns {@link UpdateContactCommandOutput}
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactCommandOutput> {
     return deserializeAws_restJson1UpdateContactCommand(output, context);
   }

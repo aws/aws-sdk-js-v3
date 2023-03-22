@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFuotaTaskCommand}.
  */
 export interface DeleteFuotaTaskCommandInput extends DeleteFuotaTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFuotaTaskCommand}.
  */
 export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFuotaTaskCommandInput - {@link DeleteFuotaTaskCommandInput}
+ * @returns {@link DeleteFuotaTaskCommandOutput}
  * @see {@link DeleteFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFuotaTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFuotaTaskCommandOutput> {
     return deserializeAws_restJson1DeleteFuotaTaskCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntityPersonasCommand}.
  */
 export interface ListEntityPersonasCommandInput extends ListEntityPersonasRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntityPersonasCommand}.
  */
 export interface ListEntityPersonasCommandOutput extends ListEntityPersonasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists specific permissions of users and groups with access to your
  *             Amazon Kendra experience.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEntityPersonasCommandOutput extends ListEntityPersonasRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntityPersonasCommandInput - {@link ListEntityPersonasCommandInput}
+ * @returns {@link ListEntityPersonasCommandOutput}
  * @see {@link ListEntityPersonasCommandInput} for command's `input` shape.
  * @see {@link ListEntityPersonasCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListEntityPersonasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntityPersonasCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListEntityPersonasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntityPersonasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEntityPersonasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntityPersonasCommandOutput> {
     return deserializeAws_json1_1ListEntityPersonasCommand(output, context);
   }

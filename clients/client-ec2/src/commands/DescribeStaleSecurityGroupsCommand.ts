@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStaleSecurityGroupsCommand}.
  */
 export interface DescribeStaleSecurityGroupsCommandInput extends DescribeStaleSecurityGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStaleSecurityGroupsCommand}.
  */
 export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleSecurityGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC.
  *           Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC,
  *           or if they reference a security group in a peer VPC for which the VPC peering connection has
@@ -49,6 +54,8 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStaleSecurityGroupsCommandInput - {@link DescribeStaleSecurityGroupsCommandInput}
+ * @returns {@link DescribeStaleSecurityGroupsCommandOutput}
  * @see {@link DescribeStaleSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeStaleSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeStaleSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStaleSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeStaleSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStaleSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeStaleSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

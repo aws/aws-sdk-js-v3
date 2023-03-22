@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeClusterSecurityGroupIngressCommand}.
  */
 export interface AuthorizeClusterSecurityGroupIngressCommandInput extends AuthorizeClusterSecurityGroupIngressMessage {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeClusterSecurityGroupIngressCommand}.
  */
 export interface AuthorizeClusterSecurityGroupIngressCommandOutput
@@ -37,6 +41,7 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether
  *             the application accessing your cluster is running on the Internet or an Amazon EC2
  *             instance, you can authorize inbound access to either a Classless Interdomain Routing
@@ -63,6 +68,8 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeClusterSecurityGroupIngressCommandInput - {@link AuthorizeClusterSecurityGroupIngressCommandInput}
+ * @returns {@link AuthorizeClusterSecurityGroupIngressCommandOutput}
  * @see {@link AuthorizeClusterSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeClusterSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -100,6 +107,9 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeClusterSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AuthorizeClusterSecurityGroupIngressCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
     return serializeAws_queryAuthorizeClusterSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

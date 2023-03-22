@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBudgetActionCommand}.
  */
 export interface DeleteBudgetActionCommandInput extends DeleteBudgetActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBudgetActionCommand}.
  */
 export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Deletes a budget action.
  *       </p>
@@ -48,6 +53,8 @@ export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBudgetActionCommandInput - {@link DeleteBudgetActionCommandInput}
+ * @returns {@link DeleteBudgetActionCommandOutput}
  * @see {@link DeleteBudgetActionCommandInput} for command's `input` shape.
  * @see {@link DeleteBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteBudgetActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBudgetActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteBudgetActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBudgetActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBudgetActionCommandOutput> {
     return deserializeAws_json1_1DeleteBudgetActionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityProfileCommand}.
  */
 export interface UpdateSecurityProfileCommandInput extends UpdateSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityProfileCommand}.
  */
 export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSecurityProfile</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityProfileCommandInput - {@link UpdateSecurityProfileCommandInput}
+ * @returns {@link UpdateSecurityProfileCommandOutput}
  * @see {@link UpdateSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityProfileCommandOutput> {
     return deserializeAws_restJson1UpdateSecurityProfileCommand(output, context);
   }

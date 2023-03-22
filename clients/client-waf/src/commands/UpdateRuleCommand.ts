@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -95,6 +100,8 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleCommandInput - {@link UpdateRuleCommandInput}
+ * @returns {@link UpdateRuleCommandOutput}
  * @see {@link UpdateRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -254,6 +261,9 @@ export class UpdateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -291,10 +301,16 @@ export class UpdateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleCommandOutput> {
     return deserializeAws_json1_1UpdateRuleCommand(output, context);
   }

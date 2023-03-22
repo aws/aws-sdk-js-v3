@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFilterCommand}.
  */
 export interface UpdateFilterCommandInput extends UpdateFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFilterCommand}.
  */
 export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the filter specified by the filter name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFilterCommandInput - {@link UpdateFilterCommandInput}
+ * @returns {@link UpdateFilterCommandOutput}
  * @see {@link UpdateFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateFilterCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFilterCommandOutput> {
     return deserializeAws_restJson1UpdateFilterCommand(output, context);
   }

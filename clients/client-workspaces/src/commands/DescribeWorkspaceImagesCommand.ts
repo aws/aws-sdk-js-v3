@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceImagesCommand}.
  */
 export interface DescribeWorkspaceImagesCommandInput extends DescribeWorkspaceImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceImagesCommand}.
  */
 export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified images, if the image identifiers
  *          are provided. Otherwise, all images in the account are described. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceImagesCommandInput - {@link DescribeWorkspaceImagesCommandInput}
+ * @returns {@link DescribeWorkspaceImagesCommandOutput}
  * @see {@link DescribeWorkspaceImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceImagesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeWorkspaceImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeWorkspaceImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeWorkspaceImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspaceImagesCommandOutput> {
     return deserializeAws_json1_1DescribeWorkspaceImagesCommand(output, context);
   }

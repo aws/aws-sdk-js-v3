@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReservationCoverageCommand}.
  */
 export interface GetReservationCoverageCommandInput extends GetReservationCoverageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReservationCoverageCommand}.
  */
 export interface GetReservationCoverageCommandOutput extends GetReservationCoverageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the reservation coverage for your account, which you can use to see how much
  *       of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service,
  *       or Amazon Redshift usage is covered by a reservation. An organization's management account can
@@ -91,6 +96,8 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReservationCoverageCommandInput - {@link GetReservationCoverageCommandInput}
+ * @returns {@link GetReservationCoverageCommandOutput}
  * @see {@link GetReservationCoverageCommandInput} for command's `input` shape.
  * @see {@link GetReservationCoverageCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -123,6 +130,9 @@ export class GetReservationCoverageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReservationCoverageCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class GetReservationCoverageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReservationCoverageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetReservationCoverageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReservationCoverageCommandOutput> {
     return deserializeAws_json1_1GetReservationCoverageCommand(output, context);
   }

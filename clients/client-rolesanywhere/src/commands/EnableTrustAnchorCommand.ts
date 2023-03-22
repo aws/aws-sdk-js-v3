@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableTrustAnchorCommand}.
  */
 export interface EnableTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableTrustAnchorCommand}.
  */
 export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables a trust anchor. When enabled, certificates in the trust anchor chain are authorized for trust validation. </p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableTrustAnchorCommandInput - {@link EnableTrustAnchorCommandInput}
+ * @returns {@link EnableTrustAnchorCommandOutput}
  * @see {@link EnableTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link EnableTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class EnableTrustAnchorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableTrustAnchorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class EnableTrustAnchorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableTrustAnchorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableTrustAnchorCommandOutput> {
     return deserializeAws_restJson1EnableTrustAnchorCommand(output, context);
   }

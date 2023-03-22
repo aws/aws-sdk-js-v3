@@ -60,11 +60,13 @@ import {
 } from "./commands/UntagResourceCommand";
 
 /**
+ * @public
  * <p>The Amazon Chime SDK media pipeline APIs in this section allow software developers to
  *          create Amazon Chime SDK media pipelines that capture, concatenate, or stream your Amazon Chime SDK meetings. For more information about media pipleines, see <a href="http://amazonaws.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html">Amazon Chime SDK media pipelines</a>. </p>
  */
 export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   /**
+   * @public
    * <p>Creates a media pipeline.</p>
    */
   public createMediaCapturePipeline(
@@ -97,6 +99,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Creates a media concatenation pipeline.</p>
    */
   public createMediaConcatenationPipeline(
@@ -129,6 +132,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Creates a streaming media pipeline in an Amazon Chime SDK meeting.</p>
    */
   public createMediaLiveConnectorPipeline(
@@ -161,6 +165,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Deletes the media pipeline.</p>
    */
   public deleteMediaCapturePipeline(
@@ -193,6 +198,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Deletes the media pipeline.</p>
    */
   public deleteMediaPipeline(
@@ -225,6 +231,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Gets an existing media pipeline.</p>
    */
   public getMediaCapturePipeline(
@@ -257,6 +264,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Gets an existing media pipeline.</p>
    */
   public getMediaPipeline(
@@ -289,6 +297,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of media pipelines.</p>
    */
   public listMediaCapturePipelines(
@@ -321,6 +330,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of media pipelines.</p>
    */
   public listMediaPipelines(
@@ -353,6 +363,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags available for a media pipeline.</p>
    */
   public listTagsForResource(
@@ -385,6 +396,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>The ARN of the media pipeline that you want to tag. Consists of he pipeline's endpoint region, resource ID, and pipeline ID.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -411,6 +423,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   }
 
   /**
+   * @public
    * <p>Removes any tags from a media pipeline.</p>
    */
   public untagResource(

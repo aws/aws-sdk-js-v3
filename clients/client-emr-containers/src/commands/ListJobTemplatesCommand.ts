@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobTemplatesCommand}.
  */
 export interface ListJobTemplatesCommandInput extends ListJobTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobTemplatesCommand}.
  */
 export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists job templates based on a set of parameters. Job template stores values of
  *          StartJobRun API request in a template and can be used to start a job run. Job template
  *          allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
@@ -49,6 +54,8 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobTemplatesCommandInput - {@link ListJobTemplatesCommandInput}
+ * @returns {@link ListJobTemplatesCommandOutput}
  * @see {@link ListJobTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListJobTemplatesCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListJobTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListJobTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListJobTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobTemplatesCommandOutput> {
     return deserializeAws_restJson1ListJobTemplatesCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetPolicyCommand, serializeAws_json1_1GetPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPolicyCommand}.
  */
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPolicyCommand}.
  */
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified Firewall Manager policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
+ * @returns {@link GetPolicyCommandOutput}
  * @see {@link GetPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPolicyCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyCommandOutput> {
     return deserializeAws_json1_1GetPolicyCommand(output, context);
   }

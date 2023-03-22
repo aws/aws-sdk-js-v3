@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetModelManifestCommand}.
  */
 export interface GetModelManifestCommandInput extends GetModelManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetModelManifestCommand}.
  */
 export interface GetModelManifestCommandOutput extends GetModelManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about a vehicle model (model manifest). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetModelManifestCommandOutput extends GetModelManifestResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelManifestCommandInput - {@link GetModelManifestCommandInput}
+ * @returns {@link GetModelManifestCommandOutput}
  * @see {@link GetModelManifestCommandInput} for command's `input` shape.
  * @see {@link GetModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetModelManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetModelManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetModelManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelManifestCommandOutput> {
     return deserializeAws_json1_0GetModelManifestCommand(output, context);
   }

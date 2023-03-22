@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobStatusCommand}.
  */
 export interface UpdateJobStatusCommandInput extends UpdateJobStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobStatusCommand}.
  */
 export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status for the specified job. Use this action to confirm that you want to
  *          run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
@@ -72,6 +77,8 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobStatusCommandInput - {@link UpdateJobStatusCommandInput}
+ * @returns {@link UpdateJobStatusCommandOutput}
  * @see {@link UpdateJobStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateJobStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -113,6 +120,9 @@ export class UpdateJobStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class UpdateJobStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateJobStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobStatusCommandOutput> {
     return deserializeAws_restXmlUpdateJobStatusCommand(output, context);
   }

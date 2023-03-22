@@ -26,15 +26,20 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutRumMetricsDestinationCommand}.
  */
 export interface PutRumMetricsDestinationCommandInput extends PutRumMetricsDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRumMetricsDestinationCommand}.
  */
 export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a destination to receive extended metrics from CloudWatch RUM. You can send
  *          extended metrics to CloudWatch or to a CloudWatch Evidently experiment.</p>
  *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html">BatchCreateRumMetricDefinitions</a>.</p>
@@ -48,6 +53,8 @@ export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDest
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRumMetricsDestinationCommandInput - {@link PutRumMetricsDestinationCommandInput}
+ * @returns {@link PutRumMetricsDestinationCommandOutput}
  * @see {@link PutRumMetricsDestinationCommandInput} for command's `input` shape.
  * @see {@link PutRumMetricsDestinationCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -89,6 +96,9 @@ export class PutRumMetricsDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRumMetricsDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class PutRumMetricsDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRumMetricsDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutRumMetricsDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRumMetricsDestinationCommandOutput> {
     return deserializeAws_restJson1PutRumMetricsDestinationCommand(output, context);
   }

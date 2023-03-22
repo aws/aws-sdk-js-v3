@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMasterAccountCommand}.
  */
 export interface GetMasterAccountCommandInput extends GetMasterAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMasterAccountCommand}.
  */
 export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>This method is deprecated. Instead, use <code>GetAdministratorAccount</code>.</p>
@@ -52,6 +57,8 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMasterAccountCommandInput - {@link GetMasterAccountCommandInput}
+ * @returns {@link GetMasterAccountCommandOutput}
  * @see {@link GetMasterAccountCommandInput} for command's `input` shape.
  * @see {@link GetMasterAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetMasterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMasterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetMasterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMasterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMasterAccountCommandOutput> {
     return deserializeAws_restJson1GetMasterAccountCommand(output, context);
   }

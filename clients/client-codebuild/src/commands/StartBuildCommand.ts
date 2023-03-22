@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBuildCommand}.
  */
 export interface StartBuildCommandInput extends StartBuildInput {}
 /**
+ * @public
+ *
  * The output of {@link StartBuildCommand}.
  */
 export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts running a build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBuildCommandInput - {@link StartBuildCommandInput}
+ * @returns {@link StartBuildCommandOutput}
  * @see {@link StartBuildCommandInput} for command's `input` shape.
  * @see {@link StartBuildCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -78,6 +85,9 @@ export class StartBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class StartBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBuildCommandOutput> {
     return deserializeAws_json1_1StartBuildCommand(output, context);
   }

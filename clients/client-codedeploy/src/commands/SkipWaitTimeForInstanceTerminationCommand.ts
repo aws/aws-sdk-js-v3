@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SkipWaitTimeForInstanceTerminationCommand}.
  */
 export interface SkipWaitTimeForInstanceTerminationCommandInput extends SkipWaitTimeForInstanceTerminationInput {}
 /**
+ * @public
+ *
  * The output of {@link SkipWaitTimeForInstanceTerminationCommand}.
  */
 export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
@@ -47,6 +52,8 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param SkipWaitTimeForInstanceTerminationCommandInput - {@link SkipWaitTimeForInstanceTerminationCommandInput}
+ * @returns {@link SkipWaitTimeForInstanceTerminationCommandOutput}
  * @see {@link SkipWaitTimeForInstanceTerminationCommandInput} for command's `input` shape.
  * @see {@link SkipWaitTimeForInstanceTerminationCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -89,6 +96,9 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SkipWaitTimeForInstanceTerminationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SkipWaitTimeForInstanceTerminationCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     return serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

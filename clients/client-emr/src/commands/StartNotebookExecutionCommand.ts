@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartNotebookExecutionCommand}.
  */
 export interface StartNotebookExecutionCommandInput extends StartNotebookExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartNotebookExecutionCommand}.
  */
 export interface StartNotebookExecutionCommandOutput extends StartNotebookExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a notebook execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNotebookExecutionCommandInput - {@link StartNotebookExecutionCommandInput}
+ * @returns {@link StartNotebookExecutionCommandOutput}
  * @see {@link StartNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link StartNotebookExecutionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -76,6 +83,9 @@ export class StartNotebookExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNotebookExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class StartNotebookExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNotebookExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartNotebookExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartNotebookExecutionCommandOutput> {
     return deserializeAws_json1_1StartNotebookExecutionCommand(output, context);
   }

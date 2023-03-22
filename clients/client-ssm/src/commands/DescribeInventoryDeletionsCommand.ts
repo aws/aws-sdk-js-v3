@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInventoryDeletionsCommand}.
  */
 export interface DescribeInventoryDeletionsCommandInput extends DescribeInventoryDeletionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInventoryDeletionsCommand}.
  */
 export interface DescribeInventoryDeletionsCommandOutput extends DescribeInventoryDeletionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a specific delete inventory operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInventoryDeletionsCommandInput - {@link DescribeInventoryDeletionsCommandInput}
+ * @returns {@link DescribeInventoryDeletionsCommandOutput}
  * @see {@link DescribeInventoryDeletionsCommandInput} for command's `input` shape.
  * @see {@link DescribeInventoryDeletionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeInventoryDeletionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInventoryDeletionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeInventoryDeletionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInventoryDeletionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeInventoryDeletionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

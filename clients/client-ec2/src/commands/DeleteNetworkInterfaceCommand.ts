@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkInterfaceCommand}.
  */
 export interface DeleteNetworkInterfaceCommandInput extends DeleteNetworkInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkInterfaceCommand}.
  */
 export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInterfaceCommandInput - {@link DeleteNetworkInterfaceCommandInput}
+ * @returns {@link DeleteNetworkInterfaceCommandOutput}
  * @see {@link DeleteNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteNetworkInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteNetworkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNetworkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkInterfaceCommandOutput> {
     return deserializeAws_ec2DeleteNetworkInterfaceCommand(output, context);
   }

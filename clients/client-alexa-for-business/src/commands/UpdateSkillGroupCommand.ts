@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSkillGroupCommand}.
  */
 export interface UpdateSkillGroupCommandInput extends UpdateSkillGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSkillGroupCommand}.
  */
 export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates skill group details by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSkillGroupCommandInput - {@link UpdateSkillGroupCommandInput}
+ * @returns {@link UpdateSkillGroupCommandOutput}
  * @see {@link UpdateSkillGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateSkillGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSkillGroupCommandOutput> {
     return deserializeAws_json1_1UpdateSkillGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLogSubscriptionCommand}.
  */
 export interface DeleteLogSubscriptionCommandInput extends DeleteLogSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLogSubscriptionCommand}.
  */
 export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified log subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLogSubscriptionCommandInput - {@link DeleteLogSubscriptionCommandInput}
+ * @returns {@link DeleteLogSubscriptionCommandOutput}
  * @see {@link DeleteLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteLogSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLogSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteLogSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLogSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogSubscriptionCommandOutput> {
     return deserializeAws_json1_1DeleteLogSubscriptionCommand(output, context);
   }

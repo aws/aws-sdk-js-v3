@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInterconnectsCommand}.
  */
 export interface DescribeInterconnectsCommandInput extends DescribeInterconnectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInterconnectsCommand}.
  */
 export interface DescribeInterconnectsCommandOutput extends Interconnects, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the interconnects owned by the Amazon Web Services account or only the specified interconnect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInterconnectsCommandInput - {@link DescribeInterconnectsCommandInput}
+ * @returns {@link DescribeInterconnectsCommandOutput}
  * @see {@link DescribeInterconnectsCommandInput} for command's `input` shape.
  * @see {@link DescribeInterconnectsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeInterconnectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInterconnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeInterconnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInterconnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeInterconnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInterconnectsCommandOutput> {
     return deserializeAws_json1_1DescribeInterconnectsCommand(output, context);
   }

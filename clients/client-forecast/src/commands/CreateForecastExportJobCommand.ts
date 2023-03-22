@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateForecastExportJobCommand}.
  */
 export interface CreateForecastExportJobCommandInput extends CreateForecastExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateForecastExportJobCommand}.
  */
 export interface CreateForecastExportJobCommandOutput extends CreateForecastExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a forecast created by the <a>CreateForecast</a> operation to your
  *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
  *          <p><ForecastExportJobName>_<ExportTimestamp>_<PartNumber></p>
@@ -59,6 +64,8 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateForecastExportJobCommandInput - {@link CreateForecastExportJobCommandInput}
+ * @returns {@link CreateForecastExportJobCommandOutput}
  * @see {@link CreateForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateForecastExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateForecastExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateForecastExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateForecastExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateForecastExportJobCommandOutput> {
     return deserializeAws_json1_1CreateForecastExportJobCommand(output, context);
   }

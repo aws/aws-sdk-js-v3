@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceEventWindowsCommand}.
  */
 export interface DescribeInstanceEventWindowsCommandInput extends DescribeInstanceEventWindowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceEventWindowsCommand}.
  */
 export interface DescribeInstanceEventWindowsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeInstanceEventWindowsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified event windows or all event windows.</p>
  *          <p>If you specify event window IDs, the output includes information for only the specified
  *          event windows. If you specify filters, the output includes information for only those event
@@ -56,6 +61,8 @@ export interface DescribeInstanceEventWindowsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceEventWindowsCommandInput - {@link DescribeInstanceEventWindowsCommandInput}
+ * @returns {@link DescribeInstanceEventWindowsCommandOutput}
  * @see {@link DescribeInstanceEventWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceEventWindowsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceEventWindowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceEventWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeInstanceEventWindowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

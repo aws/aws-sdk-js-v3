@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMinuteUsageCommand}.
  */
 export interface GetMinuteUsageCommandInput extends GetMinuteUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMinuteUsageCommand}.
  */
 export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of minutes used by account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMinuteUsageCommandInput - {@link GetMinuteUsageCommandInput}
+ * @returns {@link GetMinuteUsageCommandOutput}
  * @see {@link GetMinuteUsageCommandInput} for command's `input` shape.
  * @see {@link GetMinuteUsageCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetMinuteUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMinuteUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetMinuteUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMinuteUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMinuteUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMinuteUsageCommandOutput> {
     return deserializeAws_restJson1GetMinuteUsageCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRouteCommand}.
  */
 export interface UpdateRouteCommandInput extends UpdateRouteInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRouteCommand}.
  */
 export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing route for a specified service mesh and virtual router.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRouteCommandInput - {@link UpdateRouteCommandInput}
+ * @returns {@link UpdateRouteCommandOutput}
  * @see {@link UpdateRouteCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRouteCommandOutput> {
     return deserializeAws_restJson1UpdateRouteCommand(output, context);
   }

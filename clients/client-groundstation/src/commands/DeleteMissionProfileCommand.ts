@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMissionProfileCommand}.
  */
 export interface DeleteMissionProfileCommandInput extends DeleteMissionProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMissionProfileCommand}.
  */
 export interface DeleteMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a mission profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMissionProfileCommandInput - {@link DeleteMissionProfileCommandInput}
+ * @returns {@link DeleteMissionProfileCommandOutput}
  * @see {@link DeleteMissionProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteMissionProfileCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteMissionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMissionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteMissionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMissionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMissionProfileCommandOutput> {
     return deserializeAws_restJson1DeleteMissionProfileCommand(output, context);
   }

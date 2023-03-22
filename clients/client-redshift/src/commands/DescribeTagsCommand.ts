@@ -23,15 +23,20 @@ import { deserializeAws_queryDescribeTagsCommand, serializeAws_queryDescribeTags
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandInput extends DescribeTagsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tags. You can return tags from a specific resource by specifying
  *             an ARN, or you can return all tags for a given type of resource, such as clusters,
  *             snapshots, and so on.</p>
@@ -67,6 +72,8 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
+ * @returns {@link DescribeTagsCommandOutput}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
     return deserializeAws_queryDescribeTagsCommand(output, context);
   }

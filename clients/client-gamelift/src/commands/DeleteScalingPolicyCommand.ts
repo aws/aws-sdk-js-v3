@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScalingPolicyCommand}.
  */
 export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScalingPolicyCommand}.
  */
 export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in force and
  *             GameLift removes all record of it. To delete a scaling policy, specify both the scaling
  *             policy name and the fleet ID it is associated with.</p>
@@ -45,6 +50,8 @@ export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScalingPolicyCommandInput - {@link DeleteScalingPolicyCommandInput}
+ * @returns {@link DeleteScalingPolicyCommandOutput}
  * @see {@link DeleteScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScalingPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteScalingPolicyCommand(output, context);
   }

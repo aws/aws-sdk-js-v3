@@ -24,15 +24,20 @@ import {
 import { deserializeAws_ec2CopySnapshotCommand, serializeAws_ec2CopySnapshotCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy a
  *       snapshot within the same Region, from one Region to another, or from a Region to an Outpost.
  *       You can't copy a snapshot from an Outpost to a Region, from one Outpost to another, or within
@@ -63,6 +68,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
+ * @returns {@link CopySnapshotCommandOutput}
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -105,6 +112,9 @@ export class CopySnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopySnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CopySnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CopySnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
     return deserializeAws_ec2CopySnapshotCommand(output, context);
   }

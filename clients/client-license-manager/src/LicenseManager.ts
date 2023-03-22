@@ -214,11 +214,13 @@ import {
 import { LicenseManagerClient } from "./LicenseManagerClient";
 
 /**
+ * @public
  * <p>License Manager makes it easier to manage licenses from software vendors across multiple
  *          Amazon Web Services accounts and on-premises servers.</p>
  */
 export class LicenseManager extends LicenseManagerClient {
   /**
+   * @public
    * <p>Accepts the specified grant.</p>
    */
   public acceptGrant(args: AcceptGrantCommandInput, options?: __HttpHandlerOptions): Promise<AcceptGrantCommandOutput>;
@@ -245,6 +247,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Checks in the specified license. Check in a license when it is no longer in use.</p>
    */
   public checkInLicense(
@@ -277,6 +280,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Checks out the specified license for offline use.</p>
    */
   public checkoutBorrowLicense(
@@ -309,6 +313,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Checks out the specified license.</p>
    *          <note>
    *             <p>If the account that created the license is the same that is performing the check out, you must
@@ -345,6 +350,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific Amazon Web Services accounts.</p>
    */
   public createGrant(args: CreateGrantCommandInput, options?: __HttpHandlerOptions): Promise<CreateGrantCommandOutput>;
@@ -371,6 +377,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new version of the specified grant.</p>
    */
   public createGrantVersion(
@@ -403,6 +410,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a license.</p>
    */
   public createLicense(
@@ -435,6 +443,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a license configuration.</p>
    *          <p>A license configuration is an abstraction of a customer license agreement that can be
    *          consumed and enforced by License Manager. Components include specifications for the license
@@ -472,6 +481,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new license conversion task.</p>
    */
   public createLicenseConversionTaskForResource(
@@ -506,6 +516,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a report generator.</p>
    */
   public createLicenseManagerReportGenerator(
@@ -538,6 +549,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new version of the specified license.</p>
    */
   public createLicenseVersion(
@@ -570,6 +582,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a long-lived token.</p>
    *          <p>A refresh token is a JWT token used to get an access token. With an access token,
    *           you can call AssumeRoleWithWebIdentity to get role credentials that you can use to
@@ -599,6 +612,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified grant.</p>
    */
   public deleteGrant(args: DeleteGrantCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGrantCommandOutput>;
@@ -625,6 +639,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified license.</p>
    */
   public deleteLicense(
@@ -657,6 +672,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified license configuration.</p>
    *          <p>You cannot delete a license configuration that is in use.</p>
    */
@@ -690,6 +706,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified report generator.</p>
    *          <p>This action deletes the report generator, which stops it from generating future reports.
    *          The action cannot be reversed. It has no effect on the previous reports from this generator.</p>
@@ -724,6 +741,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified token. Must be called in the license home Region.</p>
    */
   public deleteToken(args: DeleteTokenCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTokenCommandOutput>;
@@ -750,6 +768,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Extends the expiration date for license consumption.</p>
    */
   public extendLicenseConsumption(
@@ -782,6 +801,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets a temporary access token to use with AssumeRoleWithWebIdentity. Access tokens
    *           are valid for one hour.</p>
    */
@@ -815,6 +835,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets detailed information about the specified grant.</p>
    */
   public getGrant(args: GetGrantCommandInput, options?: __HttpHandlerOptions): Promise<GetGrantCommandOutput>;
@@ -841,6 +862,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets detailed information about the specified license.</p>
    */
   public getLicense(args: GetLicenseCommandInput, options?: __HttpHandlerOptions): Promise<GetLicenseCommandOutput>;
@@ -867,6 +889,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets detailed information about the specified license configuration.</p>
    */
   public getLicenseConfiguration(
@@ -899,6 +922,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified license type conversion task.</p>
    */
   public getLicenseConversionTask(
@@ -931,6 +955,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified report generator.</p>
    */
   public getLicenseManagerReportGenerator(
@@ -963,6 +988,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets detailed information about the usage of the specified license.</p>
    */
   public getLicenseUsage(
@@ -995,6 +1021,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the License Manager settings for the current Region.</p>
    */
   public getServiceSettings(
@@ -1027,6 +1054,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the resource associations for the specified license configuration.</p>
    *          <p>Resource associations need not consume licenses from a license configuration.
    *          For example, an AMI or a stopped instance might not consume a license (depending on
@@ -1064,6 +1092,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the grants distributed for the specified license.</p>
    */
   public listDistributedGrants(
@@ -1096,6 +1125,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the license configuration operations that failed.</p>
    */
   public listFailuresForLicenseConfigurationOperations(
@@ -1130,6 +1160,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the license configurations for your account.</p>
    */
   public listLicenseConfigurations(
@@ -1162,6 +1193,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the license type conversion tasks for your account.</p>
    */
   public listLicenseConversionTasks(
@@ -1194,6 +1226,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the report generators for your account.</p>
    */
   public listLicenseManagerReportGenerators(
@@ -1226,6 +1259,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the licenses for your account.</p>
    */
   public listLicenses(
@@ -1255,6 +1289,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Describes the license configurations for the specified resource.</p>
    */
   public listLicenseSpecificationsForResource(
@@ -1287,6 +1322,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists all versions of the specified license.</p>
    */
   public listLicenseVersions(
@@ -1319,6 +1355,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists grants that are received but not accepted.</p>
    */
   public listReceivedGrants(
@@ -1351,6 +1388,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the grants received for all accounts in the organization.</p>
    */
   public listReceivedGrantsForOrganization(
@@ -1383,6 +1421,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists received licenses.</p>
    */
   public listReceivedLicenses(
@@ -1415,6 +1454,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the licenses received for all accounts in the organization.</p>
    */
   public listReceivedLicensesForOrganization(
@@ -1447,6 +1487,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists resources managed using Systems Manager inventory.</p>
    */
   public listResourceInventory(
@@ -1479,6 +1520,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified license configuration.</p>
    */
   public listTagsForResource(
@@ -1511,6 +1553,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists your tokens.</p>
    */
   public listTokens(args: ListTokensCommandInput, options?: __HttpHandlerOptions): Promise<ListTokensCommandOutput>;
@@ -1537,6 +1580,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists all license usage records for a license configuration, displaying license
    *          consumption details by resource at a selected point in time. Use this action to audit the
    *          current license consumption for any license inventory and configuration.</p>
@@ -1571,6 +1615,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Rejects the specified grant.</p>
    */
   public rejectGrant(args: RejectGrantCommandInput, options?: __HttpHandlerOptions): Promise<RejectGrantCommandOutput>;
@@ -1597,6 +1642,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tags to the specified license configuration.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1623,6 +1669,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified license configuration.</p>
    */
   public untagResource(
@@ -1655,6 +1702,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Modifies the attributes of an existing license configuration.</p>
    */
   public updateLicenseConfiguration(
@@ -1687,6 +1735,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates a report generator.</p>
    *          <p>After you make changes to a report generator, it starts generating new reports within 60 minutes of being updated.</p>
    */
@@ -1720,6 +1769,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p>
    *          <p>You can update the license specifications of AMIs, instances, and hosts.
    *          You cannot update the license specifications for launch templates and CloudFormation templates,
@@ -1757,6 +1807,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates License Manager settings for the current Region.</p>
    */
   public updateServiceSettings(

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link MigrateWorkspaceCommand}.
  */
 export interface MigrateWorkspaceCommandInput extends MigrateWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link MigrateWorkspaceCommand}.
  */
 export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Migrates a WorkSpace from one operating system or bundle type to another, while
  *          retaining the data on the user volume.</p>
  *          <p>The migration process recreates the WorkSpace by using a new root volume from the target
@@ -56,6 +61,8 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param MigrateWorkspaceCommandInput - {@link MigrateWorkspaceCommandInput}
+ * @returns {@link MigrateWorkspaceCommandOutput}
  * @see {@link MigrateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link MigrateWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -97,6 +104,9 @@ export class MigrateWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MigrateWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class MigrateWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MigrateWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MigrateWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MigrateWorkspaceCommandOutput> {
     return deserializeAws_json1_1MigrateWorkspaceCommand(output, context);
   }

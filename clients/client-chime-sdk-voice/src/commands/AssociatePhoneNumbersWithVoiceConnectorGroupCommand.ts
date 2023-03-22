@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}.
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput
   extends AssociatePhoneNumbersWithVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}.
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
@@ -54,6 +58,9 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,6 +106,9 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
     context: __SerdeContext
@@ -106,6 +116,9 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
     return serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

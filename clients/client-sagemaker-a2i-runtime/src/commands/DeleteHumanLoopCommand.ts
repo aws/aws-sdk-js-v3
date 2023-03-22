@@ -30,15 +30,20 @@ import {
 } from "../SageMakerA2IRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHumanLoopCommand}.
  */
 export interface DeleteHumanLoopCommandInput extends DeleteHumanLoopRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHumanLoopCommand}.
  */
 export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified human loop for a flow definition.</p>
  *          <p>If the human loop was deleted, this operation will return a
  *         <code>ResourceNotFoundException</code>. </p>
@@ -52,6 +57,8 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHumanLoopCommandInput - {@link DeleteHumanLoopCommandInput}
+ * @returns {@link DeleteHumanLoopCommandOutput}
  * @see {@link DeleteHumanLoopCommandInput} for command's `input` shape.
  * @see {@link DeleteHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteHumanLoopCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHumanLoopCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteHumanLoopCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteHumanLoopCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHumanLoopCommandOutput> {
     return deserializeAws_restJson1DeleteHumanLoopCommand(output, context);
   }

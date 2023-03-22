@@ -10,7 +10,7 @@ import {
 import { CloudHSMV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudHSMV2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeClustersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeClusters(
   config: CloudHSMV2PaginationConfiguration,
   input: DescribeClustersCommandInput,

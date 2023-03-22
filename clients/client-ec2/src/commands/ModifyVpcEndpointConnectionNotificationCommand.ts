@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcEndpointConnectionNotificationCommand}.
  */
 export interface ModifyVpcEndpointConnectionNotificationCommandInput
   extends ModifyVpcEndpointConnectionNotificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcEndpointConnectionNotificationCommand}.
  */
 export interface ModifyVpcEndpointConnectionNotificationCommandOutput
@@ -38,6 +42,7 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a connection notification for VPC endpoint or VPC endpoint service. You
  *             can change the SNS topic for the notification, or the events for which to be notified. </p>
  * @example
@@ -50,6 +55,8 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcEndpointConnectionNotificationCommandInput - {@link ModifyVpcEndpointConnectionNotificationCommandInput}
+ * @returns {@link ModifyVpcEndpointConnectionNotificationCommandOutput}
  * @see {@link ModifyVpcEndpointConnectionNotificationCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointConnectionNotificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcEndpointConnectionNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcEndpointConnectionNotificationCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     return serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

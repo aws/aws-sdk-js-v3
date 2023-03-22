@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationFsxWindowsCommand}.
  */
 export interface DescribeLocationFsxWindowsCommandInput extends DescribeLocationFsxWindowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationFsxWindowsCommand}.
  */
 export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about an Amazon FSx for Windows File Server
  *       location, such as information about its path.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationFsxWindowsCommandInput - {@link DescribeLocationFsxWindowsCommandInput}
+ * @returns {@link DescribeLocationFsxWindowsCommandOutput}
  * @see {@link DescribeLocationFsxWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationFsxWindowsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationFsxWindowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationFsxWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationFsxWindowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDeviceWithRoomCommand}.
  */
 export interface AssociateDeviceWithRoomCommandInput extends AssociateDeviceWithRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDeviceWithRoomCommand}.
  */
 export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWithRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a device with a given room. This applies all the settings from the room
  *          profile to the device, and all the skills in any skill groups added to that room. This
  *          operation requires the device to be online, or else a manual sync is required. </p>
@@ -48,6 +53,8 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDeviceWithRoomCommandInput - {@link AssociateDeviceWithRoomCommandInput}
+ * @returns {@link AssociateDeviceWithRoomCommandOutput}
  * @see {@link AssociateDeviceWithRoomCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -80,6 +87,9 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDeviceWithRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDeviceWithRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateDeviceWithRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDeviceWithRoomCommandOutput> {
     return deserializeAws_json1_1AssociateDeviceWithRoomCommand(output, context);
   }

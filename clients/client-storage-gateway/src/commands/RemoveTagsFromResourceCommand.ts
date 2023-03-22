@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTagsFromResourceCommand}.
  */
 export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTagsFromResourceCommand}.
  */
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more tags from the specified resource. This operation is supported in
  *          storage gateways of all types.</p>
  * @example
@@ -47,6 +52,8 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
+ * @returns {@link RemoveTagsFromResourceCommandOutput}
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -98,6 +105,9 @@ export class RemoveTagsFromResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsFromResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class RemoveTagsFromResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsFromResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveTagsFromResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromResourceCommandOutput> {
     return deserializeAws_json1_1RemoveTagsFromResourceCommand(output, context);
   }

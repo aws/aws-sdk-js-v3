@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceDefinitionCommand}.
  */
 export interface UpdateResourceDefinitionCommandInput extends UpdateResourceDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceDefinitionCommand}.
  */
 export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a resource definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDef
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceDefinitionCommandInput - {@link UpdateResourceDefinitionCommandInput}
+ * @returns {@link UpdateResourceDefinitionCommandOutput}
  * @see {@link UpdateResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdateResourceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class UpdateResourceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResourceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceDefinitionCommandOutput> {
     return deserializeAws_restJson1UpdateResourceDefinitionCommand(output, context);
   }

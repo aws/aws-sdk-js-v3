@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobCommand}.
  */
 export interface CreateJobCommandInput extends CreateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobCommand}.
  */
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Braket job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobCommandInput - {@link CreateJobCommandInput}
+ * @returns {@link CreateJobCommandOutput}
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobCommandOutput> {
     return deserializeAws_restJson1CreateJobCommand(output, context);
   }

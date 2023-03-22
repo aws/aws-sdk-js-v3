@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOpsItemsCommand}.
  */
 export interface DescribeOpsItemsCommandInput extends DescribeOpsItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOpsItemsCommand}.
  */
 export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Query a set of OpsItems. You must have permission in Identity and Access Management (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
  *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
@@ -51,6 +56,8 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOpsItemsCommandInput - {@link DescribeOpsItemsCommandInput}
+ * @returns {@link DescribeOpsItemsCommandOutput}
  * @see {@link DescribeOpsItemsCommandInput} for command's `input` shape.
  * @see {@link DescribeOpsItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeOpsItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOpsItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeOpsItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOpsItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeOpsItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOpsItemsCommandOutput> {
     return deserializeAws_json1_1DescribeOpsItemsCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseMasterUserPasswordCommand}.
  */
 export interface GetRelationalDatabaseMasterUserPasswordCommandInput
   extends GetRelationalDatabaseMasterUserPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseMasterUserPasswordCommand}.
  */
 export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
@@ -38,6 +42,7 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current, previous, or pending versions of the master user password for a
  *       Lightsail database.</p>
  *          <p>The <code>GetRelationalDatabaseMasterUserPassword</code> operation supports tag-based
@@ -53,6 +58,8 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseMasterUserPasswordCommandInput - {@link GetRelationalDatabaseMasterUserPasswordCommandInput}
+ * @returns {@link GetRelationalDatabaseMasterUserPasswordCommandOutput}
  * @see {@link GetRelationalDatabaseMasterUserPasswordCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseMasterUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +113,9 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseMasterUserPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,6 +161,9 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseMasterUserPasswordCommandInput,
     context: __SerdeContext
@@ -158,6 +171,9 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
     return serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

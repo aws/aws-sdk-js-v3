@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDetectSyntaxCommand}.
  */
 export interface BatchDetectSyntaxCommandInput extends BatchDetectSyntaxRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDetectSyntaxCommand}.
  */
 export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects the text of a batch of documents for the syntax and part of speech of the words
  *       in the document and returns information about them. For more information, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
@@ -49,6 +54,8 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDetectSyntaxCommandInput - {@link BatchDetectSyntaxCommandInput}
+ * @returns {@link BatchDetectSyntaxCommandOutput}
  * @see {@link BatchDetectSyntaxCommandInput} for command's `input` shape.
  * @see {@link BatchDetectSyntaxCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -92,6 +99,9 @@ export class BatchDetectSyntaxCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDetectSyntaxCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class BatchDetectSyntaxCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDetectSyntaxCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDetectSyntaxCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectSyntaxCommandOutput> {
     return deserializeAws_json1_1BatchDetectSyntaxCommand(output, context);
   }

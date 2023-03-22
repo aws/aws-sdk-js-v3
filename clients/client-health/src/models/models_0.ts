@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { HealthServiceException as __BaseException } from "./HealthServiceException";
 
+/**
+ * @public
+ */
 export enum EntityStatusCode {
   IMPAIRED = "IMPAIRED",
   UNIMPAIRED = "UNIMPAIRED",
@@ -10,6 +13,7 @@ export enum EntityStatusCode {
 }
 
 /**
+ * @public
  * <p>Information about an entity that is affected by a Health event.</p>
  */
 export interface AffectedEntity {
@@ -67,6 +71,9 @@ export interface AffectedEntity {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAffectedAccountsForOrganizationRequest {
   /**
    * <p>The unique identifier for the event. The event ARN has the
@@ -94,12 +101,18 @@ export interface DescribeAffectedAccountsForOrganizationRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum EventScopeCode {
   ACCOUNT_SPECIFIC = "ACCOUNT_SPECIFIC",
   NONE = "NONE",
   PUBLIC = "PUBLIC",
 }
 
+/**
+ * @public
+ */
 export interface DescribeAffectedAccountsForOrganizationResponse {
   /**
    * <p>A JSON set of elements of the affected accounts.</p>
@@ -139,6 +152,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
 }
 
 /**
+ * @public
  * <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
  */
 export class InvalidPaginationToken extends __BaseException {
@@ -158,6 +172,7 @@ export class InvalidPaginationToken extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set:
  *          match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
  *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
@@ -179,6 +194,7 @@ export interface DateTimeRange {
 }
 
 /**
+ * @public
  * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a> operation.</p>
  */
 export interface EntityFilter {
@@ -218,6 +234,9 @@ export interface EntityFilter {
   statusCodes?: (EntityStatusCode | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAffectedEntitiesRequest {
   /**
    * <p>Values to narrow the results returned. At least one event ARN is required.</p>
@@ -243,6 +262,9 @@ export interface DescribeAffectedEntitiesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAffectedEntitiesResponse {
   /**
    * <p>The entities that match the filter criteria.</p>
@@ -259,6 +281,7 @@ export interface DescribeAffectedEntitiesResponse {
 }
 
 /**
+ * @public
  * <p>The specified locale is not supported.</p>
  */
 export class UnsupportedLocale extends __BaseException {
@@ -278,6 +301,7 @@ export class UnsupportedLocale extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The values used to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operations.</p>
  */
 export interface EventAccountFilter {
@@ -299,6 +323,9 @@ export interface EventAccountFilter {
   awsAccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAffectedEntitiesForOrganizationRequest {
   /**
    * <p>A JSON set of elements including the <code>awsAccountId</code> and the
@@ -326,6 +353,7 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
 }
 
 /**
+ * @public
  * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operation can't find or process a
  *          specific entity.</p>
  */
@@ -360,6 +388,9 @@ export interface OrganizationAffectedEntitiesErrorItem {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAffectedEntitiesForOrganizationResponse {
   /**
    * <p>A JSON set of elements including the <code>awsAccountId</code> and its
@@ -383,6 +414,9 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntityAggregatesRequest {
   /**
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
@@ -392,6 +426,7 @@ export interface DescribeEntityAggregatesRequest {
 }
 
 /**
+ * @public
  * <p>The number of entities that are affected by one or more events. Returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEntityAggregates.html">DescribeEntityAggregates</a> operation.</p>
  */
 export interface EntityAggregate {
@@ -413,6 +448,9 @@ export interface EntityAggregate {
   count?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntityAggregatesResponse {
   /**
    * <p>The number of entities that are affected by each of the specified events.</p>
@@ -420,16 +458,25 @@ export interface DescribeEntityAggregatesResponse {
   entityAggregates?: EntityAggregate[];
 }
 
+/**
+ * @public
+ */
 export enum EventAggregateField {
   EventTypeCategory = "eventTypeCategory",
 }
 
+/**
+ * @public
+ */
 export enum EventStatusCode {
   CLOSED = "closed",
   OPEN = "open",
   UPCOMING = "upcoming",
 }
 
+/**
+ * @public
+ */
 export enum EventTypeCategory {
   ACCOUNT_NOTIFICATION = "accountNotification",
   INVESTIGATION = "investigation",
@@ -438,6 +485,7 @@ export enum EventTypeCategory {
 }
 
 /**
+ * @public
  * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a> and
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html">DescribeEventAggregates</a> operations.</p>
  */
@@ -516,6 +564,9 @@ export interface EventFilter {
   eventStatusCodes?: (EventStatusCode | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventAggregatesRequest {
   /**
    * <p>Values to narrow the results returned.</p>
@@ -542,6 +593,7 @@ export interface DescribeEventAggregatesRequest {
 }
 
 /**
+ * @public
  * <p>The number of events of each issue type. Returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html">DescribeEventAggregates</a> operation.</p>
  */
 export interface EventAggregate {
@@ -556,6 +608,9 @@ export interface EventAggregate {
   count?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventAggregatesResponse {
   /**
    * <p>The number of events in each category that meet the optional filter criteria.</p>
@@ -571,6 +626,9 @@ export interface DescribeEventAggregatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventDetailsRequest {
   /**
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
@@ -585,6 +643,7 @@ export interface DescribeEventDetailsRequest {
 }
 
 /**
+ * @public
  * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation can't find a specified event.</p>
  */
 export interface EventDetailsErrorItem {
@@ -612,6 +671,7 @@ export interface EventDetailsErrorItem {
 }
 
 /**
+ * @public
  * <p>Summary information about an Health event.</p>
  *          <p>Health events can be public or account-specific:</p>
  *          <ul>
@@ -720,6 +780,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p>The detailed description of the event. Included in the information returned by the
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
  */
@@ -731,6 +792,7 @@ export interface EventDescription {
 }
 
 /**
+ * @public
  * <p>Detailed information about an event. A combination of an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a> object, an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html">EventDescription</a> object, and additional metadata about the event. Returned by
  *          the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
  */
@@ -751,6 +813,9 @@ export interface EventDetails {
   eventMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventDetailsResponse {
   /**
    * <p>Information about the events that could be retrieved.</p>
@@ -763,6 +828,9 @@ export interface DescribeEventDetailsResponse {
   failedSet?: EventDetailsErrorItem[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventDetailsForOrganizationRequest {
   /**
    * <p>A set of JSON elements that includes the <code>awsAccountId</code> and the
@@ -777,6 +845,7 @@ export interface DescribeEventDetailsForOrganizationRequest {
 }
 
 /**
+ * @public
  * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> operation can't find a specified
  *          event.</p>
  */
@@ -824,6 +893,7 @@ export interface OrganizationEventDetailsErrorItem {
 }
 
 /**
+ * @public
  * <p>Detailed information about an event. A combination of an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a> object, an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html">EventDescription</a> object, and additional metadata about the event. Returned by
  *          the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> operation.</p>
  */
@@ -869,6 +939,9 @@ export interface OrganizationEventDetails {
   eventMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventDetailsForOrganizationResponse {
   /**
    * <p>Information about the events that could be retrieved.</p>
@@ -881,6 +954,9 @@ export interface DescribeEventDetailsForOrganizationResponse {
   failedSet?: OrganizationEventDetailsErrorItem[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsRequest {
   /**
    * <p>Values to narrow the results returned.</p>
@@ -906,6 +982,9 @@ export interface DescribeEventsRequest {
   locale?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsResponse {
   /**
    * <p>The events that match the specified filter criteria.</p>
@@ -922,6 +1001,7 @@ export interface DescribeEventsResponse {
 }
 
 /**
+ * @public
  * <p>The values to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a> operation.</p>
  */
 export interface OrganizationEventFilter {
@@ -1002,6 +1082,9 @@ export interface OrganizationEventFilter {
   eventStatusCodes?: (EventStatusCode | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsForOrganizationRequest {
   /**
    * <p>Values to narrow the results returned.</p>
@@ -1028,6 +1111,7 @@ export interface DescribeEventsForOrganizationRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about an event, returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a> operation.</p>
  */
 export interface OrganizationEvent {
@@ -1112,6 +1196,9 @@ export interface OrganizationEvent {
   statusCode?: EventStatusCode | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsForOrganizationResponse {
   /**
    * <p>The events that match the specified filter criteria.</p>
@@ -1128,6 +1215,7 @@ export interface DescribeEventsForOrganizationResponse {
 }
 
 /**
+ * @public
  * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventTypes.html">DescribeEventTypes</a>
  *          operation.</p>
  */
@@ -1150,6 +1238,9 @@ export interface EventTypeFilter {
   eventTypeCategories?: (EventTypeCategory | string)[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventTypesRequest {
   /**
    * <p>Values to narrow the results returned.</p>
@@ -1176,6 +1267,7 @@ export interface DescribeEventTypesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the metadata about a type of event that is reported by Health. The
  *             <code>EventType</code> shows the category, service, and the event type code of the
  *          event. For example, an <code>issue</code> might be the category, <code>EC2</code> the
@@ -1207,6 +1299,9 @@ export interface EventType {
   category?: EventTypeCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventTypesResponse {
   /**
    * <p>A list of event types that match the filter criteria. Event types have a category
@@ -1228,6 +1323,9 @@ export interface DescribeEventTypesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHealthServiceStatusForOrganizationResponse {
   /**
    * <p>Information about the status of enabling or disabling the Health organizational
@@ -1238,6 +1336,7 @@ export interface DescribeHealthServiceStatusForOrganizationResponse {
 }
 
 /**
+ * @public
  * <p>
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
  *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>

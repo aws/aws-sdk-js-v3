@@ -28,10 +28,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMultiRegionAccessPointCommand}.
  */
 export interface DeleteMultiRegionAccessPointCommandInput extends DeleteMultiRegionAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMultiRegionAccessPointCommand}.
  */
 export interface DeleteMultiRegionAccessPointCommandOutput
@@ -39,6 +43,7 @@ export interface DeleteMultiRegionAccessPointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Multi-Region Access Point. This action does not delete the buckets associated with the Multi-Region Access Point,
  *          only the Multi-Region Access Point itself.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information
@@ -81,6 +86,8 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMultiRegionAccessPointCommandInput - {@link DeleteMultiRegionAccessPointCommandInput}
+ * @returns {@link DeleteMultiRegionAccessPointCommandOutput}
  * @see {@link DeleteMultiRegionAccessPointCommandInput} for command's `input` shape.
  * @see {@link DeleteMultiRegionAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -107,6 +114,9 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMultiRegionAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMultiRegionAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteMultiRegionAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

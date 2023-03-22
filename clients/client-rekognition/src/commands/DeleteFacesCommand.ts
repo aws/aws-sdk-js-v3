@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFacesCommand}.
  */
 export interface DeleteFacesCommandInput extends DeleteFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFacesCommand}.
  */
 export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes faces from a collection. You specify a collection ID and an array of face IDs
  *       to remove from the collection.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DeleteFaces</code>
@@ -49,6 +54,8 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFacesCommandInput - {@link DeleteFacesCommandInput}
+ * @returns {@link DeleteFacesCommandOutput}
  * @see {@link DeleteFacesCommandInput} for command's `input` shape.
  * @see {@link DeleteFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -113,6 +120,9 @@ export class DeleteFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DeleteFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFacesCommandOutput> {
     return deserializeAws_json1_1DeleteFacesCommand(output, context);
   }

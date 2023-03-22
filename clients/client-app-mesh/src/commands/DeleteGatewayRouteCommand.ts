@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGatewayRouteCommand}.
  */
 export interface DeleteGatewayRouteCommandInput extends DeleteGatewayRouteInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGatewayRouteCommand}.
  */
 export interface DeleteGatewayRouteCommandOutput extends DeleteGatewayRouteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing gateway route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGatewayRouteCommandOutput extends DeleteGatewayRouteOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGatewayRouteCommandInput - {@link DeleteGatewayRouteCommandInput}
+ * @returns {@link DeleteGatewayRouteCommandOutput}
  * @see {@link DeleteGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayRouteCommandOutput> {
     return deserializeAws_restJson1DeleteGatewayRouteCommand(output, context);
   }

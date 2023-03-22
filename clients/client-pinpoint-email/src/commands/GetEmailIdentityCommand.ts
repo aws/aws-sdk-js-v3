@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEmailIdentityCommand}.
  */
 export interface GetEmailIdentityCommandInput extends GetEmailIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEmailIdentityCommand}.
  */
 export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a specific identity associated with your Amazon Pinpoint account,
  *             including the identity's verification status, its DKIM authentication status, and its
  *             custom Mail-From settings.</p>
@@ -48,6 +53,8 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEmailIdentityCommandInput - {@link GetEmailIdentityCommandInput}
+ * @returns {@link GetEmailIdentityCommandOutput}
  * @see {@link GetEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link GetEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetEmailIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEmailIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetEmailIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEmailIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailIdentityCommandOutput> {
     return deserializeAws_restJson1GetEmailIdentityCommand(output, context);
   }

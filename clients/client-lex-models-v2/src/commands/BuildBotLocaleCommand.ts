@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BuildBotLocaleCommand}.
  */
 export interface BuildBotLocaleCommandInput extends BuildBotLocaleRequest {}
 /**
+ * @public
+ *
  * The output of {@link BuildBotLocaleCommand}.
  */
 export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Builds a bot, its intents, and its slot types into a specific
  *          locale. A bot can be built into multiple locales. At runtime the locale
  *          is used to choose a specific build of the bot.</p>
@@ -48,6 +53,8 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param BuildBotLocaleCommandInput - {@link BuildBotLocaleCommandInput}
+ * @returns {@link BuildBotLocaleCommandOutput}
  * @see {@link BuildBotLocaleCommandInput} for command's `input` shape.
  * @see {@link BuildBotLocaleCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class BuildBotLocaleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BuildBotLocaleCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class BuildBotLocaleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BuildBotLocaleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BuildBotLocaleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BuildBotLocaleCommandOutput> {
     return deserializeAws_restJson1BuildBotLocaleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSolutionCommand}.
  */
 export interface CreateSolutionCommandInput extends CreateSolutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSolutionCommand}.
  */
 export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the configuration for training a model. A trained model is known as
  *       a solution. After the configuration is created, you train the model (create a solution)
  *       by calling the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a> operation. Every time you call
@@ -118,6 +123,8 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSolutionCommandInput - {@link CreateSolutionCommandInput}
+ * @returns {@link CreateSolutionCommandOutput}
  * @see {@link CreateSolutionCommandInput} for command's `input` shape.
  * @see {@link CreateSolutionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -159,6 +166,9 @@ export class CreateSolutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSolutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -198,10 +208,16 @@ export class CreateSolutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSolutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSolutionCommandOutput> {
     return deserializeAws_json1_1CreateSolutionCommand(output, context);
   }

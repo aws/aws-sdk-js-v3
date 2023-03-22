@@ -24,10 +24,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableVoiceConnectorRegionsCommand}.
  */
 export interface ListAvailableVoiceConnectorRegionsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableVoiceConnectorRegionsCommand}.
  */
 export interface ListAvailableVoiceConnectorRegionsCommandOutput
@@ -51,6 +55,9 @@ export class ListAvailableVoiceConnectorRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableVoiceConnectorRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,6 +97,9 @@ export class ListAvailableVoiceConnectorRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailableVoiceConnectorRegionsCommandInput,
     context: __SerdeContext
@@ -97,6 +107,9 @@ export class ListAvailableVoiceConnectorRegionsCommand extends $Command<
     return serializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

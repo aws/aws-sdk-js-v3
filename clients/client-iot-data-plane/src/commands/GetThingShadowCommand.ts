@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetThingShadowCommand}.
  */
 export interface GetThingShadowCommandInput extends GetThingShadowRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetThingShadowCommand}.
  */
 export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the shadow for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetThingShadow</a> action.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the
@@ -49,6 +54,8 @@ export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetThingShadowCommandInput - {@link GetThingShadowCommandInput}
+ * @returns {@link GetThingShadowCommandOutput}
  * @see {@link GetThingShadowCommandInput} for command's `input` shape.
  * @see {@link GetThingShadowCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetThingShadowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetThingShadowCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class GetThingShadowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetThingShadowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetThingShadowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetThingShadowCommandOutput> {
     return deserializeAws_restJson1GetThingShadowCommand(output, context);
   }

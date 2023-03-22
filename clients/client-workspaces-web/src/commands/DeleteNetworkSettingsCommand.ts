@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkSettingsCommand}.
  */
 export interface DeleteNetworkSettingsCommandInput extends DeleteNetworkSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkSettingsCommand}.
  */
 export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes network settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkSettingsCommandInput - {@link DeleteNetworkSettingsCommandInput}
+ * @returns {@link DeleteNetworkSettingsCommandOutput}
  * @see {@link DeleteNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkSettingsCommandOutput> {
     return deserializeAws_restJson1DeleteNetworkSettingsCommand(output, context);
   }

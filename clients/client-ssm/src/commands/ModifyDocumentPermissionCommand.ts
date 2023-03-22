@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDocumentPermissionCommand}.
  */
 export interface ModifyDocumentPermissionCommandInput extends ModifyDocumentPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDocumentPermissionCommand}.
  */
 export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
  *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
  *    you share a document publicly, you must specify <i>All</i> as the account
@@ -49,6 +54,8 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDocumentPermissionCommandInput - {@link ModifyDocumentPermissionCommandInput}
+ * @returns {@link ModifyDocumentPermissionCommandOutput}
  * @see {@link ModifyDocumentPermissionCommandInput} for command's `input` shape.
  * @see {@link ModifyDocumentPermissionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -93,6 +100,9 @@ export class ModifyDocumentPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDocumentPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ModifyDocumentPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDocumentPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyDocumentPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDocumentPermissionCommandOutput> {
     return deserializeAws_json1_1ModifyDocumentPermissionCommand(output, context);
   }

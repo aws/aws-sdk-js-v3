@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProjectCommand}.
  */
 export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProjectCommand}.
  */
 export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Lookout for Vision project.</p>
  *          <p>To delete a project, you must first delete each version of the model associated with
  *          the project. To delete a model use the <a>DeleteModel</a> operation.</p>
@@ -53,6 +58,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
+ * @returns {@link DeleteProjectCommandOutput}
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectCommandOutput> {
     return deserializeAws_restJson1DeleteProjectCommand(output, context);
   }

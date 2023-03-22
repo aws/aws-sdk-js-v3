@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAggregationAuthorizationCommand}.
  */
 export interface DeleteAggregationAuthorizationCommandInput extends DeleteAggregationAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAggregationAuthorizationCommand}.
  */
 export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the authorization granted to the specified
  * 			configuration aggregator account in a specified region.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAggregationAuthorizationCommandInput - {@link DeleteAggregationAuthorizationCommandInput}
+ * @returns {@link DeleteAggregationAuthorizationCommandOutput}
  * @see {@link DeleteAggregationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteAggregationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAggregationAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAggregationAuthorizationCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
     return serializeAws_json1_1DeleteAggregationAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

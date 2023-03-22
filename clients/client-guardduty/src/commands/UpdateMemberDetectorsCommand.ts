@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMemberDetectorsCommand}.
  */
 export interface UpdateMemberDetectorsCommandInput extends UpdateMemberDetectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMemberDetectorsCommand}.
  */
 export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Contains information on member accounts to be updated.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -49,6 +54,8 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMemberDetectorsCommandInput - {@link UpdateMemberDetectorsCommandInput}
+ * @returns {@link UpdateMemberDetectorsCommandOutput}
  * @see {@link UpdateMemberDetectorsCommandInput} for command's `input` shape.
  * @see {@link UpdateMemberDetectorsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateMemberDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMemberDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateMemberDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMemberDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMemberDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMemberDetectorsCommandOutput> {
     return deserializeAws_restJson1UpdateMemberDetectorsCommand(output, context);
   }

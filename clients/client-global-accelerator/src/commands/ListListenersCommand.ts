@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListListenersCommand}.
  */
 export interface ListListenersCommandInput extends ListListenersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListListenersCommand}.
  */
 export interface ListListenersCommandOutput extends ListListenersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the listeners for an accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListListenersCommandInput - {@link ListListenersCommandInput}
+ * @returns {@link ListListenersCommandOutput}
  * @see {@link ListListenersCommandInput} for command's `input` shape.
  * @see {@link ListListenersCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListListenersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListListenersCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListListenersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListListenersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListListenersCommandOutput> {
     return deserializeAws_json1_1ListListenersCommand(output, context);
   }

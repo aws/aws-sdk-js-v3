@@ -30,10 +30,14 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ConvertRecoveryPointToSnapshotCommand}.
  */
 export interface ConvertRecoveryPointToSnapshotCommandInput extends ConvertRecoveryPointToSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConvertRecoveryPointToSnapshotCommand}.
  */
 export interface ConvertRecoveryPointToSnapshotCommandOutput
@@ -41,6 +45,7 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots,
  *          see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">Working with snapshots and recovery points</a>.</p>
  * @example
@@ -53,6 +58,8 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ConvertRecoveryPointToSnapshotCommandInput - {@link ConvertRecoveryPointToSnapshotCommandInput}
+ * @returns {@link ConvertRecoveryPointToSnapshotCommandOutput}
  * @see {@link ConvertRecoveryPointToSnapshotCommandInput} for command's `input` shape.
  * @see {@link ConvertRecoveryPointToSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -94,6 +101,9 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConvertRecoveryPointToSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConvertRecoveryPointToSnapshotCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command<
     return serializeAws_json1_1ConvertRecoveryPointToSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

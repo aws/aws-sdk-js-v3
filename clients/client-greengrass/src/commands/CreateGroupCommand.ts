@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandInput extends CreateGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a group. You may provide the initial version of the group or use ''CreateGroupVersion'' at a later time. Tip: You can use the ''gg_group_setup'' package (https://github.com/awslabs/aws-greengrass-group-setup) as a library or command-line application to create and deploy Greengrass groups.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
+ * @returns {@link CreateGroupCommandOutput}
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class CreateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class CreateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupCommandOutput> {
     return deserializeAws_restJson1CreateGroupCommand(output, context);
   }

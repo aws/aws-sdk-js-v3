@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesForTagOptionCommand}.
  */
 export interface ListResourcesForTagOptionCommandInput extends ListResourcesForTagOptionInput {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesForTagOptionCommand}.
  */
 export interface ListResourcesForTagOptionCommandOutput extends ListResourcesForTagOptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resources associated with the specified TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesForTagOptionCommandInput - {@link ListResourcesForTagOptionCommandInput}
+ * @returns {@link ListResourcesForTagOptionCommandOutput}
  * @see {@link ListResourcesForTagOptionCommandInput} for command's `input` shape.
  * @see {@link ListResourcesForTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListResourcesForTagOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesForTagOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListResourcesForTagOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesForTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourcesForTagOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

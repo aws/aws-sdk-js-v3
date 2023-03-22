@@ -42,11 +42,13 @@ import {
 } from "./models_1";
 
 /**
+ * @public
  * Placeholder documentation for StartInputDeviceMaintenanceWindowResponse
  */
 export interface StartInputDeviceMaintenanceWindowResponse {}
 
 /**
+ * @public
  * Placeholder documentation for StartMultiplexRequest
  */
 export interface StartMultiplexRequest {
@@ -57,6 +59,7 @@ export interface StartMultiplexRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for StartMultiplexResponse
  */
 export interface StartMultiplexResponse {
@@ -112,6 +115,7 @@ export interface StartMultiplexResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for StopChannelRequest
  */
 export interface StopChannelRequest {
@@ -122,6 +126,7 @@ export interface StopChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for StopChannelResponse
  */
 export interface StopChannelResponse {
@@ -219,6 +224,7 @@ export interface StopChannelResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for StopMultiplexRequest
  */
 export interface StopMultiplexRequest {
@@ -229,6 +235,7 @@ export interface StopMultiplexRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for StopMultiplexResponse
  */
 export interface StopMultiplexResponse {
@@ -284,6 +291,7 @@ export interface StopMultiplexResponse {
 }
 
 /**
+ * @public
  * A request to transfer an input device.
  */
 export interface TransferInputDeviceRequest {
@@ -309,11 +317,13 @@ export interface TransferInputDeviceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for TransferInputDeviceResponse
  */
 export interface TransferInputDeviceResponse {}
 
 /**
+ * @public
  * A request to update a channel.
  */
 export interface UpdateChannelRequest {
@@ -369,6 +379,7 @@ export interface UpdateChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for UpdateChannelResponse
  */
 export interface UpdateChannelResponse {
@@ -379,6 +390,7 @@ export interface UpdateChannelResponse {
 }
 
 /**
+ * @public
  * Channel class that the channel should be updated to.
  */
 export interface UpdateChannelClassRequest {
@@ -399,6 +411,7 @@ export interface UpdateChannelClassRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for UpdateChannelClassResponse
  */
 export interface UpdateChannelClassResponse {
@@ -409,6 +422,7 @@ export interface UpdateChannelClassResponse {
 }
 
 /**
+ * @public
  * A request to update an input.
  */
 export interface UpdateInputRequest {
@@ -458,6 +472,7 @@ export interface UpdateInputRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for UpdateInputResponse
  */
 export interface UpdateInputResponse {
@@ -468,6 +483,7 @@ export interface UpdateInputResponse {
 }
 
 /**
+ * @public
  * A request to update an input device.
  */
 export interface UpdateInputDeviceRequest {
@@ -493,6 +509,7 @@ export interface UpdateInputDeviceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for UpdateInputDeviceResponse
  */
 export interface UpdateInputDeviceResponse {
@@ -558,6 +575,7 @@ export interface UpdateInputDeviceResponse {
 }
 
 /**
+ * @public
  * The request to update some combination of the Input Security Group name and the IPv4 CIDRs the Input Security Group should allow.
  */
 export interface UpdateInputSecurityGroupRequest {
@@ -578,6 +596,7 @@ export interface UpdateInputSecurityGroupRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for UpdateInputSecurityGroupResponse
  */
 export interface UpdateInputSecurityGroupResponse {
@@ -588,6 +607,7 @@ export interface UpdateInputSecurityGroupResponse {
 }
 
 /**
+ * @public
  * A request to update a multiplex.
  */
 export interface UpdateMultiplexRequest {
@@ -608,6 +628,7 @@ export interface UpdateMultiplexRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for UpdateMultiplexResponse
  */
 export interface UpdateMultiplexResponse {
@@ -618,6 +639,7 @@ export interface UpdateMultiplexResponse {
 }
 
 /**
+ * @public
  * A request to update a program in a multiplex.
  */
 export interface UpdateMultiplexProgramRequest {
@@ -638,6 +660,7 @@ export interface UpdateMultiplexProgramRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for UpdateMultiplexProgramResponse
  */
 export interface UpdateMultiplexProgramResponse {
@@ -648,6 +671,7 @@ export interface UpdateMultiplexProgramResponse {
 }
 
 /**
+ * @public
  * Request to update a reservation
  */
 export interface UpdateReservationRequest {
@@ -668,6 +692,7 @@ export interface UpdateReservationRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for UpdateReservationResponse
  */
 export interface UpdateReservationResponse {

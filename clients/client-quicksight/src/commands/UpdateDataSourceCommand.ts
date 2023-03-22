@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataSourceCommand}.
  */
 export interface UpdateDataSourceCommandInput extends UpdateDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataSourceCommand}.
  */
 export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSourceCommandInput - {@link UpdateDataSourceCommandInput}
+ * @returns {@link UpdateDataSourceCommandOutput}
  * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSourceCommandOutput> {
     return deserializeAws_restJson1UpdateDataSourceCommand(output, context);
   }

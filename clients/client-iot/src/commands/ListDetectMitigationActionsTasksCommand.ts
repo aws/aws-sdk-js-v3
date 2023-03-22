@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDetectMitigationActionsTasksCommand}.
  */
 export interface ListDetectMitigationActionsTasksCommandInput extends ListDetectMitigationActionsTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDetectMitigationActionsTasksCommand}.
  */
 export interface ListDetectMitigationActionsTasksCommandOutput
@@ -37,6 +41,7 @@ export interface ListDetectMitigationActionsTasksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       List of Device Defender ML Detect mitigation actions tasks.
  *     </p>
@@ -51,6 +56,8 @@ export interface ListDetectMitigationActionsTasksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDetectMitigationActionsTasksCommandInput - {@link ListDetectMitigationActionsTasksCommandInput}
+ * @returns {@link ListDetectMitigationActionsTasksCommandOutput}
  * @see {@link ListDetectMitigationActionsTasksCommandInput} for command's `input` shape.
  * @see {@link ListDetectMitigationActionsTasksCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListDetectMitigationActionsTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDetectMitigationActionsTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class ListDetectMitigationActionsTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDetectMitigationActionsTasksCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class ListDetectMitigationActionsTasksCommand extends $Command<
     return serializeAws_restJson1ListDetectMitigationActionsTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { LightsailServiceException as __BaseException } from "./LightsailServiceException";
 
 /**
+ * @public
  * <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
  *       credentials to access a resource.</p>
  */
@@ -29,12 +30,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AccessDirection {
   inbound = "inbound",
   outbound = "outbound",
 }
 
 /**
+ * @public
  * <p>Describes the last time an access key was used.</p>
  *          <note>
  *             <p>This object does not include data in the response of a <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action.</p>
@@ -61,12 +66,16 @@ export interface AccessKeyLastUsed {
   serviceName?: string;
 }
 
+/**
+ * @public
+ */
 export enum StatusType {
   Active = "Active",
   Inactive = "Inactive",
 }
 
 /**
+ * @public
  * <p>Describes an access key for an Amazon Lightsail bucket.</p>
  *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
  *       can have a maximum of two access keys per bucket. Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action to create an access key for a specific bucket. For
@@ -116,6 +125,7 @@ export interface AccessKey {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Lightsail instance that has access to a Lightsail bucket.</p>
  */
 export interface ResourceReceivingAccess {
@@ -130,12 +140,16 @@ export interface ResourceReceivingAccess {
   resourceType?: string;
 }
 
+/**
+ * @public
+ */
 export enum AccessType {
   Private = "private",
   Public = "public",
 }
 
 /**
+ * @public
  * <p>Describes the anonymous access permissions for an Amazon Lightsail bucket and its
  *       objects.</p>
  *          <p>For more information about bucket access permissions, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-understanding-bucket-permissions">Understanding bucket permissions in Amazon Lightsail</a> in the </p>
@@ -180,6 +194,9 @@ export interface AccessRules {
   allowPublicOverrides?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum BPAStatusMessage {
   DEFAULTED_FOR_SLR_MISSING = "DEFAULTED_FOR_SLR_MISSING",
   DEFAULTED_FOR_SLR_MISSING_ON_HOLD = "DEFAULTED_FOR_SLR_MISSING_ON_HOLD",
@@ -187,6 +204,9 @@ export enum BPAStatusMessage {
   Unknown = "Unknown",
 }
 
+/**
+ * @public
+ */
 export enum AccountLevelBpaSyncStatus {
   Defaulted = "Defaulted",
   Failed = "Failed",
@@ -195,6 +215,7 @@ export enum AccountLevelBpaSyncStatus {
 }
 
 /**
+ * @public
  * <p>Describes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
  *       account-level block public access (BPA) feature for your Lightsail buckets.</p>
  *          <p>The account-level BPA feature of Amazon S3 provides centralized controls to limit
@@ -296,6 +317,7 @@ export interface AccountLevelBpaSync {
 }
 
 /**
+ * @public
  * <p>Lightsail throws this exception when an account is still in the setup in progress
  *       state.</p>
  */
@@ -322,6 +344,7 @@ export class AccountSetupInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes an add-on that is enabled for an Amazon Lightsail resource.</p>
  */
 export interface AddOn {
@@ -370,12 +393,16 @@ export interface AddOn {
   duration?: string;
 }
 
+/**
+ * @public
+ */
 export enum AddOnType {
   AutoSnapshot = "AutoSnapshot",
   StopInstanceOnIdle = "StopInstanceOnIdle",
 }
 
 /**
+ * @public
  * <p>Describes a request to enable or modify the automatic snapshot add-on for an
  *       Amazon Lightsail instance or disk.</p>
  *          <p>When you modify the automatic snapshot time for a resource, it is typically effective
@@ -431,6 +458,7 @@ export interface AutoSnapshotAddOnRequest {
 }
 
 /**
+ * @public
  * <p>Describes a request to create or edit the <code>StopInstanceOnIdle</code> add-on.</p>
  *          <important>
  *             <p>This add-on only applies to Lightsail for Research resources.</p>
@@ -449,6 +477,7 @@ export interface StopInstanceOnIdleRequest {
 }
 
 /**
+ * @public
  * <p>Describes a request to enable, modify, or disable an add-on for an Amazon Lightsail
  *       resource.</p>
  *          <note>
@@ -479,6 +508,9 @@ export interface AddOnRequest {
   stopInstanceOnIdleRequest?: StopInstanceOnIdleRequest;
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
   GreaterThanThreshold = "GreaterThanThreshold",
@@ -486,11 +518,17 @@ export enum ComparisonOperator {
   LessThanThreshold = "LessThanThreshold",
 }
 
+/**
+ * @public
+ */
 export enum ContactProtocol {
   Email = "Email",
   SMS = "SMS",
 }
 
+/**
+ * @public
+ */
 export enum RegionName {
   AP_NORTHEAST_1 = "ap-northeast-1",
   AP_NORTHEAST_2 = "ap-northeast-2",
@@ -510,6 +548,7 @@ export enum RegionName {
 }
 
 /**
+ * @public
  * <p>Describes the resource location.</p>
  */
 export interface ResourceLocation {
@@ -524,6 +563,9 @@ export interface ResourceLocation {
   regionName?: RegionName | string;
 }
 
+/**
+ * @public
+ */
 export enum MetricName {
   BurstCapacityPercentage = "BurstCapacityPercentage",
   BurstCapacityTime = "BurstCapacityTime",
@@ -552,6 +594,9 @@ export enum MetricName {
   UnhealthyHostCount = "UnhealthyHostCount",
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   Alarm = "Alarm",
   Bucket = "Bucket",
@@ -576,6 +621,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>Describes resource being monitored by an alarm.</p>
  *          <p>An alarm is a way to monitor your Amazon Lightsail resource metrics. For more information,
  *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
@@ -600,12 +646,18 @@ export interface MonitoredResourceInfo {
   resourceType?: ResourceType | string;
 }
 
+/**
+ * @public
+ */
 export enum AlarmState {
   ALARM = "ALARM",
   INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
   OK = "OK",
 }
 
+/**
+ * @public
+ */
 export enum MetricStatistic {
   Average = "Average",
   Maximum = "Maximum",
@@ -614,6 +666,9 @@ export enum MetricStatistic {
   Sum = "Sum",
 }
 
+/**
+ * @public
+ */
 export enum TreatMissingData {
   Breaching = "breaching",
   Ignore = "ignore",
@@ -621,6 +676,9 @@ export enum TreatMissingData {
   NotBreaching = "notBreaching",
 }
 
+/**
+ * @public
+ */
 export enum MetricUnit {
   Bits = "Bits",
   BitsSecond = "Bits/Second",
@@ -652,6 +710,7 @@ export enum MetricUnit {
 }
 
 /**
+ * @public
  * <p>Describes an alarm.</p>
  *          <p>An alarm is a way to monitor your Lightsail resource metrics. For more information, see
  *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms in Amazon Lightsail</a>.</p>
@@ -832,6 +891,9 @@ export interface Alarm {
   notificationEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AllocateStaticIpRequest {
   /**
    * <p>The name of the static IP address.</p>
@@ -839,6 +901,9 @@ export interface AllocateStaticIpRequest {
   staticIpName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OperationType {
   AllocateStaticIp = "AllocateStaticIp",
   AttachCertificateToDistribution = "AttachCertificateToDistribution",
@@ -924,6 +989,9 @@ export enum OperationType {
   UpdateRelationalDatabaseParameters = "UpdateRelationalDatabaseParameters",
 }
 
+/**
+ * @public
+ */
 export enum OperationStatus {
   Completed = "Completed",
   Failed = "Failed",
@@ -933,6 +1001,7 @@ export enum OperationStatus {
 }
 
 /**
+ * @public
  * <p>Describes the API operation.</p>
  */
 export interface Operation {
@@ -998,6 +1067,9 @@ export interface Operation {
   errorDetails?: string;
 }
 
+/**
+ * @public
+ */
 export interface AllocateStaticIpResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -1007,6 +1079,7 @@ export interface AllocateStaticIpResult {
 }
 
 /**
+ * @public
  * <p>Lightsail throws this exception when user input does not conform to the validation rules
  *       of an input field.</p>
  *          <note>
@@ -1039,6 +1112,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lightsail throws this exception when it cannot find a resource.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -1064,6 +1138,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lightsail throws this exception when an operation fails to execute.</p>
  */
 export class OperationFailureException extends __BaseException {
@@ -1089,6 +1164,7 @@ export class OperationFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A general service exception.</p>
  */
 export class ServiceException extends __BaseException {
@@ -1114,6 +1190,7 @@ export class ServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lightsail throws this exception when the user has not been authenticated.</p>
  */
 export class UnauthenticatedException extends __BaseException {
@@ -1138,10 +1215,16 @@ export class UnauthenticatedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AppCategory {
   LfR = "LfR",
 }
 
+/**
+ * @public
+ */
 export interface AttachCertificateToDistributionRequest {
   /**
    * <p>The name of the distribution that the certificate will be attached to.</p>
@@ -1167,6 +1250,9 @@ export interface AttachCertificateToDistributionRequest {
   certificateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachCertificateToDistributionResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
@@ -1175,6 +1261,9 @@ export interface AttachCertificateToDistributionResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface AttachDiskRequest {
   /**
    * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
@@ -1201,6 +1290,9 @@ export interface AttachDiskRequest {
   autoMounting?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AttachDiskResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -1210,6 +1302,7 @@ export interface AttachDiskResult {
 }
 
 /**
+ * @public
  * <p>Describes a block storage disk that is attached to an instance, and is included in an
  *       automatic snapshot.</p>
  */
@@ -1226,6 +1319,7 @@ export interface AttachedDisk {
 }
 
 /**
+ * @public
  * <p>Describes a block storage disk mapping.</p>
  */
 export interface DiskMap {
@@ -1241,6 +1335,9 @@ export interface DiskMap {
   newDiskName?: string;
 }
 
+/**
+ * @public
+ */
 export interface AttachInstancesToLoadBalancerRequest {
   /**
    * <p>The name of the load balancer.</p>
@@ -1259,6 +1356,9 @@ export interface AttachInstancesToLoadBalancerRequest {
   instanceNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachInstancesToLoadBalancerResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -1267,6 +1367,9 @@ export interface AttachInstancesToLoadBalancerResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface AttachLoadBalancerTlsCertificateRequest {
   /**
    * <p>The name of the load balancer to which you want to associate the SSL/TLS
@@ -1280,6 +1383,9 @@ export interface AttachLoadBalancerTlsCertificateRequest {
   certificateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachLoadBalancerTlsCertificateResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -1290,6 +1396,9 @@ export interface AttachLoadBalancerTlsCertificateResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface AttachStaticIpRequest {
   /**
    * <p>The name of the static IP.</p>
@@ -1302,6 +1411,9 @@ export interface AttachStaticIpRequest {
   instanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachStaticIpResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -1310,6 +1422,9 @@ export interface AttachStaticIpResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export enum AutoMountStatus {
   Failed = "Failed",
   Mounted = "Mounted",
@@ -1317,6 +1432,9 @@ export enum AutoMountStatus {
   Pending = "Pending",
 }
 
+/**
+ * @public
+ */
 export enum AutoSnapshotStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
@@ -1325,6 +1443,7 @@ export enum AutoSnapshotStatus {
 }
 
 /**
+ * @public
  * <p>Describes an automatic snapshot.</p>
  */
 export interface AutoSnapshotDetails {
@@ -1351,6 +1470,7 @@ export interface AutoSnapshotDetails {
 }
 
 /**
+ * @public
  * <p>Describes an Availability Zone. This is returned only as part of a <code>GetRegions</code>
  *       request.</p>
  */
@@ -1367,22 +1487,32 @@ export interface AvailabilityZone {
   state?: string;
 }
 
+/**
+ * @public
+ */
 export enum BehaviorEnum {
   CacheSetting = "cache",
   DontCacheSetting = "dont-cache",
 }
 
+/**
+ * @public
+ */
 export enum InstancePlatform {
   LinuxUnix = "LINUX_UNIX",
   Windows = "WINDOWS",
 }
 
+/**
+ * @public
+ */
 export enum BlueprintType {
   app = "app",
   os = "os",
 }
 
 /**
+ * @public
  * <p>Describes a blueprint (a virtual private server image).</p>
  */
 export interface Blueprint {
@@ -1465,6 +1595,7 @@ export interface Blueprint {
 }
 
 /**
+ * @public
  * <p>Describes the access log configuration for a bucket in the Amazon Lightsail object storage
  *       service.</p>
  *          <p>For more information about bucket access logs, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-bucket-access-logs">Logging bucket requests using access logging in Amazon Lightsail</a> in the
@@ -1503,6 +1634,7 @@ export interface BucketAccessLogConfig {
 }
 
 /**
+ * @public
  * <p>Describes the state of an Amazon Lightsail bucket.</p>
  */
 export interface BucketState {
@@ -1530,6 +1662,7 @@ export interface BucketState {
 }
 
 /**
+ * @public
  * <p>Describes a tag key and optional value assigned to an Amazon Lightsail resource.</p>
  *          <p>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
  */
@@ -1550,6 +1683,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Lightsail bucket.</p>
  */
 export interface Bucket {
@@ -1668,6 +1802,7 @@ export interface Bucket {
 }
 
 /**
+ * @public
  * <p>Describes the specifications of a bundle that can be applied to an Amazon Lightsail
  *       bucket.</p>
  *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
@@ -1705,12 +1840,16 @@ export interface BucketBundle {
   isActive?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum BucketMetricName {
   BucketSizeBytes = "BucketSizeBytes",
   NumberOfObjects = "NumberOfObjects",
 }
 
 /**
+ * @public
  * <p>Describes a bundle, which is a set of specs describing your virtual private server (or
  *         <i>instance</i>).</p>
  */
@@ -1787,6 +1926,7 @@ export interface Bundle {
 }
 
 /**
+ * @public
  * <p>Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  */
@@ -1822,6 +1962,7 @@ export interface CacheBehavior {
 }
 
 /**
+ * @public
  * <p>Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>A per-path cache behavior is used to override, or add an exception to, the default cache
@@ -1904,6 +2045,9 @@ export interface CacheBehaviorPerPath {
   behavior?: BehaviorEnum | string;
 }
 
+/**
+ * @public
+ */
 export enum ForwardValues {
   all = "all",
   allowList = "allow-list",
@@ -1911,6 +2055,7 @@ export enum ForwardValues {
 }
 
 /**
+ * @public
  * <p>Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards
  *       cookies to the origin and, if so, which ones.</p>
  *          <p>For the cookies that you specify, your distribution caches separate versions of the
@@ -1931,6 +2076,9 @@ export interface CookieObject {
   cookiesAllowList?: string[];
 }
 
+/**
+ * @public
+ */
 export enum HeaderEnum {
   accept = "Accept",
   acceptCharset = "Accept-Charset",
@@ -1950,6 +2098,7 @@ export enum HeaderEnum {
 }
 
 /**
+ * @public
  * <p>Describes the request headers that a Lightsail distribution bases caching on.</p>
  *          <p>For the headers that you specify, your distribution caches separate versions of the
  *       specified content based on the header values in viewer requests. For example, suppose viewer
@@ -1998,6 +2147,7 @@ export interface HeaderObject {
 }
 
 /**
+ * @public
  * <p>Describes the query string parameters that an Amazon Lightsail content delivery network
  *       (CDN) distribution to bases caching on.</p>
  *          <p>For the query strings that you specify, your distribution caches separate versions of the
@@ -2021,6 +2171,7 @@ export interface QueryStringObject {
 }
 
 /**
+ * @public
  * <p>Describes the cache settings of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>These settings apply only to your distribution's <code>cacheBehaviors</code> (including
@@ -2123,6 +2274,9 @@ export interface CacheSettings {
   forwardedQueryStrings?: QueryStringObject;
 }
 
+/**
+ * @public
+ */
 export enum DnsRecordCreationStateCode {
   Failed = "FAILED",
   Started = "STARTED",
@@ -2130,6 +2284,7 @@ export enum DnsRecordCreationStateCode {
 }
 
 /**
+ * @public
  * <p>Describes the creation state of the canonical name (CNAME) records that are automatically
  *       added by Amazon Lightsail to the DNS of a domain to validate domain ownership for
  *       an SSL/TLS certificate.</p>
@@ -2171,6 +2326,7 @@ export interface DnsRecordCreationState {
 }
 
 /**
+ * @public
  * <p>Describes the domain name system (DNS) records to add to your domain's DNS to validate it
  *       for an Amazon Lightsail certificate.</p>
  */
@@ -2191,6 +2347,9 @@ export interface ResourceRecord {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum CertificateDomainValidationStatus {
   Failed = "FAILED",
   PendingValidation = "PENDING_VALIDATION",
@@ -2198,6 +2357,7 @@ export enum CertificateDomainValidationStatus {
 }
 
 /**
+ * @public
  * <p>Describes the domain name system (DNS) records that you must add to the DNS of your
  *       registered domain to validate ownership for an Amazon Lightsail SSL/TLS certificate.</p>
  */
@@ -2227,6 +2387,9 @@ export interface DomainValidationRecord {
   validationStatus?: CertificateDomainValidationStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum RenewalStatus {
   Failed = "Failed",
   PendingAutoRenewal = "PendingAutoRenewal",
@@ -2235,6 +2398,7 @@ export enum RenewalStatus {
 }
 
 /**
+ * @public
  * <p>Describes the status of a SSL/TLS certificate renewal managed by Amazon Lightsail.</p>
  */
 export interface RenewalSummary {
@@ -2297,6 +2461,9 @@ export interface RenewalSummary {
   updatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export enum CertificateStatus {
   Expired = "EXPIRED",
   Failed = "FAILED",
@@ -2308,6 +2475,7 @@ export enum CertificateStatus {
 }
 
 /**
+ * @public
  * <p>Describes the full details of an Amazon Lightsail SSL/TLS certificate.</p>
  *          <note>
  *             <p>To get a summary of a certificate, use the <code>GetCertificates</code> action and ommit
@@ -2493,6 +2661,7 @@ export interface Certificate {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Lightsail SSL/TLS certificate.</p>
  */
 export interface CertificateSummary {
@@ -2523,6 +2692,9 @@ export interface CertificateSummary {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum NetworkProtocol {
   ALL = "all",
   ICMP = "icmp",
@@ -2531,6 +2703,7 @@ export enum NetworkProtocol {
 }
 
 /**
+ * @public
  * <p>Describes ports to open on an instance, the IP addresses allowed to connect to the
  *       instance through the ports, and the protocol.</p>
  */
@@ -2665,6 +2838,9 @@ export interface PortInfo {
   cidrListAliases?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CloseInstancePublicPortsRequest {
   /**
    * <p>An object to describe the ports to close for the specified instance.</p>
@@ -2677,6 +2853,9 @@ export interface CloseInstancePublicPortsRequest {
   instanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CloseInstancePublicPortsResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
@@ -2686,6 +2865,7 @@ export interface CloseInstancePublicPortsResult {
 }
 
 /**
+ * @public
  * <p>Describes the destination of a record.</p>
  */
 export interface DestinationInfo {
@@ -2700,11 +2880,15 @@ export interface DestinationInfo {
   service?: string;
 }
 
+/**
+ * @public
+ */
 export enum CloudFormationStackRecordSourceType {
   ExportSnapshotRecord = "ExportSnapshotRecord",
 }
 
 /**
+ * @public
  * <p>Describes the source of a CloudFormation stack record (i.e., the export snapshot
  *       record).</p>
  */
@@ -2725,6 +2909,9 @@ export interface CloudFormationStackRecordSourceInfo {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export enum RecordState {
   Failed = "Failed",
   Started = "Started",
@@ -2732,6 +2919,7 @@ export enum RecordState {
 }
 
 /**
+ * @public
  * <p>Describes a CloudFormation stack record created as a result of the <code>create cloud
  *         formation stack</code> action.</p>
  *          <p>A CloudFormation stack record provides information about the AWS CloudFormation stack used to
@@ -2782,6 +2970,9 @@ export interface CloudFormationStackRecord {
   destinationInfo?: DestinationInfo;
 }
 
+/**
+ * @public
+ */
 export enum ContactMethodStatus {
   Invalid = "Invalid",
   PendingVerification = "PendingVerification",
@@ -2789,6 +2980,7 @@ export enum ContactMethodStatus {
 }
 
 /**
+ * @public
  * <p>Describes a contact method.</p>
  *          <p>A contact method is a way to send you notifications. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
  */
@@ -2859,10 +3051,16 @@ export interface ContactMethod {
   supportCode?: string;
 }
 
+/**
+ * @public
+ */
 export enum ContactMethodVerificationProtocol {
   Email = "Email",
 }
 
+/**
+ * @public
+ */
 export enum ContainerServiceProtocol {
   HTTP = "HTTP",
   HTTPS = "HTTPS",
@@ -2871,6 +3069,7 @@ export enum ContainerServiceProtocol {
 }
 
 /**
+ * @public
  * <p>Describes the settings of a container that will be launched, or that is launched, to an
  *       Amazon Lightsail container service.</p>
  */
@@ -2908,6 +3107,7 @@ export interface Container {
 }
 
 /**
+ * @public
  * <p>Describes a container image that is registered to an Amazon Lightsail container
  *       service.</p>
  */
@@ -2929,6 +3129,7 @@ export interface ContainerImage {
 }
 
 /**
+ * @public
  * <p>Describes the health check configuration of an Amazon Lightsail container service.</p>
  */
 export interface ContainerServiceHealthCheckConfig {
@@ -2972,6 +3173,7 @@ export interface ContainerServiceHealthCheckConfig {
 }
 
 /**
+ * @public
  * <p>Describes the public endpoint configuration of a deployment of an Amazon Lightsail
  *       container service.</p>
  */
@@ -2993,6 +3195,9 @@ export interface ContainerServiceEndpoint {
   healthCheck?: ContainerServiceHealthCheckConfig;
 }
 
+/**
+ * @public
+ */
 export enum ContainerServiceDeploymentState {
   ACTIVATING = "ACTIVATING",
   ACTIVE = "ACTIVE",
@@ -3001,6 +3206,7 @@ export enum ContainerServiceDeploymentState {
 }
 
 /**
+ * @public
  * <p>Describes a container deployment configuration of an Amazon Lightsail container
  *       service.</p>
  *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
@@ -3057,6 +3263,9 @@ export interface ContainerServiceDeployment {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ContainerServicePowerName {
   large = "large",
   medium = "medium",
@@ -3067,6 +3276,7 @@ export enum ContainerServicePowerName {
 }
 
 /**
+ * @public
  * <p>Describes the activation status of the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR)
  *       private repositories.</p>
  *          <p>When activated, Lightsail creates an Identity and Access Management (IAM) role
@@ -3088,6 +3298,7 @@ export interface ContainerServiceECRImagePullerRole {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for an Amazon Lightsail container service to
  *       access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
  *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
@@ -3102,6 +3313,9 @@ export interface PrivateRegistryAccess {
   ecrImagePullerRole?: ContainerServiceECRImagePullerRole;
 }
 
+/**
+ * @public
+ */
 export enum ContainerServiceState {
   DELETING = "DELETING",
   DEPLOYING = "DEPLOYING",
@@ -3112,6 +3326,9 @@ export enum ContainerServiceState {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export enum ContainerServiceStateDetailCode {
   ACTIVATING_DEPLOYMENT = "ACTIVATING_DEPLOYMENT",
   CERTIFICATE_LIMIT_EXCEEDED = "CERTIFICATE_LIMIT_EXCEEDED",
@@ -3125,6 +3342,7 @@ export enum ContainerServiceStateDetailCode {
 }
 
 /**
+ * @public
  * <p>Describes the current state of a container service.</p>
  */
 export interface ContainerServiceStateDetail {
@@ -3204,6 +3422,7 @@ export interface ContainerServiceStateDetail {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Lightsail container service.</p>
  */
 export interface ContainerService {
@@ -3374,6 +3593,7 @@ export interface ContainerService {
 }
 
 /**
+ * @public
  * <p>Describes the settings of a public endpoint for an Amazon Lightsail container
  *       service.</p>
  */
@@ -3395,6 +3615,7 @@ export interface EndpointRequest {
 }
 
 /**
+ * @public
  * <p>Describes a container deployment configuration of an Amazon Lightsail container
  *       service.</p>
  *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
@@ -3413,6 +3634,7 @@ export interface ContainerServiceDeploymentRequest {
 }
 
 /**
+ * @public
  * <p>Describes a request to activate or deactivate the role that you can use to grant an
  *         Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
  *          <p>When activated, Lightsail creates an Identity and Access Management (IAM) role
@@ -3429,6 +3651,7 @@ export interface ContainerServiceECRImagePullerRoleRequest {
 }
 
 /**
+ * @public
  * <p>Describes the log events of a container of an Amazon Lightsail container service.</p>
  */
 export interface ContainerServiceLogEvent {
@@ -3443,12 +3666,16 @@ export interface ContainerServiceLogEvent {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export enum ContainerServiceMetricName {
   CPUUtilization = "CPUUtilization",
   MemoryUtilization = "MemoryUtilization",
 }
 
 /**
+ * @public
  * <p>Describes the powers that can be specified for an Amazon Lightsail container
  *       service.</p>
  *          <p>The power specifies the amount of RAM, the number of vCPUs, and the base price of the
@@ -3488,6 +3715,7 @@ export interface ContainerServicePower {
 }
 
 /**
+ * @public
  * <p>Describes the sign-in credentials for the container image registry of an Amazon Lightsail
  *       account.</p>
  */
@@ -3519,6 +3747,9 @@ export interface ContainerServiceRegistryLogin {
   registry?: string;
 }
 
+/**
+ * @public
+ */
 export interface ContainerServicesListResult {
   /**
    * <p>An array of objects that describe one or more container services.</p>
@@ -3526,6 +3757,9 @@ export interface ContainerServicesListResult {
   containerServices?: ContainerService[];
 }
 
+/**
+ * @public
+ */
 export interface CopySnapshotRequest {
   /**
    * <p>The name of the source manual snapshot to copy.</p>
@@ -3603,6 +3837,9 @@ export interface CopySnapshotRequest {
   sourceRegion: RegionName | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CopySnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -3611,10 +3848,16 @@ export interface CopySnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export enum Currency {
   USD = "USD",
 }
 
+/**
+ * @public
+ */
 export enum PricingUnit {
   Bundles = "Bundles",
   GB = "GB",
@@ -3624,6 +3867,7 @@ export enum PricingUnit {
 }
 
 /**
+ * @public
  * <p>Sets the start date and end date for retrieving a cost estimate. The start date is inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
  */
 export interface TimePeriod {
@@ -3639,6 +3883,7 @@ export interface TimePeriod {
 }
 
 /**
+ * @public
  * <p>An estimate that's associated with a time period. </p>
  */
 export interface EstimateByTime {
@@ -3670,6 +3915,7 @@ export interface EstimateByTime {
 }
 
 /**
+ * @public
  * <p>Describes the estimated cost for resources in your Lightsail for Research account.</p>
  */
 export interface CostEstimate {
@@ -3685,6 +3931,9 @@ export interface CostEstimate {
   resultsByTime?: EstimateByTime[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBucketRequest {
   /**
    * <p>The name for the bucket.</p>
@@ -3720,6 +3969,9 @@ export interface CreateBucketRequest {
   enableObjectVersioning?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateBucketResult {
   /**
    * <p>An object that describes the bucket that is created.</p>
@@ -3733,6 +3985,9 @@ export interface CreateBucketResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBucketAccessKeyRequest {
   /**
    * <p>The name of the bucket that the new access key will belong to, and grant access to.</p>
@@ -3740,6 +3995,9 @@ export interface CreateBucketAccessKeyRequest {
   bucketName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBucketAccessKeyResult {
   /**
    * <p>An object that describes the access key that is created.</p>
@@ -3753,6 +4011,9 @@ export interface CreateBucketAccessKeyResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCertificateRequest {
   /**
    * <p>The name for the certificate.</p>
@@ -3780,6 +4041,9 @@ export interface CreateCertificateRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCertificateResult {
   /**
    * <p>An object that describes the certificate created.</p>
@@ -3793,6 +4057,9 @@ export interface CreateCertificateResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export enum PortInfoSourceType {
   Closed = "CLOSED",
   Default = "DEFAULT",
@@ -3801,6 +4068,7 @@ export enum PortInfoSourceType {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon Elastic Compute Cloud instance and related resources to be created using the
  *         <code>create cloud formation stack</code> operation.</p>
  */
@@ -3875,6 +4143,9 @@ export interface InstanceEntry {
   availabilityZone: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCloudFormationStackRequest {
   /**
    * <p>An array of parameters that will be used to create the new Amazon EC2 instance. You can only
@@ -3884,6 +4155,9 @@ export interface CreateCloudFormationStackRequest {
   instances: InstanceEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCloudFormationStackResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -3892,6 +4166,9 @@ export interface CreateCloudFormationStackResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateContactMethodRequest {
   /**
    * <p>The protocol of the contact method, such as <code>Email</code> or <code>SMS</code> (text
@@ -3937,6 +4214,9 @@ export interface CreateContactMethodRequest {
   contactEndpoint: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactMethodResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -3946,6 +4226,7 @@ export interface CreateContactMethodResult {
 }
 
 /**
+ * @public
  * <p>Describes a request to configure an Amazon Lightsail container service to
  *       access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
  *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
@@ -3959,6 +4240,9 @@ export interface PrivateRegistryAccessRequest {
   ecrImagePullerRole?: ContainerServiceECRImagePullerRoleRequest;
 }
 
+/**
+ * @public
+ */
 export interface CreateContainerServiceRequest {
   /**
    * <p>The name for the container service.</p>
@@ -4055,6 +4339,9 @@ export interface CreateContainerServiceRequest {
   privateRegistryAccess?: PrivateRegistryAccessRequest;
 }
 
+/**
+ * @public
+ */
 export interface CreateContainerServiceResult {
   /**
    * <p>An object that describes a container service.</p>
@@ -4062,6 +4349,9 @@ export interface CreateContainerServiceResult {
   containerService?: ContainerService;
 }
 
+/**
+ * @public
+ */
 export interface CreateContainerServiceDeploymentRequest {
   /**
    * <p>The name of the container service for which to create the deployment.</p>
@@ -4081,6 +4371,9 @@ export interface CreateContainerServiceDeploymentRequest {
   publicEndpoint?: EndpointRequest;
 }
 
+/**
+ * @public
+ */
 export interface CreateContainerServiceDeploymentResult {
   /**
    * <p>An object that describes a container service.</p>
@@ -4088,8 +4381,14 @@ export interface CreateContainerServiceDeploymentResult {
   containerService?: ContainerService;
 }
 
+/**
+ * @public
+ */
 export interface CreateContainerServiceRegistryLoginRequest {}
 
+/**
+ * @public
+ */
 export interface CreateContainerServiceRegistryLoginResult {
   /**
    * <p>An object that describes the log in information for the container service registry of your
@@ -4098,6 +4397,9 @@ export interface CreateContainerServiceRegistryLoginResult {
   registryLogin?: ContainerServiceRegistryLogin;
 }
 
+/**
+ * @public
+ */
 export interface CreateDiskRequest {
   /**
    * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
@@ -4130,6 +4432,9 @@ export interface CreateDiskRequest {
   addOns?: AddOnRequest[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDiskResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4138,6 +4443,9 @@ export interface CreateDiskResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDiskFromSnapshotRequest {
   /**
    * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
@@ -4240,6 +4548,9 @@ export interface CreateDiskFromSnapshotRequest {
   useLatestRestorableAutoSnapshot?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateDiskFromSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4248,6 +4559,9 @@ export interface CreateDiskFromSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDiskSnapshotRequest {
   /**
    * <p>The unique name of the source disk (e.g., <code>Disk-Virginia-1</code>).</p>
@@ -4283,6 +4597,9 @@ export interface CreateDiskSnapshotRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDiskSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4291,17 +4608,24 @@ export interface CreateDiskSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export enum IpAddressType {
   DUALSTACK = "dualstack",
   IPV4 = "ipv4",
 }
 
+/**
+ * @public
+ */
 export enum OriginProtocolPolicyEnum {
   HTTPOnly = "http-only",
   HTTPSOnly = "https-only",
 }
 
 /**
+ * @public
  * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>An origin can be a Lightsail instance, bucket, or load balancer. A distribution pulls
@@ -4326,6 +4650,9 @@ export interface InputOrigin {
   protocolPolicy?: OriginProtocolPolicyEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDistributionRequest {
   /**
    * <p>The name for the distribution.</p>
@@ -4379,6 +4706,7 @@ export interface CreateDistributionRequest {
 }
 
 /**
+ * @public
  * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>An origin can be a Lightsail instance, bucket, or load balancer. A distribution pulls
@@ -4409,6 +4737,7 @@ export interface Origin {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Lightsail content delivery network (CDN) distribution.</p>
  */
 export interface LightsailDistribution {
@@ -4529,6 +4858,9 @@ export interface LightsailDistribution {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDistributionResult {
   /**
    * <p>An object that describes the distribution created.</p>
@@ -4542,6 +4874,9 @@ export interface CreateDistributionResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p>The domain name to manage (e.g., <code>example.com</code>).</p>
@@ -4555,6 +4890,9 @@ export interface CreateDomainRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4564,6 +4902,7 @@ export interface CreateDomainResult {
 }
 
 /**
+ * @public
  * <p>Describes a domain recordset entry.</p>
  */
 export interface DomainEntry {
@@ -4660,6 +4999,9 @@ export interface DomainEntry {
   options?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainEntryRequest {
   /**
    * <p>The domain name (e.g., <code>example.com</code>) for which you want to create the domain
@@ -4673,6 +5015,9 @@ export interface CreateDomainEntryRequest {
   domainEntry: DomainEntry | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainEntryResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4681,6 +5026,9 @@ export interface CreateDomainEntryResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface CreateGUISessionAccessDetailsRequest {
   /**
    * <p>The resource name.</p>
@@ -4689,6 +5037,7 @@ export interface CreateGUISessionAccessDetailsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a web-based, remote graphical user interface (GUI), NICE DCV session. The session is used to access a virtual
  *       computer’s operating system or application.</p>
  */
@@ -4710,6 +5059,9 @@ export interface Session {
   isPrimary?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   FailedInstanceCreation = "failedInstanceCreation",
   FailedStartingGUISession = "failedStartingGUISession",
@@ -4723,6 +5075,9 @@ export enum Status {
   Stopping = "stopping",
 }
 
+/**
+ * @public
+ */
 export interface CreateGUISessionAccessDetailsResult {
   /**
    * <p>The resource name.</p>
@@ -4750,6 +5105,9 @@ export interface CreateGUISessionAccessDetailsResult {
   sessions?: Session[];
 }
 
+/**
+ * @public
+ */
 export interface CreateInstancesRequest {
   /**
    * <p>The names to use for your new Lightsail instances. Separate multiple values using
@@ -4836,6 +5194,9 @@ export interface CreateInstancesRequest {
   ipAddressType?: IpAddressType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateInstancesResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4844,6 +5205,9 @@ export interface CreateInstancesResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateInstancesFromSnapshotRequest {
   /**
    * <p>The names for your new instances.</p>
@@ -4979,6 +5343,9 @@ export interface CreateInstancesFromSnapshotRequest {
   useLatestRestorableAutoSnapshot?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateInstancesFromSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4987,6 +5354,9 @@ export interface CreateInstancesFromSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceSnapshotRequest {
   /**
    * <p>The name for your new snapshot.</p>
@@ -5005,6 +5375,9 @@ export interface CreateInstanceSnapshotRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5013,6 +5386,9 @@ export interface CreateInstanceSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyPairRequest {
   /**
    * <p>The name for your new key pair.</p>
@@ -5027,6 +5403,7 @@ export interface CreateKeyPairRequest {
 }
 
 /**
+ * @public
  * <p>Describes an SSH key pair.</p>
  */
 export interface KeyPair {
@@ -5075,6 +5452,9 @@ export interface KeyPair {
   fingerprint?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyPairResult {
   /**
    * <p>An array of key-value pairs containing information about the new key pair you just
@@ -5099,6 +5479,9 @@ export interface CreateKeyPairResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface CreateLoadBalancerRequest {
   /**
    * <p>The name of your load balancer.</p>
@@ -5165,6 +5548,9 @@ export interface CreateLoadBalancerRequest {
   tlsPolicyName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLoadBalancerResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5173,6 +5559,9 @@ export interface CreateLoadBalancerResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLoadBalancerTlsCertificateRequest {
   /**
    * <p>The load balancer name where you want to create the SSL/TLS certificate.</p>
@@ -5208,6 +5597,9 @@ export interface CreateLoadBalancerTlsCertificateRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLoadBalancerTlsCertificateResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5216,6 +5608,9 @@ export interface CreateLoadBalancerTlsCertificateResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRelationalDatabaseRequest {
   /**
    * <p>The name to use for your new Lightsail database resource.</p>
@@ -5434,6 +5829,9 @@ export interface CreateRelationalDatabaseRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5442,6 +5840,9 @@ export interface CreateRelationalDatabaseResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRelationalDatabaseFromSnapshotRequest {
   /**
    * <p>The name to use for your new Lightsail database resource.</p>
@@ -5534,6 +5935,9 @@ export interface CreateRelationalDatabaseFromSnapshotRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRelationalDatabaseFromSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5542,6 +5946,9 @@ export interface CreateRelationalDatabaseFromSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRelationalDatabaseSnapshotRequest {
   /**
    * <p>The name of the database on which to base your new snapshot.</p>
@@ -5569,6 +5976,9 @@ export interface CreateRelationalDatabaseSnapshotRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRelationalDatabaseSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5577,6 +5987,9 @@ export interface CreateRelationalDatabaseSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteAlarmRequest {
   /**
    * <p>The name of the alarm to delete.</p>
@@ -5584,6 +5997,9 @@ export interface DeleteAlarmRequest {
   alarmName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAlarmResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5592,6 +6008,9 @@ export interface DeleteAlarmResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteAutoSnapshotRequest {
   /**
    * <p>The name of the source instance or disk from which to delete the automatic
@@ -5607,6 +6026,9 @@ export interface DeleteAutoSnapshotRequest {
   date: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAutoSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5615,6 +6037,9 @@ export interface DeleteAutoSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketRequest {
   /**
    * <p>The name of the bucket to delete.</p>
@@ -5648,6 +6073,9 @@ export interface DeleteBucketRequest {
   forceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5656,6 +6084,9 @@ export interface DeleteBucketResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketAccessKeyRequest {
   /**
    * <p>The name of the bucket that the access key belongs to.</p>
@@ -5670,6 +6101,9 @@ export interface DeleteBucketAccessKeyRequest {
   accessKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketAccessKeyResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5678,6 +6112,9 @@ export interface DeleteBucketAccessKeyResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteCertificateRequest {
   /**
    * <p>The name of the certificate to delete.</p>
@@ -5687,6 +6124,9 @@ export interface DeleteCertificateRequest {
   certificateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCertificateResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5695,6 +6135,9 @@ export interface DeleteCertificateResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactMethodRequest {
   /**
    * <p>The protocol that will be deleted, such as <code>Email</code> or <code>SMS</code> (text
@@ -5708,6 +6151,9 @@ export interface DeleteContactMethodRequest {
   protocol: ContactProtocol | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactMethodResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5716,6 +6162,9 @@ export interface DeleteContactMethodResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteContainerImageRequest {
   /**
    * <p>The name of the container service for which to delete a registered container image.</p>
@@ -5737,8 +6186,14 @@ export interface DeleteContainerImageRequest {
   image: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContainerImageResult {}
 
+/**
+ * @public
+ */
 export interface DeleteContainerServiceRequest {
   /**
    * <p>The name of the container service to delete.</p>
@@ -5746,8 +6201,14 @@ export interface DeleteContainerServiceRequest {
   serviceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContainerServiceResult {}
 
+/**
+ * @public
+ */
 export interface DeleteDiskRequest {
   /**
    * <p>The unique name of the disk you want to delete (e.g., <code>my-disk</code>).</p>
@@ -5760,6 +6221,9 @@ export interface DeleteDiskRequest {
   forceDeleteAddOns?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDiskResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5768,6 +6232,9 @@ export interface DeleteDiskResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteDiskSnapshotRequest {
   /**
    * <p>The name of the disk snapshot you want to delete (e.g.,
@@ -5776,6 +6243,9 @@ export interface DeleteDiskSnapshotRequest {
   diskSnapshotName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDiskSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5784,6 +6254,9 @@ export interface DeleteDiskSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteDistributionRequest {
   /**
    * <p>The name of the distribution to delete.</p>
@@ -5793,6 +6266,9 @@ export interface DeleteDistributionRequest {
   distributionName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDistributionResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
@@ -5801,6 +6277,9 @@ export interface DeleteDistributionResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainRequest {
   /**
    * <p>The specific domain name to delete.</p>
@@ -5808,6 +6287,9 @@ export interface DeleteDomainRequest {
   domainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5816,6 +6298,9 @@ export interface DeleteDomainResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainEntryRequest {
   /**
    * <p>The name of the domain entry to delete.</p>
@@ -5828,6 +6313,9 @@ export interface DeleteDomainEntryRequest {
   domainEntry: DomainEntry | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainEntryResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5836,6 +6324,9 @@ export interface DeleteDomainEntryResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceRequest {
   /**
    * <p>The name of the instance to delete.</p>
@@ -5848,6 +6339,9 @@ export interface DeleteInstanceRequest {
   forceDeleteAddOns?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5856,6 +6350,9 @@ export interface DeleteInstanceResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceSnapshotRequest {
   /**
    * <p>The name of the snapshot to delete.</p>
@@ -5863,6 +6360,9 @@ export interface DeleteInstanceSnapshotRequest {
   instanceSnapshotName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5871,6 +6371,9 @@ export interface DeleteInstanceSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeyPairRequest {
   /**
    * <p>The name of the key pair to delete.</p>
@@ -5887,6 +6390,9 @@ export interface DeleteKeyPairRequest {
   expectedFingerprint?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeyPairResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5895,6 +6401,9 @@ export interface DeleteKeyPairResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKnownHostKeysRequest {
   /**
    * <p>The name of the instance for which you want to reset the host key or certificate.</p>
@@ -5902,6 +6411,9 @@ export interface DeleteKnownHostKeysRequest {
   instanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKnownHostKeysResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5910,6 +6422,9 @@ export interface DeleteKnownHostKeysResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteLoadBalancerRequest {
   /**
    * <p>The name of the load balancer you want to delete.</p>
@@ -5917,6 +6432,9 @@ export interface DeleteLoadBalancerRequest {
   loadBalancerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLoadBalancerResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5925,6 +6443,9 @@ export interface DeleteLoadBalancerResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteLoadBalancerTlsCertificateRequest {
   /**
    * <p>The load balancer name.</p>
@@ -5945,6 +6466,9 @@ export interface DeleteLoadBalancerTlsCertificateRequest {
   force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLoadBalancerTlsCertificateResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5953,6 +6477,9 @@ export interface DeleteLoadBalancerTlsCertificateResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteRelationalDatabaseRequest {
   /**
    * <p>The name of the database that you are deleting.</p>
@@ -5990,6 +6517,9 @@ export interface DeleteRelationalDatabaseRequest {
   finalRelationalDatabaseSnapshotName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5998,6 +6528,9 @@ export interface DeleteRelationalDatabaseResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteRelationalDatabaseSnapshotRequest {
   /**
    * <p>The name of the database snapshot that you are deleting.</p>
@@ -6005,6 +6538,9 @@ export interface DeleteRelationalDatabaseSnapshotRequest {
   relationalDatabaseSnapshotName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRelationalDatabaseSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -6013,6 +6549,9 @@ export interface DeleteRelationalDatabaseSnapshotResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DetachCertificateFromDistributionRequest {
   /**
    * <p>The name of the distribution from which to detach the certificate.</p>
@@ -6022,6 +6561,9 @@ export interface DetachCertificateFromDistributionRequest {
   distributionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachCertificateFromDistributionResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
@@ -6030,6 +6572,9 @@ export interface DetachCertificateFromDistributionResult {
   operation?: Operation;
 }
 
+/**
+ * @public
+ */
 export interface DetachDiskRequest {
   /**
    * <p>The unique name of the disk you want to detach from your instance (e.g.,
@@ -6038,6 +6583,9 @@ export interface DetachDiskRequest {
   diskName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachDiskResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -6046,6 +6594,9 @@ export interface DetachDiskResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DetachInstancesFromLoadBalancerRequest {
   /**
    * <p>The name of the Lightsail load balancer.</p>
@@ -6059,6 +6610,9 @@ export interface DetachInstancesFromLoadBalancerRequest {
   instanceNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachInstancesFromLoadBalancerResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -6067,6 +6621,9 @@ export interface DetachInstancesFromLoadBalancerResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DetachStaticIpRequest {
   /**
    * <p>The name of the static IP to detach from the instance.</p>
@@ -6074,6 +6631,9 @@ export interface DetachStaticIpRequest {
   staticIpName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachStaticIpResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -6082,6 +6642,9 @@ export interface DetachStaticIpResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface DisableAddOnRequest {
   /**
    * <p>The add-on type to disable.</p>
@@ -6094,6 +6657,9 @@ export interface DisableAddOnRequest {
   resourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableAddOnResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -6102,6 +6668,9 @@ export interface DisableAddOnResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export enum DiskState {
   Available = "available",
   Error = "error",
@@ -6111,6 +6680,7 @@ export enum DiskState {
 }
 
 /**
+ * @public
  * <p>Describes a block storage disk.</p>
  */
 export interface Disk {
@@ -6226,6 +6796,7 @@ export interface Disk {
 }
 
 /**
+ * @public
  * <p>Describes a disk.</p>
  */
 export interface DiskInfo {
@@ -6251,6 +6822,9 @@ export interface DiskInfo {
   isSystemDisk?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DiskSnapshotState {
   Completed = "completed",
   Error = "error",
@@ -6259,6 +6833,7 @@ export enum DiskSnapshotState {
 }
 
 /**
+ * @public
  * <p>Describes a block storage disk snapshot.</p>
  */
 export interface DiskSnapshot {
@@ -6346,6 +6921,7 @@ export interface DiskSnapshot {
 }
 
 /**
+ * @public
  * <p>Describes a disk snapshot.</p>
  */
 export interface DiskSnapshotInfo {
@@ -6356,6 +6932,7 @@ export interface DiskSnapshotInfo {
 }
 
 /**
+ * @public
  * <p>Describes the specifications of a distribution bundle.</p>
  */
 export interface DistributionBundle {
@@ -6386,6 +6963,9 @@ export interface DistributionBundle {
   isActive?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DistributionMetricName {
   BytesDownloaded = "BytesDownloaded",
   BytesUploaded = "BytesUploaded",
@@ -6395,6 +6975,9 @@ export enum DistributionMetricName {
   TotalErrorRate = "TotalErrorRate",
 }
 
+/**
+ * @public
+ */
 export enum NameServersUpdateStateCode {
   Failed = "FAILED",
   Pending = "PENDING",
@@ -6403,6 +6986,7 @@ export enum NameServersUpdateStateCode {
 }
 
 /**
+ * @public
  * <p>Describes the state of the name server records update made by Amazon Lightsail
  *       to an Amazon Route 53 registered domain.</p>
  *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/understanding-dns-in-amazon-lightsail">DNS in Amazon Lightsail</a> in the <i>Amazon Lightsail
@@ -6439,6 +7023,9 @@ export interface NameServersUpdateState {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export enum R53HostedZoneDeletionStateCode {
   Failed = "FAILED",
   Pending = "PENDING",
@@ -6447,6 +7034,7 @@ export enum R53HostedZoneDeletionStateCode {
 }
 
 /**
+ * @public
  * <p>Describes the deletion state of an Amazon Route 53 hosted zone for a domain that is
  *       being automatically delegated to an Amazon Lightsail DNS zone.</p>
  */
@@ -6482,6 +7070,7 @@ export interface R53HostedZoneDeletionState {
 }
 
 /**
+ * @public
  * <p>Describes the delegation state of an Amazon Route 53 registered domain to Amazon Lightsail.</p>
  *          <p>When you delegate an Amazon Route 53 registered domain to Lightsail,
  *       you can manage the DNS of the domain using a Lightsail DNS zone. You no longer
@@ -6523,6 +7112,7 @@ export interface RegisteredDomainDelegationInfo {
 }
 
 /**
+ * @public
  * <p>Describes a domain where you are storing recordsets.</p>
  */
 export interface Domain {
@@ -6577,8 +7167,14 @@ export interface Domain {
   registeredDomainDelegationInfo?: RegisteredDomainDelegationInfo;
 }
 
+/**
+ * @public
+ */
 export interface DownloadDefaultKeyPairRequest {}
 
+/**
+ * @public
+ */
 export interface DownloadDefaultKeyPairResult {
   /**
    * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
@@ -6596,6 +7192,9 @@ export interface DownloadDefaultKeyPairResult {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface EnableAddOnRequest {
   /**
    * <p>The name of the source resource for which to enable or modify the add-on.</p>
@@ -6608,6 +7207,9 @@ export interface EnableAddOnRequest {
   addOnRequest: AddOnRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableAddOnResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -6616,6 +7218,9 @@ export interface EnableAddOnResult {
   operations?: Operation[];
 }
 
+/**
+ * @public
+ */
 export interface ExportSnapshotRequest {
   /**
    * <p>The name of the instance or disk snapshot to be exported to Amazon EC2.</p>
@@ -6623,6 +7228,9 @@ export interface ExportSnapshotRequest {
   sourceSnapshotName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -6632,6 +7240,7 @@ export interface ExportSnapshotResult {
 }
 
 /**
+ * @public
  * <p>Describes an instance snapshot.</p>
  */
 export interface InstanceSnapshotInfo {
@@ -6652,12 +7261,16 @@ export interface InstanceSnapshotInfo {
   fromDiskInfo?: DiskInfo[];
 }
 
+/**
+ * @public
+ */
 export enum ExportSnapshotRecordSourceType {
   DiskSnapshot = "DiskSnapshot",
   InstanceSnapshot = "InstanceSnapshot",
 }
 
 /**
+ * @public
  * <p>Describes the source of an export snapshot record.</p>
  */
 export interface ExportSnapshotRecordSourceInfo {
@@ -6704,6 +7317,7 @@ export interface ExportSnapshotRecordSourceInfo {
 }
 
 /**
+ * @public
  * <p>Describes an export snapshot record.</p>
  */
 export interface ExportSnapshotRecord {
@@ -6748,6 +7362,9 @@ export interface ExportSnapshotRecord {
   destinationInfo?: DestinationInfo;
 }
 
+/**
+ * @public
+ */
 export interface GetActiveNamesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -6758,6 +7375,9 @@ export interface GetActiveNamesRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetActiveNamesResult {
   /**
    * <p>The list of active names returned by the get active names request.</p>
@@ -6773,6 +7393,9 @@ export interface GetActiveNamesResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAlarmsRequest {
   /**
    * <p>The name of the alarm.</p>
@@ -6796,6 +7419,9 @@ export interface GetAlarmsRequest {
   monitoredResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAlarmsResult {
   /**
    * <p>An array of objects that describe the alarms.</p>
@@ -6811,6 +7437,9 @@ export interface GetAlarmsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAutoSnapshotsRequest {
   /**
    * <p>The name of the source instance or disk from which to get automatic snapshot
@@ -6819,6 +7448,9 @@ export interface GetAutoSnapshotsRequest {
   resourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAutoSnapshotsResult {
   /**
    * <p>The name of the source instance or disk for the automatic snapshots.</p>
@@ -6837,6 +7469,9 @@ export interface GetAutoSnapshotsResult {
   autoSnapshots?: AutoSnapshotDetails[];
 }
 
+/**
+ * @public
+ */
 export interface GetBlueprintsRequest {
   /**
    * <p>A Boolean value that indicates whether to include inactive (unavailable) blueprints in the
@@ -6861,6 +7496,9 @@ export interface GetBlueprintsRequest {
   appCategory?: AppCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface GetBlueprintsResult {
   /**
    * <p>An array of key-value pairs that contains information about the available
@@ -6877,6 +7515,9 @@ export interface GetBlueprintsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketAccessKeysRequest {
   /**
    * <p>The name of the bucket for which to return access keys.</p>
@@ -6884,6 +7525,9 @@ export interface GetBucketAccessKeysRequest {
   bucketName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketAccessKeysResult {
   /**
    * <p>An object that describes the access keys for the specified bucket.</p>
@@ -6891,6 +7535,9 @@ export interface GetBucketAccessKeysResult {
   accessKeys?: AccessKey[];
 }
 
+/**
+ * @public
+ */
 export interface GetBucketBundlesRequest {
   /**
    * <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the
@@ -6899,6 +7546,9 @@ export interface GetBucketBundlesRequest {
   includeInactive?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketBundlesResult {
   /**
    * <p>An object that describes bucket bundles.</p>
@@ -6906,6 +7556,9 @@ export interface GetBucketBundlesResult {
   bundles?: BucketBundle[];
 }
 
+/**
+ * @public
+ */
 export interface GetBucketMetricDataRequest {
   /**
    * <p>The name of the bucket for which to get metric data.</p>
@@ -7010,6 +7663,7 @@ export interface GetBucketMetricDataRequest {
 }
 
 /**
+ * @public
  * <p>Describes the metric data point.</p>
  */
 export interface MetricDatapoint {
@@ -7049,6 +7703,9 @@ export interface MetricDatapoint {
   unit?: MetricUnit | string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -7061,6 +7718,9 @@ export interface GetBucketMetricDataResult {
   metricData?: MetricDatapoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetBucketsRequest {
   /**
    * <p>The name of the bucket for which to return information.</p>
@@ -7085,6 +7745,9 @@ export interface GetBucketsRequest {
   includeConnectedResources?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketsResult {
   /**
    * <p>An array of objects that describe buckets.</p>
@@ -7107,6 +7770,9 @@ export interface GetBucketsResult {
   accountLevelBpaSync?: AccountLevelBpaSync;
 }
 
+/**
+ * @public
+ */
 export interface GetBundlesRequest {
   /**
    * <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the
@@ -7131,6 +7797,9 @@ export interface GetBundlesRequest {
   appCategory?: AppCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface GetBundlesResult {
   /**
    * <p>An array of key-value pairs that contains information about the available bundles.</p>
@@ -7146,6 +7815,9 @@ export interface GetBundlesResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificatesRequest {
   /**
    * <p>The status of the certificates for which to return information.</p>
@@ -7172,6 +7844,9 @@ export interface GetCertificatesRequest {
   certificateName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificatesResult {
   /**
    * <p>An object that describes certificates.</p>
@@ -7179,6 +7854,9 @@ export interface GetCertificatesResult {
   certificates?: CertificateSummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetCloudFormationStackRecordsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -7189,6 +7867,9 @@ export interface GetCloudFormationStackRecordsRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCloudFormationStackRecordsResult {
   /**
    * <p>A list of objects describing the CloudFormation stack records.</p>
@@ -7205,6 +7886,9 @@ export interface GetCloudFormationStackRecordsResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetContactMethodsRequest {
   /**
    * <p>The protocols used to send notifications, such as <code>Email</code>, or <code>SMS</code>
@@ -7215,6 +7899,9 @@ export interface GetContactMethodsRequest {
   protocols?: (ContactProtocol | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GetContactMethodsResult {
   /**
    * <p>An array of objects that describe the contact methods.</p>
@@ -7222,8 +7909,14 @@ export interface GetContactMethodsResult {
   contactMethods?: ContactMethod[];
 }
 
+/**
+ * @public
+ */
 export interface GetContainerAPIMetadataRequest {}
 
+/**
+ * @public
+ */
 export interface GetContainerAPIMetadataResult {
   /**
    * <p>Metadata about Lightsail containers, such as the current version of the Lightsail
@@ -7232,6 +7925,9 @@ export interface GetContainerAPIMetadataResult {
   metadata?: Record<string, string>[];
 }
 
+/**
+ * @public
+ */
 export interface GetContainerImagesRequest {
   /**
    * <p>The name of the container service for which to return registered container images.</p>
@@ -7239,6 +7935,9 @@ export interface GetContainerImagesRequest {
   serviceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerImagesResult {
   /**
    * <p>An array of objects that describe container images that are registered to the container
@@ -7247,6 +7946,9 @@ export interface GetContainerImagesResult {
   containerImages?: ContainerImage[];
 }
 
+/**
+ * @public
+ */
 export interface GetContainerLogRequest {
   /**
    * <p>The name of the container service for which to get a container log.</p>
@@ -7331,6 +8033,9 @@ export interface GetContainerLogRequest {
   pageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerLogResult {
   /**
    * <p>An array of objects that describe the log events of a container.</p>
@@ -7346,6 +8051,9 @@ export interface GetContainerLogResult {
   nextPageToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerServiceDeploymentsRequest {
   /**
    * <p>The name of the container service for which to return deployments.</p>
@@ -7353,6 +8061,9 @@ export interface GetContainerServiceDeploymentsRequest {
   serviceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerServiceDeploymentsResult {
   /**
    * <p>An array of objects that describe deployments for a container service.</p>
@@ -7360,6 +8071,9 @@ export interface GetContainerServiceDeploymentsResult {
   deployments?: ContainerServiceDeployment[];
 }
 
+/**
+ * @public
+ */
 export interface GetContainerServiceMetricDataRequest {
   /**
    * <p>The name of the container service for which to get metric data.</p>
@@ -7447,6 +8161,9 @@ export interface GetContainerServiceMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContainerServiceMetricDataResult {
   /**
    * <p>The name of the metric returned. </p>
@@ -7459,8 +8176,14 @@ export interface GetContainerServiceMetricDataResult {
   metricData?: MetricDatapoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetContainerServicePowersRequest {}
 
+/**
+ * @public
+ */
 export interface GetContainerServicePowersResult {
   /**
    * <p>An array of objects that describe the powers that can be specified for a container
@@ -7469,6 +8192,9 @@ export interface GetContainerServicePowersResult {
   powers?: ContainerServicePower[];
 }
 
+/**
+ * @public
+ */
 export interface GetContainerServicesRequest {
   /**
    * <p>The name of the container service for which to return information.</p>

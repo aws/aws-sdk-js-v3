@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnomalyMonitorsCommand}.
  */
 export interface GetAnomalyMonitorsCommandInput extends GetAnomalyMonitorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAnomalyMonitorsCommand}.
  */
 export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the cost anomaly monitor definitions for your account. You can filter using a
  *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnomalyMonitorsCommandInput - {@link GetAnomalyMonitorsCommandInput}
+ * @returns {@link GetAnomalyMonitorsCommandOutput}
  * @see {@link GetAnomalyMonitorsCommandInput} for command's `input` shape.
  * @see {@link GetAnomalyMonitorsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetAnomalyMonitorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnomalyMonitorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetAnomalyMonitorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnomalyMonitorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAnomalyMonitorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomalyMonitorsCommandOutput> {
     return deserializeAws_json1_1GetAnomalyMonitorsCommand(output, context);
   }

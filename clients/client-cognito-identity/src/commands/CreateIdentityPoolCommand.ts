@@ -27,15 +27,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIdentityPoolCommand}.
  */
 export interface CreateIdentityPoolCommandInput extends CreateIdentityPoolInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateIdentityPoolCommand}.
  */
 export interface CreateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new identity pool. The identity pool is a store of user identity
  *          information that is specific to your AWS account. The keys for <code>SupportedLoginProviders</code> are as follows:</p>
  *
@@ -73,6 +78,8 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIdentityPoolCommandInput - {@link CreateIdentityPoolCommandInput}
+ * @returns {@link CreateIdentityPoolCommandOutput}
  * @see {@link CreateIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link CreateIdentityPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -115,6 +122,9 @@ export class CreateIdentityPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIdentityPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class CreateIdentityPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIdentityPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateIdentityPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIdentityPoolCommandOutput> {
     return deserializeAws_json1_1CreateIdentityPoolCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSmsTemplateCommand}.
  */
 export interface DeleteSmsTemplateCommandInput extends DeleteSmsTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSmsTemplateCommand}.
  */
 export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a message template for messages that were sent through the SMS channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSmsTemplateCommandInput - {@link DeleteSmsTemplateCommandInput}
+ * @returns {@link DeleteSmsTemplateCommandOutput}
  * @see {@link DeleteSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteSmsTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteSmsTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSmsTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteSmsTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSmsTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSmsTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSmsTemplateCommandOutput> {
     return deserializeAws_restJson1DeleteSmsTemplateCommand(output, context);
   }

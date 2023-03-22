@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainAutoTunesCommand}.
  */
 export interface DescribeDomainAutoTunesCommandInput extends DescribeDomainAutoTunesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainAutoTunesCommand}.
  */
 export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAutoTunesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service
  *    domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
  *     Service</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainAutoTunesCommandInput - {@link DescribeDomainAutoTunesCommandInput}
+ * @returns {@link DescribeDomainAutoTunesCommandOutput}
  * @see {@link DescribeDomainAutoTunesCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainAutoTunesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeDomainAutoTunesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainAutoTunesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeDomainAutoTunesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainAutoTunesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDomainAutoTunesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainAutoTunesCommandOutput> {
     return deserializeAws_restJson1DescribeDomainAutoTunesCommand(output, context);
   }

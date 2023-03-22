@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeApplicationVersionsCommand}.
  */
 export interface DescribeApplicationVersionsCommandInput extends DescribeApplicationVersionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeApplicationVersionsCommand}.
  */
 export interface DescribeApplicationVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeApplicationVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve a list of application versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeApplicationVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationVersionsCommandInput - {@link DescribeApplicationVersionsCommandInput}
+ * @returns {@link DescribeApplicationVersionsCommandOutput}
  * @see {@link DescribeApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -113,6 +120,9 @@ export class DescribeApplicationVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DescribeApplicationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeApplicationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

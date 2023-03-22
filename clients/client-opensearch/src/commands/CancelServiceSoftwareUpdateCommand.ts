@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelServiceSoftwareUpdateCommand}.
  */
 export interface CancelServiceSoftwareUpdateCommandInput extends CancelServiceSoftwareUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelServiceSoftwareUpdateCommand}.
  */
 export interface CancelServiceSoftwareUpdateCommandOutput
@@ -37,6 +41,7 @@ export interface CancelServiceSoftwareUpdateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can
  *    only perform this operation before the <code>AutomatedUpdateDate</code> and when the domain's
  *     <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in Amazon OpenSearch Service</a>.</p>
@@ -50,6 +55,8 @@ export interface CancelServiceSoftwareUpdateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelServiceSoftwareUpdateCommandInput - {@link CancelServiceSoftwareUpdateCommandInput}
+ * @returns {@link CancelServiceSoftwareUpdateCommandOutput}
  * @see {@link CancelServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link CancelServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -85,6 +92,9 @@ export class CancelServiceSoftwareUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CancelServiceSoftwareUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelServiceSoftwareUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelServiceSoftwareUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

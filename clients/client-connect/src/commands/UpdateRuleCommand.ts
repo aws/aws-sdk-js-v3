@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a rule for the specified Amazon Connect instance.</p>
  *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
  *    code conditions for the rule. </p>
@@ -43,6 +48,8 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleCommandInput - {@link UpdateRuleCommandInput}
+ * @returns {@link UpdateRuleCommandOutput}
  * @see {@link UpdateRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleCommandOutput> {
     return deserializeAws_restJson1UpdateRuleCommand(output, context);
   }

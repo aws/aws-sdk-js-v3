@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchemaExtensionsCommand}.
  */
 export interface ListSchemaExtensionsCommandInput extends ListSchemaExtensionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSchemaExtensionsCommand}.
  */
 export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchemaExtensionsCommandInput - {@link ListSchemaExtensionsCommandInput}
+ * @returns {@link ListSchemaExtensionsCommandOutput}
  * @see {@link ListSchemaExtensionsCommandInput} for command's `input` shape.
  * @see {@link ListSchemaExtensionsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListSchemaExtensionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchemaExtensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListSchemaExtensionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchemaExtensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSchemaExtensionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemaExtensionsCommandOutput> {
     return deserializeAws_json1_1ListSchemaExtensionsCommand(output, context);
   }

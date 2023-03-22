@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImageBuilderCommand}.
  */
 export interface StartImageBuilderCommandInput extends StartImageBuilderRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImageBuilderCommand}.
  */
 export interface StartImageBuilderCommandOutput extends StartImageBuilderResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the specified image builder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartImageBuilderCommandOutput extends StartImageBuilderResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImageBuilderCommandInput - {@link StartImageBuilderCommandInput}
+ * @returns {@link StartImageBuilderCommandOutput}
  * @see {@link StartImageBuilderCommandInput} for command's `input` shape.
  * @see {@link StartImageBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartImageBuilderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImageBuilderCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StartImageBuilderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImageBuilderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartImageBuilderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImageBuilderCommandOutput> {
     return deserializeAws_json1_1StartImageBuilderCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFileSystemCommand}.
  */
 export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFileSystemCommand}.
  */
 export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a file system, permanently severing access to its contents. Upon return, the
  *       file system no longer exists and you can't access any contents of the deleted file
  *       system.</p>
@@ -60,6 +65,8 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileSystemCommandInput - {@link DeleteFileSystemCommandInput}
+ * @returns {@link DeleteFileSystemCommandOutput}
  * @see {@link DeleteFileSystemCommandInput} for command's `input` shape.
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -108,6 +115,9 @@ export class DeleteFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DeleteFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileSystemCommandOutput> {
     return deserializeAws_restJson1DeleteFileSystemCommand(output, context);
   }

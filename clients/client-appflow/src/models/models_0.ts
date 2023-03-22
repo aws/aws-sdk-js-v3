@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AppflowServiceException as __BaseException } from "./AppflowServiceException";
 
 /**
+ * @public
  * <p>AppFlow/Requester has invalid or missing permissions.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,12 +23,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AggregationType {
   NONE = "None",
   SINGLE_FILE = "SingleFile",
 }
 
 /**
+ * @public
  * <p> The aggregation settings that you can use to customize the output format of your flow
  *       data. </p>
  */
@@ -47,11 +52,15 @@ export interface AggregationConfig {
   targetFileSize?: number;
 }
 
+/**
+ * @public
+ */
 export enum AmplitudeConnectorOperator {
   BETWEEN = "BETWEEN",
 }
 
 /**
+ * @public
  * <p> The connector-specific credentials required when using Amplitude. </p>
  */
 export interface AmplitudeConnectorProfileCredentials {
@@ -68,16 +77,19 @@ export interface AmplitudeConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using Amplitude. </p>
  */
 export interface AmplitudeConnectorProfileProperties {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Amplitude. </p>
  */
 export interface AmplitudeMetadata {}
 
 /**
+ * @public
  * <p> The properties that are applied when Amplitude is being used as a source. </p>
  */
 export interface AmplitudeSourceProperties {
@@ -88,6 +100,7 @@ export interface AmplitudeSourceProperties {
 }
 
 /**
+ * @public
  * <p>The API key credentials required for API key authentication.</p>
  */
 export interface ApiKeyCredentials {
@@ -103,6 +116,7 @@ export interface ApiKeyCredentials {
 }
 
 /**
+ * @public
  * <p>Information about required authentication parameters.</p>
  */
 export interface AuthParameter {
@@ -139,6 +153,7 @@ export interface AuthParameter {
 }
 
 /**
+ * @public
  * <p>Configuration information required for custom authentication.</p>
  */
 export interface CustomAuthConfig {
@@ -153,12 +168,16 @@ export interface CustomAuthConfig {
   authParameters?: AuthParameter[];
 }
 
+/**
+ * @public
+ */
 export enum OAuth2CustomPropType {
   AUTH_URL = "AUTH_URL",
   TOKEN_URL = "TOKEN_URL",
 }
 
 /**
+ * @public
  * <p>Custom parameter required for OAuth 2.0 authentication.</p>
  */
 export interface OAuth2CustomParameter {
@@ -199,12 +218,16 @@ export interface OAuth2CustomParameter {
   type?: OAuth2CustomPropType | string;
 }
 
+/**
+ * @public
+ */
 export enum OAuth2GrantType {
   AUTHORIZATION_CODE = "AUTHORIZATION_CODE",
   CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS",
 }
 
 /**
+ * @public
  * <p>Contains the default values required for OAuth 2.0 authentication.</p>
  */
 export interface OAuth2Defaults {
@@ -235,6 +258,7 @@ export interface OAuth2Defaults {
 }
 
 /**
+ * @public
  * <p>Contains information about the authentication config that the connector supports.</p>
  */
 export interface AuthenticationConfig {
@@ -269,6 +293,9 @@ export interface AuthenticationConfig {
   customAuthConfigs?: CustomAuthConfig[];
 }
 
+/**
+ * @public
+ */
 export enum AuthenticationType {
   APIKEY = "APIKEY",
   BASIC = "BASIC",
@@ -277,6 +304,7 @@ export enum AuthenticationType {
 }
 
 /**
+ * @public
  * <p> The basic auth credentials required for basic authentication. </p>
  */
 export interface BasicAuthCredentials {
@@ -291,11 +319,15 @@ export interface BasicAuthCredentials {
   password: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CatalogType {
   GLUE = "GLUE",
 }
 
 /**
+ * @public
  * <p> There was a conflict when processing the request (for example, a flow with the given name
  *       already exists within the account. Check for conflicting resource names and try again. </p>
  */
@@ -315,12 +347,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConnectionMode {
   PRIVATE = "Private",
   PUBLIC = "Public",
 }
 
 /**
+ * @public
  * <p> An error occurred when authenticating with the connector endpoint. </p>
  */
 export class ConnectorAuthenticationException extends __BaseException {
@@ -340,26 +376,31 @@ export class ConnectorAuthenticationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The connector metadata specific to Amazon Connect Customer Profiles. </p>
  */
 export interface CustomerProfilesMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Datadog. </p>
  */
 export interface DatadogMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Dynatrace. </p>
  */
 export interface DynatraceMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Amazon EventBridge. </p>
  */
 export interface EventBridgeMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Google Analytics. </p>
  */
 export interface GoogleAnalyticsMetadata {
@@ -370,6 +411,7 @@ export interface GoogleAnalyticsMetadata {
 }
 
 /**
+ * @public
  * <p> The connector metadata specific to Amazon Honeycode. </p>
  */
 export interface HoneycodeMetadata {
@@ -380,30 +422,38 @@ export interface HoneycodeMetadata {
 }
 
 /**
+ * @public
  * <p> The connector metadata specific to Infor Nexus. </p>
  */
 export interface InforNexusMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Marketo. </p>
  */
 export interface MarketoMetadata {}
 
 /**
+ * @public
  * <p>The connector metadata specific to Salesforce Pardot.</p>
  */
 export interface PardotMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Amazon Redshift. </p>
  */
 export interface RedshiftMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Amazon S3. </p>
  */
 export interface S3Metadata {}
 
+/**
+ * @public
+ */
 export enum SalesforceDataTransferApi {
   AUTOMATIC = "AUTOMATIC",
   BULKV2 = "BULKV2",
@@ -411,6 +461,7 @@ export enum SalesforceDataTransferApi {
 }
 
 /**
+ * @public
  * <p> The connector metadata specific to Salesforce. </p>
  */
 export interface SalesforceMetadata {
@@ -427,21 +478,25 @@ export interface SalesforceMetadata {
 }
 
 /**
+ * @public
  * <p> The connector metadata specific to SAPOData. </p>
  */
 export interface SAPODataMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to ServiceNow. </p>
  */
 export interface ServiceNowMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Singular. </p>
  */
 export interface SingularMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Slack. </p>
  */
 export interface SlackMetadata {
@@ -452,6 +507,7 @@ export interface SlackMetadata {
 }
 
 /**
+ * @public
  * <p> The connector metadata specific to Snowflake. </p>
  */
 export interface SnowflakeMetadata {
@@ -462,21 +518,25 @@ export interface SnowflakeMetadata {
 }
 
 /**
+ * @public
  * <p> The connector metadata specific to Trend Micro. </p>
  */
 export interface TrendmicroMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Upsolver. </p>
  */
 export interface UpsolverMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Veeva. </p>
  */
 export interface VeevaMetadata {}
 
 /**
+ * @public
  * <p> The connector metadata specific to Zendesk. </p>
  */
 export interface ZendeskMetadata {
@@ -487,6 +547,7 @@ export interface ZendeskMetadata {
 }
 
 /**
+ * @public
  * <p> A structure to specify connector-specific metadata such as <code>oAuthScopes</code>,
  *         <code>supportedRegions</code>, <code>privateLinkServiceUrl</code>, and so on. </p>
  */
@@ -603,6 +664,7 @@ export interface ConnectorMetadata {
 }
 
 /**
+ * @public
  * <p>Contains information about the configuration of the lambda which is being registered as
  *       the connector.</p>
  */
@@ -614,6 +676,7 @@ export interface LambdaConnectorProvisioningConfig {
 }
 
 /**
+ * @public
  * <p>Contains information about the configuration of the connector being registered.</p>
  */
 export interface ConnectorProvisioningConfig {
@@ -624,11 +687,15 @@ export interface ConnectorProvisioningConfig {
   lambda?: LambdaConnectorProvisioningConfig;
 }
 
+/**
+ * @public
+ */
 export enum ConnectorProvisioningType {
   LAMBDA = "LAMBDA",
 }
 
 /**
+ * @public
  * <p>Contains information about the connector runtime settings that are required for flow
  *       execution.</p>
  */
@@ -670,6 +737,9 @@ export interface ConnectorRuntimeSetting {
   connectorSuppliedValueOptions?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ConnectorType {
   AMPLITUDE = "Amplitude",
   CUSTOMCONNECTOR = "CustomConnector",
@@ -697,6 +767,9 @@ export enum ConnectorType {
   ZENDESK = "Zendesk",
 }
 
+/**
+ * @public
+ */
 export enum Operators {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -721,6 +794,9 @@ export enum Operators {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum ScheduleFrequencyType {
   BYMINUTE = "BYMINUTE",
   DAILY = "DAILY",
@@ -730,12 +806,18 @@ export enum ScheduleFrequencyType {
   WEEKLY = "WEEKLY",
 }
 
+/**
+ * @public
+ */
 export enum TriggerType {
   EVENT = "Event",
   ONDEMAND = "OnDemand",
   SCHEDULED = "Scheduled",
 }
 
+/**
+ * @public
+ */
 export enum WriteOperationType {
   DELETE = "DELETE",
   INSERT = "INSERT",
@@ -744,6 +826,7 @@ export enum WriteOperationType {
 }
 
 /**
+ * @public
  * <p> The configuration settings related to a given connector. </p>
  */
 export interface ConnectorConfiguration {
@@ -880,6 +963,7 @@ export interface ConnectorConfiguration {
 }
 
 /**
+ * @public
  * <p>Information about the registered connector.</p>
  */
 export interface ConnectorDetail {
@@ -940,6 +1024,7 @@ export interface ConnectorDetail {
 }
 
 /**
+ * @public
  * <p> The high-level entity that can be queried in Amazon AppFlow. For example, a
  *       Salesforce entity might be an <i>Account</i> or
  *       <i>Opportunity</i>, whereas a ServiceNow entity might be an
@@ -967,6 +1052,7 @@ export interface ConnectorEntity {
 }
 
 /**
+ * @public
  * <p> The properties that can be applied to a field when connector is being used as a
  *       destination. </p>
  */
@@ -1007,6 +1093,7 @@ export interface DestinationFieldProperties {
 }
 
 /**
+ * @public
  * <p> The properties that can be applied to a field when the connector is being used as a
  *       source. </p>
  */
@@ -1028,6 +1115,7 @@ export interface SourceFieldProperties {
 }
 
 /**
+ * @public
  * <p>The range of values that the property supports.</p>
  */
 export interface Range {
@@ -1042,6 +1130,9 @@ export interface Range {
   minimum?: number;
 }
 
+/**
+ * @public
+ */
 export enum Operator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1067,6 +1158,7 @@ export enum Operator {
 }
 
 /**
+ * @public
  * <p> Contains details regarding the supported field type and the operators that can be applied
  *       for filtering. </p>
  */
@@ -1109,6 +1201,7 @@ export interface FieldTypeDetails {
 }
 
 /**
+ * @public
  * <p> Contains details regarding all the supported <code>FieldTypes</code> and their
  *       corresponding <code>filterOperators</code> and <code>supportedValues</code>. </p>
  */
@@ -1121,6 +1214,7 @@ export interface SupportedFieldTypeDetails {
 }
 
 /**
+ * @public
  * <p> Describes the data model of a connector field. For example, for an
  *         <i>account</i> entity, the fields would be <i>account name</i>,
  *         <i>account ID</i>, and so on. </p>
@@ -1186,6 +1280,7 @@ export interface ConnectorEntityField {
 }
 
 /**
+ * @public
  * <p> Used by select connectors for which the OAuth workflow is supported, such as Salesforce,
  *       Google Analytics, Marketo, Zendesk, and Slack. </p>
  */
@@ -1203,6 +1298,9 @@ export interface ConnectorOAuthRequest {
   redirectUri?: string;
 }
 
+/**
+ * @public
+ */
 export enum DatadogConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1221,6 +1319,9 @@ export enum DatadogConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum DynatraceConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1239,11 +1340,17 @@ export enum DynatraceConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum GoogleAnalyticsConnectorOperator {
   BETWEEN = "BETWEEN",
   PROJECTION = "PROJECTION",
 }
 
+/**
+ * @public
+ */
 export enum InforNexusConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1262,6 +1369,9 @@ export enum InforNexusConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum MarketoConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1281,6 +1391,9 @@ export enum MarketoConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum PardotConnectorOperator {
   ADDITION = "ADDITION",
   DIVISION = "DIVISION",
@@ -1298,6 +1411,9 @@ export enum PardotConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum S3ConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1321,6 +1437,9 @@ export enum S3ConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum SalesforceConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1345,6 +1464,9 @@ export enum SalesforceConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum SAPODataConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1369,6 +1491,9 @@ export enum SAPODataConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum ServiceNowConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1393,6 +1518,9 @@ export enum ServiceNowConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum SingularConnectorOperator {
   ADDITION = "ADDITION",
   DIVISION = "DIVISION",
@@ -1410,6 +1538,9 @@ export enum SingularConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum SlackConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1432,6 +1563,9 @@ export enum SlackConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum TrendmicroConnectorOperator {
   ADDITION = "ADDITION",
   DIVISION = "DIVISION",
@@ -1449,6 +1583,9 @@ export enum TrendmicroConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum VeevaConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -1473,6 +1610,9 @@ export enum VeevaConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum ZendeskConnectorOperator {
   ADDITION = "ADDITION",
   DIVISION = "DIVISION",
@@ -1491,6 +1631,7 @@ export enum ZendeskConnectorOperator {
 }
 
 /**
+ * @public
  * <p> The operation to be performed on the provided source fields. </p>
  */
 export interface ConnectorOperator {
@@ -1581,6 +1722,7 @@ export interface ConnectorOperator {
 }
 
 /**
+ * @public
  * <p>The OAuth 2.0 properties required for OAuth 2.0 authentication.</p>
  */
 export interface OAuth2Properties {
@@ -1603,6 +1745,7 @@ export interface OAuth2Properties {
 }
 
 /**
+ * @public
  * <p>The profile properties required by the custom connector.</p>
  */
 export interface CustomConnectorProfileProperties {
@@ -1618,6 +1761,7 @@ export interface CustomConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required by Datadog. </p>
  */
 export interface DatadogConnectorProfileProperties {
@@ -1628,6 +1772,7 @@ export interface DatadogConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required by Dynatrace. </p>
  */
 export interface DynatraceConnectorProfileProperties {
@@ -1638,16 +1783,19 @@ export interface DynatraceConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required by Google Analytics. </p>
  */
 export interface GoogleAnalyticsConnectorProfileProperties {}
 
 /**
+ * @public
  * <p> The connector-specific properties required when using Amazon Honeycode. </p>
  */
 export interface HoneycodeConnectorProfileProperties {}
 
 /**
+ * @public
  * <p> The connector-specific profile properties required by Infor Nexus. </p>
  */
 export interface InforNexusConnectorProfileProperties {
@@ -1658,6 +1806,7 @@ export interface InforNexusConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using Marketo. </p>
  */
 export interface MarketoConnectorProfileProperties {
@@ -1668,6 +1817,7 @@ export interface MarketoConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p>The connector-specific profile properties required when using Salesforce Pardot.</p>
  */
 export interface PardotConnectorProfileProperties {
@@ -1689,6 +1839,7 @@ export interface PardotConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties when using Amazon Redshift. </p>
  */
 export interface RedshiftConnectorProfileProperties {
@@ -1745,6 +1896,7 @@ export interface RedshiftConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using Salesforce. </p>
  */
 export interface SalesforceConnectorProfileProperties {
@@ -1811,6 +1963,7 @@ export interface SalesforceConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The OAuth properties required for OAuth type authentication. </p>
  */
 export interface OAuthProperties {
@@ -1833,6 +1986,7 @@ export interface OAuthProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using SAPOData. </p>
  */
 export interface SAPODataConnectorProfileProperties {
@@ -1873,6 +2027,7 @@ export interface SAPODataConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using ServiceNow. </p>
  */
 export interface ServiceNowConnectorProfileProperties {
@@ -1883,11 +2038,13 @@ export interface ServiceNowConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using Singular. </p>
  */
 export interface SingularConnectorProfileProperties {}
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using Slack. </p>
  */
 export interface SlackConnectorProfileProperties {
@@ -1898,6 +2055,7 @@ export interface SlackConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using Snowflake. </p>
  */
 export interface SnowflakeConnectorProfileProperties {
@@ -1940,11 +2098,13 @@ export interface SnowflakeConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using Trend Micro. </p>
  */
 export interface TrendmicroConnectorProfileProperties {}
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using Veeva. </p>
  */
 export interface VeevaConnectorProfileProperties {
@@ -1955,6 +2115,7 @@ export interface VeevaConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required when using Zendesk. </p>
  */
 export interface ZendeskConnectorProfileProperties {
@@ -1965,6 +2126,7 @@ export interface ZendeskConnectorProfileProperties {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile properties required by each connector. </p>
  */
 export interface ConnectorProfileProperties {
@@ -2064,6 +2226,9 @@ export interface ConnectorProfileProperties {
   Pardot?: PardotConnectorProfileProperties;
 }
 
+/**
+ * @public
+ */
 export enum PrivateConnectionProvisioningFailureCause {
   ACCESS_DENIED = "ACCESS_DENIED",
   CONNECTOR_AUTHENTICATION = "CONNECTOR_AUTHENTICATION",
@@ -2072,6 +2237,9 @@ export enum PrivateConnectionProvisioningFailureCause {
   VALIDATION = "VALIDATION",
 }
 
+/**
+ * @public
+ */
 export enum PrivateConnectionProvisioningStatus {
   CREATED = "CREATED",
   FAILED = "FAILED",
@@ -2079,6 +2247,7 @@ export enum PrivateConnectionProvisioningStatus {
 }
 
 /**
+ * @public
  * <p> Specifies the private connection provisioning state. </p>
  */
 export interface PrivateConnectionProvisioningState {
@@ -2099,6 +2268,7 @@ export interface PrivateConnectionProvisioningState {
 }
 
 /**
+ * @public
  * <p> Describes an instance of a connector. This includes the provided name, credentials ARN,
  *       connection-mode, and so on. To keep the API intuitive and extensible, the fields that are
  *       common to all types of connector profiles are explicitly specified at the top level. The rest
@@ -2159,6 +2329,7 @@ export interface ConnectorProfile {
 }
 
 /**
+ * @public
  * <p>The custom credentials required for custom authentication.</p>
  */
 export interface CustomAuthCredentials {
@@ -2174,6 +2345,7 @@ export interface CustomAuthCredentials {
 }
 
 /**
+ * @public
  * <p>The OAuth 2.0 credentials required for OAuth 2.0 authentication.</p>
  */
 export interface OAuth2Credentials {
@@ -2206,6 +2378,7 @@ export interface OAuth2Credentials {
 }
 
 /**
+ * @public
  * <p>The connector-specific profile credentials that are required when using the custom
  *       connector.</p>
  */
@@ -2239,6 +2412,7 @@ export interface CustomConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific credentials required by Datadog. </p>
  */
 export interface DatadogConnectorProfileCredentials {
@@ -2257,6 +2431,7 @@ export interface DatadogConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required by Dynatrace. </p>
  */
 export interface DynatraceConnectorProfileCredentials {
@@ -2267,6 +2442,7 @@ export interface DynatraceConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required by Google Analytics. </p>
  */
 export interface GoogleAnalyticsConnectorProfileCredentials {
@@ -2300,6 +2476,7 @@ export interface GoogleAnalyticsConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific credentials required when using Amazon Honeycode. </p>
  */
 export interface HoneycodeConnectorProfileCredentials {
@@ -2321,6 +2498,7 @@ export interface HoneycodeConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required by Infor Nexus. </p>
  */
 export interface InforNexusConnectorProfileCredentials {
@@ -2346,6 +2524,7 @@ export interface InforNexusConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required by Marketo. </p>
  */
 export interface MarketoConnectorProfileCredentials {
@@ -2373,6 +2552,7 @@ export interface MarketoConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p>The connector-specific profile credentials required when using Salesforce Pardot.</p>
  */
 export interface PardotConnectorProfileCredentials {
@@ -2400,6 +2580,7 @@ export interface PardotConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using Amazon Redshift. </p>
  */
 export interface RedshiftConnectorProfileCredentials {
@@ -2415,6 +2596,7 @@ export interface RedshiftConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using Salesforce. </p>
  */
 export interface SalesforceConnectorProfileCredentials {
@@ -2442,6 +2624,7 @@ export interface SalesforceConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The OAuth credentials required for OAuth type authentication. </p>
  */
 export interface OAuthCredentials {
@@ -2474,6 +2657,7 @@ export interface OAuthCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using SAPOData. </p>
  */
 export interface SAPODataConnectorProfileCredentials {
@@ -2489,6 +2673,7 @@ export interface SAPODataConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using ServiceNow. </p>
  */
 export interface ServiceNowConnectorProfileCredentials {
@@ -2504,6 +2689,7 @@ export interface ServiceNowConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using Singular. </p>
  */
 export interface SingularConnectorProfileCredentials {
@@ -2515,6 +2701,7 @@ export interface SingularConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using Slack. </p>
  */
 export interface SlackConnectorProfileCredentials {
@@ -2542,6 +2729,7 @@ export interface SlackConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using Snowflake. </p>
  */
 export interface SnowflakeConnectorProfileCredentials {
@@ -2557,6 +2745,7 @@ export interface SnowflakeConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using Trend Micro. </p>
  */
 export interface TrendmicroConnectorProfileCredentials {
@@ -2567,6 +2756,7 @@ export interface TrendmicroConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using Veeva. </p>
  */
 export interface VeevaConnectorProfileCredentials {
@@ -2582,6 +2772,7 @@ export interface VeevaConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific profile credentials required when using Zendesk. </p>
  */
 export interface ZendeskConnectorProfileCredentials {
@@ -2609,6 +2800,7 @@ export interface ZendeskConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> The connector-specific credentials required by a connector. </p>
  */
 export interface ConnectorProfileCredentials {
@@ -2710,6 +2902,7 @@ export interface ConnectorProfileCredentials {
 }
 
 /**
+ * @public
  * <p> Defines the connector-specific configuration and credentials for the connector profile.
  *     </p>
  */
@@ -2726,6 +2919,7 @@ export interface ConnectorProfileConfig {
 }
 
 /**
+ * @public
  * <p> An error occurred when retrieving data from the connector endpoint. </p>
  */
 export class ConnectorServerException extends __BaseException {
@@ -2744,6 +2938,9 @@ export class ConnectorServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectorProfileRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
@@ -2783,6 +2980,9 @@ export interface CreateConnectorProfileRequest {
   connectorProfileConfig: ConnectorProfileConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectorProfileResponse {
   /**
    * <p> The Amazon Resource Name (ARN) of the connector profile. </p>
@@ -2791,6 +2991,7 @@ export interface CreateConnectorProfileResponse {
 }
 
 /**
+ * @public
  * <p> An internal service error occurred during the processing of your request. Try again
  *       later. </p>
  */
@@ -2811,6 +3012,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The request would cause a service quota (such as the number of flows) to be exceeded.
  *     </p>
  */
@@ -2831,6 +3033,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The request has invalid or missing parameters. </p>
  */
 export class ValidationException extends __BaseException {
@@ -2850,6 +3053,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
  *       the destination. For example, this setting would determine if the flow should fail after one
  *       insertion error, or continue and attempt to insert every record regardless of the initial
@@ -2875,6 +3079,7 @@ export interface ErrorHandlingConfig {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when the custom connector is being used as a
  *       destination.</p>
  */
@@ -2910,6 +3115,7 @@ export interface CustomConnectorDestinationProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Amazon Connect Customer Profiles is used as a
  *       destination. </p>
  */
@@ -2927,6 +3133,7 @@ export interface CustomerProfilesDestinationProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Amazon EventBridge is being used as a
  *       destination. </p>
  */
@@ -2947,6 +3154,7 @@ export interface EventBridgeDestinationProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Amazon Honeycode is used as a destination. </p>
  */
 export interface HoneycodeDestinationProperties {
@@ -2966,12 +3174,14 @@ export interface HoneycodeDestinationProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Amazon Lookout for Metrics is used as a destination.
  *     </p>
  */
 export interface LookoutMetricsDestinationProperties {}
 
 /**
+ * @public
  * <p>The properties that Amazon AppFlow applies when you use Marketo as a flow
  *       destination.</p>
  */
@@ -2992,6 +3202,7 @@ export interface MarketoDestinationProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Amazon Redshift is being used as a destination.
  *     </p>
  */
@@ -3022,17 +3233,26 @@ export interface RedshiftDestinationProperties {
   errorHandlingConfig?: ErrorHandlingConfig;
 }
 
+/**
+ * @public
+ */
 export enum FileType {
   CSV = "CSV",
   JSON = "JSON",
   PARQUET = "PARQUET",
 }
 
+/**
+ * @public
+ */
 export enum PathPrefix {
   EXECUTION_ID = "EXECUTION_ID",
   SCHEMA_VERSION = "SCHEMA_VERSION",
 }
 
+/**
+ * @public
+ */
 export enum PrefixFormat {
   DAY = "DAY",
   HOUR = "HOUR",
@@ -3041,6 +3261,9 @@ export enum PrefixFormat {
   YEAR = "YEAR",
 }
 
+/**
+ * @public
+ */
 export enum PrefixType {
   FILENAME = "FILENAME",
   PATH = "PATH",
@@ -3048,6 +3271,7 @@ export enum PrefixType {
 }
 
 /**
+ * @public
  * <p>Specifies elements that Amazon AppFlow includes in the file and folder names in the flow
  *       destination.</p>
  */
@@ -3095,6 +3319,7 @@ export interface PrefixConfig {
 }
 
 /**
+ * @public
  * <p> The configuration that determines how Amazon AppFlow should format the flow output
  *       data when Amazon S3 is used as the destination. </p>
  */
@@ -3137,6 +3362,7 @@ export interface S3OutputFormatConfig {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Amazon S3 is used as a destination. </p>
  */
 export interface S3DestinationProperties {
@@ -3160,6 +3386,7 @@ export interface S3DestinationProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Salesforce is being used as a destination. </p>
  */
 export interface SalesforceDestinationProperties {
@@ -3232,6 +3459,7 @@ export interface SalesforceDestinationProperties {
 }
 
 /**
+ * @public
  * <p>Determines how Amazon AppFlow handles the success response that it gets from the
  *       connector after placing data.</p>
  *          <p>For example, this setting would determine where to write the response from the destination
@@ -3250,6 +3478,7 @@ export interface SuccessResponseHandlingConfig {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when using SAPOData as a flow destination</p>
  */
 export interface SAPODataDestinationProperties {
@@ -3289,6 +3518,7 @@ export interface SAPODataDestinationProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Snowflake is being used as a destination. </p>
  */
 export interface SnowflakeDestinationProperties {
@@ -3320,6 +3550,7 @@ export interface SnowflakeDestinationProperties {
 }
 
 /**
+ * @public
  * <p> The configuration that determines how Amazon AppFlow formats the flow output data
  *       when Upsolver is used as the destination. </p>
  */
@@ -3344,6 +3575,7 @@ export interface UpsolverS3OutputFormatConfig {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Upsolver is used as a destination. </p>
  */
 export interface UpsolverDestinationProperties {
@@ -3366,6 +3598,7 @@ export interface UpsolverDestinationProperties {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when Zendesk is used as a destination.</p>
  */
 export interface ZendeskDestinationProperties {
@@ -3397,6 +3630,7 @@ export interface ZendeskDestinationProperties {
 }
 
 /**
+ * @public
  * <p> This stores the information that is required to query a particular connector. </p>
  */
 export interface DestinationConnectorProperties {
@@ -3467,6 +3701,7 @@ export interface DestinationConnectorProperties {
 }
 
 /**
+ * @public
  * <p> Contains information about the configuration of destination connectors present in the
  *       flow. </p>
  */
@@ -3494,6 +3729,7 @@ export interface DestinationFlowConfig {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with
  *       the Glue Data Catalog. When Amazon AppFlow catalogs your data, it stores metadata
  *       in Data Catalog tables. This metadata represents the data that's transferred by the
@@ -3530,6 +3766,7 @@ export interface GlueDataCatalogConfig {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data. When
  *         Amazon AppFlow catalogs your data, it stores metadata in a data catalog.</p>
  */
@@ -3542,6 +3779,7 @@ export interface MetadataCatalogConfig {
 }
 
 /**
+ * @public
  * <p> Specifies the configuration used when importing incremental records from the source.
  *     </p>
  */
@@ -3554,6 +3792,7 @@ export interface IncrementalPullConfig {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when the custom connector is being used as a
  *       source.</p>
  */
@@ -3570,6 +3809,7 @@ export interface CustomConnectorSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Datadog is being used as a source. </p>
  */
 export interface DatadogSourceProperties {
@@ -3580,6 +3820,7 @@ export interface DatadogSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Dynatrace is being used as a source. </p>
  */
 export interface DynatraceSourceProperties {
@@ -3590,6 +3831,7 @@ export interface DynatraceSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Google Analytics is being used as a source. </p>
  */
 export interface GoogleAnalyticsSourceProperties {
@@ -3600,6 +3842,7 @@ export interface GoogleAnalyticsSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Infor Nexus is being used as a source. </p>
  */
 export interface InforNexusSourceProperties {
@@ -3610,6 +3853,7 @@ export interface InforNexusSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Marketo is being used as a source. </p>
  */
 export interface MarketoSourceProperties {
@@ -3620,6 +3864,7 @@ export interface MarketoSourceProperties {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when Salesforce Pardot is being used as a source.</p>
  */
 export interface PardotSourceProperties {
@@ -3629,12 +3874,16 @@ export interface PardotSourceProperties {
   object: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum S3InputFileType {
   CSV = "CSV",
   JSON = "JSON",
 }
 
 /**
+ * @public
  * <p> When you use Amazon S3 as the source, the configuration format that you provide
  *       the flow input data. </p>
  */
@@ -3646,6 +3895,7 @@ export interface S3InputFormatConfig {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Amazon S3 is being used as the flow source.
  *     </p>
  */
@@ -3669,6 +3919,7 @@ export interface S3SourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Salesforce is being used as a source. </p>
  */
 export interface SalesforceSourceProperties {
@@ -3731,6 +3982,7 @@ export interface SalesforceSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when using SAPOData as a flow source. </p>
  */
 export interface SAPODataSourceProperties {
@@ -3741,6 +3993,7 @@ export interface SAPODataSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when ServiceNow is being used as a source. </p>
  */
 export interface ServiceNowSourceProperties {
@@ -3751,6 +4004,7 @@ export interface ServiceNowSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Singular is being used as a source. </p>
  */
 export interface SingularSourceProperties {
@@ -3761,6 +4015,7 @@ export interface SingularSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when Slack is being used as a source. </p>
  */
 export interface SlackSourceProperties {
@@ -3771,6 +4026,7 @@ export interface SlackSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when using Trend Micro as a flow source. </p>
  */
 export interface TrendmicroSourceProperties {
@@ -3781,6 +4037,7 @@ export interface TrendmicroSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when using Veeva as a flow source. </p>
  */
 export interface VeevaSourceProperties {
@@ -3811,6 +4068,7 @@ export interface VeevaSourceProperties {
 }
 
 /**
+ * @public
  * <p> The properties that are applied when using Zendesk as a flow source. </p>
  */
 export interface ZendeskSourceProperties {
@@ -3821,6 +4079,7 @@ export interface ZendeskSourceProperties {
 }
 
 /**
+ * @public
  * <p> Specifies the information that is required to query a particular connector. </p>
  */
 export interface SourceConnectorProperties {
@@ -3912,6 +4171,7 @@ export interface SourceConnectorProperties {
 }
 
 /**
+ * @public
  * <p> Contains information about the configuration of the source connector used in the flow.
  *     </p>
  */
@@ -3946,6 +4206,9 @@ export interface SourceFlowConfig {
   incrementalPullConfig?: IncrementalPullConfig;
 }
 
+/**
+ * @public
+ */
 export enum OperatorPropertiesKeys {
   CONCAT_FORMAT = "CONCAT_FORMAT",
   DATA_TYPE = "DATA_TYPE",
@@ -3966,6 +4229,9 @@ export enum OperatorPropertiesKeys {
   VALUES = "VALUES",
 }
 
+/**
+ * @public
+ */
 export enum TaskType {
   ARITHMETIC = "Arithmetic",
   FILTER = "Filter",
@@ -3980,6 +4246,7 @@ export enum TaskType {
 }
 
 /**
+ * @public
  * <p> A class for modeling different type of tasks. Task implementation varies based on the
  *         <code>TaskType</code>. </p>
  */
@@ -4012,12 +4279,16 @@ export interface Task {
   taskProperties?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum DataPullMode {
   COMPLETE = "Complete",
   INCREMENTAL = "Incremental",
 }
 
 /**
+ * @public
  * <p> Specifies the configuration details of a schedule-triggered flow as defined by the user.
  *       Currently, these settings only apply to the <code>Scheduled</code> trigger type. </p>
  */
@@ -4078,6 +4349,7 @@ export interface ScheduledTriggerProperties {
 }
 
 /**
+ * @public
  * <p> Specifies the configuration details that control the trigger for a flow. Currently, these
  *       settings only apply to the <code>Scheduled</code> trigger type. </p>
  */
@@ -4090,6 +4362,7 @@ export interface TriggerProperties {
 }
 
 /**
+ * @public
  * <p> The trigger settings that determine how and when Amazon AppFlow runs the specified
  *       flow. </p>
  */
@@ -4107,6 +4380,9 @@ export interface TriggerConfig {
   triggerProperties?: TriggerProperties;
 }
 
+/**
+ * @public
+ */
 export interface CreateFlowRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
@@ -4162,6 +4438,9 @@ export interface CreateFlowRequest {
   metadataCatalogConfig?: MetadataCatalogConfig;
 }
 
+/**
+ * @public
+ */
 export enum FlowStatus {
   ACTIVE = "Active",
   DELETED = "Deleted",
@@ -4171,6 +4450,9 @@ export enum FlowStatus {
   SUSPENDED = "Suspended",
 }
 
+/**
+ * @public
+ */
 export interface CreateFlowResponse {
   /**
    * <p> The flow's Amazon Resource Name (ARN). </p>
@@ -4184,6 +4466,7 @@ export interface CreateFlowResponse {
 }
 
 /**
+ * @public
  * <p> The resource specified in the request (such as the source or destination connector
  *       profile) is not found. </p>
  */
@@ -4203,6 +4486,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectorProfileRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
@@ -4217,8 +4503,14 @@ export interface DeleteConnectorProfileRequest {
   forceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectorProfileResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteFlowRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
@@ -4233,8 +4525,14 @@ export interface DeleteFlowRequest {
   forceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlowResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeConnectorRequest {
   /**
    * <p>The connector type, such as CUSTOMCONNECTOR, Saleforce, Marketo. Please choose
@@ -4250,6 +4548,9 @@ export interface DescribeConnectorRequest {
   connectorLabel?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorResponse {
   /**
    * <p>Configuration info of all the connectors that the user requested.</p>
@@ -4257,6 +4558,9 @@ export interface DescribeConnectorResponse {
   connectorConfiguration?: ConnectorConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorEntityRequest {
   /**
    * <p> The entity name for that connector. </p>
@@ -4280,6 +4584,9 @@ export interface DescribeConnectorEntityRequest {
   apiVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorEntityResponse {
   /**
    * <p> Describes the fields for that connector entity. For example, for an
@@ -4289,6 +4596,9 @@ export interface DescribeConnectorEntityResponse {
   connectorEntityFields: ConnectorEntityField[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorProfilesRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
@@ -4320,6 +4630,9 @@ export interface DescribeConnectorProfilesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorProfilesResponse {
   /**
    * <p> Returns information about the connector profiles associated with the flow. </p>
@@ -4333,6 +4646,9 @@ export interface DescribeConnectorProfilesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorsRequest {
   /**
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
@@ -4351,6 +4667,9 @@ export interface DescribeConnectorsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorsResponse {
   /**
    * <p> The configuration that is applied to the connectors used in the flow. </p>
@@ -4368,6 +4687,9 @@ export interface DescribeConnectorsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
@@ -4376,6 +4698,9 @@ export interface DescribeFlowRequest {
   flowName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ExecutionStatus {
   ERROR = "Error",
   INPROGRESS = "InProgress",
@@ -4383,6 +4708,7 @@ export enum ExecutionStatus {
 }
 
 /**
+ * @public
  * <p> Describes the details of the flow run, including the timestamp, status, and message.
  *     </p>
  */
@@ -4404,6 +4730,7 @@ export interface ExecutionDetails {
 }
 
 /**
+ * @public
  * <p>Describes the status of an attempt from Amazon AppFlow to register a resource.</p>
  *          <p>When you run a flow that you've configured to use a metadata catalog, Amazon AppFlow
  *       registers a metadata table and data partitions with that catalog. This operation provides the
@@ -4430,6 +4757,7 @@ export interface RegistrationOutput {
 }
 
 /**
+ * @public
  * <p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>
  */
 export interface MetadataCatalogDetail {
@@ -4469,6 +4797,9 @@ export interface MetadataCatalogDetail {
   partitionRegistrationOutput?: RegistrationOutput;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowResponse {
   /**
    * <p> The flow's Amazon Resource Name (ARN). </p>
@@ -4588,6 +4919,9 @@ export interface DescribeFlowResponse {
   schemaVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowExecutionRecordsRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
@@ -4608,6 +4942,7 @@ export interface DescribeFlowExecutionRecordsRequest {
 }
 
 /**
+ * @public
  * <p> Provides details in the event of a failed flow, including the failure count and the
  *       related error messages. </p>
  */
@@ -4624,6 +4959,7 @@ export interface ErrorInfo {
 }
 
 /**
+ * @public
  * <p> Specifies the end result of the flow run. </p>
  */
 export interface ExecutionResult {
@@ -4649,6 +4985,7 @@ export interface ExecutionResult {
 }
 
 /**
+ * @public
  * <p> Specifies information about the past flow run instances for a given flow. </p>
  */
 export interface ExecutionRecord {
@@ -4696,6 +5033,9 @@ export interface ExecutionRecord {
   metadataCatalogDetails?: MetadataCatalogDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowExecutionRecordsResponse {
   /**
    * <p> Returns a list of all instances when this flow was run. </p>
@@ -4709,6 +5049,7 @@ export interface DescribeFlowExecutionRecordsResponse {
 }
 
 /**
+ * @public
  * <p> The properties of the flow, such as its source, destination, trigger type, and so on.
  *     </p>
  */
@@ -4793,6 +5134,9 @@ export interface FlowDefinition {
   lastRunExecutionDetails?: ExecutionDetails;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectorEntitiesRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
@@ -4833,6 +5177,9 @@ export interface ListConnectorEntitiesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectorEntitiesResponse {
   /**
    * <p> The response of <code>ListConnectorEntities</code> lists entities grouped by category.
@@ -4849,6 +5196,9 @@ export interface ListConnectorEntitiesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectorsRequest {
   /**
    * <p>Specifies the maximum number of items that should be returned in the result set. The
@@ -4862,6 +5212,9 @@ export interface ListConnectorsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectorsResponse {
   /**
    * <p>Contains information about the connectors supported by Amazon AppFlow.</p>
@@ -4875,6 +5228,9 @@ export interface ListConnectorsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowsRequest {
   /**
    * <p> Specifies the maximum number of items that should be returned in the result set. </p>
@@ -4887,6 +5243,9 @@ export interface ListFlowsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowsResponse {
   /**
    * <p> The list of flows associated with your account. </p>
@@ -4899,6 +5258,9 @@ export interface ListFlowsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the specified flow. </p>
@@ -4906,6 +5268,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p> The tags used to organize, track, or control access for your flow. </p>
@@ -4913,6 +5278,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RegisterConnectorRequest {
   /**
    * <p> The name of the connector. The name is unique for each <code>ConnectorRegistration</code>
@@ -4938,6 +5306,9 @@ export interface RegisterConnectorRequest {
   connectorProvisioningConfig?: ConnectorProvisioningConfig;
 }
 
+/**
+ * @public
+ */
 export interface RegisterConnectorResponse {
   /**
    * <p>The ARN of the connector being registered.</p>
@@ -4946,6 +5317,7 @@ export interface RegisterConnectorResponse {
 }
 
 /**
+ * @public
  * <p>API calls have exceeded the maximum allowed API request rate per account and per Region.
  *     </p>
  */
@@ -4965,6 +5337,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartFlowRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
@@ -4973,6 +5348,9 @@ export interface StartFlowRequest {
   flowName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartFlowResponse {
   /**
    * <p> The flow's Amazon Resource Name (ARN). </p>
@@ -4991,6 +5369,9 @@ export interface StartFlowResponse {
   executionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopFlowRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
@@ -4999,6 +5380,9 @@ export interface StopFlowRequest {
   flowName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopFlowResponse {
   /**
    * <p> The flow's Amazon Resource Name (ARN). </p>
@@ -5012,6 +5396,7 @@ export interface StopFlowResponse {
 }
 
 /**
+ * @public
  * <p> The requested operation is not supported for the current flow. </p>
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -5030,6 +5415,9 @@ export class UnsupportedOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the flow that you want to tag. </p>
@@ -5042,8 +5430,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UnregisterConnectorRequest {
   /**
    * <p>The label of the connector. The label is unique for each
@@ -5058,8 +5452,14 @@ export interface UnregisterConnectorRequest {
   forceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UnregisterConnectorResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the flow that you want to untag. </p>
@@ -5072,8 +5472,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateConnectorProfileRequest {
   /**
    * <p> The name of the connector profile and is unique for each <code>ConnectorProfile</code> in
@@ -5092,6 +5498,9 @@ export interface UpdateConnectorProfileRequest {
   connectorProfileConfig: ConnectorProfileConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectorProfileResponse {
   /**
    * <p> The Amazon Resource Name (ARN) of the connector profile. </p>
@@ -5099,6 +5508,9 @@ export interface UpdateConnectorProfileResponse {
   connectorProfileArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectorRegistrationRequest {
   /**
    * <p>The name of the connector. The name is unique for each connector registration in your AWS
@@ -5117,6 +5529,9 @@ export interface UpdateConnectorRegistrationRequest {
   connectorProvisioningConfig?: ConnectorProvisioningConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectorRegistrationResponse {
   /**
    * <p>The ARN of the connector being updated.</p>
@@ -5124,6 +5539,9 @@ export interface UpdateConnectorRegistrationResponse {
   connectorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlowRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
@@ -5167,6 +5585,9 @@ export interface UpdateFlowRequest {
   metadataCatalogConfig?: MetadataCatalogConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlowResponse {
   /**
    * <p>Indicates the current status of the flow. </p>

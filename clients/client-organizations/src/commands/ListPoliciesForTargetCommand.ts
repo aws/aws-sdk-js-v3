@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPoliciesForTargetCommand}.
  */
 export interface ListPoliciesForTargetCommandInput extends ListPoliciesForTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPoliciesForTargetCommand}.
  */
 export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the policies that are directly attached to the specified target root,
  *             organizational unit (OU), or account. You must specify the policy type that you want
  *             included in the returned list.</p>
@@ -58,6 +63,8 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPoliciesForTargetCommandInput - {@link ListPoliciesForTargetCommandInput}
+ * @returns {@link ListPoliciesForTargetCommandOutput}
  * @see {@link ListPoliciesForTargetCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesForTargetCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -240,6 +247,9 @@ export class ListPoliciesForTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPoliciesForTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -279,10 +289,16 @@ export class ListPoliciesForTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPoliciesForTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPoliciesForTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPoliciesForTargetCommandOutput> {
     return deserializeAws_json1_1ListPoliciesForTargetCommand(output, context);
   }

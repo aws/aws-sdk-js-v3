@@ -10,7 +10,7 @@ import {
 import { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CleanRoomsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListConfiguredTableAssociationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListConfiguredTableAssociations(
   config: CleanRoomsPaginationConfiguration,
   input: ListConfiguredTableAssociationsCommandInput,

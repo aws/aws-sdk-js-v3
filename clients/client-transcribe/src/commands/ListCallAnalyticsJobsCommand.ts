@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCallAnalyticsJobsCommand}.
  */
 export interface ListCallAnalyticsJobsCommandInput extends ListCallAnalyticsJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCallAnalyticsJobsCommand}.
  */
 export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of Call Analytics jobs that match the specified criteria. If no
  *             criteria are specified, all Call Analytics jobs are returned.</p>
  *          <p>To get detailed information about a specific Call Analytics job, use the  operation.</p>
@@ -48,6 +53,8 @@ export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCallAnalyticsJobsCommandInput - {@link ListCallAnalyticsJobsCommandInput}
+ * @returns {@link ListCallAnalyticsJobsCommandOutput}
  * @see {@link ListCallAnalyticsJobsCommandInput} for command's `input` shape.
  * @see {@link ListCallAnalyticsJobsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListCallAnalyticsJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCallAnalyticsJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListCallAnalyticsJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCallAnalyticsJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCallAnalyticsJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCallAnalyticsJobsCommandOutput> {
     return deserializeAws_json1_1ListCallAnalyticsJobsCommand(output, context);
   }

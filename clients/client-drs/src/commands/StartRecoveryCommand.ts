@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRecoveryCommand}.
  */
 export interface StartRecoveryCommandInput extends StartRecoveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRecoveryCommand}.
  */
 export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches Recovery Instances for the specified Source Servers. For each Source Server you may choose a point in time snapshot to launch from, or use an on demand snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRecoveryCommandInput - {@link StartRecoveryCommandInput}
+ * @returns {@link StartRecoveryCommandOutput}
  * @see {@link StartRecoveryCommandInput} for command's `input` shape.
  * @see {@link StartRecoveryCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartRecoveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRecoveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StartRecoveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRecoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartRecoveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecoveryCommandOutput> {
     return deserializeAws_restJson1StartRecoveryCommand(output, context);
   }

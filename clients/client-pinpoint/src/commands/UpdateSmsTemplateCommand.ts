@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSmsTemplateCommand}.
  */
 export interface UpdateSmsTemplateCommandInput extends UpdateSmsTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSmsTemplateCommand}.
  */
 export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSmsTemplateCommandInput - {@link UpdateSmsTemplateCommandInput}
+ * @returns {@link UpdateSmsTemplateCommandOutput}
  * @see {@link UpdateSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateSmsTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateSmsTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSmsTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateSmsTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSmsTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSmsTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSmsTemplateCommandOutput> {
     return deserializeAws_restJson1UpdateSmsTemplateCommand(output, context);
   }

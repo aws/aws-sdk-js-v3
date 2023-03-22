@@ -21,15 +21,20 @@ import {
 import { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendHeartbeatCommand}.
  */
 export interface SendHeartbeatCommandInput extends SendHeartbeatRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendHeartbeatCommand}.
  */
 export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use to get the current status of devices registered on SageMaker Edge Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SendHeartbeatCommandInput - {@link SendHeartbeatCommandInput}
+ * @returns {@link SendHeartbeatCommandOutput}
  * @see {@link SendHeartbeatCommandInput} for command's `input` shape.
  * @see {@link SendHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link SagemakerEdgeClientResolvedConfig | config} for SagemakerEdgeClient's `config` shape.
@@ -68,6 +75,9 @@ export class SendHeartbeatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendHeartbeatCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class SendHeartbeatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendHeartbeatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendHeartbeatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendHeartbeatCommandOutput> {
     return deserializeAws_restJson1SendHeartbeatCommand(output, context);
   }

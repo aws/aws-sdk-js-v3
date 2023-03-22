@@ -26,15 +26,20 @@ import {
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchResourcesCommand}.
  */
 export interface SearchResourcesCommandInput extends SearchResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link SearchResourcesCommand}.
  */
 export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Amazon Web Services resource identifiers that matches the specified query. The
  *             query uses the same format as a resource query in a <a>CreateGroup</a> or
  *                 <a>UpdateGroupQuery</a> operation.</p>
@@ -74,6 +79,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchResourcesCommandInput - {@link SearchResourcesCommandInput}
+ * @returns {@link SearchResourcesCommandOutput}
  * @see {@link SearchResourcesCommandInput} for command's `input` shape.
  * @see {@link SearchResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -117,6 +124,9 @@ export class SearchResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class SearchResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchResourcesCommandOutput> {
     return deserializeAws_restJson1SearchResourcesCommand(output, context);
   }

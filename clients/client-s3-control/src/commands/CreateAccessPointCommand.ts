@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessPointCommand}.
  */
 export interface CreateAccessPointCommandInput extends CreateAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessPointCommand}.
  */
 export interface CreateAccessPointCommandOutput extends CreateAccessPointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an access point and associates it with the specified bucket. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
  *             Data Access with Amazon S3 Access Points</a> in the
@@ -77,6 +82,8 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessPointCommandInput - {@link CreateAccessPointCommandInput}
+ * @returns {@link CreateAccessPointCommandOutput}
  * @see {@link CreateAccessPointCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class CreateAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPointCommandOutput> {
     return deserializeAws_restXmlCreateAccessPointCommand(output, context);
   }

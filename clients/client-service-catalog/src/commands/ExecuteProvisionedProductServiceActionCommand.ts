@@ -26,11 +26,15 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteProvisionedProductServiceActionCommand}.
  */
 export interface ExecuteProvisionedProductServiceActionCommandInput
   extends ExecuteProvisionedProductServiceActionInput {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteProvisionedProductServiceActionCommand}.
  */
 export interface ExecuteProvisionedProductServiceActionCommandOutput
@@ -38,6 +42,7 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Executes a self-service action against a provisioned product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteProvisionedProductServiceActionCommandInput - {@link ExecuteProvisionedProductServiceActionCommandInput}
+ * @returns {@link ExecuteProvisionedProductServiceActionCommandOutput}
  * @see {@link ExecuteProvisionedProductServiceActionCommandInput} for command's `input` shape.
  * @see {@link ExecuteProvisionedProductServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -82,6 +89,9 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteProvisionedProductServiceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExecuteProvisionedProductServiceActionCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     return serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourcePermissionCommand}.
  */
 export interface DeleteResourcePermissionCommandInput extends DeleteResourcePermissionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourcePermissionCommand}.
  */
 export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePermissionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes permissions associated with the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcePermissionCommandInput - {@link DeleteResourcePermissionCommandInput}
+ * @returns {@link DeleteResourcePermissionCommandOutput}
  * @see {@link DeleteResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteResourcePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteResourcePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteResourcePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePermissionCommandOutput> {
     return deserializeAws_restJson1DeleteResourcePermissionCommand(output, context);
   }

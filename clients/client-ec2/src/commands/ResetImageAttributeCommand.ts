@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ResetImageAttributeCommand}.
  */
 export interface ResetImageAttributeCommandInput extends ResetImageAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetImageAttributeCommand}.
  */
 export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets an attribute of an AMI to its default value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetImageAttributeCommandInput - {@link ResetImageAttributeCommandInput}
+ * @returns {@link ResetImageAttributeCommandOutput}
  * @see {@link ResetImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class ResetImageAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetImageAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ResetImageAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ResetImageAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetImageAttributeCommandOutput> {
     return deserializeAws_ec2ResetImageAttributeCommand(output, context);
   }

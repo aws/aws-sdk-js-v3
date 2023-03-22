@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTemplateCommand}.
  */
 export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTemplateCommand}.
  */
 export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTemplateCommandInput - {@link DeleteTemplateCommandInput}
+ * @returns {@link DeleteTemplateCommandOutput}
  * @see {@link DeleteTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTemplateCommandOutput> {
     return deserializeAws_restJson1DeleteTemplateCommand(output, context);
   }

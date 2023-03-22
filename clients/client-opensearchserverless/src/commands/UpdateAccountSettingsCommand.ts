@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the OpenSearch Serverless settings for the current Amazon Web Services account. For more
  *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
+ * @returns {@link UpdateAccountSettingsCommandOutput}
  * @see {@link UpdateAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountSettingsCommandOutput> {
     return deserializeAws_json1_0UpdateAccountSettingsCommand(output, context);
   }

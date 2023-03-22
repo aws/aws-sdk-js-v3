@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficMirrorTargetCommand}.
  */
 export interface CreateTrafficMirrorTargetCommandInput extends CreateTrafficMirrorTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficMirrorTargetCommand}.
  */
 export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMirrorTargetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a target for your Traffic Mirror session.</p>
  *          <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and
  *          the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in
@@ -51,6 +56,8 @@ export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMir
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficMirrorTargetCommandInput - {@link CreateTrafficMirrorTargetCommandInput}
+ * @returns {@link CreateTrafficMirrorTargetCommandOutput}
  * @see {@link CreateTrafficMirrorTargetCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficMirrorTargetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CreateTrafficMirrorTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficMirrorTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateTrafficMirrorTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficMirrorTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateTrafficMirrorTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

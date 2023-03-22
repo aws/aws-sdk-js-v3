@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInterconnectCommand}.
  */
 export interface DeleteInterconnectCommandInput extends DeleteInterconnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInterconnectCommand}.
  */
 export interface DeleteInterconnectCommandOutput extends DeleteInterconnectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use
@@ -50,6 +55,8 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInterconnectCommandInput - {@link DeleteInterconnectCommandInput}
+ * @returns {@link DeleteInterconnectCommandOutput}
  * @see {@link DeleteInterconnectCommandInput} for command's `input` shape.
  * @see {@link DeleteInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteInterconnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInterconnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteInterconnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInterconnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInterconnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInterconnectCommandOutput> {
     return deserializeAws_json1_1DeleteInterconnectCommand(output, context);
   }

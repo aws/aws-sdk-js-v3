@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLexBotsCommand}.
  */
 export interface ListLexBotsCommandInput extends ListLexBotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLexBotsCommand}.
  */
 export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the
  *    instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
@@ -49,6 +54,8 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLexBotsCommandInput - {@link ListLexBotsCommandInput}
+ * @returns {@link ListLexBotsCommandOutput}
  * @see {@link ListLexBotsCommandInput} for command's `input` shape.
  * @see {@link ListLexBotsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListLexBotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLexBotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListLexBotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLexBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLexBotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLexBotsCommandOutput> {
     return deserializeAws_restJson1ListLexBotsCommand(output, context);
   }

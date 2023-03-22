@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RequestEnvironmentInfoCommand}.
  */
 export interface RequestEnvironmentInfoCommandInput extends RequestEnvironmentInfoMessage {}
 /**
+ * @public
+ *
  * The output of {@link RequestEnvironmentInfoCommand}.
  */
 export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a request to compile the specified type of information of the deployed
  *       environment.</p>
  *          <p> Setting the <code>InfoType</code> to <code>tail</code> compiles the last lines from
@@ -56,6 +61,8 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestEnvironmentInfoCommandInput - {@link RequestEnvironmentInfoCommandInput}
+ * @returns {@link RequestEnvironmentInfoCommandOutput}
  * @see {@link RequestEnvironmentInfoCommandInput} for command's `input` shape.
  * @see {@link RequestEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -91,6 +98,9 @@ export class RequestEnvironmentInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestEnvironmentInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class RequestEnvironmentInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestEnvironmentInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRequestEnvironmentInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestEnvironmentInfoCommandOutput> {
     return deserializeAws_queryRequestEnvironmentInfoCommand(output, context);
   }

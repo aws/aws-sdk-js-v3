@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
  */
 export interface BatchDisassociateClientDeviceFromCoreDeviceCommandInput
   extends BatchDisassociateClientDeviceFromCoreDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
  */
 export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
@@ -38,6 +42,7 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a list of client devices from a core device. After you disassociate a client
  *       device from a core device, the client device won't be able to use cloud discovery to retrieve
  *       the core device's connectivity information and certificates.</p>
@@ -51,6 +56,8 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateClientDeviceFromCoreDeviceCommandInput - {@link BatchDisassociateClientDeviceFromCoreDeviceCommandInput}
+ * @returns {@link BatchDisassociateClientDeviceFromCoreDeviceCommandOutput}
  * @see {@link BatchDisassociateClientDeviceFromCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateClientDeviceFromCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -91,6 +98,9 @@ export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateClientDeviceFromCoreDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command
     return serializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

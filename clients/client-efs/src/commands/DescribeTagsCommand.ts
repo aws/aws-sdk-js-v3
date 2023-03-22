@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <note>
@@ -57,6 +62,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
+ * @returns {@link DescribeTagsCommandOutput}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -112,6 +119,9 @@ export class DescribeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
     return deserializeAws_restJson1DescribeTagsCommand(output, context);
   }

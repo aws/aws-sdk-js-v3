@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelPolicyCommand}.
  */
 export interface GetChannelPolicyCommandInput extends GetChannelPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelPolicyCommand}.
  */
 export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the channel's IAM policy. IAM policies are used to control access to your channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelPolicyCommandInput - {@link GetChannelPolicyCommandInput}
+ * @returns {@link GetChannelPolicyCommandOutput}
  * @see {@link GetChannelPolicyCommandInput} for command's `input` shape.
  * @see {@link GetChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class GetChannelPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetChannelPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetChannelPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelPolicyCommandOutput> {
     return deserializeAws_restJson1GetChannelPolicyCommand(output, context);
   }

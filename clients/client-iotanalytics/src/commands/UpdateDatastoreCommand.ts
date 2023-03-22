@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatastoreCommand}.
  */
 export interface UpdateDatastoreCommandInput extends UpdateDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatastoreCommand}.
  */
 export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to update the settings of a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatastoreCommandInput - {@link UpdateDatastoreCommandInput}
+ * @returns {@link UpdateDatastoreCommandOutput}
  * @see {@link UpdateDatastoreCommandInput} for command's `input` shape.
  * @see {@link UpdateDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatastoreCommandOutput> {
     return deserializeAws_restJson1UpdateDatastoreCommand(output, context);
   }

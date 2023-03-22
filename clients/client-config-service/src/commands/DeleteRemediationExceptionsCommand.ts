@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRemediationExceptionsCommand}.
  */
 export interface DeleteRemediationExceptionsCommandInput extends DeleteRemediationExceptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRemediationExceptionsCommand}.
  */
 export interface DeleteRemediationExceptionsCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteRemediationExceptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>
  *          <note>
  *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
@@ -52,6 +57,8 @@ export interface DeleteRemediationExceptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRemediationExceptionsCommandInput - {@link DeleteRemediationExceptionsCommandInput}
+ * @returns {@link DeleteRemediationExceptionsCommandOutput}
  * @see {@link DeleteRemediationExceptionsCommandInput} for command's `input` shape.
  * @see {@link DeleteRemediationExceptionsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRemediationExceptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRemediationExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRemediationExceptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

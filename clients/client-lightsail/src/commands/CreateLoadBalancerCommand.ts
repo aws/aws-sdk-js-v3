@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoadBalancerCommand}.
  */
 export interface CreateLoadBalancerCommandInput extends CreateLoadBalancerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoadBalancerCommand}.
  */
 export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Lightsail load balancer. To learn more about deciding whether to load balance
  *       your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing">Configure your Lightsail instances for load balancing</a>. You can create up to 5
  *       load balancers per AWS Region in your account.</p>
@@ -53,6 +58,8 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
+ * @returns {@link CreateLoadBalancerCommandOutput}
  * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
     return deserializeAws_json1_1CreateLoadBalancerCommand(output, context);
   }

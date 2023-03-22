@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendPipelineExecutionStepFailureCommand}.
  */
 export interface SendPipelineExecutionStepFailureCommandInput extends SendPipelineExecutionStepFailureRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendPipelineExecutionStepFailureCommand}.
  */
 export interface SendPipelineExecutionStepFailureCommandOutput
@@ -37,6 +41,7 @@ export interface SendPipelineExecutionStepFailureCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notifies the pipeline that the execution of a callback step failed, along with a
  *         message describing why. When a callback step is run, the pipeline generates a callback
  *         token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).</p>
@@ -50,6 +55,8 @@ export interface SendPipelineExecutionStepFailureCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SendPipelineExecutionStepFailureCommandInput - {@link SendPipelineExecutionStepFailureCommandInput}
+ * @returns {@link SendPipelineExecutionStepFailureCommandOutput}
  * @see {@link SendPipelineExecutionStepFailureCommandInput} for command's `input` shape.
  * @see {@link SendPipelineExecutionStepFailureCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -80,6 +87,9 @@ export class SendPipelineExecutionStepFailureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendPipelineExecutionStepFailureCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class SendPipelineExecutionStepFailureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SendPipelineExecutionStepFailureCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class SendPipelineExecutionStepFailureCommand extends $Command<
     return serializeAws_json1_1SendPipelineExecutionStepFailureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

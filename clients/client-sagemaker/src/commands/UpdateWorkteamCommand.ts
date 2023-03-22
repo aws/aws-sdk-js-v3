@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkteamCommand}.
  */
 export interface UpdateWorkteamCommandInput extends UpdateWorkteamRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkteamCommand}.
  */
 export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing work team with new member definitions or description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkteamCommandInput - {@link UpdateWorkteamCommandInput}
+ * @returns {@link UpdateWorkteamCommandOutput}
  * @see {@link UpdateWorkteamCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class UpdateWorkteamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkteamCommandOutput> {
     return deserializeAws_json1_1UpdateWorkteamCommand(output, context);
   }

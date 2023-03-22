@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from WAFV2 service.
  */
 export class WAFV2ServiceException extends __ServiceException {

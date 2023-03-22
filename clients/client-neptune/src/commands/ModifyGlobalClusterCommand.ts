@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyGlobalClusterCommand}.
  */
 export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyGlobalClusterCommand}.
  */
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify a setting for an Amazon Neptune global cluster. You can change one
  *       or more database configuration parameters by specifying these parameters
  *       and their new values in the request.</p>
@@ -48,6 +53,8 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyGlobalClusterCommandInput - {@link ModifyGlobalClusterCommandInput}
+ * @returns {@link ModifyGlobalClusterCommandOutput}
  * @see {@link ModifyGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -77,6 +84,9 @@ export class ModifyGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ModifyGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyGlobalClusterCommandOutput> {
     return deserializeAws_queryModifyGlobalClusterCommand(output, context);
   }

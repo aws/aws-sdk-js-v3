@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListSAMLProviderTagsCommand}.
  */
 export interface ListSAMLProviderTagsCommandInput extends ListSAMLProviderTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSAMLProviderTagsCommand}.
  */
 export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified Security Assertion Markup Language
  *       (SAML) identity provider. The returned list of tags is sorted by tag key. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based
  *       federation</a>.</p>
@@ -50,6 +55,8 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSAMLProviderTagsCommandInput - {@link ListSAMLProviderTagsCommandInput}
+ * @returns {@link ListSAMLProviderTagsCommandOutput}
  * @see {@link ListSAMLProviderTagsCommandInput} for command's `input` shape.
  * @see {@link ListSAMLProviderTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListSAMLProviderTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSAMLProviderTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListSAMLProviderTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSAMLProviderTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListSAMLProviderTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSAMLProviderTagsCommandOutput> {
     return deserializeAws_queryListSAMLProviderTagsCommand(output, context);
   }

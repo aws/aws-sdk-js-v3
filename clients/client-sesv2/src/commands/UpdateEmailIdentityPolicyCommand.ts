@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEmailIdentityPolicyCommand}.
  */
 export interface UpdateEmailIdentityPolicyCommandInput extends UpdateEmailIdentityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEmailIdentityPolicyCommand}.
  */
 export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified sending authorization policy for the given identity (an email
  *             address or a domain). This API returns successfully even if a policy with the specified
  *             name does not exist.</p>
@@ -57,6 +62,8 @@ export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdent
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEmailIdentityPolicyCommandInput - {@link UpdateEmailIdentityPolicyCommandInput}
+ * @returns {@link UpdateEmailIdentityPolicyCommandOutput}
  * @see {@link UpdateEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateEmailIdentityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEmailIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateEmailIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEmailIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEmailIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

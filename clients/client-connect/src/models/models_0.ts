@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient permissions to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ActionType {
   ASSIGN_CONTACT_CATEGORY = "ASSIGN_CONTACT_CATEGORY",
   CREATE_TASK = "CREATE_TASK",
@@ -32,6 +36,7 @@ export enum ActionType {
 }
 
 /**
+ * @public
  * <p>Information about an action.</p>
  */
 export interface ActionSummary {
@@ -41,6 +46,9 @@ export interface ActionSummary {
   ActionType: ActionType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContactState {
   CONNECTED = "CONNECTED",
   CONNECTED_ONHOLD = "CONNECTED_ONHOLD",
@@ -53,12 +61,18 @@ export enum ContactState {
   REJECTED = "REJECTED",
 }
 
+/**
+ * @public
+ */
 export enum Channel {
   CHAT = "CHAT",
   TASK = "TASK",
   VOICE = "VOICE",
 }
 
+/**
+ * @public
+ */
 export enum ContactInitiationMethod {
   API = "API",
   CALLBACK = "CALLBACK",
@@ -71,6 +85,7 @@ export enum ContactInitiationMethod {
 }
 
 /**
+ * @public
  * <p>Contains information about a queue resource for which metrics are returned.</p>
  */
 export interface QueueReference {
@@ -86,6 +101,7 @@ export interface QueueReference {
 }
 
 /**
+ * @public
  * <p>Information about the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Contact.html">contact</a> associated to the
  *    user.</p>
  */
@@ -127,6 +143,7 @@ export interface AgentContactReference {
 }
 
 /**
+ * @public
  * <p>Information about the agent who accepted the contact.</p>
  */
 export interface AgentInfo {
@@ -141,11 +158,17 @@ export interface AgentInfo {
   ConnectedToAgentTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export enum AgentStatusState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum AgentStatusType {
   CUSTOM = "CUSTOM",
   OFFLINE = "OFFLINE",
@@ -153,6 +176,7 @@ export enum AgentStatusType {
 }
 
 /**
+ * @public
  * <p>Contains information about an agent status.</p>
  */
 export interface AgentStatus {
@@ -192,12 +216,13 @@ export interface AgentStatus {
   State?: AgentStatusState | string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
 /**
+ * @public
  * <p>Information about the agent's status.</p>
  */
 export interface AgentStatusReference {
@@ -218,6 +243,7 @@ export interface AgentStatusReference {
 }
 
 /**
+ * @public
  * <p>Summary information for an agent status.</p>
  */
 export interface AgentStatusSummary {
@@ -242,11 +268,17 @@ export interface AgentStatusSummary {
   Type?: AgentStatusType | string;
 }
 
+/**
+ * @public
+ */
 export enum MonitorCapability {
   BARGE = "BARGE",
   SILENT_MONITOR = "SILENT_MONITOR",
 }
 
+/**
+ * @public
+ */
 export interface AssociateApprovedOriginRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -260,6 +292,7 @@ export interface AssociateApprovedOriginRequest {
 }
 
 /**
+ * @public
  * <p>Request processing failed because of an error or failure with the service.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -284,6 +317,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the specified parameters are not valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -308,6 +342,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -332,6 +367,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource already has that name.</p>
  */
 export class ResourceConflictException extends __BaseException {
@@ -353,6 +389,7 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -377,6 +414,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service quota has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -398,6 +436,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The throttling limit has been exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -419,6 +458,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Configuration information of an Amazon Lex bot.</p>
  */
 export interface LexBot {
@@ -434,6 +474,7 @@ export interface LexBot {
 }
 
 /**
+ * @public
  * <p>Configuration information of an Amazon Lex V2 bot.</p>
  */
 export interface LexV2Bot {
@@ -443,6 +484,9 @@ export interface LexV2Bot {
   AliasArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateBotRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -461,6 +505,7 @@ export interface AssociateBotRequest {
 }
 
 /**
+ * @public
  * <p>The allowed limit for the resource has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -484,6 +529,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum VocabularyLanguageCode {
   AR_AE = "ar-AE",
   DE_CH = "de-CH",
@@ -510,6 +558,9 @@ export enum VocabularyLanguageCode {
   ZH_CN = "zh-CN",
 }
 
+/**
+ * @public
+ */
 export interface AssociateDefaultVocabularyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -529,8 +580,14 @@ export interface AssociateDefaultVocabularyRequest {
   VocabularyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDefaultVocabularyResponse {}
 
+/**
+ * @public
+ */
 export enum InstanceStorageResourceType {
   AGENT_EVENTS = "AGENT_EVENTS",
   ATTACHMENTS = "ATTACHMENTS",
@@ -544,6 +601,7 @@ export enum InstanceStorageResourceType {
 }
 
 /**
+ * @public
  * <p>Configuration information of a Kinesis Data Firehose delivery stream.</p>
  */
 export interface KinesisFirehoseConfig {
@@ -554,6 +612,7 @@ export interface KinesisFirehoseConfig {
 }
 
 /**
+ * @public
  * <p>Configuration information of a Kinesis data stream.</p>
  */
 export interface KinesisStreamConfig {
@@ -563,11 +622,15 @@ export interface KinesisStreamConfig {
   StreamArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionType {
   KMS = "KMS",
 }
 
 /**
+ * @public
  * <p>The encryption configuration.</p>
  */
 export interface EncryptionConfig {
@@ -590,6 +653,7 @@ export interface EncryptionConfig {
 }
 
 /**
+ * @public
  * <p>Configuration information of a Kinesis video stream.</p>
  */
 export interface KinesisVideoStreamConfig {
@@ -612,6 +676,7 @@ export interface KinesisVideoStreamConfig {
 }
 
 /**
+ * @public
  * <p>Information about the Amazon Simple Storage Service (Amazon S3) storage type.</p>
  */
 export interface S3Config {
@@ -631,6 +696,9 @@ export interface S3Config {
   EncryptionConfig?: EncryptionConfig;
 }
 
+/**
+ * @public
+ */
 export enum StorageType {
   KINESIS_FIREHOSE = "KINESIS_FIREHOSE",
   KINESIS_STREAM = "KINESIS_STREAM",
@@ -639,6 +707,7 @@ export enum StorageType {
 }
 
 /**
+ * @public
  * <p>The storage configuration for the instance.</p>
  */
 export interface InstanceStorageConfig {
@@ -674,6 +743,9 @@ export interface InstanceStorageConfig {
   KinesisFirehoseConfig?: KinesisFirehoseConfig;
 }
 
+/**
+ * @public
+ */
 export interface AssociateInstanceStorageConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -691,6 +763,9 @@ export interface AssociateInstanceStorageConfigRequest {
   StorageConfig: InstanceStorageConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateInstanceStorageConfigResponse {
   /**
    * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
@@ -698,6 +773,9 @@ export interface AssociateInstanceStorageConfigResponse {
   AssociationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateLambdaFunctionRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -711,6 +789,9 @@ export interface AssociateLambdaFunctionRequest {
   FunctionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateLexBotRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -723,6 +804,9 @@ export interface AssociateLexBotRequest {
   LexBot: LexBot | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumberContactFlowRequest {
   /**
    * <p>A unique identifier for the phone number.</p>
@@ -740,6 +824,9 @@ export interface AssociatePhoneNumberContactFlowRequest {
   ContactFlowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateQueueQuickConnectsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -758,6 +845,7 @@ export interface AssociateQueueQuickConnectsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the channel and queue identifier for a routing profile.</p>
  */
 export interface RoutingProfileQueueReference {
@@ -774,6 +862,7 @@ export interface RoutingProfileQueueReference {
 }
 
 /**
+ * @public
  * <p>Contains information about the queue and channel for which priority and delay can be
  *    set.</p>
  */
@@ -798,6 +887,9 @@ export interface RoutingProfileQueueConfig {
   Delay: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateRoutingProfileQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -815,6 +907,9 @@ export interface AssociateRoutingProfileQueuesRequest {
   QueueConfigs: RoutingProfileQueueConfig[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSecurityKeyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -827,6 +922,9 @@ export interface AssociateSecurityKeyRequest {
   Key: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSecurityKeyResponse {
   /**
    * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
@@ -834,6 +932,9 @@ export interface AssociateSecurityKeyResponse {
   AssociationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ClaimPhoneNumberRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
@@ -852,7 +953,7 @@ export interface ClaimPhoneNumberRequest {
   PhoneNumberDescription?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -861,12 +962,15 @@ export interface ClaimPhoneNumberRequest {
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   *          <p>Pattern: <code>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$</code>
+   *          <p>Pattern: <code>^[a-f0-9]\{8\}-[a-f0-9]\{4\}-[a-f0-9]\{4\}-[a-f0-9]\{4\}-[a-f0-9]\{12\}$</code>
    *          </p>
    */
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ClaimPhoneNumberResponse {
   /**
    * <p>A unique identifier for the phone number.</p>
@@ -880,6 +984,7 @@ export interface ClaimPhoneNumberResponse {
 }
 
 /**
+ * @public
  * <p>An entity with the same name already exists.</p>
  */
 export class IdempotencyException extends __BaseException {
@@ -900,6 +1005,9 @@ export class IdempotencyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAgentStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -927,11 +1035,14 @@ export interface CreateAgentStatusRequest {
   DisplayOrder?: number;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAgentStatusResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the agent status.</p>
@@ -945,6 +1056,7 @@ export interface CreateAgentStatusResponse {
 }
 
 /**
+ * @public
  * <p>A resource with the specified name already exists.</p>
  */
 export class DuplicateResourceException extends __BaseException {
@@ -965,6 +1077,9 @@ export class DuplicateResourceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ContactFlowType {
   AGENT_HOLD = "AGENT_HOLD",
   AGENT_TRANSFER = "AGENT_TRANSFER",
@@ -977,6 +1092,9 @@ export enum ContactFlowType {
   QUEUE_TRANSFER = "QUEUE_TRANSFER",
 }
 
+/**
+ * @public
+ */
 export interface CreateContactFlowRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1005,11 +1123,14 @@ export interface CreateContactFlowRequest {
   Content: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactFlowResponse {
   /**
    * <p>The identifier of the flow.</p>
@@ -1023,6 +1144,7 @@ export interface CreateContactFlowResponse {
 }
 
 /**
+ * @public
  * <p>Information about a problem detail.</p>
  */
 export interface ProblemDetail {
@@ -1033,6 +1155,7 @@ export interface ProblemDetail {
 }
 
 /**
+ * @public
  * <p>The flow is not valid.</p>
  */
 export class InvalidContactFlowException extends __BaseException {
@@ -1056,6 +1179,9 @@ export class InvalidContactFlowException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateContactFlowModuleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1078,7 +1204,7 @@ export interface CreateContactFlowModuleRequest {
   Content: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -1091,6 +1217,9 @@ export interface CreateContactFlowModuleRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactFlowModuleResponse {
   /**
    * <p>The identifier of the flow module.</p>
@@ -1104,6 +1233,7 @@ export interface CreateContactFlowModuleResponse {
 }
 
 /**
+ * @public
  * <p>The problems with the module. Please fix before trying again.</p>
  */
 export class InvalidContactFlowModuleException extends __BaseException {
@@ -1124,6 +1254,9 @@ export class InvalidContactFlowModuleException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum HoursOfOperationDays {
   FRIDAY = "FRIDAY",
   MONDAY = "MONDAY",
@@ -1135,6 +1268,7 @@ export enum HoursOfOperationDays {
 }
 
 /**
+ * @public
  * <p>The start time or end time for an hours of operation.</p>
  */
 export interface HoursOfOperationTimeSlice {
@@ -1150,6 +1284,7 @@ export interface HoursOfOperationTimeSlice {
 }
 
 /**
+ * @public
  * <p>Contains information about the hours of operation.</p>
  */
 export interface HoursOfOperationConfig {
@@ -1169,6 +1304,9 @@ export interface HoursOfOperationConfig {
   EndTime: HoursOfOperationTimeSlice | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateHoursOfOperationRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1196,11 +1334,14 @@ export interface CreateHoursOfOperationRequest {
   Config: HoursOfOperationConfig[] | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateHoursOfOperationResponse {
   /**
    * <p>The identifier for the hours of operation.</p>
@@ -1213,12 +1354,18 @@ export interface CreateHoursOfOperationResponse {
   HoursOfOperationArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum DirectoryType {
   CONNECT_MANAGED = "CONNECT_MANAGED",
   EXISTING_DIRECTORY = "EXISTING_DIRECTORY",
   SAML = "SAML",
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceRequest {
   /**
    * <p>The idempotency token.</p>
@@ -1251,6 +1398,9 @@ export interface CreateInstanceRequest {
   OutboundCallsEnabled: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceResponse {
   /**
    * <p>The identifier for the instance.</p>
@@ -1263,6 +1413,9 @@ export interface CreateInstanceResponse {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export enum IntegrationType {
   CASES_DOMAIN = "CASES_DOMAIN",
   EVENT = "EVENT",
@@ -1272,11 +1425,17 @@ export enum IntegrationType {
   WISDOM_KNOWLEDGE_BASE = "WISDOM_KNOWLEDGE_BASE",
 }
 
+/**
+ * @public
+ */
 export enum SourceType {
   SALESFORCE = "SALESFORCE",
   ZENDESK = "ZENDESK",
 }
 
+/**
+ * @public
+ */
 export interface CreateIntegrationAssociationRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1313,11 +1472,14 @@ export interface CreateIntegrationAssociationRequest {
   SourceType?: SourceType | string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateIntegrationAssociationResponse {
   /**
    * <p>The identifier for the integration association.</p>
@@ -1331,6 +1493,7 @@ export interface CreateIntegrationAssociationResponse {
 }
 
 /**
+ * @public
  * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
  */
 export interface OutboundCallerConfig {
@@ -1350,6 +1513,9 @@ export interface OutboundCallerConfig {
   OutboundFlowId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateQueueRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1387,11 +1553,14 @@ export interface CreateQueueRequest {
   QuickConnectIds?: string[];
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateQueueResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the queue.</p>
@@ -1405,6 +1574,7 @@ export interface CreateQueueResponse {
 }
 
 /**
+ * @public
  * <p>Contains information about a phone number for a quick connect.</p>
  */
 export interface PhoneNumberQuickConnectConfig {
@@ -1415,6 +1585,7 @@ export interface PhoneNumberQuickConnectConfig {
 }
 
 /**
+ * @public
  * <p>Contains information about a queue for a quick connect. The flow must be of type Transfer to
  *    Queue.</p>
  */
@@ -1430,6 +1601,9 @@ export interface QueueQuickConnectConfig {
   ContactFlowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum QuickConnectType {
   PHONE_NUMBER = "PHONE_NUMBER",
   QUEUE = "QUEUE",
@@ -1437,6 +1611,7 @@ export enum QuickConnectType {
 }
 
 /**
+ * @public
  * <p>Contains information about the quick connect configuration settings for a user. The contact
  *    flow must be of type Transfer to Agent.</p>
  */
@@ -1453,6 +1628,7 @@ export interface UserQuickConnectConfig {
 }
 
 /**
+ * @public
  * <p>Contains configuration settings for a quick connect.</p>
  */
 export interface QuickConnectConfig {
@@ -1478,6 +1654,9 @@ export interface QuickConnectConfig {
   PhoneConfig?: PhoneNumberQuickConnectConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateQuickConnectRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1500,11 +1679,14 @@ export interface CreateQuickConnectRequest {
   QuickConnectConfig: QuickConnectConfig | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateQuickConnectResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the quick connect. </p>
@@ -1518,6 +1700,7 @@ export interface CreateQuickConnectResponse {
 }
 
 /**
+ * @public
  * <p>Contains information about which channels are supported, and how many contacts an agent can
  *    have on a channel simultaneously.</p>
  */
@@ -1536,6 +1719,9 @@ export interface MediaConcurrency {
   Concurrency: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoutingProfileRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1575,11 +1761,14 @@ export interface CreateRoutingProfileRequest {
   MediaConcurrencies: MediaConcurrency[] | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoutingProfileResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
@@ -1593,6 +1782,7 @@ export interface CreateRoutingProfileResponse {
 }
 
 /**
+ * @public
  * <p>This action must be set if <code>TriggerEventSource</code> is one of the following values:
  *     <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> |
  *     <code>OnPostChatAnalysisAvailable</code>. Contact is categorized using the rule name.</p>
@@ -1602,6 +1792,7 @@ export interface CreateRoutingProfileResponse {
 export interface AssignContactCategoryActionDefinition {}
 
 /**
+ * @public
  * <p>The EventBridge action definition.</p>
  */
 export interface EventBridgeActionDefinition {
@@ -1611,20 +1802,27 @@ export interface EventBridgeActionDefinition {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NotificationContentType {
   PLAIN_TEXT = "PLAIN_TEXT",
 }
 
+/**
+ * @public
+ */
 export enum NotificationDeliveryType {
   EMAIL = "EMAIL",
 }
 
 /**
+ * @public
  * <p>The type of notification recipient.</p>
  */
 export interface NotificationRecipientType {
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. Amazon Connect users with the specified tags will be notified.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}. Amazon Connect users with the specified tags will be notified.</p>
    */
   UserTags?: Record<string, string>;
 
@@ -1635,6 +1833,7 @@ export interface NotificationRecipientType {
 }
 
 /**
+ * @public
  * <p>Information about the send notification action.</p>
  */
 export interface SendNotificationActionDefinition {
@@ -1669,6 +1868,9 @@ export interface SendNotificationActionDefinition {
   Recipient: NotificationRecipientType | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReferenceType {
   ATTACHMENT = "ATTACHMENT",
   DATE = "DATE",
@@ -1679,6 +1881,7 @@ export enum ReferenceType {
 }
 
 /**
+ * @public
  * <p>Well-formed data on a contact, used by agents to complete a contact request. You can have up
  *    to 4,096 UTF-8 bytes across all references for a contact.</p>
  */
@@ -1697,6 +1900,7 @@ export interface Reference {
 }
 
 /**
+ * @public
  * <p>Information about the task action.</p>
  */
 export interface TaskActionDefinition {
@@ -1727,6 +1931,7 @@ export interface TaskActionDefinition {
 }
 
 /**
+ * @public
  * <p>Information about the action to be performed when a rule is triggered.</p>
  */
 export interface RuleAction {
@@ -1759,11 +1964,17 @@ export interface RuleAction {
   SendNotificationAction?: SendNotificationActionDefinition;
 }
 
+/**
+ * @public
+ */
 export enum RulePublishStatus {
   DRAFT = "DRAFT",
   PUBLISHED = "PUBLISHED",
 }
 
+/**
+ * @public
+ */
 export enum EventSourceName {
   OnPostCallAnalysisAvailable = "OnPostCallAnalysisAvailable",
   OnPostChatAnalysisAvailable = "OnPostChatAnalysisAvailable",
@@ -1774,6 +1985,7 @@ export enum EventSourceName {
 }
 
 /**
+ * @public
  * <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the
  *    following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> |
  *     <code>OnSalesforceCaseCreate</code>
@@ -1791,6 +2003,9 @@ export interface RuleTriggerEventSource {
   IntegrationAssociationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -1831,6 +2046,9 @@ export interface CreateRuleRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
@@ -1843,6 +2061,9 @@ export interface CreateRuleResponse {
   RuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityProfileRequest {
   /**
    * <p>The name of the security profile.</p>
@@ -1866,7 +2087,7 @@ export interface CreateSecurityProfileRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -1883,6 +2104,9 @@ export interface CreateSecurityProfileRequest {
   TagRestrictedResources?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityProfileResponse {
   /**
    * <p>The identifier for the security profle.</p>
@@ -1896,6 +2120,7 @@ export interface CreateSecurityProfileResponse {
 }
 
 /**
+ * @public
  * <p>The identifier of the task template field.</p>
  */
 export interface TaskTemplateFieldIdentifier {
@@ -1906,6 +2131,7 @@ export interface TaskTemplateFieldIdentifier {
 }
 
 /**
+ * @public
  * <p>A field that is invisible to an agent.</p>
  */
 export interface InvisibleFieldInfo {
@@ -1916,6 +2142,7 @@ export interface InvisibleFieldInfo {
 }
 
 /**
+ * @public
  * <p>Indicates a field that is read-only to an agent.</p>
  */
 export interface ReadOnlyFieldInfo {
@@ -1926,6 +2153,7 @@ export interface ReadOnlyFieldInfo {
 }
 
 /**
+ * @public
  * <p>Information about a required field.</p>
  */
 export interface RequiredFieldInfo {
@@ -1936,6 +2164,7 @@ export interface RequiredFieldInfo {
 }
 
 /**
+ * @public
  * <p>Describes constraints that apply to the template fields.</p>
  */
 export interface TaskTemplateConstraints {
@@ -1956,6 +2185,7 @@ export interface TaskTemplateConstraints {
 }
 
 /**
+ * @public
  * <p>Describes a default field and its corresponding value.</p>
  */
 export interface TaskTemplateDefaultFieldValue {
@@ -1971,6 +2201,7 @@ export interface TaskTemplateDefaultFieldValue {
 }
 
 /**
+ * @public
  * <p>Describes default values for fields on a template.</p>
  */
 export interface TaskTemplateDefaults {
@@ -1980,6 +2211,9 @@ export interface TaskTemplateDefaults {
   DefaultFieldValues?: TaskTemplateDefaultFieldValue[];
 }
 
+/**
+ * @public
+ */
 export enum TaskTemplateFieldType {
   BOOLEAN = "BOOLEAN",
   DATE_TIME = "DATE_TIME",
@@ -1996,6 +2230,7 @@ export enum TaskTemplateFieldType {
 }
 
 /**
+ * @public
  * <p>Describes a single task template field.</p>
  */
 export interface TaskTemplateField {
@@ -2020,11 +2255,17 @@ export interface TaskTemplateField {
   SingleSelectOptions?: string[];
 }
 
+/**
+ * @public
+ */
 export enum TaskTemplateStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
+/**
+ * @public
+ */
 export interface CreateTaskTemplateRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2077,6 +2318,9 @@ export interface CreateTaskTemplateRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTaskTemplateResponse {
   /**
    * <p>The identifier of the task template resource.</p>
@@ -2089,6 +2333,9 @@ export interface CreateTaskTemplateResponse {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PropertyValidationExceptionReason {
   INVALID_FORMAT = "INVALID_FORMAT",
   NOT_SUPPORTED = "NOT_SUPPORTED",
@@ -2099,6 +2346,7 @@ export enum PropertyValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>Contains information about why a property is not valid.</p>
  */
 export interface PropertyValidationExceptionProperty {
@@ -2119,6 +2367,7 @@ export interface PropertyValidationExceptionProperty {
 }
 
 /**
+ * @public
  * <p>The property is not valid.</p>
  */
 export class PropertyValidationException extends __BaseException {
@@ -2141,6 +2390,9 @@ export class PropertyValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficDistributionGroupRequest {
   /**
    * <p>The name for the traffic distribution group. </p>
@@ -2167,11 +2419,14 @@ export interface CreateTrafficDistributionGroupRequest {
   ClientToken?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficDistributionGroupResponse {
   /**
    * <p>The identifier of the traffic distribution group.
@@ -2187,6 +2442,7 @@ export interface CreateTrafficDistributionGroupResponse {
 }
 
 /**
+ * @public
  * <p>The resource is not ready.</p>
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -2207,11 +2463,17 @@ export class ResourceNotReadyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum UseCaseType {
   CONNECT_CAMPAIGNS = "CONNECT_CAMPAIGNS",
   RULES_EVALUATION = "RULES_EVALUATION",
 }
 
+/**
+ * @public
+ */
 export interface CreateUseCaseRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2230,11 +2492,14 @@ export interface CreateUseCaseRequest {
   UseCaseType: UseCaseType | string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateUseCaseResponse {
   /**
    * <p>The identifier of the use case.</p>
@@ -2248,6 +2513,7 @@ export interface CreateUseCaseResponse {
 }
 
 /**
+ * @public
  * <p>Contains information about the identity of a user.</p>
  */
 export interface UserIdentityInfo {
@@ -2273,7 +2539,7 @@ export interface UserIdentityInfo {
    * <p>The user's secondary email address. If you provide a secondary email, the user receives
    *    email notifications - other than password reset notifications - to this email address instead of
    *    to their primary email address.</p>
-   *          <p>Pattern: <code>(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}</code>
+   *          <p>Pattern: <code>(?=^.\{0,265\}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]\{2,63\}</code>
    *          </p>
    */
   SecondaryEmail?: string;
@@ -2284,12 +2550,16 @@ export interface UserIdentityInfo {
   Mobile?: string;
 }
 
+/**
+ * @public
+ */
 export enum PhoneType {
   DESK_PHONE = "DESK_PHONE",
   SOFT_PHONE = "SOFT_PHONE",
 }
 
 /**
+ * @public
  * <p>Contains information about the phone configuration settings for a user.</p>
  */
 export interface UserPhoneConfig {
@@ -2318,6 +2588,9 @@ export interface UserPhoneConfig {
   DeskPhoneNumber?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The user name for the account. For instances not using SAML for identity management, the
@@ -2373,11 +2646,14 @@ export interface CreateUserRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {
   /**
    * <p>The identifier of the user account.</p>
@@ -2390,6 +2666,9 @@ export interface CreateUserResponse {
   UserArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserHierarchyGroupRequest {
   /**
    * <p>The name of the user hierarchy group. Must not be more than 100 characters.</p>
@@ -2408,11 +2687,14 @@ export interface CreateUserHierarchyGroupRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserHierarchyGroupResponse {
   /**
    * <p>The identifier of the hierarchy group.</p>
@@ -2425,6 +2707,9 @@ export interface CreateUserHierarchyGroupResponse {
   HierarchyGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVocabularyRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2462,11 +2747,14 @@ export interface CreateVocabularyRequest {
   Content: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum VocabularyState {
   ACTIVE = "ACTIVE",
   CREATION_FAILED = "CREATION_FAILED",
@@ -2474,6 +2762,9 @@ export enum VocabularyState {
   DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface CreateVocabularyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
@@ -2491,6 +2782,9 @@ export interface CreateVocabularyResponse {
   State: VocabularyState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactFlowRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2503,8 +2797,14 @@ export interface DeleteContactFlowRequest {
   ContactFlowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactFlowResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteContactFlowModuleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2517,8 +2817,14 @@ export interface DeleteContactFlowModuleRequest {
   ContactFlowModuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactFlowModuleResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteHoursOfOperationRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2531,6 +2837,9 @@ export interface DeleteHoursOfOperationRequest {
   HoursOfOperationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2538,6 +2847,9 @@ export interface DeleteInstanceRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIntegrationAssociationRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2550,6 +2862,9 @@ export interface DeleteIntegrationAssociationRequest {
   IntegrationAssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQuickConnectRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2562,6 +2877,9 @@ export interface DeleteQuickConnectRequest {
   QuickConnectId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2574,6 +2892,9 @@ export interface DeleteRuleRequest {
   RuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityProfileRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2586,6 +2907,9 @@ export interface DeleteSecurityProfileRequest {
   SecurityProfileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   CONTACT = "CONTACT",
   CONTACT_FLOW = "CONTACT_FLOW",
@@ -2597,6 +2921,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>That resource is already in use. Please try another.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -2628,6 +2953,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteTaskTemplateRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2640,8 +2968,14 @@ export interface DeleteTaskTemplateRequest {
   TaskTemplateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTaskTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteTrafficDistributionGroupRequest {
   /**
    * <p>The identifier of the traffic distribution group.
@@ -2651,8 +2985,14 @@ export interface DeleteTrafficDistributionGroupRequest {
   TrafficDistributionGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrafficDistributionGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteUseCaseRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2670,6 +3010,9 @@ export interface DeleteUseCaseRequest {
   UseCaseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2682,6 +3025,9 @@ export interface DeleteUserRequest {
   UserId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserHierarchyGroupRequest {
   /**
    * <p>The identifier of the hierarchy group.</p>
@@ -2694,6 +3040,9 @@ export interface DeleteUserHierarchyGroupRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVocabularyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2706,6 +3055,9 @@ export interface DeleteVocabularyRequest {
   VocabularyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVocabularyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
@@ -2723,6 +3075,9 @@ export interface DeleteVocabularyResponse {
   State: VocabularyState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAgentStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2735,6 +3090,9 @@ export interface DescribeAgentStatusRequest {
   AgentStatusId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAgentStatusResponse {
   /**
    * <p>The agent status.</p>
@@ -2742,6 +3100,9 @@ export interface DescribeAgentStatusResponse {
   AgentStatus?: AgentStatus;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContactRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2755,6 +3116,7 @@ export interface DescribeContactRequest {
 }
 
 /**
+ * @public
  * <p>If this contact was queued, this contains information about the queue. </p>
  */
 export interface QueueInfo {
@@ -2770,6 +3132,7 @@ export interface QueueInfo {
 }
 
 /**
+ * @public
  * <p>Information about Amazon Connect Wisdom.</p>
  */
 export interface WisdomInfo {
@@ -2780,6 +3143,7 @@ export interface WisdomInfo {
 }
 
 /**
+ * @public
  * <p>Contains information about a contact.</p>
  */
 export interface Contact {
@@ -2870,6 +3234,9 @@ export interface Contact {
   WisdomInfo?: WisdomInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContactResponse {
   /**
    * <p>Information about the contact.</p>
@@ -2878,6 +3245,7 @@ export interface DescribeContactResponse {
 }
 
 /**
+ * @public
  * <p>The flow has not been published.</p>
  */
 export class ContactFlowNotPublishedException extends __BaseException {
@@ -2898,6 +3266,9 @@ export class ContactFlowNotPublishedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeContactFlowRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -2910,12 +3281,16 @@ export interface DescribeContactFlowRequest {
   ContactFlowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContactFlowState {
   ACTIVE = "ACTIVE",
   ARCHIVED = "ARCHIVED",
 }
 
 /**
+ * @public
  * <p>Contains information about a flow.</p>
  */
 export interface ContactFlow {
@@ -2956,11 +3331,14 @@ export interface ContactFlow {
   Content?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContactFlowResponse {
   /**
    * <p>Information about the flow.</p>
@@ -2968,6 +3346,9 @@ export interface DescribeContactFlowResponse {
   ContactFlow?: ContactFlow;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContactFlowModuleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2980,17 +3361,24 @@ export interface DescribeContactFlowModuleRequest {
   ContactFlowModuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContactFlowModuleState {
   ACTIVE = "ACTIVE",
   ARCHIVED = "ARCHIVED",
 }
 
+/**
+ * @public
+ */
 export enum ContactFlowModuleStatus {
   PUBLISHED = "PUBLISHED",
   SAVED = "SAVED",
 }
 
 /**
+ * @public
  * <p>Contains information about a flow module.</p>
  */
 export interface ContactFlowModule {
@@ -3030,11 +3418,14 @@ export interface ContactFlowModule {
   Status?: ContactFlowModuleStatus | string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContactFlowModuleResponse {
   /**
    * <p>Information about the flow module.</p>
@@ -3042,6 +3433,9 @@ export interface DescribeContactFlowModuleResponse {
   ContactFlowModule?: ContactFlowModule;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHoursOfOperationRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3055,6 +3449,7 @@ export interface DescribeHoursOfOperationRequest {
 }
 
 /**
+ * @public
  * <p>Information about of the hours of operation.</p>
  */
 export interface HoursOfOperation {
@@ -3089,11 +3484,14 @@ export interface HoursOfOperation {
   Config?: HoursOfOperationConfig[];
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHoursOfOperationResponse {
   /**
    * <p>The hours of operation.</p>
@@ -3101,6 +3499,9 @@ export interface DescribeHoursOfOperationResponse {
   HoursOfOperation?: HoursOfOperation;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3108,6 +3509,9 @@ export interface DescribeInstanceRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InstanceStatus {
   ACTIVE = "ACTIVE",
   CREATION_FAILED = "CREATION_FAILED",
@@ -3115,6 +3519,7 @@ export enum InstanceStatus {
 }
 
 /**
+ * @public
  * <p>Relevant
  *    details why the instance was not successfully created.</p>
  */
@@ -3126,6 +3531,7 @@ export interface InstanceStatusReason {
 }
 
 /**
+ * @public
  * <p>The Amazon Connect instance.</p>
  */
 export interface Instance {
@@ -3181,6 +3587,9 @@ export interface Instance {
   OutboundCallsEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceResponse {
   /**
    * <p>The name of the instance.</p>
@@ -3188,6 +3597,9 @@ export interface DescribeInstanceResponse {
   Instance?: Instance;
 }
 
+/**
+ * @public
+ */
 export enum InstanceAttributeType {
   AUTO_RESOLVE_BEST_VOICES = "AUTO_RESOLVE_BEST_VOICES",
   CONTACTFLOW_LOGS = "CONTACTFLOW_LOGS",
@@ -3201,6 +3613,9 @@ export enum InstanceAttributeType {
   USE_CUSTOM_TTS_VOICES = "USE_CUSTOM_TTS_VOICES",
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceAttributeRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3214,6 +3629,7 @@ export interface DescribeInstanceAttributeRequest {
 }
 
 /**
+ * @public
  * <p>A toggle for an individual feature at the instance level.</p>
  */
 export interface Attribute {
@@ -3228,6 +3644,9 @@ export interface Attribute {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceAttributeResponse {
   /**
    * <p>The
@@ -3237,6 +3656,9 @@ export interface DescribeInstanceAttributeResponse {
   Attribute?: Attribute;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceStorageConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3254,6 +3676,9 @@ export interface DescribeInstanceStorageConfigRequest {
   ResourceType: InstanceStorageResourceType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceStorageConfigResponse {
   /**
    * <p>A valid storage type.</p>
@@ -3261,6 +3686,9 @@ export interface DescribeInstanceStorageConfigResponse {
   StorageConfig?: InstanceStorageConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribePhoneNumberRequest {
   /**
    * <p>A unique identifier for the phone number.</p>
@@ -3268,6 +3696,9 @@ export interface DescribePhoneNumberRequest {
   PhoneNumberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberCountryCode {
   AD = "AD",
   AE = "AE",
@@ -3508,6 +3939,9 @@ export enum PhoneNumberCountryCode {
   ZW = "ZW",
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberWorkflowStatus {
   Claimed = "CLAIMED",
   Failed = "FAILED",
@@ -3515,6 +3949,7 @@ export enum PhoneNumberWorkflowStatus {
 }
 
 /**
+ * @public
  * <p>The status of the phone number.</p>
  *          <ul>
  *             <li>
@@ -3553,12 +3988,16 @@ export interface PhoneNumberStatus {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberType {
   DID = "DID",
   TOLL_FREE = "TOLL_FREE",
 }
 
 /**
+ * @public
  * <p>Information about a phone number that has been claimed to your Amazon Connect instance
  *    or traffic distribution group.</p>
  */
@@ -3599,7 +4038,7 @@ export interface ClaimedPhoneNumberSummary {
   TargetArn?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -3637,6 +4076,9 @@ export interface ClaimedPhoneNumberSummary {
   PhoneNumberStatus?: PhoneNumberStatus;
 }
 
+/**
+ * @public
+ */
 export interface DescribePhoneNumberResponse {
   /**
    * <p>Information about a phone number that's been claimed to your Amazon Connect instance or
@@ -3645,6 +4087,9 @@ export interface DescribePhoneNumberResponse {
   ClaimedPhoneNumberSummary?: ClaimedPhoneNumberSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeQueueRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3657,12 +4102,16 @@ export interface DescribeQueueRequest {
   QueueId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum QueueStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Contains information about a queue.</p>
  */
 export interface Queue {
@@ -3707,11 +4156,14 @@ export interface Queue {
   Status?: QueueStatus | string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeQueueResponse {
   /**
    * <p>The name of the queue.</p>
@@ -3719,6 +4171,9 @@ export interface DescribeQueueResponse {
   Queue?: Queue;
 }
 
+/**
+ * @public
+ */
 export interface DescribeQuickConnectRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3732,6 +4187,7 @@ export interface DescribeQuickConnectRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a quick connect.</p>
  */
 export interface QuickConnect {
@@ -3761,11 +4217,14 @@ export interface QuickConnect {
   QuickConnectConfig?: QuickConnectConfig;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeQuickConnectResponse {
   /**
    * <p>Information about the quick connect.</p>
@@ -3773,6 +4232,9 @@ export interface DescribeQuickConnectResponse {
   QuickConnect?: QuickConnect;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRoutingProfileRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3786,6 +4248,7 @@ export interface DescribeRoutingProfileRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a routing profile.</p>
  */
 export interface RoutingProfile {
@@ -3826,7 +4289,7 @@ export interface RoutingProfile {
   DefaultOutboundQueueId?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -3841,6 +4304,9 @@ export interface RoutingProfile {
   NumberOfAssociatedUsers?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRoutingProfileResponse {
   /**
    * <p>The routing profile.</p>
@@ -3848,6 +4314,9 @@ export interface DescribeRoutingProfileResponse {
   RoutingProfile?: RoutingProfile;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuleRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3861,6 +4330,7 @@ export interface DescribeRuleRequest {
 }
 
 /**
+ * @public
  * <p>Information about a rule.</p>
  */
 export interface Rule {
@@ -3915,11 +4385,14 @@ export interface Rule {
   LastUpdatedBy: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuleResponse {
   /**
    * <p>Information about the rule.</p>
@@ -3927,6 +4400,9 @@ export interface DescribeRuleResponse {
   Rule: Rule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityProfileRequest {
   /**
    * <p>The identifier for the security profle.</p>
@@ -3940,6 +4416,7 @@ export interface DescribeSecurityProfileRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a security profile.</p>
  */
 export interface SecurityProfile {
@@ -3969,7 +4446,7 @@ export interface SecurityProfile {
   Description?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -3984,6 +4461,9 @@ export interface SecurityProfile {
   TagRestrictedResources?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSecurityProfileResponse {
   /**
    * <p>The security profile.</p>
@@ -3991,6 +4471,9 @@ export interface DescribeSecurityProfileResponse {
   SecurityProfile?: SecurityProfile;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficDistributionGroupRequest {
   /**
    * <p>The identifier of the traffic distribution group.
@@ -4000,6 +4483,9 @@ export interface DescribeTrafficDistributionGroupRequest {
   TrafficDistributionGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TrafficDistributionGroupStatus {
   ACTIVE = "ACTIVE",
   CREATION_FAILED = "CREATION_FAILED",
@@ -4010,6 +4496,7 @@ export enum TrafficDistributionGroupStatus {
 }
 
 /**
+ * @public
  * <p>Information about a traffic distribution group.</p>
  */
 export interface TrafficDistributionGroup {
@@ -4075,11 +4562,14 @@ export interface TrafficDistributionGroup {
   Status?: TrafficDistributionGroupStatus | string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficDistributionGroupResponse {
   /**
    * <p>Information about the traffic distribution group.</p>
@@ -4087,6 +4577,9 @@ export interface DescribeTrafficDistributionGroupResponse {
   TrafficDistributionGroup?: TrafficDistributionGroup;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserRequest {
   /**
    * <p>The identifier of the user account.</p>
@@ -4100,6 +4593,7 @@ export interface DescribeUserRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a user account for an Amazon Connect instance.</p>
  */
 export interface User {
@@ -4155,6 +4649,9 @@ export interface User {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserResponse {
   /**
    * <p>Information about the user account and configuration settings.</p>
@@ -4162,6 +4659,9 @@ export interface DescribeUserResponse {
   User?: User;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserHierarchyGroupRequest {
   /**
    * <p>The identifier of the hierarchy group.</p>
@@ -4175,6 +4675,7 @@ export interface DescribeUserHierarchyGroupRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a hierarchy group.</p>
  */
 export interface HierarchyGroupSummary {
@@ -4195,6 +4696,7 @@ export interface HierarchyGroupSummary {
 }
 
 /**
+ * @public
  * <p>Contains information about the levels of a hierarchy group.</p>
  */
 export interface HierarchyPath {
@@ -4225,6 +4727,7 @@ export interface HierarchyPath {
 }
 
 /**
+ * @public
  * <p>Contains information about a hierarchy group.</p>
  */
 export interface HierarchyGroup {
@@ -4254,11 +4757,14 @@ export interface HierarchyGroup {
   HierarchyPath?: HierarchyPath;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserHierarchyGroupResponse {
   /**
    * <p>Information about the hierarchy group.</p>
@@ -4266,6 +4772,9 @@ export interface DescribeUserHierarchyGroupResponse {
   HierarchyGroup?: HierarchyGroup;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserHierarchyStructureRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4274,6 +4783,7 @@ export interface DescribeUserHierarchyStructureRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a hierarchy level.</p>
  */
 export interface HierarchyLevel {
@@ -4294,6 +4804,7 @@ export interface HierarchyLevel {
 }
 
 /**
+ * @public
  * <p>Contains information about a hierarchy structure.</p>
  */
 export interface HierarchyStructure {
@@ -4323,6 +4834,9 @@ export interface HierarchyStructure {
   LevelFive?: HierarchyLevel;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserHierarchyStructureResponse {
   /**
    * <p>Information about the hierarchy structure.</p>
@@ -4330,6 +4844,9 @@ export interface DescribeUserHierarchyStructureResponse {
   HierarchyStructure?: HierarchyStructure;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVocabularyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4343,6 +4860,7 @@ export interface DescribeVocabularyRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a custom vocabulary.</p>
  */
 export interface Vocabulary {
@@ -4393,11 +4911,14 @@ export interface Vocabulary {
   Content?: string;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVocabularyResponse {
   /**
    * <p>A list of specific words that you want Contact Lens for Amazon Connect to recognize in your audio input. They are
@@ -4407,6 +4928,9 @@ export interface DescribeVocabularyResponse {
   Vocabulary: Vocabulary | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateApprovedOriginRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4419,6 +4943,9 @@ export interface DisassociateApprovedOriginRequest {
   Origin: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateBotRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4436,6 +4963,9 @@ export interface DisassociateBotRequest {
   LexV2Bot?: LexV2Bot;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateInstanceStorageConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4453,6 +4983,9 @@ export interface DisassociateInstanceStorageConfigRequest {
   ResourceType: InstanceStorageResourceType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateLambdaFunctionRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance..</p>
@@ -4465,6 +4998,9 @@ export interface DisassociateLambdaFunctionRequest {
   FunctionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateLexBotRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4482,6 +5018,9 @@ export interface DisassociateLexBotRequest {
   LexRegion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumberContactFlowRequest {
   /**
    * <p>A unique identifier for the phone number.</p>
@@ -4494,6 +5033,9 @@ export interface DisassociatePhoneNumberContactFlowRequest {
   InstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateQueueQuickConnectsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4511,6 +5053,9 @@ export interface DisassociateQueueQuickConnectsRequest {
   QuickConnectIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateRoutingProfileQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4528,6 +5073,9 @@ export interface DisassociateRoutingProfileQueuesRequest {
   QueueReferences: RoutingProfileQueueReference[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSecurityKeyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4540,6 +5088,9 @@ export interface DisassociateSecurityKeyRequest {
   AssociationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DismissUserContactRequest {
   /**
    * <p>The identifier of the user account.</p>
@@ -4558,8 +5109,14 @@ export interface DismissUserContactRequest {
   ContactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DismissUserContactResponse {}
 
+/**
+ * @public
+ */
 export interface GetContactAttributesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -4572,6 +5129,9 @@ export interface GetContactAttributesRequest {
   InitialContactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactAttributesResponse {
   /**
    * <p>Information about the attributes.</p>
@@ -4579,6 +5139,9 @@ export interface GetContactAttributesResponse {
   Attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum CurrentMetricName {
   AGENTS_AFTER_CONTACT_WORK = "AGENTS_AFTER_CONTACT_WORK",
   AGENTS_AVAILABLE = "AGENTS_AVAILABLE",
@@ -4595,6 +5158,9 @@ export enum CurrentMetricName {
   SLOTS_AVAILABLE = "SLOTS_AVAILABLE",
 }
 
+/**
+ * @public
+ */
 export enum Unit {
   COUNT = "COUNT",
   PERCENT = "PERCENT",
@@ -4602,6 +5168,7 @@ export enum Unit {
 }
 
 /**
+ * @public
  * <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator
  *     Guide</i>.</p>
  */
@@ -4618,6 +5185,7 @@ export interface CurrentMetric {
 }
 
 /**
+ * @public
  * <p>Contains the filter to apply when retrieving metrics.</p>
  */
 export interface Filters {
@@ -4639,18 +5207,25 @@ export interface Filters {
   RoutingProfiles?: string[];
 }
 
+/**
+ * @public
+ */
 export enum Grouping {
   CHANNEL = "CHANNEL",
   QUEUE = "QUEUE",
   ROUTING_PROFILE = "ROUTING_PROFILE",
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
 /**
+ * @public
  * <p>The way to sort the resulting response based on metrics. By default resources are sorted
  *    based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted
  *    based on the input metrics.</p>
@@ -4667,6 +5242,9 @@ export interface CurrentMetricSortCriteria {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface GetCurrentMetricDataRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -4791,8 +5369,8 @@ export interface GetCurrentMetricDataRequest {
    *                <p>When you do not use groupings, Unit says SECONDS but the Value is returned in
    *       MILLISECONDS. For example, if you get a response like this:</p>
    *                <p>
-   *                   <code>{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0
-   *       </code>}</p>
+   *                   <code>\{ "Metric": \{ "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" \}, "Value": 24113.0
+   *       </code>\}</p>
    *                <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>
    *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a>
    *                </p>
@@ -4842,6 +5420,7 @@ export interface GetCurrentMetricDataRequest {
 }
 
 /**
+ * @public
  * <p>Contains the data for a real-time metric.</p>
  */
 export interface CurrentMetricData {
@@ -4857,6 +5436,7 @@ export interface CurrentMetricData {
 }
 
 /**
+ * @public
  * <p>Information about the routing profile assigned to the user.</p>
  */
 export interface RoutingProfileReference {
@@ -4872,6 +5452,7 @@ export interface RoutingProfileReference {
 }
 
 /**
+ * @public
  * <p>Contains information about the dimensions for a set of metrics.</p>
  */
 export interface Dimensions {
@@ -4892,6 +5473,7 @@ export interface Dimensions {
 }
 
 /**
+ * @public
  * <p>Contains information about a set of real-time metrics.</p>
  */
 export interface CurrentMetricResult {
@@ -4906,6 +5488,9 @@ export interface CurrentMetricResult {
   Collections?: CurrentMetricData[];
 }
 
+/**
+ * @public
+ */
 export interface GetCurrentMetricDataResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -4931,6 +5516,7 @@ export interface GetCurrentMetricDataResponse {
 }
 
 /**
+ * @public
  * <p>Filters user data based on the contact information that is associated to the users. It
  *    contains a list of <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
  */
@@ -4942,6 +5528,7 @@ export interface ContactFilter {
 }
 
 /**
+ * @public
  * <p>A filter for the user data.</p>
  */
 export interface UserDataFilters {
@@ -4972,6 +5559,9 @@ export interface UserDataFilters {
   UserHierarchyGroups?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetCurrentUserDataRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -5017,6 +5607,7 @@ export interface GetCurrentUserDataRequest {
 }
 
 /**
+ * @public
  * <p>Information about the hierarchy group.</p>
  */
 export interface HierarchyGroupSummaryReference {
@@ -5032,6 +5623,7 @@ export interface HierarchyGroupSummaryReference {
 }
 
 /**
+ * @public
  * <p>Information about the levels in the hierarchy group.</p>
  */
 export interface HierarchyPathReference {
@@ -5062,6 +5654,7 @@ export interface HierarchyPathReference {
 }
 
 /**
+ * @public
  * <p>Information about the user.</p>
  */
 export interface UserReference {
@@ -5077,6 +5670,7 @@ export interface UserReference {
 }
 
 /**
+ * @public
  * <p>Data for a user.</p>
  */
 export interface UserData {
@@ -5132,6 +5726,9 @@ export interface UserData {
   NextStatus?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCurrentUserDataResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -5149,6 +5746,9 @@ export interface GetCurrentUserDataResponse {
   ApproximateTotalCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFederationTokenRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -5157,6 +5757,7 @@ export interface GetFederationTokenRequest {
 }
 
 /**
+ * @public
  * <p>Contains credentials to use for federation.</p>
  */
 export interface Credentials {
@@ -5181,6 +5782,9 @@ export interface Credentials {
   RefreshTokenExpiration?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetFederationTokenResponse {
   /**
    * <p>The credentials to use for federation.</p>
@@ -5204,6 +5808,7 @@ export interface GetFederationTokenResponse {
 }
 
 /**
+ * @public
  * <p>No user with the specified credentials was found in the Amazon Connect instance.</p>
  */
 export class UserNotFoundException extends __BaseException {
@@ -5224,6 +5829,9 @@ export class UserNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum HistoricalMetricName {
   ABANDON_TIME = "ABANDON_TIME",
   AFTER_CONTACT_WORK_TIME = "AFTER_CONTACT_WORK_TIME",
@@ -5252,17 +5860,24 @@ export enum HistoricalMetricName {
   SERVICE_LEVEL = "SERVICE_LEVEL",
 }
 
+/**
+ * @public
+ */
 export enum Statistic {
   AVG = "AVG",
   MAX = "MAX",
   SUM = "SUM",
 }
 
+/**
+ * @public
+ */
 export enum Comparison {
   LT = "LT",
 }
 
 /**
+ * @public
  * <p>Contains information about the threshold for service level metrics.</p>
  */
 export interface Threshold {
@@ -5278,6 +5893,7 @@ export interface Threshold {
 }
 
 /**
+ * @public
  * <p>Contains information about a historical metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator
  *     Guide</i>.</p>
  */
@@ -5303,6 +5919,9 @@ export interface HistoricalMetric {
   Unit?: Unit | string;
 }
 
+/**
+ * @public
+ */
 export interface GetMetricDataRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -5500,6 +6119,7 @@ export interface GetMetricDataRequest {
 }
 
 /**
+ * @public
  * <p>Contains the data for a historical metric.</p>
  */
 export interface HistoricalMetricData {
@@ -5515,6 +6135,7 @@ export interface HistoricalMetricData {
 }
 
 /**
+ * @public
  * <p>Contains information about the historical metrics retrieved.</p>
  */
 export interface HistoricalMetricResult {
@@ -5529,6 +6150,9 @@ export interface HistoricalMetricResult {
   Collections?: HistoricalMetricData[];
 }
 
+/**
+ * @public
+ */
 export interface GetMetricDataResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -5545,6 +6169,7 @@ export interface GetMetricDataResponse {
 }
 
 /**
+ * @public
  * <p>Contains the filter to apply when retrieving metrics with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API.</p>
  */
 export interface FilterV2 {
@@ -5565,6 +6190,7 @@ export interface FilterV2 {
 }
 
 /**
+ * @public
  * <p>Contains information about the filter used when retrieving metrics.
  *     <code>MetricFiltersV2</code> can be used on the following metrics:
  *     <code>AVG_AGENT_CONNECTING_TIME</code>, <code>CONTACTS_CREATED</code>,
@@ -5596,6 +6222,7 @@ export interface MetricFilterV2 {
 }
 
 /**
+ * @public
  * <p>Contains information about the threshold for service level metrics.</p>
  */
 export interface ThresholdV2 {
@@ -5611,6 +6238,7 @@ export interface ThresholdV2 {
 }
 
 /**
+ * @public
  * <p>Contains information about the metric.</p>
  */
 export interface MetricV2 {
@@ -5630,6 +6258,9 @@ export interface MetricV2 {
   MetricFilters?: MetricFilterV2[];
 }
 
+/**
+ * @public
+ */
 export interface GetMetricDataV2Request {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. This includes the <code>instanceId</code> an Amazon Connect
@@ -5888,6 +6519,7 @@ export interface GetMetricDataV2Request {
 }
 
 /**
+ * @public
  * <p>Contains the name, thresholds, and metric filters.</p>
  */
 export interface MetricDataV2 {
@@ -5903,6 +6535,7 @@ export interface MetricDataV2 {
 }
 
 /**
+ * @public
  * <p>Contains information about the metric results.</p>
  */
 export interface MetricResultV2 {
@@ -5917,6 +6550,9 @@ export interface MetricResultV2 {
   Collections?: MetricDataV2[];
 }
 
+/**
+ * @public
+ */
 export interface GetMetricDataV2Response {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -5930,6 +6566,9 @@ export interface GetMetricDataV2Response {
   MetricResults?: MetricResultV2[];
 }
 
+/**
+ * @public
+ */
 export interface GetTaskTemplateRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -5948,6 +6587,9 @@ export interface GetTaskTemplateRequest {
   SnapshotVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTaskTemplateResponse {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -6012,11 +6654,14 @@ export interface GetTaskTemplateResponse {
   CreatedTime?: Date;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetTrafficDistributionRequest {
   /**
    * <p>The identifier of the traffic distribution group.</p>
@@ -6025,6 +6670,7 @@ export interface GetTrafficDistributionRequest {
 }
 
 /**
+ * @public
  * <p>Information about a traffic distribution.</p>
  */
 export interface Distribution {
@@ -6040,6 +6686,7 @@ export interface Distribution {
 }
 
 /**
+ * @public
  * <p>The distribution of traffic between the instance and its replicas.</p>
  */
 export interface TelephonyConfig {
@@ -6049,6 +6696,9 @@ export interface TelephonyConfig {
   Distributions: Distribution[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTrafficDistributionResponse {
   /**
    * <p>The distribution of traffic between the instance and its replicas.</p>
@@ -6068,6 +6718,9 @@ export interface GetTrafficDistributionResponse {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAgentStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -6091,6 +6744,9 @@ export interface ListAgentStatusRequest {
   AgentStatusTypes?: (AgentStatusType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListAgentStatusResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -6103,6 +6759,9 @@ export interface ListAgentStatusResponse {
   AgentStatusSummaryList?: AgentStatusSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListApprovedOriginsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -6121,6 +6780,9 @@ export interface ListApprovedOriginsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApprovedOriginsResponse {
   /**
    * <p>The approved origins.</p>
@@ -6133,11 +6795,17 @@ export interface ListApprovedOriginsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum LexVersion {
   V1 = "V1",
   V2 = "V2",
 }
 
+/**
+ * @public
+ */
 export interface ListBotsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -6162,6 +6830,7 @@ export interface ListBotsRequest {
 }
 
 /**
+ * @public
  * <p>Configuration information of an Amazon Lex or Amazon Lex V2 bot.</p>
  */
 export interface LexBotConfig {
@@ -6176,6 +6845,9 @@ export interface LexBotConfig {
   LexV2Bot?: LexV2Bot;
 }
 
+/**
+ * @public
+ */
 export interface ListBotsResponse {
   /**
    * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentCommand}.
  */
 export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentCommand}.
  */
 export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates one or more values for an SSM document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentCommandInput - {@link UpdateDocumentCommandInput}
+ * @returns {@link UpdateDocumentCommandOutput}
  * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UpdateDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
     return deserializeAws_json1_1UpdateDocumentCommand(output, context);
   }

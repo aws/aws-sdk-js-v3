@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePhoneNumbersCommand}.
  */
 export interface DescribePhoneNumbersCommandInput extends DescribePhoneNumbersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePhoneNumbersCommand}.
  */
 export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified origination phone number, or all the phone numbers in your
  *             account.</p>
  *         <p>If you specify phone number IDs, the output includes information for only the
@@ -56,6 +61,8 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePhoneNumbersCommandInput - {@link DescribePhoneNumbersCommandInput}
+ * @returns {@link DescribePhoneNumbersCommandOutput}
  * @see {@link DescribePhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link DescribePhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -97,6 +104,9 @@ export class DescribePhoneNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribePhoneNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribePhoneNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePhoneNumbersCommandOutput> {
     return deserializeAws_json1_0DescribePhoneNumbersCommand(output, context);
   }

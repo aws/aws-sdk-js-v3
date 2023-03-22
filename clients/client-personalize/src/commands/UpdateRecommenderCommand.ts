@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRecommenderCommand}.
  */
 export interface UpdateRecommenderCommandInput extends UpdateRecommenderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRecommenderCommand}.
  */
 export interface UpdateRecommenderCommandOutput extends UpdateRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the recommender to modify the recommender configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecommenderCommandInput - {@link UpdateRecommenderCommandInput}
+ * @returns {@link UpdateRecommenderCommandOutput}
  * @see {@link UpdateRecommenderCommandInput} for command's `input` shape.
  * @see {@link UpdateRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecommenderCommandOutput> {
     return deserializeAws_json1_1UpdateRecommenderCommand(output, context);
   }

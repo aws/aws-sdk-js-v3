@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceCommand}.
  */
 export interface CreateResourceCommandInput extends CreateResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceCommand}.
  */
 export interface CreateResourceCommandOutput extends CreateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new WorkMail resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceCommandInput - {@link CreateResourceCommandInput}
+ * @returns {@link CreateResourceCommandOutput}
  * @see {@link CreateResourceCommandInput} for command's `input` shape.
  * @see {@link CreateResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceCommandOutput> {
     return deserializeAws_json1_1CreateResourceCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVerifiedEmailAddressCommand}.
  */
 export interface DeleteVerifiedEmailAddressCommandInput extends DeleteVerifiedEmailAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVerifiedEmailAddressCommand}.
  */
 export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
  *             and domains.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVerifiedEmailAddressCommandInput - {@link DeleteVerifiedEmailAddressCommandInput}
+ * @returns {@link DeleteVerifiedEmailAddressCommandOutput}
  * @see {@link DeleteVerifiedEmailAddressCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVerifiedEmailAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVerifiedEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteVerifiedEmailAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

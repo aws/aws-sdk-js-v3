@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstancePortStatesCommand}.
  */
 export interface GetInstancePortStatesCommandInput extends GetInstancePortStatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstancePortStatesCommand}.
  */
 export interface GetInstancePortStatesCommandOutput extends GetInstancePortStatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the firewall port states for a specific Amazon Lightsail instance, the IP addresses
  *       allowed to connect to the instance through the ports, and the protocol.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstancePortStatesCommandInput - {@link GetInstancePortStatesCommandInput}
+ * @returns {@link GetInstancePortStatesCommandOutput}
  * @see {@link GetInstancePortStatesCommandInput} for command's `input` shape.
  * @see {@link GetInstancePortStatesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetInstancePortStatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstancePortStatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetInstancePortStatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstancePortStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstancePortStatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstancePortStatesCommandOutput> {
     return deserializeAws_json1_1GetInstancePortStatesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriptionCommand}.
  */
 export interface DeleteSubscriptionCommandInput extends DeleteSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriptionCommand}.
  */
 export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Removes Shield Advanced from an account. Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
@@ -48,6 +53,8 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriptionCommandInput - {@link DeleteSubscriptionCommandInput}
+ * @returns {@link DeleteSubscriptionCommandOutput}
  * @see {@link DeleteSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriptionCommandOutput> {
     return deserializeAws_json1_1DeleteSubscriptionCommand(output, context);
   }

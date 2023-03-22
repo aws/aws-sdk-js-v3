@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRealtimeLogConfigCommand}.
  */
 export interface DeleteRealtimeLogConfigCommandInput extends DeleteRealtimeLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRealtimeLogConfigCommand}.
  */
 export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a real-time log configuration.</p>
  *          <p>You cannot delete a real-time log configuration if it's attached to a cache behavior.
  * 			First update your distributions to remove the real-time log configuration from all cache
@@ -47,6 +52,8 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRealtimeLogConfigCommandInput - {@link DeleteRealtimeLogConfigCommandInput}
+ * @returns {@link DeleteRealtimeLogConfigCommandOutput}
  * @see {@link DeleteRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteRealtimeLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteRealtimeLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRealtimeLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteRealtimeLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRealtimeLogConfigCommandOutput> {
     return deserializeAws_restXmlDeleteRealtimeLogConfigCommand(output, context);
   }

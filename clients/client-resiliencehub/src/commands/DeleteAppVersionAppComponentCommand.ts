@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppVersionAppComponentCommand}.
  */
 export interface DeleteAppVersionAppComponentCommandInput extends DeleteAppVersionAppComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppVersionAppComponentCommand}.
  */
 export interface DeleteAppVersionAppComponentCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Application Component from the AWS Resilience Hub application.</p>
  *          <note>
  *             <ul>
@@ -58,6 +63,8 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppVersionAppComponentCommandInput - {@link DeleteAppVersionAppComponentCommandInput}
+ * @returns {@link DeleteAppVersionAppComponentCommandOutput}
  * @see {@link DeleteAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -105,6 +112,9 @@ export class DeleteAppVersionAppComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppVersionAppComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DeleteAppVersionAppComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppVersionAppComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAppVersionAppComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

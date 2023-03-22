@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationAdminAccountsCommand}.
  */
 export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizationAdminAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationAdminAccountsCommand}.
  */
 export interface ListOrganizationAdminAccountsCommandOutput
@@ -37,6 +41,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Security Hub administrator accounts. Can only be called by the organization
  *          management account.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
+ * @returns {@link ListOrganizationAdminAccountsCommandOutput}
  * @see {@link ListOrganizationAdminAccountsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationAdminAccountsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationAdminAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrganizationAdminAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListOrganizationAdminAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

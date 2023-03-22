@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CheckDomainAvailabilityCommand}.
  */
 export interface CheckDomainAvailabilityCommandInput extends CheckDomainAvailabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CheckDomainAvailabilityCommand}.
  */
 export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailabilityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation checks the availability of one domain name. Note that if the
  * 			availability status of a domain is pending, you must submit another request to determine
  * 			the availability of the domain name.</p>
@@ -48,6 +53,8 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckDomainAvailabilityCommandInput - {@link CheckDomainAvailabilityCommandInput}
+ * @returns {@link CheckDomainAvailabilityCommandOutput}
  * @see {@link CheckDomainAvailabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDomainAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -80,6 +87,9 @@ export class CheckDomainAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckDomainAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CheckDomainAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckDomainAvailabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CheckDomainAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckDomainAvailabilityCommandOutput> {
     return deserializeAws_json1_1CheckDomainAvailabilityCommand(output, context);
   }

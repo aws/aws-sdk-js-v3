@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DocDBElasticServiceException as __BaseException } from "./DocDBElasticServiceException";
 
 /**
+ * @public
  * <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,12 +23,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Auth {
   PLAIN_TEXT = "PLAIN_TEXT",
   SECRET_ARN = "SECRET_ARN",
 }
 
 /**
+ * @public
  * <p>There was an access conflict.</p>
  */
 export class ConflictException extends __BaseException {
@@ -58,6 +63,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterInput {
   /**
    * <p>The name of the new Elastic DocumentDB cluster. This parameter is stored as
@@ -179,6 +187,9 @@ export interface CreateClusterInput {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -192,6 +203,7 @@ export enum Status {
 }
 
 /**
+ * @public
  * <p>Returns information about a specific Elastic DocumentDB cluster.</p>
  */
 export interface Cluster {
@@ -265,6 +277,9 @@ export interface Cluster {
   kmsKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterOutput {
   /**
    * <p>The new Elastic DocumentDB cluster that has been created.</p>
@@ -273,6 +288,7 @@ export interface CreateClusterOutput {
 }
 
 /**
+ * @public
  * <p>There was an internal server error.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -293,6 +309,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service quota for the action was exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -312,6 +329,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -338,6 +356,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specific field in which a given validation exception occurred.</p>
  */
 export interface ValidationExceptionField {
@@ -352,6 +371,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -360,6 +382,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>A structure defining a validation exception.</p>
  */
 export class ValidationException extends __BaseException {
@@ -391,6 +414,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterSnapshotInput {
   /**
    * <p>The arn of the Elastic DocumentDB cluster that the snapshot will be taken from.</p>
@@ -409,6 +435,7 @@ export interface CreateClusterSnapshotInput {
 }
 
 /**
+ * @public
  * <p>Returns information about a specific Elastic DocumentDB snapshot.</p>
  */
 export interface ClusterSnapshot {
@@ -463,6 +490,9 @@ export interface ClusterSnapshot {
   kmsKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterSnapshotOutput {
   /**
    * <p>Returns information about the new Elastic DocumentDB snapshot.</p>
@@ -471,6 +501,7 @@ export interface CreateClusterSnapshotOutput {
 }
 
 /**
+ * @public
  * <p>The specified resource could not be located.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -501,6 +532,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterInput {
   /**
    * <p>The arn of the Elastic DocumentDB cluster that is to be deleted.</p>
@@ -508,6 +542,9 @@ export interface DeleteClusterInput {
   clusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterOutput {
   /**
    * <p>Returns information about the newly deleted Elastic DocumentDB cluster.</p>
@@ -515,6 +552,9 @@ export interface DeleteClusterOutput {
   cluster: Cluster | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterSnapshotInput {
   /**
    * <p>The arn of the Elastic DocumentDB snapshot that is to be deleted.</p>
@@ -522,6 +562,9 @@ export interface DeleteClusterSnapshotInput {
   snapshotArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterSnapshotOutput {
   /**
    * <p>Returns information about the newly deleted Elastic DocumentDB snapshot.</p>
@@ -529,6 +572,9 @@ export interface DeleteClusterSnapshotOutput {
   snapshot: ClusterSnapshot | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetClusterInput {
   /**
    * <p>The arn of the Elastic DocumentDB cluster.</p>
@@ -536,6 +582,9 @@ export interface GetClusterInput {
   clusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetClusterOutput {
   /**
    * <p>Returns information about a specific Elastic DocumentDB cluster.</p>
@@ -543,6 +592,9 @@ export interface GetClusterOutput {
   cluster: Cluster | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetClusterSnapshotInput {
   /**
    * <p>The arn of the Elastic DocumentDB snapshot.</p>
@@ -550,6 +602,9 @@ export interface GetClusterSnapshotInput {
   snapshotArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetClusterSnapshotOutput {
   /**
    * <p>Returns information about a specific Elastic DocumentDB snapshot.</p>
@@ -557,6 +612,9 @@ export interface GetClusterSnapshotOutput {
   snapshot: ClusterSnapshot | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersInput {
   /**
    * <p>The nextToken which is used the get the next page of data.</p>
@@ -570,6 +628,7 @@ export interface ListClustersInput {
 }
 
 /**
+ * @public
  * <p>A list of Elastic DocumentDB cluster.</p>
  */
 export interface ClusterInList {
@@ -589,6 +648,9 @@ export interface ClusterInList {
   status: Status | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersOutput {
   /**
    * <p>A list of Elastic DocumentDB cluster.</p>
@@ -602,6 +664,9 @@ export interface ListClustersOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClusterSnapshotsInput {
   /**
    * <p>The arn of the Elastic DocumentDB cluster.</p>
@@ -620,6 +685,7 @@ export interface ListClusterSnapshotsInput {
 }
 
 /**
+ * @public
  * <p>A list of Elastic DocumentDB snapshots.</p>
  */
 export interface ClusterSnapshotInList {
@@ -649,6 +715,9 @@ export interface ClusterSnapshotInList {
   snapshotCreationTime: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListClusterSnapshotsOutput {
   /**
    * <p>A list of Elastic DocumentDB snapshots for a specified cluster.</p>
@@ -662,6 +731,9 @@ export interface ListClusterSnapshotsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The arn of the Elastic DocumentDB resource.</p>
@@ -669,6 +741,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags for the specified Elastic DocumentDB resource.</p>
@@ -676,6 +751,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RestoreClusterFromSnapshotInput {
   /**
    * <p>The name of the Elastic DocumentDB cluster.</p>
@@ -718,6 +796,9 @@ export interface RestoreClusterFromSnapshotInput {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RestoreClusterFromSnapshotOutput {
   /**
    * <p>Returns information about a the restored Elastic DocumentDB cluster.</p>
@@ -725,6 +806,9 @@ export interface RestoreClusterFromSnapshotOutput {
   cluster: Cluster | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The arn of the Elastic DocumentDB resource.</p>
@@ -737,8 +821,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The arn of the Elastic DocumentDB resource.</p>
@@ -751,8 +841,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateClusterInput {
   /**
    * <p>The arn of the Elastic DocumentDB cluster.</p>
@@ -815,6 +911,9 @@ export interface UpdateClusterInput {
   preferredMaintenanceWindow?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterOutput {
   /**
    * <p>Returns information about the updated Elastic DocumentDB cluster.</p>

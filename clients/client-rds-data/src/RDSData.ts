@@ -30,6 +30,7 @@ import {
 import { RDSDataClient } from "./RDSDataClient";
 
 /**
+ * @public
  * <fullname>Amazon RDS Data Service</fullname>
  *         <p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora Serverless v1 DB cluster. To run these
  *             statements, you work with the Data Service API.</p>
@@ -42,6 +43,7 @@ import { RDSDataClient } from "./RDSDataClient";
  */
 export class RDSData extends RDSDataClient {
   /**
+   * @public
    * <p>Runs a batch SQL statement over an array of data.</p>
    *         <p>You can run bulk update and insert operations for multiple records using a DML
    *             statement with different parameter sets. Bulk operations can provide a significant
@@ -87,6 +89,7 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
+   * @public
    * <p>Starts a SQL transaction.</p>
    *         <note>
    *             <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24
@@ -127,6 +130,7 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
+   * @public
    * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
    *             commits the changes.</p>
    */
@@ -160,6 +164,7 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Runs one or more SQL statements.</p>
@@ -192,6 +197,7 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
+   * @public
    * <p>Runs a SQL statement against a database.</p>
    *         <note>
    *             <p>If a call isn't part of a transaction because it doesn't include the
@@ -230,6 +236,7 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
+   * @public
    * <p>Performs a rollback of a transaction. Rolling back a transaction cancels its changes.</p>
    */
   public rollbackTransaction(

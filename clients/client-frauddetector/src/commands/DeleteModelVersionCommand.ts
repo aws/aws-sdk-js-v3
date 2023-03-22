@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelVersionCommand}.
  */
 export interface DeleteModelVersionCommandInput extends DeleteModelVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelVersionCommand}.
  */
 export interface DeleteModelVersionCommandOutput extends DeleteModelVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a model version.</p>
  *          <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
  *          <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -48,6 +53,8 @@ export interface DeleteModelVersionCommandOutput extends DeleteModelVersionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelVersionCommandInput - {@link DeleteModelVersionCommandInput}
+ * @returns {@link DeleteModelVersionCommandOutput}
  * @see {@link DeleteModelVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteModelVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteModelVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteModelVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelVersionCommandOutput> {
     return deserializeAws_json1_1DeleteModelVersionCommand(output, context);
   }

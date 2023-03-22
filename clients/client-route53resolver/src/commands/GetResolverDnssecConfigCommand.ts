@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverDnssecConfigCommand}.
  */
 export interface GetResolverDnssecConfigCommandInput extends GetResolverDnssecConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverDnssecConfigCommand}.
  */
 export interface GetResolverDnssecConfigCommandOutput extends GetResolverDnssecConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets DNSSEC validation information for a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetResolverDnssecConfigCommandOutput extends GetResolverDnssecC
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverDnssecConfigCommandInput - {@link GetResolverDnssecConfigCommandInput}
+ * @returns {@link GetResolverDnssecConfigCommandOutput}
  * @see {@link GetResolverDnssecConfigCommandInput} for command's `input` shape.
  * @see {@link GetResolverDnssecConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetResolverDnssecConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverDnssecConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetResolverDnssecConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverDnssecConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResolverDnssecConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverDnssecConfigCommandOutput> {
     return deserializeAws_json1_1GetResolverDnssecConfigCommand(output, context);
   }

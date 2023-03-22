@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChatTokenCommand}.
  */
 export interface CreateChatTokenCommandInput extends CreateChatTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChatTokenCommand}.
  */
 export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an encrypted token that is used by a chat participant to establish an individual
  *          WebSocket chat connection to a room. When the token is used to connect to chat, the
  *          connection is valid for the session duration specified in the request. The token becomes
@@ -57,6 +62,8 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChatTokenCommandInput - {@link CreateChatTokenCommandInput}
+ * @returns {@link CreateChatTokenCommandOutput}
  * @see {@link CreateChatTokenCommandInput} for command's `input` shape.
  * @see {@link CreateChatTokenCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateChatTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChatTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateChatTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChatTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateChatTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChatTokenCommandOutput> {
     return deserializeAws_restJson1CreateChatTokenCommand(output, context);
   }

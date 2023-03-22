@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePipelineCommand}.
  */
 export interface CreatePipelineCommandInput extends CreatePipelineInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePipelineCommand}.
  */
 export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a pipeline.</p>
  *         <note>
  *             <p>In the pipeline structure, you must include either <code>artifactStore</code>
@@ -52,6 +57,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
+ * @returns {@link CreatePipelineCommandOutput}
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePipelineCommandOutput> {
     return deserializeAws_json1_1CreatePipelineCommand(output, context);
   }

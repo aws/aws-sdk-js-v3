@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetScalingPlanResourceForecastDataCommand}.
  */
 export interface GetScalingPlanResourceForecastDataCommandInput extends GetScalingPlanResourceForecastDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetScalingPlanResourceForecastDataCommand}.
  */
 export interface GetScalingPlanResourceForecastDataCommandOutput
@@ -37,6 +41,7 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the forecast data for a scalable resource.</p>
  *          <p>Capacity forecasts are represented as predicted values, or data points, that are
  *          calculated using historical data points from a specified CloudWatch load metric. Data points are
@@ -51,6 +56,8 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetScalingPlanResourceForecastDataCommandInput - {@link GetScalingPlanResourceForecastDataCommandInput}
+ * @returns {@link GetScalingPlanResourceForecastDataCommandOutput}
  * @see {@link GetScalingPlanResourceForecastDataCommandInput} for command's `input` shape.
  * @see {@link GetScalingPlanResourceForecastDataCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetScalingPlanResourceForecastDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetScalingPlanResourceForecastDataCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
     return serializeAws_json1_1GetScalingPlanResourceForecastDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

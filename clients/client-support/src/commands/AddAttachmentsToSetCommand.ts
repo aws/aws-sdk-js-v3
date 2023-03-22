@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddAttachmentsToSetCommand}.
  */
 export interface AddAttachmentsToSetCommandInput extends AddAttachmentsToSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddAttachmentsToSetCommand}.
  */
 export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more attachments to an attachment set. </p>
  *          <p>An attachment set is a temporary container for attachments that you add to a case or
  *             case communication. The set is available for 1 hour after it's created. The
@@ -63,6 +68,8 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AddAttachmentsToSetCommandInput - {@link AddAttachmentsToSetCommandInput}
+ * @returns {@link AddAttachmentsToSetCommandOutput}
  * @see {@link AddAttachmentsToSetCommandInput} for command's `input` shape.
  * @see {@link AddAttachmentsToSetCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -104,6 +111,9 @@ export class AddAttachmentsToSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddAttachmentsToSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class AddAttachmentsToSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddAttachmentsToSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddAttachmentsToSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAttachmentsToSetCommandOutput> {
     return deserializeAws_json1_1AddAttachmentsToSetCommand(output, context);
   }

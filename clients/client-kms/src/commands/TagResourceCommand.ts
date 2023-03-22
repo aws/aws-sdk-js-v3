@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourceCommand}.
  */
 export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagResourceCommand}.
  */
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or edits tags on a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>.</p>
  *          <note>
  *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -87,6 +92,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -164,6 +171,9 @@ export class TagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -201,10 +211,16 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
     return deserializeAws_json1_1TagResourceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RotateSecretCommand}.
  */
 export interface RotateSecretCommandInput extends RotateSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link RotateSecretCommand}.
  */
 export interface RotateSecretCommandOutput extends RotateSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures and starts the asynchronous process of rotating the secret. For information about rotation,
  *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a> in the <i>Secrets Manager User Guide</i>. If you include the configuration parameters, the operation sets the values for the secret and then immediately starts a rotation. If you don't include the configuration parameters, the operation starts a rotation with the values already stored in the secret. </p>
  *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
@@ -61,6 +66,8 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param RotateSecretCommandInput - {@link RotateSecretCommandInput}
+ * @returns {@link RotateSecretCommandOutput}
  * @see {@link RotateSecretCommandInput} for command's `input` shape.
  * @see {@link RotateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -152,6 +159,9 @@ export class RotateSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RotateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,10 +199,16 @@ export class RotateSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RotateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RotateSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateSecretCommandOutput> {
     return deserializeAws_json1_1RotateSecretCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableTransitGatewayRouteTablePropagationCommand}.
  */
 export interface EnableTransitGatewayRouteTablePropagationCommandInput
   extends EnableTransitGatewayRouteTablePropagationRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableTransitGatewayRouteTablePropagationCommand}.
  */
 export interface EnableTransitGatewayRouteTablePropagationCommandOutput
@@ -38,6 +42,7 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified attachment to propagate routes to the specified
  *          propagation route table.</p>
  * @example
@@ -50,6 +55,8 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableTransitGatewayRouteTablePropagationCommandInput - {@link EnableTransitGatewayRouteTablePropagationCommandInput}
+ * @returns {@link EnableTransitGatewayRouteTablePropagationCommandOutput}
  * @see {@link EnableTransitGatewayRouteTablePropagationCommandInput} for command's `input` shape.
  * @see {@link EnableTransitGatewayRouteTablePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableTransitGatewayRouteTablePropagationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableTransitGatewayRouteTablePropagationCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
     return serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

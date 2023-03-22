@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOrganizationCommand}.
  */
 export interface CreateOrganizationCommandInput extends CreateOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOrganizationCommand}.
  */
 export interface CreateOrganizationCommandOutput extends CreateOrganizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services organization. The account whose user is calling the
  *                 <code>CreateOrganization</code> operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">management account</a> of the new organization.</p>
  *          <p>This operation must be called using credentials from the account that is to become the
@@ -56,6 +61,8 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOrganizationCommandInput - {@link CreateOrganizationCommandInput}
+ * @returns {@link CreateOrganizationCommandOutput}
  * @see {@link CreateOrganizationCommandInput} for command's `input` shape.
  * @see {@link CreateOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -467,6 +474,9 @@ export class CreateOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -506,10 +516,16 @@ export class CreateOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrganizationCommandOutput> {
     return deserializeAws_json1_1CreateOrganizationCommand(output, context);
   }

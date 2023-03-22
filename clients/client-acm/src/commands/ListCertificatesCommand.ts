@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCertificatesCommand}.
  */
 export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCertificatesCommand}.
  */
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of certificate ARNs and domain names. You can request that only
  *       certificates that match a specific status be listed. You can also filter by specific
  *       attributes of the certificate. Default filtering returns only <code>RSA_2048</code>
@@ -49,6 +54,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCertificatesCommandInput - {@link ListCertificatesCommandInput}
+ * @returns {@link ListCertificatesCommandOutput}
  * @see {@link ListCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCertificatesCommandOutput> {
     return deserializeAws_json1_1ListCertificatesCommand(output, context);
   }

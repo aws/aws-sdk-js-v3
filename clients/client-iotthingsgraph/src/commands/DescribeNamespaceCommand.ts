@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNamespaceCommand}.
  */
 export interface DescribeNamespaceCommandInput extends DescribeNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNamespaceCommand}.
  */
 export interface DescribeNamespaceCommandOutput extends DescribeNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>
@@ -48,6 +53,8 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNamespaceCommandInput - {@link DescribeNamespaceCommandInput}
+ * @returns {@link DescribeNamespaceCommandOutput}
  * @see {@link DescribeNamespaceCommandInput} for command's `input` shape.
  * @see {@link DescribeNamespaceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNamespaceCommandOutput> {
     return deserializeAws_json1_1DescribeNamespaceCommand(output, context);
   }

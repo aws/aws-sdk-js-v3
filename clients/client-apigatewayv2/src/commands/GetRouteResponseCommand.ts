@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRouteResponseCommand}.
  */
 export interface GetRouteResponseCommandInput extends GetRouteResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRouteResponseCommand}.
  */
 export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a RouteResponse.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRouteResponseCommandInput - {@link GetRouteResponseCommandInput}
+ * @returns {@link GetRouteResponseCommandOutput}
  * @see {@link GetRouteResponseCommandInput} for command's `input` shape.
  * @see {@link GetRouteResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -75,6 +82,9 @@ export class GetRouteResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRouteResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetRouteResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRouteResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteResponseCommandOutput> {
     return deserializeAws_restJson1GetRouteResponseCommand(output, context);
   }

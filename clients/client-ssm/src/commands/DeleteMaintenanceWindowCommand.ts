@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMaintenanceWindowCommand}.
  */
 export interface DeleteMaintenanceWindowCommandInput extends DeleteMaintenanceWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMaintenanceWindowCommand}.
  */
 export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMaintenanceWindowCommandInput - {@link DeleteMaintenanceWindowCommandInput}
+ * @returns {@link DeleteMaintenanceWindowCommandOutput}
  * @see {@link DeleteMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link DeleteMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMaintenanceWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMaintenanceWindowCommandOutput> {
     return deserializeAws_json1_1DeleteMaintenanceWindowCommand(output, context);
   }

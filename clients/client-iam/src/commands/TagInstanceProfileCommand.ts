@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagInstanceProfileCommand}.
  */
 export interface TagInstanceProfileCommandInput extends TagInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagInstanceProfileCommand}.
  */
 export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM instance profile. If a tag with the same key name
  *       already exists, then that tag is overwritten with the new value.</p>
  *          <p>Each tag consists of a key name and an associated value. By assigning tags to your resources, you can do the
@@ -76,6 +81,8 @@ export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TagInstanceProfileCommandInput - {@link TagInstanceProfileCommandInput}
+ * @returns {@link TagInstanceProfileCommandOutput}
  * @see {@link TagInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link TagInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -119,6 +126,9 @@ export class TagInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class TagInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagInstanceProfileCommandOutput> {
     return deserializeAws_queryTagInstanceProfileCommand(output, context);
   }

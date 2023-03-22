@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopThingRegistrationTaskCommand}.
  */
 export interface StopThingRegistrationTaskCommandInput extends StopThingRegistrationTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopThingRegistrationTaskCommand}.
  */
 export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistrationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a bulk thing provisioning task.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopThingRegistrationTask</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistr
  * const response = await client.send(command);
  * ```
  *
+ * @param StopThingRegistrationTaskCommandInput - {@link StopThingRegistrationTaskCommandInput}
+ * @returns {@link StopThingRegistrationTaskCommandOutput}
  * @see {@link StopThingRegistrationTaskCommandInput} for command's `input` shape.
  * @see {@link StopThingRegistrationTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +92,9 @@ export class StopThingRegistrationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopThingRegistrationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class StopThingRegistrationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopThingRegistrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopThingRegistrationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

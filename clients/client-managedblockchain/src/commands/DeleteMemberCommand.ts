@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandInput extends DeleteMemberInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the Amazon Web Services account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last Amazon Web Services account, the network is deleted also.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMemberCommandInput - {@link DeleteMemberCommandInput}
+ * @returns {@link DeleteMemberCommandOutput}
  * @see {@link DeleteMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteMemberCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMemberCommandOutput> {
     return deserializeAws_restJson1DeleteMemberCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDocumentsCommand}.
  */
 export interface ListDocumentsCommandInput extends ListDocumentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDocumentsCommand}.
  */
 export interface ListDocumentsCommandOutput extends ListDocumentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all Systems Manager (SSM) documents in the current Amazon Web Services account and Amazon Web Services Region. You can
  *    limit the results of this request by using a filter.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentsCommandInput - {@link ListDocumentsCommandInput}
+ * @returns {@link ListDocumentsCommandOutput}
  * @see {@link ListDocumentsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListDocumentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListDocumentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDocumentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentsCommandOutput> {
     return deserializeAws_json1_1ListDocumentsCommand(output, context);
   }

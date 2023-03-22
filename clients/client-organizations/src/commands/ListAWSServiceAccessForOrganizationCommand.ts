@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAWSServiceAccessForOrganizationCommand}.
  */
 export interface ListAWSServiceAccessForOrganizationCommandInput extends ListAWSServiceAccessForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAWSServiceAccessForOrganizationCommand}.
  */
 export interface ListAWSServiceAccessForOrganizationCommandOutput
@@ -37,6 +41,7 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Amazon Web Services services that you enabled to integrate with your
  *             organization. After a service on this list creates the resources that it requires for
  *             the integration, it can perform operations on your organization and its accounts.</p>
@@ -56,6 +61,8 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAWSServiceAccessForOrganizationCommandInput - {@link ListAWSServiceAccessForOrganizationCommandInput}
+ * @returns {@link ListAWSServiceAccessForOrganizationCommandOutput}
  * @see {@link ListAWSServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListAWSServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -405,6 +412,9 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAWSServiceAccessForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -444,6 +454,9 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAWSServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
@@ -451,6 +464,9 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     return serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

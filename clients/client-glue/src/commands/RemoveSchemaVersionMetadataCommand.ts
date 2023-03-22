@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveSchemaVersionMetadataCommand}.
  */
 export interface RemoveSchemaVersionMetadataCommandInput extends RemoveSchemaVersionMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveSchemaVersionMetadataCommand}.
  */
 export interface RemoveSchemaVersionMetadataCommandOutput
@@ -37,6 +41,7 @@ export interface RemoveSchemaVersionMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveSchemaVersionMetadataCommandInput - {@link RemoveSchemaVersionMetadataCommandInput}
+ * @returns {@link RemoveSchemaVersionMetadataCommandOutput}
  * @see {@link RemoveSchemaVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link RemoveSchemaVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -80,6 +87,9 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveSchemaVersionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveSchemaVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveSchemaVersionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

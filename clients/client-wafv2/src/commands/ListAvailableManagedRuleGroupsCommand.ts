@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableManagedRuleGroupsCommand}.
  */
 export interface ListAvailableManagedRuleGroupsCommandInput extends ListAvailableManagedRuleGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableManagedRuleGroupsCommand}.
  */
 export interface ListAvailableManagedRuleGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of managed rule groups that are available for you to use. This list
  *          includes all Amazon Web Services Managed Rules rule groups and all of the Amazon Web Services Marketplace managed rule groups that you're
  *          subscribed to.</p>
@@ -50,6 +55,8 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableManagedRuleGroupsCommandInput - {@link ListAvailableManagedRuleGroupsCommandInput}
+ * @returns {@link ListAvailableManagedRuleGroupsCommandOutput}
  * @see {@link ListAvailableManagedRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableManagedRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -101,6 +108,9 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableManagedRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailableManagedRuleGroupsCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
     return serializeAws_json1_1ListAvailableManagedRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

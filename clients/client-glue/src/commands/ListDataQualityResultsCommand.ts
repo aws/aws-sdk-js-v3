@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataQualityResultsCommand}.
  */
 export interface ListDataQualityResultsCommandInput extends ListDataQualityResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataQualityResultsCommand}.
  */
 export interface ListDataQualityResultsCommandOutput extends ListDataQualityResultsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all data quality execution results for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataQualityResultsCommandInput - {@link ListDataQualityResultsCommandInput}
+ * @returns {@link ListDataQualityResultsCommandOutput}
  * @see {@link ListDataQualityResultsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityResultsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListDataQualityResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataQualityResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListDataQualityResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataQualityResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDataQualityResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataQualityResultsCommandOutput> {
     return deserializeAws_json1_1ListDataQualityResultsCommand(output, context);
   }

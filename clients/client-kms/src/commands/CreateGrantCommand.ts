@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGrantCommand}.
  */
 export interface CreateGrantCommandInput extends CreateGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGrantCommand}.
  */
 export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a grant to a KMS key. </p>
  *          <p>A <i>grant</i> is a policy instrument that allows Amazon Web Services principals to use
  *       KMS keys in cryptographic operations. It also can allow them to view a KMS key (<a>DescribeKey</a>) and create and manage grants. When authorizing access to a KMS key,
@@ -107,6 +112,8 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGrantCommandInput - {@link CreateGrantCommandInput}
+ * @returns {@link CreateGrantCommandOutput}
  * @see {@link CreateGrantCommandInput} for command's `input` shape.
  * @see {@link CreateGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -196,6 +203,9 @@ export class CreateGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -233,10 +243,16 @@ export class CreateGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGrantCommandOutput> {
     return deserializeAws_json1_1CreateGrantCommand(output, context);
   }

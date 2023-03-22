@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePlaceIndexCommand}.
  */
 export interface UpdatePlaceIndexCommandInput extends UpdatePlaceIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePlaceIndexCommand}.
  */
 export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified properties of a given place index resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePlaceIndexCommandInput - {@link UpdatePlaceIndexCommandInput}
+ * @returns {@link UpdatePlaceIndexCommandOutput}
  * @see {@link UpdatePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link UpdatePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdatePlaceIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePlaceIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdatePlaceIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePlaceIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePlaceIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePlaceIndexCommandOutput> {
     return deserializeAws_restJson1UpdatePlaceIndexCommand(output, context);
   }

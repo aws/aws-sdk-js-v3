@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrafficMirrorFilterCommand}.
  */
 export interface DeleteTrafficMirrorFilterCommandInput extends DeleteTrafficMirrorFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrafficMirrorFilterCommand}.
  */
 export interface DeleteTrafficMirrorFilterCommandOutput extends DeleteTrafficMirrorFilterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Traffic Mirror filter.</p>
  *          <p>You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTrafficMirrorFilterCommandOutput extends DeleteTrafficMir
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrafficMirrorFilterCommandInput - {@link DeleteTrafficMirrorFilterCommandInput}
+ * @returns {@link DeleteTrafficMirrorFilterCommandOutput}
  * @see {@link DeleteTrafficMirrorFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficMirrorFilterCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteTrafficMirrorFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrafficMirrorFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteTrafficMirrorFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrafficMirrorFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteTrafficMirrorFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

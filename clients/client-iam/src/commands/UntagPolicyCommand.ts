@@ -18,15 +18,20 @@ import { UntagPolicyRequest, UntagPolicyRequestFilterSensitiveLog } from "../mod
 import { deserializeAws_queryUntagPolicyCommand, serializeAws_queryUntagPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagPolicyCommand}.
  */
 export interface UntagPolicyCommandInput extends UntagPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagPolicyCommand}.
  */
 export interface UntagPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the customer managed policy. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  * @example
@@ -39,6 +44,8 @@ export interface UntagPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagPolicyCommandInput - {@link UntagPolicyCommandInput}
+ * @returns {@link UntagPolicyCommandOutput}
  * @see {@link UntagPolicyCommandInput} for command's `input` shape.
  * @see {@link UntagPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -78,6 +85,9 @@ export class UntagPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UntagPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagPolicyCommandOutput> {
     return deserializeAws_queryUntagPolicyCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFlywheelIterationHistoryCommand}.
  */
 export interface ListFlywheelIterationHistoryCommandInput extends ListFlywheelIterationHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFlywheelIterationHistoryCommand}.
  */
 export interface ListFlywheelIterationHistoryCommandOutput
@@ -37,6 +41,7 @@ export interface ListFlywheelIterationHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about the history of a flywheel iteration.
  *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface ListFlywheelIterationHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFlywheelIterationHistoryCommandInput - {@link ListFlywheelIterationHistoryCommandInput}
+ * @returns {@link ListFlywheelIterationHistoryCommandOutput}
  * @see {@link ListFlywheelIterationHistoryCommandInput} for command's `input` shape.
  * @see {@link ListFlywheelIterationHistoryCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListFlywheelIterationHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFlywheelIterationHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListFlywheelIterationHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFlywheelIterationHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFlywheelIterationHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

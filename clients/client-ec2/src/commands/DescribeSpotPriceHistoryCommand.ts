@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpotPriceHistoryCommand}.
  */
 export interface DescribeSpotPriceHistoryCommandInput extends DescribeSpotPriceHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpotPriceHistoryCommand}.
  */
 export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPriceHistoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Spot price history. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot Instance pricing history</a> in the
  *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  *          <p>When you specify a start and end time, the operation returns the prices of the
@@ -50,6 +55,8 @@ export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPrice
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotPriceHistoryCommandInput - {@link DescribeSpotPriceHistoryCommandInput}
+ * @returns {@link DescribeSpotPriceHistoryCommandOutput}
  * @see {@link DescribeSpotPriceHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotPriceHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -111,6 +118,9 @@ export class DescribeSpotPriceHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotPriceHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DescribeSpotPriceHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpotPriceHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSpotPriceHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpotPriceHistoryCommandOutput> {
     return deserializeAws_ec2DescribeSpotPriceHistoryCommand(output, context);
   }

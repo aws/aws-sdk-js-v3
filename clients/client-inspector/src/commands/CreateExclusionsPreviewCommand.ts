@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExclusionsPreviewCommand}.
  */
 export interface CreateExclusionsPreviewCommandInput extends CreateExclusionsPreviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExclusionsPreviewCommand}.
  */
 export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPreviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the generation of an exclusions preview for the specified assessment template.
  *          The exclusions preview lists the potential exclusions (ExclusionPreview) that Inspector can
  *          detect before it runs the assessment. </p>
@@ -48,6 +53,8 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExclusionsPreviewCommandInput - {@link CreateExclusionsPreviewCommandInput}
+ * @returns {@link CreateExclusionsPreviewCommandOutput}
  * @see {@link CreateExclusionsPreviewCommandInput} for command's `input` shape.
  * @see {@link CreateExclusionsPreviewCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateExclusionsPreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExclusionsPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateExclusionsPreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExclusionsPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateExclusionsPreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExclusionsPreviewCommandOutput> {
     return deserializeAws_json1_1CreateExclusionsPreviewCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteKeyCommand}.
  */
 export interface DeleteKeyCommandInput extends DeleteKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteKeyCommand}.
  */
 export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified API key. The API key must have been deactivated more than
  *             90 days previously.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKeyCommandInput - {@link DeleteKeyCommandInput}
+ * @returns {@link DeleteKeyCommandOutput}
  * @see {@link DeleteKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyCommandOutput> {
     return deserializeAws_restJson1DeleteKeyCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateStepCommand}.
  */
 export interface GetTemplateStepCommandInput extends GetTemplateStepRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateStepCommand}.
  */
 export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a specific step in a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateStepCommandInput - {@link GetTemplateStepCommandInput}
+ * @returns {@link GetTemplateStepCommandOutput}
  * @see {@link GetTemplateStepCommandInput} for command's `input` shape.
  * @see {@link GetTemplateStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetTemplateStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetTemplateStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTemplateStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateStepCommandOutput> {
     return deserializeAws_restJson1GetTemplateStepCommand(output, context);
   }

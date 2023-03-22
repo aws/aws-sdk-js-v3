@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeactivateTypeCommand}.
  */
 export interface DeactivateTypeCommandInput extends DeactivateTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeactivateTypeCommand}.
  */
 export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates a public extension that was previously activated in this account and
  *          region.</p>
  *          <p>Once deactivated, an extension can't be used in any CloudFormation operation.
@@ -51,6 +56,8 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeactivateTypeCommandInput - {@link DeactivateTypeCommandInput}
+ * @returns {@link DeactivateTypeCommandOutput}
  * @see {@link DeactivateTypeCommandInput} for command's `input` shape.
  * @see {@link DeactivateTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeactivateTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeactivateTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeactivateTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeactivateTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeactivateTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateTypeCommandOutput> {
     return deserializeAws_queryDeactivateTypeCommand(output, context);
   }

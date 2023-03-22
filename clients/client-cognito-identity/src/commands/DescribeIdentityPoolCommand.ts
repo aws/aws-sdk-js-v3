@@ -27,15 +27,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIdentityPoolCommand}.
  */
 export interface DescribeIdentityPoolCommandInput extends DescribeIdentityPoolInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIdentityPoolCommand}.
  */
 export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a particular identity pool, including the pool name, ID
  *          description, creation date, and current number of users.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -49,6 +54,8 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdentityPoolCommandInput - {@link DescribeIdentityPoolCommandInput}
+ * @returns {@link DescribeIdentityPoolCommandOutput}
  * @see {@link DescribeIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeIdentityPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdentityPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeIdentityPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIdentityPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeIdentityPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityPoolCommandOutput> {
     return deserializeAws_json1_1DescribeIdentityPoolCommand(output, context);
   }

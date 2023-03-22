@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRepositoryCommand}.
  */
 export interface UpdateRepositoryCommandInput extends UpdateRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRepositoryCommand}.
  */
 export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Update the properties of a repository.
  *        </p>
@@ -48,6 +53,8 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRepositoryCommandInput - {@link UpdateRepositoryCommandInput}
+ * @returns {@link UpdateRepositoryCommandOutput}
  * @see {@link UpdateRepositoryCommandInput} for command's `input` shape.
  * @see {@link UpdateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -104,6 +111,9 @@ export class UpdateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class UpdateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRepositoryCommandOutput> {
     return deserializeAws_restJson1UpdateRepositoryCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessTokensCommand}.
  */
 export interface ListAccessTokensCommandInput extends ListAccessTokensRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessTokensCommand}.
  */
 export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all personal access tokens (PATs) associated with the user who calls the API. You can only list PATs associated with your user account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessTokensCommandInput - {@link ListAccessTokensCommandInput}
+ * @returns {@link ListAccessTokensCommandOutput}
  * @see {@link ListAccessTokensCommandInput} for command's `input` shape.
  * @see {@link ListAccessTokensCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListAccessTokensCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessTokensCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListAccessTokensCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessTokensCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAccessTokensCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessTokensCommandOutput> {
     return deserializeAws_restJson1ListAccessTokensCommand(output, context);
   }

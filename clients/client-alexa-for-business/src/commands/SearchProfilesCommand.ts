@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchProfilesCommand}.
  */
 export interface SearchProfilesCommandInput extends SearchProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchProfilesCommand}.
  */
 export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches room profiles and lists the ones that meet a set of filter
  *          criteria.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchProfilesCommandInput - {@link SearchProfilesCommandInput}
+ * @returns {@link SearchProfilesCommandOutput}
  * @see {@link SearchProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchProfilesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -70,6 +77,9 @@ export class SearchProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class SearchProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchProfilesCommandOutput> {
     return deserializeAws_json1_1SearchProfilesCommand(output, context);
   }

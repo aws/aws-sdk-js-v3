@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteScheduledActionCommand}.
  */
 export interface BatchDeleteScheduledActionCommandInput extends BatchDeleteScheduledActionType {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteScheduledActionCommand}.
  */
 export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteScheduledActionAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more scheduled actions for the specified Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteScheduledActionCommandInput - {@link BatchDeleteScheduledActionCommandInput}
+ * @returns {@link BatchDeleteScheduledActionCommandOutput}
  * @see {@link BatchDeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -73,6 +80,9 @@ export class BatchDeleteScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class BatchDeleteScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryBatchDeleteScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

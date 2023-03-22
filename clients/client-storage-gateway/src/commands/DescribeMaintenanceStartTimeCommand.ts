@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceStartTimeCommand}.
  */
 export interface DescribeMaintenanceStartTimeCommandInput extends DescribeMaintenanceStartTimeInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceStartTimeCommand}.
  */
 export interface DescribeMaintenanceStartTimeCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeMaintenanceStartTimeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns your gateway's weekly maintenance start time including the day and time of
  *          the week. Note that values are in terms of the gateway's time zone.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceStartTimeCommandInput - {@link DescribeMaintenanceStartTimeCommandInput}
+ * @returns {@link DescribeMaintenanceStartTimeCommandOutput}
  * @see {@link DescribeMaintenanceStartTimeCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceStartTimeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -100,6 +107,9 @@ export class DescribeMaintenanceStartTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceStartTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DescribeMaintenanceStartTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMaintenanceStartTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMaintenanceStartTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppInstanceAdminCommand}.
  */
 export interface DeleteAppInstanceAdminCommandInput extends DeleteAppInstanceAdminRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppInstanceAdminCommand}.
  */
 export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action
  *          does not delete the user.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppInstanceAdminCommandInput - {@link DeleteAppInstanceAdminCommandInput}
+ * @returns {@link DeleteAppInstanceAdminCommandOutput}
  * @see {@link DeleteAppInstanceAdminCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInstanceAdminCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteAppInstanceAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppInstanceAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteAppInstanceAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppInstanceAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAppInstanceAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppInstanceAdminCommandOutput> {
     return deserializeAws_restJson1DeleteAppInstanceAdminCommand(output, context);
   }

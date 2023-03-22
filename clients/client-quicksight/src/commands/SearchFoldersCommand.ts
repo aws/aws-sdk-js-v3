@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchFoldersCommand}.
  */
 export interface SearchFoldersCommandInput extends SearchFoldersRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchFoldersCommand}.
  */
 export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches the subfolders in a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFoldersCommandInput - {@link SearchFoldersCommandInput}
+ * @returns {@link SearchFoldersCommandOutput}
  * @see {@link SearchFoldersCommandInput} for command's `input` shape.
  * @see {@link SearchFoldersCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -99,6 +106,9 @@ export class SearchFoldersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFoldersCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class SearchFoldersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFoldersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchFoldersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFoldersCommandOutput> {
     return deserializeAws_restJson1SearchFoldersCommand(output, context);
   }

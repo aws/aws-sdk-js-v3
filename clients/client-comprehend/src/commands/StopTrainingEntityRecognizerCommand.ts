@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopTrainingEntityRecognizerCommand}.
  */
 export interface StopTrainingEntityRecognizerCommandInput extends StopTrainingEntityRecognizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopTrainingEntityRecognizerCommand}.
  */
 export interface StopTrainingEntityRecognizerCommandOutput
@@ -37,6 +41,7 @@ export interface StopTrainingEntityRecognizerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an entity recognizer training job while in progress.</p>
  *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
  *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
@@ -53,6 +58,8 @@ export interface StopTrainingEntityRecognizerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTrainingEntityRecognizerCommandInput - {@link StopTrainingEntityRecognizerCommandInput}
+ * @returns {@link StopTrainingEntityRecognizerCommandOutput}
  * @see {@link StopTrainingEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link StopTrainingEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -88,6 +95,9 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTrainingEntityRecognizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTrainingEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopTrainingEntityRecognizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

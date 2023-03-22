@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelSimulationJobBatchCommand}.
  */
 export interface CancelSimulationJobBatchCommandInput extends CancelSimulationJobBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelSimulationJobBatchCommand}.
  */
 export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJobBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a simulation job batch. When you cancel a simulation job batch, you are also
  *          cancelling all of the active simulation jobs created as part of the batch. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJ
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelSimulationJobBatchCommandInput - {@link CancelSimulationJobBatchCommandInput}
+ * @returns {@link CancelSimulationJobBatchCommandOutput}
  * @see {@link CancelSimulationJobBatchCommandInput} for command's `input` shape.
  * @see {@link CancelSimulationJobBatchCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -83,6 +90,9 @@ export class CancelSimulationJobBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelSimulationJobBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CancelSimulationJobBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelSimulationJobBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelSimulationJobBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSimulationJobBatchCommandOutput> {
     return deserializeAws_restJson1CancelSimulationJobBatchCommand(output, context);
   }

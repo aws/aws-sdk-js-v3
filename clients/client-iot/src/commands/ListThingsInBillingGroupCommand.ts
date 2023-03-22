@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThingsInBillingGroupCommand}.
  */
 export interface ListThingsInBillingGroupCommandInput extends ListThingsInBillingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThingsInBillingGroupCommand}.
  */
 export interface ListThingsInBillingGroupCommandOutput extends ListThingsInBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the things you have added to the given billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInBillingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListThingsInBillingGroupCommandOutput extends ListThingsInBilli
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThingsInBillingGroupCommandInput - {@link ListThingsInBillingGroupCommandInput}
+ * @returns {@link ListThingsInBillingGroupCommandOutput}
  * @see {@link ListThingsInBillingGroupCommandInput} for command's `input` shape.
  * @see {@link ListThingsInBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListThingsInBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThingsInBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListThingsInBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThingsInBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListThingsInBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingsInBillingGroupCommandOutput> {
     return deserializeAws_restJson1ListThingsInBillingGroupCommand(output, context);
   }

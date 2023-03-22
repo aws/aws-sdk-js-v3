@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetTriggersCommand}.
  */
 export interface BatchGetTriggersCommandInput extends BatchGetTriggersRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetTriggersCommand}.
  */
 export interface BatchGetTriggersCommandOutput extends BatchGetTriggersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of resource metadata for a given list of trigger names. After calling the <code>ListTriggers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetTriggersCommandOutput extends BatchGetTriggersResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetTriggersCommandInput - {@link BatchGetTriggersCommandInput}
+ * @returns {@link BatchGetTriggersCommandOutput}
  * @see {@link BatchGetTriggersCommandInput} for command's `input` shape.
  * @see {@link BatchGetTriggersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class BatchGetTriggersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class BatchGetTriggersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetTriggersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetTriggersCommandOutput> {
     return deserializeAws_json1_1BatchGetTriggersCommand(output, context);
   }

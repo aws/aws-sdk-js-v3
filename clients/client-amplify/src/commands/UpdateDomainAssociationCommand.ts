@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainAssociationCommand}.
  */
 export interface UpdateDomainAssociationCommandInput extends UpdateDomainAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainAssociationCommand}.
  */
 export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new domain association for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainAssociationCommandInput - {@link UpdateDomainAssociationCommandInput}
+ * @returns {@link UpdateDomainAssociationCommandOutput}
  * @see {@link UpdateDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateDomainAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateDomainAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDomainAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainAssociationCommandOutput> {
     return deserializeAws_restJson1UpdateDomainAssociationCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountSendingEnabledCommand}.
  */
 export interface GetAccountSendingEnabledCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountSendingEnabledCommand}.
  */
 export interface GetAccountSendingEnabledCommandOutput extends GetAccountSendingEnabledResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the email sending status of the Amazon SES account for the current region.</p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -45,6 +50,8 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountSendingEnabledCommandInput - {@link GetAccountSendingEnabledCommandInput}
+ * @returns {@link GetAccountSendingEnabledCommandOutput}
  * @see {@link GetAccountSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link GetAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetAccountSendingEnabledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountSendingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetAccountSendingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountSendingEnabledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetAccountSendingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSendingEnabledCommandOutput> {
     return deserializeAws_queryGetAccountSendingEnabledCommand(output, context);
   }

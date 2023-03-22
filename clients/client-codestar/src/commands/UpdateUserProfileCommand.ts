@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserProfileCommand}.
  */
 export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserProfileCommand}.
  */
 export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a user's profile in AWS CodeStar. The user profile is not project-specific.
  *       Information in the user profile is displayed wherever the user's information appears to other
  *       users in AWS CodeStar. </p>
@@ -48,6 +53,8 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
+ * @returns {@link UpdateUserProfileCommandOutput}
  * @see {@link UpdateUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -77,6 +84,9 @@ export class UpdateUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserProfileCommandOutput> {
     return deserializeAws_json1_1UpdateUserProfileCommand(output, context);
   }

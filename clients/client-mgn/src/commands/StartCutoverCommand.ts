@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCutoverCommand}.
  */
 export interface StartCutoverCommandInput extends StartCutoverRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCutoverCommand}.
  */
 export interface StartCutoverCommandOutput extends StartCutoverResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches a Cutover Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartCutover and changes the SourceServer.lifeCycle.state property to CUTTING_OVER.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCutoverCommandInput - {@link StartCutoverCommandInput}
+ * @returns {@link StartCutoverCommandOutput}
  * @see {@link StartCutoverCommandInput} for command's `input` shape.
  * @see {@link StartCutoverCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class StartCutoverCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCutoverCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class StartCutoverCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCutoverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartCutoverCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCutoverCommandOutput> {
     return deserializeAws_restJson1StartCutoverCommand(output, context);
   }

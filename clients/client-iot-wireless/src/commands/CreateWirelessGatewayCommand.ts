@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWirelessGatewayCommand}.
  */
 export interface CreateWirelessGatewayCommandInput extends CreateWirelessGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWirelessGatewayCommand}.
  */
 export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWirelessGatewayCommandInput - {@link CreateWirelessGatewayCommandInput}
+ * @returns {@link CreateWirelessGatewayCommandOutput}
  * @see {@link CreateWirelessGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateWirelessGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateWirelessGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWirelessGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateWirelessGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWirelessGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWirelessGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWirelessGatewayCommandOutput> {
     return deserializeAws_restJson1CreateWirelessGatewayCommand(output, context);
   }

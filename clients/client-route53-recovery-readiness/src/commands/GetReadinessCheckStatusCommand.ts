@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReadinessCheckStatusCommand}.
  */
 export interface GetReadinessCheckStatusCommandInput extends GetReadinessCheckStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReadinessCheckStatusCommand}.
  */
 export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the readiness status for an individual readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in a recovery group, use GetRecoveryGroupReadinessSummary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckS
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadinessCheckStatusCommandInput - {@link GetReadinessCheckStatusCommandInput}
+ * @returns {@link GetReadinessCheckStatusCommandOutput}
  * @see {@link GetReadinessCheckStatusCommandInput} for command's `input` shape.
  * @see {@link GetReadinessCheckStatusCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetReadinessCheckStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadinessCheckStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetReadinessCheckStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReadinessCheckStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetReadinessCheckStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadinessCheckStatusCommandOutput> {
     return deserializeAws_restJson1GetReadinessCheckStatusCommand(output, context);
   }

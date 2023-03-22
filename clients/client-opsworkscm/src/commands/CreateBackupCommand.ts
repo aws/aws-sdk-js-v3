@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackupCommand}.
  */
 export interface CreateBackupCommandInput extends CreateBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackupCommand}.
  */
 export interface CreateBackupCommandOutput extends CreateBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates an application-level backup of a server. While the
  *       server is in the <code>BACKING_UP</code> state, the server cannot be
@@ -63,6 +68,8 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
+ * @returns {@link CreateBackupCommandOutput}
  * @see {@link CreateBackupCommandInput} for command's `input` shape.
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupCommandOutput> {
     return deserializeAws_json1_1CreateBackupCommand(output, context);
   }

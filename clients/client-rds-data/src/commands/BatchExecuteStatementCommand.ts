@@ -26,15 +26,20 @@ import {
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs a batch SQL statement over an array of data.</p>
  *         <p>You can run bulk update and insert operations for multiple records using a DML
  *             statement with different parameter sets. Bulk operations can provide a significant
@@ -59,6 +64,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchExecuteStatementCommandInput - {@link BatchExecuteStatementCommandInput}
+ * @returns {@link BatchExecuteStatementCommandOutput}
  * @see {@link BatchExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
@@ -101,6 +108,9 @@ export class BatchExecuteStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class BatchExecuteStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchExecuteStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchExecuteStatementCommandOutput> {
     return deserializeAws_restJson1BatchExecuteStatementCommand(output, context);
   }

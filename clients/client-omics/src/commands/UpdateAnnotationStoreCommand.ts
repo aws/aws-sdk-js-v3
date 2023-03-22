@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAnnotationStoreCommand}.
  */
 export interface UpdateAnnotationStoreCommandInput extends UpdateAnnotationStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAnnotationStoreCommand}.
  */
 export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an annotation store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStor
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAnnotationStoreCommandInput - {@link UpdateAnnotationStoreCommandInput}
+ * @returns {@link UpdateAnnotationStoreCommandOutput}
  * @see {@link UpdateAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateAnnotationStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAnnotationStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateAnnotationStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAnnotationStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAnnotationStoreCommandOutput> {
     return deserializeAws_restJson1UpdateAnnotationStoreCommand(output, context);
   }

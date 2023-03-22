@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateElasticIpCommand}.
  */
 export interface UpdateElasticIpCommandInput extends UpdateElasticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateElasticIpCommand}.
  */
 export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a registered Elastic IP address's name. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -46,6 +51,8 @@ export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateElasticIpCommandInput - {@link UpdateElasticIpCommandInput}
+ * @returns {@link UpdateElasticIpCommandOutput}
  * @see {@link UpdateElasticIpCommandInput} for command's `input` shape.
  * @see {@link UpdateElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateElasticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateElasticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdateElasticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateElasticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateElasticIpCommandOutput> {
     return deserializeAws_json1_1UpdateElasticIpCommand(output, context);
   }

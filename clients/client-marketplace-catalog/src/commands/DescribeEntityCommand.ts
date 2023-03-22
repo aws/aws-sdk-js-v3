@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEntityCommand}.
  */
 export interface DescribeEntityCommandInput extends DescribeEntityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEntityCommand}.
  */
 export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the metadata and content of the entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntityCommandInput - {@link DescribeEntityCommandInput}
+ * @returns {@link DescribeEntityCommandOutput}
  * @see {@link DescribeEntityCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeEntityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntityCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeEntityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeEntityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityCommandOutput> {
     return deserializeAws_restJson1DescribeEntityCommand(output, context);
   }

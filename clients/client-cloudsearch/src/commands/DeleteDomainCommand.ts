@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryDeleteDomainCommand, serializeAws_queryDeleteDomainCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainCommand}.
  */
 export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainCommand}.
  */
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html" target="_blank">Deleting a Search  Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
  * @example
@@ -44,6 +49,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
+ * @returns {@link DeleteDomainCommandOutput}
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
     return deserializeAws_queryDeleteDomainCommand(output, context);
   }

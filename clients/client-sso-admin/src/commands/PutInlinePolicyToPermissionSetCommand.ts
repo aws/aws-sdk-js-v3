@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutInlinePolicyToPermissionSetCommand}.
  */
 export interface PutInlinePolicyToPermissionSetCommandInput extends PutInlinePolicyToPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutInlinePolicyToPermissionSetCommand}.
  */
 export interface PutInlinePolicyToPermissionSetCommandOutput
@@ -37,6 +41,7 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an inline policy to a permission set.</p>
  *          <note>
  *             <p>If the permission set is already referenced by one or more account assignments, you will
@@ -55,6 +60,8 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInlinePolicyToPermissionSetCommandInput - {@link PutInlinePolicyToPermissionSetCommandInput}
+ * @returns {@link PutInlinePolicyToPermissionSetCommandOutput}
  * @see {@link PutInlinePolicyToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link PutInlinePolicyToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -105,6 +112,9 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInlinePolicyToPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutInlinePolicyToPermissionSetCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
     return serializeAws_json1_1PutInlinePolicyToPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

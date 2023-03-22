@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppCommand}.
  */
 export interface CreateAppCommandInput extends CreateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppCommand}.
  */
 export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppCommandInput - {@link CreateAppCommandInput}
+ * @returns {@link CreateAppCommandOutput}
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppCommandOutput> {
     return deserializeAws_restJson1CreateAppCommand(output, context);
   }

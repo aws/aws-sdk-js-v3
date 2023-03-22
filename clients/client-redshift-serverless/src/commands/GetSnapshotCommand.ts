@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSnapshotCommand}.
  */
 export interface GetSnapshotCommandInput extends GetSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSnapshotCommand}.
  */
 export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSnapshotCommandInput - {@link GetSnapshotCommandInput}
+ * @returns {@link GetSnapshotCommandOutput}
  * @see {@link GetSnapshotCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotCommandOutput> {
     return deserializeAws_json1_1GetSnapshotCommand(output, context);
   }

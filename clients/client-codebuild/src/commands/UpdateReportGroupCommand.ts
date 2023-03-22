@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReportGroupCommand}.
  */
 export interface UpdateReportGroupCommandInput extends UpdateReportGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReportGroupCommand}.
  */
 export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates a report group.
  *     </p>
@@ -48,6 +53,8 @@ export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReportGroupCommandInput - {@link UpdateReportGroupCommandInput}
+ * @returns {@link UpdateReportGroupCommandOutput}
  * @see {@link UpdateReportGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateReportGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -77,6 +84,9 @@ export class UpdateReportGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReportGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateReportGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReportGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateReportGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReportGroupCommandOutput> {
     return deserializeAws_json1_1UpdateReportGroupCommand(output, context);
   }

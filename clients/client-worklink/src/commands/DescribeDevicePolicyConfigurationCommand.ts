@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDevicePolicyConfigurationCommand}.
  */
 export interface DescribeDevicePolicyConfigurationCommandInput extends DescribeDevicePolicyConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDevicePolicyConfigurationCommand}.
  */
 export interface DescribeDevicePolicyConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes the device policy configuration for the specified fleet.</p>
@@ -50,6 +55,8 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDevicePolicyConfigurationCommandInput - {@link DescribeDevicePolicyConfigurationCommandInput}
+ * @returns {@link DescribeDevicePolicyConfigurationCommandOutput}
  * @see {@link DescribeDevicePolicyConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDevicePolicyConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDevicePolicyConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDevicePolicyConfigurationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeDevicePolicyConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

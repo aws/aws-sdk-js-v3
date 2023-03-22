@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobTemplateCommand}.
  */
 export interface DescribeJobTemplateCommandInput extends DescribeJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobTemplateCommand}.
  */
 export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays detailed information about a specified job template. Job template stores values
  *          of StartJobRun API request in a template and can be used to start a job run. Job template
  *          allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
@@ -49,6 +54,8 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobTemplateCommandInput - {@link DescribeJobTemplateCommandInput}
+ * @returns {@link DescribeJobTemplateCommandOutput}
  * @see {@link DescribeJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobTemplateCommandOutput> {
     return deserializeAws_restJson1DescribeJobTemplateCommand(output, context);
   }

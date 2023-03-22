@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceConnectorTerminationCommand}.
  */
 export interface DeleteVoiceConnectorTerminationCommandInput extends DeleteVoiceConnectorTerminationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceConnectorTerminationCommand}.
  */
 export interface DeleteVoiceConnectorTerminationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the termination settings for the specified Amazon Chime Voice Connector.</p>
  *
  *          <note>
@@ -48,6 +53,8 @@ export interface DeleteVoiceConnectorTerminationCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceConnectorTerminationCommandInput - {@link DeleteVoiceConnectorTerminationCommandInput}
+ * @returns {@link DeleteVoiceConnectorTerminationCommandOutput}
  * @see {@link DeleteVoiceConnectorTerminationCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorTerminationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteVoiceConnectorTerminationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceConnectorTerminationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DeleteVoiceConnectorTerminationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVoiceConnectorTerminationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DeleteVoiceConnectorTerminationCommand extends $Command<
     return serializeAws_restJson1DeleteVoiceConnectorTerminationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

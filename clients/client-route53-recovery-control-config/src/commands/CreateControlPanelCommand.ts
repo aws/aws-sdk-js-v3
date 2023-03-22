@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateControlPanelCommand}.
  */
 export interface CreateControlPanelCommandInput extends CreateControlPanelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateControlPanelCommand}.
  */
 export interface CreateControlPanelCommandOutput extends CreateControlPanelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new control panel. A control panel represents a group of routing controls that can be changed together in a single transaction. You can use a control panel to centrally view the operational status of applications across your organization, and trigger multi-app failovers in a single transaction, for example, to fail over an Availability Zone or Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateControlPanelCommandInput - {@link CreateControlPanelCommandInput}
+ * @returns {@link CreateControlPanelCommandOutput}
  * @see {@link CreateControlPanelCommandInput} for command's `input` shape.
  * @see {@link CreateControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateControlPanelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateControlPanelCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateControlPanelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateControlPanelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateControlPanelCommandOutput> {
     return deserializeAws_restJson1CreateControlPanelCommand(output, context);
   }

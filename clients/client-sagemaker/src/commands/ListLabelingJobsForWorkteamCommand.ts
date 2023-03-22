@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLabelingJobsForWorkteamCommand}.
  */
 export interface ListLabelingJobsForWorkteamCommandInput extends ListLabelingJobsForWorkteamRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLabelingJobsForWorkteamCommand}.
  */
 export interface ListLabelingJobsForWorkteamCommandOutput
@@ -37,6 +41,7 @@ export interface ListLabelingJobsForWorkteamCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of labeling jobs assigned to a specified work team.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListLabelingJobsForWorkteamCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLabelingJobsForWorkteamCommandInput - {@link ListLabelingJobsForWorkteamCommandInput}
+ * @returns {@link ListLabelingJobsForWorkteamCommandOutput}
  * @see {@link ListLabelingJobsForWorkteamCommandInput} for command's `input` shape.
  * @see {@link ListLabelingJobsForWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLabelingJobsForWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLabelingJobsForWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLabelingJobsForWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBSnapshotCommand}.
  */
 export interface DeleteDBSnapshotCommandInput extends DeleteDBSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBSnapshotCommand}.
  */
 export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
  *             terminated.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBSnapshotCommandInput - {@link DeleteDBSnapshotCommandInput}
+ * @returns {@link DeleteDBSnapshotCommandOutput}
  * @see {@link DeleteDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteDBSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteDBSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSnapshotCommandOutput> {
     return deserializeAws_queryDeleteDBSnapshotCommand(output, context);
   }

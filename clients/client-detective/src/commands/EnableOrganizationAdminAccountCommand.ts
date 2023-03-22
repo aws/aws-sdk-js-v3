@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableOrganizationAdminAccountCommand}.
  */
 export interface EnableOrganizationAdminAccountCommandInput extends EnableOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableOrganizationAdminAccountCommand}.
  */
 export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Designates the Detective administrator account for the organization in the
  *          current Region.</p>
  *          <p>If the account does not have Detective enabled, then enables Detective
@@ -55,6 +60,8 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableOrganizationAdminAccountCommandInput - {@link EnableOrganizationAdminAccountCommandInput}
+ * @returns {@link EnableOrganizationAdminAccountCommandOutput}
  * @see {@link EnableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -92,6 +99,9 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableOrganizationAdminAccountCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     return serializeAws_restJson1EnableOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotebookCommand}.
  */
 export interface DeleteNotebookCommandInput extends DeleteNotebookInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotebookCommand}.
  */
 export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified notebook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotebookCommandInput - {@link DeleteNotebookCommandInput}
+ * @returns {@link DeleteNotebookCommandOutput}
  * @see {@link DeleteNotebookCommandInput} for command's `input` shape.
  * @see {@link DeleteNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteNotebookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotebookCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteNotebookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNotebookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteNotebookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotebookCommandOutput> {
     return deserializeAws_json1_1DeleteNotebookCommand(output, context);
   }

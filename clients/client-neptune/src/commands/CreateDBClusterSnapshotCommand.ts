@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBClusterSnapshotCommand}.
  */
 export interface CreateDBClusterSnapshotCommandInput extends CreateDBClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBClusterSnapshotCommand}.
  */
 export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of a DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterSnapshotCommandInput - {@link CreateDBClusterSnapshotCommandInput}
+ * @returns {@link CreateDBClusterSnapshotCommandOutput}
  * @see {@link CreateDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateDBClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateDBClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterSnapshotCommandOutput> {
     return deserializeAws_queryCreateDBClusterSnapshotCommand(output, context);
   }

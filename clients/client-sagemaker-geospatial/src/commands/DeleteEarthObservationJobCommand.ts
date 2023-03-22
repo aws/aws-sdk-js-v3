@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEarthObservationJobCommand}.
  */
 export interface DeleteEarthObservationJobCommandInput extends DeleteEarthObservationJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEarthObservationJobCommand}.
  */
 export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObservationJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to delete an Earth Observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObser
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEarthObservationJobCommandInput - {@link DeleteEarthObservationJobCommandInput}
+ * @returns {@link DeleteEarthObservationJobCommandOutput}
  * @see {@link DeleteEarthObservationJobCommandInput} for command's `input` shape.
  * @see {@link DeleteEarthObservationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteEarthObservationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEarthObservationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteEarthObservationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEarthObservationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEarthObservationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

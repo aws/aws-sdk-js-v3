@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateExperimentCommand}.
  */
 export interface UpdateExperimentCommandInput extends UpdateExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateExperimentCommand}.
  */
 export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Evidently experiment. </p>
  *          <p>Don't use this operation to update an experiment's tag. Instead, use
  *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
@@ -48,6 +53,8 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExperimentCommandInput - {@link UpdateExperimentCommandInput}
+ * @returns {@link UpdateExperimentCommandOutput}
  * @see {@link UpdateExperimentCommandInput} for command's `input` shape.
  * @see {@link UpdateExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExperimentCommandOutput> {
     return deserializeAws_restJson1UpdateExperimentCommand(output, context);
   }

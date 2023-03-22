@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectorCommand}.
  */
 export interface DeleteConnectorCommandInput extends DeleteConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectorCommand}.
  */
 export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectorCommandInput - {@link DeleteConnectorCommandInput}
+ * @returns {@link DeleteConnectorCommandOutput}
  * @see {@link DeleteConnectorCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectorCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectorCommandOutput> {
     return deserializeAws_restJson1DeleteConnectorCommand(output, context);
   }

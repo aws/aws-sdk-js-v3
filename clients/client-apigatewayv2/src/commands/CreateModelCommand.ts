@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelCommand}.
  */
 export interface CreateModelCommandInput extends CreateModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelCommand}.
  */
 export interface CreateModelCommandOutput extends CreateModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Model for an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelCommandInput - {@link CreateModelCommandInput}
+ * @returns {@link CreateModelCommandOutput}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +88,9 @@ export class CreateModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreateModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCommandOutput> {
     return deserializeAws_restJson1CreateModelCommand(output, context);
   }

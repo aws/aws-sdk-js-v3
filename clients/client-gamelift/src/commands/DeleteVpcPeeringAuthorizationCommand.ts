@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcPeeringAuthorizationCommand}.
  */
 export interface DeleteVpcPeeringAuthorizationCommandInput extends DeleteVpcPeeringAuthorizationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcPeeringAuthorizationCommand}.
  */
 export interface DeleteVpcPeeringAuthorizationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to
  *             delete an existing VPC peering connection, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html">DeleteVpcPeeringConnection</a>.</p>
  *          <p>
@@ -55,6 +60,8 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcPeeringAuthorizationCommandInput - {@link DeleteVpcPeeringAuthorizationCommandInput}
+ * @returns {@link DeleteVpcPeeringAuthorizationCommandOutput}
  * @see {@link DeleteVpcPeeringAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcPeeringAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcPeeringAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcPeeringAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

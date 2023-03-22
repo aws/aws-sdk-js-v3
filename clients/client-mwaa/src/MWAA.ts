@@ -55,6 +55,7 @@ import {
 import { MWAAClient } from "./MWAAClient";
 
 /**
+ * @public
  * <fullname>Amazon Managed Workflows for Apache Airflow</fullname>
  *          <p>This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API reference documentation. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html">What Is Amazon MWAA?</a>.</p>
  *          <p>
@@ -63,7 +64,7 @@ import { MWAAClient } from "./MWAAClient";
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>api.airflow.{region}.amazonaws.com</code> - This endpoint is used for environment management.</p>
+ *                   <code>api.airflow.\{region\}.amazonaws.com</code> - This endpoint is used for environment management.</p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -109,7 +110,7 @@ import { MWAAClient } from "./MWAAClient";
  *             </li>
  *             <li>
  *                <p>
- *                   <code>env.airflow.{region}.amazonaws.com</code> - This endpoint is used to operate the Airflow environment.</p>
+ *                   <code>env.airflow.\{region\}.amazonaws.com</code> - This endpoint is used to operate the Airflow environment.</p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -125,7 +126,7 @@ import { MWAAClient } from "./MWAAClient";
  *             </li>
  *             <li>
  *                <p>
- *                   <code>ops.airflow.{region}.amazonaws.com</code> - This endpoint is used to push environment metrics that track environment health.</p>
+ *                   <code>ops.airflow.\{region\}.amazonaws.com</code> - This endpoint is used to push environment metrics that track environment health.</p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -142,6 +143,7 @@ import { MWAAClient } from "./MWAAClient";
  */
 export class MWAA extends MWAAClient {
   /**
+   * @public
    * <p>Creates a CLI token for the Airflow CLI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html">Creating an Apache Airflow CLI token</a>.</p>
    */
   public createCliToken(
@@ -174,6 +176,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
    */
   public createEnvironment(
@@ -206,6 +209,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>Creates a web login token for the Airflow Web UI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html">Creating an Apache Airflow web login token</a>.</p>
    */
   public createWebLoginToken(
@@ -238,6 +242,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
    */
   public deleteEnvironment(
@@ -270,6 +275,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
    */
   public getEnvironment(
@@ -302,6 +308,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.</p>
    */
   public listEnvironments(
@@ -334,6 +341,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>Lists the key-value tag pairs associated to the Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>"Environment": "Staging"</code>. </p>
    */
   public listTagsForResource(
@@ -366,6 +374,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
    */
@@ -399,6 +408,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>Associates key-value tag pairs to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -425,6 +435,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>"Environment": "Staging"</code>.</p>
    */
   public untagResource(
@@ -457,6 +468,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
+   * @public
    * <p>Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
    */
   public updateEnvironment(

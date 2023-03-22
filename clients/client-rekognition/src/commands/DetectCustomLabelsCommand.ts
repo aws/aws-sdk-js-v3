@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectCustomLabelsCommand}.
  */
 export interface DetectCustomLabelsCommandInput extends DetectCustomLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectCustomLabelsCommand}.
  */
 export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
  *          <p>You specify which version of a model version to use by using the <code>ProjectVersionArn</code> input
  *       parameter. </p>
@@ -77,6 +82,8 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectCustomLabelsCommandInput - {@link DetectCustomLabelsCommandInput}
+ * @returns {@link DetectCustomLabelsCommandOutput}
  * @see {@link DetectCustomLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectCustomLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -142,6 +149,9 @@ export class DetectCustomLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectCustomLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class DetectCustomLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectCustomLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectCustomLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectCustomLabelsCommandOutput> {
     return deserializeAws_json1_1DetectCustomLabelsCommand(output, context);
   }

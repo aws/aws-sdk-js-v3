@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSipRulesCommand}.
  */
 export interface ListSipRulesCommandInput extends ListSipRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSipRulesCommand}.
  */
 export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the SIP rules under the administrator's AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSipRulesCommandInput - {@link ListSipRulesCommandInput}
+ * @returns {@link ListSipRulesCommandOutput}
  * @see {@link ListSipRulesCommandInput} for command's `input` shape.
  * @see {@link ListSipRulesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListSipRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSipRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListSipRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSipRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSipRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSipRulesCommandOutput> {
     return deserializeAws_restJson1ListSipRulesCommand(output, context);
   }

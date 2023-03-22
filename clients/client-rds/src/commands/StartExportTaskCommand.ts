@@ -22,15 +22,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartExportTaskCommand}.
  */
 export interface StartExportTaskCommandInput extends StartExportTaskMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartExportTaskCommand}.
  */
 export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an export of DB snapshot or DB cluster data to Amazon S3.
  *             The provided IAM role must have access to the S3 bucket.</p>
  *          <p>You can't export snapshot data from RDS Custom DB instances.</p>
@@ -53,6 +58,8 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExportTaskCommandInput - {@link StartExportTaskCommandInput}
+ * @returns {@link StartExportTaskCommandOutput}
  * @see {@link StartExportTaskCommandInput} for command's `input` shape.
  * @see {@link StartExportTaskCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -110,6 +117,9 @@ export class StartExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class StartExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStartExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExportTaskCommandOutput> {
     return deserializeAws_queryStartExportTaskCommand(output, context);
   }

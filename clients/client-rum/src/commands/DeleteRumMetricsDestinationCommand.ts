@@ -26,10 +26,14 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRumMetricsDestinationCommand}.
  */
 export interface DeleteRumMetricsDestinationCommandInput extends DeleteRumMetricsDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRumMetricsDestinationCommand}.
  */
 export interface DeleteRumMetricsDestinationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteRumMetricsDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops
  *          sending extended metrics to that destination.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteRumMetricsDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRumMetricsDestinationCommandInput - {@link DeleteRumMetricsDestinationCommandInput}
+ * @returns {@link DeleteRumMetricsDestinationCommandOutput}
  * @see {@link DeleteRumMetricsDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteRumMetricsDestinationCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteRumMetricsDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRumMetricsDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteRumMetricsDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRumMetricsDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRumMetricsDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link BacktrackDBClusterCommand}.
  */
 export interface BacktrackDBClusterCommandInput extends BacktrackDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link BacktrackDBClusterCommand}.
  */
 export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Backtracks a DB cluster to a specific time, without creating a new DB cluster.</p>
  *          <p>For more information on backtracking, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
@@ -53,6 +58,8 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param BacktrackDBClusterCommandInput - {@link BacktrackDBClusterCommandInput}
+ * @returns {@link BacktrackDBClusterCommandOutput}
  * @see {@link BacktrackDBClusterCommandInput} for command's `input` shape.
  * @see {@link BacktrackDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -83,6 +90,9 @@ export class BacktrackDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BacktrackDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class BacktrackDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BacktrackDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryBacktrackDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BacktrackDBClusterCommandOutput> {
     return deserializeAws_queryBacktrackDBClusterCommand(output, context);
   }

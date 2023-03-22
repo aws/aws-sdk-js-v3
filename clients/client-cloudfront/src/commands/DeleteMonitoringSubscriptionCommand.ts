@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMonitoringSubscriptionCommand}.
  */
 export interface DeleteMonitoringSubscriptionCommandInput extends DeleteMonitoringSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMonitoringSubscriptionCommand}.
  */
 export interface DeleteMonitoringSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteMonitoringSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables additional CloudWatch metrics for the specified CloudFront
  * 			distribution.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMonitoringSubscriptionCommandInput - {@link DeleteMonitoringSubscriptionCommandInput}
+ * @returns {@link DeleteMonitoringSubscriptionCommandOutput}
  * @see {@link DeleteMonitoringSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitoringSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMonitoringSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMonitoringSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteMonitoringSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

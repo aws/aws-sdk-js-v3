@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddNotificationChannelCommand}.
  */
 export interface AddNotificationChannelCommandInput extends AddNotificationChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddNotificationChannelCommand}.
  */
 export interface AddNotificationChannelCommandOutput extends AddNotificationChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Adds a notification channel to DevOps Guru. A notification channel is used to notify you
  * 			about important DevOps Guru events, such as when an insight is generated. </p>
  *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
@@ -55,6 +60,8 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  * const response = await client.send(command);
  * ```
  *
+ * @param AddNotificationChannelCommandInput - {@link AddNotificationChannelCommandInput}
+ * @returns {@link AddNotificationChannelCommandOutput}
  * @see {@link AddNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link AddNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -103,6 +110,9 @@ export class AddNotificationChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddNotificationChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class AddNotificationChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddNotificationChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddNotificationChannelCommandOutput> {
     return deserializeAws_restJson1AddNotificationChannelCommand(output, context);
   }

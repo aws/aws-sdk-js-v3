@@ -10,7 +10,7 @@ import {
 import { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudWatchClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeInsightRulesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeInsightRules(
   config: CloudWatchPaginationConfiguration,
   input: DescribeInsightRulesCommandInput,

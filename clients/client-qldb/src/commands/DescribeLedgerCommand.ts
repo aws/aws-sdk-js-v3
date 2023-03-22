@@ -26,15 +26,20 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLedgerCommand}.
  */
 export interface DescribeLedgerCommandInput extends DescribeLedgerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLedgerCommand}.
  */
 export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a ledger, including its state, permissions mode, encryption at
  *          rest settings, and when it was created.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLedgerCommandInput - {@link DescribeLedgerCommandInput}
+ * @returns {@link DescribeLedgerCommandOutput}
  * @see {@link DescribeLedgerCommandInput} for command's `input` shape.
  * @see {@link DescribeLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLedgerCommandOutput> {
     return deserializeAws_restJson1DescribeLedgerCommand(output, context);
   }

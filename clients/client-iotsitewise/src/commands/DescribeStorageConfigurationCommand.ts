@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStorageConfigurationCommand}.
  */
 export interface DescribeStorageConfigurationCommandInput extends DescribeStorageConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStorageConfigurationCommand}.
  */
 export interface DescribeStorageConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeStorageConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the storage configuration for IoT SiteWise.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeStorageConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStorageConfigurationCommandInput - {@link DescribeStorageConfigurationCommandInput}
+ * @returns {@link DescribeStorageConfigurationCommandOutput}
  * @see {@link DescribeStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeStorageConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStorageConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeStorageConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStorageConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeStorageConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

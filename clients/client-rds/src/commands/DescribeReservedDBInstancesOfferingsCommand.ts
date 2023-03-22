@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedDBInstancesOfferingsCommand}.
  */
 export interface DescribeReservedDBInstancesOfferingsCommandInput extends DescribeReservedDBInstancesOfferingsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedDBInstancesOfferingsCommand}.
  */
 export interface DescribeReservedDBInstancesOfferingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists available reserved DB instance offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedDBInstancesOfferingsCommandInput - {@link DescribeReservedDBInstancesOfferingsCommandInput}
+ * @returns {@link DescribeReservedDBInstancesOfferingsCommandOutput}
  * @see {@link DescribeReservedDBInstancesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedDBInstancesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedDBInstancesOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedDBInstancesOfferingsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     return serializeAws_queryDescribeReservedDBInstancesOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

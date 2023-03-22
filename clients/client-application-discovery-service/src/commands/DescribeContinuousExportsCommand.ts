@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeContinuousExportsCommand}.
  */
 export interface DescribeContinuousExportsCommandInput extends DescribeContinuousExportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeContinuousExportsCommand}.
  */
 export interface DescribeContinuousExportsCommandOutput extends DescribeContinuousExportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists exports as specified by ID. All continuous exports associated with your user
  *       account can be listed if you call <code>DescribeContinuousExports</code> as is without passing
  *       any parameters.</p>
@@ -52,6 +57,8 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContinuousExportsCommandInput - {@link DescribeContinuousExportsCommandInput}
+ * @returns {@link DescribeContinuousExportsCommandOutput}
  * @see {@link DescribeContinuousExportsCommandInput} for command's `input` shape.
  * @see {@link DescribeContinuousExportsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -99,6 +106,9 @@ export class DescribeContinuousExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContinuousExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DescribeContinuousExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContinuousExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeContinuousExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

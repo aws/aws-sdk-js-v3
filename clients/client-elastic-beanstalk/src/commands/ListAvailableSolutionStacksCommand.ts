@@ -24,10 +24,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableSolutionStacksCommand}.
  */
 export interface ListAvailableSolutionStacksCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableSolutionStacksCommand}.
  */
 export interface ListAvailableSolutionStacksCommandOutput
@@ -35,6 +39,7 @@ export interface ListAvailableSolutionStacksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available solution stack names, with the public version first and
  *       then in reverse chronological order.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAvailableSolutionStacksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableSolutionStacksCommandInput - {@link ListAvailableSolutionStacksCommandInput}
+ * @returns {@link ListAvailableSolutionStacksCommandOutput}
  * @see {@link ListAvailableSolutionStacksCommandInput} for command's `input` shape.
  * @see {@link ListAvailableSolutionStacksCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -121,6 +128,9 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableSolutionStacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAvailableSolutionStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListAvailableSolutionStacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

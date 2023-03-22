@@ -27,11 +27,15 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
  */
 export interface StartDBInstanceAutomatedBackupsReplicationCommandInput
   extends StartDBInstanceAutomatedBackupsReplicationMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
  */
 export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
@@ -39,6 +43,7 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
@@ -54,6 +59,8 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDBInstanceAutomatedBackupsReplicationCommandInput - {@link StartDBInstanceAutomatedBackupsReplicationCommandInput}
+ * @returns {@link StartDBInstanceAutomatedBackupsReplicationCommandOutput}
  * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandInput} for command's `input` shape.
  * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -96,6 +103,9 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDBInstanceAutomatedBackupsReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartDBInstanceAutomatedBackupsReplicationCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     return serializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

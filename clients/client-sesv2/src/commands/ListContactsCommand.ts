@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListContactsCommand}.
  */
 export interface ListContactsCommandInput extends ListContactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContactsCommand}.
  */
 export interface ListContactsCommandOutput extends ListContactsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the contacts present in a specific contact list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContactsCommandInput - {@link ListContactsCommandInput}
+ * @returns {@link ListContactsCommandOutput}
  * @see {@link ListContactsCommandInput} for command's `input` shape.
  * @see {@link ListContactsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -78,6 +85,9 @@ export class ListContactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListContactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListContactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactsCommandOutput> {
     return deserializeAws_restJson1ListContactsCommand(output, context);
   }

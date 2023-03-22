@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRouteCalculatorCommand}.
  */
 export interface UpdateRouteCalculatorCommandInput extends UpdateRouteCalculatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRouteCalculatorCommand}.
  */
 export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified properties for a given route calculator resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRouteCalculatorCommandInput - {@link UpdateRouteCalculatorCommandInput}
+ * @returns {@link UpdateRouteCalculatorCommandOutput}
  * @see {@link UpdateRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteCalculatorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateRouteCalculatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRouteCalculatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateRouteCalculatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRouteCalculatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRouteCalculatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRouteCalculatorCommandOutput> {
     return deserializeAws_restJson1UpdateRouteCalculatorCommand(output, context);
   }

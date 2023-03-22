@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCelebrityInfoCommand}.
  */
 export interface GetCelebrityInfoCommandInput extends GetCelebrityInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCelebrityInfoCommand}.
  */
 export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the name and additional information about a celebrity based on their Amazon Rekognition ID.
  *       The additional information is returned as an array of URLs. If there is no additional
  *       information about the celebrity, this list is empty.</p>
@@ -52,6 +57,8 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCelebrityInfoCommandInput - {@link GetCelebrityInfoCommandInput}
+ * @returns {@link GetCelebrityInfoCommandOutput}
  * @see {@link GetCelebrityInfoCommandInput} for command's `input` shape.
  * @see {@link GetCelebrityInfoCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetCelebrityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCelebrityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetCelebrityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCelebrityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCelebrityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCelebrityInfoCommandOutput> {
     return deserializeAws_json1_1GetCelebrityInfoCommand(output, context);
   }

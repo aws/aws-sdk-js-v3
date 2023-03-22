@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSiteCommand}.
  */
 export interface UpdateSiteCommandInput extends UpdateSiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSiteCommand}.
  */
 export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to update a site
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSiteCommandInput - {@link UpdateSiteCommandInput}
+ * @returns {@link UpdateSiteCommandOutput}
  * @see {@link UpdateSiteCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSiteCommandOutput> {
     return deserializeAws_restJson1UpdateSiteCommand(output, context);
   }

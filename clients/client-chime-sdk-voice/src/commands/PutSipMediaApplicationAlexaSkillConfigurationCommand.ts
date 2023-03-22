@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
 export interface PutSipMediaApplicationAlexaSkillConfigurationCommandInput
   extends PutSipMediaApplicationAlexaSkillConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
 export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
@@ -54,6 +58,9 @@ export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSipMediaApplicationAlexaSkillConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,6 +106,9 @@ export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
     context: __SerdeContext
@@ -106,6 +116,9 @@ export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
     return serializeAws_restJson1PutSipMediaApplicationAlexaSkillConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

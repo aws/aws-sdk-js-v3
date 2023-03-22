@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationTemplateCommand}.
  */
 export interface UpdateConfigurationTemplateCommandInput extends UpdateConfigurationTemplateMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationTemplateCommand}.
  */
 export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified configuration template to have the specified properties or
  *       configuration option values.</p>
  *          <note>
@@ -59,6 +64,8 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationTemplateCommandInput - {@link UpdateConfigurationTemplateCommandInput}
+ * @returns {@link UpdateConfigurationTemplateCommandOutput}
  * @see {@link UpdateConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -116,6 +123,9 @@ export class UpdateConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class UpdateConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConfigurationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

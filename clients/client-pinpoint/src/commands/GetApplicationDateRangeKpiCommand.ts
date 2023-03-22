@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApplicationDateRangeKpiCommand}.
  */
 export interface GetApplicationDateRangeKpiCommandInput extends GetApplicationDateRangeKpiRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApplicationDateRangeKpiCommand}.
  */
 export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationDateRangeKpiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationD
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationDateRangeKpiCommandInput - {@link GetApplicationDateRangeKpiCommandInput}
+ * @returns {@link GetApplicationDateRangeKpiCommandOutput}
  * @see {@link GetApplicationDateRangeKpiCommandInput} for command's `input` shape.
  * @see {@link GetApplicationDateRangeKpiCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationDateRangeKpiCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApplicationDateRangeKpiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetApplicationDateRangeKpiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

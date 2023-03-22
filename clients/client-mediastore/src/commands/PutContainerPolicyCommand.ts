@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutContainerPolicyCommand}.
  */
 export interface PutContainerPolicyCommandInput extends PutContainerPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutContainerPolicyCommand}.
  */
 export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an access policy for the specified container to restrict the users and
  *          clients that can access it. For information about the data that is included in an access
  *          policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and
@@ -52,6 +57,8 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param PutContainerPolicyCommandInput - {@link PutContainerPolicyCommandInput}
+ * @returns {@link PutContainerPolicyCommandOutput}
  * @see {@link PutContainerPolicyCommandInput} for command's `input` shape.
  * @see {@link PutContainerPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutContainerPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutContainerPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class PutContainerPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutContainerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutContainerPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContainerPolicyCommandOutput> {
     return deserializeAws_json1_1PutContainerPolicyCommand(output, context);
   }

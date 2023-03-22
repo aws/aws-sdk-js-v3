@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceCommandInput - {@link DeleteServiceCommandInput}
+ * @returns {@link DeleteServiceCommandOutput}
  * @see {@link DeleteServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceCommandOutput> {
     return deserializeAws_restJson1DeleteServiceCommand(output, context);
   }

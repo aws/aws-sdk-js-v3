@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVpcEndpointCommand}.
  */
 export interface UpdateVpcEndpointCommandInput extends UpdateVpcEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVpcEndpointCommand}.
  */
 export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an OpenSearch Serverless-managed interface endpoint. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVpcEndpointCommandInput - {@link UpdateVpcEndpointCommandInput}
+ * @returns {@link UpdateVpcEndpointCommandOutput}
  * @see {@link UpdateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVpcEndpointCommandOutput> {
     return deserializeAws_json1_0UpdateVpcEndpointCommand(output, context);
   }

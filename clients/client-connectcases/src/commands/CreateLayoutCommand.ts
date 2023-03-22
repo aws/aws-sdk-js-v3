@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLayoutCommand}.
  */
 export interface CreateLayoutCommandInput extends CreateLayoutRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLayoutCommand}.
  */
 export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a layout in the Cases domain. Layouts define the following configuration in
  *       the top section and More Info tab of the Cases user interface:</p>
  *          <ul>
@@ -59,6 +64,8 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLayoutCommandInput - {@link CreateLayoutCommandInput}
+ * @returns {@link CreateLayoutCommandOutput}
  * @see {@link CreateLayoutCommandInput} for command's `input` shape.
  * @see {@link CreateLayoutCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -108,6 +115,9 @@ export class CreateLayoutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLayoutCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateLayoutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLayoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLayoutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLayoutCommandOutput> {
     return deserializeAws_restJson1CreateLayoutCommand(output, context);
   }

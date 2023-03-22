@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFpgaImagesCommand}.
  */
 export interface DescribeFpgaImagesCommandInput extends DescribeFpgaImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFpgaImagesCommand}.
  */
 export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs,
  * 			private AFIs that you own, and AFIs owned by other Amazon Web Services accounts for which you have load
  * 			permissions.</p>
@@ -48,6 +53,8 @@ export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFpgaImagesCommandInput - {@link DescribeFpgaImagesCommandInput}
+ * @returns {@link DescribeFpgaImagesCommandOutput}
  * @see {@link DescribeFpgaImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeFpgaImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeFpgaImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFpgaImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeFpgaImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFpgaImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeFpgaImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFpgaImagesCommandOutput> {
     return deserializeAws_ec2DescribeFpgaImagesCommand(output, context);
   }

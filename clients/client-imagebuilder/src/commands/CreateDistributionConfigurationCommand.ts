@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDistributionConfigurationCommand}.
  */
 export interface CreateDistributionConfigurationCommandInput extends CreateDistributionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDistributionConfigurationCommand}.
  */
 export interface CreateDistributionConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateDistributionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new distribution configuration. Distribution configurations define and configure
  * 			the outputs of your pipeline.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateDistributionConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDistributionConfigurationCommandInput - {@link CreateDistributionConfigurationCommandInput}
+ * @returns {@link CreateDistributionConfigurationCommandOutput}
  * @see {@link CreateDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateDistributionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -110,6 +117,9 @@ export class CreateDistributionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDistributionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,6 +159,9 @@ export class CreateDistributionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateDistributionConfigurationCommandInput,
     context: __SerdeContext
@@ -156,6 +169,9 @@ export class CreateDistributionConfigurationCommand extends $Command<
     return serializeAws_restJson1CreateDistributionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

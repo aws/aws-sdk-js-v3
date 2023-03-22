@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryListStacksCommand, serializeAws_queryListStacksCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListStacksCommand}.
  */
 export interface ListStacksCommandInput extends ListStacksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStacksCommand}.
  */
 export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the summary information for stacks whose status matches the specified
  *          StackStatusFilter. Summary information for stacks that have been deleted is kept for 90
  *          days after the stack is deleted. If no StackStatusFilter is specified, summary information
@@ -47,6 +52,8 @@ export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStacksCommandInput - {@link ListStacksCommandInput}
+ * @returns {@link ListStacksCommandOutput}
  * @see {@link ListStacksCommandInput} for command's `input` shape.
  * @see {@link ListStacksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -70,6 +77,9 @@ export class ListStacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class ListStacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListStacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStacksCommandOutput> {
     return deserializeAws_queryListStacksCommand(output, context);
   }

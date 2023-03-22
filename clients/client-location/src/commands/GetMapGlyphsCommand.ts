@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMapGlyphsCommand}.
  */
 export interface GetMapGlyphsCommandInput extends GetMapGlyphsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMapGlyphsCommand}.
  */
 export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves glyphs used to display labels on a map.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMapGlyphsCommandInput - {@link GetMapGlyphsCommandInput}
+ * @returns {@link GetMapGlyphsCommandOutput}
  * @see {@link GetMapGlyphsCommandInput} for command's `input` shape.
  * @see {@link GetMapGlyphsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetMapGlyphsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMapGlyphsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetMapGlyphsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMapGlyphsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMapGlyphsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMapGlyphsCommandOutput> {
     return deserializeAws_restJson1GetMapGlyphsCommand(output, context);
   }

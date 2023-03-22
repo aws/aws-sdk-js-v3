@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountPasswordPolicyCommand}.
  */
 export interface GetAccountPasswordPolicyCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountPasswordPolicyCommand}.
  */
 export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswordPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the password policy for the Amazon Web Services account. This tells you the complexity
  *             requirements and mandatory rotation periods for the IAM user passwords in your account.
  *             For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
@@ -47,6 +52,8 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountPasswordPolicyCommandInput - {@link GetAccountPasswordPolicyCommandInput}
+ * @returns {@link GetAccountPasswordPolicyCommandOutput}
  * @see {@link GetAccountPasswordPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -103,6 +110,9 @@ export class GetAccountPasswordPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountPasswordPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetAccountPasswordPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountPasswordPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetAccountPasswordPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountPasswordPolicyCommandOutput> {
     return deserializeAws_queryGetAccountPasswordPolicyCommand(output, context);
   }

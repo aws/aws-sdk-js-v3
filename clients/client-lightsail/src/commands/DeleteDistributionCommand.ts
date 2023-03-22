@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDistributionCommand}.
  */
 export interface DeleteDistributionCommandInput extends DeleteDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDistributionCommand}.
  */
 export interface DeleteDistributionCommandOutput extends DeleteDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes your Amazon Lightsail content delivery network (CDN) distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDistributionCommandOutput extends DeleteDistributionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDistributionCommandInput - {@link DeleteDistributionCommandInput}
+ * @returns {@link DeleteDistributionCommandOutput}
  * @see {@link DeleteDistributionCommandInput} for command's `input` shape.
  * @see {@link DeleteDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDistributionCommandOutput> {
     return deserializeAws_json1_1DeleteDistributionCommand(output, context);
   }

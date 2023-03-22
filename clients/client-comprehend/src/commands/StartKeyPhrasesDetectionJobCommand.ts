@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartKeyPhrasesDetectionJobCommand}.
  */
 export interface StartKeyPhrasesDetectionJobCommandInput extends StartKeyPhrasesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartKeyPhrasesDetectionJobCommand}.
  */
 export interface StartKeyPhrasesDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the
  *          operation to track the status of a
  *       job.</p>
@@ -50,6 +55,8 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartKeyPhrasesDetectionJobCommandInput - {@link StartKeyPhrasesDetectionJobCommandInput}
+ * @returns {@link StartKeyPhrasesDetectionJobCommandOutput}
  * @see {@link StartKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -91,6 +98,9 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartKeyPhrasesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartKeyPhrasesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartKeyPhrasesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

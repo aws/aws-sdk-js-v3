@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutProtocolsListCommand}.
  */
 export interface PutProtocolsListCommandInput extends PutProtocolsListRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutProtocolsListCommand}.
  */
 export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Firewall Manager protocols list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutProtocolsListCommandInput - {@link PutProtocolsListCommandInput}
+ * @returns {@link PutProtocolsListCommandOutput}
  * @see {@link PutProtocolsListCommandInput} for command's `input` shape.
  * @see {@link PutProtocolsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -92,6 +99,9 @@ export class PutProtocolsListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutProtocolsListCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class PutProtocolsListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutProtocolsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutProtocolsListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProtocolsListCommandOutput> {
     return deserializeAws_json1_1PutProtocolsListCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUserHierarchyGroupsCommand}.
  */
 export interface ListUserHierarchyGroupsCommandInput extends ListUserHierarchyGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUserHierarchyGroupsCommand}.
  */
 export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
  *    instance.</p>
  *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
@@ -49,6 +54,8 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserHierarchyGroupsCommandInput - {@link ListUserHierarchyGroupsCommandInput}
+ * @returns {@link ListUserHierarchyGroupsCommandOutput}
  * @see {@link ListUserHierarchyGroupsCommandInput} for command's `input` shape.
  * @see {@link ListUserHierarchyGroupsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListUserHierarchyGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserHierarchyGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListUserHierarchyGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserHierarchyGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListUserHierarchyGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserHierarchyGroupsCommandOutput> {
     return deserializeAws_restJson1ListUserHierarchyGroupsCommand(output, context);
   }

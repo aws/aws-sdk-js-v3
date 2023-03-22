@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReservationPurchaseRecommendationCommand}.
  */
 export interface GetReservationPurchaseRecommendationCommandInput extends GetReservationPurchaseRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReservationPurchaseRecommendationCommand}.
  */
 export interface GetReservationPurchaseRecommendationCommandOutput
@@ -37,6 +41,7 @@ export interface GetReservationPurchaseRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets recommendations for reservation purchases. These recommendations might help you to
  *       reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
  *       On-Demand pricing.</p>
@@ -63,6 +68,8 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReservationPurchaseRecommendationCommandInput - {@link GetReservationPurchaseRecommendationCommandInput}
+ * @returns {@link GetReservationPurchaseRecommendationCommandOutput}
  * @see {@link GetReservationPurchaseRecommendationCommandInput} for command's `input` shape.
  * @see {@link GetReservationPurchaseRecommendationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReservationPurchaseRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetReservationPurchaseRecommendationCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
     return serializeAws_json1_1GetReservationPurchaseRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

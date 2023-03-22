@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddClientIDToOpenIDConnectProviderCommand}.
  */
 export interface AddClientIDToOpenIDConnectProviderCommandInput extends AddClientIDToOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddClientIDToOpenIDConnectProviderCommand}.
  */
 export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new client ID (also known as audience) to the list of client IDs already
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource.</p>
  *          <p>This operation is idempotent; it does not fail or return an error if you add an
@@ -47,6 +52,8 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param AddClientIDToOpenIDConnectProviderCommandInput - {@link AddClientIDToOpenIDConnectProviderCommandInput}
+ * @returns {@link AddClientIDToOpenIDConnectProviderCommandOutput}
  * @see {@link AddClientIDToOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link AddClientIDToOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -98,6 +105,9 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddClientIDToOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddClientIDToOpenIDConnectProviderCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
     return serializeAws_queryAddClientIDToOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

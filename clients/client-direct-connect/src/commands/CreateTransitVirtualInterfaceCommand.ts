@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitVirtualInterfaceCommand}.
  */
 export interface CreateTransitVirtualInterfaceCommandInput extends CreateTransitVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitVirtualInterfaceCommand}.
  */
 export interface CreateTransitVirtualInterfaceCommandOutput
@@ -37,6 +41,7 @@ export interface CreateTransitVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.</p>
  *          <important>
  *             <p>If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.</p>
@@ -57,6 +62,8 @@ export interface CreateTransitVirtualInterfaceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitVirtualInterfaceCommandInput - {@link CreateTransitVirtualInterfaceCommandInput}
+ * @returns {@link CreateTransitVirtualInterfaceCommandOutput}
  * @see {@link CreateTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreateTransitVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTransitVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTransitVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

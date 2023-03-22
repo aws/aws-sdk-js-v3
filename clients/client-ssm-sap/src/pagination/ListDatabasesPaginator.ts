@@ -10,7 +10,7 @@ import { SsmSapClient } from "../SsmSapClient";
 import { SsmSapPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SsmSapClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDatabasesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDatabases(
   config: SsmSapPaginationConfiguration,
   input: ListDatabasesCommandInput,

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBehaviorModelTrainingSummariesCommand}.
  */
 export interface GetBehaviorModelTrainingSummariesCommandInput extends GetBehaviorModelTrainingSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBehaviorModelTrainingSummariesCommand}.
  */
 export interface GetBehaviorModelTrainingSummariesCommandOutput
@@ -37,6 +41,7 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns a Device Defender's ML Detect Security Profile training model's status.
  *     </p>
@@ -51,6 +56,8 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBehaviorModelTrainingSummariesCommandInput - {@link GetBehaviorModelTrainingSummariesCommandInput}
+ * @returns {@link GetBehaviorModelTrainingSummariesCommandOutput}
  * @see {@link GetBehaviorModelTrainingSummariesCommandInput} for command's `input` shape.
  * @see {@link GetBehaviorModelTrainingSummariesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBehaviorModelTrainingSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBehaviorModelTrainingSummariesCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command<
     return serializeAws_restJson1GetBehaviorModelTrainingSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

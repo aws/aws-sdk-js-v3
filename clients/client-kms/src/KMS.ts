@@ -170,6 +170,7 @@ import { VerifyMacCommand, VerifyMacCommandInput, VerifyMacCommandOutput } from 
 import { KMSClient } from "./KMSClient";
 
 /**
+ * @public
  * <fullname>Key Management Service</fullname>
  *          <p>Key Management Service (KMS) is an encryption and key management web service. This guide describes
  *       the KMS operations that you can call programmatically. For general information about KMS,
@@ -268,6 +269,7 @@ import { KMSClient } from "./KMSClient";
  */
 export class KMS extends KMSClient {
   /**
+   * @public
    * <p>Cancels the deletion of a KMS key. When this operation succeeds, the key state of the KMS
    *       key is <code>Disabled</code>. To enable the KMS key, use <a>EnableKey</a>. </p>
    *          <p>For more information about scheduling and canceling deletion of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting KMS keys</a> in the
@@ -312,6 +314,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its backing key store. For an CloudHSM key
    *       store, <code>ConnectCustomKeyStore</code> connects the key store to its associated CloudHSM
    *       cluster. For an external key store, <code>ConnectCustomKeyStore</code> connects the key store
@@ -430,6 +433,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Creates a friendly name for a KMS key. </p>
    *          <note>
    *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -512,6 +516,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> backed by a key store that you own and manage. When you use a
    *       KMS key in a custom key store for a cryptographic operation, the cryptographic operation is
    *       actually performed in your key store using your keys. KMS supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>
@@ -631,6 +636,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Adds a grant to a KMS key. </p>
    *          <p>A <i>grant</i> is a policy instrument that allows Amazon Web Services principals to use
    *       KMS keys in cryptographic operations. It also can allow them to view a KMS key (<a>DescribeKey</a>) and create and manage grants. When authorizing access to a KMS key,
@@ -718,6 +724,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and Region.
    *       You can use a KMS key in cryptographic operations, such as encryption and signing. Some Amazon Web Services
    *       services let you use KMS keys that you create and manage to protect your service
@@ -910,6 +917,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Decrypts ciphertext that was encrypted by a KMS key using any of the following
    *       operations:</p>
    *          <ul>
@@ -1023,6 +1031,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified alias. </p>
    *          <note>
    *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -1096,6 +1105,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not affect any backing elements of the
    *       custom key store. It does not delete the CloudHSM cluster that is associated with an CloudHSM key
    *       store, or affect any users or keys in the cluster. For an external key store, it does not
@@ -1186,6 +1196,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes key material that you previously imported. This operation makes the specified KMS
    *       key unusable. For more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a>
    *       in the <i>Key Management Service Developer Guide</i>. </p>
@@ -1246,6 +1257,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> in the account and Region.</p>
    *          <p> This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> feature in KMS, which
    * combines the convenience and extensive integration of KMS with the isolation and control of a
@@ -1336,6 +1348,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Provides detailed information about a KMS key. You can run <code>DescribeKey</code> on a
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed
    *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
@@ -1444,6 +1457,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Sets the state of a KMS key to disabled. This change temporarily prevents use of the KMS
    *       key for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
    *          <p>For more information about how key state affects the use of a KMS key, see
@@ -1484,6 +1498,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
    *         rotation of the key material</a> of the specified symmetric encryption KMS key.</p>
    *          <p>Automatic key rotation is supported only on symmetric encryption KMS keys.
@@ -1548,6 +1563,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its backing key store. This operation disconnects an
    *       CloudHSM key store from its associated CloudHSM cluster or disconnects an external key store from
    *       the external key store proxy that communicates with your external key manager.</p>
@@ -1631,6 +1647,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Sets the key state of a KMS key to enabled. This allows you to use the KMS key for
    *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
    *          <p>The KMS key that you use for this operation must be in a compatible key state. For
@@ -1667,6 +1684,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation
    *         of the key material</a> of the specified symmetric encryption KMS key. </p>
    *          <p>When you enable automatic rotation of a<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS key</a>, KMS
@@ -1739,6 +1757,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
    *       asymmetric KMS key with a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>.</p>
    *          <p>You can use this operation to encrypt small amounts of arbitrary data, such as a personal
@@ -1874,6 +1893,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
    *       plaintext copy of the data key and a copy that is encrypted under a symmetric encryption KMS
    *       key that you specify. The bytes in the plaintext key are random; they are not related
@@ -1999,6 +2019,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
    *       a plaintext public key, a plaintext private key, and a copy of the private key that is
    *       encrypted under the symmetric encryption KMS key you specify. You can use the data key pair to
@@ -2101,6 +2122,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
    *       a plaintext public key and a copy of the private key that is encrypted under the symmetric
    *       encryption KMS key you specify. Unlike <a>GenerateDataKeyPair</a>, this operation
@@ -2195,6 +2217,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
    *       data key that is encrypted under a symmetric encryption KMS key that you specify. The bytes in
    *       the key are random; they are not related to the caller or to the KMS key.</p>
@@ -2298,6 +2321,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS key and a MAC algorithm that the key supports.
    *       HMAC KMS keys and the HMAC algorithms that KMS uses conform to industry standards defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
    *          <p>You can use value that GenerateMac returns in the <a>VerifyMac</a> operation to
@@ -2351,6 +2375,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Returns a random byte string that is cryptographically secure.</p>
    *          <p>You must use the <code>NumberOfBytes</code> parameter to specify the length of the random
    *       byte string. There is no default value for string length.</p>
@@ -2397,6 +2422,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Gets a key policy attached to the specified KMS key.</p>
    *          <p>
    *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
@@ -2433,6 +2459,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is
    *       enabled for the specified KMS key.</p>
    *          <p>When you enable automatic rotation for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS keys</a>, KMS
@@ -2517,6 +2544,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Returns the items you need to import key material into a symmetric encryption KMS key. For
    *       more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key material</a> in the
    *       <i>Key Management Service Developer Guide</i>.</p>
@@ -2582,6 +2610,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Returns the public key of an asymmetric KMS key. Unlike the private key of a asymmetric
    *       KMS key, which never leaves KMS unencrypted, callers with <code>kms:GetPublicKey</code>
    *       permission can download the public key of an asymmetric KMS key. You can share the public key
@@ -2659,6 +2688,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Imports key material into an existing symmetric encryption KMS key that was created
    *       without key material. After you successfully import key material into a KMS key, you can
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that KMS key, but you cannot import different
@@ -2754,6 +2784,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of aliases in the caller's Amazon Web Services account and region. For more information
    *       about aliases, see <a>CreateAlias</a>.</p>
    *          <p>By default, the <code>ListAliases</code> operation returns all aliases in the account and
@@ -2820,6 +2851,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of all grants for the specified KMS key. </p>
    *          <p>You must specify the KMS key in all requests. You can filter the grant list by grant ID or
    *       grantee principal.</p>
@@ -2890,6 +2922,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Gets the names of the key policies that are attached to a KMS key. This operation is
    *       designed to get policy names that you can use in a <a>GetKeyPolicy</a> operation.
    *       However, the only valid policy name is <code>default</code>. </p>
@@ -2943,6 +2976,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of all KMS keys in the caller's Amazon Web Services account and Region.</p>
    *          <p>
    *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
@@ -2998,6 +3032,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Returns all tags on the specified KMS key.</p>
    *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in
    *       the <i>Amazon Web Services General Reference</i>. For information about using
@@ -3063,6 +3098,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all grants in the Amazon Web Services account and Region that have the
    *       specified retiring principal. </p>
    *          <p>You can specify any principal in your Amazon Web Services account. The grants that are returned include
@@ -3137,6 +3173,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Attaches a key policy to the specified KMS key. </p>
    *          <p>For more information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>Key Management Service Developer Guide</i>.
    *       For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
@@ -3178,6 +3215,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Decrypts ciphertext and then reencrypts it entirely within KMS. You can use this
    *       operation to change the KMS key under which data is encrypted, such as when you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually
    *         rotate</a> a KMS key or change the KMS key that protects a ciphertext. You can also use
@@ -3298,6 +3336,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Replicates a multi-Region key into the specified Region. This operation creates a
    *       multi-Region replica key based on a multi-Region primary key in a different Region of the same
    *       Amazon Web Services partition. You can create multiple replicas of a primary key, but each must be in a
@@ -3409,6 +3448,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
    *       identify the grant to retire, use a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">grant token</a>, or both the grant ID and a
    *       key identifier (key ID or key ARN) of the KMS key. The <a>CreateGrant</a> operation
@@ -3480,6 +3520,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified grant. You revoke a grant to terminate the permissions that the
    *       grant allows. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/managing-grants.html#grant-delete">Retiring and revoking grants</a> in
    *       the <i>
@@ -3549,6 +3590,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
    *       days, but you can specify a waiting period of 7-30 days. When this operation is successful,
    *       the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used
@@ -3636,6 +3678,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital
    *         signature</a> for a message or message digest by using the private key in an asymmetric
    *       signing KMS key. To verify the signature, use the <a>Verify</a> operation, or use
@@ -3713,6 +3756,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Adds or edits tags on a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>.</p>
    *          <note>
    *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -3785,6 +3829,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes tags from a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>. To delete a tag,
    *       specify the tag key and the KMS key.</p>
    *          <note>
@@ -3858,6 +3903,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Associates an existing KMS alias with a different KMS key. Each alias is associated with
    *       only one KMS key at a time, although a KMS key can have multiple aliases. The alias and the
    *       KMS key must be in the same Amazon Web Services account and Region.</p>
@@ -3946,6 +3992,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Changes the properties of a custom key store. You can use this operation to change the
    *       properties of an CloudHSM key store or an external key store.</p>
    *          <p>Use the required <code>CustomKeyStoreId</code> parameter to identify the custom key store.
@@ -4070,6 +4117,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Updates the description of a KMS key. To see the description of a KMS key, use <a>DescribeKey</a>. </p>
    *          <p>The KMS key that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -4123,6 +4171,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Changes the primary key of a multi-Region key. </p>
    *          <p>This operation changes the replica key in the specified Region to a primary key and
    *       changes the former primary key to a replica key. For example, suppose you have a primary key
@@ -4219,6 +4268,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Verifies a digital signature that was generated by the <a>Sign</a> operation. </p>
    *          <p></p>
    *          <p>Verification confirms that an authorized user signed the message with the specified KMS
@@ -4280,6 +4330,7 @@ export class KMS extends KMSClient {
   }
 
   /**
+   * @public
    * <p>Verifies the hash-based message authentication code (HMAC) for a specified message, HMAC
    *       KMS key, and MAC algorithm. To verify the HMAC, <code>VerifyMac</code> computes an HMAC using
    *       the message, HMAC KMS key, and MAC algorithm that you specify, and compares the computed HMAC

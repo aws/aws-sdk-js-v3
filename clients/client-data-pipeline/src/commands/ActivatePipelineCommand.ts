@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ActivatePipelineCommand}.
  */
 export interface ActivatePipelineCommandInput extends ActivatePipelineInput {}
 /**
+ * @public
+ *
  * The output of {@link ActivatePipelineCommand}.
  */
 export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation,
  *            activation fails.</p>
  *         <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script,
@@ -51,7 +56,7 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+ * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
  *
  *             </request>
  *             <response>
@@ -62,7 +67,7 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * Content-Length: 2
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {}
+ * \{\}
  *
  *             </response>
  *         </examples>
@@ -76,6 +81,8 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivatePipelineCommandInput - {@link ActivatePipelineCommandInput}
+ * @returns {@link ActivatePipelineCommandOutput}
  * @see {@link ActivatePipelineCommandInput} for command's `input` shape.
  * @see {@link ActivatePipelineCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -111,6 +118,9 @@ export class ActivatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class ActivatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ActivatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivatePipelineCommandOutput> {
     return deserializeAws_json1_1ActivatePipelineCommand(output, context);
   }

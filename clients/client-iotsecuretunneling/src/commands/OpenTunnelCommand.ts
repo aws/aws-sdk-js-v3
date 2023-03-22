@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link OpenTunnelCommand}.
  */
 export interface OpenTunnelCommandInput extends OpenTunnelRequest {}
 /**
+ * @public
+ *
  * The output of {@link OpenTunnelCommand}.
  */
 export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
  * 			connect to the IoT Secure Tunneling proxy server.</p>
  * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">OpenTunnel</a> action.</p>
@@ -52,6 +57,8 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param OpenTunnelCommandInput - {@link OpenTunnelCommandInput}
+ * @returns {@link OpenTunnelCommandOutput}
  * @see {@link OpenTunnelCommandInput} for command's `input` shape.
  * @see {@link OpenTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
@@ -78,6 +85,9 @@ export class OpenTunnelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: OpenTunnelCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class OpenTunnelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: OpenTunnelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1OpenTunnelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OpenTunnelCommandOutput> {
     return deserializeAws_json1_1OpenTunnelCommand(output, context);
   }

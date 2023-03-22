@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGameServerGroupCommand}.
  */
 export interface CreateGameServerGroupCommandInput extends CreateGameServerGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateGameServerGroupCommand}.
  */
 export interface CreateGameServerGroupCommandOutput extends CreateGameServerGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -87,6 +92,8 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGameServerGroupCommandInput - {@link CreateGameServerGroupCommandInput}
+ * @returns {@link CreateGameServerGroupCommandOutput}
  * @see {@link CreateGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -131,6 +138,9 @@ export class CreateGameServerGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGameServerGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class CreateGameServerGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGameServerGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGameServerGroupCommandOutput> {
     return deserializeAws_json1_1CreateGameServerGroupCommand(output, context);
   }

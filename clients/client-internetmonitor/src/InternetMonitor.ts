@@ -46,6 +46,7 @@ import {
 import { InternetMonitorClient } from "./InternetMonitorClient";
 
 /**
+ * @public
  * <p>Amazon CloudWatch Internet Monitor provides visibility into how internet issues impact the performance and availability between your applications hosted on Amazon Web Services and your end
  * 			users, reducing the time it takes for you to diagnose these issues, from days to minutes. You can explore internet measurements for different time frames
  * 			and at different geographic granularities, and quickly visualize the impact of issues, and then take action to improve your end users' experience, for
@@ -60,6 +61,7 @@ import { InternetMonitorClient } from "./InternetMonitorClient";
  */
 export class InternetMonitor extends InternetMonitorClient {
   /**
+   * @public
    * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: Virtual Private Clouds (VPCs),
    * 			Amazon CloudFront distributions, and WorkSpaces directories. </p>
    *          <p>After you create a monitor, you can view the internet performance for your application, scoped to a location, as well as any health events that are
@@ -95,6 +97,7 @@ export class InternetMonitor extends InternetMonitorClient {
   }
 
   /**
+   * @public
    * <p>Deletes a monitor in Amazon CloudWatch Internet Monitor. </p>
    */
   public deleteMonitor(
@@ -127,6 +130,7 @@ export class InternetMonitor extends InternetMonitorClient {
   }
 
   /**
+   * @public
    * <p>Gets information the Amazon CloudWatch Internet Monitor has created and stored about a health event for a specified monitor. This information includes the impacted locations,
    * 			and all of the information related to the event by location.</p>
    *          <p>The information returned includes the performance, availability, and round-trip time impact, information about the network providers, the event type,
@@ -163,6 +167,7 @@ export class InternetMonitor extends InternetMonitorClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a monitor in Amazon CloudWatch Internet Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time,
    * 			modified time, resources included in the monitor, and status information.</p>
    */
@@ -190,6 +195,7 @@ export class InternetMonitor extends InternetMonitorClient {
   }
 
   /**
+   * @public
    * <p>Lists all health events for a monitor in Amazon CloudWatch Internet Monitor. Returns all information for health events including the client location information the network
    * 			cause and status, event start and end time, percentage of total traffic impacted, and status.</p>
    *          <note>
@@ -226,6 +232,7 @@ export class InternetMonitor extends InternetMonitorClient {
   }
 
   /**
+   * @public
    * <p>Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses, along with the Amazon Resource Name (ARN) and name of each monitor.</p>
    */
   public listMonitors(
@@ -255,6 +262,7 @@ export class InternetMonitor extends InternetMonitorClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.</p>
    */
   public listTagsForResource(
@@ -287,6 +295,7 @@ export class InternetMonitor extends InternetMonitorClient {
   }
 
   /**
+   * @public
    * <p>Adds a tag to a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor. You can add a maximum of 50 tags in Internet Monitor.</p>
    *          <p>A minimum of one tag is required for this call. It returns an error if you use the <code>TagResource</code> request with 0 tags.</p>
    */
@@ -314,6 +323,7 @@ export class InternetMonitor extends InternetMonitorClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag from a resource.</p>
    */
   public untagResource(
@@ -346,6 +356,7 @@ export class InternetMonitor extends InternetMonitorClient {
   }
 
   /**
+   * @public
    * <p>Updates a monitor. You can update a monitor to add or remove resources, or to change the status of the monitor. You can't change the name of a
    * 			monitor.</p>
    */

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLabelGroupCommand}.
  */
 export interface UpdateLabelGroupCommandInput extends UpdateLabelGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLabelGroupCommand}.
  */
 export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Updates the label group.
  * </p>
@@ -43,6 +48,8 @@ export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLabelGroupCommandInput - {@link UpdateLabelGroupCommandInput}
+ * @returns {@link UpdateLabelGroupCommandOutput}
  * @see {@link UpdateLabelGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateLabelGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLabelGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateLabelGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateLabelGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLabelGroupCommandOutput> {
     return deserializeAws_json1_0UpdateLabelGroupCommand(output, context);
   }

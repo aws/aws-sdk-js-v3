@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryListMetricsCommand, serializeAws_queryListMetricsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListMetricsCommand}.
  */
 export interface ListMetricsCommandInput extends ListMetricsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMetricsCommand}.
  */
 export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to get statistical data.</p>
  *          <p>Up to 500 results are returned for any one call. To retrieve additional results,
  * 			use the returned token with subsequent calls.</p>
@@ -55,6 +60,8 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMetricsCommandInput - {@link ListMetricsCommandInput}
+ * @returns {@link ListMetricsCommandOutput}
  * @see {@link ListMetricsCommandInput} for command's `input` shape.
  * @see {@link ListMetricsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricsCommandOutput> {
     return deserializeAws_queryListMetricsCommand(output, context);
   }

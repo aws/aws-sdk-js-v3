@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't
  *          be undone. Datasets that this dataset was merged with will no longer report the merge. Any
  *          subsequent operation on this dataset will result in a
@@ -50,6 +55,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
+ * @returns {@link DeleteDatasetCommandOutput}
  * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetCommandOutput> {
     return deserializeAws_restJson1DeleteDatasetCommand(output, context);
   }

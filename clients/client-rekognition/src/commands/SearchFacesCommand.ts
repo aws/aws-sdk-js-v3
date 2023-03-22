@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchFacesCommand}.
  */
 export interface SearchFacesCommandInput extends SearchFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchFacesCommand}.
  */
 export interface SearchFacesCommandOutput extends SearchFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a given input face ID, searches for matching faces in the collection the face
  *       belongs to. You get a face ID when you add a face to the collection using the <a>IndexFaces</a> operation. The operation compares the features of the input face with
  *       faces in the specified collection. </p>
@@ -61,6 +66,8 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFacesCommandInput - {@link SearchFacesCommandInput}
+ * @returns {@link SearchFacesCommandOutput}
  * @see {@link SearchFacesCommandInput} for command's `input` shape.
  * @see {@link SearchFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -167,6 +174,9 @@ export class SearchFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -204,10 +214,16 @@ export class SearchFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFacesCommandOutput> {
     return deserializeAws_json1_1SearchFacesCommand(output, context);
   }

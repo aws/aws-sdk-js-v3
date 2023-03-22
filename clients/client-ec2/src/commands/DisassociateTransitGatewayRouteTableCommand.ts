@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTransitGatewayRouteTableCommand}.
  */
 export interface DisassociateTransitGatewayRouteTableCommandInput extends DisassociateTransitGatewayRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTransitGatewayRouteTableCommand}.
  */
 export interface DisassociateTransitGatewayRouteTableCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a resource attachment from a transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTransitGatewayRouteTableCommandInput - {@link DisassociateTransitGatewayRouteTableCommandInput}
+ * @returns {@link DisassociateTransitGatewayRouteTableCommandOutput}
  * @see {@link DisassociateTransitGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTransitGatewayRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTransitGatewayRouteTableCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     return serializeAws_ec2DisassociateTransitGatewayRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

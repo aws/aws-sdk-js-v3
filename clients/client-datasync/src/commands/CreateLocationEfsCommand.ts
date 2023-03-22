@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationEfsCommand}.
  */
 export interface CreateLocationEfsCommandInput extends CreateLocationEfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationEfsCommand}.
  */
 export interface CreateLocationEfsCommandOutput extends CreateLocationEfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an Amazon EFS file system that DataSync
  *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html">Creating a location for Amazon EFS</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationEfsCommandInput - {@link CreateLocationEfsCommandInput}
+ * @returns {@link CreateLocationEfsCommandOutput}
  * @see {@link CreateLocationEfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationEfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateLocationEfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationEfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateLocationEfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationEfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationEfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationEfsCommandOutput> {
     return deserializeAws_json1_1CreateLocationEfsCommand(output, context);
   }

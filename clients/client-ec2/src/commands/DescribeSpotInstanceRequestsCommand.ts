@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpotInstanceRequestsCommand}.
  */
 export interface DescribeSpotInstanceRequestsCommandInput extends DescribeSpotInstanceRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpotInstanceRequestsCommand}.
  */
 export interface DescribeSpotInstanceRequestsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSpotInstanceRequestsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Spot Instance requests.</p>
  *          <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by
  *             examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the
@@ -63,6 +68,8 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotInstanceRequestsCommandInput - {@link DescribeSpotInstanceRequestsCommandInput}
+ * @returns {@link DescribeSpotInstanceRequestsCommandOutput}
  * @see {@link DescribeSpotInstanceRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -142,6 +149,9 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotInstanceRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpotInstanceRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSpotInstanceRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

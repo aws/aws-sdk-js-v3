@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetSpotPlacementScoresCommand}.
  */
 export interface GetSpotPlacementScoresCommandInput extends GetSpotPlacementScoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSpotPlacementScoresCommand}.
  */
 export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementScoresResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Calculates the Spot placement score for a Region or Availability Zone based on the
  *          specified target capacity and compute requirements.</p>
  *          <p>You can specify your compute requirements either by using
@@ -53,6 +58,8 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSpotPlacementScoresCommandInput - {@link GetSpotPlacementScoresCommandInput}
+ * @returns {@link GetSpotPlacementScoresCommandOutput}
  * @see {@link GetSpotPlacementScoresCommandInput} for command's `input` shape.
  * @see {@link GetSpotPlacementScoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class GetSpotPlacementScoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSpotPlacementScoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetSpotPlacementScoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSpotPlacementScoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetSpotPlacementScoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSpotPlacementScoresCommandOutput> {
     return deserializeAws_ec2GetSpotPlacementScoresCommand(output, context);
   }

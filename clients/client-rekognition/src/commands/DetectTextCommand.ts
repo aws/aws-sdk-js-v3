@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectTextCommand}.
  */
 export interface DetectTextCommandInput extends DetectTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectTextCommand}.
  */
 export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects text in the input image and converts it into machine-readable text.</p>
  *          <p>Pass the input image as base64-encoded image bytes or as a reference to an image in an
  *       Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, you must pass it as a
@@ -68,6 +73,8 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectTextCommandInput - {@link DetectTextCommandInput}
+ * @returns {@link DetectTextCommandOutput}
  * @see {@link DetectTextCommandInput} for command's `input` shape.
  * @see {@link DetectTextCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -120,6 +127,9 @@ export class DetectTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class DetectTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectTextCommandOutput> {
     return deserializeAws_json1_1DetectTextCommand(output, context);
   }

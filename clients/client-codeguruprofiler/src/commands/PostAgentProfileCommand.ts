@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PostAgentProfileCommand}.
  */
 export interface PostAgentProfileCommandInput extends PostAgentProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link PostAgentProfileCommand}.
  */
 export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Submits profiling data to an aggregated profile of a profiling group. To get an
  *          aggregated profile that is created with this profiling data, use
@@ -52,6 +57,8 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param PostAgentProfileCommandInput - {@link PostAgentProfileCommandInput}
+ * @returns {@link PostAgentProfileCommandOutput}
  * @see {@link PostAgentProfileCommandInput} for command's `input` shape.
  * @see {@link PostAgentProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -87,6 +94,9 @@ export class PostAgentProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostAgentProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PostAgentProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostAgentProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PostAgentProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostAgentProfileCommandOutput> {
     return deserializeAws_restJson1PostAgentProfileCommand(output, context);
   }

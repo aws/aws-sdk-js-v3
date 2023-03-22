@@ -28,9 +28,11 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link UploadPartCommand}.
  */
-type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
+export type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
   /**
    * For *`UploadPartRequest["Body"]`*, see {@link UploadPartRequest.Body}.
    */
@@ -41,11 +43,14 @@ type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
  */
 export interface UploadPartCommandInput extends UploadPartCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link UploadPartCommand}.
  */
 export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a part in a multipart upload.</p>
  *          <note>
  *             <p>In this operation, you provide part data in your request. However, you have an option
@@ -176,6 +181,8 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadPartCommandInput - {@link UploadPartCommandInput}
+ * @returns {@link UploadPartCommandOutput}
  * @see {@link UploadPartCommandInput} for command's `input` shape.
  * @see {@link UploadPartCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -225,6 +232,9 @@ export class UploadPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -270,10 +280,16 @@ export class UploadPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUploadPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadPartCommandOutput> {
     return deserializeAws_restXmlUploadPartCommand(output, context);
   }

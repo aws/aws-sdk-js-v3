@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourcePolicyCommand}.
  */
 export interface UpdateResourcePolicyCommandInput extends UpdateResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourcePolicyCommand}.
  */
 export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the existing resource policy for a bot or bot alias with a
  *          new one. If the policy doesn't exist, Amazon Lex returns an
  *          exception.</p>
@@ -48,6 +53,8 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourcePolicyCommandInput - {@link UpdateResourcePolicyCommandInput}
+ * @returns {@link UpdateResourcePolicyCommandOutput}
  * @see {@link UpdateResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourcePolicyCommandOutput> {
     return deserializeAws_restJson1UpdateResourcePolicyCommand(output, context);
   }

@@ -22,15 +22,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnlinkDeveloperIdentityCommand}.
  */
 export interface UnlinkDeveloperIdentityCommandInput extends UnlinkDeveloperIdentityInput {}
 /**
+ * @public
+ *
  * The output of {@link UnlinkDeveloperIdentityCommand}.
  */
 export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked
  *          developer users will be considered new identities next time they are seen. If, for a given
  *          Cognito identity, you remove all federated identities as well as the developer user
@@ -46,6 +51,8 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param UnlinkDeveloperIdentityCommandInput - {@link UnlinkDeveloperIdentityCommandInput}
+ * @returns {@link UnlinkDeveloperIdentityCommandOutput}
  * @see {@link UnlinkDeveloperIdentityCommandInput} for command's `input` shape.
  * @see {@link UnlinkDeveloperIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -89,6 +96,9 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnlinkDeveloperIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnlinkDeveloperIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UnlinkDeveloperIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlinkDeveloperIdentityCommandOutput> {
     return deserializeAws_json1_1UnlinkDeveloperIdentityCommand(output, context);
   }

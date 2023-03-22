@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRequestedServiceQuotaChangeHistoryCommand}.
  */
 export interface ListRequestedServiceQuotaChangeHistoryCommandInput
   extends ListRequestedServiceQuotaChangeHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRequestedServiceQuotaChangeHistoryCommand}.
  */
 export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
@@ -38,6 +42,7 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the quota increase requests for the specified service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRequestedServiceQuotaChangeHistoryCommandInput - {@link ListRequestedServiceQuotaChangeHistoryCommandInput}
+ * @returns {@link ListRequestedServiceQuotaChangeHistoryCommandOutput}
  * @see {@link ListRequestedServiceQuotaChangeHistoryCommandInput} for command's `input` shape.
  * @see {@link ListRequestedServiceQuotaChangeHistoryCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRequestedServiceQuotaChangeHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRequestedServiceQuotaChangeHistoryCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
     return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

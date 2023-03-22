@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExtensionsCommand}.
  */
 export interface ListExtensionsCommandInput extends ListExtensionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExtensionsCommand}.
  */
 export interface ListExtensionsCommandOutput extends ListExtensionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a paginated list of available extensions.</p>
  *          <p>
  *       Extensions provide features that games can use from scripts.
@@ -49,6 +54,8 @@ export interface ListExtensionsCommandOutput extends ListExtensionsResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
+ * @returns {@link ListExtensionsCommandOutput}
  * @see {@link ListExtensionsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListExtensionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExtensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListExtensionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExtensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListExtensionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExtensionsCommandOutput> {
     return deserializeAws_restJson1ListExtensionsCommand(output, context);
   }

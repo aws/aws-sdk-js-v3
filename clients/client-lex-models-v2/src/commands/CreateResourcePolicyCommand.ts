@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourcePolicyCommand}.
  */
 export interface CreateResourcePolicyCommandInput extends CreateResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourcePolicyCommand}.
  */
 export interface CreateResourcePolicyCommandOutput extends CreateResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new resource policy with the specified policy
  *          statements.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateResourcePolicyCommandOutput extends CreateResourcePolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourcePolicyCommandInput - {@link CreateResourcePolicyCommandInput}
+ * @returns {@link CreateResourcePolicyCommandOutput}
  * @see {@link CreateResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link CreateResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class CreateResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourcePolicyCommandOutput> {
     return deserializeAws_restJson1CreateResourcePolicyCommand(output, context);
   }

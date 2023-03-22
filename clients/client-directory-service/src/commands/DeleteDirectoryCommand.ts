@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDirectoryCommand}.
  */
 export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDirectoryCommand}.
  */
 export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Directory Service directory.</p>
  *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
@@ -50,6 +55,8 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectoryCommandInput - {@link DeleteDirectoryCommandInput}
+ * @returns {@link DeleteDirectoryCommandOutput}
  * @see {@link DeleteDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDirectoryCommandOutput> {
     return deserializeAws_json1_1DeleteDirectoryCommand(output, context);
   }

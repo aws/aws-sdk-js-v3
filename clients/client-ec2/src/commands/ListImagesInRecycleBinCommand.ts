@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ListImagesInRecycleBinCommand}.
  */
 export interface ListImagesInRecycleBinCommandInput extends ListImagesInRecycleBinRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImagesInRecycleBinCommand}.
  */
 export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycleBinResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information,
  *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
  *         Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycle
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImagesInRecycleBinCommandInput - {@link ListImagesInRecycleBinCommandInput}
+ * @returns {@link ListImagesInRecycleBinCommandOutput}
  * @see {@link ListImagesInRecycleBinCommandInput} for command's `input` shape.
  * @see {@link ListImagesInRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class ListImagesInRecycleBinCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImagesInRecycleBinCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListImagesInRecycleBinCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImagesInRecycleBinCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ListImagesInRecycleBinCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagesInRecycleBinCommandOutput> {
     return deserializeAws_ec2ListImagesInRecycleBinCommand(output, context);
   }

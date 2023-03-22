@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an ActiveMQ user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
+ * @returns {@link DeleteUserCommandOutput}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserCommandOutput> {
     return deserializeAws_restJson1DeleteUserCommand(output, context);
   }

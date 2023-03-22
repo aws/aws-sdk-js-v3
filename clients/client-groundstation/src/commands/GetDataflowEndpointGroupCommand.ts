@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataflowEndpointGroupCommand}.
  */
 export interface GetDataflowEndpointGroupCommandInput extends GetDataflowEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataflowEndpointGroupCommand}.
  */
 export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpointGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the dataflow endpoint group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpoi
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataflowEndpointGroupCommandInput - {@link GetDataflowEndpointGroupCommandInput}
+ * @returns {@link GetDataflowEndpointGroupCommandOutput}
  * @see {@link GetDataflowEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link GetDataflowEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataflowEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataflowEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataflowEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataflowEndpointGroupCommandOutput> {
     return deserializeAws_restJson1GetDataflowEndpointGroupCommand(output, context);
   }

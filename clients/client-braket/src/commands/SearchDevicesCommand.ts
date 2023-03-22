@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchDevicesCommand}.
  */
 export interface SearchDevicesCommandInput extends SearchDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchDevicesCommand}.
  */
 export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for devices using the specified filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchDevicesCommandInput - {@link SearchDevicesCommandInput}
+ * @returns {@link SearchDevicesCommandOutput}
  * @see {@link SearchDevicesCommandInput} for command's `input` shape.
  * @see {@link SearchDevicesCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -82,6 +89,9 @@ export class SearchDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class SearchDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDevicesCommandOutput> {
     return deserializeAws_restJson1SearchDevicesCommand(output, context);
   }

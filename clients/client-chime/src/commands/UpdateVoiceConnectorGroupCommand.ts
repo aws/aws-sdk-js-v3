@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVoiceConnectorGroupCommand}.
  */
 export interface UpdateVoiceConnectorGroupCommandInput extends UpdateVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVoiceConnectorGroupCommand}.
  */
 export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates details of the specified Amazon Chime Voice Connector group, such as the name and
  *             Amazon Chime Voice Connector priority ranking.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVoiceConnectorGroupCommandInput - {@link UpdateVoiceConnectorGroupCommandInput}
+ * @returns {@link UpdateVoiceConnectorGroupCommandOutput}
  * @see {@link UpdateVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

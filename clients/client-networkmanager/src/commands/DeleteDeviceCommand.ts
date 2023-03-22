@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceCommand}.
  */
 export interface DeleteDeviceCommandInput extends DeleteDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceCommand}.
  */
 export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing device. You must first disassociate the device from any links and
  *             customer gateways.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceCommandInput - {@link DeleteDeviceCommandInput}
+ * @returns {@link DeleteDeviceCommandOutput}
  * @see {@link DeleteDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceCommandOutput> {
     return deserializeAws_restJson1DeleteDeviceCommand(output, context);
   }

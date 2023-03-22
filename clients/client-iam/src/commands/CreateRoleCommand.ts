@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryCreateRoleCommand, serializeAws_queryCreateRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoleCommand}.
  */
 export interface CreateRoleCommandInput extends CreateRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoleCommand}.
  */
 export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new role for your Amazon Web Services account. For more information about roles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
  *                 roles</a>. For information about quotas for role names and the number of roles
@@ -47,6 +52,8 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoleCommandInput - {@link CreateRoleCommandInput}
+ * @returns {@link CreateRoleCommandOutput}
  * @see {@link CreateRoleCommandInput} for command's `input` shape.
  * @see {@link CreateRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -119,6 +126,9 @@ export class CreateRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class CreateRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoleCommandOutput> {
     return deserializeAws_queryCreateRoleCommand(output, context);
   }

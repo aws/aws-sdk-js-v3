@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentTargetsCommand}.
  */
 export interface ListAssessmentTargetsCommandInput extends ListAssessmentTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentTargetsCommand}.
  */
 export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the ARNs of the assessment targets within this AWS account. For more
  *          information about assessment targets, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon Inspector Assessment
  *             Targets</a>.</p>
@@ -48,6 +53,8 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentTargetsCommandInput - {@link ListAssessmentTargetsCommandInput}
+ * @returns {@link ListAssessmentTargetsCommandOutput}
  * @see {@link ListAssessmentTargetsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentTargetsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -100,6 +107,9 @@ export class ListAssessmentTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ListAssessmentTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssessmentTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentTargetsCommandOutput> {
     return deserializeAws_json1_1ListAssessmentTargetsCommand(output, context);
   }

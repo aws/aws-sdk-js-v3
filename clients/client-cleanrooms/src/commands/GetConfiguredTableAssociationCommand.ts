@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfiguredTableAssociationCommand}.
  */
 export interface GetConfiguredTableAssociationCommandInput extends GetConfiguredTableAssociationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetConfiguredTableAssociationCommand}.
  */
 export interface GetConfiguredTableAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface GetConfiguredTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a configured table association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetConfiguredTableAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfiguredTableAssociationCommandInput - {@link GetConfiguredTableAssociationCommandInput}
+ * @returns {@link GetConfiguredTableAssociationCommandOutput}
  * @see {@link GetConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link GetConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetConfiguredTableAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfiguredTableAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetConfiguredTableAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfiguredTableAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConfiguredTableAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

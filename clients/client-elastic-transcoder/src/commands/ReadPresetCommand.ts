@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReadPresetCommand}.
  */
 export interface ReadPresetCommandInput extends ReadPresetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReadPresetCommand}.
  */
 export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ReadPreset operation gets detailed information about a preset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ReadPresetCommandInput - {@link ReadPresetCommandInput}
+ * @returns {@link ReadPresetCommandOutput}
  * @see {@link ReadPresetCommandInput} for command's `input` shape.
  * @see {@link ReadPresetCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -88,6 +95,9 @@ export class ReadPresetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReadPresetCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ReadPresetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReadPresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ReadPresetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadPresetCommandOutput> {
     return deserializeAws_restJson1ReadPresetCommand(output, context);
   }

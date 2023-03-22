@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMonitorCommand}.
  */
 export interface GetMonitorCommandInput extends GetMonitorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMonitorCommand}.
  */
 export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a monitor in Amazon CloudWatch Internet Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time,
  * 			modified time, resources included in the monitor, and status information.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMonitorCommandInput - {@link GetMonitorCommandInput}
+ * @returns {@link GetMonitorCommandOutput}
  * @see {@link GetMonitorCommandInput} for command's `input` shape.
  * @see {@link GetMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMonitorCommandOutput> {
     return deserializeAws_restJson1GetMonitorCommand(output, context);
   }

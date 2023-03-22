@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectEntitiesV2Command}.
  */
 export interface DetectEntitiesV2CommandInput extends DetectEntitiesV2Request {}
 /**
+ * @public
+ *
  * The output of {@link DetectEntitiesV2Command}.
  */
 export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects the clinical text for a variety of medical entities and returns specific
  *       information about them such as entity category, location, and confidence score on that
  *       information. Amazon Comprehend Medical only detects medical entities in English language
@@ -59,6 +64,8 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectEntitiesV2CommandInput - {@link DetectEntitiesV2CommandInput}
+ * @returns {@link DetectEntitiesV2CommandOutput}
  * @see {@link DetectEntitiesV2CommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesV2CommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -106,6 +113,9 @@ export class DetectEntitiesV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectEntitiesV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DetectEntitiesV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectEntitiesV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectEntitiesV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesV2CommandOutput> {
     return deserializeAws_json1_1DetectEntitiesV2Command(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UnsubscribeFromDatasetCommand}.
  */
 export interface UnsubscribeFromDatasetCommandInput extends UnsubscribeFromDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnsubscribeFromDatasetCommand}.
  */
 export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p><p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
  *       <examples>
  *          <example>
@@ -51,17 +56,17 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  * X-AMZ-SECURITY-TOKEN: <securitytoken>
  * AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>, SignedHeaders=content-type;content-length;host;x-amz-date;x-amz-target, Signature=<signature>
  *
- * {
+ * \{
  *     "Operation": "com.amazonaws.cognito.sync.model#UnsubscribeFromDataset",
  *     "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
  *     "Input":
- *     {
+ *     \{
  *         "IdentityPoolId": "ID_POOL_ID",
  *         "IdentityId": "IDENTITY_ID",
  *         "DatasetName": "Rufus",
  *         "DeviceId": "5cd28fbe-dd83-47ab-9f83-19093a5fb014"
- *     }
- * }
+ *     \}
+ * \}
  *                </request>
  *             <response>
  * 1.1 200 OK
@@ -70,13 +75,13 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  * content-type: application/json
  * content-length: 103
  *
- * {
+ * \{
  *     "Output":
- *     {
+ *     \{
  *         "__type": "com.amazonaws.cognito.sync.model#UnsubscribeFromDatasetResponse"
- *     },
+ *     \},
  *     "Version": "1.0"
- * }
+ * \}
  *                </response>
  *          </example>
  *       </examples>
@@ -90,6 +95,8 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  * const response = await client.send(command);
  * ```
  *
+ * @param UnsubscribeFromDatasetCommandInput - {@link UnsubscribeFromDatasetCommandInput}
+ * @returns {@link UnsubscribeFromDatasetCommandOutput}
  * @see {@link UnsubscribeFromDatasetCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeFromDatasetCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -135,6 +142,9 @@ export class UnsubscribeFromDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnsubscribeFromDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class UnsubscribeFromDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnsubscribeFromDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UnsubscribeFromDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeFromDatasetCommandOutput> {
     return deserializeAws_restJson1UnsubscribeFromDatasetCommand(output, context);
   }

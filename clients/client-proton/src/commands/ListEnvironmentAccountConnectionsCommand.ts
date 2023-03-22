@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentAccountConnectionsCommand}.
  */
 export interface ListEnvironmentAccountConnectionsCommandInput extends ListEnvironmentAccountConnectionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentAccountConnectionsCommand}.
  */
 export interface ListEnvironmentAccountConnectionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListEnvironmentAccountConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>View a list of environment account connections.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
  *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -50,6 +55,8 @@ export interface ListEnvironmentAccountConnectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentAccountConnectionsCommandInput - {@link ListEnvironmentAccountConnectionsCommandInput}
+ * @returns {@link ListEnvironmentAccountConnectionsCommandOutput}
  * @see {@link ListEnvironmentAccountConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentAccountConnectionsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentAccountConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListEnvironmentAccountConnectionsCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command<
     return serializeAws_json1_0ListEnvironmentAccountConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

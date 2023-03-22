@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectPeerCommand}.
  */
 export interface CreateConnectPeerCommandInput extends CreateConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectPeerCommand}.
  */
 export interface CreateConnectPeerCommandOutput extends CreateConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a core network Connect peer for a specified core network connect attachment between a core network and an appliance.
  *          The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectPeerCommandInput - {@link CreateConnectPeerCommandInput}
+ * @returns {@link CreateConnectPeerCommandOutput}
  * @see {@link CreateConnectPeerCommandInput} for command's `input` shape.
  * @see {@link CreateConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectPeerCommandOutput> {
     return deserializeAws_restJson1CreateConnectPeerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTagOptionCommand}.
  */
 export interface CreateTagOptionCommandInput extends CreateTagOptionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTagOptionCommand}.
  */
 export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTagOptionCommandInput - {@link CreateTagOptionCommandInput}
+ * @returns {@link CreateTagOptionCommandOutput}
  * @see {@link CreateTagOptionCommandInput} for command's `input` shape.
  * @see {@link CreateTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateTagOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTagOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateTagOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTagOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagOptionCommandOutput> {
     return deserializeAws_json1_1CreateTagOptionCommand(output, context);
   }

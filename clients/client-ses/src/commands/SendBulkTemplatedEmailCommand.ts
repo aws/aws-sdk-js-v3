@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendBulkTemplatedEmailCommand}.
  */
 export interface SendBulkTemplatedEmailCommandInput extends SendBulkTemplatedEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendBulkTemplatedEmailCommand}.
  */
 export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message to multiple destinations. The message body is created using
  *             an email template.</p>
  *         <p>In order to send email using the <code>SendBulkTemplatedEmail</code> operation, your
@@ -88,6 +93,8 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  * const response = await client.send(command);
  * ```
  *
+ * @param SendBulkTemplatedEmailCommandInput - {@link SendBulkTemplatedEmailCommandInput}
+ * @returns {@link SendBulkTemplatedEmailCommandOutput}
  * @see {@link SendBulkTemplatedEmailCommandInput} for command's `input` shape.
  * @see {@link SendBulkTemplatedEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -136,6 +143,9 @@ export class SendBulkTemplatedEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendBulkTemplatedEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,10 +185,16 @@ export class SendBulkTemplatedEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBulkTemplatedEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendBulkTemplatedEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBulkTemplatedEmailCommandOutput> {
     return deserializeAws_querySendBulkTemplatedEmailCommand(output, context);
   }

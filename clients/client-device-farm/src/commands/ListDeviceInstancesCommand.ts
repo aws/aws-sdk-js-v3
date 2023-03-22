@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeviceInstancesCommand}.
  */
 export interface ListDeviceInstancesCommandInput extends ListDeviceInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeviceInstancesCommand}.
  */
 export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the private device instances associated with one or more AWS
  *             accounts.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceInstancesCommandInput - {@link ListDeviceInstancesCommandInput}
+ * @returns {@link ListDeviceInstancesCommandOutput}
  * @see {@link ListDeviceInstancesCommandInput} for command's `input` shape.
  * @see {@link ListDeviceInstancesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDeviceInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDeviceInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDeviceInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceInstancesCommandOutput> {
     return deserializeAws_json1_1ListDeviceInstancesCommand(output, context);
   }

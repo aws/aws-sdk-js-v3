@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface CreateInstanceAccessControlAttributeConfigurationCommandInput
   extends CreateInstanceAccessControlAttributeConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceAccessControlAttributeConfigurationCommand}.
  */
 export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
  *       instance. You can also specify new attributes to add to your ABAC configuration during the
  *       enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
@@ -55,6 +60,8 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceAccessControlAttributeConfigurationCommandInput - {@link CreateInstanceAccessControlAttributeConfigurationCommandInput}
+ * @returns {@link CreateInstanceAccessControlAttributeConfigurationCommandOutput}
  * @see {@link CreateInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceAccessControlAttributeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateInstanceAccessControlAttributeConfigurationCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
     return serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

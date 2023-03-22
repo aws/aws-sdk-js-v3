@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartExportLabelsTaskRunCommand}.
  */
 export interface StartExportLabelsTaskRunCommandInput extends StartExportLabelsTaskRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartExportLabelsTaskRunCommand}.
  */
 export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabelsTaskRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Begins an asynchronous task to export all labeled data for a particular transform. This
  *       task is the only label-related API call that is not part of the typical active learning
  *       workflow. You typically use <code>StartExportLabelsTaskRun</code> when you want to work with
@@ -54,6 +59,8 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExportLabelsTaskRunCommandInput - {@link StartExportLabelsTaskRunCommandInput}
+ * @returns {@link StartExportLabelsTaskRunCommandOutput}
  * @see {@link StartExportLabelsTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartExportLabelsTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -89,6 +96,9 @@ export class StartExportLabelsTaskRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExportLabelsTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StartExportLabelsTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExportLabelsTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartExportLabelsTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExportLabelsTaskRunCommandOutput> {
     return deserializeAws_json1_1StartExportLabelsTaskRunCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { STSServiceException as __BaseException } from "./STSServiceException";
 
 /**
+ * @public
  * <p>The identifiers for the temporary security credentials that the operation
  *          returns.</p>
  */
@@ -23,6 +24,7 @@ export interface AssumedRoleUser {
 }
 
 /**
+ * @public
  * <p>A reference to the IAM managed policy that is passed as a session policy for a role
  *          session or a federated user session.</p>
  */
@@ -36,6 +38,7 @@ export interface PolicyDescriptorType {
 }
 
 /**
+ * @public
  * <p>You can pass custom key-value pair attributes when you assume a role or federate a user.
  *          These are called session tags. You can then use the session tags to control access to
  *          resources. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Tagging Amazon Web Services STS Sessions</a> in the
@@ -59,6 +62,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssumeRoleRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the role to assume.</p>
@@ -261,6 +267,7 @@ export interface AssumeRoleRequest {
 }
 
 /**
+ * @public
  * <p>Amazon Web Services credentials for API authentication.</p>
  */
 export interface Credentials {
@@ -287,6 +294,7 @@ export interface Credentials {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>AssumeRole</a> request, including
  *       temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
  */
@@ -336,6 +344,7 @@ export interface AssumeRoleResponse {
 }
 
 /**
+ * @public
  * <p>The web identity token that was passed is expired or is not valid. Get a new identity
  *             token from the identity provider and then retry the request.</p>
  */
@@ -356,6 +365,7 @@ export class ExpiredTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the policy document was malformed. The error message
  *             describes the specific error.</p>
  */
@@ -376,6 +386,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the total packed size of the session policies and
  *             session tags combined was too large. An Amazon Web Services conversion compresses the session policy
  *             document, session policy ARNs, and session tags into a packed binary format that has a
@@ -403,6 +414,7 @@ export class PackedPolicyTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>STS is not activated in the requested region for the account that is being asked to
  *             generate credentials. The account administrator must use the IAM console to activate STS
  *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
@@ -425,6 +437,9 @@ export class RegionDisabledException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssumeRoleWithSAMLRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
@@ -521,6 +536,7 @@ export interface AssumeRoleWithSAMLRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>AssumeRoleWithSAML</a> request,
  *       including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
  */
@@ -620,6 +636,7 @@ export interface AssumeRoleWithSAMLResponse {
 }
 
 /**
+ * @public
  * <p>The identity provider (IdP) reported that authentication failed. This might be because
  *             the claim is invalid.</p>
  *          <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it
@@ -642,6 +659,7 @@ export class IDPRejectedClaimException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The web identity token that was passed could not be validated by Amazon Web Services. Get a new
  *             identity token from the identity provider and then retry the request.</p>
  */
@@ -661,6 +679,9 @@ export class InvalidIdentityTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssumeRoleWithWebIdentityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
@@ -771,6 +792,7 @@ export interface AssumeRoleWithWebIdentityRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>AssumeRoleWithWebIdentity</a>
  *       request, including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
  */
@@ -849,6 +871,7 @@ export interface AssumeRoleWithWebIdentityResponse {
 }
 
 /**
+ * @public
  * <p>The request could not be fulfilled because the identity provider (IDP) that
  *             was asked to verify the incoming identity token could not be reached. This is often a
  *             transient error caused by network conditions. Retry the request a limited number of
@@ -871,6 +894,9 @@ export class IDPCommunicationErrorException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DecodeAuthorizationMessageRequest {
   /**
    * <p>The encoded message that was returned with the response.</p>
@@ -879,6 +905,7 @@ export interface DecodeAuthorizationMessageRequest {
 }
 
 /**
+ * @public
  * <p>A document that contains additional information about the authorization status of a
  *       request from an encoded message that is returned in response to an Amazon Web Services request.</p>
  */
@@ -890,6 +917,7 @@ export interface DecodeAuthorizationMessageResponse {
 }
 
 /**
+ * @public
  * <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code>
  *             was invalid. This can happen if the token contains invalid characters, such as
  *             linebreaks. </p>
@@ -910,6 +938,9 @@ export class InvalidAuthorizationMessageException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAccessKeyInfoRequest {
   /**
    * <p>The identifier of an access key.</p>
@@ -919,6 +950,9 @@ export interface GetAccessKeyInfoRequest {
   AccessKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessKeyInfoResponse {
   /**
    * <p>The number used to identify the Amazon Web Services account.</p>
@@ -926,9 +960,13 @@ export interface GetAccessKeyInfoResponse {
   Account?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCallerIdentityRequest {}
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetCallerIdentity</a> request,
  *          including information about the entity making the request.</p>
  */
@@ -953,6 +991,9 @@ export interface GetCallerIdentityResponse {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFederationTokenRequest {
   /**
    * <p>The name of the federated user. The name is used as an identifier for the temporary
@@ -1070,6 +1111,7 @@ export interface GetFederationTokenRequest {
 }
 
 /**
+ * @public
  * <p>Identifiers for the federated user that is associated with the credentials.</p>
  */
 export interface FederatedUser {
@@ -1088,6 +1130,7 @@ export interface FederatedUser {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetFederationToken</a> request,
  *       including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
  */
@@ -1118,6 +1161,9 @@ export interface GetFederationTokenResponse {
   PackedPolicySize?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionTokenRequest {
   /**
    * <p>The duration, in seconds, that the credentials should remain valid. Acceptable durations
@@ -1155,6 +1201,7 @@ export interface GetSessionTokenRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetSessionToken</a> request,
  *       including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
  */

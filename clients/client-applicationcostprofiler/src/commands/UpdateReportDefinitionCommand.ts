@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReportDefinitionCommand}.
  */
 export interface UpdateReportDefinitionCommandInput extends UpdateReportDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReportDefinitionCommand}.
  */
 export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinitionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates existing report in AWS Application Cost Profiler.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReportDefinitionCommandInput - {@link UpdateReportDefinitionCommandInput}
+ * @returns {@link UpdateReportDefinitionCommandOutput}
  * @see {@link UpdateReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateReportDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReportDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateReportDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateReportDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReportDefinitionCommandOutput> {
     return deserializeAws_restJson1UpdateReportDefinitionCommand(output, context);
   }

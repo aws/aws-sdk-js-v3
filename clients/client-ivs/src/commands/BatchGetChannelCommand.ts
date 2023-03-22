@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetChannelCommand}.
  */
 export interface BatchGetChannelCommandInput extends BatchGetChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetChannelCommand}.
  */
 export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs <a>GetChannel</a> on multiple ARNs simultaneously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetChannelCommandInput - {@link BatchGetChannelCommandInput}
+ * @returns {@link BatchGetChannelCommandOutput}
  * @see {@link BatchGetChannelCommandInput} for command's `input` shape.
  * @see {@link BatchGetChannelCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -69,6 +76,9 @@ export class BatchGetChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class BatchGetChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetChannelCommandOutput> {
     return deserializeAws_restJson1BatchGetChannelCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackResourcesCommand}.
  */
 export interface DescribeStackResourcesCommandInput extends DescribeStackResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackResourcesCommand}.
  */
 export interface DescribeStackResourcesCommandOutput extends DescribeStackResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Amazon Web Services resource descriptions for running and deleted stacks. If
  *             <code>StackName</code> is specified, all the associated resources that are part of the
  *          stack are returned. If <code>PhysicalResourceId</code> is specified, the associated
@@ -64,6 +69,8 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackResourcesCommandInput - {@link DescribeStackResourcesCommandInput}
+ * @returns {@link DescribeStackResourcesCommandOutput}
  * @see {@link DescribeStackResourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeStackResourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeStackResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeStackResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeStackResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackResourcesCommandOutput> {
     return deserializeAws_queryDescribeStackResourcesCommand(output, context);
   }

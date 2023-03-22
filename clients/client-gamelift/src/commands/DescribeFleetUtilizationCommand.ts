@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetUtilizationCommand}.
  */
 export interface DescribeFleetUtilizationCommandInput extends DescribeFleetUtilizationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetUtilizationCommand}.
  */
 export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtilizationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
  *             snapshot of how the fleet's hosting resources are currently being used. For fleets with
  *             remote locations, this operation retrieves data for the fleet's home Region only. See
@@ -81,6 +86,8 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetUtilizationCommandInput - {@link DescribeFleetUtilizationCommandInput}
+ * @returns {@link DescribeFleetUtilizationCommandOutput}
  * @see {@link DescribeFleetUtilizationCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetUtilizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -118,6 +125,9 @@ export class DescribeFleetUtilizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetUtilizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class DescribeFleetUtilizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetUtilizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetUtilizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetUtilizationCommandOutput> {
     return deserializeAws_json1_1DescribeFleetUtilizationCommand(output, context);
   }

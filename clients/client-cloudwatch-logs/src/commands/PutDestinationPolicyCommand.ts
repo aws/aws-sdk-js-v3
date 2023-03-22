@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDestinationPolicyCommand}.
  */
 export interface PutDestinationPolicyCommandInput extends PutDestinationPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDestinationPolicyCommand}.
  */
 export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an access policy associated with an existing
  *       destination. An access policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used
  *       to authorize claims to register a subscription filter against a given destination.</p>
@@ -43,6 +48,8 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDestinationPolicyCommandInput - {@link PutDestinationPolicyCommandInput}
+ * @returns {@link PutDestinationPolicyCommandOutput}
  * @see {@link PutDestinationPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDestinationPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -75,6 +82,9 @@ export class PutDestinationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDestinationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class PutDestinationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDestinationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutDestinationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDestinationPolicyCommandOutput> {
     return deserializeAws_json1_1PutDestinationPolicyCommand(output, context);
   }

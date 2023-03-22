@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Sets the resource policy to grant one or more Amazon Web Services services and accounts permissions to
  *             access X-Ray. Each resource policy will be associated with a specific Amazon Web Services account.
@@ -51,6 +56,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -93,6 +100,9 @@ export class PutResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class PutResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
     return deserializeAws_restJson1PutResourcePolicyCommand(output, context);
   }

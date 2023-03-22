@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns events related to DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the past 14 days.
  *           Events specific to a particular DB instance, DB cluster, DB parameter group, DB security group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be
  *           obtained by providing the name as a parameter.</p>
@@ -53,6 +58,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
+ * @returns {@link DescribeEventsCommandOutput}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
     return deserializeAws_queryDescribeEventsCommand(output, context);
   }

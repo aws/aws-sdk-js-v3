@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDataCatalogEncryptionSettingsCommand}.
  */
 export interface PutDataCatalogEncryptionSettingsCommandInput extends PutDataCatalogEncryptionSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDataCatalogEncryptionSettingsCommand}.
  */
 export interface PutDataCatalogEncryptionSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the security configuration for a specified catalog. After the configuration has been
  *       set, the specified encryption is applied to every catalog write thereafter.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDataCatalogEncryptionSettingsCommandInput - {@link PutDataCatalogEncryptionSettingsCommandInput}
+ * @returns {@link PutDataCatalogEncryptionSettingsCommandOutput}
  * @see {@link PutDataCatalogEncryptionSettingsCommandInput} for command's `input` shape.
  * @see {@link PutDataCatalogEncryptionSettingsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDataCatalogEncryptionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutDataCatalogEncryptionSettingsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     return serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

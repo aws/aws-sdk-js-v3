@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDescribeTypeConfigurationsCommand}.
  */
 export interface BatchDescribeTypeConfigurationsCommandInput extends BatchDescribeTypeConfigurationsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDescribeTypeConfigurationsCommand}.
  */
 export interface BatchDescribeTypeConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration data for the specified CloudFormation extensions, from
  *          the CloudFormation registry for the account and region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the
@@ -51,6 +56,8 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDescribeTypeConfigurationsCommandInput - {@link BatchDescribeTypeConfigurationsCommandInput}
+ * @returns {@link BatchDescribeTypeConfigurationsCommandOutput}
  * @see {@link BatchDescribeTypeConfigurationsCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeTypeConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -80,6 +87,9 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDescribeTypeConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDescribeTypeConfigurationsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command<
     return serializeAws_queryBatchDescribeTypeConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

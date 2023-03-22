@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContextCommand}.
  */
 export interface DeleteContextCommandInput extends DeleteContextRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContextCommand}.
  */
 export interface DeleteContextCommandOutput extends DeleteContextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an context.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteContextCommandOutput extends DeleteContextResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContextCommandInput - {@link DeleteContextCommandInput}
+ * @returns {@link DeleteContextCommandOutput}
  * @see {@link DeleteContextCommandInput} for command's `input` shape.
  * @see {@link DeleteContextCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteContextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContextCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteContextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteContextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContextCommandOutput> {
     return deserializeAws_json1_1DeleteContextCommand(output, context);
   }

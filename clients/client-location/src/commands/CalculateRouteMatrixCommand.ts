@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CalculateRouteMatrixCommand}.
  */
 export interface CalculateRouteMatrixCommandInput extends CalculateRouteMatrixRequest {}
 /**
+ * @public
+ *
  * The output of {@link CalculateRouteMatrixCommand}.
  */
 export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route
  *                 matrix</a> given the following required parameters:
@@ -87,6 +92,8 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * const response = await client.send(command);
  * ```
  *
+ * @param CalculateRouteMatrixCommandInput - {@link CalculateRouteMatrixCommandInput}
+ * @returns {@link CalculateRouteMatrixCommandOutput}
  * @see {@link CalculateRouteMatrixCommandInput} for command's `input` shape.
  * @see {@link CalculateRouteMatrixCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -126,6 +133,9 @@ export class CalculateRouteMatrixCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CalculateRouteMatrixCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class CalculateRouteMatrixCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CalculateRouteMatrixCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CalculateRouteMatrixCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CalculateRouteMatrixCommandOutput> {
     return deserializeAws_restJson1CalculateRouteMatrixCommand(output, context);
   }

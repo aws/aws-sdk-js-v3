@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFeatureMetadataCommand}.
  */
 export interface DescribeFeatureMetadataCommandInput extends DescribeFeatureMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFeatureMetadataCommand}.
  */
 export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shows the metadata for a feature within a feature group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMet
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFeatureMetadataCommandInput - {@link DescribeFeatureMetadataCommandInput}
+ * @returns {@link DescribeFeatureMetadataCommandOutput}
  * @see {@link DescribeFeatureMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeFeatureMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFeatureMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeFeatureMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFeatureMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFeatureMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFeatureMetadataCommandOutput> {
     return deserializeAws_json1_1DescribeFeatureMetadataCommand(output, context);
   }

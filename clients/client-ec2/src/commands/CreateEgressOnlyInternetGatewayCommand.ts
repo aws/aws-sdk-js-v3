@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEgressOnlyInternetGatewayCommand}.
  */
 export interface CreateEgressOnlyInternetGatewayCommandInput extends CreateEgressOnlyInternetGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEgressOnlyInternetGatewayCommand}.
  */
 export interface CreateEgressOnlyInternetGatewayCommandOutput
@@ -37,6 +41,7 @@ export interface CreateEgressOnlyInternetGatewayCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>[IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only
  * 			internet gateway is used to enable outbound communication over IPv6 from instances in
  * 			your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6
@@ -51,6 +56,8 @@ export interface CreateEgressOnlyInternetGatewayCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEgressOnlyInternetGatewayCommandInput - {@link CreateEgressOnlyInternetGatewayCommandInput}
+ * @returns {@link CreateEgressOnlyInternetGatewayCommandOutput}
  * @see {@link CreateEgressOnlyInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateEgressOnlyInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEgressOnlyInternetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateEgressOnlyInternetGatewayCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command<
     return serializeAws_ec2CreateEgressOnlyInternetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

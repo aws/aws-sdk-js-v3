@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutMetricStreamCommand}.
  */
 export interface PutMetricStreamCommandInput extends PutMetricStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link PutMetricStreamCommand}.
  */
 export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
  * 			metrics to Amazon Web Services destinations, including Amazon S3, and to many third-party
  * 			solutions.</p>
@@ -79,6 +84,8 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetricStreamCommandInput - {@link PutMetricStreamCommandInput}
+ * @returns {@link PutMetricStreamCommandOutput}
  * @see {@link PutMetricStreamCommandInput} for command's `input` shape.
  * @see {@link PutMetricStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -117,6 +124,9 @@ export class PutMetricStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetricStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class PutMetricStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetricStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutMetricStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricStreamCommandOutput> {
     return deserializeAws_queryPutMetricStreamCommand(output, context);
   }

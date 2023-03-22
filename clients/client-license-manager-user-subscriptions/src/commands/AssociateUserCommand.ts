@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateUserCommand}.
  */
 export interface AssociateUserCommandInput extends AssociateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateUserCommand}.
  */
 export interface AssociateUserCommandOutput extends AssociateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p>
  *          <note>
  *             <p>Your estimated bill for charges on the number of users and related costs will take 48
@@ -55,6 +60,8 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateUserCommandInput - {@link AssociateUserCommandInput}
+ * @returns {@link AssociateUserCommandOutput}
  * @see {@link AssociateUserCommandInput} for command's `input` shape.
  * @see {@link AssociateUserCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -100,6 +107,9 @@ export class AssociateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class AssociateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateUserCommandOutput> {
     return deserializeAws_restJson1AssociateUserCommand(output, context);
   }

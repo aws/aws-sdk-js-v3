@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopTransformJobCommand}.
  */
 export interface StopTransformJobCommandInput extends StopTransformJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopTransformJobCommand}.
  */
 export interface StopTransformJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a batch transform job.</p>
  *          <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
  *             changes to <code>Stopping</code>. After Amazon SageMaker
@@ -46,6 +51,8 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTransformJobCommandInput - {@link StopTransformJobCommandInput}
+ * @returns {@link StopTransformJobCommandOutput}
  * @see {@link StopTransformJobCommandInput} for command's `input` shape.
  * @see {@link StopTransformJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class StopTransformJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTransformJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class StopTransformJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTransformJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopTransformJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTransformJobCommandOutput> {
     return deserializeAws_json1_1StopTransformJobCommand(output, context);
   }

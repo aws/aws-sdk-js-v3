@@ -117,6 +117,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptInvitationCommandInput
   | BatchGetGraphMemberDatasourcesCommandInput
@@ -143,6 +146,9 @@ export type ServiceInputTypes =
   | UpdateDatasourcePackagesCommandInput
   | UpdateOrganizationConfigurationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
   | BatchGetGraphMemberDatasourcesCommandOutput
@@ -169,6 +175,9 @@ export type ServiceOutputTypes =
   | UpdateDatasourcePackagesCommandOutput
   | UpdateOrganizationConfigurationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -176,7 +185,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -285,11 +294,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type DetectiveClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -300,10 +312,15 @@ type DetectiveClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of DetectiveClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of DetectiveClient class constructor that set the region, credentials and other options.
  */
 export interface DetectiveClientConfig extends DetectiveClientConfigType {}
 
+/**
+ * @public
+ */
 type DetectiveClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -314,11 +331,14 @@ type DetectiveClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of DetectiveClient class. This is resolved and normalized from the {@link DetectiveClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of DetectiveClient class. This is resolved and normalized from the {@link DetectiveClientConfig | constructor configuration interface}.
  */
 export interface DetectiveClientResolvedConfig extends DetectiveClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Detective uses machine learning and purpose-built visualizations to help you to
  *          analyze and investigate security issues across your Amazon Web Services (Amazon Web Services) workloads. Detective automatically extracts time-based events such
  *          as login attempts, API calls, and network traffic from CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by

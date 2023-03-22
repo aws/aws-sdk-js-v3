@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTableColumnsCommand}.
  */
 export interface ListTableColumnsCommandInput extends ListTableColumnsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTableColumnsCommand}.
  */
 export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The ListTableColumns API allows you to retrieve a list of all the columns in a table in a workbook.
  *         </p>
@@ -48,6 +53,8 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTableColumnsCommandInput - {@link ListTableColumnsCommandInput}
+ * @returns {@link ListTableColumnsCommandOutput}
  * @see {@link ListTableColumnsCommandInput} for command's `input` shape.
  * @see {@link ListTableColumnsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListTableColumnsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTableColumnsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ListTableColumnsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTableColumnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTableColumnsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableColumnsCommandOutput> {
     return deserializeAws_restJson1ListTableColumnsCommand(output, context);
   }

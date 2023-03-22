@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFolderCommand}.
  */
 export interface UpdateFolderCommandInput extends UpdateFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFolderCommand}.
  */
 export interface UpdateFolderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified attributes of the specified folder. The user must have access
  *             to both the folder and its parent folder, if applicable.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateFolderCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFolderCommandInput - {@link UpdateFolderCommandInput}
+ * @returns {@link UpdateFolderCommandOutput}
  * @see {@link UpdateFolderCommandInput} for command's `input` shape.
  * @see {@link UpdateFolderCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFolderCommandOutput> {
     return deserializeAws_restJson1UpdateFolderCommand(output, context);
   }

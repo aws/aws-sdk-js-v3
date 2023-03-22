@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThingGroupCommand}.
  */
 export interface DeleteThingGroupCommandInput extends DeleteThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThingGroupCommand}.
  */
 export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThingGroupCommandInput - {@link DeleteThingGroupCommandInput}
+ * @returns {@link DeleteThingGroupCommandOutput}
  * @see {@link DeleteThingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThingGroupCommandOutput> {
     return deserializeAws_restJson1DeleteThingGroupCommand(output, context);
   }

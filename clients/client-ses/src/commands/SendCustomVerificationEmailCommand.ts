@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendCustomVerificationEmailCommand}.
  */
 export interface SendCustomVerificationEmailCommandInput extends SendCustomVerificationEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendCustomVerificationEmailCommand}.
  */
 export interface SendCustomVerificationEmailCommandOutput
@@ -37,6 +41,7 @@ export interface SendCustomVerificationEmailCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current
  *             AWS Region and attempts to verify it. As a result of executing this operation, a
  *             customized verification email is sent to the specified address.</p>
@@ -56,6 +61,8 @@ export interface SendCustomVerificationEmailCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SendCustomVerificationEmailCommandInput - {@link SendCustomVerificationEmailCommandInput}
+ * @returns {@link SendCustomVerificationEmailCommandOutput}
  * @see {@link SendCustomVerificationEmailCommandInput} for command's `input` shape.
  * @see {@link SendCustomVerificationEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -97,6 +104,9 @@ export class SendCustomVerificationEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendCustomVerificationEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class SendCustomVerificationEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendCustomVerificationEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendCustomVerificationEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

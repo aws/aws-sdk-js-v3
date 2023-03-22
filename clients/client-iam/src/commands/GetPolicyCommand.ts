@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryGetPolicyCommand, serializeAws_queryGetPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetPolicyCommand}.
  */
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPolicyCommand}.
  */
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified managed policy, including the policy's
  *             default version and the total number of IAM users, groups, and roles to which the
  *             policy is attached. To retrieve the list of the specific users, groups, and roles that
@@ -52,6 +57,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
+ * @returns {@link GetPolicyCommandOutput}
  * @see {@link GetPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyCommandOutput> {
     return deserializeAws_queryGetPolicyCommand(output, context);
   }

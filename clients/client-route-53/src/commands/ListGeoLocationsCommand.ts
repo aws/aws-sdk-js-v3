@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListGeoLocationsCommand}.
  */
 export interface ListGeoLocationsCommandInput extends ListGeoLocationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGeoLocationsCommand}.
  */
 export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of supported geographic locations.</p>
  *          <p>Countries are listed first, and continents are listed last. If Amazon Route 53
  * 			supports subdivisions for a country (for example, states or provinces), the subdivisions
@@ -54,6 +59,8 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGeoLocationsCommandInput - {@link ListGeoLocationsCommandInput}
+ * @returns {@link ListGeoLocationsCommandOutput}
  * @see {@link ListGeoLocationsCommandInput} for command's `input` shape.
  * @see {@link ListGeoLocationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -80,6 +87,9 @@ export class ListGeoLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGeoLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListGeoLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGeoLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListGeoLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeoLocationsCommandOutput> {
     return deserializeAws_restXmlListGeoLocationsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelQualityJobDefinitionCommand}.
  */
 export interface DescribeModelQualityJobDefinitionCommandInput extends DescribeModelQualityJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelQualityJobDefinitionCommand}.
  */
 export interface DescribeModelQualityJobDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeModelQualityJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of a model quality job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeModelQualityJobDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelQualityJobDefinitionCommandInput - {@link DescribeModelQualityJobDefinitionCommandInput}
+ * @returns {@link DescribeModelQualityJobDefinitionCommandOutput}
  * @see {@link DescribeModelQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeModelQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelQualityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeModelQualityJobDefinitionCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
     return serializeAws_json1_1DescribeModelQualityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

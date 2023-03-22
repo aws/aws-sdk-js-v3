@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartAutomationExecutionCommand}.
  */
 export interface StartAutomationExecutionCommandInput extends StartAutomationExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAutomationExecutionCommand}.
  */
 export interface StartAutomationExecutionCommandOutput extends StartAutomationExecutionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates execution of an Automation runbook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAutomationExecutionCommandInput - {@link StartAutomationExecutionCommandInput}
+ * @returns {@link StartAutomationExecutionCommandOutput}
  * @see {@link StartAutomationExecutionCommandInput} for command's `input` shape.
  * @see {@link StartAutomationExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -95,6 +102,9 @@ export class StartAutomationExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAutomationExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class StartAutomationExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAutomationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAutomationExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAutomationExecutionCommandOutput> {
     return deserializeAws_json1_1StartAutomationExecutionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCarrierGatewayCommand}.
  */
 export interface DeleteCarrierGatewayCommandInput extends DeleteCarrierGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCarrierGatewayCommand}.
  */
 export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a carrier gateway.</p>
  *          <important>
  *             <p>If you do not delete the route that contains the carrier gateway as the
@@ -51,6 +56,8 @@ export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCarrierGatewayCommandInput - {@link DeleteCarrierGatewayCommandInput}
+ * @returns {@link DeleteCarrierGatewayCommandOutput}
  * @see {@link DeleteCarrierGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteCarrierGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteCarrierGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCarrierGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteCarrierGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCarrierGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteCarrierGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCarrierGatewayCommandOutput> {
     return deserializeAws_ec2DeleteCarrierGatewayCommand(output, context);
   }

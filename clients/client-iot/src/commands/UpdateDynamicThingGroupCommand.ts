@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDynamicThingGroupCommand}.
  */
 export interface UpdateDynamicThingGroupCommandInput extends UpdateDynamicThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDynamicThingGroupCommand}.
  */
 export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a dynamic thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDynamicThingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDynamicThingGroupCommandInput - {@link UpdateDynamicThingGroupCommandInput}
+ * @returns {@link UpdateDynamicThingGroupCommandOutput}
  * @see {@link UpdateDynamicThingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateDynamicThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateDynamicThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDynamicThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateDynamicThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDynamicThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDynamicThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDynamicThingGroupCommandOutput> {
     return deserializeAws_restJson1UpdateDynamicThingGroupCommand(output, context);
   }

@@ -97,6 +97,7 @@ import {
 import { DAXClient } from "./DAXClient";
 
 /**
+ * @public
  * <p>DAX is a managed caching service engineered for Amazon DynamoDB. DAX
  *             dramatically speeds up database reads by caching frequently-accessed data from DynamoDB, so
  *             applications can access that data with sub-millisecond latency. You can create a DAX
@@ -106,6 +107,7 @@ import { DAXClient } from "./DAXClient";
  */
 export class DAX extends DAXClient {
   /**
+   * @public
    * <p>Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.</p>
    */
   public createCluster(
@@ -138,6 +140,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Creates a new parameter group. A parameter group is a collection of parameters that
    *             you apply to all of the nodes in a DAX cluster.</p>
    */
@@ -171,6 +174,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Creates a new subnet group.</p>
    */
   public createSubnetGroup(
@@ -203,6 +207,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more nodes from a DAX cluster.</p>
    *         <note>
    *             <p>You cannot use <code>DecreaseReplicationFactor</code> to remove the last node in a DAX cluster. If you need to do this, use <code>DeleteCluster</code> instead.</p>
@@ -238,6 +243,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Deletes a previously provisioned DAX cluster.
    *                 <i>DeleteCluster</i> deletes all associated nodes, node endpoints
    *             and the DAX cluster itself. When you receive a successful response from this action,
@@ -274,6 +280,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is
    *             associated with any DAX clusters.</p>
    */
@@ -307,6 +314,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Deletes a subnet group.</p>
    *         <note>
    *             <p>You cannot delete a subnet group if it is associated with any DAX
@@ -343,6 +351,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all provisioned DAX clusters if no cluster identifier
    *             is specified, or about a specific DAX cluster if a cluster identifier is
    *             supplied.</p>
@@ -387,6 +396,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Returns the default system parameter information for the DAX caching
    *             software.</p>
    */
@@ -420,6 +430,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Returns events related to DAX clusters and parameter groups. You can obtain
    *             events specific to a particular DAX cluster or parameter group by providing the name
    *             as a parameter.</p>
@@ -456,6 +467,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of parameter group descriptions. If a parameter group name is
    *             specified, the list will contain only the descriptions for that group.</p>
    */
@@ -489,6 +501,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Returns the detailed parameter list for a particular parameter group.</p>
    */
   public describeParameters(
@@ -521,6 +534,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of subnet group descriptions. If a subnet group name is specified,
    *             the list will contain only the description of that group.</p>
    */
@@ -554,6 +568,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more nodes to a DAX cluster.</p>
    */
   public increaseReplicationFactor(
@@ -586,6 +601,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to
    *             10 times per second, per account.</p>
    */
@@ -613,6 +629,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Reboots a single node of a DAX cluster. The reboot action takes place
    *             as soon as possible. During the
    *             reboot, the node status is set to REBOOTING.</p>
@@ -645,6 +662,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Associates a set of tags with a DAX resource.  You can call <code>TagResource</code> up to 5 times per second, per
    *             account. </p>
    */
@@ -672,6 +690,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Removes the association of tags from a DAX resource. You can call
    *             <code>UntagResource</code> up to 5 times per second, per account. </p>
    */
@@ -705,6 +724,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Modifies the settings for a DAX cluster. You can use this action to change one or
    *             more cluster configuration parameters by specifying the parameters and the new
    *             values.</p>
@@ -739,6 +759,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters of a parameter group. You can modify up to 20
    *             parameters in a single request by submitting a list parameter name and value
    *             pairs.</p>
@@ -773,6 +794,7 @@ export class DAX extends DAXClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing subnet group.</p>
    */
   public updateSubnetGroup(

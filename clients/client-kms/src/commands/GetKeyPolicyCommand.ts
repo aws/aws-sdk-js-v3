@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetKeyPolicyCommand}.
  */
 export interface GetKeyPolicyCommandInput extends GetKeyPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetKeyPolicyCommand}.
  */
 export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a key policy attached to the specified KMS key.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
@@ -53,6 +58,8 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKeyPolicyCommandInput - {@link GetKeyPolicyCommandInput}
+ * @returns {@link GetKeyPolicyCommandOutput}
  * @see {@link GetKeyPolicyCommandInput} for command's `input` shape.
  * @see {@link GetKeyPolicyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -127,6 +134,9 @@ export class GetKeyPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKeyPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class GetKeyPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKeyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetKeyPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyPolicyCommandOutput> {
     return deserializeAws_json1_1GetKeyPolicyCommand(output, context);
   }

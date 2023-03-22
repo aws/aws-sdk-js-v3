@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExperienceCommand}.
  */
 export interface DescribeExperienceCommandInput extends DescribeExperienceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExperienceCommand}.
  */
 export interface DescribeExperienceCommandOutput extends DescribeExperienceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about your Amazon Kendra experience such as a search application.
  *             For more information on creating a search application experience,
  *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -49,6 +54,8 @@ export interface DescribeExperienceCommandOutput extends DescribeExperienceRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExperienceCommandInput - {@link DescribeExperienceCommandInput}
+ * @returns {@link DescribeExperienceCommandOutput}
  * @see {@link DescribeExperienceCommandInput} for command's `input` shape.
  * @see {@link DescribeExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExperienceCommandOutput> {
     return deserializeAws_json1_1DescribeExperienceCommand(output, context);
   }

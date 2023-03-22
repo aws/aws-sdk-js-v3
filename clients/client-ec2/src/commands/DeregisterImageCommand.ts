@@ -18,15 +18,20 @@ import { DeregisterImageRequest, DeregisterImageRequestFilterSensitiveLog } from
 import { deserializeAws_ec2DeregisterImageCommand, serializeAws_ec2DeregisterImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterImageCommand}.
  */
 export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterImageCommand}.
  */
 export interface DeregisterImageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to
  *        launch new instances.</p>
  *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
@@ -49,6 +54,8 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterImageCommandInput - {@link DeregisterImageCommandInput}
+ * @returns {@link DeregisterImageCommandOutput}
  * @see {@link DeregisterImageCommandInput} for command's `input` shape.
  * @see {@link DeregisterImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeregisterImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeregisterImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeregisterImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterImageCommandOutput> {
     return deserializeAws_ec2DeregisterImageCommand(output, context);
   }

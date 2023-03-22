@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DetachNetworkInterfaceCommand}.
  */
 export interface DetachNetworkInterfaceCommandInput extends DetachNetworkInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachNetworkInterfaceCommand}.
  */
 export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a network interface from an instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachNetworkInterfaceCommandInput - {@link DetachNetworkInterfaceCommandInput}
+ * @returns {@link DetachNetworkInterfaceCommandOutput}
  * @see {@link DetachNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link DetachNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class DetachNetworkInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachNetworkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DetachNetworkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DetachNetworkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachNetworkInterfaceCommandOutput> {
     return deserializeAws_ec2DetachNetworkInterfaceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRobotApplicationCommand}.
  */
 export interface DescribeRobotApplicationCommandInput extends DescribeRobotApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRobotApplicationCommand}.
  */
 export interface DescribeRobotApplicationCommandOutput extends DescribeRobotApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a robot application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeRobotApplicationCommandOutput extends DescribeRobotAppl
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRobotApplicationCommandInput - {@link DescribeRobotApplicationCommandInput}
+ * @returns {@link DescribeRobotApplicationCommandOutput}
  * @see {@link DescribeRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeRobotApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeRobotApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRobotApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeRobotApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRobotApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRobotApplicationCommandOutput> {
     return deserializeAws_restJson1DescribeRobotApplicationCommand(output, context);
   }

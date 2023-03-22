@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchEvaluateGeofencesCommand}.
  */
 export interface BatchEvaluateGeofencesCommandInput extends BatchEvaluateGeofencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchEvaluateGeofencesCommand}.
  */
 export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates device positions against the geofence geometries from a given geofence
  *             collection.</p>
  *          <p>This operation always returns an empty response because geofences are asynchronously
@@ -74,6 +79,8 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchEvaluateGeofencesCommandInput - {@link BatchEvaluateGeofencesCommandInput}
+ * @returns {@link BatchEvaluateGeofencesCommandOutput}
  * @see {@link BatchEvaluateGeofencesCommandInput} for command's `input` shape.
  * @see {@link BatchEvaluateGeofencesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -113,6 +120,9 @@ export class BatchEvaluateGeofencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchEvaluateGeofencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class BatchEvaluateGeofencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchEvaluateGeofencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchEvaluateGeofencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEvaluateGeofencesCommandOutput> {
     return deserializeAws_restJson1BatchEvaluateGeofencesCommand(output, context);
   }

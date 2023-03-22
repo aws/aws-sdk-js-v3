@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedInstancesCommand}.
  */
 export interface DescribeReservedInstancesCommandInput extends DescribeReservedInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedInstancesCommand}.
  */
 export interface DescribeReservedInstancesCommandOutput extends DescribeReservedInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Amazon OpenSearch Service instances that you have reserved in a given Region.
  *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch
  *     Service</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedInstancesCommandInput - {@link DescribeReservedInstancesCommandInput}
+ * @returns {@link DescribeReservedInstancesCommandOutput}
  * @see {@link DescribeReservedInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeReservedInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeReservedInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservedInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeReservedInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

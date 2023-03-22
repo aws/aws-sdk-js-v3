@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoadBasedAutoScalingCommand}.
  */
 export interface DescribeLoadBasedAutoScalingCommandInput extends DescribeLoadBasedAutoScalingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoadBasedAutoScalingCommand}.
  */
 export interface DescribeLoadBasedAutoScalingCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeLoadBasedAutoScalingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes load-based auto scaling configurations for specified layers.</p>
  *          <note>
  *             <p>You must specify at least one of the parameters.</p>
@@ -56,6 +61,8 @@ export interface DescribeLoadBasedAutoScalingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBasedAutoScalingCommandInput - {@link DescribeLoadBasedAutoScalingCommandInput}
+ * @returns {@link DescribeLoadBasedAutoScalingCommandOutput}
  * @see {@link DescribeLoadBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBasedAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoadBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLoadBasedAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

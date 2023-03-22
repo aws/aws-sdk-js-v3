@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchEnableAlarmCommand}.
  */
 export interface BatchEnableAlarmCommandInput extends BatchEnableAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchEnableAlarmCommand}.
  */
 export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables one or more alarms. The alarms change to the <code>NORMAL</code> state after you
  *       enable them.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchEnableAlarmCommandInput - {@link BatchEnableAlarmCommandInput}
+ * @returns {@link BatchEnableAlarmCommandOutput}
  * @see {@link BatchEnableAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchEnableAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -82,6 +89,9 @@ export class BatchEnableAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchEnableAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchEnableAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchEnableAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchEnableAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEnableAlarmCommandOutput> {
     return deserializeAws_restJson1BatchEnableAlarmCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCreateAccountStatusCommand}.
  */
 export interface ListCreateAccountStatusCommandInput extends ListCreateAccountStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCreateAccountStatusCommand}.
  */
 export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the account creation requests that match the specified status that is currently
  *             being tracked for the organization.</p>
  *          <note>
@@ -57,6 +62,8 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCreateAccountStatusCommandInput - {@link ListCreateAccountStatusCommandInput}
+ * @returns {@link ListCreateAccountStatusCommandOutput}
  * @see {@link ListCreateAccountStatusCommandInput} for command's `input` shape.
  * @see {@link ListCreateAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -261,6 +268,9 @@ export class ListCreateAccountStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCreateAccountStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -300,10 +310,16 @@ export class ListCreateAccountStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCreateAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCreateAccountStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCreateAccountStatusCommandOutput> {
     return deserializeAws_json1_1ListCreateAccountStatusCommand(output, context);
   }

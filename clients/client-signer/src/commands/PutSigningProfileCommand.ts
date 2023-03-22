@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutSigningProfileCommand}.
  */
 export interface PutSigningProfileCommandInput extends PutSigningProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSigningProfileCommand}.
  */
 export interface PutSigningProfileCommandOutput extends PutSigningProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a signing profile. A signing profile is a code signing template that can be used to
  * 			carry out a pre-defined signing job. For more information, see <a href="http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html">http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a>
  *          </p>
@@ -48,6 +53,8 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSigningProfileCommandInput - {@link PutSigningProfileCommandInput}
+ * @returns {@link PutSigningProfileCommandOutput}
  * @see {@link PutSigningProfileCommandInput} for command's `input` shape.
  * @see {@link PutSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutSigningProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSigningProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutSigningProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutSigningProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSigningProfileCommandOutput> {
     return deserializeAws_restJson1PutSigningProfileCommand(output, context);
   }

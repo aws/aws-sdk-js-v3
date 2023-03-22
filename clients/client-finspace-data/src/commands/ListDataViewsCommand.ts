@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataViewsCommand}.
  */
 export interface ListDataViewsCommandInput extends ListDataViewsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataViewsCommand}.
  */
 export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available Dataviews for a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataViewsCommandInput - {@link ListDataViewsCommandInput}
+ * @returns {@link ListDataViewsCommandOutput}
  * @see {@link ListDataViewsCommandInput} for command's `input` shape.
  * @see {@link ListDataViewsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListDataViewsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataViewsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListDataViewsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataViewsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDataViewsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataViewsCommandOutput> {
     return deserializeAws_restJson1ListDataViewsCommand(output, context);
   }

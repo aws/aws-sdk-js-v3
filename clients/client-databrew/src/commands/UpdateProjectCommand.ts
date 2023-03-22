@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the definition of an existing DataBrew project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
+ * @returns {@link UpdateProjectCommandOutput}
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
     return deserializeAws_restJson1UpdateProjectCommand(output, context);
   }

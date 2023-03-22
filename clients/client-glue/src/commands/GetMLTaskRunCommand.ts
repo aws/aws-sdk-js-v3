@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMLTaskRunCommand}.
  */
 export interface GetMLTaskRunCommandInput extends GetMLTaskRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMLTaskRunCommand}.
  */
 export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details for a specific task run on a machine learning transform. Machine learning
  *       task runs are asynchronous tasks that Glue runs on your behalf as part of various machine
  *       learning workflows. You can check the stats of any task run by calling
@@ -50,6 +55,8 @@ export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMLTaskRunCommandInput - {@link GetMLTaskRunCommandInput}
+ * @returns {@link GetMLTaskRunCommandOutput}
  * @see {@link GetMLTaskRunCommandInput} for command's `input` shape.
  * @see {@link GetMLTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetMLTaskRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMLTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetMLTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMLTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMLTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMLTaskRunCommandOutput> {
     return deserializeAws_json1_1GetMLTaskRunCommand(output, context);
   }

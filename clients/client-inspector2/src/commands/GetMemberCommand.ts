@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMemberCommand}.
  */
 export interface GetMemberCommandInput extends GetMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMemberCommand}.
  */
 export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets member information for your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMemberCommandInput - {@link GetMemberCommandInput}
+ * @returns {@link GetMemberCommandOutput}
  * @see {@link GetMemberCommandInput} for command's `input` shape.
  * @see {@link GetMemberCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -85,6 +92,9 @@ export class GetMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMemberCommandOutput> {
     return deserializeAws_restJson1GetMemberCommand(output, context);
   }

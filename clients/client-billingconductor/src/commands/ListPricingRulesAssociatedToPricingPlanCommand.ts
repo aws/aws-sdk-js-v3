@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPricingRulesAssociatedToPricingPlanCommand}.
  */
 export interface ListPricingRulesAssociatedToPricingPlanCommandInput
   extends ListPricingRulesAssociatedToPricingPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPricingRulesAssociatedToPricingPlanCommand}.
  */
 export interface ListPricingRulesAssociatedToPricingPlanCommandOutput
@@ -38,6 +42,7 @@ export interface ListPricingRulesAssociatedToPricingPlanCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Lists the pricing rules that are associated with a pricing plan.
  *     </p>
@@ -51,6 +56,8 @@ export interface ListPricingRulesAssociatedToPricingPlanCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPricingRulesAssociatedToPricingPlanCommandInput - {@link ListPricingRulesAssociatedToPricingPlanCommandInput}
+ * @returns {@link ListPricingRulesAssociatedToPricingPlanCommandOutput}
  * @see {@link ListPricingRulesAssociatedToPricingPlanCommandInput} for command's `input` shape.
  * @see {@link ListPricingRulesAssociatedToPricingPlanCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPricingRulesAssociatedToPricingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPricingRulesAssociatedToPricingPlanCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command<
     return serializeAws_restJson1ListPricingRulesAssociatedToPricingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

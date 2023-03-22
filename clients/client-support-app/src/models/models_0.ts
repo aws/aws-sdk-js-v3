@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SupportAppServiceException as __BaseException } from "./SupportAppServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient permission to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,12 +23,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AccountType {
   MANAGEMENT = "management",
   MEMBER = "member",
 }
 
 /**
+ * @public
  * <p>Your request has a conflict. For example, you might receive this error if you try the
  *       following:</p>
  *          <ul>
@@ -72,12 +77,18 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum NotificationSeverityLevel {
   ALL = "all",
   HIGH = "high",
   NONE = "none",
 }
 
+/**
+ * @public
+ */
 export interface CreateSlackChannelConfigurationRequest {
   /**
    * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
@@ -165,9 +176,13 @@ export interface CreateSlackChannelConfigurationRequest {
   channelRoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSlackChannelConfigurationResult {}
 
 /**
+ * @public
  * <p>We can’t process your request right now because of a server issue. Try again later.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -187,6 +202,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your Service Quotas request exceeds the quota for the service. For example, your Service Quotas request to
  *       Amazon Web Services Support App might exceed the maximum number of workspaces or channels per account, or the maximum
  *       number of accounts per Slack channel.</p>
@@ -208,6 +224,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
  */
 export class ValidationException extends __BaseException {
@@ -226,11 +243,18 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountAliasRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteAccountAliasResult {}
 
 /**
+ * @public
  * <p>The specified resource is missing or doesn't exist, such as an account alias, Slack
  *       channel configuration, or Slack workspace configuration.</p>
  */
@@ -250,6 +274,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSlackChannelConfigurationRequest {
   /**
    * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
@@ -263,8 +290,14 @@ export interface DeleteSlackChannelConfigurationRequest {
   channelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSlackChannelConfigurationResult {}
 
+/**
+ * @public
+ */
 export interface DeleteSlackWorkspaceConfigurationRequest {
   /**
    * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
@@ -273,10 +306,19 @@ export interface DeleteSlackWorkspaceConfigurationRequest {
   teamId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSlackWorkspaceConfigurationResult {}
 
+/**
+ * @public
+ */
 export interface GetAccountAliasRequest {}
 
+/**
+ * @public
+ */
 export interface GetAccountAliasResult {
   /**
    * <p>An alias or short name for an Amazon Web Services account.</p>
@@ -284,6 +326,9 @@ export interface GetAccountAliasResult {
   accountAlias?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSlackChannelConfigurationsRequest {
   /**
    * <p>If the results of a search are large, the API only returns a portion of the results and
@@ -294,6 +339,7 @@ export interface ListSlackChannelConfigurationsRequest {
 }
 
 /**
+ * @public
  * <p>The configuration for a Slack channel that you added for your Amazon Web Services account.</p>
  */
 export interface SlackChannelConfiguration {
@@ -342,6 +388,9 @@ export interface SlackChannelConfiguration {
   channelRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSlackChannelConfigurationsResult {
   /**
    * <p>The point where pagination should resume when the response returns only partial
@@ -355,6 +404,9 @@ export interface ListSlackChannelConfigurationsResult {
   slackChannelConfigurations: SlackChannelConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSlackWorkspaceConfigurationsRequest {
   /**
    * <p>If the results of a search are large, the API only returns a portion of the results and
@@ -365,6 +417,7 @@ export interface ListSlackWorkspaceConfigurationsRequest {
 }
 
 /**
+ * @public
  * <p>The configuration for a Slack workspace that you added to an Amazon Web Services account.</p>
  */
 export interface SlackWorkspaceConfiguration {
@@ -386,6 +439,9 @@ export interface SlackWorkspaceConfiguration {
   allowOrganizationMemberAccount?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListSlackWorkspaceConfigurationsResult {
   /**
    * <p>The point where pagination should resume when the response returns only partial
@@ -399,6 +455,9 @@ export interface ListSlackWorkspaceConfigurationsResult {
   slackWorkspaceConfigurations?: SlackWorkspaceConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface PutAccountAliasRequest {
   /**
    * <p>An alias or short name for an Amazon Web Services account.</p>
@@ -406,8 +465,14 @@ export interface PutAccountAliasRequest {
   accountAlias: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAccountAliasResult {}
 
+/**
+ * @public
+ */
 export interface RegisterSlackWorkspaceForOrganizationRequest {
   /**
    * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
@@ -416,6 +481,9 @@ export interface RegisterSlackWorkspaceForOrganizationRequest {
   teamId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterSlackWorkspaceForOrganizationResult {
   /**
    * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
@@ -435,6 +503,9 @@ export interface RegisterSlackWorkspaceForOrganizationResult {
   accountType?: AccountType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSlackChannelConfigurationRequest {
   /**
    * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as
@@ -522,6 +593,9 @@ export interface UpdateSlackChannelConfigurationRequest {
   channelRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSlackChannelConfigurationResult {
   /**
    * <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as

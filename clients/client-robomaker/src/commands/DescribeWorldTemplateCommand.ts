@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorldTemplateCommand}.
  */
 export interface DescribeWorldTemplateCommandInput extends DescribeWorldTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorldTemplateCommand}.
  */
 export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a world template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorldTemplateCommandInput - {@link DescribeWorldTemplateCommandInput}
+ * @returns {@link DescribeWorldTemplateCommandOutput}
  * @see {@link DescribeWorldTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeWorldTemplateCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeWorldTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorldTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeWorldTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorldTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeWorldTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorldTemplateCommandOutput> {
     return deserializeAws_restJson1DescribeWorldTemplateCommand(output, context);
   }

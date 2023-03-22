@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListDecoderManifestNetworkInterfacesCommand}.
  */
 export interface ListDecoderManifestNetworkInterfacesCommandInput extends ListDecoderManifestNetworkInterfacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDecoderManifestNetworkInterfacesCommand}.
  */
 export interface ListDecoderManifestNetworkInterfacesCommandOutput
@@ -37,6 +41,7 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists the network interfaces specified in a decoder manifest. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -51,6 +56,8 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDecoderManifestNetworkInterfacesCommandInput - {@link ListDecoderManifestNetworkInterfacesCommandInput}
+ * @returns {@link ListDecoderManifestNetworkInterfacesCommandOutput}
  * @see {@link ListDecoderManifestNetworkInterfacesCommandInput} for command's `input` shape.
  * @see {@link ListDecoderManifestNetworkInterfacesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDecoderManifestNetworkInterfacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDecoderManifestNetworkInterfacesCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
     return serializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

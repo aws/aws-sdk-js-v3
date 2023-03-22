@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeEndpointAccessCommand}.
  */
 export interface AuthorizeEndpointAccessCommandInput extends AuthorizeEndpointAccessMessage {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeEndpointAccessCommand}.
  */
 export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorization, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants access to a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeEndpointAccessCommandInput - {@link AuthorizeEndpointAccessCommandInput}
+ * @returns {@link AuthorizeEndpointAccessCommandOutput}
  * @see {@link AuthorizeEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link AuthorizeEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -88,6 +95,9 @@ export class AuthorizeEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class AuthorizeEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAuthorizeEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeEndpointAccessCommandOutput> {
     return deserializeAws_queryAuthorizeEndpointAccessCommand(output, context);
   }

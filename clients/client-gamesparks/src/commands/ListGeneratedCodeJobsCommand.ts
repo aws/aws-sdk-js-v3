@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGeneratedCodeJobsCommand}.
  */
 export interface ListGeneratedCodeJobsCommandInput extends ListGeneratedCodeJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGeneratedCodeJobsCommand}.
  */
 export interface ListGeneratedCodeJobsCommandOutput extends ListGeneratedCodeJobsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a paginated list of code generation jobs for a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListGeneratedCodeJobsCommandOutput extends ListGeneratedCodeJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGeneratedCodeJobsCommandInput - {@link ListGeneratedCodeJobsCommandInput}
+ * @returns {@link ListGeneratedCodeJobsCommandOutput}
  * @see {@link ListGeneratedCodeJobsCommandInput} for command's `input` shape.
  * @see {@link ListGeneratedCodeJobsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListGeneratedCodeJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGeneratedCodeJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListGeneratedCodeJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGeneratedCodeJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListGeneratedCodeJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeneratedCodeJobsCommandOutput> {
     return deserializeAws_restJson1ListGeneratedCodeJobsCommand(output, context);
   }

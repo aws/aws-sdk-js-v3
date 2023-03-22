@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSourceLocationCommand}.
  */
 export interface DeleteSourceLocationCommandInput extends DeleteSourceLocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSourceLocationCommand}.
  */
 export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a source location. A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSourceLocationCommandInput - {@link DeleteSourceLocationCommandInput}
+ * @returns {@link DeleteSourceLocationCommandOutput}
  * @see {@link DeleteSourceLocationCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteSourceLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSourceLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteSourceLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSourceLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSourceLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSourceLocationCommandOutput> {
     return deserializeAws_restJson1DeleteSourceLocationCommand(output, context);
   }

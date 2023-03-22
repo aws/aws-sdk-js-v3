@@ -6,7 +6,7 @@ import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } fr
 import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CognitoIdentityProviderClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGroupsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListGroups(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListGroupsCommandInput,

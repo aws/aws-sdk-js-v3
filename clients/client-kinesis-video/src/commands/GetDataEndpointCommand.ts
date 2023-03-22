@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataEndpointCommand}.
  */
 export interface GetDataEndpointCommandInput extends GetDataEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDataEndpointCommand}.
  */
 export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an endpoint for a specified stream for either reading or writing. Use this
  *             endpoint in your application to read from the specified stream (using the
  *                 <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write
@@ -56,6 +61,8 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataEndpointCommandInput - {@link GetDataEndpointCommandInput}
+ * @returns {@link GetDataEndpointCommandOutput}
  * @see {@link GetDataEndpointCommandInput} for command's `input` shape.
  * @see {@link GetDataEndpointCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetDataEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetDataEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataEndpointCommandOutput> {
     return deserializeAws_restJson1GetDataEndpointCommand(output, context);
   }

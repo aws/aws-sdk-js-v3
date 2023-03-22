@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSuggesterCommand}.
  */
 export interface DeleteSuggesterCommandInput extends DeleteSuggesterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSuggesterCommand}.
  */
 export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a suggester. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSuggesterCommandInput - {@link DeleteSuggesterCommandInput}
+ * @returns {@link DeleteSuggesterCommandOutput}
  * @see {@link DeleteSuggesterCommandInput} for command's `input` shape.
  * @see {@link DeleteSuggesterCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteSuggesterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSuggesterCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteSuggesterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSuggesterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteSuggesterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSuggesterCommandOutput> {
     return deserializeAws_queryDeleteSuggesterCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcEndpointCommand}.
  */
 export interface CreateVpcEndpointCommandInput extends CreateVpcEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcEndpointCommand}.
  */
 export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a
  *             private connection between your VPC and the service. The service may be provided by Amazon Web Services,
  *             an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information,
@@ -49,6 +54,8 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcEndpointCommandInput - {@link CreateVpcEndpointCommandInput}
+ * @returns {@link CreateVpcEndpointCommandOutput}
  * @see {@link CreateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcEndpointCommandOutput> {
     return deserializeAws_ec2CreateVpcEndpointCommand(output, context);
   }

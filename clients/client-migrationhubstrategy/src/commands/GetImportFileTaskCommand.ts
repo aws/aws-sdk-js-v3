@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetImportFileTaskCommand}.
  */
 export interface GetImportFileTaskCommandInput extends GetImportFileTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetImportFileTaskCommand}.
  */
 export interface GetImportFileTaskCommandOutput extends GetImportFileTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves the details about a specific import task. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetImportFileTaskCommandOutput extends GetImportFileTaskRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImportFileTaskCommandInput - {@link GetImportFileTaskCommandInput}
+ * @returns {@link GetImportFileTaskCommandOutput}
  * @see {@link GetImportFileTaskCommandInput} for command's `input` shape.
  * @see {@link GetImportFileTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetImportFileTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportFileTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetImportFileTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportFileTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetImportFileTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportFileTaskCommandOutput> {
     return deserializeAws_restJson1GetImportFileTaskCommand(output, context);
   }

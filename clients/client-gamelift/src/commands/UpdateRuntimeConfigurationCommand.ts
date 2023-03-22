@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuntimeConfigurationCommand}.
  */
 export interface UpdateRuntimeConfigurationCommandInput extends UpdateRuntimeConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuntimeConfigurationCommand}.
  */
 export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the current runtime configuration for the specified fleet, which tells GameLift
  *             how to launch server processes on all instances in the fleet. You can update a fleet's
  *             runtime configuration at any time after the fleet is created; it does not need to be in
@@ -64,6 +69,8 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuntimeConfigurationCommandInput - {@link UpdateRuntimeConfigurationCommandInput}
+ * @returns {@link UpdateRuntimeConfigurationCommandOutput}
  * @see {@link UpdateRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -106,6 +113,9 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuntimeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuntimeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRuntimeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

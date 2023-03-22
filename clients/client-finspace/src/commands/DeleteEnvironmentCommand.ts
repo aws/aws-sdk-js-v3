@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEnvironmentCommand}.
  */
 export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEnvironmentCommand}.
  */
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an FinSpace environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
+ * @returns {@link DeleteEnvironmentCommandOutput}
  * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEnvironmentCommandOutput> {
     return deserializeAws_restJson1DeleteEnvironmentCommand(output, context);
   }

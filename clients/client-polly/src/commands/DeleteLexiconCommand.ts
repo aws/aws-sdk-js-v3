@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLexiconCommand}.
  */
 export interface DeleteLexiconCommandInput extends DeleteLexiconInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLexiconCommand}.
  */
 export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified pronunciation lexicon stored in an Amazon Web Services Region. A lexicon which has been deleted is not available for
  *       speech synthesis, nor is it possible to retrieve it using either the
  *         <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>
@@ -49,6 +54,8 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLexiconCommandInput - {@link DeleteLexiconCommandInput}
+ * @returns {@link DeleteLexiconCommandOutput}
  * @see {@link DeleteLexiconCommandInput} for command's `input` shape.
  * @see {@link DeleteLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteLexiconCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLexiconCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteLexiconCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLexiconCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLexiconCommandOutput> {
     return deserializeAws_restJson1DeleteLexiconCommand(output, context);
   }

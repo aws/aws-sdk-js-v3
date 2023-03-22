@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetContinuousDeploymentPolicyCommand}.
  */
 export interface GetContinuousDeploymentPolicyCommandInput extends GetContinuousDeploymentPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContinuousDeploymentPolicyCommand}.
  */
 export interface GetContinuousDeploymentPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface GetContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a continuous deployment policy, including metadata (the policy's identifier and
  * 			the date and time when the policy was last modified).</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetContinuousDeploymentPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContinuousDeploymentPolicyCommandInput - {@link GetContinuousDeploymentPolicyCommandInput}
+ * @returns {@link GetContinuousDeploymentPolicyCommandOutput}
  * @see {@link GetContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetContinuousDeploymentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetContinuousDeploymentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContinuousDeploymentPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetContinuousDeploymentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

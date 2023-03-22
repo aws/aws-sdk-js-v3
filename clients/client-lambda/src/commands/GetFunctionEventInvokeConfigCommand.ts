@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFunctionEventInvokeConfigCommand}.
  */
 export interface GetFunctionEventInvokeConfigCommandInput extends GetFunctionEventInvokeConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFunctionEventInvokeConfigCommand}.
  */
 export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration for asynchronous invocation for a function, version, or alias.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionEventInvokeConfigCommandInput - {@link GetFunctionEventInvokeConfigCommandInput}
+ * @returns {@link GetFunctionEventInvokeConfigCommandOutput}
  * @see {@link GetFunctionEventInvokeConfigCommandInput} for command's `input` shape.
  * @see {@link GetFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetFunctionEventInvokeConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionEventInvokeConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetFunctionEventInvokeConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionEventInvokeConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFunctionEventInvokeConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

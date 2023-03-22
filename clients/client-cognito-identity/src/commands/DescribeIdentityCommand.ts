@@ -27,15 +27,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIdentityCommand}.
  */
 export interface DescribeIdentityCommandInput extends DescribeIdentityInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIdentityCommand}.
  */
 export interface DescribeIdentityCommandOutput extends IdentityDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata related to the given identity, including when the identity was
  *          created and any associated linked logins.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -49,6 +54,8 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdentityCommandInput - {@link DescribeIdentityCommandInput}
+ * @returns {@link DescribeIdentityCommandOutput}
  * @see {@link DescribeIdentityCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityCommandOutput> {
     return deserializeAws_json1_1DescribeIdentityCommand(output, context);
   }

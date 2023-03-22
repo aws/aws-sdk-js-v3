@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ModifyVolumeCommand, serializeAws_ec2ModifyVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVolumeCommand}.
  */
 export interface ModifyVolumeCommandInput extends ModifyVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVolumeCommand}.
  */
 export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
  *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
  *       type, you might be able to apply these changes without stopping the instance or detaching the
@@ -59,6 +64,8 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVolumeCommandInput - {@link ModifyVolumeCommandInput}
+ * @returns {@link ModifyVolumeCommandOutput}
  * @see {@link ModifyVolumeCommandInput} for command's `input` shape.
  * @see {@link ModifyVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -82,6 +89,9 @@ export class ModifyVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ModifyVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVolumeCommandOutput> {
     return deserializeAws_ec2ModifyVolumeCommand(output, context);
   }

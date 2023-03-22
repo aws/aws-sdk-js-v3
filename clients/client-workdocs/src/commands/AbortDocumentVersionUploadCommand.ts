@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link AbortDocumentVersionUploadCommand}.
  */
 export interface AbortDocumentVersionUploadCommandInput extends AbortDocumentVersionUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link AbortDocumentVersionUploadCommand}.
  */
 export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Aborts the upload of the specified document version that was previously initiated
  *             by <a>InitiateDocumentVersionUpload</a>. The client should make this call
  *             only when it no longer intends to upload the document version, or fails to do
@@ -47,6 +52,8 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param AbortDocumentVersionUploadCommandInput - {@link AbortDocumentVersionUploadCommandInput}
+ * @returns {@link AbortDocumentVersionUploadCommandOutput}
  * @see {@link AbortDocumentVersionUploadCommandInput} for command's `input` shape.
  * @see {@link AbortDocumentVersionUploadCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -93,6 +100,9 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AbortDocumentVersionUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AbortDocumentVersionUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AbortDocumentVersionUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

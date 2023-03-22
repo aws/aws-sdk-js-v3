@@ -160,6 +160,7 @@ import {
 import { M2Client } from "./M2Client";
 
 /**
+ * @public
  * <p>Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and
  *          modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for
  *          analyzing existing mainframe applications, developing or updating mainframe applications
@@ -168,6 +169,7 @@ import { M2Client } from "./M2Client";
  */
 export class M2 extends M2Client {
   /**
+   * @public
    * <p>Cancels the running of a specific batch job execution.</p>
    */
   public cancelBatchJobExecution(
@@ -200,6 +202,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new application with given parameters. Requires an existing runtime environment and
    *          application definition file.</p>
    */
@@ -233,6 +236,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Starts a data set import task for a specific application.</p>
    */
   public createDataSetImportTask(
@@ -265,6 +269,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Creates and starts a deployment to deploy an application into a runtime environment.</p>
    */
   public createDeployment(
@@ -297,6 +302,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Creates a runtime environment for a given runtime engine.</p>
    */
   public createEnvironment(
@@ -329,6 +335,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a specific application. You cannot delete a running application.</p>
    */
   public deleteApplication(
@@ -361,6 +368,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a specific application from the specific runtime environment where it was previously
    *          deployed. You cannot delete a runtime environment using DeleteEnvironment if any application has
    *          ever been deployed to it. This API removes the association of the application with the
@@ -396,6 +404,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a specific runtime environment. The environment cannot contain deployed applications. If
    *          it does, you must delete those applications before you delete the environment.</p>
    */
@@ -429,6 +438,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Describes the details of a specific application.</p>
    */
   public getApplication(
@@ -461,6 +471,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Returns details about a specific version of a specific application.</p>
    */
   public getApplicationVersion(
@@ -493,6 +504,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Gets the details of a specific batch job execution for a specific application.</p>
    */
   public getBatchJobExecution(
@@ -525,6 +537,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Gets the details of a specific data set.</p>
    */
   public getDataSetDetails(
@@ -557,6 +570,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Gets the status of a data set import task initiated with the <a>CreateDataSetImportTask</a> operation.</p>
    */
   public getDataSetImportTask(
@@ -589,6 +603,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Gets details of a specific deployment with a given deployment identifier.</p>
    */
   public getDeployment(
@@ -621,6 +636,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Describes a specific runtime environment.</p>
    */
   public getEnvironment(
@@ -653,6 +669,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Lists the applications associated with a specific Amazon Web Services account. You can provide the
    *          unique identifier of a specific runtime environment in a query parameter to see all applications
    *          associated with that environment.</p>
@@ -687,6 +704,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Returns a list of the application versions for a specific application.</p>
    */
   public listApplicationVersions(
@@ -719,6 +737,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Lists all the available batch job definitions based on the batch job resources uploaded
    *          during the application creation. You can use the batch job definitions in the list to start
    *          a batch job.</p>
@@ -753,6 +772,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Lists historical, current, and scheduled batch job executions for a specific
    *          application.</p>
    */
@@ -786,6 +806,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Lists the data set imports for the specified application.</p>
    */
   public listDataSetImportHistory(
@@ -818,6 +839,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Lists the data sets imported for a specific application. In Amazon Web Services Mainframe Modernization, data sets are
    *          associated with applications deployed on runtime environments. This is known as importing data
    *          sets. Currently, Amazon Web Services Mainframe Modernization can import data sets into catalogs using <a href="https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html">CreateDataSetImportTask</a>.</p>
@@ -849,6 +871,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Returns a list of all deployments of a specific application. A deployment is a
    *          combination of a specific application and a specific version of that application. Each
    *          deployment is mapped to a particular application version.</p>
@@ -883,6 +906,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Lists the available engine versions.</p>
    */
   public listEngineVersions(
@@ -915,6 +939,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Lists the runtime environments.</p>
    */
   public listEnvironments(
@@ -947,6 +972,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -979,6 +1005,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Starts an application that is currently stopped.</p>
    */
   public startApplication(
@@ -1011,6 +1038,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Starts a batch job and returns the unique identifier of this execution of the batch job.
    *          The associated application must be running in order to start the batch job.</p>
    */
@@ -1044,6 +1072,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Stops a running application.</p>
    */
   public stopApplication(
@@ -1076,6 +1105,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1102,6 +1132,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(
@@ -1134,6 +1165,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Updates an application and creates a new version.</p>
    */
   public updateApplication(
@@ -1166,6 +1198,7 @@ export class M2 extends M2Client {
   }
 
   /**
+   * @public
    * <p>Updates the configuration details for a specific runtime environment.</p>
    */
   public updateEnvironment(

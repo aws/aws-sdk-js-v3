@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContainerServiceCommand}.
  */
 export interface CreateContainerServiceCommandInput extends CreateContainerServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContainerServiceCommand}.
  */
 export interface CreateContainerServiceCommandOutput extends CreateContainerServiceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Lightsail container service.</p>
  *          <p>A Lightsail container service is a compute resource to which you can deploy containers.
  *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
@@ -49,6 +54,8 @@ export interface CreateContainerServiceCommandOutput extends CreateContainerServ
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContainerServiceCommandInput - {@link CreateContainerServiceCommandInput}
+ * @returns {@link CreateContainerServiceCommandOutput}
  * @see {@link CreateContainerServiceCommandInput} for command's `input` shape.
  * @see {@link CreateContainerServiceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateContainerServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContainerServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateContainerServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContainerServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateContainerServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContainerServiceCommandOutput> {
     return deserializeAws_json1_1CreateContainerServiceCommand(output, context);
   }

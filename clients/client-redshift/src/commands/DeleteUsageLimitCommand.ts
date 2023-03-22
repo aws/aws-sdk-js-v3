@@ -21,15 +21,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUsageLimitCommand}.
  */
 export interface DeleteUsageLimitCommandInput extends DeleteUsageLimitMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUsageLimitCommand}.
  */
 export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a usage limit from a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUsageLimitCommandInput - {@link DeleteUsageLimitCommandInput}
+ * @returns {@link DeleteUsageLimitCommandOutput}
  * @see {@link DeleteUsageLimitCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteUsageLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUsageLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteUsageLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteUsageLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUsageLimitCommandOutput> {
     return deserializeAws_queryDeleteUsageLimitCommand(output, context);
   }

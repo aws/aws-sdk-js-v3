@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLanguageModelCommand}.
  */
 export interface DescribeLanguageModelCommandInput extends DescribeLanguageModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLanguageModelCommand}.
  */
 export interface DescribeLanguageModelCommandOutput extends DescribeLanguageModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified custom language model.</p>
  *          <p>This operation also shows if the base language model that you used to create your
  *             custom language model has been updated. If Amazon Transcribe has updated the base
@@ -52,6 +57,8 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLanguageModelCommandInput - {@link DescribeLanguageModelCommandInput}
+ * @returns {@link DescribeLanguageModelCommandOutput}
  * @see {@link DescribeLanguageModelCommandInput} for command's `input` shape.
  * @see {@link DescribeLanguageModelCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeLanguageModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLanguageModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeLanguageModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLanguageModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLanguageModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLanguageModelCommandOutput> {
     return deserializeAws_json1_1DescribeLanguageModelCommand(output, context);
   }

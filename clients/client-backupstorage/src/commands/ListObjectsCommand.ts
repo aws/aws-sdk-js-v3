@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectsCommand}.
  */
 export interface ListObjectsCommandInput extends ListObjectsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectsCommand}.
  */
 export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * List all Objects in a given Backup.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectsCommandInput - {@link ListObjectsCommandInput}
+ * @returns {@link ListObjectsCommandOutput}
  * @see {@link ListObjectsCommandInput} for command's `input` shape.
  * @see {@link ListObjectsCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectsCommandOutput> {
     return deserializeAws_restJson1ListObjectsCommand(output, context);
   }

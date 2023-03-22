@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnomalousLogGroupsCommand}.
  */
 export interface ListAnomalousLogGroupsCommandInput extends ListAnomalousLogGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnomalousLogGroupsCommand}.
  */
 export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 			Returns the list of log groups that contain log anomalies.
  * 		</p>
@@ -48,6 +53,8 @@ export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGro
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnomalousLogGroupsCommandInput - {@link ListAnomalousLogGroupsCommandInput}
+ * @returns {@link ListAnomalousLogGroupsCommandOutput}
  * @see {@link ListAnomalousLogGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAnomalousLogGroupsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListAnomalousLogGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnomalousLogGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListAnomalousLogGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnomalousLogGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAnomalousLogGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnomalousLogGroupsCommandOutput> {
     return deserializeAws_restJson1ListAnomalousLogGroupsCommand(output, context);
   }

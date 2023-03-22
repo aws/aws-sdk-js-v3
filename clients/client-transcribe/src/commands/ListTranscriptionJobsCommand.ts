@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTranscriptionJobsCommand}.
  */
 export interface ListTranscriptionJobsCommandInput extends ListTranscriptionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTranscriptionJobsCommand}.
  */
 export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of transcription jobs that match the specified criteria. If no
  *             criteria are specified, all transcription jobs are returned.</p>
  *          <p>To get detailed information about a specific transcription job, use the  operation.</p>
@@ -48,6 +53,8 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTranscriptionJobsCommandInput - {@link ListTranscriptionJobsCommandInput}
+ * @returns {@link ListTranscriptionJobsCommandOutput}
  * @see {@link ListTranscriptionJobsCommandInput} for command's `input` shape.
  * @see {@link ListTranscriptionJobsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListTranscriptionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTranscriptionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListTranscriptionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTranscriptionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTranscriptionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTranscriptionJobsCommandOutput> {
     return deserializeAws_json1_1ListTranscriptionJobsCommand(output, context);
   }

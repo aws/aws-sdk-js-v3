@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CheckIfPhoneNumberIsOptedOutCommand}.
  */
 export interface CheckIfPhoneNumberIsOptedOutCommandInput extends CheckIfPhoneNumberIsOptedOutInput {}
 /**
+ * @public
+ *
  * The output of {@link CheckIfPhoneNumberIsOptedOutCommand}.
  */
 export interface CheckIfPhoneNumberIsOptedOutCommandOutput
@@ -37,6 +41,7 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a phone number and indicates whether the phone holder has opted out of
  *             receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number
  *             that is opted out.</p>
@@ -52,6 +57,8 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckIfPhoneNumberIsOptedOutCommandInput - {@link CheckIfPhoneNumberIsOptedOutCommandInput}
+ * @returns {@link CheckIfPhoneNumberIsOptedOutCommandOutput}
  * @see {@link CheckIfPhoneNumberIsOptedOutCommandInput} for command's `input` shape.
  * @see {@link CheckIfPhoneNumberIsOptedOutCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -88,6 +95,9 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckIfPhoneNumberIsOptedOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckIfPhoneNumberIsOptedOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

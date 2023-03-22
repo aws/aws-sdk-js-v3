@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamingSessionCommand}.
  */
 export interface GetStreamingSessionCommandInput extends GetStreamingSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamingSessionCommand}.
  */
 export interface GetStreamingSessionCommandOutput extends GetStreamingSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets StreamingSession resource.</p>
  *         <p>Invoke this operation to poll for a streaming session state while creating or deleting
  *             a session.</p>
@@ -48,6 +53,8 @@ export interface GetStreamingSessionCommandOutput extends GetStreamingSessionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamingSessionCommandInput - {@link GetStreamingSessionCommandInput}
+ * @returns {@link GetStreamingSessionCommandOutput}
  * @see {@link GetStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link GetStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetStreamingSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamingSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetStreamingSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetStreamingSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamingSessionCommandOutput> {
     return deserializeAws_restJson1GetStreamingSessionCommand(output, context);
   }

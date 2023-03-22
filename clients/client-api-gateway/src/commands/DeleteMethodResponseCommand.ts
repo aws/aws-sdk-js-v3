@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMethodResponseCommand}.
  */
 export interface DeleteMethodResponseCommandInput extends DeleteMethodResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMethodResponseCommand}.
  */
 export interface DeleteMethodResponseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing MethodResponse resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteMethodResponseCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMethodResponseCommandInput - {@link DeleteMethodResponseCommandInput}
+ * @returns {@link DeleteMethodResponseCommandOutput}
  * @see {@link DeleteMethodResponseCommandInput} for command's `input` shape.
  * @see {@link DeleteMethodResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteMethodResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMethodResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteMethodResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMethodResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMethodResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMethodResponseCommandOutput> {
     return deserializeAws_restJson1DeleteMethodResponseCommand(output, context);
   }

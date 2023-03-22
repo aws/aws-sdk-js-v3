@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMyUserProfileCommand}.
  */
 export interface DescribeMyUserProfileCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMyUserProfileCommand}.
  */
 export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a user's SSH information.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
@@ -46,6 +51,8 @@ export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMyUserProfileCommandInput - {@link DescribeMyUserProfileCommandInput}
+ * @returns {@link DescribeMyUserProfileCommandOutput}
  * @see {@link DescribeMyUserProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeMyUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeMyUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMyUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeMyUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMyUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMyUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMyUserProfileCommandOutput> {
     return deserializeAws_json1_1DescribeMyUserProfileCommand(output, context);
   }

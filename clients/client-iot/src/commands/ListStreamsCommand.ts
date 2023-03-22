@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandInput extends ListStreamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandOutput extends ListStreamsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the streams in your Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListStreams</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
+ * @returns {@link ListStreamsCommandOutput}
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamsCommandOutput> {
     return deserializeAws_restJson1ListStreamsCommand(output, context);
   }

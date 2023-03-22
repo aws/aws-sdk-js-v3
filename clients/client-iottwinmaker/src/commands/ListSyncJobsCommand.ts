@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSyncJobsCommand}.
  */
 export interface ListSyncJobsCommandInput extends ListSyncJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSyncJobsCommand}.
  */
 export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all SyncJobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSyncJobsCommandInput - {@link ListSyncJobsCommandInput}
+ * @returns {@link ListSyncJobsCommandOutput}
  * @see {@link ListSyncJobsCommandInput} for command's `input` shape.
  * @see {@link ListSyncJobsCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListSyncJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSyncJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListSyncJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSyncJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSyncJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSyncJobsCommandOutput> {
     return deserializeAws_restJson1ListSyncJobsCommand(output, context);
   }

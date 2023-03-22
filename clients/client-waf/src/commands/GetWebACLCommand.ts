@@ -23,15 +23,20 @@ import { deserializeAws_json1_1GetWebACLCommand, serializeAws_json1_1GetWebACLCo
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetWebACLCommand}.
  */
 export interface GetWebACLCommandInput extends GetWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWebACLCommand}.
  */
 export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -51,6 +56,8 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWebACLCommandInput - {@link GetWebACLCommandInput}
+ * @returns {@link GetWebACLCommandOutput}
  * @see {@link GetWebACLCommandInput} for command's `input` shape.
  * @see {@link GetWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -111,6 +118,9 @@ export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebACLCommandOutput> {
     return deserializeAws_json1_1GetWebACLCommand(output, context);
   }

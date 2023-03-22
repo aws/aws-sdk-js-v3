@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDashboardForJobRunCommand}.
  */
 export interface GetDashboardForJobRunCommandInput extends GetDashboardForJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDashboardForJobRunCommand}.
  */
 export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a URL to access the job run dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDashboardForJobRunCommandInput - {@link GetDashboardForJobRunCommandInput}
+ * @returns {@link GetDashboardForJobRunCommandOutput}
  * @see {@link GetDashboardForJobRunCommandInput} for command's `input` shape.
  * @see {@link GetDashboardForJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetDashboardForJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDashboardForJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetDashboardForJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDashboardForJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDashboardForJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDashboardForJobRunCommandOutput> {
     return deserializeAws_restJson1GetDashboardForJobRunCommand(output, context);
   }

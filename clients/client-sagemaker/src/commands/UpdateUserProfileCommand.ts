@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserProfileCommand}.
  */
 export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserProfileCommand}.
  */
 export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a user profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
+ * @returns {@link UpdateUserProfileCommandOutput}
  * @see {@link UpdateUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserProfileCommandOutput> {
     return deserializeAws_json1_1UpdateUserProfileCommand(output, context);
   }

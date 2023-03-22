@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssumeDecoratedRoleWithSAMLCommand}.
  */
 export interface AssumeDecoratedRoleWithSAMLCommandInput extends AssumeDecoratedRoleWithSAMLRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssumeDecoratedRoleWithSAMLCommand}.
  */
 export interface AssumeDecoratedRoleWithSAMLCommandOutput
@@ -37,6 +41,7 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a caller to assume an IAM role decorated as the SAML user specified in the SAML assertion included in the request. This decoration allows Lake Formation to enforce access policies against the SAML users and groups.  This API operation requires SAML federation setup in the caller’s account as it can only be called with valid SAML assertions.
  *       Lake Formation does not scope down the permission of the assumed role.  All permissions attached to the role via the SAML federation setup will be included in the role session.
  *     </p>
@@ -53,6 +58,8 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeDecoratedRoleWithSAMLCommandInput - {@link AssumeDecoratedRoleWithSAMLCommandInput}
+ * @returns {@link AssumeDecoratedRoleWithSAMLCommandOutput}
  * @see {@link AssumeDecoratedRoleWithSAMLCommandInput} for command's `input` shape.
  * @see {@link AssumeDecoratedRoleWithSAMLCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -91,6 +98,9 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeDecoratedRoleWithSAMLCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeDecoratedRoleWithSAMLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

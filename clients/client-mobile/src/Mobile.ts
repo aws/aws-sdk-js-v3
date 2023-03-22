@@ -45,6 +45,7 @@ import {
 import { MobileClient } from "./MobileClient";
 
 /**
+ * @public
  * <p>
  *             AWS Mobile Service provides mobile app and website developers with capabilities
  *             required to configure AWS resources and bootstrap their developer desktop projects
@@ -53,6 +54,7 @@ import { MobileClient } from "./MobileClient";
  */
 export class Mobile extends MobileClient {
   /**
+   * @public
    * <p>
    *             Creates an AWS Mobile Hub project.
    *         </p>
@@ -87,6 +89,7 @@ export class Mobile extends MobileClient {
   }
 
   /**
+   * @public
    * <p>
    *             Delets a project in AWS Mobile Hub.
    *         </p>
@@ -121,6 +124,7 @@ export class Mobile extends MobileClient {
   }
 
   /**
+   * @public
    * <p>
    *             Get the bundle details for the requested bundle id.
    *         </p>
@@ -155,6 +159,7 @@ export class Mobile extends MobileClient {
   }
 
   /**
+   * @public
    * <p>
    *             Gets details about a project in AWS Mobile Hub.
    *         </p>
@@ -189,6 +194,7 @@ export class Mobile extends MobileClient {
   }
 
   /**
+   * @public
    * <p>
    *             Generates customized software development kit (SDK) and or tool packages
    *             used to integrate mobile web or mobile app clients with backend AWS resources.
@@ -221,6 +227,7 @@ export class Mobile extends MobileClient {
   }
 
   /**
+   * @public
    * <p>
    *             Exports project configuration to a snapshot which can be downloaded and shared.
    *             Note that mobile app push credentials are encrypted in exported projects, so they
@@ -257,6 +264,7 @@ export class Mobile extends MobileClient {
   }
 
   /**
+   * @public
    * <p>
    *             List all available bundles.
    *         </p>
@@ -285,6 +293,7 @@ export class Mobile extends MobileClient {
   }
 
   /**
+   * @public
    * <p>
    *             Lists projects in AWS Mobile Hub.
    *         </p>
@@ -316,6 +325,7 @@ export class Mobile extends MobileClient {
   }
 
   /**
+   * @public
    * <p>
    *             Update an existing project.
    *         </p>

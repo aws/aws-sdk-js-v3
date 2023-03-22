@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatabaseCommand}.
  */
 export interface GetDatabaseCommandInput extends GetDatabaseInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDatabaseCommand}.
  */
 export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the SAP HANA database of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatabaseCommandInput - {@link GetDatabaseCommandInput}
+ * @returns {@link GetDatabaseCommandOutput}
  * @see {@link GetDatabaseCommandInput} for command's `input` shape.
  * @see {@link GetDatabaseCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatabaseCommandOutput> {
     return deserializeAws_restJson1GetDatabaseCommand(output, context);
   }

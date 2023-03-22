@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCrawlerCommand}.
  */
 export interface DeleteCrawlerCommandInput extends DeleteCrawlerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCrawlerCommand}.
  */
 export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a specified crawler from the Glue Data Catalog, unless the crawler state is
  *         <code>RUNNING</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCrawlerCommandInput - {@link DeleteCrawlerCommandInput}
+ * @returns {@link DeleteCrawlerCommandOutput}
  * @see {@link DeleteCrawlerCommandInput} for command's `input` shape.
  * @see {@link DeleteCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteCrawlerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCrawlerCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteCrawlerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCrawlerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCrawlerCommandOutput> {
     return deserializeAws_json1_1DeleteCrawlerCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionCommand}.
  */
 export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionCommand}.
  */
 export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter.
  *       Otherwise, all versions and aliases are deleted.</p>
  *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services and resources that invoke your function
@@ -44,6 +49,8 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
+ * @returns {@link DeleteFunctionCommandOutput}
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionCommandOutput> {
     return deserializeAws_restJson1DeleteFunctionCommand(output, context);
   }

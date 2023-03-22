@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about a Fleet Hub for a AWS IoT Device Management web application.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -49,6 +54,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
+ * @returns {@link UpdateApplicationCommandOutput}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetHubClientResolvedConfig | config} for IoTFleetHubClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
     return deserializeAws_restJson1UpdateApplicationCommand(output, context);
   }

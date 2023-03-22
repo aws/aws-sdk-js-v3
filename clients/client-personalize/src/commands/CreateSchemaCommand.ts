@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSchemaCommand}.
  */
 export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSchemaCommand}.
  */
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
  *       must be in Avro JSON format.</p>
  *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
@@ -72,6 +77,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
+ * @returns {@link CreateSchemaCommandOutput}
  * @see {@link CreateSchemaCommandInput} for command's `input` shape.
  * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaCommandOutput> {
     return deserializeAws_json1_1CreateSchemaCommand(output, context);
   }

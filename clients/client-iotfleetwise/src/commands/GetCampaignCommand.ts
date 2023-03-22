@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetCampaignCommand}.
  */
 export interface GetCampaignCommandInput extends GetCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCampaignCommand}.
  */
 export interface GetCampaignCommandOutput extends GetCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about a campaign. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignCommandInput - {@link GetCampaignCommandInput}
+ * @returns {@link GetCampaignCommandOutput}
  * @see {@link GetCampaignCommandInput} for command's `input` shape.
  * @see {@link GetCampaignCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignCommandOutput> {
     return deserializeAws_json1_0GetCampaignCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcIngressConnectionCommand}.
  */
 export interface DeleteVpcIngressConnectionCommandInput extends DeleteVpcIngressConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcIngressConnectionCommand}.
  */
 export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an App Runner VPC Ingress Connection resource that's associated with an App Runner service. The VPC Ingress Connection must be in one of the following states to be deleted:
  *     </p>
  *          <ul>
@@ -69,6 +74,8 @@ export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngres
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcIngressConnectionCommandInput - {@link DeleteVpcIngressConnectionCommandInput}
+ * @returns {@link DeleteVpcIngressConnectionCommandOutput}
  * @see {@link DeleteVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -104,6 +111,9 @@ export class DeleteVpcIngressConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcIngressConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeleteVpcIngressConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteVpcIngressConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

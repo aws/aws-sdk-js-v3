@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScheduledActionCommand}.
  */
 export interface CreateScheduledActionCommandInput extends CreateScheduledActionMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateScheduledActionCommand}.
  */
 export interface CreateScheduledActionCommandOutput extends ScheduledAction, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.
  *             For example, you can create a schedule of when to run the <code>ResizeCluster</code> API operation.
  *         </p>
@@ -48,6 +53,8 @@ export interface CreateScheduledActionCommandOutput extends ScheduledAction, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScheduledActionCommandInput - {@link CreateScheduledActionCommandInput}
+ * @returns {@link CreateScheduledActionCommandOutput}
  * @see {@link CreateScheduledActionCommandInput} for command's `input` shape.
  * @see {@link CreateScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduledActionCommandOutput> {
     return deserializeAws_queryCreateScheduledActionCommand(output, context);
   }

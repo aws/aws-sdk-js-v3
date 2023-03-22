@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1ListTagsCommand, serializeAws_json1_1ListTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsCommand}.
  */
 export interface ListTagsCommandInput extends ListTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsCommand}.
  */
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags for the trail, event data store, or channel in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsCommandInput - {@link ListTagsCommandInput}
+ * @returns {@link ListTagsCommandOutput}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -128,6 +135,9 @@ export class ListTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class ListTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
     return deserializeAws_json1_1ListTagsCommand(output, context);
   }

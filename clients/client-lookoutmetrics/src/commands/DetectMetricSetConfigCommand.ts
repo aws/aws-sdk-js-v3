@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectMetricSetConfigCommand}.
  */
 export interface DetectMetricSetConfigCommandInput extends DetectMetricSetConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectMetricSetConfigCommand}.
  */
 export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects an Amazon S3 dataset's file format, interval, and offset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectMetricSetConfigCommandInput - {@link DetectMetricSetConfigCommandInput}
+ * @returns {@link DetectMetricSetConfigCommandOutput}
  * @see {@link DetectMetricSetConfigCommandInput} for command's `input` shape.
  * @see {@link DetectMetricSetConfigCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +92,9 @@ export class DetectMetricSetConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectMetricSetConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DetectMetricSetConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectMetricSetConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DetectMetricSetConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectMetricSetConfigCommandOutput> {
     return deserializeAws_restJson1DetectMetricSetConfigCommand(output, context);
   }

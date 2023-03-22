@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutStudioMembersCommand}.
  */
 export interface PutStudioMembersCommandInput extends PutStudioMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutStudioMembersCommand}.
  */
 export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add/update users with given persona to studio membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutStudioMembersCommandInput - {@link PutStudioMembersCommandInput}
+ * @returns {@link PutStudioMembersCommandOutput}
  * @see {@link PutStudioMembersCommandInput} for command's `input` shape.
  * @see {@link PutStudioMembersCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class PutStudioMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutStudioMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class PutStudioMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutStudioMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutStudioMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutStudioMembersCommandOutput> {
     return deserializeAws_restJson1PutStudioMembersCommand(output, context);
   }

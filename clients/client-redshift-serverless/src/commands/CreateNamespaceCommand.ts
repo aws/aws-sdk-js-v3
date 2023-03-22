@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNamespaceCommand}.
  */
 export interface CreateNamespaceCommandInput extends CreateNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNamespaceCommand}.
  */
 export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a namespace in Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNamespaceCommandInput - {@link CreateNamespaceCommandInput}
+ * @returns {@link CreateNamespaceCommandOutput}
  * @see {@link CreateNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreateNamespaceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNamespaceCommandOutput> {
     return deserializeAws_json1_1CreateNamespaceCommand(output, context);
   }

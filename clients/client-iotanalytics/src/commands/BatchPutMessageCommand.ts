@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchPutMessageCommand}.
  */
 export interface BatchPutMessageCommandInput extends BatchPutMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchPutMessageCommand}.
  */
 export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends messages to a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutMessageCommandInput - {@link BatchPutMessageCommandInput}
+ * @returns {@link BatchPutMessageCommandOutput}
  * @see {@link BatchPutMessageCommandInput} for command's `input` shape.
  * @see {@link BatchPutMessageCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -84,6 +91,9 @@ export class BatchPutMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class BatchPutMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchPutMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutMessageCommandOutput> {
     return deserializeAws_restJson1BatchPutMessageCommand(output, context);
   }

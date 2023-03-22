@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchEnableStandardsCommand}.
  */
 export interface BatchEnableStandardsCommandInput extends BatchEnableStandardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchEnableStandardsCommand}.
  */
 export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the standards specified by the provided <code>StandardsArn</code>. To obtain the
  *          ARN for a standard, use the <code>DescribeStandards</code>
  *          operation.</p>
@@ -50,6 +55,8 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchEnableStandardsCommandInput - {@link BatchEnableStandardsCommandInput}
+ * @returns {@link BatchEnableStandardsCommandOutput}
  * @see {@link BatchEnableStandardsCommandInput} for command's `input` shape.
  * @see {@link BatchEnableStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -87,6 +94,9 @@ export class BatchEnableStandardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchEnableStandardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class BatchEnableStandardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchEnableStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchEnableStandardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEnableStandardsCommandOutput> {
     return deserializeAws_restJson1BatchEnableStandardsCommand(output, context);
   }

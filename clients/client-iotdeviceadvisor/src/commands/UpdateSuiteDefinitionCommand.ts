@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSuiteDefinitionCommand}.
  */
 export interface UpdateSuiteDefinitionCommandInput extends UpdateSuiteDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSuiteDefinitionCommand}.
  */
 export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Device Advisor test suite.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSuiteDefinition</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSuiteDefinitionCommandInput - {@link UpdateSuiteDefinitionCommandInput}
+ * @returns {@link UpdateSuiteDefinitionCommandOutput}
  * @see {@link UpdateSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateSuiteDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateSuiteDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSuiteDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateSuiteDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSuiteDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSuiteDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSuiteDefinitionCommandOutput> {
     return deserializeAws_restJson1UpdateSuiteDefinitionCommand(output, context);
   }

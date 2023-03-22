@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RejectVpcEndpointConnectionsCommand}.
  */
 export interface RejectVpcEndpointConnectionsCommandInput extends RejectVpcEndpointConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectVpcEndpointConnectionsCommand}.
  */
 export interface RejectVpcEndpointConnectionsCommandOutput
@@ -37,6 +41,7 @@ export interface RejectVpcEndpointConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RejectVpcEndpointConnectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectVpcEndpointConnectionsCommandInput - {@link RejectVpcEndpointConnectionsCommandInput}
+ * @returns {@link RejectVpcEndpointConnectionsCommandOutput}
  * @see {@link RejectVpcEndpointConnectionsCommandInput} for command's `input` shape.
  * @see {@link RejectVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectVpcEndpointConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectVpcEndpointConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RejectVpcEndpointConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAnomalyDetectorCommand}.
  */
 export interface DescribeAnomalyDetectorCommandInput extends DescribeAnomalyDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAnomalyDetectorCommand}.
  */
 export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a detector.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -48,6 +53,8 @@ export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDet
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnomalyDetectorCommandInput - {@link DescribeAnomalyDetectorCommandInput}
+ * @returns {@link DescribeAnomalyDetectorCommandOutput}
  * @see {@link DescribeAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAnomalyDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnomalyDetectorCommandOutput> {
     return deserializeAws_restJson1DescribeAnomalyDetectorCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverEndpointIpAddressesCommand}.
  */
 export interface ListResolverEndpointIpAddressesCommandInput extends ListResolverEndpointIpAddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverEndpointIpAddressesCommand}.
  */
 export interface ListResolverEndpointIpAddressesCommandOutput
@@ -37,6 +41,7 @@ export interface ListResolverEndpointIpAddressesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListResolverEndpointIpAddressesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverEndpointIpAddressesCommandInput - {@link ListResolverEndpointIpAddressesCommandInput}
+ * @returns {@link ListResolverEndpointIpAddressesCommandOutput}
  * @see {@link ListResolverEndpointIpAddressesCommandInput} for command's `input` shape.
  * @see {@link ListResolverEndpointIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverEndpointIpAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResolverEndpointIpAddressesCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     return serializeAws_json1_1ListResolverEndpointIpAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

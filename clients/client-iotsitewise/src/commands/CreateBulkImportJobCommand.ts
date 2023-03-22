@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBulkImportJobCommand}.
  */
 export interface CreateBulkImportJobCommandInput extends CreateBulkImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBulkImportJobCommand}.
  */
 export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
  *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <important>
@@ -51,6 +56,8 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBulkImportJobCommandInput - {@link CreateBulkImportJobCommandInput}
+ * @returns {@link CreateBulkImportJobCommandOutput}
  * @see {@link CreateBulkImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateBulkImportJobCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateBulkImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBulkImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateBulkImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBulkImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBulkImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBulkImportJobCommandOutput> {
     return deserializeAws_restJson1CreateBulkImportJobCommand(output, context);
   }

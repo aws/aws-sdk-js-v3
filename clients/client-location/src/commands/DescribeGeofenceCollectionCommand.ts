@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGeofenceCollectionCommand}.
  */
 export interface DescribeGeofenceCollectionCommandInput extends DescribeGeofenceCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGeofenceCollectionCommand}.
  */
 export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the geofence collection details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGeofenceCollectionCommandInput - {@link DescribeGeofenceCollectionCommandInput}
+ * @returns {@link DescribeGeofenceCollectionCommandOutput}
  * @see {@link DescribeGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link DescribeGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeGeofenceCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGeofenceCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeGeofenceCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGeofenceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeGeofenceCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

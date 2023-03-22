@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationCommand}.
  */
 export interface CreateLocationCommandInput extends CreateLocationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationCommand}.
  */
 export interface CreateLocationCommandOutput extends CreateLocationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom location for use in an Anywhere fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationCommandInput - {@link CreateLocationCommandInput}
+ * @returns {@link CreateLocationCommandOutput}
  * @see {@link CreateLocationCommandInput} for command's `input` shape.
  * @see {@link CreateLocationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationCommandOutput> {
     return deserializeAws_json1_1CreateLocationCommand(output, context);
   }

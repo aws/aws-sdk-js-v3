@@ -26,9 +26,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSnapshotBlockCommand}.
  */
-type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData"> & {
+export type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData"> & {
   /**
    * For *`PutSnapshotBlockRequest["BlockData"]`*, see {@link PutSnapshotBlockRequest.BlockData}.
    */
@@ -39,11 +41,14 @@ type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData
  */
 export interface PutSnapshotBlockCommandInput extends PutSnapshotBlockCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PutSnapshotBlockCommand}.
  */
 export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes a block of data to a snapshot. If the specified block contains
  *             data, the existing data is overwritten. The target snapshot must be in the
  *                 <code>pending</code> state.</p>
@@ -58,6 +63,8 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSnapshotBlockCommandInput - {@link PutSnapshotBlockCommandInput}
+ * @returns {@link PutSnapshotBlockCommandOutput}
  * @see {@link PutSnapshotBlockCommandInput} for command's `input` shape.
  * @see {@link PutSnapshotBlockCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
@@ -100,6 +107,9 @@ export class PutSnapshotBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSnapshotBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class PutSnapshotBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSnapshotBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutSnapshotBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSnapshotBlockCommandOutput> {
     return deserializeAws_restJson1PutSnapshotBlockCommand(output, context);
   }

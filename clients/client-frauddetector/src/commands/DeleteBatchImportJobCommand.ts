@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBatchImportJobCommand}.
  */
 export interface DeleteBatchImportJobCommandInput extends DeleteBatchImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBatchImportJobCommand}.
  */
 export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified batch import job ID record. This action does not delete the data that was batch imported.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBatchImportJobCommandInput - {@link DeleteBatchImportJobCommandInput}
+ * @returns {@link DeleteBatchImportJobCommandOutput}
  * @see {@link DeleteBatchImportJobCommandInput} for command's `input` shape.
  * @see {@link DeleteBatchImportJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteBatchImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBatchImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteBatchImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBatchImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBatchImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBatchImportJobCommandOutput> {
     return deserializeAws_json1_1DeleteBatchImportJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDefaultRetentionPolicyCommand}.
  */
 export interface GetDefaultRetentionPolicyCommandInput extends GetDefaultRetentionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDefaultRetentionPolicyCommand}.
  */
 export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetentionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the default retention policy details for the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDefaultRetentionPolicyCommandInput - {@link GetDefaultRetentionPolicyCommandInput}
+ * @returns {@link GetDefaultRetentionPolicyCommandOutput}
  * @see {@link GetDefaultRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDefaultRetentionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDefaultRetentionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDefaultRetentionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDefaultRetentionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

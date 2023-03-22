@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateThingGroupCommand}.
  */
 export interface CreateThingGroupCommandInput extends CreateThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateThingGroupCommand}.
  */
 export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a thing group.</p>
  *          <note>
  *             <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for
@@ -51,6 +56,8 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThingGroupCommandInput - {@link CreateThingGroupCommandInput}
+ * @returns {@link CreateThingGroupCommandOutput}
  * @see {@link CreateThingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThingGroupCommandOutput> {
     return deserializeAws_restJson1CreateThingGroupCommand(output, context);
   }

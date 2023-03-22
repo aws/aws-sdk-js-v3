@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppInstanceAdminCommand}.
  */
 export interface DescribeAppInstanceAdminCommandInput extends DescribeAppInstanceAdminRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppInstanceAdminCommand}.
  */
 export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstanceAdminResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of an <code>AppInstanceAdmin</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstan
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppInstanceAdminCommandInput - {@link DescribeAppInstanceAdminCommandInput}
+ * @returns {@link DescribeAppInstanceAdminCommandOutput}
  * @see {@link DescribeAppInstanceAdminCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceAdminCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAppInstanceAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppInstanceAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeAppInstanceAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppInstanceAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAppInstanceAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppInstanceAdminCommandOutput> {
     return deserializeAws_restJson1DescribeAppInstanceAdminCommand(output, context);
   }

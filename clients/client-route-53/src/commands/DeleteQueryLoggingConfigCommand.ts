@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueryLoggingConfigCommand}.
  */
 export interface DeleteQueryLoggingConfigCommandInput extends DeleteQueryLoggingConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueryLoggingConfigCommand}.
  */
 export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon
  * 			Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete any logs
  * 			that are already in CloudWatch Logs.</p>
@@ -50,6 +55,8 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueryLoggingConfigCommandInput - {@link DeleteQueryLoggingConfigCommandInput}
+ * @returns {@link DeleteQueryLoggingConfigCommandOutput}
  * @see {@link DeleteQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueryLoggingConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueryLoggingConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteQueryLoggingConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueryLoggingConfigCommandOutput> {
     return deserializeAws_restXmlDeleteQueryLoggingConfigCommand(output, context);
   }

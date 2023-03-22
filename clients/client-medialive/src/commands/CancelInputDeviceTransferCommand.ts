@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelInputDeviceTransferCommand}.
  */
 export interface CancelInputDeviceTransferCommandInput extends CancelInputDeviceTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelInputDeviceTransferCommand}.
  */
 export interface CancelInputDeviceTransferCommandOutput extends CancelInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Cancel an input device transfer that you have requested.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelInputDeviceTransferCommandInput - {@link CancelInputDeviceTransferCommandInput}
+ * @returns {@link CancelInputDeviceTransferCommandOutput}
  * @see {@link CancelInputDeviceTransferCommandInput} for command's `input` shape.
  * @see {@link CancelInputDeviceTransferCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -96,6 +103,9 @@ export class CancelInputDeviceTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelInputDeviceTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CancelInputDeviceTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelInputDeviceTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelInputDeviceTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

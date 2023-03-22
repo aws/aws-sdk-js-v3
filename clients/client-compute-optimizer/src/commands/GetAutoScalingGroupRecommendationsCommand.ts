@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetAutoScalingGroupRecommendationsCommand}.
  */
 export interface GetAutoScalingGroupRecommendationsCommandInput extends GetAutoScalingGroupRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAutoScalingGroupRecommendationsCommand}.
  */
 export interface GetAutoScalingGroupRecommendationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Auto Scaling group recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that
  *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
@@ -52,6 +57,8 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAutoScalingGroupRecommendationsCommandInput - {@link GetAutoScalingGroupRecommendationsCommandInput}
+ * @returns {@link GetAutoScalingGroupRecommendationsCommandOutput}
  * @see {@link GetAutoScalingGroupRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetAutoScalingGroupRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAutoScalingGroupRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAutoScalingGroupRecommendationsCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
     return serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

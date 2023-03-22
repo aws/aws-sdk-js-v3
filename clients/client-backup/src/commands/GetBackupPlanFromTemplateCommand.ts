@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackupPlanFromTemplateCommand}.
  */
 export interface GetBackupPlanFromTemplateCommandInput extends GetBackupPlanFromTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBackupPlanFromTemplateCommand}.
  */
 export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFromTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the template specified by its <code>templateId</code> as a backup plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackupPlanFromTemplateCommandInput - {@link GetBackupPlanFromTemplateCommandInput}
+ * @returns {@link GetBackupPlanFromTemplateCommandOutput}
  * @see {@link GetBackupPlanFromTemplateCommandInput} for command's `input` shape.
  * @see {@link GetBackupPlanFromTemplateCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetBackupPlanFromTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackupPlanFromTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetBackupPlanFromTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackupPlanFromTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackupPlanFromTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

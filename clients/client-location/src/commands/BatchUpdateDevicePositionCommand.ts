@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateDevicePositionCommand}.
  */
 export interface BatchUpdateDevicePositionCommandInput extends BatchUpdateDevicePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateDevicePositionCommand}.
  */
 export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevicePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location
  *            uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30
  *            days.</p>
@@ -51,7 +56,7 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *                 updates from a device have a horizontal accuracy of 5 m and 10 m, the second update
  *                 is neither stored or evaluated if the device has moved less than 15 m. If
  *                 <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location
- *                 uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on
+ *                 uses the default value <code>\{ "Horizontal": 0\}</code> when accuracy is not provided on
  *                 a <code>DevicePositionUpdate</code>.</p>
  *          </note>
  * @example
@@ -64,6 +69,8 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateDevicePositionCommandInput - {@link BatchUpdateDevicePositionCommandInput}
+ * @returns {@link BatchUpdateDevicePositionCommandOutput}
  * @see {@link BatchUpdateDevicePositionCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateDevicePositionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -103,6 +110,9 @@ export class BatchUpdateDevicePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateDevicePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class BatchUpdateDevicePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateDevicePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchUpdateDevicePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from Route53Domains service.
  */
 export class Route53DomainsServiceException extends __ServiceException {

@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CodeGuruProfilerServiceException as __BaseException } from "./CodeGuruProfilerServiceException";
 
+/**
+ * @public
+ */
 export enum ActionGroup {
   /**
    * Permission group type for Agent APIs - ConfigureAgent, PostAgentProfile
@@ -10,6 +13,9 @@ export enum ActionGroup {
   AGENT_PERMISSIONS = "agentPermissions",
 }
 
+/**
+ * @public
+ */
 export enum EventPublisher {
   /**
    * Notifications for Anomaly Detection
@@ -18,6 +24,7 @@ export enum EventPublisher {
 }
 
 /**
+ * @public
  * <p>Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.</p>
  */
 export interface Channel {
@@ -38,6 +45,7 @@ export interface Channel {
 }
 
 /**
+ * @public
  * <p>The structure representing the AddNotificationChannelsRequest.</p>
  */
 export interface AddNotificationChannelsRequest {
@@ -53,6 +61,7 @@ export interface AddNotificationChannelsRequest {
 }
 
 /**
+ * @public
  * <p>The configuration for notifications stored for each profiling group. This includes up to
  *          to two channels and a list of event publishers associated with each channel.</p>
  */
@@ -65,6 +74,7 @@ export interface NotificationConfiguration {
 }
 
 /**
+ * @public
  * <p>The structure representing the AddNotificationChannelsResponse.</p>
  */
 export interface AddNotificationChannelsResponse {
@@ -75,6 +85,7 @@ export interface AddNotificationChannelsResponse {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state
  *         of a service resource associated with the request. Resolve the conflict
  *         before retrying this request.
@@ -97,6 +108,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The server encountered an internal error and is unable to complete the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -117,6 +129,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -136,6 +149,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded your service quota. To perform the requested action,
  *         remove some of the relevant resources, or use <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a> to request a
  *         service quota increase.
@@ -159,6 +173,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -179,6 +194,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The parameter is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -197,6 +213,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AgentParameterField {
   /**
    * Maximum stack depth to be captured by the CodeGuru Profiler.
@@ -221,6 +240,7 @@ export enum AgentParameterField {
 }
 
 /**
+ * @public
  * <p>
  *          The response of <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html">
  *                <code>ConfigureAgent</code>
@@ -294,6 +314,7 @@ export interface AgentConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies whether profiling is enabled or disabled for a profiling group. It
  *          is used by <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html">
@@ -312,6 +333,9 @@ export interface AgentOrchestrationConfig {
   profilingEnabled: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AggregationPeriod {
   /**
    * Period of one day.
@@ -328,6 +352,7 @@ export enum AggregationPeriod {
 }
 
 /**
+ * @public
  * <p>
  *          Specifies the aggregation period and aggregation start time for
  *          an aggregated profile. An aggregated profile is used to collect posted agent profiles
@@ -377,6 +402,9 @@ export interface AggregatedProfileTime {
   period?: AggregationPeriod | string;
 }
 
+/**
+ * @public
+ */
 export enum FeedbackType {
   /**
    * Profiler recommendation flagged as not useful.
@@ -389,6 +417,7 @@ export enum FeedbackType {
 }
 
 /**
+ * @public
  * <p>Feedback that can be submitted for each instance of an anomaly by the user.
  *             Feedback is be used for improvements in generating recommendations for the application.</p>
  */
@@ -401,6 +430,7 @@ export interface UserFeedback {
 }
 
 /**
+ * @public
  * <p>The specific duration in which the metric is flagged as anomalous.</p>
  */
 export interface AnomalyInstance {
@@ -437,6 +467,9 @@ export interface AnomalyInstance {
   userFeedback?: UserFeedback;
 }
 
+/**
+ * @public
+ */
 export enum MetricType {
   /**
    * Metric value aggregated for all instances of a frame name in a profile relative to the root frame.
@@ -445,6 +478,7 @@ export enum MetricType {
 }
 
 /**
+ * @public
  * <p>
  *             Details about the metric that the analysis used when it detected the anomaly.
  *             The metric what is analyzed to create recommendations. It includes the name of the
@@ -479,6 +513,7 @@ export interface Metric {
 }
 
 /**
+ * @public
  * <p>
  *             Details about an anomaly in a specific metric of application profile. The anomaly is detected using
  *             analysis of the metric data over a period of time.
@@ -508,6 +543,7 @@ export interface Anomaly {
 }
 
 /**
+ * @public
  * <p>
  *          The frame name, metric type, and thread states. These are used
  *          to derive the value of the metric for the frame.</p>
@@ -533,6 +569,7 @@ export interface FrameMetric {
 }
 
 /**
+ * @public
  * <p>The structure representing the BatchGetFrameMetricDataRequest.</p>
  */
 export interface BatchGetFrameMetricDataRequest {
@@ -609,6 +646,7 @@ export interface BatchGetFrameMetricDataRequest {
 }
 
 /**
+ * @public
  * <p>
  *          A data type that contains a <code>Timestamp</code> object. This is specified
  *          using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
@@ -627,6 +665,7 @@ export interface TimestampStructure {
 }
 
 /**
+ * @public
  * <p>
  *          Information about a frame metric and its values.
  *       </p>
@@ -648,6 +687,7 @@ export interface FrameMetricDatum {
 }
 
 /**
+ * @public
  * <p>The structure representing the BatchGetFrameMetricDataResponse.</p>
  */
 export interface BatchGetFrameMetricDataResponse {
@@ -719,6 +759,7 @@ export interface BatchGetFrameMetricDataResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the GetFindingsReportAccountSummaryRequest.</p>
  */
 export interface GetFindingsReportAccountSummaryRequest {
@@ -752,6 +793,7 @@ export interface GetFindingsReportAccountSummaryRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Information about potential recommendations that might be created from the
  *             analysis of profiling data.
@@ -793,6 +835,7 @@ export interface FindingsReportSummary {
 }
 
 /**
+ * @public
  * <p>The structure representing the GetFindingsReportAccountSummaryResponse.</p>
  */
 export interface GetFindingsReportAccountSummaryResponse {
@@ -814,6 +857,9 @@ export interface GetFindingsReportAccountSummaryResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>
@@ -823,6 +869,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>
@@ -833,6 +882,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum MetadataField {
   /**
    * Unique identifier for the agent instance.
@@ -873,6 +925,7 @@ export enum MetadataField {
 }
 
 /**
+ * @public
  * <p>The structure representing the configureAgentRequest.</p>
  */
 export interface ConfigureAgentRequest {
@@ -945,6 +998,7 @@ export interface ConfigureAgentRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the configureAgentResponse.</p>
  */
 export interface ConfigureAgentResponse {
@@ -959,6 +1013,9 @@ export interface ConfigureAgentResponse {
   configuration: AgentConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ComputePlatform {
   /**
    * Compute platform meant to used for AWS Lambda.
@@ -971,6 +1028,7 @@ export enum ComputePlatform {
 }
 
 /**
+ * @public
  * <p>The structure representing the createProfiliingGroupRequest.</p>
  */
 export interface CreateProfilingGroupRequest {
@@ -1011,6 +1069,7 @@ export interface CreateProfilingGroupRequest {
 }
 
 /**
+ * @public
  * <p>
  *          Profiling status includes information about the last time a profile agent pinged back,
  *          the last time a profile was received, and the aggregation period and start time for the
@@ -1044,6 +1103,7 @@ export interface ProfilingStatus {
 }
 
 /**
+ * @public
  * <p>
  *          Contains information about a profiling group.
  *       </p>
@@ -1117,6 +1177,7 @@ export interface ProfilingGroupDescription {
 }
 
 /**
+ * @public
  * <p>The structure representing the createProfilingGroupResponse.</p>
  */
 export interface CreateProfilingGroupResponse {
@@ -1130,6 +1191,7 @@ export interface CreateProfilingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the deleteProfilingGroupRequest.</p>
  */
 export interface DeleteProfilingGroupRequest {
@@ -1140,11 +1202,13 @@ export interface DeleteProfilingGroupRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the deleteProfilingGroupResponse.</p>
  */
 export interface DeleteProfilingGroupResponse {}
 
 /**
+ * @public
  * <p>The structure representing the describeProfilingGroupRequest.</p>
  */
 export interface DescribeProfilingGroupRequest {
@@ -1157,6 +1221,7 @@ export interface DescribeProfilingGroupRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the describeProfilingGroupResponse.</p>
  */
 export interface DescribeProfilingGroupResponse {
@@ -1172,6 +1237,7 @@ export interface DescribeProfilingGroupResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the GetNotificationConfigurationRequest.</p>
  */
 export interface GetNotificationConfigurationRequest {
@@ -1182,6 +1248,7 @@ export interface GetNotificationConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the GetNotificationConfigurationResponse.</p>
  */
 export interface GetNotificationConfigurationResponse {
@@ -1192,6 +1259,7 @@ export interface GetNotificationConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>
  *             The structure representing the <code>getPolicyRequest</code>.
  *         </p>
@@ -1204,6 +1272,7 @@ export interface GetPolicyRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the <code>getPolicyResponse</code>.</p>
  */
 export interface GetPolicyResponse {
@@ -1219,6 +1288,7 @@ export interface GetPolicyResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the getProfileRequest.</p>
  */
 export interface GetProfileRequest {
@@ -1303,6 +1373,7 @@ export interface GetProfileRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the getProfileResponse.</p>
  */
 export interface GetProfileResponse {
@@ -1325,6 +1396,7 @@ export interface GetProfileResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the GetRecommendationsRequest.</p>
  */
 export interface GetRecommendationsRequest {
@@ -1422,6 +1494,7 @@ export interface GetRecommendationsRequest {
 }
 
 /**
+ * @public
  * <p>
  *             A set of rules used to make a recommendation during an analysis.
  *         </p>
@@ -1474,6 +1547,7 @@ export interface Pattern {
 }
 
 /**
+ * @public
  * <p>The part of a profile that contains a recommendation found during analysis.</p>
  */
 export interface Match {
@@ -1494,6 +1568,7 @@ export interface Match {
 }
 
 /**
+ * @public
  * <p>A potential improvement that was found from analyzing the profiling data.</p>
  */
 export interface Recommendation {
@@ -1535,6 +1610,7 @@ export interface Recommendation {
 }
 
 /**
+ * @public
  * <p>The structure representing the GetRecommendationsResponse.</p>
  */
 export interface GetRecommendationsResponse {
@@ -1575,6 +1651,7 @@ export interface GetRecommendationsResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the ListFindingsReportsRequest.</p>
  */
 export interface ListFindingsReportsRequest {
@@ -1634,6 +1711,7 @@ export interface ListFindingsReportsRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the ListFindingsReportsResponse.</p>
  */
 export interface ListFindingsReportsResponse {
@@ -1651,6 +1729,9 @@ export interface ListFindingsReportsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OrderBy {
   /**
    * Order by timestamp in ascending order.
@@ -1663,6 +1744,7 @@ export enum OrderBy {
 }
 
 /**
+ * @public
  * <p>The structure representing the listProfileTimesRequest.</p>
  */
 export interface ListProfileTimesRequest {
@@ -1739,6 +1821,7 @@ export interface ListProfileTimesRequest {
 }
 
 /**
+ * @public
  * <p>
  *          Contains the start time of a profile.
  *       </p>
@@ -1753,6 +1836,7 @@ export interface ProfileTime {
 }
 
 /**
+ * @public
  * <p>The structure representing the listProfileTimesResponse.</p>
  */
 export interface ListProfileTimesResponse {
@@ -1773,6 +1857,7 @@ export interface ListProfileTimesResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the listProfilingGroupsRequest.</p>
  */
 export interface ListProfilingGroupsRequest {
@@ -1813,6 +1898,7 @@ export interface ListProfilingGroupsRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the listProfilingGroupsResponse.</p>
  */
 export interface ListProfilingGroupsResponse {
@@ -1853,6 +1939,7 @@ export interface ListProfilingGroupsResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the postAgentProfileRequest.</p>
  */
 export interface PostAgentProfileRequest {
@@ -1903,11 +1990,13 @@ export interface PostAgentProfileRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the postAgentProfileResponse.</p>
  */
 export interface PostAgentProfileResponse {}
 
 /**
+ * @public
  * <p>The structure representing the <code>putPermissionRequest</code>.</p>
  */
 export interface PutPermissionRequest {
@@ -1946,6 +2035,7 @@ export interface PutPermissionRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the <code>putPermissionResponse</code>.</p>
  */
 export interface PutPermissionResponse {
@@ -1966,6 +2056,7 @@ export interface PutPermissionResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the RemoveNotificationChannelRequest.</p>
  */
 export interface RemoveNotificationChannelRequest {
@@ -1981,6 +2072,7 @@ export interface RemoveNotificationChannelRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the RemoveNotificationChannelResponse.</p>
  */
 export interface RemoveNotificationChannelResponse {
@@ -1991,6 +2083,7 @@ export interface RemoveNotificationChannelResponse {
 }
 
 /**
+ * @public
  * <p>
  *
  *             The structure representing the <code>removePermissionRequest</code>.</p>
@@ -2020,6 +2113,7 @@ export interface RemovePermissionRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the <code>removePermissionResponse</code>.</p>
  */
 export interface RemovePermissionResponse {
@@ -2040,6 +2134,7 @@ export interface RemovePermissionResponse {
 }
 
 /**
+ * @public
  * <p>The structure representing the SubmitFeedbackRequest.</p>
  */
 export interface SubmitFeedbackRequest {
@@ -2071,11 +2166,13 @@ export interface SubmitFeedbackRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the SubmitFeedbackResponse.</p>
  */
 export interface SubmitFeedbackResponse {}
 
 /**
+ * @public
  * <p>The structure representing the updateProfilingGroupRequest.</p>
  */
 export interface UpdateProfilingGroupRequest {
@@ -2093,6 +2190,7 @@ export interface UpdateProfilingGroupRequest {
 }
 
 /**
+ * @public
  * <p>The structure representing the updateProfilingGroupResponse.</p>
  */
 export interface UpdateProfilingGroupResponse {
@@ -2107,6 +2205,9 @@ export interface UpdateProfilingGroupResponse {
   profilingGroup: ProfilingGroupDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>
@@ -2123,8 +2224,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>
@@ -2142,6 +2249,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

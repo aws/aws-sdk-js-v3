@@ -24,15 +24,20 @@ import { deserializeAws_restXmlCreateJobCommand, serializeAws_restXmlCreateJobCo
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobCommand}.
  */
 export interface CreateJobCommandInput extends CreateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobCommand}.
  */
 export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects.
  *          Batch Operations can run a single action on lists of Amazon S3 objects that you specify. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -76,6 +81,8 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobCommandInput - {@link CreateJobCommandInput}
+ * @returns {@link CreateJobCommandOutput}
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -114,6 +121,9 @@ export class CreateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class CreateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobCommandOutput> {
     return deserializeAws_restXmlCreateJobCommand(output, context);
   }

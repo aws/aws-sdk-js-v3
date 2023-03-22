@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGameServerGroupCommand}.
  */
 export interface DeleteGameServerGroupCommandInput extends DeleteGameServerGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGameServerGroupCommand}.
  */
 export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -80,6 +85,8 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGameServerGroupCommandInput - {@link DeleteGameServerGroupCommandInput}
+ * @returns {@link DeleteGameServerGroupCommandOutput}
  * @see {@link DeleteGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -117,6 +124,9 @@ export class DeleteGameServerGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGameServerGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class DeleteGameServerGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGameServerGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGameServerGroupCommandOutput> {
     return deserializeAws_json1_1DeleteGameServerGroupCommand(output, context);
   }

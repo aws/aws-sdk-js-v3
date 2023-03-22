@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceUefiDataCommand}.
  */
 export interface GetInstanceUefiDataCommandInput extends GetInstanceUefiDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceUefiDataCommand}.
  */
 export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A binary representation of the UEFI variable store. Only non-volatile variables are
  *             stored. This is a base64 encoded and zlib compressed binary value that must be properly
  *             encoded.</p>
@@ -56,6 +61,8 @@ export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceUefiDataCommandInput - {@link GetInstanceUefiDataCommandInput}
+ * @returns {@link GetInstanceUefiDataCommandOutput}
  * @see {@link GetInstanceUefiDataCommandInput} for command's `input` shape.
  * @see {@link GetInstanceUefiDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +86,9 @@ export class GetInstanceUefiDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceUefiDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetInstanceUefiDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceUefiDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetInstanceUefiDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceUefiDataCommandOutput> {
     return deserializeAws_ec2GetInstanceUefiDataCommand(output, context);
   }

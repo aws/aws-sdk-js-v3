@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateTemplateCommand}.
  */
 export interface GenerateTemplateCommandInput extends GenerateTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateTemplateCommand}.
  */
 export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates an CloudFormation template based on the current launch configuration and writes it to
  *             an Amazon S3 object in the customer’s Amazon S3 bucket.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateTemplateCommandInput - {@link GenerateTemplateCommandInput}
+ * @returns {@link GenerateTemplateCommandOutput}
  * @see {@link GenerateTemplateCommandInput} for command's `input` shape.
  * @see {@link GenerateTemplateCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -86,6 +93,9 @@ export class GenerateTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GenerateTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateTemplateCommandOutput> {
     return deserializeAws_json1_1GenerateTemplateCommand(output, context);
   }

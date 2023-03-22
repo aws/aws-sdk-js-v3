@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterJobDefinitionCommand}.
  */
 export interface RegisterJobDefinitionCommandInput extends RegisterJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterJobDefinitionCommand}.
  */
 export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an Batch job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterJobDefinitionCommandInput - {@link RegisterJobDefinitionCommandInput}
+ * @returns {@link RegisterJobDefinitionCommandOutput}
  * @see {@link RegisterJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link RegisterJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -153,6 +160,9 @@ export class RegisterJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -192,10 +202,16 @@ export class RegisterJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterJobDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterJobDefinitionCommandOutput> {
     return deserializeAws_restJson1RegisterJobDefinitionCommand(output, context);
   }

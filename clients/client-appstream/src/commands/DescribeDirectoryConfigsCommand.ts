@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDirectoryConfigsCommand}.
  */
 export interface DescribeDirectoryConfigsCommandInput extends DescribeDirectoryConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDirectoryConfigsCommand}.
  */
 export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectoryConfigsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
  *         </p>
  *          <p>Although the response syntax in this topic includes the account password, this password is not returned in the actual response.</p>
@@ -48,6 +53,8 @@ export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectory
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectoryConfigsCommandInput - {@link DescribeDirectoryConfigsCommandInput}
+ * @returns {@link DescribeDirectoryConfigsCommandOutput}
  * @see {@link DescribeDirectoryConfigsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectoryConfigsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeDirectoryConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectoryConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeDirectoryConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDirectoryConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDirectoryConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDirectoryConfigsCommandOutput> {
     return deserializeAws_json1_1DescribeDirectoryConfigsCommand(output, context);
   }

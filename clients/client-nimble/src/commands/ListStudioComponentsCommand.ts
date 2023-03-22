@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStudioComponentsCommand}.
  */
 export interface ListStudioComponentsCommandInput extends ListStudioComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStudioComponentsCommand}.
  */
 export interface ListStudioComponentsCommandOutput extends ListStudioComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the <code>StudioComponents</code> in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStudioComponentsCommandOutput extends ListStudioComponentsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudioComponentsCommandInput - {@link ListStudioComponentsCommandInput}
+ * @returns {@link ListStudioComponentsCommandOutput}
  * @see {@link ListStudioComponentsCommandInput} for command's `input` shape.
  * @see {@link ListStudioComponentsCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListStudioComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudioComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListStudioComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudioComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStudioComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudioComponentsCommandOutput> {
     return deserializeAws_restJson1ListStudioComponentsCommand(output, context);
   }

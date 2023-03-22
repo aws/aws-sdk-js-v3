@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionCodeSigningConfigCommand}.
  */
 export interface DeleteFunctionCodeSigningConfigCommandInput extends DeleteFunctionCodeSigningConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionCodeSigningConfigCommand}.
  */
 export interface DeleteFunctionCodeSigningConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the code signing configuration from the function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteFunctionCodeSigningConfigCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionCodeSigningConfigCommandInput - {@link DeleteFunctionCodeSigningConfigCommandInput}
+ * @returns {@link DeleteFunctionCodeSigningConfigCommandOutput}
  * @see {@link DeleteFunctionCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteFunctionCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DeleteFunctionCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteFunctionCodeSigningConfigCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DeleteFunctionCodeSigningConfigCommand extends $Command<
     return serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

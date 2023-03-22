@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrustedAdvisorCheckResultCommand}.
  */
 export interface DescribeTrustedAdvisorCheckResultCommandInput extends DescribeTrustedAdvisorCheckResultRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrustedAdvisorCheckResultCommand}.
  */
 export interface DescribeTrustedAdvisorCheckResultCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the results of the Trusted Advisor check that has the specified check ID. You
  *             can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
  *             operation.</p>
@@ -106,6 +111,8 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrustedAdvisorCheckResultCommandInput - {@link DescribeTrustedAdvisorCheckResultCommandInput}
+ * @returns {@link DescribeTrustedAdvisorCheckResultCommandOutput}
  * @see {@link DescribeTrustedAdvisorCheckResultCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckResultCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -132,6 +139,9 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrustedAdvisorCheckResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,6 +181,9 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrustedAdvisorCheckResultCommandInput,
     context: __SerdeContext
@@ -178,6 +191,9 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
     return serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

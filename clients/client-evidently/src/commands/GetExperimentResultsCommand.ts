@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExperimentResultsCommand}.
  */
 export interface GetExperimentResultsCommandInput extends GetExperimentResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExperimentResultsCommand}.
  */
 export interface GetExperimentResultsCommandOutput extends GetExperimentResultsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the results of a running or completed experiment. No results are available until
  *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.
  *        To increase the statistical power, Evidently performs an additional offline p-value analysis at the end of the experiment.
@@ -53,6 +58,8 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExperimentResultsCommandInput - {@link GetExperimentResultsCommandInput}
+ * @returns {@link GetExperimentResultsCommandOutput}
  * @see {@link GetExperimentResultsCommandInput} for command's `input` shape.
  * @see {@link GetExperimentResultsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetExperimentResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExperimentResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetExperimentResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExperimentResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetExperimentResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExperimentResultsCommandOutput> {
     return deserializeAws_restJson1GetExperimentResultsCommand(output, context);
   }

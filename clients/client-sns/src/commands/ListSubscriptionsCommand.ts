@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubscriptionsCommand}.
  */
 export interface ListSubscriptionsCommandInput extends ListSubscriptionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSubscriptionsCommand}.
  */
 export interface ListSubscriptionsCommandOutput extends ListSubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the requester's subscriptions. Each call returns a limited list of
  *             subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is
  *             also returned. Use the <code>NextToken</code> parameter in a new
@@ -50,6 +55,8 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscriptionsCommandInput - {@link ListSubscriptionsCommandInput}
+ * @returns {@link ListSubscriptionsCommandOutput}
  * @see {@link ListSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscriptionsCommandOutput> {
     return deserializeAws_queryListSubscriptionsCommand(output, context);
   }

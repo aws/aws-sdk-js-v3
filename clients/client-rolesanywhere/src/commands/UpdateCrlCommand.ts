@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCrlCommand}.
  */
 export interface UpdateCrlCommandInput extends UpdateCrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCrlCommand}.
  */
 export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the certificate revocation list (CRL). CRl is a list of certificates that have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates against the crl list before issuing credentials.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCrlCommandInput - {@link UpdateCrlCommandInput}
+ * @returns {@link UpdateCrlCommandOutput}
  * @see {@link UpdateCrlCommandInput} for command's `input` shape.
  * @see {@link UpdateCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCrlCommandOutput> {
     return deserializeAws_restJson1UpdateCrlCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartEdgeDeploymentStageCommand}.
  */
 export interface StartEdgeDeploymentStageCommandInput extends StartEdgeDeploymentStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartEdgeDeploymentStageCommand}.
  */
 export interface StartEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a stage in an edge deployment plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface StartEdgeDeploymentStageCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param StartEdgeDeploymentStageCommandInput - {@link StartEdgeDeploymentStageCommandInput}
+ * @returns {@link StartEdgeDeploymentStageCommandOutput}
  * @see {@link StartEdgeDeploymentStageCommandInput} for command's `input` shape.
  * @see {@link StartEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -64,6 +71,9 @@ export class StartEdgeDeploymentStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartEdgeDeploymentStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,10 +113,16 @@ export class StartEdgeDeploymentStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartEdgeDeploymentStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartEdgeDeploymentStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartEdgeDeploymentStageCommandOutput> {
     return deserializeAws_json1_1StartEdgeDeploymentStageCommand(output, context);
   }

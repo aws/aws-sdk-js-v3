@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVocabularyFilterCommand}.
  */
 export interface DeleteVocabularyFilterCommandInput extends DeleteVocabularyFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVocabularyFilterCommand}.
  */
 export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom vocabulary filter. To use this operation, specify the name of the
  *             custom vocabulary filter you want to delete using <code>VocabularyFilterName</code>.
  *             Custom vocabulary filter names are case sensitive.</p>
@@ -43,6 +48,8 @@ export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVocabularyFilterCommandInput - {@link DeleteVocabularyFilterCommandInput}
+ * @returns {@link DeleteVocabularyFilterCommandOutput}
  * @see {@link DeleteVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteVocabularyFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteVocabularyFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteVocabularyFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVocabularyFilterCommandOutput> {
     return deserializeAws_json1_1DeleteVocabularyFilterCommand(output, context);
   }

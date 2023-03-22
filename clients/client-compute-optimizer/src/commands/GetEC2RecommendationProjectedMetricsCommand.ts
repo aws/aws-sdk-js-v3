@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEC2RecommendationProjectedMetricsCommand}.
  */
 export interface GetEC2RecommendationProjectedMetricsCommandInput extends GetEC2RecommendationProjectedMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEC2RecommendationProjectedMetricsCommand}.
  */
 export interface GetEC2RecommendationProjectedMetricsCommandOutput
@@ -37,6 +41,7 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the projected utilization metrics of Amazon EC2 instance
  *             recommendations.</p>
  *          <note>
@@ -55,6 +60,8 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEC2RecommendationProjectedMetricsCommandInput - {@link GetEC2RecommendationProjectedMetricsCommandInput}
+ * @returns {@link GetEC2RecommendationProjectedMetricsCommandOutput}
  * @see {@link GetEC2RecommendationProjectedMetricsCommandInput} for command's `input` shape.
  * @see {@link GetEC2RecommendationProjectedMetricsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -103,6 +110,9 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEC2RecommendationProjectedMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEC2RecommendationProjectedMetricsCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     return serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

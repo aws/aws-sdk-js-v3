@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRunCommand}.
  */
 export interface DeleteRunCommandInput extends DeleteRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRunCommand}.
  */
 export interface DeleteRunCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a workflow run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteRunCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRunCommandInput - {@link DeleteRunCommandInput}
+ * @returns {@link DeleteRunCommandOutput}
  * @see {@link DeleteRunCommandInput} for command's `input` shape.
  * @see {@link DeleteRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRunCommandOutput> {
     return deserializeAws_restJson1DeleteRunCommand(output, context);
   }

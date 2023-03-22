@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUpdateActionsCommand}.
  */
 export interface DescribeUpdateActionsCommandInput extends DescribeUpdateActionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUpdateActionsCommand}.
  */
 export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details of the update actions </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUpdateActionsCommandInput - {@link DescribeUpdateActionsCommandInput}
+ * @returns {@link DescribeUpdateActionsCommandOutput}
  * @see {@link DescribeUpdateActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeUpdateActionsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeUpdateActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUpdateActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeUpdateActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUpdateActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeUpdateActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUpdateActionsCommandOutput> {
     return deserializeAws_queryDescribeUpdateActionsCommand(output, context);
   }

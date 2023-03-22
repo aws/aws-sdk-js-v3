@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkInterfacePermissionCommand}.
  */
 export interface DeleteNetworkInterfacePermissionCommandInput extends DeleteNetworkInterfacePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkInterfacePermissionCommand}.
  */
 export interface DeleteNetworkInterfacePermissionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a permission for a network interface. By default, you cannot delete the
  * 			permission if the account for which you're removing the permission has attached the
  * 			network interface to an instance. However, you can force delete the permission,
@@ -51,6 +56,8 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInterfacePermissionCommandInput - {@link DeleteNetworkInterfacePermissionCommandInput}
+ * @returns {@link DeleteNetworkInterfacePermissionCommandOutput}
  * @see {@link DeleteNetworkInterfacePermissionCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInterfacePermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInterfacePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNetworkInterfacePermissionCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
     return serializeAws_ec2DeleteNetworkInterfacePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

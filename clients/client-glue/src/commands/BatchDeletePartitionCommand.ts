@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeletePartitionCommand}.
  */
 export interface BatchDeletePartitionCommandInput extends BatchDeletePartitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeletePartitionCommand}.
  */
 export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more partitions in a batch operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeletePartitionCommandInput - {@link BatchDeletePartitionCommandInput}
+ * @returns {@link BatchDeletePartitionCommandOutput}
  * @see {@link BatchDeletePartitionCommandInput} for command's `input` shape.
  * @see {@link BatchDeletePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class BatchDeletePartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeletePartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class BatchDeletePartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeletePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeletePartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeletePartitionCommandOutput> {
     return deserializeAws_json1_1BatchDeletePartitionCommand(output, context);
   }

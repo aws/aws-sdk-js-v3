@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeploymentsCommand}.
  */
 export interface DescribeDeploymentsCommandInput extends DescribeDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeploymentsCommand}.
  */
 export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a description of a specified set of deployments.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -54,6 +59,8 @@ export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeploymentsCommandInput - {@link DescribeDeploymentsCommandInput}
+ * @returns {@link DescribeDeploymentsCommandOutput}
  * @see {@link DescribeDeploymentsCommandInput} for command's `input` shape.
  * @see {@link DescribeDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeploymentsCommandOutput> {
     return deserializeAws_json1_1DescribeDeploymentsCommand(output, context);
   }

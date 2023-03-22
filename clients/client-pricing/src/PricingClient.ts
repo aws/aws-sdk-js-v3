@@ -65,6 +65,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DescribeServicesCommandInput
   | GetAttributeValuesCommandInput
@@ -72,6 +75,9 @@ export type ServiceInputTypes =
   | GetProductsCommandInput
   | ListPriceListsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DescribeServicesCommandOutput
   | GetAttributeValuesCommandOutput
@@ -79,6 +85,9 @@ export type ServiceOutputTypes =
   | GetProductsCommandOutput
   | ListPriceListsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -86,7 +95,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -195,11 +204,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type PricingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -210,10 +222,15 @@ type PricingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of PricingClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of PricingClient class constructor that set the region, credentials and other options.
  */
 export interface PricingClientConfig extends PricingClientConfigType {}
 
+/**
+ * @public
+ */
 type PricingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -224,11 +241,14 @@ type PricingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of PricingClient class. This is resolved and normalized from the {@link PricingClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of PricingClient class. This is resolved and normalized from the {@link PricingClientConfig | constructor configuration interface}.
  */
 export interface PricingClientResolvedConfig extends PricingClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Web Services Price List API is a centralized and convenient way to
  *          programmatically query Amazon Web Services for services, products, and pricing information. The Amazon Web Services Price List
  *          uses standardized product attributes such as <code>Location</code>, <code>Storage

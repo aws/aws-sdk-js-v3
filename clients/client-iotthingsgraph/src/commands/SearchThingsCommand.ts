@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchThingsCommand}.
  */
 export interface SearchThingsCommandInput extends SearchThingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchThingsCommand}.
  */
 export interface SearchThingsCommandOutput extends SearchThingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for things associated with the specified entity. You can search by both device and device model.</p>
@@ -51,6 +56,8 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchThingsCommandInput - {@link SearchThingsCommandInput}
+ * @returns {@link SearchThingsCommandOutput}
  * @see {@link SearchThingsCommandInput} for command's `input` shape.
  * @see {@link SearchThingsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -86,6 +93,9 @@ export class SearchThingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchThingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class SearchThingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchThingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchThingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchThingsCommandOutput> {
     return deserializeAws_json1_1SearchThingsCommand(output, context);
   }

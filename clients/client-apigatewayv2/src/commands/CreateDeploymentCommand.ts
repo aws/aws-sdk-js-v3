@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Deployment for an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
+ * @returns {@link CreateDeploymentCommandOutput}
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +88,9 @@ export class CreateDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentCommandOutput> {
     return deserializeAws_restJson1CreateDeploymentCommand(output, context);
   }

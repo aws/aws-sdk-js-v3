@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTopicsDetectionJobsCommand}.
  */
 export interface ListTopicsDetectionJobsCommandInput extends ListTopicsDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTopicsDetectionJobsCommand}.
  */
 export interface ListTopicsDetectionJobsCommandOutput extends ListTopicsDetectionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the topic detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTopicsDetectionJobsCommandOutput extends ListTopicsDetectio
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTopicsDetectionJobsCommandInput - {@link ListTopicsDetectionJobsCommandInput}
+ * @returns {@link ListTopicsDetectionJobsCommandOutput}
  * @see {@link ListTopicsDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListTopicsDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListTopicsDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTopicsDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListTopicsDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTopicsDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTopicsDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTopicsDetectionJobsCommandOutput> {
     return deserializeAws_json1_1ListTopicsDetectionJobsCommand(output, context);
   }

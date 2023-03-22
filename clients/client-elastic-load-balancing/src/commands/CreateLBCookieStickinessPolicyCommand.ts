@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLBCookieStickinessPolicyCommand}.
  */
 export interface CreateLBCookieStickinessPolicyCommandInput extends CreateLBCookieStickinessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLBCookieStickinessPolicyCommand}.
  */
 export interface CreateLBCookieStickinessPolicyCommandOutput
@@ -41,6 +45,7 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP/HTTPS listeners.</p>
  *         <p>When a load balancer implements this policy, the load balancer uses a special cookie to track the instance for each request. When the load balancer receives a request, it first checks to see if this cookie is present in the request.
  *             If so, the load balancer sends the request to the application server specified in the cookie. If not, the load balancer sends the request to a server that is chosen based on the existing load-balancing algorithm.</p>
@@ -58,6 +63,8 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLBCookieStickinessPolicyCommandInput - {@link CreateLBCookieStickinessPolicyCommandInput}
+ * @returns {@link CreateLBCookieStickinessPolicyCommandOutput}
  * @see {@link CreateLBCookieStickinessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateLBCookieStickinessPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLBCookieStickinessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateLBCookieStickinessPolicyCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     return serializeAws_queryCreateLBCookieStickinessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

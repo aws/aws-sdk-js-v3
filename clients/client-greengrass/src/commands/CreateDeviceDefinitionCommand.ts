@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeviceDefinitionCommand}.
  */
 export interface CreateDeviceDefinitionCommandInput extends CreateDeviceDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeviceDefinitionCommand}.
  */
 export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeviceDefinitionCommandInput - {@link CreateDeviceDefinitionCommandInput}
+ * @returns {@link CreateDeviceDefinitionCommandOutput}
  * @see {@link CreateDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class CreateDeviceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeviceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateDeviceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeviceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDeviceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceDefinitionCommandOutput> {
     return deserializeAws_restJson1CreateDeviceDefinitionCommand(output, context);
   }

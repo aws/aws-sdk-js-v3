@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpendLimitsCommand}.
  */
 export interface DescribeSpendLimitsCommandInput extends DescribeSpendLimitsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpendLimitsCommand}.
  */
 export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
  *             text messages.</p>
  *         <p>When you establish an Amazon Web Services account, the account has initial monthly
@@ -56,6 +61,8 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpendLimitsCommandInput - {@link DescribeSpendLimitsCommandInput}
+ * @returns {@link DescribeSpendLimitsCommandOutput}
  * @see {@link DescribeSpendLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeSpendLimitsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeSpendLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpendLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeSpendLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpendLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeSpendLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpendLimitsCommandOutput> {
     return deserializeAws_json1_0DescribeSpendLimitsCommand(output, context);
   }

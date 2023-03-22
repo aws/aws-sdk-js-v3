@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLifecyclePolicyCommand}.
  */
 export interface PutLifecyclePolicyCommandInput extends PutLifecyclePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLifecyclePolicyCommand}.
  */
 export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the lifecycle policy for the specified repository. For more
  *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle policy
  *                 template</a>.</p>
@@ -48,6 +53,8 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecyclePolicyCommandInput - {@link PutLifecyclePolicyCommandInput}
+ * @returns {@link PutLifecyclePolicyCommandOutput}
  * @see {@link PutLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link PutLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -82,6 +89,9 @@ export class PutLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLifecyclePolicyCommandOutput> {
     return deserializeAws_json1_1PutLifecyclePolicyCommand(output, context);
   }

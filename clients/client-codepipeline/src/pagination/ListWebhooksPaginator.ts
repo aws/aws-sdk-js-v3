@@ -10,7 +10,7 @@ import {
 import { CodePipelinePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodePipelineClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWebhooksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListWebhooks(
   config: CodePipelinePaginationConfiguration,
   input: ListWebhooksCommandInput,

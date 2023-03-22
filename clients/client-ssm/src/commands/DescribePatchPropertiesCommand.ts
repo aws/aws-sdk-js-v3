@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePatchPropertiesCommand}.
  */
 export interface DescribePatchPropertiesCommandInput extends DescribePatchPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePatchPropertiesCommand}.
  */
 export interface DescribePatchPropertiesCommandOutput extends DescribePatchPropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the properties of available patches organized by product, product family,
  *    classification, severity, and other properties of available patches. You can use the reported
  *    properties in the filters you specify in requests for operations such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>
@@ -109,6 +114,8 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePatchPropertiesCommandInput - {@link DescribePatchPropertiesCommandInput}
+ * @returns {@link DescribePatchPropertiesCommandOutput}
  * @see {@link DescribePatchPropertiesCommandInput} for command's `input` shape.
  * @see {@link DescribePatchPropertiesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -135,6 +142,9 @@ export class DescribePatchPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePatchPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class DescribePatchPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePatchPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePatchPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePatchPropertiesCommandOutput> {
     return deserializeAws_json1_1DescribePatchPropertiesCommand(output, context);
   }

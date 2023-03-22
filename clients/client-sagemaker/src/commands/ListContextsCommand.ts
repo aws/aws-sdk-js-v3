@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListContextsCommand}.
  */
 export interface ListContextsCommandInput extends ListContextsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContextsCommand}.
  */
 export interface ListContextsCommandOutput extends ListContextsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the contexts in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContextsCommandInput - {@link ListContextsCommandInput}
+ * @returns {@link ListContextsCommandOutput}
  * @see {@link ListContextsCommandInput} for command's `input` shape.
  * @see {@link ListContextsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListContextsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContextsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListContextsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContextsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListContextsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContextsCommandOutput> {
     return deserializeAws_json1_1ListContextsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartMonitoringScheduleCommand}.
  */
 export interface StartMonitoringScheduleCommandInput extends StartMonitoringScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMonitoringScheduleCommand}.
  */
 export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a previously stopped monitoring schedule.</p>
  *          <note>
  *             <p>By default, when you successfully create a new schedule, the status of a monitoring
@@ -45,6 +50,8 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMonitoringScheduleCommandInput - {@link StartMonitoringScheduleCommandInput}
+ * @returns {@link StartMonitoringScheduleCommandOutput}
  * @see {@link StartMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class StartMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class StartMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMonitoringScheduleCommandOutput> {
     return deserializeAws_json1_1StartMonitoringScheduleCommand(output, context);
   }

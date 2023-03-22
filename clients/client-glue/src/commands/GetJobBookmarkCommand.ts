@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobBookmarkCommand}.
  */
 export interface GetJobBookmarkCommandInput extends GetJobBookmarkRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobBookmarkCommand}.
  */
 export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information on a job bookmark entry.</p>
  *          <p>For more information about enabling and using job bookmarks, see:</p>
  *          <ul>
@@ -64,6 +69,8 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobBookmarkCommandInput - {@link GetJobBookmarkCommandInput}
+ * @returns {@link GetJobBookmarkCommandOutput}
  * @see {@link GetJobBookmarkCommandInput} for command's `input` shape.
  * @see {@link GetJobBookmarkCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -102,6 +109,9 @@ export class GetJobBookmarkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobBookmarkCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class GetJobBookmarkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobBookmarkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetJobBookmarkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobBookmarkCommandOutput> {
     return deserializeAws_json1_1GetJobBookmarkCommand(output, context);
   }

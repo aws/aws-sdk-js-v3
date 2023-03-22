@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEffectiveInstanceAssociationsCommand}.
  */
 export interface DescribeEffectiveInstanceAssociationsCommandInput
   extends DescribeEffectiveInstanceAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEffectiveInstanceAssociationsCommand}.
  */
 export interface DescribeEffectiveInstanceAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeEffectiveInstanceAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>All associations for the managed node(s).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeEffectiveInstanceAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEffectiveInstanceAssociationsCommandInput - {@link DescribeEffectiveInstanceAssociationsCommandInput}
+ * @returns {@link DescribeEffectiveInstanceAssociationsCommandOutput}
  * @see {@link DescribeEffectiveInstanceAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectiveInstanceAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEffectiveInstanceAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEffectiveInstanceAssociationsCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     return serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStandardsControlsCommand}.
  */
 export interface DescribeStandardsControlsCommandInput extends DescribeStandardsControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStandardsControlsCommand}.
  */
 export interface DescribeStandardsControlsCommandOutput extends DescribeStandardsControlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of security standards controls.</p>
  *          <p>For each control, the results include information about whether it is currently enabled,
  *          the severity, and a link to remediation information.</p>
@@ -48,6 +53,8 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStandardsControlsCommandInput - {@link DescribeStandardsControlsCommandInput}
+ * @returns {@link DescribeStandardsControlsCommandOutput}
  * @see {@link DescribeStandardsControlsCommandInput} for command's `input` shape.
  * @see {@link DescribeStandardsControlsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeStandardsControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStandardsControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeStandardsControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStandardsControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeStandardsControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

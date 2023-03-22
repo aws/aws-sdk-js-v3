@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkCommand}.
  */
 export interface DeleteNetworkCommandInput extends DeleteNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkCommand}.
  */
 export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified network. You must delete network sites before you delete the
  *             network. For more information, see
  *             <a href="https://docs.aws.amazon.com/private-networks/latest/APIReference/API_DeleteNetworkSite.html">DeleteNetworkSite</a> in the
@@ -49,6 +54,8 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkCommandInput - {@link DeleteNetworkCommandInput}
+ * @returns {@link DeleteNetworkCommandOutput}
  * @see {@link DeleteNetworkCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkCommandOutput> {
     return deserializeAws_restJson1DeleteNetworkCommand(output, context);
   }

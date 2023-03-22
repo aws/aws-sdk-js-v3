@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVoiceChannelCommand}.
  */
 export interface UpdateVoiceChannelCommandInput extends UpdateVoiceChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVoiceChannelCommand}.
  */
 export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the voice channel for an application or updates the status and settings of the voice channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVoiceChannelCommandInput - {@link UpdateVoiceChannelCommandInput}
+ * @returns {@link UpdateVoiceChannelCommandOutput}
  * @see {@link UpdateVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateVoiceChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVoiceChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateVoiceChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVoiceChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVoiceChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVoiceChannelCommandOutput> {
     return deserializeAws_restJson1UpdateVoiceChannelCommand(output, context);
   }

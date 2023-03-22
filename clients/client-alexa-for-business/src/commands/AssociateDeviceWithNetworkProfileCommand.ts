@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDeviceWithNetworkProfileCommand}.
  */
 export interface AssociateDeviceWithNetworkProfileCommandInput extends AssociateDeviceWithNetworkProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDeviceWithNetworkProfileCommand}.
  */
 export interface AssociateDeviceWithNetworkProfileCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a device with the specified network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDeviceWithNetworkProfileCommandInput - {@link AssociateDeviceWithNetworkProfileCommandInput}
+ * @returns {@link AssociateDeviceWithNetworkProfileCommandOutput}
  * @see {@link AssociateDeviceWithNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -80,6 +87,9 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDeviceWithNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateDeviceWithNetworkProfileCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
     return serializeAws_json1_1AssociateDeviceWithNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

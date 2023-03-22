@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMemberAccountsCommand}.
  */
 export interface ListMemberAccountsCommandInput extends ListMemberAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMemberAccountsCommand}.
  */
 export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
  *       administrator's Amazon Web Services organization.</p>
  *          <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the
@@ -49,6 +54,8 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMemberAccountsCommandInput - {@link ListMemberAccountsCommandInput}
+ * @returns {@link ListMemberAccountsCommandOutput}
  * @see {@link ListMemberAccountsCommandInput} for command's `input` shape.
  * @see {@link ListMemberAccountsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListMemberAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMemberAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListMemberAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMemberAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMemberAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMemberAccountsCommandOutput> {
     return deserializeAws_json1_1ListMemberAccountsCommand(output, context);
   }

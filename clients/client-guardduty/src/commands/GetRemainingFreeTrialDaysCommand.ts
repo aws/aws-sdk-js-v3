@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRemainingFreeTrialDaysCommand}.
  */
 export interface GetRemainingFreeTrialDaysCommandInput extends GetRemainingFreeTrialDaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRemainingFreeTrialDaysCommand}.
  */
 export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFreeTrialDaysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the number of days left for each data source used in the free trial period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRemainingFreeTrialDaysCommandInput - {@link GetRemainingFreeTrialDaysCommandInput}
+ * @returns {@link GetRemainingFreeTrialDaysCommandOutput}
  * @see {@link GetRemainingFreeTrialDaysCommandInput} for command's `input` shape.
  * @see {@link GetRemainingFreeTrialDaysCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetRemainingFreeTrialDaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRemainingFreeTrialDaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetRemainingFreeTrialDaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRemainingFreeTrialDaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRemainingFreeTrialDaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

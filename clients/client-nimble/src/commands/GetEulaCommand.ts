@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEulaCommand}.
  */
 export interface GetEulaCommandInput extends GetEulaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEulaCommand}.
  */
 export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get EULA.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEulaCommandInput - {@link GetEulaCommandInput}
+ * @returns {@link GetEulaCommandOutput}
  * @see {@link GetEulaCommandInput} for command's `input` shape.
  * @see {@link GetEulaCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEulaCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEulaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEulaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEulaCommandOutput> {
     return deserializeAws_restJson1GetEulaCommand(output, context);
   }

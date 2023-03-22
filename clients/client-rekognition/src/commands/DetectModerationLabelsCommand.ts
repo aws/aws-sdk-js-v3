@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectModerationLabelsCommand}.
  */
 export interface DetectModerationLabelsCommandInput extends DetectModerationLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectModerationLabelsCommand}.
  */
 export interface DetectModerationLabelsCommandOutput extends DetectModerationLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects unsafe content in a specified JPEG or PNG format image. Use
  *         <code>DetectModerationLabels</code> to moderate images depending on your requirements. For
  *       example, you might want to filter images that contain nudity, but not images containing
@@ -58,6 +63,8 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectModerationLabelsCommandInput - {@link DetectModerationLabelsCommandInput}
+ * @returns {@link DetectModerationLabelsCommandOutput}
  * @see {@link DetectModerationLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectModerationLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -113,6 +120,9 @@ export class DetectModerationLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectModerationLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DetectModerationLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectModerationLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectModerationLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectModerationLabelsCommandOutput> {
     return deserializeAws_json1_1DetectModerationLabelsCommand(output, context);
   }

@@ -117,6 +117,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateAttributeGroupCommandInput
   | AssociateResourceCommandInput
@@ -143,6 +146,9 @@ export type ServiceInputTypes =
   | UpdateApplicationCommandInput
   | UpdateAttributeGroupCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateAttributeGroupCommandOutput
   | AssociateResourceCommandOutput
@@ -169,6 +175,9 @@ export type ServiceOutputTypes =
   | UpdateApplicationCommandOutput
   | UpdateAttributeGroupCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -176,7 +185,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -285,11 +294,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ServiceCatalogAppRegistryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -300,10 +312,15 @@ type ServiceCatalogAppRegistryClientConfigType = Partial<__SmithyConfiguration<_
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ServiceCatalogAppRegistryClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ServiceCatalogAppRegistryClient class constructor that set the region, credentials and other options.
  */
 export interface ServiceCatalogAppRegistryClientConfig extends ServiceCatalogAppRegistryClientConfigType {}
 
+/**
+ * @public
+ */
 type ServiceCatalogAppRegistryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -314,12 +331,15 @@ type ServiceCatalogAppRegistryClientResolvedConfigType = __SmithyResolvedConfigu
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ServiceCatalogAppRegistryClient class. This is resolved and normalized from the {@link ServiceCatalogAppRegistryClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ServiceCatalogAppRegistryClient class. This is resolved and normalized from the {@link ServiceCatalogAppRegistryClientConfig | constructor configuration interface}.
  */
 export interface ServiceCatalogAppRegistryClientResolvedConfig
   extends ServiceCatalogAppRegistryClientResolvedConfigType {}
 
 /**
+ * @public
  * <p> Amazon Web Services Service Catalog AppRegistry enables organizations to understand the application context of their Amazon Web Services resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
  */
 export class ServiceCatalogAppRegistryClient extends __Client<

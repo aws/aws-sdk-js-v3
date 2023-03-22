@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1ListFaqsCommand, serializeAws_json1_1ListFaqsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFaqsCommand}.
  */
 export interface ListFaqsCommandInput extends ListFaqsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFaqsCommand}.
  */
 export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of FAQ lists associated with an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFaqsCommandInput - {@link ListFaqsCommandInput}
+ * @returns {@link ListFaqsCommandOutput}
  * @see {@link ListFaqsCommandInput} for command's `input` shape.
  * @see {@link ListFaqsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFaqsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFaqsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFaqsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFaqsCommandOutput> {
     return deserializeAws_json1_1ListFaqsCommand(output, context);
   }

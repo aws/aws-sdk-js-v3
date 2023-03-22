@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveKnowledgeBaseTemplateUriCommand}.
  */
 export interface RemoveKnowledgeBaseTemplateUriCommandInput extends RemoveKnowledgeBaseTemplateUriRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveKnowledgeBaseTemplateUriCommand}.
  */
 export interface RemoveKnowledgeBaseTemplateUriCommandOutput
@@ -37,6 +41,7 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a URI template from a knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveKnowledgeBaseTemplateUriCommandInput - {@link RemoveKnowledgeBaseTemplateUriCommandInput}
+ * @returns {@link RemoveKnowledgeBaseTemplateUriCommandOutput}
  * @see {@link RemoveKnowledgeBaseTemplateUriCommandInput} for command's `input` shape.
  * @see {@link RemoveKnowledgeBaseTemplateUriCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -80,6 +87,9 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveKnowledgeBaseTemplateUriCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveKnowledgeBaseTemplateUriCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
     return serializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

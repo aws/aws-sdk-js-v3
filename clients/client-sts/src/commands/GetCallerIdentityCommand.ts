@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCallerIdentityCommand}.
  */
 export interface GetCallerIdentityCommandInput extends GetCallerIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCallerIdentityCommand}.
  */
 export interface GetCallerIdentityCommandOutput extends GetCallerIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about the IAM user or role whose credentials are used to call the
  *          operation.</p>
  *          <note>
@@ -56,6 +61,8 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCallerIdentityCommandInput - {@link GetCallerIdentityCommandInput}
+ * @returns {@link GetCallerIdentityCommandOutput}
  * @see {@link GetCallerIdentityCommandInput} for command's `input` shape.
  * @see {@link GetCallerIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -128,6 +135,9 @@ export class GetCallerIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCallerIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class GetCallerIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCallerIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetCallerIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCallerIdentityCommandOutput> {
     return deserializeAws_queryGetCallerIdentityCommand(output, context);
   }

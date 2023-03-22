@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConnectCustomKeyStoreCommand}.
  */
 export interface ConnectCustomKeyStoreCommandInput extends ConnectCustomKeyStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConnectCustomKeyStoreCommand}.
  */
 export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its backing key store. For an CloudHSM key
  *       store, <code>ConnectCustomKeyStore</code> connects the key store to its associated CloudHSM
  *       cluster. For an external key store, <code>ConnectCustomKeyStore</code> connects the key store
@@ -132,6 +137,8 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * const response = await client.send(command);
  * ```
  *
+ * @param ConnectCustomKeyStoreCommandInput - {@link ConnectCustomKeyStoreCommandInput}
+ * @returns {@link ConnectCustomKeyStoreCommandOutput}
  * @see {@link ConnectCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link ConnectCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -250,6 +257,9 @@ export class ConnectCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConnectCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -289,10 +299,16 @@ export class ConnectCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConnectCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ConnectCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConnectCustomKeyStoreCommandOutput> {
     return deserializeAws_json1_1ConnectCustomKeyStoreCommand(output, context);
   }

@@ -23,15 +23,20 @@ import { deserializeAws_json1_1ListTapesCommand, serializeAws_json1_1ListTapesCo
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTapesCommand}.
  */
 export interface ListTapesCommandInput extends ListTapesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTapesCommand}.
  */
 export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
  *          (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
  *          (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both
@@ -53,6 +58,8 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTapesCommandInput - {@link ListTapesCommandInput}
+ * @returns {@link ListTapesCommandOutput}
  * @see {@link ListTapesCommandInput} for command's `input` shape.
  * @see {@link ListTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListTapesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTapesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListTapesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTapesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTapesCommandOutput> {
     return deserializeAws_json1_1ListTapesCommand(output, context);
   }

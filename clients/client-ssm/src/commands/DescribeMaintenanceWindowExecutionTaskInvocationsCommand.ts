@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommand}.
  */
 export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput
   extends DescribeMaintenanceWindowExecutionTaskInvocationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommand}.
  */
 export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the individual task executions (one per target) for a particular task run as part
  *    of a maintenance window execution.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput - {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput}
+ * @returns {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput}
  * @see {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
     return serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

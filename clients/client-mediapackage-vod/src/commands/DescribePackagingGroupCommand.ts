@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePackagingGroupCommand}.
  */
 export interface DescribePackagingGroupCommandInput extends DescribePackagingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePackagingGroupCommand}.
  */
 export interface DescribePackagingGroupCommandOutput extends DescribePackagingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a description of a MediaPackage VOD PackagingGroup resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePackagingGroupCommandOutput extends DescribePackagingGr
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackagingGroupCommandInput - {@link DescribePackagingGroupCommandInput}
+ * @returns {@link DescribePackagingGroupCommandOutput}
  * @see {@link DescribePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribePackagingGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribePackagingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackagingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribePackagingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackagingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribePackagingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackagingGroupCommandOutput> {
     return deserializeAws_restJson1DescribePackagingGroupCommand(output, context);
   }

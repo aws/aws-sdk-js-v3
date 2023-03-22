@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDialRequestBatchCommand}.
  */
 export interface PutDialRequestBatchCommandInput extends PutDialRequestBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDialRequestBatchCommand}.
  */
 export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates dials requests for the specified campaign Amazon Connect account. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchRes
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDialRequestBatchCommandInput - {@link PutDialRequestBatchCommandInput}
+ * @returns {@link PutDialRequestBatchCommandOutput}
  * @see {@link PutDialRequestBatchCommandInput} for command's `input` shape.
  * @see {@link PutDialRequestBatchCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutDialRequestBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDialRequestBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PutDialRequestBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDialRequestBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutDialRequestBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDialRequestBatchCommandOutput> {
     return deserializeAws_restJson1PutDialRequestBatchCommand(output, context);
   }

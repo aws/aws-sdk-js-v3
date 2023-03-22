@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListUserSettingsCommand}.
  */
 export interface ListUserSettingsCommandInput extends ListUserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUserSettingsCommand}.
  */
 export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of user settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserSettingsCommandInput - {@link ListUserSettingsCommandInput}
+ * @returns {@link ListUserSettingsCommandOutput}
  * @see {@link ListUserSettingsCommandInput} for command's `input` shape.
  * @see {@link ListUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserSettingsCommandOutput> {
     return deserializeAws_restJson1ListUserSettingsCommand(output, context);
   }

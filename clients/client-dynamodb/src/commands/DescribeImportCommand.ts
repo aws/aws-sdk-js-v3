@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImportCommand}.
  */
 export interface DescribeImportCommandInput extends DescribeImportInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImportCommand}.
  */
 export interface DescribeImportCommandOutput extends DescribeImportOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Represents the properties of the import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImportCommandInput - {@link DescribeImportCommandInput}
+ * @returns {@link DescribeImportCommandOutput}
  * @see {@link DescribeImportCommandInput} for command's `input` shape.
  * @see {@link DescribeImportCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImportCommandOutput> {
     return deserializeAws_json1_0DescribeImportCommand(output, context);
   }

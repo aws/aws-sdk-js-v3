@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledInstancesCommand}.
  */
 export interface DescribeScheduledInstancesCommandInput extends DescribeScheduledInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledInstancesCommand}.
  */
 export interface DescribeScheduledInstancesCommandOutput extends DescribeScheduledInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeScheduledInstancesCommandOutput extends DescribeSchedul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledInstancesCommandInput - {@link DescribeScheduledInstancesCommandInput}
+ * @returns {@link DescribeScheduledInstancesCommandOutput}
  * @see {@link DescribeScheduledInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -112,6 +119,9 @@ export class DescribeScheduledInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class DescribeScheduledInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeScheduledInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

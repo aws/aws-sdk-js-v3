@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePrincipalIdFormatCommand}.
  */
 export interface DescribePrincipalIdFormatCommandInput extends DescribePrincipalIdFormatRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePrincipalIdFormatCommand}.
  */
 export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipalIdFormatResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the ID format settings for the root user and all IAM roles and IAM users
  *             that have explicitly specified a longer ID (17-character ID) preference. </p>
  *          <p>By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they
@@ -63,6 +68,8 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePrincipalIdFormatCommandInput - {@link DescribePrincipalIdFormatCommandInput}
+ * @returns {@link DescribePrincipalIdFormatCommandOutput}
  * @see {@link DescribePrincipalIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribePrincipalIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -86,6 +93,9 @@ export class DescribePrincipalIdFormatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePrincipalIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribePrincipalIdFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePrincipalIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribePrincipalIdFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

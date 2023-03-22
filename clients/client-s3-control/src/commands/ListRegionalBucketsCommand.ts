@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRegionalBucketsCommand}.
  */
 export interface ListRegionalBucketsCommandInput extends ListRegionalBucketsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRegionalBucketsCommand}.
  */
 export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all Outposts buckets in an Outpost that are owned by the authenticated
  *          sender of the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -51,6 +56,8 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRegionalBucketsCommandInput - {@link ListRegionalBucketsCommandInput}
+ * @returns {@link ListRegionalBucketsCommandOutput}
  * @see {@link ListRegionalBucketsCommandInput} for command's `input` shape.
  * @see {@link ListRegionalBucketsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListRegionalBucketsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRegionalBucketsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListRegionalBucketsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRegionalBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListRegionalBucketsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegionalBucketsCommandOutput> {
     return deserializeAws_restXmlListRegionalBucketsCommand(output, context);
   }

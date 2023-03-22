@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RejectTransitGatewayMulticastDomainAssociationsCommand}.
  */
 export interface RejectTransitGatewayMulticastDomainAssociationsCommandInput
   extends RejectTransitGatewayMulticastDomainAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectTransitGatewayMulticastDomainAssociationsCommand}.
  */
 export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectTransitGatewayMulticastDomainAssociationsCommandInput - {@link RejectTransitGatewayMulticastDomainAssociationsCommandInput}
+ * @returns {@link RejectTransitGatewayMulticastDomainAssociationsCommandOutput}
  * @see {@link RejectTransitGatewayMulticastDomainAssociationsCommandInput} for command's `input` shape.
  * @see {@link RejectTransitGatewayMulticastDomainAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Com
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectTransitGatewayMulticastDomainAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Com
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RejectTransitGatewayMulticastDomainAssociationsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Com
     return serializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

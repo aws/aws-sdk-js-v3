@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserPoolClientCommand}.
  */
 export interface DeleteUserPoolClientCommandInput extends DeleteUserPoolClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserPoolClientCommand}.
  */
 export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the developer to delete the user pool client.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserPoolClientCommandInput - {@link DeleteUserPoolClientCommandInput}
+ * @returns {@link DeleteUserPoolClientCommandOutput}
  * @see {@link DeleteUserPoolClientCommandInput} for command's `input` shape.
  * @see {@link DeleteUserPoolClientCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteUserPoolClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserPoolClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteUserPoolClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteUserPoolClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserPoolClientCommandOutput> {
     return deserializeAws_json1_1DeleteUserPoolClientCommand(output, context);
   }

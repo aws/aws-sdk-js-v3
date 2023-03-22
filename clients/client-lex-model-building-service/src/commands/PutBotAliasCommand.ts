@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBotAliasCommand}.
  */
 export interface PutBotAliasCommandInput extends PutBotAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBotAliasCommand}.
  */
 export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an alias for the specified version of the bot or replaces
  *       an alias for the specified bot. To change the version of the bot that the
  *       alias points to, replace the alias. For more information about aliases,
@@ -55,6 +60,8 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBotAliasCommandInput - {@link PutBotAliasCommandInput}
+ * @returns {@link PutBotAliasCommandOutput}
  * @see {@link PutBotAliasCommandInput} for command's `input` shape.
  * @see {@link PutBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -98,6 +105,9 @@ export class PutBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class PutBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBotAliasCommandOutput> {
     return deserializeAws_restJson1PutBotAliasCommand(output, context);
   }

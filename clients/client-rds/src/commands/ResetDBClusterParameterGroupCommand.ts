@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResetDBClusterParameterGroupCommand}.
  */
 export interface ResetDBClusterParameterGroupCommandInput extends ResetDBClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ResetDBClusterParameterGroupCommand}.
  */
 export interface ResetDBClusterParameterGroupCommandOutput
@@ -37,6 +41,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB cluster parameter group to the default value. To
  *             reset specific parameters submit a list of the following: <code>ParameterName</code>
  *             and <code>ApplyMethod</code>. To reset the
@@ -63,6 +68,8 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetDBClusterParameterGroupCommandInput - {@link ResetDBClusterParameterGroupCommandInput}
+ * @returns {@link ResetDBClusterParameterGroupCommandOutput}
  * @see {@link ResetDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -108,6 +115,9 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryResetDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThreatIntelSetsCommand}.
  */
 export interface ListThreatIntelSetsCommandInput extends ListThreatIntelSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThreatIntelSetsCommand}.
  */
 export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
  *       use this operation from a member account, the ThreatIntelSets associated with the administrator
  *       account are returned.</p>
@@ -48,6 +53,8 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThreatIntelSetsCommandInput - {@link ListThreatIntelSetsCommandInput}
+ * @returns {@link ListThreatIntelSetsCommandOutput}
  * @see {@link ListThreatIntelSetsCommandInput} for command's `input` shape.
  * @see {@link ListThreatIntelSetsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListThreatIntelSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThreatIntelSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListThreatIntelSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThreatIntelSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListThreatIntelSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThreatIntelSetsCommandOutput> {
     return deserializeAws_restJson1ListThreatIntelSetsCommand(output, context);
   }

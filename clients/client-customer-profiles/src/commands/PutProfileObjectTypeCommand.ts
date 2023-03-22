@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutProfileObjectTypeCommand}.
  */
 export interface PutProfileObjectTypeCommandInput extends PutProfileObjectTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutProfileObjectTypeCommand}.
  */
 export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines a ProfileObjectType.</p>
  *          <p>To add or remove tags on an existing ObjectType, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">
  *          TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
@@ -48,6 +53,8 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * const response = await client.send(command);
  * ```
  *
+ * @param PutProfileObjectTypeCommandInput - {@link PutProfileObjectTypeCommandInput}
+ * @returns {@link PutProfileObjectTypeCommandOutput}
  * @see {@link PutProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link PutProfileObjectTypeCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -86,6 +93,9 @@ export class PutProfileObjectTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutProfileObjectTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class PutProfileObjectTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutProfileObjectTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutProfileObjectTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProfileObjectTypeCommandOutput> {
     return deserializeAws_restJson1PutProfileObjectTypeCommand(output, context);
   }

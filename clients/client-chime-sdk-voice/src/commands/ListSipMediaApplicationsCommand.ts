@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSipMediaApplicationsCommand}.
  */
 export interface ListSipMediaApplicationsCommandInput extends ListSipMediaApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSipMediaApplicationsCommand}.
  */
 export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaApplicationsResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class ListSipMediaApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSipMediaApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class ListSipMediaApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSipMediaApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSipMediaApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSipMediaApplicationsCommandOutput> {
     return deserializeAws_restJson1ListSipMediaApplicationsCommand(output, context);
   }

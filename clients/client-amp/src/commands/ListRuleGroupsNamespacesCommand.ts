@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRuleGroupsNamespacesCommand}.
  */
 export interface ListRuleGroupsNamespacesCommandInput extends ListRuleGroupsNamespacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRuleGroupsNamespacesCommand}.
  */
 export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNamespacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Lists rule groups namespaces.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNam
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRuleGroupsNamespacesCommandInput - {@link ListRuleGroupsNamespacesCommandInput}
+ * @returns {@link ListRuleGroupsNamespacesCommandOutput}
  * @see {@link ListRuleGroupsNamespacesCommandInput} for command's `input` shape.
  * @see {@link ListRuleGroupsNamespacesCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListRuleGroupsNamespacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRuleGroupsNamespacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListRuleGroupsNamespacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRuleGroupsNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRuleGroupsNamespacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRuleGroupsNamespacesCommandOutput> {
     return deserializeAws_restJson1ListRuleGroupsNamespacesCommand(output, context);
   }

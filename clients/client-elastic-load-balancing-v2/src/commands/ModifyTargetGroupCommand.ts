@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTargetGroupCommand}.
  */
 export interface ModifyTargetGroupCommandInput extends ModifyTargetGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTargetGroupCommand}.
  */
 export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the health checks used when evaluating the health state of the targets in the
  *       specified target group.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTargetGroupCommandInput - {@link ModifyTargetGroupCommandInput}
+ * @returns {@link ModifyTargetGroupCommandOutput}
  * @see {@link ModifyTargetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -118,6 +125,9 @@ export class ModifyTargetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTargetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class ModifyTargetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyTargetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyTargetGroupCommandOutput> {
     return deserializeAws_queryModifyTargetGroupCommand(output, context);
   }

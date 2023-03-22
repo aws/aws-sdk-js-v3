@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InferSNOMEDCTCommand}.
  */
 export interface InferSNOMEDCTCommandInput extends InferSNOMEDCTRequest {}
 /**
+ * @public
+ *
  * The output of {@link InferSNOMEDCTCommand}.
  */
 export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       InferSNOMEDCT detects possible medical concepts as entities and links them to codes from the Systematized Nomenclature of Medicine, Clinical Terms (SNOMED-CT) ontology</p>
  * @example
@@ -51,6 +56,8 @@ export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param InferSNOMEDCTCommandInput - {@link InferSNOMEDCTCommandInput}
+ * @returns {@link InferSNOMEDCTCommandOutput}
  * @see {@link InferSNOMEDCTCommandInput} for command's `input` shape.
  * @see {@link InferSNOMEDCTCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -98,6 +105,9 @@ export class InferSNOMEDCTCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InferSNOMEDCTCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class InferSNOMEDCTCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InferSNOMEDCTCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1InferSNOMEDCTCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InferSNOMEDCTCommandOutput> {
     return deserializeAws_json1_1InferSNOMEDCTCommand(output, context);
   }

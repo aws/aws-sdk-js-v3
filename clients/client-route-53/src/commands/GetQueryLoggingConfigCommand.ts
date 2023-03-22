@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueryLoggingConfigCommand}.
  */
 export interface GetQueryLoggingConfigCommandInput extends GetQueryLoggingConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueryLoggingConfigCommand}.
  */
 export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified configuration for DNS query logging.</p>
  *          <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a> and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS
  * 			Queries</a>.</p>
@@ -49,6 +54,8 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryLoggingConfigCommandInput - {@link GetQueryLoggingConfigCommandInput}
+ * @returns {@link GetQueryLoggingConfigCommandOutput}
  * @see {@link GetQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link GetQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -78,6 +85,9 @@ export class GetQueryLoggingConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryLoggingConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetQueryLoggingConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryLoggingConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetQueryLoggingConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryLoggingConfigCommandOutput> {
     return deserializeAws_restXmlGetQueryLoggingConfigCommand(output, context);
   }

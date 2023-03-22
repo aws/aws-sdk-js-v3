@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTrialComponentCommand}.
  */
 export interface DisassociateTrialComponentCommandInput extends DisassociateTrialComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTrialComponentCommand}.
  */
 export interface DisassociateTrialComponentCommandOutput extends DisassociateTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a trial component from a trial. This doesn't effect other trials the
  *       component is associated with. Before you can delete a component, you must disassociate the
  *       component from all trials it is associated with. To associate a trial component with a trial,
@@ -51,6 +56,8 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTrialComponentCommandInput - {@link DisassociateTrialComponentCommandInput}
+ * @returns {@link DisassociateTrialComponentCommandOutput}
  * @see {@link DisassociateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -77,6 +84,9 @@ export class DisassociateTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DisassociateTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

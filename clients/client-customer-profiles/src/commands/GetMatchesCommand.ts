@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMatchesCommand}.
  */
 export interface GetMatchesCommandInput extends GetMatchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMatchesCommand}.
  */
 export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Before calling this API, use <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a> or
  *             <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a> to
  *          enable identity resolution: set <code>Matching</code> to true.</p>
@@ -90,6 +95,8 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMatchesCommandInput - {@link GetMatchesCommandInput}
+ * @returns {@link GetMatchesCommandOutput}
  * @see {@link GetMatchesCommandInput} for command's `input` shape.
  * @see {@link GetMatchesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -128,6 +135,9 @@ export class GetMatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class GetMatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMatchesCommandOutput> {
     return deserializeAws_restJson1GetMatchesCommand(output, context);
   }

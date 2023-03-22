@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBundleCommand}.
  */
 export interface DescribeBundleCommandInput extends DescribeBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBundleCommand}.
  */
 export interface DescribeBundleCommandOutput extends DescribeBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Get the bundle details for the requested bundle id.
  *         </p>
@@ -48,6 +53,8 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBundleCommandInput - {@link DescribeBundleCommandInput}
+ * @returns {@link DescribeBundleCommandOutput}
  * @see {@link DescribeBundleCommandInput} for command's `input` shape.
  * @see {@link DescribeBundleCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
@@ -105,6 +112,9 @@ export class DescribeBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DescribeBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBundleCommandOutput> {
     return deserializeAws_restJson1DescribeBundleCommand(output, context);
   }

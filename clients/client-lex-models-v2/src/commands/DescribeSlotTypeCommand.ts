@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSlotTypeCommand}.
  */
 export interface DescribeSlotTypeCommandInput extends DescribeSlotTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSlotTypeCommand}.
  */
 export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets metadata information about a slot type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSlotTypeCommandInput - {@link DescribeSlotTypeCommandInput}
+ * @returns {@link DescribeSlotTypeCommandOutput}
  * @see {@link DescribeSlotTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeSlotTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSlotTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeSlotTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSlotTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSlotTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSlotTypeCommandOutput> {
     return deserializeAws_restJson1DescribeSlotTypeCommand(output, context);
   }

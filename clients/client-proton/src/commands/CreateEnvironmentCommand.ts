@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can be
  *       shared across services.</p>
  *          <p class="title">
@@ -61,6 +66,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
+ * @returns {@link CreateEnvironmentCommandOutput}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
     return deserializeAws_json1_0CreateEnvironmentCommand(output, context);
   }

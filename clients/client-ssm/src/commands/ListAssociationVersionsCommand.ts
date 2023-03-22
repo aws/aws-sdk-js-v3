@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociationVersionsCommand}.
  */
 export interface ListAssociationVersionsCommandInput extends ListAssociationVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociationVersionsCommand}.
  */
 export interface ListAssociationVersionsCommandOutput extends ListAssociationVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all versions of an association for a specific association ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociationVersionsCommandInput - {@link ListAssociationVersionsCommandInput}
+ * @returns {@link ListAssociationVersionsCommandOutput}
  * @see {@link ListAssociationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListAssociationVersionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListAssociationVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListAssociationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssociationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociationVersionsCommandOutput> {
     return deserializeAws_json1_1ListAssociationVersionsCommand(output, context);
   }

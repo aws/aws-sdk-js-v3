@@ -26,15 +26,20 @@ import {
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScheduleGroupCommand}.
  */
 export interface DeleteScheduleGroupCommandInput extends DeleteScheduleGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScheduleGroupCommand}.
  */
 export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified schedule group. Deleting a schedule group results in EventBridge Scheduler deleting all schedules associated with the group.
  *          When you delete a group, it remains in a <code>DELETING</code> state until all of its associated schedules are deleted.
  *          Schedules associated with the group that are set to run while the schedule group is in the process of being deleted might continue to invoke their targets
@@ -54,6 +59,8 @@ export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScheduleGroupCommandInput - {@link DeleteScheduleGroupCommandInput}
+ * @returns {@link DeleteScheduleGroupCommandOutput}
  * @see {@link DeleteScheduleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduleGroupCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteScheduleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteScheduleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteScheduleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduleGroupCommandOutput> {
     return deserializeAws_restJson1DeleteScheduleGroupCommand(output, context);
   }

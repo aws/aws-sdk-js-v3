@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceProfileCommand}.
  */
 export interface DeleteDeviceProfileCommandInput extends DeleteDeviceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceProfileCommand}.
  */
 export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a device profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceProfileCommandInput - {@link DeleteDeviceProfileCommandInput}
+ * @returns {@link DeleteDeviceProfileCommandOutput}
  * @see {@link DeleteDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteDeviceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteDeviceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDeviceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceProfileCommandOutput> {
     return deserializeAws_restJson1DeleteDeviceProfileCommand(output, context);
   }

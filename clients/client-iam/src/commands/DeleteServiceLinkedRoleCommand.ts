@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceLinkedRoleCommand}.
  */
 export interface DeleteServiceLinkedRoleCommandInput extends DeleteServiceLinkedRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceLinkedRoleCommand}.
  */
 export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits a service-linked role deletion request and returns a
  *                 <code>DeletionTaskId</code>, which you can use to check the status of the deletion.
  *             Before you call this operation, confirm that the role has no active sessions and that
@@ -62,6 +67,8 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceLinkedRoleCommandInput - {@link DeleteServiceLinkedRoleCommandInput}
+ * @returns {@link DeleteServiceLinkedRoleCommandOutput}
  * @see {@link DeleteServiceLinkedRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceLinkedRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceLinkedRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceLinkedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteServiceLinkedRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceLinkedRoleCommandOutput> {
     return deserializeAws_queryDeleteServiceLinkedRoleCommand(output, context);
   }

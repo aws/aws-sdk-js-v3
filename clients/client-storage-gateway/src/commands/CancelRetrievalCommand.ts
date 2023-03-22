@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelRetrievalCommand}.
  */
 export interface CancelRetrievalCommandInput extends CancelRetrievalInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelRetrievalCommand}.
  */
 export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after
  *          the retrieval process is initiated. The virtual tape is returned to the VTS. This operation
  *          is only supported in the tape gateway type.</p>
@@ -48,6 +53,8 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelRetrievalCommandInput - {@link CancelRetrievalCommandInput}
+ * @returns {@link CancelRetrievalCommandOutput}
  * @see {@link CancelRetrievalCommandInput} for command's `input` shape.
  * @see {@link CancelRetrievalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -96,6 +103,9 @@ export class CancelRetrievalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelRetrievalCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CancelRetrievalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelRetrievalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelRetrievalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRetrievalCommandOutput> {
     return deserializeAws_json1_1CancelRetrievalCommand(output, context);
   }

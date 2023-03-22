@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { WellArchitectedServiceException as __BaseException } from "./WellArchitectedServiceException";
 
 /**
+ * @public
  * <p>User does not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,6 +28,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum CheckStatus {
   ERROR = "ERROR",
   FETCH_FAILED = "FETCH_FAILED",
@@ -36,6 +40,7 @@ export enum CheckStatus {
 }
 
 /**
+ * @public
  * <p>The choice content.</p>
  */
 export interface ChoiceContent {
@@ -50,12 +55,16 @@ export interface ChoiceContent {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export enum AdditionalResourceType {
   HELPFUL_RESOURCE = "HELPFUL_RESOURCE",
   IMPROVEMENT_PLAN = "IMPROVEMENT_PLAN",
 }
 
 /**
+ * @public
  * <p>The choice level additional resources.</p>
  */
 export interface AdditionalResources {
@@ -70,6 +79,9 @@ export interface AdditionalResources {
   Content?: ChoiceContent[];
 }
 
+/**
+ * @public
+ */
 export enum ChoiceReason {
   ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
   BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
@@ -78,6 +90,9 @@ export enum ChoiceReason {
   OUT_OF_SCOPE = "OUT_OF_SCOPE",
 }
 
+/**
+ * @public
+ */
 export enum ChoiceStatus {
   NOT_APPLICABLE = "NOT_APPLICABLE",
   SELECTED = "SELECTED",
@@ -85,6 +100,7 @@ export enum ChoiceStatus {
 }
 
 /**
+ * @public
  * <p>A choice that has been answered on a question in your workload.</p>
  */
 export interface ChoiceAnswer {
@@ -110,6 +126,7 @@ export interface ChoiceAnswer {
 }
 
 /**
+ * @public
  * <p>A choice available to answer question.</p>
  */
 export interface Choice {
@@ -145,6 +162,9 @@ export interface Choice {
   AdditionalResources?: AdditionalResources[];
 }
 
+/**
+ * @public
+ */
 export enum AnswerReason {
   ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
   BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
@@ -153,6 +173,9 @@ export enum AnswerReason {
   OUT_OF_SCOPE = "OUT_OF_SCOPE",
 }
 
+/**
+ * @public
+ */
 export enum Risk {
   HIGH = "HIGH",
   MEDIUM = "MEDIUM",
@@ -162,6 +185,7 @@ export enum Risk {
 }
 
 /**
+ * @public
  * <p>An answer of the question.</p>
  */
 export interface Answer {
@@ -240,6 +264,7 @@ export interface Answer {
 }
 
 /**
+ * @public
  * <p>A choice summary that has been answered on a question in your workload.</p>
  */
 export interface ChoiceAnswerSummary {
@@ -260,6 +285,7 @@ export interface ChoiceAnswerSummary {
 }
 
 /**
+ * @public
  * <p>An answer summary of a lens review in a workload.</p>
  */
 export interface AnswerSummary {
@@ -312,6 +338,7 @@ export interface AnswerSummary {
 }
 
 /**
+ * @public
  * <p>Input to associate lens reviews.</p>
  */
 export interface AssociateLensesInput {
@@ -328,6 +355,7 @@ export interface AssociateLensesInput {
 }
 
 /**
+ * @public
  * <p>The resource already exists.</p>
  */
 export class ConflictException extends __BaseException {
@@ -364,6 +392,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is a problem with the Well-Architected Tool API service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -388,6 +417,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -424,6 +454,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -460,6 +491,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
  */
 export interface ValidationExceptionField {
@@ -474,6 +506,9 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -482,6 +517,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The user input is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -517,10 +553,16 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum CheckProvider {
   TRUSTED_ADVISOR = "TRUSTED_ADVISOR",
 }
 
+/**
+ * @public
+ */
 export enum CheckFailureReason {
   ACCESS_DENIED = "ACCESS_DENIED",
   ASSUME_ROLE_ERROR = "ASSUME_ROLE_ERROR",
@@ -529,6 +571,7 @@ export enum CheckFailureReason {
 }
 
 /**
+ * @public
  * <p>Account details for a Well-Architected best practice in relation to Trusted Advisor checks.</p>
  */
 export interface CheckDetail {
@@ -600,6 +643,7 @@ export interface CheckDetail {
 }
 
 /**
+ * @public
  * <p>Trusted Advisor check summary.</p>
  */
 export interface CheckSummary {
@@ -661,6 +705,7 @@ export interface CheckSummary {
 }
 
 /**
+ * @public
  * <p>The choice level improvement plan.</p>
  */
 export interface ChoiceImprovementPlan {
@@ -682,6 +727,7 @@ export interface ChoiceImprovementPlan {
 }
 
 /**
+ * @public
  * <p>A list of choices to be updated.</p>
  */
 export interface ChoiceUpdate {
@@ -701,6 +747,9 @@ export interface ChoiceUpdate {
   Notes?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLensShareInput {
   /**
    * <p>The alias of the lens.</p>
@@ -731,6 +780,9 @@ export interface CreateLensShareInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLensShareOutput {
   /**
    * <p>The ID associated with the workload share.</p>
@@ -739,6 +791,7 @@ export interface CreateLensShareOutput {
 }
 
 /**
+ * @public
  * <p>The user has reached their resource quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -786,6 +839,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateLensVersionInput {
   /**
    * <p>The alias of the lens.</p>
@@ -821,6 +877,9 @@ export interface CreateLensVersionInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLensVersionOutput {
   /**
    * <p>The ARN for the lens.</p>
@@ -834,6 +893,7 @@ export interface CreateLensVersionOutput {
 }
 
 /**
+ * @public
  * <p>Input for milestone creation.</p>
  */
 export interface CreateMilestoneInput {
@@ -864,6 +924,7 @@ export interface CreateMilestoneInput {
 }
 
 /**
+ * @public
  * <p>Output of a create milestone call.</p>
  */
 export interface CreateMilestoneOutput {
@@ -879,12 +940,16 @@ export interface CreateMilestoneOutput {
   MilestoneNumber?: number;
 }
 
+/**
+ * @public
+ */
 export enum TrustedAdvisorIntegrationStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Discovery configuration associated to the workload.</p>
  */
 export interface WorkloadDiscoveryConfig {
@@ -894,12 +959,16 @@ export interface WorkloadDiscoveryConfig {
   TrustedAdvisorIntegrationStatus?: TrustedAdvisorIntegrationStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum WorkloadEnvironment {
   PREPRODUCTION = "PREPRODUCTION",
   PRODUCTION = "PRODUCTION",
 }
 
 /**
+ * @public
  * <p>Input for workload creation.</p>
  */
 export interface CreateWorkloadInput {
@@ -1142,6 +1211,7 @@ export interface CreateWorkloadInput {
 }
 
 /**
+ * @public
  * <p>Output of a create workload call.</p>
  */
 export interface CreateWorkloadOutput {
@@ -1156,12 +1226,16 @@ export interface CreateWorkloadOutput {
   WorkloadArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum PermissionType {
   CONTRIBUTOR = "CONTRIBUTOR",
   READONLY = "READONLY",
 }
 
 /**
+ * @public
  * <p>Input for Create Workload Share</p>
  */
 export interface CreateWorkloadShareInput {
@@ -1196,6 +1270,7 @@ export interface CreateWorkloadShareInput {
 }
 
 /**
+ * @public
  * <p>Input for Create Workload Share</p>
  */
 export interface CreateWorkloadShareOutput {
@@ -1210,12 +1285,18 @@ export interface CreateWorkloadShareOutput {
   ShareId?: string;
 }
 
+/**
+ * @public
+ */
 export enum LensStatusType {
   ALL = "ALL",
   DRAFT = "DRAFT",
   PUBLISHED = "PUBLISHED",
 }
 
+/**
+ * @public
+ */
 export interface DeleteLensInput {
   /**
    * <p>The alias of the lens.</p>
@@ -1246,6 +1327,9 @@ export interface DeleteLensInput {
   LensStatus: LensStatusType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLensShareInput {
   /**
    * <p>The ID associated with the workload share.</p>
@@ -1277,6 +1361,7 @@ export interface DeleteLensShareInput {
 }
 
 /**
+ * @public
  * <p>Input for workload deletion.</p>
  */
 export interface DeleteWorkloadInput {
@@ -1301,6 +1386,7 @@ export interface DeleteWorkloadInput {
 }
 
 /**
+ * @public
  * <p>Input for Delete Workload Share</p>
  */
 export interface DeleteWorkloadShareInput {
@@ -1329,6 +1415,9 @@ export interface DeleteWorkloadShareInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum DifferenceStatus {
   DELETED = "DELETED",
   NEW = "NEW",
@@ -1336,6 +1425,7 @@ export enum DifferenceStatus {
 }
 
 /**
+ * @public
  * <p>Input to disassociate lens reviews.</p>
  */
 export interface DisassociateLensesInput {
@@ -1351,6 +1441,9 @@ export interface DisassociateLensesInput {
   LensAliases: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportLensInput {
   /**
    * <p>The alias of the lens.</p>
@@ -1367,6 +1460,9 @@ export interface ExportLensInput {
   LensVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExportLensOutput {
   /**
    * <p>The JSON for the lens.</p>
@@ -1375,6 +1471,7 @@ export interface ExportLensOutput {
 }
 
 /**
+ * @public
  * <p>Input to get answer.</p>
  */
 export interface GetAnswerInput {
@@ -1405,6 +1502,7 @@ export interface GetAnswerInput {
 }
 
 /**
+ * @public
  * <p>Output of a get answer call.</p>
  */
 export interface GetAnswerOutput {
@@ -1439,6 +1537,9 @@ export interface GetAnswerOutput {
   Answer?: Answer;
 }
 
+/**
+ * @public
+ */
 export interface GetLensInput {
   /**
    * <p>The alias of the lens.</p>
@@ -1456,6 +1557,7 @@ export interface GetLensInput {
 }
 
 /**
+ * @public
  * <p>A lens return object.</p>
  */
 export interface Lens {
@@ -1495,6 +1597,9 @@ export interface Lens {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetLensOutput {
   /**
    * <p>A lens return object.</p>
@@ -1503,6 +1608,7 @@ export interface GetLensOutput {
 }
 
 /**
+ * @public
  * <p>Input to get lens review.</p>
  */
 export interface GetLensReviewInput {
@@ -1527,6 +1633,9 @@ export interface GetLensReviewInput {
   MilestoneNumber?: number;
 }
 
+/**
+ * @public
+ */
 export enum LensStatus {
   CURRENT = "CURRENT",
   DELETED = "DELETED",
@@ -1536,6 +1645,7 @@ export enum LensStatus {
 }
 
 /**
+ * @public
  * <p>A pillar review summary of a lens review.</p>
  */
 export interface PillarReviewSummary {
@@ -1562,6 +1672,7 @@ export interface PillarReviewSummary {
 }
 
 /**
+ * @public
  * <p>A lens review of a question.</p>
  */
 export interface LensReview {
@@ -1621,6 +1732,7 @@ export interface LensReview {
 }
 
 /**
+ * @public
  * <p>Output of a get lens review call.</p>
  */
 export interface GetLensReviewOutput {
@@ -1642,6 +1754,7 @@ export interface GetLensReviewOutput {
 }
 
 /**
+ * @public
  * <p>Input to get lens review report.</p>
  */
 export interface GetLensReviewReportInput {
@@ -1667,6 +1780,7 @@ export interface GetLensReviewReportInput {
 }
 
 /**
+ * @public
  * <p>A report of a lens review.</p>
  */
 export interface LensReviewReport {
@@ -1692,6 +1806,7 @@ export interface LensReviewReport {
 }
 
 /**
+ * @public
  * <p>Output of a get lens review report call.</p>
  */
 export interface GetLensReviewReportOutput {
@@ -1712,6 +1827,9 @@ export interface GetLensReviewReportOutput {
   LensReviewReport?: LensReviewReport;
 }
 
+/**
+ * @public
+ */
 export interface GetLensVersionDifferenceInput {
   /**
    * <p>The alias of the lens.</p>
@@ -1734,6 +1852,7 @@ export interface GetLensVersionDifferenceInput {
 }
 
 /**
+ * @public
  * <p>A question difference return object.</p>
  */
 export interface QuestionDifference {
@@ -1754,6 +1873,7 @@ export interface QuestionDifference {
 }
 
 /**
+ * @public
  * <p>A pillar difference return object.</p>
  */
 export interface PillarDifference {
@@ -1780,6 +1900,7 @@ export interface PillarDifference {
 }
 
 /**
+ * @public
  * <p>The differences between the base and latest versions of the lens.</p>
  */
 export interface VersionDifferences {
@@ -1789,6 +1910,9 @@ export interface VersionDifferences {
   PillarDifferences?: PillarDifference[];
 }
 
+/**
+ * @public
+ */
 export interface GetLensVersionDifferenceOutput {
   /**
    * <p>The alias of the lens.</p>
@@ -1826,6 +1950,7 @@ export interface GetLensVersionDifferenceOutput {
 }
 
 /**
+ * @public
  * <p>Input to get a milestone.</p>
  */
 export interface GetMilestoneInput {
@@ -1841,6 +1966,9 @@ export interface GetMilestoneInput {
   MilestoneNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum WorkloadImprovementStatus {
   COMPLETE = "COMPLETE",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1850,6 +1978,7 @@ export enum WorkloadImprovementStatus {
 }
 
 /**
+ * @public
  * <p>A workload return object.</p>
  */
 export interface Workload {
@@ -2127,6 +2256,7 @@ export interface Workload {
 }
 
 /**
+ * @public
  * <p>A milestone return object.</p>
  */
 export interface Milestone {
@@ -2154,6 +2284,7 @@ export interface Milestone {
 }
 
 /**
+ * @public
  * <p>Output of a get milestone call.</p>
  */
 export interface GetMilestoneOutput {
@@ -2169,6 +2300,7 @@ export interface GetMilestoneOutput {
 }
 
 /**
+ * @public
  * <p>Input to get a workload.</p>
  */
 export interface GetWorkloadInput {
@@ -2179,6 +2311,7 @@ export interface GetWorkloadInput {
 }
 
 /**
+ * @public
  * <p>Output of a get workload call.</p>
  */
 export interface GetWorkloadOutput {
@@ -2188,6 +2321,9 @@ export interface GetWorkloadOutput {
   Workload?: Workload;
 }
 
+/**
+ * @public
+ */
 export interface ImportLensInput {
   /**
    * <p>The alias of the lens.</p>
@@ -2223,12 +2359,18 @@ export interface ImportLensInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ImportLensStatus {
   COMPLETE = "COMPLETE",
   ERROR = "ERROR",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface ImportLensOutput {
   /**
    * <p>The ARN for the lens.</p>
@@ -2242,6 +2384,7 @@ export interface ImportLensOutput {
 }
 
 /**
+ * @public
  * <p>An improvement summary of a lens review in a workload.</p>
  */
 export interface ImprovementSummary {
@@ -2279,6 +2422,7 @@ export interface ImprovementSummary {
 }
 
 /**
+ * @public
  * <p>A lens review summary of a workload.</p>
  */
 export interface LensReviewSummary {
@@ -2322,6 +2466,9 @@ export interface LensReviewSummary {
   RiskCounts?: Record<string, number>;
 }
 
+/**
+ * @public
+ */
 export enum ShareStatus {
   ACCEPTED = "ACCEPTED",
   ASSOCIATED = "ASSOCIATED",
@@ -2334,6 +2481,7 @@ export enum ShareStatus {
 }
 
 /**
+ * @public
  * <p>A lens share summary return object.</p>
  */
 export interface LensShareSummary {
@@ -2358,6 +2506,9 @@ export interface LensShareSummary {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum LensType {
   AWS_OFFICIAL = "AWS_OFFICIAL",
   CUSTOM_SELF = "CUSTOM_SELF",
@@ -2365,6 +2516,7 @@ export enum LensType {
 }
 
 /**
+ * @public
  * <p>A lens summary of a lens.</p>
  */
 export interface LensSummary {
@@ -2424,6 +2576,7 @@ export interface LensSummary {
 }
 
 /**
+ * @public
  * <p>Lens upgrade summary return object.</p>
  */
 export interface LensUpgradeSummary {
@@ -2465,6 +2618,7 @@ export interface LensUpgradeSummary {
 }
 
 /**
+ * @public
  * <p>Input to list answers.</p>
  */
 export interface ListAnswersInput {
@@ -2506,6 +2660,7 @@ export interface ListAnswersInput {
 }
 
 /**
+ * @public
  * <p>Output of a list answers call.</p>
  */
 export interface ListAnswersOutput {
@@ -2545,6 +2700,9 @@ export interface ListAnswersOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCheckDetailsInput {
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
@@ -2583,6 +2741,9 @@ export interface ListCheckDetailsInput {
   ChoiceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCheckDetailsOutput {
   /**
    * <p>The details about the Trusted Advisor checks related to the Well-Architected best practice.</p>
@@ -2595,6 +2756,9 @@ export interface ListCheckDetailsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCheckSummariesInput {
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
@@ -2633,6 +2797,9 @@ export interface ListCheckSummariesInput {
   ChoiceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCheckSummariesOutput {
   /**
    * <p>List of Trusted Advisor summaries related to the Well-Architected best practice.</p>
@@ -2646,6 +2813,7 @@ export interface ListCheckSummariesOutput {
 }
 
 /**
+ * @public
  * <p>Input to list lenses.</p>
  */
 export interface ListLensesInput {
@@ -2676,6 +2844,7 @@ export interface ListLensesInput {
 }
 
 /**
+ * @public
  * <p>Output of a list lenses call.</p>
  */
 export interface ListLensesOutput {
@@ -2691,6 +2860,7 @@ export interface ListLensesOutput {
 }
 
 /**
+ * @public
  * <p>Input to list lens review improvements.</p>
  */
 export interface ListLensReviewImprovementsInput {
@@ -2732,6 +2902,7 @@ export interface ListLensReviewImprovementsInput {
 }
 
 /**
+ * @public
  * <p>Output of a list lens review improvements call.</p>
  */
 export interface ListLensReviewImprovementsOutput {
@@ -2772,6 +2943,7 @@ export interface ListLensReviewImprovementsOutput {
 }
 
 /**
+ * @public
  * <p>Input to list lens reviews.</p>
  */
 export interface ListLensReviewsInput {
@@ -2798,6 +2970,7 @@ export interface ListLensReviewsInput {
 }
 
 /**
+ * @public
  * <p>Output of a list lens reviews call.</p>
  */
 export interface ListLensReviewsOutput {
@@ -2823,6 +2996,9 @@ export interface ListLensReviewsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLensSharesInput {
   /**
    * <p>The alias of the lens.</p>
@@ -2854,6 +3030,9 @@ export interface ListLensSharesInput {
   Status?: ShareStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListLensSharesOutput {
   /**
    * <p>A list of lens share summaries.</p>
@@ -2867,6 +3046,7 @@ export interface ListLensSharesOutput {
 }
 
 /**
+ * @public
  * <p>Input to list all milestones for a workload.</p>
  */
 export interface ListMilestonesInput {
@@ -2887,6 +3067,7 @@ export interface ListMilestonesInput {
 }
 
 /**
+ * @public
  * <p>A workload summary return object.</p>
  */
 export interface WorkloadSummary {
@@ -2934,6 +3115,7 @@ export interface WorkloadSummary {
 }
 
 /**
+ * @public
  * <p>A milestone summary return object.</p>
  */
 export interface MilestoneSummary {
@@ -2961,6 +3143,7 @@ export interface MilestoneSummary {
 }
 
 /**
+ * @public
  * <p>Output of a list milestones call.</p>
  */
 export interface ListMilestonesOutput {
@@ -2980,6 +3163,9 @@ export interface ListMilestonesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationsInput {
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
@@ -2997,12 +3183,16 @@ export interface ListNotificationsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum NotificationType {
   LENS_VERSION_DEPRECATED = "LENS_VERSION_DEPRECATED",
   LENS_VERSION_UPGRADED = "LENS_VERSION_UPGRADED",
 }
 
 /**
+ * @public
  * <p>A notification summary return object.</p>
  */
 export interface NotificationSummary {
@@ -3017,6 +3207,9 @@ export interface NotificationSummary {
   LensUpgradeSummary?: LensUpgradeSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationsOutput {
   /**
    * <p>List of lens notification summaries in a workload.</p>
@@ -3029,12 +3222,16 @@ export interface ListNotificationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ShareResourceType {
   LENS = "LENS",
   WORKLOAD = "WORKLOAD",
 }
 
 /**
+ * @public
  * <p>Input for List Share Invitations</p>
  */
 export interface ListShareInvitationsInput {
@@ -3066,6 +3263,7 @@ export interface ListShareInvitationsInput {
 }
 
 /**
+ * @public
  * <p>A share invitation summary return object.</p>
  */
 export interface ShareInvitationSummary {
@@ -3118,6 +3316,7 @@ export interface ShareInvitationSummary {
 }
 
 /**
+ * @public
  * <p>Input for List Share Invitations</p>
  */
 export interface ListShareInvitationsOutput {
@@ -3132,6 +3331,9 @@ export interface ListShareInvitationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The ARN for the workload.</p>
@@ -3139,6 +3341,9 @@ export interface ListTagsForResourceInput {
   WorkloadArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The tags for the resource.</p>
@@ -3147,6 +3352,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>Input to list all workloads.</p>
  */
 export interface ListWorkloadsInput {
@@ -3168,6 +3374,7 @@ export interface ListWorkloadsInput {
 }
 
 /**
+ * @public
  * <p>Output of a list workloads call.</p>
  */
 export interface ListWorkloadsOutput {
@@ -3183,6 +3390,7 @@ export interface ListWorkloadsOutput {
 }
 
 /**
+ * @public
  * <p>Input for List Workload Share</p>
  */
 export interface ListWorkloadSharesInput {
@@ -3213,6 +3421,7 @@ export interface ListWorkloadSharesInput {
 }
 
 /**
+ * @public
  * <p>A workload share summary return object.</p>
  */
 export interface WorkloadShareSummary {
@@ -3243,6 +3452,7 @@ export interface WorkloadShareSummary {
 }
 
 /**
+ * @public
  * <p>Input for List Workload Share</p>
  */
 export interface ListWorkloadSharesOutput {
@@ -3262,12 +3472,16 @@ export interface ListWorkloadSharesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OrganizationSharingStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>The share invitation.</p>
  */
 export interface ShareInvitation {
@@ -3301,11 +3515,17 @@ export interface ShareInvitation {
   LensArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum ShareInvitationAction {
   ACCEPT = "ACCEPT",
   REJECT = "REJECT",
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The ARN for the workload.</p>
@@ -3318,8 +3538,14 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The ARN for the workload.</p>
@@ -3333,9 +3559,13 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**
+ * @public
  * <p>Input to update answer.</p>
  */
 export interface UpdateAnswerInput {
@@ -3387,6 +3617,7 @@ export interface UpdateAnswerInput {
 }
 
 /**
+ * @public
  * <p>Output of a update answer call.</p>
  */
 export interface UpdateAnswerOutput {
@@ -3415,6 +3646,9 @@ export interface UpdateAnswerOutput {
   Answer?: Answer;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalSettingsInput {
   /**
    * <p>The status of organization sharing settings.</p>
@@ -3423,6 +3657,7 @@ export interface UpdateGlobalSettingsInput {
 }
 
 /**
+ * @public
  * <p>Input for update lens review.</p>
  */
 export interface UpdateLensReviewInput {
@@ -3452,6 +3687,7 @@ export interface UpdateLensReviewInput {
 }
 
 /**
+ * @public
  * <p>Output of a update lens review call.</p>
  */
 export interface UpdateLensReviewOutput {
@@ -3467,6 +3703,7 @@ export interface UpdateLensReviewOutput {
 }
 
 /**
+ * @public
  * <p>Input for Update Share Invitation</p>
  */
 export interface UpdateShareInvitationInput {
@@ -3481,6 +3718,9 @@ export interface UpdateShareInvitationInput {
   ShareInvitationAction: ShareInvitationAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateShareInvitationOutput {
   /**
    * <p>The updated workload or custom lens share invitation.</p>
@@ -3489,6 +3729,7 @@ export interface UpdateShareInvitationOutput {
 }
 
 /**
+ * @public
  * <p>Input to update a workload.</p>
  */
 export interface UpdateWorkloadInput {
@@ -3726,6 +3967,7 @@ export interface UpdateWorkloadInput {
 }
 
 /**
+ * @public
  * <p>Output of an update workload call.</p>
  */
 export interface UpdateWorkloadOutput {
@@ -3736,6 +3978,7 @@ export interface UpdateWorkloadOutput {
 }
 
 /**
+ * @public
  * <p>Input for Update Workload Share</p>
  */
 export interface UpdateWorkloadShareInput {
@@ -3756,6 +3999,7 @@ export interface UpdateWorkloadShareInput {
 }
 
 /**
+ * @public
  * <p>A workload share return object.</p>
  */
 export interface WorkloadShare {
@@ -3798,6 +4042,7 @@ export interface WorkloadShare {
 }
 
 /**
+ * @public
  * <p>Input for Update Workload Share</p>
  */
 export interface UpdateWorkloadShareOutput {
@@ -3812,6 +4057,9 @@ export interface UpdateWorkloadShareOutput {
   WorkloadShare?: WorkloadShare;
 }
 
+/**
+ * @public
+ */
 export interface UpgradeLensReviewInput {
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>

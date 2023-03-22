@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryClusterClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoutingControlsCommand}.
  */
 export interface ListRoutingControlsCommandInput extends ListRoutingControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRoutingControlsCommand}.
  */
 export interface ListRoutingControlsCommandOutput extends ListRoutingControlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List routing control names and Amazon Resource Names (ARNs), as well as the routing control
  * 			state for each routing control, along with the control panel name and control panel ARN for the routing controls.
  * 			If you specify a control panel ARN, this call lists the routing controls in the control panel. Otherwise, it lists
@@ -81,6 +86,8 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoutingControlsCommandInput - {@link ListRoutingControlsCommandInput}
+ * @returns {@link ListRoutingControlsCommandOutput}
  * @see {@link ListRoutingControlsCommandInput} for command's `input` shape.
  * @see {@link ListRoutingControlsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
@@ -122,6 +129,9 @@ export class ListRoutingControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoutingControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class ListRoutingControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoutingControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListRoutingControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingControlsCommandOutput> {
     return deserializeAws_json1_0ListRoutingControlsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommenderConfigurationCommand}.
  */
 export interface GetRecommenderConfigurationCommandInput extends GetRecommenderConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommenderConfigurationCommand}.
  */
 export interface GetRecommenderConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetRecommenderConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an Amazon Pinpoint configuration for a recommender model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetRecommenderConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommenderConfigurationCommandInput - {@link GetRecommenderConfigurationCommandInput}
+ * @returns {@link GetRecommenderConfigurationCommandOutput}
  * @see {@link GetRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRecommenderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetRecommenderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommenderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetRecommenderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommenderConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRecommenderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

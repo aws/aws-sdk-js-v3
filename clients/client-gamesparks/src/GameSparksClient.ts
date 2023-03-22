@@ -126,6 +126,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateGameCommandInput
   | CreateSnapshotCommandInput
@@ -161,6 +164,9 @@ export type ServiceInputTypes =
   | UpdateSnapshotCommandInput
   | UpdateStageCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateGameCommandOutput
   | CreateSnapshotCommandOutput
@@ -196,6 +202,9 @@ export type ServiceOutputTypes =
   | UpdateSnapshotCommandOutput
   | UpdateStageCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -203,7 +212,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -312,11 +321,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type GameSparksClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -327,10 +339,15 @@ type GameSparksClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of GameSparksClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of GameSparksClient class constructor that set the region, credentials and other options.
  */
 export interface GameSparksClientConfig extends GameSparksClientConfigType {}
 
+/**
+ * @public
+ */
 type GameSparksClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -341,11 +358,14 @@ type GameSparksClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of GameSparksClient class. This is resolved and normalized from the {@link GameSparksClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of GameSparksClient class. This is resolved and normalized from the {@link GameSparksClientConfig | constructor configuration interface}.
  */
 export interface GameSparksClientResolvedConfig extends GameSparksClientResolvedConfigType {}
 
 /**
+ * @public
  * <p/>
  */
 export class GameSparksClient extends __Client<

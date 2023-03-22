@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotificationsCommand}.
  */
 export interface ListNotificationsCommandInput extends ListNotificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNotificationsCommand}.
  */
 export interface ListNotificationsCommandOutput extends ListNotificationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of all Audit Manager notifications. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListNotificationsCommandOutput extends ListNotificationsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotificationsCommandInput - {@link ListNotificationsCommandInput}
+ * @returns {@link ListNotificationsCommandOutput}
  * @see {@link ListNotificationsCommandInput} for command's `input` shape.
  * @see {@link ListNotificationsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotificationsCommandOutput> {
     return deserializeAws_restJson1ListNotificationsCommand(output, context);
   }

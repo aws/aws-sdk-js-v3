@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateTableRowsCommand}.
  */
 export interface BatchUpdateTableRowsCommandInput extends BatchUpdateTableRowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateTableRowsCommand}.
  */
 export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The BatchUpdateTableRows API allows you to update one or more rows in a table in a workbook.
  *         </p>
@@ -55,6 +60,8 @@ export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateTableRowsCommandInput - {@link BatchUpdateTableRowsCommandInput}
+ * @returns {@link BatchUpdateTableRowsCommandOutput}
  * @see {@link BatchUpdateTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -104,6 +111,9 @@ export class BatchUpdateTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class BatchUpdateTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchUpdateTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateTableRowsCommandOutput> {
     return deserializeAws_restJson1BatchUpdateTableRowsCommand(output, context);
   }

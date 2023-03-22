@@ -28,15 +28,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RunFleetAdvisorLsaAnalysisCommand}.
  */
 export interface RunFleetAdvisorLsaAnalysisCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link RunFleetAdvisorLsaAnalysisCommand}.
  */
 export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisorLsaAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisor
  * const response = await client.send(command);
  * ```
  *
+ * @param RunFleetAdvisorLsaAnalysisCommandInput - {@link RunFleetAdvisorLsaAnalysisCommandInput}
+ * @returns {@link RunFleetAdvisorLsaAnalysisCommandOutput}
  * @see {@link RunFleetAdvisorLsaAnalysisCommandInput} for command's `input` shape.
  * @see {@link RunFleetAdvisorLsaAnalysisCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -77,6 +84,9 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunFleetAdvisorLsaAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunFleetAdvisorLsaAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

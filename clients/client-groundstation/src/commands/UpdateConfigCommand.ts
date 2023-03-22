@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigCommand}.
  */
 export interface UpdateConfigCommandInput extends UpdateConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigCommand}.
  */
 export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>Config</code> used when scheduling contacts.</p>
  *          <p>Updating a <code>Config</code> will not update the execution parameters
  *          for existing future contacts scheduled with this <code>Config</code>.</p>
@@ -48,6 +53,8 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigCommandInput - {@link UpdateConfigCommandInput}
+ * @returns {@link UpdateConfigCommandOutput}
  * @see {@link UpdateConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConfigCommandOutput> {
     return deserializeAws_restJson1UpdateConfigCommand(output, context);
   }

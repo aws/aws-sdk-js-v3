@@ -10,7 +10,7 @@ import { InternetMonitorClient } from "../InternetMonitorClient";
 import { InternetMonitorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: InternetMonitorClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMonitorsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMonitors(
   config: InternetMonitorPaginationConfiguration,
   input: ListMonitorsCommandInput,

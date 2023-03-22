@@ -26,15 +26,20 @@ import {
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UngroupResourcesCommand}.
  */
 export interface UngroupResourcesCommandInput extends UngroupResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link UngroupResourcesCommand}.
  */
 export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified resources from the specified group. This operation works only
  *             with static groups that you populated using the <a>GroupResources</a>
  *             operation. It doesn't work with any resource groups that are automatically populated by
@@ -60,6 +65,8 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UngroupResourcesCommandInput - {@link UngroupResourcesCommandInput}
+ * @returns {@link UngroupResourcesCommandOutput}
  * @see {@link UngroupResourcesCommandInput} for command's `input` shape.
  * @see {@link UngroupResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -102,6 +109,9 @@ export class UngroupResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UngroupResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UngroupResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UngroupResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UngroupResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UngroupResourcesCommandOutput> {
     return deserializeAws_restJson1UngroupResourcesCommand(output, context);
   }

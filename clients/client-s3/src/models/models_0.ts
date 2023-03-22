@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
 /**
+ * @public
  * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will
  *          wait before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
  *             Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a> in the
@@ -18,10 +19,16 @@ export interface AbortIncompleteMultipartUpload {
   DaysAfterInitiation?: number;
 }
 
+/**
+ * @public
+ */
 export enum RequestCharged {
   requester = "requester",
 }
 
+/**
+ * @public
+ */
 export interface AbortMultipartUploadOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -30,10 +37,16 @@ export interface AbortMultipartUploadOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export enum RequestPayer {
   requester = "requester",
 }
 
+/**
+ * @public
+ */
 export interface AbortMultipartUploadRequest {
   /**
    * <p>The bucket name to which the upload was taking place. </p>
@@ -70,6 +83,7 @@ export interface AbortMultipartUploadRequest {
 }
 
 /**
+ * @public
  * <p>The specified multipart upload does not exist.</p>
  */
 export class NoSuchUpload extends __BaseException {
@@ -88,12 +102,16 @@ export class NoSuchUpload extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum BucketAccelerateStatus {
   Enabled = "Enabled",
   Suspended = "Suspended",
 }
 
 /**
+ * @public
  * <p>Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Amazon S3
  *             Transfer Acceleration</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -105,6 +123,9 @@ export interface AccelerateConfiguration {
   Status?: BucketAccelerateStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum Type {
   AmazonCustomerByEmail = "AmazonCustomerByEmail",
   CanonicalUser = "CanonicalUser",
@@ -112,6 +133,7 @@ export enum Type {
 }
 
 /**
+ * @public
  * <p>Container for the person being granted permissions.</p>
  */
 export interface Grantee {
@@ -171,6 +193,9 @@ export interface Grantee {
   Type: Type | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Permission {
   FULL_CONTROL = "FULL_CONTROL",
   READ = "READ",
@@ -180,6 +205,7 @@ export enum Permission {
 }
 
 /**
+ * @public
  * <p>Container for grant information.</p>
  */
 export interface Grant {
@@ -195,6 +221,7 @@ export interface Grant {
 }
 
 /**
+ * @public
  * <p>Container for the owner's display name and ID.</p>
  */
 export interface Owner {
@@ -210,6 +237,7 @@ export interface Owner {
 }
 
 /**
+ * @public
  * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
  */
 export interface AccessControlPolicy {
@@ -224,11 +252,15 @@ export interface AccessControlPolicy {
   Owner?: Owner;
 }
 
+/**
+ * @public
+ */
 export enum OwnerOverride {
   Destination = "Destination",
 }
 
 /**
+ * @public
  * <p>A container for information about access control for replicas.</p>
  */
 export interface AccessControlTranslation {
@@ -239,11 +271,17 @@ export interface AccessControlTranslation {
   Owner: OwnerOverride | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ServerSideEncryption {
   AES256 = "AES256",
   aws_kms = "aws:kms",
 }
 
+/**
+ * @public
+ */
 export interface CompleteMultipartUploadOutput {
   /**
    * <p>The URI that identifies the newly created object.</p>
@@ -347,6 +385,7 @@ export interface CompleteMultipartUploadOutput {
 }
 
 /**
+ * @public
  * <p>Details of the parts that were uploaded.</p>
  */
 export interface CompletedPart {
@@ -395,6 +434,7 @@ export interface CompletedPart {
 }
 
 /**
+ * @public
  * <p>The container for the completed multipart upload details.</p>
  */
 export interface CompletedMultipartUpload {
@@ -406,6 +446,9 @@ export interface CompletedMultipartUpload {
   Parts?: CompletedPart[];
 }
 
+/**
+ * @public
+ */
 export interface CompleteMultipartUploadRequest {
   /**
    * <p>Name of the bucket to which the multipart upload was initiated.</p>
@@ -503,6 +546,7 @@ export interface CompleteMultipartUploadRequest {
 }
 
 /**
+ * @public
  * <p>Container for all response elements.</p>
  */
 export interface CopyObjectResult {
@@ -549,6 +593,9 @@ export interface CopyObjectResult {
   ChecksumSHA256?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyObjectOutput {
   /**
    * <p>Container for all response elements.</p>
@@ -614,6 +661,9 @@ export interface CopyObjectOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export enum ObjectCannedACL {
   authenticated_read = "authenticated-read",
   aws_exec_read = "aws-exec-read",
@@ -624,6 +674,9 @@ export enum ObjectCannedACL {
   public_read_write = "public-read-write",
 }
 
+/**
+ * @public
+ */
 export enum ChecksumAlgorithm {
   CRC32 = "CRC32",
   CRC32C = "CRC32C",
@@ -631,21 +684,33 @@ export enum ChecksumAlgorithm {
   SHA256 = "SHA256",
 }
 
+/**
+ * @public
+ */
 export enum MetadataDirective {
   COPY = "COPY",
   REPLACE = "REPLACE",
 }
 
+/**
+ * @public
+ */
 export enum ObjectLockLegalHoldStatus {
   OFF = "OFF",
   ON = "ON",
 }
 
+/**
+ * @public
+ */
 export enum ObjectLockMode {
   COMPLIANCE = "COMPLIANCE",
   GOVERNANCE = "GOVERNANCE",
 }
 
+/**
+ * @public
+ */
 export enum StorageClass {
   DEEP_ARCHIVE = "DEEP_ARCHIVE",
   GLACIER = "GLACIER",
@@ -658,11 +723,17 @@ export enum StorageClass {
   STANDARD_IA = "STANDARD_IA",
 }
 
+/**
+ * @public
+ */
 export enum TaggingDirective {
   COPY = "COPY",
   REPLACE = "REPLACE",
 }
 
+/**
+ * @public
+ */
 export interface CopyObjectRequest {
   /**
    * <p>The canned ACL to apply to the object.</p>
@@ -942,6 +1013,7 @@ export interface CopyObjectRequest {
 }
 
 /**
+ * @public
  * <p>The source object of the COPY action is not in the active tier and is only stored in
  *          Amazon S3 Glacier.</p>
  */
@@ -962,6 +1034,7 @@ export class ObjectNotInActiveTierError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested bucket name is not available. The bucket namespace is shared by all users
  *          of the system. Select a different name and try again.</p>
  */
@@ -982,6 +1055,7 @@ export class BucketAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error
  *          in all Amazon Web Services Regions except in the North Virginia Region. For legacy compatibility, if you
  *          re-create an existing bucket that you already own in the North Virginia Region, Amazon S3
@@ -1003,6 +1077,9 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateBucketOutput {
   /**
    * <p>A forward slash followed by the name of the bucket.</p>
@@ -1010,6 +1087,9 @@ export interface CreateBucketOutput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export enum BucketCannedACL {
   authenticated_read = "authenticated-read",
   private = "private",
@@ -1017,6 +1097,9 @@ export enum BucketCannedACL {
   public_read_write = "public-read-write",
 }
 
+/**
+ * @public
+ */
 export enum BucketLocationConstraint {
   EU = "EU",
   af_south_1 = "af-south-1",
@@ -1047,6 +1130,7 @@ export enum BucketLocationConstraint {
 }
 
 /**
+ * @public
  * <p>The configuration information for the bucket.</p>
  */
 export interface CreateBucketConfiguration {
@@ -1057,12 +1141,18 @@ export interface CreateBucketConfiguration {
   LocationConstraint?: BucketLocationConstraint | string;
 }
 
+/**
+ * @public
+ */
 export enum ObjectOwnership {
   BucketOwnerEnforced = "BucketOwnerEnforced",
   BucketOwnerPreferred = "BucketOwnerPreferred",
   ObjectWriter = "ObjectWriter",
 }
 
+/**
+ * @public
+ */
 export interface CreateBucketRequest {
   /**
    * <p>The canned ACL to apply to the bucket.</p>
@@ -1127,6 +1217,9 @@ export interface CreateBucketRequest {
   ObjectOwnership?: ObjectOwnership | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMultipartUploadOutput {
   /**
    * <p>If the bucket has a lifecycle rule configured with an action to abort incomplete
@@ -1213,6 +1306,9 @@ export interface CreateMultipartUploadOutput {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMultipartUploadRequest {
   /**
    * <p>The canned ACL to apply to the object.</p>
@@ -1405,6 +1501,9 @@ export interface CreateMultipartUploadRequest {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketRequest {
   /**
    * <p>Specifies the bucket being deleted.</p>
@@ -1417,6 +1516,9 @@ export interface DeleteBucketRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketAnalyticsConfigurationRequest {
   /**
    * <p>The name of the bucket from which an analytics configuration is deleted.</p>
@@ -1436,6 +1538,9 @@ export interface DeleteBucketAnalyticsConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketCorsRequest {
   /**
    * <p>Specifies the bucket whose <code>cors</code> configuration is being deleted.</p>
@@ -1450,6 +1555,9 @@ export interface DeleteBucketCorsRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketEncryptionRequest {
   /**
    * <p>The name of the bucket containing the server-side encryption configuration to
@@ -1465,6 +1573,9 @@ export interface DeleteBucketEncryptionRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketIntelligentTieringConfigurationRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
@@ -1479,6 +1590,9 @@ export interface DeleteBucketIntelligentTieringConfigurationRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketInventoryConfigurationRequest {
   /**
    * <p>The name of the bucket containing the inventory configuration to delete.</p>
@@ -1498,6 +1612,9 @@ export interface DeleteBucketInventoryConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketLifecycleRequest {
   /**
    * <p>The bucket name of the lifecycle to delete.</p>
@@ -1512,6 +1629,9 @@ export interface DeleteBucketLifecycleRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket containing the metrics configuration to delete.</p>
@@ -1531,6 +1651,9 @@ export interface DeleteBucketMetricsConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketOwnershipControlsRequest {
   /**
    * <p>The Amazon S3 bucket whose <code>OwnershipControls</code> you want to delete. </p>
@@ -1545,6 +1668,9 @@ export interface DeleteBucketOwnershipControlsRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketPolicyRequest {
   /**
    * <p>The bucket name.</p>
@@ -1559,6 +1685,9 @@ export interface DeleteBucketPolicyRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketReplicationRequest {
   /**
    * <p> The bucket name. </p>
@@ -1573,6 +1702,9 @@ export interface DeleteBucketReplicationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketTaggingRequest {
   /**
    * <p>The bucket that has the tag set to be removed.</p>
@@ -1587,6 +1719,9 @@ export interface DeleteBucketTaggingRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketWebsiteRequest {
   /**
    * <p>The bucket name for which you want to remove the website configuration. </p>
@@ -1601,6 +1736,9 @@ export interface DeleteBucketWebsiteRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectOutput {
   /**
    * <p>Specifies whether the versioned object that was permanently deleted was (true) or was
@@ -1621,6 +1759,9 @@ export interface DeleteObjectOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectRequest {
   /**
    * <p>The bucket name of the bucket containing the object. </p>
@@ -1671,6 +1812,7 @@ export interface DeleteObjectRequest {
 }
 
 /**
+ * @public
  * <p>Information about the deleted object.</p>
  */
 export interface DeletedObject {
@@ -1700,6 +1842,7 @@ export interface DeletedObject {
 }
 
 /**
+ * @public
  * <p>Container for all error elements.</p>
  */
 export interface _Error {
@@ -3591,6 +3734,9 @@ export interface _Error {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectsOutput {
   /**
    * <p>Container element for a successful delete. It identifies the object that was
@@ -3612,6 +3758,7 @@ export interface DeleteObjectsOutput {
 }
 
 /**
+ * @public
  * <p>Object Identifier is unique value to identify objects.</p>
  */
 export interface ObjectIdentifier {
@@ -3632,6 +3779,7 @@ export interface ObjectIdentifier {
 }
 
 /**
+ * @public
  * <p>Container for the objects to delete.</p>
  */
 export interface Delete {
@@ -3647,6 +3795,9 @@ export interface Delete {
   Quiet?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectsRequest {
   /**
    * <p>The bucket name containing the objects to delete. </p>
@@ -3704,6 +3855,9 @@ export interface DeleteObjectsRequest {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectTaggingOutput {
   /**
    * <p>The versionId of the object the tag-set was removed from.</p>
@@ -3711,6 +3865,9 @@ export interface DeleteObjectTaggingOutput {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObjectTaggingRequest {
   /**
    * <p>The bucket name containing the objects from which to remove the tags. </p>
@@ -3738,6 +3895,9 @@ export interface DeleteObjectTaggingRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePublicAccessBlockRequest {
   /**
    * <p>The Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to delete.
@@ -3753,6 +3913,9 @@ export interface DeletePublicAccessBlockRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketAccelerateConfigurationOutput {
   /**
    * <p>The accelerate configuration of the bucket.</p>
@@ -3760,6 +3923,9 @@ export interface GetBucketAccelerateConfigurationOutput {
   Status?: BucketAccelerateStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketAccelerateConfigurationRequest {
   /**
    * <p>The name of the bucket for which the accelerate configuration is retrieved.</p>
@@ -3774,6 +3940,9 @@ export interface GetBucketAccelerateConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketAclOutput {
   /**
    * <p>Container for the bucket owner's display name and ID.</p>
@@ -3786,6 +3955,9 @@ export interface GetBucketAclOutput {
   Grants?: Grant[];
 }
 
+/**
+ * @public
+ */
 export interface GetBucketAclRequest {
   /**
    * <p>Specifies the S3 bucket whose ACL is being requested.</p>
@@ -3801,6 +3973,7 @@ export interface GetBucketAclRequest {
 }
 
 /**
+ * @public
  * <p>A container of a key value name pair.</p>
  */
 export interface Tag {
@@ -3816,6 +3989,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter.
  *          The operator must have at least two predicates in any combination, and an object must match
  *          all of the predicates for the filter to apply.</p>
@@ -3834,6 +4008,7 @@ export interface AnalyticsAndOperator {
 }
 
 /**
+ * @public
  * <p>The filter used to describe a set of objects for analyses. A filter must have exactly
  *          one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided,
  *          all objects will be considered in any analysis.</p>
@@ -3844,6 +4019,9 @@ export type AnalyticsFilter =
   | AnalyticsFilter.TagMember
   | AnalyticsFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AnalyticsFilter {
   /**
    * <p>The prefix to use when evaluating an analytics filter.</p>
@@ -3898,11 +4076,15 @@ export namespace AnalyticsFilter {
   };
 }
 
+/**
+ * @public
+ */
 export enum AnalyticsS3ExportFileFormat {
   CSV = "CSV",
 }
 
 /**
+ * @public
  * <p>Contains information about where to publish the analytics results.</p>
  */
 export interface AnalyticsS3BucketDestination {
@@ -3933,6 +4115,7 @@ export interface AnalyticsS3BucketDestination {
 }
 
 /**
+ * @public
  * <p>Where to publish the analytics results.</p>
  */
 export interface AnalyticsExportDestination {
@@ -3942,11 +4125,15 @@ export interface AnalyticsExportDestination {
   S3BucketDestination: AnalyticsS3BucketDestination | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StorageClassAnalysisSchemaVersion {
   V_1 = "V_1",
 }
 
 /**
+ * @public
  * <p>Container for data related to the storage class analysis for an Amazon S3 bucket for
  *          export.</p>
  */
@@ -3964,6 +4151,7 @@ export interface StorageClassAnalysisDataExport {
 }
 
 /**
+ * @public
  * <p>Specifies data related to access patterns to be collected and made available to analyze
  *          the tradeoffs between different storage classes for an Amazon S3 bucket.</p>
  */
@@ -3976,6 +4164,7 @@ export interface StorageClassAnalysis {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.</p>
  */
 export interface AnalyticsConfiguration {
@@ -3998,6 +4187,9 @@ export interface AnalyticsConfiguration {
   StorageClassAnalysis: StorageClassAnalysis | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketAnalyticsConfigurationOutput {
   /**
    * <p>The configuration and any analyses for the analytics filter.</p>
@@ -4005,6 +4197,9 @@ export interface GetBucketAnalyticsConfigurationOutput {
   AnalyticsConfiguration?: AnalyticsConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketAnalyticsConfigurationRequest {
   /**
    * <p>The name of the bucket from which an analytics configuration is retrieved.</p>
@@ -4025,6 +4220,7 @@ export interface GetBucketAnalyticsConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a cross-origin access rule for an Amazon S3 bucket.</p>
  */
 export interface CORSRule {
@@ -4065,6 +4261,9 @@ export interface CORSRule {
   MaxAgeSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketCorsOutput {
   /**
    * <p>A set of origins and methods (cross-origin access that you want to allow). You can add
@@ -4073,6 +4272,9 @@ export interface GetBucketCorsOutput {
   CORSRules?: CORSRule[];
 }
 
+/**
+ * @public
+ */
 export interface GetBucketCorsRequest {
   /**
    * <p>The bucket name for which to get the cors configuration.</p>
@@ -4088,6 +4290,7 @@ export interface GetBucketCorsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the default server-side encryption to apply to new objects in the bucket. If a
  *          PUT Object request doesn't specify any server-side encryption, this default encryption will
  *          be applied. If you don't specify a customer managed key at configuration, Amazon S3 automatically creates
@@ -4132,6 +4335,7 @@ export interface ServerSideEncryptionByDefault {
 }
 
 /**
+ * @public
  * <p>Specifies the default server-side encryption configuration.</p>
  */
 export interface ServerSideEncryptionRule {
@@ -4150,6 +4354,7 @@ export interface ServerSideEncryptionRule {
 }
 
 /**
+ * @public
  * <p>Specifies the default server-side-encryption configuration.</p>
  */
 export interface ServerSideEncryptionConfiguration {
@@ -4160,6 +4365,9 @@ export interface ServerSideEncryptionConfiguration {
   Rules: ServerSideEncryptionRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketEncryptionOutput {
   /**
    * <p>Specifies the default server-side-encryption configuration.</p>
@@ -4167,6 +4375,9 @@ export interface GetBucketEncryptionOutput {
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketEncryptionRequest {
   /**
    * <p>The name of the bucket from which the server-side encryption configuration is
@@ -4183,6 +4394,7 @@ export interface GetBucketEncryptionRequest {
 }
 
 /**
+ * @public
  * <p>A container for specifying S3 Intelligent-Tiering filters. The filters determine the
  *          subset of objects to which the rule applies.</p>
  */
@@ -4201,6 +4413,7 @@ export interface IntelligentTieringAndOperator {
 }
 
 /**
+ * @public
  * <p>The <code>Filter</code> is used to identify objects that the S3 Intelligent-Tiering
  *          configuration applies to.</p>
  */
@@ -4229,17 +4442,24 @@ export interface IntelligentTieringFilter {
   And?: IntelligentTieringAndOperator;
 }
 
+/**
+ * @public
+ */
 export enum IntelligentTieringStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
+/**
+ * @public
+ */
 export enum IntelligentTieringAccessTier {
   ARCHIVE_ACCESS = "ARCHIVE_ACCESS",
   DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS",
 }
 
 /**
+ * @public
  * <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
  *          automatically moving data to the most cost-effective storage access tier, without
  *          additional operational overhead.</p>
@@ -4262,6 +4482,7 @@ export interface Tiering {
 }
 
 /**
+ * @public
  * <p>Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.</p>
  *          <p>For information about the S3 Intelligent-Tiering storage class, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for
  *             automatically optimizing frequently and infrequently accessed objects</a>.</p>
@@ -4289,6 +4510,9 @@ export interface IntelligentTieringConfiguration {
   Tierings: Tiering[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketIntelligentTieringConfigurationOutput {
   /**
    * <p>Container for S3 Intelligent-Tiering configuration.</p>
@@ -4296,6 +4520,9 @@ export interface GetBucketIntelligentTieringConfigurationOutput {
   IntelligentTieringConfiguration?: IntelligentTieringConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketIntelligentTieringConfigurationRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
@@ -4311,6 +4538,7 @@ export interface GetBucketIntelligentTieringConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
  */
 export interface SSEKMS {
@@ -4322,11 +4550,13 @@ export interface SSEKMS {
 }
 
 /**
+ * @public
  * <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
  */
 export interface SSES3 {}
 
 /**
+ * @public
  * <p>Contains the type of server-side encryption used to encrypt the inventory
  *          results.</p>
  */
@@ -4342,6 +4572,9 @@ export interface InventoryEncryption {
   SSEKMS?: SSEKMS;
 }
 
+/**
+ * @public
+ */
 export enum InventoryFormat {
   CSV = "CSV",
   ORC = "ORC",
@@ -4349,6 +4582,7 @@ export enum InventoryFormat {
 }
 
 /**
+ * @public
  * <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional)
  *          where inventory results are published.</p>
  */
@@ -4387,6 +4621,7 @@ export interface InventoryS3BucketDestination {
 }
 
 /**
+ * @public
  * <p>Specifies the inventory configuration for an Amazon S3 bucket.</p>
  */
 export interface InventoryDestination {
@@ -4398,6 +4633,7 @@ export interface InventoryDestination {
 }
 
 /**
+ * @public
  * <p>Specifies an inventory filter. The inventory only includes objects that meet the
  *          filter's criteria.</p>
  */
@@ -4408,11 +4644,17 @@ export interface InventoryFilter {
   Prefix: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InventoryIncludedObjectVersions {
   All = "All",
   Current = "Current",
 }
 
+/**
+ * @public
+ */
 export enum InventoryOptionalField {
   BucketKeyStatus = "BucketKeyStatus",
   ChecksumAlgorithm = "ChecksumAlgorithm",
@@ -4429,12 +4671,16 @@ export enum InventoryOptionalField {
   StorageClass = "StorageClass",
 }
 
+/**
+ * @public
+ */
 export enum InventoryFrequency {
   Daily = "Daily",
   Weekly = "Weekly",
 }
 
 /**
+ * @public
  * <p>Specifies the schedule for generating inventory results.</p>
  */
 export interface InventorySchedule {
@@ -4445,6 +4691,7 @@ export interface InventorySchedule {
 }
 
 /**
+ * @public
  * <p>Specifies the inventory configuration for an Amazon S3 bucket. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html">GET Bucket inventory</a> in the <i>Amazon S3 API Reference</i>.
  *       </p>
@@ -4493,6 +4740,9 @@ export interface InventoryConfiguration {
   Schedule: InventorySchedule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketInventoryConfigurationOutput {
   /**
    * <p>Specifies the inventory configuration.</p>
@@ -4500,6 +4750,9 @@ export interface GetBucketInventoryConfigurationOutput {
   InventoryConfiguration?: InventoryConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketInventoryConfigurationRequest {
   /**
    * <p>The name of the bucket containing the inventory configuration to retrieve.</p>
@@ -4520,6 +4773,7 @@ export interface GetBucketInventoryConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Container for the expiration for the lifecycle of the object.</p>
  */
 export interface LifecycleExpiration {
@@ -4544,6 +4798,7 @@ export interface LifecycleExpiration {
 }
 
 /**
+ * @public
  * <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more
  *          predicates. The Lifecycle Rule will apply to any object matching all of the predicates
  *          configured inside the And operator.</p>
@@ -4572,6 +4827,7 @@ export interface LifecycleRuleAndOperator {
 }
 
 /**
+ * @public
  * <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A
  *             <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>, or
  *             <code>And</code> specified.</p>
@@ -4584,6 +4840,9 @@ export type LifecycleRuleFilter =
   | LifecycleRuleFilter.TagMember
   | LifecycleRuleFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace LifecycleRuleFilter {
   /**
    * <p>Prefix identifying one or more objects to which the rule applies.</p>
@@ -4681,6 +4940,7 @@ export namespace LifecycleRuleFilter {
 }
 
 /**
+ * @public
  * <p>Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently
  *          deletes the noncurrent object versions. You set this lifecycle configuration action on a
  *          bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent
@@ -4703,6 +4963,9 @@ export interface NoncurrentVersionExpiration {
   NewerNoncurrentVersions?: number;
 }
 
+/**
+ * @public
+ */
 export enum TransitionStorageClass {
   DEEP_ARCHIVE = "DEEP_ARCHIVE",
   GLACIER = "GLACIER",
@@ -4713,6 +4976,7 @@ export enum TransitionStorageClass {
 }
 
 /**
+ * @public
  * <p>Container for the transition rule that describes when noncurrent objects transition to
  *          the <code>STANDARD_IA</code>, <code>ONEZONE_IA</code>, <code>INTELLIGENT_TIERING</code>,
  *           <code>GLACIER_IR</code>, <code>GLACIER</code>, or <code>DEEP_ARCHIVE</code> storage class. If your bucket is
@@ -4745,12 +5009,16 @@ export interface NoncurrentVersionTransition {
   NewerNoncurrentVersions?: number;
 }
 
+/**
+ * @public
+ */
 export enum ExpirationStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>Specifies when an object transitions to a specified storage class. For more information
  *          about Amazon S3 lifecycle configuration rules, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html">Transitioning
  *             Objects Using Amazon S3 Lifecycle</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -4775,6 +5043,7 @@ export interface Transition {
 }
 
 /**
+ * @public
  * <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
  */
 export interface LifecycleRule {
@@ -4847,6 +5116,9 @@ export interface LifecycleRule {
   AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketLifecycleConfigurationOutput {
   /**
    * <p>Container for a lifecycle rule.</p>
@@ -4854,6 +5126,9 @@ export interface GetBucketLifecycleConfigurationOutput {
   Rules?: LifecycleRule[];
 }
 
+/**
+ * @public
+ */
 export interface GetBucketLifecycleConfigurationRequest {
   /**
    * <p>The name of the bucket for which to get the lifecycle information.</p>
@@ -4868,6 +5143,9 @@ export interface GetBucketLifecycleConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketLocationOutput {
   /**
    * <p>Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported
@@ -4878,6 +5156,9 @@ export interface GetBucketLocationOutput {
   LocationConstraint?: BucketLocationConstraint | string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketLocationRequest {
   /**
    * <p>The name of the bucket for which to get the location.</p>
@@ -4892,6 +5173,9 @@ export interface GetBucketLocationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum BucketLogsPermission {
   FULL_CONTROL = "FULL_CONTROL",
   READ = "READ",
@@ -4899,6 +5183,7 @@ export enum BucketLogsPermission {
 }
 
 /**
+ * @public
  * <p>Container for granting information.</p>
  *          <p>Buckets that use the bucket owner enforced setting for Object
  *          Ownership don't support target grants. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions server access log delivery</a> in the
@@ -4917,6 +5202,7 @@ export interface TargetGrant {
 }
 
 /**
+ * @public
  * <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys
  *          for a bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">PUT Bucket logging</a> in the
  *             <i>Amazon S3 API Reference</i>.</p>
@@ -4947,6 +5233,9 @@ export interface LoggingEnabled {
   TargetPrefix: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketLoggingOutput {
   /**
    * <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys
@@ -4956,6 +5245,9 @@ export interface GetBucketLoggingOutput {
   LoggingEnabled?: LoggingEnabled;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketLoggingRequest {
   /**
    * <p>The bucket name for which to get the logging information.</p>
@@ -4971,6 +5263,7 @@ export interface GetBucketLoggingRequest {
 }
 
 /**
+ * @public
  * <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter.
  *          The operator must have at least two predicates, and an object must match all of the
  *          predicates in order for the filter to apply.</p>
@@ -4993,6 +5286,7 @@ export interface MetricsAndOperator {
 }
 
 /**
+ * @public
  * <p>Specifies a metrics configuration filter. The metrics configuration only includes
  *          objects that meet the filter's criteria. A filter must be a prefix, an object tag, an access point ARN, or a conjunction
  *          (MetricsAndOperator). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html">PutBucketMetricsConfiguration</a>.</p>
@@ -5004,6 +5298,9 @@ export type MetricsFilter =
   | MetricsFilter.TagMember
   | MetricsFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MetricsFilter {
   /**
    * <p>The prefix used when evaluating a metrics filter.</p>
@@ -5077,6 +5374,7 @@ export namespace MetricsFilter {
 }
 
 /**
+ * @public
  * <p>Specifies a metrics configuration for the CloudWatch request metrics (specified by the
  *          metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics
  *          configuration, note that this is a full replacement of the existing metrics configuration.
@@ -5097,6 +5395,9 @@ export interface MetricsConfiguration {
   Filter?: MetricsFilter;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketMetricsConfigurationOutput {
   /**
    * <p>Specifies the metrics configuration.</p>
@@ -5104,6 +5405,9 @@ export interface GetBucketMetricsConfigurationOutput {
   MetricsConfiguration?: MetricsConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket containing the metrics configuration to retrieve.</p>
@@ -5123,6 +5427,9 @@ export interface GetBucketMetricsConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketNotificationConfigurationRequest {
   /**
    * <p>The name of the bucket for which to get the notification configuration.</p>
@@ -5138,10 +5445,14 @@ export interface GetBucketNotificationConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>A container for specifying the configuration for Amazon EventBridge.</p>
  */
 export interface EventBridgeConfiguration {}
 
+/**
+ * @public
+ */
 export type Event =
   | "s3:IntelligentTiering"
   | "s3:LifecycleExpiration:*"
@@ -5171,12 +5482,16 @@ export type Event =
   | "s3:Replication:OperationNotTracked"
   | "s3:Replication:OperationReplicatedAfterThreshold";
 
+/**
+ * @public
+ */
 export enum FilterRuleName {
   prefix = "prefix",
   suffix = "suffix",
 }
 
 /**
+ * @public
  * <p>Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or
  *          prefix of the key name.</p>
  */
@@ -5196,6 +5511,7 @@ export interface FilterRule {
 }
 
 /**
+ * @public
  * <p>A container for object key name prefix and suffix filtering rules.</p>
  */
 export interface S3KeyFilter {
@@ -5207,6 +5523,7 @@ export interface S3KeyFilter {
 }
 
 /**
+ * @public
  * <p>Specifies object key name filtering rules. For information about key name filtering, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring
  *             Event Notifications</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -5219,6 +5536,7 @@ export interface NotificationConfigurationFilter {
 }
 
 /**
+ * @public
  * <p>A container for specifying the configuration for Lambda notifications.</p>
  */
 export interface LambdaFunctionConfiguration {
@@ -5250,6 +5568,7 @@ export interface LambdaFunctionConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration for publishing messages to an Amazon Simple Queue Service
  *          (Amazon SQS) queue when Amazon S3 detects specified events.</p>
  */
@@ -5280,6 +5599,7 @@ export interface QueueConfiguration {
 }
 
 /**
+ * @public
  * <p>A container for specifying the configuration for publication of messages to an Amazon
  *          Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.</p>
  */
@@ -5312,6 +5632,7 @@ export interface TopicConfiguration {
 }
 
 /**
+ * @public
  * <p>A container for specifying the notification configuration of the bucket. If this element
  *          is empty, notifications are turned off for the bucket.</p>
  */
@@ -5341,6 +5662,7 @@ export interface NotificationConfiguration {
 }
 
 /**
+ * @public
  * <p>The container element for an ownership control rule.</p>
  */
 export interface OwnershipControlsRule {
@@ -5361,6 +5683,7 @@ export interface OwnershipControlsRule {
 }
 
 /**
+ * @public
  * <p>The container element for a bucket's ownership controls.</p>
  */
 export interface OwnershipControls {
@@ -5370,6 +5693,9 @@ export interface OwnershipControls {
   Rules: OwnershipControlsRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketOwnershipControlsOutput {
   /**
    * <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) currently in
@@ -5378,6 +5704,9 @@ export interface GetBucketOwnershipControlsOutput {
   OwnershipControls?: OwnershipControls;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketOwnershipControlsRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>OwnershipControls</code> you want to retrieve.
@@ -5393,6 +5722,9 @@ export interface GetBucketOwnershipControlsRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketPolicyOutput {
   /**
    * <p>The bucket policy as a JSON document.</p>
@@ -5400,6 +5732,9 @@ export interface GetBucketPolicyOutput {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketPolicyRequest {
   /**
    * <p>The bucket name for which to get the bucket policy.</p>
@@ -5415,6 +5750,7 @@ export interface GetBucketPolicyRequest {
 }
 
 /**
+ * @public
  * <p>The container element for a bucket's policy status.</p>
  */
 export interface PolicyStatus {
@@ -5425,6 +5761,9 @@ export interface PolicyStatus {
   IsPublic?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketPolicyStatusOutput {
   /**
    * <p>The policy status for the specified bucket.</p>
@@ -5432,6 +5771,9 @@ export interface GetBucketPolicyStatusOutput {
   PolicyStatus?: PolicyStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketPolicyStatusRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose policy status you want to retrieve.</p>
@@ -5446,12 +5788,16 @@ export interface GetBucketPolicyStatusRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum DeleteMarkerReplicationStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>Specifies whether Amazon S3 replicates delete markers. If you specify a <code>Filter</code>
  *          in your replication configuration, you must also include a
  *             <code>DeleteMarkerReplication</code> element. If your <code>Filter</code> includes a
@@ -5476,6 +5822,7 @@ export interface DeleteMarkerReplication {
 }
 
 /**
+ * @public
  * <p>Specifies encryption-related information for an Amazon S3 bucket that is a destination for
  *          replicated objects.</p>
  */
@@ -5491,6 +5838,7 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * @public
  * <p> A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics
  *             <code>EventThreshold</code>. </p>
  */
@@ -5502,12 +5850,16 @@ export interface ReplicationTimeValue {
   Minutes?: number;
 }
 
+/**
+ * @public
+ */
 export enum MetricsStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p> A container specifying replication metrics-related settings enabling replication
  *          metrics and events.</p>
  */
@@ -5524,12 +5876,16 @@ export interface Metrics {
   EventThreshold?: ReplicationTimeValue;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationTimeStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p> A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is
  *          enabled and the time when all objects and operations on objects must be replicated. Must be
  *          specified together with a <code>Metrics</code> block. </p>
@@ -5548,6 +5904,7 @@ export interface ReplicationTime {
 }
 
 /**
+ * @public
  * <p>Specifies information about where to publish analysis or configuration results for an
  *          Amazon S3 bucket and S3 Replication Time Control (S3 RTC).</p>
  */
@@ -5603,12 +5960,16 @@ export interface Destination {
   Metrics?: Metrics;
 }
 
+/**
+ * @public
+ */
 export enum ExistingObjectReplicationStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>Optional configuration to replicate existing source bucket objects. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-what-is-isnot-replicated.html#existing-object-replication">Replicating Existing Objects</a> in the <i>Amazon S3 User Guide</i>.
  *       </p>
@@ -5621,6 +5982,7 @@ export interface ExistingObjectReplication {
 }
 
 /**
+ * @public
  * <p>A container for specifying rule filters. The filters determine the subset of objects to
  *          which the rule applies. This element is required only if you specify more than one filter. </p>
  *          <p>For example:</p>
@@ -5649,6 +6011,7 @@ export interface ReplicationRuleAndOperator {
 }
 
 /**
+ * @public
  * <p>A filter that identifies the subset of objects to which the replication rule applies. A
  *             <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or
  *          an <code>And</code> child element.</p>
@@ -5659,6 +6022,9 @@ export type ReplicationRuleFilter =
   | ReplicationRuleFilter.TagMember
   | ReplicationRuleFilter.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ReplicationRuleFilter {
   /**
    * <p>An object key name prefix that identifies the subset of objects to which the rule
@@ -5731,12 +6097,16 @@ export namespace ReplicationRuleFilter {
   };
 }
 
+/**
+ * @public
+ */
 export enum ReplicaModificationsStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>A filter that you can specify for selection for modifications on replicas. Amazon S3 doesn't
  *          replicate replica modifications by default. In the latest version of replication
  *          configuration (when <code>Filter</code> is specified), you can specify this element and set
@@ -5754,12 +6124,16 @@ export interface ReplicaModifications {
   Status: ReplicaModificationsStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SseKmsEncryptedObjectsStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>A container for filter information for the selection of S3 objects encrypted with Amazon Web Services
  *          KMS.</p>
  */
@@ -5772,6 +6146,7 @@ export interface SseKmsEncryptedObjects {
 }
 
 /**
+ * @public
  * <p>A container that describes additional filters for identifying the source objects that
  *          you want to replicate. You can choose to enable or disable the replication of these
  *          objects. Currently, Amazon S3 supports only the filter that you can specify for objects created
@@ -5800,12 +6175,16 @@ export interface SourceSelectionCriteria {
   ReplicaModifications?: ReplicaModifications;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationRuleStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>Specifies which Amazon S3 objects to replicate and where to store the replicas.</p>
  */
 export interface ReplicationRule {
@@ -5889,6 +6268,7 @@ export interface ReplicationRule {
 }
 
 /**
+ * @public
  * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
  *          replication configuration is 2 MB.</p>
  */
@@ -5907,6 +6287,9 @@ export interface ReplicationConfiguration {
   Rules: ReplicationRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketReplicationOutput {
   /**
    * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
@@ -5915,6 +6298,9 @@ export interface GetBucketReplicationOutput {
   ReplicationConfiguration?: ReplicationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketReplicationRequest {
   /**
    * <p>The bucket name for which to get the replication information.</p>
@@ -5929,11 +6315,17 @@ export interface GetBucketReplicationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum Payer {
   BucketOwner = "BucketOwner",
   Requester = "Requester",
 }
 
+/**
+ * @public
+ */
 export interface GetBucketRequestPaymentOutput {
   /**
    * <p>Specifies who pays for the download and request fees.</p>
@@ -5941,6 +6333,9 @@ export interface GetBucketRequestPaymentOutput {
   Payer?: Payer | string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketRequestPaymentRequest {
   /**
    * <p>The name of the bucket for which to get the payment request configuration</p>
@@ -5955,6 +6350,9 @@ export interface GetBucketRequestPaymentRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketTaggingOutput {
   /**
    * <p>Contains the tag set.</p>
@@ -5962,6 +6360,9 @@ export interface GetBucketTaggingOutput {
   TagSet: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketTaggingRequest {
   /**
    * <p>The name of the bucket for which to get the tagging information.</p>
@@ -5976,16 +6377,25 @@ export interface GetBucketTaggingRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum MFADeleteStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
+/**
+ * @public
+ */
 export enum BucketVersioningStatus {
   Enabled = "Enabled",
   Suspended = "Suspended",
 }
 
+/**
+ * @public
+ */
 export interface GetBucketVersioningOutput {
   /**
    * <p>The versioning state of the bucket.</p>
@@ -6000,6 +6410,9 @@ export interface GetBucketVersioningOutput {
   MFADelete?: MFADeleteStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketVersioningRequest {
   /**
    * <p>The name of the bucket for which to get the versioning information.</p>
@@ -6015,6 +6428,7 @@ export interface GetBucketVersioningRequest {
 }
 
 /**
+ * @public
  * <p>The error information.</p>
  */
 export interface ErrorDocument {
@@ -6030,6 +6444,7 @@ export interface ErrorDocument {
 }
 
 /**
+ * @public
  * <p>Container for the <code>Suffix</code> element.</p>
  */
 export interface IndexDocument {
@@ -6047,12 +6462,16 @@ export interface IndexDocument {
   Suffix: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Protocol {
   http = "http",
   https = "https",
 }
 
 /**
+ * @public
  * <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3
  *          bucket.</p>
  */
@@ -6070,6 +6489,7 @@ export interface RedirectAllRequestsTo {
 }
 
 /**
+ * @public
  * <p>A container for describing a condition that must be met for the specified redirect to
  *          apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect
  *          to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect
@@ -6104,6 +6524,7 @@ export interface Condition {
 }
 
 /**
+ * @public
  * <p>Specifies how requests are redirected. In the event of an error, you can specify a
  *          different error code to return.</p>
  */
@@ -6154,6 +6575,7 @@ export interface Redirect {
 }
 
 /**
+ * @public
  * <p>Specifies the redirect behavior and when a redirect is applied. For more information
  *          about routing rules, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects">Configuring advanced conditional redirects</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -6175,6 +6597,9 @@ export interface RoutingRule {
   Redirect: Redirect | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketWebsiteOutput {
   /**
    * <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3
@@ -6199,6 +6624,9 @@ export interface GetBucketWebsiteOutput {
   RoutingRules?: RoutingRule[];
 }
 
+/**
+ * @public
+ */
 export interface GetBucketWebsiteRequest {
   /**
    * <p>The bucket name for which to get the website configuration.</p>
@@ -6213,6 +6641,9 @@ export interface GetBucketWebsiteRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
@@ -6220,6 +6651,9 @@ export enum ReplicationStatus {
   REPLICA = "REPLICA",
 }
 
+/**
+ * @public
+ */
 export interface GetObjectOutput {
   /**
    * <p>Object data.</p>
@@ -6437,10 +6871,16 @@ export interface GetObjectOutput {
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum ChecksumMode {
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export interface GetObjectRequest {
   /**
    * <p>The bucket name containing the object. </p>
@@ -6575,6 +7015,7 @@ export interface GetObjectRequest {
 }
 
 /**
+ * @public
  * <p>Object is archived and inaccessible until restored.</p>
  */
 export class InvalidObjectState extends __BaseException {
@@ -6598,6 +7039,7 @@ export class InvalidObjectState extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified key does not exist.</p>
  */
 export class NoSuchKey extends __BaseException {
@@ -6616,6 +7058,9 @@ export class NoSuchKey extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetObjectAclOutput {
   /**
    * <p> Container for the bucket owner's display name and ID.</p>
@@ -6634,6 +7079,9 @@ export interface GetObjectAclOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectAclRequest {
   /**
    * <p>The bucket name that contains the object for which to get the ACL information. </p>
@@ -6668,6 +7116,7 @@ export interface GetObjectAclRequest {
 }
 
 /**
+ * @public
  * <p>Contains all the possible checksum or digest values for an object.</p>
  */
 export interface Checksum {
@@ -6705,6 +7154,7 @@ export interface Checksum {
 }
 
 /**
+ * @public
  * <p>A container for elements related to an individual part.</p>
  */
 export interface ObjectPart {
@@ -6753,6 +7203,7 @@ export interface ObjectPart {
 }
 
 /**
+ * @public
  * <p>A collection of parts associated with a multipart upload.</p>
  */
 export interface GetObjectAttributesParts {
@@ -6792,6 +7243,9 @@ export interface GetObjectAttributesParts {
   Parts?: ObjectPart[];
 }
 
+/**
+ * @public
+ */
 export interface GetObjectAttributesOutput {
   /**
    * <p>Specifies whether the object retrieved was (<code>true</code>) or was not
@@ -6846,6 +7300,9 @@ export interface GetObjectAttributesOutput {
   ObjectSize?: number;
 }
 
+/**
+ * @public
+ */
 export enum ObjectAttributes {
   CHECKSUM = "Checksum",
   ETAG = "ETag",
@@ -6854,6 +7311,9 @@ export enum ObjectAttributes {
   STORAGE_CLASS = "StorageClass",
 }
 
+/**
+ * @public
+ */
 export interface GetObjectAttributesRequest {
   /**
    * <p>The name of the bucket that contains the object.</p>
@@ -6928,6 +7388,7 @@ export interface GetObjectAttributesRequest {
 }
 
 /**
+ * @public
  * <p>A legal hold configuration for an object.</p>
  */
 export interface ObjectLockLegalHold {
@@ -6937,6 +7398,9 @@ export interface ObjectLockLegalHold {
   Status?: ObjectLockLegalHoldStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectLegalHoldOutput {
   /**
    * <p>The current legal hold status for the specified object.</p>
@@ -6944,6 +7408,9 @@ export interface GetObjectLegalHoldOutput {
   LegalHold?: ObjectLockLegalHold;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectLegalHoldRequest {
   /**
    * <p>The bucket name containing the object whose legal hold status you want to retrieve. </p>
@@ -6977,16 +7444,23 @@ export interface GetObjectLegalHoldRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum ObjectLockEnabled {
   Enabled = "Enabled",
 }
 
+/**
+ * @public
+ */
 export enum ObjectLockRetentionMode {
   COMPLIANCE = "COMPLIANCE",
   GOVERNANCE = "GOVERNANCE",
 }
 
 /**
+ * @public
  * <p>The container element for specifying the default Object Lock retention settings for new
  *          objects placed in the specified bucket.</p>
  *          <note>
@@ -7024,6 +7498,7 @@ export interface DefaultRetention {
 }
 
 /**
+ * @public
  * <p>The container element for an Object Lock rule.</p>
  */
 export interface ObjectLockRule {
@@ -7037,6 +7512,7 @@ export interface ObjectLockRule {
 }
 
 /**
+ * @public
  * <p>The container element for Object Lock configuration parameters.</p>
  */
 export interface ObjectLockConfiguration {
@@ -7056,6 +7532,9 @@ export interface ObjectLockConfiguration {
   Rule?: ObjectLockRule;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectLockConfigurationOutput {
   /**
    * <p>The specified bucket's Object Lock configuration.</p>
@@ -7063,6 +7542,9 @@ export interface GetObjectLockConfigurationOutput {
   ObjectLockConfiguration?: ObjectLockConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectLockConfigurationRequest {
   /**
    * <p>The bucket whose Object Lock configuration you want to retrieve.</p>
@@ -7079,6 +7561,7 @@ export interface GetObjectLockConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>A Retention configuration for an object.</p>
  */
 export interface ObjectLockRetention {
@@ -7093,6 +7576,9 @@ export interface ObjectLockRetention {
   RetainUntilDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectRetentionOutput {
   /**
    * <p>The container element for an object's retention settings.</p>
@@ -7100,6 +7586,9 @@ export interface GetObjectRetentionOutput {
   Retention?: ObjectLockRetention;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectRetentionRequest {
   /**
    * <p>The bucket name containing the object whose retention settings you want to retrieve. </p>
@@ -7133,6 +7622,9 @@ export interface GetObjectRetentionRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectTaggingOutput {
   /**
    * <p>The versionId of the object for which you got the tagging information.</p>
@@ -7145,6 +7637,9 @@ export interface GetObjectTaggingOutput {
   TagSet: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectTaggingRequest {
   /**
    * <p>The bucket name containing the object for which to get the tagging information. </p>
@@ -7180,6 +7675,9 @@ export interface GetObjectTaggingRequest {
   RequestPayer?: RequestPayer | string;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectTorrentOutput {
   /**
    * <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
@@ -7193,6 +7691,9 @@ export interface GetObjectTorrentOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface GetObjectTorrentRequest {
   /**
    * <p>The name of the bucket containing the object for which to get the torrent files.</p>
@@ -7221,6 +7722,7 @@ export interface GetObjectTorrentRequest {
 }
 
 /**
+ * @public
  * <p>The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can
  *          enable the configuration options in any combination. For more information about when Amazon S3
  *          considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
@@ -7275,6 +7777,9 @@ export interface PublicAccessBlockConfiguration {
   RestrictPublicBuckets?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetPublicAccessBlockOutput {
   /**
    * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon S3
@@ -7283,6 +7788,9 @@ export interface GetPublicAccessBlockOutput {
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetPublicAccessBlockRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want
@@ -7298,6 +7806,9 @@ export interface GetPublicAccessBlockRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface HeadBucketRequest {
   /**
    * <p>The bucket name.</p>
@@ -7316,6 +7827,7 @@ export interface HeadBucketRequest {
 }
 
 /**
+ * @public
  * <p>The specified content does not exist.</p>
  */
 export class NotFound extends __BaseException {
@@ -7334,11 +7846,17 @@ export class NotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ArchiveStatus {
   ARCHIVE_ACCESS = "ARCHIVE_ACCESS",
   DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS",
 }
 
+/**
+ * @public
+ */
 export interface HeadObjectOutput {
   /**
    * <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If
@@ -7602,6 +8120,9 @@ export interface HeadObjectOutput {
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface HeadObjectRequest {
   /**
    * <p>The name of the bucket containing the object.</p>
@@ -7703,6 +8224,9 @@ export interface HeadObjectRequest {
   ChecksumMode?: ChecksumMode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListBucketAnalyticsConfigurationsOutput {
   /**
    * <p>Indicates whether the returned list of analytics configurations is complete. A value of
@@ -7732,6 +8256,9 @@ export interface ListBucketAnalyticsConfigurationsOutput {
   AnalyticsConfigurationList?: AnalyticsConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListBucketAnalyticsConfigurationsRequest {
   /**
    * <p>The name of the bucket from which analytics configurations are retrieved.</p>
@@ -7752,6 +8279,9 @@ export interface ListBucketAnalyticsConfigurationsRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBucketIntelligentTieringConfigurationsOutput {
   /**
    * <p>Indicates whether the returned list of analytics configurations is complete. A value of
@@ -7779,6 +8309,9 @@ export interface ListBucketIntelligentTieringConfigurationsOutput {
   IntelligentTieringConfigurationList?: IntelligentTieringConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListBucketIntelligentTieringConfigurationsRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
@@ -7794,6 +8327,9 @@ export interface ListBucketIntelligentTieringConfigurationsRequest {
   ContinuationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBucketInventoryConfigurationsOutput {
   /**
    * <p>If sent in the request, the marker that is used as a starting point for this inventory
@@ -7821,6 +8357,9 @@ export interface ListBucketInventoryConfigurationsOutput {
   NextContinuationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBucketInventoryConfigurationsRequest {
   /**
    * <p>The name of the bucket containing the inventory configurations to retrieve.</p>
@@ -7842,6 +8381,9 @@ export interface ListBucketInventoryConfigurationsRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBucketMetricsConfigurationsOutput {
   /**
    * <p>Indicates whether the returned list of metrics configurations is complete. A value of
@@ -7870,6 +8412,9 @@ export interface ListBucketMetricsConfigurationsOutput {
   MetricsConfigurationList?: MetricsConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListBucketMetricsConfigurationsRequest {
   /**
    * <p>The name of the bucket containing the metrics configurations to retrieve.</p>
@@ -7893,6 +8438,7 @@ export interface ListBucketMetricsConfigurationsRequest {
 }
 
 /**
+ * @public
  * <p> In terms of implementation, a Bucket is a resource. An Amazon S3 bucket name is globally
  *          unique, and the namespace is shared by all Amazon Web Services accounts. </p>
  */
@@ -7908,6 +8454,9 @@ export interface Bucket {
   CreationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListBucketsOutput {
   /**
    * <p>The list of buckets owned by the requester.</p>
@@ -7921,6 +8470,7 @@ export interface ListBucketsOutput {
 }
 
 /**
+ * @public
  * <p>Container for all (if there are any) keys between Prefix and the next occurrence of the
  *          string specified by a delimiter. CommonPrefixes lists keys that act like subdirectories in
  *          the directory specified by Prefix. For example, if the prefix is notes/ and the delimiter
@@ -7933,11 +8483,15 @@ export interface CommonPrefix {
   Prefix?: string;
 }
 
+/**
+ * @public
+ */
 export enum EncodingType {
   url = "url",
 }
 
 /**
+ * @public
  * <p>Container element that identifies who initiated the multipart upload. </p>
  */
 export interface Initiator {
@@ -7954,6 +8508,7 @@ export interface Initiator {
 }
 
 /**
+ * @public
  * <p>Container for the <code>MultipartUpload</code> for the Amazon S3 object.</p>
  */
 export interface MultipartUpload {
@@ -7993,6 +8548,9 @@ export interface MultipartUpload {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMultipartUploadsOutput {
   /**
    * <p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
@@ -8071,6 +8629,9 @@ export interface ListMultipartUploadsOutput {
   EncodingType?: EncodingType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMultipartUploadsRequest {
   /**
    * <p>The name of the bucket to which the multipart upload was initiated. </p>
@@ -8142,6 +8703,9 @@ export interface ListMultipartUploadsRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum ObjectStorageClass {
   DEEP_ARCHIVE = "DEEP_ARCHIVE",
   GLACIER = "GLACIER",
@@ -8155,6 +8719,7 @@ export enum ObjectStorageClass {
 }
 
 /**
+ * @public
  * <p>An object consists of data and its descriptive metadata.</p>
  */
 export interface _Object {
@@ -8216,6 +8781,9 @@ export interface _Object {
   Owner?: Owner;
 }
 
+/**
+ * @public
+ */
 export interface ListObjectsOutput {
   /**
    * <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search
@@ -8288,6 +8856,9 @@ export interface ListObjectsOutput {
   EncodingType?: EncodingType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListObjectsRequest {
   /**
    * <p>The name of the bucket containing the objects.</p>
@@ -8344,6 +8915,7 @@ export interface ListObjectsRequest {
 }
 
 /**
+ * @public
  * <p>The specified bucket does not exist.</p>
  */
 export class NoSuchBucket extends __BaseException {
@@ -8362,6 +8934,9 @@ export class NoSuchBucket extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListObjectsV2Output {
   /**
    * <p>Set to false if all of the results were returned. Set to true if more keys are available
@@ -8458,6 +9033,9 @@ export interface ListObjectsV2Output {
   StartAfter?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListObjectsV2Request {
   /**
    * <p>Bucket name to list. </p>
@@ -8523,6 +9101,7 @@ export interface ListObjectsV2Request {
 }
 
 /**
+ * @public
  * <p>Information about the delete marker.</p>
  */
 export interface DeleteMarkerEntry {
@@ -8553,11 +9132,15 @@ export interface DeleteMarkerEntry {
   LastModified?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ObjectVersionStorageClass {
   STANDARD = "STANDARD",
 }
 
 /**
+ * @public
  * <p>The version of an object.</p>
  */
 export interface ObjectVersion {
@@ -8608,6 +9191,9 @@ export interface ObjectVersion {
   Owner?: Owner;
 }
 
+/**
+ * @public
+ */
 export interface ListObjectVersionsOutput {
   /**
    * <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search
@@ -8693,6 +9279,9 @@ export interface ListObjectVersionsOutput {
   EncodingType?: EncodingType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListObjectVersionsRequest {
   /**
    * <p>The bucket name that contains the objects. </p>
@@ -8754,6 +9343,7 @@ export interface ListObjectVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Container for elements related to a part.</p>
  */
 export interface Part {
@@ -8811,6 +9401,9 @@ export interface Part {
   ChecksumSHA256?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPartsOutput {
   /**
    * <p>If the bucket has a lifecycle rule configured with an action to abort incomplete
@@ -8910,6 +9503,9 @@ export interface ListPartsOutput {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPartsRequest {
   /**
    * <p>The name of the bucket to which the parts are being uploaded. </p>
@@ -8980,6 +9576,9 @@ export interface ListPartsRequest {
   SSECustomerKeyMD5?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketAccelerateConfigurationRequest {
   /**
    * <p>The name of the bucket for which the accelerate configuration is set.</p>
@@ -9010,6 +9609,9 @@ export interface PutBucketAccelerateConfigurationRequest {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketAclRequest {
   /**
    * <p>The canned ACL to apply to the bucket.</p>
@@ -9082,6 +9684,9 @@ export interface PutBucketAclRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketAnalyticsConfigurationRequest {
   /**
    * <p>The name of the bucket to which an analytics configuration is stored.</p>
@@ -9107,6 +9712,7 @@ export interface PutBucketAnalyticsConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
  *             Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -9119,6 +9725,9 @@ export interface CORSConfiguration {
   CORSRules: CORSRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketCorsRequest {
   /**
    * <p>Specifies the bucket impacted by the <code>cors</code>configuration.</p>
@@ -9161,6 +9770,9 @@ export interface PutBucketCorsRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketEncryptionRequest {
   /**
    * <p>Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed
@@ -9200,6 +9812,9 @@ export interface PutBucketEncryptionRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketIntelligentTieringConfigurationRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
@@ -9219,6 +9834,9 @@ export interface PutBucketIntelligentTieringConfigurationRequest {
   IntelligentTieringConfiguration: IntelligentTieringConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketInventoryConfigurationRequest {
   /**
    * <p>The name of the bucket where the inventory configuration will be stored.</p>
@@ -9244,6 +9862,7 @@ export interface PutBucketInventoryConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle Management</a>
  *          in the <i>Amazon S3 User Guide</i>.</p>
@@ -9255,6 +9874,9 @@ export interface BucketLifecycleConfiguration {
   Rules: LifecycleRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketLifecycleConfigurationRequest {
   /**
    * <p>The name of the bucket for which to set the configuration.</p>
@@ -9286,6 +9908,7 @@ export interface PutBucketLifecycleConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Container for logging status information.</p>
  */
 export interface BucketLoggingStatus {
@@ -9297,6 +9920,9 @@ export interface BucketLoggingStatus {
   LoggingEnabled?: LoggingEnabled;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketLoggingRequest {
   /**
    * <p>The name of the bucket for which to set the logging parameters.</p>
@@ -9333,6 +9959,9 @@ export interface PutBucketLoggingRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket for which the metrics configuration is set.</p>
@@ -9357,6 +9986,9 @@ export interface PutBucketMetricsConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketNotificationConfigurationRequest {
   /**
    * <p>The name of the bucket.</p>
@@ -9382,6 +10014,9 @@ export interface PutBucketNotificationConfigurationRequest {
   SkipDestinationValidation?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketOwnershipControlsRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>OwnershipControls</code> you want to set.</p>
@@ -9408,6 +10043,9 @@ export interface PutBucketOwnershipControlsRequest {
   OwnershipControls: OwnershipControls | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketPolicyRequest {
   /**
    * <p>The name of the bucket.</p>
@@ -9450,6 +10088,9 @@ export interface PutBucketPolicyRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketReplicationRequest {
   /**
    * <p>The name of the bucket</p>
@@ -9495,6 +10136,7 @@ export interface PutBucketReplicationRequest {
 }
 
 /**
+ * @public
  * <p>Container for Payer.</p>
  */
 export interface RequestPaymentConfiguration {
@@ -9504,6 +10146,9 @@ export interface RequestPaymentConfiguration {
   Payer: Payer | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketRequestPaymentRequest {
   /**
    * <p>The bucket name.</p>
@@ -9544,6 +10189,7 @@ export interface PutBucketRequestPaymentRequest {
 }
 
 /**
+ * @public
  * <p>Container for <code>TagSet</code> elements.</p>
  */
 export interface Tagging {
@@ -9553,6 +10199,9 @@ export interface Tagging {
   TagSet: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketTaggingRequest {
   /**
    * <p>The bucket name.</p>
@@ -9591,12 +10240,16 @@ export interface PutBucketTaggingRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum MFADelete {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>Describes the versioning state of an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html">PUT
  *             Bucket versioning</a> in the <i>Amazon S3 API Reference</i>.</p>
  */
@@ -9614,6 +10267,9 @@ export interface VersioningConfiguration {
   Status?: BucketVersioningStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketVersioningRequest {
   /**
    * <p>The bucket name.</p>
@@ -9660,6 +10316,7 @@ export interface PutBucketVersioningRequest {
 }
 
 /**
+ * @public
  * <p>Specifies website configuration parameters for an Amazon S3 bucket.</p>
  */
 export interface WebsiteConfiguration {
@@ -9687,6 +10344,9 @@ export interface WebsiteConfiguration {
   RoutingRules?: RoutingRule[];
 }
 
+/**
+ * @public
+ */
 export interface PutBucketWebsiteRequest {
   /**
    * <p>The bucket name.</p>
@@ -9725,6 +10385,9 @@ export interface PutBucketWebsiteRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectOutput {
   /**
    * <p>If the expiration is configured for the object (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>), the response includes this header. It
@@ -9823,6 +10486,9 @@ export interface PutObjectOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectRequest {
   /**
    * <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
@@ -10095,6 +10761,9 @@ export interface PutObjectRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectAclOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -10103,6 +10772,9 @@ export interface PutObjectAclOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectAclRequest {
   /**
    * <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
@@ -10203,6 +10875,9 @@ export interface PutObjectAclRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectLegalHoldOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -10211,6 +10886,9 @@ export interface PutObjectLegalHoldOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectLegalHoldRequest {
   /**
    * <p>The bucket name containing the object that you want to place a legal hold on. </p>
@@ -10267,6 +10945,9 @@ export interface PutObjectLegalHoldRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectLockConfigurationOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -10275,6 +10956,9 @@ export interface PutObjectLockConfigurationOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectLockConfigurationRequest {
   /**
    * <p>The bucket whose Object Lock configuration you want to create or replace.</p>

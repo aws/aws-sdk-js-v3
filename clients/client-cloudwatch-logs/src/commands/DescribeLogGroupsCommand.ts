@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLogGroupsCommand}.
  */
 export interface DescribeLogGroupsCommandInput extends DescribeLogGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLogGroupsCommand}.
  */
 export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
  *       The results are ASCII-sorted by log group name.</p>
  *          <p>CloudWatch Logs doesn’t support IAM policies that control access to the <code>DescribeLogGroups</code> action by using the
@@ -57,6 +62,8 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLogGroupsCommandInput - {@link DescribeLogGroupsCommandInput}
+ * @returns {@link DescribeLogGroupsCommandOutput}
  * @see {@link DescribeLogGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeLogGroupsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeLogGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLogGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeLogGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLogGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLogGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLogGroupsCommandOutput> {
     return deserializeAws_json1_1DescribeLogGroupsCommand(output, context);
   }

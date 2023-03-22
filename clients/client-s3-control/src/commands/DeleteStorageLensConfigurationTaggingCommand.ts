@@ -27,11 +27,15 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStorageLensConfigurationTaggingCommand}.
  */
 export interface DeleteStorageLensConfigurationTaggingCommandInput
   extends DeleteStorageLensConfigurationTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStorageLensConfigurationTaggingCommand}.
  */
 export interface DeleteStorageLensConfigurationTaggingCommandOutput
@@ -39,6 +43,7 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the Amazon S3 Storage Lens configuration tags. For more information about S3 Storage Lens, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your
  *             storage activity and usage with Amazon S3 Storage Lens </a> in the
@@ -59,6 +64,8 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStorageLensConfigurationTaggingCommandInput - {@link DeleteStorageLensConfigurationTaggingCommandInput}
+ * @returns {@link DeleteStorageLensConfigurationTaggingCommandOutput}
  * @see {@link DeleteStorageLensConfigurationTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteStorageLensConfigurationTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStorageLensConfigurationTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DeleteStorageLensConfigurationTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteStorageLensConfigurationTaggingCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DeleteStorageLensConfigurationTaggingCommand extends $Command<
     return serializeAws_restXmlDeleteStorageLensConfigurationTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAttendeeCapabilitiesCommand}.
  */
 export interface UpdateAttendeeCapabilitiesCommandInput extends UpdateAttendeeCapabilitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAttendeeCapabilitiesCommand}.
  */
 export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeCapabilitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The capabilties that you want to update.</p>
  *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
@@ -66,6 +71,8 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAttendeeCapabilitiesCommandInput - {@link UpdateAttendeeCapabilitiesCommandInput}
+ * @returns {@link UpdateAttendeeCapabilitiesCommandOutput}
  * @see {@link UpdateAttendeeCapabilitiesCommandInput} for command's `input` shape.
  * @see {@link UpdateAttendeeCapabilitiesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -107,6 +114,9 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAttendeeCapabilitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAttendeeCapabilitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAttendeeCapabilitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

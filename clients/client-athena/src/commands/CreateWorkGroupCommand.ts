@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkGroupCommand}.
  */
 export interface CreateWorkGroupCommandInput extends CreateWorkGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkGroupCommand}.
  */
 export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a workgroup with the specified name. Only one of <code>Configurations</code>
  *             or <code>Configuration</code> can be specified; <code>Configurations</code> for a
  *             workgroup with multi engine support (for example, an Apache Spark enabled workgroup) or
@@ -49,6 +54,8 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkGroupCommandInput - {@link CreateWorkGroupCommandInput}
+ * @returns {@link CreateWorkGroupCommandOutput}
  * @see {@link CreateWorkGroupCommandInput} for command's `input` shape.
  * @see {@link CreateWorkGroupCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateWorkGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateWorkGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWorkGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkGroupCommandOutput> {
     return deserializeAws_json1_1CreateWorkGroupCommand(output, context);
   }

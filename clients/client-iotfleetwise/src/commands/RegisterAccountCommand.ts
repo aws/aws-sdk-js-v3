@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterAccountCommand}.
  */
 export interface RegisterAccountCommandInput extends RegisterAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterAccountCommand}.
  */
 export interface RegisterAccountCommandOutput extends RegisterAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers your Amazon Web Services account, IAM, and Amazon Timestream resources so Amazon Web Services IoT FleetWise can
  *             transfer your vehicle data to the Amazon Web Services Cloud. For more information, including
  *             step-by-step procedures, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html">Setting up
@@ -56,6 +61,8 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterAccountCommandInput - {@link RegisterAccountCommandInput}
+ * @returns {@link RegisterAccountCommandOutput}
  * @see {@link RegisterAccountCommandInput} for command's `input` shape.
  * @see {@link RegisterAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -98,6 +105,9 @@ export class RegisterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class RegisterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RegisterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterAccountCommandOutput> {
     return deserializeAws_json1_0RegisterAccountCommand(output, context);
   }

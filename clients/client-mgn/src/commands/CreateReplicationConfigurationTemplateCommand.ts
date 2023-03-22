@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationConfigurationTemplateCommand}.
  */
 export interface CreateReplicationConfigurationTemplateCommandInput
   extends CreateReplicationConfigurationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationConfigurationTemplateCommand}.
  */
 export interface CreateReplicationConfigurationTemplateCommandOutput
@@ -38,6 +42,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new ReplicationConfigurationTemplate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationConfigurationTemplateCommandInput - {@link CreateReplicationConfigurationTemplateCommandInput}
+ * @returns {@link CreateReplicationConfigurationTemplateCommandOutput}
  * @see {@link CreateReplicationConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateReplicationConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class CreateReplicationConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateReplicationConfigurationTemplateCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class CreateReplicationConfigurationTemplateCommand extends $Command<
     return serializeAws_restJson1CreateReplicationConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

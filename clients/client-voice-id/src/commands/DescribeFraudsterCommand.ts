@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFraudsterCommand}.
  */
 export interface DescribeFraudsterCommandInput extends DescribeFraudsterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFraudsterCommand}.
  */
 export interface DescribeFraudsterCommandOutput extends DescribeFraudsterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified fraudster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFraudsterCommandInput - {@link DescribeFraudsterCommandInput}
+ * @returns {@link DescribeFraudsterCommandOutput}
  * @see {@link DescribeFraudsterCommandInput} for command's `input` shape.
  * @see {@link DescribeFraudsterCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeFraudsterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFraudsterCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeFraudsterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFraudsterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeFraudsterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFraudsterCommandOutput> {
     return deserializeAws_json1_0DescribeFraudsterCommand(output, context);
   }

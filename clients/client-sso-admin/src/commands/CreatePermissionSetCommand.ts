@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePermissionSetCommand}.
  */
 export interface CreatePermissionSetCommandInput extends CreatePermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePermissionSetCommand}.
  */
 export interface CreatePermissionSetCommandOutput extends CreatePermissionSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a permission set within a specified IAM Identity Center instance.</p>
  *          <note>
  *             <p>To grant users and groups access to AWS account resources, use <code>
@@ -51,6 +56,8 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePermissionSetCommandInput - {@link CreatePermissionSetCommandInput}
+ * @returns {@link CreatePermissionSetCommandOutput}
  * @see {@link CreatePermissionSetCommandInput} for command's `input` shape.
  * @see {@link CreatePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreatePermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreatePermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionSetCommandOutput> {
     return deserializeAws_json1_1CreatePermissionSetCommand(output, context);
   }

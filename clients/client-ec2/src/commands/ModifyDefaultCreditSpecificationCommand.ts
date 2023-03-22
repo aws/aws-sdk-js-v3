@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDefaultCreditSpecificationCommand}.
  */
 export interface ModifyDefaultCreditSpecificationCommandInput extends ModifyDefaultCreditSpecificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDefaultCreditSpecificationCommand}.
  */
 export interface ModifyDefaultCreditSpecificationCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the default credit option for CPU usage of burstable performance instances.
  *             The default credit option is set at the account level per Amazon Web Services Region, and
  *             is specified per instance family. All new burstable performance instances in the account
@@ -61,6 +66,8 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDefaultCreditSpecificationCommandInput - {@link ModifyDefaultCreditSpecificationCommandInput}
+ * @returns {@link ModifyDefaultCreditSpecificationCommandOutput}
  * @see {@link ModifyDefaultCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link ModifyDefaultCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -84,6 +91,9 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDefaultCreditSpecificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyDefaultCreditSpecificationCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     return serializeAws_ec2ModifyDefaultCreditSpecificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetOriginRequestPolicyCommand}.
  */
 export interface GetOriginRequestPolicyCommandInput extends GetOriginRequestPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOriginRequestPolicyCommand}.
  */
 export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an origin request policy, including the following metadata:</p>
  *          <ul>
  *             <li>
@@ -60,6 +65,8 @@ export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPol
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOriginRequestPolicyCommandInput - {@link GetOriginRequestPolicyCommandInput}
+ * @returns {@link GetOriginRequestPolicyCommandOutput}
  * @see {@link GetOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link GetOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetOriginRequestPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOriginRequestPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetOriginRequestPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOriginRequestPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetOriginRequestPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOriginRequestPolicyCommandOutput> {
     return deserializeAws_restXmlGetOriginRequestPolicyCommand(output, context);
   }

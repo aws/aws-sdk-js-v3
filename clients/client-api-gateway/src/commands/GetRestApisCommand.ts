@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRestApisCommand}.
  */
 export interface GetRestApisCommandInput extends GetRestApisRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRestApisCommand}.
  */
 export interface GetRestApisCommandOutput extends RestApis, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the RestApis resources for your collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRestApisCommandOutput extends RestApis, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRestApisCommandInput - {@link GetRestApisCommandInput}
+ * @returns {@link GetRestApisCommandOutput}
  * @see {@link GetRestApisCommandInput} for command's `input` shape.
  * @see {@link GetRestApisCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetRestApisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRestApisCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetRestApisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRestApisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRestApisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRestApisCommandOutput> {
     return deserializeAws_restJson1GetRestApisCommand(output, context);
   }

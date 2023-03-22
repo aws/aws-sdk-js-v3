@@ -171,6 +171,7 @@ import {
 import { IoTThingsGraphClient } from "./IoTThingsGraphClient";
 
 /**
+ * @public
  * <fullname>AWS IoT Things Graph</fullname>
  *          <p>AWS IoT Things Graph provides an integrated set of tools that enable developers to connect devices and services that use different standards,
  *        such as units of measure and communication protocols. AWS IoT Things Graph makes it possible to build IoT applications with little to no code by connecting devices and services
@@ -181,6 +182,7 @@ import { IoTThingsGraphClient } from "./IoTThingsGraphClient";
  */
 export class IoTThingsGraph extends IoTThingsGraphClient {
   /**
+   * @public
    * @deprecated
    *
    * <p>Associates a device with a concrete thing that is in the user's registry.</p>
@@ -216,6 +218,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only
@@ -252,6 +255,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Creates a system instance. </p>
@@ -294,6 +298,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Creates a system. The system is validated against the entities in the
@@ -329,6 +334,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
@@ -364,6 +370,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action. This action takes no
@@ -399,6 +406,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deletes a system instance.
@@ -435,6 +443,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deletes a system. New deployments can't contain the system after its deletion.
@@ -470,6 +479,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>
@@ -515,6 +525,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>
@@ -549,6 +560,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecates the specified system.</p>
@@ -583,6 +595,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>
@@ -617,6 +630,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
@@ -652,6 +666,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
@@ -711,6 +726,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>
@@ -745,6 +761,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated,
@@ -780,6 +797,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets the status of a namespace deletion task.</p>
@@ -814,6 +832,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets a system instance.</p>
@@ -848,6 +867,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets a system.</p>
@@ -882,6 +902,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return
@@ -917,6 +938,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Gets the status of the specified upload.</p>
@@ -951,6 +973,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Returns a list of objects that contain information about events in a flow execution.</p>
@@ -985,6 +1008,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Lists all tags on an AWS IoT Things Graph resource.</p>
@@ -1019,6 +1043,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
@@ -1053,6 +1078,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
@@ -1087,6 +1113,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Searches for summary information about workflows.</p>
@@ -1121,6 +1148,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Searches for system instances in the user's account.</p>
@@ -1155,6 +1183,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>
@@ -1189,6 +1218,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Searches for things associated with the specified entity. You can search by both device and device model.</p>
@@ -1223,6 +1253,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Creates a tag for the specified resource.</p>
@@ -1251,6 +1282,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Removes a system instance from its target (Cloud or Greengrass).</p>
@@ -1285,6 +1317,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Removes a tag from the specified resource.</p>
@@ -1319,6 +1352,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this
@@ -1354,6 +1388,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>
@@ -1388,6 +1423,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if

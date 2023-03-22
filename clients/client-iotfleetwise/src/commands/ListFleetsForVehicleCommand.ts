@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListFleetsForVehicleCommand}.
  */
 export interface ListFleetsForVehicleCommandInput extends ListFleetsForVehicleRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFleetsForVehicleCommand}.
  */
 export interface ListFleetsForVehicleCommandOutput extends ListFleetsForVehicleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of IDs for all fleets that the vehicle is associated with.</p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -49,6 +54,8 @@ export interface ListFleetsForVehicleCommandOutput extends ListFleetsForVehicleR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFleetsForVehicleCommandInput - {@link ListFleetsForVehicleCommandInput}
+ * @returns {@link ListFleetsForVehicleCommandOutput}
  * @see {@link ListFleetsForVehicleCommandInput} for command's `input` shape.
  * @see {@link ListFleetsForVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListFleetsForVehicleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFleetsForVehicleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListFleetsForVehicleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFleetsForVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListFleetsForVehicleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFleetsForVehicleCommandOutput> {
     return deserializeAws_json1_0ListFleetsForVehicleCommand(output, context);
   }

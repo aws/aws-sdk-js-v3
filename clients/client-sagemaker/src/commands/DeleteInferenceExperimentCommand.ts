@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInferenceExperimentCommand}.
  */
 export interface DeleteInferenceExperimentCommandInput extends DeleteInferenceExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInferenceExperimentCommand}.
  */
 export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an inference experiment.</p>
  *          <note>
  *             <p>
@@ -52,6 +57,8 @@ export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceE
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInferenceExperimentCommandInput - {@link DeleteInferenceExperimentCommandInput}
+ * @returns {@link DeleteInferenceExperimentCommandOutput}
  * @see {@link DeleteInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link DeleteInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteInferenceExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInferenceExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteInferenceExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInferenceExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

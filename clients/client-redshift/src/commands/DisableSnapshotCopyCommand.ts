@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableSnapshotCopyCommand}.
  */
 export interface DisableSnapshotCopyCommandInput extends DisableSnapshotCopyMessage {}
 /**
+ * @public
+ *
  * The output of {@link DisableSnapshotCopyCommand}.
  */
 export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the automatic copying of snapshots from one region to another region for a
  *             specified cluster.</p>
  *          <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key
@@ -50,6 +55,8 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableSnapshotCopyCommandInput - {@link DisableSnapshotCopyCommandInput}
+ * @returns {@link DisableSnapshotCopyCommandOutput}
  * @see {@link DisableSnapshotCopyCommandInput} for command's `input` shape.
  * @see {@link DisableSnapshotCopyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisableSnapshotCopyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableSnapshotCopyCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DisableSnapshotCopyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableSnapshotCopyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDisableSnapshotCopyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableSnapshotCopyCommandOutput> {
     return deserializeAws_queryDisableSnapshotCopyCommand(output, context);
   }

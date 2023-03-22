@@ -10,7 +10,7 @@ import {
 import { Cloud9PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Cloud9Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeEnvironmentMembershipsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeEnvironmentMemberships(
   config: Cloud9PaginationConfiguration,
   input: DescribeEnvironmentMembershipsCommandInput,

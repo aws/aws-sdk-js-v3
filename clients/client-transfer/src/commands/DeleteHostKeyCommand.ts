@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHostKeyCommand}.
  */
 export interface DeleteHostKeyCommandInput extends DeleteHostKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHostKeyCommand}.
  */
 export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the host key that's specified in the <code>HoskKeyId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHostKeyCommandInput - {@link DeleteHostKeyCommandInput}
+ * @returns {@link DeleteHostKeyCommandOutput}
  * @see {@link DeleteHostKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteHostKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHostKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteHostKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHostKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteHostKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostKeyCommandOutput> {
     return deserializeAws_json1_1DeleteHostKeyCommand(output, context);
   }

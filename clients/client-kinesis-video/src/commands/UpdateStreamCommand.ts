@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStreamCommand}.
  */
 export interface UpdateStreamCommandInput extends UpdateStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStreamCommand}.
  */
 export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates stream metadata, such as the device name and media type.</p>
  *          <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
  *             stream.</p>
@@ -55,6 +60,8 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStreamCommandInput - {@link UpdateStreamCommandInput}
+ * @returns {@link UpdateStreamCommandOutput}
  * @see {@link UpdateStreamCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -116,6 +123,9 @@ export class UpdateStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class UpdateStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamCommandOutput> {
     return deserializeAws_restJson1UpdateStreamCommand(output, context);
   }

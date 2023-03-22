@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProductCommand}.
  */
 export interface DeleteProductCommandInput extends DeleteProductInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProductCommand}.
  */
 export interface DeleteProductCommandOutput extends DeleteProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified product.</p>
  *          <p>You cannot delete a product if it was shared with you or is associated with a portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
@@ -48,6 +53,8 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProductCommandInput - {@link DeleteProductCommandInput}
+ * @returns {@link DeleteProductCommandOutput}
  * @see {@link DeleteProductCommandInput} for command's `input` shape.
  * @see {@link DeleteProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProductCommandOutput> {
     return deserializeAws_json1_1DeleteProductCommand(output, context);
   }

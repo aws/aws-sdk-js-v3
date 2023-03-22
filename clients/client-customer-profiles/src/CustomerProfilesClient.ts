@@ -134,6 +134,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddProfileKeyCommandInput
   | CreateDomainCommandInput
@@ -174,6 +177,9 @@ export type ServiceInputTypes =
   | UpdateDomainCommandInput
   | UpdateProfileCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddProfileKeyCommandOutput
   | CreateDomainCommandOutput
@@ -214,6 +220,9 @@ export type ServiceOutputTypes =
   | UpdateDomainCommandOutput
   | UpdateProfileCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -221,7 +230,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -330,11 +339,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CustomerProfilesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -345,10 +357,15 @@ type CustomerProfilesClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CustomerProfilesClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CustomerProfilesClient class constructor that set the region, credentials and other options.
  */
 export interface CustomerProfilesClientConfig extends CustomerProfilesClientConfigType {}
 
+/**
+ * @public
+ */
 type CustomerProfilesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -359,11 +376,14 @@ type CustomerProfilesClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CustomerProfilesClient class. This is resolved and normalized from the {@link CustomerProfilesClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CustomerProfilesClient class. This is resolved and normalized from the {@link CustomerProfilesClientConfig | constructor configuration interface}.
  */
 export interface CustomerProfilesClientResolvedConfig extends CustomerProfilesClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Connect Customer Profiles</fullname>
  *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has
  *          pre-built connectors powered by AppFlow that make it easy to combine customer information

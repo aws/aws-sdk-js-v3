@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMonitoringScheduleCommand}.
  */
 export interface DeleteMonitoringScheduleCommandInput extends DeleteMonitoringScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMonitoringScheduleCommand}.
  */
 export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
  *          This does not delete the job execution history of the monitoring schedule. </p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMonitoringScheduleCommandInput - {@link DeleteMonitoringScheduleCommandInput}
+ * @returns {@link DeleteMonitoringScheduleCommandOutput}
  * @see {@link DeleteMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -68,6 +75,9 @@ export class DeleteMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class DeleteMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMonitoringScheduleCommandOutput> {
     return deserializeAws_json1_1DeleteMonitoringScheduleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportAppCatalogCommand}.
  */
 export interface ImportAppCatalogCommandInput extends ImportAppCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportAppCatalogCommand}.
  */
 export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows application import from Migration Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportAppCatalogCommandInput - {@link ImportAppCatalogCommandInput}
+ * @returns {@link ImportAppCatalogCommandOutput}
  * @see {@link ImportAppCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportAppCatalogCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -85,6 +92,9 @@ export class ImportAppCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportAppCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ImportAppCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportAppCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportAppCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportAppCatalogCommandOutput> {
     return deserializeAws_json1_1ImportAppCatalogCommand(output, context);
   }

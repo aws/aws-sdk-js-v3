@@ -26,11 +26,15 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateServiceActionWithProvisioningArtifactCommand}.
  */
 export interface AssociateServiceActionWithProvisioningArtifactCommandInput
   extends AssociateServiceActionWithProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateServiceActionWithProvisioningArtifactCommand}.
  */
 export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
@@ -38,6 +42,7 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a self-service action with a provisioning artifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateServiceActionWithProvisioningArtifactCommandInput - {@link AssociateServiceActionWithProvisioningArtifactCommandInput}
+ * @returns {@link AssociateServiceActionWithProvisioningArtifactCommandOutput}
  * @see {@link AssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -82,6 +89,9 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateServiceActionWithProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateServiceActionWithProvisioningArtifactCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     return serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

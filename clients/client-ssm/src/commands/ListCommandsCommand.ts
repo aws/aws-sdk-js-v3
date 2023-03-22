@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCommandsCommand}.
  */
 export interface ListCommandsCommandInput extends ListCommandsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCommandsCommand}.
  */
 export interface ListCommandsCommandOutput extends ListCommandsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the commands requested by users of the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCommandsCommandOutput extends ListCommandsResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCommandsCommandInput - {@link ListCommandsCommandInput}
+ * @returns {@link ListCommandsCommandOutput}
  * @see {@link ListCommandsCommandInput} for command's `input` shape.
  * @see {@link ListCommandsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -101,6 +108,9 @@ export class ListCommandsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCommandsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ListCommandsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCommandsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCommandsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCommandsCommandOutput> {
     return deserializeAws_json1_1ListCommandsCommand(output, context);
   }

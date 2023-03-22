@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AttachLoadBalancerToSubnetsCommand}.
  */
 export interface AttachLoadBalancerToSubnetsCommandInput extends AttachLoadBalancerToSubnetsInput {}
 /**
+ * @public
+ *
  * The output of {@link AttachLoadBalancerToSubnetsCommand}.
  */
 export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBalancerToSubnetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more subnets to the set of configured subnets for the specified load balancer.</p>
  *         <p>The load balancer evenly distributes requests across all registered subnets.
  *             For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add or Remove Subnets for Your Load Balancer in a VPC</a>
@@ -53,6 +58,8 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachLoadBalancerToSubnetsCommandInput - {@link AttachLoadBalancerToSubnetsCommandInput}
+ * @returns {@link AttachLoadBalancerToSubnetsCommandOutput}
  * @see {@link AttachLoadBalancerToSubnetsCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancerToSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -110,6 +117,9 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachLoadBalancerToSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachLoadBalancerToSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAttachLoadBalancerToSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

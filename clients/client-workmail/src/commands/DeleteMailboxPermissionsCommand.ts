@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMailboxPermissionsCommand}.
  */
 export interface DeleteMailboxPermissionsCommandInput extends DeleteMailboxPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMailboxPermissionsCommand}.
  */
 export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes permissions granted to a member (user or group).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMailboxPermissionsCommandInput - {@link DeleteMailboxPermissionsCommandInput}
+ * @returns {@link DeleteMailboxPermissionsCommandOutput}
  * @see {@link DeleteMailboxPermissionsCommandInput} for command's `input` shape.
  * @see {@link DeleteMailboxPermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteMailboxPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMailboxPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteMailboxPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMailboxPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMailboxPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMailboxPermissionsCommandOutput> {
     return deserializeAws_json1_1DeleteMailboxPermissionsCommand(output, context);
   }

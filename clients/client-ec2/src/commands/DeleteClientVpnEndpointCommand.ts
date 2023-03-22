@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClientVpnEndpointCommand}.
  */
 export interface DeleteClientVpnEndpointCommandInput extends DeleteClientVpnEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClientVpnEndpointCommand}.
  */
 export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEndpointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Client VPN endpoint. You must disassociate all target networks before you
  * 			can delete a Client VPN endpoint.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClientVpnEndpointCommandInput - {@link DeleteClientVpnEndpointCommandInput}
+ * @returns {@link DeleteClientVpnEndpointCommandOutput}
  * @see {@link DeleteClientVpnEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteClientVpnEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteClientVpnEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClientVpnEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteClientVpnEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClientVpnEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteClientVpnEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientVpnEndpointCommandOutput> {
     return deserializeAws_ec2DeleteClientVpnEndpointCommand(output, context);
   }

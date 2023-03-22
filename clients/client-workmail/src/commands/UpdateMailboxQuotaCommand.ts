@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMailboxQuotaCommand}.
  */
 export interface UpdateMailboxQuotaCommandInput extends UpdateMailboxQuotaRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMailboxQuotaCommand}.
  */
 export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a user's current mailbox quota for a specified organization and
  *          user.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMailboxQuotaCommandInput - {@link UpdateMailboxQuotaCommandInput}
+ * @returns {@link UpdateMailboxQuotaCommandOutput}
  * @see {@link UpdateMailboxQuotaCommandInput} for command's `input` shape.
  * @see {@link UpdateMailboxQuotaCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateMailboxQuotaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMailboxQuotaCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateMailboxQuotaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMailboxQuotaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMailboxQuotaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMailboxQuotaCommandOutput> {
     return deserializeAws_json1_1UpdateMailboxQuotaCommand(output, context);
   }

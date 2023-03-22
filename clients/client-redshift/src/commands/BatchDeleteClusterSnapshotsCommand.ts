@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteClusterSnapshotsCommand}.
  */
 export interface BatchDeleteClusterSnapshotsCommandInput extends BatchDeleteClusterSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteClusterSnapshotsCommand}.
  */
 export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClusterSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a set of cluster snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteClusterSnapshotsCommandInput - {@link BatchDeleteClusterSnapshotsCommandInput}
+ * @returns {@link BatchDeleteClusterSnapshotsCommandOutput}
  * @see {@link BatchDeleteClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -73,6 +80,9 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteClusterSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryBatchDeleteClusterSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

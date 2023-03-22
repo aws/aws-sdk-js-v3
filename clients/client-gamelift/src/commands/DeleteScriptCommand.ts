@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScriptCommand}.
  */
 export interface DeleteScriptCommandInput extends DeleteScriptInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScriptCommand}.
  */
 export interface DeleteScriptCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Realtime script. This operation permanently deletes the script record. If
  *             script files were uploaded, they are also deleted (files stored in an S3 bucket are not
  *             deleted). </p>
@@ -59,6 +64,8 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScriptCommandInput - {@link DeleteScriptCommandInput}
+ * @returns {@link DeleteScriptCommandOutput}
  * @see {@link DeleteScriptCommandInput} for command's `input` shape.
  * @see {@link DeleteScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DeleteScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScriptCommandOutput> {
     return deserializeAws_json1_1DeleteScriptCommand(output, context);
   }

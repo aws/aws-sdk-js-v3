@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkflowStepsCommand}.
  */
 export interface ListWorkflowStepsCommandInput extends ListWorkflowStepsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkflowStepsCommand}.
  */
 export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the steps in a workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkflowStepsCommandInput - {@link ListWorkflowStepsCommandInput}
+ * @returns {@link ListWorkflowStepsCommandOutput}
  * @see {@link ListWorkflowStepsCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowStepsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListWorkflowStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkflowStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListWorkflowStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkflowStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWorkflowStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowStepsCommandOutput> {
     return deserializeAws_restJson1ListWorkflowStepsCommand(output, context);
   }

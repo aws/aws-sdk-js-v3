@@ -26,11 +26,15 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
  */
 export interface GetReservedNodeExchangeConfigurationOptionsCommandInput
   extends GetReservedNodeExchangeConfigurationOptionsInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
  */
 export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
@@ -38,6 +42,7 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the configuration options for the reserved-node exchange. These options
  *             include information about the source reserved node and target reserved node offering.
  *             Details include the node type, the price, the node count, and the offering type.</p>
@@ -51,6 +56,8 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReservedNodeExchangeConfigurationOptionsCommandInput - {@link GetReservedNodeExchangeConfigurationOptionsCommandInput}
+ * @returns {@link GetReservedNodeExchangeConfigurationOptionsCommandOutput}
  * @see {@link GetReservedNodeExchangeConfigurationOptionsCommandInput} for command's `input` shape.
  * @see {@link GetReservedNodeExchangeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReservedNodeExchangeConfigurationOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetReservedNodeExchangeConfigurationOptionsCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
     return serializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

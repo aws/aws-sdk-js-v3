@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnomaliesForInsightCommand}.
  */
 export interface ListAnomaliesForInsightCommandInput extends ListAnomaliesForInsightRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnomaliesForInsightCommand}.
  */
 export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForInsightResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of the anomalies that belong to an insight that you specify using its
  * 			ID. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnomaliesForInsightCommandInput - {@link ListAnomaliesForInsightCommandInput}
+ * @returns {@link ListAnomaliesForInsightCommandOutput}
  * @see {@link ListAnomaliesForInsightCommandInput} for command's `input` shape.
  * @see {@link ListAnomaliesForInsightCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListAnomaliesForInsightCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnomaliesForInsightCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListAnomaliesForInsightCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnomaliesForInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAnomaliesForInsightCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnomaliesForInsightCommandOutput> {
     return deserializeAws_restJson1ListAnomaliesForInsightCommand(output, context);
   }

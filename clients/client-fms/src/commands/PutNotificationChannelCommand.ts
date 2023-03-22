@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutNotificationChannelCommand}.
  */
 export interface PutNotificationChannelCommandInput extends PutNotificationChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutNotificationChannelCommand}.
  */
 export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
  *       Firewall Manager uses to record SNS logs.</p>
  *          <p>To perform this action outside of the console, you must configure the SNS topic to allow the Firewall Manager
@@ -45,6 +50,8 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutNotificationChannelCommandInput - {@link PutNotificationChannelCommandInput}
+ * @returns {@link PutNotificationChannelCommandOutput}
  * @see {@link PutNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link PutNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -82,6 +89,9 @@ export class PutNotificationChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutNotificationChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutNotificationChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutNotificationChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutNotificationChannelCommandOutput> {
     return deserializeAws_json1_1PutNotificationChannelCommand(output, context);
   }

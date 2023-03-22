@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMigrationCommand}.
  */
 export interface GetMigrationCommandInput extends GetMigrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMigrationCommand}.
  */
 export interface GetMigrationCommandOutput extends GetMigrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about an ongoing or complete migration from an
  *       Amazon Lex V1 bot to an Amazon Lex V2 bot. Use this operation to view the migration
  *       alerts and warnings related to the migration.</p>
@@ -52,6 +57,8 @@ export interface GetMigrationCommandOutput extends GetMigrationResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMigrationCommandInput - {@link GetMigrationCommandInput}
+ * @returns {@link GetMigrationCommandOutput}
  * @see {@link GetMigrationCommandInput} for command's `input` shape.
  * @see {@link GetMigrationCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetMigrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMigrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetMigrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMigrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMigrationCommandOutput> {
     return deserializeAws_restJson1GetMigrationCommand(output, context);
   }

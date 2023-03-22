@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventCategoriesCommand}.
  */
 export interface DescribeEventCategoriesCommandInput extends DescribeEventCategoriesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventCategoriesCommand}.
  */
 export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays a list of categories for all event source types, or, if specified, for a
  *       specified source type.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
+ * @returns {@link DescribeEventCategoriesCommandOutput}
  * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeEventCategoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventCategoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeEventCategoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEventCategoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventCategoriesCommandOutput> {
     return deserializeAws_queryDescribeEventCategoriesCommand(output, context);
   }

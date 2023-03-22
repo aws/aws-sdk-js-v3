@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetShardIteratorCommand}.
  */
 export interface GetShardIteratorCommandInput extends GetShardIteratorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetShardIteratorCommand}.
  */
 export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is
  *             returned to the requester.</p>
  *          <note>
@@ -83,6 +88,8 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetShardIteratorCommandInput - {@link GetShardIteratorCommandInput}
+ * @returns {@link GetShardIteratorCommandOutput}
  * @see {@link GetShardIteratorCommandInput} for command's `input` shape.
  * @see {@link GetShardIteratorCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -127,6 +134,9 @@ export class GetShardIteratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetShardIteratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class GetShardIteratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetShardIteratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetShardIteratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetShardIteratorCommandOutput> {
     return deserializeAws_json1_1GetShardIteratorCommand(output, context);
   }

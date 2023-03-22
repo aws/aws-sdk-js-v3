@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateImageVersionCommand}.
  */
 export interface UpdateImageVersionCommandInput extends UpdateImageVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateImageVersionCommand}.
  */
 export interface UpdateImageVersionCommandOutput extends UpdateImageVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of a SageMaker image version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateImageVersionCommandInput - {@link UpdateImageVersionCommandInput}
+ * @returns {@link UpdateImageVersionCommandOutput}
  * @see {@link UpdateImageVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateImageVersionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateImageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateImageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdateImageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateImageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateImageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImageVersionCommandOutput> {
     return deserializeAws_json1_1UpdateImageVersionCommand(output, context);
   }

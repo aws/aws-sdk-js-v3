@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayCommand}.
  */
 export interface UpdateGatewayCommandInput extends UpdateGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayCommand}.
  */
 export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a gateway's name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayCommandInput - {@link UpdateGatewayCommandInput}
+ * @returns {@link UpdateGatewayCommandOutput}
  * @see {@link UpdateGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayCommandOutput> {
     return deserializeAws_restJson1UpdateGatewayCommand(output, context);
   }

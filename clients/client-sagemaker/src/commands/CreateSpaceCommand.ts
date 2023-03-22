@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSpaceCommand}.
  */
 export interface CreateSpaceCommandInput extends CreateSpaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSpaceCommand}.
  */
 export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a space used for real time collaboration in a Domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSpaceCommandInput - {@link CreateSpaceCommandInput}
+ * @returns {@link CreateSpaceCommandOutput}
  * @see {@link CreateSpaceCommandInput} for command's `input` shape.
  * @see {@link CreateSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateSpaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSpaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateSpaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSpaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSpaceCommandOutput> {
     return deserializeAws_json1_1CreateSpaceCommand(output, context);
   }

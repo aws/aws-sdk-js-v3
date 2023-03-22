@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFunctionConcurrencyCommand}.
  */
 export interface PutFunctionConcurrencyCommandInput extends PutFunctionConcurrencyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutFunctionConcurrencyCommand}.
  */
 export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the maximum number of simultaneous executions for a function, and reserves capacity for that concurrency
  *       level.</p>
  *          <p>Concurrency settings apply to the function as a whole, including all published versions and the unpublished
@@ -54,6 +59,8 @@ export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __Meta
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFunctionConcurrencyCommandInput - {@link PutFunctionConcurrencyCommandInput}
+ * @returns {@link PutFunctionConcurrencyCommandOutput}
  * @see {@link PutFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link PutFunctionConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -92,6 +99,9 @@ export class PutFunctionConcurrencyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFunctionConcurrencyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class PutFunctionConcurrencyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutFunctionConcurrencyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFunctionConcurrencyCommandOutput> {
     return deserializeAws_restJson1PutFunctionConcurrencyCommand(output, context);
   }

@@ -10,7 +10,7 @@ import { IoT1ClickProjectsClient } from "../IoT1ClickProjectsClient";
 import { IoT1ClickProjectsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoT1ClickProjectsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPlacementsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPlacements(
   config: IoT1ClickProjectsPaginationConfiguration,
   input: ListPlacementsCommandInput,

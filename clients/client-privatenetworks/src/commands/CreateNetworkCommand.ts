@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkCommand}.
  */
 export interface CreateNetworkCommandInput extends CreateNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkCommand}.
  */
 export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkCommandInput - {@link CreateNetworkCommandInput}
+ * @returns {@link CreateNetworkCommandOutput}
  * @see {@link CreateNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkCommandOutput> {
     return deserializeAws_restJson1CreateNetworkCommand(output, context);
   }

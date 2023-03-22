@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDevEndpointCommand}.
  */
 export interface DeleteDevEndpointCommandInput extends DeleteDevEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDevEndpointCommand}.
  */
 export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified development endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDevEndpointCommandInput - {@link DeleteDevEndpointCommandInput}
+ * @returns {@link DeleteDevEndpointCommandOutput}
  * @see {@link DeleteDevEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDevEndpointCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteDevEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDevEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteDevEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDevEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDevEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevEndpointCommandOutput> {
     return deserializeAws_json1_1DeleteDevEndpointCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountLimitsCommand}.
  */
 export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimitsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountLimitsCommand}.
  */
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current Amazon Pinpoint SMS Voice V2 resource quotas for your
  *             account. The description for a quota includes the quota name, current usage toward that
  *             quota, and the quota's maximum value.</p>
@@ -57,6 +62,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
+ * @returns {@link DescribeAccountLimitsCommandOutput}
  * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeAccountLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeAccountLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeAccountLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountLimitsCommandOutput> {
     return deserializeAws_json1_0DescribeAccountLimitsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectorDefinitionCommand}.
  */
 export interface UpdateConnectorDefinitionCommandInput extends UpdateConnectorDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectorDefinitionCommand}.
  */
 export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a connector definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorD
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectorDefinitionCommandInput - {@link UpdateConnectorDefinitionCommandInput}
+ * @returns {@link UpdateConnectorDefinitionCommandOutput}
  * @see {@link UpdateConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectorDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConnectorDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

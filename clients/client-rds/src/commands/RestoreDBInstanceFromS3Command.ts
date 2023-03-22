@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBInstanceFromS3Command}.
  */
 export interface RestoreDBInstanceFromS3CommandInput extends RestoreDBInstanceFromS3Message {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBInstanceFromS3Command}.
  */
 export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceFromS3Result, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Amazon Relational Database Service (Amazon RDS)
  *             supports importing MySQL databases by using backup files.
  *             You can create a backup of your on-premises database,
@@ -54,6 +59,8 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBInstanceFromS3CommandInput - {@link RestoreDBInstanceFromS3CommandInput}
+ * @returns {@link RestoreDBInstanceFromS3CommandOutput}
  * @see {@link RestoreDBInstanceFromS3CommandInput} for command's `input` shape.
  * @see {@link RestoreDBInstanceFromS3CommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -143,6 +150,9 @@ export class RestoreDBInstanceFromS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBInstanceFromS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class RestoreDBInstanceFromS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBInstanceFromS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBInstanceFromS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDBInstanceFromS3CommandOutput> {
     return deserializeAws_queryRestoreDBInstanceFromS3Command(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchResourcesCommand}.
  */
 export interface SearchResourcesCommandInput extends SearchResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchResourcesCommand}.
  */
 export interface SearchResourcesCommandOutput extends SearchResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchResourcesCommandInput - {@link SearchResourcesCommandInput}
+ * @returns {@link SearchResourcesCommandOutput}
  * @see {@link SearchResourcesCommandInput} for command's `input` shape.
  * @see {@link SearchResourcesCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class SearchResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SearchResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchResourcesCommandOutput> {
     return deserializeAws_restJson1SearchResourcesCommand(output, context);
   }

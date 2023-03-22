@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApprovalRuleTemplateContentCommand}.
  */
 export interface UpdateApprovalRuleTemplateContentCommandInput extends UpdateApprovalRuleTemplateContentInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApprovalRuleTemplateContentCommand}.
  */
 export interface UpdateApprovalRuleTemplateContentCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the content of an approval rule template. You can change the number of
  *             required approvals, the membership of the approval rule, and whether an approval pool is
  *             defined.</p>
@@ -50,6 +55,8 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApprovalRuleTemplateContentCommandInput - {@link UpdateApprovalRuleTemplateContentCommandInput}
+ * @returns {@link UpdateApprovalRuleTemplateContentCommandOutput}
  * @see {@link UpdateApprovalRuleTemplateContentCommandInput} for command's `input` shape.
  * @see {@link UpdateApprovalRuleTemplateContentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateApprovalRuleTemplateContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApprovalRuleTemplateContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class UpdateApprovalRuleTemplateContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApprovalRuleTemplateContentCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class UpdateApprovalRuleTemplateContentCommand extends $Command<
     return serializeAws_json1_1UpdateApprovalRuleTemplateContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

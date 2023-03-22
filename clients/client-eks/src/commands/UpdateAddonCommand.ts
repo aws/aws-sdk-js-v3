@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAddonCommand}.
  */
 export interface UpdateAddonCommandInput extends UpdateAddonRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAddonCommand}.
  */
 export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EKS add-on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAddonCommandInput - {@link UpdateAddonCommandInput}
+ * @returns {@link UpdateAddonCommandOutput}
  * @see {@link UpdateAddonCommandInput} for command's `input` shape.
  * @see {@link UpdateAddonCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateAddonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAddonCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateAddonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAddonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAddonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAddonCommandOutput> {
     return deserializeAws_restJson1UpdateAddonCommand(output, context);
   }

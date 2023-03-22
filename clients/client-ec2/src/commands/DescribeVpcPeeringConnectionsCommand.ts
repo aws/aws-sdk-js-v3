@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcPeeringConnectionsCommand}.
  */
 export interface DescribeVpcPeeringConnectionsCommandInput extends DescribeVpcPeeringConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcPeeringConnectionsCommand}.
  */
 export interface DescribeVpcPeeringConnectionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your VPC peering connections.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcPeeringConnectionsCommandInput - {@link DescribeVpcPeeringConnectionsCommandInput}
+ * @returns {@link DescribeVpcPeeringConnectionsCommandOutput}
  * @see {@link DescribeVpcPeeringConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcPeeringConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcPeeringConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcPeeringConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpcPeeringConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

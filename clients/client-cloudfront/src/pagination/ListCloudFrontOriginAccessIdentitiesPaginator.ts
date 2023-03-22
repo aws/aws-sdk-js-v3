@@ -10,7 +10,7 @@ import {
 import { CloudFrontPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudFrontClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCloudFrontOriginAccessIdentitiesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCloudFrontOriginAccessIdentities(
   config: CloudFrontPaginationConfiguration,
   input: ListCloudFrontOriginAccessIdentitiesCommandInput,

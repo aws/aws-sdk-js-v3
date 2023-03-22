@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDelegateToResourceCommand}.
  */
 export interface AssociateDelegateToResourceCommandInput extends AssociateDelegateToResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDelegateToResourceCommand}.
  */
 export interface AssociateDelegateToResourceCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateDelegateToResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a member (user or group) to the resource's set of delegates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateDelegateToResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDelegateToResourceCommandInput - {@link AssociateDelegateToResourceCommandInput}
+ * @returns {@link AssociateDelegateToResourceCommandOutput}
  * @see {@link AssociateDelegateToResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateDelegateToResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -90,6 +97,9 @@ export class AssociateDelegateToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDelegateToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class AssociateDelegateToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDelegateToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateDelegateToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateEnvironmentOperationsRoleCommand}.
  */
 export interface DisassociateEnvironmentOperationsRoleCommandInput
   extends DisassociateEnvironmentOperationsRoleMessage {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateEnvironmentOperationsRoleCommand}.
  */
 export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate the operations role from an environment. After this call is made, Elastic Beanstalk uses
  *       the caller's permissions for permissions to downstream services during subsequent calls acting
  *       on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
@@ -48,6 +53,8 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateEnvironmentOperationsRoleCommandInput - {@link DisassociateEnvironmentOperationsRoleCommandInput}
+ * @returns {@link DisassociateEnvironmentOperationsRoleCommandOutput}
  * @see {@link DisassociateEnvironmentOperationsRoleCommandInput} for command's `input` shape.
  * @see {@link DisassociateEnvironmentOperationsRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -75,6 +82,9 @@ export class DisassociateEnvironmentOperationsRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateEnvironmentOperationsRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class DisassociateEnvironmentOperationsRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateEnvironmentOperationsRoleCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class DisassociateEnvironmentOperationsRoleCommand extends $Command<
     return serializeAws_queryDisassociateEnvironmentOperationsRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

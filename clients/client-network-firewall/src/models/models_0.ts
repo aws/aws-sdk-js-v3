@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { NetworkFirewallServiceException as __BaseException } from "./NetworkFirewallServiceException";
 
 /**
+ * @public
  * <p>The value to use in an Amazon CloudWatch custom metric dimension. This is used in the
  *             <code>PublishMetrics</code>
  *             <a>CustomAction</a>. A CloudWatch custom metric dimension is a name/value pair that's
@@ -21,6 +22,7 @@ export interface Dimension {
 }
 
 /**
+ * @public
  * <p>Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the
  *          matching packet. This setting defines a CloudWatch dimension value to be published.</p>
  */
@@ -32,6 +34,7 @@ export interface PublishMetricAction {
 }
 
 /**
+ * @public
  * <p>A custom action to use in stateless rule actions settings. This is used in <a>CustomAction</a>.</p>
  */
 export interface ActionDefinition {
@@ -47,6 +50,7 @@ export interface ActionDefinition {
 }
 
 /**
+ * @public
  * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
  *          source and destination specifications.</p>
  */
@@ -74,6 +78,9 @@ export interface Address {
   AddressDefinition: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateFirewallPolicyRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -100,6 +107,9 @@ export interface AssociateFirewallPolicyRequest {
   FirewallPolicyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateFirewallPolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -125,6 +135,7 @@ export interface AssociateFirewallPolicyResponse {
 }
 
 /**
+ * @public
  * <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
  *          system problem. Retry your request. </p>
  */
@@ -147,6 +158,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because it's not valid. For example, you might have tried to delete
  *          a rule group or firewall policy that's in use.</p>
  */
@@ -169,6 +181,7 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because of a problem with your request. Examples include: </p>
  *          <ul>
  *             <li>
@@ -203,6 +216,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The token you provided is stale or isn't valid for the operation. </p>
  */
 export class InvalidTokenException extends __BaseException {
@@ -224,6 +238,7 @@ export class InvalidTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Unable to locate a resource using the parameters that you provided.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -245,6 +260,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Unable to process the request due to throttling limitations.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -265,12 +281,16 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum IPAddressType {
   DUALSTACK = "DUALSTACK",
   IPV4 = "IPV4",
 }
 
 /**
+ * @public
  * <p>The ID for a subnet that you want to associate with the firewall. This is used with
  *             <a>CreateFirewall</a> and <a>AssociateSubnets</a>. Network Firewall
  *          creates an instance of the associated firewall in each subnet that you specify, to filter
@@ -288,6 +308,9 @@ export interface SubnetMapping {
   IPAddressType?: IPAddressType | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSubnetsRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -314,6 +337,9 @@ export interface AssociateSubnetsRequest {
   SubnetMappings: SubnetMapping[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSubnetsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -339,6 +365,7 @@ export interface AssociateSubnetsResponse {
 }
 
 /**
+ * @public
  * <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your
  *          request later. </p>
  */
@@ -360,6 +387,9 @@ export class InsufficientCapacityException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AttachmentStatus {
   CREATING = "CREATING",
   DELETING = "DELETING",
@@ -368,6 +398,7 @@ export enum AttachmentStatus {
 }
 
 /**
+ * @public
  * <p>The configuration and status for a single subnet that you've specified for use by the
  *          Network Firewall firewall. This is part of the <a>FirewallStatus</a>.</p>
  */
@@ -402,6 +433,7 @@ export interface Attachment {
 }
 
 /**
+ * @public
  * <p>General information about the IP set.</p>
  */
 export interface IPSetMetadata {
@@ -412,6 +444,7 @@ export interface IPSetMetadata {
 }
 
 /**
+ * @public
  * <p>Summarizes the CIDR blocks used by the IP set references in a firewall. Network Firewall calculates the number of CIDRs by taking an aggregated count of all CIDRs used by the IP sets you are referencing.</p>
  */
 export interface CIDRSummary {
@@ -432,6 +465,7 @@ export interface CIDRSummary {
 }
 
 /**
+ * @public
  * <p>The capacity usage summary of the resources used by the <a>ReferenceSets</a> in a firewall.</p>
  */
 export interface CapacityUsageSummary {
@@ -441,18 +475,25 @@ export interface CapacityUsageSummary {
   CIDRs?: CIDRSummary;
 }
 
+/**
+ * @public
+ */
 export enum ConfigurationSyncState {
   CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED",
   IN_SYNC = "IN_SYNC",
   PENDING = "PENDING",
 }
 
+/**
+ * @public
+ */
 export enum EncryptionType {
   AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY",
   CUSTOMER_KMS = "CUSTOMER_KMS",
 }
 
 /**
+ * @public
  * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
  */
 export interface EncryptionConfiguration {
@@ -468,6 +509,7 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * @public
  * <p>A key:value pair associated with an Amazon Web Services resource. The key:value pair can be anything you
  *          define. Typically, the tag key represents a category (such as "environment") and the tag
  *          value represents a specific value within that category (such as "test," "development," or
@@ -488,6 +530,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
@@ -551,6 +596,7 @@ export interface CreateFirewallRequest {
 }
 
 /**
+ * @public
  * <p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
  *          <p>The status of the firewall, for example whether it's ready to filter network traffic,
  *          is provided in the corresponding <a>FirewallStatus</a>. You can retrieve both
@@ -628,12 +674,18 @@ export interface Firewall {
   EncryptionConfiguration?: EncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum FirewallStatusValue {
   DELETING = "DELETING",
   PROVISIONING = "PROVISIONING",
   READY = "READY",
 }
 
+/**
+ * @public
+ */
 export enum PerObjectSyncStatus {
   CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED",
   IN_SYNC = "IN_SYNC",
@@ -641,6 +693,7 @@ export enum PerObjectSyncStatus {
 }
 
 /**
+ * @public
  * <p>Provides configuration status for a single policy or rule group that is used for a firewall endpoint. Network Firewall
  *          provides each endpoint with the rules that are configured in the firewall policy. Each time
  *          you add a subnet or modify the associated firewall policy, Network Firewall synchronizes the
@@ -659,6 +712,7 @@ export interface PerObjectStatus {
 }
 
 /**
+ * @public
  * <p>The status of the firewall endpoint and firewall policy configuration for a single VPC
  *          subnet. </p>
  *          <p>For each VPC subnet that you associate with a firewall, Network Firewall does the
@@ -694,6 +748,7 @@ export interface SyncState {
 }
 
 /**
+ * @public
  * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
  */
 export interface FirewallStatus {
@@ -736,6 +791,9 @@ export interface FirewallStatus {
   CapacityUsageSummary?: CapacityUsageSummary;
 }
 
+/**
+ * @public
+ */
 export interface CreateFirewallResponse {
   /**
    * <p>The configuration settings for the firewall. These settings include the firewall policy and the subnets in your VPC to use for the firewall endpoints. </p>
@@ -749,6 +807,7 @@ export interface CreateFirewallResponse {
 }
 
 /**
+ * @public
  * <p>Unable to perform the operation because doing so would violate a limit setting. </p>
  */
 export class LimitExceededException extends __BaseException {
@@ -769,17 +828,24 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RuleOrder {
   DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER",
   STRICT_ORDER = "STRICT_ORDER",
 }
 
+/**
+ * @public
+ */
 export enum StreamExceptionPolicy {
   CONTINUE = "CONTINUE",
   DROP = "DROP",
 }
 
 /**
+ * @public
  * <p>Configuration settings for the handling of the stateful rule groups in a firewall policy. </p>
  */
 export interface StatefulEngineOptions {
@@ -808,11 +874,15 @@ export interface StatefulEngineOptions {
   StreamExceptionPolicy?: StreamExceptionPolicy | string;
 }
 
+/**
+ * @public
+ */
 export enum OverrideAction {
   DROP_TO_ALERT = "DROP_TO_ALERT",
 }
 
 /**
+ * @public
  * <p>The setting that allows the policy owner to change the behavior of the rule group within a policy. </p>
  */
 export interface StatefulRuleGroupOverride {
@@ -824,6 +894,7 @@ export interface StatefulRuleGroupOverride {
 }
 
 /**
+ * @public
  * <p>Identifier for a single stateful rule group, used in a firewall policy to refer to a
  *          rule group. </p>
  */
@@ -853,6 +924,7 @@ export interface StatefulRuleGroupReference {
 }
 
 /**
+ * @public
  * <p>An optional, non-standard action to use for stateless packet handling. You can define
  *          this in addition to the standard action that you must specify. </p>
  *          <p>You define and name the custom actions that you want to be able to use, and then you
@@ -888,6 +960,7 @@ export interface CustomAction {
 }
 
 /**
+ * @public
  * <p>Identifier for a single stateless rule group, used in a firewall policy to refer to the
  *          rule group. </p>
  */
@@ -907,6 +980,7 @@ export interface StatelessRuleGroupReference {
 }
 
 /**
+ * @public
  * <p>The firewall policy defines the behavior of a firewall using a collection of stateless
  *          and stateful rule groups and other settings. You can use one firewall policy for multiple
  *          firewalls. </p>
@@ -991,6 +1065,9 @@ export interface FirewallPolicy {
   StatefulEngineOptions?: StatefulEngineOptions;
 }
 
+/**
+ * @public
+ */
 export interface CreateFirewallPolicyRequest {
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
@@ -1028,12 +1105,16 @@ export interface CreateFirewallPolicyRequest {
   EncryptionConfiguration?: EncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ResourceStatus {
   ACTIVE = "ACTIVE",
   DELETING = "DELETING",
 }
 
 /**
+ * @public
  * <p>The high-level properties of a firewall policy. This, along with the <a>FirewallPolicy</a>, define the policy. You can retrieve all objects for a firewall policy by calling <a>DescribeFirewallPolicy</a>. </p>
  */
 export interface FirewallPolicyResponse {
@@ -1100,6 +1181,9 @@ export interface FirewallPolicyResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateFirewallPolicyResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
@@ -1114,6 +1198,7 @@ export interface CreateFirewallPolicyResponse {
 }
 
 /**
+ * @public
  * <p>Configures one or more IP set references for a Suricata-compatible rule group. This is used in <a>CreateRuleGroup</a> or <a>UpdateRuleGroup</a>. An IP set reference is a rule variable that references a resource that you create and manage in another Amazon Web Services service, such as an Amazon VPC prefix list. Network Firewall IP set references enable you to dynamically update the contents of your rules. When you create, update, or delete the IP set you are referencing in your rule, Network Firewall automatically updates the rule's content with the changes. For more information about IP set references in Network Firewall, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references">Using IP set references</a> in the <i>Network Firewall Developer Guide</i>.</p>
  *          <p>
  *         Network Firewall currently supports only <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Amazon VPC prefix lists</a> as IP set references.
@@ -1127,6 +1212,7 @@ export interface IPSetReference {
 }
 
 /**
+ * @public
  * <p>Contains a set of IP set references.</p>
  */
 export interface ReferenceSets {
@@ -1136,17 +1222,24 @@ export interface ReferenceSets {
   IPSetReferences?: Record<string, IPSetReference>;
 }
 
+/**
+ * @public
+ */
 export enum GeneratedRulesType {
   ALLOWLIST = "ALLOWLIST",
   DENYLIST = "DENYLIST",
 }
 
+/**
+ * @public
+ */
 export enum TargetType {
   HTTP_HOST = "HTTP_HOST",
   TLS_SNI = "TLS_SNI",
 }
 
 /**
+ * @public
  * <p>Stateful inspection criteria for a domain list rule group. </p>
  *          <p>For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.</p>
  *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">Stateful domain list rule groups in Network Firewall</a> in the <i>Network Firewall Developer Guide</i>.</p>
@@ -1176,6 +1269,9 @@ export interface RulesSourceList {
   GeneratedRulesType: GeneratedRulesType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StatefulAction {
   ALERT = "ALERT",
   DROP = "DROP",
@@ -1183,11 +1279,17 @@ export enum StatefulAction {
   REJECT = "REJECT",
 }
 
+/**
+ * @public
+ */
 export enum StatefulRuleDirection {
   ANY = "ANY",
   FORWARD = "FORWARD",
 }
 
+/**
+ * @public
+ */
 export enum StatefulRuleProtocol {
   ANY = "IP",
   DCERPC = "DCERPC",
@@ -1211,6 +1313,7 @@ export enum StatefulRuleProtocol {
 }
 
 /**
+ * @public
  * <p>The basic rule criteria for Network Firewall to use to inspect packet headers in stateful
  *          traffic flow inspection. Traffic flows that match the criteria are a match for the
  *          corresponding <a>StatefulRule</a>. </p>
@@ -1295,6 +1398,7 @@ export interface Header {
 }
 
 /**
+ * @public
  * <p>Additional settings for a stateful rule. This is part of the <a>StatefulRule</a> configuration.</p>
  */
 export interface RuleOption {
@@ -1310,6 +1414,7 @@ export interface RuleOption {
 }
 
 /**
+ * @public
  * <p>A single Suricata rules specification, for use in a stateful rule group.
  *        Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.
  *        For information about the Suricata <code>Rules</code> format, see
@@ -1366,6 +1471,7 @@ export interface StatefulRule {
 }
 
 /**
+ * @public
  * <p>A single port range specification. This is used for source and destination port ranges
  *          in the stateless rule <a>MatchAttributes</a>, <code>SourcePorts</code>, and
  *             <code>DestinationPorts</code> settings. </p>
@@ -1384,6 +1490,9 @@ export interface PortRange {
   ToPort: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TCPFlag {
   ACK = "ACK",
   CWR = "CWR",
@@ -1396,6 +1505,7 @@ export enum TCPFlag {
 }
 
 /**
+ * @public
  * <p>TCP flags and masks to inspect packets for, used in stateless rules <a>MatchAttributes</a> settings.</p>
  */
 export interface TCPFlagField {
@@ -1420,6 +1530,7 @@ export interface TCPFlagField {
 }
 
 /**
+ * @public
  * <p>Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags. </p>
  */
 export interface MatchAttributes {
@@ -1465,6 +1576,7 @@ export interface MatchAttributes {
 }
 
 /**
+ * @public
  * <p>The inspection criteria and action for a single stateless rule. Network Firewall inspects each packet for the specified matching
  *          criteria. When a packet matches the criteria, Network Firewall performs the rule's actions on
  *          the packet.</p>
@@ -1518,6 +1630,7 @@ export interface RuleDefinition {
 }
 
 /**
+ * @public
  * <p>A single stateless rule. This is used in <a>StatelessRulesAndCustomActions</a>.</p>
  */
 export interface StatelessRule {
@@ -1545,6 +1658,7 @@ export interface StatelessRule {
 }
 
 /**
+ * @public
  * <p>Stateless inspection criteria. Each stateless rule group uses exactly one of these data
  *          types to define its stateless rules. </p>
  */
@@ -1565,6 +1679,7 @@ export interface StatelessRulesAndCustomActions {
 }
 
 /**
+ * @public
  * <p>The stateless or stateful rules definitions for use in a single rule group. Each rule
  *          group requires a single <code>RulesSource</code>. You can use an instance of this for
  *          either stateless rules or stateful rules. </p>
@@ -1600,6 +1715,7 @@ export interface RulesSource {
 }
 
 /**
+ * @public
  * <p>A list of IP addresses and address ranges, in CIDR notation. This is part of a <a>RuleVariables</a>. </p>
  */
 export interface IPSet {
@@ -1612,6 +1728,7 @@ export interface IPSet {
 }
 
 /**
+ * @public
  * <p>A set of port ranges for use in the rules in a rule group. </p>
  */
 export interface PortSet {
@@ -1623,6 +1740,7 @@ export interface PortSet {
 }
 
 /**
+ * @public
  * <p>Settings that are available for use in the rules in the <a>RuleGroup</a>
  *          where this is defined. </p>
  */
@@ -1639,6 +1757,7 @@ export interface RuleVariables {
 }
 
 /**
+ * @public
  * <p>Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.</p>
  */
 export interface StatefulRuleOptions {
@@ -1653,6 +1772,7 @@ export interface StatefulRuleOptions {
 }
 
 /**
+ * @public
  * <p>The object that defines the rules in a rule group. This, along with <a>RuleGroupResponse</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
  *          <p>Network Firewall uses a rule group to inspect and control network traffic.
  *     You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their
@@ -1685,6 +1805,7 @@ export interface RuleGroup {
 }
 
 /**
+ * @public
  * <p>High-level information about the managed rule group that your own rule group is copied from. You can use the the metadata to track version updates made to the originating rule group. You can retrieve all objects for a rule group by calling <a href="https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html">DescribeRuleGroup</a>.</p>
  */
 export interface SourceMetadata {
@@ -1699,11 +1820,17 @@ export interface SourceMetadata {
   SourceUpdateToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum RuleGroupType {
   STATEFUL = "STATEFUL",
   STATELESS = "STATELESS",
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleGroupRequest {
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
@@ -1812,6 +1939,7 @@ export interface CreateRuleGroupRequest {
 }
 
 /**
+ * @public
  * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
  */
 export interface RuleGroupResponse {
@@ -1899,6 +2027,9 @@ export interface RuleGroupResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleGroupResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
@@ -1912,6 +2043,9 @@ export interface CreateRuleGroupResponse {
   RuleGroupResponse: RuleGroupResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
@@ -1926,6 +2060,9 @@ export interface DeleteFirewallRequest {
   FirewallArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallResponse {
   /**
    * <p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
@@ -1942,6 +2079,7 @@ export interface DeleteFirewallResponse {
 }
 
 /**
+ * @public
  * <p>The operation you requested isn't supported by Network Firewall. </p>
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -1962,6 +2100,9 @@ export class UnsupportedOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallPolicyRequest {
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
@@ -1976,6 +2117,9 @@ export interface DeleteFirewallPolicyRequest {
   FirewallPolicyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFirewallPolicyResponse {
   /**
    * <p>The object containing the definition of the <a>FirewallPolicyResponse</a>
@@ -1984,6 +2128,9 @@ export interface DeleteFirewallPolicyResponse {
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to delete. </p>
@@ -1991,9 +2138,13 @@ export interface DeleteResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {}
 
 /**
+ * @public
  * <p>The policy statement failed validation.</p>
  */
 export class InvalidResourcePolicyException extends __BaseException {
@@ -2014,6 +2165,9 @@ export class InvalidResourcePolicyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleGroupRequest {
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
@@ -2037,6 +2191,9 @@ export interface DeleteRuleGroupRequest {
   Type?: RuleGroupType | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleGroupResponse {
   /**
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
@@ -2044,6 +2201,9 @@ export interface DeleteRuleGroupResponse {
   RuleGroupResponse: RuleGroupResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
@@ -2058,6 +2218,9 @@ export interface DescribeFirewallRequest {
   FirewallArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFirewallResponse {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2077,6 +2240,9 @@ export interface DescribeFirewallResponse {
   FirewallStatus?: FirewallStatus;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFirewallPolicyRequest {
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
@@ -2091,6 +2257,9 @@ export interface DescribeFirewallPolicyRequest {
   FirewallPolicyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFirewallPolicyResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
@@ -2109,6 +2278,9 @@ export interface DescribeFirewallPolicyResponse {
   FirewallPolicy?: FirewallPolicy;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -2123,18 +2295,25 @@ export interface DescribeLoggingConfigurationRequest {
   FirewallName?: string;
 }
 
+/**
+ * @public
+ */
 export enum LogDestinationType {
   CLOUDWATCH_LOGS = "CloudWatchLogs",
   KINESIS_DATA_FIREHOSE = "KinesisDataFirehose",
   S3 = "S3",
 }
 
+/**
+ * @public
+ */
 export enum LogType {
   ALERT = "ALERT",
   FLOW = "FLOW",
 }
 
 /**
+ * @public
  * <p>Defines where Network Firewall sends logs for the firewall for one log type. This is used
  *          in <a>LoggingConfiguration</a>. You can send each type of log to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.</p>
  *          <p>Network Firewall generates logs for stateful rule groups. You can save alert and flow log
@@ -2165,8 +2344,8 @@ export interface LogDestinationConfig {
    *                specifies an Amazon S3 bucket named
    *                <code>DOC-EXAMPLE-BUCKET</code> and the prefix <code>alerts</code>: </p>
    *                <p>
-   *                   <code>"LogDestination": { "bucketName": "DOC-EXAMPLE-BUCKET", "prefix": "alerts"
-   *                   }</code>
+   *                   <code>"LogDestination": \{ "bucketName": "DOC-EXAMPLE-BUCKET", "prefix": "alerts"
+   *                   \}</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2174,7 +2353,7 @@ export interface LogDestinationConfig {
    *                   <code>logGroup</code>. The following example specifies a log group named
    *                   <code>alert-log-group</code>: </p>
    *                <p>
-   *                   <code>"LogDestination": { "logGroup": "alert-log-group" }</code>
+   *                   <code>"LogDestination": \{ "logGroup": "alert-log-group" \}</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2182,8 +2361,8 @@ export interface LogDestinationConfig {
    *                   <code>deliveryStream</code>. The following example specifies a delivery stream
    *                named <code>alert-delivery-stream</code>: </p>
    *                <p>
-   *                   <code>"LogDestination": { "deliveryStream": "alert-delivery-stream"
-   *                }</code>
+   *                   <code>"LogDestination": \{ "deliveryStream": "alert-delivery-stream"
+   *                \}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2192,6 +2371,7 @@ export interface LogDestinationConfig {
 }
 
 /**
+ * @public
  * <p>Defines how Network Firewall performs logging for a <a>Firewall</a>. </p>
  */
 export interface LoggingConfiguration {
@@ -2202,6 +2382,9 @@ export interface LoggingConfiguration {
   LogDestinationConfigs: LogDestinationConfig[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoggingConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -2214,6 +2397,9 @@ export interface DescribeLoggingConfigurationResponse {
   LoggingConfiguration?: LoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to retrieve. </p>
@@ -2221,6 +2407,9 @@ export interface DescribeResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePolicyResponse {
   /**
    * <p>The IAM policy for the resource. </p>
@@ -2228,6 +2417,9 @@ export interface DescribeResourcePolicyResponse {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuleGroupRequest {
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
@@ -2251,6 +2443,9 @@ export interface DescribeRuleGroupRequest {
   Type?: RuleGroupType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuleGroupResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
@@ -2274,6 +2469,9 @@ export interface DescribeRuleGroupResponse {
   RuleGroupResponse: RuleGroupResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuleGroupMetadataRequest {
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
@@ -2297,6 +2495,9 @@ export interface DescribeRuleGroupMetadataRequest {
   Type?: RuleGroupType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuleGroupMetadataResponse {
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
@@ -2345,6 +2546,9 @@ export interface DescribeRuleGroupMetadataResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSubnetsRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2371,6 +2575,9 @@ export interface DisassociateSubnetsRequest {
   SubnetIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSubnetsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -2396,6 +2603,7 @@ export interface DisassociateSubnetsResponse {
 }
 
 /**
+ * @public
  * <p>High-level information about a firewall, returned by operations like create and
  *          describe. You can use the information provided in the metadata to retrieve and manage a
  *          firewall.</p>
@@ -2413,6 +2621,7 @@ export interface FirewallMetadata {
 }
 
 /**
+ * @public
  * <p>High-level information about a firewall policy, returned by operations like create and
  *          describe. You can use the information provided in the metadata to retrieve and manage a
  *          firewall policy. You can retrieve all objects for a firewall policy by calling <a>DescribeFirewallPolicy</a>. </p>
@@ -2429,6 +2638,9 @@ export interface FirewallPolicyMetadata {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallPoliciesRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -2445,6 +2657,9 @@ export interface ListFirewallPoliciesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallPoliciesResponse {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -2460,6 +2675,9 @@ export interface ListFirewallPoliciesResponse {
   FirewallPolicies?: FirewallPolicyMetadata[];
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallsRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -2482,6 +2700,9 @@ export interface ListFirewallsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFirewallsResponse {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -2498,16 +2719,25 @@ export interface ListFirewallsResponse {
   Firewalls?: FirewallMetadata[];
 }
 
+/**
+ * @public
+ */
 export enum ResourceManagedType {
   AWS_MANAGED_DOMAIN_LISTS = "AWS_MANAGED_DOMAIN_LISTS",
   AWS_MANAGED_THREAT_SIGNATURES = "AWS_MANAGED_THREAT_SIGNATURES",
 }
 
+/**
+ * @public
+ */
 export enum ResourceManagedStatus {
   ACCOUNT = "ACCOUNT",
   MANAGED = "MANAGED",
 }
 
+/**
+ * @public
+ */
 export interface ListRuleGroupsRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -2542,6 +2772,7 @@ export interface ListRuleGroupsRequest {
 }
 
 /**
+ * @public
  * <p>High-level information about a rule group, returned by <a>ListRuleGroups</a>.
  *          You can use the information provided in the metadata to retrieve and manage a
  *          rule group.</p>
@@ -2558,6 +2789,9 @@ export interface RuleGroupMetadata {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRuleGroupsResponse {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -2573,6 +2807,9 @@ export interface ListRuleGroupsResponse {
   RuleGroups?: RuleGroupMetadata[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -2594,6 +2831,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -2609,6 +2849,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Unable to send logs to a configured logging destination. </p>
  */
 export class LogDestinationPermissionException extends __BaseException {
@@ -2629,6 +2870,9 @@ export class LogDestinationPermissionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the account that you want to share rule groups and firewall policies with.</p>
@@ -2670,8 +2914,14 @@ export interface PutResourcePolicyRequest {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2684,8 +2934,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2698,9 +2954,13 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>Unable to change the resource because your account doesn't own it. </p>
  */
 export class ResourceOwnerCheckException extends __BaseException {
@@ -2721,6 +2981,9 @@ export class ResourceOwnerCheckException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallDeleteProtectionRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2749,6 +3012,9 @@ export interface UpdateFirewallDeleteProtectionRequest {
   DeleteProtection: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallDeleteProtectionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -2775,6 +3041,9 @@ export interface UpdateFirewallDeleteProtectionResponse {
   UpdateToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallDescriptionRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2802,6 +3071,9 @@ export interface UpdateFirewallDescriptionRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallDescriptionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -2826,6 +3098,9 @@ export interface UpdateFirewallDescriptionResponse {
   UpdateToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallEncryptionConfigurationRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2850,6 +3125,9 @@ export interface UpdateFirewallEncryptionConfigurationRequest {
   EncryptionConfiguration?: EncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallEncryptionConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -2874,6 +3152,9 @@ export interface UpdateFirewallEncryptionConfigurationResponse {
   EncryptionConfiguration?: EncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallPolicyRequest {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
@@ -2919,6 +3200,9 @@ export interface UpdateFirewallPolicyRequest {
   EncryptionConfiguration?: EncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallPolicyResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
@@ -2932,6 +3216,9 @@ export interface UpdateFirewallPolicyResponse {
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallPolicyChangeProtectionRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2960,6 +3247,9 @@ export interface UpdateFirewallPolicyChangeProtectionRequest {
   FirewallPolicyChangeProtection: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFirewallPolicyChangeProtectionResponse {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2986,6 +3276,9 @@ export interface UpdateFirewallPolicyChangeProtectionResponse {
   FirewallPolicyChangeProtection?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -3006,6 +3299,9 @@ export interface UpdateLoggingConfigurationRequest {
   LoggingConfiguration?: LoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLoggingConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -3023,6 +3319,9 @@ export interface UpdateLoggingConfigurationResponse {
   LoggingConfiguration?: LoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuleGroupRequest {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
@@ -3096,6 +3395,9 @@ export interface UpdateRuleGroupRequest {
   SourceMetadata?: SourceMetadata;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRuleGroupResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
@@ -3109,6 +3411,9 @@ export interface UpdateRuleGroupResponse {
   RuleGroupResponse: RuleGroupResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubnetChangeProtectionRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -3137,6 +3442,9 @@ export interface UpdateSubnetChangeProtectionRequest {
   SubnetChangeProtection: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubnetChangeProtectionResponse {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>

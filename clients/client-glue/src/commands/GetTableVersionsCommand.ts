@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTableVersionsCommand}.
  */
 export interface GetTableVersionsCommandInput extends GetTableVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTableVersionsCommand}.
  */
 export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of strings that identify available versions of
  *       a specified table.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableVersionsCommandInput - {@link GetTableVersionsCommandInput}
+ * @returns {@link GetTableVersionsCommandOutput}
  * @see {@link GetTableVersionsCommandInput} for command's `input` shape.
  * @see {@link GetTableVersionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetTableVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetTableVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTableVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableVersionsCommandOutput> {
     return deserializeAws_json1_1GetTableVersionsCommand(output, context);
   }

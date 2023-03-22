@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataProtectionPolicyCommand}.
  */
 export interface DeleteDataProtectionPolicyCommandInput extends DeleteDataProtectionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataProtectionPolicyCommand}.
  */
 export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the data protection policy from the specified log group. </p>
  *          <p>For more information about data protection policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataProtectionPolicyCommandInput - {@link DeleteDataProtectionPolicyCommandInput}
+ * @returns {@link DeleteDataProtectionPolicyCommandOutput}
  * @see {@link DeleteDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableFastLaunchCommand}.
  */
 export interface DisableFastLaunchCommandInput extends DisableFastLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableFastLaunchCommand}.
  */
 export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots.
  * 			When you disable faster launching, the AMI uses the standard launch process for each
  * 			instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>
@@ -51,6 +56,8 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableFastLaunchCommandInput - {@link DisableFastLaunchCommandInput}
+ * @returns {@link DisableFastLaunchCommandOutput}
  * @see {@link DisableFastLaunchCommandInput} for command's `input` shape.
  * @see {@link DisableFastLaunchCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class DisableFastLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableFastLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DisableFastLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableFastLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisableFastLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableFastLaunchCommandOutput> {
     return deserializeAws_ec2DisableFastLaunchCommand(output, context);
   }

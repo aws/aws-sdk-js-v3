@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelPolicyGenerationCommand}.
  */
 export interface CancelPolicyGenerationCommandInput extends CancelPolicyGenerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelPolicyGenerationCommand}.
  */
 export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the requested policy generation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerat
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelPolicyGenerationCommandInput - {@link CancelPolicyGenerationCommandInput}
+ * @returns {@link CancelPolicyGenerationCommandOutput}
  * @see {@link CancelPolicyGenerationCommandInput} for command's `input` shape.
  * @see {@link CancelPolicyGenerationCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -81,6 +88,9 @@ export class CancelPolicyGenerationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelPolicyGenerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CancelPolicyGenerationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelPolicyGenerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelPolicyGenerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelPolicyGenerationCommandOutput> {
     return deserializeAws_restJson1CancelPolicyGenerationCommand(output, context);
   }

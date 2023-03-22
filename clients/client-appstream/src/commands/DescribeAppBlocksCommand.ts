@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppBlocksCommand}.
  */
 export interface DescribeAppBlocksCommandInput extends DescribeAppBlocksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppBlocksCommand}.
  */
 export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more app blocks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppBlocksCommandInput - {@link DescribeAppBlocksCommandInput}
+ * @returns {@link DescribeAppBlocksCommandOutput}
  * @see {@link DescribeAppBlocksCommandInput} for command's `input` shape.
  * @see {@link DescribeAppBlocksCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeAppBlocksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppBlocksCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeAppBlocksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAppBlocksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppBlocksCommandOutput> {
     return deserializeAws_json1_1DescribeAppBlocksCommand(output, context);
   }

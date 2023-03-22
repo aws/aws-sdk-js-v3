@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnabledStandardsCommand}.
  */
 export interface GetEnabledStandardsCommandInput extends GetEnabledStandardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEnabledStandardsCommand}.
  */
 export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the standards that are currently enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnabledStandardsCommandInput - {@link GetEnabledStandardsCommandInput}
+ * @returns {@link GetEnabledStandardsCommandOutput}
  * @see {@link GetEnabledStandardsCommandInput} for command's `input` shape.
  * @see {@link GetEnabledStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetEnabledStandardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnabledStandardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetEnabledStandardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnabledStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEnabledStandardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnabledStandardsCommandOutput> {
     return deserializeAws_restJson1GetEnabledStandardsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceBundlesCommand}.
  */
 export interface DescribeWorkspaceBundlesCommandInput extends DescribeWorkspaceBundlesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceBundlesCommand}.
  */
 export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspaceBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the available WorkSpace bundles.</p>
  *          <p>You can filter the results using either bundle ID or owner, but not both.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceBundlesCommandInput - {@link DescribeWorkspaceBundlesCommandInput}
+ * @returns {@link DescribeWorkspaceBundlesCommandOutput}
  * @see {@link DescribeWorkspaceBundlesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceBundlesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeWorkspaceBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspaceBundlesCommandOutput> {
     return deserializeAws_json1_1DescribeWorkspaceBundlesCommand(output, context);
   }

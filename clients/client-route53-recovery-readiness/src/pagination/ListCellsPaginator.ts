@@ -6,7 +6,7 @@ import { Route53RecoveryReadinessClient } from "../Route53RecoveryReadinessClien
 import { Route53RecoveryReadinessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Route53RecoveryReadinessClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCellsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCells(
   config: Route53RecoveryReadinessPaginationConfiguration,
   input: ListCellsCommandInput,

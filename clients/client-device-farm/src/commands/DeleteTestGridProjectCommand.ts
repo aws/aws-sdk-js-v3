@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTestGridProjectCommand}.
  */
 export interface DeleteTestGridProjectCommandInput extends DeleteTestGridProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTestGridProjectCommand}.
  */
 export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a Selenium testing project and all content generated under it. </p>
  *          <important>
  *             <p>You cannot undo this operation.</p>
@@ -52,6 +57,8 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTestGridProjectCommandInput - {@link DeleteTestGridProjectCommandInput}
+ * @returns {@link DeleteTestGridProjectCommandOutput}
  * @see {@link DeleteTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteTestGridProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteTestGridProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTestGridProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteTestGridProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTestGridProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTestGridProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTestGridProjectCommandOutput> {
     return deserializeAws_json1_1DeleteTestGridProjectCommand(output, context);
   }

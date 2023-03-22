@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableDomainTransferLockCommand}.
  */
 export interface DisableDomainTransferLockCommandInput extends DisableDomainTransferLockRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableDomainTransferLockCommand}.
  */
 export interface DisableDomainTransferLockCommandOutput extends DisableDomainTransferLockResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation removes the transfer lock on the domain (specifically the
  * 				<code>clientTransferProhibited</code> status) to allow domain transfers. We
  * 			recommend you refrain from performing this action unless you intend to transfer the
@@ -51,6 +56,8 @@ export interface DisableDomainTransferLockCommandOutput extends DisableDomainTra
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableDomainTransferLockCommandInput - {@link DisableDomainTransferLockCommandInput}
+ * @returns {@link DisableDomainTransferLockCommandOutput}
  * @see {@link DisableDomainTransferLockCommandInput} for command's `input` shape.
  * @see {@link DisableDomainTransferLockCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -93,6 +100,9 @@ export class DisableDomainTransferLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableDomainTransferLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DisableDomainTransferLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableDomainTransferLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableDomainTransferLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

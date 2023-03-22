@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelWorldExportJobCommand}.
  */
 export interface CancelWorldExportJobCommandInput extends CancelWorldExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelWorldExportJobCommand}.
  */
 export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelWorldExportJobCommandInput - {@link CancelWorldExportJobCommandInput}
+ * @returns {@link CancelWorldExportJobCommandOutput}
  * @see {@link CancelWorldExportJobCommandInput} for command's `input` shape.
  * @see {@link CancelWorldExportJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +89,9 @@ export class CancelWorldExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelWorldExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CancelWorldExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelWorldExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelWorldExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelWorldExportJobCommandOutput> {
     return deserializeAws_restJson1CancelWorldExportJobCommand(output, context);
   }

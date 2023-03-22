@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFeatureTransformationCommand}.
  */
 export interface DescribeFeatureTransformationCommandInput extends DescribeFeatureTransformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFeatureTransformationCommand}.
  */
 export interface DescribeFeatureTransformationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeFeatureTransformationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the given feature transformation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeFeatureTransformationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFeatureTransformationCommandInput - {@link DescribeFeatureTransformationCommandInput}
+ * @returns {@link DescribeFeatureTransformationCommandOutput}
  * @see {@link DescribeFeatureTransformationCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureTransformationCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeFeatureTransformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFeatureTransformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeFeatureTransformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFeatureTransformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFeatureTransformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

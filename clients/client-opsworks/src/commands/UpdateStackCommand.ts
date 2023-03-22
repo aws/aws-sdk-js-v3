@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStackCommand}.
  */
 export interface UpdateStackCommandInput extends UpdateStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStackCommand}.
  */
 export interface UpdateStackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified stack.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -46,6 +51,8 @@ export interface UpdateStackCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStackCommandInput - {@link UpdateStackCommandInput}
+ * @returns {@link UpdateStackCommandOutput}
  * @see {@link UpdateStackCommandInput} for command's `input` shape.
  * @see {@link UpdateStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStackCommandOutput> {
     return deserializeAws_json1_1UpdateStackCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { APIGatewayServiceException as __BaseException } from "./APIGatewayServiceException";
 
 /**
+ * @public
  * <p>Access log settings, including the access log format and access log destination ARN.</p>
  */
 export interface AccessLogSettings {
@@ -19,6 +20,7 @@ export interface AccessLogSettings {
 }
 
 /**
+ * @public
  * <p> The API request rate limits.</p>
  */
 export interface ThrottleSettings {
@@ -34,6 +36,7 @@ export interface ThrottleSettings {
 }
 
 /**
+ * @public
  * <p>Represents an AWS account that is associated with API Gateway.</p>
  */
 export interface Account {
@@ -59,6 +62,7 @@ export interface Account {
 }
 
 /**
+ * @public
  * <p>A resource that can be distributed to callers for executing Method resources that require an API key. API keys can be mapped to any Stage on any RestApi, which indicates that the callers with the API key can make requests to that stage.</p>
  */
 export interface ApiKey {
@@ -114,6 +118,7 @@ export interface ApiKey {
 }
 
 /**
+ * @public
  * <p>The identifier of an ApiKey used in a UsagePlan.</p>
  */
 export interface ApiKeyIds {
@@ -129,6 +134,7 @@ export interface ApiKeyIds {
 }
 
 /**
+ * @public
  * <p>Represents a collection of API keys as represented by an ApiKeys resource.</p>
  */
 export interface ApiKeys {
@@ -148,16 +154,23 @@ export interface ApiKeys {
   position?: string;
 }
 
+/**
+ * @public
+ */
 export enum ApiKeysFormat {
   csv = "csv",
 }
 
+/**
+ * @public
+ */
 export enum ApiKeySourceType {
   AUTHORIZER = "AUTHORIZER",
   HEADER = "HEADER",
 }
 
 /**
+ * @public
  * <p>API stage name of the associated API stage in a usage plan.</p>
  */
 export interface ApiStage {
@@ -177,6 +190,9 @@ export interface ApiStage {
   throttle?: Record<string, ThrottleSettings>;
 }
 
+/**
+ * @public
+ */
 export enum AuthorizerType {
   COGNITO_USER_POOLS = "COGNITO_USER_POOLS",
   REQUEST = "REQUEST",
@@ -184,6 +200,7 @@ export enum AuthorizerType {
 }
 
 /**
+ * @public
  * <p>Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.</p>
  */
 export interface Authorizer {
@@ -203,7 +220,7 @@ export interface Authorizer {
   type?: AuthorizerType | string;
 
   /**
-   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
+   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    */
   providerARNs?: string[];
 
@@ -213,7 +230,7 @@ export interface Authorizer {
   authType?: string;
 
   /**
-   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>, where <code>{region}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
+   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:\{account_id\}:function:\{lambda_function_name\}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:\{region\}:lambda:path/\{service_api\}</code>, where <code>\{region\}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
    */
   authorizerUri?: string;
 
@@ -253,6 +270,7 @@ export interface Authorizer {
 }
 
 /**
+ * @public
  * <p>Represents a collection of Authorizer resources.</p>
  */
 export interface Authorizers {
@@ -268,6 +286,7 @@ export interface Authorizers {
 }
 
 /**
+ * @public
  * <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -287,6 +306,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
  */
 export class ConflictException extends __BaseException {
@@ -306,7 +326,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>A reference to a unique stage identified in the format <code>{restApiId}/{stage}</code>.</p>
+ * @public
+ * <p>A reference to a unique stage identified in the format <code>\{restApiId\}/\{stage\}</code>.</p>
  */
 export interface StageKey {
   /**
@@ -321,6 +342,7 @@ export interface StageKey {
 }
 
 /**
+ * @public
  * <p>Request to create an ApiKey resource.</p>
  */
 export interface CreateApiKeyRequest {
@@ -366,6 +388,7 @@ export interface CreateApiKeyRequest {
 }
 
 /**
+ * @public
  * <p>The request exceeded the rate limit. Retry after the specified time period.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -387,6 +410,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource is not found. Make sure that the request URI is correct.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -406,6 +430,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request has reached its throttling limit. Retry after the specified time period.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -427,6 +452,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is denied because the caller has insufficient permissions.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -446,6 +472,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to add a new Authorizer to an existing RestApi resource.</p>
  */
 export interface CreateAuthorizerRequest {
@@ -465,7 +492,7 @@ export interface CreateAuthorizerRequest {
   type: AuthorizerType | string | undefined;
 
   /**
-   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
+   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    */
   providerARNs?: string[];
 
@@ -475,7 +502,7 @@ export interface CreateAuthorizerRequest {
   authType?: string;
 
   /**
-   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>, where <code>{region}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
+   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:\{account_id\}:function:\{lambda_function_name\}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:\{region\}:lambda:path/\{service_api\}</code>, where <code>\{region\}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
    */
   authorizerUri?: string;
 
@@ -517,6 +544,7 @@ export interface CreateAuthorizerRequest {
 }
 
 /**
+ * @public
  * <p>Represents the base path that callers of the API must provide as part of the URL after the domain name.</p>
  */
 export interface BasePathMapping {
@@ -537,6 +565,7 @@ export interface BasePathMapping {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to create a new BasePathMapping resource.</p>
  */
 export interface CreateBasePathMappingRequest {
@@ -561,6 +590,9 @@ export interface CreateBasePathMappingRequest {
   stage?: string;
 }
 
+/**
+ * @public
+ */
 export enum CacheClusterSize {
   SIZE_0_POINT_5_GB = "0.5",
   SIZE_118_GB = "118",
@@ -573,6 +605,7 @@ export enum CacheClusterSize {
 }
 
 /**
+ * @public
  * <p>The input configuration for a canary deployment.</p>
  */
 export interface DeploymentCanarySettings {
@@ -593,6 +626,7 @@ export interface DeploymentCanarySettings {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to create a Deployment resource.</p>
  */
 export interface CreateDeploymentRequest {
@@ -645,6 +679,7 @@ export interface CreateDeploymentRequest {
 }
 
 /**
+ * @public
  * <p>Represents a summary of a Method resource, given a particular date and time.</p>
  */
 export interface MethodSnapshot {
@@ -660,6 +695,7 @@ export interface MethodSnapshot {
 }
 
 /**
+ * @public
  * <p>An immutable representation of a RestApi resource that can be called by users using Stages. A deployment must be associated with a Stage for it to be callable over the Internet.</p>
  */
 export interface Deployment {
@@ -685,6 +721,7 @@ export interface Deployment {
 }
 
 /**
+ * @public
  * <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -705,6 +742,9 @@ export class ServiceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DocumentationPartType {
   API = "API",
   AUTHORIZER = "AUTHORIZER",
@@ -721,6 +761,7 @@ export enum DocumentationPartType {
 }
 
 /**
+ * @public
  * <p>Specifies the target API entity to which the documentation applies.</p>
  */
 export interface DocumentationPartLocation {
@@ -751,6 +792,7 @@ export interface DocumentationPartLocation {
 }
 
 /**
+ * @public
  * <p>Creates a new documentation part of a given API.</p>
  */
 export interface CreateDocumentationPartRequest {
@@ -771,6 +813,7 @@ export interface CreateDocumentationPartRequest {
 }
 
 /**
+ * @public
  * <p>A documentation part for a targeted API entity.</p>
  */
 export interface DocumentationPart {
@@ -785,12 +828,13 @@ export interface DocumentationPart {
   location?: DocumentationPartLocation;
 
   /**
-   * <p>A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., <code>"{ \"description\": \"The API does ...\" }"</code>.  Only OpenAPI-compliant documentation-related fields from the properties map are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of <code>x-amazon-apigateway-documentation</code>.</p>
+   * <p>A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., <code>"\{ \"description\": \"The API does ...\" \}"</code>.  Only OpenAPI-compliant documentation-related fields from the properties map are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of <code>x-amazon-apigateway-documentation</code>.</p>
    */
   properties?: string;
 }
 
 /**
+ * @public
  * <p>Creates a new documentation version of a given API.</p>
  */
 export interface CreateDocumentationVersionRequest {
@@ -816,6 +860,7 @@ export interface CreateDocumentationVersionRequest {
 }
 
 /**
+ * @public
  * <p>A snapshot of the documentation of an API.</p>
  */
 export interface DocumentationVersion {
@@ -835,6 +880,9 @@ export interface DocumentationVersion {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export enum EndpointType {
   EDGE = "EDGE",
   PRIVATE = "PRIVATE",
@@ -842,6 +890,7 @@ export enum EndpointType {
 }
 
 /**
+ * @public
  * <p>The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has. </p>
  */
 export interface EndpointConfiguration {
@@ -857,6 +906,7 @@ export interface EndpointConfiguration {
 }
 
 /**
+ * @public
  * <p>The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway
  *       performs two-way authentication between the client and the server. Clients must present a
  *       trusted certificate to access your API.</p>
@@ -877,12 +927,16 @@ export interface MutualTlsAuthenticationInput {
   truststoreVersion?: string;
 }
 
+/**
+ * @public
+ */
 export enum SecurityPolicy {
   TLS_1_0 = "TLS_1_0",
   TLS_1_2 = "TLS_1_2",
 }
 
 /**
+ * @public
  * <p>A request to create a new domain name.</p>
  */
 export interface CreateDomainNameRequest {
@@ -956,6 +1010,9 @@ export interface CreateDomainNameRequest {
   ownershipVerificationCertificateArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum DomainNameStatus {
   AVAILABLE = "AVAILABLE",
   PENDING = "PENDING",
@@ -965,6 +1022,7 @@ export enum DomainNameStatus {
 }
 
 /**
+ * @public
  * <p>The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway
  *       performs two-way authentication between the client and the server. Clients must present a
  *       trusted certificate to access your API.</p>
@@ -994,6 +1052,7 @@ export interface MutualTlsAuthentication {
 }
 
 /**
+ * @public
  * <p>Represents a custom domain name as a user-friendly host name of an API (RestApi).</p>
  */
 export interface DomainName {
@@ -1088,6 +1147,7 @@ export interface DomainName {
 }
 
 /**
+ * @public
  * <p>Request to add a new Model to an existing RestApi resource.</p>
  */
 export interface CreateModelRequest {
@@ -1118,6 +1178,7 @@ export interface CreateModelRequest {
 }
 
 /**
+ * @public
  * <p>Represents the data structure of a method's request or response payload.</p>
  */
 export interface Model {
@@ -1148,6 +1209,7 @@ export interface Model {
 }
 
 /**
+ * @public
  * <p>Creates a RequestValidator of a given RestApi.</p>
  */
 export interface CreateRequestValidatorRequest {
@@ -1173,6 +1235,7 @@ export interface CreateRequestValidatorRequest {
 }
 
 /**
+ * @public
  * <p>A set of validation rules for incoming Method requests.</p>
  */
 export interface RequestValidator {
@@ -1198,6 +1261,7 @@ export interface RequestValidator {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to create a Resource resource.</p>
  */
 export interface CreateResourceRequest {
@@ -1217,17 +1281,24 @@ export interface CreateResourceRequest {
   pathPart: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConnectionType {
   INTERNET = "INTERNET",
   VPC_LINK = "VPC_LINK",
 }
 
+/**
+ * @public
+ */
 export enum ContentHandlingStrategy {
   CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
   CONVERT_TO_TEXT = "CONVERT_TO_TEXT",
 }
 
 /**
+ * @public
  * <p>Represents an integration response. The status code must map to an existing MethodResponse, and parameters and templates can be used to transform the back-end response.</p>
  */
 export interface IntegrationResponse {
@@ -1243,7 +1314,7 @@ export interface IntegrationResponse {
 
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
-   *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.{name}</code> or <code>integration.response.body.{JSON-expression}</code>, where <code>name</code> is a valid and unique response header name and <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.</p>
+   *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.\{name\}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.\{name\}</code> or <code>integration.response.body.\{JSON-expression\}</code>, where <code>name</code> is a valid and unique response header name and <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.</p>
    */
   responseParameters?: Record<string, string>;
 
@@ -1260,6 +1331,7 @@ export interface IntegrationResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the TLS configuration for an integration.</p>
  */
 export interface TlsConfig {
@@ -1279,6 +1351,9 @@ export interface TlsConfig {
   insecureSkipVerification?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum IntegrationType {
   AWS = "AWS",
   AWS_PROXY = "AWS_PROXY",
@@ -1288,6 +1363,7 @@ export enum IntegrationType {
 }
 
 /**
+ * @public
  * <p>Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.</p>
  */
 export interface Integration {
@@ -1308,17 +1384,17 @@ export interface Integration {
    *       according to the RFC-3986 specification, for either standard integration, where <code>connectionType</code>
    *       is not <code>VPC_LINK</code>, or private integration, where <code>connectionType</code> is <code>VPC_LINK</code>. For a private HTTP
    *       integration, the URI is not used for routing. For <code>AWS</code> or <code>AWS_PROXY</code> integrations, the URI is of
-   *       the form <code>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}</code>.
-   *       Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the
-   *       integrated Amazon Web Services service (e.g., s3); and {subdomain} is a designated subdomain supported by
+   *       the form <code>arn:aws:apigateway:\{region\}:\{subdomain.service|service\}:path|action/\{service_api\}</code>.
+   *       Here, \{Region\} is the API Gateway region (e.g., us-east-1); \{service\} is the name of the
+   *       integrated Amazon Web Services service (e.g., s3); and \{subdomain\} is a designated subdomain supported by
    *       certain Amazon Web Services  service for fast host-name lookup. action can be used for an Amazon Web Services  service
-   *       action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing
-   *       {service_api} refers to a supported action {name} plus any required input parameters.
+   *       action-based API, using an Action=\{name\}&\{p1\}=\{v1\}&p2=\{v2\}... query string. The ensuing
+   *       \{service_api\} refers to a supported action \{name\} plus any required input parameters.
    *       Alternatively, path can be used for an AWS service path-based API. The ensuing service_api
    *       refers to the path to an Amazon Web Services  service resource, including the region of the integrated Amazon Web Services
    *       service, if applicable. For example, for integration with the S3 API of GetObject, the uri can
-   *       be either <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}</code> or
-   *       <code>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</code>
+   *       be either <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket=\{bucket\}&Key=\{key\}</code> or
+   *       <code>arn:aws:apigateway:us-west-2:s3:path/\{bucket\}/\{key\}</code>
    *          </p>
    */
   uri?: string;
@@ -1339,7 +1415,7 @@ export interface Integration {
   credentials?: string;
 
   /**
-   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
+   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.\{location\}.\{name\}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
    */
   requestParameters?: Record<string, string>;
 
@@ -1400,6 +1476,7 @@ export interface Integration {
 }
 
 /**
+ * @public
  * <p>Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template. </p>
  */
 export interface MethodResponse {
@@ -1409,7 +1486,7 @@ export interface MethodResponse {
   statusCode?: string;
 
   /**
-   * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
+   * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern <code>method.response.header.\{name\}</code>, where <code>name</code> is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in <code>integration.response.header.\{name\}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.\{JSON-expression\}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
    */
   responseParameters?: Record<string, boolean>;
 
@@ -1420,6 +1497,7 @@ export interface MethodResponse {
 }
 
 /**
+ * @public
  * <p>
  *             Represents a client-facing interface by which the client calls the API to access back-end resources. A Method resource is
  *             integrated with an Integration resource. Both consist of a request and one or more responses. The method request takes
@@ -1461,7 +1539,7 @@ export interface Method {
   operationName?: string;
 
   /**
-   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.</p>
+   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of  <code>method.request.\{location\}.\{name\}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.</p>
    */
   requestParameters?: Record<string, boolean>;
 
@@ -1487,6 +1565,7 @@ export interface Method {
 }
 
 /**
+ * @public
  * <p>Represents an API resource.</p>
  */
 export interface Resource {
@@ -1517,6 +1596,7 @@ export interface Resource {
 }
 
 /**
+ * @public
  * <p>The POST Request to add a new RestApi resource to your collection.</p>
  */
 export interface CreateRestApiRequest {
@@ -1576,13 +1656,14 @@ export interface CreateRestApiRequest {
   /**
    * <p>Specifies whether clients can invoke your API by using the default <code>execute-api</code> endpoint.
    *       By default, clients can invoke your API with the default
-   *       <code>https://{api_id}.execute-api.{region}.amazonaws.com</code> endpoint. To require that clients use a
+   *       <code>https://\{api_id\}.execute-api.\{region\}.amazonaws.com</code> endpoint. To require that clients use a
    *       custom domain name to invoke your API, disable the default endpoint</p>
    */
   disableExecuteApiEndpoint?: boolean;
 }
 
 /**
+ * @public
  * <p>Represents a REST API.</p>
  */
 export interface RestApi {
@@ -1652,13 +1733,14 @@ export interface RestApi {
   /**
    * <p>Specifies whether clients can invoke your API by using the default <code>execute-api</code> endpoint.
    *       By default, clients can invoke your API with the default
-   *       <code>https://{api_id}.execute-api.{region}.amazonaws.com</code> endpoint. To require that clients use a
+   *       <code>https://\{api_id\}.execute-api.\{region\}.amazonaws.com</code> endpoint. To require that clients use a
    *       custom domain name to invoke your API, disable the default endpoint.</p>
    */
   disableExecuteApiEndpoint?: boolean;
 }
 
 /**
+ * @public
  * <p>Configuration settings of a canary deployment.</p>
  */
 export interface CanarySettings {
@@ -1684,6 +1766,7 @@ export interface CanarySettings {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to create a Stage resource.</p>
  */
 export interface CreateStageRequest {
@@ -1745,6 +1828,9 @@ export interface CreateStageRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum CacheClusterStatus {
   AVAILABLE = "AVAILABLE",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -1753,6 +1839,9 @@ export enum CacheClusterStatus {
   NOT_AVAILABLE = "NOT_AVAILABLE",
 }
 
+/**
+ * @public
+ */
 export enum UnauthorizedCacheControlHeaderStrategy {
   FAIL_WITH_403 = "FAIL_WITH_403",
   SUCCEED_WITHOUT_RESPONSE_HEADER = "SUCCEED_WITHOUT_RESPONSE_HEADER",
@@ -1760,61 +1849,63 @@ export enum UnauthorizedCacheControlHeaderStrategy {
 }
 
 /**
+ * @public
  * <p>Specifies the method setting properties.</p>
  */
 export interface MethodSetting {
   /**
-   * <p>Specifies whether Amazon CloudWatch metrics are enabled for this method. The PATCH path for this setting is <code>/{method_setting_key}/metrics/enabled</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether Amazon CloudWatch metrics are enabled for this method. The PATCH path for this setting is <code>/\{method_setting_key\}/metrics/enabled</code>, and the value is a Boolean.</p>
    */
   metricsEnabled?: boolean;
 
   /**
-   * <p>Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/{method_setting_key}/logging/loglevel</code>, and the available levels are <code>OFF</code>, <code>ERROR</code>, and <code>INFO</code>. Choose <code>ERROR</code> to write only error-level entries to CloudWatch Logs, or choose <code>INFO</code> to include all <code>ERROR</code> events as well as extra informational events.</p>
+   * <p>Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/\{method_setting_key\}/logging/loglevel</code>, and the available levels are <code>OFF</code>, <code>ERROR</code>, and <code>INFO</code>. Choose <code>ERROR</code> to write only error-level entries to CloudWatch Logs, or choose <code>INFO</code> to include all <code>ERROR</code> events as well as extra informational events.</p>
    */
   loggingLevel?: string;
 
   /**
-   * <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/{method_setting_key}/logging/dataTrace</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/\{method_setting_key\}/logging/dataTrace</code>, and the value is a Boolean.</p>
    */
   dataTraceEnabled?: boolean;
 
   /**
-   * <p>Specifies the throttling burst limit. The PATCH path for this setting is <code>/{method_setting_key}/throttling/burstLimit</code>, and the value is an integer.</p>
+   * <p>Specifies the throttling burst limit. The PATCH path for this setting is <code>/\{method_setting_key\}/throttling/burstLimit</code>, and the value is an integer.</p>
    */
   throttlingBurstLimit?: number;
 
   /**
-   * <p>Specifies the throttling rate limit. The PATCH path for this setting is <code>/{method_setting_key}/throttling/rateLimit</code>, and the value is a double.</p>
+   * <p>Specifies the throttling rate limit. The PATCH path for this setting is <code>/\{method_setting_key\}/throttling/rateLimit</code>, and the value is a double.</p>
    */
   throttlingRateLimit?: number;
 
   /**
-   * <p>Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/enabled</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/enabled</code>, and the value is a Boolean.</p>
    */
   cachingEnabled?: boolean;
 
   /**
-   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/ttlInSeconds</code>, and the value is an integer.</p>
+   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/ttlInSeconds</code>, and the value is an integer.</p>
    */
   cacheTtlInSeconds?: number;
 
   /**
-   * <p>Specifies whether the cached responses are encrypted. The PATCH path for this setting is <code>/{method_setting_key}/caching/dataEncrypted</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether the cached responses are encrypted. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/dataEncrypted</code>, and the value is a Boolean.</p>
    */
   cacheDataEncrypted?: boolean;
 
   /**
-   * <p>Specifies whether authorization is required for a cache invalidation request. The PATCH path for this setting is <code>/{method_setting_key}/caching/requireAuthorizationForCacheControl</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether authorization is required for a cache invalidation request. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/requireAuthorizationForCacheControl</code>, and the value is a Boolean.</p>
    */
   requireAuthorizationForCacheControl?: boolean;
 
   /**
-   * <p>Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is <code>/{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy</code>, and the available values are <code>FAIL_WITH_403</code>, <code>SUCCEED_WITH_RESPONSE_HEADER</code>, <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>.</p>
+   * <p>Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/unauthorizedCacheControlHeaderStrategy</code>, and the available values are <code>FAIL_WITH_403</code>, <code>SUCCEED_WITH_RESPONSE_HEADER</code>, <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>.</p>
    */
   unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy | string;
 }
 
 /**
+ * @public
  * <p>Represents a unique identifier for a version of a deployed RestApi that is callable by users.</p>
  */
 export interface Stage {
@@ -1854,7 +1945,7 @@ export interface Stage {
   cacheClusterStatus?: CacheClusterStatus | string;
 
   /**
-   * <p>A map that defines the method settings for a Stage resource. Keys (designated as <code>/{method_setting_key</code> below) are method paths defined as <code>{resource_path}/{http_method}</code> for an individual method override, or <code>/\*\/\*</code> for overriding all methods in the stage.  </p>
+   * <p>A map that defines the method settings for a Stage resource. Keys (designated as <code>/\{method_setting_key</code> below) are method paths defined as <code>\{resource_path\}/\{http_method\}</code> for an individual method override, or <code>/\*\/\*</code> for overriding all methods in the stage.  </p>
    */
   methodSettings?: Record<string, MethodSetting>;
 
@@ -1905,6 +1996,9 @@ export interface Stage {
   lastUpdatedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export enum QuotaPeriodType {
   DAY = "DAY",
   MONTH = "MONTH",
@@ -1912,6 +2006,7 @@ export enum QuotaPeriodType {
 }
 
 /**
+ * @public
  * <p>Quotas configured for a usage plan.</p>
  */
 export interface QuotaSettings {
@@ -1932,6 +2027,7 @@ export interface QuotaSettings {
 }
 
 /**
+ * @public
  * <p>The POST request to create a usage plan with the name, description, throttle limits and quota limits, as well as the associated API stages, specified in the payload.</p>
  */
 export interface CreateUsagePlanRequest {
@@ -1967,6 +2063,7 @@ export interface CreateUsagePlanRequest {
 }
 
 /**
+ * @public
  * <p>Represents a usage plan used to specify who can assess associated API stages. Optionally, target request rate and quota limits can be set.
  *         In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs.
  *         Consider using <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html">Amazon Web Services Budgets</a> to monitor costs
@@ -2015,6 +2112,7 @@ export interface UsagePlan {
 }
 
 /**
+ * @public
  * <p>The POST request to create a usage plan key for adding an existing API key to a usage plan.</p>
  */
 export interface CreateUsagePlanKeyRequest {
@@ -2035,6 +2133,7 @@ export interface CreateUsagePlanKeyRequest {
 }
 
 /**
+ * @public
  * <p>Represents a usage plan key to identify a plan customer.</p>
  */
 export interface UsagePlanKey {
@@ -2060,6 +2159,7 @@ export interface UsagePlanKey {
 }
 
 /**
+ * @public
  * <p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>
  */
 export interface CreateVpcLinkRequest {
@@ -2084,6 +2184,9 @@ export interface CreateVpcLinkRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum VpcLinkStatus {
   AVAILABLE = "AVAILABLE",
   DELETING = "DELETING",
@@ -2092,6 +2195,7 @@ export enum VpcLinkStatus {
 }
 
 /**
+ * @public
  * <p>An API Gateway VPC link for a RestApi to access resources in an Amazon Virtual Private Cloud (VPC).</p>
  */
 export interface VpcLink {
@@ -2132,6 +2236,7 @@ export interface VpcLink {
 }
 
 /**
+ * @public
  * <p>A request to delete the ApiKey resource.</p>
  */
 export interface DeleteApiKeyRequest {
@@ -2142,6 +2247,7 @@ export interface DeleteApiKeyRequest {
 }
 
 /**
+ * @public
  * <p>Request to delete an existing Authorizer resource.</p>
  */
 export interface DeleteAuthorizerRequest {
@@ -2157,6 +2263,7 @@ export interface DeleteAuthorizerRequest {
 }
 
 /**
+ * @public
  * <p>A request to delete the BasePathMapping resource.</p>
  */
 export interface DeleteBasePathMappingRequest {
@@ -2173,6 +2280,7 @@ export interface DeleteBasePathMappingRequest {
 }
 
 /**
+ * @public
  * <p>A request to delete the ClientCertificate resource.</p>
  */
 export interface DeleteClientCertificateRequest {
@@ -2183,6 +2291,7 @@ export interface DeleteClientCertificateRequest {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to delete a Deployment resource.</p>
  */
 export interface DeleteDeploymentRequest {
@@ -2198,6 +2307,7 @@ export interface DeleteDeploymentRequest {
 }
 
 /**
+ * @public
  * <p>Deletes an existing documentation part of an API.</p>
  */
 export interface DeleteDocumentationPartRequest {
@@ -2213,6 +2323,7 @@ export interface DeleteDocumentationPartRequest {
 }
 
 /**
+ * @public
  * <p>Deletes an existing documentation version of an API.</p>
  */
 export interface DeleteDocumentationVersionRequest {
@@ -2228,6 +2339,7 @@ export interface DeleteDocumentationVersionRequest {
 }
 
 /**
+ * @public
  * <p>A request to delete the DomainName resource.</p>
  */
 export interface DeleteDomainNameRequest {
@@ -2237,6 +2349,9 @@ export interface DeleteDomainNameRequest {
   domainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum GatewayResponseType {
   ACCESS_DENIED = "ACCESS_DENIED",
   API_CONFIGURATION_ERROR = "API_CONFIGURATION_ERROR",
@@ -2262,6 +2377,7 @@ export enum GatewayResponseType {
 }
 
 /**
+ * @public
  * <p>Clears any customization of a GatewayResponse of a specified response type on the given RestApi and resets it with the default settings.</p>
  */
 export interface DeleteGatewayResponseRequest {
@@ -2277,6 +2393,7 @@ export interface DeleteGatewayResponseRequest {
 }
 
 /**
+ * @public
  * <p>Represents a delete integration request.</p>
  */
 export interface DeleteIntegrationRequest {
@@ -2297,6 +2414,7 @@ export interface DeleteIntegrationRequest {
 }
 
 /**
+ * @public
  * <p>Represents a delete integration response request.</p>
  */
 export interface DeleteIntegrationResponseRequest {
@@ -2322,6 +2440,7 @@ export interface DeleteIntegrationResponseRequest {
 }
 
 /**
+ * @public
  * <p>Request to delete an existing Method resource.</p>
  */
 export interface DeleteMethodRequest {
@@ -2342,6 +2461,7 @@ export interface DeleteMethodRequest {
 }
 
 /**
+ * @public
  * <p>A request to delete an existing MethodResponse resource.</p>
  */
 export interface DeleteMethodResponseRequest {
@@ -2367,6 +2487,7 @@ export interface DeleteMethodResponseRequest {
 }
 
 /**
+ * @public
  * <p>Request to delete an existing model in an existing RestApi resource.</p>
  */
 export interface DeleteModelRequest {
@@ -2382,6 +2503,7 @@ export interface DeleteModelRequest {
 }
 
 /**
+ * @public
  * <p>Deletes a specified RequestValidator of a given RestApi.</p>
  */
 export interface DeleteRequestValidatorRequest {
@@ -2397,6 +2519,7 @@ export interface DeleteRequestValidatorRequest {
 }
 
 /**
+ * @public
  * <p>Request to delete a Resource.</p>
  */
 export interface DeleteResourceRequest {
@@ -2412,6 +2535,7 @@ export interface DeleteResourceRequest {
 }
 
 /**
+ * @public
  * <p>Request to delete the specified API from your collection.</p>
  */
 export interface DeleteRestApiRequest {
@@ -2422,6 +2546,7 @@ export interface DeleteRestApiRequest {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to delete a Stage resource.</p>
  */
 export interface DeleteStageRequest {
@@ -2437,6 +2562,7 @@ export interface DeleteStageRequest {
 }
 
 /**
+ * @public
  * <p>The DELETE request to delete a usage plan of a given plan Id.</p>
  */
 export interface DeleteUsagePlanRequest {
@@ -2447,6 +2573,7 @@ export interface DeleteUsagePlanRequest {
 }
 
 /**
+ * @public
  * <p>The DELETE request to delete a usage plan key and remove the underlying API key from the associated usage plan.</p>
  */
 export interface DeleteUsagePlanKeyRequest {
@@ -2462,6 +2589,7 @@ export interface DeleteUsagePlanKeyRequest {
 }
 
 /**
+ * @public
  * <p>Deletes an existing VpcLink of a specified identifier.</p>
  */
 export interface DeleteVpcLinkRequest {
@@ -2472,6 +2600,7 @@ export interface DeleteVpcLinkRequest {
 }
 
 /**
+ * @public
  * <p>Request to flush authorizer cache entries on a specified stage.</p>
  */
 export interface FlushStageAuthorizersCacheRequest {
@@ -2487,6 +2616,7 @@ export interface FlushStageAuthorizersCacheRequest {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to flush a stage's cache.</p>
  */
 export interface FlushStageCacheRequest {
@@ -2502,6 +2632,7 @@ export interface FlushStageCacheRequest {
 }
 
 /**
+ * @public
  * <p>Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.</p>
  */
 export interface ClientCertificate {
@@ -2537,6 +2668,7 @@ export interface ClientCertificate {
 }
 
 /**
+ * @public
  * <p>A request to generate a ClientCertificate resource.</p>
  */
 export interface GenerateClientCertificateRequest {
@@ -2552,11 +2684,13 @@ export interface GenerateClientCertificateRequest {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to get information about the current Account resource.</p>
  */
 export interface GetAccountRequest {}
 
 /**
+ * @public
  * <p>A request to get information about the current ApiKey resource.</p>
  */
 export interface GetApiKeyRequest {
@@ -2572,6 +2706,7 @@ export interface GetApiKeyRequest {
 }
 
 /**
+ * @public
  * <p>A request to get information about the current ApiKeys resource.</p>
  */
 export interface GetApiKeysRequest {
@@ -2602,6 +2737,7 @@ export interface GetApiKeysRequest {
 }
 
 /**
+ * @public
  * <p>Request to describe an existing Authorizer resource.</p>
  */
 export interface GetAuthorizerRequest {
@@ -2617,6 +2753,7 @@ export interface GetAuthorizerRequest {
 }
 
 /**
+ * @public
  * <p>Request to describe an existing Authorizers resource.</p>
  */
 export interface GetAuthorizersRequest {
@@ -2637,6 +2774,7 @@ export interface GetAuthorizersRequest {
 }
 
 /**
+ * @public
  * <p>Request to describe a BasePathMapping resource.</p>
  */
 export interface GetBasePathMappingRequest {
@@ -2652,6 +2790,7 @@ export interface GetBasePathMappingRequest {
 }
 
 /**
+ * @public
  * <p>Represents a collection of BasePathMapping resources.</p>
  */
 export interface BasePathMappings {
@@ -2667,6 +2806,7 @@ export interface BasePathMappings {
 }
 
 /**
+ * @public
  * <p>A request to get information about a collection of BasePathMapping resources.</p>
  */
 export interface GetBasePathMappingsRequest {
@@ -2687,6 +2827,7 @@ export interface GetBasePathMappingsRequest {
 }
 
 /**
+ * @public
  * <p>A request to get information about the current ClientCertificate resource.</p>
  */
 export interface GetClientCertificateRequest {
@@ -2697,6 +2838,7 @@ export interface GetClientCertificateRequest {
 }
 
 /**
+ * @public
  * <p>Represents a collection of ClientCertificate resources.</p>
  */
 export interface ClientCertificates {
@@ -2712,6 +2854,7 @@ export interface ClientCertificates {
 }
 
 /**
+ * @public
  * <p>A request to get information about a collection of ClientCertificate resources.</p>
  */
 export interface GetClientCertificatesRequest {
@@ -2727,6 +2870,7 @@ export interface GetClientCertificatesRequest {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to get information about a Deployment resource.</p>
  */
 export interface GetDeploymentRequest {
@@ -2741,12 +2885,13 @@ export interface GetDeploymentRequest {
   deploymentId: string | undefined;
 
   /**
-   * <p>A query parameter to retrieve the specified embedded resources of the returned Deployment resource in the response. In a REST API call, this <code>embed</code> parameter value is a list of comma-separated strings, as in  <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2</code>. The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the <code>"apisummary"</code> string.  For example, <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</code>.</p>
+   * <p>A query parameter to retrieve the specified embedded resources of the returned Deployment resource in the response. In a REST API call, this <code>embed</code> parameter value is a list of comma-separated strings, as in  <code>GET /restapis/\{restapi_id\}/deployments/\{deployment_id\}?embed=var1,var2</code>. The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the <code>"apisummary"</code> string.  For example, <code>GET /restapis/\{restapi_id\}/deployments/\{deployment_id\}?embed=apisummary</code>.</p>
    */
   embed?: string[];
 }
 
 /**
+ * @public
  * <p>Represents a collection resource that contains zero or more references to your existing deployments, and links that guide you on how to interact with your collection. The collection offers a paginated view of the contained deployments.</p>
  */
 export interface Deployments {
@@ -2762,6 +2907,7 @@ export interface Deployments {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to get information about a Deployments collection.</p>
  */
 export interface GetDeploymentsRequest {
@@ -2782,6 +2928,7 @@ export interface GetDeploymentsRequest {
 }
 
 /**
+ * @public
  * <p>Gets a specified documentation part of a given API.</p>
  */
 export interface GetDocumentationPartRequest {
@@ -2797,6 +2944,7 @@ export interface GetDocumentationPartRequest {
 }
 
 /**
+ * @public
  * <p>The collection of documentation parts of an API.</p>
  */
 export interface DocumentationParts {
@@ -2811,12 +2959,16 @@ export interface DocumentationParts {
   position?: string;
 }
 
+/**
+ * @public
+ */
 export enum LocationStatusType {
   DOCUMENTED = "DOCUMENTED",
   UNDOCUMENTED = "UNDOCUMENTED",
 }
 
 /**
+ * @public
  * <p>Gets the documentation parts of an API. The result may be filtered by the type, name, or path of API entities (targets).</p>
  */
 export interface GetDocumentationPartsRequest {
@@ -2857,6 +3009,7 @@ export interface GetDocumentationPartsRequest {
 }
 
 /**
+ * @public
  * <p>Gets a documentation snapshot of an API.</p>
  */
 export interface GetDocumentationVersionRequest {
@@ -2872,6 +3025,7 @@ export interface GetDocumentationVersionRequest {
 }
 
 /**
+ * @public
  * <p>The collection of documentation snapshots of an API. </p>
  */
 export interface DocumentationVersions {
@@ -2887,6 +3041,7 @@ export interface DocumentationVersions {
 }
 
 /**
+ * @public
  * <p>Gets the documentation versions of an API.</p>
  */
 export interface GetDocumentationVersionsRequest {
@@ -2907,6 +3062,7 @@ export interface GetDocumentationVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Request to get the name of a DomainName resource.</p>
  */
 export interface GetDomainNameRequest {
@@ -2917,6 +3073,7 @@ export interface GetDomainNameRequest {
 }
 
 /**
+ * @public
  * <p>Represents a collection of DomainName resources.</p>
  */
 export interface DomainNames {
@@ -2932,6 +3089,7 @@ export interface DomainNames {
 }
 
 /**
+ * @public
  * <p>Request to describe a collection of DomainName resources.</p>
  */
 export interface GetDomainNamesRequest {
@@ -2947,6 +3105,7 @@ export interface GetDomainNamesRequest {
 }
 
 /**
+ * @public
  * <p>The binary blob response to GetExport, which contains the generated SDK.</p>
  */
 export interface ExportResponse {
@@ -2967,6 +3126,7 @@ export interface ExportResponse {
 }
 
 /**
+ * @public
  * <p>Request a new export of a RestApi for a particular Stage.</p>
  */
 export interface GetExportRequest {
@@ -2998,6 +3158,7 @@ export interface GetExportRequest {
 }
 
 /**
+ * @public
  * <p>A gateway response of a given response type and status code, with optional response parameters and mapping templates.</p>
  */
 export interface GatewayResponse {
@@ -3029,6 +3190,7 @@ export interface GatewayResponse {
 }
 
 /**
+ * @public
  * <p>Gets a GatewayResponse of a specified response type on the given RestApi.</p>
  */
 export interface GetGatewayResponseRequest {
@@ -3044,6 +3206,7 @@ export interface GetGatewayResponseRequest {
 }
 
 /**
+ * @public
  * <p>The collection of the GatewayResponse instances of a RestApi as a <code>responseType</code>-to-GatewayResponse object map of key-value pairs. As such, pagination is not supported for querying this collection.</p>
  */
 export interface GatewayResponses {
@@ -3059,6 +3222,7 @@ export interface GatewayResponses {
 }
 
 /**
+ * @public
  * <p>Gets the GatewayResponses collection on the given RestApi. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default GatewayResponses collection for the supported response types.</p>
  */
 export interface GetGatewayResponsesRequest {
@@ -3079,6 +3243,7 @@ export interface GetGatewayResponsesRequest {
 }
 
 /**
+ * @public
  * <p>Represents a request to get the integration configuration.</p>
  */
 export interface GetIntegrationRequest {
@@ -3099,6 +3264,7 @@ export interface GetIntegrationRequest {
 }
 
 /**
+ * @public
  * <p>Represents a get integration response request.</p>
  */
 export interface GetIntegrationResponseRequest {
@@ -3124,6 +3290,7 @@ export interface GetIntegrationResponseRequest {
 }
 
 /**
+ * @public
  * <p>Request to describe an existing Method resource.</p>
  */
 export interface GetMethodRequest {
@@ -3144,6 +3311,7 @@ export interface GetMethodRequest {
 }
 
 /**
+ * @public
  * <p>Request to describe a MethodResponse resource.</p>
  */
 export interface GetMethodResponseRequest {
@@ -3169,6 +3337,7 @@ export interface GetMethodResponseRequest {
 }
 
 /**
+ * @public
  * <p>Request to list information about a model in an existing RestApi resource.</p>
  */
 export interface GetModelRequest {
@@ -3189,6 +3358,7 @@ export interface GetModelRequest {
 }
 
 /**
+ * @public
  * <p>Request to list existing Models defined for a RestApi resource.</p>
  */
 export interface GetModelsRequest {
@@ -3209,6 +3379,7 @@ export interface GetModelsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a collection of Model resources.</p>
  */
 export interface Models {
@@ -3224,6 +3395,7 @@ export interface Models {
 }
 
 /**
+ * @public
  * <p>Request to generate a sample mapping template used to transform the payload.</p>
  */
 export interface GetModelTemplateRequest {
@@ -3239,6 +3411,7 @@ export interface GetModelTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Represents a mapping template used to transform a payload.</p>
  */
 export interface Template {
@@ -3249,6 +3422,7 @@ export interface Template {
 }
 
 /**
+ * @public
  * <p>Gets a RequestValidator of a given RestApi.</p>
  */
 export interface GetRequestValidatorRequest {
@@ -3264,6 +3438,7 @@ export interface GetRequestValidatorRequest {
 }
 
 /**
+ * @public
  * <p>Gets the RequestValidators collection of a given RestApi.</p>
  */
 export interface GetRequestValidatorsRequest {
@@ -3284,6 +3459,7 @@ export interface GetRequestValidatorsRequest {
 }
 
 /**
+ * @public
  * <p>A collection of RequestValidator resources of a given RestApi.</p>
  */
 export interface RequestValidators {
@@ -3299,6 +3475,7 @@ export interface RequestValidators {
 }
 
 /**
+ * @public
  * <p>Request to list information about a resource.</p>
  */
 export interface GetResourceRequest {
@@ -3313,12 +3490,13 @@ export interface GetResourceRequest {
   resourceId: string | undefined;
 
   /**
-   * <p>A query parameter to retrieve the specified resources embedded in the returned Resource representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>
+   * <p>A query parameter to retrieve the specified resources embedded in the returned Resource representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/\{restapi_id\}/resources/\{resource_id\}?embed=methods</code>.</p>
    */
   embed?: string[];
 }
 
 /**
+ * @public
  * <p>Request to list information about a collection of resources.</p>
  */
 export interface GetResourcesRequest {
@@ -3338,12 +3516,13 @@ export interface GetResourcesRequest {
   limit?: number;
 
   /**
-   * <p>A query parameter used to retrieve the specified resources embedded in the returned Resources resource in the response.  This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources?embed=methods</code>.</p>
+   * <p>A query parameter used to retrieve the specified resources embedded in the returned Resources resource in the response.  This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/\{restapi_id\}/resources?embed=methods</code>.</p>
    */
   embed?: string[];
 }
 
 /**
+ * @public
  * <p>Represents a collection of Resource resources.</p>
  */
 export interface Resources {
@@ -3359,6 +3538,7 @@ export interface Resources {
 }
 
 /**
+ * @public
  * <p>The GET request to list an existing RestApi defined for your collection. </p>
  */
 export interface GetRestApiRequest {
@@ -3369,6 +3549,7 @@ export interface GetRestApiRequest {
 }
 
 /**
+ * @public
  * <p>The GET request to list existing RestApis defined for your collection.</p>
  */
 export interface GetRestApisRequest {
@@ -3384,6 +3565,7 @@ export interface GetRestApisRequest {
 }
 
 /**
+ * @public
  * <p>Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.</p>
  */
 export interface RestApis {
@@ -3399,6 +3581,7 @@ export interface RestApis {
 }
 
 /**
+ * @public
  * <p>Request a new generated client SDK for a RestApi and Stage.</p>
  */
 export interface GetSdkRequest {
@@ -3424,6 +3607,7 @@ export interface GetSdkRequest {
 }
 
 /**
+ * @public
  * <p>The binary blob response to GetSdk, which contains the generated SDK.</p>
  */
 export interface SdkResponse {
@@ -3444,6 +3628,7 @@ export interface SdkResponse {
 }
 
 /**
+ * @public
  * <p>Get an SdkType instance.</p>
  */
 export interface GetSdkTypeRequest {
@@ -3454,6 +3639,7 @@ export interface GetSdkTypeRequest {
 }
 
 /**
+ * @public
  * <p>A configuration property of an SDK type.</p>
  */
 export interface SdkConfigurationProperty {
@@ -3484,6 +3670,7 @@ export interface SdkConfigurationProperty {
 }
 
 /**
+ * @public
  * <p>A type of SDK that API Gateway can generate.</p>
  */
 export interface SdkType {
@@ -3509,6 +3696,7 @@ export interface SdkType {
 }
 
 /**
+ * @public
  * <p>Get the SdkTypes collection.</p>
  */
 export interface GetSdkTypesRequest {
@@ -3524,6 +3712,7 @@ export interface GetSdkTypesRequest {
 }
 
 /**
+ * @public
  * <p>The collection of SdkType instances.</p>
  */
 export interface SdkTypes {
@@ -3534,6 +3723,7 @@ export interface SdkTypes {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to get information about a Stage resource.</p>
  */
 export interface GetStageRequest {
@@ -3549,6 +3739,7 @@ export interface GetStageRequest {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to get information about one or more Stage resources.</p>
  */
 export interface GetStagesRequest {
@@ -3564,6 +3755,7 @@ export interface GetStagesRequest {
 }
 
 /**
+ * @public
  * <p>A list of Stage resources that are associated with the ApiKey resource.</p>
  */
 export interface Stages {
@@ -3574,6 +3766,7 @@ export interface Stages {
 }
 
 /**
+ * @public
  * <p>Gets the Tags collection for a given resource.</p>
  */
 export interface GetTagsRequest {
@@ -3594,6 +3787,7 @@ export interface GetTagsRequest {
 }
 
 /**
+ * @public
  * <p>The collection of tags. Each tag element is associated with a given resource.</p>
  */
 export interface Tags {
@@ -3604,6 +3798,7 @@ export interface Tags {
 }
 
 /**
+ * @public
  * <p>The GET request to get the usage data of a usage plan in a specified time interval.</p>
  */
 export interface GetUsageRequest {
@@ -3639,6 +3834,7 @@ export interface GetUsageRequest {
 }
 
 /**
+ * @public
  * <p>Represents the usage data of a usage plan.</p>
  */
 export interface Usage {
@@ -3658,7 +3854,7 @@ export interface Usage {
   endDate?: string;
 
   /**
-   * <p>The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, <code>{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}</code>, where <code>{api_key}</code> stands for an API key value and the daily log entry is of the format <code>[used quota, remaining quota]</code>.</p>
+   * <p>The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, <code>\{..., "values" : \{ "\{api_key\}" : [ [0, 100], [10, 90], [100, 10]]\}</code>, where <code>\{api_key\}</code> stands for an API key value and the daily log entry is of the format <code>[used quota, remaining quota]</code>.</p>
    */
   items?: Record<string, number[][]>;
 
@@ -3669,6 +3865,7 @@ export interface Usage {
 }
 
 /**
+ * @public
  * <p>The GET request to get a usage plan of a given plan identifier.</p>
  */
 export interface GetUsagePlanRequest {
@@ -3679,6 +3876,7 @@ export interface GetUsagePlanRequest {
 }
 
 /**
+ * @public
  * <p>The GET request to get a usage plan key of a given key identifier.</p>
  */
 export interface GetUsagePlanKeyRequest {
@@ -3694,6 +3892,7 @@ export interface GetUsagePlanKeyRequest {
 }
 
 /**
+ * @public
  * <p>The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.</p>
  */
 export interface GetUsagePlanKeysRequest {
@@ -3719,6 +3918,7 @@ export interface GetUsagePlanKeysRequest {
 }
 
 /**
+ * @public
  * <p>Represents the collection of usage plan keys added to usage plans for the associated API keys and, possibly, other types of keys.</p>
  */
 export interface UsagePlanKeys {
@@ -3734,6 +3934,7 @@ export interface UsagePlanKeys {
 }
 
 /**
+ * @public
  * <p>The GET request to get all the usage plans of the caller's account.</p>
  */
 export interface GetUsagePlansRequest {
@@ -3754,6 +3955,7 @@ export interface GetUsagePlansRequest {
 }
 
 /**
+ * @public
  * <p>Represents a collection of usage plans for an AWS account.</p>
  */
 export interface UsagePlans {
@@ -3769,6 +3971,7 @@ export interface UsagePlans {
 }
 
 /**
+ * @public
  * <p>Gets a specified VPC link under the caller's account in a region.</p>
  */
 export interface GetVpcLinkRequest {
@@ -3779,6 +3982,7 @@ export interface GetVpcLinkRequest {
 }
 
 /**
+ * @public
  * <p>Gets the VpcLinks collection under the caller's account in a selected region.</p>
  */
 export interface GetVpcLinksRequest {
@@ -3794,6 +3998,7 @@ export interface GetVpcLinksRequest {
 }
 
 /**
+ * @public
  * <p>The collection of VPC links under the caller's account in a region.</p>
  */
 export interface VpcLinks {
@@ -3809,6 +4014,7 @@ export interface VpcLinks {
 }
 
 /**
+ * @public
  * <p>The POST request to import API keys from an external source, such as a CSV-formatted file.</p>
  */
 export interface ImportApiKeysRequest {
@@ -3829,6 +4035,7 @@ export interface ImportApiKeysRequest {
 }
 
 /**
+ * @public
  * <p>A collection of the imported  DocumentationPart identifiers.</p>
  */
 export interface DocumentationPartIds {
@@ -3843,12 +4050,16 @@ export interface DocumentationPartIds {
   warnings?: string[];
 }
 
+/**
+ * @public
+ */
 export enum PutMode {
   Merge = "merge",
   Overwrite = "overwrite",
 }
 
 /**
+ * @public
  * <p>Import documentation parts from an external (e.g., OpenAPI) definition file. </p>
  */
 export interface ImportDocumentationPartsRequest {
@@ -3874,6 +4085,7 @@ export interface ImportDocumentationPartsRequest {
 }
 
 /**
+ * @public
  * <p>A POST request to import an API to API Gateway using an input of an API definition file.</p>
  */
 export interface ImportRestApiRequest {
@@ -3900,6 +4112,7 @@ export interface ImportRestApiRequest {
 }
 
 /**
+ * @public
  * <p>Creates a customization of a GatewayResponse of a specified response type and status code on the given RestApi.</p>
  */
 export interface PutGatewayResponseRequest {
@@ -3930,6 +4143,7 @@ export interface PutGatewayResponseRequest {
 }
 
 /**
+ * @public
  * <p>Sets up a method's integration.</p>
  */
 export interface PutIntegrationRequest {
@@ -3964,17 +4178,17 @@ export interface PutIntegrationRequest {
    *       RFC-3986 specification, for either standard integration, where <code>connectionType</code> is not <code>VPC_LINK</code>,
    *       or private integration, where <code>connectionType</code> is <code>VPC_LINK</code>. For a private HTTP integration, the
    *       URI is not used for routing. For <code>AWS</code> or <code>AWS_PROXY</code> integrations, the URI is of the form
-   *       <code>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api</code>}. Here,
-   *       {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated
-   *       Amazon Web Services service (e.g., s3); and {subdomain} is a designated subdomain supported by certain Amazon Web Services
+   *       <code>arn:aws:apigateway:\{region\}:\{subdomain.service|service\}:path|action/\{service_api</code>\}. Here,
+   *       \{Region\} is the API Gateway region (e.g., us-east-1); \{service\} is the name of the integrated
+   *       Amazon Web Services service (e.g., s3); and \{subdomain\} is a designated subdomain supported by certain Amazon Web Services
    *       service for fast host-name lookup. action can be used for an Amazon Web Services service action-based API,
-   *       using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to
-   *       a supported action {name} plus any required input parameters. Alternatively, path can be used
+   *       using an Action=\{name\}&\{p1\}=\{v1\}&p2=\{v2\}... query string. The ensuing \{service_api\} refers to
+   *       a supported action \{name\} plus any required input parameters. Alternatively, path can be used
    *       for an Amazon Web Services service path-based API. The ensuing service_api refers to the path to an Amazon Web Services
    *       service resource, including the region of the integrated Amazon Web Services service, if applicable. For
    *       example, for integration with the S3 API of <code>GetObject</code>, the <code>uri</code> can be either
-   *       <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}</code> or
-   *       <code>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</code>.</p>
+   *       <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket=\{bucket\}&Key=\{key\}</code> or
+   *       <code>arn:aws:apigateway:us-west-2:s3:path/\{bucket\}/\{key\}</code>.</p>
    */
   uri?: string;
 
@@ -3994,7 +4208,7 @@ export interface PutIntegrationRequest {
   credentials?: string;
 
   /**
-   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
+   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.\{location\}.\{name\}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
    */
   requestParameters?: Record<string, string>;
 
@@ -4037,6 +4251,7 @@ export interface PutIntegrationRequest {
 }
 
 /**
+ * @public
  * <p>Represents a put integration response request.</p>
  */
 export interface PutIntegrationResponseRequest {
@@ -4067,7 +4282,7 @@ export interface PutIntegrationResponseRequest {
 
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
-   *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.{name}</code> or <code>integration.response.body.{JSON-expression}</code>, where <code>name</code> must be a valid and unique response header name and <code>JSON-expression</code> a valid JSON expression without the <code>$</code> prefix.</p>
+   *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.\{name\}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.\{name\}</code> or <code>integration.response.body.\{JSON-expression\}</code>, where <code>name</code> must be a valid and unique response header name and <code>JSON-expression</code> a valid JSON expression without the <code>$</code> prefix.</p>
    */
   responseParameters?: Record<string, string>;
 
@@ -4084,6 +4299,7 @@ export interface PutIntegrationResponseRequest {
 }
 
 /**
+ * @public
  * <p>Request to add a method to an existing Resource resource.</p>
  */
 export interface PutMethodRequest {
@@ -4123,7 +4339,7 @@ export interface PutMethodRequest {
   operationName?: string;
 
   /**
-   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key defines a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in Integration to be mapped to integration request parameters or body-mapping templates.</p>
+   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key defines a method request parameter name matching the pattern of  <code>method.request.\{location\}.\{name\}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in Integration to be mapped to integration request parameters or body-mapping templates.</p>
    */
   requestParameters?: Record<string, boolean>;
 
@@ -4144,6 +4360,7 @@ export interface PutMethodRequest {
 }
 
 /**
+ * @public
  * <p>Request to add a MethodResponse to an existing Method resource.</p>
  */
 export interface PutMethodResponseRequest {
@@ -4168,7 +4385,7 @@ export interface PutMethodResponseRequest {
   statusCode: string | undefined;
 
   /**
-   * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
+   * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of <code>method.response.header.\{name\}</code>, where <code>name</code> is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in <code>integration.response.header.\{name\}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.\{JSON-expression\}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
    */
   responseParameters?: Record<string, boolean>;
 
@@ -4179,6 +4396,7 @@ export interface PutMethodResponseRequest {
 }
 
 /**
+ * @public
  * <p>A PUT request to update an existing API, with external API definitions specified as the request body.</p>
  */
 export interface PutRestApiRequest {
@@ -4211,6 +4429,7 @@ export interface PutRestApiRequest {
 }
 
 /**
+ * @public
  * <p>Adds or updates a tag on a given resource.</p>
  */
 export interface TagResourceRequest {
@@ -4226,6 +4445,7 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p>Make a request to simulate the invocation of an Authorizer.</p>
  */
 export interface TestInvokeAuthorizerRequest {
@@ -4271,6 +4491,7 @@ export interface TestInvokeAuthorizerRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response of the test invoke request for a custom Authorizer</p>
  */
 export interface TestInvokeAuthorizerResponse {
@@ -4311,6 +4532,7 @@ export interface TestInvokeAuthorizerResponse {
 }
 
 /**
+ * @public
  * <p>Make a request to simulate the invocation of a Method.</p>
  */
 export interface TestInvokeMethodRequest {
@@ -4361,6 +4583,7 @@ export interface TestInvokeMethodRequest {
 }
 
 /**
+ * @public
  * <p>Represents the response of the test invoke request in the HTTP method.</p>
  */
 export interface TestInvokeMethodResponse {
@@ -4396,6 +4619,7 @@ export interface TestInvokeMethodResponse {
 }
 
 /**
+ * @public
  * <p>Removes a tag from a given resource.</p>
  */
 export interface UntagResourceRequest {
@@ -4410,6 +4634,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Op {
   add = "add",
   copy = "copy",
@@ -4420,6 +4647,7 @@ export enum Op {
 }
 
 /**
+ * @public
  * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
  */
 export interface PatchOperation {
@@ -4434,8 +4662,8 @@ export interface PatchOperation {
   /**
    * <p>The op operation's target, as identified by a JSON Pointer value that references a
    *             location within the targeted resource. For example, if the target resource has an
-   *             updateable property of {"name":"value"}, the path for this property is /name. If the
-   *             name property value is a JSON object (e.g., {"name": {"child/name": "child-value"}}),
+   *             updateable property of \{"name":"value"\}, the path for this property is /name. If the
+   *             name property value is a JSON object (e.g., \{"name": \{"child/name": "child-value"\}\}),
    *             the path for the child/name property will be /name/child~1name. Any slash ("/")
    *             character appearing in path names must be escaped with "~1", as shown in the example
    *             above. Each op operation can have only one path associated with it.</p>
@@ -4445,7 +4673,7 @@ export interface PatchOperation {
   /**
    * <p>The new target value of the update operation. It is applicable for the add or replace
    *             operation. When using AWS CLI to update a property of a JSON value, enclose the JSON
-   *             object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'.</p>
+   *             object with a pair of single quotes in a Linux shell, e.g., '\{"a": ...\}'.</p>
    */
   value?: string;
 
@@ -4460,6 +4688,7 @@ export interface PatchOperation {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to change information about the current Account resource.</p>
  */
 export interface UpdateAccountRequest {
@@ -4470,6 +4699,7 @@ export interface UpdateAccountRequest {
 }
 
 /**
+ * @public
  * <p>A request to change information about an ApiKey resource.</p>
  */
 export interface UpdateApiKeyRequest {
@@ -4485,6 +4715,7 @@ export interface UpdateApiKeyRequest {
 }
 
 /**
+ * @public
  * <p>Request to update an existing Authorizer resource.</p>
  */
 export interface UpdateAuthorizerRequest {
@@ -4505,6 +4736,7 @@ export interface UpdateAuthorizerRequest {
 }
 
 /**
+ * @public
  * <p>A request to change information about the BasePathMapping resource.</p>
  */
 export interface UpdateBasePathMappingRequest {
@@ -4526,6 +4758,7 @@ export interface UpdateBasePathMappingRequest {
 }
 
 /**
+ * @public
  * <p>A request to change information about an ClientCertificate resource.</p>
  */
 export interface UpdateClientCertificateRequest {
@@ -4541,6 +4774,7 @@ export interface UpdateClientCertificateRequest {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to change information about a Deployment resource.</p>
  */
 export interface UpdateDeploymentRequest {
@@ -4561,6 +4795,7 @@ export interface UpdateDeploymentRequest {
 }
 
 /**
+ * @public
  * <p>Updates an existing documentation part of a given API.</p>
  */
 export interface UpdateDocumentationPartRequest {
@@ -4581,6 +4816,7 @@ export interface UpdateDocumentationPartRequest {
 }
 
 /**
+ * @public
  * <p>Updates an existing documentation version of an API.</p>
  */
 export interface UpdateDocumentationVersionRequest {
@@ -4601,6 +4837,7 @@ export interface UpdateDocumentationVersionRequest {
 }
 
 /**
+ * @public
  * <p>A request to change information about the DomainName resource.</p>
  */
 export interface UpdateDomainNameRequest {
@@ -4616,6 +4853,7 @@ export interface UpdateDomainNameRequest {
 }
 
 /**
+ * @public
  * <p>Updates a GatewayResponse of a specified response type on the given RestApi.</p>
  */
 export interface UpdateGatewayResponseRequest {
@@ -4636,6 +4874,7 @@ export interface UpdateGatewayResponseRequest {
 }
 
 /**
+ * @public
  * <p>Represents an update integration request.</p>
  */
 export interface UpdateIntegrationRequest {
@@ -4661,6 +4900,7 @@ export interface UpdateIntegrationRequest {
 }
 
 /**
+ * @public
  * <p>Represents an update integration response request.</p>
  */
 export interface UpdateIntegrationResponseRequest {
@@ -4691,6 +4931,7 @@ export interface UpdateIntegrationResponseRequest {
 }
 
 /**
+ * @public
  * <p>Request to update an existing Method resource.</p>
  */
 export interface UpdateMethodRequest {
@@ -4716,6 +4957,7 @@ export interface UpdateMethodRequest {
 }
 
 /**
+ * @public
  * <p>A request to update an existing MethodResponse resource.</p>
  */
 export interface UpdateMethodResponseRequest {
@@ -4746,6 +4988,7 @@ export interface UpdateMethodResponseRequest {
 }
 
 /**
+ * @public
  * <p>Request to update an existing model in an existing RestApi resource.</p>
  */
 export interface UpdateModelRequest {
@@ -4766,6 +5009,7 @@ export interface UpdateModelRequest {
 }
 
 /**
+ * @public
  * <p>Updates a RequestValidator of a given RestApi.</p>
  */
 export interface UpdateRequestValidatorRequest {
@@ -4786,6 +5030,7 @@ export interface UpdateRequestValidatorRequest {
 }
 
 /**
+ * @public
  * <p>Request to change information about a Resource resource.</p>
  */
 export interface UpdateResourceRequest {
@@ -4806,6 +5051,7 @@ export interface UpdateResourceRequest {
 }
 
 /**
+ * @public
  * <p>Request to update an existing RestApi resource in your collection.</p>
  */
 export interface UpdateRestApiRequest {
@@ -4821,6 +5067,7 @@ export interface UpdateRestApiRequest {
 }
 
 /**
+ * @public
  * <p>Requests API Gateway to change information about a Stage resource.</p>
  */
 export interface UpdateStageRequest {
@@ -4841,6 +5088,7 @@ export interface UpdateStageRequest {
 }
 
 /**
+ * @public
  * <p>The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
  */
 export interface UpdateUsageRequest {
@@ -4861,6 +5109,7 @@ export interface UpdateUsageRequest {
 }
 
 /**
+ * @public
  * <p>The PATCH request to update a usage plan of a given plan Id.</p>
  */
 export interface UpdateUsagePlanRequest {
@@ -4876,6 +5125,7 @@ export interface UpdateUsagePlanRequest {
 }
 
 /**
+ * @public
  * <p>Updates an existing VpcLink of a specified identifier.</p>
  */
 export interface UpdateVpcLinkRequest {

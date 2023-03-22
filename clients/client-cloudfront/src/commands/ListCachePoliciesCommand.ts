@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListCachePoliciesCommand}.
  */
 export interface ListCachePoliciesCommandInput extends ListCachePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCachePoliciesCommand}.
  */
 export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of cache policies.</p>
  *          <p>You can optionally apply a filter to return only the managed policies created by
  * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
@@ -53,6 +58,8 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCachePoliciesCommandInput - {@link ListCachePoliciesCommandInput}
+ * @returns {@link ListCachePoliciesCommandOutput}
  * @see {@link ListCachePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListCachePoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListCachePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCachePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListCachePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCachePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListCachePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCachePoliciesCommandOutput> {
     return deserializeAws_restXmlListCachePoliciesCommand(output, context);
   }

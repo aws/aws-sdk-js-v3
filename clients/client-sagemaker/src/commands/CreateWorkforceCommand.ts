@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkforceCommand}.
  */
 export interface CreateWorkforceCommandInput extends CreateWorkforceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkforceCommand}.
  */
 export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to create a workforce. This operation will return an error
  *           if a workforce already exists in the Amazon Web Services Region that you specify. You can only
  *           create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p>
@@ -63,6 +68,8 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkforceCommandInput - {@link CreateWorkforceCommandInput}
+ * @returns {@link CreateWorkforceCommandOutput}
  * @see {@link CreateWorkforceCommandInput} for command's `input` shape.
  * @see {@link CreateWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateWorkforceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkforceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateWorkforceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkforceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWorkforceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkforceCommandOutput> {
     return deserializeAws_json1_1CreateWorkforceCommand(output, context);
   }

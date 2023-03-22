@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSNOMEDCTInferenceJobsCommand}.
  */
 export interface ListSNOMEDCTInferenceJobsCommandInput extends ListSNOMEDCTInferenceJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSNOMEDCTInferenceJobsCommand}.
  */
 export interface ListSNOMEDCTInferenceJobsCommandOutput extends ListSNOMEDCTInferenceJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets a list of InferSNOMEDCT jobs a user has submitted.
  *     </p>
@@ -52,6 +57,8 @@ export interface ListSNOMEDCTInferenceJobsCommandOutput extends ListSNOMEDCTInfe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSNOMEDCTInferenceJobsCommandInput - {@link ListSNOMEDCTInferenceJobsCommandInput}
+ * @returns {@link ListSNOMEDCTInferenceJobsCommandOutput}
  * @see {@link ListSNOMEDCTInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListSNOMEDCTInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSNOMEDCTInferenceJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSNOMEDCTInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSNOMEDCTInferenceJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

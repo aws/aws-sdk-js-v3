@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExplainabilityCommand}.
  */
 export interface DeleteExplainabilityCommandInput extends DeleteExplainabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExplainabilityCommand}.
  */
 export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Explainability resource.</p>
  *          <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
  *                 <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeExplainability</a> operation.</p>
@@ -43,6 +48,8 @@ export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExplainabilityCommandInput - {@link DeleteExplainabilityCommandInput}
+ * @returns {@link DeleteExplainabilityCommandOutput}
  * @see {@link DeleteExplainabilityCommandInput} for command's `input` shape.
  * @see {@link DeleteExplainabilityCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteExplainabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExplainabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteExplainabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExplainabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteExplainabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExplainabilityCommandOutput> {
     return deserializeAws_json1_1DeleteExplainabilityCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDevicePositionCommand}.
  */
 export interface GetDevicePositionCommandInput extends GetDevicePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDevicePositionCommand}.
  */
 export interface GetDevicePositionCommandOutput extends GetDevicePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a device's most recent position according to its sample time.</p>
  *          <note>
  *             <p>Device positions are deleted after 30 days.</p>
@@ -49,6 +54,8 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevicePositionCommandInput - {@link GetDevicePositionCommandInput}
+ * @returns {@link GetDevicePositionCommandOutput}
  * @see {@link GetDevicePositionCommandInput} for command's `input` shape.
  * @see {@link GetDevicePositionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetDevicePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevicePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetDevicePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevicePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDevicePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevicePositionCommandOutput> {
     return deserializeAws_restJson1GetDevicePositionCommand(output, context);
   }

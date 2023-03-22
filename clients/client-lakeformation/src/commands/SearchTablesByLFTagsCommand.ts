@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchTablesByLFTagsCommand}.
  */
 export interface SearchTablesByLFTagsCommandInput extends SearchTablesByLFTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchTablesByLFTagsCommand}.
  */
 export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation allows a search on <code>TABLE</code> resources by <code>LFTag</code>s. This will be used by admins who want to grant user permissions on certain LF-tags. Before making a grant, the admin can use <code>SearchTablesByLFTags</code> to find all resources where the given <code>LFTag</code>s are valid to verify whether the returned resources can be shared.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsR
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchTablesByLFTagsCommandInput - {@link SearchTablesByLFTagsCommandInput}
+ * @returns {@link SearchTablesByLFTagsCommandOutput}
  * @see {@link SearchTablesByLFTagsCommandInput} for command's `input` shape.
  * @see {@link SearchTablesByLFTagsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -87,6 +94,9 @@ export class SearchTablesByLFTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchTablesByLFTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class SearchTablesByLFTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchTablesByLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchTablesByLFTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchTablesByLFTagsCommandOutput> {
     return deserializeAws_restJson1SearchTablesByLFTagsCommand(output, context);
   }

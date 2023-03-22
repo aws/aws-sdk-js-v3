@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetItemCommand}.
  */
 export interface BatchGetItemCommandInput extends BatchGetItemInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetItemCommand}.
  */
 export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items
  *             from one or more tables. You identify requested items by primary key.</p>
  *          <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100
@@ -92,6 +97,8 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetItemCommandInput - {@link BatchGetItemCommandInput}
+ * @returns {@link BatchGetItemCommandOutput}
  * @see {@link BatchGetItemCommandInput} for command's `input` shape.
  * @see {@link BatchGetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -199,6 +206,9 @@ export class BatchGetItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -236,10 +246,16 @@ export class BatchGetItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0BatchGetItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetItemCommandOutput> {
     return deserializeAws_json1_0BatchGetItemCommand(output, context);
   }

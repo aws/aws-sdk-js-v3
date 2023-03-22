@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGroupsCommand}.
  */
 export interface DescribeGroupsCommandInput extends DescribeGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGroupsCommand}.
  */
 export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the groups specified by the query. Groups are defined by the underlying
  *             Active Directory.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGroupsCommandInput - {@link DescribeGroupsCommandInput}
+ * @returns {@link DescribeGroupsCommandOutput}
  * @see {@link DescribeGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupsCommandOutput> {
     return deserializeAws_restJson1DescribeGroupsCommand(output, context);
   }

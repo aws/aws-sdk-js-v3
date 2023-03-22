@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEmailChannelCommand}.
  */
 export interface DeleteEmailChannelCommandInput extends DeleteEmailChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEmailChannelCommand}.
  */
 export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the email channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEmailChannelCommandInput - {@link DeleteEmailChannelCommandInput}
+ * @returns {@link DeleteEmailChannelCommandOutput}
  * @see {@link DeleteEmailChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteEmailChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEmailChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteEmailChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEmailChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEmailChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEmailChannelCommandOutput> {
     return deserializeAws_restJson1DeleteEmailChannelCommand(output, context);
   }

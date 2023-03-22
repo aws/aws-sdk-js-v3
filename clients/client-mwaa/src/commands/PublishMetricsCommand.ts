@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishMetricsCommand}.
  */
 export interface PublishMetricsCommandInput extends PublishMetricsInput {}
 /**
+ * @public
+ *
  * The output of {@link PublishMetricsCommand}.
  */
 export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishMetricsCommandInput - {@link PublishMetricsCommandInput}
+ * @returns {@link PublishMetricsCommandOutput}
  * @see {@link PublishMetricsCommandInput} for command's `input` shape.
  * @see {@link PublishMetricsCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
@@ -76,6 +83,9 @@ export class PublishMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class PublishMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PublishMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishMetricsCommandOutput> {
     return deserializeAws_restJson1PublishMetricsCommand(output, context);
   }

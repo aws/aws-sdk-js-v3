@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeviceStateCommand}.
  */
 export interface UpdateDeviceStateCommandInput extends UpdateDeviceStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeviceStateCommand}.
  */
 export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Using a Boolean value (true or false), this operation
  *  enables or disables the device given a device ID.</p>
  * @example
@@ -51,6 +56,8 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceStateCommandInput - {@link UpdateDeviceStateCommandInput}
+ * @returns {@link UpdateDeviceStateCommandOutput}
  * @see {@link UpdateDeviceStateCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceStateCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateDeviceStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateDeviceStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDeviceStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceStateCommandOutput> {
     return deserializeAws_restJson1UpdateDeviceStateCommand(output, context);
   }

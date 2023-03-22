@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserCommand}.
  */
 export interface GetUserCommandInput extends GetUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserCommand}.
  */
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details for the specified user ID, such as primary email address, license type,and personal meeting PIN.</p>
  *
  *          <p>
@@ -51,6 +56,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserCommandInput - {@link GetUserCommandInput}
+ * @returns {@link GetUserCommandOutput}
  * @see {@link GetUserCommandInput} for command's `input` shape.
  * @see {@link GetUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserCommandOutput> {
     return deserializeAws_restJson1GetUserCommand(output, context);
   }

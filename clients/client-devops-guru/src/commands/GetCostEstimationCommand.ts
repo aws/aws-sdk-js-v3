@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCostEstimationCommand}.
  */
 export interface GetCostEstimationCommandInput extends GetCostEstimationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCostEstimationCommand}.
  */
 export interface GetCostEstimationCommandOutput extends GetCostEstimationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon Web Services resources.
  * 			For more information,
  * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
@@ -50,6 +55,8 @@ export interface GetCostEstimationCommandOutput extends GetCostEstimationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCostEstimationCommandInput - {@link GetCostEstimationCommandInput}
+ * @returns {@link GetCostEstimationCommandOutput}
  * @see {@link GetCostEstimationCommandInput} for command's `input` shape.
  * @see {@link GetCostEstimationCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetCostEstimationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCostEstimationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetCostEstimationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCostEstimationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCostEstimationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostEstimationCommandOutput> {
     return deserializeAws_restJson1GetCostEstimationCommand(output, context);
   }

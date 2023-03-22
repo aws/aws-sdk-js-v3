@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileSystemsCommand}.
  */
 export interface DescribeFileSystemsCommandInput extends DescribeFileSystemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileSystemsCommand}.
  */
 export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of a specific Amazon EFS file system if either the file system
  *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
  *       returns descriptions of all file systems owned by the caller's Amazon Web Services account in the
@@ -65,6 +70,8 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemsCommandInput - {@link DescribeFileSystemsCommandInput}
+ * @returns {@link DescribeFileSystemsCommandOutput}
  * @see {@link DescribeFileSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -133,6 +140,9 @@ export class DescribeFileSystemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class DescribeFileSystemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFileSystemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemsCommandOutput> {
     return deserializeAws_restJson1DescribeFileSystemsCommand(output, context);
   }

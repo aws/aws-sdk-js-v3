@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CloudSearchServiceException as __BaseException } from "./CloudSearchServiceException";
 
 /**
+ * @public
  * <p>An error occurred while processing the request.</p>
  */
 export class BaseException extends __BaseException {
@@ -34,6 +35,7 @@ export class BaseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>BuildSuggester</a></code> operation. Specifies the name of the domain you want to update.</p>
  */
 export interface BuildSuggestersRequest {
@@ -44,6 +46,7 @@ export interface BuildSuggestersRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>BuildSuggester</code> request. Contains a list of the fields used for suggestions.</p>
  */
 export interface BuildSuggestersResponse {
@@ -54,6 +57,7 @@ export interface BuildSuggestersResponse {
 }
 
 /**
+ * @public
  * <p>An internal error occurred while processing the request. If this problem persists,
  *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
  */
@@ -85,6 +89,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -115,6 +120,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it has invalid parameters.</p>
  */
 export class ValidationException extends __BaseException {
@@ -145,6 +151,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>CreateDomain</a></code> operation. Specifies a name for the new search domain.</p>
  */
 export interface CreateDomainRequest {
@@ -155,6 +162,7 @@ export interface CreateDomainRequest {
 }
 
 /**
+ * @public
  * <p>The endpoint to which service requests can be submitted.</p>
  */
 export interface ServiceEndpoint {
@@ -164,12 +172,16 @@ export interface ServiceEndpoint {
   Endpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface Limits {
   MaximumReplicationCount: number | undefined;
   MaximumPartitionCount: number | undefined;
 }
 
 /**
+ * @public
  * <p>The current status of the search domain.</p>
  */
 export interface DomainStatus {
@@ -237,6 +249,7 @@ export interface DomainStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>CreateDomainRequest</code>. Contains the status of a newly created domain.</p>
  */
 export interface CreateDomainResponse {
@@ -247,6 +260,7 @@ export interface CreateDomainResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because a resource limit has already been met.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -277,6 +291,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted to create a resource that already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -306,9 +321,13 @@ export class ResourceAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type AlgorithmicStemming = "full" | "light" | "minimal" | "none";
 
 /**
+ * @public
  * <p>Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.</p>
  */
 export interface AnalysisOptions {
@@ -323,7 +342,7 @@ export interface AnalysisOptions {
   Stopwords?: string;
 
   /**
-   * <p>A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, <code>{"term1": "stem1", "term2": "stem2", "term3": "stem3"}</code>. The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.</p>
+   * <p>A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, <code>\{"term1": "stem1", "term2": "stem2", "term3": "stem3"\}</code>. The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.</p>
    */
   StemmingDictionary?: string;
 
@@ -338,6 +357,9 @@ export interface AnalysisOptions {
   AlgorithmicStemming?: AlgorithmicStemming | string;
 }
 
+/**
+ * @public
+ */
 export type AnalysisSchemeLanguage =
   | "ar"
   | "bg"
@@ -376,6 +398,7 @@ export type AnalysisSchemeLanguage =
   | "zh-Hant";
 
 /**
+ * @public
  * <p>Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: <code>Synonyms</code>, <code>Stopwords</code>, <code>StemmingDictionary</code>, <code>JapaneseTokenizationDictionary</code> and <code>AlgorithmicStemming</code>.</p>
  */
 export interface AnalysisScheme {
@@ -397,6 +420,7 @@ export interface AnalysisScheme {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DefineAnalysisScheme</a></code> operation. Specifies the name of the domain you want to update and the analysis scheme configuration.</p>
  */
 export interface DefineAnalysisSchemeRequest {
@@ -411,9 +435,13 @@ export interface DefineAnalysisSchemeRequest {
   AnalysisScheme: AnalysisScheme | undefined;
 }
 
+/**
+ * @public
+ */
 export type OptionState = "Active" | "FailedToValidate" | "Processing" | "RequiresIndexDocuments";
 
 /**
+ * @public
  * <p>The status of domain configuration option.</p>
  */
 export interface OptionStatus {
@@ -449,6 +477,7 @@ export interface OptionStatus {
 }
 
 /**
+ * @public
  * <p>The status and configuration of an  <code>AnalysisScheme</code>.</p>
  */
 export interface AnalysisSchemeStatus {
@@ -464,6 +493,7 @@ export interface AnalysisSchemeStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>DefineAnalysisScheme</a></code> request. Contains the status of the newly-configured analysis scheme.</p>
  */
 export interface DefineAnalysisSchemeResponse {
@@ -474,6 +504,7 @@ export interface DefineAnalysisSchemeResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it specified an invalid type definition.</p>
  */
 export class InvalidTypeException extends __BaseException {
@@ -504,6 +535,7 @@ export class InvalidTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A named expression that can be evaluated at search time. Can be used to sort the search results, define other expressions, or return computed information in the search results.  </p>
  */
 export interface Expression {
@@ -520,6 +552,7 @@ export interface Expression {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DefineExpression</a></code> operation. Specifies the name of the domain you want to update and the expression you want to configure.</p>
  */
 export interface DefineExpressionRequest {
@@ -535,6 +568,7 @@ export interface DefineExpressionRequest {
 }
 
 /**
+ * @public
  * <p>The value of an <code>Expression</code> and its current status.</p>
  */
 export interface ExpressionStatus {
@@ -550,6 +584,7 @@ export interface ExpressionStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DefineExpression</code> request. Contains the status of the newly-configured expression.</p>
  */
 export interface DefineExpressionResponse {
@@ -560,6 +595,7 @@ export interface DefineExpressionResponse {
 }
 
 /**
+ * @public
  * <p>Options for a field that contains an array of dates.  Present if <code>IndexFieldType</code> specifies the field is of type <code>date-array</code>. All options are enabled by default.</p>
  */
 export interface DateArrayOptions {
@@ -590,6 +626,7 @@ export interface DateArrayOptions {
 }
 
 /**
+ * @public
  * <p>Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z.  Present if <code>IndexFieldType</code> specifies the field is of type <code>date</code>. All options are enabled by default.</p>
  */
 export interface DateOptions {
@@ -638,6 +675,7 @@ export interface DateOptions {
 }
 
 /**
+ * @public
  * <p>Options for a field that contains an array of double-precision 64-bit floating point values.  Present if <code>IndexFieldType</code> specifies the field is of type <code>double-array</code>.  All options are enabled by default.</p>
  */
 export interface DoubleArrayOptions {
@@ -668,6 +706,7 @@ export interface DoubleArrayOptions {
 }
 
 /**
+ * @public
  * <p>Options for a double-precision 64-bit floating point field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>double</code>. All options are enabled by default.</p>
  */
 export interface DoubleOptions {
@@ -702,6 +741,9 @@ export interface DoubleOptions {
   SortEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export type IndexFieldType =
   | "date"
   | "date-array"
@@ -716,6 +758,7 @@ export type IndexFieldType =
   | "text-array";
 
 /**
+ * @public
  * <p>Options for a field that contains an array of 64-bit signed integers.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int-array</code>. All options are enabled by default.</p>
  */
 export interface IntArrayOptions {
@@ -746,6 +789,7 @@ export interface IntArrayOptions {
 }
 
 /**
+ * @public
  * <p>Options for a 64-bit signed integer field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int</code>. All options are enabled by default.</p>
  */
 export interface IntOptions {
@@ -781,6 +825,7 @@ export interface IntOptions {
 }
 
 /**
+ * @public
  * <p>Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if <code>IndexFieldType</code> specifies the field is of type <code>latlon</code>. All options are enabled by default.</p>
  */
 export interface LatLonOptions {
@@ -829,6 +874,7 @@ export interface LatLonOptions {
 }
 
 /**
+ * @public
  * <p>Options for a field that contains an array of literal strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>literal-array</code>. All options are enabled by default.</p>
  */
 export interface LiteralArrayOptions {
@@ -859,6 +905,7 @@ export interface LiteralArrayOptions {
 }
 
 /**
+ * @public
  * <p>Options for literal field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>literal</code>. All options are enabled by default.</p>
  */
 export interface LiteralOptions {
@@ -907,6 +954,7 @@ export interface LiteralOptions {
 }
 
 /**
+ * @public
  * <p>Options for a field that contains an array of text strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>text-array</code>. A <code>text-array</code> field is always searchable. All options are enabled by default.</p>
  */
 export interface TextArrayOptions {
@@ -937,6 +985,7 @@ export interface TextArrayOptions {
 }
 
 /**
+ * @public
  * <p>Options for text field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>text</code>. A <code>text</code> field is always searchable. All options are enabled by default.</p>
  */
 export interface TextOptions {
@@ -985,6 +1034,7 @@ export interface TextOptions {
 }
 
 /**
+ * @public
  * <p>Configuration information for a field in the index, including its name, type, and options. The supported options depend on the <code><a>IndexFieldType</a></code>.</p>
  */
 export interface IndexField {
@@ -1068,6 +1118,7 @@ export interface IndexField {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DefineIndexField</a></code> operation. Specifies the name of the domain you want to update and the index field configuration.</p>
  */
 export interface DefineIndexFieldRequest {
@@ -1083,6 +1134,7 @@ export interface DefineIndexFieldRequest {
 }
 
 /**
+ * @public
  * <p>The value of an <code>IndexField</code> and its current status.</p>
  */
 export interface IndexFieldStatus {
@@ -1098,6 +1150,7 @@ export interface IndexFieldStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>DefineIndexField</a></code> request. Contains the status of the newly-configured index field.</p>
  */
 export interface DefineIndexFieldResponse {
@@ -1107,9 +1160,13 @@ export interface DefineIndexFieldResponse {
   IndexField: IndexFieldStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export type SuggesterFuzzyMatching = "high" | "low" | "none";
 
 /**
+ * @public
  * <p>Options for a search suggester.</p>
  */
 export interface DocumentSuggesterOptions {
@@ -1136,6 +1193,7 @@ export interface DocumentSuggesterOptions {
 }
 
 /**
+ * @public
  * <p>Configuration information for a search suggester. Each suggester has a unique name and specifies the text field you want to use for suggestions. The following options can be configured for a suggester: <code>FuzzyMatching</code>, <code>SortExpression</code>. </p>
  */
 export interface Suggester {
@@ -1152,6 +1210,7 @@ export interface Suggester {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DefineSuggester</a></code> operation. Specifies the name of the domain you want to update and the suggester configuration.</p>
  */
 export interface DefineSuggesterRequest {
@@ -1167,6 +1226,7 @@ export interface DefineSuggesterRequest {
 }
 
 /**
+ * @public
  * <p>The value of a <code>Suggester</code> and its current status.</p>
  */
 export interface SuggesterStatus {
@@ -1182,6 +1242,7 @@ export interface SuggesterStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DefineSuggester</code> request. Contains the status of the newly-configured suggester.</p>
  */
 export interface DefineSuggesterResponse {
@@ -1192,6 +1253,7 @@ export interface DefineSuggesterResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DeleteAnalysisScheme</a></code> operation. Specifies the name of the domain you want to update and the analysis scheme you want to delete. </p>
  */
 export interface DeleteAnalysisSchemeRequest {
@@ -1207,6 +1269,7 @@ export interface DeleteAnalysisSchemeRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DeleteAnalysisScheme</code> request. Contains the status of the deleted analysis scheme.</p>
  */
 export interface DeleteAnalysisSchemeResponse {
@@ -1217,6 +1280,7 @@ export interface DeleteAnalysisSchemeResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DeleteDomain</a></code> operation. Specifies the name of the domain you want to delete.</p>
  */
 export interface DeleteDomainRequest {
@@ -1227,6 +1291,7 @@ export interface DeleteDomainRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DeleteDomain</code> request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.</p>
  */
 export interface DeleteDomainResponse {
@@ -1237,6 +1302,7 @@ export interface DeleteDomainResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DeleteExpression</a></code> operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.</p>
  */
 export interface DeleteExpressionRequest {
@@ -1252,6 +1318,7 @@ export interface DeleteExpressionRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>DeleteExpression</a></code> request. Specifies the expression being deleted.</p>
  */
 export interface DeleteExpressionResponse {
@@ -1262,6 +1329,7 @@ export interface DeleteExpressionResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DeleteIndexField</a></code> operation. Specifies the name of the domain you want to update and the name of the index field you want to delete.</p>
  */
 export interface DeleteIndexFieldRequest {
@@ -1277,6 +1345,7 @@ export interface DeleteIndexFieldRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>DeleteIndexField</a></code> request.</p>
  */
 export interface DeleteIndexFieldResponse {
@@ -1287,6 +1356,7 @@ export interface DeleteIndexFieldResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DeleteSuggester</a></code> operation. Specifies the name of the domain you want to update and name of the suggester you want to delete.</p>
  */
 export interface DeleteSuggesterRequest {
@@ -1302,6 +1372,7 @@ export interface DeleteSuggesterRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DeleteSuggester</code> request. Contains the status of the deleted suggester.</p>
  */
 export interface DeleteSuggesterResponse {
@@ -1312,6 +1383,7 @@ export interface DeleteSuggesterResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeAnalysisSchemes</a></code> operation. Specifies the name of the domain you want to describe. To limit the response to particular analysis schemes, specify the names of the analysis schemes you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>. </p>
  */
 export interface DescribeAnalysisSchemesRequest {
@@ -1332,6 +1404,7 @@ export interface DescribeAnalysisSchemesRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeAnalysisSchemes</code> request. Contains the analysis schemes configured for the domain specified in the request.</p>
  */
 export interface DescribeAnalysisSchemesResponse {
@@ -1342,6 +1415,7 @@ export interface DescribeAnalysisSchemesResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to <code>true</code>.</p>
  */
 export interface DescribeAvailabilityOptionsRequest {
@@ -1357,6 +1431,7 @@ export interface DescribeAvailabilityOptionsRequest {
 }
 
 /**
+ * @public
  * <p>The status and configuration of the domain's availability options.</p>
  */
 export interface AvailabilityOptionsStatus {
@@ -1372,6 +1447,7 @@ export interface AvailabilityOptionsStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeAvailabilityOptions</code> request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request. </p>
  */
 export interface DescribeAvailabilityOptionsResponse {
@@ -1382,6 +1458,7 @@ export interface DescribeAvailabilityOptionsResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted an operation which is not enabled.</p>
  */
 export class DisabledOperationException extends __BaseException {
@@ -1412,6 +1489,7 @@ export class DisabledOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeDomainEndpointOptions</a></code> operation. Specify the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to <code>true</code>.</p>
  */
 export interface DescribeDomainEndpointOptionsRequest {
@@ -1426,12 +1504,16 @@ export interface DescribeDomainEndpointOptionsRequest {
   Deployed?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TLSSecurityPolicy {
   POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
   POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07",
 }
 
 /**
+ * @public
  * <p>The domain's endpoint options.</p>
  */
 export interface DomainEndpointOptions {
@@ -1447,6 +1529,7 @@ export interface DomainEndpointOptions {
 }
 
 /**
+ * @public
  * <p>The configuration and status of the domain's endpoint options.</p>
  */
 export interface DomainEndpointOptionsStatus {
@@ -1462,6 +1545,7 @@ export interface DomainEndpointOptionsStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeDomainEndpointOptions</code> request. Contains the status and configuration of a search domain's endpoint options. </p>
  */
 export interface DescribeDomainEndpointOptionsResponse {
@@ -1472,6 +1556,7 @@ export interface DescribeDomainEndpointOptionsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeDomains</a></code> operation. By default shows the status of all domains. To restrict the response to particular domains, specify the names of the domains you want to describe.</p>
  */
 export interface DescribeDomainsRequest {
@@ -1482,6 +1567,7 @@ export interface DescribeDomainsRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeDomains</code> request. Contains the status of the domains specified in the request or all domains owned by the account.</p>
  */
 export interface DescribeDomainsResponse {
@@ -1492,6 +1578,7 @@ export interface DescribeDomainsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeDomains</a></code> operation.
  *       Specifies the name of the domain you want to describe. To restrict the response to particular expressions, specify the names of the expressions you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.</p>
  */
@@ -1513,6 +1600,7 @@ export interface DescribeExpressionsRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeExpressions</code> request. Contains the expressions configured for the domain specified in the request.</p>
  */
 export interface DescribeExpressionsResponse {
@@ -1523,6 +1611,7 @@ export interface DescribeExpressionsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeIndexFields</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular index fields, specify the names of the index fields you want to describe. To show  the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.</p>
  */
 export interface DescribeIndexFieldsRequest {
@@ -1543,6 +1632,7 @@ export interface DescribeIndexFieldsRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeIndexFields</code> request. Contains the index fields configured for the domain specified in the request.</p>
  */
 export interface DescribeIndexFieldsResponse {
@@ -1553,6 +1643,7 @@ export interface DescribeIndexFieldsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeScalingParameters</a></code> operation. Specifies the name of the domain you want to describe. </p>
  */
 export interface DescribeScalingParametersRequest {
@@ -1562,6 +1653,9 @@ export interface DescribeScalingParametersRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type PartitionInstanceType =
   | "search.2xlarge"
   | "search.large"
@@ -1582,6 +1676,7 @@ export type PartitionInstanceType =
   | "search.xlarge";
 
 /**
+ * @public
  * <p>The desired instance type and desired number of replicas of each index partition.</p>
  */
 export interface ScalingParameters {
@@ -1603,6 +1698,7 @@ export interface ScalingParameters {
 }
 
 /**
+ * @public
  * <p>The status and configuration of a search domain's scaling parameters. </p>
  */
 export interface ScalingParametersStatus {
@@ -1618,6 +1714,7 @@ export interface ScalingParametersStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeScalingParameters</code> request. Contains the scaling parameters configured for the domain specified in the request.</p>
  */
 export interface DescribeScalingParametersResponse {
@@ -1628,6 +1725,7 @@ export interface DescribeScalingParametersResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeServiceAccessPolicies</a></code> operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.</p>
  */
 export interface DescribeServiceAccessPoliciesRequest {
@@ -1643,6 +1741,7 @@ export interface DescribeServiceAccessPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
  */
 export interface AccessPoliciesStatus {
@@ -1658,6 +1757,7 @@ export interface AccessPoliciesStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeServiceAccessPolicies</code> request.</p>
  */
 export interface DescribeServiceAccessPoliciesResponse {
@@ -1668,6 +1768,7 @@ export interface DescribeServiceAccessPoliciesResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeSuggester</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular suggesters, specify the names of the suggesters you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.</p>
  */
 export interface DescribeSuggestersRequest {
@@ -1688,6 +1789,7 @@ export interface DescribeSuggestersRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeSuggesters</code> request.</p>
  */
 export interface DescribeSuggestersResponse {
@@ -1698,6 +1800,7 @@ export interface DescribeSuggestersResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>IndexDocuments</a></code> operation. Specifies the name of the domain you want to re-index.</p>
  */
 export interface IndexDocumentsRequest {
@@ -1708,6 +1811,7 @@ export interface IndexDocumentsRequest {
 }
 
 /**
+ * @public
  * <p>The result of an <code>IndexDocuments</code> request. Contains the status of the indexing operation, including the fields being indexed.</p>
  */
 export interface IndexDocumentsResponse {
@@ -1718,6 +1822,7 @@ export interface IndexDocumentsResponse {
 }
 
 /**
+ * @public
  * <p>The result of a <code>ListDomainNames</code> request. Contains a list of the domains owned by an account.</p>
  */
 export interface ListDomainNamesResponse {
@@ -1728,6 +1833,7 @@ export interface ListDomainNamesResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>UpdateAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to update and the Multi-AZ availability option.</p>
  */
 export interface UpdateAvailabilityOptionsRequest {
@@ -1743,6 +1849,7 @@ export interface UpdateAvailabilityOptionsRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>UpdateAvailabilityOptions</code> request. Contains the status of the domain's availability options. </p>
  */
 export interface UpdateAvailabilityOptionsResponse {
@@ -1753,6 +1860,7 @@ export interface UpdateAvailabilityOptionsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>UpdateDomainEndpointOptions</a></code> operation. Specifies the name of the domain you want to update and the domain endpoint options.</p>
  */
 export interface UpdateDomainEndpointOptionsRequest {
@@ -1768,6 +1876,7 @@ export interface UpdateDomainEndpointOptionsRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>UpdateDomainEndpointOptions</code> request. Contains the configuration and status of the domain's endpoint options. </p>
  */
 export interface UpdateDomainEndpointOptionsResponse {
@@ -1778,6 +1887,7 @@ export interface UpdateDomainEndpointOptionsResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>UpdateScalingParameters</a></code> operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.</p>
  */
 export interface UpdateScalingParametersRequest {
@@ -1793,6 +1903,7 @@ export interface UpdateScalingParametersRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>UpdateScalingParameters</code> request. Contains the status of the newly-configured scaling parameters.</p>
  */
 export interface UpdateScalingParametersResponse {
@@ -1803,6 +1914,7 @@ export interface UpdateScalingParametersResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>UpdateServiceAccessPolicies</a></code> operation. Specifies the name of the domain you want to update and the access rules you want to configure.</p>
  */
 export interface UpdateServiceAccessPoliciesRequest {
@@ -1818,6 +1930,7 @@ export interface UpdateServiceAccessPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>The result of an <code>UpdateServiceAccessPolicies</code> request. Contains the new access policies.</p>
  */
 export interface UpdateServiceAccessPoliciesResponse {

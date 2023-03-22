@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConditionalForwarderCommand}.
  */
 export interface DeleteConditionalForwarderCommandInput extends DeleteConditionalForwarderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConditionalForwarderCommand}.
  */
 export interface DeleteConditionalForwarderCommandOutput extends DeleteConditionalForwarderResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a conditional forwarder that has been set up for your Amazon Web Services
  *       directory.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConditionalForwarderCommandInput - {@link DeleteConditionalForwarderCommandInput}
+ * @returns {@link DeleteConditionalForwarderCommandOutput}
  * @see {@link DeleteConditionalForwarderCommandInput} for command's `input` shape.
  * @see {@link DeleteConditionalForwarderCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteConditionalForwarderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConditionalForwarderCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteConditionalForwarderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConditionalForwarderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConditionalForwarderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

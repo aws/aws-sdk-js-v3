@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingActivitiesCommand}.
  */
 export interface DescribeScalingActivitiesCommandInput extends DescribeScalingActivitiesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingActivitiesCommand}.
  */
 export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the scaling activities in the account and Region.</p>
  *          <p>When scaling events occur, you see a record of the scaling activity in the scaling
  *             activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling
@@ -54,6 +59,8 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingActivitiesCommandInput - {@link DescribeScalingActivitiesCommandInput}
+ * @returns {@link DescribeScalingActivitiesCommandOutput}
  * @see {@link DescribeScalingActivitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -112,6 +119,9 @@ export class DescribeScalingActivitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingActivitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class DescribeScalingActivitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeScalingActivitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopExperimentCommand}.
  */
 export interface StopExperimentCommandInput extends StopExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopExperimentCommand}.
  */
 export interface StopExperimentCommandOutput extends StopExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an experiment that is currently running. If you stop an experiment, you can't
  *       resume it or restart it.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StopExperimentCommandInput - {@link StopExperimentCommandInput}
+ * @returns {@link StopExperimentCommandOutput}
  * @see {@link StopExperimentCommandInput} for command's `input` shape.
  * @see {@link StopExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -88,6 +95,9 @@ export class StopExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StopExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopExperimentCommandOutput> {
     return deserializeAws_restJson1StopExperimentCommand(output, context);
   }

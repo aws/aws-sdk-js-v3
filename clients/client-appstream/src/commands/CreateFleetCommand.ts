@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFleetCommand}.
  */
 export interface CreateFleetCommandInput extends CreateFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFleetCommand}.
  */
 export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a fleet. A fleet consists of streaming instances that your users access for their applications and desktops.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
+ * @returns {@link CreateFleetCommandOutput}
  * @see {@link CreateFleetCommandInput} for command's `input` shape.
  * @see {@link CreateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetCommandOutput> {
     return deserializeAws_json1_1CreateFleetCommand(output, context);
   }

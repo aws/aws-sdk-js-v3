@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContentCommand}.
  */
 export interface DeleteContentCommandInput extends DeleteContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContentCommand}.
  */
 export interface DeleteContentCommandOutput extends DeleteContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContentCommandInput - {@link DeleteContentCommandInput}
+ * @returns {@link DeleteContentCommandOutput}
  * @see {@link DeleteContentCommandInput} for command's `input` shape.
  * @see {@link DeleteContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContentCommandOutput> {
     return deserializeAws_restJson1DeleteContentCommand(output, context);
   }

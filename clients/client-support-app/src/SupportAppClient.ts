@@ -88,6 +88,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateSlackChannelConfigurationCommandInput
   | DeleteAccountAliasCommandInput
@@ -100,6 +103,9 @@ export type ServiceInputTypes =
   | RegisterSlackWorkspaceForOrganizationCommandInput
   | UpdateSlackChannelConfigurationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateSlackChannelConfigurationCommandOutput
   | DeleteAccountAliasCommandOutput
@@ -112,6 +118,9 @@ export type ServiceOutputTypes =
   | RegisterSlackWorkspaceForOrganizationCommandOutput
   | UpdateSlackChannelConfigurationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -119,7 +128,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -228,11 +237,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SupportAppClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -243,10 +255,15 @@ type SupportAppClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SupportAppClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SupportAppClient class constructor that set the region, credentials and other options.
  */
 export interface SupportAppClientConfig extends SupportAppClientConfigType {}
 
+/**
+ * @public
+ */
 type SupportAppClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -257,11 +274,14 @@ type SupportAppClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SupportAppClient class. This is resolved and normalized from the {@link SupportAppClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SupportAppClient class. This is resolved and normalized from the {@link SupportAppClientConfig | constructor configuration interface}.
  */
 export interface SupportAppClientResolvedConfig extends SupportAppClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Web Services Support App in Slack</fullname>
  *          <p>You can use the Amazon Web Services Support App in Slack API to manage your support cases in Slack for your
  *       Amazon Web Services account. After you configure your Slack workspace and channel with the Amazon Web Services Support App, you can

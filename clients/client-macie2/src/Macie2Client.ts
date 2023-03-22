@@ -283,6 +283,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptInvitationCommandInput
   | BatchGetCustomDataIdentifiersCommandInput
@@ -364,6 +367,9 @@ export type ServiceInputTypes =
   | UpdateRevealConfigurationCommandInput
   | UpdateSensitivityInspectionTemplateCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
   | BatchGetCustomDataIdentifiersCommandOutput
@@ -445,6 +451,9 @@ export type ServiceOutputTypes =
   | UpdateRevealConfigurationCommandOutput
   | UpdateSensitivityInspectionTemplateCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -452,7 +461,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -561,11 +570,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type Macie2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -576,10 +588,15 @@ type Macie2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of Macie2Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of Macie2Client class constructor that set the region, credentials and other options.
  */
 export interface Macie2ClientConfig extends Macie2ClientConfigType {}
 
+/**
+ * @public
+ */
 type Macie2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -590,11 +607,14 @@ type Macie2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of Macie2Client class. This is resolved and normalized from the {@link Macie2ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of Macie2Client class. This is resolved and normalized from the {@link Macie2ClientConfig | constructor configuration interface}.
  */
 export interface Macie2ClientResolvedConfig extends Macie2ClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Macie</p>
  */
 export class Macie2Client extends __Client<

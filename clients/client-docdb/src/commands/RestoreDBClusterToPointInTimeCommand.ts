@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBClusterToPointInTimeCommand}.
  */
 export interface RestoreDBClusterToPointInTimeCommandInput extends RestoreDBClusterToPointInTimeMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBClusterToPointInTimeCommand}.
  */
 export interface RestoreDBClusterToPointInTimeCommandOutput
@@ -37,6 +41,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a cluster to an arbitrary point in time. Users can restore to any point in
  *             time before <code>LatestRestorableTime</code> for up to
  *                 <code>BackupRetentionPeriod</code> days. The target cluster is created from the
@@ -52,6 +57,8 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBClusterToPointInTimeCommandInput - {@link RestoreDBClusterToPointInTimeCommandInput}
+ * @returns {@link RestoreDBClusterToPointInTimeCommandOutput}
  * @see {@link RestoreDBClusterToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -127,6 +134,9 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBClusterToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBClusterToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBClusterToPointInTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

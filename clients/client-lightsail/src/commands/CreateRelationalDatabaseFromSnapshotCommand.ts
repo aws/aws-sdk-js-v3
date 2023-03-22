@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRelationalDatabaseFromSnapshotCommand}.
  */
 export interface CreateRelationalDatabaseFromSnapshotCommandInput extends CreateRelationalDatabaseFromSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRelationalDatabaseFromSnapshotCommand}.
  */
 export interface CreateRelationalDatabaseFromSnapshotCommandOutput
@@ -37,6 +41,7 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p>
  *          <p>You can create a new database from a snapshot in if something goes wrong with your
  *       original database, or to change it to a different plan, such as a high availability or
@@ -54,6 +59,8 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRelationalDatabaseFromSnapshotCommandInput - {@link CreateRelationalDatabaseFromSnapshotCommandInput}
+ * @returns {@link CreateRelationalDatabaseFromSnapshotCommandOutput}
  * @see {@link CreateRelationalDatabaseFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateRelationalDatabaseFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRelationalDatabaseFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateRelationalDatabaseFromSnapshotCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
     return serializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

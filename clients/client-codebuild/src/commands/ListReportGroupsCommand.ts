@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReportGroupsCommand}.
  */
 export interface ListReportGroupsCommandInput extends ListReportGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListReportGroupsCommand}.
  */
 export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets a list ARNs for the report groups in the current Amazon Web Services account.
  *     </p>
@@ -48,6 +53,8 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReportGroupsCommandInput - {@link ListReportGroupsCommandInput}
+ * @returns {@link ListReportGroupsCommandOutput}
  * @see {@link ListReportGroupsCommandInput} for command's `input` shape.
  * @see {@link ListReportGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListReportGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReportGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListReportGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReportGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReportGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReportGroupsCommandOutput> {
     return deserializeAws_json1_1ListReportGroupsCommand(output, context);
   }

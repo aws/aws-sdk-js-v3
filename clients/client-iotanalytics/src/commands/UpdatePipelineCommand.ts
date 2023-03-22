@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipelineCommand}.
  */
 export interface UpdatePipelineCommandInput extends UpdatePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipelineCommand}.
  */
 export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings of a pipeline. You must specify both a <code>channel</code> and a
  *         <code>datastore</code> activity and, optionally, as many as 23 additional activities in the
  *         <code>pipelineActivities</code> array.</p>
@@ -43,6 +48,8 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
+ * @returns {@link UpdatePipelineCommandOutput}
  * @see {@link UpdatePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineCommandOutput> {
     return deserializeAws_restJson1UpdatePipelineCommand(output, context);
   }

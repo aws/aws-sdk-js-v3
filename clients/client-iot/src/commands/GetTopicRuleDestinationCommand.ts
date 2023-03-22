@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTopicRuleDestinationCommand}.
  */
 export interface GetTopicRuleDestinationCommandInput extends GetTopicRuleDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTopicRuleDestinationCommand}.
  */
 export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a topic rule destination.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRuleDestination</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestin
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTopicRuleDestinationCommandInput - {@link GetTopicRuleDestinationCommandInput}
+ * @returns {@link GetTopicRuleDestinationCommandOutput}
  * @see {@link GetTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link GetTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTopicRuleDestinationCommandOutput> {
     return deserializeAws_restJson1GetTopicRuleDestinationCommand(output, context);
   }

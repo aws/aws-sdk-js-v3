@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeviceEventsCommand}.
  */
 export interface ListDeviceEventsCommandInput extends ListDeviceEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeviceEventsCommand}.
  */
 export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the device event history, including device connection status, for up to 30
  *          days.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceEventsCommandInput - {@link ListDeviceEventsCommandInput}
+ * @returns {@link ListDeviceEventsCommandOutput}
  * @see {@link ListDeviceEventsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceEventsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -73,6 +80,9 @@ export class ListDeviceEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListDeviceEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDeviceEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceEventsCommandOutput> {
     return deserializeAws_json1_1ListDeviceEventsCommand(output, context);
   }

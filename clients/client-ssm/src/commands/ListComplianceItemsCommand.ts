@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListComplianceItemsCommand}.
  */
 export interface ListComplianceItemsCommandInput extends ListComplianceItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComplianceItemsCommand}.
  */
 export interface ListComplianceItemsCommandOutput extends ListComplianceItemsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a specified resource ID, this API operation returns a list of compliance statuses for
  *    different resource types. Currently, you can only specify one resource ID per call. List results
  *    depend on the criteria specified in the filter.</p>
@@ -48,6 +53,8 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComplianceItemsCommandInput - {@link ListComplianceItemsCommandInput}
+ * @returns {@link ListComplianceItemsCommandOutput}
  * @see {@link ListComplianceItemsCommandInput} for command's `input` shape.
  * @see {@link ListComplianceItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListComplianceItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComplianceItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListComplianceItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComplianceItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListComplianceItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComplianceItemsCommandOutput> {
     return deserializeAws_json1_1ListComplianceItemsCommand(output, context);
   }

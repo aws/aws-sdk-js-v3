@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreTableToPointInTimeCommand}.
  */
 export interface RestoreTableToPointInTimeCommandInput extends RestoreTableToPointInTimeInput {}
 /**
+ * @public
+ *
  * The output of {@link RestoreTableToPointInTimeCommand}.
  */
 export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPointInTimeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores the specified table to the specified point in time within
  *                 <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
  *             You can restore your table to any point in time during the last 35 days. Any number of
@@ -95,6 +100,8 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreTableToPointInTimeCommandInput - {@link RestoreTableToPointInTimeCommandInput}
+ * @returns {@link RestoreTableToPointInTimeCommandOutput}
  * @see {@link RestoreTableToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreTableToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -154,6 +161,9 @@ export class RestoreTableToPointInTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreTableToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,10 +203,16 @@ export class RestoreTableToPointInTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreTableToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RestoreTableToPointInTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFaceDetectionCommand}.
  */
 export interface GetFaceDetectionCommandInput extends GetFaceDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFaceDetectionCommand}.
  */
 export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets face detection results for a Amazon Rekognition Video analysis started by <a>StartFaceDetection</a>.</p>
  *          <p>Face detection with Amazon Rekognition Video is an asynchronous operation. You start face detection by calling <a>StartFaceDetection</a>
  *      which returns a job identifier (<code>JobId</code>). When the face detection operation finishes, Amazon Rekognition Video publishes a completion status to
@@ -58,6 +63,8 @@ export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFaceDetectionCommandInput - {@link GetFaceDetectionCommandInput}
+ * @returns {@link GetFaceDetectionCommandOutput}
  * @see {@link GetFaceDetectionCommandInput} for command's `input` shape.
  * @see {@link GetFaceDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetFaceDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFaceDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class GetFaceDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFaceDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFaceDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFaceDetectionCommandOutput> {
     return deserializeAws_json1_1GetFaceDetectionCommand(output, context);
   }

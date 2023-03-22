@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInsightRulesCommand}.
  */
 export interface DescribeInsightRulesCommandInput extends DescribeInsightRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInsightRulesCommand}.
  */
 export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the Contributor Insights rules in your account.</p>
  *          <p>For more information about Contributor Insights, see
  * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInsightRulesCommandInput - {@link DescribeInsightRulesCommandInput}
+ * @returns {@link DescribeInsightRulesCommandOutput}
  * @see {@link DescribeInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeInsightRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInsightRulesCommandOutput> {
     return deserializeAws_queryDescribeInsightRulesCommand(output, context);
   }

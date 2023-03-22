@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFpgaImageAttributeCommand}.
  */
 export interface DescribeFpgaImageAttributeCommandInput extends DescribeFpgaImageAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFpgaImageAttributeCommand}.
  */
 export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaImageAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified Amazon FPGA Image (AFI).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaIma
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFpgaImageAttributeCommandInput - {@link DescribeFpgaImageAttributeCommandInput}
+ * @returns {@link DescribeFpgaImageAttributeCommandOutput}
  * @see {@link DescribeFpgaImageAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeFpgaImageAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFpgaImageAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeFpgaImageAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFpgaImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeFpgaImageAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

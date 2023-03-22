@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationComponentsCommand}.
  */
 export interface ListApplicationComponentsCommandInput extends ListApplicationComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationComponentsCommand}.
  */
 export interface ListApplicationComponentsCommandOutput extends ListApplicationComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of all the application components (processes). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationComponentsCommandInput - {@link ListApplicationComponentsCommandInput}
+ * @returns {@link ListApplicationComponentsCommandOutput}
  * @see {@link ListApplicationComponentsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationComponentsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListApplicationComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListApplicationComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListApplicationComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

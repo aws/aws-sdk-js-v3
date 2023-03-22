@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommenderConfigurationsCommand}.
  */
 export interface GetRecommenderConfigurationsCommandInput extends GetRecommenderConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommenderConfigurationsCommand}.
  */
 export interface GetRecommenderConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetRecommenderConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetRecommenderConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommenderConfigurationsCommandInput - {@link GetRecommenderConfigurationsCommandInput}
+ * @returns {@link GetRecommenderConfigurationsCommandOutput}
  * @see {@link GetRecommenderConfigurationsCommandInput} for command's `input` shape.
  * @see {@link GetRecommenderConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetRecommenderConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommenderConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetRecommenderConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommenderConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRecommenderConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

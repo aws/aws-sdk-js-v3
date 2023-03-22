@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelCardsCommand}.
  */
 export interface ListModelCardsCommandInput extends ListModelCardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelCardsCommand}.
  */
 export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List existing model cards.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelCardsCommandInput - {@link ListModelCardsCommandInput}
+ * @returns {@link ListModelCardsCommandOutput}
  * @see {@link ListModelCardsCommandInput} for command's `input` shape.
  * @see {@link ListModelCardsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListModelCardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelCardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListModelCardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelCardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListModelCardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelCardsCommandOutput> {
     return deserializeAws_json1_1ListModelCardsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContactListCommand}.
  */
 export interface DeleteContactListCommandInput extends DeleteContactListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContactListCommand}.
  */
 export interface DeleteContactListCommandOutput extends DeleteContactListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a contact list and all of the contacts on that list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteContactListCommandOutput extends DeleteContactListRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContactListCommandInput - {@link DeleteContactListCommandInput}
+ * @returns {@link DeleteContactListCommandOutput}
  * @see {@link DeleteContactListCommandInput} for command's `input` shape.
  * @see {@link DeleteContactListCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteContactListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContactListCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteContactListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContactListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteContactListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactListCommandOutput> {
     return deserializeAws_restJson1DeleteContactListCommand(output, context);
   }

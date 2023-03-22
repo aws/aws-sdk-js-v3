@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetActiveReceiptRuleSetCommand}.
  */
 export interface SetActiveReceiptRuleSetCommandInput extends SetActiveReceiptRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetActiveReceiptRuleSetCommand}.
  */
 export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified receipt rule set as the active receipt rule set.</p>
  *         <note>
  *             <p>To disable your email-receiving through Amazon SES completely, you can call this API
@@ -52,6 +57,8 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * const response = await client.send(command);
  * ```
  *
+ * @param SetActiveReceiptRuleSetCommandInput - {@link SetActiveReceiptRuleSetCommandInput}
+ * @returns {@link SetActiveReceiptRuleSetCommandOutput}
  * @see {@link SetActiveReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link SetActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -89,6 +96,9 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetActiveReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetActiveReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetActiveReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetActiveReceiptRuleSetCommandOutput> {
     return deserializeAws_querySetActiveReceiptRuleSetCommand(output, context);
   }

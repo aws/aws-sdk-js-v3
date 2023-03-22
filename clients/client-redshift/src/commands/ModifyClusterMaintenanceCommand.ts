@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterMaintenanceCommand}.
  */
 export interface ModifyClusterMaintenanceCommandInput extends ModifyClusterMaintenanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterMaintenanceCommand}.
  */
 export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMaintenanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the maintenance settings of a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMain
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterMaintenanceCommandInput - {@link ModifyClusterMaintenanceCommandInput}
+ * @returns {@link ModifyClusterMaintenanceCommandOutput}
  * @see {@link ModifyClusterMaintenanceCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterMaintenanceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class ModifyClusterMaintenanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterMaintenanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ModifyClusterMaintenanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterMaintenanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterMaintenanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterMaintenanceCommandOutput> {
     return deserializeAws_queryModifyClusterMaintenanceCommand(output, context);
   }

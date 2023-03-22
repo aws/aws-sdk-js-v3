@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLinkCommand}.
  */
 export interface GetLinkCommandInput extends GetLinkInput {}
 /**
+ * @public
+ *
  * The output of {@link GetLinkCommand}.
  */
 export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns complete information about one link.</p>
  *         <p>To use this operation, provide the link ARN. To retrieve a list of link ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLinkCommandInput - {@link GetLinkCommandInput}
+ * @returns {@link GetLinkCommandOutput}
  * @see {@link GetLinkCommandInput} for command's `input` shape.
  * @see {@link GetLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkCommandOutput> {
     return deserializeAws_restJson1GetLinkCommand(output, context);
   }

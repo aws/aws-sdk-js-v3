@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRouteCalculatorsCommand}.
  */
 export interface ListRouteCalculatorsCommandInput extends ListRouteCalculatorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRouteCalculatorsCommand}.
  */
 export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists route calculator resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRouteCalculatorsCommandInput - {@link ListRouteCalculatorsCommandInput}
+ * @returns {@link ListRouteCalculatorsCommandOutput}
  * @see {@link ListRouteCalculatorsCommandInput} for command's `input` shape.
  * @see {@link ListRouteCalculatorsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListRouteCalculatorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRouteCalculatorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListRouteCalculatorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRouteCalculatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRouteCalculatorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRouteCalculatorsCommandOutput> {
     return deserializeAws_restJson1ListRouteCalculatorsCommand(output, context);
   }

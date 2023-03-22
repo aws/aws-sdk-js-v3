@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLaunchProfileInitializationCommand}.
  */
 export interface GetLaunchProfileInitializationCommandInput extends GetLaunchProfileInitializationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLaunchProfileInitializationCommand}.
  */
 export interface GetLaunchProfileInitializationCommandOutput
@@ -37,6 +41,7 @@ export interface GetLaunchProfileInitializationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a launch profile initialization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetLaunchProfileInitializationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLaunchProfileInitializationCommandInput - {@link GetLaunchProfileInitializationCommandInput}
+ * @returns {@link GetLaunchProfileInitializationCommandOutput}
  * @see {@link GetLaunchProfileInitializationCommandInput} for command's `input` shape.
  * @see {@link GetLaunchProfileInitializationCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetLaunchProfileInitializationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLaunchProfileInitializationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class GetLaunchProfileInitializationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetLaunchProfileInitializationCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class GetLaunchProfileInitializationCommand extends $Command<
     return serializeAws_restJson1GetLaunchProfileInitializationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

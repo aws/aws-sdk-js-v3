@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBundlesCommand}.
  */
 export interface GetBundlesCommandInput extends GetBundlesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBundlesCommand}.
  */
 export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the bundles that you can apply to an Amazon Lightsail instance when you create
  *       it.</p>
  *          <p>A bundle describes the specifications of an instance, such as the monthly cost, amount of
@@ -54,6 +59,8 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBundlesCommandInput - {@link GetBundlesCommandInput}
+ * @returns {@link GetBundlesCommandOutput}
  * @see {@link GetBundlesCommandInput} for command's `input` shape.
  * @see {@link GetBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -107,6 +114,9 @@ export class GetBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class GetBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBundlesCommandOutput> {
     return deserializeAws_json1_1GetBundlesCommand(output, context);
   }

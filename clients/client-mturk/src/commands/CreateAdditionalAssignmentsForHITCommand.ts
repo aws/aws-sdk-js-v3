@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAdditionalAssignmentsForHITCommand}.
  */
 export interface CreateAdditionalAssignmentsForHITCommandInput extends CreateAdditionalAssignmentsForHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAdditionalAssignmentsForHITCommand}.
  */
 export interface CreateAdditionalAssignmentsForHITCommandOutput
@@ -37,6 +41,7 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>CreateAdditionalAssignmentsForHIT</code>
@@ -70,6 +75,8 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAdditionalAssignmentsForHITCommandInput - {@link CreateAdditionalAssignmentsForHITCommandInput}
+ * @returns {@link CreateAdditionalAssignmentsForHITCommandOutput}
  * @see {@link CreateAdditionalAssignmentsForHITCommandInput} for command's `input` shape.
  * @see {@link CreateAdditionalAssignmentsForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAdditionalAssignmentsForHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAdditionalAssignmentsForHITCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
     return serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

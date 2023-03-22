@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEntitlementsCommand}.
  */
 export interface GetEntitlementsCommandInput extends GetEntitlementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEntitlementsCommand}.
  */
 export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
  *       filtered based on customer identifier or product dimensions.</p>
  * @example
@@ -51,6 +56,8 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEntitlementsCommandInput - {@link GetEntitlementsCommandInput}
+ * @returns {@link GetEntitlementsCommandOutput}
  * @see {@link GetEntitlementsCommandInput} for command's `input` shape.
  * @see {@link GetEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceEntitlementServiceClientResolvedConfig | config} for MarketplaceEntitlementServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetEntitlementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEntitlementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetEntitlementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEntitlementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEntitlementsCommandOutput> {
     return deserializeAws_json1_1GetEntitlementsCommand(output, context);
   }

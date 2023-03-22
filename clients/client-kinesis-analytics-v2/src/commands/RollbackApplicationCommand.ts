@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RollbackApplicationCommand}.
  */
 export interface RollbackApplicationCommandInput extends RollbackApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RollbackApplicationCommand}.
  */
 export interface RollbackApplicationCommandOutput extends RollbackApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reverts the application to the previous running version. You can
  *             roll back an application if you suspect it is stuck in a transient status. </p>
  *         <p>You can roll back an application only if it is in the <code>UPDATING</code>
@@ -56,6 +61,8 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param RollbackApplicationCommandInput - {@link RollbackApplicationCommandInput}
+ * @returns {@link RollbackApplicationCommandOutput}
  * @see {@link RollbackApplicationCommandInput} for command's `input` shape.
  * @see {@link RollbackApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -100,6 +107,9 @@ export class RollbackApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RollbackApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class RollbackApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RollbackApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RollbackApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RollbackApplicationCommandOutput> {
     return deserializeAws_json1_1RollbackApplicationCommand(output, context);
   }

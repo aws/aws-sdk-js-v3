@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSchedulingPolicyCommand}.
  */
 export interface UpdateSchedulingPolicyCommandInput extends UpdateSchedulingPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSchedulingPolicyCommand}.
  */
 export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a scheduling policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPol
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSchedulingPolicyCommandInput - {@link UpdateSchedulingPolicyCommandInput}
+ * @returns {@link UpdateSchedulingPolicyCommandOutput}
  * @see {@link UpdateSchedulingPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateSchedulingPolicyCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -77,6 +84,9 @@ export class UpdateSchedulingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSchedulingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateSchedulingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSchedulingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSchedulingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSchedulingPolicyCommandOutput> {
     return deserializeAws_restJson1UpdateSchedulingPolicyCommand(output, context);
   }

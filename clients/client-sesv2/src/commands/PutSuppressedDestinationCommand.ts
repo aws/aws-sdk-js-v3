@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutSuppressedDestinationCommand}.
  */
 export interface PutSuppressedDestinationCommandInput extends PutSuppressedDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSuppressedDestinationCommand}.
  */
 export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an email address to the suppression list for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSuppressedDestinationCommandInput - {@link PutSuppressedDestinationCommandInput}
+ * @returns {@link PutSuppressedDestinationCommandOutput}
  * @see {@link PutSuppressedDestinationCommandInput} for command's `input` shape.
  * @see {@link PutSuppressedDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -75,6 +82,9 @@ export class PutSuppressedDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSuppressedDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class PutSuppressedDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSuppressedDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutSuppressedDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSuppressedDestinationCommandOutput> {
     return deserializeAws_restJson1PutSuppressedDestinationCommand(output, context);
   }

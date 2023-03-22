@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBundleTasksCommand}.
  */
 export interface DescribeBundleTasksCommandInput extends DescribeBundleTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBundleTasksCommand}.
  */
 export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>
  *          <note>
  *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>
@@ -49,6 +54,8 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBundleTasksCommandInput - {@link DescribeBundleTasksCommandInput}
+ * @returns {@link DescribeBundleTasksCommandOutput}
  * @see {@link DescribeBundleTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeBundleTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeBundleTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBundleTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeBundleTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBundleTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeBundleTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBundleTasksCommandOutput> {
     return deserializeAws_ec2DescribeBundleTasksCommand(output, context);
   }

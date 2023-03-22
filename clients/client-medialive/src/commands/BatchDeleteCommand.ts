@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteCommand}.
  */
 export interface BatchDeleteCommandInput extends BatchDeleteRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteCommand}.
  */
 export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Starts delete of resources.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteCommandInput - {@link BatchDeleteCommandInput}
+ * @returns {@link BatchDeleteCommandOutput}
  * @see {@link BatchDeleteCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class BatchDeleteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class BatchDeleteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDeleteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteCommandOutput> {
     return deserializeAws_restJson1BatchDeleteCommand(output, context);
   }

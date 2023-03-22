@@ -21,15 +21,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterSubnetGroupCommand}.
  */
 export interface DeleteClusterSubnetGroupCommandInput extends DeleteClusterSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterSubnetGroupCommand}.
  */
 export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified cluster subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterSubnetGroupCommandInput - {@link DeleteClusterSubnetGroupCommandInput}
+ * @returns {@link DeleteClusterSubnetGroupCommandOutput}
  * @see {@link DeleteClusterSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteClusterSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteClusterSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteClusterSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterSubnetGroupCommandOutput> {
     return deserializeAws_queryDeleteClusterSubnetGroupCommand(output, context);
   }

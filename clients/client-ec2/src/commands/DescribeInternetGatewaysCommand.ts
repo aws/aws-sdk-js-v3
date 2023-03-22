@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInternetGatewaysCommand}.
  */
 export interface DescribeInternetGatewaysCommandInput extends DescribeInternetGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInternetGatewaysCommand}.
  */
 export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your internet gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInternetGatewaysCommandInput - {@link DescribeInternetGatewaysCommandInput}
+ * @returns {@link DescribeInternetGatewaysCommandOutput}
  * @see {@link DescribeInternetGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeInternetGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -103,6 +110,9 @@ export class DescribeInternetGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInternetGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class DescribeInternetGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInternetGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeInternetGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInternetGatewaysCommandOutput> {
     return deserializeAws_ec2DescribeInternetGatewaysCommand(output, context);
   }

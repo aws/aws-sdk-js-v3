@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNodegroupCommand}.
  */
 export interface DeleteNodegroupCommandInput extends DeleteNodegroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNodegroupCommand}.
  */
 export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon EKS node group for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNodegroupCommandInput - {@link DeleteNodegroupCommandInput}
+ * @returns {@link DeleteNodegroupCommandOutput}
  * @see {@link DeleteNodegroupCommandInput} for command's `input` shape.
  * @see {@link DeleteNodegroupCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteNodegroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNodegroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteNodegroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNodegroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteNodegroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNodegroupCommandOutput> {
     return deserializeAws_restJson1DeleteNodegroupCommand(output, context);
   }

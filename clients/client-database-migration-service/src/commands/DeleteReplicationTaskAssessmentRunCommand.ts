@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationTaskAssessmentRunCommand}.
  */
 export interface DeleteReplicationTaskAssessmentRunCommandInput extends DeleteReplicationTaskAssessmentRunMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationTaskAssessmentRunCommand}.
  */
 export interface DeleteReplicationTaskAssessmentRunCommandOutput
@@ -41,6 +45,7 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the record of a single premigration assessment run.</p>
  *          <p>This operation removes all metadata that DMS maintains about this assessment run.
  *          However, the operation leaves untouched all information about this assessment run that is
@@ -55,6 +60,8 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationTaskAssessmentRunCommandInput - {@link DeleteReplicationTaskAssessmentRunCommandInput}
+ * @returns {@link DeleteReplicationTaskAssessmentRunCommandOutput}
  * @see {@link DeleteReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationTaskAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteReplicationTaskAssessmentRunCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
     return serializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

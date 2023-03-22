@@ -26,15 +26,20 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLedgerCommand}.
  */
 export interface CreateLedgerCommandInput extends CreateLedgerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLedgerCommand}.
  */
 export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new ledger in your Amazon Web Services account in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLedgerCommandInput - {@link CreateLedgerCommandInput}
+ * @returns {@link CreateLedgerCommandOutput}
  * @see {@link CreateLedgerCommandInput} for command's `input` shape.
  * @see {@link CreateLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreateLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLedgerCommandOutput> {
     return deserializeAws_restJson1CreateLedgerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResolveComponentCandidatesCommand}.
  */
 export interface ResolveComponentCandidatesCommandInput extends ResolveComponentCandidatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResolveComponentCandidatesCommand}.
  */
 export interface ResolveComponentCandidatesCommandOutput extends ResolveComponentCandidatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of components that meet the component, version, and platform requirements
  *       of a deployment. Greengrass core devices call this operation when they receive a deployment to
  *       identify the components to install.</p>
@@ -60,6 +65,8 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveComponentCandidatesCommandInput - {@link ResolveComponentCandidatesCommandInput}
+ * @returns {@link ResolveComponentCandidatesCommandOutput}
  * @see {@link ResolveComponentCandidatesCommandInput} for command's `input` shape.
  * @see {@link ResolveComponentCandidatesCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -104,6 +111,9 @@ export class ResolveComponentCandidatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveComponentCandidatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ResolveComponentCandidatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveComponentCandidatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ResolveComponentCandidatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

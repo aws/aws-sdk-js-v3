@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListUserPoliciesCommand}.
  */
 export interface ListUserPoliciesCommandInput extends ListUserPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUserPoliciesCommand}.
  */
 export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the names of the inline policies embedded in the specified IAM user.</p>
  *          <p>An IAM user can also have managed policies attached to it. To list the managed
  *             policies that are attached to a user, use <a>ListAttachedUserPolicies</a>.
@@ -53,6 +58,8 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserPoliciesCommandInput - {@link ListUserPoliciesCommandInput}
+ * @returns {@link ListUserPoliciesCommandOutput}
  * @see {@link ListUserPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListUserPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListUserPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListUserPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListUserPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserPoliciesCommandOutput> {
     return deserializeAws_queryListUserPoliciesCommand(output, context);
   }

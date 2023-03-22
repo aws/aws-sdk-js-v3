@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCollectionsCommand}.
  */
 export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCollectionsCommand}.
  */
 export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns list of collection IDs in your account. If the result is truncated, the
  *       response also provides a <code>NextToken</code> that you can use in the subsequent request to
  *       fetch the next set of collection IDs.</p>
@@ -52,6 +57,8 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCollectionsCommandInput - {@link ListCollectionsCommandInput}
+ * @returns {@link ListCollectionsCommandOutput}
  * @see {@link ListCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListCollectionsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -114,6 +121,9 @@ export class ListCollectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCollectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class ListCollectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCollectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCollectionsCommandOutput> {
     return deserializeAws_json1_1ListCollectionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReceivedGrantsCommand}.
  */
 export interface ListReceivedGrantsCommandInput extends ListReceivedGrantsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReceivedGrantsCommand}.
  */
 export interface ListReceivedGrantsCommandOutput extends ListReceivedGrantsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists grants that are received but not accepted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListReceivedGrantsCommandOutput extends ListReceivedGrantsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceivedGrantsCommandInput - {@link ListReceivedGrantsCommandInput}
+ * @returns {@link ListReceivedGrantsCommandOutput}
  * @see {@link ListReceivedGrantsCommandInput} for command's `input` shape.
  * @see {@link ListReceivedGrantsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListReceivedGrantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceivedGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListReceivedGrantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReceivedGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReceivedGrantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceivedGrantsCommandOutput> {
     return deserializeAws_json1_1ListReceivedGrantsCommand(output, context);
   }

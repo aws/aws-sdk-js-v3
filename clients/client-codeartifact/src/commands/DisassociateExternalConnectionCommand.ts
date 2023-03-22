@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateExternalConnectionCommand}.
  */
 export interface DisassociateExternalConnectionCommandInput extends DisassociateExternalConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateExternalConnectionCommand}.
  */
 export interface DisassociateExternalConnectionCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateExternalConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Removes an existing external connection from a repository.
  *     </p>
@@ -50,6 +55,8 @@ export interface DisassociateExternalConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateExternalConnectionCommandInput - {@link DisassociateExternalConnectionCommandInput}
+ * @returns {@link DisassociateExternalConnectionCommandOutput}
  * @see {@link DisassociateExternalConnectionCommandInput} for command's `input` shape.
  * @see {@link DisassociateExternalConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -106,6 +113,9 @@ export class DisassociateExternalConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateExternalConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class DisassociateExternalConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateExternalConnectionCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class DisassociateExternalConnectionCommand extends $Command<
     return serializeAws_restJson1DisassociateExternalConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

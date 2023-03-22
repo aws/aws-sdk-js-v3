@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterOrganizationAdminAccountCommand}.
  */
 export interface DeregisterOrganizationAdminAccountCommandInput extends DeregisterOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterOrganizationAdminAccountCommand}.
  */
 export interface DeregisterOrganizationAdminAccountCommandOutput
@@ -37,6 +41,7 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified Amazon Web Services account as a delegated administrator for
  *             Audit Manager. </p>
  *          <p>When you remove a delegated administrator from your Audit Manager settings, you
@@ -107,6 +112,8 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterOrganizationAdminAccountCommandInput - {@link DeregisterOrganizationAdminAccountCommandInput}
+ * @returns {@link DeregisterOrganizationAdminAccountCommandOutput}
  * @see {@link DeregisterOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DeregisterOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -144,6 +151,9 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,6 +193,9 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterOrganizationAdminAccountCommandInput,
     context: __SerdeContext
@@ -190,6 +203,9 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
     return serializeAws_restJson1DeregisterOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

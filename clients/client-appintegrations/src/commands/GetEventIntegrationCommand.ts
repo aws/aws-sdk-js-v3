@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventIntegrationCommand}.
  */
 export interface GetEventIntegrationCommandInput extends GetEventIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventIntegrationCommand}.
  */
 export interface GetEventIntegrationCommandOutput extends GetEventIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the event integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventIntegrationCommandInput - {@link GetEventIntegrationCommandInput}
+ * @returns {@link GetEventIntegrationCommandOutput}
  * @see {@link GetEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetEventIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetEventIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetEventIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEventIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventIntegrationCommandOutput> {
     return deserializeAws_restJson1GetEventIntegrationCommand(output, context);
   }

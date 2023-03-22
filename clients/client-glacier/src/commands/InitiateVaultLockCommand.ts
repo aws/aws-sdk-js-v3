@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateVaultLockCommand}.
  */
 export interface InitiateVaultLockCommandInput extends InitiateVaultLockInput {}
 /**
+ * @public
+ *
  * The output of {@link InitiateVaultLockCommand}.
  */
 export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation initiates the vault locking process by doing the following:</p>
  *          <ul>
  *             <li>
@@ -80,6 +85,8 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateVaultLockCommandInput - {@link InitiateVaultLockCommandInput}
+ * @returns {@link InitiateVaultLockCommandOutput}
  * @see {@link InitiateVaultLockCommandInput} for command's `input` shape.
  * @see {@link InitiateVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -136,6 +143,9 @@ export class InitiateVaultLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateVaultLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,10 +185,16 @@ export class InitiateVaultLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InitiateVaultLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateVaultLockCommandOutput> {
     return deserializeAws_restJson1InitiateVaultLockCommand(output, context);
   }

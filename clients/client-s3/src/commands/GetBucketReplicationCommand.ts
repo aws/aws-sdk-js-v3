@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketReplicationCommand}.
  */
 export interface GetBucketReplicationCommandInput extends GetBucketReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketReplicationCommand}.
  */
 export interface GetBucketReplicationCommandOutput extends GetBucketReplicationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the replication configuration of a bucket.</p>
  *          <note>
  *             <p> It can take a while to propagate the put or delete a replication configuration to
@@ -75,6 +80,8 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketReplicationCommandInput - {@link GetBucketReplicationCommandInput}
+ * @returns {@link GetBucketReplicationCommandOutput}
  * @see {@link GetBucketReplicationCommandInput} for command's `input` shape.
  * @see {@link GetBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -132,6 +139,9 @@ export class GetBucketReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class GetBucketReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketReplicationCommandOutput> {
     return deserializeAws_restXmlGetBucketReplicationCommand(output, context);
   }

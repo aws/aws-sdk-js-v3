@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceProfileCommand}.
  */
 export interface CreateInstanceProfileCommandInput extends CreateInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceProfileCommand}.
  */
 export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a profile that can be applied to one or more private fleet device
  *             instances.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceProfileCommandInput - {@link CreateInstanceProfileCommandInput}
+ * @returns {@link CreateInstanceProfileCommandOutput}
  * @see {@link CreateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreateInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceProfileCommandOutput> {
     return deserializeAws_json1_1CreateInstanceProfileCommand(output, context);
   }

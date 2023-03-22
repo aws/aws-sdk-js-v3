@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAgentCommand}.
  */
 export interface UpdateAgentCommandInput extends UpdateAgentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAgentCommand}.
  */
 export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of an agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAgentCommandInput - {@link UpdateAgentCommandInput}
+ * @returns {@link UpdateAgentCommandOutput}
  * @see {@link UpdateAgentCommandInput} for command's `input` shape.
  * @see {@link UpdateAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAgentCommandOutput> {
     return deserializeAws_json1_1UpdateAgentCommand(output, context);
   }

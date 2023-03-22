@@ -10,7 +10,7 @@ import { S3Client } from "../S3Client";
 import { S3PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: S3Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListObjectsV2Command(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListObjectsV2(
   config: S3PaginationConfiguration,
   input: ListObjectsV2CommandInput,

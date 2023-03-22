@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { CodePipelineServiceException as __BaseException } from "./CodePipelineServiceException";
 
 /**
+ * @public
  * <p>Represents the input of an AcknowledgeJob action.</p>
  */
 export interface AcknowledgeJobInput {
@@ -21,6 +22,9 @@ export interface AcknowledgeJobInput {
   nonce: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   Created = "Created",
   Dispatched = "Dispatched",
@@ -32,6 +36,7 @@ export enum JobStatus {
 }
 
 /**
+ * @public
  * <p>Represents the output of an AcknowledgeJob action.</p>
  */
 export interface AcknowledgeJobOutput {
@@ -42,6 +47,7 @@ export interface AcknowledgeJobOutput {
 }
 
 /**
+ * @public
  * <p>The nonce was specified in an invalid format.</p>
  */
 export class InvalidNonceException extends __BaseException {
@@ -61,6 +67,7 @@ export class InvalidNonceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The job was specified in an invalid format or cannot be found.</p>
  */
 export class JobNotFoundException extends __BaseException {
@@ -80,6 +87,7 @@ export class JobNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The validation was specified in an invalid format.</p>
  */
 export class ValidationException extends __BaseException {
@@ -99,6 +107,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of an AcknowledgeThirdPartyJob action.</p>
  */
 export interface AcknowledgeThirdPartyJobInput {
@@ -121,6 +130,7 @@ export interface AcknowledgeThirdPartyJobInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an AcknowledgeThirdPartyJob action.</p>
  */
 export interface AcknowledgeThirdPartyJobOutput {
@@ -131,6 +141,7 @@ export interface AcknowledgeThirdPartyJobOutput {
 }
 
 /**
+ * @public
  * <p>The client token was specified in an invalid format</p>
  */
 export class InvalidClientTokenException extends __BaseException {
@@ -149,6 +160,9 @@ export class InvalidClientTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ActionCategory {
   Approval = "Approval",
   Build = "Build",
@@ -159,6 +173,7 @@ export enum ActionCategory {
 }
 
 /**
+ * @public
  * <p>Represents information about an action configuration.</p>
  */
 export interface ActionConfiguration {
@@ -168,6 +183,9 @@ export interface ActionConfiguration {
   configuration?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ActionConfigurationPropertyType {
   Boolean = "Boolean",
   Number = "Number",
@@ -175,6 +193,7 @@ export enum ActionConfigurationPropertyType {
 }
 
 /**
+ * @public
  * <p>Represents information about an action configuration property.</p>
  */
 export interface ActionConfigurationProperty {
@@ -226,6 +245,7 @@ export interface ActionConfigurationProperty {
 }
 
 /**
+ * @public
  * <p>Represents the context of an action in the stage of a pipeline to a job
  *             worker.</p>
  */
@@ -241,6 +261,9 @@ export interface ActionContext {
   actionExecutionId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ActionOwner {
   AWS = "AWS",
   Custom = "Custom",
@@ -248,6 +271,7 @@ export enum ActionOwner {
 }
 
 /**
+ * @public
  * <p>Represents information about an action type.</p>
  */
 export interface ActionTypeId {
@@ -301,6 +325,7 @@ export interface ActionTypeId {
 }
 
 /**
+ * @public
  * <p>Represents information about an artifact to be worked on, such as a test or build
  *             artifact.</p>
  */
@@ -317,6 +342,7 @@ export interface InputArtifact {
 }
 
 /**
+ * @public
  * <p>Represents information about the output of an action.</p>
  */
 export interface OutputArtifact {
@@ -333,6 +359,7 @@ export interface OutputArtifact {
 }
 
 /**
+ * @public
  * <p>Represents information about an action declaration.</p>
  */
 export interface ActionDeclaration {
@@ -364,7 +391,7 @@ export interface ActionDeclaration {
    *             <i>JSON:</i>
    *          </p>
    *         <p>
-   *             <code>"Configuration" : { Key : Value },</code>
+   *             <code>"Configuration" : \{ Key : Value \},</code>
    *         </p>
    */
   configuration?: Record<string, string>;
@@ -400,6 +427,7 @@ export interface ActionDeclaration {
 }
 
 /**
+ * @public
  * <p>Represents information about an error in AWS CodePipeline.</p>
  */
 export interface ErrorDetails {
@@ -414,6 +442,9 @@ export interface ErrorDetails {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export enum ActionExecutionStatus {
   Abandoned = "Abandoned",
   Failed = "Failed",
@@ -422,6 +453,7 @@ export enum ActionExecutionStatus {
 }
 
 /**
+ * @public
  * <p>Represents information about the run of an action.</p>
  */
 export interface ActionExecution {
@@ -487,6 +519,7 @@ export interface ActionExecution {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 artifact location for an action's artifacts.</p>
  */
 export interface S3Location {
@@ -502,6 +535,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Artifact details for the action execution, such as the artifact location.</p>
  */
 export interface ArtifactDetail {
@@ -517,6 +551,7 @@ export interface ArtifactDetail {
 }
 
 /**
+ * @public
  * <p>Input information used for an action execution.</p>
  */
 export interface ActionExecutionInput {
@@ -561,6 +596,7 @@ export interface ActionExecutionInput {
 }
 
 /**
+ * @public
  * <p>Execution result information, such as the external execution ID.</p>
  */
 export interface ActionExecutionResult {
@@ -582,6 +618,7 @@ export interface ActionExecutionResult {
 }
 
 /**
+ * @public
  * <p>Output details listed for an action execution, such as the action execution
  *             result.</p>
  */
@@ -606,6 +643,7 @@ export interface ActionExecutionOutput {
 }
 
 /**
+ * @public
  * <p>Returns information about an execution of an action, including the action execution
  *             ID, and the name, version, and timing of the action. </p>
  */
@@ -664,6 +702,7 @@ export interface ActionExecutionDetail {
 }
 
 /**
+ * @public
  * <p>Filter values for the action execution.</p>
  */
 export interface ActionExecutionFilter {
@@ -674,6 +713,7 @@ export interface ActionExecutionFilter {
 }
 
 /**
+ * @public
  * <p>The specified action cannot be found.</p>
  */
 export class ActionNotFoundException extends __BaseException {
@@ -693,6 +733,7 @@ export class ActionNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents information about the version (or revision) of an action.</p>
  */
 export interface ActionRevision {
@@ -716,6 +757,7 @@ export interface ActionRevision {
 }
 
 /**
+ * @public
  * <p>Represents information about the state of an action.</p>
  */
 export interface ActionState {
@@ -748,6 +790,7 @@ export interface ActionState {
 }
 
 /**
+ * @public
  * <p>Returns information about the details of an artifact.</p>
  */
 export interface ArtifactDetails {
@@ -763,6 +806,7 @@ export interface ArtifactDetails {
 }
 
 /**
+ * @public
  * <p>Returns information about the settings for an action type.</p>
  */
 export interface ActionTypeSettings {
@@ -796,6 +840,7 @@ export interface ActionTypeSettings {
 }
 
 /**
+ * @public
  * <p>Returns information about the details of an action type.</p>
  */
 export interface ActionType {
@@ -826,6 +871,7 @@ export interface ActionType {
 }
 
 /**
+ * @public
  * <p>Information about parameters for artifacts associated with the action type, such as
  *             the minimum and maximum artifacts allowed.</p>
  */
@@ -846,6 +892,7 @@ export interface ActionTypeArtifactDetails {
 }
 
 /**
+ * @public
  * <p>Details about the polling configuration for the <code>JobWorker</code> action engine,
  *             or executor.</p>
  */
@@ -864,6 +911,7 @@ export interface JobWorkerExecutorConfiguration {
 }
 
 /**
+ * @public
  * <p>Details about the configuration for the <code>Lambda</code> action engine, or
  *             executor.</p>
  */
@@ -875,6 +923,7 @@ export interface LambdaExecutorConfiguration {
 }
 
 /**
+ * @public
  * <p>The action engine, or executor, related to the supported integration model used to
  *             create and update the action type. The available executor types are <code>Lambda</code>
  *             and <code>JobWorker</code>.</p>
@@ -891,12 +940,16 @@ export interface ExecutorConfiguration {
   jobWorkerExecutorConfiguration?: JobWorkerExecutorConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ExecutorType {
   JobWorker = "JobWorker",
   Lambda = "Lambda",
 }
 
 /**
+ * @public
  * <p>The action engine, or executor, for an action type created for a provider, where the
  *             action is to be used by customers of the provider. The action engine is associated with
  *             the model used to create and update the action, such as the Lambda integration
@@ -935,6 +988,7 @@ export interface ActionTypeExecutor {
 }
 
 /**
+ * @public
  * <p>Specifies the category, owner, provider, and version of the action type.</p>
  */
 export interface ActionTypeIdentifier {
@@ -994,6 +1048,7 @@ export interface ActionTypeIdentifier {
 }
 
 /**
+ * @public
  * <p>Details identifying the users with permissions to use the action type.</p>
  */
 export interface ActionTypePermissions {
@@ -1005,6 +1060,7 @@ export interface ActionTypePermissions {
 }
 
 /**
+ * @public
  * <p>Represents information about each property specified in the action configuration, such
  *             as the description and key name that display for the customer using the action
  *             type.</p>
@@ -1046,6 +1102,7 @@ export interface ActionTypeProperty {
 }
 
 /**
+ * @public
  * <p>Returns information about URLs for web pages that display to customers as links on the
  *             pipeline view, such as an external configuration page for the action type.</p>
  */
@@ -1078,6 +1135,7 @@ export interface ActionTypeUrls {
 }
 
 /**
+ * @public
  * <p>The parameters for the action type definition that are provided when the action type
  *             is created or updated.</p>
  */
@@ -1129,6 +1187,7 @@ export interface ActionTypeDeclaration {
 }
 
 /**
+ * @public
  * <p>The specified action type cannot be found.</p>
  */
 export class ActionTypeNotFoundException extends __BaseException {
@@ -1148,6 +1207,7 @@ export class ActionTypeNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The approval action has already been approved or rejected.</p>
  */
 export class ApprovalAlreadyCompletedException extends __BaseException {
@@ -1166,12 +1226,16 @@ export class ApprovalAlreadyCompletedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ApprovalStatus {
   Approved = "Approved",
   Rejected = "Rejected",
 }
 
 /**
+ * @public
  * <p>Represents information about the result of an approval request.</p>
  */
 export interface ApprovalResult {
@@ -1188,6 +1252,7 @@ export interface ApprovalResult {
 }
 
 /**
+ * @public
  * <p>The location of the S3 bucket that contains a revision.</p>
  */
 export interface S3ArtifactLocation {
@@ -1203,11 +1268,15 @@ export interface S3ArtifactLocation {
   objectKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ArtifactLocationType {
   S3 = "S3",
 }
 
 /**
+ * @public
  * <p>Represents information about the location of an artifact.</p>
  */
 export interface ArtifactLocation {
@@ -1223,6 +1292,7 @@ export interface ArtifactLocation {
 }
 
 /**
+ * @public
  * <p>Represents information about an artifact that is worked on by actions in the
  *             pipeline.</p>
  */
@@ -1245,6 +1315,7 @@ export interface Artifact {
 }
 
 /**
+ * @public
  * <p>Represents revision details of an artifact. </p>
  */
 export interface ArtifactRevision {
@@ -1286,11 +1357,15 @@ export interface ArtifactRevision {
   revisionUrl?: string;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionKeyType {
   KMS = "KMS",
 }
 
 /**
+ * @public
  * <p>Represents information about the key used to encrypt data in the artifact store,
  *             such as an AWS Key Management Service (AWS KMS) key.</p>
  */
@@ -1313,11 +1388,15 @@ export interface EncryptionKey {
   type: EncryptionKeyType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ArtifactStoreType {
   S3 = "S3",
 }
 
 /**
+ * @public
  * <p>The S3 bucket where artifacts for the pipeline are stored.</p>
  *         <note>
  *             <p>You must include either <code>artifactStore</code> or
@@ -1350,6 +1429,7 @@ export interface ArtifactStore {
 }
 
 /**
+ * @public
  * <p>Represents an AWS session credentials object. These credentials are temporary
  *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
  *             access input and output artifacts in the S3 bucket used to store artifact for the
@@ -1372,11 +1452,15 @@ export interface AWSSessionCredentials {
   sessionToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BlockerType {
   Schedule = "Schedule",
 }
 
 /**
+ * @public
  * <p>Reserved for future use.</p>
  */
 export interface BlockerDeclaration {
@@ -1392,6 +1476,7 @@ export interface BlockerDeclaration {
 }
 
 /**
+ * @public
  * <p>Unable to modify the tag due to a simultaneous update request.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -1411,6 +1496,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A tag is a key-value pair that is used to manage the resource.</p>
  */
 export interface Tag {
@@ -1426,6 +1512,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Represents the input of a CreateCustomActionType operation.</p>
  */
 export interface CreateCustomActionTypeInput {
@@ -1455,7 +1542,7 @@ export interface CreateCustomActionTypeInput {
    * <p>The configuration properties for the custom action.</p>
    *         <note>
    *             <p>You can refer to a name in the configuration properties of the custom action
-   *                 within the URL templates by following the format of {Config:name}, as long as the
+   *                 within the URL templates by following the format of \{Config:name\}, as long as the
    *                 configuration property is both required and not secret. For more information, see
    *                     <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html">Create a
    *                     Custom Action for a Pipeline</a>.</p>
@@ -1480,6 +1567,7 @@ export interface CreateCustomActionTypeInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>CreateCustomActionType</code> operation.</p>
  */
 export interface CreateCustomActionTypeOutput {
@@ -1495,6 +1583,7 @@ export interface CreateCustomActionTypeOutput {
 }
 
 /**
+ * @public
  * <p>The specified resource tags are invalid.</p>
  */
 export class InvalidTagsException extends __BaseException {
@@ -1514,6 +1603,7 @@ export class InvalidTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of pipelines associated with the AWS account has exceeded the limit
  *             allowed for the account.</p>
  */
@@ -1534,6 +1624,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The tags limit for a resource has been exceeded.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -1553,6 +1644,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents information about a stage and its definition.</p>
  */
 export interface StageDeclaration {
@@ -1573,6 +1665,7 @@ export interface StageDeclaration {
 }
 
 /**
+ * @public
  * <p>Represents the structure of actions and stages to be performed in the
  *             pipeline.</p>
  */
@@ -1627,6 +1720,7 @@ export interface PipelineDeclaration {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreatePipeline</code> action.</p>
  */
 export interface CreatePipelineInput {
@@ -1643,6 +1737,7 @@ export interface CreatePipelineInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>CreatePipeline</code> action.</p>
  */
 export interface CreatePipelineOutput {
@@ -1659,6 +1754,7 @@ export interface CreatePipelineOutput {
 }
 
 /**
+ * @public
  * <p>The action declaration was specified in an invalid format.</p>
  */
 export class InvalidActionDeclarationException extends __BaseException {
@@ -1678,6 +1774,7 @@ export class InvalidActionDeclarationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Reserved for future use.</p>
  */
 export class InvalidBlockerDeclarationException extends __BaseException {
@@ -1697,6 +1794,7 @@ export class InvalidBlockerDeclarationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The stage declaration was specified in an invalid format.</p>
  */
 export class InvalidStageDeclarationException extends __BaseException {
@@ -1716,6 +1814,7 @@ export class InvalidStageDeclarationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The structure was specified in an invalid format.</p>
  */
 export class InvalidStructureException extends __BaseException {
@@ -1735,6 +1834,7 @@ export class InvalidStructureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified pipeline name is already in use.</p>
  */
 export class PipelineNameInUseException extends __BaseException {
@@ -1754,6 +1854,7 @@ export class PipelineNameInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteCustomActionType</code> operation. The custom
  *             action will be marked as deleted.</p>
  */
@@ -1777,6 +1878,7 @@ export interface DeleteCustomActionTypeInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeletePipeline</code> action.</p>
  */
 export interface DeletePipelineInput {
@@ -1786,6 +1888,9 @@ export interface DeletePipelineInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWebhookInput {
   /**
    * <p>The name of the webhook you want to delete.</p>
@@ -1793,8 +1898,14 @@ export interface DeleteWebhookInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWebhookOutput {}
 
+/**
+ * @public
+ */
 export interface DeregisterWebhookWithThirdPartyInput {
   /**
    * <p>The name of the webhook you want to deregister.</p>
@@ -1802,9 +1913,13 @@ export interface DeregisterWebhookWithThirdPartyInput {
   webhookName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterWebhookWithThirdPartyOutput {}
 
 /**
+ * @public
  * <p>The specified webhook was entered in an invalid format or cannot be
  *             found.</p>
  */
@@ -1824,12 +1939,16 @@ export class WebhookNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum StageTransitionType {
   Inbound = "Inbound",
   Outbound = "Outbound",
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DisableStageTransition</code> action.</p>
  */
 export interface DisableStageTransitionInput {
@@ -1862,6 +1981,7 @@ export interface DisableStageTransitionInput {
 }
 
 /**
+ * @public
  * <p>The pipeline was specified in an invalid format or cannot be found.</p>
  */
 export class PipelineNotFoundException extends __BaseException {
@@ -1881,6 +2001,7 @@ export class PipelineNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The stage was specified in an invalid format or cannot be found.</p>
  */
 export class StageNotFoundException extends __BaseException {
@@ -1900,6 +2021,7 @@ export class StageNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of an <code>EnableStageTransition</code> action.</p>
  */
 export interface EnableStageTransitionInput {
@@ -1923,6 +2045,9 @@ export interface EnableStageTransitionInput {
   transitionType: StageTransitionType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetActionTypeInput {
   /**
    * <p>Defines what kind of action can be taken in the stage. The following are the valid
@@ -1980,6 +2105,9 @@ export interface GetActionTypeInput {
   version: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetActionTypeOutput {
   /**
    * <p>The action type information for the requested action type, such as the action type
@@ -1989,6 +2117,7 @@ export interface GetActionTypeOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetJobDetails</code> action.</p>
  */
 export interface GetJobDetailsInput {
@@ -1999,6 +2128,7 @@ export interface GetJobDetailsInput {
 }
 
 /**
+ * @public
  * <p>Represents information about a stage to a job worker.</p>
  */
 export interface StageContext {
@@ -2009,6 +2139,7 @@ export interface StageContext {
 }
 
 /**
+ * @public
  * <p>Represents information about a pipeline to a job worker.</p>
  *         <note>
  *             <p>PipelineContext contains <code>pipelineArn</code> and
@@ -2046,6 +2177,7 @@ export interface PipelineContext {
 }
 
 /**
+ * @public
  * <p>Represents other information about a job required for a job worker to complete the
  *             job.</p>
  */
@@ -2101,6 +2233,7 @@ export interface JobData {
 }
 
 /**
+ * @public
  * <p>Represents information about the details of a job.</p>
  */
 export interface JobDetails {
@@ -2122,6 +2255,7 @@ export interface JobDetails {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetJobDetails</code> action.</p>
  */
 export interface GetJobDetailsOutput {
@@ -2136,6 +2270,7 @@ export interface GetJobDetailsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetPipeline</code> action.</p>
  */
 export interface GetPipelineInput {
@@ -2153,6 +2288,7 @@ export interface GetPipelineInput {
 }
 
 /**
+ * @public
  * <p>Information about a pipeline.</p>
  */
 export interface PipelineMetadata {
@@ -2173,6 +2309,7 @@ export interface PipelineMetadata {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetPipeline</code> action.</p>
  */
 export interface GetPipelineOutput {
@@ -2190,6 +2327,7 @@ export interface GetPipelineOutput {
 }
 
 /**
+ * @public
  * <p>The pipeline version was specified in an invalid format or cannot be
  *             found.</p>
  */
@@ -2210,6 +2348,7 @@ export class PipelineVersionNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetPipelineExecution</code> action.</p>
  */
 export interface GetPipelineExecutionInput {
@@ -2225,6 +2364,9 @@ export interface GetPipelineExecutionInput {
   pipelineExecutionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PipelineExecutionStatus {
   Cancelled = "Cancelled",
   Failed = "Failed",
@@ -2236,6 +2378,7 @@ export enum PipelineExecutionStatus {
 }
 
 /**
+ * @public
  * <p>Represents information about an execution of a pipeline.</p>
  */
 export interface PipelineExecution {
@@ -2301,6 +2444,7 @@ export interface PipelineExecution {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetPipelineExecution</code> action.</p>
  */
 export interface GetPipelineExecutionOutput {
@@ -2311,6 +2455,7 @@ export interface GetPipelineExecutionOutput {
 }
 
 /**
+ * @public
  * <p>The pipeline execution was specified in an invalid format or cannot be found, or an
  *             execution ID does not belong to the specified pipeline. </p>
  */
@@ -2331,6 +2476,7 @@ export class PipelineExecutionNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetPipelineState</code> action.</p>
  */
 export interface GetPipelineStateInput {
@@ -2340,6 +2486,9 @@ export interface GetPipelineStateInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StageExecutionStatus {
   Cancelled = "Cancelled",
   Failed = "Failed",
@@ -2350,6 +2499,7 @@ export enum StageExecutionStatus {
 }
 
 /**
+ * @public
  * <p>Represents information about the run of a stage.</p>
  */
 export interface StageExecution {
@@ -2370,6 +2520,7 @@ export interface StageExecution {
 }
 
 /**
+ * @public
  * <p>Represents information about the state of transitions between one stage and another
  *             stage.</p>
  */
@@ -2398,6 +2549,7 @@ export interface TransitionState {
 }
 
 /**
+ * @public
  * <p>Represents information about the state of the stage.</p>
  */
 export interface StageState {
@@ -2429,6 +2581,7 @@ export interface StageState {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetPipelineState</code> action.</p>
  */
 export interface GetPipelineStateOutput {
@@ -2464,6 +2617,7 @@ export interface GetPipelineStateOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetThirdPartyJobDetails</code> action.</p>
  */
 export interface GetThirdPartyJobDetailsInput {
@@ -2480,6 +2634,7 @@ export interface GetThirdPartyJobDetailsInput {
 }
 
 /**
+ * @public
  * <p>Represents information about the job data for a partner action.</p>
  */
 export interface ThirdPartyJobData {
@@ -2540,6 +2695,7 @@ export interface ThirdPartyJobData {
 }
 
 /**
+ * @public
  * <p>The details of a job sent in response to a <code>GetThirdPartyJobDetails</code>
  *             request.</p>
  */
@@ -2562,6 +2718,7 @@ export interface ThirdPartyJobDetails {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetThirdPartyJobDetails</code> action.</p>
  */
 export interface GetThirdPartyJobDetailsOutput {
@@ -2573,6 +2730,7 @@ export interface GetThirdPartyJobDetailsOutput {
 }
 
 /**
+ * @public
  * <p>The job was specified in an invalid format or cannot be found.</p>
  */
 export class InvalidJobException extends __BaseException {
@@ -2592,6 +2750,7 @@ export class InvalidJobException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The next token was specified in an invalid format. Make sure that the next token
  *             you provide is the token returned by a previous call.</p>
  */
@@ -2611,6 +2770,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListActionExecutionsInput {
   /**
    * <p> The name of the pipeline for which you want to list action execution history.</p>
@@ -2641,6 +2803,9 @@ export interface ListActionExecutionsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListActionExecutionsOutput {
   /**
    * <p>The details for a list of recent executions, such as action execution ID.</p>
@@ -2656,6 +2821,7 @@ export interface ListActionExecutionsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListActionTypes</code> action.</p>
  */
 export interface ListActionTypesInput {
@@ -2677,6 +2843,7 @@ export interface ListActionTypesInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListActionTypes</code> action.</p>
  */
 export interface ListActionTypesOutput {
@@ -2694,6 +2861,7 @@ export interface ListActionTypesOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListPipelineExecutions</code> action.</p>
  */
 export interface ListPipelineExecutionsInput {
@@ -2720,6 +2888,7 @@ export interface ListPipelineExecutionsInput {
 }
 
 /**
+ * @public
  * <p>Information about the version (or revision) of a source artifact that initiated a
  *             pipeline execution.</p>
  */
@@ -2752,6 +2921,7 @@ export interface SourceRevision {
 }
 
 /**
+ * @public
  * <p>The interaction that stopped a pipeline execution.</p>
  */
 export interface StopExecutionTrigger {
@@ -2761,6 +2931,9 @@ export interface StopExecutionTrigger {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export enum TriggerType {
   CloudWatchEvent = "CloudWatchEvent",
   CreatePipeline = "CreatePipeline",
@@ -2771,6 +2944,7 @@ export enum TriggerType {
 }
 
 /**
+ * @public
  * <p>The interaction or event that started a pipeline execution.</p>
  */
 export interface ExecutionTrigger {
@@ -2789,6 +2963,7 @@ export interface ExecutionTrigger {
 }
 
 /**
+ * @public
  * <p>Summary information about a pipeline execution.</p>
  */
 export interface PipelineExecutionSummary {
@@ -2857,6 +3032,7 @@ export interface PipelineExecutionSummary {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListPipelineExecutions</code> action.</p>
  */
 export interface ListPipelineExecutionsOutput {
@@ -2874,6 +3050,7 @@ export interface ListPipelineExecutionsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListPipelines</code> action.</p>
  */
 export interface ListPipelinesInput {
@@ -2892,6 +3069,7 @@ export interface ListPipelinesInput {
 }
 
 /**
+ * @public
  * <p>Returns a summary of a pipeline.</p>
  */
 export interface PipelineSummary {
@@ -2918,6 +3096,7 @@ export interface PipelineSummary {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListPipelines</code> action.</p>
  */
 export interface ListPipelinesOutput {
@@ -2935,6 +3114,7 @@ export interface ListPipelinesOutput {
 }
 
 /**
+ * @public
  * <p>The specified resource ARN is invalid.</p>
  */
 export class InvalidArnException extends __BaseException {
@@ -2953,6 +3133,9 @@ export class InvalidArnException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
@@ -2972,6 +3155,9 @@ export interface ListTagsForResourceInput {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The tags for the resource.</p>
@@ -2988,6 +3174,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>The resource was specified in an invalid format.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -3006,6 +3193,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListWebhooksInput {
   /**
    * <p>The token that was returned from the previous ListWebhooks call, which can be used
@@ -3020,6 +3210,9 @@ export interface ListWebhooksInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum WebhookAuthenticationType {
   GITHUB_HMAC = "GITHUB_HMAC",
   IP = "IP",
@@ -3027,6 +3220,7 @@ export enum WebhookAuthenticationType {
 }
 
 /**
+ * @public
  * <p>The authentication applied to incoming webhook trigger requests.</p>
  */
 export interface WebhookAuthConfiguration {
@@ -3045,6 +3239,7 @@ export interface WebhookAuthConfiguration {
 }
 
 /**
+ * @public
  * <p>The event criteria that specify when a webhook notification is sent to your
  *             URL.</p>
  */
@@ -3063,7 +3258,7 @@ export interface WebhookFilterRule {
    *             supplied in the <code>MatchEquals</code> field. Otherwise, the request is ignored.
    *             Properties from the target action configuration can be included as placeholders in this
    *             value by surrounding the action configuration key with curly brackets. For example, if
-   *             the value supplied here is "refs/heads/{Branch}" and the target action has an action
+   *             the value supplied here is "refs/heads/\{Branch\}" and the target action has an action
    *             configuration property called "Branch" with a value of "master", the
    *                 <code>MatchEquals</code> value is evaluated as "refs/heads/master". For a list of
    *             action configuration properties for built-in action types, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Pipeline Structure Reference Action Requirements</a>.</p>
@@ -3072,6 +3267,7 @@ export interface WebhookFilterRule {
 }
 
 /**
+ * @public
  * <p>Represents information about a webhook and its definition.</p>
  */
 export interface WebhookDefinition {
@@ -3130,6 +3326,7 @@ export interface WebhookDefinition {
 }
 
 /**
+ * @public
  * <p>The detail returned for each webhook after listing webhooks, such as the webhook
  *             URL, the webhook name, and the webhook ARN.</p>
  */
@@ -3175,6 +3372,9 @@ export interface ListWebhookItem {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListWebhooksOutput {
   /**
    * <p>The JSON detail returned for each webhook in the list output for the ListWebhooks
@@ -3191,6 +3391,7 @@ export interface ListWebhooksOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PollForJobs</code> action.</p>
  */
 export interface PollForJobsInput {
@@ -3214,6 +3415,7 @@ export interface PollForJobsInput {
 }
 
 /**
+ * @public
  * <p>Represents information about a job.</p>
  */
 export interface Job {
@@ -3240,6 +3442,7 @@ export interface Job {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PollForJobs</code> action.</p>
  */
 export interface PollForJobsOutput {
@@ -3250,6 +3453,7 @@ export interface PollForJobsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PollForThirdPartyJobs</code> action.</p>
  */
 export interface PollForThirdPartyJobsInput {
@@ -3265,6 +3469,7 @@ export interface PollForThirdPartyJobsInput {
 }
 
 /**
+ * @public
  * <p>A response to a <code>PollForThirdPartyJobs</code> request returned by AWS
  *             CodePipeline when there is a job to be worked on by a partner action.</p>
  */
@@ -3283,6 +3488,7 @@ export interface ThirdPartyJob {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PollForThirdPartyJobs</code> action.</p>
  */
 export interface PollForThirdPartyJobsOutput {
@@ -3293,6 +3499,7 @@ export interface PollForThirdPartyJobsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PutActionRevision</code> action.</p>
  */
 export interface PutActionRevisionInput {
@@ -3319,6 +3526,7 @@ export interface PutActionRevisionInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PutActionRevision</code> action.</p>
  */
 export interface PutActionRevisionOutput {
@@ -3335,6 +3543,7 @@ export interface PutActionRevisionOutput {
 }
 
 /**
+ * @public
  * <p>The approval request already received a response or has expired.</p>
  */
 export class InvalidApprovalTokenException extends __BaseException {
@@ -3354,6 +3563,7 @@ export class InvalidApprovalTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PutApprovalResult</code> action.</p>
  */
 export interface PutApprovalResultInput {
@@ -3386,6 +3596,7 @@ export interface PutApprovalResultInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PutApprovalResult</code> action.</p>
  */
 export interface PutApprovalResultOutput {
@@ -3396,6 +3607,7 @@ export interface PutApprovalResultOutput {
 }
 
 /**
+ * @public
  * <p>The job state was specified in an invalid format.</p>
  */
 export class InvalidJobStateException extends __BaseException {
@@ -3414,6 +3626,9 @@ export class InvalidJobStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum FailureType {
   ConfigurationError = "ConfigurationError",
   JobFailed = "JobFailed",
@@ -3424,6 +3639,7 @@ export enum FailureType {
 }
 
 /**
+ * @public
  * <p>Represents information about failure details.</p>
  */
 export interface FailureDetails {
@@ -3444,6 +3660,7 @@ export interface FailureDetails {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PutJobFailureResult</code> action.</p>
  */
 export interface PutJobFailureResultInput {
@@ -3460,6 +3677,7 @@ export interface PutJobFailureResultInput {
 }
 
 /**
+ * @public
  * <p>Exceeded the total size limit for all variables in the pipeline.</p>
  */
 export class OutputVariablesSizeExceededException extends __BaseException {
@@ -3479,6 +3697,7 @@ export class OutputVariablesSizeExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents information about a current revision.</p>
  */
 export interface CurrentRevision {
@@ -3505,6 +3724,7 @@ export interface CurrentRevision {
 }
 
 /**
+ * @public
  * <p>The details of the actions taken and results produced on an artifact as it passes
  *             through stages in the pipeline.</p>
  */
@@ -3528,6 +3748,7 @@ export interface ExecutionDetails {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PutJobSuccessResult</code> action.</p>
  */
 export interface PutJobSuccessResultInput {
@@ -3567,6 +3788,7 @@ export interface PutJobSuccessResultInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PutThirdPartyJobFailureResult</code>
  *             action.</p>
  */
@@ -3590,6 +3812,7 @@ export interface PutThirdPartyJobFailureResultInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PutThirdPartyJobSuccessResult</code>
  *             action.</p>
  */
@@ -3628,6 +3851,7 @@ export interface PutThirdPartyJobSuccessResultInput {
 }
 
 /**
+ * @public
  * <p>The specified authentication type is in an invalid format.</p>
  */
 export class InvalidWebhookAuthenticationParametersException extends __BaseException {
@@ -3647,6 +3871,7 @@ export class InvalidWebhookAuthenticationParametersException extends __BaseExcep
 }
 
 /**
+ * @public
  * <p>The specified event filter rule is in an invalid format.</p>
  */
 export class InvalidWebhookFilterPatternException extends __BaseException {
@@ -3665,6 +3890,9 @@ export class InvalidWebhookFilterPatternException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutWebhookInput {
   /**
    * <p>The detail provided in an input file to create the webhook, such as the webhook
@@ -3680,6 +3908,9 @@ export interface PutWebhookInput {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutWebhookOutput {
   /**
    * <p>The detail returned from creating the webhook, such as the webhook name, webhook
@@ -3688,6 +3919,9 @@ export interface PutWebhookOutput {
   webhook?: ListWebhookItem;
 }
 
+/**
+ * @public
+ */
 export interface RegisterWebhookWithThirdPartyInput {
   /**
    * <p>The name of an existing webhook created with PutWebhook to register with a
@@ -3696,9 +3930,13 @@ export interface RegisterWebhookWithThirdPartyInput {
   webhookName?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterWebhookWithThirdPartyOutput {}
 
 /**
+ * @public
  * <p>Your request cannot be handled because the pipeline is busy handling ongoing
  *             activities. Try again later.</p>
  */
@@ -3719,6 +3957,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The stage has failed in a later run of the pipeline and the pipelineExecutionId
  *             associated with the request is out of date.</p>
  */
@@ -3738,11 +3977,15 @@ export class NotLatestPipelineExecutionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum StageRetryMode {
   FAILED_ACTIONS = "FAILED_ACTIONS",
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>RetryStageExecution</code> action.</p>
  */
 export interface RetryStageExecutionInput {
@@ -3770,6 +4013,7 @@ export interface RetryStageExecutionInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>RetryStageExecution</code> action.</p>
  */
 export interface RetryStageExecutionOutput {
@@ -3780,6 +4024,7 @@ export interface RetryStageExecutionOutput {
 }
 
 /**
+ * @public
  * <p>Unable to retry. The pipeline structure or stage state might have changed while
  *             actions awaited retry, or the stage contains no failed
  *             actions.</p>
@@ -3801,6 +4046,7 @@ export class StageNotRetryableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>StartPipelineExecution</code> action.</p>
  */
 export interface StartPipelineExecutionInput {
@@ -3817,6 +4063,7 @@ export interface StartPipelineExecutionInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>StartPipelineExecution</code> action.</p>
  */
 export interface StartPipelineExecutionOutput {
@@ -3828,6 +4075,7 @@ export interface StartPipelineExecutionOutput {
 }
 
 /**
+ * @public
  * <p>The pipeline execution is already in a <code>Stopping</code> state. If you already
  *             chose to stop and wait, you cannot make that request again. You can choose to stop and
  *             abandon now, but be aware that this option can lead to failed tasks or out of sequence
@@ -3851,6 +4099,7 @@ export class DuplicatedStopRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Unable to stop the pipeline execution. The execution might already be in a
  *                 <code>Stopped</code> state, or it might no longer be in progress.</p>
  */
@@ -3870,6 +4119,9 @@ export class PipelineExecutionNotStoppableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StopPipelineExecutionInput {
   /**
    * <p>The name of the pipeline to stop.</p>
@@ -3898,6 +4150,9 @@ export interface StopPipelineExecutionInput {
   reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopPipelineExecutionOutput {
   /**
    * <p>The unique system-generated ID of the pipeline execution that was stopped.</p>
@@ -3905,6 +4160,9 @@ export interface StopPipelineExecutionOutput {
   pipelineExecutionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to.</p>
@@ -3917,8 +4175,14 @@ export interface TagResourceInput {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p> The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
@@ -3931,9 +4195,13 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**
+ * @public
  * <p>The request failed because of an unknown error, exception, or failure.</p>
  */
 export class RequestFailedException extends __BaseException {
@@ -3952,6 +4220,9 @@ export class RequestFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateActionTypeInput {
   /**
    * <p>The action type definition for the action type to be updated.</p>
@@ -3960,6 +4231,7 @@ export interface UpdateActionTypeInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of an <code>UpdatePipeline</code> action.</p>
  */
 export interface UpdatePipelineInput {
@@ -3970,6 +4242,7 @@ export interface UpdatePipelineInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdatePipeline</code> action.</p>
  */
 export interface UpdatePipelineOutput {

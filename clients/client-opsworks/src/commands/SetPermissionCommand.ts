@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetPermissionCommand}.
  */
 export interface SetPermissionCommandInput extends SetPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetPermissionCommand}.
  */
 export interface SetPermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies a user's permissions. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html">Security and
  *         Permissions</a>.</p>
  *          <p>
@@ -47,6 +52,8 @@ export interface SetPermissionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetPermissionCommandInput - {@link SetPermissionCommandInput}
+ * @returns {@link SetPermissionCommandOutput}
  * @see {@link SetPermissionCommandInput} for command's `input` shape.
  * @see {@link SetPermissionCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -76,6 +83,9 @@ export class SetPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class SetPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetPermissionCommandOutput> {
     return deserializeAws_json1_1SetPermissionCommand(output, context);
   }

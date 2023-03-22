@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStreamCommand}.
  */
 export interface DescribeStreamCommandInput extends DescribeStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStreamCommand}.
  */
 export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.</p>
  *          <note>
  *             <p>You can call <code>DescribeStream</code> at a maximum rate of 10 times per second.</p>
@@ -54,6 +59,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
+ * @returns {@link DescribeStreamCommandOutput}
  * @see {@link DescribeStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
@@ -150,6 +157,9 @@ export class DescribeStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,10 +199,16 @@ export class DescribeStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamCommandOutput> {
     return deserializeAws_json1_0DescribeStreamCommand(output, context);
   }

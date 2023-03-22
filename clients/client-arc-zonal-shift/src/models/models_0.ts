@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ARCZonalShiftServiceException as __BaseException } from "./ARCZonalShiftServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,11 +23,17 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AppliedStatus {
   APPLIED = "APPLIED",
   NOT_APPLIED = "NOT_APPLIED",
 }
 
+/**
+ * @public
+ */
 export interface CancelZonalShiftRequest {
   /**
    * <p>The internally-generated identifier of a zonal shift.</p>
@@ -34,6 +41,9 @@ export interface CancelZonalShiftRequest {
   zonalShiftId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConflictExceptionReason {
   SIMULTANEOUS_ZONAL_SHIFTS_CONFLICT = "SimultaneousZonalShiftsConflict",
   ZONAL_SHIFT_ALREADY_EXISTS = "ZonalShiftAlreadyExists",
@@ -41,6 +51,7 @@ export enum ConflictExceptionReason {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of conflict in the current state of the resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -72,6 +83,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was an internal server error.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -91,6 +103,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input requested a resource that was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -110,6 +123,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -128,6 +142,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   INVALID_AZ = "InvalidAz",
   INVALID_EXPIRES_IN = "InvalidExpiresIn",
@@ -139,6 +156,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -163,12 +181,18 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ZonalShiftStatus {
   ACTIVE = "ACTIVE",
   CANCELED = "CANCELED",
   EXPIRED = "EXPIRED",
 }
 
+/**
+ * @public
+ */
 export interface ZonalShift {
   /**
    * <p>The identifier of a zonal shift.</p>
@@ -229,6 +253,9 @@ export interface ZonalShift {
   comment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetManagedResourceRequest {
   /**
    * <p>The identifier for the resource to include in a zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
@@ -238,6 +265,7 @@ export interface GetManagedResourceRequest {
 }
 
 /**
+ * @public
  * <p>A complex structure that lists the zonal shifts for a managed resource and their statuses for the resource.</p>
  */
 export interface ZonalShiftInResource {
@@ -286,6 +314,9 @@ export interface ZonalShiftInResource {
   comment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetManagedResourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource.</p>
@@ -309,6 +340,9 @@ export interface GetManagedResourceResponse {
   zonalShifts: ZonalShiftInResource[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedResourcesRequest {
   /**
    * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
@@ -324,6 +358,7 @@ export interface ListManagedResourcesRequest {
 }
 
 /**
+ * @public
  * <p>A complex structure for a managed resource in an account.</p>
  *    	     <p>A managed resource is a Network Load Balancer or Application Load Balancer that has been registered with Route 53 ARC by Elastic Load Balancing. You can start a
  *    		zonal shift in Route 53 ARC for a managed resource to temporarily move traffic for the resource away from an Availability Zone in an AWS Region.</p>
@@ -348,6 +383,9 @@ export interface ManagedResourceSummary {
   availabilityZones: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedResourcesResponse {
   /**
    * <p>The items in the response list.</p>
@@ -362,6 +400,9 @@ export interface ListManagedResourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListZonalShiftsRequest {
   /**
    * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
@@ -397,6 +438,7 @@ export interface ListZonalShiftsRequest {
 }
 
 /**
+ * @public
  * <p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in a AWS Region.
  *    		A zonal shift helps your application recover immediately, for example, from a developer's bad code deployment or from an AWS
  *    		infrastructure failure in a single Availability Zone. You can start a zonal shift in Route 53 ARC only for managed
@@ -466,6 +508,9 @@ export interface ZonalShiftSummary {
   comment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListZonalShiftsResponse {
   /**
    * <p>The items in the response list.</p>
@@ -480,6 +525,9 @@ export interface ListZonalShiftsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateZonalShiftRequest {
   /**
    * <p>The identifier of a zonal shift.</p>
@@ -514,6 +562,9 @@ export interface UpdateZonalShiftRequest {
   expiresIn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartZonalShiftRequest {
   /**
    * <p>The identifier for the resource to include in a zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p>

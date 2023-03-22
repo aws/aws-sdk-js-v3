@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRuntimeManagementConfigCommand}.
  */
 export interface PutRuntimeManagementConfigCommandInput extends PutRuntimeManagementConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRuntimeManagementConfigCommand}.
  */
 export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManagementConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the runtime management configuration for a function's version. For more information,
  *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRuntimeManagementConfigCommandInput - {@link PutRuntimeManagementConfigCommandInput}
+ * @returns {@link PutRuntimeManagementConfigCommandOutput}
  * @see {@link PutRuntimeManagementConfigCommandInput} for command's `input` shape.
  * @see {@link PutRuntimeManagementConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutRuntimeManagementConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRuntimeManagementConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class PutRuntimeManagementConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRuntimeManagementConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutRuntimeManagementConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

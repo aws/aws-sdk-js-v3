@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageTagsCommand}.
  */
 export interface DescribeImageTagsCommandInput extends DescribeImageTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageTagsCommand}.
  */
 export interface DescribeImageTagsCommandOutput extends DescribeImageTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the image tag details for a repository in a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeImageTagsCommandOutput extends DescribeImageTagsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageTagsCommandInput - {@link DescribeImageTagsCommandInput}
+ * @returns {@link DescribeImageTagsCommandOutput}
  * @see {@link DescribeImageTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeImageTagsCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeImageTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeImageTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImageTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeImageTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageTagsCommandOutput> {
     return deserializeAws_json1_1DescribeImageTagsCommand(output, context);
   }

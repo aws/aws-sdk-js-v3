@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists events for a given source identifier and source type. You can also specify a
  *          start and end time. For more information on DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
  *             Notifications</a> in the <i>Database Migration Service User
@@ -54,6 +59,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
+ * @returns {@link DescribeEventsCommandOutput}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
     return deserializeAws_json1_1DescribeEventsCommand(output, context);
   }

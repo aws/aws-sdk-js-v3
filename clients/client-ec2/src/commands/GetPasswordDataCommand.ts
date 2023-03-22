@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2GetPasswordDataCommand, serializeAws_ec2GetPasswordDataCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetPasswordDataCommand}.
  */
 export interface GetPasswordDataCommandInput extends GetPasswordDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPasswordDataCommand}.
  */
 export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the encrypted administrator password for a running Windows instance.</p>
  *          <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
  *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
@@ -55,6 +60,8 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPasswordDataCommandInput - {@link GetPasswordDataCommandInput}
+ * @returns {@link GetPasswordDataCommandOutput}
  * @see {@link GetPasswordDataCommandInput} for command's `input` shape.
  * @see {@link GetPasswordDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -78,6 +85,9 @@ export class GetPasswordDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPasswordDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetPasswordDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPasswordDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetPasswordDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPasswordDataCommandOutput> {
     return deserializeAws_ec2GetPasswordDataCommand(output, context);
   }

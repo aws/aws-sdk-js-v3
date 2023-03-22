@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetEntriesCommand}.
  */
 export interface ListDatasetEntriesCommandInput extends ListDatasetEntriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetEntriesCommand}.
  */
 export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Lists the entries (images) within a dataset. An entry is a
  * JSON Line that contains the information for a single image, including
@@ -59,6 +64,8 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetEntriesCommandInput - {@link ListDatasetEntriesCommandInput}
+ * @returns {@link ListDatasetEntriesCommandOutput}
  * @see {@link ListDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link ListDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -113,6 +120,9 @@ export class ListDatasetEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class ListDatasetEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatasetEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetEntriesCommandOutput> {
     return deserializeAws_json1_1ListDatasetEntriesCommand(output, context);
   }

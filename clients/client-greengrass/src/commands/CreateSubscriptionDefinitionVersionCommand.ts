@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubscriptionDefinitionVersionCommand}.
  */
 export interface CreateSubscriptionDefinitionVersionCommandInput extends CreateSubscriptionDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubscriptionDefinitionVersionCommand}.
  */
 export interface CreateSubscriptionDefinitionVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a subscription definition which has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubscriptionDefinitionVersionCommandInput - {@link CreateSubscriptionDefinitionVersionCommandInput}
+ * @returns {@link CreateSubscriptionDefinitionVersionCommandOutput}
  * @see {@link CreateSubscriptionDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubscriptionDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSubscriptionDefinitionVersionCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     return serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

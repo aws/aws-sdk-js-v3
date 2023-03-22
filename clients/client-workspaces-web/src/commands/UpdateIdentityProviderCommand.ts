@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIdentityProviderCommand}.
  */
 export interface UpdateIdentityProviderCommandInput extends UpdateIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIdentityProviderCommand}.
  */
 export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the identity provider. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIdentityProviderCommandInput - {@link UpdateIdentityProviderCommandInput}
+ * @returns {@link UpdateIdentityProviderCommandOutput}
  * @see {@link UpdateIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIdentityProviderCommandOutput> {
     return deserializeAws_restJson1UpdateIdentityProviderCommand(output, context);
   }

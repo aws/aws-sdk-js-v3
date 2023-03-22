@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The name of the policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -83,6 +90,9 @@ export class PutResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class PutResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
     return deserializeAws_restJson1PutResourcePolicyCommand(output, context);
   }

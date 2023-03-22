@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAggregateComplianceDetailsByConfigRuleCommand}.
  */
 export interface GetAggregateComplianceDetailsByConfigRuleCommandInput
   extends GetAggregateComplianceDetailsByConfigRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAggregateComplianceDetailsByConfigRuleCommand}.
  */
 export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
@@ -38,6 +42,7 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the evaluation results for the specified Config
  * 			rule for a specific resource in a rule. The results indicate which
  * 			Amazon Web Services resources were evaluated by the rule, when each resource was
@@ -57,6 +62,8 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAggregateComplianceDetailsByConfigRuleCommandInput - {@link GetAggregateComplianceDetailsByConfigRuleCommandInput}
+ * @returns {@link GetAggregateComplianceDetailsByConfigRuleCommandOutput}
  * @see {@link GetAggregateComplianceDetailsByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link GetAggregateComplianceDetailsByConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAggregateComplianceDetailsByConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAggregateComplianceDetailsByConfigRuleCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
     return serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

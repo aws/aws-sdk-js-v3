@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptQualificationRequestCommand}.
  */
 export interface AcceptQualificationRequestCommandInput extends AcceptQualificationRequestRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptQualificationRequestCommand}.
  */
 export interface AcceptQualificationRequestCommandOutput extends AcceptQualificationRequestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>AcceptQualificationRequest</code> operation approves a Worker's request for a Qualification.
  *         </p>
@@ -55,6 +60,8 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptQualificationRequestCommandInput - {@link AcceptQualificationRequestCommandInput}
+ * @returns {@link AcceptQualificationRequestCommandOutput}
  * @see {@link AcceptQualificationRequestCommandInput} for command's `input` shape.
  * @see {@link AcceptQualificationRequestCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -84,6 +91,9 @@ export class AcceptQualificationRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptQualificationRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class AcceptQualificationRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptQualificationRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptQualificationRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

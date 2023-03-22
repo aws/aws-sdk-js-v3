@@ -28,15 +28,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBucketCommand}.
  */
 export interface CreateBucketCommandInput extends CreateBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBucketCommand}.
  */
 export interface CreateBucketCommandOutput extends CreateBucketResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create
  *                Bucket</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -101,6 +106,8 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
+ * @returns {@link CreateBucketCommandOutput}
  * @see {@link CreateBucketCommandInput} for command's `input` shape.
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -135,6 +142,9 @@ export class CreateBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class CreateBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
     return deserializeAws_restXmlCreateBucketCommand(output, context);
   }

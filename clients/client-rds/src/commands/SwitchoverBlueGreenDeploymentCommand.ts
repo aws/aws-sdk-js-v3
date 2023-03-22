@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SwitchoverBlueGreenDeploymentCommand}.
  */
 export interface SwitchoverBlueGreenDeploymentCommandInput extends SwitchoverBlueGreenDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link SwitchoverBlueGreenDeploymentCommand}.
  */
 export interface SwitchoverBlueGreenDeploymentCommandOutput
@@ -37,6 +41,7 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Switches over a blue/green deployment.</p>
  *          <p>Before you switch over, production traffic is routed to the databases in the blue environment.
  *             After you switch over, production traffic is routed to the databases in the green environment.</p>
@@ -55,6 +60,8 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SwitchoverBlueGreenDeploymentCommandInput - {@link SwitchoverBlueGreenDeploymentCommandInput}
+ * @returns {@link SwitchoverBlueGreenDeploymentCommandOutput}
  * @see {@link SwitchoverBlueGreenDeploymentCommandInput} for command's `input` shape.
  * @see {@link SwitchoverBlueGreenDeploymentCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -86,6 +93,9 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SwitchoverBlueGreenDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SwitchoverBlueGreenDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySwitchoverBlueGreenDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

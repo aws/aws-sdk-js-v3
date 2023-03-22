@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceGraphCommand}.
  */
 export interface GetServiceGraphCommandInput extends GetServiceGraphRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceGraphCommand}.
  */
 export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a document that describes services that process incoming requests, and
  *       downstream services that they call as a result. Root services process incoming requests and
  *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">Amazon Web Services X-Ray SDK</a>.
@@ -50,6 +55,8 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceGraphCommandInput - {@link GetServiceGraphCommandInput}
+ * @returns {@link GetServiceGraphCommandOutput}
  * @see {@link GetServiceGraphCommandInput} for command's `input` shape.
  * @see {@link GetServiceGraphCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetServiceGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetServiceGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetServiceGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceGraphCommandOutput> {
     return deserializeAws_restJson1GetServiceGraphCommand(output, context);
   }

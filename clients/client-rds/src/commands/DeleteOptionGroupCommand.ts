@@ -21,15 +21,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOptionGroupCommand}.
  */
 export interface DeleteOptionGroupCommandInput extends DeleteOptionGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOptionGroupCommand}.
  */
 export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing option group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOptionGroupCommandInput - {@link DeleteOptionGroupCommandInput}
+ * @returns {@link DeleteOptionGroupCommandOutput}
  * @see {@link DeleteOptionGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteOptionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOptionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteOptionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOptionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteOptionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOptionGroupCommandOutput> {
     return deserializeAws_queryDeleteOptionGroupCommand(output, context);
   }

@@ -3,11 +3,17 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { GameLiftServiceException as __BaseException } from "./GameLiftServiceException";
 
+/**
+ * @public
+ */
 export enum AcceptanceType {
   ACCEPT = "ACCEPT",
   REJECT = "REJECT",
 }
 
+/**
+ * @public
+ */
 export interface AcceptMatchInput {
   /**
    * <p>A unique identifier for a matchmaking ticket. The ticket must be in status <code>REQUIRES_ACCEPTANCE</code>; otherwise this
@@ -27,9 +33,13 @@ export interface AcceptMatchInput {
   AcceptanceType: AcceptanceType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AcceptMatchOutput {}
 
 /**
+ * @public
  * <p>The service encountered an unrecoverable internal failure while processing the
  *             request. Clients can retry such requests immediately or after a waiting period.</p>
  */
@@ -52,6 +62,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameter values in the request are invalid. Correct the invalid parameter
  *             values before retrying.</p>
  */
@@ -74,6 +85,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -95,6 +107,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation is not supported in the Region specified.</p>
  */
 export class UnsupportedRegionException extends __BaseException {
@@ -115,12 +128,16 @@ export class UnsupportedRegionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RoutingStrategyType {
   SIMPLE = "SIMPLE",
   TERMINAL = "TERMINAL",
 }
 
 /**
+ * @public
  * <p>The routing configuration for a fleet alias.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -161,6 +178,7 @@ export interface RoutingStrategy {
 }
 
 /**
+ * @public
  * <p>Properties that describe an alias resource.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -208,6 +226,7 @@ export interface Alias {
 }
 
 /**
+ * @public
  * <p>GameLift Anywhere configuration options for your Anywhere fleets.</p>
  */
 export interface AnywhereConfiguration {
@@ -220,6 +239,7 @@ export interface AnywhereConfiguration {
 }
 
 /**
+ * @public
  * <p>Values for use in player attribute key-value pairs. This object lets
  *             you specify an attribute value using any of the valid data types: string, number, string
  *             array, or data map. Each <code>AttributeValue</code> object can use only one of the
@@ -251,6 +271,7 @@ export interface AttributeValue {
 }
 
 /**
+ * @public
  * <p>Temporary access credentials used for uploading game build files to Amazon GameLift. They are
  *             valid for a limited time. If they expire before you upload your game build, get a new
  *             set by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_RequestUploadCredentials.html">RequestUploadCredentials</a>.</p>
@@ -273,23 +294,35 @@ export interface AwsCredentials {
   SessionToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum BackfillMode {
   AUTOMATIC = "AUTOMATIC",
   MANUAL = "MANUAL",
 }
 
+/**
+ * @public
+ */
 export enum BalancingStrategy {
   ON_DEMAND_ONLY = "ON_DEMAND_ONLY",
   SPOT_ONLY = "SPOT_ONLY",
   SPOT_PREFERRED = "SPOT_PREFERRED",
 }
 
+/**
+ * @public
+ */
 export enum OperatingSystem {
   AMAZON_LINUX = "AMAZON_LINUX",
   AMAZON_LINUX_2 = "AMAZON_LINUX_2",
   WINDOWS_2012 = "WINDOWS_2012",
 }
 
+/**
+ * @public
+ */
 export enum BuildStatus {
   FAILED = "FAILED",
   INITIALIZED = "INITIALIZED",
@@ -297,6 +330,7 @@ export enum BuildStatus {
 }
 
 /**
+ * @public
  * <p>Properties describing a custom game build.</p>
  *          <p>
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
@@ -374,12 +408,16 @@ export interface Build {
   ServerSdkVersion?: string;
 }
 
+/**
+ * @public
+ */
 export enum CertificateType {
   Disabled = "DISABLED",
   Generated = "GENERATED",
 }
 
 /**
+ * @public
  * <p>Determines whether a TLS/SSL certificate is generated for a fleet. This feature must
  *             be enabled when creating the fleet. All instances in a fleet share the same certificate.
  *             The certificate can be retrieved by calling the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html">GameLift Server
@@ -405,6 +443,9 @@ export interface CertificateConfiguration {
   CertificateType: CertificateType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ClaimGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running. If you are not specifying a game server to claim, this value identifies
@@ -425,16 +466,23 @@ export interface ClaimGameServerInput {
   GameServerData?: string;
 }
 
+/**
+ * @public
+ */
 export enum GameServerClaimStatus {
   CLAIMED = "CLAIMED",
 }
 
+/**
+ * @public
+ */
 export enum GameServerUtilizationStatus {
   AVAILABLE = "AVAILABLE",
   UTILIZED = "UTILIZED",
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -532,6 +580,9 @@ export interface GameServer {
   LastHealthCheckTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ClaimGameServerOutput {
   /**
    * <p>Object that describes the newly claimed game server.</p>
@@ -540,6 +591,7 @@ export interface ClaimGameServerOutput {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
@@ -564,6 +616,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified game server group has no available game servers to fulfill a
  *                 <code>ClaimGameServer</code> request. Clients can retry such requests immediately or
  *             after a waiting period.</p>
@@ -587,6 +640,7 @@ export class OutOfCapacityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client failed authentication. Clients should not retry such requests.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -607,6 +661,9 @@ export class UnauthorizedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperatorType {
   GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
   GreaterThanThreshold = "GreaterThanThreshold",
@@ -614,12 +671,18 @@ export enum ComparisonOperatorType {
   LessThanThreshold = "LessThanThreshold",
 }
 
+/**
+ * @public
+ */
 export enum ComputeStatus {
   ACTIVE = "ACTIVE",
   PENDING = "PENDING",
   TERMINATING = "TERMINATING",
 }
 
+/**
+ * @public
+ */
 export enum EC2InstanceType {
   c3_2xlarge = "c3.2xlarge",
   c3_4xlarge = "c3.4xlarge",
@@ -738,6 +801,7 @@ export enum EC2InstanceType {
 }
 
 /**
+ * @public
  * <p>Resources used to host your game servers. A compute resource can be managed GameLift
  *             Amazon EC2 instances or your own resources.</p>
  */
@@ -809,12 +873,16 @@ export interface Compute {
   GameLiftServiceSdkEndpoint?: string;
 }
 
+/**
+ * @public
+ */
 export enum ComputeType {
   ANYWHERE = "ANYWHERE",
   EC2 = "EC2",
 }
 
 /**
+ * @public
  * <p>A label that can be assigned to a GameLift resource. </p>
  *         <p>
  *             <b>Learn more</b>
@@ -847,6 +915,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAliasInput {
   /**
    * <p>A descriptive label that is associated with an alias. Alias names do not need to be unique.</p>
@@ -873,6 +944,9 @@ export interface CreateAliasInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAliasOutput {
   /**
    * <p>The newly created alias resource.</p>
@@ -881,6 +955,7 @@ export interface CreateAliasOutput {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause the resource to exceed the allowed service limit.
  *             Resolve the issue before retrying.</p>
  */
@@ -903,6 +978,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested tagging operation did not succeed. This may be due to invalid tag format
  *             or the maximum tag limit may have been exceeded. Resolve the issue before
  *             retrying.</p>
@@ -926,6 +1002,7 @@ export class TaggingFailedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The location in Amazon S3 where build or script files are stored for access by
  *             Amazon GameLift.</p>
  */
@@ -959,6 +1036,9 @@ export interface S3Location {
   ObjectVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBuildInput {
   /**
    * <p>A descriptive label associated with a build. Build names do not need to be unique. You can change this value later. </p>
@@ -1009,6 +1089,9 @@ export interface CreateBuildInput {
   ServerSdkVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBuildOutput {
   /**
    * <p>The newly created build resource, including a unique build IDs and status. </p>
@@ -1029,12 +1112,16 @@ export interface CreateBuildOutput {
   StorageLocation?: S3Location;
 }
 
+/**
+ * @public
+ */
 export enum IpProtocol {
   TCP = "TCP",
   UDP = "UDP",
 }
 
 /**
+ * @public
  * <p>A range of IP addresses and port settings that allow inbound traffic to connect to
  *             server processes on an instance in a fleet. New game sessions are assigned an IP
  *             address/port number combination, which must fall into the fleet's allowed ranges. Fleets
@@ -1068,12 +1155,16 @@ export interface IpPermission {
   Protocol: IpProtocol | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FleetType {
   OnDemand = "ON_DEMAND",
   Spot = "SPOT",
 }
 
 /**
+ * @public
  * <p>A remote location where a multi-location fleet can deploy EC2 instances for game
  *             hosting. </p>
  */
@@ -1084,12 +1175,16 @@ export interface LocationConfiguration {
   Location: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ProtectionPolicy {
   FullProtection = "FullProtection",
   NoProtection = "NoProtection",
 }
 
 /**
+ * @public
  * <p>A policy that puts limits on the number of game sessions that a player can create
  *             within a specified span of time. With this policy, you can control players' ability to
  *             consume available resources.</p>
@@ -1117,6 +1212,7 @@ export interface ResourceCreationLimitPolicy {
 }
 
 /**
+ * @public
  * <p>A set of instructions for launching server processes on each instance in a fleet.
  *             Server processes run either an executable in a custom game build or a Realtime Servers script.
  *             Server process configurations are part of a fleet's runtime configuration.</p>
@@ -1154,6 +1250,7 @@ export interface ServerProcess {
 }
 
 /**
+ * @public
  * <p>A collection of server process configurations that describe the set of processes to
  *             run on each instance in a fleet. Server processes run either an executable in a custom
  *             game build or a Realtime Servers script. GameLift launches the configured processes, manages their
@@ -1189,6 +1286,9 @@ export interface RuntimeConfiguration {
   GameSessionActivationTimeoutSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetInput {
   /**
    * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
@@ -1386,6 +1486,9 @@ export interface CreateFleetInput {
   AnywhereConfiguration?: AnywhereConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum FleetStatus {
   ACTIVATING = "ACTIVATING",
   ACTIVE = "ACTIVE",
@@ -1399,11 +1502,15 @@ export enum FleetStatus {
   VALIDATING = "VALIDATING",
 }
 
+/**
+ * @public
+ */
 export enum FleetAction {
   AutoScaling = "AUTO_SCALING",
 }
 
 /**
+ * @public
  * <p>Describes a GameLift fleet of game hosting resources.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -1624,6 +1731,7 @@ export interface FleetAttributes {
 }
 
 /**
+ * @public
  * <p>A fleet location and its life-cycle state. A location state object might be used to
  *             describe a fleet's remote location or home Region. Life-cycle state tracks the progress
  *             of launching the first instance in a new location and preparing it for game hosting, and
@@ -1680,6 +1788,9 @@ export interface LocationState {
   Status?: FleetStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetOutput {
   /**
    * <p>The properties for the new fleet, including the current status. All fleets are placed
@@ -1697,6 +1808,9 @@ export interface CreateFleetOutput {
   LocationStates?: LocationState[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetLocationsInput {
   /**
    * <p>A unique identifier for the fleet to add locations to. You can use either the fleet ID or ARN value.</p>
@@ -1711,6 +1825,9 @@ export interface CreateFleetLocationsInput {
   Locations: LocationConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetLocationsOutput {
   /**
    * <p>A unique identifier for the fleet that was updated with new locations.</p>
@@ -1733,6 +1850,7 @@ export interface CreateFleetLocationsOutput {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a resource
  *             associated with the request and/or the fleet. Resolve the conflict before
  *             retrying.</p>
@@ -1756,6 +1874,7 @@ export class InvalidFleetStatusException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -1774,6 +1893,7 @@ export interface TargetTrackingConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -1803,11 +1923,17 @@ export interface GameServerGroupAutoScalingPolicy {
   TargetTrackingConfiguration: TargetTrackingConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum GameServerProtectionPolicy {
   FULL_PROTECTION = "FULL_PROTECTION",
   NO_PROTECTION = "NO_PROTECTION",
 }
 
+/**
+ * @public
+ */
 export enum GameServerGroupInstanceType {
   c4_2xlarge = "c4.2xlarge",
   c4_4xlarge = "c4.4xlarge",
@@ -1900,6 +2026,7 @@ export enum GameServerGroupInstanceType {
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -1926,6 +2053,7 @@ export interface InstanceDefinition {
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -1953,6 +2081,9 @@ export interface LaunchTemplateSpecification {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameServerGroupInput {
   /**
    * <p>An identifier for the new game server group. This value is used to generate unique ARN
@@ -2082,6 +2213,9 @@ export interface CreateGameServerGroupInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum GameServerGroupStatus {
   ACTIVATING = "ACTIVATING",
   ACTIVE = "ACTIVE",
@@ -2092,11 +2226,15 @@ export enum GameServerGroupStatus {
   NEW = "NEW",
 }
 
+/**
+ * @public
+ */
 export enum GameServerGroupAction {
   REPLACE_INSTANCE_TYPES = "REPLACE_INSTANCE_TYPES",
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -2246,6 +2384,9 @@ export interface GameServerGroup {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameServerGroupOutput {
   /**
    * <p>The newly created game server group object, including the new ARN value for the GameLift FleetIQ
@@ -2257,6 +2398,7 @@ export interface CreateGameServerGroupOutput {
 }
 
 /**
+ * @public
  * <p>Set of key-value pairs that contain information about a game session. When included in
  *             a game session request, these properties communicate details to be used when setting up
  *             the new game session. For example, a game property might specify a game mode, level, or
@@ -2275,6 +2417,9 @@ export interface GameProperty {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameSessionInput {
   /**
    * <p>A unique identifier for the fleet to create a game session in. You can use either the fleet ID or ARN value. Each
@@ -2349,11 +2494,17 @@ export interface CreateGameSessionInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export enum PlayerSessionCreationPolicy {
   ACCEPT_ALL = "ACCEPT_ALL",
   DENY_ALL = "DENY_ALL",
 }
 
+/**
+ * @public
+ */
 export enum GameSessionStatus {
   ACTIVATING = "ACTIVATING",
   ACTIVE = "ACTIVE",
@@ -2362,11 +2513,15 @@ export enum GameSessionStatus {
   TERMINATING = "TERMINATING",
 }
 
+/**
+ * @public
+ */
 export enum GameSessionStatusReason {
   INTERRUPTED = "INTERRUPTED",
 }
 
 /**
+ * @public
  * <p>Properties describing a game session.</p>
  *         <p>A game session in ACTIVE status can host players. When a game session ends, its status
  *             is set to <code>TERMINATED</code>. </p>
@@ -2498,6 +2653,9 @@ export interface GameSession {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameSessionOutput {
   /**
    * <p>Object that describes the newly created game session record.</p>
@@ -2506,6 +2664,7 @@ export interface CreateGameSessionOutput {
 }
 
 /**
+ * @public
  * <p>The specified fleet has no available instances to fulfill a
  *                 <code>CreateGameSession</code> request. Clients can retry such requests immediately
  *             or after a waiting period.</p>
@@ -2529,6 +2688,7 @@ export class FleetCapacityExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A game session with this custom ID string already exists in this fleet. Resolve this
  *             conflict before retrying this request.</p>
  */
@@ -2551,6 +2711,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is unable to resolve the routing for a particular alias because it has a
  *             terminal <code>RoutingStrategy</code> associated with it. The message returned in this
  *             exception is the message defined in the routing strategy itself. Such requests should
@@ -2575,6 +2736,7 @@ export class TerminalRoutingStrategyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A fleet or alias designated in a game session queue. Queues fulfill requests for new
  *             game sessions by placing a new game session on any of the queue's destinations. </p>
  */
@@ -2588,6 +2750,7 @@ export interface GameSessionQueueDestination {
 }
 
 /**
+ * @public
  * <p>A list of fleet locations where a game session queue can place new game sessions. You
  *             can use a filter to temporarily turn off placements for specific locations. For queues
  *             that have multi-location fleets, you can use a filter configuration allow placement with
@@ -2602,6 +2765,7 @@ export interface FilterConfiguration {
 }
 
 /**
+ * @public
  * <p>Sets a latency cap for individual players when placing a game session. With a latency
  *             policy in force, a game session cannot be placed in a fleet location where a player
  *             reports latency higher than the cap. Latency policies are used only with placement
@@ -2623,6 +2787,9 @@ export interface PlayerLatencyPolicy {
   PolicyDurationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export enum PriorityType {
   COST = "COST",
   DESTINATION = "DESTINATION",
@@ -2631,6 +2798,7 @@ export enum PriorityType {
 }
 
 /**
+ * @public
  * <p>Custom prioritization settings for use by a game session queue when placing new game
  *             sessions with available game servers. When defined, this configuration replaces the
  *             default FleetIQ prioritization process, which is as follows:</p>
@@ -2693,6 +2861,9 @@ export interface PriorityConfiguration {
   LocationOrder?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateGameSessionQueueInput {
   /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region.</p>
@@ -2756,6 +2927,7 @@ export interface CreateGameSessionQueueInput {
 }
 
 /**
+ * @public
  * <p>Configuration for a game session placement mechanism that processes requests for new
  *             game sessions. A queue can be used on its own or as part of a matchmaking
  *             solution.</p>
@@ -2820,6 +2992,9 @@ export interface GameSessionQueue {
   NotificationTarget?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGameSessionQueueOutput {
   /**
    * <p>An object that describes the newly created game session queue.</p>
@@ -2827,6 +3002,9 @@ export interface CreateGameSessionQueueOutput {
   GameSessionQueue?: GameSessionQueue;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationInput {
   /**
    * <p>A descriptive name for the custom location.</p>
@@ -2843,6 +3021,7 @@ export interface CreateLocationInput {
 }
 
 /**
+ * @public
  * <p>Properties of a location</p>
  */
 export interface LocationModel {
@@ -2857,6 +3036,9 @@ export interface LocationModel {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationOutput {
   /**
    * <p>The details of the custom location you created.</p>
@@ -2864,11 +3046,17 @@ export interface CreateLocationOutput {
   Location?: LocationModel;
 }
 
+/**
+ * @public
+ */
 export enum FlexMatchMode {
   STANDALONE = "STANDALONE",
   WITH_QUEUE = "WITH_QUEUE",
 }
 
+/**
+ * @public
+ */
 export interface CreateMatchmakingConfigurationInput {
   /**
    * <p>A unique identifier for the matchmaking configuration. This name is used to identify the configuration associated with a matchmaking
@@ -2990,6 +3178,7 @@ export interface CreateMatchmakingConfigurationInput {
 }
 
 /**
+ * @public
  * <p>Guidelines for use with FlexMatch to match players into games. All matchmaking requests
  *             must specify a matchmaking configuration.</p>
  */
@@ -3118,6 +3307,9 @@ export interface MatchmakingConfiguration {
   FlexMatchMode?: FlexMatchMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMatchmakingConfigurationOutput {
   /**
    * <p>Object that describes the newly created matchmaking configuration.</p>
@@ -3125,6 +3317,9 @@ export interface CreateMatchmakingConfigurationOutput {
   Configuration?: MatchmakingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateMatchmakingRuleSetInput {
   /**
    * <p>A unique identifier for the matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name
@@ -3149,6 +3344,7 @@ export interface CreateMatchmakingRuleSetInput {
 }
 
 /**
+ * @public
  * <p>Set of rule statements, used with FlexMatch, that determine how to build your player
  *             matches. Each rule set describes a type of group to be created and defines the
  *             parameters for acceptable player matches.</p>
@@ -3211,6 +3407,9 @@ export interface MatchmakingRuleSet {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateMatchmakingRuleSetOutput {
   /**
    * <p>The newly created matchmaking rule set.</p>
@@ -3218,6 +3417,9 @@ export interface CreateMatchmakingRuleSetOutput {
   RuleSet: MatchmakingRuleSet | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlayerSessionInput {
   /**
    * <p>A unique identifier for the game session to add a player to.</p>
@@ -3235,6 +3437,9 @@ export interface CreatePlayerSessionInput {
   PlayerData?: string;
 }
 
+/**
+ * @public
+ */
 export enum PlayerSessionStatus {
   ACTIVE = "ACTIVE",
   COMPLETED = "COMPLETED",
@@ -3243,6 +3448,7 @@ export enum PlayerSessionStatus {
 }
 
 /**
+ * @public
  * <p>Represents a player session. Player sessions are created either for a specific game
  *             session, or as part of a game session placement or matchmaking request. A player session
  *             can represents a reserved player slot in a game session (when status is
@@ -3358,6 +3564,9 @@ export interface PlayerSession {
   PlayerData?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlayerSessionOutput {
   /**
    * <p>Object that describes the newly created player session record.</p>
@@ -3366,6 +3575,7 @@ export interface CreatePlayerSessionOutput {
 }
 
 /**
+ * @public
  * <p>The game instance is currently full and cannot allow the requested player(s) to join.
  *             Clients can retry such requests immediately or after a waiting period.</p>
  */
@@ -3388,6 +3598,7 @@ export class GameSessionFullException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a resource
  *             associated with the request and/or the game instance. Resolve the conflict before
  *             retrying.</p>
@@ -3410,6 +3621,9 @@ export class InvalidGameSessionStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreatePlayerSessionsInput {
   /**
    * <p>A unique identifier for the game session to add players to.</p>
@@ -3430,6 +3644,9 @@ export interface CreatePlayerSessionsInput {
   PlayerDataMap?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlayerSessionsOutput {
   /**
    * <p>A collection of player session objects created for the added players.</p>
@@ -3437,6 +3654,9 @@ export interface CreatePlayerSessionsOutput {
   PlayerSessions?: PlayerSession[];
 }
 
+/**
+ * @public
+ */
 export interface CreateScriptInput {
   /**
    * <p>A descriptive label that is associated with a script. Script names do not need to be unique. You can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html">UpdateScript</a> to
@@ -3485,6 +3705,7 @@ export interface CreateScriptInput {
 }
 
 /**
+ * @public
  * <p>Properties describing a Realtime script.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -3538,6 +3759,9 @@ export interface Script {
   StorageLocation?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface CreateScriptOutput {
   /**
    * <p>The newly created script record with a unique script ID and ARN. The new script's
@@ -3550,6 +3774,9 @@ export interface CreateScriptOutput {
   Script?: Script;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringAuthorizationInput {
   /**
    * <p>A unique identifier for the Amazon Web Services account that you use to manage your GameLift fleet.
@@ -3567,6 +3794,7 @@ export interface CreateVpcPeeringAuthorizationInput {
 }
 
 /**
+ * @public
  * <p>Represents an authorization for a VPC peering connection between the VPC for an
  *             Amazon GameLift fleet and another VPC on an account you have access to. This authorization
  *             must exist and be valid for the peering connection to be established. Authorizations are
@@ -3610,6 +3838,9 @@ export interface VpcPeeringAuthorization {
   ExpirationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringAuthorizationOutput {
   /**
    * <p>Details on the requested VPC peering authorization, including expiration.</p>
@@ -3617,6 +3848,9 @@ export interface CreateVpcPeeringAuthorizationOutput {
   VpcPeeringAuthorization?: VpcPeeringAuthorization;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringConnectionInput {
   /**
    * <p>A unique identifier for the fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift
@@ -3640,8 +3874,14 @@ export interface CreateVpcPeeringConnectionInput {
   PeerVpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringConnectionOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteAliasInput {
   /**
    * <p>A unique identifier of the alias that you want to delete. You can use either the alias
@@ -3650,6 +3890,9 @@ export interface DeleteAliasInput {
   AliasId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBuildInput {
   /**
    * <p>A unique identifier for the build to delete. You can use either the build ID or ARN value. </p>
@@ -3657,6 +3900,9 @@ export interface DeleteBuildInput {
   BuildId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetInput {
   /**
    * <p>A unique identifier for the fleet to be deleted. You can use either the fleet ID or ARN value.</p>
@@ -3664,6 +3910,9 @@ export interface DeleteFleetInput {
   FleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetLocationsInput {
   /**
    * <p>A unique identifier for the fleet to delete locations for. You can use either the fleet ID or ARN value.</p>
@@ -3677,6 +3926,9 @@ export interface DeleteFleetLocationsInput {
   Locations: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetLocationsOutput {
   /**
    * <p>A unique identifier for the fleet that location attributes are being deleted for.</p>
@@ -3695,12 +3947,18 @@ export interface DeleteFleetLocationsOutput {
   LocationStates?: LocationState[];
 }
 
+/**
+ * @public
+ */
 export enum GameServerGroupDeleteOption {
   FORCE_DELETE = "FORCE_DELETE",
   RETAIN = "RETAIN",
   SAFE_DELETE = "SAFE_DELETE",
 }
 
+/**
+ * @public
+ */
 export interface DeleteGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -3732,6 +3990,9 @@ export interface DeleteGameServerGroupInput {
   DeleteOption?: GameServerGroupDeleteOption | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGameServerGroupOutput {
   /**
    * <p>An object that describes the deleted game server group resource, with status updated
@@ -3740,6 +4001,9 @@ export interface DeleteGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGameSessionQueueInput {
   /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value. </p>
@@ -3747,8 +4011,14 @@ export interface DeleteGameSessionQueueInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGameSessionQueueOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteLocationInput {
   /**
    * <p>The location name of the custom location to be deleted.</p>
@@ -3756,8 +4026,14 @@ export interface DeleteLocationInput {
   LocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocationOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteMatchmakingConfigurationInput {
   /**
    * <p>A unique identifier for the matchmaking configuration. You can use either the configuration name or ARN value.</p>
@@ -3765,8 +4041,14 @@ export interface DeleteMatchmakingConfigurationInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMatchmakingConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteMatchmakingRuleSetInput {
   /**
    * <p>A unique identifier for the matchmaking rule set to be deleted. (Note: The rule set name is different from the optional "name"
@@ -3775,8 +4057,14 @@ export interface DeleteMatchmakingRuleSetInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMatchmakingRuleSetOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteScalingPolicyInput {
   /**
    * <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.</p>
@@ -3789,6 +4077,9 @@ export interface DeleteScalingPolicyInput {
   FleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScriptInput {
   /**
    * <p>A unique identifier for the Realtime script to delete. You can use either the script ID or ARN value.</p>
@@ -3796,6 +4087,9 @@ export interface DeleteScriptInput {
   ScriptId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringAuthorizationInput {
   /**
    * <p>A unique identifier for the Amazon Web Services account that you use to manage your GameLift fleet.
@@ -3812,8 +4106,14 @@ export interface DeleteVpcPeeringAuthorizationInput {
   PeerVpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringAuthorizationOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringConnectionInput {
   /**
    * <p>A unique identifier for the fleet. This fleet specified must match the fleet referenced in the VPC peering
@@ -3827,8 +4127,14 @@ export interface DeleteVpcPeeringConnectionInput {
   VpcPeeringConnectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcPeeringConnectionOutput {}
 
+/**
+ * @public
+ */
 export interface DeregisterComputeInput {
   /**
    * <p>>A unique identifier for the fleet the compute resource is registered to.</p>
@@ -3841,8 +4147,14 @@ export interface DeregisterComputeInput {
   ComputeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterComputeOutput {}
 
+/**
+ * @public
+ */
 export interface DeregisterGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.</p>
@@ -3855,6 +4167,9 @@ export interface DeregisterGameServerInput {
   GameServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAliasInput {
   /**
    * <p>The unique identifier for the fleet alias that you want to retrieve. You can use
@@ -3863,6 +4178,9 @@ export interface DescribeAliasInput {
   AliasId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAliasOutput {
   /**
    * <p>The requested alias resource.</p>
@@ -3870,6 +4188,9 @@ export interface DescribeAliasOutput {
   Alias?: Alias;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBuildInput {
   /**
    * <p>A unique identifier for the build to retrieve properties for. You can use either the build ID or ARN value.
@@ -3878,6 +4199,9 @@ export interface DescribeBuildInput {
   BuildId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBuildOutput {
   /**
    * <p>Set of properties describing the requested build.</p>
@@ -3885,6 +4209,9 @@ export interface DescribeBuildOutput {
   Build?: Build;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComputeInput {
   /**
    * <p>A unique identifier for the fleet the compute is registered to.</p>
@@ -3897,6 +4224,9 @@ export interface DescribeComputeInput {
   ComputeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComputeOutput {
   /**
    * <p>The details of the compute resource you registered to the specified fleet.</p>
@@ -3904,6 +4234,9 @@ export interface DescribeComputeOutput {
   Compute?: Compute;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEC2InstanceLimitsInput {
   /**
    * <p>Name of an Amazon EC2 instance type that is supported in GameLift. A fleet instance type
@@ -3921,6 +4254,7 @@ export interface DescribeEC2InstanceLimitsInput {
 }
 
 /**
+ * @public
  * <p>The GameLift service limits for an Amazon EC2 instance type and current utilization. GameLift
  *             allows Amazon Web Services accounts a maximum number of instances, per instance type, per Amazon Web Services Region
  *             or location, for use with GameLift. You can request an limit increase for your account by
@@ -3952,6 +4286,9 @@ export interface EC2InstanceLimit {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEC2InstanceLimitsOutput {
   /**
    * <p>The maximum number of instances for the specified instance type.</p>
@@ -3959,6 +4296,9 @@ export interface DescribeEC2InstanceLimitsOutput {
   EC2InstanceLimits?: EC2InstanceLimit[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAttributesInput {
   /**
    * <p>A list of unique fleet identifiers to retrieve attributes for. You can use either the
@@ -3980,6 +4320,9 @@ export interface DescribeFleetAttributesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetAttributesOutput {
   /**
    * <p>A collection of objects containing attribute metadata for each requested fleet ID.
@@ -3993,6 +4336,9 @@ export interface DescribeFleetAttributesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetCapacityInput {
   /**
    * <p>A unique identifier for the fleet to retrieve capacity information for. You can use either the fleet ID or ARN
@@ -4015,6 +4361,7 @@ export interface DescribeFleetCapacityInput {
 }
 
 /**
+ * @public
  * <p>Resource capacity settings. Fleet capacity is measured in Amazon EC2 instances. Pending and
  *             terminating counts are non-zero when the fleet capacity is adjusting to a scaling event
  *             or if access to resources is temporarily affected.</p>
@@ -4059,6 +4406,7 @@ export interface EC2InstanceCounts {
 }
 
 /**
+ * @public
  * <p>Current resource capacity settings in a specified fleet or location. The location
  *             value might refer to a fleet's remote location or its home Region. </p>
  *          <p>
@@ -4101,6 +4449,9 @@ export interface FleetCapacity {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetCapacityOutput {
   /**
    * <p>A collection of objects that contains capacity information for each requested fleet
@@ -4114,6 +4465,9 @@ export interface DescribeFleetCapacityOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetEventsInput {
   /**
    * <p>A unique identifier for the fleet to get event logs for. You can use either the fleet ID or ARN value.</p>
@@ -4145,6 +4499,9 @@ export interface DescribeFleetEventsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum EventCode {
   FLEET_ACTIVATION_FAILED = "FLEET_ACTIVATION_FAILED",
   FLEET_ACTIVATION_FAILED_NO_INSTANCES = "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
@@ -4183,6 +4540,7 @@ export enum EventCode {
 }
 
 /**
+ * @public
  * <p>Log entry describing an event that involves GameLift resources (such as a fleet). In
  *             addition to tracking activity, event codes and messages can provide additional
  *             information for troubleshooting and debugging problems.</p>
@@ -4442,6 +4800,9 @@ export interface Event {
   PreSignedLogUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetEventsOutput {
   /**
    * <p>A collection of objects containing event log entries for the specified fleet.</p>
@@ -4454,6 +4815,9 @@ export interface DescribeFleetEventsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationAttributesInput {
   /**
    * <p>A unique identifier for the fleet to retrieve remote locations for. You can use either the fleet ID or ARN
@@ -4478,11 +4842,15 @@ export interface DescribeFleetLocationAttributesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum LocationUpdateStatus {
   PENDING_UPDATE = "PENDING_UPDATE",
 }
 
 /**
+ * @public
  * <p>Details about a location in a multi-location fleet.</p>
  */
 export interface LocationAttributes {
@@ -4505,6 +4873,9 @@ export interface LocationAttributes {
   UpdateStatus?: LocationUpdateStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationAttributesOutput {
   /**
    * <p>A unique identifier for the fleet that location attributes were requested for.</p>
@@ -4527,6 +4898,9 @@ export interface DescribeFleetLocationAttributesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationCapacityInput {
   /**
    * <p>A unique identifier for the fleet to request location capacity for. You can use either the fleet ID or ARN
@@ -4541,6 +4915,9 @@ export interface DescribeFleetLocationCapacityInput {
   Location: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationCapacityOutput {
   /**
    * <p>Resource capacity information for the requested fleet location. Capacity objects are
@@ -4549,6 +4926,9 @@ export interface DescribeFleetLocationCapacityOutput {
   FleetCapacity?: FleetCapacity;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationUtilizationInput {
   /**
    * <p>A unique identifier for the fleet to request location utilization for. You can use either the fleet ID or ARN
@@ -4564,6 +4944,7 @@ export interface DescribeFleetLocationUtilizationInput {
 }
 
 /**
+ * @public
  * <p>Current resource utilization statistics in a specified fleet or location. The location
  *             value might refer to a fleet's remote location or its home Region.</p>
  *          <p>
@@ -4612,6 +4993,9 @@ export interface FleetUtilization {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetLocationUtilizationOutput {
   /**
    * <p>Utilization information for the requested fleet location. Utilization objects are
@@ -4620,6 +5004,9 @@ export interface DescribeFleetLocationUtilizationOutput {
   FleetUtilization?: FleetUtilization;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetPortSettingsInput {
   /**
    * <p>A unique identifier for the fleet to retrieve port settings for. You can use either the fleet ID or ARN
@@ -4634,6 +5021,9 @@ export interface DescribeFleetPortSettingsInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetPortSettingsOutput {
   /**
    * <p>A unique identifier for the fleet that was requested. </p>
@@ -4664,6 +5054,9 @@ export interface DescribeFleetPortSettingsOutput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetUtilizationInput {
   /**
    * <p>A unique identifier for the fleet to retrieve utilization data for. You can use either the fleet ID or ARN value.
@@ -4684,6 +5077,9 @@ export interface DescribeFleetUtilizationInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetUtilizationOutput {
   /**
    * <p>A collection of objects containing utilization information for each requested fleet
@@ -4697,6 +5093,9 @@ export interface DescribeFleetUtilizationOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.</p>
@@ -4709,6 +5108,9 @@ export interface DescribeGameServerInput {
   GameServerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerOutput {
   /**
    * <p>Object that describes the requested game server.</p>
@@ -4716,6 +5118,9 @@ export interface DescribeGameServerOutput {
   GameServer?: GameServer;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -4723,6 +5128,9 @@ export interface DescribeGameServerGroupInput {
   GameServerGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerGroupOutput {
   /**
    * <p>An object with the property settings for the requested game server group resource.
@@ -4731,6 +5139,9 @@ export interface DescribeGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerInstancesInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -4755,6 +5166,9 @@ export interface DescribeGameServerInstancesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum GameServerInstanceStatus {
   ACTIVE = "ACTIVE",
   DRAINING = "DRAINING",
@@ -4762,6 +5176,7 @@ export enum GameServerInstanceStatus {
 }
 
 /**
+ * @public
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
@@ -4799,6 +5214,9 @@ export interface GameServerInstance {
   InstanceStatus?: GameServerInstanceStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameServerInstancesOutput {
   /**
    * <p>The collection of requested game server instances.</p>
@@ -4811,6 +5229,9 @@ export interface DescribeGameServerInstancesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionDetailsInput {
   /**
    * <p>A unique identifier for the fleet to retrieve all game sessions active on the fleet. You can use either the fleet
@@ -4855,6 +5276,7 @@ export interface DescribeGameSessionDetailsInput {
 }
 
 /**
+ * @public
  * <p>A game session's properties plus the protection policy currently in force.</p>
  */
 export interface GameSessionDetail {
@@ -4882,6 +5304,9 @@ export interface GameSessionDetail {
   ProtectionPolicy?: ProtectionPolicy | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionDetailsOutput {
   /**
    * <p>A collection of properties for each game session that matches the request.</p>
@@ -4894,6 +5319,9 @@ export interface DescribeGameSessionDetailsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionPlacementInput {
   /**
    * <p>A unique identifier for a game session placement to retrieve.</p>
@@ -4902,6 +5330,7 @@ export interface DescribeGameSessionPlacementInput {
 }
 
 /**
+ * @public
  * <p>Information about a player session. This object contains only the player ID and player
  *             session ID. To retrieve full details on a player session, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribePlayerSessions.html">DescribePlayerSessions</a> with the player session ID.</p>
  */
@@ -4918,6 +5347,7 @@ export interface PlacedPlayerSession {
 }
 
 /**
+ * @public
  * <p>Regional latency information for a player, used when requesting a new game session.
  *             This value indicates the amount of time lag that exists when the player is connected to
  *             a fleet in the specified Region. The relative difference between a player's latency
@@ -4942,6 +5372,9 @@ export interface PlayerLatency {
   LatencyInMilliseconds?: number;
 }
 
+/**
+ * @public
+ */
 export enum GameSessionPlacementState {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
@@ -4951,6 +5384,7 @@ export enum GameSessionPlacementState {
 }
 
 /**
+ * @public
  * <p>This object includes the full details of the original request plus the current status
  *             and start/end time stamps.</p>
  */
@@ -5106,6 +5540,9 @@ export interface GameSessionPlacement {
   MatchmakerData?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionPlacementOutput {
   /**
    * <p>Object that describes the requested game session placement.</p>
@@ -5113,6 +5550,9 @@ export interface DescribeGameSessionPlacementOutput {
   GameSessionPlacement?: GameSessionPlacement;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionQueuesInput {
   /**
    * <p>A list of queue names to retrieve information for. You can use either the queue ID or
@@ -5131,6 +5571,9 @@ export interface DescribeGameSessionQueuesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionQueuesOutput {
   /**
    * <p>A collection of objects that describe the requested game session queues.</p>
@@ -5143,6 +5586,9 @@ export interface DescribeGameSessionQueuesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionsInput {
   /**
    * <p>A unique identifier for the fleet to retrieve game sessions for. You can use either the fleet ID or ARN value.
@@ -5187,6 +5633,9 @@ export interface DescribeGameSessionsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGameSessionsOutput {
   /**
    * <p>A collection of properties for each game session that matches the request.</p>
@@ -5199,6 +5648,9 @@ export interface DescribeGameSessionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancesInput {
   /**
    * <p>A unique identifier for the fleet to retrieve instance information for. You can use either the fleet ID or ARN
@@ -5229,6 +5681,9 @@ export interface DescribeInstancesInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export enum InstanceStatus {
   ACTIVE = "ACTIVE",
   PENDING = "PENDING",
@@ -5236,6 +5691,7 @@ export enum InstanceStatus {
 }
 
 /**
+ * @public
  * <p>Represents an EC2 instance of virtual computing resources that hosts one or more game
  *             servers. In GameLift, a fleet can contain zero or more instances.</p>
  *          <p>
@@ -5327,6 +5783,9 @@ export interface Instance {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstancesOutput {
   /**
    * <p>A collection of objects containing properties for each instance returned.</p>
@@ -5339,6 +5798,9 @@ export interface DescribeInstancesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingInput {
   /**
    * <p>A unique identifier for a matchmaking ticket. You can include up to 10 ID values. </p>
@@ -5347,6 +5809,7 @@ export interface DescribeMatchmakingInput {
 }
 
 /**
+ * @public
  * <p>Represents a new player session that is created as a result of a successful FlexMatch
  *             match. A successful match automatically creates new player sessions for every player ID
  *             in the original matchmaking request. </p>
@@ -5366,6 +5829,7 @@ export interface MatchedPlayerSession {
 }
 
 /**
+ * @public
  * <p>Connection information for a new game session that is created in response to a start
  *             matchmaking request. Once a match is made, the FlexMatch engine creates a new game session
  *             for it. This information, including the game session endpoint and player sessions for
@@ -5412,6 +5876,7 @@ export interface GameSessionConnectionInfo {
 }
 
 /**
+ * @public
  * <p>Represents a player in matchmaking. When starting a matchmaking request, a player has
  *             a player ID, attributes, and may have latency data. Team information is added after a
  *             match has been successfully completed.</p>
@@ -5425,8 +5890,8 @@ export interface Player {
   /**
    * <p>A collection of key:value pairs containing player information for use in matchmaking.
    *             Player attribute keys must match the <i>playerAttributes</i> used in a
-   *             matchmaking rule set. Example: <code>"PlayerAttributes": {"skill": {"N": "23"},
-   *                 "gameMode": {"S": "deathmatch"}}</code>.</p>
+   *             matchmaking rule set. Example: <code>"PlayerAttributes": \{"skill": \{"N": "23"\},
+   *                 "gameMode": \{"S": "deathmatch"\}\}</code>.</p>
    *         <p>You can provide up to 10 <code>PlayerAttributes</code>.</p>
    */
   PlayerAttributes?: Record<string, AttributeValue>;
@@ -5447,6 +5912,9 @@ export interface Player {
   LatencyInMs?: Record<string, number>;
 }
 
+/**
+ * @public
+ */
 export enum MatchmakingConfigurationStatus {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
@@ -5459,6 +5927,7 @@ export enum MatchmakingConfigurationStatus {
 }
 
 /**
+ * @public
  * <p>Ticket generated to track the progress of a matchmaking request. Each ticket is
  *             uniquely identified by a ticket ID, supplied by the requester, when creating a
  *             matchmaking request.</p>
@@ -5584,6 +6053,9 @@ export interface MatchmakingTicket {
   EstimatedWaitTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingOutput {
   /**
    * <p>A collection of existing matchmaking ticket objects matching the request.</p>
@@ -5591,6 +6063,9 @@ export interface DescribeMatchmakingOutput {
   TicketList?: MatchmakingTicket[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingConfigurationsInput {
   /**
    * <p>A unique identifier for the matchmaking configuration(s) to retrieve. You can use either the configuration name or ARN value. To
@@ -5615,6 +6090,9 @@ export interface DescribeMatchmakingConfigurationsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingConfigurationsOutput {
   /**
    * <p>A collection of requested matchmaking configurations.</p>
@@ -5627,6 +6105,9 @@ export interface DescribeMatchmakingConfigurationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingRuleSetsInput {
   /**
    * <p>A list of one or more matchmaking rule set names to retrieve details for. (Note: The
@@ -5646,6 +6127,9 @@ export interface DescribeMatchmakingRuleSetsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMatchmakingRuleSetsOutput {
   /**
    * <p>A collection of requested matchmaking rule set objects. </p>
@@ -5658,6 +6142,9 @@ export interface DescribeMatchmakingRuleSetsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlayerSessionsInput {
   /**
    * <p>A unique identifier for the game session to retrieve player sessions for.</p>
@@ -5717,6 +6204,9 @@ export interface DescribePlayerSessionsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlayerSessionsOutput {
   /**
    * <p>A collection of objects containing properties for each player session that matches the
@@ -5730,6 +6220,9 @@ export interface DescribePlayerSessionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuntimeConfigurationInput {
   /**
    * <p>A unique identifier for the fleet to get the runtime configuration for. You can use either the fleet ID or ARN
@@ -5738,6 +6231,9 @@ export interface DescribeRuntimeConfigurationInput {
   FleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRuntimeConfigurationOutput {
   /**
    * <p>Instructions that describe how server processes should be launched and maintained on
@@ -5746,6 +6242,9 @@ export interface DescribeRuntimeConfigurationOutput {
   RuntimeConfiguration?: RuntimeConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ScalingStatusType {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -5756,6 +6255,9 @@ export enum ScalingStatusType {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPoliciesInput {
   /**
    * <p>A unique identifier for the fleet for which to retrieve scaling policies. You can use either the fleet ID or ARN
@@ -5823,6 +6325,9 @@ export interface DescribeScalingPoliciesInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export enum MetricName {
   ActivatingGameSessions = "ActivatingGameSessions",
   ActiveGameSessions = "ActiveGameSessions",
@@ -5838,11 +6343,17 @@ export enum MetricName {
   WaitTime = "WaitTime",
 }
 
+/**
+ * @public
+ */
 export enum PolicyType {
   RuleBased = "RuleBased",
   TargetBased = "TargetBased",
 }
 
+/**
+ * @public
+ */
 export enum ScalingAdjustmentType {
   ChangeInCapacity = "ChangeInCapacity",
   ExactCapacity = "ExactCapacity",
@@ -5850,6 +6361,7 @@ export enum ScalingAdjustmentType {
 }
 
 /**
+ * @public
  * <p>Settings for a target-based scaling policy. A target-based policy tracks a particular
  *             fleet metric specifies a target value for the metric. As player usage changes, the
  *             policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target
@@ -5868,6 +6380,7 @@ export interface TargetConfiguration {
 }
 
 /**
+ * @public
  * <p>Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by
  *             the combination of name and fleet ID.</p>
  */
@@ -6076,6 +6589,9 @@ export interface ScalingPolicy {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPoliciesOutput {
   /**
    * <p>A collection of objects containing the scaling policies matching the request.</p>
@@ -6088,6 +6604,9 @@ export interface DescribeScalingPoliciesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScriptInput {
   /**
    * <p>A unique identifier for the Realtime script to retrieve properties for. You can use either the script ID or ARN
@@ -6096,6 +6615,9 @@ export interface DescribeScriptInput {
   ScriptId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScriptOutput {
   /**
    * <p>A set of properties describing the requested script.</p>
@@ -6103,8 +6625,14 @@ export interface DescribeScriptOutput {
   Script?: Script;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringAuthorizationsInput {}
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringAuthorizationsOutput {
   /**
    * <p>A collection of objects that describe all valid VPC peering operations for the current
@@ -6113,6 +6641,9 @@ export interface DescribeVpcPeeringAuthorizationsOutput {
   VpcPeeringAuthorizations?: VpcPeeringAuthorization[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringConnectionsInput {
   /**
    * <p>A unique identifier for the fleet. You can use either the fleet ID or ARN value.</p>
@@ -6121,6 +6652,7 @@ export interface DescribeVpcPeeringConnectionsInput {
 }
 
 /**
+ * @public
  * <p>Represents status information for a VPC peering connection. Status codes and messages
  *             are provided from EC2 (see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpcPeeringConnectionStateReason.html">VpcPeeringConnectionStateReason</a>). Connection status information is also
  *             communicated as a fleet event.</p>
@@ -6138,6 +6670,7 @@ export interface VpcPeeringConnectionStatus {
 }
 
 /**
+ * @public
  * <p>Represents a peering connection between a VPC on one of your Amazon Web Services accounts and the
  *             VPC for your Amazon GameLift fleets. This record may be for an active peering connection or a
  *             pending connection that has not yet been established.</p>
@@ -6194,6 +6727,9 @@ export interface VpcPeeringConnection {
   GameLiftVpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcPeeringConnectionsOutput {
   /**
    * <p>A collection of VPC peering connection records that match the request.</p>
@@ -6202,6 +6738,7 @@ export interface DescribeVpcPeeringConnectionsOutput {
 }
 
 /**
+ * @public
  * <p>Player information for use when creating player sessions using a game session
  *             placement request.</p>
  */
@@ -6217,6 +6754,9 @@ export interface DesiredPlayerSession {
   PlayerData?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetComputeAccessInput {
   /**
    * <p>A unique identifier for the fleet that the compute resource is registered to.</p>
@@ -6229,6 +6769,9 @@ export interface GetComputeAccessInput {
   ComputeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComputeAccessOutput {
   /**
    * <p>The fleet ID of compute resource.</p>
@@ -6256,6 +6799,9 @@ export interface GetComputeAccessOutput {
   Credentials?: AwsCredentials;
 }
 
+/**
+ * @public
+ */
 export interface GetComputeAuthTokenInput {
   /**
    * <p>A unique identifier for the fleet that the compute is registered to.</p>
@@ -6269,6 +6815,9 @@ export interface GetComputeAuthTokenInput {
   ComputeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetComputeAuthTokenOutput {
   /**
    * <p>A unique identifier for the fleet that the compute is registered to.</p>
@@ -6306,6 +6855,9 @@ export interface GetComputeAuthTokenOutput {
   ExpirationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetGameSessionLogUrlInput {
   /**
    * <p>A unique identifier for the game session to get logs for. </p>
@@ -6313,6 +6865,9 @@ export interface GetGameSessionLogUrlInput {
   GameSessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGameSessionLogUrlOutput {
   /**
    * <p>Location of the requested game session logs, available for download. This URL is valid
@@ -6322,6 +6877,9 @@ export interface GetGameSessionLogUrlOutput {
   PreSignedUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceAccessInput {
   /**
    * <p>A unique identifier for the fleet that contains the instance you want access to. You can use either the fleet ID
@@ -6339,6 +6897,7 @@ export interface GetInstanceAccessInput {
 }
 
 /**
+ * @public
  * <p>Set of credentials required to remotely access a fleet instance.</p>
  */
 export interface InstanceCredentials {
@@ -6356,6 +6915,7 @@ export interface InstanceCredentials {
 }
 
 /**
+ * @public
  * <p>Information required to remotely connect to a fleet instance. </p>
  */
 export interface InstanceAccess {
@@ -6385,6 +6945,9 @@ export interface InstanceAccess {
   Credentials?: InstanceCredentials;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceAccessOutput {
   /**
    * <p>The connection information for a fleet instance, including IP address and access
@@ -6393,6 +6956,9 @@ export interface GetInstanceAccessOutput {
   InstanceAccess?: InstanceAccess;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesInput {
   /**
    * <p>The routing type to filter results on. Use this parameter to retrieve only aliases
@@ -6430,6 +6996,9 @@ export interface ListAliasesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAliasesOutput {
   /**
    * <p>A collection of alias resources that match the request parameters.</p>
@@ -6442,6 +7011,9 @@ export interface ListAliasesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildsInput {
   /**
    * <p>Build status to filter results by. To retrieve all builds, leave this parameter
@@ -6480,6 +7052,9 @@ export interface ListBuildsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildsOutput {
   /**
    * <p>A collection of build resources that match the request.</p>
@@ -6492,6 +7067,9 @@ export interface ListBuildsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComputeInput {
   /**
    * <p>A unique identifier for the fleet the compute resources are registered to.</p>
@@ -6514,6 +7092,9 @@ export interface ListComputeInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComputeOutput {
   /**
    * <p>A list of compute resources registered to the fleet you specified.</p>
@@ -6526,6 +7107,9 @@ export interface ListComputeOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsInput {
   /**
    * <p>A unique identifier for the build to request fleets for. Use this parameter to return only fleets using a
@@ -6550,6 +7134,9 @@ export interface ListFleetsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsOutput {
   /**
    * <p>A set of fleet IDs that match the list request.</p>
@@ -6562,6 +7149,9 @@ export interface ListFleetsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGameServerGroupsInput {
   /**
    * <p>The game server groups' limit.</p>
@@ -6575,6 +7165,9 @@ export interface ListGameServerGroupsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGameServerGroupsOutput {
   /**
    * <p>The game server groups' game server groups.</p>
@@ -6588,11 +7181,17 @@ export interface ListGameServerGroupsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface ListGameServersInput {
   /**
    * <p>An identifier for the game server group to retrieve a list of game servers from. Use
@@ -6619,6 +7218,9 @@ export interface ListGameServersInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGameServersOutput {
   /**
    * <p>A collection of game server objects that match the request.</p>
@@ -6631,11 +7233,17 @@ export interface ListGameServersOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum LocationFilter {
   AWS = "AWS",
   CUSTOM = "CUSTOM",
 }
 
+/**
+ * @public
+ */
 export interface ListLocationsInput {
   /**
    * <p>Filters the list for <code>AWS</code> or <code>CUSTOM</code> locations.</p>
@@ -6653,6 +7261,9 @@ export interface ListLocationsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLocationsOutput {
   /**
    * <p>A collection of locations.</p>
@@ -6665,6 +7276,9 @@ export interface ListLocationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListScriptsInput {
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -6677,6 +7291,9 @@ export interface ListScriptsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListScriptsOutput {
   /**
    * <p>A set of properties describing the requested script.</p>
@@ -6689,6 +7306,9 @@ export interface ListScriptsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to and
@@ -6699,6 +7319,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The collection of tags that have been assigned to the specified resource. </p>
@@ -6706,6 +7329,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutScalingPolicyInput {
   /**
    * <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.</p>
@@ -6853,6 +7479,9 @@ export interface PutScalingPolicyInput {
   TargetConfiguration?: TargetConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutScalingPolicyOutput {
   /**
    * <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.</p>
@@ -6860,6 +7489,9 @@ export interface PutScalingPolicyOutput {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterComputeInput {
   /**
    * <p>A unique identifier for the fleet to register the compute to. You can use either the fleet ID or ARN value.</p>
@@ -6896,6 +7528,9 @@ export interface RegisterComputeInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterComputeOutput {
   /**
    * <p>The details of the compute resource you registered to the specified fleet.</p>
@@ -6903,6 +7538,9 @@ export interface RegisterComputeOutput {
   Compute?: Compute;
 }
 
+/**
+ * @public
+ */
 export interface RegisterGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.</p>
@@ -6935,6 +7573,9 @@ export interface RegisterGameServerInput {
   GameServerData?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterGameServerOutput {
   /**
    * <p>Object that describes the newly registered game server.</p>
@@ -6942,6 +7583,9 @@ export interface RegisterGameServerOutput {
   GameServer?: GameServer;
 }
 
+/**
+ * @public
+ */
 export interface RequestUploadCredentialsInput {
   /**
    * <p>A unique identifier for the build to get credentials for. You can use either the build ID or ARN value. </p>
@@ -6949,6 +7593,9 @@ export interface RequestUploadCredentialsInput {
   BuildId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RequestUploadCredentialsOutput {
   /**
    * <p>Amazon Web Services credentials required when uploading a game build to the storage location. These
@@ -6964,6 +7611,9 @@ export interface RequestUploadCredentialsOutput {
   StorageLocation?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface ResolveAliasInput {
   /**
    * <p>The unique identifier of the alias that you want to retrieve a fleet ID for. You can
@@ -6972,6 +7622,9 @@ export interface ResolveAliasInput {
   AliasId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResolveAliasOutput {
   /**
    * <p>The fleet identifier that the alias is pointing to.</p>
@@ -6985,6 +7638,9 @@ export interface ResolveAliasOutput {
   FleetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResumeGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -6997,6 +7653,9 @@ export interface ResumeGameServerGroupInput {
   ResumeActions: (GameServerGroupAction | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResumeGameServerGroupOutput {
   /**
    * <p>An object that describes the game server group resource, with the
@@ -7006,6 +7665,9 @@ export interface ResumeGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface SearchGameSessionsInput {
   /**
    * <p>A unique identifier for the fleet to search for active game sessions. You can use either the fleet ID or ARN
@@ -7128,6 +7790,9 @@ export interface SearchGameSessionsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchGameSessionsOutput {
   /**
    * <p>A collection of objects containing game session properties for each session that
@@ -7141,6 +7806,9 @@ export interface SearchGameSessionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFleetActionsInput {
   /**
    * <p>A unique identifier for the fleet to restart actions on. You can use either the fleet ID or ARN value.</p>
@@ -7159,6 +7827,9 @@ export interface StartFleetActionsInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFleetActionsOutput {
   /**
    * <p>A unique identifier for the fleet to restart actions on.</p>
@@ -7171,6 +7842,9 @@ export interface StartFleetActionsOutput {
   FleetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartGameSessionPlacementInput {
   /**
    * <p>A unique identifier to assign to the new game session placement. This value is
@@ -7218,6 +7892,9 @@ export interface StartGameSessionPlacementInput {
   GameSessionData?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartGameSessionPlacementOutput {
   /**
    * <p>Object that describes the newly created game session placement. This object includes
@@ -7227,6 +7904,9 @@ export interface StartGameSessionPlacementOutput {
   GameSessionPlacement?: GameSessionPlacement;
 }
 
+/**
+ * @public
+ */
 export interface StartMatchBackfillInput {
   /**
    * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a
@@ -7275,6 +7955,9 @@ export interface StartMatchBackfillInput {
   Players: Player[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMatchBackfillOutput {
   /**
    * <p>Ticket representing the backfill matchmaking request. This object includes the
@@ -7284,6 +7967,9 @@ export interface StartMatchBackfillOutput {
   MatchmakingTicket?: MatchmakingTicket;
 }
 
+/**
+ * @public
+ */
 export interface StartMatchmakingInput {
   /**
    * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a
@@ -7310,6 +7996,9 @@ export interface StartMatchmakingInput {
   Players: Player[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMatchmakingOutput {
   /**
    * <p>Ticket representing the matchmaking request. This object include the information
@@ -7319,6 +8008,9 @@ export interface StartMatchmakingOutput {
   MatchmakingTicket?: MatchmakingTicket;
 }
 
+/**
+ * @public
+ */
 export interface StopFleetActionsInput {
   /**
    * <p>A unique identifier for the fleet to stop actions on. You can use either the fleet ID or ARN value.</p>
@@ -7337,6 +8029,9 @@ export interface StopFleetActionsInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopFleetActionsOutput {
   /**
    * <p>A unique identifier for the fleet to stop actions on.</p>
@@ -7349,6 +8044,9 @@ export interface StopFleetActionsOutput {
   FleetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopGameSessionPlacementInput {
   /**
    * <p>A unique identifier for a game session placement to stop.</p>
@@ -7356,6 +8054,9 @@ export interface StopGameSessionPlacementInput {
   PlacementId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopGameSessionPlacementOutput {
   /**
    * <p>Object that describes the canceled game session placement, with <code>CANCELLED</code>
@@ -7364,6 +8065,9 @@ export interface StopGameSessionPlacementOutput {
   GameSessionPlacement?: GameSessionPlacement;
 }
 
+/**
+ * @public
+ */
 export interface StopMatchmakingInput {
   /**
    * <p>A unique identifier for a matchmaking ticket.</p>
@@ -7371,8 +8075,14 @@ export interface StopMatchmakingInput {
   TicketId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMatchmakingOutput {}
 
+/**
+ * @public
+ */
 export interface SuspendGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
@@ -7385,6 +8095,9 @@ export interface SuspendGameServerGroupInput {
   SuspendActions: (GameServerGroupAction | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SuspendGameServerGroupOutput {
   /**
    * <p>An object that describes the game server group resource, with the
@@ -7394,6 +8107,9 @@ export interface SuspendGameServerGroupOutput {
   GameServerGroup?: GameServerGroup;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to and
@@ -7412,8 +8128,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to and
@@ -7431,8 +8153,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAliasInput {
   /**
    * <p>A unique identifier for the alias that you want to update. You can use either the
@@ -7457,6 +8185,9 @@ export interface UpdateAliasInput {
   RoutingStrategy?: RoutingStrategy;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAliasOutput {
   /**
    * <p>The updated alias resource.</p>
@@ -7464,6 +8195,9 @@ export interface UpdateAliasOutput {
   Alias?: Alias;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBuildInput {
   /**
    * <p>A unique identifier for the build to update. You can use either the build ID or ARN value. </p>
@@ -7481,6 +8215,9 @@ export interface UpdateBuildInput {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBuildOutput {
   /**
    * <p>The updated build resource.</p>
@@ -7488,6 +8225,9 @@ export interface UpdateBuildOutput {
   Build?: Build;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetAttributesInput {
   /**
    * <p>A unique identifier for the fleet to update attribute metadata for. You can use either the fleet ID or ARN
@@ -7545,6 +8285,9 @@ export interface UpdateFleetAttributesInput {
   AnywhereConfiguration?: AnywhereConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetAttributesOutput {
   /**
    * <p>A unique identifier for the fleet that was updated.</p>
@@ -7557,6 +8300,9 @@ export interface UpdateFleetAttributesOutput {
   FleetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetCapacityInput {
   /**
    * <p>A unique identifier for the fleet to update capacity settings for. You can use either the fleet ID or ARN
@@ -7589,6 +8335,9 @@ export interface UpdateFleetCapacityInput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetCapacityOutput {
   /**
    * <p>A unique identifier for the fleet that was updated.</p>
@@ -7607,6 +8356,9 @@ export interface UpdateFleetCapacityOutput {
   Location?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetPortSettingsInput {
   /**
    * <p>A unique identifier for the fleet to update port settings for. You can use either the fleet ID or ARN

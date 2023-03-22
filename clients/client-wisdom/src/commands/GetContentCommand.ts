@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetContentCommand}.
  */
 export interface GetContentCommandInput extends GetContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContentCommand}.
  */
 export interface GetContentCommandOutput extends GetContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves content, including a pre-signed URL to download the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetContentCommandOutput extends GetContentResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContentCommandInput - {@link GetContentCommandInput}
+ * @returns {@link GetContentCommandOutput}
  * @see {@link GetContentCommandInput} for command's `input` shape.
  * @see {@link GetContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContentCommandOutput> {
     return deserializeAws_restJson1GetContentCommand(output, context);
   }

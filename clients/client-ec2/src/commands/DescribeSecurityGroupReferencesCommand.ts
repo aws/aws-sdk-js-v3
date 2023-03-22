@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityGroupReferencesCommand}.
  */
 export interface DescribeSecurityGroupReferencesCommandInput extends DescribeSecurityGroupReferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityGroupReferencesCommand}.
  */
 export interface DescribeSecurityGroupReferencesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSecurityGroupReferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>[VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityGroupReferencesCommandInput - {@link DescribeSecurityGroupReferencesCommandInput}
+ * @returns {@link DescribeSecurityGroupReferencesCommandOutput}
  * @see {@link DescribeSecurityGroupReferencesCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityGroupReferencesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityGroupReferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeSecurityGroupReferencesCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
     return serializeAws_ec2DescribeSecurityGroupReferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

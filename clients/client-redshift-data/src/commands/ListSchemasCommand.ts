@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandInput extends ListSchemasRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the schemas in a database.
  *       A token is returned to page through the schema list.
  *       Depending on the authorization method, use one of the
@@ -63,6 +68,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
+ * @returns {@link ListSchemasCommandOutput}
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemasCommandOutput> {
     return deserializeAws_json1_1ListSchemasCommand(output, context);
   }

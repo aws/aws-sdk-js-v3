@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSchedulingPoliciesCommand}.
  */
 export interface DescribeSchedulingPoliciesCommandInput extends DescribeSchedulingPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSchedulingPoliciesCommand}.
  */
 export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedulingPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your scheduling policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSchedulingPoliciesCommandInput - {@link DescribeSchedulingPoliciesCommandInput}
+ * @returns {@link DescribeSchedulingPoliciesCommandOutput}
  * @see {@link DescribeSchedulingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeSchedulingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeSchedulingPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSchedulingPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeSchedulingPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSchedulingPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSchedulingPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

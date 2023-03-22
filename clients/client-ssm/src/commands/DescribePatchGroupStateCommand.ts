@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePatchGroupStateCommand}.
  */
 export interface DescribePatchGroupStateCommandInput extends DescribePatchGroupStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePatchGroupStateCommand}.
  */
 export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroupStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns high-level aggregated patch compliance state information for a patch group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePatchGroupStateCommandInput - {@link DescribePatchGroupStateCommandInput}
+ * @returns {@link DescribePatchGroupStateCommandOutput}
  * @see {@link DescribePatchGroupStateCommandInput} for command's `input` shape.
  * @see {@link DescribePatchGroupStateCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribePatchGroupStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePatchGroupStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribePatchGroupStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePatchGroupStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePatchGroupStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePatchGroupStateCommandOutput> {
     return deserializeAws_json1_1DescribePatchGroupStateCommand(output, context);
   }

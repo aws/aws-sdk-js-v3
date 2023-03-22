@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMacieSessionCommand}.
  */
 export interface UpdateMacieSessionCommandInput extends UpdateMacieSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMacieSessionCommand}.
  */
 export interface UpdateMacieSessionCommandOutput extends UpdateMacieSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends or re-enables Amazon Macie, or updates the configuration settings for a Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMacieSessionCommandOutput extends UpdateMacieSessionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMacieSessionCommandInput - {@link UpdateMacieSessionCommandInput}
+ * @returns {@link UpdateMacieSessionCommandOutput}
  * @see {@link UpdateMacieSessionCommandInput} for command's `input` shape.
  * @see {@link UpdateMacieSessionCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateMacieSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMacieSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateMacieSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMacieSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMacieSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMacieSessionCommandOutput> {
     return deserializeAws_restJson1UpdateMacieSessionCommand(output, context);
   }

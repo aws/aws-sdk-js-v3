@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RecordLifecycleActionHeartbeatCommand}.
  */
 export interface RecordLifecycleActionHeartbeatCommandInput extends RecordLifecycleActionHeartbeatType {}
 /**
+ * @public
+ *
  * The output of {@link RecordLifecycleActionHeartbeatCommand}.
  */
 export interface RecordLifecycleActionHeartbeatCommandOutput
@@ -37,6 +41,7 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Records a heartbeat for the lifecycle action associated with the specified token or
  *             instance. This extends the timeout by the length of time defined using the <a>PutLifecycleHook</a> API call.</p>
  *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
@@ -84,6 +89,8 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RecordLifecycleActionHeartbeatCommandInput - {@link RecordLifecycleActionHeartbeatCommandInput}
+ * @returns {@link RecordLifecycleActionHeartbeatCommandOutput}
  * @see {@link RecordLifecycleActionHeartbeatCommandInput} for command's `input` shape.
  * @see {@link RecordLifecycleActionHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -124,6 +131,9 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecordLifecycleActionHeartbeatCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,6 +173,9 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RecordLifecycleActionHeartbeatCommandInput,
     context: __SerdeContext
@@ -170,6 +183,9 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
     return serializeAws_queryRecordLifecycleActionHeartbeatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeClientVpnIngressCommand}.
  */
 export interface AuthorizeClientVpnIngressCommandInput extends AuthorizeClientVpnIngressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeClientVpnIngressCommand}.
  */
 export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientVpnIngressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as
  * 			firewall rules that grant access to networks. You must configure ingress authorization rules to
  * 			enable clients to access resources in Amazon Web Services or on-premises networks.</p>
@@ -48,6 +53,8 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeClientVpnIngressCommandInput - {@link AuthorizeClientVpnIngressCommandInput}
+ * @returns {@link AuthorizeClientVpnIngressCommandOutput}
  * @see {@link AuthorizeClientVpnIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeClientVpnIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeClientVpnIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeClientVpnIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AuthorizeClientVpnIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

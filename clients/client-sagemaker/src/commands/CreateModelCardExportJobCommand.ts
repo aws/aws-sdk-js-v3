@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelCardExportJobCommand}.
  */
 export interface CreateModelCardExportJobCommandInput extends CreateModelCardExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelCardExportJobCommand}.
  */
 export interface CreateModelCardExportJobCommandOutput extends CreateModelCardExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon SageMaker Model Card export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateModelCardExportJobCommandOutput extends CreateModelCardEx
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelCardExportJobCommandInput - {@link CreateModelCardExportJobCommandInput}
+ * @returns {@link CreateModelCardExportJobCommandOutput}
  * @see {@link CreateModelCardExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateModelCardExportJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateModelCardExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelCardExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateModelCardExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelCardExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateModelCardExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCardExportJobCommandOutput> {
     return deserializeAws_json1_1CreateModelCardExportJobCommand(output, context);
   }

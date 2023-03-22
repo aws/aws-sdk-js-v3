@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePatchGroupsCommand}.
  */
 export interface DescribePatchGroupsCommandInput extends DescribePatchGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePatchGroupsCommand}.
  */
 export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all patch groups that have been registered with patch baselines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePatchGroupsCommandInput - {@link DescribePatchGroupsCommandInput}
+ * @returns {@link DescribePatchGroupsCommandOutput}
  * @see {@link DescribePatchGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribePatchGroupsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribePatchGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePatchGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribePatchGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePatchGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePatchGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePatchGroupsCommandOutput> {
     return deserializeAws_json1_1DescribePatchGroupsCommand(output, context);
   }

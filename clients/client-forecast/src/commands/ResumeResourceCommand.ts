@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeResourceCommand}.
  */
 export interface ResumeResourceCommandInput extends ResumeResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResumeResourceCommand}.
  */
 export interface ResumeResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resumes a stopped monitor resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeResourceCommandInput - {@link ResumeResourceCommandInput}
+ * @returns {@link ResumeResourceCommandOutput}
  * @see {@link ResumeResourceCommandInput} for command's `input` shape.
  * @see {@link ResumeResourceCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -78,6 +85,9 @@ export class ResumeResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ResumeResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResumeResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeResourceCommandOutput> {
     return deserializeAws_json1_1ResumeResourceCommand(output, context);
   }

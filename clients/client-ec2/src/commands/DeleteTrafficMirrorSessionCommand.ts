@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrafficMirrorSessionCommand}.
  */
 export interface DeleteTrafficMirrorSessionCommandInput extends DeleteTrafficMirrorSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrafficMirrorSessionCommand}.
  */
 export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMirrorSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Traffic Mirror session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMi
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrafficMirrorSessionCommandInput - {@link DeleteTrafficMirrorSessionCommandInput}
+ * @returns {@link DeleteTrafficMirrorSessionCommandOutput}
  * @see {@link DeleteTrafficMirrorSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficMirrorSessionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteTrafficMirrorSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrafficMirrorSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteTrafficMirrorSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrafficMirrorSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteTrafficMirrorSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

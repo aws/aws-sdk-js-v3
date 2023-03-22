@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateScramSecretCommand}.
  */
 export interface BatchAssociateScramSecretCommandInput extends BatchAssociateScramSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateScramSecretCommand}.
  */
 export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateScramSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateScramSecretCommandInput - {@link BatchAssociateScramSecretCommandInput}
+ * @returns {@link BatchAssociateScramSecretCommandOutput}
  * @see {@link BatchAssociateScramSecretCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateScramSecretCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +97,9 @@ export class BatchAssociateScramSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateScramSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class BatchAssociateScramSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchAssociateScramSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchAssociateScramSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

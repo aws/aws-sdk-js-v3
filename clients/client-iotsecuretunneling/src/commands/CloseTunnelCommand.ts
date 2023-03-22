@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CloseTunnelCommand}.
  */
 export interface CloseTunnelCommandInput extends CloseTunnelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CloseTunnelCommand}.
  */
 export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
  * 			request is received, we close the WebSocket connections between the client and proxy
  * 			server so no data can be transmitted.</p>
@@ -53,6 +58,8 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CloseTunnelCommandInput - {@link CloseTunnelCommandInput}
+ * @returns {@link CloseTunnelCommandOutput}
  * @see {@link CloseTunnelCommandInput} for command's `input` shape.
  * @see {@link CloseTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
@@ -79,6 +86,9 @@ export class CloseTunnelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloseTunnelCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CloseTunnelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloseTunnelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CloseTunnelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseTunnelCommandOutput> {
     return deserializeAws_json1_1CloseTunnelCommand(output, context);
   }

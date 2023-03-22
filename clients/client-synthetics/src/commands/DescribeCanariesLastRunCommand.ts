@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCanariesLastRunCommand}.
  */
 export interface DescribeCanariesLastRunCommandInput extends DescribeCanariesLastRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCanariesLastRunCommand}.
  */
 export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLastRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to see information from the most recent run of each canary that you have created.</p>
  *
  *          <p>This operation supports resource-level authorization using an IAM policy and
@@ -55,6 +60,8 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCanariesLastRunCommandInput - {@link DescribeCanariesLastRunCommandInput}
+ * @returns {@link DescribeCanariesLastRunCommandOutput}
  * @see {@link DescribeCanariesLastRunCommandInput} for command's `input` shape.
  * @see {@link DescribeCanariesLastRunCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeCanariesLastRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCanariesLastRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeCanariesLastRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCanariesLastRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeCanariesLastRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCanariesLastRunCommandOutput> {
     return deserializeAws_restJson1DescribeCanariesLastRunCommand(output, context);
   }

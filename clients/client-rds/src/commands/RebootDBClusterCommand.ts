@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RebootDBClusterCommand}.
  */
 export interface RebootDBClusterCommandInput extends RebootDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebootDBClusterCommand}.
  */
 export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You might need to reboot your DB cluster, usually for maintenance reasons.
  *           For example, if you make certain modifications,
  *           or if you change the DB cluster parameter group associated with the DB cluster,
@@ -56,6 +61,8 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootDBClusterCommandInput - {@link RebootDBClusterCommandInput}
+ * @returns {@link RebootDBClusterCommandOutput}
  * @see {@link RebootDBClusterCommandInput} for command's `input` shape.
  * @see {@link RebootDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -89,6 +96,9 @@ export class RebootDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class RebootDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRebootDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootDBClusterCommandOutput> {
     return deserializeAws_queryRebootDBClusterCommand(output, context);
   }

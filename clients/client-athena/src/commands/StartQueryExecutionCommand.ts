@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartQueryExecutionCommand}.
  */
 export interface StartQueryExecutionCommandInput extends StartQueryExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartQueryExecutionCommand}.
  */
 export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to
  *             have access to the workgroup in which the query ran. Running queries against an external
  *             catalog requires <a>GetDataCatalog</a> permission to the catalog. For code
@@ -51,6 +56,8 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * const response = await client.send(command);
  * ```
  *
+ * @param StartQueryExecutionCommandInput - {@link StartQueryExecutionCommandInput}
+ * @returns {@link StartQueryExecutionCommandOutput}
  * @see {@link StartQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link StartQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -85,6 +92,9 @@ export class StartQueryExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartQueryExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class StartQueryExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartQueryExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryExecutionCommandOutput> {
     return deserializeAws_json1_1StartQueryExecutionCommand(output, context);
   }

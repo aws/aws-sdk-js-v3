@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetThirdPartyFirewallAssociationStatusCommand}.
  */
 export interface GetThirdPartyFirewallAssociationStatusCommandInput
   extends GetThirdPartyFirewallAssociationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetThirdPartyFirewallAssociationStatusCommand}.
  */
 export interface GetThirdPartyFirewallAssociationStatusCommandOutput
@@ -38,6 +42,7 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>The onboarding status of a Firewall Manager admin account to third-party firewall vendor tenant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetThirdPartyFirewallAssociationStatusCommandInput - {@link GetThirdPartyFirewallAssociationStatusCommandInput}
+ * @returns {@link GetThirdPartyFirewallAssociationStatusCommandOutput}
  * @see {@link GetThirdPartyFirewallAssociationStatusCommandInput} for command's `input` shape.
  * @see {@link GetThirdPartyFirewallAssociationStatusCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetThirdPartyFirewallAssociationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetThirdPartyFirewallAssociationStatusCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
     return serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

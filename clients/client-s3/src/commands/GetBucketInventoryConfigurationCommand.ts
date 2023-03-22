@@ -26,10 +26,14 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketInventoryConfigurationCommand}.
  */
 export interface GetBucketInventoryConfigurationCommandInput extends GetBucketInventoryConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketInventoryConfigurationCommand}.
  */
 export interface GetBucketInventoryConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetBucketInventoryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an inventory configuration (identified by the inventory configuration ID) from
  *          the bucket.</p>
  *          <p>To use this operation, you must have permissions to perform the
@@ -74,6 +79,8 @@ export interface GetBucketInventoryConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketInventoryConfigurationCommandInput - {@link GetBucketInventoryConfigurationCommandInput}
+ * @returns {@link GetBucketInventoryConfigurationCommandOutput}
  * @see {@link GetBucketInventoryConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -103,6 +110,9 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketInventoryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketInventoryConfigurationCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
     return serializeAws_restXmlGetBucketInventoryConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationSetTrackingOptionsCommand}.
  */
 export interface DeleteConfigurationSetTrackingOptionsCommandInput
   extends DeleteConfigurationSetTrackingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationSetTrackingOptionsCommand}.
  */
 export interface DeleteConfigurationSetTrackingOptionsCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an association between a configuration set and a custom domain for open and
  *             click event tracking.</p>
  *         <p>By default, images and links used for tracking open and click events are hosted on
@@ -58,6 +63,8 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetTrackingOptionsCommandInput - {@link DeleteConfigurationSetTrackingOptionsCommandInput}
+ * @returns {@link DeleteConfigurationSetTrackingOptionsCommandOutput}
  * @see {@link DeleteConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetTrackingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
     return serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

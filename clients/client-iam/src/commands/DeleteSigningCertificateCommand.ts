@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSigningCertificateCommand}.
  */
 export interface DeleteSigningCertificateCommandInput extends DeleteSigningCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSigningCertificateCommand}.
  */
 export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a signing certificate associated with the specified IAM user.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
@@ -45,6 +50,8 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSigningCertificateCommandInput - {@link DeleteSigningCertificateCommandInput}
+ * @returns {@link DeleteSigningCertificateCommandOutput}
  * @see {@link DeleteSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteSigningCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteSigningCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteSigningCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSigningCertificateCommandOutput> {
     return deserializeAws_queryDeleteSigningCertificateCommand(output, context);
   }

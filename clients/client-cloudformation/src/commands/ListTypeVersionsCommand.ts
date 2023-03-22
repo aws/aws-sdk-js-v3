@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListTypeVersionsCommand}.
  */
 export interface ListTypeVersionsCommandInput extends ListTypeVersionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTypeVersionsCommand}.
  */
 export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about the versions of an extension.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTypeVersionsCommandInput - {@link ListTypeVersionsCommandInput}
+ * @returns {@link ListTypeVersionsCommandOutput}
  * @see {@link ListTypeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListTypeVersionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListTypeVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTypeVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListTypeVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTypeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListTypeVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypeVersionsCommandOutput> {
     return deserializeAws_queryListTypeVersionsCommand(output, context);
   }

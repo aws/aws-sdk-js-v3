@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopJobRunCommand}.
  */
 export interface StopJobRunCommandInput extends StopJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopJobRunCommand}.
  */
 export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a particular run of a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param StopJobRunCommandInput - {@link StopJobRunCommandInput}
+ * @returns {@link StopJobRunCommandOutput}
  * @see {@link StopJobRunCommandInput} for command's `input` shape.
  * @see {@link StopJobRunCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -75,6 +82,9 @@ export class StopJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class StopJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopJobRunCommandOutput> {
     return deserializeAws_restJson1StopJobRunCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkspaceCommand}.
  */
 export interface DeleteWorkspaceCommandInput extends DeleteWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkspaceCommand}.
  */
 export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkspaceCommandInput - {@link DeleteWorkspaceCommandInput}
+ * @returns {@link DeleteWorkspaceCommandOutput}
  * @see {@link DeleteWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceCommandOutput> {
     return deserializeAws_restJson1DeleteWorkspaceCommand(output, context);
   }

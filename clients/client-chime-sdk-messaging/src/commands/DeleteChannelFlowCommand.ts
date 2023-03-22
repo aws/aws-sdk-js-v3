@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelFlowCommand}.
  */
 export interface DeleteChannelFlowCommandInput extends DeleteChannelFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelFlowCommand}.
  */
 export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a channel flow, an irreversible process. This is a developer API.</p>
  *          <note>
  *             <p> This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the
@@ -49,6 +54,8 @@ export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelFlowCommandInput - {@link DeleteChannelFlowCommandInput}
+ * @returns {@link DeleteChannelFlowCommandOutput}
  * @see {@link DeleteChannelFlowCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelFlowCommandOutput> {
     return deserializeAws_restJson1DeleteChannelFlowCommand(output, context);
   }

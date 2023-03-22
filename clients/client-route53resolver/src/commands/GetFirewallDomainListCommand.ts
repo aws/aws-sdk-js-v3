@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFirewallDomainListCommand}.
  */
 export interface GetFirewallDomainListCommandInput extends GetFirewallDomainListRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFirewallDomainListCommand}.
  */
 export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified firewall domain list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainLis
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFirewallDomainListCommandInput - {@link GetFirewallDomainListCommandInput}
+ * @returns {@link GetFirewallDomainListCommandOutput}
  * @see {@link GetFirewallDomainListCommandInput} for command's `input` shape.
  * @see {@link GetFirewallDomainListCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetFirewallDomainListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFirewallDomainListCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetFirewallDomainListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFirewallDomainListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFirewallDomainListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFirewallDomainListCommandOutput> {
     return deserializeAws_json1_1GetFirewallDomainListCommand(output, context);
   }

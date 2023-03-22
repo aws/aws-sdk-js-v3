@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPendingJobExecutionsCommand}.
  */
 export interface GetPendingJobExecutionsCommandInput extends GetPendingJobExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPendingJobExecutionsCommand}.
  */
 export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPendingJobExecutionsCommandInput - {@link GetPendingJobExecutionsCommandInput}
+ * @returns {@link GetPendingJobExecutionsCommandOutput}
  * @see {@link GetPendingJobExecutionsCommandInput} for command's `input` shape.
  * @see {@link GetPendingJobExecutionsCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetPendingJobExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPendingJobExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetPendingJobExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPendingJobExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPendingJobExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPendingJobExecutionsCommandOutput> {
     return deserializeAws_restJson1GetPendingJobExecutionsCommand(output, context);
   }

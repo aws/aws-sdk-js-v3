@@ -6,7 +6,7 @@ import { ListHostsCommand, ListHostsCommandInput, ListHostsCommandOutput } from 
 import { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeStarConnectionsClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHostsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListHosts(
   config: CodeStarConnectionsPaginationConfiguration,
   input: ListHostsCommandInput,

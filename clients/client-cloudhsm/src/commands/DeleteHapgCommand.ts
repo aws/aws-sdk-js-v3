@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHapgCommand}.
  */
 export interface DeleteHapgCommandInput extends DeleteHapgRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHapgCommand}.
  */
 export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -56,6 +61,8 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHapgCommandInput - {@link DeleteHapgCommandInput}
+ * @returns {@link DeleteHapgCommandOutput}
  * @see {@link DeleteHapgCommandInput} for command's `input` shape.
  * @see {@link DeleteHapgCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteHapgCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHapgCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteHapgCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHapgCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteHapgCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHapgCommandOutput> {
     return deserializeAws_json1_1DeleteHapgCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartAppReplicationCommand}.
  */
 export interface StartAppReplicationCommandInput extends StartAppReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAppReplicationCommand}.
  */
 export interface StartAppReplicationCommandOutput extends StartAppReplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts replicating the specified application by creating replication jobs for each server in the
  *             application.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartAppReplicationCommandOutput extends StartAppReplicationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAppReplicationCommandInput - {@link StartAppReplicationCommandInput}
+ * @returns {@link StartAppReplicationCommandOutput}
  * @see {@link StartAppReplicationCommandInput} for command's `input` shape.
  * @see {@link StartAppReplicationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -86,6 +93,9 @@ export class StartAppReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAppReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class StartAppReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAppReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAppReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAppReplicationCommandOutput> {
     return deserializeAws_json1_1StartAppReplicationCommand(output, context);
   }

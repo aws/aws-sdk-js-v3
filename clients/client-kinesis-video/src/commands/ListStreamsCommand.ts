@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandInput extends ListStreamsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>StreamInfo</code> objects. Each object describes a
  *             stream. To retrieve only streams that satisfy a specific condition, you can specify a
  *                 <code>StreamNameCondition</code>. </p>
@@ -48,6 +53,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
+ * @returns {@link ListStreamsCommandOutput}
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamsCommandOutput> {
     return deserializeAws_restJson1ListStreamsCommand(output, context);
   }

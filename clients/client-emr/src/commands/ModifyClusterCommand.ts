@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandInput extends ModifyClusterInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the number of steps that can be executed concurrently for the cluster specified
  *          using ClusterID.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
+ * @returns {@link ModifyClusterCommandOutput}
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -77,6 +84,9 @@ export class ModifyClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ModifyClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterCommandOutput> {
     return deserializeAws_json1_1ModifyClusterCommand(output, context);
   }

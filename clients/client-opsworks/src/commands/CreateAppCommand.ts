@@ -23,15 +23,20 @@ import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { deserializeAws_json1_1CreateAppCommand, serializeAws_json1_1CreateAppCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppCommand}.
  */
 export interface CreateAppCommandInput extends CreateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppCommand}.
  */
 export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an app for a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Creating
  *       Apps</a>.</p>
  *          <p>
@@ -49,6 +54,8 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppCommandInput - {@link CreateAppCommandInput}
+ * @returns {@link CreateAppCommandOutput}
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppCommandOutput> {
     return deserializeAws_json1_1CreateAppCommand(output, context);
   }

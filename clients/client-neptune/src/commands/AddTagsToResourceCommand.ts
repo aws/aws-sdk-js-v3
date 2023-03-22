@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds metadata tags to an Amazon Neptune resource. These tags can also be used with cost
  *       allocation reporting to track cost associated with Amazon Neptune resources, or used in a
  *       Condition statement in an IAM policy for Amazon Neptune.</p>
@@ -43,6 +48,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
+ * @returns {@link AddTagsToResourceCommandOutput}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -78,6 +85,9 @@ export class AddTagsToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class AddTagsToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddTagsToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToResourceCommandOutput> {
     return deserializeAws_queryAddTagsToResourceCommand(output, context);
   }

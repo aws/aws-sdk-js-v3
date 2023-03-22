@@ -522,6 +522,7 @@ import {
 } from "./commands/UpdateStreamingDistributionCommand";
 
 /**
+ * @public
  * <fullname>Amazon CloudFront</fullname>
  *          <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers
  * 			who need detailed information about CloudFront API actions, data types, and errors. For
@@ -530,6 +531,7 @@ import {
  */
 export class CloudFront extends CloudFrontClient {
   /**
+   * @public
    * <p>Associates an alias (also known as a CNAME or an alternate domain name) with a CloudFront
    * 			distribution.</p>
    *          <p>With this operation you can move an alias that's already in use on a CloudFront distribution
@@ -572,6 +574,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a staging distribution using the configuration of the provided primary
    * 			distribution. A staging distribution is a copy of an existing distribution (called the
    * 			primary distribution) that you can use in a continuous deployment workflow.</p>
@@ -610,6 +613,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a cache policy.</p>
    *          <p>After you create a cache policy, you can attach it to one or more cache behaviors.
    * 			When it's attached to a cache behavior, the cache policy determines the
@@ -664,6 +668,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
    * 			use an origin access identity to require users to access your content using a CloudFront URL
    * 			instead of the Amazon S3 URL. For more information about how to use origin access identities,
@@ -700,6 +705,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a continuous deployment policy that distributes traffic for a custom domain
    * 			name to two different CloudFront distributions.</p>
    *          <p>To use a continuous deployment policy, first use <code>CopyDistribution</code> to
@@ -740,6 +746,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a CloudFront distribution.</p>
    */
   public createDistribution(
@@ -772,6 +779,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Create a new distribution with tags.</p>
    */
   public createDistributionWithTags(
@@ -804,6 +812,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Create a new field-level encryption configuration.</p>
    */
   public createFieldLevelEncryptionConfig(
@@ -836,6 +845,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Create a field-level encryption profile.</p>
    */
   public createFieldLevelEncryptionProfile(
@@ -868,6 +878,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a CloudFront function.</p>
    *          <p>To create a function, you provide the function code and some configuration information
    * 			about the function. The response contains an Amazon Resource Name (ARN) that uniquely
@@ -910,6 +921,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Create a new invalidation.</p>
    */
   public createInvalidation(
@@ -942,6 +954,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
    *          <p>To create a key group, you must specify at least one public key for the key group.
    * 			After you create a key group, you can reference it from one or more cache behaviors.
@@ -982,6 +995,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The
    * 			additional metrics incur an additional cost.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in
@@ -1017,6 +1031,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a new origin access control in CloudFront. After you create an origin access
    * 			control, you can add it to an origin in a CloudFront distribution so that CloudFront sends
    * 			authenticated (signed) requests to the origin.</p>
@@ -1055,6 +1070,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates an origin request policy.</p>
    *          <p>After you create an origin request policy, you can attach it to one or more cache
    * 			behaviors. When it's attached to a cache behavior, the origin request policy determines
@@ -1113,6 +1129,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Uploads a public key to CloudFront that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
    */
   public createPublicKey(
@@ -1145,6 +1162,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a real-time log configuration.</p>
    *          <p>After you create a real-time log configuration, you can attach it to one or more cache
    * 			behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p>
@@ -1181,6 +1199,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Creates a response headers policy.</p>
    *          <p>A response headers policy contains information about a set of HTTP headers. To create a
    * 			response headers policy, you provide some metadata about the policy and a set of
@@ -1223,6 +1242,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
    * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
    * 			forum.</p>
@@ -1257,6 +1277,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
    * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
    * 			forum.</p>
@@ -1291,6 +1312,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Deletes a cache policy.</p>
    *          <p>You cannot delete a cache policy if it's attached to a cache behavior. First update
    * 			your distributions to remove the cache policy from all cache behaviors, then delete the
@@ -1329,6 +1351,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Delete an origin access identity.</p>
    */
   public deleteCloudFrontOriginAccessIdentity(
@@ -1361,6 +1384,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Deletes a continuous deployment policy.</p>
    *          <p>You cannot delete a continuous deployment policy that's attached to a primary
    * 			distribution. First update your distribution to remove the continuous deployment policy,
@@ -1396,6 +1420,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Delete a distribution.</p>
    */
   public deleteDistribution(
@@ -1428,6 +1453,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Remove a field-level encryption configuration.</p>
    */
   public deleteFieldLevelEncryptionConfig(
@@ -1460,6 +1486,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Remove a field-level encryption profile.</p>
    */
   public deleteFieldLevelEncryptionProfile(
@@ -1492,6 +1519,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Deletes a CloudFront function.</p>
    *          <p>You cannot delete a function if it's associated with a cache behavior. First, update
    * 			your distributions to remove the function association from all cache behaviors, then
@@ -1530,6 +1558,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Deletes a key group.</p>
    *          <p>You cannot delete a key group that is referenced in a cache behavior. First update
    * 			your distributions to remove the key group from all cache behaviors, then delete the key
@@ -1568,6 +1597,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Disables additional CloudWatch metrics for the specified CloudFront
    * 			distribution.</p>
    */
@@ -1601,6 +1631,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Deletes a CloudFront origin access control.</p>
    *          <p>You cannot delete an origin access control if it's in use. First, update all
    * 			distributions to remove the origin access control from all origins, then delete the
@@ -1636,6 +1667,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Deletes an origin request policy.</p>
    *          <p>You cannot delete an origin request policy if it's attached to any cache behaviors.
    * 			First update your distributions to remove the origin request policy from all cache
@@ -1674,6 +1706,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Remove a public key you previously added to CloudFront.</p>
    */
   public deletePublicKey(
@@ -1706,6 +1739,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Deletes a real-time log configuration.</p>
    *          <p>You cannot delete a real-time log configuration if it's attached to a cache behavior.
    * 			First update your distributions to remove the real-time log configuration from all cache
@@ -1744,6 +1778,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Deletes a response headers policy.</p>
    *          <p>You cannot delete a response headers policy if it's attached to a cache behavior.
    * 			First update your distributions to remove the response headers policy from all cache
@@ -1782,6 +1817,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API,
    * 			perform the following steps.</p>
    *          <p>
@@ -1862,6 +1898,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets configuration information and metadata about a CloudFront function, but not the
    * 			function's code. To get a function's code, use <code>GetFunction</code>.</p>
    *          <p>To get configuration information and metadata about a function, you must provide the
@@ -1898,6 +1935,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a cache policy, including the following metadata:</p>
    *          <ul>
    *             <li>
@@ -1943,6 +1981,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a cache policy configuration.</p>
    *          <p>To get a cache policy configuration, you must provide the policy's identifier. If the
    * 			cache policy is attached to a distribution's cache behavior, you can get the policy's
@@ -1980,6 +2019,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the information about an origin access identity.</p>
    */
   public getCloudFrontOriginAccessIdentity(
@@ -2012,6 +2052,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the configuration information about an origin access identity.</p>
    */
   public getCloudFrontOriginAccessIdentityConfig(
@@ -2046,6 +2087,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a continuous deployment policy, including metadata (the policy's identifier and
    * 			the date and time when the policy was last modified).</p>
    */
@@ -2079,6 +2121,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets configuration information about a continuous deployment policy.</p>
    */
   public getContinuousDeploymentPolicyConfig(
@@ -2111,6 +2154,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the information about a distribution.</p>
    */
   public getDistribution(
@@ -2143,6 +2187,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the configuration information about a distribution.</p>
    */
   public getDistributionConfig(
@@ -2175,6 +2220,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the field-level encryption configuration information.</p>
    */
   public getFieldLevelEncryption(
@@ -2207,6 +2253,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the field-level encryption configuration information.</p>
    */
   public getFieldLevelEncryptionConfig(
@@ -2239,6 +2286,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the field-level encryption profile information.</p>
    */
   public getFieldLevelEncryptionProfile(
@@ -2271,6 +2319,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the field-level encryption profile configuration information.</p>
    */
   public getFieldLevelEncryptionProfileConfig(
@@ -2303,6 +2352,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets the code of a CloudFront function. To get configuration information and metadata about
    * 			a function, use <code>DescribeFunction</code>.</p>
    *          <p>To get a function's code, you must provide the function's name and stage. To get these
@@ -2332,6 +2382,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the information about an invalidation.</p>
    */
   public getInvalidation(
@@ -2364,6 +2415,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a key group, including the date and time when the key group was last
    * 			modified.</p>
    *          <p>To get a key group, you must provide the key group's identifier. If the key group is
@@ -2396,6 +2448,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a key group configuration.</p>
    *          <p>To get a key group configuration, you must provide the key group's identifier. If the
    * 			key group is referenced in a distribution's cache behavior, you can get the key group's
@@ -2433,6 +2486,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets information about whether additional CloudWatch metrics are enabled for the
    * 			specified CloudFront distribution.</p>
    */
@@ -2466,6 +2520,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a CloudFront origin access control, including its unique identifier.</p>
    */
   public getOriginAccessControl(
@@ -2498,6 +2553,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a CloudFront origin access control configuration.</p>
    */
   public getOriginAccessControlConfig(
@@ -2530,6 +2586,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets an origin request policy, including the following metadata:</p>
    *          <ul>
    *             <li>
@@ -2576,6 +2633,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets an origin request policy configuration.</p>
    *          <p>To get an origin request policy configuration, you must provide the policy's
    * 			identifier. If the origin request policy is attached to a distribution's cache behavior,
@@ -2614,6 +2672,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a public key.</p>
    */
   public getPublicKey(
@@ -2643,6 +2702,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a public key configuration.</p>
    */
   public getPublicKeyConfig(
@@ -2675,6 +2735,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a real-time log configuration.</p>
    *          <p>To get a real-time log configuration, you can provide the configuration's name or its
    * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
@@ -2710,6 +2771,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a response headers policy, including metadata (the policy's identifier and the
    * 			date and time when the policy was last modified).</p>
    *          <p>To get a response headers policy, you must provide the policy's identifier. If the
@@ -2749,6 +2811,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a response headers policy configuration.</p>
    *          <p>To get a response headers policy configuration, you must provide the policy's
    * 			identifier. If the response headers policy is attached to a distribution's cache
@@ -2787,6 +2850,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified RTMP distribution, including the distribution
    * 			configuration.</p>
    */
@@ -2820,6 +2884,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Get the configuration information about a streaming distribution.</p>
    */
   public getStreamingDistributionConfig(
@@ -2852,6 +2917,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of cache policies.</p>
    *          <p>You can optionally apply a filter to return only the managed policies created by
    * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
@@ -2891,6 +2957,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Lists origin access identities.</p>
    */
   public listCloudFrontOriginAccessIdentities(
@@ -2923,6 +2990,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of aliases (also called CNAMEs or alternate domain names) that conflict or
    * 			overlap with the provided alias, and the associated CloudFront distributions and Amazon Web Services
    * 			accounts for each conflicting alias. In the returned list, the distribution and account
@@ -2977,6 +3045,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of the continuous deployment policies in your Amazon Web Services account.</p>
    *          <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -3014,6 +3083,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>List CloudFront distributions.</p>
    */
   public listDistributions(
@@ -3046,6 +3116,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
    * 			associated with the specified cache policy.</p>
    *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -3084,6 +3155,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of distribution IDs for distributions that have a cache behavior that
    * 			references the specified key group.</p>
    *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -3122,6 +3194,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
    * 			associated with the specified origin request policy.</p>
    *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -3162,6 +3235,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of distributions that have a cache behavior that's associated with the
    * 			specified real-time log configuration.</p>
    *          <p>You can specify the real-time log configuration by its name or its Amazon Resource
@@ -3203,6 +3277,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
    * 			associated with the specified response headers policy.</p>
    *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -3243,6 +3318,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>List the distributions that are associated with a specified WAF web ACL.</p>
    */
   public listDistributionsByWebACLId(
@@ -3275,6 +3351,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>List all field-level encryption configurations that have been created in CloudFront for this
    * 			account.</p>
    */
@@ -3308,6 +3385,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Request a list of field-level encryption profiles that have been created in CloudFront for
    * 			this account.</p>
    */
@@ -3341,6 +3419,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of all CloudFront functions in your Amazon Web Services account.</p>
    *          <p>You can optionally apply a filter to return only the functions that are in the
    * 			specified stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
@@ -3380,6 +3459,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Lists invalidation batches.</p>
    */
   public listInvalidations(
@@ -3412,6 +3492,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of key groups.</p>
    *          <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -3449,6 +3530,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets the list of CloudFront origin access controls in this Amazon Web Services account.</p>
    *          <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -3486,6 +3568,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of origin request policies.</p>
    *          <p>You can optionally apply a filter to return only the managed policies created by
    * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
@@ -3525,6 +3608,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>List all public keys that have been added to CloudFront for this account.</p>
    */
   public listPublicKeys(
@@ -3557,6 +3641,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of real-time log configurations.</p>
    *          <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -3594,6 +3679,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of response headers policies.</p>
    *          <p>You can optionally apply a filter to get only the managed policies created by Amazon Web Services,
    * 			or only the custom policies created in your Amazon Web Services account.</p>
@@ -3633,6 +3719,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>List streaming distributions.</p>
    */
   public listStreamingDistributions(
@@ -3665,6 +3752,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>List tags for a CloudFront resource.</p>
    */
   public listTagsForResource(
@@ -3697,6 +3785,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Publishes a CloudFront function by copying the function code from the
    * 				<code>DEVELOPMENT</code> stage to <code>LIVE</code>. This automatically updates all
    * 			cache behaviors that are using this function to use the newly published copy in the
@@ -3738,6 +3827,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Add tags to a CloudFront resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -3764,6 +3854,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Tests a CloudFront function.</p>
    *          <p>To test a function, you provide an <i>event object</i> that represents
    * 			an HTTP request or response that your CloudFront distribution could receive in production.
@@ -3802,6 +3893,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Remove tags from a CloudFront resource.</p>
    */
   public untagResource(
@@ -3834,6 +3926,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Updates a cache policy configuration.</p>
    *          <p>When you update a cache policy configuration, all the fields are updated with the
    * 			values provided in the request. You cannot update some fields independent of others. To
@@ -3883,6 +3976,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Update an origin access identity.</p>
    */
   public updateCloudFrontOriginAccessIdentity(
@@ -3915,6 +4009,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Updates a continuous deployment policy. You can update a continuous deployment policy
    * 			to enable or disable it, to change the percentage of traffic that it sends to the
    * 			staging distribution, or to change the staging distribution that it sends traffic
@@ -3968,6 +4063,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration for a CloudFront distribution.</p>
    *          <p>The update process includes getting the current distribution configuration, updating
    * 			it to make your changes, and then submitting an <code>UpdateDistribution</code> request
@@ -4035,6 +4131,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Copies the staging distribution's configuration to its corresponding primary
    * 			distribution. The primary distribution retains its <code>Aliases</code> (also known as
    * 			alternate domain names or CNAMEs) and <code>ContinuousDeploymentPolicyId</code> value,
@@ -4076,6 +4173,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Update a field-level encryption configuration.</p>
    */
   public updateFieldLevelEncryptionConfig(
@@ -4108,6 +4206,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Update a field-level encryption profile.</p>
    */
   public updateFieldLevelEncryptionProfile(
@@ -4140,6 +4239,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Updates a CloudFront function.</p>
    *          <p>You can update a function's code or the comment that describes the function. You
    * 			cannot update a function's name.</p>
@@ -4177,6 +4277,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Updates a key group.</p>
    *          <p>When you update a key group, all the fields are updated with the values provided in
    * 			the request. You cannot update some fields independent of others. To update a key
@@ -4226,6 +4327,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Updates a CloudFront origin access control.</p>
    */
   public updateOriginAccessControl(
@@ -4258,6 +4360,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Updates an origin request policy configuration.</p>
    *          <p>When you update an origin request policy configuration, all the fields are updated
    * 			with the values provided in the request. You cannot update some fields independent of
@@ -4308,6 +4411,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Update public key information. Note that the only value you can change is the
    * 			comment.</p>
    */
@@ -4341,6 +4445,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Updates a real-time log configuration.</p>
    *          <p>When you update a real-time log configuration, all the parameters are updated with the
    * 			values provided in the request. You cannot update some parameters independent of others.
@@ -4393,6 +4498,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Updates a response headers policy.</p>
    *          <p>When you update a response headers policy, the entire policy is replaced. You cannot
    * 			update some policy fields independent of others. To update a response headers policy
@@ -4443,6 +4549,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * @public
    * <p>Update a streaming distribution.</p>
    */
   public updateStreamingDistribution(

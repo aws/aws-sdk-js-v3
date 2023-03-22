@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointsBatchCommand}.
  */
 export interface UpdateEndpointsBatchCommandInput extends UpdateEndpointsBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointsBatchCommand}.
  */
 export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes for a batch of endpoints. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointsBatchCommandInput - {@link UpdateEndpointsBatchCommandInput}
+ * @returns {@link UpdateEndpointsBatchCommandOutput}
  * @see {@link UpdateEndpointsBatchCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointsBatchCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateEndpointsBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointsBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateEndpointsBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointsBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEndpointsBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointsBatchCommandOutput> {
     return deserializeAws_restJson1UpdateEndpointsBatchCommand(output, context);
   }

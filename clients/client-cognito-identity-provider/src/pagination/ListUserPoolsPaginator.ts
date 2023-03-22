@@ -10,7 +10,7 @@ import {
 import { CognitoIdentityProviderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CognitoIdentityProviderClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListUserPoolsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListUserPools(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListUserPoolsCommandInput,

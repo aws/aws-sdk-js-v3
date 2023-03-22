@@ -23,15 +23,20 @@ import { deserializeAws_queryAddPartnerCommand, serializeAws_queryAddPartnerComm
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddPartnerCommand}.
  */
 export interface AddPartnerCommandInput extends PartnerIntegrationInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddPartnerCommand}.
  */
 export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a partner integration to a cluster.
  *             This operation authorizes a partner to push status updates for the specified database.
  *             To complete the integration, you also set up the integration on the partner website.</p>
@@ -45,6 +50,8 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  * const response = await client.send(command);
  * ```
  *
+ * @param AddPartnerCommandInput - {@link AddPartnerCommandInput}
+ * @returns {@link AddPartnerCommandOutput}
  * @see {@link AddPartnerCommandInput} for command's `input` shape.
  * @see {@link AddPartnerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -78,6 +85,9 @@ export class AddPartnerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddPartnerCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class AddPartnerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddPartnerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddPartnerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPartnerCommandOutput> {
     return deserializeAws_queryAddPartnerCommand(output, context);
   }

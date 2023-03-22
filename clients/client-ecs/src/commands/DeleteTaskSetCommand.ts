@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTaskSetCommand}.
  */
 export interface DeleteTaskSetCommandInput extends DeleteTaskSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTaskSetCommand}.
  */
 export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified task set within a service. This is used when a service uses the
  * 				<code>EXTERNAL</code> deployment controller type. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTaskSetCommandInput - {@link DeleteTaskSetCommandInput}
+ * @returns {@link DeleteTaskSetCommandOutput}
  * @see {@link DeleteTaskSetCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -103,6 +110,9 @@ export class DeleteTaskSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTaskSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteTaskSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTaskSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTaskSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskSetCommandOutput> {
     return deserializeAws_json1_1DeleteTaskSetCommand(output, context);
   }

@@ -80,54 +80,82 @@ import {
   VpcOutputSettingsDescription,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export enum HlsMode {
   LIVE = "LIVE",
   VOD = "VOD",
 }
 
+/**
+ * @public
+ */
 export enum HlsOutputSelection {
   MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
   SEGMENTS_ONLY = "SEGMENTS_ONLY",
   VARIANT_MANIFESTS_AND_SEGMENTS = "VARIANT_MANIFESTS_AND_SEGMENTS",
 }
 
+/**
+ * @public
+ */
 export enum HlsProgramDateTime {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum HlsProgramDateTimeClock {
   INITIALIZE_FROM_OUTPUT_TIMECODE = "INITIALIZE_FROM_OUTPUT_TIMECODE",
   SYSTEM_CLOCK = "SYSTEM_CLOCK",
 }
 
+/**
+ * @public
+ */
 export enum HlsRedundantManifest {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum HlsSegmentationMode {
   USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
   USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
 }
 
+/**
+ * @public
+ */
 export enum HlsStreamInfResolution {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
+/**
+ * @public
+ */
 export enum HlsTimedMetadataId3Frame {
   NONE = "NONE",
   PRIV = "PRIV",
   TDRL = "TDRL",
 }
 
+/**
+ * @public
+ */
 export enum HlsTsFileMode {
   SEGMENTED_FILES = "SEGMENTED_FILES",
   SINGLE_FILE = "SINGLE_FILE",
 }
 
 /**
+ * @public
  * Hls Group Settings
  */
 export interface HlsGroupSettings {
@@ -383,6 +411,7 @@ export interface HlsGroupSettings {
 }
 
 /**
+ * @public
  * Media Package Group Settings
  */
 export interface MediaPackageGroupSettings {
@@ -392,54 +421,82 @@ export interface MediaPackageGroupSettings {
   Destination: OutputLocationRef | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SmoothGroupAudioOnlyTimecodeControl {
   PASSTHROUGH = "PASSTHROUGH",
   USE_CONFIGURED_CLOCK = "USE_CONFIGURED_CLOCK",
 }
 
+/**
+ * @public
+ */
 export enum SmoothGroupCertificateMode {
   SELF_SIGNED = "SELF_SIGNED",
   VERIFY_AUTHENTICITY = "VERIFY_AUTHENTICITY",
 }
 
+/**
+ * @public
+ */
 export enum SmoothGroupEventIdMode {
   NO_EVENT_ID = "NO_EVENT_ID",
   USE_CONFIGURED = "USE_CONFIGURED",
   USE_TIMESTAMP = "USE_TIMESTAMP",
 }
 
+/**
+ * @public
+ */
 export enum SmoothGroupEventStopBehavior {
   NONE = "NONE",
   SEND_EOS = "SEND_EOS",
 }
 
+/**
+ * @public
+ */
 export enum InputLossActionForMsSmoothOut {
   EMIT_OUTPUT = "EMIT_OUTPUT",
   PAUSE_OUTPUT = "PAUSE_OUTPUT",
 }
 
+/**
+ * @public
+ */
 export enum SmoothGroupSegmentationMode {
   USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
   USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
 }
 
+/**
+ * @public
+ */
 export enum SmoothGroupSparseTrackType {
   NONE = "NONE",
   SCTE_35 = "SCTE_35",
   SCTE_35_WITHOUT_SEGMENTATION = "SCTE_35_WITHOUT_SEGMENTATION",
 }
 
+/**
+ * @public
+ */
 export enum SmoothGroupStreamManifestBehavior {
   DO_NOT_SEND = "DO_NOT_SEND",
   SEND = "SEND",
 }
 
+/**
+ * @public
+ */
 export enum SmoothGroupTimestampOffsetMode {
   USE_CONFIGURED_OFFSET = "USE_CONFIGURED_OFFSET",
   USE_EVENT_START_DATE = "USE_EVENT_START_DATE",
 }
 
 /**
+ * @public
  * Ms Smooth Group Settings
  */
 export interface MsSmoothGroupSettings {
@@ -552,36 +609,53 @@ export interface MsSmoothGroupSettings {
 }
 
 /**
+ * @public
  * Multiplex Group Settings
  */
 export interface MultiplexGroupSettings {}
 
+/**
+ * @public
+ */
 export enum RtmpAdMarkers {
   ON_CUE_POINT_SCTE35 = "ON_CUE_POINT_SCTE35",
 }
 
+/**
+ * @public
+ */
 export enum AuthenticationScheme {
   AKAMAI = "AKAMAI",
   COMMON = "COMMON",
 }
 
+/**
+ * @public
+ */
 export enum RtmpCacheFullBehavior {
   DISCONNECT_IMMEDIATELY = "DISCONNECT_IMMEDIATELY",
   WAIT_FOR_SERVER = "WAIT_FOR_SERVER",
 }
 
+/**
+ * @public
+ */
 export enum RtmpCaptionData {
   ALL = "ALL",
   FIELD1_608 = "FIELD1_608",
   FIELD1_AND_FIELD2_608 = "FIELD1_AND_FIELD2_608",
 }
 
+/**
+ * @public
+ */
 export enum InputLossActionForRtmpOut {
   EMIT_OUTPUT = "EMIT_OUTPUT",
   PAUSE_OUTPUT = "PAUSE_OUTPUT",
 }
 
 /**
+ * @public
  * Rtmp Group Settings
  */
 export interface RtmpGroupSettings {
@@ -624,12 +698,18 @@ export interface RtmpGroupSettings {
   RestartDelay?: number;
 }
 
+/**
+ * @public
+ */
 export enum InputLossActionForUdpOut {
   DROP_PROGRAM = "DROP_PROGRAM",
   DROP_TS = "DROP_TS",
   EMIT_PROGRAM = "EMIT_PROGRAM",
 }
 
+/**
+ * @public
+ */
 export enum UdpTimedMetadataId3Frame {
   NONE = "NONE",
   PRIV = "PRIV",
@@ -637,6 +717,7 @@ export enum UdpTimedMetadataId3Frame {
 }
 
 /**
+ * @public
  * Udp Group Settings
  */
 export interface UdpGroupSettings {
@@ -657,6 +738,7 @@ export interface UdpGroupSettings {
 }
 
 /**
+ * @public
  * Output Group Settings
  */
 export interface OutputGroupSettings {
@@ -702,6 +784,7 @@ export interface OutputGroupSettings {
 }
 
 /**
+ * @public
  * Output groups for this Live Event. Output groups contain information about where streams should be distributed.
  */
 export interface OutputGroup {
@@ -722,6 +805,7 @@ export interface OutputGroup {
 }
 
 /**
+ * @public
  * Runtime details of a pipeline when a channel is running.
  */
 export interface PipelineDetail {
@@ -751,12 +835,16 @@ export interface PipelineDetail {
   PipelineId?: string;
 }
 
+/**
+ * @public
+ */
 export enum PipelineId {
   PIPELINE_0 = "PIPELINE_0",
   PIPELINE_1 = "PIPELINE_1",
 }
 
 /**
+ * @public
  * Settings for pausing a pipeline.
  */
 export interface PipelinePauseStateSettings {
@@ -766,6 +854,9 @@ export interface PipelinePauseStateSettings {
   PipelineId: PipelineId | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReservationAutomaticRenewal {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -773,6 +864,7 @@ export enum ReservationAutomaticRenewal {
 }
 
 /**
+ * @public
  * The Renewal settings for Reservations
  */
 export interface RenewalSettings {
@@ -787,6 +879,9 @@ export interface RenewalSettings {
   RenewalCount?: number;
 }
 
+/**
+ * @public
+ */
 export enum ReservationState {
   ACTIVE = "ACTIVE",
   CANCELED = "CANCELED",
@@ -795,6 +890,7 @@ export enum ReservationState {
 }
 
 /**
+ * @public
  * Reserved resources available to use
  */
 export interface Reservation {
@@ -895,6 +991,7 @@ export interface Reservation {
 }
 
 /**
+ * @public
  * Settings for the action to insert a user-defined ID3 tag in each HLS segment
  */
 export interface HlsId3SegmentTaggingScheduleActionSettings {
@@ -905,6 +1002,7 @@ export interface HlsId3SegmentTaggingScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for the action to emit HLS metadata
  */
 export interface HlsTimedMetadataScheduleActionSettings {
@@ -914,12 +1012,16 @@ export interface HlsTimedMetadataScheduleActionSettings {
   Id3: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InputTimecodeSource {
   EMBEDDED = "EMBEDDED",
   ZEROBASED = "ZEROBASED",
 }
 
 /**
+ * @public
  * Settings to identify the start of the clip.
  */
 export interface StartTimecode {
@@ -929,12 +1031,16 @@ export interface StartTimecode {
   Timecode?: string;
 }
 
+/**
+ * @public
+ */
 export enum LastFrameClippingBehavior {
   EXCLUDE_LAST_FRAME = "EXCLUDE_LAST_FRAME",
   INCLUDE_LAST_FRAME = "INCLUDE_LAST_FRAME",
 }
 
 /**
+ * @public
  * Settings to identify the end of the clip.
  */
 export interface StopTimecode {
@@ -950,6 +1056,7 @@ export interface StopTimecode {
 }
 
 /**
+ * @public
  * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
  */
 export interface InputClippingSettings {
@@ -970,6 +1077,7 @@ export interface InputClippingSettings {
 }
 
 /**
+ * @public
  * Action to prepare an input for a future immediate input switch.
  */
 export interface InputPrepareScheduleActionSettings {
@@ -990,6 +1098,7 @@ export interface InputPrepareScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for the "switch input" action: to switch from ingesting one input to ingesting another input.
  */
 export interface InputSwitchScheduleActionSettings {
@@ -1010,6 +1119,7 @@ export interface InputSwitchScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings to specify the rendering of motion graphics into the video stream.
  */
 export interface MotionGraphicsActivateScheduleActionSettings {
@@ -1035,11 +1145,13 @@ export interface MotionGraphicsActivateScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings to specify the ending of rendering motion graphics into the video stream.
  */
 export interface MotionGraphicsDeactivateScheduleActionSettings {}
 
 /**
+ * @public
  * Settings for the action to set pause state of a channel.
  */
 export interface PauseStateScheduleActionSettings {
@@ -1049,12 +1161,16 @@ export interface PauseStateScheduleActionSettings {
   Pipelines?: PipelinePauseStateSettings[];
 }
 
+/**
+ * @public
+ */
 export enum Scte35InputMode {
   FIXED = "FIXED",
   FOLLOW_ACTIVE = "FOLLOW_ACTIVE",
 }
 
 /**
+ * @public
  * Scte35Input Schedule Action Settings
  */
 export interface Scte35InputScheduleActionSettings {
@@ -1070,6 +1186,7 @@ export interface Scte35InputScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for a SCTE-35 return_to_network message.
  */
 export interface Scte35ReturnToNetworkScheduleActionSettings {
@@ -1080,6 +1197,7 @@ export interface Scte35ReturnToNetworkScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for a SCTE-35 splice_insert message.
  */
 export interface Scte35SpliceInsertScheduleActionSettings {
@@ -1094,11 +1212,17 @@ export interface Scte35SpliceInsertScheduleActionSettings {
   SpliceEventId: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Scte35ArchiveAllowedFlag {
   ARCHIVE_ALLOWED = "ARCHIVE_ALLOWED",
   ARCHIVE_NOT_ALLOWED = "ARCHIVE_NOT_ALLOWED",
 }
 
+/**
+ * @public
+ */
 export enum Scte35DeviceRestrictions {
   NONE = "NONE",
   RESTRICT_GROUP0 = "RESTRICT_GROUP0",
@@ -1106,17 +1230,24 @@ export enum Scte35DeviceRestrictions {
   RESTRICT_GROUP2 = "RESTRICT_GROUP2",
 }
 
+/**
+ * @public
+ */
 export enum Scte35NoRegionalBlackoutFlag {
   NO_REGIONAL_BLACKOUT = "NO_REGIONAL_BLACKOUT",
   REGIONAL_BLACKOUT = "REGIONAL_BLACKOUT",
 }
 
+/**
+ * @public
+ */
 export enum Scte35WebDeliveryAllowedFlag {
   WEB_DELIVERY_ALLOWED = "WEB_DELIVERY_ALLOWED",
   WEB_DELIVERY_NOT_ALLOWED = "WEB_DELIVERY_NOT_ALLOWED",
 }
 
 /**
+ * @public
  * Corresponds to SCTE-35 delivery_not_restricted_flag parameter. To declare delivery restrictions, include this element and its four "restriction" flags. To declare that there are no restrictions, omit this element.
  */
 export interface Scte35DeliveryRestrictions {
@@ -1141,12 +1272,16 @@ export interface Scte35DeliveryRestrictions {
   WebDeliveryAllowedFlag: Scte35WebDeliveryAllowedFlag | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Scte35SegmentationCancelIndicator {
   SEGMENTATION_EVENT_CANCELED = "SEGMENTATION_EVENT_CANCELED",
   SEGMENTATION_EVENT_NOT_CANCELED = "SEGMENTATION_EVENT_NOT_CANCELED",
 }
 
 /**
+ * @public
  * Corresponds to SCTE-35 segmentation_descriptor.
  */
 export interface Scte35SegmentationDescriptor {
@@ -1207,6 +1342,7 @@ export interface Scte35SegmentationDescriptor {
 }
 
 /**
+ * @public
  * SCTE-35 Descriptor settings.
  */
 export interface Scte35DescriptorSettings {
@@ -1217,6 +1353,7 @@ export interface Scte35DescriptorSettings {
 }
 
 /**
+ * @public
  * Holds one set of SCTE-35 Descriptor Settings.
  */
 export interface Scte35Descriptor {
@@ -1227,6 +1364,7 @@ export interface Scte35Descriptor {
 }
 
 /**
+ * @public
  * Settings for a SCTE-35 time_signal.
  */
 export interface Scte35TimeSignalScheduleActionSettings {
@@ -1237,6 +1375,7 @@ export interface Scte35TimeSignalScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for the action to activate a static image.
  */
 export interface StaticImageActivateScheduleActionSettings {
@@ -1292,6 +1431,7 @@ export interface StaticImageActivateScheduleActionSettings {
 }
 
 /**
+ * @public
  * Settings for the action to deactivate the image in a specific layer.
  */
 export interface StaticImageDeactivateScheduleActionSettings {
@@ -1307,6 +1447,7 @@ export interface StaticImageDeactivateScheduleActionSettings {
 }
 
 /**
+ * @public
  * Holds the settings for a single schedule action.
  */
 export interface ScheduleActionSettings {
@@ -1377,6 +1518,7 @@ export interface ScheduleActionSettings {
 }
 
 /**
+ * @public
  * Start time for the action.
  */
 export interface FixedModeScheduleActionStartSettings {
@@ -1386,12 +1528,16 @@ export interface FixedModeScheduleActionStartSettings {
   Time: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FollowPoint {
   END = "END",
   START = "START",
 }
 
 /**
+ * @public
  * Settings to specify if an action follows another.
  */
 export interface FollowModeScheduleActionStartSettings {
@@ -1407,11 +1553,13 @@ export interface FollowModeScheduleActionStartSettings {
 }
 
 /**
+ * @public
  * Settings to configure an action so that it occurs as soon as possible.
  */
 export interface ImmediateModeScheduleActionStartSettings {}
 
 /**
+ * @public
  * Settings to specify when an action should occur. Only one of the options must be selected.
  */
 export interface ScheduleActionStartSettings {
@@ -1432,6 +1580,7 @@ export interface ScheduleActionStartSettings {
 }
 
 /**
+ * @public
  * Contains information on a single schedule action.
  */
 export interface ScheduleAction {
@@ -1451,12 +1600,16 @@ export interface ScheduleAction {
   ScheduleActionStartSettings: ScheduleActionStartSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InputDeviceTransferType {
   INCOMING = "INCOMING",
   OUTGOING = "OUTGOING",
 }
 
 /**
+ * @public
  * Details about the input device that is being transferred.
  */
 export interface TransferringInputDeviceSummary {
@@ -1482,6 +1635,7 @@ export interface TransferringInputDeviceSummary {
 }
 
 /**
+ * @public
  * Placeholder documentation for ValidationError
  */
 export interface ValidationError {
@@ -1496,11 +1650,17 @@ export interface ValidationError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum FrameCaptureIntervalUnit {
   MILLISECONDS = "MILLISECONDS",
   SECONDS = "SECONDS",
 }
 
+/**
+ * @public
+ */
 export enum TimecodeBurninFontSize {
   EXTRA_SMALL_10 = "EXTRA_SMALL_10",
   LARGE_48 = "LARGE_48",
@@ -1508,6 +1668,9 @@ export enum TimecodeBurninFontSize {
   SMALL_16 = "SMALL_16",
 }
 
+/**
+ * @public
+ */
 export enum TimecodeBurninPosition {
   BOTTOM_CENTER = "BOTTOM_CENTER",
   BOTTOM_LEFT = "BOTTOM_LEFT",
@@ -1521,6 +1684,7 @@ export enum TimecodeBurninPosition {
 }
 
 /**
+ * @public
  * Timecode Burnin Settings
  */
 export interface TimecodeBurninSettings {
@@ -1541,6 +1705,7 @@ export interface TimecodeBurninSettings {
 }
 
 /**
+ * @public
  * Frame Capture Settings
  */
 export interface FrameCaptureSettings {
@@ -1560,6 +1725,9 @@ export interface FrameCaptureSettings {
   TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
+/**
+ * @public
+ */
 export enum H264AdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -1570,33 +1738,43 @@ export enum H264AdaptiveQuantization {
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum AfdSignaling {
   AUTO = "AUTO",
   FIXED = "FIXED",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum H264ColorMetadata {
   IGNORE = "IGNORE",
   INSERT = "INSERT",
 }
 
 /**
+ * @public
  * Passthrough applies no color space conversion to the output
  */
 export interface ColorSpacePassthroughSettings {}
 
 /**
+ * @public
  * Rec601 Settings
  */
 export interface Rec601Settings {}
 
 /**
+ * @public
  * Rec709 Settings
  */
 export interface Rec709Settings {}
 
 /**
+ * @public
  * H264 Color Space Settings
  */
 export interface H264ColorSpaceSettings {
@@ -1616,17 +1794,26 @@ export interface H264ColorSpaceSettings {
   Rec709Settings?: Rec709Settings;
 }
 
+/**
+ * @public
+ */
 export enum H264EntropyEncoding {
   CABAC = "CABAC",
   CAVLC = "CAVLC",
 }
 
+/**
+ * @public
+ */
 export enum TemporalFilterPostFilterSharpening {
   AUTO = "AUTO",
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum TemporalFilterStrength {
   AUTO = "AUTO",
   STRENGTH_1 = "STRENGTH_1",
@@ -1648,6 +1835,7 @@ export enum TemporalFilterStrength {
 }
 
 /**
+ * @public
  * Temporal Filter Settings
  */
 export interface TemporalFilterSettings {
@@ -1665,6 +1853,7 @@ export interface TemporalFilterSettings {
 }
 
 /**
+ * @public
  * H264 Filter Settings
  */
 export interface H264FilterSettings {
@@ -1674,6 +1863,9 @@ export interface H264FilterSettings {
   TemporalFilterSettings?: TemporalFilterSettings;
 }
 
+/**
+ * @public
+ */
 export enum FixedAfd {
   AFD_0000 = "AFD_0000",
   AFD_0010 = "AFD_0010",
@@ -1688,31 +1880,49 @@ export enum FixedAfd {
   AFD_1111 = "AFD_1111",
 }
 
+/**
+ * @public
+ */
 export enum H264FlickerAq {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264ForceFieldPictures {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum H264GopBReference {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264GopSizeUnits {
   FRAMES = "FRAMES",
   SECONDS = "SECONDS",
 }
 
+/**
+ * @public
+ */
 export enum H264Level {
   H264_LEVEL_1 = "H264_LEVEL_1",
   H264_LEVEL_1_1 = "H264_LEVEL_1_1",
@@ -1733,17 +1943,26 @@ export enum H264Level {
   H264_LEVEL_AUTO = "H264_LEVEL_AUTO",
 }
 
+/**
+ * @public
+ */
 export enum H264LookAheadRateControl {
   HIGH = "HIGH",
   LOW = "LOW",
   MEDIUM = "MEDIUM",
 }
 
+/**
+ * @public
+ */
 export enum H264ParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum H264Profile {
   BASELINE = "BASELINE",
   HIGH = "HIGH",
@@ -1753,11 +1972,17 @@ export enum H264Profile {
   MAIN = "MAIN",
 }
 
+/**
+ * @public
+ */
 export enum H264QualityLevel {
   ENHANCED_QUALITY = "ENHANCED_QUALITY",
   STANDARD_QUALITY = "STANDARD_QUALITY",
 }
 
+/**
+ * @public
+ */
 export enum H264RateControlMode {
   CBR = "CBR",
   MULTIPLEX = "MULTIPLEX",
@@ -1765,42 +1990,64 @@ export enum H264RateControlMode {
   VBR = "VBR",
 }
 
+/**
+ * @public
+ */
 export enum H264ScanType {
   INTERLACED = "INTERLACED",
   PROGRESSIVE = "PROGRESSIVE",
 }
 
+/**
+ * @public
+ */
 export enum H264SceneChangeDetect {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264SpatialAq {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264SubGopLength {
   DYNAMIC = "DYNAMIC",
   FIXED = "FIXED",
 }
 
+/**
+ * @public
+ */
 export enum H264Syntax {
   DEFAULT = "DEFAULT",
   RP2027 = "RP2027",
 }
 
+/**
+ * @public
+ */
 export enum H264TemporalAq {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H264TimecodeInsertionBehavior {
   DISABLED = "DISABLED",
   PIC_TIMING_SEI = "PIC_TIMING_SEI",
 }
 
 /**
+ * @public
  * H264 Settings
  */
 export interface H264Settings {
@@ -2046,6 +2293,9 @@ export interface H264Settings {
   TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
+/**
+ * @public
+ */
 export enum H265AdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -2056,22 +2306,30 @@ export enum H265AdaptiveQuantization {
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum H265AlternativeTransferFunction {
   INSERT = "INSERT",
   OMIT = "OMIT",
 }
 
+/**
+ * @public
+ */
 export enum H265ColorMetadata {
   IGNORE = "IGNORE",
   INSERT = "INSERT",
 }
 
 /**
+ * @public
  * Dolby Vision81 Settings
  */
 export interface DolbyVision81Settings {}
 
 /**
+ * @public
  * H265 Color Space Settings
  */
 export interface H265ColorSpaceSettings {
@@ -2102,6 +2360,7 @@ export interface H265ColorSpaceSettings {
 }
 
 /**
+ * @public
  * H265 Filter Settings
  */
 export interface H265FilterSettings {
@@ -2111,16 +2370,25 @@ export interface H265FilterSettings {
   TemporalFilterSettings?: TemporalFilterSettings;
 }
 
+/**
+ * @public
+ */
 export enum H265FlickerAq {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265GopSizeUnits {
   FRAMES = "FRAMES",
   SECONDS = "SECONDS",
 }
 
+/**
+ * @public
+ */
 export enum H265Level {
   H265_LEVEL_1 = "H265_LEVEL_1",
   H265_LEVEL_2 = "H265_LEVEL_2",
@@ -2138,44 +2406,66 @@ export enum H265Level {
   H265_LEVEL_AUTO = "H265_LEVEL_AUTO",
 }
 
+/**
+ * @public
+ */
 export enum H265LookAheadRateControl {
   HIGH = "HIGH",
   LOW = "LOW",
   MEDIUM = "MEDIUM",
 }
 
+/**
+ * @public
+ */
 export enum H265Profile {
   MAIN = "MAIN",
   MAIN_10BIT = "MAIN_10BIT",
 }
 
+/**
+ * @public
+ */
 export enum H265RateControlMode {
   CBR = "CBR",
   MULTIPLEX = "MULTIPLEX",
   QVBR = "QVBR",
 }
 
+/**
+ * @public
+ */
 export enum H265ScanType {
   INTERLACED = "INTERLACED",
   PROGRESSIVE = "PROGRESSIVE",
 }
 
+/**
+ * @public
+ */
 export enum H265SceneChangeDetect {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum H265Tier {
   HIGH = "HIGH",
   MAIN = "MAIN",
 }
 
+/**
+ * @public
+ */
 export enum H265TimecodeInsertionBehavior {
   DISABLED = "DISABLED",
   PIC_TIMING_SEI = "PIC_TIMING_SEI",
 }
 
 /**
+ * @public
  * H265 Settings
  */
 export interface H265Settings {
@@ -2348,6 +2638,9 @@ export interface H265Settings {
   TimecodeBurninSettings?: TimecodeBurninSettings;
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2AdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -2356,22 +2649,32 @@ export enum Mpeg2AdaptiveQuantization {
   OFF = "OFF",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2ColorMetadata {
   IGNORE = "IGNORE",
   INSERT = "INSERT",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2ColorSpace {
   AUTO = "AUTO",
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2DisplayRatio {
   DISPLAYRATIO16X9 = "DISPLAYRATIO16X9",
   DISPLAYRATIO4X3 = "DISPLAYRATIO4X3",
 }
 
 /**
+ * @public
  * Mpeg2 Filter Settings
  */
 export interface Mpeg2FilterSettings {
@@ -2381,27 +2684,40 @@ export interface Mpeg2FilterSettings {
   TemporalFilterSettings?: TemporalFilterSettings;
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2GopSizeUnits {
   FRAMES = "FRAMES",
   SECONDS = "SECONDS",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2ScanType {
   INTERLACED = "INTERLACED",
   PROGRESSIVE = "PROGRESSIVE",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2SubGopLength {
   DYNAMIC = "DYNAMIC",
   FIXED = "FIXED",
 }
 
+/**
+ * @public
+ */
 export enum Mpeg2TimecodeInsertionBehavior {
   DISABLED = "DISABLED",
   GOP_TIMECODE = "GOP_TIMECODE",
 }
 
 /**
+ * @public
  * Mpeg2 Settings
  */
 export interface Mpeg2Settings {
@@ -2505,6 +2821,7 @@ export interface Mpeg2Settings {
 }
 
 /**
+ * @public
  * Video Codec Settings
  */
 export interface VideoCodecSettings {
@@ -2529,18 +2846,25 @@ export interface VideoCodecSettings {
   Mpeg2Settings?: Mpeg2Settings;
 }
 
+/**
+ * @public
+ */
 export enum VideoDescriptionRespondToAfd {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
   RESPOND = "RESPOND",
 }
 
+/**
+ * @public
+ */
 export enum VideoDescriptionScalingBehavior {
   DEFAULT = "DEFAULT",
   STRETCH_TO_OUTPUT = "STRETCH_TO_OUTPUT",
 }
 
 /**
+ * @public
  * Video settings for this stream.
  */
 export interface VideoDescription {
@@ -2583,11 +2907,15 @@ export interface VideoDescription {
   Width?: number;
 }
 
+/**
+ * @public
+ */
 export enum AcceptHeader {
   image_jpeg = "image/jpeg",
 }
 
 /**
+ * @public
  * Placeholder documentation for AcceptInputDeviceTransferRequest
  */
 export interface AcceptInputDeviceTransferRequest {
@@ -2598,11 +2926,13 @@ export interface AcceptInputDeviceTransferRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for AcceptInputDeviceTransferResponse
  */
 export interface AcceptInputDeviceTransferResponse {}
 
 /**
+ * @public
  * Placeholder documentation for BadGatewayException
  */
 export class BadGatewayException extends __BaseException {
@@ -2627,6 +2957,7 @@ export class BadGatewayException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for BadRequestException
  */
 export class BadRequestException extends __BaseException {
@@ -2651,6 +2982,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for ConflictException
  */
 export class ConflictException extends __BaseException {
@@ -2675,6 +3007,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for ForbiddenException
  */
 export class ForbiddenException extends __BaseException {
@@ -2699,6 +3032,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for GatewayTimeoutException
  */
 export class GatewayTimeoutException extends __BaseException {
@@ -2723,6 +3057,7 @@ export class GatewayTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for InternalServerErrorException
  */
 export class InternalServerErrorException extends __BaseException {
@@ -2747,6 +3082,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for NotFoundException
  */
 export class NotFoundException extends __BaseException {
@@ -2771,6 +3107,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for TooManyRequestsException
  */
 export class TooManyRequestsException extends __BaseException {
@@ -2795,6 +3132,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * Placeholder documentation for UnprocessableEntityException
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -2824,12 +3162,16 @@ export class UnprocessableEntityException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AvailBlankingState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Avail Blanking
  */
 export interface AvailBlanking {
@@ -2845,6 +3187,7 @@ export interface AvailBlanking {
 }
 
 /**
+ * @public
  * Esam
  */
 export interface Esam {
@@ -2879,17 +3222,24 @@ export interface Esam {
   ZoneIdentity?: string;
 }
 
+/**
+ * @public
+ */
 export enum Scte35SpliceInsertNoRegionalBlackoutBehavior {
   FOLLOW = "FOLLOW",
   IGNORE = "IGNORE",
 }
 
+/**
+ * @public
+ */
 export enum Scte35SpliceInsertWebDeliveryAllowedBehavior {
   FOLLOW = "FOLLOW",
   IGNORE = "IGNORE",
 }
 
 /**
+ * @public
  * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
  */
 export interface Scte35SpliceInsert {
@@ -2909,17 +3259,24 @@ export interface Scte35SpliceInsert {
   WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | string;
 }
 
+/**
+ * @public
+ */
 export enum Scte35AposNoRegionalBlackoutBehavior {
   FOLLOW = "FOLLOW",
   IGNORE = "IGNORE",
 }
 
+/**
+ * @public
+ */
 export enum Scte35AposWebDeliveryAllowedBehavior {
   FOLLOW = "FOLLOW",
   IGNORE = "IGNORE",
 }
 
 /**
+ * @public
  * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
  */
 export interface Scte35TimeSignalApos {
@@ -2940,6 +3297,7 @@ export interface Scte35TimeSignalApos {
 }
 
 /**
+ * @public
  * Avail Settings
  */
 export interface AvailSettings {
@@ -2960,6 +3318,7 @@ export interface AvailSettings {
 }
 
 /**
+ * @public
  * Avail Configuration
  */
 export interface AvailConfiguration {
@@ -2970,6 +3329,7 @@ export interface AvailConfiguration {
 }
 
 /**
+ * @public
  * A request to delete resources
  */
 export interface BatchDeleteRequest {
@@ -2995,6 +3355,7 @@ export interface BatchDeleteRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for BatchDeleteResponse
  */
 export interface BatchDeleteResponse {
@@ -3010,6 +3371,7 @@ export interface BatchDeleteResponse {
 }
 
 /**
+ * @public
  * A list of schedule actions to create (in a request) or that have been created (in a response).
  */
 export interface BatchScheduleActionCreateRequest {
@@ -3020,6 +3382,7 @@ export interface BatchScheduleActionCreateRequest {
 }
 
 /**
+ * @public
  * List of actions that have been created in the schedule.
  */
 export interface BatchScheduleActionCreateResult {
@@ -3030,6 +3393,7 @@ export interface BatchScheduleActionCreateResult {
 }
 
 /**
+ * @public
  * A list of schedule actions to delete.
  */
 export interface BatchScheduleActionDeleteRequest {
@@ -3040,6 +3404,7 @@ export interface BatchScheduleActionDeleteRequest {
 }
 
 /**
+ * @public
  * List of actions that have been deleted from the schedule.
  */
 export interface BatchScheduleActionDeleteResult {
@@ -3050,6 +3415,7 @@ export interface BatchScheduleActionDeleteResult {
 }
 
 /**
+ * @public
  * A request to start resources
  */
 export interface BatchStartRequest {
@@ -3065,6 +3431,7 @@ export interface BatchStartRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for BatchStartResponse
  */
 export interface BatchStartResponse {
@@ -3080,6 +3447,7 @@ export interface BatchStartResponse {
 }
 
 /**
+ * @public
  * A request to stop resources
  */
 export interface BatchStopRequest {
@@ -3095,6 +3463,7 @@ export interface BatchStopRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for BatchStopResponse
  */
 export interface BatchStopResponse {
@@ -3110,6 +3479,7 @@ export interface BatchStopResponse {
 }
 
 /**
+ * @public
  * List of actions to create and list of actions to delete.
  */
 export interface BatchUpdateScheduleRequest {
@@ -3130,6 +3500,7 @@ export interface BatchUpdateScheduleRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for BatchUpdateScheduleResponse
  */
 export interface BatchUpdateScheduleResponse {
@@ -3144,17 +3515,24 @@ export interface BatchUpdateScheduleResponse {
   Deletes?: BatchScheduleActionDeleteResult;
 }
 
+/**
+ * @public
+ */
 export enum BlackoutSlateNetworkEndBlackout {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export enum BlackoutSlateState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Blackout Slate
  */
 export interface BlackoutSlate {
@@ -3185,6 +3563,7 @@ export interface BlackoutSlate {
 }
 
 /**
+ * @public
  * Placeholder documentation for CancelInputDeviceTransferRequest
  */
 export interface CancelInputDeviceTransferRequest {
@@ -3195,16 +3574,21 @@ export interface CancelInputDeviceTransferRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CancelInputDeviceTransferResponse
  */
 export interface CancelInputDeviceTransferResponse {}
 
+/**
+ * @public
+ */
 export enum FeatureActivationsInputPrepareScheduleActions {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Feature Activations
  */
 export interface FeatureActivations {
@@ -3215,17 +3599,24 @@ export interface FeatureActivations {
   InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | string;
 }
 
+/**
+ * @public
+ */
 export enum GlobalConfigurationInputEndAction {
   NONE = "NONE",
   SWITCH_AND_LOOP_INPUTS = "SWITCH_AND_LOOP_INPUTS",
 }
 
+/**
+ * @public
+ */
 export enum InputLossImageType {
   COLOR = "COLOR",
   SLATE = "SLATE",
 }
 
 /**
+ * @public
  * Input Loss Behavior
  */
 export interface InputLossBehavior {
@@ -3255,22 +3646,32 @@ export interface InputLossBehavior {
   RepeatFrameMsec?: number;
 }
 
+/**
+ * @public
+ */
 export enum GlobalConfigurationOutputLockingMode {
   EPOCH_LOCKING = "EPOCH_LOCKING",
   PIPELINE_LOCKING = "PIPELINE_LOCKING",
 }
 
+/**
+ * @public
+ */
 export enum GlobalConfigurationOutputTimingSource {
   INPUT_CLOCK = "INPUT_CLOCK",
   SYSTEM_CLOCK = "SYSTEM_CLOCK",
 }
 
+/**
+ * @public
+ */
 export enum GlobalConfigurationLowFramerateInputs {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Global Configuration
  */
 export interface GlobalConfiguration {
@@ -3308,17 +3709,22 @@ export interface GlobalConfiguration {
   SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | string;
 }
 
+/**
+ * @public
+ */
 export enum MotionGraphicsInsertion {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Html Motion Graphics Settings
  */
 export interface HtmlMotionGraphicsSettings {}
 
 /**
+ * @public
  * Motion Graphics Settings
  */
 export interface MotionGraphicsSettings {
@@ -3329,6 +3735,7 @@ export interface MotionGraphicsSettings {
 }
 
 /**
+ * @public
  * Motion Graphics Configuration
  */
 export interface MotionGraphicsConfiguration {
@@ -3343,12 +3750,16 @@ export interface MotionGraphicsConfiguration {
   MotionGraphicsSettings: MotionGraphicsSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NielsenPcmToId3TaggingState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * Nielsen Configuration
  */
 export interface NielsenConfiguration {
@@ -3363,6 +3774,9 @@ export interface NielsenConfiguration {
   NielsenPcmToId3Tagging?: NielsenPcmToId3TaggingState | string;
 }
 
+/**
+ * @public
+ */
 export enum TimecodeConfigSource {
   EMBEDDED = "EMBEDDED",
   SYSTEMCLOCK = "SYSTEMCLOCK",
@@ -3370,6 +3784,7 @@ export enum TimecodeConfigSource {
 }
 
 /**
+ * @public
  * Timecode Config
  */
 export interface TimecodeConfig {
@@ -3388,6 +3803,7 @@ export interface TimecodeConfig {
 }
 
 /**
+ * @public
  * Encoder Settings
  */
 export interface EncoderSettings {
@@ -3453,6 +3869,7 @@ export interface EncoderSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for Channel
  */
 export interface Channel {
@@ -3550,6 +3967,7 @@ export interface Channel {
 }
 
 /**
+ * @public
  * A request to claim an AWS Elemental device that you have purchased from a third-party vendor.
  */
 export interface ClaimDeviceRequest {
@@ -3560,15 +3978,20 @@ export interface ClaimDeviceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ClaimDeviceResponse
  */
 export interface ClaimDeviceResponse {}
 
+/**
+ * @public
+ */
 export enum ContentType {
   image_jpeg = "image/jpeg",
 }
 
 /**
+ * @public
  * Placeholder documentation for MaintenanceCreateSettings
  */
 export interface MaintenanceCreateSettings {
@@ -3584,6 +4007,7 @@ export interface MaintenanceCreateSettings {
 }
 
 /**
+ * @public
  * The properties for a private VPC Output
  * When this property is specified, the output egress addresses will be created in a user specified VPC
  */
@@ -3608,6 +4032,7 @@ export interface VpcOutputSettings {
 }
 
 /**
+ * @public
  * A request to create a channel
  */
 export interface CreateChannelRequest {
@@ -3686,6 +4111,7 @@ export interface CreateChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateChannelResponse
  */
 export interface CreateChannelResponse {
@@ -3696,6 +4122,7 @@ export interface CreateChannelResponse {
 }
 
 /**
+ * @public
  * Settings for a private VPC Input.
  * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
  * This property requires setting the roleArn property on Input creation.
@@ -3716,6 +4143,7 @@ export interface InputVpcRequest {
 }
 
 /**
+ * @public
  * The name of the input
  */
 export interface CreateInputRequest {
@@ -3784,6 +4212,7 @@ export interface CreateInputRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateInputResponse
  */
 export interface CreateInputResponse {
@@ -3794,6 +4223,7 @@ export interface CreateInputResponse {
 }
 
 /**
+ * @public
  * The IPv4 CIDRs to whitelist for this Input Security Group
  */
 export interface CreateInputSecurityGroupRequest {
@@ -3809,6 +4239,7 @@ export interface CreateInputSecurityGroupRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateInputSecurityGroupResponse
  */
 export interface CreateInputSecurityGroupResponse {
@@ -3819,6 +4250,7 @@ export interface CreateInputSecurityGroupResponse {
 }
 
 /**
+ * @public
  * Contains configuration for a Multiplex event
  */
 export interface MultiplexSettings {
@@ -3844,6 +4276,7 @@ export interface MultiplexSettings {
 }
 
 /**
+ * @public
  * A request to create a multiplex.
  */
 export interface CreateMultiplexRequest {
@@ -3875,6 +4308,7 @@ export interface CreateMultiplexRequest {
 }
 
 /**
+ * @public
  * The multiplex object.
  */
 export interface Multiplex {
@@ -3930,6 +4364,7 @@ export interface Multiplex {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateMultiplexResponse
  */
 export interface CreateMultiplexResponse {
@@ -3939,6 +4374,9 @@ export interface CreateMultiplexResponse {
   Multiplex?: Multiplex;
 }
 
+/**
+ * @public
+ */
 export enum PreferredChannelPipeline {
   CURRENTLY_ACTIVE = "CURRENTLY_ACTIVE",
   PIPELINE_0 = "PIPELINE_0",
@@ -3946,6 +4384,7 @@ export enum PreferredChannelPipeline {
 }
 
 /**
+ * @public
  * Transport stream service descriptor configuration for the Multiplex program.
  */
 export interface MultiplexProgramServiceDescriptor {
@@ -3961,6 +4400,7 @@ export interface MultiplexProgramServiceDescriptor {
 }
 
 /**
+ * @public
  * Statmux rate control settings
  */
 export interface MultiplexStatmuxVideoSettings {
@@ -3981,6 +4421,7 @@ export interface MultiplexStatmuxVideoSettings {
 }
 
 /**
+ * @public
  * The video configuration for each program in a multiplex.
  */
 export interface MultiplexVideoSettings {
@@ -3998,6 +4439,7 @@ export interface MultiplexVideoSettings {
 }
 
 /**
+ * @public
  * Multiplex Program settings configuration.
  */
 export interface MultiplexProgramSettings {
@@ -4023,6 +4465,7 @@ export interface MultiplexProgramSettings {
 }
 
 /**
+ * @public
  * A request to create a program in a multiplex.
  */
 export interface CreateMultiplexProgramRequest {
@@ -4049,6 +4492,7 @@ export interface CreateMultiplexProgramRequest {
 }
 
 /**
+ * @public
  * Packet identifiers map for a given Multiplex program.
  */
 export interface MultiplexProgramPacketIdentifiersMap {
@@ -4119,6 +4563,7 @@ export interface MultiplexProgramPacketIdentifiersMap {
 }
 
 /**
+ * @public
  * The multiplex program object.
  */
 export interface MultiplexProgram {
@@ -4149,6 +4594,7 @@ export interface MultiplexProgram {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateMultiplexProgramResponse
  */
 export interface CreateMultiplexProgramResponse {
@@ -4159,6 +4605,7 @@ export interface CreateMultiplexProgramResponse {
 }
 
 /**
+ * @public
  * A request to create a partner input
  */
 export interface CreatePartnerInputRequest {
@@ -4180,6 +4627,7 @@ export interface CreatePartnerInputRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreatePartnerInputResponse
  */
 export interface CreatePartnerInputResponse {
@@ -4190,6 +4638,7 @@ export interface CreatePartnerInputResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for CreateTagsRequest
  */
 export interface CreateTagsRequest {
@@ -4205,6 +4654,7 @@ export interface CreateTagsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteChannelRequest
  */
 export interface DeleteChannelRequest {
@@ -4215,6 +4665,7 @@ export interface DeleteChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteChannelResponse
  */
 export interface DeleteChannelResponse {
@@ -4312,6 +4763,7 @@ export interface DeleteChannelResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteInputRequest
  */
 export interface DeleteInputRequest {
@@ -4322,11 +4774,13 @@ export interface DeleteInputRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteInputResponse
  */
 export interface DeleteInputResponse {}
 
 /**
+ * @public
  * Placeholder documentation for DeleteInputSecurityGroupRequest
  */
 export interface DeleteInputSecurityGroupRequest {
@@ -4337,11 +4791,13 @@ export interface DeleteInputSecurityGroupRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteInputSecurityGroupResponse
  */
 export interface DeleteInputSecurityGroupResponse {}
 
 /**
+ * @public
  * Placeholder documentation for DeleteMultiplexRequest
  */
 export interface DeleteMultiplexRequest {
@@ -4352,6 +4808,7 @@ export interface DeleteMultiplexRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteMultiplexResponse
  */
 export interface DeleteMultiplexResponse {
@@ -4407,6 +4864,7 @@ export interface DeleteMultiplexResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteMultiplexProgramRequest
  */
 export interface DeleteMultiplexProgramRequest {
@@ -4422,6 +4880,7 @@ export interface DeleteMultiplexProgramRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteMultiplexProgramResponse
  */
 export interface DeleteMultiplexProgramResponse {
@@ -4452,6 +4911,7 @@ export interface DeleteMultiplexProgramResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteReservationRequest
  */
 export interface DeleteReservationRequest {
@@ -4462,6 +4922,7 @@ export interface DeleteReservationRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteReservationResponse
  */
 export interface DeleteReservationResponse {
@@ -4562,6 +5023,7 @@ export interface DeleteReservationResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteScheduleRequest
  */
 export interface DeleteScheduleRequest {
@@ -4572,11 +5034,13 @@ export interface DeleteScheduleRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DeleteScheduleResponse
  */
 export interface DeleteScheduleResponse {}
 
 /**
+ * @public
  * Placeholder documentation for DeleteTagsRequest
  */
 export interface DeleteTagsRequest {
@@ -4592,6 +5056,7 @@ export interface DeleteTagsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeChannelRequest
  */
 export interface DescribeChannelRequest {
@@ -4602,6 +5067,7 @@ export interface DescribeChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeChannelResponse
  */
 export interface DescribeChannelResponse {
@@ -4699,6 +5165,7 @@ export interface DescribeChannelResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputRequest
  */
 export interface DescribeInputRequest {
@@ -4709,6 +5176,7 @@ export interface DescribeInputRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputResponse
  */
 export interface DescribeInputResponse {
@@ -4796,6 +5264,7 @@ export interface DescribeInputResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputDeviceRequest
  */
 export interface DescribeInputDeviceRequest {
@@ -4806,6 +5275,7 @@ export interface DescribeInputDeviceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputDeviceResponse
  */
 export interface DescribeInputDeviceResponse {
@@ -4871,6 +5341,7 @@ export interface DescribeInputDeviceResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputDeviceThumbnailRequest
  */
 export interface DescribeInputDeviceThumbnailRequest {
@@ -4886,6 +5357,7 @@ export interface DescribeInputDeviceThumbnailRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputDeviceThumbnailResponse
  */
 export interface DescribeInputDeviceThumbnailResponse {
@@ -4916,6 +5388,7 @@ export interface DescribeInputDeviceThumbnailResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputSecurityGroupRequest
  */
 export interface DescribeInputSecurityGroupRequest {
@@ -4926,6 +5399,7 @@ export interface DescribeInputSecurityGroupRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeInputSecurityGroupResponse
  */
 export interface DescribeInputSecurityGroupResponse {
@@ -4961,6 +5435,7 @@ export interface DescribeInputSecurityGroupResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeMultiplexRequest
  */
 export interface DescribeMultiplexRequest {
@@ -4971,6 +5446,7 @@ export interface DescribeMultiplexRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeMultiplexResponse
  */
 export interface DescribeMultiplexResponse {
@@ -5026,6 +5502,7 @@ export interface DescribeMultiplexResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeMultiplexProgramRequest
  */
 export interface DescribeMultiplexProgramRequest {
@@ -5041,6 +5518,7 @@ export interface DescribeMultiplexProgramRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeMultiplexProgramResponse
  */
 export interface DescribeMultiplexProgramResponse {
@@ -5071,6 +5549,7 @@ export interface DescribeMultiplexProgramResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeOfferingRequest
  */
 export interface DescribeOfferingRequest {
@@ -5081,6 +5560,7 @@ export interface DescribeOfferingRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeOfferingResponse
  */
 export interface DescribeOfferingResponse {
@@ -5141,6 +5621,7 @@ export interface DescribeOfferingResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeReservationRequest
  */
 export interface DescribeReservationRequest {
@@ -5151,6 +5632,7 @@ export interface DescribeReservationRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeReservationResponse
  */
 export interface DescribeReservationResponse {
@@ -5251,6 +5733,7 @@ export interface DescribeReservationResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeScheduleRequest
  */
 export interface DescribeScheduleRequest {
@@ -5271,6 +5754,7 @@ export interface DescribeScheduleRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for DescribeScheduleResponse
  */
 export interface DescribeScheduleResponse {
@@ -5286,6 +5770,7 @@ export interface DescribeScheduleResponse {
 }
 
 /**
+ * @public
  * Configurable settings for the input device.
  */
 export interface InputDeviceConfigurableSettings {
@@ -5306,6 +5791,7 @@ export interface InputDeviceConfigurableSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListChannelsRequest
  */
 export interface ListChannelsRequest {
@@ -5321,6 +5807,7 @@ export interface ListChannelsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListChannelsResponse
  */
 export interface ListChannelsResponse {
@@ -5336,6 +5823,7 @@ export interface ListChannelsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputDevicesRequest
  */
 export interface ListInputDevicesRequest {
@@ -5351,6 +5839,7 @@ export interface ListInputDevicesRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputDevicesResponse
  */
 export interface ListInputDevicesResponse {
@@ -5366,6 +5855,7 @@ export interface ListInputDevicesResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputDeviceTransfersRequest
  */
 export interface ListInputDeviceTransfersRequest {
@@ -5386,6 +5876,7 @@ export interface ListInputDeviceTransfersRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputDeviceTransfersResponse
  */
 export interface ListInputDeviceTransfersResponse {
@@ -5401,6 +5892,7 @@ export interface ListInputDeviceTransfersResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputsRequest
  */
 export interface ListInputsRequest {
@@ -5416,6 +5908,7 @@ export interface ListInputsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputsResponse
  */
 export interface ListInputsResponse {
@@ -5431,6 +5924,7 @@ export interface ListInputsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputSecurityGroupsRequest
  */
 export interface ListInputSecurityGroupsRequest {
@@ -5446,6 +5940,7 @@ export interface ListInputSecurityGroupsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListInputSecurityGroupsResponse
  */
 export interface ListInputSecurityGroupsResponse {
@@ -5461,6 +5956,7 @@ export interface ListInputSecurityGroupsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListMultiplexesRequest
  */
 export interface ListMultiplexesRequest {
@@ -5476,6 +5972,7 @@ export interface ListMultiplexesRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListMultiplexesResponse
  */
 export interface ListMultiplexesResponse {
@@ -5491,6 +5988,7 @@ export interface ListMultiplexesResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListMultiplexProgramsRequest
  */
 export interface ListMultiplexProgramsRequest {
@@ -5511,6 +6009,7 @@ export interface ListMultiplexProgramsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListMultiplexProgramsResponse
  */
 export interface ListMultiplexProgramsResponse {
@@ -5526,6 +6025,7 @@ export interface ListMultiplexProgramsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListOfferingsRequest
  */
 export interface ListOfferingsRequest {
@@ -5591,6 +6091,7 @@ export interface ListOfferingsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListOfferingsResponse
  */
 export interface ListOfferingsResponse {
@@ -5606,6 +6107,7 @@ export interface ListOfferingsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListReservationsRequest
  */
 export interface ListReservationsRequest {
@@ -5661,6 +6163,7 @@ export interface ListReservationsRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListReservationsResponse
  */
 export interface ListReservationsResponse {
@@ -5676,6 +6179,7 @@ export interface ListReservationsResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListTagsForResourceRequest
  */
 export interface ListTagsForResourceRequest {
@@ -5686,6 +6190,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for ListTagsForResourceResponse
  */
 export interface ListTagsForResourceResponse {
@@ -5696,6 +6201,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for MaintenanceUpdateSettings
  */
 export interface MaintenanceUpdateSettings {
@@ -5716,6 +6222,7 @@ export interface MaintenanceUpdateSettings {
 }
 
 /**
+ * @public
  * Placeholder documentation for PurchaseOfferingRequest
  */
 export interface PurchaseOfferingRequest {
@@ -5756,6 +6263,7 @@ export interface PurchaseOfferingRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for PurchaseOfferingResponse
  */
 export interface PurchaseOfferingResponse {
@@ -5765,12 +6273,16 @@ export interface PurchaseOfferingResponse {
   Reservation?: Reservation;
 }
 
+/**
+ * @public
+ */
 export enum RebootInputDeviceForce {
   NO = "NO",
   YES = "YES",
 }
 
 /**
+ * @public
  * A request to reboot an AWS Elemental device.
  */
 export interface RebootInputDeviceRequest {
@@ -5786,11 +6298,13 @@ export interface RebootInputDeviceRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for RebootInputDeviceResponse
  */
 export interface RebootInputDeviceResponse {}
 
 /**
+ * @public
  * Placeholder documentation for RejectInputDeviceTransferRequest
  */
 export interface RejectInputDeviceTransferRequest {
@@ -5801,11 +6315,13 @@ export interface RejectInputDeviceTransferRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for RejectInputDeviceTransferResponse
  */
 export interface RejectInputDeviceTransferResponse {}
 
 /**
+ * @public
  * Placeholder documentation for StartChannelRequest
  */
 export interface StartChannelRequest {
@@ -5816,6 +6332,7 @@ export interface StartChannelRequest {
 }
 
 /**
+ * @public
  * Placeholder documentation for StartChannelResponse
  */
 export interface StartChannelResponse {
@@ -5913,6 +6430,7 @@ export interface StartChannelResponse {
 }
 
 /**
+ * @public
  * Placeholder documentation for StartInputDeviceMaintenanceWindowRequest
  */
 export interface StartInputDeviceMaintenanceWindowRequest {

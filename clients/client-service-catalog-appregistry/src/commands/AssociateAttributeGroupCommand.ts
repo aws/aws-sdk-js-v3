@@ -30,15 +30,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAttributeGroupCommand}.
  */
 export interface AssociateAttributeGroupCommandInput extends AssociateAttributeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAttributeGroupCommand}.
  */
 export interface AssociateAttributeGroupCommandOutput extends AssociateAttributeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an attribute group with an application to augment the application's metadata
  *       with the group's attributes. This feature enables applications to be described with
  *       user-defined details that are machine-readable, such as third-party integrations.</p>
@@ -52,6 +57,8 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAttributeGroupCommandInput - {@link AssociateAttributeGroupCommandInput}
+ * @returns {@link AssociateAttributeGroupCommandOutput}
  * @see {@link AssociateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -91,6 +98,9 @@ export class AssociateAttributeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AssociateAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAttributeGroupCommandOutput> {
     return deserializeAws_restJson1AssociateAttributeGroupCommand(output, context);
   }

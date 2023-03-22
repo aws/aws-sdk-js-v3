@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDeliveryChannelCommand}.
  */
 export interface PutDeliveryChannelCommandInput extends PutDeliveryChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDeliveryChannelCommand}.
  */
 export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a delivery channel object to deliver configuration
  * 			information to an Amazon S3 bucket and Amazon SNS topic.</p>
  *          <p>Before you can create a delivery channel, you must create a
@@ -55,6 +60,8 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDeliveryChannelCommandInput - {@link PutDeliveryChannelCommandInput}
+ * @returns {@link PutDeliveryChannelCommandOutput}
  * @see {@link PutDeliveryChannelCommandInput} for command's `input` shape.
  * @see {@link PutDeliveryChannelCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -106,6 +113,9 @@ export class PutDeliveryChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDeliveryChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class PutDeliveryChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDeliveryChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutDeliveryChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDeliveryChannelCommandOutput> {
     return deserializeAws_json1_1PutDeliveryChannelCommand(output, context);
   }

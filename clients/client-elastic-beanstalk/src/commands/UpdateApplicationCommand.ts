@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandInput extends UpdateApplicationMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified application to have the specified properties.</p>
  *          <note>
  *             <p>If a property (for example, <code>description</code>) is not provided, the value
@@ -50,6 +55,8 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
+ * @returns {@link UpdateApplicationCommandOutput}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UpdateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
     return deserializeAws_queryUpdateApplicationCommand(output, context);
   }

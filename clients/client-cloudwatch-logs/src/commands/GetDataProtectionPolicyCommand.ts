@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataProtectionPolicyCommand}.
  */
 export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataProtectionPolicyCommand}.
  */
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a log group data protection policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataProtectionPolicyCommandInput - {@link GetDataProtectionPolicyCommandInput}
+ * @returns {@link GetDataProtectionPolicyCommandOutput}
  * @see {@link GetDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataProtectionPolicyCommandOutput> {
     return deserializeAws_json1_1GetDataProtectionPolicyCommand(output, context);
   }

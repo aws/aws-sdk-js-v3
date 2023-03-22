@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReplicationTaskCommand}.
  */
 export interface StartReplicationTaskCommandInput extends StartReplicationTaskMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartReplicationTaskCommand}.
  */
 export interface StartReplicationTaskCommandOutput extends StartReplicationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the replication task.</p>
  *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks </a> in the
  *             <i>Database Migration Service User Guide.</i>
@@ -53,6 +58,8 @@ export interface StartReplicationTaskCommandOutput extends StartReplicationTaskR
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplicationTaskCommandInput - {@link StartReplicationTaskCommandInput}
+ * @returns {@link StartReplicationTaskCommandOutput}
  * @see {@link StartReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link StartReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -115,6 +122,9 @@ export class StartReplicationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplicationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class StartReplicationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartReplicationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReplicationTaskCommandOutput> {
     return deserializeAws_json1_1StartReplicationTaskCommand(output, context);
   }

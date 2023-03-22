@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExternalDataViewAccessDetailsCommand}.
  */
 export interface GetExternalDataViewAccessDetailsCommandInput extends GetExternalDataViewAccessDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExternalDataViewAccessDetailsCommand}.
  */
 export interface GetExternalDataViewAccessDetailsCommandOutput
@@ -37,6 +41,7 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the credentials to access the external Dataview from an S3 location. To call this API:</p>
  *          <ul>
  *             <li>
@@ -56,6 +61,8 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExternalDataViewAccessDetailsCommandInput - {@link GetExternalDataViewAccessDetailsCommandInput}
+ * @returns {@link GetExternalDataViewAccessDetailsCommandOutput}
  * @see {@link GetExternalDataViewAccessDetailsCommandInput} for command's `input` shape.
  * @see {@link GetExternalDataViewAccessDetailsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetExternalDataViewAccessDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExternalDataViewAccessDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class GetExternalDataViewAccessDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetExternalDataViewAccessDetailsCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class GetExternalDataViewAccessDetailsCommand extends $Command<
     return serializeAws_restJson1GetExternalDataViewAccessDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

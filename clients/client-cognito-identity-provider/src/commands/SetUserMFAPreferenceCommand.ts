@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetUserMFAPreferenceCommand}.
  */
 export interface SetUserMFAPreferenceCommandInput extends SetUserMFAPreferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetUserMFAPreferenceCommand}.
  */
 export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the user's multi-factor authentication (MFA) method preference, including which
  *             MFA factors are activated and if any are preferred. Only one factor can be set as
  *             preferred. The preferred MFA factor will be used to authenticate a user if multiple
@@ -59,6 +64,8 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  * const response = await client.send(command);
  * ```
  *
+ * @param SetUserMFAPreferenceCommandInput - {@link SetUserMFAPreferenceCommandInput}
+ * @returns {@link SetUserMFAPreferenceCommandOutput}
  * @see {@link SetUserMFAPreferenceCommandInput} for command's `input` shape.
  * @see {@link SetUserMFAPreferenceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -108,6 +115,9 @@ export class SetUserMFAPreferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetUserMFAPreferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class SetUserMFAPreferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetUserMFAPreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetUserMFAPreferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserMFAPreferenceCommandOutput> {
     return deserializeAws_json1_1SetUserMFAPreferenceCommand(output, context);
   }

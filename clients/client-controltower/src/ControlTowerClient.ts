@@ -67,18 +67,27 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DisableControlCommandInput
   | EnableControlCommandInput
   | GetControlOperationCommandInput
   | ListEnabledControlsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DisableControlCommandOutput
   | EnableControlCommandOutput
   | GetControlOperationCommandOutput
   | ListEnabledControlsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -86,7 +95,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -195,11 +204,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ControlTowerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -210,10 +222,15 @@ type ControlTowerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ControlTowerClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ControlTowerClient class constructor that set the region, credentials and other options.
  */
 export interface ControlTowerClientConfig extends ControlTowerClientConfigType {}
 
+/**
+ * @public
+ */
 type ControlTowerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -224,11 +241,14 @@ type ControlTowerClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ControlTowerClient class. This is resolved and normalized from the {@link ControlTowerClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ControlTowerClient class. This is resolved and normalized from the {@link ControlTowerClientConfig | constructor configuration interface}.
  */
 export interface ControlTowerClientResolvedConfig extends ControlTowerClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>These interfaces allow you to apply the AWS library of pre-defined <i>controls</i> to your
  * organizational units, programmatically. In this context, controls are the same as AWS Control Tower guardrails.</p>
  *          <p>To call these APIs, you'll need to know:</p>
@@ -248,7 +268,7 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
  *          <note>
  *             <p>
  *                <b>ARN format:</b>
- *                <code>arn:aws:controltower:{REGION}::control/{CONTROL_NAME}</code>
+ *                <code>arn:aws:controltower:\{REGION\}::control/\{CONTROL_NAME\}</code>
  *             </p>
  *             <p>
  *                <b>Example:</b>
@@ -266,7 +286,7 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
  *                <b>OU ARN format:</b>
  *             </p>
  *             <p>
- *                <code>arn:${Partition}:organizations::${MasterAccountId}:ou/o-${OrganizationId}/ou-${OrganizationalUnitId}</code>
+ *                <code>arn:$\{Partition\}:organizations::$\{MasterAccountId\}:ou/o-$\{OrganizationId\}/ou-$\{OrganizationalUnitId\}</code>
  *             </p>
  *          </note>
  *          <p class="title">

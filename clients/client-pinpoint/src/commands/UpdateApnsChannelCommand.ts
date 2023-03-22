@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApnsChannelCommand}.
  */
 export interface UpdateApnsChannelCommandInput extends UpdateApnsChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApnsChannelCommand}.
  */
 export interface UpdateApnsChannelCommandOutput extends UpdateApnsChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the APNs channel for an application or updates the status and settings of the APNs channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateApnsChannelCommandOutput extends UpdateApnsChannelRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApnsChannelCommandInput - {@link UpdateApnsChannelCommandInput}
+ * @returns {@link UpdateApnsChannelCommandOutput}
  * @see {@link UpdateApnsChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateApnsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateApnsChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApnsChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateApnsChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApnsChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApnsChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApnsChannelCommandOutput> {
     return deserializeAws_restJson1UpdateApnsChannelCommand(output, context);
   }

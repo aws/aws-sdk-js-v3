@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobExecutionCommand}.
  */
 export interface DescribeJobExecutionCommandInput extends DescribeJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobExecutionCommand}.
  */
 export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details of a job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobExecutionCommandInput - {@link DescribeJobExecutionCommandInput}
+ * @returns {@link DescribeJobExecutionCommandOutput}
  * @see {@link DescribeJobExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobExecutionCommandOutput> {
     return deserializeAws_restJson1DescribeJobExecutionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLifecyclePolicyCommand}.
  */
 export interface PutLifecyclePolicyCommandInput extends PutLifecyclePolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutLifecyclePolicyCommand}.
  */
 export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.</p>
  *          <p>For information about how to construct an object lifecycle policy, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html">Components of an Object Lifecycle Policy</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecyclePolicyCommandInput - {@link PutLifecyclePolicyCommandInput}
+ * @returns {@link PutLifecyclePolicyCommandOutput}
  * @see {@link PutLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link PutLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -80,6 +87,9 @@ export class PutLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class PutLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLifecyclePolicyCommandOutput> {
     return deserializeAws_json1_1PutLifecyclePolicyCommand(output, context);
   }

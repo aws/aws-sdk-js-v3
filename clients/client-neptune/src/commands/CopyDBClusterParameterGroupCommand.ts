@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CopyDBClusterParameterGroupCommand}.
  */
 export interface CopyDBClusterParameterGroupCommandInput extends CopyDBClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CopyDBClusterParameterGroupCommand}.
  */
 export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified DB cluster parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBClusterParameterGroupCommandInput - {@link CopyDBClusterParameterGroupCommandInput}
+ * @returns {@link CopyDBClusterParameterGroupCommandOutput}
  * @see {@link CopyDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -80,6 +87,9 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCopyDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

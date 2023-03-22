@@ -23,15 +23,20 @@ import { deserializeAws_json1_1AddCacheCommand, serializeAws_json1_1AddCacheComm
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddCacheCommand}.
  */
 export interface AddCacheCommandInput extends AddCacheInput {}
 /**
+ * @public
+ *
  * The output of {@link AddCacheCommand}.
  */
 export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures one or more gateway local disks as cache for a gateway. This operation is
  *          only supported in the cached volume, tape, and file gateway type (see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">How Storage Gateway works (architecture)</a>.</p>
  *
@@ -47,6 +52,8 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param AddCacheCommandInput - {@link AddCacheCommandInput}
+ * @returns {@link AddCacheCommandOutput}
  * @see {@link AddCacheCommandInput} for command's `input` shape.
  * @see {@link AddCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -98,6 +105,9 @@ export class AddCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class AddCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddCacheCommandOutput> {
     return deserializeAws_json1_1AddCacheCommand(output, context);
   }

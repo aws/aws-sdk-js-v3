@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessPointsCommand}.
  */
 export interface ListAccessPointsCommandInput extends ListAccessPointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessPointsCommand}.
  */
 export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the access points
  *          that are
  *          owned by the current account
@@ -74,6 +79,8 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessPointsCommandInput - {@link ListAccessPointsCommandInput}
+ * @returns {@link ListAccessPointsCommandOutput}
  * @see {@link ListAccessPointsCommandInput} for command's `input` shape.
  * @see {@link ListAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -101,6 +108,9 @@ export class ListAccessPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ListAccessPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListAccessPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessPointsCommandOutput> {
     return deserializeAws_restXmlListAccessPointsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocalGatewaysCommand}.
  */
 export interface DescribeLocalGatewaysCommandInput extends DescribeLocalGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocalGatewaysCommand}.
  */
 export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more local gateways. By default, all local gateways are described.
  *         Alternatively, you can filter the results.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocalGatewaysCommandInput - {@link DescribeLocalGatewaysCommandInput}
+ * @returns {@link DescribeLocalGatewaysCommandOutput}
  * @see {@link DescribeLocalGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeLocalGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocalGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeLocalGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocalGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeLocalGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocalGatewaysCommandOutput> {
     return deserializeAws_ec2DescribeLocalGatewaysCommand(output, context);
   }

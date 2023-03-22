@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedInstanceOfferingCommand}.
  */
 export interface PurchaseReservedInstanceOfferingCommandInput extends PurchaseReservedInstanceOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedInstanceOfferingCommand}.
  */
 export interface PurchaseReservedInstanceOfferingCommandOutput
@@ -37,6 +41,7 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase Amazon OpenSearch Service Reserved Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedInstanceOfferingCommandInput - {@link PurchaseReservedInstanceOfferingCommandInput}
+ * @returns {@link PurchaseReservedInstanceOfferingCommandOutput}
  * @see {@link PurchaseReservedInstanceOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedInstanceOfferingCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -89,6 +96,9 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedInstanceOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedInstanceOfferingCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command<
     return serializeAws_restJson1PurchaseReservedInstanceOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

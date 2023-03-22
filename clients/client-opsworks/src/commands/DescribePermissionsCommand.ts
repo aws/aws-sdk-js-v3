@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePermissionsCommand}.
  */
 export interface DescribePermissionsCommandInput extends DescribePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePermissionsCommand}.
  */
 export interface DescribePermissionsCommandOutput extends DescribePermissionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions for a specified stack.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -51,6 +56,8 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePermissionsCommandInput - {@link DescribePermissionsCommandInput}
+ * @returns {@link DescribePermissionsCommandOutput}
  * @see {@link DescribePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePermissionsCommandOutput> {
     return deserializeAws_json1_1DescribePermissionsCommand(output, context);
   }

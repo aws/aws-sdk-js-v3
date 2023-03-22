@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCidrCollectionCommand}.
  */
 export interface CreateCidrCollectionCommandInput extends CreateCidrCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCidrCollectionCommand}.
  */
 export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a CIDR collection in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCidrCollectionCommandInput - {@link CreateCidrCollectionCommandInput}
+ * @returns {@link CreateCidrCollectionCommandOutput}
  * @see {@link CreateCidrCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -84,6 +91,9 @@ export class CreateCidrCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCidrCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateCidrCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCidrCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateCidrCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCidrCollectionCommandOutput> {
     return deserializeAws_restXmlCreateCidrCollectionCommand(output, context);
   }

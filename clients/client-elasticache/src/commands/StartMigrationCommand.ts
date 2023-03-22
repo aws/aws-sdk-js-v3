@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link StartMigrationCommand}.
  */
 export interface StartMigrationCommandInput extends StartMigrationMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartMigrationCommand}.
  */
 export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start the migration of data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMigrationCommandInput - {@link StartMigrationCommandInput}
+ * @returns {@link StartMigrationCommandOutput}
  * @see {@link StartMigrationCommandInput} for command's `input` shape.
  * @see {@link StartMigrationCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -81,6 +88,9 @@ export class StartMigrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMigrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class StartMigrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStartMigrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMigrationCommandOutput> {
     return deserializeAws_queryStartMigrationCommand(output, context);
   }

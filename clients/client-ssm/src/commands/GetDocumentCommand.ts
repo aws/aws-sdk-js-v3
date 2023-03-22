@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentCommand}.
  */
 export interface GetDocumentCommandInput extends GetDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentCommand}.
  */
 export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the contents of the specified Amazon Web Services Systems Manager document (SSM document).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentCommandInput - {@link GetDocumentCommandInput}
+ * @returns {@link GetDocumentCommandOutput}
  * @see {@link GetDocumentCommandInput} for command's `input` shape.
  * @see {@link GetDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentCommandOutput> {
     return deserializeAws_json1_1GetDocumentCommand(output, context);
   }

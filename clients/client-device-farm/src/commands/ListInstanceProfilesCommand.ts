@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceProfilesCommand}.
  */
 export interface ListInstanceProfilesCommandInput extends ListInstanceProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceProfilesCommand}.
  */
 export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all the instance profiles in an AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceProfilesCommandInput - {@link ListInstanceProfilesCommandInput}
+ * @returns {@link ListInstanceProfilesCommandOutput}
  * @see {@link ListInstanceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfilesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListInstanceProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListInstanceProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListInstanceProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceProfilesCommandOutput> {
     return deserializeAws_json1_1ListInstanceProfilesCommand(output, context);
   }

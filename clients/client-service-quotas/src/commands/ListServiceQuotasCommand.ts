@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceQuotasCommand}.
  */
 export interface ListServiceQuotasCommandInput extends ListServiceQuotasRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceQuotasCommand}.
  */
 export interface ListServiceQuotasCommandOutput extends ListServiceQuotasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the applied quota values for the specified AWS service. For some quotas, only the
  *       default values are available. If the applied quota value is not available for a quota, the
  *       quota is not retrieved.</p>
@@ -48,6 +53,8 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceQuotasCommandInput - {@link ListServiceQuotasCommandInput}
+ * @returns {@link ListServiceQuotasCommandOutput}
  * @see {@link ListServiceQuotasCommandInput} for command's `input` shape.
  * @see {@link ListServiceQuotasCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListServiceQuotasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceQuotasCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListServiceQuotasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceQuotasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListServiceQuotasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceQuotasCommandOutput> {
     return deserializeAws_json1_1ListServiceQuotasCommand(output, context);
   }

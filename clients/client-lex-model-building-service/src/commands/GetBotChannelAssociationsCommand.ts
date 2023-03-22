@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotChannelAssociationsCommand}.
  */
 export interface GetBotChannelAssociationsCommandInput extends GetBotChannelAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotChannelAssociationsCommand}.
  */
 export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of all of the channels associated with the
  *       specified bot. </p>
  *          <p>The <code>GetBotChannelAssociations</code> operation requires
@@ -54,6 +59,8 @@ export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAss
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotChannelAssociationsCommandInput - {@link GetBotChannelAssociationsCommandInput}
+ * @returns {@link GetBotChannelAssociationsCommandOutput}
  * @see {@link GetBotChannelAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetBotChannelAssociationsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetBotChannelAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotChannelAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetBotChannelAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotChannelAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBotChannelAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

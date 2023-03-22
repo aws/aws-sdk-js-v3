@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrafficMirrorSessionsCommand}.
  */
 export interface DescribeTrafficMirrorSessionsCommandInput extends DescribeTrafficMirrorSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrafficMirrorSessionsCommand}.
  */
 export interface DescribeTrafficMirrorSessionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTrafficMirrorSessionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeTrafficMirrorSessionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrafficMirrorSessionsCommandInput - {@link DescribeTrafficMirrorSessionsCommandInput}
+ * @returns {@link DescribeTrafficMirrorSessionsCommandOutput}
  * @see {@link DescribeTrafficMirrorSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficMirrorSessionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrafficMirrorSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrafficMirrorSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTrafficMirrorSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

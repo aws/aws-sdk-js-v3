@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventConfigurationByResourceTypesCommand}.
  */
 export interface UpdateEventConfigurationByResourceTypesCommandInput
   extends UpdateEventConfigurationByResourceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventConfigurationByResourceTypesCommand}.
  */
 export interface UpdateEventConfigurationByResourceTypesCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the event configuration based on resource types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventConfigurationByResourceTypesCommandInput - {@link UpdateEventConfigurationByResourceTypesCommandInput}
+ * @returns {@link UpdateEventConfigurationByResourceTypesCommandOutput}
  * @see {@link UpdateEventConfigurationByResourceTypesCommandInput} for command's `input` shape.
  * @see {@link UpdateEventConfigurationByResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventConfigurationByResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateEventConfigurationByResourceTypesCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command<
     return serializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

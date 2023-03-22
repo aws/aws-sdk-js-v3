@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentCommand}.
  */
 export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentCommand}.
  */
 export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Deployment resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
+ * @returns {@link GetDeploymentCommandOutput}
  * @see {@link GetDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentCommandOutput> {
     return deserializeAws_restJson1GetDeploymentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUploadCommand}.
  */
 export interface CreateUploadCommandInput extends CreateUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUploadCommand}.
  */
 export interface CreateUploadCommandOutput extends CreateUploadResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads an app or test scripts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateUploadCommandOutput extends CreateUploadResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUploadCommandInput - {@link CreateUploadCommandInput}
+ * @returns {@link CreateUploadCommandOutput}
  * @see {@link CreateUploadCommandInput} for command's `input` shape.
  * @see {@link CreateUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUploadCommandOutput> {
     return deserializeAws_json1_1CreateUploadCommand(output, context);
   }

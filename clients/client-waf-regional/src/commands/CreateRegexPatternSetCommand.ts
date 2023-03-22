@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRegexPatternSetCommand}.
  */
 export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRegexPatternSetCommand}.
  */
 export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -73,6 +78,8 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRegexPatternSetCommandInput - {@link CreateRegexPatternSetCommandInput}
+ * @returns {@link CreateRegexPatternSetCommandOutput}
  * @see {@link CreateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link CreateRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -110,6 +117,9 @@ export class CreateRegexPatternSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRegexPatternSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateRegexPatternSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRegexPatternSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRegexPatternSetCommandOutput> {
     return deserializeAws_json1_1CreateRegexPatternSetCommand(output, context);
   }

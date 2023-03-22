@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceCommand}.
  */
 export interface GetResourceCommandInput extends GetResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceCommand}.
  */
 export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the current state of the specified resource. For details, see
  *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html">Reading a resource's current state</a>.</p>
  *          <p>You can use this action to return information about an existing resource in your account
@@ -49,6 +54,8 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceCommandInput - {@link GetResourceCommandInput}
+ * @returns {@link GetResourceCommandOutput}
  * @see {@link GetResourceCommandInput} for command's `input` shape.
  * @see {@link GetResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -137,6 +144,9 @@ export class GetResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class GetResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceCommandOutput> {
     return deserializeAws_json1_0GetResourceCommand(output, context);
   }

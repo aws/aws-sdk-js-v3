@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWirelessGatewayTaskDefinitionCommand}.
  */
 export interface DeleteWirelessGatewayTaskDefinitionCommandInput extends DeleteWirelessGatewayTaskDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWirelessGatewayTaskDefinitionCommand}.
  */
 export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a wireless gateway task definition. Deleting this task definition does not affect tasks that are currently in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWirelessGatewayTaskDefinitionCommandInput - {@link DeleteWirelessGatewayTaskDefinitionCommandInput}
+ * @returns {@link DeleteWirelessGatewayTaskDefinitionCommandOutput}
  * @see {@link DeleteWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWirelessGatewayTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteWirelessGatewayTaskDefinitionCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
     return serializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

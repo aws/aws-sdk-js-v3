@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEndpointConfigCommand}.
  */
 export interface CreateEndpointConfigCommandInput extends CreateEndpointConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEndpointConfigCommand}.
  */
 export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint configuration that SageMaker hosting services uses to deploy models. In
  *             the configuration, you identify one or more models, created using the
  *                 <code>CreateModel</code> API, to deploy and the resources that you want SageMaker to
@@ -74,6 +79,8 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEndpointConfigCommandInput - {@link CreateEndpointConfigCommandInput}
+ * @returns {@link CreateEndpointConfigCommandOutput}
  * @see {@link CreateEndpointConfigCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateEndpointConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEndpointConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateEndpointConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEndpointConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEndpointConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointConfigCommandOutput> {
     return deserializeAws_json1_1CreateEndpointConfigCommand(output, context);
   }

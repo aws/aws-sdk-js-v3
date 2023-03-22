@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTestGridProjectsCommand}.
  */
 export interface ListTestGridProjectsCommandInput extends ListTestGridProjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTestGridProjectsCommand}.
  */
 export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all Selenium testing projects in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTestGridProjectsCommandInput - {@link ListTestGridProjectsCommandInput}
+ * @returns {@link ListTestGridProjectsCommandOutput}
  * @see {@link ListTestGridProjectsCommandInput} for command's `input` shape.
  * @see {@link ListTestGridProjectsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListTestGridProjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTestGridProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListTestGridProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTestGridProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTestGridProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTestGridProjectsCommandOutput> {
     return deserializeAws_json1_1ListTestGridProjectsCommand(output, context);
   }

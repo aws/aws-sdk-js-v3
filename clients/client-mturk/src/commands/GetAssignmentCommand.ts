@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssignmentCommand}.
  */
 export interface GetAssignmentCommandInput extends GetAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssignmentCommand}.
  */
 export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>GetAssignment</code> operation retrieves the details of the specified Assignment.
  *         </p>
@@ -48,6 +53,8 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssignmentCommandInput - {@link GetAssignmentCommandInput}
+ * @returns {@link GetAssignmentCommandOutput}
  * @see {@link GetAssignmentCommandInput} for command's `input` shape.
  * @see {@link GetAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssignmentCommandOutput> {
     return deserializeAws_json1_1GetAssignmentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConferencePreferenceCommand}.
  */
 export interface PutConferencePreferenceCommandInput extends PutConferencePreferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConferencePreferenceCommand}.
  */
 export interface PutConferencePreferenceCommandOutput extends PutConferencePreferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the conference preferences on a specific conference provider at the account
  *          level.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConferencePreferenceCommandInput - {@link PutConferencePreferenceCommandInput}
+ * @returns {@link PutConferencePreferenceCommandOutput}
  * @see {@link PutConferencePreferenceCommandInput} for command's `input` shape.
  * @see {@link PutConferencePreferenceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -73,6 +80,9 @@ export class PutConferencePreferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConferencePreferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class PutConferencePreferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConferencePreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutConferencePreferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConferencePreferenceCommandOutput> {
     return deserializeAws_json1_1PutConferencePreferenceCommand(output, context);
   }

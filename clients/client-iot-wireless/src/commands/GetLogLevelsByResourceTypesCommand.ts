@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLogLevelsByResourceTypesCommand}.
  */
 export interface GetLogLevelsByResourceTypesCommandInput extends GetLogLevelsByResourceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLogLevelsByResourceTypesCommand}.
  */
 export interface GetLogLevelsByResourceTypesCommandOutput
@@ -37,6 +41,7 @@ export interface GetLogLevelsByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns current default log levels or log levels by resource types. Based on resource types, log levels can be
  *             for wireless device log options or wireless gateway log options.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLogLevelsByResourceTypesCommandInput - {@link GetLogLevelsByResourceTypesCommandInput}
+ * @returns {@link GetLogLevelsByResourceTypesCommandOutput}
  * @see {@link GetLogLevelsByResourceTypesCommandInput} for command's `input` shape.
  * @see {@link GetLogLevelsByResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetLogLevelsByResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLogLevelsByResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetLogLevelsByResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLogLevelsByResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLogLevelsByResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

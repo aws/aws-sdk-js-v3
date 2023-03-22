@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptTransitGatewayVpcAttachmentCommand}.
  */
 export interface AcceptTransitGatewayVpcAttachmentCommandInput extends AcceptTransitGatewayVpcAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptTransitGatewayVpcAttachmentCommand}.
  */
 export interface AcceptTransitGatewayVpcAttachmentCommandOutput
@@ -37,6 +41,7 @@ export interface AcceptTransitGatewayVpcAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a request to attach a VPC to a transit gateway.</p>
  *          <p>The VPC attachment must be in the <code>pendingAcceptance</code> state.
  *          Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests.
@@ -51,6 +56,8 @@ export interface AcceptTransitGatewayVpcAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptTransitGatewayVpcAttachmentCommandInput - {@link AcceptTransitGatewayVpcAttachmentCommandInput}
+ * @returns {@link AcceptTransitGatewayVpcAttachmentCommandOutput}
  * @see {@link AcceptTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link AcceptTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class AcceptTransitGatewayVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptTransitGatewayVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class AcceptTransitGatewayVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class AcceptTransitGatewayVpcAttachmentCommand extends $Command<
     return serializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

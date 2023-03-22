@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMailDomainCommand}.
  */
 export interface GetMailDomainCommandInput extends GetMailDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMailDomainCommand}.
  */
 export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details for a mail domain, including domain records required to configure your domain with recommended security.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMailDomainCommandInput - {@link GetMailDomainCommandInput}
+ * @returns {@link GetMailDomainCommandOutput}
  * @see {@link GetMailDomainCommandInput} for command's `input` shape.
  * @see {@link GetMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetMailDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMailDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetMailDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMailDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMailDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMailDomainCommandOutput> {
     return deserializeAws_json1_1GetMailDomainCommand(output, context);
   }

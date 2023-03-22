@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSshPublicKeyCommand}.
  */
 export interface DeleteSshPublicKeyCommandInput extends DeleteSshPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSshPublicKeyCommand}.
  */
 export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a user's Secure Shell (SSH) public key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSshPublicKeyCommandInput - {@link DeleteSshPublicKeyCommandInput}
+ * @returns {@link DeleteSshPublicKeyCommandOutput}
  * @see {@link DeleteSshPublicKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteSshPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteSshPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSshPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteSshPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSshPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSshPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSshPublicKeyCommandOutput> {
     return deserializeAws_json1_1DeleteSshPublicKeyCommand(output, context);
   }

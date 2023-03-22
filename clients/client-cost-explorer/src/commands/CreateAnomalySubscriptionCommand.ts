@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAnomalySubscriptionCommand}.
  */
 export interface CreateAnomalySubscriptionCommandInput extends CreateAnomalySubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAnomalySubscriptionCommand}.
  */
 export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an alert subscription to a cost anomaly detection monitor. You can use each
  *       subscription to define subscribers with email or SNS notifications. Email subscribers can set
  *       an absolute or percentage threshold and a time frequency for receiving notifications. </p>
@@ -48,6 +53,8 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAnomalySubscriptionCommandInput - {@link CreateAnomalySubscriptionCommandInput}
+ * @returns {@link CreateAnomalySubscriptionCommandOutput}
  * @see {@link CreateAnomalySubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateAnomalySubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateAnomalySubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAnomalySubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateAnomalySubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAnomalySubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAnomalySubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

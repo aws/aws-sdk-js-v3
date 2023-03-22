@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainChangeProgressCommand}.
  */
 export interface DescribeDomainChangeProgressCommandInput extends DescribeDomainChangeProgressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainChangeProgressCommand}.
  */
 export interface DescribeDomainChangeProgressCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeDomainChangeProgressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the current blue/green deployment happening on a domain, including
  *         a change ID, status, and progress stages.</p>
  * @example
@@ -53,6 +58,8 @@ export interface DescribeDomainChangeProgressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainChangeProgressCommandInput - {@link DescribeDomainChangeProgressCommandInput}
+ * @returns {@link DescribeDomainChangeProgressCommandOutput}
  * @see {@link DescribeDomainChangeProgressCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainChangeProgressCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeDomainChangeProgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainChangeProgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeDomainChangeProgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainChangeProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDomainChangeProgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

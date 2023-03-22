@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationsCommand}.
  */
 export interface DescribeLocationsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationsCommand}.
  */
 export interface DescribeLocationsCommandOutput extends Locations, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Direct Connect locations in the current Amazon Web Services Region. These are the locations that can be selected when calling
  *       <a>CreateConnection</a> or <a>CreateInterconnect</a>.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DescribeLocationsCommandOutput extends Locations, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationsCommandInput - {@link DescribeLocationsCommandInput}
+ * @returns {@link DescribeLocationsCommandOutput}
  * @see {@link DescribeLocationsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationsCommandOutput> {
     return deserializeAws_json1_1DescribeLocationsCommand(output, context);
   }

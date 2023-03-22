@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCampaignCommand}.
  */
 export interface DescribeCampaignCommandInput extends DescribeCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCampaignCommand}.
  */
 export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the given campaign, including its status.</p>
  *          <p>A campaign can be in one of the following states:</p>
  *          <ul>
@@ -58,6 +63,8 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCampaignCommandInput - {@link DescribeCampaignCommandInput}
+ * @returns {@link DescribeCampaignCommandOutput}
  * @see {@link DescribeCampaignCommandInput} for command's `input` shape.
  * @see {@link DescribeCampaignCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCampaignCommandOutput> {
     return deserializeAws_json1_1DescribeCampaignCommand(output, context);
   }

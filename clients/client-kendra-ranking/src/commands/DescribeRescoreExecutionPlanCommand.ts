@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRescoreExecutionPlanCommand}.
  */
 export interface DescribeRescoreExecutionPlanCommandInput extends DescribeRescoreExecutionPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRescoreExecutionPlanCommand}.
  */
 export interface DescribeRescoreExecutionPlanCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRescoreExecutionPlanCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a rescore execution plan. A rescore
  *             execution plan is an Amazon Kendra Intelligent Ranking
  *             resource used for provisioning the <code>Rescore</code> API.</p>
@@ -50,6 +55,8 @@ export interface DescribeRescoreExecutionPlanCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRescoreExecutionPlanCommandInput - {@link DescribeRescoreExecutionPlanCommandInput}
+ * @returns {@link DescribeRescoreExecutionPlanCommandOutput}
  * @see {@link DescribeRescoreExecutionPlanCommandInput} for command's `input` shape.
  * @see {@link DescribeRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeRescoreExecutionPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRescoreExecutionPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DescribeRescoreExecutionPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRescoreExecutionPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeRescoreExecutionPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

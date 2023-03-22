@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceEventWindowCommand}.
  */
 export interface CreateInstanceEventWindowCommandInput extends CreateInstanceEventWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceEventWindowCommand}.
  */
 export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEventWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can
  *          run.</p>
  *          <p>You can define either a set of time ranges or a cron expression when creating the event
@@ -68,6 +73,8 @@ export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEv
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceEventWindowCommandInput - {@link CreateInstanceEventWindowCommandInput}
+ * @returns {@link CreateInstanceEventWindowCommandOutput}
  * @see {@link CreateInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +98,9 @@ export class CreateInstanceEventWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateInstanceEventWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateInstanceEventWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

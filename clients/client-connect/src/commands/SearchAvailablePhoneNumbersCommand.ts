@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchAvailablePhoneNumbersCommand}.
  */
 export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailablePhoneNumbersRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchAvailablePhoneNumbersCommand}.
  */
 export interface SearchAvailablePhoneNumbersCommandOutput
@@ -37,6 +41,7 @@ export interface SearchAvailablePhoneNumbersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance
  *    or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both
  *     Amazon Web Services Regions associated with the traffic distribution group.</p>
@@ -50,6 +55,8 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchAvailablePhoneNumbersCommandInput - {@link SearchAvailablePhoneNumbersCommandInput}
+ * @returns {@link SearchAvailablePhoneNumbersCommandOutput}
  * @see {@link SearchAvailablePhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link SearchAvailablePhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchAvailablePhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchAvailablePhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchAvailablePhoneNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

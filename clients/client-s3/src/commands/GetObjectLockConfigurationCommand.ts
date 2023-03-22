@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectLockConfigurationCommand}.
  */
 export interface GetObjectLockConfigurationCommandInput extends GetObjectLockConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectLockConfigurationCommand}.
  */
 export interface GetObjectLockConfigurationCommandOutput extends GetObjectLockConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock
  *          configuration will be applied by default to every new object placed in the specified
  *          bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
@@ -57,6 +62,8 @@ export interface GetObjectLockConfigurationCommandOutput extends GetObjectLockCo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectLockConfigurationCommandInput - {@link GetObjectLockConfigurationCommandInput}
+ * @returns {@link GetObjectLockConfigurationCommandOutput}
  * @see {@link GetObjectLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetObjectLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -86,6 +93,9 @@ export class GetObjectLockConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectLockConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetObjectLockConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectLockConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectLockConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

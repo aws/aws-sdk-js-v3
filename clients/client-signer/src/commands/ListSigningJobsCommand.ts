@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSigningJobsCommand}.
  */
 export interface ListSigningJobsCommandInput extends ListSigningJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSigningJobsCommand}.
  */
 export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all your signing jobs. You can use the <code>maxResults</code> parameter to
  * 			limit the number of signing jobs that are returned in the response. If additional jobs
  * 			remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in
@@ -52,6 +57,8 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSigningJobsCommandInput - {@link ListSigningJobsCommandInput}
+ * @returns {@link ListSigningJobsCommandOutput}
  * @see {@link ListSigningJobsCommandInput} for command's `input` shape.
  * @see {@link ListSigningJobsCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListSigningJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSigningJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListSigningJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSigningJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSigningJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningJobsCommandOutput> {
     return deserializeAws_restJson1ListSigningJobsCommand(output, context);
   }

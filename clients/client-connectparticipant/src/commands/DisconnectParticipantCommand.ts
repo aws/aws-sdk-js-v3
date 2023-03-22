@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisconnectParticipantCommand}.
  */
 export interface DisconnectParticipantCommandInput extends DisconnectParticipantRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisconnectParticipantCommand}.
  */
 export interface DisconnectParticipantCommandOutput extends DisconnectParticipantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects a participant. </p>
  *          <note>
  *             <p>
@@ -57,6 +62,8 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectParticipantCommandInput - {@link DisconnectParticipantCommandInput}
+ * @returns {@link DisconnectParticipantCommandOutput}
  * @see {@link DisconnectParticipantCommandInput} for command's `input` shape.
  * @see {@link DisconnectParticipantCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
@@ -92,6 +99,9 @@ export class DisconnectParticipantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectParticipantCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DisconnectParticipantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectParticipantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisconnectParticipantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectParticipantCommandOutput> {
     return deserializeAws_restJson1DisconnectParticipantCommand(output, context);
   }

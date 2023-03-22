@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContactMethodCommand}.
  */
 export interface DeleteContactMethodCommandInput extends DeleteContactMethodRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContactMethodCommand}.
  */
 export interface DeleteContactMethodCommandOutput extends DeleteContactMethodResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a contact method.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
  *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
@@ -50,6 +55,8 @@ export interface DeleteContactMethodCommandOutput extends DeleteContactMethodRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContactMethodCommandInput - {@link DeleteContactMethodCommandInput}
+ * @returns {@link DeleteContactMethodCommandOutput}
  * @see {@link DeleteContactMethodCommandInput} for command's `input` shape.
  * @see {@link DeleteContactMethodCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteContactMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContactMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DeleteContactMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContactMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteContactMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactMethodCommandOutput> {
     return deserializeAws_json1_1DeleteContactMethodCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualClusterCommand}.
  */
 export interface DeleteVirtualClusterCommandInput extends DeleteVirtualClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualClusterCommand}.
  */
 export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
  *          additional resource in your system. A single virtual cluster maps to a single Kubernetes
  *          namespace. Given this relationship, you can model virtual clusters the same way you model
@@ -49,6 +54,8 @@ export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualClusterCommandInput - {@link DeleteVirtualClusterCommandInput}
+ * @returns {@link DeleteVirtualClusterCommandOutput}
  * @see {@link DeleteVirtualClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteVirtualClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteVirtualClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVirtualClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualClusterCommandOutput> {
     return deserializeAws_restJson1DeleteVirtualClusterCommand(output, context);
   }

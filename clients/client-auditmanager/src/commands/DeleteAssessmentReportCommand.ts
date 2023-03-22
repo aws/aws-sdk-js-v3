@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssessmentReportCommand}.
  */
 export interface DeleteAssessmentReportCommandInput extends DeleteAssessmentReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssessmentReportCommand}.
  */
 export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an assessment report in Audit Manager. </p>
  *          <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager
  *          attempts to delete the following data:</p>
@@ -67,6 +72,8 @@ export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentRep
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentReportCommandInput - {@link DeleteAssessmentReportCommandInput}
+ * @returns {@link DeleteAssessmentReportCommandOutput}
  * @see {@link DeleteAssessmentReportCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentReportCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -104,6 +111,9 @@ export class DeleteAssessmentReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeleteAssessmentReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssessmentReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAssessmentReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssessmentReportCommandOutput> {
     return deserializeAws_restJson1DeleteAssessmentReportCommand(output, context);
   }

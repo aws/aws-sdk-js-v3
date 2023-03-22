@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTrackerConsumerCommand}.
  */
 export interface AssociateTrackerConsumerCommandInput extends AssociateTrackerConsumerRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTrackerConsumerCommand}.
  */
 export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerConsumerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between a geofence collection and a tracker resource. This
  *             allows the tracker resource to communicate location data to the linked geofence
  *             collection. </p>
@@ -52,6 +57,8 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTrackerConsumerCommandInput - {@link AssociateTrackerConsumerCommandInput}
+ * @returns {@link AssociateTrackerConsumerCommandOutput}
  * @see {@link AssociateTrackerConsumerCommandInput} for command's `input` shape.
  * @see {@link AssociateTrackerConsumerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -98,6 +105,9 @@ export class AssociateTrackerConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTrackerConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class AssociateTrackerConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTrackerConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateTrackerConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrackerConsumerCommandOutput> {
     return deserializeAws_restJson1AssociateTrackerConsumerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSMBLocalGroupsCommand}.
  */
 export interface UpdateSMBLocalGroupsCommandInput extends UpdateSMBLocalGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSMBLocalGroupsCommand}.
  */
 export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the list of Active Directory users and groups that have special permissions for
  *          SMB file shares on the gateway.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSMBLocalGroupsCommandInput - {@link UpdateSMBLocalGroupsCommandInput}
+ * @returns {@link UpdateSMBLocalGroupsCommandOutput}
  * @see {@link UpdateSMBLocalGroupsCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBLocalGroupsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSMBLocalGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSMBLocalGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSMBLocalGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSMBLocalGroupsCommandOutput> {
     return deserializeAws_json1_1UpdateSMBLocalGroupsCommand(output, context);
   }

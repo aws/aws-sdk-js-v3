@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandInput extends DescribeJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandOutput extends GlacierJobDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns information about a job you previously initiated, including
  *          the job initiation date, the user who initiated the job, the job status code/message and
  *          the Amazon SNS topic to notify after Amazon S3 Glacier (Glacier) completes the job. For more information
@@ -69,6 +74,8 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
+ * @returns {@link DescribeJobCommandOutput}
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -131,6 +138,9 @@ export class DescribeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class DescribeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobCommandOutput> {
     return deserializeAws_restJson1DescribeJobCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountSummaryCommand}.
  */
 export interface GetAccountSummaryCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountSummaryCommand}.
  */
 export interface GetAccountSummaryCommandOutput extends GetAccountSummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services
  *             account.</p>
  *          <p> For information about IAM quotas, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a> in the
@@ -44,6 +49,8 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountSummaryCommandInput - {@link GetAccountSummaryCommandInput}
+ * @returns {@link GetAccountSummaryCommandOutput}
  * @see {@link GetAccountSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAccountSummaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -112,6 +119,9 @@ export class GetAccountSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class GetAccountSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetAccountSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSummaryCommandOutput> {
     return deserializeAws_queryGetAccountSummaryCommand(output, context);
   }

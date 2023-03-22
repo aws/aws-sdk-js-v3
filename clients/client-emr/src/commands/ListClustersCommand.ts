@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClustersCommand}.
  */
 export interface ListClustersCommandInput extends ListClustersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListClustersCommand}.
  */
 export interface ListClustersCommandOutput extends ListClustersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the status of all clusters visible to this Amazon Web Services account. Allows
  *          you to filter the list of clusters based on certain criteria; for example, filtering by
  *          cluster creation date and time or by status. This call returns a maximum of 50 clusters in
@@ -50,6 +55,8 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClustersCommandInput - {@link ListClustersCommandInput}
+ * @returns {@link ListClustersCommandOutput}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersCommandOutput> {
     return deserializeAws_json1_1ListClustersCommand(output, context);
   }

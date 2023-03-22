@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmConnectionCommand}.
  */
 export interface ConfirmConnectionCommandInput extends ConfirmConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmConnectionCommand}.
  */
 export interface ConfirmConnectionCommandOutput extends ConfirmConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Confirms the creation of the specified hosted connection on an interconnect.</p>
  *          <p>Upon creation, the hosted connection is initially in the <code>Ordering</code> state, and
  *       remains in this state until the owner confirms creation of the hosted connection.</p>
@@ -48,6 +53,8 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmConnectionCommandInput - {@link ConfirmConnectionCommandInput}
+ * @returns {@link ConfirmConnectionCommandOutput}
  * @see {@link ConfirmConnectionCommandInput} for command's `input` shape.
  * @see {@link ConfirmConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -77,6 +84,9 @@ export class ConfirmConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ConfirmConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ConfirmConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmConnectionCommandOutput> {
     return deserializeAws_json1_1ConfirmConnectionCommand(output, context);
   }

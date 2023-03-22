@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddApplicationReferenceDataSourceCommand}.
  */
 export interface AddApplicationReferenceDataSourceCommandInput extends AddApplicationReferenceDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddApplicationReferenceDataSourceCommand}.
  */
 export interface AddApplicationReferenceDataSourceCommandOutput
@@ -37,6 +41,7 @@ export interface AddApplicationReferenceDataSourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -61,6 +66,8 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationReferenceDataSourceCommandInput - {@link AddApplicationReferenceDataSourceCommandInput}
+ * @returns {@link AddApplicationReferenceDataSourceCommandOutput}
  * @see {@link AddApplicationReferenceDataSourceCommandInput} for command's `input` shape.
  * @see {@link AddApplicationReferenceDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -99,6 +106,9 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationReferenceDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationReferenceDataSourceCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     return serializeAws_json1_1AddApplicationReferenceDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

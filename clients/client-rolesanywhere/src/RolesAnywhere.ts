@@ -94,6 +94,7 @@ import {
 import { RolesAnywhereClient } from "./RolesAnywhereClient";
 
 /**
+ * @public
  * <p>AWS Identity and Access Management Roles Anywhere provides a secure way for your workloads such as servers, containers, and applications running outside of AWS to obtain Temporary AWS credentials. Your workloads can use the same IAM policies and roles that you have configured with native AWS applications to access AWS resources. Using IAM Roles Anywhere will eliminate the need to manage long term credentials for workloads running outside of AWS.</p>
  *          <p>To use IAM Roles Anywhere customer workloads will need to use X.509 certificates issued by their Certificate Authority (CA) . The Certificate Authority (CA) needs to be registered with IAM Roles Anywhere as a trust anchor to establish trust between customer PKI and IAM Roles Anywhere. Customers who do not manage their own PKI system can use AWS Certificate Manager Private Certificate Authority (ACM PCA) to create a Certificate Authority and use that to establish trust with IAM Roles Anywhere</p>
  *          <p>This guide describes the IAM rolesanywhere operations that you can call programmatically. For general information about IAM Roles Anywhere see <a href="https://docs.aws.amazon.com/">https://docs.aws.amazon.com/</a>
@@ -101,6 +102,7 @@ import { RolesAnywhereClient } from "./RolesAnywhereClient";
  */
 export class RolesAnywhere extends RolesAnywhereClient {
   /**
+   * @public
    * <p>Creates a profile. A profile is configuration resource to list the roles that RolesAnywhere service is trusted to assume. In addition, by applying a profile you can intersect permissions with IAM managed policies.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -137,6 +139,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Creates a trust anchor. You establish trust between IAM Roles Anywhere and your certificate authority (CA) by configuring a trust anchor. A Trust Anchor is defined either as a reference to a AWS Certificate Manager Private Certificate Authority (ACM PCA), or by uploading a Certificate Authority (CA) certificate. Your AWS workloads can authenticate with the trust anchor using certificates issued by the trusted Certificate Authority (CA) in exchange for temporary AWS credentials.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -173,6 +176,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Deletes a certificate revocation list (CRL).</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -203,6 +207,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Deletes a profile.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -239,6 +244,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Deletes a trust anchor.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -275,6 +281,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Disables a certificate revocation list (CRL).</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -305,6 +312,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Disables a profile. When disabled, <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> requests with this profile fail.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -341,6 +349,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Disables a trust anchor. When disabled, <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> requests specifying this trust anchor are unauthorized.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -377,6 +386,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Enables a certificate revocation list (CRL). When enabled, certificates stored in the CRL are unauthorized to receive session credentials.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -407,6 +417,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Enables the roles in a profile to receive session credentials in <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>. </p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -443,6 +454,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Enables a trust anchor. When enabled, certificates in the trust anchor chain are authorized for trust validation. </p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -479,6 +491,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Gets a certificate revocation list (CRL).</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -509,6 +522,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Gets a profile.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -539,6 +553,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Gets a Subject. A Subject associates a certificate identity with authentication attempts by CreateSession. The Subject resources stores audit information such as status of the last authentication attempt, the certificate data used in the attempt, and the last time the associated identity attempted authentication. </p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -569,6 +584,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Gets a trust anchor.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -605,6 +621,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Imports the certificate revocation list (CRL). CRl is a list of certificates that have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates against the crl list before issuing credentials. </p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -635,6 +652,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Lists all Crls in the authenticated account and Amazon Web Services Region.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -665,6 +683,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Lists all profiles in the authenticated account and Amazon Web Services Region.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -698,6 +717,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Lists the subjects in the authenticated account and Amazon Web Services Region.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -731,6 +751,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags attached to the resource.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -767,6 +788,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Lists the trust anchors in the authenticated account and Amazon Web Services Region.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -803,6 +825,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Attaches tags to a resource.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -833,6 +856,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from the resource.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -869,6 +893,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Updates the certificate revocation list (CRL). CRl is a list of certificates that have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates against the crl list before issuing credentials.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -899,6 +924,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Updates the profile. A profile is configuration resource to list the roles that RolesAnywhere service is trusted to assume. In addition, by applying a profile you can scope-down permissions with IAM managed policies.</p>
    *          <p>
    *             <b>Required permissions: </b>
@@ -935,6 +961,7 @@ export class RolesAnywhere extends RolesAnywhereClient {
   }
 
   /**
+   * @public
    * <p>Updates the trust anchor.You establish trust between IAM Roles Anywhere and your certificate authority (CA) by configuring a trust anchor. A Trust Anchor is defined either as a reference to a AWS Certificate Manager Private Certificate Authority (ACM PCA), or by uploading a Certificate Authority (CA) certificate. Your AWS workloads can authenticate with the trust anchor using certificates issued by the trusted Certificate Authority (CA) in exchange for temporary AWS credentials.</p>
    *          <p>
    *             <b>Required permissions: </b>

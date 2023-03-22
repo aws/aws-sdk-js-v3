@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetJobBookmarkCommand}.
  */
 export interface ResetJobBookmarkCommandInput extends ResetJobBookmarkRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetJobBookmarkCommand}.
  */
 export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets a bookmark entry.</p>
  *          <p>For more information about enabling and using job bookmarks, see:</p>
  *          <ul>
@@ -64,6 +69,8 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetJobBookmarkCommandInput - {@link ResetJobBookmarkCommandInput}
+ * @returns {@link ResetJobBookmarkCommandOutput}
  * @see {@link ResetJobBookmarkCommandInput} for command's `input` shape.
  * @see {@link ResetJobBookmarkCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -99,6 +106,9 @@ export class ResetJobBookmarkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetJobBookmarkCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ResetJobBookmarkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetJobBookmarkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetJobBookmarkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetJobBookmarkCommandOutput> {
     return deserializeAws_json1_1ResetJobBookmarkCommand(output, context);
   }

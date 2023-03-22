@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFunctionEventInvokeConfigCommand}.
  */
 export interface PutFunctionEventInvokeConfigCommandInput extends PutFunctionEventInvokeConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutFunctionEventInvokeConfigCommand}.
  */
 export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures options for <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html">asynchronous
  *         invocation</a> on a function, version, or alias. If a configuration already exists for a function, version,
  *       or alias, this operation overwrites it. If you exclude any settings, they are removed. To set one option without
@@ -56,6 +61,8 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFunctionEventInvokeConfigCommandInput - {@link PutFunctionEventInvokeConfigCommandInput}
+ * @returns {@link PutFunctionEventInvokeConfigCommandOutput}
  * @see {@link PutFunctionEventInvokeConfigCommandInput} for command's `input` shape.
  * @see {@link PutFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -94,6 +101,9 @@ export class PutFunctionEventInvokeConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFunctionEventInvokeConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class PutFunctionEventInvokeConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFunctionEventInvokeConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutFunctionEventInvokeConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

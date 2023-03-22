@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { RolesAnywhereServiceException as __BaseException } from "./RolesAnywhereServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A label that consists of a key and value you define. </p>
  */
 export interface Tag {
@@ -37,6 +39,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateProfileRequest {
   /**
    * <p>The name of the profile.</p>
@@ -80,6 +85,7 @@ export interface CreateProfileRequest {
 }
 
 /**
+ * @public
  * <p>The state of the profile after a read or write operation.</p>
  */
 export interface ProfileDetail {
@@ -144,6 +150,9 @@ export interface ProfileDetail {
   durationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface ProfileDetailResponse {
   /**
    * <p>The state of the profile after a read or write operation.</p>
@@ -152,6 +161,7 @@ export interface ProfileDetailResponse {
 }
 
 /**
+ * @public
  * <p>Validation exception error.</p>
  */
 export class ValidationException extends __BaseException {
@@ -171,10 +181,14 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The data field of the trust anchor depending on its type. </p>
  */
 export type SourceData = SourceData.AcmPcaArnMember | SourceData.X509CertificateDataMember | SourceData.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SourceData {
   /**
    * <p>The PEM-encoded data for the certificate anchor. Included for trust anchors of type <code>CERTIFICATE_BUNDLE</code>. </p>
@@ -213,6 +227,9 @@ export namespace SourceData {
   };
 }
 
+/**
+ * @public
+ */
 export enum TrustAnchorType {
   AWS_ACM_PCA = "AWS_ACM_PCA",
   CERTIFICATE_BUNDLE = "CERTIFICATE_BUNDLE",
@@ -220,6 +237,7 @@ export enum TrustAnchorType {
 }
 
 /**
+ * @public
  * <p>The trust anchor type and its related certificate data.</p>
  */
 export interface Source {
@@ -234,6 +252,9 @@ export interface Source {
   sourceData?: SourceData;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrustAnchorRequest {
   /**
    * <p>The name of the trust anchor.</p>
@@ -257,6 +278,7 @@ export interface CreateTrustAnchorRequest {
 }
 
 /**
+ * @public
  * <p>The state of the trust anchor after a read or write operation. </p>
  */
 export interface TrustAnchorDetail {
@@ -296,6 +318,9 @@ export interface TrustAnchorDetail {
   updatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface TrustAnchorDetailResponse {
   /**
    * <p>The state of the trust anchor after a read or write operation. </p>
@@ -304,6 +329,7 @@ export interface TrustAnchorDetailResponse {
 }
 
 /**
+ * @public
  * <p>A record of a presented X509 credential to <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>. </p>
  */
 export interface CredentialSummary {
@@ -339,6 +365,7 @@ export interface CredentialSummary {
 }
 
 /**
+ * @public
  * <p>The state of the certificate revocation list (CRL) after a read or write operation.</p>
  */
 export interface CrlDetail {
@@ -383,6 +410,9 @@ export interface CrlDetail {
   updatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CrlDetailResponse {
   /**
    * <p>The state of the certificate revocation list (CRL) after a read or write operation.</p>
@@ -391,6 +421,7 @@ export interface CrlDetailResponse {
 }
 
 /**
+ * @public
  * <p>The resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -409,6 +440,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ScalarCrlRequest {
   /**
    * <p>The unique identifier of the certificate revocation list (CRL).</p>
@@ -416,6 +450,9 @@ export interface ScalarCrlRequest {
   crlId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportCrlRequest {
   /**
    * <p>The name of the certificate revocation list (CRL).</p>
@@ -443,6 +480,9 @@ export interface ImportCrlRequest {
   trustAnchorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCrlsResponse {
   /**
    * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
@@ -455,6 +495,9 @@ export interface ListCrlsResponse {
   crls?: CrlDetail[];
 }
 
+/**
+ * @public
+ */
 export interface ListRequest {
   /**
    * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
@@ -467,6 +510,9 @@ export interface ListRequest {
   pageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCrlRequest {
   /**
    * <p>The unique identifier of the certificate revocation list (CRL).</p>
@@ -484,6 +530,9 @@ export interface UpdateCrlRequest {
   crlData?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface ScalarProfileRequest {
   /**
    * <p>The unique identifier of the profile.</p>
@@ -491,6 +540,9 @@ export interface ScalarProfileRequest {
   profileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ScalarTrustAnchorRequest {
   /**
    * <p>The unique identifier of the trust anchor.</p>
@@ -498,6 +550,9 @@ export interface ScalarTrustAnchorRequest {
   trustAnchorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ScalarSubjectRequest {
   /**
    * <p>The unique identifier of the subject. </p>
@@ -506,6 +561,7 @@ export interface ScalarSubjectRequest {
 }
 
 /**
+ * @public
  * <p>A key-value pair you set that identifies a property of the authenticating instance.</p>
  */
 export interface InstanceProperty {
@@ -526,6 +582,7 @@ export interface InstanceProperty {
 }
 
 /**
+ * @public
  * <p>The state of the subject after a read or write operation.</p>
  */
 export interface SubjectDetail {
@@ -575,6 +632,9 @@ export interface SubjectDetail {
   instanceProperties?: InstanceProperty[];
 }
 
+/**
+ * @public
+ */
 export interface SubjectDetailResponse {
   /**
    * <p>The state of the subject after a read or write operation.</p>
@@ -582,6 +642,9 @@ export interface SubjectDetailResponse {
   subject?: SubjectDetail;
 }
 
+/**
+ * @public
+ */
 export interface ListProfilesResponse {
   /**
    * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
@@ -595,6 +658,7 @@ export interface ListProfilesResponse {
 }
 
 /**
+ * @public
  * <p>A summary representation of Subject resources returned in read operations; primarily ListSubjects.</p>
  */
 export interface SubjectSummary {
@@ -634,6 +698,9 @@ export interface SubjectSummary {
   updatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSubjectsResponse {
   /**
    * <p>A list of subjects.</p>
@@ -646,6 +713,9 @@ export interface ListSubjectsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -653,6 +723,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags attached to the resource.</p>
@@ -660,6 +733,9 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTrustAnchorsResponse {
   /**
    * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
@@ -672,6 +748,9 @@ export interface ListTrustAnchorsResponse {
   trustAnchors?: TrustAnchorDetail[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateProfileRequest {
   /**
    * <p>The unique identifier of the profile.</p>
@@ -704,6 +783,9 @@ export interface UpdateProfileRequest {
   durationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -716,9 +798,13 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>Too many tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -737,6 +823,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrustAnchorRequest {
   /**
    * <p>The unique identifier of the trust anchor.</p>
@@ -754,6 +843,9 @@ export interface UpdateTrustAnchorRequest {
   source?: Source;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -766,6 +858,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

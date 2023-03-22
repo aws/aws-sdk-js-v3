@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExportTaskCommand}.
  */
 export interface CreateExportTaskCommandInput extends CreateExportTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExportTaskCommand}.
  */
 export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an export task so that you can efficiently export data from a log group to an
  *       Amazon S3 bucket. When you perform a <code>CreateExportTask</code> operation, you must use
  *       credentials that have permission to write to the S3 bucket that you specify as the
@@ -65,6 +70,8 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExportTaskCommandInput - {@link CreateExportTaskCommandInput}
+ * @returns {@link CreateExportTaskCommandOutput}
  * @see {@link CreateExportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateExportTaskCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExportTaskCommandOutput> {
     return deserializeAws_json1_1CreateExportTaskCommand(output, context);
   }

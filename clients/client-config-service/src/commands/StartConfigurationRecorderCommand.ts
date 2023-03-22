@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartConfigurationRecorderCommand}.
  */
 export interface StartConfigurationRecorderCommandInput extends StartConfigurationRecorderRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartConfigurationRecorderCommand}.
  */
 export interface StartConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts recording configurations of the Amazon Web Services resources you have
  * 			selected to record in your Amazon Web Services account.</p>
  *          <p>You must have created at least one delivery channel to
@@ -47,6 +52,8 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConfigurationRecorderCommandInput - {@link StartConfigurationRecorderCommandInput}
+ * @returns {@link StartConfigurationRecorderCommandOutput}
  * @see {@link StartConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link StartConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class StartConfigurationRecorderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConfigurationRecorderCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class StartConfigurationRecorderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartConfigurationRecorderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartConfigurationRecorderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

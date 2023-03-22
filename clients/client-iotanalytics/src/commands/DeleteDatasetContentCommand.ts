@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatasetContentCommand}.
  */
 export interface DeleteDatasetContentCommandInput extends DeleteDatasetContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatasetContentCommand}.
  */
 export interface DeleteDatasetContentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the content of the specified dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteDatasetContentCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetContentCommandInput - {@link DeleteDatasetContentCommandInput}
+ * @returns {@link DeleteDatasetContentCommandOutput}
  * @see {@link DeleteDatasetContentCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetContentCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteDatasetContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteDatasetContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDatasetContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetContentCommandOutput> {
     return deserializeAws_restJson1DeleteDatasetContentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteSnapshotCommand}.
  */
 export interface CompleteSnapshotCommandInput extends CompleteSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CompleteSnapshotCommand}.
  */
 export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Seals and completes the snapshot after all of the required blocks of data have been
  *             written to it. Completing the snapshot changes the status to <code>completed</code>. You
  *             cannot write new blocks to a snapshot after it has been completed.</p>
@@ -48,6 +53,8 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteSnapshotCommandInput - {@link CompleteSnapshotCommandInput}
+ * @returns {@link CompleteSnapshotCommandOutput}
  * @see {@link CompleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link CompleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
@@ -90,6 +97,9 @@ export class CompleteSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CompleteSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CompleteSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteSnapshotCommandOutput> {
     return deserializeAws_restJson1CompleteSnapshotCommand(output, context);
   }

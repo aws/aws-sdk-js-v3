@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterResourceCommand}.
  */
 export interface DeregisterResourceCommandInput extends DeregisterResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterResourceCommand}.
  */
 export interface DeregisterResourceCommandOutput extends DeregisterResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the resource as managed by the Data Catalog.</p>
  *          <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterResourceCommandInput - {@link DeregisterResourceCommandInput}
+ * @returns {@link DeregisterResourceCommandOutput}
  * @see {@link DeregisterResourceCommandInput} for command's `input` shape.
  * @see {@link DeregisterResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeregisterResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeregisterResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeregisterResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterResourceCommandOutput> {
     return deserializeAws_restJson1DeregisterResourceCommand(output, context);
   }

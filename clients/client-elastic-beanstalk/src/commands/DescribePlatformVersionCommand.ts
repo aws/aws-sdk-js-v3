@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePlatformVersionCommand}.
  */
 export interface DescribePlatformVersionCommandInput extends DescribePlatformVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePlatformVersionCommand}.
  */
 export interface DescribePlatformVersionCommandOutput extends DescribePlatformVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a platform version. Provides full details. Compare to <a>ListPlatformVersions</a>, which provides summary information about a list of
  *       platform versions.</p>
  *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
@@ -49,6 +54,8 @@ export interface DescribePlatformVersionCommandOutput extends DescribePlatformVe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePlatformVersionCommandInput - {@link DescribePlatformVersionCommandInput}
+ * @returns {@link DescribePlatformVersionCommandOutput}
  * @see {@link DescribePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link DescribePlatformVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribePlatformVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePlatformVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribePlatformVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePlatformVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribePlatformVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlatformVersionCommandOutput> {
     return deserializeAws_queryDescribePlatformVersionCommand(output, context);
   }

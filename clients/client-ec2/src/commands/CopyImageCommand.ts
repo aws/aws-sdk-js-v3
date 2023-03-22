@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CopyImageCommand, serializeAws_ec2CopyImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CopyImageCommand}.
  */
 export interface CopyImageCommandInput extends CopyImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyImageCommand}.
  */
 export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a
  *       Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost
  *       to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
@@ -61,6 +66,8 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyImageCommandInput - {@link CopyImageCommandInput}
+ * @returns {@link CopyImageCommandOutput}
  * @see {@link CopyImageCommandInput} for command's `input` shape.
  * @see {@link CopyImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -99,6 +106,9 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CopyImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyImageCommandOutput> {
     return deserializeAws_ec2CopyImageCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopMeetingTranscriptionCommand}.
  */
 export interface StopMeetingTranscriptionCommandInput extends StopMeetingTranscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopMeetingTranscriptionCommand}.
  */
 export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops transcription for the specified <code>meetingId</code>. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
  *             Using Amazon Chime SDK live transcription
  *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
@@ -47,6 +52,8 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMeetingTranscriptionCommandInput - {@link StopMeetingTranscriptionCommandInput}
+ * @returns {@link StopMeetingTranscriptionCommandOutput}
  * @see {@link StopMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StopMeetingTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -94,6 +101,9 @@ export class StopMeetingTranscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMeetingTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class StopMeetingTranscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMeetingTranscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopMeetingTranscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMeetingTranscriptionCommandOutput> {
     return deserializeAws_restJson1StopMeetingTranscriptionCommand(output, context);
   }

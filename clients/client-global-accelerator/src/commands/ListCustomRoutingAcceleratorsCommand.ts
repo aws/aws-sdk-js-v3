@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomRoutingAcceleratorsCommand}.
  */
 export interface ListCustomRoutingAcceleratorsCommandInput extends ListCustomRoutingAcceleratorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomRoutingAcceleratorsCommand}.
  */
 export interface ListCustomRoutingAcceleratorsCommandOutput
@@ -41,6 +45,7 @@ export interface ListCustomRoutingAcceleratorsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the custom routing accelerators for an Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ListCustomRoutingAcceleratorsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomRoutingAcceleratorsCommandInput - {@link ListCustomRoutingAcceleratorsCommandInput}
+ * @returns {@link ListCustomRoutingAcceleratorsCommandOutput}
  * @see {@link ListCustomRoutingAcceleratorsCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingAcceleratorsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListCustomRoutingAcceleratorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomRoutingAcceleratorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListCustomRoutingAcceleratorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomRoutingAcceleratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCustomRoutingAcceleratorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

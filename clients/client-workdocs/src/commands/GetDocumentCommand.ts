@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentCommand}.
  */
 export interface GetDocumentCommandInput extends GetDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentCommand}.
  */
 export interface GetDocumentCommandOutput extends GetDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details of a document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDocumentCommandOutput extends GetDocumentResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentCommandInput - {@link GetDocumentCommandInput}
+ * @returns {@link GetDocumentCommandOutput}
  * @see {@link GetDocumentCommandInput} for command's `input` shape.
  * @see {@link GetDocumentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentCommandOutput> {
     return deserializeAws_restJson1GetDocumentCommand(output, context);
   }

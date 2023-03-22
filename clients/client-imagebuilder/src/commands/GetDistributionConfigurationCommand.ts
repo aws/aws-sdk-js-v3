@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDistributionConfigurationCommand}.
  */
 export interface GetDistributionConfigurationCommandInput extends GetDistributionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDistributionConfigurationCommand}.
  */
 export interface GetDistributionConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetDistributionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets a distribution configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetDistributionConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDistributionConfigurationCommandInput - {@link GetDistributionConfigurationCommandInput}
+ * @returns {@link GetDistributionConfigurationCommandOutput}
  * @see {@link GetDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetDistributionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetDistributionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDistributionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetDistributionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDistributionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDistributionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

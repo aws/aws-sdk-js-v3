@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTagsCommand}.
  */
 export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTagsCommand}.
  */
 export interface RemoveTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified set of tags from an Amazon OpenSearch Service domain. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging"> Tagging Amazon OpenSearch Service domains</a>.</p>
  * @example
@@ -42,6 +47,8 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
+ * @returns {@link RemoveTagsCommandOutput}
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -74,6 +81,9 @@ export class RemoveTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class RemoveTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsCommandOutput> {
     return deserializeAws_restJson1RemoveTagsCommand(output, context);
   }

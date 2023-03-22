@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAlarmActionsCommand}.
  */
 export interface EnableAlarmActionsCommandInput extends EnableAlarmActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableAlarmActionsCommand}.
  */
 export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the actions for the specified alarms.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAlarmActionsCommandInput - {@link EnableAlarmActionsCommandInput}
+ * @returns {@link EnableAlarmActionsCommandOutput}
  * @see {@link EnableAlarmActionsCommandInput} for command's `input` shape.
  * @see {@link EnableAlarmActionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -64,6 +71,9 @@ export class EnableAlarmActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAlarmActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,10 +113,16 @@ export class EnableAlarmActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableAlarmActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryEnableAlarmActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAlarmActionsCommandOutput> {
     return deserializeAws_queryEnableAlarmActionsCommand(output, context);
   }

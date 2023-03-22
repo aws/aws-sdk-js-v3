@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApplicationSettingsCommand}.
  */
 export interface GetApplicationSettingsCommandInput extends GetApplicationSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApplicationSettingsCommand}.
  */
 export interface GetApplicationSettingsCommandOutput extends GetApplicationSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the settings for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationSettingsCommandInput - {@link GetApplicationSettingsCommandInput}
+ * @returns {@link GetApplicationSettingsCommandOutput}
  * @see {@link GetApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link GetApplicationSettingsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetApplicationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetApplicationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApplicationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetApplicationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationSettingsCommandOutput> {
     return deserializeAws_restJson1GetApplicationSettingsCommand(output, context);
   }

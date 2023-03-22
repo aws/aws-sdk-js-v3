@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSqlInjectionMatchSetsCommand}.
  */
 export interface ListSqlInjectionMatchSetsCommandInput extends ListSqlInjectionMatchSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSqlInjectionMatchSetsCommand}.
  */
 export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjectionMatchSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSqlInjectionMatchSetsCommandInput - {@link ListSqlInjectionMatchSetsCommandInput}
+ * @returns {@link ListSqlInjectionMatchSetsCommandOutput}
  * @see {@link ListSqlInjectionMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListSqlInjectionMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -104,6 +111,9 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSqlInjectionMatchSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSqlInjectionMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSqlInjectionMatchSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

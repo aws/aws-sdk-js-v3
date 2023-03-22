@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImageCommand}.
  */
 export interface DeleteImageCommandInput extends DeleteImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImageCommand}.
  */
 export interface DeleteImageCommandOutput extends DeleteImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images
  * 			that are created during the image build process. You must clean those up separately,
  * 			using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p>
@@ -66,6 +71,8 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImageCommandInput - {@link DeleteImageCommandInput}
+ * @returns {@link DeleteImageCommandOutput}
  * @see {@link DeleteImageCommandInput} for command's `input` shape.
  * @see {@link DeleteImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -113,6 +120,9 @@ export class DeleteImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DeleteImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageCommandOutput> {
     return deserializeAws_restJson1DeleteImageCommand(output, context);
   }

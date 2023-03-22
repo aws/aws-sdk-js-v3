@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SetDefaultAuthorizerCommand}.
  */
 export interface SetDefaultAuthorizerCommandInput extends SetDefaultAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetDefaultAuthorizerCommand}.
  */
 export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the default authorizer. This will be used if a websocket connection is made
  *          without specifying an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultAuthorizer</a> action.</p>
@@ -48,6 +53,8 @@ export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerR
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDefaultAuthorizerCommandInput - {@link SetDefaultAuthorizerCommandInput}
+ * @returns {@link SetDefaultAuthorizerCommandOutput}
  * @see {@link SetDefaultAuthorizerCommandInput} for command's `input` shape.
  * @see {@link SetDefaultAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +99,9 @@ export class SetDefaultAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDefaultAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class SetDefaultAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDefaultAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SetDefaultAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultAuthorizerCommandOutput> {
     return deserializeAws_restJson1SetDefaultAuthorizerCommand(output, context);
   }

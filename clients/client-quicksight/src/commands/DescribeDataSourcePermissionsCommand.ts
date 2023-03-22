@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSourcePermissionsCommand}.
  */
 export interface DescribeDataSourcePermissionsCommandInput extends DescribeDataSourcePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSourcePermissionsCommand}.
  */
 export interface DescribeDataSourcePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDataSourcePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the resource permissions for a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeDataSourcePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSourcePermissionsCommandInput - {@link DescribeDataSourcePermissionsCommandInput}
+ * @returns {@link DescribeDataSourcePermissionsCommandOutput}
  * @see {@link DescribeDataSourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSourcePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDataSourcePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

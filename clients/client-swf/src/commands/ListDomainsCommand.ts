@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandInput extends ListDomainsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of domains registered in the account. The results may be split into
  *       multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken
  *       returned by the initial call.</p>
@@ -77,6 +82,8 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
+ * @returns {@link ListDomainsCommandOutput}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -103,6 +110,9 @@ export class ListDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class ListDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsCommandOutput> {
     return deserializeAws_json1_0ListDomainsCommand(output, context);
   }

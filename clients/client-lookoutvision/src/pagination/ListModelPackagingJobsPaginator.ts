@@ -10,7 +10,7 @@ import { LookoutVisionClient } from "../LookoutVisionClient";
 import { LookoutVisionPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutVisionClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListModelPackagingJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListModelPackagingJobs(
   config: LookoutVisionPaginationConfiguration,
   input: ListModelPackagingJobsCommandInput,

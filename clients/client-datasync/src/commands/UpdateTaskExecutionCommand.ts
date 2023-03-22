@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTaskExecutionCommand}.
  */
 export interface UpdateTaskExecutionCommandInput extends UpdateTaskExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTaskExecutionCommand}.
  */
 export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates execution of a task.</p>
  *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
  *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
@@ -54,6 +59,8 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTaskExecutionCommandInput - {@link UpdateTaskExecutionCommandInput}
+ * @returns {@link UpdateTaskExecutionCommandOutput}
  * @see {@link UpdateTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateTaskExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTaskExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateTaskExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTaskExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskExecutionCommandOutput> {
     return deserializeAws_json1_1UpdateTaskExecutionCommand(output, context);
   }

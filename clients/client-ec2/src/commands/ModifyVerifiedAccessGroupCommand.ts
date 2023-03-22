@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVerifiedAccessGroupCommand}.
  */
 export interface ModifyVerifiedAccessGroupCommandInput extends ModifyVerifiedAccessGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVerifiedAccessGroupCommand}.
  */
 export interface ModifyVerifiedAccessGroupCommandOutput extends ModifyVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified Verified Access group configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyVerifiedAccessGroupCommandOutput extends ModifyVerifiedAc
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessGroupCommandInput - {@link ModifyVerifiedAccessGroupCommandInput}
+ * @returns {@link ModifyVerifiedAccessGroupCommandOutput}
  * @see {@link ModifyVerifiedAccessGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ModifyVerifiedAccessGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ModifyVerifiedAccessGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVerifiedAccessGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVerifiedAccessGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

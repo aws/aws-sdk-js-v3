@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GrantFlowEntitlementsCommand}.
  */
 export interface GrantFlowEntitlementsCommandInput extends GrantFlowEntitlementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GrantFlowEntitlementsCommand}.
  */
 export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlementsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants entitlements to an existing flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  * const response = await client.send(command);
  * ```
  *
+ * @param GrantFlowEntitlementsCommandInput - {@link GrantFlowEntitlementsCommandInput}
+ * @returns {@link GrantFlowEntitlementsCommandOutput}
  * @see {@link GrantFlowEntitlementsCommandInput} for command's `input` shape.
  * @see {@link GrantFlowEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class GrantFlowEntitlementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GrantFlowEntitlementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GrantFlowEntitlementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GrantFlowEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GrantFlowEntitlementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GrantFlowEntitlementsCommandOutput> {
     return deserializeAws_restJson1GrantFlowEntitlementsCommand(output, context);
   }

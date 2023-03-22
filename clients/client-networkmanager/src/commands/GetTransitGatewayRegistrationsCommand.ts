@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTransitGatewayRegistrationsCommand}.
  */
 export interface GetTransitGatewayRegistrationsCommandInput extends GetTransitGatewayRegistrationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTransitGatewayRegistrationsCommand}.
  */
 export interface GetTransitGatewayRegistrationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetTransitGatewayRegistrationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the transit gateway registrations in a specified
  *             global network.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayRegistrationsCommandInput - {@link GetTransitGatewayRegistrationsCommandInput}
+ * @returns {@link GetTransitGatewayRegistrationsCommandOutput}
  * @see {@link GetTransitGatewayRegistrationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRegistrationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayRegistrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayRegistrationsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     return serializeAws_restJson1GetTransitGatewayRegistrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

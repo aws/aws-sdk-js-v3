@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateOrganizationsAccessReportCommand}.
  */
 export interface GenerateOrganizationsAccessReportCommandInput extends GenerateOrganizationsAccessReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateOrganizationsAccessReportCommand}.
  */
 export interface GenerateOrganizationsAccessReportCommandOutput
@@ -37,6 +41,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a report for service last accessed data for Organizations. You can generate a
  *             report for any entities (organization root, organizational unit, or account) or policies
  *             in your organization.</p>
@@ -178,6 +183,8 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateOrganizationsAccessReportCommandInput - {@link GenerateOrganizationsAccessReportCommandInput}
+ * @returns {@link GenerateOrganizationsAccessReportCommandOutput}
  * @see {@link GenerateOrganizationsAccessReportCommandInput} for command's `input` shape.
  * @see {@link GenerateOrganizationsAccessReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -221,6 +228,9 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateOrganizationsAccessReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -260,6 +270,9 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateOrganizationsAccessReportCommandInput,
     context: __SerdeContext
@@ -267,6 +280,9 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     return serializeAws_queryGenerateOrganizationsAccessReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

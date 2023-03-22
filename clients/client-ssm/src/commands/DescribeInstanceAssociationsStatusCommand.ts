@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceAssociationsStatusCommand}.
  */
 export interface DescribeInstanceAssociationsStatusCommandInput extends DescribeInstanceAssociationsStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceAssociationsStatusCommand}.
  */
 export interface DescribeInstanceAssociationsStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>The status of the associations for the managed node(s).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceAssociationsStatusCommandInput - {@link DescribeInstanceAssociationsStatusCommandInput}
+ * @returns {@link DescribeInstanceAssociationsStatusCommandOutput}
  * @see {@link DescribeInstanceAssociationsStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAssociationsStatusCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceAssociationsStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInstanceAssociationsStatusCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
     return serializeAws_json1_1DescribeInstanceAssociationsStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

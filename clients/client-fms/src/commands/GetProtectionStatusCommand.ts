@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProtectionStatusCommand}.
  */
 export interface GetProtectionStatusCommandInput extends GetProtectionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProtectionStatusCommand}.
  */
 export interface GetProtectionStatusCommandOutput extends GetProtectionStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If you created a Shield Advanced policy, returns policy-level attack summary information
  *          in the event of a potential DDoS attack. Other policy types are currently unsupported.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProtectionStatusCommandInput - {@link GetProtectionStatusCommandInput}
+ * @returns {@link GetProtectionStatusCommandOutput}
  * @see {@link GetProtectionStatusCommandInput} for command's `input` shape.
  * @see {@link GetProtectionStatusCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetProtectionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProtectionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetProtectionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProtectionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetProtectionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProtectionStatusCommandOutput> {
     return deserializeAws_json1_1GetProtectionStatusCommand(output, context);
   }

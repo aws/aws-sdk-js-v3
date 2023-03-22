@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutDedicatedIpInPoolCommand}.
  */
 export interface PutDedicatedIpInPoolCommandInput extends PutDedicatedIpInPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDedicatedIpInPoolCommand}.
  */
 export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
  *          <note>
  *             <p>The dedicated IP address that you specify must already exist, and must be
@@ -54,6 +59,8 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDedicatedIpInPoolCommandInput - {@link PutDedicatedIpInPoolCommandInput}
+ * @returns {@link PutDedicatedIpInPoolCommandOutput}
  * @see {@link PutDedicatedIpInPoolCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpInPoolCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -86,6 +93,9 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDedicatedIpInPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDedicatedIpInPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutDedicatedIpInPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDedicatedIpInPoolCommandOutput> {
     return deserializeAws_restJson1PutDedicatedIpInPoolCommand(output, context);
   }

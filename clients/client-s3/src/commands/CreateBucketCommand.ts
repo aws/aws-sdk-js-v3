@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBucketCommand}.
  */
 export interface CreateBucketCommandInput extends CreateBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBucketCommand}.
  */
 export interface CreateBucketCommandOutput extends CreateBucketOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new S3 bucket. To create a bucket, you must register with Amazon S3 and have a
  *          valid Amazon Web Services Access Key ID to authenticate requests. Anonymous requests are never allowed to
  *          create buckets. By creating the bucket, you become the bucket owner.</p>
@@ -192,6 +197,8 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
+ * @returns {@link CreateBucketCommandOutput}
  * @see {@link CreateBucketCommandInput} for command's `input` shape.
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -267,6 +274,9 @@ export class CreateBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -305,10 +315,16 @@ export class CreateBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
     return deserializeAws_restXmlCreateBucketCommand(output, context);
   }

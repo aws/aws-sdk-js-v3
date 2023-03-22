@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DeleteFleetsCommand, serializeAws_ec2DeleteFleetsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetsCommand}.
  */
 export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetsCommand}.
  */
 export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified EC2 Fleets.</p>
  *          <p>After you delete an EC2 Fleet, it launches no new instances.</p>
  *          <p>You must also specify whether a deleted EC2 Fleet should terminate its instances. If you
@@ -68,6 +73,8 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetsCommandInput - {@link DeleteFleetsCommandInput}
+ * @returns {@link DeleteFleetsCommandOutput}
  * @see {@link DeleteFleetsCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetsCommandOutput> {
     return deserializeAws_ec2DeleteFleetsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServerCertificateCommand}.
  */
 export interface UpdateServerCertificateCommandInput extends UpdateServerCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServerCertificateCommand}.
  */
 export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and/or the path of the specified server certificate stored in
  *             IAM.</p>
  *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
@@ -60,6 +65,8 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServerCertificateCommandInput - {@link UpdateServerCertificateCommandInput}
+ * @returns {@link UpdateServerCertificateCommandOutput}
  * @see {@link UpdateServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class UpdateServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerCertificateCommandOutput> {
     return deserializeAws_queryUpdateServerCertificateCommand(output, context);
   }

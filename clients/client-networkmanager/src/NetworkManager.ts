@@ -389,10 +389,12 @@ import {
 import { NetworkManagerClient } from "./NetworkManagerClient";
 
 /**
+ * @public
  * <p>Amazon Web Services enables you to centrally manage your Amazon Web Services Cloud WAN core network and your Transit Gateway network across Amazon Web Services accounts, Regions, and on-premises locations.</p>
  */
 export class NetworkManager extends NetworkManagerClient {
   /**
+   * @public
    * <p>Accepts a core network attachment request. </p>
    *          <p>Once the attachment request is accepted by a core network owner, the attachment is
    *          created and connected to a core network.</p>
@@ -427,6 +429,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Associates a core network Connect peer with a device and optionally, with a link. </p>
    *          <p>If you specify a link, it must be associated with the specified device. You can only
    *          associate core network Connect peers that have been created on a core network Connect
@@ -462,6 +465,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Associates a customer gateway with a device and optionally, with a link. If you
    *             specify a link, it must be associated with the specified device. </p>
    *          <p>You can only associate customer gateways that are connected to a VPN attachment on a
@@ -502,6 +506,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>
    */
   public associateLink(
@@ -534,6 +539,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
    *             specify a link, it must be associated with the specified device. </p>
    *          <p>You can only associate transit gateway Connect peers that have been created on a
@@ -570,6 +576,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a core network Connect attachment from a specified core network attachment. </p>
    *          <p>A core network Connect attachment is a GRE-based tunnel attachment that you can use to
    *          establish a connection between a core network and an appliance. A core network Connect
@@ -605,6 +612,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a connection between two devices. The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.</p>
    */
   public createConnection(
@@ -637,6 +645,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a core network Connect peer for a specified core network connect attachment between a core network and an appliance.
    *          The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
    */
@@ -670,6 +679,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a core network as part of your global network, and optionally, with a core network policy.</p>
    */
   public createCoreNetwork(
@@ -702,6 +712,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new device in a global network. If you specify both a site ID and a
    *             location, the location of the site is used for visualization in the Network Manager console.</p>
    */
@@ -732,6 +743,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new, empty global network.</p>
    */
   public createGlobalNetwork(
@@ -764,6 +776,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new link for a specified site.</p>
    */
   public createLink(args: CreateLinkCommandInput, options?: __HttpHandlerOptions): Promise<CreateLinkCommandOutput>;
@@ -790,6 +803,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new site in a global network.</p>
    */
   public createSite(args: CreateSiteCommandInput, options?: __HttpHandlerOptions): Promise<CreateSiteCommandOutput>;
@@ -816,6 +830,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Web Services site-to-site VPN attachment on an edge location of a core network.</p>
    */
   public createSiteToSiteVpnAttachment(
@@ -848,6 +863,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a transit gateway peering connection.</p>
    */
   public createTransitGatewayPeering(
@@ -880,6 +896,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a transit gateway route table attachment.</p>
    */
   public createTransitGatewayRouteTableAttachment(
@@ -914,6 +931,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a VPC attachment on an edge location of a core network.</p>
    */
   public createVpcAttachment(
@@ -946,6 +964,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes an attachment. Supports all attachment types.</p>
    */
   public deleteAttachment(
@@ -978,6 +997,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified connection in your global network.</p>
    */
   public deleteConnection(
@@ -1010,6 +1030,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Connect peer.</p>
    */
   public deleteConnectPeer(
@@ -1042,6 +1063,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a core network along with all core network policies. This can only be done if there are no attachments on a core network.</p>
    */
   public deleteCoreNetwork(
@@ -1074,6 +1096,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a policy version from a core network. You can't delete the current LIVE policy.</p>
    */
   public deleteCoreNetworkPolicyVersion(
@@ -1106,6 +1129,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing device. You must first disassociate the device from any links and
    *             customer gateways.</p>
    */
@@ -1136,6 +1160,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing global network. You must first delete all global network objects
    *             (devices, links, and sites), deregister all transit gateways, and delete any core networks.</p>
    */
@@ -1169,6 +1194,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing link. You must first disassociate the link from any devices and
    *             customer gateways.</p>
    */
@@ -1196,6 +1222,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing peering connection.</p>
    */
   public deletePeering(
@@ -1228,6 +1255,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a resource policy for the specified resource. This revokes the access of the principals specified in the resource policy.</p>
    */
   public deleteResourcePolicy(
@@ -1260,6 +1288,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing site. The site cannot be associated with any device or link.</p>
    */
   public deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
@@ -1286,6 +1315,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Deregisters a transit gateway from your global network. This action does not delete
    *             your transit gateway, or modify any of its attachments. This action removes any customer gateway associations.</p>
    */
@@ -1319,6 +1349,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more global networks. By default, all global networks are
    *             described. To describe the objects in your global network, you must use the appropriate
    *                 <code>Get*</code> action. For example, to list the transit gateways in your global
@@ -1354,6 +1385,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a core network Connect peer from a device and a link. </p>
    */
   public disassociateConnectPeer(
@@ -1386,6 +1418,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a customer gateway from a device and a link.</p>
    */
   public disassociateCustomerGateway(
@@ -1418,6 +1451,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Disassociates an existing device from a link. You must first disassociate any customer
    *             gateways that are associated with the link.</p>
    */
@@ -1451,6 +1485,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a transit gateway Connect peer from a device and link.</p>
    */
   public disassociateTransitGatewayConnectPeer(
@@ -1485,6 +1520,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Executes a change set on your core network. Deploys changes globally based on the policy submitted..</p>
    */
   public executeCoreNetworkChangeSet(
@@ -1517,6 +1553,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a core network Connect attachment.</p>
    */
   public getConnectAttachment(
@@ -1549,6 +1586,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more of your connections in a global network.</p>
    */
   public getConnections(
@@ -1581,6 +1619,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a core network Connect peer.</p>
    */
   public getConnectPeer(
@@ -1613,6 +1652,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a core network Connect peer associations.</p>
    */
   public getConnectPeerAssociations(
@@ -1645,6 +1685,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the LIVE policy for a core network.</p>
    */
   public getCoreNetwork(
@@ -1677,6 +1718,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a core network change event.</p>
    */
   public getCoreNetworkChangeEvents(
@@ -1709,6 +1751,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns a change set between the LIVE core network policy and a submitted policy.</p>
    */
   public getCoreNetworkChangeSet(
@@ -1741,6 +1784,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns details about a core network policy. You can get details about your current live policy or any previous policy version.</p>
    */
   public getCoreNetworkPolicy(
@@ -1773,6 +1817,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the association information for customer gateways that are associated with
    *             devices and links in your global network.</p>
    */
@@ -1806,6 +1851,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more of your devices in a global network.</p>
    */
   public getDevices(args: GetDevicesCommandInput, options?: __HttpHandlerOptions): Promise<GetDevicesCommandOutput>;
@@ -1832,6 +1878,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the link associations for a device or a link. Either the device ID or the link ID
    *             must be specified.</p>
    */
@@ -1865,6 +1912,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more links in a specified global network.</p>
    *          <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
    */
@@ -1892,6 +1940,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the count of network resources, by resource type, for the specified global network.</p>
    */
   public getNetworkResourceCounts(
@@ -1924,6 +1973,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the network resource relationships for the specified global network.</p>
    */
   public getNetworkResourceRelationships(
@@ -1956,6 +2006,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Describes the network resources for the specified global network.</p>
    *          <p>The results include information from the corresponding Describe call for the resource, minus any sensitive information such as pre-shared keys.</p>
    */
@@ -1989,6 +2040,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the network routes of the specified global network.</p>
    */
   public getNetworkRoutes(
@@ -2021,6 +2073,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the network telemetry of the specified global network.</p>
    */
   public getNetworkTelemetry(
@@ -2053,6 +2106,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a resource policy.</p>
    */
   public getResourcePolicy(
@@ -2085,6 +2139,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified route analysis.</p>
    */
   public getRouteAnalysis(
@@ -2117,6 +2172,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more of your sites in a global network.</p>
    */
   public getSites(args: GetSitesCommandInput, options?: __HttpHandlerOptions): Promise<GetSitesCommandOutput>;
@@ -2143,6 +2199,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a site-to-site VPN attachment.</p>
    */
   public getSiteToSiteVpnAttachment(
@@ -2175,6 +2232,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more of your transit gateway Connect peer associations in a global network.</p>
    */
   public getTransitGatewayConnectPeerAssociations(
@@ -2209,6 +2267,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a transit gateway peer.</p>
    */
   public getTransitGatewayPeering(
@@ -2241,6 +2300,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the transit gateway registrations in a specified
    *             global network.</p>
    */
@@ -2274,6 +2334,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a transit gateway route table attachment.</p>
    */
   public getTransitGatewayRouteTableAttachment(
@@ -2308,6 +2369,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a VPC attachment.</p>
    */
   public getVpcAttachment(
@@ -2340,6 +2402,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of core network attachments.</p>
    */
   public listAttachments(
@@ -2372,6 +2435,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of core network Connect peers.</p>
    */
   public listConnectPeers(
@@ -2404,6 +2468,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of core network policy versions.</p>
    */
   public listCoreNetworkPolicyVersions(
@@ -2436,6 +2501,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of owned and shared core networks.</p>
    */
   public listCoreNetworks(
@@ -2468,6 +2534,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.</p>
    */
   public listOrganizationServiceAccessStatus(
@@ -2500,6 +2567,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the peerings for a core network.</p>
    */
   public listPeerings(
@@ -2529,6 +2597,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for a specified resource.</p>
    */
   public listTagsForResource(
@@ -2561,6 +2630,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and the submitted policy.</p>
    */
   public putCoreNetworkPolicy(
@@ -2593,6 +2663,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a resource policy.</p>
    */
   public putResourcePolicy(
@@ -2625,6 +2696,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Registers a transit gateway in your global network. Not all Regions support transit
    *             gateways for global networks. For a list of the supported Regions, see <a href="https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions">Region Availability</a> in the <i>Amazon Web Services Transit Gateways for Global
    *                 Networks User Guide</i>. The transit gateway can be in any of the supported
@@ -2661,6 +2733,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Rejects a core network attachment request.</p>
    */
   public rejectAttachment(
@@ -2693,6 +2766,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Restores a previous policy version as a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and restored policy.</p>
    */
   public restoreCoreNetworkPolicyVersion(
@@ -2725,6 +2799,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Enables the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
    */
   public startOrganizationServiceAccessUpdate(
@@ -2757,6 +2832,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Starts analyzing the routing path between the specified source and destination. For more information,
    *             see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html">Route Analyzer</a>.</p>
    */
@@ -2790,6 +2866,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Tags a specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2816,6 +2893,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a specified resource.</p>
    */
   public untagResource(
@@ -2848,6 +2926,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates the information for an existing connection. To remove information for any of the parameters,
    *             specify an empty string.</p>
    */
@@ -2881,6 +2960,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates the description of a core network.</p>
    */
   public updateCoreNetwork(
@@ -2913,6 +2993,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates the details for an existing device. To remove information for any of the
    *             parameters, specify an empty string.</p>
    */
@@ -2943,6 +3024,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing global network. To remove information for any of the parameters,
    *             specify an empty string.</p>
    */
@@ -2976,6 +3058,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates the details for an existing link. To remove information for any of the
    *             parameters, specify an empty string.</p>
    */
@@ -3003,6 +3086,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates the resource metadata for the specified global network.</p>
    */
   public updateNetworkResourceMetadata(
@@ -3035,6 +3119,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates the information for an existing site. To remove information for any of the
    *             parameters, specify an empty string.</p>
    */
@@ -3062,6 +3147,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * @public
    * <p>Updates a VPC attachment.</p>
    */
   public updateVpcAttachment(

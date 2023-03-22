@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPullRequestsCommand}.
  */
 export interface ListPullRequestsCommandInput extends ListPullRequestsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPullRequestsCommand}.
  */
 export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of pull requests for a specified repository. The return list can be refined by pull request
  *         status or pull request author ARN.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPullRequestsCommandInput - {@link ListPullRequestsCommandInput}
+ * @returns {@link ListPullRequestsCommandOutput}
  * @see {@link ListPullRequestsCommandInput} for command's `input` shape.
  * @see {@link ListPullRequestsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -115,6 +122,9 @@ export class ListPullRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPullRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class ListPullRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPullRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPullRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPullRequestsCommandOutput> {
     return deserializeAws_json1_1ListPullRequestsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRuleGroupCommand}.
  */
 export interface CreateRuleGroupCommandInput extends CreateRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRuleGroupCommand}.
  */
 export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a>RuleGroup</a> per the specifications provided. </p>
  *          <p> A rule group defines a collection of rules to inspect and control web requests that you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRuleGroupCommandInput - {@link CreateRuleGroupCommandInput}
+ * @returns {@link CreateRuleGroupCommandOutput}
  * @see {@link CreateRuleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -137,6 +144,9 @@ export class CreateRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class CreateRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleGroupCommandOutput> {
     return deserializeAws_json1_1CreateRuleGroupCommand(output, context);
   }

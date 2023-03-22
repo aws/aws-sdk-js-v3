@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDashboardCommand}.
  */
 export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDashboardCommand}.
  */
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a dashboard in an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDashboardCommandInput - {@link CreateDashboardCommandInput}
+ * @returns {@link CreateDashboardCommandOutput}
  * @see {@link CreateDashboardCommandInput} for command's `input` shape.
  * @see {@link CreateDashboardCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDashboardCommandOutput> {
     return deserializeAws_restJson1CreateDashboardCommand(output, context);
   }

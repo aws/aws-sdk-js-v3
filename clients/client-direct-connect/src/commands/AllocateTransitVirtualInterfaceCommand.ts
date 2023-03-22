@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllocateTransitVirtualInterfaceCommand}.
  */
 export interface AllocateTransitVirtualInterfaceCommandInput extends AllocateTransitVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocateTransitVirtualInterfaceCommand}.
  */
 export interface AllocateTransitVirtualInterfaceCommandOutput
@@ -37,6 +41,7 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a transit virtual interface to be owned by the specified Amazon Web Services account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>
  *          <p>The owner of a connection provisions a transit virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>After you create a transit virtual interface, it must be confirmed by the owner using <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the transit virtual interface is in the <code>requested</code> state and is not available to handle traffic.</p>
@@ -50,6 +55,8 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateTransitVirtualInterfaceCommandInput - {@link AllocateTransitVirtualInterfaceCommandInput}
+ * @returns {@link AllocateTransitVirtualInterfaceCommandOutput}
  * @see {@link AllocateTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocateTransitVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateTransitVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AllocateTransitVirtualInterfaceCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
     return serializeAws_json1_1AllocateTransitVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

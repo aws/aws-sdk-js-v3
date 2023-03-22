@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWhatIfForecastsCommand}.
  */
 export interface ListWhatIfForecastsCommandInput extends ListWhatIfForecastsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWhatIfForecastsCommand}.
  */
 export interface ListWhatIfForecastsCommandOutput extends ListWhatIfForecastsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of what-if forecasts created using the <a>CreateWhatIfForecast</a> operation. For each what-if forecast, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast ARN with the <a>DescribeWhatIfForecast</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWhatIfForecastsCommandOutput extends ListWhatIfForecastsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWhatIfForecastsCommandInput - {@link ListWhatIfForecastsCommandInput}
+ * @returns {@link ListWhatIfForecastsCommandOutput}
  * @see {@link ListWhatIfForecastsCommandInput} for command's `input` shape.
  * @see {@link ListWhatIfForecastsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListWhatIfForecastsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWhatIfForecastsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListWhatIfForecastsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWhatIfForecastsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWhatIfForecastsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWhatIfForecastsCommandOutput> {
     return deserializeAws_json1_1ListWhatIfForecastsCommand(output, context);
   }

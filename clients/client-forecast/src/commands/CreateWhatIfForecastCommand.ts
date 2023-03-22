@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWhatIfForecastCommand}.
  */
 export interface CreateWhatIfForecastCommandInput extends CreateWhatIfForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWhatIfForecastCommand}.
  */
 export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A what-if forecast is a forecast that is created from a modified version of the baseline forecast. Each
  *       what-if forecast incorporates either a replacement dataset or a set of transformations to the original dataset. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWhatIfForecastCommandInput - {@link CreateWhatIfForecastCommandInput}
+ * @returns {@link CreateWhatIfForecastCommandOutput}
  * @see {@link CreateWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link CreateWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateWhatIfForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWhatIfForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateWhatIfForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWhatIfForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWhatIfForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWhatIfForecastCommandOutput> {
     return deserializeAws_json1_1CreateWhatIfForecastCommand(output, context);
   }

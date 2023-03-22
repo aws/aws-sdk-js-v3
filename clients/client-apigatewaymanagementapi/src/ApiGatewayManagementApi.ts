@@ -19,10 +19,12 @@ import {
 } from "./commands/PostToConnectionCommand";
 
 /**
- * <p>The Amazon API Gateway Management API allows you to directly manage runtime aspects of your deployed APIs. To use it, you must explicitly set the SDK's endpoint to point to the endpoint of your deployed API. The endpoint will be of the form https://{api-id}.execute-api.{region}.amazonaws.com/{stage}, or will be the endpoint corresponding to your API's custom domain and base path, if applicable.</p>
+ * @public
+ * <p>The Amazon API Gateway Management API allows you to directly manage runtime aspects of your deployed APIs. To use it, you must explicitly set the SDK's endpoint to point to the endpoint of your deployed API. The endpoint will be of the form https://\{api-id\}.execute-api.\{region\}.amazonaws.com/\{stage\}, or will be the endpoint corresponding to your API's custom domain and base path, if applicable.</p>
  */
 export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   /**
+   * @public
    * <p>Delete the connection with the provided id.</p>
    */
   public deleteConnection(
@@ -55,6 +57,7 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   }
 
   /**
+   * @public
    * <p>Get information about the connection with the provided id.</p>
    */
   public getConnection(
@@ -87,6 +90,7 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   }
 
   /**
+   * @public
    * <p>Sends the provided data to the specified connection.</p>
    */
   public postToConnection(

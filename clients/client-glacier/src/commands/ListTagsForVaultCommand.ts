@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForVaultCommand}.
  */
 export interface ListTagsForVaultCommandInput extends ListTagsForVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForVaultCommand}.
  */
 export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists all the tags attached to a vault. The operation returns an empty
  *          map if there are no tags. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier
  *          Resources</a>.</p>
@@ -48,6 +53,8 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForVaultCommandInput - {@link ListTagsForVaultCommandInput}
+ * @returns {@link ListTagsForVaultCommandOutput}
  * @see {@link ListTagsForVaultCommandInput} for command's `input` shape.
  * @see {@link ListTagsForVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -104,6 +111,9 @@ export class ListTagsForVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ListTagsForVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTagsForVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForVaultCommandOutput> {
     return deserializeAws_restJson1ListTagsForVaultCommand(output, context);
   }

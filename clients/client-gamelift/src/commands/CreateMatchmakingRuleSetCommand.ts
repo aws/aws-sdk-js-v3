@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMatchmakingRuleSetCommand}.
  */
 export interface CreateMatchmakingRuleSetCommandInput extends CreateMatchmakingRuleSetInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMatchmakingRuleSetCommand}.
  */
 export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match
  *             to create, such as the number and size of teams. It also sets the parameters for
  *             acceptable player matches, such as minimum skill level or character type.</p>
@@ -76,6 +81,8 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMatchmakingRuleSetCommandInput - {@link CreateMatchmakingRuleSetCommandInput}
+ * @returns {@link CreateMatchmakingRuleSetCommandOutput}
  * @see {@link CreateMatchmakingRuleSetCommandInput} for command's `input` shape.
  * @see {@link CreateMatchmakingRuleSetCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -119,6 +126,9 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMatchmakingRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMatchmakingRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMatchmakingRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMatchmakingRuleSetCommandOutput> {
     return deserializeAws_json1_1CreateMatchmakingRuleSetCommand(output, context);
   }

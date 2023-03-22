@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssignmentsForHITCommand}.
  */
 export interface ListAssignmentsForHITCommandInput extends ListAssignmentsForHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssignmentsForHITCommand}.
  */
 export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>ListAssignmentsForHIT</code>
@@ -72,6 +77,8 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssignmentsForHITCommandInput - {@link ListAssignmentsForHITCommandInput}
+ * @returns {@link ListAssignmentsForHITCommandOutput}
  * @see {@link ListAssignmentsForHITCommandInput} for command's `input` shape.
  * @see {@link ListAssignmentsForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -101,6 +108,9 @@ export class ListAssignmentsForHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssignmentsForHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class ListAssignmentsForHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssignmentsForHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssignmentsForHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssignmentsForHITCommandOutput> {
     return deserializeAws_json1_1ListAssignmentsForHITCommand(output, context);
   }

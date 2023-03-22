@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateUserStackCommand}.
  */
 export interface BatchDisassociateUserStackCommandInput extends BatchDisassociateUserStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateUserStackCommand}.
  */
 export interface BatchDisassociateUserStackCommandOutput extends BatchDisassociateUserStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified users from the specified stacks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateUserStackCommandInput - {@link BatchDisassociateUserStackCommandInput}
+ * @returns {@link BatchDisassociateUserStackCommandOutput}
  * @see {@link BatchDisassociateUserStackCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateUserStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchDisassociateUserStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateUserStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class BatchDisassociateUserStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDisassociateUserStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDisassociateUserStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

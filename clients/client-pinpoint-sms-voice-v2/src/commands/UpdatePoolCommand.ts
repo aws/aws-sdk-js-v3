@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePoolCommand}.
  */
 export interface UpdatePoolCommandInput extends UpdatePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePoolCommand}.
  */
 export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing pool. You can update the opt-out list, enable
  *             or disable two-way messaging, change the <code>TwoWayChannelArn</code>, enable or
  *             disable self-managed opt-outs, enable or disable deletion protection, and enable or
@@ -53,6 +58,8 @@ export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePoolCommandInput - {@link UpdatePoolCommandInput}
+ * @returns {@link UpdatePoolCommandOutput}
  * @see {@link UpdatePoolCommandInput} for command's `input` shape.
  * @see {@link UpdatePoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -100,6 +107,9 @@ export class UpdatePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdatePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdatePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePoolCommandOutput> {
     return deserializeAws_json1_0UpdatePoolCommand(output, context);
   }

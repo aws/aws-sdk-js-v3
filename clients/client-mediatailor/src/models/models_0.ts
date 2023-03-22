@@ -3,12 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MediaTailorServiceException as __BaseException } from "./MediaTailorServiceException";
 
+/**
+ * @public
+ */
 export enum MessageType {
   SPLICE_INSERT = "SPLICE_INSERT",
   TIME_SIGNAL = "TIME_SIGNAL",
 }
 
 /**
+ * @public
  * <p>Slate VOD source configuration.</p>
  */
 export interface SlateSource {
@@ -24,6 +28,7 @@ export interface SlateSource {
 }
 
 /**
+ * @public
  * <p>Splice insert message configuration.</p>
  */
 export interface SpliceInsertMessage {
@@ -49,6 +54,7 @@ export interface SpliceInsertMessage {
 }
 
 /**
+ * @public
  * <p>The <code>segmentation_descriptor</code> message can contain advanced metadata fields, like content identifiers, to convey a wide range of information about the ad break. MediaTailor writes the ad metadata in the egress manifest as part of the <code>EXT-X-DATERANGE</code> or <code>EventStream</code> ad marker's SCTE-35 data.</p>
  *          <p>
  *             <code>segmentation_descriptor</code> messages must be sent with the <code>time_signal</code> message type.</p>
@@ -97,6 +103,7 @@ export interface SegmentationDescriptor {
 }
 
 /**
+ * @public
  * <p>The SCTE-35 <code>time_signal</code> message can be sent with one or more <code>segmentation_descriptor</code> messages. A <code>time_signal</code> message can be sent only if a single <code>segmentation_descriptor</code> message is sent.</p>
  *          <p>The <code>time_signal</code> message contains only the <code>splice_time</code> field which is constructed using a given presentation timestamp. When sending a <code>time_signal</code> message, the <code>splice_command_type</code> field in the <code>splice_info_section</code> message is set to 6 (0x06).</p>
  *          <p>See the <code>time_signal()</code> table of the 2022 SCTE-35 specification for more information.</p>
@@ -109,6 +116,7 @@ export interface TimeSignalMessage {
 }
 
 /**
+ * @public
  * <p>Ad break configuration parameters.</p>
  */
 export interface AdBreak {
@@ -141,6 +149,7 @@ export interface AdBreak {
 }
 
 /**
+ * @public
  * <p>Alert configuration parameters.</p>
  */
 export interface Alert {
@@ -170,11 +179,15 @@ export interface Alert {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Operator {
   EQUALS = "EQUALS",
 }
 
 /**
+ * @public
  * <p>MediaTailor only places (consumes) prefetched ads if the ad break meets the criteria defined by the dynamic variables. This gives you granular control over which ad break to place the prefetched ads into.</p>
  *          <p>As an example, let's say that you set <code>DynamicVariable</code> to <code>scte.event_id</code> and <code>Operator</code> to <code>EQUALS</code>, and your playback configuration has an ADS URL of <code>https://my.ads.server.com/path?&amp;podId=[scte.avail_num]&amp;event=[scte.event_id]&amp;duration=[session.avail_duration_secs]</code>. And the prefetch request to the ADS contains these values <code>https://my.ads.server.com/path?&amp;podId=3&amp;event=my-awesome-event&amp;duration=30</code>. MediaTailor will only insert the prefetched ads into the ad break if has a SCTE marker with an event id of <code>my-awesome-event</code>, since it must match the event id that MediaTailor uses to query the ADS.</p>
  *          <p>You can specify up to five <code>AvailMatchingCriteria</code>. If you specify multiple <code>AvailMatchingCriteria</code>, MediaTailor combines them to match using a logical <code>AND</code>. You can model logical <code>OR</code> combinations by creating multiple prefetch schedules.</p>
@@ -192,11 +205,15 @@ export interface AvailMatchingCriteria {
   Operator: Operator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum LogType {
   AS_RUN = "AS_RUN",
 }
 
 /**
+ * @public
  * <p>The log configuration for the channel.</p>
  */
 export interface LogConfigurationForChannel {
@@ -207,6 +224,7 @@ export interface LogConfigurationForChannel {
 }
 
 /**
+ * @public
  * <p>Dash manifest configuration parameters.</p>
  */
 export interface DashPlaylistSettings {
@@ -232,6 +250,7 @@ export interface DashPlaylistSettings {
 }
 
 /**
+ * @public
  * <p>HLS playlist configuration parameters.</p>
  */
 export interface HlsPlaylistSettings {
@@ -242,6 +261,7 @@ export interface HlsPlaylistSettings {
 }
 
 /**
+ * @public
  * <p>The output item response.</p>
  */
 export interface ResponseOutputItem {
@@ -272,6 +292,7 @@ export interface ResponseOutputItem {
 }
 
 /**
+ * @public
  * <p>The configuration parameters for a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
  */
 export interface Channel {
@@ -337,12 +358,16 @@ export interface Channel {
   LogConfiguration: LogConfigurationForChannel | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Type {
   DASH = "DASH",
   HLS = "HLS",
 }
 
 /**
+ * @public
  * <p>The HTTP package configuration properties for the requested VOD source.</p>
  */
 export interface HttpPackageConfiguration {
@@ -363,6 +388,7 @@ export interface HttpPackageConfiguration {
 }
 
 /**
+ * @public
  * <p>Live source configuration parameters.</p>
  */
 export interface LiveSource {
@@ -402,12 +428,16 @@ export interface LiveSource {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum Mode {
   BEHIND_LIVE_EDGE = "BEHIND_LIVE_EDGE",
   OFF = "OFF",
 }
 
 /**
+ * @public
  * <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
  */
 export interface AvailSuppression {
@@ -423,6 +453,7 @@ export interface AvailSuppression {
 }
 
 /**
+ * @public
  * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
  */
 export interface Bumper {
@@ -438,6 +469,7 @@ export interface Bumper {
 }
 
 /**
+ * @public
  * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
  */
 export interface CdnConfiguration {
@@ -452,12 +484,16 @@ export interface CdnConfiguration {
   ContentSegmentUrlPrefix?: string;
 }
 
+/**
+ * @public
+ */
 export enum OriginManifestType {
   MULTI_PERIOD = "MULTI_PERIOD",
   SINGLE_PERIOD = "SINGLE_PERIOD",
 }
 
 /**
+ * @public
  * <p>The configuration for DASH content.</p>
  */
 export interface DashConfiguration {
@@ -478,6 +514,7 @@ export interface DashConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for HLS content.</p>
  */
 export interface HlsConfiguration {
@@ -488,6 +525,7 @@ export interface HlsConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for pre-roll ad insertion.</p>
  */
 export interface LivePreRollConfiguration {
@@ -503,6 +541,7 @@ export interface LivePreRollConfiguration {
 }
 
 /**
+ * @public
  * <p>Returns Amazon CloudWatch log settings for a playback configuration.</p>
  */
 export interface LogConfiguration {
@@ -515,6 +554,7 @@ export interface LogConfiguration {
 }
 
 /**
+ * @public
  * <p>For HLS, when set to <code>true</code>, MediaTailor passes through <code>EXT-X-CUE-IN</code>, <code>EXT-X-CUE-OUT</code>, and <code>EXT-X-SPLICEPOINT-SCTE35</code> ad markers from the origin manifest to the MediaTailor personalized manifest.</p>
  *          <p>No logic is applied to these ad markers. For example, if <code>EXT-X-CUE-OUT</code> has a value of <code>60</code>, but no ads are filled for that ad break, MediaTailor will not set the value to <code>0</code>.</p>
  */
@@ -526,6 +566,7 @@ export interface AdMarkerPassthrough {
 }
 
 /**
+ * @public
  * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
  */
 export interface ManifestProcessingRules {
@@ -537,6 +578,7 @@ export interface ManifestProcessingRules {
 }
 
 /**
+ * @public
  * <p>A playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
  */
 export interface PlaybackConfiguration {
@@ -637,6 +679,7 @@ export interface PlaybackConfiguration {
 }
 
 /**
+ * @public
  * <p>A complex type that contains settings that determine how and when that MediaTailor places prefetched ads into upcoming ad breaks.</p>
  */
 export interface PrefetchConsumption {
@@ -657,6 +700,7 @@ export interface PrefetchConsumption {
 }
 
 /**
+ * @public
  * <p>A complex type that contains settings governing when MediaTailor prefetches ads, and which dynamic variables that MediaTailor includes in the request to the ad decision server.</p>
  */
 export interface PrefetchRetrieval {
@@ -678,6 +722,7 @@ export interface PrefetchRetrieval {
 }
 
 /**
+ * @public
  * <p>A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain ads before an ad break happens. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
  */
 export interface PrefetchSchedule {
@@ -713,6 +758,7 @@ export interface PrefetchSchedule {
 }
 
 /**
+ * @public
  * <p>The schedule's ad break properties.</p>
  */
 export interface ScheduleAdBreak {
@@ -737,12 +783,16 @@ export interface ScheduleAdBreak {
   VodSourceName?: string;
 }
 
+/**
+ * @public
+ */
 export enum ScheduleEntryType {
   FILLER_SLATE = "FILLER_SLATE",
   PROGRAM = "PROGRAM",
 }
 
 /**
+ * @public
  * <p>The properties for a schedule.</p>
  */
 export interface ScheduleEntry {
@@ -798,6 +848,7 @@ export interface ScheduleEntry {
 }
 
 /**
+ * @public
  * <p>The segment delivery configuration settings.</p>
  */
 export interface SegmentDeliveryConfiguration {
@@ -812,12 +863,16 @@ export interface SegmentDeliveryConfiguration {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export enum AccessType {
   S3_SIGV4 = "S3_SIGV4",
   SECRETS_MANAGER_ACCESS_TOKEN = "SECRETS_MANAGER_ACCESS_TOKEN",
 }
 
 /**
+ * @public
  * <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
  */
 export interface SecretsManagerAccessTokenConfiguration {
@@ -838,6 +893,7 @@ export interface SecretsManagerAccessTokenConfiguration {
 }
 
 /**
+ * @public
  * <p>Access configuration parameters.</p>
  */
 export interface AccessConfiguration {
@@ -859,6 +915,7 @@ export interface AccessConfiguration {
 }
 
 /**
+ * @public
  * <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
  */
 export interface DefaultSegmentDeliveryConfiguration {
@@ -869,6 +926,7 @@ export interface DefaultSegmentDeliveryConfiguration {
 }
 
 /**
+ * @public
  * <p>The HTTP configuration for the source location.</p>
  */
 export interface HttpConfiguration {
@@ -879,6 +937,7 @@ export interface HttpConfiguration {
 }
 
 /**
+ * @public
  * <p>A source location is a container for sources. For more information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working with source locations</a> in the <i>MediaTailor User Guide</i>.</p>
  */
 export interface SourceLocation {
@@ -929,6 +988,7 @@ export interface SourceLocation {
 }
 
 /**
+ * @public
  * <p>VOD source configuration parameters.</p>
  */
 export interface VodSource {
@@ -969,6 +1029,7 @@ export interface VodSource {
 }
 
 /**
+ * @public
  * <p>A request contains unexpected data.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -989,6 +1050,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelPolicyRequest {
   /**
    * <p>The name of the channel associated with this channel policy.</p>
@@ -996,8 +1060,14 @@ export interface DeleteChannelPolicyRequest {
   ChannelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelPolicyResponse {}
 
+/**
+ * @public
+ */
 export interface GetChannelPolicyRequest {
   /**
    * <p>The name of the channel associated with this Channel Policy.</p>
@@ -1005,6 +1075,9 @@ export interface GetChannelPolicyRequest {
   ChannelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelPolicyResponse {
   /**
    * <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
@@ -1012,6 +1085,9 @@ export interface GetChannelPolicyResponse {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutChannelPolicyRequest {
   /**
    * <p>The channel name associated with this Channel Policy.</p>
@@ -1024,8 +1100,14 @@ export interface PutChannelPolicyRequest {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutChannelPolicyResponse {}
 
+/**
+ * @public
+ */
 export interface ConfigureLogsForChannelRequest {
   /**
    * <p>The name of the channel.</p>
@@ -1038,6 +1120,9 @@ export interface ConfigureLogsForChannelRequest {
   LogTypes: (LogType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureLogsForChannelResponse {
   /**
    * <p>The name of the channel.</p>
@@ -1051,6 +1136,7 @@ export interface ConfigureLogsForChannelResponse {
 }
 
 /**
+ * @public
  * <p>The output configuration for this channel.</p>
  */
 export interface RequestOutputItem {
@@ -1075,16 +1161,25 @@ export interface RequestOutputItem {
   SourceGroup: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PlaybackMode {
   LINEAR = "LINEAR",
   LOOP = "LOOP",
 }
 
+/**
+ * @public
+ */
 export enum Tier {
   BASIC = "BASIC",
   STANDARD = "STANDARD",
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelRequest {
   /**
    * <p>The name of the channel.</p>
@@ -1123,11 +1218,17 @@ export interface CreateChannelRequest {
   Tier?: Tier | string;
 }
 
+/**
+ * @public
+ */
 export enum ChannelState {
   RUNNING = "RUNNING",
   STOPPED = "STOPPED",
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelResponse {
   /**
    * <p>The Amazon Resource Name (ARN) to assign to the channel.</p>
@@ -1180,6 +1281,9 @@ export interface CreateChannelResponse {
   Tier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelRequest {
   /**
    * <p>The name of the channel.</p>
@@ -1187,8 +1291,14 @@ export interface DeleteChannelRequest {
   ChannelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeChannelRequest {
   /**
    * <p>The name of the channel.</p>
@@ -1196,6 +1306,9 @@ export interface DescribeChannelRequest {
   ChannelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1253,6 +1366,9 @@ export interface DescribeChannelResponse {
   LogConfiguration: LogConfigurationForChannel | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelScheduleRequest {
   /**
    * <p>The name of the channel associated with this Channel Schedule.</p>
@@ -1278,6 +1394,9 @@ export interface GetChannelScheduleRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelScheduleResponse {
   /**
    * <p>A list of schedule entries for the channel.</p>
@@ -1290,6 +1409,9 @@ export interface GetChannelScheduleResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsRequest {
   /**
    * <p>The maximum number of channels that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> channels, use the value of <code>NextToken</code> in the response to get the next page of results.</p>
@@ -1302,6 +1424,9 @@ export interface ListChannelsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListChannelsResponse {
   /**
    * <p>A list of channels that are associated with this account.</p>
@@ -1315,6 +1440,7 @@ export interface ListChannelsResponse {
 }
 
 /**
+ * @public
  * <p>Clip range configuration for the VOD source associated with the program.</p>
  */
 export interface ClipRange {
@@ -1324,12 +1450,16 @@ export interface ClipRange {
   EndOffsetMillis: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RelativePosition {
   AFTER_PROGRAM = "AFTER_PROGRAM",
   BEFORE_PROGRAM = "BEFORE_PROGRAM",
 }
 
 /**
+ * @public
  * <p>Program transition configuration.</p>
  */
 export interface Transition {
@@ -1368,6 +1498,7 @@ export interface Transition {
 }
 
 /**
+ * @public
  * <p>Schedule configuration parameters. A channel must be stopped before changes can be made to the schedule.</p>
  */
 export interface ScheduleConfiguration {
@@ -1382,6 +1513,9 @@ export interface ScheduleConfiguration {
   ClipRange?: ClipRange;
 }
 
+/**
+ * @public
+ */
 export interface CreateProgramRequest {
   /**
    * <p>The ad break configuration settings.</p>
@@ -1419,6 +1553,9 @@ export interface CreateProgramRequest {
   VodSourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProgramResponse {
   /**
    * <p>The ad break configuration settings.</p>
@@ -1476,6 +1613,9 @@ export interface CreateProgramResponse {
   DurationMillis?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProgramRequest {
   /**
    * <p>The name of the channel.</p>
@@ -1488,8 +1628,14 @@ export interface DeleteProgramRequest {
   ProgramName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProgramResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeProgramRequest {
   /**
    * <p>The name of the channel associated with this Program.</p>
@@ -1502,6 +1648,9 @@ export interface DescribeProgramRequest {
   ProgramName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProgramResponse {
   /**
    * <p>The ad break configuration settings.</p>
@@ -1560,6 +1709,7 @@ export interface DescribeProgramResponse {
 }
 
 /**
+ * @public
  * <p>Program transition configuration.</p>
  */
 export interface UpdateProgramTransition {
@@ -1575,6 +1725,7 @@ export interface UpdateProgramTransition {
 }
 
 /**
+ * @public
  * <p>Schedule configuration parameters.</p>
  */
 export interface UpdateProgramScheduleConfiguration {
@@ -1589,6 +1740,9 @@ export interface UpdateProgramScheduleConfiguration {
   ClipRange?: ClipRange;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProgramRequest {
   /**
    * <p>The ad break configuration settings.</p>
@@ -1611,6 +1765,9 @@ export interface UpdateProgramRequest {
   ScheduleConfiguration: UpdateProgramScheduleConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProgramResponse {
   /**
    * <p>The ad break configuration settings.</p>
@@ -1668,6 +1825,9 @@ export interface UpdateProgramResponse {
   ScheduledStartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StartChannelRequest {
   /**
    * <p>The name of the channel.</p>
@@ -1675,8 +1835,14 @@ export interface StartChannelRequest {
   ChannelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartChannelResponse {}
 
+/**
+ * @public
+ */
 export interface StopChannelRequest {
   /**
    * <p>The name of the channel.</p>
@@ -1684,8 +1850,14 @@ export interface StopChannelRequest {
   ChannelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopChannelResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateChannelRequest {
   /**
    * <p>The name of the channel.</p>
@@ -1705,6 +1877,9 @@ export interface UpdateChannelRequest {
   Outputs: RequestOutputItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateChannelResponse {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the channel.</p>
@@ -1764,6 +1939,7 @@ export interface UpdateChannelResponse {
 }
 
 /**
+ * @public
  * <p>Configures Amazon CloudWatch log settings for a playback configuration.</p>
  */
 export interface ConfigureLogsForPlaybackConfigurationRequest {
@@ -1780,6 +1956,9 @@ export interface ConfigureLogsForPlaybackConfigurationRequest {
   PlaybackConfigurationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureLogsForPlaybackConfigurationResponse {
   /**
    * <p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account.</p>
@@ -1792,6 +1971,9 @@ export interface ConfigureLogsForPlaybackConfigurationResponse {
   PlaybackConfigurationName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLiveSourceRequest {
   /**
    * <p>A list of HTTP package configuration parameters for this live source.</p>
@@ -1814,6 +1996,9 @@ export interface CreateLiveSourceRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateLiveSourceResponse {
   /**
    * <p>The ARN to assign to the live source.</p>
@@ -1851,6 +2036,9 @@ export interface CreateLiveSourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePrefetchScheduleRequest {
   /**
    * <p>The configuration settings for MediaTailor's <i>consumption</i> of the prefetched ads from the ad decision server. Each consumption configuration contains an end time and an optional start time that define the <i>consumption window</i>. Prefetch schedules automatically expire no earlier than seven days after the end time.</p>
@@ -1878,6 +2066,9 @@ export interface CreatePrefetchScheduleRequest {
   StreamId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePrefetchScheduleResponse {
   /**
    * <p>The ARN to assign to the prefetch schedule.</p>
@@ -1910,6 +2101,9 @@ export interface CreatePrefetchScheduleResponse {
   StreamId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSourceLocationRequest {
   /**
    * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
@@ -1942,6 +2136,9 @@ export interface CreateSourceLocationRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSourceLocationResponse {
   /**
    * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
@@ -1989,6 +2186,9 @@ export interface CreateSourceLocationResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateVodSourceRequest {
   /**
    * <p>A list of HTTP package configuration parameters for this VOD source.</p>
@@ -2011,6 +2211,9 @@ export interface CreateVodSourceRequest {
   VodSourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVodSourceResponse {
   /**
    * <p>The ARN to assign to this VOD source.</p>
@@ -2049,6 +2252,7 @@ export interface CreateVodSourceResponse {
 }
 
 /**
+ * @public
  * <p>The configuration for DASH PUT operations.</p>
  */
 export interface DashConfigurationForPut {
@@ -2063,6 +2267,9 @@ export interface DashConfigurationForPut {
   OriginManifestType?: OriginManifestType | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLiveSourceRequest {
   /**
    * <p>The name of the live source.</p>
@@ -2075,8 +2282,14 @@ export interface DeleteLiveSourceRequest {
   SourceLocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLiveSourceResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePlaybackConfigurationRequest {
   /**
    * <p>The name of the playback configuration.</p>
@@ -2084,8 +2297,14 @@ export interface DeletePlaybackConfigurationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlaybackConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePrefetchScheduleRequest {
   /**
    * <p>The name of the prefetch schedule. If the action is successful, the service sends back an HTTP 204 response with an empty HTTP body.</p>
@@ -2098,8 +2317,14 @@ export interface DeletePrefetchScheduleRequest {
   PlaybackConfigurationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePrefetchScheduleResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSourceLocationRequest {
   /**
    * <p>The name of the source location.</p>
@@ -2107,8 +2332,14 @@ export interface DeleteSourceLocationRequest {
   SourceLocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSourceLocationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteVodSourceRequest {
   /**
    * <p>The name of the source location associated with this VOD Source.</p>
@@ -2121,8 +2352,14 @@ export interface DeleteVodSourceRequest {
   VodSourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVodSourceResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeLiveSourceRequest {
   /**
    * <p>The name of the live source.</p>
@@ -2135,6 +2372,9 @@ export interface DescribeLiveSourceRequest {
   SourceLocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLiveSourceResponse {
   /**
    * <p>The ARN of the live source.</p>
@@ -2172,6 +2412,9 @@ export interface DescribeLiveSourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceLocationRequest {
   /**
    * <p>The name of the source location.</p>
@@ -2179,6 +2422,9 @@ export interface DescribeSourceLocationRequest {
   SourceLocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSourceLocationResponse {
   /**
    * <p>The access configuration for the source location.</p>
@@ -2226,6 +2472,9 @@ export interface DescribeSourceLocationResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVodSourceRequest {
   /**
    * <p>The name of the source location associated with this VOD Source.</p>
@@ -2238,6 +2487,9 @@ export interface DescribeVodSourceRequest {
   VodSourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVodSourceResponse {
   /**
    * <p>The ARN of the VOD source.</p>
@@ -2275,6 +2527,9 @@ export interface DescribeVodSourceResponse {
   VodSourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPlaybackConfigurationRequest {
   /**
    * <p>The identifier for the playback configuration.</p>
@@ -2282,6 +2537,9 @@ export interface GetPlaybackConfigurationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPlaybackConfigurationResponse {
   /**
    * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
@@ -2379,6 +2637,9 @@ export interface GetPlaybackConfigurationResponse {
   VideoContentSourceUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPrefetchScheduleRequest {
   /**
    * <p>The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.</p>
@@ -2391,6 +2652,9 @@ export interface GetPrefetchScheduleRequest {
   PlaybackConfigurationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPrefetchScheduleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the prefetch schedule.</p>
@@ -2423,6 +2687,9 @@ export interface GetPrefetchScheduleResponse {
   StreamId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAlertsRequest {
   /**
    * <p>The maximum number of alerts that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> alerts, use the value of <code>NextToken</code> in the response to get the next page of results.</p>
@@ -2440,6 +2707,9 @@ export interface ListAlertsRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAlertsResponse {
   /**
    * <p>A list of alerts that are associated with this resource.</p>
@@ -2452,6 +2722,9 @@ export interface ListAlertsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLiveSourcesRequest {
   /**
    * <p>The maximum number of live sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> live sources, use the value of <code>NextToken</code> in the response to get the next page of results.</p>
@@ -2469,6 +2742,9 @@ export interface ListLiveSourcesRequest {
   SourceLocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListLiveSourcesResponse {
   /**
    * <p>Lists the live sources.</p>
@@ -2481,6 +2757,9 @@ export interface ListLiveSourcesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPlaybackConfigurationsRequest {
   /**
    * <p>The maximum number of playback configurations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> playback configurations, use the value of <code>NextToken</code> in the response to get the next page of results.</p>
@@ -2493,6 +2772,9 @@ export interface ListPlaybackConfigurationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPlaybackConfigurationsResponse {
   /**
    * <p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored.</p>
@@ -2505,6 +2787,9 @@ export interface ListPlaybackConfigurationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPrefetchSchedulesRequest {
   /**
    * <p>The maximum number of prefetch schedules that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> prefetch schedules, use the value of <code>NextToken</code> in the response to get the next page of results.</p>
@@ -2530,6 +2815,9 @@ export interface ListPrefetchSchedulesRequest {
   StreamId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPrefetchSchedulesResponse {
   /**
    * <p>Lists the prefetch schedules. An empty <code>Items</code> list doesn't mean there aren't more items to fetch, just that that page was empty.</p>
@@ -2542,6 +2830,9 @@ export interface ListPrefetchSchedulesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSourceLocationsRequest {
   /**
    * <p> The maximum number of source locations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> source locations, use the value of <code>NextToken</code> in the response to get the next page of results.</p>
@@ -2554,6 +2845,9 @@ export interface ListSourceLocationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSourceLocationsResponse {
   /**
    * <p>A list of source locations.</p>
@@ -2566,6 +2860,9 @@ export interface ListSourceLocationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) associated with this resource.</p>
@@ -2573,6 +2870,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with this resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
@@ -2580,6 +2880,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListVodSourcesRequest {
   /**
    * <p> The maximum number of VOD sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> VOD sources, use the value of <code>NextToken</code> in the response to get the next page of results.</p>
@@ -2597,6 +2900,9 @@ export interface ListVodSourcesRequest {
   SourceLocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVodSourcesResponse {
   /**
    * <p>Lists the VOD sources.</p>
@@ -2609,6 +2915,9 @@ export interface ListVodSourcesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLiveSourceRequest {
   /**
    * <p>A list of HTTP package configurations for the live source on this account.</p>
@@ -2626,6 +2935,9 @@ export interface UpdateLiveSourceRequest {
   SourceLocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLiveSourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) associated with this live source.</p>
@@ -2663,6 +2975,9 @@ export interface UpdateLiveSourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutPlaybackConfigurationRequest {
   /**
    * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
@@ -2735,6 +3050,9 @@ export interface PutPlaybackConfigurationRequest {
   VideoContentSourceUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutPlaybackConfigurationResponse {
   /**
    * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
@@ -2832,6 +3150,9 @@ export interface PutPlaybackConfigurationResponse {
   VideoContentSourceUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSourceLocationRequest {
   /**
    * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
@@ -2859,6 +3180,9 @@ export interface UpdateSourceLocationRequest {
   SourceLocationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSourceLocationResponse {
   /**
    * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
@@ -2906,6 +3230,9 @@ export interface UpdateSourceLocationResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
@@ -2918,6 +3245,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to untag.</p>
@@ -2930,6 +3260,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVodSourceRequest {
   /**
    * <p>A list of HTTP package configurations for the VOD source on this account.</p>
@@ -2947,6 +3280,9 @@ export interface UpdateVodSourceRequest {
   VodSourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVodSourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the VOD source.</p>

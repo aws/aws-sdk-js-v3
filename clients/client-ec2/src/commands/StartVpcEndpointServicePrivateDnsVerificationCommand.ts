@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
  */
 export interface StartVpcEndpointServicePrivateDnsVerificationCommandInput
   extends StartVpcEndpointServicePrivateDnsVerificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
  */
 export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
@@ -38,6 +42,7 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates the verification process to prove that the service provider owns the private
  *             DNS name domain for the endpoint service.</p>
  *          <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
@@ -52,6 +57,8 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartVpcEndpointServicePrivateDnsVerificationCommandInput - {@link StartVpcEndpointServicePrivateDnsVerificationCommandInput}
+ * @returns {@link StartVpcEndpointServicePrivateDnsVerificationCommandOutput}
  * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandInput} for command's `input` shape.
  * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartVpcEndpointServicePrivateDnsVerificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     return serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

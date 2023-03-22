@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserProfileCommand}.
  */
 export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserProfileCommand}.
  */
 export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a user profile. When a user profile is deleted, the user loses access to their EFS
  *      volume, including data, notebooks, and other artifacts.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
+ * @returns {@link DeleteUserProfileCommandOutput}
  * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserProfileCommandOutput> {
     return deserializeAws_json1_1DeleteUserProfileCommand(output, context);
   }

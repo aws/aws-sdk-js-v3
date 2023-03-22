@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataRetentionCommand}.
  */
 export interface UpdateDataRetentionCommandInput extends UpdateDataRetentionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataRetentionCommand}.
  */
 export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Increases or decreases the stream's data retention period by the value that you
  *             specify. To indicate whether you want to increase or decrease the data retention period,
  *             specify the <code>Operation</code> parameter in the request body. In the request, you
@@ -70,6 +75,8 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataRetentionCommandInput - {@link UpdateDataRetentionCommandInput}
+ * @returns {@link UpdateDataRetentionCommandOutput}
  * @see {@link UpdateDataRetentionCommandInput} for command's `input` shape.
  * @see {@link UpdateDataRetentionCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -131,6 +138,9 @@ export class UpdateDataRetentionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataRetentionCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class UpdateDataRetentionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataRetentionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDataRetentionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataRetentionCommandOutput> {
     return deserializeAws_restJson1UpdateDataRetentionCommand(output, context);
   }

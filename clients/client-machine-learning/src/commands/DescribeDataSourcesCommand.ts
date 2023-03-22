@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSourcesCommand}.
  */
 export interface DescribeDataSourcesCommandInput extends DescribeDataSourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSourcesCommand}.
  */
 export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DataSource</code> that match the search criteria in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSourcesCommandInput - {@link DescribeDataSourcesCommandInput}
+ * @returns {@link DescribeDataSourcesCommandOutput}
  * @see {@link DescribeDataSourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeDataSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeDataSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDataSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourcesCommandOutput> {
     return deserializeAws_json1_1DescribeDataSourcesCommand(output, context);
   }

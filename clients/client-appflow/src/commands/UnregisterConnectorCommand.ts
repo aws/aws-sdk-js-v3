@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UnregisterConnectorCommand}.
  */
 export interface UnregisterConnectorCommandInput extends UnregisterConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnregisterConnectorCommand}.
  */
 export interface UnregisterConnectorCommandOutput extends UnregisterConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unregisters the custom connector registered in your account that matches the connector
  *       label provided in the request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UnregisterConnectorCommandOutput extends UnregisterConnectorRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UnregisterConnectorCommandInput - {@link UnregisterConnectorCommandInput}
+ * @returns {@link UnregisterConnectorCommandOutput}
  * @see {@link UnregisterConnectorCommandInput} for command's `input` shape.
  * @see {@link UnregisterConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -82,6 +89,9 @@ export class UnregisterConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnregisterConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UnregisterConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnregisterConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UnregisterConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnregisterConnectorCommandOutput> {
     return deserializeAws_restJson1UnregisterConnectorCommand(output, context);
   }

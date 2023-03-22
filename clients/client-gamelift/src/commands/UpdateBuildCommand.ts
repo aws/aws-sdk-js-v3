@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBuildCommand}.
  */
 export interface UpdateBuildCommandInput extends UpdateBuildInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBuildCommand}.
  */
 export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates metadata in a build resource, including the build name and version. To update
  *             the metadata, specify the build ID to update and provide the new values. If successful,
  *             a build object containing the updated metadata is returned.</p>
@@ -58,6 +63,8 @@ export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBuildCommandInput - {@link UpdateBuildCommandInput}
+ * @returns {@link UpdateBuildCommandOutput}
  * @see {@link UpdateBuildCommandInput} for command's `input` shape.
  * @see {@link UpdateBuildCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBuildCommandOutput> {
     return deserializeAws_json1_1UpdateBuildCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateThreatIntelSetCommand}.
  */
 export interface CreateThreatIntelSetCommandInput extends CreateThreatIntelSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateThreatIntelSetCommand}.
  */
 export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
  *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can
  *       use this operation.</p>
@@ -48,6 +53,8 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThreatIntelSetCommandInput - {@link CreateThreatIntelSetCommandInput}
+ * @returns {@link CreateThreatIntelSetCommandOutput}
  * @see {@link CreateThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link CreateThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateThreatIntelSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThreatIntelSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateThreatIntelSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThreatIntelSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateThreatIntelSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThreatIntelSetCommandOutput> {
     return deserializeAws_restJson1CreateThreatIntelSetCommand(output, context);
   }

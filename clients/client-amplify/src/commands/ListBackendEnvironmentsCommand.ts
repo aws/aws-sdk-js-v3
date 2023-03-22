@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackendEnvironmentsCommand}.
  */
 export interface ListBackendEnvironmentsCommandInput extends ListBackendEnvironmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBackendEnvironmentsCommand}.
  */
 export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnvironmentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists the backend environments for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackendEnvironmentsCommandInput - {@link ListBackendEnvironmentsCommandInput}
+ * @returns {@link ListBackendEnvironmentsCommandOutput}
  * @see {@link ListBackendEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListBackendEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListBackendEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackendEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListBackendEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackendEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBackendEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackendEnvironmentsCommandOutput> {
     return deserializeAws_restJson1ListBackendEnvironmentsCommand(output, context);
   }

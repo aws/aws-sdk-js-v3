@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePlatformApplicationCommand}.
  */
 export interface DeletePlatformApplicationCommandInput extends DeletePlatformApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeletePlatformApplicationCommand}.
  */
 export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a platform application object for one of the supported push notification
  *             services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see
  *                 <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS
@@ -44,6 +49,8 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePlatformApplicationCommandInput - {@link DeletePlatformApplicationCommandInput}
+ * @returns {@link DeletePlatformApplicationCommandOutput}
  * @see {@link DeletePlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link DeletePlatformApplicationCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeletePlatformApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePlatformApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeletePlatformApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePlatformApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeletePlatformApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

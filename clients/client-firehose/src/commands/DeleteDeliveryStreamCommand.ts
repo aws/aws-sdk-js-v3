@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeliveryStreamCommand}.
  */
 export interface DeleteDeliveryStreamCommandInput extends DeleteDeliveryStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeliveryStreamCommand}.
  */
 export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a delivery stream and its data.</p>
  *          <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>. You can delete a delivery stream only if it is in one of the following states:
  *             <code>ACTIVE</code>, <code>DELETING</code>, <code>CREATING_FAILED</code>, or
@@ -55,6 +60,8 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeliveryStreamCommandInput - {@link DeleteDeliveryStreamCommandInput}
+ * @returns {@link DeleteDeliveryStreamCommandOutput}
  * @see {@link DeleteDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeliveryStreamCommandOutput> {
     return deserializeAws_json1_1DeleteDeliveryStreamCommand(output, context);
   }

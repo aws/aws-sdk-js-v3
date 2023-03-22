@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateActionCommand}.
  */
 export interface CreateActionCommandInput extends CreateActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateActionCommand}.
  */
 export interface CreateActionCommandOutput extends CreateActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <i>action</i>. An action is a lineage tracking entity that
  *         represents an action or activity. For example, a model deployment or an HPO job.
  *         Generally, an action involves at least one input or output artifact. For more information, see
@@ -50,6 +55,8 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateActionCommandInput - {@link CreateActionCommandInput}
+ * @returns {@link CreateActionCommandOutput}
  * @see {@link CreateActionCommandInput} for command's `input` shape.
  * @see {@link CreateActionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateActionCommandOutput> {
     return deserializeAws_json1_1CreateActionCommand(output, context);
   }

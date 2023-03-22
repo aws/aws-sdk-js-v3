@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAWSOrganizationsAccessStatusCommand}.
  */
 export interface GetAWSOrganizationsAccessStatusCommandInput extends GetAWSOrganizationsAccessStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAWSOrganizationsAccessStatusCommand}.
  */
 export interface GetAWSOrganizationsAccessStatusCommandOutput
@@ -37,6 +41,7 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the Access Status for Organizations portfolio share feature. This API can only be
  *          called by the management account in the organization or by a delegated admin.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAWSOrganizationsAccessStatusCommandInput - {@link GetAWSOrganizationsAccessStatusCommandInput}
+ * @returns {@link GetAWSOrganizationsAccessStatusCommandOutput}
  * @see {@link GetAWSOrganizationsAccessStatusCommandInput} for command's `input` shape.
  * @see {@link GetAWSOrganizationsAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAWSOrganizationsAccessStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAWSOrganizationsAccessStatusCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
     return serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

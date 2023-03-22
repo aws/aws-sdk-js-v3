@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointsCommand}.
  */
 export interface DescribeVpcEndpointsCommandInput extends DescribeVpcEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointsCommand}.
  */
 export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your VPC endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointsCommandInput - {@link DescribeVpcEndpointsCommandInput}
+ * @returns {@link DescribeVpcEndpointsCommandOutput}
  * @see {@link DescribeVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeVpcEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeVpcEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpcEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcEndpointsCommandOutput> {
     return deserializeAws_ec2DescribeVpcEndpointsCommand(output, context);
   }

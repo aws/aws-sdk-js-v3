@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLendingAnalysisSummaryCommand}.
  */
 export interface GetLendingAnalysisSummaryCommandInput extends GetLendingAnalysisSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLendingAnalysisSummaryCommand}.
  */
 export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalysisSummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summarized results for the <code>StartLendingAnalysis</code> operation, which analyzes
  *    text in a lending document. The returned summary consists of information about documents grouped
  *    together by a common document type. Information like detected signatures, page numbers, and split
@@ -57,6 +62,8 @@ export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalys
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLendingAnalysisSummaryCommandInput - {@link GetLendingAnalysisSummaryCommandInput}
+ * @returns {@link GetLendingAnalysisSummaryCommandOutput}
  * @see {@link GetLendingAnalysisSummaryCommandInput} for command's `input` shape.
  * @see {@link GetLendingAnalysisSummaryCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -114,6 +121,9 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLendingAnalysisSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLendingAnalysisSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLendingAnalysisSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

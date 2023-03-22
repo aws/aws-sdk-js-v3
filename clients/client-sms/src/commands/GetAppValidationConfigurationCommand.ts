@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppValidationConfigurationCommand}.
  */
 export interface GetAppValidationConfigurationCommandInput extends GetAppValidationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppValidationConfigurationCommand}.
  */
 export interface GetAppValidationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetAppValidationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a configuration for validating an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetAppValidationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppValidationConfigurationCommandInput - {@link GetAppValidationConfigurationCommandInput}
+ * @returns {@link GetAppValidationConfigurationCommandOutput}
  * @see {@link GetAppValidationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAppValidationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetAppValidationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppValidationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetAppValidationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppValidationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAppValidationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

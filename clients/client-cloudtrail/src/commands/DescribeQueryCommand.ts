@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQueryCommand}.
  */
 export interface DescribeQueryCommandInput extends DescribeQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQueryCommand}.
  */
 export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about a query, including query run time in milliseconds, number of
  *          events scanned and matched, and query status. You must specify an ARN for
  *             <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
@@ -48,6 +53,8 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQueryCommandInput - {@link DescribeQueryCommandInput}
+ * @returns {@link DescribeQueryCommandOutput}
  * @see {@link DescribeQueryCommandInput} for command's `input` shape.
  * @see {@link DescribeQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueryCommandOutput> {
     return deserializeAws_json1_1DescribeQueryCommand(output, context);
   }

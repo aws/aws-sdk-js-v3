@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListOpenIDConnectProvidersCommand}.
  */
 export interface ListOpenIDConnectProvidersCommandInput extends ListOpenIDConnectProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOpenIDConnectProvidersCommand}.
  */
 export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConnectProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
  *             defined in the Amazon Web Services account.</p>
  *          <note>
@@ -51,6 +56,8 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpenIDConnectProvidersCommandInput - {@link ListOpenIDConnectProvidersCommandInput}
+ * @returns {@link ListOpenIDConnectProvidersCommandOutput}
  * @see {@link ListOpenIDConnectProvidersCommandInput} for command's `input` shape.
  * @see {@link ListOpenIDConnectProvidersCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpenIDConnectProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpenIDConnectProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListOpenIDConnectProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

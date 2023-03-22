@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssociationCommand}.
  */
 export interface DeleteAssociationCommandInput extends DeleteAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssociationCommand}.
  */
 export interface DeleteAssociationCommandOutput extends DeleteAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssociationCommandInput - {@link DeleteAssociationCommandInput}
+ * @returns {@link DeleteAssociationCommandOutput}
  * @see {@link DeleteAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteAssociationCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssociationCommandOutput> {
     return deserializeAws_json1_1DeleteAssociationCommand(output, context);
   }

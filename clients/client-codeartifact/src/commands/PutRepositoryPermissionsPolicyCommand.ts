@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRepositoryPermissionsPolicyCommand}.
  */
 export interface PutRepositoryPermissionsPolicyCommandInput extends PutRepositoryPermissionsPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRepositoryPermissionsPolicyCommand}.
  */
 export interface PutRepositoryPermissionsPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Sets the resource policy on a repository that specifies permissions to access it.
  *       </p>
@@ -55,6 +60,8 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRepositoryPermissionsPolicyCommandInput - {@link PutRepositoryPermissionsPolicyCommandInput}
+ * @returns {@link PutRepositoryPermissionsPolicyCommandOutput}
  * @see {@link PutRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -111,6 +118,9 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRepositoryPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutRepositoryPermissionsPolicyCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
     return serializeAws_restJson1PutRepositoryPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

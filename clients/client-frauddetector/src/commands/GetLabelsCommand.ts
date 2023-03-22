@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetLabelsCommand, serializeAws_json1_1GetLabelsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLabelsCommand}.
  */
 export interface GetLabelsCommandInput extends GetLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLabelsCommand}.
  */
 export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all labels or a specific label if name is provided. This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 50 records
  *          per page. If you provide a <code>maxResults</code>, the value must be between 10 and 50.
@@ -48,6 +53,8 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLabelsCommandInput - {@link GetLabelsCommandInput}
+ * @returns {@link GetLabelsCommandOutput}
  * @see {@link GetLabelsCommandInput} for command's `input` shape.
  * @see {@link GetLabelsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLabelsCommandOutput> {
     return deserializeAws_json1_1GetLabelsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScheduledActionCommand}.
  */
 export interface DeleteScheduledActionCommandInput extends DeleteScheduledActionMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScheduledActionCommand}.
  */
 export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a scheduled action.
  *              </p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
+ * @returns {@link DeleteScheduledActionCommandOutput}
  * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledActionCommandOutput> {
     return deserializeAws_queryDeleteScheduledActionCommand(output, context);
   }

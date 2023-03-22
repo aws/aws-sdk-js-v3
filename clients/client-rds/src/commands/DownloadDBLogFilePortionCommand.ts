@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DownloadDBLogFilePortionCommand}.
  */
 export interface DownloadDBLogFilePortionCommandInput extends DownloadDBLogFilePortionMessage {}
 /**
+ * @public
+ *
  * The output of {@link DownloadDBLogFilePortionCommand}.
  */
 export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFilePortionDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * const response = await client.send(command);
  * ```
  *
+ * @param DownloadDBLogFilePortionCommandInput - {@link DownloadDBLogFilePortionCommandInput}
+ * @returns {@link DownloadDBLogFilePortionCommandOutput}
  * @see {@link DownloadDBLogFilePortionCommandInput} for command's `input` shape.
  * @see {@link DownloadDBLogFilePortionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -90,6 +97,9 @@ export class DownloadDBLogFilePortionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DownloadDBLogFilePortionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DownloadDBLogFilePortionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DownloadDBLogFilePortionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDownloadDBLogFilePortionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DownloadDBLogFilePortionCommandOutput> {
     return deserializeAws_queryDownloadDBLogFilePortionCommand(output, context);
   }

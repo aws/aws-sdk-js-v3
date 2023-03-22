@@ -21,15 +21,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveRoleFromDBInstanceCommand}.
  */
 export interface RemoveRoleFromDBInstanceCommandInput extends RemoveRoleFromDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link RemoveRoleFromDBInstanceCommand}.
  */
 export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an Amazon Web Services Identity and Access Management (IAM) role from a DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveRoleFromDBInstanceCommandInput - {@link RemoveRoleFromDBInstanceCommandInput}
+ * @returns {@link RemoveRoleFromDBInstanceCommandOutput}
  * @see {@link RemoveRoleFromDBInstanceCommandInput} for command's `input` shape.
  * @see {@link RemoveRoleFromDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -75,6 +82,9 @@ export class RemoveRoleFromDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveRoleFromDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class RemoveRoleFromDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveRoleFromDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRemoveRoleFromDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveRoleFromDBInstanceCommandOutput> {
     return deserializeAws_queryRemoveRoleFromDBInstanceCommand(output, context);
   }

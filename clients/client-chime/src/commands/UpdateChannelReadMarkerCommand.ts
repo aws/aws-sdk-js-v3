@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChannelReadMarkerCommand}.
  */
 export interface UpdateChannelReadMarkerCommandInput extends UpdateChannelReadMarkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChannelReadMarkerCommand}.
  */
 export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadMarkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The details of the time when a user last read messages in a channel.</p>
  *
  *          <note>
@@ -52,6 +57,8 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelReadMarkerCommandInput - {@link UpdateChannelReadMarkerCommandInput}
+ * @returns {@link UpdateChannelReadMarkerCommandOutput}
  * @see {@link UpdateChannelReadMarkerCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelReadMarkerCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateChannelReadMarkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelReadMarkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateChannelReadMarkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelReadMarkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateChannelReadMarkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelReadMarkerCommandOutput> {
     return deserializeAws_restJson1UpdateChannelReadMarkerCommand(output, context);
   }

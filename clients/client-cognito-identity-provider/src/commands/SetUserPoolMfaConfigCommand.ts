@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetUserPoolMfaConfigCommand}.
  */
 export interface SetUserPoolMfaConfigCommandInput extends SetUserPoolMfaConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetUserPoolMfaConfigCommand}.
  */
 export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the user pool multi-factor authentication (MFA) configuration.</p>
  *
  *          <note>
@@ -69,6 +74,8 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param SetUserPoolMfaConfigCommandInput - {@link SetUserPoolMfaConfigCommandInput}
+ * @returns {@link SetUserPoolMfaConfigCommandOutput}
  * @see {@link SetUserPoolMfaConfigCommandInput} for command's `input` shape.
  * @see {@link SetUserPoolMfaConfigCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -120,6 +127,9 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetUserPoolMfaConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetUserPoolMfaConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetUserPoolMfaConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserPoolMfaConfigCommandOutput> {
     return deserializeAws_json1_1SetUserPoolMfaConfigCommand(output, context);
   }

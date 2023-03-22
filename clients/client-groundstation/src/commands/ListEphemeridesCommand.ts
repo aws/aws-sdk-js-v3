@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEphemeridesCommand}.
  */
 export interface ListEphemeridesCommandInput extends ListEphemeridesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEphemeridesCommand}.
  */
 export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List existing ephemerides.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEphemeridesCommandInput - {@link ListEphemeridesCommandInput}
+ * @returns {@link ListEphemeridesCommandOutput}
  * @see {@link ListEphemeridesCommandInput} for command's `input` shape.
  * @see {@link ListEphemeridesCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListEphemeridesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEphemeridesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListEphemeridesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEphemeridesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEphemeridesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEphemeridesCommandOutput> {
     return deserializeAws_restJson1ListEphemeridesCommand(output, context);
   }

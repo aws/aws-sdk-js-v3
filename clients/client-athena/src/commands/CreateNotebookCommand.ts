@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNotebookCommand}.
  */
 export interface CreateNotebookCommandInput extends CreateNotebookInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateNotebookCommand}.
  */
 export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty <code>ipynb</code> file in the specified Apache Spark enabled
  *             workgroup. Throws an error if a file in the workgroup with the same name already
  *             exists.</p>
@@ -48,6 +53,8 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNotebookCommandInput - {@link CreateNotebookCommandInput}
+ * @returns {@link CreateNotebookCommandOutput}
  * @see {@link CreateNotebookCommandInput} for command's `input` shape.
  * @see {@link CreateNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateNotebookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNotebookCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreateNotebookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNotebookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateNotebookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNotebookCommandOutput> {
     return deserializeAws_json1_1CreateNotebookCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingAggregatorCommand}.
  */
 export interface GetFindingAggregatorCommandInput extends GetFindingAggregatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingAggregatorCommand}.
  */
 export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current finding aggregation configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingAggregatorCommandInput - {@link GetFindingAggregatorCommandInput}
+ * @returns {@link GetFindingAggregatorCommandOutput}
  * @see {@link GetFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link GetFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetFindingAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetFindingAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFindingAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingAggregatorCommandOutput> {
     return deserializeAws_restJson1GetFindingAggregatorCommand(output, context);
   }

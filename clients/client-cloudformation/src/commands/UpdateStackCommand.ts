@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryUpdateStackCommand, serializeAws_queryUpdateStackCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStackCommand}.
  */
 export interface UpdateStackCommandInput extends UpdateStackInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStackCommand}.
  */
 export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a stack as specified in the template. After the call completes successfully, the
  *          stack update starts. You can check the status of the stack through the <a>DescribeStacks</a> action.</p>
  *          <p>To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a> action.</p>
@@ -48,6 +53,8 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStackCommandInput - {@link UpdateStackCommandInput}
+ * @returns {@link UpdateStackCommandOutput}
  * @see {@link UpdateStackCommandInput} for command's `input` shape.
  * @see {@link UpdateStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStackCommandOutput> {
     return deserializeAws_queryUpdateStackCommand(output, context);
   }

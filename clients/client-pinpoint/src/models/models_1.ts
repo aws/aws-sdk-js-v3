@@ -65,6 +65,9 @@ import {
   WriteSegmentRequest,
 } from "./models_0";
 
+/**
+ * @public
+ */
 export interface GetChannelsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -72,6 +75,9 @@ export interface GetChannelsRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelsResponse {
   /**
    * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
@@ -79,6 +85,9 @@ export interface GetChannelsResponse {
   ChannelsResponse: ChannelsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEmailChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -86,6 +95,9 @@ export interface GetEmailChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEmailChannelResponse {
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
@@ -93,6 +105,9 @@ export interface GetEmailChannelResponse {
   EmailChannelResponse: EmailChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEmailTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -105,6 +120,9 @@ export interface GetEmailTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEmailTemplateResponse {
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
@@ -112,6 +130,9 @@ export interface GetEmailTemplateResponse {
   EmailTemplateResponse: EmailTemplateResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEndpointRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -124,6 +145,9 @@ export interface GetEndpointRequest {
   EndpointId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEndpointResponse {
   /**
    * <p>Provides information about the channel type and other settings for an endpoint.</p>
@@ -131,6 +155,9 @@ export interface GetEndpointResponse {
   EndpointResponse: EndpointResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventStreamRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -138,6 +165,9 @@ export interface GetEventStreamRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventStreamResponse {
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
@@ -145,6 +175,9 @@ export interface GetEventStreamResponse {
   EventStream: EventStream | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetExportJobRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -157,6 +190,9 @@ export interface GetExportJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetExportJobResponse {
   /**
    * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
@@ -164,6 +200,9 @@ export interface GetExportJobResponse {
   ExportJobResponse: ExportJobResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetExportJobsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -181,6 +220,9 @@ export interface GetExportJobsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetExportJobsResponse {
   /**
    * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
@@ -188,6 +230,9 @@ export interface GetExportJobsResponse {
   ExportJobsResponse: ExportJobsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGcmChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -195,6 +240,9 @@ export interface GetGcmChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGcmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
@@ -202,6 +250,9 @@ export interface GetGcmChannelResponse {
   GCMChannelResponse: GCMChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetImportJobRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -214,6 +265,9 @@ export interface GetImportJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetImportJobResponse {
   /**
    * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
@@ -221,6 +275,9 @@ export interface GetImportJobResponse {
   ImportJobResponse: ImportJobResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetImportJobsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -239,6 +296,7 @@ export interface GetImportJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
  */
 export interface ImportJobsResponse {
@@ -253,6 +311,9 @@ export interface ImportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetImportJobsResponse {
   /**
    * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
@@ -260,6 +321,9 @@ export interface GetImportJobsResponse {
   ImportJobsResponse: ImportJobsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInAppMessagesRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -273,6 +337,7 @@ export interface GetInAppMessagesRequest {
 }
 
 /**
+ * @public
  * <p>Provides all fields required for building an in-app message.</p>
  */
 export interface InAppMessage {
@@ -293,6 +358,7 @@ export interface InAppMessage {
 }
 
 /**
+ * @public
  * <p>Schedule of the campaign.</p>
  */
 export interface InAppCampaignSchedule {
@@ -313,6 +379,7 @@ export interface InAppCampaignSchedule {
 }
 
 /**
+ * @public
  * <p>Targeted in-app message campaign.</p>
  */
 export interface InAppMessageCampaign {
@@ -358,6 +425,7 @@ export interface InAppMessageCampaign {
 }
 
 /**
+ * @public
  * <p>Get in-app messages response object.</p>
  */
 export interface InAppMessagesResponse {
@@ -367,6 +435,9 @@ export interface InAppMessagesResponse {
   InAppMessageCampaigns?: InAppMessageCampaign[];
 }
 
+/**
+ * @public
+ */
 export interface GetInAppMessagesResponse {
   /**
    * <p>Get in-app messages response object.</p>
@@ -374,6 +445,9 @@ export interface GetInAppMessagesResponse {
   InAppMessagesResponse: InAppMessagesResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInAppTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -387,6 +461,7 @@ export interface GetInAppTemplateRequest {
 }
 
 /**
+ * @public
  * <p>In-App Template Response.</p>
  */
 export interface InAppTemplateResponse {
@@ -446,6 +521,9 @@ export interface InAppTemplateResponse {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInAppTemplateResponse {
   /**
    * <p>In-App Template Response.</p>
@@ -453,6 +531,9 @@ export interface GetInAppTemplateResponse {
   InAppTemplateResponse: InAppTemplateResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJourneyRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -465,6 +546,9 @@ export interface GetJourneyRequest {
   JourneyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJourneyResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -472,6 +556,9 @@ export interface GetJourneyResponse {
   JourneyResponse: JourneyResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJourneyDateRangeKpiRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -510,6 +597,7 @@ export interface GetJourneyDateRangeKpiRequest {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
  */
 export interface JourneyDateRangeKpiResponse {
@@ -549,6 +637,9 @@ export interface JourneyDateRangeKpiResponse {
   StartTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJourneyDateRangeKpiResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
@@ -556,6 +647,9 @@ export interface GetJourneyDateRangeKpiResponse {
   JourneyDateRangeKpiResponse: JourneyDateRangeKpiResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJourneyExecutionActivityMetricsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -584,6 +678,7 @@ export interface GetJourneyExecutionActivityMetricsRequest {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.</p>
  */
 export interface JourneyExecutionActivityMetricsResponse {
@@ -618,6 +713,9 @@ export interface JourneyExecutionActivityMetricsResponse {
   Metrics: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJourneyExecutionActivityMetricsResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.</p>
@@ -625,6 +723,9 @@ export interface GetJourneyExecutionActivityMetricsResponse {
   JourneyExecutionActivityMetricsResponse: JourneyExecutionActivityMetricsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJourneyExecutionMetricsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -648,6 +749,7 @@ export interface GetJourneyExecutionMetricsRequest {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey, and provides information about that query.</p>
  */
 export interface JourneyExecutionMetricsResponse {
@@ -672,6 +774,9 @@ export interface JourneyExecutionMetricsResponse {
   Metrics: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJourneyExecutionMetricsResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey, and provides information about that query.</p>
@@ -679,6 +784,9 @@ export interface GetJourneyExecutionMetricsResponse {
   JourneyExecutionMetricsResponse: JourneyExecutionMetricsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPushTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -692,6 +800,7 @@ export interface GetPushTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 export interface PushNotificationTemplateResponse {
@@ -771,6 +880,9 @@ export interface PushNotificationTemplateResponse {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPushTemplateResponse {
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
@@ -778,6 +890,9 @@ export interface GetPushTemplateResponse {
   PushNotificationTemplateResponse: PushNotificationTemplateResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommenderConfigurationRequest {
   /**
    * <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
@@ -785,6 +900,9 @@ export interface GetRecommenderConfigurationRequest {
   RecommenderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommenderConfigurationResponse {
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
@@ -792,6 +910,9 @@ export interface GetRecommenderConfigurationResponse {
   RecommenderConfigurationResponse: RecommenderConfigurationResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommenderConfigurationsRequest {
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
@@ -805,6 +926,7 @@ export interface GetRecommenderConfigurationsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
  */
 export interface ListRecommenderConfigurationsResponse {
@@ -819,6 +941,9 @@ export interface ListRecommenderConfigurationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommenderConfigurationsResponse {
   /**
    * <p>Provides information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
@@ -826,6 +951,9 @@ export interface GetRecommenderConfigurationsResponse {
   ListRecommenderConfigurationsResponse: ListRecommenderConfigurationsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -838,6 +966,9 @@ export interface GetSegmentRequest {
   SegmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -845,6 +976,9 @@ export interface GetSegmentResponse {
   SegmentResponse: SegmentResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentExportJobsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -867,6 +1001,9 @@ export interface GetSegmentExportJobsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentExportJobsResponse {
   /**
    * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
@@ -874,6 +1011,9 @@ export interface GetSegmentExportJobsResponse {
   ExportJobsResponse: ExportJobsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentImportJobsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -896,6 +1036,9 @@ export interface GetSegmentImportJobsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentImportJobsResponse {
   /**
    * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
@@ -903,6 +1046,9 @@ export interface GetSegmentImportJobsResponse {
   ImportJobsResponse: ImportJobsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -921,6 +1067,7 @@ export interface GetSegmentsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about all the segments that are associated with an application.</p>
  */
 export interface SegmentsResponse {
@@ -935,6 +1082,9 @@ export interface SegmentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentsResponse {
   /**
    * <p>Provides information about all the segments that are associated with an application.</p>
@@ -942,6 +1092,9 @@ export interface GetSegmentsResponse {
   SegmentsResponse: SegmentsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentVersionRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -959,6 +1112,9 @@ export interface GetSegmentVersionRequest {
   Version: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentVersionResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -966,6 +1122,9 @@ export interface GetSegmentVersionResponse {
   SegmentResponse: SegmentResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentVersionsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -988,6 +1147,9 @@ export interface GetSegmentVersionsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSegmentVersionsResponse {
   /**
    * <p>Provides information about all the segments that are associated with an application.</p>
@@ -995,6 +1157,9 @@ export interface GetSegmentVersionsResponse {
   SegmentsResponse: SegmentsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSmsChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -1002,6 +1167,9 @@ export interface GetSmsChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSmsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
@@ -1009,6 +1177,9 @@ export interface GetSmsChannelResponse {
   SMSChannelResponse: SMSChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSmsTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -1022,6 +1193,7 @@ export interface GetSmsTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
  */
 export interface SMSTemplateResponse {
@@ -1081,6 +1253,9 @@ export interface SMSTemplateResponse {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSmsTemplateResponse {
   /**
    * <p>Provides information about the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
@@ -1088,6 +1263,9 @@ export interface GetSmsTemplateResponse {
   SMSTemplateResponse: SMSTemplateResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetUserEndpointsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -1100,6 +1278,9 @@ export interface GetUserEndpointsRequest {
   UserId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetUserEndpointsResponse {
   /**
    * <p>Provides information about all the endpoints that are associated with a user ID.</p>
@@ -1107,6 +1288,9 @@ export interface GetUserEndpointsResponse {
   EndpointsResponse: EndpointsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -1114,6 +1298,9 @@ export interface GetVoiceChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceChannelResponse {
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
@@ -1121,6 +1308,9 @@ export interface GetVoiceChannelResponse {
   VoiceChannelResponse: VoiceChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -1134,6 +1324,7 @@ export interface GetVoiceTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
  */
 export interface VoiceTemplateResponse {
@@ -1198,6 +1389,9 @@ export interface VoiceTemplateResponse {
   VoiceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceTemplateResponse {
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
@@ -1206,6 +1400,7 @@ export interface GetVoiceTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
  */
 export interface JourneysResponse {
@@ -1221,6 +1416,7 @@ export interface JourneysResponse {
 }
 
 /**
+ * @public
  * <p>Changes the status of a journey.</p>
  */
 export interface JourneyStateRequest {
@@ -1230,6 +1426,9 @@ export interface JourneyStateRequest {
   State?: State | string;
 }
 
+/**
+ * @public
+ */
 export interface ListJourneysRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -1247,6 +1446,9 @@ export interface ListJourneysRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJourneysResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
@@ -1255,6 +1457,7 @@ export interface ListJourneysResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about a message template that's associated with your Amazon Pinpoint account.</p>
  */
 export interface TemplateResponse {
@@ -1305,6 +1508,7 @@ export interface TemplateResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about a specific version of a message template.</p>
  */
 export interface TemplateVersionResponse {
@@ -1344,6 +1548,9 @@ export interface TemplateVersionResponse {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1352,6 +1559,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the tags (keys and values) for an application, campaign, message template, or segment.</p>
  */
 export interface TagsModel {
@@ -1361,6 +1569,9 @@ export interface TagsModel {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Specifies the tags (keys and values) for an application, campaign, message template, or segment.</p>
@@ -1368,6 +1579,9 @@ export interface ListTagsForResourceResponse {
   TagsModel: TagsModel | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesRequest {
   /**
    * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
@@ -1391,6 +1605,7 @@ export interface ListTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
  */
 export interface TemplatesResponse {
@@ -1405,6 +1620,9 @@ export interface TemplatesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesResponse {
   /**
    * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
@@ -1412,6 +1630,9 @@ export interface ListTemplatesResponse {
   TemplatesResponse: TemplatesResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateVersionsRequest {
   /**
    * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
@@ -1435,6 +1656,7 @@ export interface ListTemplateVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about all the versions of a specific message template.</p>
  */
 export interface TemplateVersionsResponse {
@@ -1459,6 +1681,9 @@ export interface TemplateVersionsResponse {
   RequestID?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateVersionsResponse {
   /**
    * <p>Provides information about all the versions of a specific message template.</p>
@@ -1467,6 +1692,7 @@ export interface ListTemplateVersionsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the results of sending a message directly to an endpoint address.</p>
  */
 export interface MessageResult {
@@ -1497,6 +1723,7 @@ export interface MessageResult {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration and other settings for a message.</p>
  */
 export interface MessageRequest {
@@ -1532,6 +1759,7 @@ export interface MessageRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
  */
 export interface MessageResponse {
@@ -1557,6 +1785,7 @@ export interface MessageResponse {
 }
 
 /**
+ * @public
  * <p>Specifies a phone number to validate and retrieve information about.</p>
  */
 export interface NumberValidateRequest {
@@ -1572,6 +1801,7 @@ export interface NumberValidateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a phone number.</p>
  */
 export interface NumberValidateResponse {
@@ -1647,6 +1877,9 @@ export interface NumberValidateResponse {
   ZipCode?: string;
 }
 
+/**
+ * @public
+ */
 export interface PhoneNumberValidateRequest {
   /**
    * <p>Specifies a phone number to validate and retrieve information about.</p>
@@ -1654,6 +1887,9 @@ export interface PhoneNumberValidateRequest {
   NumberValidateRequest: NumberValidateRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PhoneNumberValidateResponse {
   /**
    * <p>Provides information about a phone number.</p>
@@ -1661,6 +1897,9 @@ export interface PhoneNumberValidateResponse {
   NumberValidateResponse: NumberValidateResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutEventsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -1673,6 +1912,9 @@ export interface PutEventsRequest {
   EventsRequest: EventsRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutEventsResponse {
   /**
    * <p>Provides information about endpoints and the events that they're associated with.</p>
@@ -1681,6 +1923,7 @@ export interface PutEventsResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the Amazon Resource Name (ARN) of an event stream to publish events to and the AWS Identity and Access Management (IAM) role to use when publishing those events.</p>
  */
 export interface WriteEventStream {
@@ -1697,6 +1940,9 @@ export interface WriteEventStream {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutEventStreamRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -1709,6 +1955,9 @@ export interface PutEventStreamRequest {
   WriteEventStream: WriteEventStream | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutEventStreamResponse {
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
@@ -1717,6 +1966,7 @@ export interface PutEventStreamResponse {
 }
 
 /**
+ * @public
  * <p>Specifies one or more attributes to remove from all the endpoints that are associated with an application.</p>
  */
 export interface UpdateAttributesRequest {
@@ -1726,6 +1976,9 @@ export interface UpdateAttributesRequest {
   Blacklist?: string[];
 }
 
+/**
+ * @public
+ */
 export interface RemoveAttributesRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -1743,6 +1996,9 @@ export interface RemoveAttributesRequest {
   UpdateAttributesRequest: UpdateAttributesRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveAttributesResponse {
   /**
    * <p>Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.</p>
@@ -1750,6 +2006,9 @@ export interface RemoveAttributesResponse {
   AttributesResource: AttributesResource | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendMessagesRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -1762,6 +2021,9 @@ export interface SendMessagesRequest {
   MessageRequest: MessageRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendMessagesResponse {
   /**
    * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
@@ -1770,6 +2032,7 @@ export interface SendMessagesResponse {
 }
 
 /**
+ * @public
  * <p>Send OTP message request parameters.</p>
  */
 export interface SendOTPMessageRequestParameters {
@@ -1829,6 +2092,9 @@ export interface SendOTPMessageRequestParameters {
   ValidityPeriod?: number;
 }
 
+/**
+ * @public
+ */
 export interface SendOTPMessageRequest {
   /**
    * <p>The unique ID of your Amazon Pinpoint application.</p>
@@ -1841,6 +2107,9 @@ export interface SendOTPMessageRequest {
   SendOTPMessageRequestParameters: SendOTPMessageRequestParameters | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendOTPMessageResponse {
   /**
    * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
@@ -1849,6 +2118,7 @@ export interface SendOTPMessageResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration and other settings for a message to send to all the endpoints that are associated with a list of users.</p>
  */
 export interface SendUsersMessageRequest {
@@ -1878,6 +2148,9 @@ export interface SendUsersMessageRequest {
   Users: Record<string, EndpointSendConfiguration> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendUsersMessagesRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -1891,6 +2164,7 @@ export interface SendUsersMessagesRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about which users and endpoints a message was sent to.</p>
  */
 export interface SendUsersMessageResponse {
@@ -1910,6 +2184,9 @@ export interface SendUsersMessageResponse {
   Result?: Record<string, Record<string, EndpointMessageResult>>;
 }
 
+/**
+ * @public
+ */
 export interface SendUsersMessagesResponse {
   /**
    * <p>Provides information about which users and endpoints a message was sent to.</p>
@@ -1917,6 +2194,9 @@ export interface SendUsersMessagesResponse {
   SendUsersMessageResponse: SendUsersMessageResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1929,6 +2209,9 @@ export interface TagResourceRequest {
   TagsModel: TagsModel | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1941,6 +2224,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAdmChannelRequest {
   /**
    * <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -1953,6 +2239,9 @@ export interface UpdateAdmChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAdmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -1960,6 +2249,9 @@ export interface UpdateAdmChannelResponse {
   ADMChannelResponse: ADMChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApnsChannelRequest {
   /**
    * <p>Specifies the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -1972,6 +2264,9 @@ export interface UpdateApnsChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApnsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -1979,6 +2274,9 @@ export interface UpdateApnsChannelResponse {
   APNSChannelResponse: APNSChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApnsSandboxChannelRequest {
   /**
    * <p>Specifies the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -1991,6 +2289,9 @@ export interface UpdateApnsSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApnsSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -1998,6 +2299,9 @@ export interface UpdateApnsSandboxChannelResponse {
   APNSSandboxChannelResponse: APNSSandboxChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApnsVoipChannelRequest {
   /**
    * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -2010,6 +2314,9 @@ export interface UpdateApnsVoipChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApnsVoipChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -2017,6 +2324,9 @@ export interface UpdateApnsVoipChannelResponse {
   APNSVoipChannelResponse: APNSVoipChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApnsVoipSandboxChannelRequest {
   /**
    * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -2029,6 +2339,9 @@ export interface UpdateApnsVoipSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApnsVoipSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -2037,6 +2350,7 @@ export interface UpdateApnsVoipSandboxChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the default settings for an application.</p>
  */
 export interface WriteApplicationSettingsRequest {
@@ -2062,6 +2376,9 @@ export interface WriteApplicationSettingsRequest {
   QuietTime?: QuietTime;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationSettingsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2074,6 +2391,9 @@ export interface UpdateApplicationSettingsRequest {
   WriteApplicationSettingsRequest: WriteApplicationSettingsRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationSettingsResponse {
   /**
    * <p>Provides information about an application, including the default settings for an application.</p>
@@ -2081,6 +2401,9 @@ export interface UpdateApplicationSettingsResponse {
   ApplicationSettingsResource: ApplicationSettingsResource | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBaiduChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2093,6 +2416,9 @@ export interface UpdateBaiduChannelRequest {
   BaiduChannelRequest: BaiduChannelRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBaiduChannelResponse {
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
@@ -2100,6 +2426,9 @@ export interface UpdateBaiduChannelResponse {
   BaiduChannelResponse: BaiduChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCampaignRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2117,6 +2446,9 @@ export interface UpdateCampaignRequest {
   WriteCampaignRequest: WriteCampaignRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCampaignResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -2124,6 +2456,9 @@ export interface UpdateCampaignResponse {
   CampaignResponse: CampaignResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEmailChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2136,6 +2471,9 @@ export interface UpdateEmailChannelRequest {
   EmailChannelRequest: EmailChannelRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEmailChannelResponse {
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
@@ -2143,6 +2481,9 @@ export interface UpdateEmailChannelResponse {
   EmailChannelResponse: EmailChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEmailTemplateRequest {
   /**
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
@@ -2165,6 +2506,9 @@ export interface UpdateEmailTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEmailTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2172,6 +2516,9 @@ export interface UpdateEmailTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2189,6 +2536,9 @@ export interface UpdateEndpointRequest {
   EndpointRequest: EndpointRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2196,6 +2546,9 @@ export interface UpdateEndpointResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointsBatchRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2208,6 +2561,9 @@ export interface UpdateEndpointsBatchRequest {
   EndpointBatchRequest: EndpointBatchRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointsBatchResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2215,6 +2571,9 @@ export interface UpdateEndpointsBatchResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGcmChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2227,6 +2586,9 @@ export interface UpdateGcmChannelRequest {
   GCMChannelRequest: GCMChannelRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGcmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
@@ -2234,6 +2596,9 @@ export interface UpdateGcmChannelResponse {
   GCMChannelResponse: GCMChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInAppTemplateRequest {
   /**
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
@@ -2256,6 +2621,9 @@ export interface UpdateInAppTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInAppTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2263,6 +2631,9 @@ export interface UpdateInAppTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJourneyRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2280,6 +2651,9 @@ export interface UpdateJourneyRequest {
   WriteJourneyRequest: WriteJourneyRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJourneyResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -2287,6 +2661,9 @@ export interface UpdateJourneyResponse {
   JourneyResponse: JourneyResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJourneyStateRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2304,6 +2681,9 @@ export interface UpdateJourneyStateRequest {
   JourneyStateRequest: JourneyStateRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJourneyStateResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -2311,6 +2691,9 @@ export interface UpdateJourneyStateResponse {
   JourneyResponse: JourneyResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePushTemplateRequest {
   /**
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
@@ -2333,6 +2716,9 @@ export interface UpdatePushTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePushTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2341,6 +2727,7 @@ export interface UpdatePushTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies Amazon Pinpoint configuration settings for retrieving and processing recommendation data from a recommender model.</p>
  */
 export interface UpdateRecommenderConfigurationShape {
@@ -2390,6 +2777,9 @@ export interface UpdateRecommenderConfigurationShape {
   RecommendationsPerMessage?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecommenderConfigurationRequest {
   /**
    * <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
@@ -2402,6 +2792,9 @@ export interface UpdateRecommenderConfigurationRequest {
   UpdateRecommenderConfiguration: UpdateRecommenderConfigurationShape | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecommenderConfigurationResponse {
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
@@ -2409,6 +2802,9 @@ export interface UpdateRecommenderConfigurationResponse {
   RecommenderConfigurationResponse: RecommenderConfigurationResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSegmentRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2426,6 +2822,9 @@ export interface UpdateSegmentRequest {
   WriteSegmentRequest: WriteSegmentRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSegmentResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -2434,6 +2833,7 @@ export interface UpdateSegmentResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the SMS channel for an application.</p>
  */
 export interface SMSChannelRequest {
@@ -2453,6 +2853,9 @@ export interface SMSChannelRequest {
   ShortCode?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSmsChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2465,6 +2868,9 @@ export interface UpdateSmsChannelRequest {
   SMSChannelRequest: SMSChannelRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSmsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
@@ -2472,6 +2878,9 @@ export interface UpdateSmsChannelResponse {
   SMSChannelResponse: SMSChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSmsTemplateRequest {
   /**
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
@@ -2494,6 +2903,9 @@ export interface UpdateSmsTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSmsTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2502,6 +2914,7 @@ export interface UpdateSmsTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies which version of a message template to use as the active version of the template.</p>
  */
 export interface TemplateActiveVersionRequest {
@@ -2511,6 +2924,9 @@ export interface TemplateActiveVersionRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateActiveVersionRequest {
   /**
    * <p>Specifies which version of a message template to use as the active version of the template.</p>
@@ -2528,6 +2944,9 @@ export interface UpdateTemplateActiveVersionRequest {
   TemplateType: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateActiveVersionResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2536,6 +2955,7 @@ export interface UpdateTemplateActiveVersionResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the voice channel for an application.</p>
  */
 export interface VoiceChannelRequest {
@@ -2545,6 +2965,9 @@ export interface VoiceChannelRequest {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVoiceChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2557,6 +2980,9 @@ export interface UpdateVoiceChannelRequest {
   VoiceChannelRequest: VoiceChannelRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVoiceChannelResponse {
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
@@ -2564,6 +2990,9 @@ export interface UpdateVoiceChannelResponse {
   VoiceChannelResponse: VoiceChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVoiceTemplateRequest {
   /**
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
@@ -2586,6 +3015,9 @@ export interface UpdateVoiceTemplateRequest {
   VoiceTemplateRequest: VoiceTemplateRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVoiceTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -2594,6 +3026,7 @@ export interface UpdateVoiceTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Verify OTP message request.</p>
  */
 export interface VerifyOTPMessageRequestParameters {
@@ -2613,6 +3046,9 @@ export interface VerifyOTPMessageRequestParameters {
   ReferenceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface VerifyOTPMessageRequest {
   /**
    * <p>The unique ID of your Amazon Pinpoint application.</p>
@@ -2626,6 +3062,7 @@ export interface VerifyOTPMessageRequest {
 }
 
 /**
+ * @public
  * <p>Verify OTP Message Response.</p>
  */
 export interface VerificationResponse {
@@ -2635,6 +3072,9 @@ export interface VerificationResponse {
   Valid?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface VerifyOTPMessageResponse {
   /**
    * <p>Verify OTP Message Response.</p>

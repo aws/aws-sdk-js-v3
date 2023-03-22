@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLaunchProfileCommand}.
  */
 export interface CreateLaunchProfileCommandInput extends CreateLaunchProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLaunchProfileCommand}.
  */
 export interface CreateLaunchProfileCommandOutput extends CreateLaunchProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a launch profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLaunchProfileCommandOutput extends CreateLaunchProfileRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLaunchProfileCommandInput - {@link CreateLaunchProfileCommandInput}
+ * @returns {@link CreateLaunchProfileCommandOutput}
  * @see {@link CreateLaunchProfileCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchProfileCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateLaunchProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLaunchProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateLaunchProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLaunchProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLaunchProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLaunchProfileCommandOutput> {
     return deserializeAws_restJson1CreateLaunchProfileCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBusinessReportSchedulesCommand}.
  */
 export interface ListBusinessReportSchedulesCommandInput extends ListBusinessReportSchedulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBusinessReportSchedulesCommand}.
  */
 export interface ListBusinessReportSchedulesCommandOutput
@@ -37,6 +41,7 @@ export interface ListBusinessReportSchedulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the details of the schedules that a user configured. A download URL of the report associated with each schedule is returned every time this action is called. A new download URL is returned each time, and is valid for 24 hours.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListBusinessReportSchedulesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBusinessReportSchedulesCommandInput - {@link ListBusinessReportSchedulesCommandInput}
+ * @returns {@link ListBusinessReportSchedulesCommandOutput}
  * @see {@link ListBusinessReportSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListBusinessReportSchedulesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListBusinessReportSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBusinessReportSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListBusinessReportSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBusinessReportSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBusinessReportSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

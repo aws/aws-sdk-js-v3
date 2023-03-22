@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMessagingSessionEndpointCommand}.
  */
 export interface GetMessagingSessionEndpointCommandInput extends GetMessagingSessionEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMessagingSessionEndpointCommand}.
  */
 export interface GetMessagingSessionEndpointCommandOutput
@@ -37,6 +41,7 @@ export interface GetMessagingSessionEndpointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>The details of the endpoint for the messaging session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetMessagingSessionEndpointCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMessagingSessionEndpointCommandInput - {@link GetMessagingSessionEndpointCommandInput}
+ * @returns {@link GetMessagingSessionEndpointCommandOutput}
  * @see {@link GetMessagingSessionEndpointCommandInput} for command's `input` shape.
  * @see {@link GetMessagingSessionEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetMessagingSessionEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMessagingSessionEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetMessagingSessionEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMessagingSessionEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMessagingSessionEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

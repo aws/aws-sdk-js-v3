@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServerCommand}.
  */
 export interface CreateServerCommandInput extends CreateServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServerCommand}.
  */
 export interface CreateServerCommandOutput extends CreateServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates and immedately starts a new server. The server is ready to use when it is in the <code>HEALTHY</code> state. By default, you can create a maximum of 10 servers.
  *     </p>
@@ -73,6 +78,8 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServerCommandInput - {@link CreateServerCommandInput}
+ * @returns {@link CreateServerCommandOutput}
  * @see {@link CreateServerCommandInput} for command's `input` shape.
  * @see {@link CreateServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -112,6 +119,9 @@ export class CreateServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServerCommandOutput> {
     return deserializeAws_json1_1CreateServerCommand(output, context);
   }

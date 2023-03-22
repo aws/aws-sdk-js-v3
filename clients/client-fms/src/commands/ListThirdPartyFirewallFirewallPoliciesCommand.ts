@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThirdPartyFirewallFirewallPoliciesCommand}.
  */
 export interface ListThirdPartyFirewallFirewallPoliciesCommandInput
   extends ListThirdPartyFirewallFirewallPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThirdPartyFirewallFirewallPoliciesCommand}.
  */
 export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
@@ -38,6 +42,7 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all of the third-party firewall policies that are associated with the third-party firewall administrator's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThirdPartyFirewallFirewallPoliciesCommandInput - {@link ListThirdPartyFirewallFirewallPoliciesCommandInput}
+ * @returns {@link ListThirdPartyFirewallFirewallPoliciesCommandOutput}
  * @see {@link ListThirdPartyFirewallFirewallPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListThirdPartyFirewallFirewallPoliciesCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThirdPartyFirewallFirewallPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListThirdPartyFirewallFirewallPoliciesCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<
     return serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

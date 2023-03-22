@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelImageCreationCommand}.
  */
 export interface CancelImageCreationCommandInput extends CancelImageCreationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelImageCreationCommand}.
  */
 export interface CancelImageCreationCommandOutput extends CancelImageCreationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on
  * 			images in a non-terminal state.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelImageCreationCommandInput - {@link CancelImageCreationCommandInput}
+ * @returns {@link CancelImageCreationCommandOutput}
  * @see {@link CancelImageCreationCommandInput} for command's `input` shape.
  * @see {@link CancelImageCreationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -98,6 +105,9 @@ export class CancelImageCreationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelImageCreationCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CancelImageCreationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelImageCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelImageCreationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelImageCreationCommandOutput> {
     return deserializeAws_restJson1CancelImageCreationCommand(output, context);
   }

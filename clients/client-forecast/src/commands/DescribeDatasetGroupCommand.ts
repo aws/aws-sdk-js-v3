@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatasetGroupCommand}.
  */
 export interface DescribeDatasetGroupCommandInput extends DescribeDatasetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatasetGroupCommand}.
  */
 export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a dataset group created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
  *       operation.</p>
  *          <p>In addition to listing the parameters provided in the <code>CreateDatasetGroup</code>
@@ -70,6 +75,8 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatasetGroupCommandInput - {@link DescribeDatasetGroupCommandInput}
+ * @returns {@link DescribeDatasetGroupCommandOutput}
  * @see {@link DescribeDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -101,6 +108,9 @@ export class DescribeDatasetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DescribeDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetGroupCommandOutput> {
     return deserializeAws_json1_1DescribeDatasetGroupCommand(output, context);
   }

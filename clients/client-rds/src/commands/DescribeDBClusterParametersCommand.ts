@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBClusterParametersCommand}.
  */
 export interface DescribeDBClusterParametersCommandInput extends DescribeDBClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBClusterParametersCommand}.
  */
 export interface DescribeDBClusterParametersCommandOutput extends DBClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -52,6 +57,8 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterParametersCommandInput - {@link DescribeDBClusterParametersCommandInput}
+ * @returns {@link DescribeDBClusterParametersCommandOutput}
  * @see {@link DescribeDBClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeDBClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeDBClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBClusterParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

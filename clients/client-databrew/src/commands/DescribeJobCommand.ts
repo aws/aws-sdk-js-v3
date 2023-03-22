@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandInput extends DescribeJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandOutput extends DescribeJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the definition of a specific DataBrew job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
+ * @returns {@link DescribeJobCommandOutput}
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobCommandOutput> {
     return deserializeAws_restJson1DescribeJobCommand(output, context);
   }

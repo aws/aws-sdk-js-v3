@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link TestDNSAnswerCommand}.
  */
 export interface TestDNSAnswerCommandInput extends TestDNSAnswerRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestDNSAnswerCommand}.
  */
 export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a
  * 			specified record name and type. You can optionally specify the IP address of a DNS
  * 			resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
@@ -50,6 +55,8 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param TestDNSAnswerCommandInput - {@link TestDNSAnswerCommandInput}
+ * @returns {@link TestDNSAnswerCommandOutput}
  * @see {@link TestDNSAnswerCommandInput} for command's `input` shape.
  * @see {@link TestDNSAnswerCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -79,6 +86,9 @@ export class TestDNSAnswerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestDNSAnswerCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class TestDNSAnswerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestDNSAnswerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlTestDNSAnswerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestDNSAnswerCommandOutput> {
     return deserializeAws_restXmlTestDNSAnswerCommand(output, context);
   }

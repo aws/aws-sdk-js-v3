@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventSubscriptionCommand}.
  */
 export interface CreateEventSubscriptionCommandInput extends CreateEventSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventSubscriptionCommand}.
  */
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Redshift event notification subscription. This action requires an ARN
  *             (Amazon Resource Name) of an Amazon SNS topic created by either the Amazon Redshift console,
  *             the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you
@@ -62,6 +67,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
+ * @returns {@link CreateEventSubscriptionCommandOutput}
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -129,6 +136,9 @@ export class CreateEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class CreateEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSubscriptionCommandOutput> {
     return deserializeAws_queryCreateEventSubscriptionCommand(output, context);
   }

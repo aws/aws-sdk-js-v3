@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApprovedOriginsCommand}.
  */
 export interface ListApprovedOriginsCommandInput extends ListApprovedOriginsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApprovedOriginsCommand}.
  */
 export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all approved origins associated with the instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApprovedOriginsCommandInput - {@link ListApprovedOriginsCommandInput}
+ * @returns {@link ListApprovedOriginsCommandOutput}
  * @see {@link ListApprovedOriginsCommandInput} for command's `input` shape.
  * @see {@link ListApprovedOriginsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListApprovedOriginsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApprovedOriginsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListApprovedOriginsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApprovedOriginsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListApprovedOriginsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApprovedOriginsCommandOutput> {
     return deserializeAws_restJson1ListApprovedOriginsCommand(output, context);
   }

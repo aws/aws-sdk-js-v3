@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoadBalancerPolicyCommand}.
  */
 export interface CreateLoadBalancerPolicyCommandInput extends CreateLoadBalancerPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoadBalancerPolicyCommand}.
  */
 export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalancerPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a policy with the specified attributes for the specified load balancer.</p>
  *          <p>Policies are settings that are saved for your load balancer and that can be applied to the listener or the application server, depending on the policy type.</p>
  * @example
@@ -51,6 +56,8 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoadBalancerPolicyCommandInput - {@link CreateLoadBalancerPolicyCommandInput}
+ * @returns {@link CreateLoadBalancerPolicyCommandOutput}
  * @see {@link CreateLoadBalancerPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -146,6 +153,9 @@ export class CreateLoadBalancerPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoadBalancerPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,10 +195,16 @@ export class CreateLoadBalancerPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoadBalancerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateLoadBalancerPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerPolicyCommandOutput> {
     return deserializeAws_queryCreateLoadBalancerPolicyCommand(output, context);
   }

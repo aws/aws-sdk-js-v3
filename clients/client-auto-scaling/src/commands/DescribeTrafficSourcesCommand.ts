@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrafficSourcesCommand}.
  */
 export interface DescribeTrafficSourcesCommandInput extends DescribeTrafficSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrafficSourcesCommand}.
  */
 export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
  *             Do not use this API for production workloads. This API is also subject to change.</b>
@@ -50,6 +55,8 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrafficSourcesCommandInput - {@link DescribeTrafficSourcesCommandInput}
+ * @returns {@link DescribeTrafficSourcesCommandOutput}
  * @see {@link DescribeTrafficSourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeTrafficSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrafficSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeTrafficSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTrafficSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrafficSourcesCommandOutput> {
     return deserializeAws_queryDescribeTrafficSourcesCommand(output, context);
   }

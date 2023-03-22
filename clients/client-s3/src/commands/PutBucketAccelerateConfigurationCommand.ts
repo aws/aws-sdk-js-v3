@@ -25,15 +25,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketAccelerateConfigurationCommand}.
  */
 export interface PutBucketAccelerateConfigurationCommandInput extends PutBucketAccelerateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketAccelerateConfigurationCommand}.
  */
 export interface PutBucketAccelerateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a
  *          bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>
  *          <p> To use this operation, you must have permission to perform the
@@ -82,6 +87,8 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketAccelerateConfigurationCommandInput - {@link PutBucketAccelerateConfigurationCommandInput}
+ * @returns {@link PutBucketAccelerateConfigurationCommandOutput}
  * @see {@link PutBucketAccelerateConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketAccelerateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -111,6 +118,9 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketAccelerateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,6 +167,9 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
@@ -164,6 +177,9 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     return serializeAws_restXmlPutBucketAccelerateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTopicRuleDestinationCommand}.
  */
 export interface DeleteTopicRuleDestinationCommandInput extends DeleteTopicRuleDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTopicRuleDestinationCommand}.
  */
 export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a topic rule destination.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRuleDestination</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTopicRuleDestinationCommandInput - {@link DeleteTopicRuleDestinationCommandInput}
+ * @returns {@link DeleteTopicRuleDestinationCommandOutput}
  * @see {@link DeleteTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

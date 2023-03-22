@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDeviceWithPlacementCommand}.
  */
 export interface AssociateDeviceWithPlacementCommandInput extends AssociateDeviceWithPlacementRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDeviceWithPlacementCommand}.
  */
 export interface AssociateDeviceWithPlacementCommandOutput
@@ -41,6 +45,7 @@ export interface AssociateDeviceWithPlacementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a physical device with a placement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface AssociateDeviceWithPlacementCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDeviceWithPlacementCommandInput - {@link AssociateDeviceWithPlacementCommandInput}
+ * @returns {@link AssociateDeviceWithPlacementCommandOutput}
  * @see {@link AssociateDeviceWithPlacementCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithPlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDeviceWithPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDeviceWithPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateDeviceWithPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

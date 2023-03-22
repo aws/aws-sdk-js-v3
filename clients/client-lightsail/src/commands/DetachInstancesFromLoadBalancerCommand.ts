@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachInstancesFromLoadBalancerCommand}.
  */
 export interface DetachInstancesFromLoadBalancerCommandInput extends DetachInstancesFromLoadBalancerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachInstancesFromLoadBalancerCommand}.
  */
 export interface DetachInstancesFromLoadBalancerCommandOutput
@@ -37,6 +41,7 @@ export interface DetachInstancesFromLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches the specified instances from a Lightsail load balancer.</p>
  *          <p>This operation waits until the instances are no longer needed before they are detached
  *       from the load balancer.</p>
@@ -53,6 +58,8 @@ export interface DetachInstancesFromLoadBalancerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachInstancesFromLoadBalancerCommandInput - {@link DetachInstancesFromLoadBalancerCommandInput}
+ * @returns {@link DetachInstancesFromLoadBalancerCommandOutput}
  * @see {@link DetachInstancesFromLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DetachInstancesFromLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +113,9 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachInstancesFromLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DetachInstancesFromLoadBalancerCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
     return serializeAws_json1_1DetachInstancesFromLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBlueprintCommand}.
  */
 export interface DeleteBlueprintCommandInput extends DeleteBlueprintRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBlueprintCommand}.
  */
 export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing blueprint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBlueprintCommandInput - {@link DeleteBlueprintCommandInput}
+ * @returns {@link DeleteBlueprintCommandOutput}
  * @see {@link DeleteBlueprintCommandInput} for command's `input` shape.
  * @see {@link DeleteBlueprintCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteBlueprintCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBlueprintCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteBlueprintCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBlueprintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBlueprintCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBlueprintCommandOutput> {
     return deserializeAws_json1_1DeleteBlueprintCommand(output, context);
   }

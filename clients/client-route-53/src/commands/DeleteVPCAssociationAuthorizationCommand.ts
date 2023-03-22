@@ -27,10 +27,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVPCAssociationAuthorizationCommand}.
  */
 export interface DeleteVPCAssociationAuthorizationCommandInput extends DeleteVPCAssociationAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVPCAssociationAuthorizationCommand}.
  */
 export interface DeleteVPCAssociationAuthorizationCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request to
  * 			associate a specified VPC with a hosted zone that was created by a different account.
  * 			You must use the account that created the hosted zone to submit a
@@ -60,6 +65,8 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVPCAssociationAuthorizationCommandInput - {@link DeleteVPCAssociationAuthorizationCommandInput}
+ * @returns {@link DeleteVPCAssociationAuthorizationCommandOutput}
  * @see {@link DeleteVPCAssociationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteVPCAssociationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVPCAssociationAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVPCAssociationAuthorizationCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
     return serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

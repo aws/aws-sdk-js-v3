@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGameConfigurationCommand}.
  */
 export interface GetGameConfigurationCommandInput extends GetGameConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGameConfigurationCommand}.
  */
 export interface GetGameConfigurationCommandOutput extends GetGameConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the configuration of the game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetGameConfigurationCommandOutput extends GetGameConfigurationR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGameConfigurationCommandInput - {@link GetGameConfigurationCommandInput}
+ * @returns {@link GetGameConfigurationCommandOutput}
  * @see {@link GetGameConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetGameConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetGameConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGameConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetGameConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGameConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGameConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGameConfigurationCommandOutput> {
     return deserializeAws_restJson1GetGameConfigurationCommand(output, context);
   }

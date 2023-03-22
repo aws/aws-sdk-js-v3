@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCallAnalyticsCategoryCommand}.
  */
 export interface UpdateCallAnalyticsCategoryCommandInput extends UpdateCallAnalyticsCategoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCallAnalyticsCategoryCommand}.
  */
 export interface UpdateCallAnalyticsCategoryCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified Call Analytics category with new rules. Note that the
  *                 <code>UpdateCallAnalyticsCategory</code> operation overwrites all existing rules
  *             contained in the specified category. You cannot append additional rules onto an existing
@@ -52,6 +57,8 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCallAnalyticsCategoryCommandInput - {@link UpdateCallAnalyticsCategoryCommandInput}
+ * @returns {@link UpdateCallAnalyticsCategoryCommandOutput}
  * @see {@link UpdateCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link UpdateCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateCallAnalyticsCategoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCallAnalyticsCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateCallAnalyticsCategoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCallAnalyticsCategoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCallAnalyticsCategoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecoveryGroupCommand}.
  */
 export interface CreateRecoveryGroupCommandInput extends CreateRecoveryGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecoveryGroupCommand}.
  */
 export interface CreateRecoveryGroupCommandOutput extends CreateRecoveryGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a recovery group in an account. A recovery group corresponds to an application and includes a list of the cells that make up the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateRecoveryGroupCommandOutput extends CreateRecoveryGroupRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecoveryGroupCommandInput - {@link CreateRecoveryGroupCommandInput}
+ * @returns {@link CreateRecoveryGroupCommandOutput}
  * @see {@link CreateRecoveryGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRecoveryGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateRecoveryGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecoveryGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateRecoveryGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRecoveryGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRecoveryGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRecoveryGroupCommandOutput> {
     return deserializeAws_restJson1CreateRecoveryGroupCommand(output, context);
   }

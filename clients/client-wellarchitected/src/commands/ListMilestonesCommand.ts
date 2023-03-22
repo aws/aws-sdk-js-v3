@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMilestonesCommand}.
  */
 export interface ListMilestonesCommandInput extends ListMilestonesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMilestonesCommand}.
  */
 export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all milestones for an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMilestonesCommandInput - {@link ListMilestonesCommandInput}
+ * @returns {@link ListMilestonesCommandOutput}
  * @see {@link ListMilestonesCommandInput} for command's `input` shape.
  * @see {@link ListMilestonesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListMilestonesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMilestonesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListMilestonesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMilestonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMilestonesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMilestonesCommandOutput> {
     return deserializeAws_restJson1ListMilestonesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelStatementCommand}.
  */
 export interface CancelStatementCommandInput extends CancelStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelStatementCommand}.
  */
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a running query. To be canceled, a query must be running. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
  *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
@@ -49,6 +54,8 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelStatementCommandInput - {@link CancelStatementCommandInput}
+ * @returns {@link CancelStatementCommandOutput}
  * @see {@link CancelStatementCommandInput} for command's `input` shape.
  * @see {@link CancelStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -84,6 +91,9 @@ export class CancelStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CancelStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelStatementCommandOutput> {
     return deserializeAws_json1_1CancelStatementCommand(output, context);
   }

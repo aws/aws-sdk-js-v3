@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationHealthCommand}.
  */
 export interface DescribeOrganizationHealthCommandInput extends DescribeOrganizationHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationHealthCommand}.
  */
 export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganizationHealthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns active insights, predictive insights, and resource hours analyzed in last
  * 			hour.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganiz
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationHealthCommandInput - {@link DescribeOrganizationHealthCommandInput}
+ * @returns {@link DescribeOrganizationHealthCommandOutput}
  * @see {@link DescribeOrganizationHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationHealthCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeOrganizationHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeOrganizationHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeOrganizationHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

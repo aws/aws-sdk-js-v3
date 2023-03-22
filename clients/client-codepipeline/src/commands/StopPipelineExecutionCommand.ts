@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopPipelineExecutionCommand}.
  */
 export interface StopPipelineExecutionCommandInput extends StopPipelineExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StopPipelineExecutionCommand}.
  */
 export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the specified pipeline execution. You choose to either stop the pipeline
  *             execution by completing in-progress actions without starting subsequent actions, or by
  *             abandoning in-progress actions. While completing or abandoning in-progress actions, the
@@ -51,6 +56,8 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * const response = await client.send(command);
  * ```
  *
+ * @param StopPipelineExecutionCommandInput - {@link StopPipelineExecutionCommandInput}
+ * @returns {@link StopPipelineExecutionCommandOutput}
  * @see {@link StopPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StopPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -95,6 +102,9 @@ export class StopPipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopPipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class StopPipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopPipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopPipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPipelineExecutionCommandOutput> {
     return deserializeAws_json1_1StopPipelineExecutionCommand(output, context);
   }

@@ -10,7 +10,7 @@ import { SnowballClient } from "../SnowballClient";
 import { SnowballPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SnowballClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeAddressesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeAddresses(
   config: SnowballPaginationConfiguration,
   input: DescribeAddressesCommandInput,

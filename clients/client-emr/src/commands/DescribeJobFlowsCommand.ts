@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobFlowsCommand}.
  */
 export interface DescribeJobFlowsCommandInput extends DescribeJobFlowsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobFlowsCommand}.
  */
 export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>This API is no longer supported and will eventually be removed. We recommend you use
@@ -68,6 +73,8 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobFlowsCommandInput - {@link DescribeJobFlowsCommandInput}
+ * @returns {@link DescribeJobFlowsCommandOutput}
  * @see {@link DescribeJobFlowsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobFlowsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeJobFlowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeJobFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeJobFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobFlowsCommandOutput> {
     return deserializeAws_json1_1DescribeJobFlowsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPackageVersionReadmeCommand}.
  */
 export interface GetPackageVersionReadmeCommandInput extends GetPackageVersionReadmeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPackageVersionReadmeCommand}.
  */
 export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionReadmeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Gets the readme file or descriptive text for a package version.
  *       </p>
@@ -51,6 +56,8 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPackageVersionReadmeCommandInput - {@link GetPackageVersionReadmeCommandInput}
+ * @returns {@link GetPackageVersionReadmeCommandOutput}
  * @see {@link GetPackageVersionReadmeCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionReadmeCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -97,6 +104,9 @@ export class GetPackageVersionReadmeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPackageVersionReadmeCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetPackageVersionReadmeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPackageVersionReadmeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPackageVersionReadmeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPackageVersionReadmeCommandOutput> {
     return deserializeAws_restJson1GetPackageVersionReadmeCommand(output, context);
   }

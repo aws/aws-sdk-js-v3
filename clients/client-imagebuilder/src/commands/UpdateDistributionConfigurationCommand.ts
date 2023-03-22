@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDistributionConfigurationCommand}.
  */
 export interface UpdateDistributionConfigurationCommandInput extends UpdateDistributionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDistributionConfigurationCommand}.
  */
 export interface UpdateDistributionConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDistributionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a new distribution configuration. Distribution configurations define and
  * 			configure the outputs of your pipeline.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateDistributionConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDistributionConfigurationCommandInput - {@link UpdateDistributionConfigurationCommandInput}
+ * @returns {@link UpdateDistributionConfigurationCommandOutput}
  * @see {@link UpdateDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -104,6 +111,9 @@ export class UpdateDistributionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDistributionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class UpdateDistributionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDistributionConfigurationCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class UpdateDistributionConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateDistributionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

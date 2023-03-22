@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGatewayGroupCommand}.
  */
 export interface DeleteGatewayGroupCommandInput extends DeleteGatewayGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGatewayGroupCommand}.
  */
 export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a gateway group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGatewayGroupCommandInput - {@link DeleteGatewayGroupCommandInput}
+ * @returns {@link DeleteGatewayGroupCommandOutput}
  * @see {@link DeleteGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteGatewayGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteGatewayGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGatewayGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayGroupCommandOutput> {
     return deserializeAws_json1_1DeleteGatewayGroupCommand(output, context);
   }

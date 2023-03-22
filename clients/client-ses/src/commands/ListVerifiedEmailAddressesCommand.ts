@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListVerifiedEmailAddressesCommand}.
  */
 export interface ListVerifiedEmailAddressesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link ListVerifiedEmailAddressesCommand}.
  */
 export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEmailAddressesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
  *             and domains associated with your account.</p>
  * @example
@@ -45,6 +50,8 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVerifiedEmailAddressesCommandInput - {@link ListVerifiedEmailAddressesCommandInput}
+ * @returns {@link ListVerifiedEmailAddressesCommandOutput}
  * @see {@link ListVerifiedEmailAddressesCommandInput} for command's `input` shape.
  * @see {@link ListVerifiedEmailAddressesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVerifiedEmailAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVerifiedEmailAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListVerifiedEmailAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

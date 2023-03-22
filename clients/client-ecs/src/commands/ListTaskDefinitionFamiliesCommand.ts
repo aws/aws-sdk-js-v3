@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTaskDefinitionFamiliesCommand}.
  */
 export interface ListTaskDefinitionFamiliesCommandInput extends ListTaskDefinitionFamiliesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTaskDefinitionFamiliesCommand}.
  */
 export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinitionFamiliesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of task definition families that are registered to your account. This
  * 			list includes task definition families that no longer have any <code>ACTIVE</code> task
  * 			definition revisions.</p>
@@ -52,6 +57,8 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTaskDefinitionFamiliesCommandInput - {@link ListTaskDefinitionFamiliesCommandInput}
+ * @returns {@link ListTaskDefinitionFamiliesCommandOutput}
  * @see {@link ListTaskDefinitionFamiliesCommandInput} for command's `input` shape.
  * @see {@link ListTaskDefinitionFamiliesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -125,6 +132,9 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTaskDefinitionFamiliesCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTaskDefinitionFamiliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTaskDefinitionFamiliesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIndexCommand}.
  */
 export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIndexCommand}.
  */
 export interface UpdateIndexCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Amazon Kendra index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIndexCommandInput - {@link UpdateIndexCommandInput}
+ * @returns {@link UpdateIndexCommandOutput}
  * @see {@link UpdateIndexCommandInput} for command's `input` shape.
  * @see {@link UpdateIndexCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIndexCommandOutput> {
     return deserializeAws_json1_1UpdateIndexCommand(output, context);
   }

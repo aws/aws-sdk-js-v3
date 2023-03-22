@@ -23,15 +23,20 @@ import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import { deserializeAws_json1_1ListHITsCommand, serializeAws_json1_1ListHITsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHITsCommand}.
  */
 export interface ListHITsCommandInput extends ListHITsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHITsCommand}.
  */
 export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>ListHITs</code>
@@ -49,6 +54,8 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHITsCommandInput - {@link ListHITsCommandInput}
+ * @returns {@link ListHITsCommandOutput}
  * @see {@link ListHITsCommandInput} for command's `input` shape.
  * @see {@link ListHITsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHITsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHITsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHITsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHITsCommandOutput> {
     return deserializeAws_json1_1ListHITsCommand(output, context);
   }

@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CodeStarConnectionsServiceException as __BaseException } from "./CodeStarConnectionsServiceException";
 
+/**
+ * @public
+ */
 export enum ProviderType {
   BITBUCKET = "Bitbucket",
   GITHUB = "GitHub",
@@ -10,6 +13,7 @@ export enum ProviderType {
 }
 
 /**
+ * @public
  * <p>A tag is a key-value pair that is used to manage the resource.</p>
  *          <p>This tag is available for use by AWS services that support tags.</p>
  */
@@ -25,6 +29,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionInput {
   /**
    * <p>The name of the external provider where your third-party code repository is
@@ -49,6 +56,9 @@ export interface CreateConnectionInput {
   HostArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the
@@ -66,6 +76,7 @@ export interface CreateConnectionOutput {
 }
 
 /**
+ * @public
  * <p>Exceeded the maximum limit for connections.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -87,6 +98,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Resource not found. Verify the connection resource ARN and try again.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -108,6 +120,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Resource not found. Verify the ARN for the host resource and try again.</p>
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -129,6 +142,7 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The VPC configuration provisioned for the host.</p>
  */
 export interface VpcConfiguration {
@@ -156,6 +170,9 @@ export interface VpcConfiguration {
   TlsCertificate?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateHostInput {
   /**
    * <p>The name of the host to be created. The name must be unique in the calling AWS
@@ -185,6 +202,9 @@ export interface CreateHostInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateHostOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the host to be created.</p>
@@ -194,6 +214,9 @@ export interface CreateHostOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the connection to be deleted.</p>
@@ -204,8 +227,14 @@ export interface DeleteConnectionInput {
   ConnectionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteHostInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the host to be deleted.</p>
@@ -213,8 +242,14 @@ export interface DeleteHostInput {
   HostArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteHostOutput {}
 
+/**
+ * @public
+ */
 export interface GetConnectionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of a connection.</p>
@@ -222,6 +257,9 @@ export interface GetConnectionInput {
   ConnectionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConnectionStatus {
   AVAILABLE = "AVAILABLE",
   ERROR = "ERROR",
@@ -229,6 +267,7 @@ export enum ConnectionStatus {
 }
 
 /**
+ * @public
  * <p>A resource that is used to connect third-party source providers with services like AWS CodePipeline.</p>
  *          <p>Note: A connection created through CloudFormation, the CLI, or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the
  *       connection in the console.</p>
@@ -271,6 +310,9 @@ export interface Connection {
   HostArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionOutput {
   /**
    * <p>The connection details, such as status, owner, and provider type.</p>
@@ -278,6 +320,9 @@ export interface GetConnectionOutput {
   Connection?: Connection;
 }
 
+/**
+ * @public
+ */
 export interface GetHostInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the requested host.</p>
@@ -285,6 +330,9 @@ export interface GetHostInput {
   HostArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetHostOutput {
   /**
    * <p>The name of the requested host.</p>
@@ -312,6 +360,9 @@ export interface GetHostOutput {
   VpcConfiguration?: VpcConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectionsInput {
   /**
    * <p>Filters the list of connections to those associated with a specified provider, such as
@@ -337,6 +388,9 @@ export interface ListConnectionsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectionsOutput {
   /**
    * <p>A list of connections and the details for each connection, such as status, owner, and
@@ -352,6 +406,9 @@ export interface ListConnectionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHostsInput {
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -367,6 +424,7 @@ export interface ListHostsInput {
 }
 
 /**
+ * @public
  * <p>A resource that represents the infrastructure where a third-party provider is installed.
  *       The host is used when you create connections to an installed third-party provider type, such
  *       as GitHub Enterprise Server. You create one host for all connections to that provider.</p>
@@ -414,6 +472,9 @@ export interface Host {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHostsOutput {
   /**
    * <p>A list of hosts and the details for each host, such as status, endpoint, and provider
@@ -429,6 +490,9 @@ export interface ListHostsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>
@@ -436,6 +500,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
@@ -443,6 +510,9 @@ export interface ListTagsForResourceOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
@@ -455,8 +525,14 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
@@ -469,9 +545,13 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**
+ * @public
  * <p>Two conflicting operations have been made on the same resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -493,6 +573,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation is not supported. Check the connection status and try again.</p>
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -513,6 +594,9 @@ export class UnsupportedOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateHostInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the host to be updated.</p>
@@ -531,6 +615,9 @@ export interface UpdateHostInput {
   VpcConfiguration?: VpcConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateHostOutput {}
 
 /**

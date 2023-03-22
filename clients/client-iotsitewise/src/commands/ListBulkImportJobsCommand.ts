@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBulkImportJobsCommand}.
  */
 export interface ListBulkImportJobsCommandInput extends ListBulkImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBulkImportJobsCommand}.
  */
 export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of bulk import job requests. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List bulk
  *         import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBulkImportJobsCommandInput - {@link ListBulkImportJobsCommandInput}
+ * @returns {@link ListBulkImportJobsCommandOutput}
  * @see {@link ListBulkImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListBulkImportJobsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListBulkImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBulkImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListBulkImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBulkImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBulkImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBulkImportJobsCommandOutput> {
     return deserializeAws_restJson1ListBulkImportJobsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallDomainsCommand}.
  */
 export interface UpdateFirewallDomainsCommandInput extends UpdateFirewallDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallDomainsCommand}.
  */
 export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the firewall domain list from an array of domain specifications. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallDomainsCommandInput - {@link UpdateFirewallDomainsCommandInput}
+ * @returns {@link UpdateFirewallDomainsCommandOutput}
  * @see {@link UpdateFirewallDomainsCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateFirewallDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateFirewallDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFirewallDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFirewallDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFirewallDomainsCommandOutput> {
     return deserializeAws_json1_1UpdateFirewallDomainsCommand(output, context);
   }

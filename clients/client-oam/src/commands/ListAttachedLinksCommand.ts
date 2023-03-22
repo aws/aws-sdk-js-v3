@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttachedLinksCommand}.
  */
 export interface ListAttachedLinksCommandInput extends ListAttachedLinksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAttachedLinksCommand}.
  */
 export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of source account links that are linked to this monitoring account sink.</p>
  *         <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
  *         <p>To find a list of links for one source account, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
@@ -48,6 +53,8 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttachedLinksCommandInput - {@link ListAttachedLinksCommandInput}
+ * @returns {@link ListAttachedLinksCommandOutput}
  * @see {@link ListAttachedLinksCommandInput} for command's `input` shape.
  * @see {@link ListAttachedLinksCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListAttachedLinksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttachedLinksCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListAttachedLinksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttachedLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAttachedLinksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachedLinksCommandOutput> {
     return deserializeAws_restJson1ListAttachedLinksCommand(output, context);
   }

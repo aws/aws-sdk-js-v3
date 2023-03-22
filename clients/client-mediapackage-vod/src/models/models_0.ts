@@ -3,11 +3,15 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MediaPackageVodServiceException as __BaseException } from "./MediaPackageVodServiceException";
 
+/**
+ * @public
+ */
 export enum __PeriodTriggersElement {
   ADS = "ADS",
 }
 
 /**
+ * @public
  * A MediaPackage VOD Asset resource.
  */
 export interface AssetShallow {
@@ -52,21 +56,33 @@ export interface AssetShallow {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ManifestLayout {
   COMPACT = "COMPACT",
   FULL = "FULL",
 }
 
+/**
+ * @public
+ */
 export enum Profile {
   HBBTV_1_5 = "HBBTV_1_5",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum ScteMarkersSource {
   MANIFEST = "MANIFEST",
   SEGMENTS = "SEGMENTS",
 }
 
+/**
+ * @public
+ */
 export enum StreamOrder {
   ORIGINAL = "ORIGINAL",
   VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
@@ -74,6 +90,7 @@ export enum StreamOrder {
 }
 
 /**
+ * @public
  * A StreamSelection configuration.
  */
 export interface StreamSelection {
@@ -94,6 +111,7 @@ export interface StreamSelection {
 }
 
 /**
+ * @public
  * A DASH manifest configuration.
  */
 export interface DashManifest {
@@ -129,6 +147,7 @@ export interface DashManifest {
 }
 
 /**
+ * @public
  * The endpoint URL used to access an Asset using one PackagingConfiguration.
  */
 export interface EgressEndpoint {
@@ -148,6 +167,9 @@ export interface EgressEndpoint {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export enum AdMarkers {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
@@ -155,6 +177,7 @@ export enum AdMarkers {
 }
 
 /**
+ * @public
  * An HTTP Live Streaming (HLS) manifest configuration.
  */
 export interface HlsManifest {
@@ -203,6 +226,7 @@ export interface HlsManifest {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) manifest configuration.
  */
 export interface MssManifest {
@@ -217,6 +241,9 @@ export interface MssManifest {
   StreamSelection?: StreamSelection;
 }
 
+/**
+ * @public
+ */
 export enum PresetSpeke20Audio {
   PRESET_AUDIO_1 = "PRESET-AUDIO-1",
   PRESET_AUDIO_2 = "PRESET-AUDIO-2",
@@ -225,6 +252,9 @@ export enum PresetSpeke20Audio {
   UNENCRYPTED = "UNENCRYPTED",
 }
 
+/**
+ * @public
+ */
 export enum PresetSpeke20Video {
   PRESET_VIDEO_1 = "PRESET-VIDEO-1",
   PRESET_VIDEO_2 = "PRESET-VIDEO-2",
@@ -239,6 +269,7 @@ export enum PresetSpeke20Video {
 }
 
 /**
+ * @public
  * Use encryptionContractConfiguration to configure one or more content encryption keys for your endpoints that use SPEKE 2.0.
  * The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream.
  * To configure the encryption contract, specify which audio and video encryption presets to use.
@@ -259,6 +290,7 @@ export interface EncryptionContractConfiguration {
 }
 
 /**
+ * @public
  * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
  */
 export interface SpekeKeyProvider {
@@ -290,6 +322,7 @@ export interface SpekeKeyProvider {
 }
 
 /**
+ * @public
  * A CMAF encryption configuration.
  */
 export interface CmafEncryption {
@@ -305,6 +338,7 @@ export interface CmafEncryption {
 }
 
 /**
+ * @public
  * A CMAF packaging configuration.
  */
 export interface CmafPackage {
@@ -331,6 +365,7 @@ export interface CmafPackage {
 }
 
 /**
+ * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
  */
 export interface DashEncryption {
@@ -340,6 +375,9 @@ export interface DashEncryption {
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SegmentTemplateFormat {
   NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
   NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
@@ -347,6 +385,7 @@ export enum SegmentTemplateFormat {
 }
 
 /**
+ * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
  */
 export interface DashPackage {
@@ -390,12 +429,16 @@ export interface DashPackage {
   SegmentTemplateFormat?: SegmentTemplateFormat | string;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionMethod {
   AES_128 = "AES_128",
   SAMPLE_AES = "SAMPLE_AES",
 }
 
 /**
+ * @public
  * An HTTP Live Streaming (HLS) encryption configuration.
  */
 export interface HlsEncryption {
@@ -417,6 +460,7 @@ export interface HlsEncryption {
 }
 
 /**
+ * @public
  * An HTTP Live Streaming (HLS) packaging configuration.
  */
 export interface HlsPackage {
@@ -448,6 +492,7 @@ export interface HlsPackage {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
  */
 export interface MssEncryption {
@@ -458,6 +503,7 @@ export interface MssEncryption {
 }
 
 /**
+ * @public
  * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
  */
 export interface MssPackage {
@@ -478,6 +524,7 @@ export interface MssPackage {
 }
 
 /**
+ * @public
  * A MediaPackage VOD PackagingConfiguration resource.
  */
 export interface PackagingConfiguration {
@@ -528,6 +575,7 @@ export interface PackagingConfiguration {
 }
 
 /**
+ * @public
  * CDN Authorization credentials
  */
 export interface Authorization {
@@ -543,6 +591,7 @@ export interface Authorization {
 }
 
 /**
+ * @public
  * Configure egress access logging.
  */
 export interface EgressAccessLogs {
@@ -553,6 +602,7 @@ export interface EgressAccessLogs {
 }
 
 /**
+ * @public
  * A MediaPackage VOD PackagingGroup resource.
  */
 export interface PackagingGroup {
@@ -598,6 +648,7 @@ export interface PackagingGroup {
 }
 
 /**
+ * @public
  * The option to configure log subscription.
  */
 export interface ConfigureLogsRequest {
@@ -612,6 +663,9 @@ export interface ConfigureLogsRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfigureLogsResponse {
   /**
    * The ARN of the PackagingGroup.
@@ -650,6 +704,7 @@ export interface ConfigureLogsResponse {
 }
 
 /**
+ * @public
  * The client is not authorized to access the requested resource.
  */
 export class ForbiddenException extends __BaseException {
@@ -671,6 +726,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * An unexpected error occurred.
  */
 export class InternalServerErrorException extends __BaseException {
@@ -692,6 +748,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * The requested resource does not exist.
  */
 export class NotFoundException extends __BaseException {
@@ -713,6 +770,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * An unexpected error occurred.
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -734,6 +792,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * The client has exceeded their resource or throttling limits.
  */
 export class TooManyRequestsException extends __BaseException {
@@ -755,6 +814,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * The parameters sent in the request are not valid.
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -776,6 +836,7 @@ export class UnprocessableEntityException extends __BaseException {
 }
 
 /**
+ * @public
  * A new MediaPackage VOD Asset configuration.
  */
 export interface CreateAssetRequest {
@@ -810,6 +871,9 @@ export interface CreateAssetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssetResponse {
   /**
    * The ARN of the Asset.
@@ -858,6 +922,7 @@ export interface CreateAssetResponse {
 }
 
 /**
+ * @public
  * A new MediaPackage VOD PackagingConfiguration resource configuration.
  */
 export interface CreatePackagingConfigurationRequest {
@@ -897,6 +962,9 @@ export interface CreatePackagingConfigurationRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackagingConfigurationResponse {
   /**
    * The ARN of the PackagingConfiguration.
@@ -945,6 +1013,7 @@ export interface CreatePackagingConfigurationResponse {
 }
 
 /**
+ * @public
  * A new MediaPackage VOD PackagingGroup resource configuration.
  */
 export interface CreatePackagingGroupRequest {
@@ -969,6 +1038,9 @@ export interface CreatePackagingGroupRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackagingGroupResponse {
   /**
    * The ARN of the PackagingGroup.
@@ -1006,6 +1078,9 @@ export interface CreatePackagingGroupResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssetRequest {
   /**
    * The ID of the MediaPackage VOD Asset resource to delete.
@@ -1013,8 +1088,14 @@ export interface DeleteAssetRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssetResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePackagingConfigurationRequest {
   /**
    * The ID of the MediaPackage VOD PackagingConfiguration resource to delete.
@@ -1022,8 +1103,14 @@ export interface DeletePackagingConfigurationRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackagingConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePackagingGroupRequest {
   /**
    * The ID of the MediaPackage VOD PackagingGroup resource to delete.
@@ -1031,8 +1118,14 @@ export interface DeletePackagingGroupRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackagingGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeAssetRequest {
   /**
    * The ID of an MediaPackage VOD Asset resource.
@@ -1040,6 +1133,9 @@ export interface DescribeAssetRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAssetResponse {
   /**
    * The ARN of the Asset.
@@ -1087,6 +1183,9 @@ export interface DescribeAssetResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackagingConfigurationRequest {
   /**
    * The ID of a MediaPackage VOD PackagingConfiguration resource.
@@ -1094,6 +1193,9 @@ export interface DescribePackagingConfigurationRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackagingConfigurationResponse {
   /**
    * The ARN of the PackagingConfiguration.
@@ -1141,6 +1243,9 @@ export interface DescribePackagingConfigurationResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackagingGroupRequest {
   /**
    * The ID of a MediaPackage VOD PackagingGroup resource.
@@ -1148,6 +1253,9 @@ export interface DescribePackagingGroupRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackagingGroupResponse {
   /**
    * The approximate asset count of the PackagingGroup.
@@ -1190,6 +1298,9 @@ export interface DescribePackagingGroupResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListAssetsRequest {
   /**
    * Upper bound on number of records to return.
@@ -1207,6 +1318,9 @@ export interface ListAssetsRequest {
   PackagingGroupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssetsResponse {
   /**
    * A list of MediaPackage VOD Asset resources.
@@ -1219,6 +1333,9 @@ export interface ListAssetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagingConfigurationsRequest {
   /**
    * Upper bound on number of records to return.
@@ -1236,6 +1353,9 @@ export interface ListPackagingConfigurationsRequest {
   PackagingGroupId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagingConfigurationsResponse {
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1248,6 +1368,9 @@ export interface ListPackagingConfigurationsResponse {
   PackagingConfigurations?: PackagingConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListPackagingGroupsRequest {
   /**
    * Upper bound on number of records to return.
@@ -1260,6 +1383,9 @@ export interface ListPackagingGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagingGroupsResponse {
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1272,6 +1398,9 @@ export interface ListPackagingGroupsResponse {
   PackagingGroups?: PackagingGroup[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
@@ -1279,6 +1408,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * A collection of tags associated with a resource
@@ -1286,6 +1418,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
@@ -1298,6 +1433,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
@@ -1311,6 +1449,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * A MediaPackage VOD PackagingGroup resource configuration.
  */
 export interface UpdatePackagingGroupRequest {
@@ -1325,6 +1464,9 @@ export interface UpdatePackagingGroupRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePackagingGroupResponse {
   /**
    * The approximate asset count of the PackagingGroup.

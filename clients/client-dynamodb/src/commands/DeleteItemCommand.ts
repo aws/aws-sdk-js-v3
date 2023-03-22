@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteItemCommand}.
  */
 export interface DeleteItemCommandInput extends DeleteItemInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteItemCommand}.
  */
 export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a single item in a table by primary key. You can perform a conditional delete
  *             operation that deletes the item if it exists, or if it has an expected attribute
  *             value.</p>
@@ -56,6 +61,8 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteItemCommandInput - {@link DeleteItemCommandInput}
+ * @returns {@link DeleteItemCommandOutput}
  * @see {@link DeleteItemCommandInput} for command's `input` shape.
  * @see {@link DeleteItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -137,6 +144,9 @@ export class DeleteItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class DeleteItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteItemCommandOutput> {
     return deserializeAws_json1_0DeleteItemCommand(output, context);
   }

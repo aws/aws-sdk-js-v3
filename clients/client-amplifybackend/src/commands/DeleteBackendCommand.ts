@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackendCommand}.
  */
 export interface DeleteBackendCommandInput extends DeleteBackendRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackendCommand}.
  */
 export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an existing environment from your Amplify project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackendCommandInput - {@link DeleteBackendCommandInput}
+ * @returns {@link DeleteBackendCommandOutput}
  * @see {@link DeleteBackendCommandInput} for command's `input` shape.
  * @see {@link DeleteBackendCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteBackendCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackendCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteBackendCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackendCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBackendCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackendCommandOutput> {
     return deserializeAws_restJson1DeleteBackendCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectSharedDirectoryCommand}.
  */
 export interface RejectSharedDirectoryCommandInput extends RejectSharedDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectSharedDirectoryCommand}.
  */
 export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a directory sharing request that was sent from the directory owner account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectSharedDirectoryCommandInput - {@link RejectSharedDirectoryCommandInput}
+ * @returns {@link RejectSharedDirectoryCommandOutput}
  * @see {@link RejectSharedDirectoryCommandInput} for command's `input` shape.
  * @see {@link RejectSharedDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class RejectSharedDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectSharedDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class RejectSharedDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectSharedDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RejectSharedDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectSharedDirectoryCommandOutput> {
     return deserializeAws_json1_1RejectSharedDirectoryCommand(output, context);
   }

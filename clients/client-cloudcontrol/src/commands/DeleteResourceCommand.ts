@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceCommand}.
  */
 export interface DeleteResourceCommandInput extends DeleteResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceCommand}.
  */
 export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified resource. For details, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-delete.html">Deleting a
  *         resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <p>After you have initiated a resource deletion request, you can monitor the progress of your
@@ -50,6 +55,8 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceCommandInput - {@link DeleteResourceCommandInput}
+ * @returns {@link DeleteResourceCommandOutput}
  * @see {@link DeleteResourceCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -146,6 +153,9 @@ export class DeleteResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,10 +195,16 @@ export class DeleteResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceCommandOutput> {
     return deserializeAws_json1_0DeleteResourceCommand(output, context);
   }

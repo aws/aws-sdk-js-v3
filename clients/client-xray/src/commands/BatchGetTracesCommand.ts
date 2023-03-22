@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetTracesCommand}.
  */
 export interface BatchGetTracesCommandInput extends BatchGetTracesRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetTracesCommand}.
  */
 export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
  *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
  *       list of trace IDs.</p>
@@ -48,6 +53,8 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetTracesCommandInput - {@link BatchGetTracesCommandInput}
+ * @returns {@link BatchGetTracesCommandOutput}
  * @see {@link BatchGetTracesCommandInput} for command's `input` shape.
  * @see {@link BatchGetTracesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -77,6 +84,9 @@ export class BatchGetTracesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetTracesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class BatchGetTracesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetTracesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetTracesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetTracesCommandOutput> {
     return deserializeAws_restJson1BatchGetTracesCommand(output, context);
   }

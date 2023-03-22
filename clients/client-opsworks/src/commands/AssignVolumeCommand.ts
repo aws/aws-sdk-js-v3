@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssignVolumeCommand}.
  */
 export interface AssignVolumeCommandInput extends AssignVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignVolumeCommand}.
  */
 export interface AssignVolumeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must
  *       first be registered with the stack by calling <a>RegisterVolume</a>. After you register the
  *       volume, you must call <a>UpdateVolume</a> to specify a mount point before calling
@@ -49,6 +54,8 @@ export interface AssignVolumeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignVolumeCommandInput - {@link AssignVolumeCommandInput}
+ * @returns {@link AssignVolumeCommandOutput}
  * @see {@link AssignVolumeCommandInput} for command's `input` shape.
  * @see {@link AssignVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -78,6 +85,9 @@ export class AssignVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class AssignVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssignVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssignVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignVolumeCommandOutput> {
     return deserializeAws_json1_1AssignVolumeCommand(output, context);
   }

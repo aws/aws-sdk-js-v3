@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackDriftDetectionStatusCommand}.
  */
 export interface DescribeStackDriftDetectionStatusCommandInput extends DescribeStackDriftDetectionStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackDriftDetectionStatusCommand}.
  */
 export interface DescribeStackDriftDetectionStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a stack drift detection operation. A stack drift detection
  *          operation detects whether a stack's actual configuration differs, or has
  *             <i>drifted</i>, from it's expected configuration, as defined in the stack
@@ -60,6 +65,8 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackDriftDetectionStatusCommandInput - {@link DescribeStackDriftDetectionStatusCommandInput}
+ * @returns {@link DescribeStackDriftDetectionStatusCommandOutput}
  * @see {@link DescribeStackDriftDetectionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeStackDriftDetectionStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackDriftDetectionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeStackDriftDetectionStatusCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
     return serializeAws_queryDescribeStackDriftDetectionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

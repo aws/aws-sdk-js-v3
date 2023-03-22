@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriberCommand}.
  */
 export interface DeleteSubscriberCommandInput extends DeleteSubscriberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriberCommand}.
  */
 export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the subscription permission for accounts that are already enabled in
  *          Amazon Security Lake. You can delete a subscriber and remove access to data in the current Amazon Web Services
  *          Region.</p>
@@ -48,6 +53,8 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriberCommandInput - {@link DeleteSubscriberCommandInput}
+ * @returns {@link DeleteSubscriberCommandOutput}
  * @see {@link DeleteSubscriberCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriberCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -103,6 +110,9 @@ export class DeleteSubscriberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriberCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class DeleteSubscriberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSubscriberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriberCommandOutput> {
     return deserializeAws_restJson1DeleteSubscriberCommand(output, context);
   }

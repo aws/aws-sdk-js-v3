@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateLambdaFunctionCommand}.
  */
 export interface DisassociateLambdaFunctionCommandInput extends DisassociateLambdaFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateLambdaFunctionCommand}.
  */
 export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Remove the Lambda function from the dropdown options available in the relevant
  *    flow blocks.</p>
@@ -46,6 +51,8 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateLambdaFunctionCommandInput - {@link DisassociateLambdaFunctionCommandInput}
+ * @returns {@link DisassociateLambdaFunctionCommandOutput}
  * @see {@link DisassociateLambdaFunctionCommandInput} for command's `input` shape.
  * @see {@link DisassociateLambdaFunctionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateLambdaFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateLambdaFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DisassociateLambdaFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateLambdaFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateLambdaFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

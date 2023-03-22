@@ -30,15 +30,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAttributeGroupCommand}.
  */
 export interface GetAttributeGroupCommandInput extends GetAttributeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAttributeGroupCommand}.
  */
 export interface GetAttributeGroupCommandOutput extends GetAttributeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetAttributeGroupCommandOutput extends GetAttributeGroupRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAttributeGroupCommandInput - {@link GetAttributeGroupCommandInput}
+ * @returns {@link GetAttributeGroupCommandOutput}
  * @see {@link GetAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link GetAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetAttributeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttributeGroupCommandOutput> {
     return deserializeAws_restJson1GetAttributeGroupCommand(output, context);
   }

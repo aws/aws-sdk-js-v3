@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdvertiseByoipCidrCommand}.
  */
 export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdvertiseByoipCidrCommand}.
  */
 export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Advertises an IPv4 address range that is provisioned for use with your Amazon Web Services resources
  * 			through bring your own IP addresses (BYOIP). It can take a few minutes before traffic to
  * 			the specified addresses starts routing to Amazon Web Services because of propagation delays. </p>
@@ -56,6 +61,8 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param AdvertiseByoipCidrCommandInput - {@link AdvertiseByoipCidrCommandInput}
+ * @returns {@link AdvertiseByoipCidrCommandOutput}
  * @see {@link AdvertiseByoipCidrCommandInput} for command's `input` shape.
  * @see {@link AdvertiseByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -95,6 +102,9 @@ export class AdvertiseByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdvertiseByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class AdvertiseByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdvertiseByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdvertiseByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdvertiseByoipCidrCommandOutput> {
     return deserializeAws_json1_1AdvertiseByoipCidrCommand(output, context);
   }

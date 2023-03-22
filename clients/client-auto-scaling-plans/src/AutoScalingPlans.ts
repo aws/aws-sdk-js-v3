@@ -34,6 +34,7 @@ import {
 } from "./commands/UpdateScalingPlanCommand";
 
 /**
+ * @public
  * <fullname>AWS Auto Scaling</fullname>
  *
  *
@@ -72,6 +73,7 @@ import {
  */
 export class AutoScalingPlans extends AutoScalingPlansClient {
   /**
+   * @public
    * <p>Creates a scaling plan. </p>
    */
   public createScalingPlan(
@@ -104,6 +106,7 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified scaling plan.</p>
    *          <p>Deleting a scaling plan deletes the underlying <a>ScalingInstruction</a> for
    *          all of the scalable resources that are covered by the plan.</p>
@@ -140,6 +143,7 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   }
 
   /**
+   * @public
    * <p>Describes the scalable resources in the specified scaling plan.</p>
    */
   public describeScalingPlanResources(
@@ -172,6 +176,7 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your scaling plans.</p>
    */
   public describeScalingPlans(
@@ -204,6 +209,7 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the forecast data for a scalable resource.</p>
    *          <p>Capacity forecasts are represented as predicted values, or data points, that are
    *          calculated using historical data points from a specified CloudWatch load metric. Data points are
@@ -239,6 +245,7 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified scaling plan.</p>
    *          <p>You cannot update a scaling plan if it is in the process of being created, updated, or
    *          deleted.</p>

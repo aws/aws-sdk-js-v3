@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClassificationExportConfigurationCommand}.
  */
 export interface GetClassificationExportConfigurationCommandInput extends GetClassificationExportConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetClassificationExportConfigurationCommand}.
  */
 export interface GetClassificationExportConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetClassificationExportConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration settings for storing data classification results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetClassificationExportConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClassificationExportConfigurationCommandInput - {@link GetClassificationExportConfigurationCommandInput}
+ * @returns {@link GetClassificationExportConfigurationCommandOutput}
  * @see {@link GetClassificationExportConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetClassificationExportConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +99,9 @@ export class GetClassificationExportConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClassificationExportConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class GetClassificationExportConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetClassificationExportConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class GetClassificationExportConfigurationCommand extends $Command<
     return serializeAws_restJson1GetClassificationExportConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecommendationExportJobsCommand}.
  */
 export interface DescribeRecommendationExportJobsCommandInput extends DescribeRecommendationExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecommendationExportJobsCommand}.
  */
 export interface DescribeRecommendationExportJobsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRecommendationExportJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes recommendation export jobs created in the last seven days.</p>
  *          <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your
  *             recommendations. Then use the <a>DescribeRecommendationExportJobs</a> action
@@ -51,6 +56,8 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommendationExportJobsCommandInput - {@link DescribeRecommendationExportJobsCommandInput}
+ * @returns {@link DescribeRecommendationExportJobsCommandOutput}
  * @see {@link DescribeRecommendationExportJobsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationExportJobsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -99,6 +106,9 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommendationExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeRecommendationExportJobsCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     return serializeAws_json1_0DescribeRecommendationExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyIpamResourceCidrCommand}.
  */
 export interface ModifyIpamResourceCidrCommandInput extends ModifyIpamResourceCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyIpamResourceCidrCommand}.
  */
 export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceC
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyIpamResourceCidrCommandInput - {@link ModifyIpamResourceCidrCommandInput}
+ * @returns {@link ModifyIpamResourceCidrCommandOutput}
  * @see {@link ModifyIpamResourceCidrCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamResourceCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class ModifyIpamResourceCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyIpamResourceCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ModifyIpamResourceCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyIpamResourceCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyIpamResourceCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIpamResourceCidrCommandOutput> {
     return deserializeAws_ec2ModifyIpamResourceCidrCommand(output, context);
   }

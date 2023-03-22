@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new dataset  in an Amazon Lookout for Vision project. <code>CreateDataset</code> can create a
  *       training or a test dataset from a valid dataset source (<code>DatasetSource</code>).</p>
  *          <p>If you want a single dataset project, specify <code>train</code> for the value of
@@ -55,6 +60,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
+ * @returns {@link CreateDatasetCommandOutput}
  * @see {@link CreateDatasetCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
     return deserializeAws_restJson1CreateDatasetCommand(output, context);
   }

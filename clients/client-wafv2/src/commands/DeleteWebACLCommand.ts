@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWebACLCommand}.
  */
 export interface DeleteWebACLCommandInput extends DeleteWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWebACLCommand}.
  */
 export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified <a>WebACL</a>. </p>
  *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
  *             <a>WebACL</a>. </p>
@@ -78,6 +83,8 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWebACLCommandInput - {@link DeleteWebACLCommandInput}
+ * @returns {@link DeleteWebACLCommandOutput}
  * @see {@link DeleteWebACLCommandInput} for command's `input` shape.
  * @see {@link DeleteWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -151,6 +158,9 @@ export class DeleteWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -188,10 +198,16 @@ export class DeleteWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWebACLCommandOutput> {
     return deserializeAws_json1_1DeleteWebACLCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentStrategyCommand}.
  */
 export interface GetDeploymentStrategyCommandInput extends GetDeploymentStrategyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentStrategyCommand}.
  */
 export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a deployment strategy. A deployment strategy defines
  *          important criteria for rolling out your configuration to the designated targets. A
  *          deployment strategy includes the overall duration required, a percentage of targets to
@@ -50,6 +55,8 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentStrategyCommandInput - {@link GetDeploymentStrategyCommandInput}
+ * @returns {@link GetDeploymentStrategyCommandOutput}
  * @see {@link GetDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetDeploymentStrategyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class GetDeploymentStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDeploymentStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentStrategyCommandOutput> {
     return deserializeAws_restJson1GetDeploymentStrategyCommand(output, context);
   }

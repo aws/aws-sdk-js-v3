@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRepositoryAssociationCommand}.
  */
 export interface DescribeRepositoryAssociationCommandInput extends DescribeRepositoryAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRepositoryAssociationCommand}.
  */
 export interface DescribeRepositoryAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object that contains information about the requested
  *          repository association.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeRepositoryAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRepositoryAssociationCommandInput - {@link DescribeRepositoryAssociationCommandInput}
+ * @returns {@link DescribeRepositoryAssociationCommandOutput}
  * @see {@link DescribeRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoryAssociationCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRepositoryAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRepositoryAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRepositoryAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

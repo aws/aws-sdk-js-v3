@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListKeyGroupsCommand}.
  */
 export interface ListKeyGroupsCommandInput extends ListKeyGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKeyGroupsCommand}.
  */
 export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of key groups.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -51,6 +56,8 @@ export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeyGroupsCommandInput - {@link ListKeyGroupsCommandInput}
+ * @returns {@link ListKeyGroupsCommandOutput}
  * @see {@link ListKeyGroupsCommandInput} for command's `input` shape.
  * @see {@link ListKeyGroupsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListKeyGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeyGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListKeyGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeyGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListKeyGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeyGroupsCommandOutput> {
     return deserializeAws_restXmlListKeyGroupsCommand(output, context);
   }

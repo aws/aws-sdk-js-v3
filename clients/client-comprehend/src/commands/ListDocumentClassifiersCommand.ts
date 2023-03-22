@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDocumentClassifiersCommand}.
  */
 export interface ListDocumentClassifiersCommandInput extends ListDocumentClassifiersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDocumentClassifiersCommand}.
  */
 export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassifiersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the document classifiers that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentClassifiersCommandInput - {@link ListDocumentClassifiersCommandInput}
+ * @returns {@link ListDocumentClassifiersCommandOutput}
  * @see {@link ListDocumentClassifiersCommandInput} for command's `input` shape.
  * @see {@link ListDocumentClassifiersCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDocumentClassifiersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentClassifiersCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDocumentClassifiersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDocumentClassifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDocumentClassifiersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentClassifiersCommandOutput> {
     return deserializeAws_json1_1ListDocumentClassifiersCommand(output, context);
   }

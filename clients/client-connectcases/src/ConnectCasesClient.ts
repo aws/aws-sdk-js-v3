@@ -102,6 +102,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchGetFieldCommandInput
   | BatchPutFieldOptionsCommandInput
@@ -134,6 +137,9 @@ export type ServiceInputTypes =
   | UpdateLayoutCommandInput
   | UpdateTemplateCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchGetFieldCommandOutput
   | BatchPutFieldOptionsCommandOutput
@@ -166,6 +172,9 @@ export type ServiceOutputTypes =
   | UpdateLayoutCommandOutput
   | UpdateTemplateCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -173,7 +182,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -282,11 +291,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ConnectCasesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -297,10 +309,15 @@ type ConnectCasesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ConnectCasesClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ConnectCasesClient class constructor that set the region, credentials and other options.
  */
 export interface ConnectCasesClientConfig extends ConnectCasesClientConfigType {}
 
+/**
+ * @public
+ */
 type ConnectCasesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -311,11 +328,14 @@ type ConnectCasesClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ConnectCasesClient class. This is resolved and normalized from the {@link ConnectCasesClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ConnectCasesClient class. This is resolved and normalized from the {@link ConnectCasesClientConfig | constructor configuration interface}.
  */
 export interface ConnectCasesClientResolvedConfig extends ConnectCasesClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>With Amazon Connect Cases, your agents can track and manage customer issues that require
  *       multiple interactions, follow-up tasks, and teams in your contact center. A case represents a
  *       customer issue. It records the issue, the steps and interactions taken to resolve the issue,

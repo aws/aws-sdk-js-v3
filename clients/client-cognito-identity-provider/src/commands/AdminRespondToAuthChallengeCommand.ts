@@ -31,10 +31,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminRespondToAuthChallengeCommand}.
  */
 export interface AdminRespondToAuthChallengeCommandInput extends AdminRespondToAuthChallengeRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminRespondToAuthChallengeCommand}.
  */
 export interface AdminRespondToAuthChallengeCommandOutput
@@ -42,6 +46,7 @@ export interface AdminRespondToAuthChallengeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Responds to an authentication challenge, as an administrator.</p>
  *
  *          <note>
@@ -73,6 +78,8 @@ export interface AdminRespondToAuthChallengeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminRespondToAuthChallengeCommandInput - {@link AdminRespondToAuthChallengeCommandInput}
+ * @returns {@link AdminRespondToAuthChallengeCommandOutput}
  * @see {@link AdminRespondToAuthChallengeCommandInput} for command's `input` shape.
  * @see {@link AdminRespondToAuthChallengeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -172,6 +179,9 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminRespondToAuthChallengeCommandInput) {
     // Start section: command_constructor
     super();
@@ -212,10 +222,16 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminRespondToAuthChallengeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminRespondToAuthChallengeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

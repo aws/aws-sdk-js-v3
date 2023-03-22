@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserGroupCommand}.
  */
 export interface CreateUserGroupCommandInput extends CreateUserGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserGroupCommand}.
  */
 export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
  *          </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserGroupCommandInput - {@link CreateUserGroupCommandInput}
+ * @returns {@link CreateUserGroupCommandOutput}
  * @see {@link CreateUserGroupCommandInput} for command's `input` shape.
  * @see {@link CreateUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateUserGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateUserGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateUserGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserGroupCommandOutput> {
     return deserializeAws_queryCreateUserGroupCommand(output, context);
   }

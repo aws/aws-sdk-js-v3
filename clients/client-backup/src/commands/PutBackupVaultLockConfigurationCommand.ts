@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBackupVaultLockConfigurationCommand}.
  */
 export interface PutBackupVaultLockConfigurationCommandInput extends PutBackupVaultLockConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link PutBackupVaultLockConfigurationCommand}.
  */
 export interface PutBackupVaultLockConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies Backup Vault Lock to a backup vault, preventing attempts to delete
  *          any recovery point stored in or created in a backup vault. Vault Lock also prevents
  *          attempts to update the lifecycle policy that controls the retention period of any recovery
@@ -56,6 +61,8 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBackupVaultLockConfigurationCommandInput - {@link PutBackupVaultLockConfigurationCommandInput}
+ * @returns {@link PutBackupVaultLockConfigurationCommandOutput}
  * @see {@link PutBackupVaultLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -96,6 +103,9 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBackupVaultLockConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBackupVaultLockConfigurationCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
     return serializeAws_restJson1PutBackupVaultLockConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

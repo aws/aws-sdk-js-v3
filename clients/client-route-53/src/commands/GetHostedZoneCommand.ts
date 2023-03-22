@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostedZoneCommand}.
  */
 export interface GetHostedZoneCommandInput extends GetHostedZoneRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHostedZoneCommand}.
  */
 export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified hosted zone including the four name servers
  * 			assigned to the hosted zone.</p>
  * @example
@@ -48,6 +53,8 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostedZoneCommandInput - {@link GetHostedZoneCommandInput}
+ * @returns {@link GetHostedZoneCommandOutput}
  * @see {@link GetHostedZoneCommandInput} for command's `input` shape.
  * @see {@link GetHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -109,6 +116,9 @@ export class GetHostedZoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class GetHostedZoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetHostedZoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostedZoneCommandOutput> {
     return deserializeAws_restXmlGetHostedZoneCommand(output, context);
   }

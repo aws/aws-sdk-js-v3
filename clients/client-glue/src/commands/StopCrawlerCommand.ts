@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopCrawlerCommand}.
  */
 export interface StopCrawlerCommandInput extends StopCrawlerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopCrawlerCommand}.
  */
 export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If the specified crawler is running, stops the crawl.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCrawlerCommandInput - {@link StopCrawlerCommandInput}
+ * @returns {@link StopCrawlerCommandOutput}
  * @see {@link StopCrawlerCommandInput} for command's `input` shape.
  * @see {@link StopCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class StopCrawlerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCrawlerCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class StopCrawlerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopCrawlerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCrawlerCommandOutput> {
     return deserializeAws_json1_1StopCrawlerCommand(output, context);
   }

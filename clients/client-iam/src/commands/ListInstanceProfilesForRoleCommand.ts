@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceProfilesForRoleCommand}.
  */
 export interface ListInstanceProfilesForRoleCommandInput extends ListInstanceProfilesForRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceProfilesForRoleCommand}.
  */
 export interface ListInstanceProfilesForRoleCommandOutput
@@ -37,6 +41,7 @@ export interface ListInstanceProfilesForRoleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the instance profiles that have the specified associated IAM role. If there
  *             are none, the operation returns an empty list. For more information about instance
  *             profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
@@ -53,6 +58,8 @@ export interface ListInstanceProfilesForRoleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceProfilesForRoleCommandInput - {@link ListInstanceProfilesForRoleCommandInput}
+ * @returns {@link ListInstanceProfilesForRoleCommandOutput}
  * @see {@link ListInstanceProfilesForRoleCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfilesForRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceProfilesForRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceProfilesForRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListInstanceProfilesForRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

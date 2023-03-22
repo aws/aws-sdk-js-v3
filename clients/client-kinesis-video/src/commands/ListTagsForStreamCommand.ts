@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForStreamCommand}.
  */
 export interface ListTagsForStreamCommandInput extends ListTagsForStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForStreamCommand}.
  */
 export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tags associated with the specified stream.</p>
  *          <p>In the request, you must specify either the <code>StreamName</code> or the
  *                 <code>StreamARN</code>. </p>
@@ -48,6 +53,8 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForStreamCommandInput - {@link ListTagsForStreamCommandInput}
+ * @returns {@link ListTagsForStreamCommandOutput}
  * @see {@link ListTagsForStreamCommandInput} for command's `input` shape.
  * @see {@link ListTagsForStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListTagsForStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListTagsForStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTagsForStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForStreamCommandOutput> {
     return deserializeAws_restJson1ListTagsForStreamCommand(output, context);
   }

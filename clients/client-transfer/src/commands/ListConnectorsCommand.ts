@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectorsCommand}.
  */
 export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectorsCommand}.
  */
 export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the connectors for the specified Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectorsCommandInput - {@link ListConnectorsCommandInput}
+ * @returns {@link ListConnectorsCommandOutput}
  * @see {@link ListConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorsCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectorsCommandOutput> {
     return deserializeAws_json1_1ListConnectorsCommand(output, context);
   }

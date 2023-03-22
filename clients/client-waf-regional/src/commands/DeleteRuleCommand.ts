@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -69,6 +74,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
+ * @returns {@link DeleteRuleCommandOutput}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -156,6 +163,9 @@ export class DeleteRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,10 +203,16 @@ export class DeleteRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleCommandOutput> {
     return deserializeAws_json1_1DeleteRuleCommand(output, context);
   }

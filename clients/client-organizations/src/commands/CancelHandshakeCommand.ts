@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelHandshakeCommand}.
  */
 export interface CancelHandshakeCommandInput extends CancelHandshakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelHandshakeCommand}.
  */
 export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a handshake. Canceling a handshake sets the handshake state to
  *                 <code>CANCELED</code>.</p>
  *          <p>This operation can be called only from the account that originated the handshake. The recipient of the handshake can't cancel it, but can use <a>DeclineHandshake</a> instead. After a handshake is canceled, the recipient
@@ -51,6 +56,8 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelHandshakeCommandInput - {@link CancelHandshakeCommandInput}
+ * @returns {@link CancelHandshakeCommandOutput}
  * @see {@link CancelHandshakeCommandInput} for command's `input` shape.
  * @see {@link CancelHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -274,6 +281,9 @@ export class CancelHandshakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelHandshakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -313,10 +323,16 @@ export class CancelHandshakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelHandshakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelHandshakeCommandOutput> {
     return deserializeAws_json1_1CancelHandshakeCommand(output, context);
   }

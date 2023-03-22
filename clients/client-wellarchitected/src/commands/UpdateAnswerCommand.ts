@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAnswerCommand}.
  */
 export interface UpdateAnswerCommandInput extends UpdateAnswerInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAnswerCommand}.
  */
 export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the answer to a specific question in a workload review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAnswerCommandInput - {@link UpdateAnswerCommandInput}
+ * @returns {@link UpdateAnswerCommandOutput}
  * @see {@link UpdateAnswerCommandInput} for command's `input` shape.
  * @see {@link UpdateAnswerCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateAnswerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAnswerCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateAnswerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAnswerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAnswerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAnswerCommandOutput> {
     return deserializeAws_restJson1UpdateAnswerCommand(output, context);
   }

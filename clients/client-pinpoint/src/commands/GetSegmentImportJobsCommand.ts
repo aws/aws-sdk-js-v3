@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSegmentImportJobsCommand}.
  */
 export interface GetSegmentImportJobsCommandInput extends GetSegmentImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSegmentImportJobsCommand}.
  */
 export interface GetSegmentImportJobsCommandOutput extends GetSegmentImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the import jobs for a segment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSegmentImportJobsCommandOutput extends GetSegmentImportJobsR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSegmentImportJobsCommandInput - {@link GetSegmentImportJobsCommandInput}
+ * @returns {@link GetSegmentImportJobsCommandOutput}
  * @see {@link GetSegmentImportJobsCommandInput} for command's `input` shape.
  * @see {@link GetSegmentImportJobsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetSegmentImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSegmentImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetSegmentImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSegmentImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSegmentImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentImportJobsCommandOutput> {
     return deserializeAws_restJson1GetSegmentImportJobsCommand(output, context);
   }

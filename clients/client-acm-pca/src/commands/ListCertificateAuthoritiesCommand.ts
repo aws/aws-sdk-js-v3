@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCertificateAuthoritiesCommand}.
  */
 export interface ListCertificateAuthoritiesCommandInput extends ListCertificateAuthoritiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCertificateAuthoritiesCommand}.
  */
 export interface ListCertificateAuthoritiesCommandOutput extends ListCertificateAuthoritiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the private certificate authorities that you created by using the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCertificateAuthoritiesCommandInput - {@link ListCertificateAuthoritiesCommandInput}
+ * @returns {@link ListCertificateAuthoritiesCommandOutput}
  * @see {@link ListCertificateAuthoritiesCommandInput} for command's `input` shape.
  * @see {@link ListCertificateAuthoritiesCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -73,6 +80,9 @@ export class ListCertificateAuthoritiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCertificateAuthoritiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListCertificateAuthoritiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCertificateAuthoritiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCertificateAuthoritiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

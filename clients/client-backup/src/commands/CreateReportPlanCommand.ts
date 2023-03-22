@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReportPlanCommand}.
  */
 export interface CreateReportPlanCommandInput extends CreateReportPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateReportPlanCommand}.
  */
 export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a report plan. A report plan is a document that contains information about the
  *          contents of the report and where Backup will deliver it.</p>
  *          <p>If you call <code>CreateReportPlan</code> with a plan that already exists, you receive
@@ -49,6 +54,8 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReportPlanCommandInput - {@link CreateReportPlanCommandInput}
+ * @returns {@link CreateReportPlanCommandOutput}
  * @see {@link CreateReportPlanCommandInput} for command's `input` shape.
  * @see {@link CreateReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateReportPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReportPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateReportPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReportPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateReportPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReportPlanCommandOutput> {
     return deserializeAws_restJson1CreateReportPlanCommand(output, context);
   }

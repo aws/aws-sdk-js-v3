@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListChangeSetsCommand}.
  */
 export interface ListChangeSetsCommandInput extends ListChangeSetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListChangeSetsCommand}.
  */
 export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the ID and status of each active change set for a stack. For example, CloudFormation lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or
  *             <code>CREATE_PENDING</code> state.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChangeSetsCommandInput - {@link ListChangeSetsCommandInput}
+ * @returns {@link ListChangeSetsCommandOutput}
  * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -70,6 +77,9 @@ export class ListChangeSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChangeSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListChangeSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChangeSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListChangeSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangeSetsCommandOutput> {
     return deserializeAws_queryListChangeSetsCommand(output, context);
   }

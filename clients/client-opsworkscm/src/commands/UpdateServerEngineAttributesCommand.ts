@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServerEngineAttributesCommand}.
  */
 export interface UpdateServerEngineAttributesCommandInput extends UpdateServerEngineAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServerEngineAttributesCommand}.
  */
 export interface UpdateServerEngineAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateServerEngineAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates engine-specific attributes on a specified server. The server
  *       enters the <code>MODIFYING</code> state when this operation
@@ -61,6 +66,8 @@ export interface UpdateServerEngineAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServerEngineAttributesCommandInput - {@link UpdateServerEngineAttributesCommandInput}
+ * @returns {@link UpdateServerEngineAttributesCommandOutput}
  * @see {@link UpdateServerEngineAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateServerEngineAttributesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerEngineAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerEngineAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateServerEngineAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

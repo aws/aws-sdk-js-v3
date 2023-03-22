@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSMBSettingsCommand}.
  */
 export interface DescribeSMBSettingsCommandInput extends DescribeSMBSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSMBSettingsCommand}.
  */
 export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a description of a Server Message Block (SMB) file share settings from a file
  *          gateway. This operation is only supported for file gateways.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSMBSettingsCommandInput - {@link DescribeSMBSettingsCommandInput}
+ * @returns {@link DescribeSMBSettingsCommandOutput}
  * @see {@link DescribeSMBSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeSMBSettingsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeSMBSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSMBSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeSMBSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSMBSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSMBSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSMBSettingsCommandOutput> {
     return deserializeAws_json1_1DescribeSMBSettingsCommand(output, context);
   }

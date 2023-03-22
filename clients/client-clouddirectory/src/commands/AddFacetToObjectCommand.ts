@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddFacetToObjectCommand}.
  */
 export interface AddFacetToObjectCommandInput extends AddFacetToObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddFacetToObjectCommand}.
  */
 export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new <a>Facet</a> to an object. An object can have more than one facet applied on it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param AddFacetToObjectCommandInput - {@link AddFacetToObjectCommandInput}
+ * @returns {@link AddFacetToObjectCommandOutput}
  * @see {@link AddFacetToObjectCommandInput} for command's `input` shape.
  * @see {@link AddFacetToObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +105,9 @@ export class AddFacetToObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddFacetToObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class AddFacetToObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddFacetToObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddFacetToObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFacetToObjectCommandOutput> {
     return deserializeAws_restJson1AddFacetToObjectCommand(output, context);
   }

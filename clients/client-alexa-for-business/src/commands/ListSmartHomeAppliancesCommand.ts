@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSmartHomeAppliancesCommand}.
  */
 export interface ListSmartHomeAppliancesCommandInput extends ListSmartHomeAppliancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSmartHomeAppliancesCommand}.
  */
 export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppliancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the smart home appliances associated with a room.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSmartHomeAppliancesCommandInput - {@link ListSmartHomeAppliancesCommandInput}
+ * @returns {@link ListSmartHomeAppliancesCommandOutput}
  * @see {@link ListSmartHomeAppliancesCommandInput} for command's `input` shape.
  * @see {@link ListSmartHomeAppliancesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListSmartHomeAppliancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSmartHomeAppliancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListSmartHomeAppliancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSmartHomeAppliancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSmartHomeAppliancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSmartHomeAppliancesCommandOutput> {
     return deserializeAws_json1_1ListSmartHomeAppliancesCommand(output, context);
   }

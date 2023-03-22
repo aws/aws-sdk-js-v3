@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcPeeringAuthorizationsCommand}.
  */
 export interface DescribeVpcPeeringAuthorizationsCommandInput extends DescribeVpcPeeringAuthorizationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcPeeringAuthorizationsCommand}.
  */
 export interface DescribeVpcPeeringAuthorizationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves valid VPC peering authorizations that are pending for the Amazon Web Services account.
  *             This operation returns all VPC peering authorizations and requests for peering. This
  *             includes those initiated and received by this account. </p>
@@ -56,6 +61,8 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcPeeringAuthorizationsCommandInput - {@link DescribeVpcPeeringAuthorizationsCommandInput}
+ * @returns {@link DescribeVpcPeeringAuthorizationsCommandOutput}
  * @see {@link DescribeVpcPeeringAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcPeeringAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcPeeringAuthorizationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcPeeringAuthorizationsCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     return serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

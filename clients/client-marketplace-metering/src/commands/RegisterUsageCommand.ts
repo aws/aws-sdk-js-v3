@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterUsageCommand}.
  */
 export interface RegisterUsageCommandInput extends RegisterUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterUsageCommand}.
  */
 export interface RegisterUsageCommandOutput extends RegisterUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Paid container software products sold through AWS Marketplace must integrate with the
  *             AWS Marketplace Metering Service and call the <code>RegisterUsage</code> operation for
  *             software entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS
@@ -89,6 +94,8 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterUsageCommandInput - {@link RegisterUsageCommandInput}
+ * @returns {@link RegisterUsageCommandOutput}
  * @see {@link RegisterUsageCommandInput} for command's `input` shape.
  * @see {@link RegisterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
@@ -143,6 +150,9 @@ export class RegisterUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class RegisterUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterUsageCommandOutput> {
     return deserializeAws_json1_1RegisterUsageCommand(output, context);
   }

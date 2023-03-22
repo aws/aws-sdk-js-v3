@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInputDevicesCommand}.
  */
 export interface ListInputDevicesCommandInput extends ListInputDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInputDevicesCommand}.
  */
 export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * List input devices
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInputDevicesCommandInput - {@link ListInputDevicesCommandInput}
+ * @returns {@link ListInputDevicesCommandOutput}
  * @see {@link ListInputDevicesCommandInput} for command's `input` shape.
  * @see {@link ListInputDevicesCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListInputDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListInputDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInputDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputDevicesCommandOutput> {
     return deserializeAws_restJson1ListInputDevicesCommand(output, context);
   }

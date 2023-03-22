@@ -22,15 +22,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyUsageLimitCommand}.
  */
 export interface ModifyUsageLimitCommandInput extends ModifyUsageLimitMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyUsageLimitCommand}.
  */
 export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a usage limit in a cluster.
  *             You can't modify the feature type or period of a usage limit.</p>
  * @example
@@ -43,6 +48,8 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyUsageLimitCommandInput - {@link ModifyUsageLimitCommandInput}
+ * @returns {@link ModifyUsageLimitCommandOutput}
  * @see {@link ModifyUsageLimitCommandInput} for command's `input` shape.
  * @see {@link ModifyUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -75,6 +82,9 @@ export class ModifyUsageLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyUsageLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ModifyUsageLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyUsageLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyUsageLimitCommandOutput> {
     return deserializeAws_queryModifyUsageLimitCommand(output, context);
   }

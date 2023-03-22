@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopAccessLoggingCommand}.
  */
 export interface StopAccessLoggingCommandInput extends StopAccessLoggingInput {}
 /**
+ * @public
+ *
  * The output of {@link StopAccessLoggingCommand}.
  */
 export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param StopAccessLoggingCommandInput - {@link StopAccessLoggingCommandInput}
+ * @returns {@link StopAccessLoggingCommandOutput}
  * @see {@link StopAccessLoggingCommandInput} for command's `input` shape.
  * @see {@link StopAccessLoggingCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -79,6 +86,9 @@ export class StopAccessLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopAccessLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class StopAccessLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAccessLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopAccessLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAccessLoggingCommandOutput> {
     return deserializeAws_json1_1StopAccessLoggingCommand(output, context);
   }

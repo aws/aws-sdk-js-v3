@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateFirewallRuleGroupCommand}.
  */
 export interface AssociateFirewallRuleGroupCommandInput extends AssociateFirewallRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateFirewallRuleGroupCommand}.
  */
 export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for the VPC. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateFirewallRuleGroupCommandInput - {@link AssociateFirewallRuleGroupCommandInput}
+ * @returns {@link AssociateFirewallRuleGroupCommandOutput}
  * @see {@link AssociateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -93,6 +100,9 @@ export class AssociateFirewallRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateFirewallRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class AssociateFirewallRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateFirewallRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateFirewallRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

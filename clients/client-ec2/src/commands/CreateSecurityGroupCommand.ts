@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSecurityGroupCommand}.
  */
 export interface CreateSecurityGroupCommandInput extends CreateSecurityGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSecurityGroupCommand}.
  */
 export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a security group.</p>
  *          <p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic.
  *          For more information, see
@@ -63,6 +68,8 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecurityGroupCommandInput - {@link CreateSecurityGroupCommandInput}
+ * @returns {@link CreateSecurityGroupCommandOutput}
  * @see {@link CreateSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -104,6 +111,9 @@ export class CreateSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecurityGroupCommandOutput> {
     return deserializeAws_ec2CreateSecurityGroupCommand(output, context);
   }

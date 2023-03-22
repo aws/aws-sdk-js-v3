@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchDataSetsCommand}.
  */
 export interface SearchDataSetsCommandInput extends SearchDataSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchDataSetsCommand}.
  */
 export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>SearchDataSets</code> operation to search for datasets that belong to an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchDataSetsCommandInput - {@link SearchDataSetsCommandInput}
+ * @returns {@link SearchDataSetsCommandOutput}
  * @see {@link SearchDataSetsCommandInput} for command's `input` shape.
  * @see {@link SearchDataSetsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +97,9 @@ export class SearchDataSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchDataSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SearchDataSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchDataSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchDataSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDataSetsCommandOutput> {
     return deserializeAws_restJson1SearchDataSetsCommand(output, context);
   }

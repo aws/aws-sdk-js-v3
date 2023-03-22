@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeComplianceByResourceCommand}.
  */
 export interface DescribeComplianceByResourceCommandInput extends DescribeComplianceByResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeComplianceByResourceCommand}.
  */
 export interface DescribeComplianceByResourceCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeComplianceByResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Indicates whether the specified Amazon Web Services resources are compliant. If
  * 			a resource is noncompliant, this action returns the number of Config rules that the resource does not comply with.</p>
  *          <p>A resource is compliant if it complies with all the Config
@@ -80,6 +85,8 @@ export interface DescribeComplianceByResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComplianceByResourceCommandInput - {@link DescribeComplianceByResourceCommandInput}
+ * @returns {@link DescribeComplianceByResourceCommandOutput}
  * @see {@link DescribeComplianceByResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeComplianceByResourceCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -112,6 +119,9 @@ export class DescribeComplianceByResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComplianceByResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class DescribeComplianceByResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeComplianceByResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeComplianceByResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

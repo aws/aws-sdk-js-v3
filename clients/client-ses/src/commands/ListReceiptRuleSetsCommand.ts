@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListReceiptRuleSetsCommand}.
  */
 export interface ListReceiptRuleSetsCommandInput extends ListReceiptRuleSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReceiptRuleSetsCommand}.
  */
 export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the receipt rule sets that exist under your AWS account in the current AWS
  *             Region. If there are additional receipt rule sets to be retrieved, you will receive a
  *                 <code>NextToken</code> that you can provide to the next call to
@@ -51,6 +56,8 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceiptRuleSetsCommandInput - {@link ListReceiptRuleSetsCommandInput}
+ * @returns {@link ListReceiptRuleSetsCommandOutput}
  * @see {@link ListReceiptRuleSetsCommandInput} for command's `input` shape.
  * @see {@link ListReceiptRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListReceiptRuleSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceiptRuleSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListReceiptRuleSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReceiptRuleSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListReceiptRuleSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceiptRuleSetsCommandOutput> {
     return deserializeAws_queryListReceiptRuleSetsCommand(output, context);
   }

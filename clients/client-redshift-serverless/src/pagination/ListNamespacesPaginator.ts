@@ -10,7 +10,7 @@ import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
 import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftServerlessClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNamespacesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListNamespaces(
   config: RedshiftServerlessPaginationConfiguration,
   input: ListNamespacesCommandInput,

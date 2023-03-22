@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomRoutingAcceleratorCommand}.
  */
 export interface CreateCustomRoutingAcceleratorCommandInput extends CreateCustomRoutingAcceleratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomRoutingAcceleratorCommand}.
  */
 export interface CreateCustomRoutingAcceleratorCommandOutput
@@ -41,6 +45,7 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands
  * 	    of Amazon EC2 instance destinations running in a single or multiple virtual private clouds (VPC) subnet endpoints.</p>
  * 	        <p>Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive
@@ -62,6 +67,8 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomRoutingAcceleratorCommandInput - {@link CreateCustomRoutingAcceleratorCommandInput}
+ * @returns {@link CreateCustomRoutingAcceleratorCommandOutput}
  * @see {@link CreateCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomRoutingAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateCustomRoutingAcceleratorCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command<
     return serializeAws_json1_1CreateCustomRoutingAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriptionNotificationConfigurationCommand}.
  */
 export interface DeleteSubscriptionNotificationConfigurationCommandInput
   extends DeleteSubscriptionNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriptionNotificationConfigurationCommand}.
  */
 export interface DeleteSubscriptionNotificationConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriptionNotificationConfigurationCommandInput - {@link DeleteSubscriptionNotificationConfigurationCommandInput}
+ * @returns {@link DeleteSubscriptionNotificationConfigurationCommandOutput}
  * @see {@link DeleteSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteSubscriptionNotificationConfigurationCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriptionNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class DeleteSubscriptionNotificationConfigurationCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteSubscriptionNotificationConfigurationCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class DeleteSubscriptionNotificationConfigurationCommand extends $Command
     return serializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

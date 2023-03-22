@@ -33,10 +33,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMediaForFragmentListCommand}.
  */
 export interface GetMediaForFragmentListCommandInput extends GetMediaForFragmentListInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMediaForFragmentListCommand}.
  */
 export interface GetMediaForFragmentListCommandOutput
@@ -44,6 +48,7 @@ export interface GetMediaForFragmentListCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets media for a list of fragments (specified by fragment number) from the archived
  *             data in an Amazon Kinesis video stream.</p>
  *
@@ -91,6 +96,8 @@ export interface GetMediaForFragmentListCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMediaForFragmentListCommandInput - {@link GetMediaForFragmentListCommandInput}
+ * @returns {@link GetMediaForFragmentListCommandOutput}
  * @see {@link GetMediaForFragmentListCommandInput} for command's `input` shape.
  * @see {@link GetMediaForFragmentListCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -137,6 +144,9 @@ export class GetMediaForFragmentListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMediaForFragmentListCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class GetMediaForFragmentListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMediaForFragmentListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMediaForFragmentListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

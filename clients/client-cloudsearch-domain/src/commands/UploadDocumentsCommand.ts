@@ -30,9 +30,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UploadDocumentsCommand}.
  */
-type UploadDocumentsCommandInputType = Omit<UploadDocumentsRequest, "documents"> & {
+export type UploadDocumentsCommandInputType = Omit<UploadDocumentsRequest, "documents"> & {
   /**
    * For *`UploadDocumentsRequest["documents"]`*, see {@link UploadDocumentsRequest.documents}.
    */
@@ -43,11 +45,14 @@ type UploadDocumentsCommandInputType = Omit<UploadDocumentsRequest, "documents">
  */
 export interface UploadDocumentsCommandInput extends UploadDocumentsCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link UploadDocumentsCommand}.
  */
 export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Posts a batch of documents to a search domain for indexing.  A document batch is a collection of add and delete operations that represent the documents you want to add, update, or delete from your domain. Batches can be described in either JSON or XML. Each item that you want Amazon CloudSearch to return as a search result (such as a product) is represented as a document. Every document has a unique ID and one or more fields that contain the data that you want to search and return in results. Individual documents  cannot contain more than 1 MB of data. The entire batch cannot exceed 5 MB. To get the best possible upload performance, group add and delete operations in batches that are close the 5 MB limit. Submitting a large volume of single-document batches can overload a domain's document service.  </p>
  *       <p>The endpoint for submitting <code>UploadDocuments</code> requests is domain-specific. To get the document endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p>
  *       <p>For more information about formatting your data for Amazon CloudSearch, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/preparing-data.html">Preparing Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.
@@ -62,6 +67,8 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadDocumentsCommandInput - {@link UploadDocumentsCommandInput}
+ * @returns {@link UploadDocumentsCommandOutput}
  * @see {@link UploadDocumentsCommandInput} for command's `input` shape.
  * @see {@link UploadDocumentsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.
@@ -88,6 +95,9 @@ export class UploadDocumentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadDocumentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UploadDocumentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UploadDocumentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadDocumentsCommandOutput> {
     return deserializeAws_restJson1UploadDocumentsCommand(output, context);
   }

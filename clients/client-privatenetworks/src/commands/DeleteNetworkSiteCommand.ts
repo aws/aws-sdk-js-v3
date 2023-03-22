@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkSiteCommand}.
  */
 export interface DeleteNetworkSiteCommandInput extends DeleteNetworkSiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkSiteCommand}.
  */
 export interface DeleteNetworkSiteCommandOutput extends DeleteNetworkSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified network site. Return the hardware after you delete the network
  *             site. You are responsible for minimum charges. For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html">Hardware
  *                 returns</a> in the <i>Amazon Web Services Private 5G User
@@ -49,6 +54,8 @@ export interface DeleteNetworkSiteCommandOutput extends DeleteNetworkSiteRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkSiteCommandInput - {@link DeleteNetworkSiteCommandInput}
+ * @returns {@link DeleteNetworkSiteCommandOutput}
  * @see {@link DeleteNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteNetworkSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteNetworkSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteNetworkSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkSiteCommandOutput> {
     return deserializeAws_restJson1DeleteNetworkSiteCommand(output, context);
   }

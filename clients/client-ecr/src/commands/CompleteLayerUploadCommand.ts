@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteLayerUploadCommand}.
  */
 export interface CompleteLayerUploadCommandInput extends CompleteLayerUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link CompleteLayerUploadCommand}.
  */
 export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Informs Amazon ECR that the image layer upload has completed for a specified registry,
  *             repository name, and upload ID. You can optionally provide a <code>sha256</code> digest
  *             of the image layer for data validation purposes.</p>
@@ -54,6 +59,8 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteLayerUploadCommandInput - {@link CompleteLayerUploadCommandInput}
+ * @returns {@link CompleteLayerUploadCommandOutput}
  * @see {@link CompleteLayerUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteLayerUploadCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -108,6 +115,9 @@ export class CompleteLayerUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteLayerUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class CompleteLayerUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteLayerUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CompleteLayerUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteLayerUploadCommandOutput> {
     return deserializeAws_json1_1CompleteLayerUploadCommand(output, context);
   }

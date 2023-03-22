@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAssociationExecutionsCommand}.
  */
 export interface DescribeAssociationExecutionsCommandInput extends DescribeAssociationExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAssociationExecutionsCommand}.
  */
 export interface DescribeAssociationExecutionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAssociationExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Views all executions for a specific association ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAssociationExecutionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssociationExecutionsCommandInput - {@link DescribeAssociationExecutionsCommandInput}
+ * @returns {@link DescribeAssociationExecutionsCommandOutput}
  * @see {@link DescribeAssociationExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssociationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeAssociationExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssociationExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeAssociationExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssociationExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAssociationExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

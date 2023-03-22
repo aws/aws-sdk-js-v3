@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListManagedPoliciesInPermissionSetCommand}.
  */
 export interface ListManagedPoliciesInPermissionSetCommandInput extends ListManagedPoliciesInPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListManagedPoliciesInPermissionSetCommand}.
  */
 export interface ListManagedPoliciesInPermissionSetCommandOutput
@@ -37,6 +41,7 @@ export interface ListManagedPoliciesInPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the AWS managed policy that is attached to a specified permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListManagedPoliciesInPermissionSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedPoliciesInPermissionSetCommandInput - {@link ListManagedPoliciesInPermissionSetCommandInput}
+ * @returns {@link ListManagedPoliciesInPermissionSetCommandOutput}
  * @see {@link ListManagedPoliciesInPermissionSetCommandInput} for command's `input` shape.
  * @see {@link ListManagedPoliciesInPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListManagedPoliciesInPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedPoliciesInPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class ListManagedPoliciesInPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListManagedPoliciesInPermissionSetCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class ListManagedPoliciesInPermissionSetCommand extends $Command<
     return serializeAws_json1_1ListManagedPoliciesInPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

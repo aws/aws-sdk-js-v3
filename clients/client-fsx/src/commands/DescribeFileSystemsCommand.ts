@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileSystemsCommand}.
  */
 export interface DescribeFileSystemsCommandInput extends DescribeFileSystemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileSystemsCommand}.
  */
 export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of specific Amazon FSx file systems, if a
  *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
  *             returns descriptions of all file systems owned by your Amazon Web Services account in the
@@ -73,6 +78,8 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemsCommandInput - {@link DescribeFileSystemsCommandInput}
+ * @returns {@link DescribeFileSystemsCommandOutput}
  * @see {@link DescribeFileSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -150,6 +157,9 @@ export class DescribeFileSystemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,10 +199,16 @@ export class DescribeFileSystemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFileSystemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemsCommandOutput> {
     return deserializeAws_json1_1DescribeFileSystemsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrafficPoliciesCommand}.
  */
 export interface ListTrafficPoliciesCommandInput extends ListTrafficPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrafficPoliciesCommand}.
  */
 export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the latest version for every traffic policy that is associated
  * 			with the current Amazon Web Services account. Policies are listed in the order that they
  * 			were created in. </p>
@@ -50,6 +55,8 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrafficPoliciesCommandInput - {@link ListTrafficPoliciesCommandInput}
+ * @returns {@link ListTrafficPoliciesCommandOutput}
  * @see {@link ListTrafficPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPoliciesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -76,6 +83,9 @@ export class ListTrafficPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrafficPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListTrafficPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrafficPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListTrafficPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrafficPoliciesCommandOutput> {
     return deserializeAws_restXmlListTrafficPoliciesCommand(output, context);
   }

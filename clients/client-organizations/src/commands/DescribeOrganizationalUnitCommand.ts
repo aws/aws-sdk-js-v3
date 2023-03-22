@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationalUnitCommand}.
  */
 export interface DescribeOrganizationalUnitCommandInput extends DescribeOrganizationalUnitRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationalUnitCommand}.
  */
 export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an organizational unit (OU).</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -48,6 +53,8 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationalUnitCommandInput - {@link DescribeOrganizationalUnitCommandInput}
+ * @returns {@link DescribeOrganizationalUnitCommandOutput}
  * @see {@link DescribeOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -221,6 +228,9 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationalUnitCommandInput) {
     // Start section: command_constructor
     super();
@@ -260,10 +270,16 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeOrganizationalUnitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

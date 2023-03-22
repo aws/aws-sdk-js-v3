@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPluginsCommand}.
  */
 export interface ListPluginsCommandInput extends ListPluginsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPluginsCommand}.
  */
 export interface ListPluginsCommandOutput extends ListPluginsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List AWS Migration Hub Orchestrator plugins.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPluginsCommandInput - {@link ListPluginsCommandInput}
+ * @returns {@link ListPluginsCommandOutput}
  * @see {@link ListPluginsCommandInput} for command's `input` shape.
  * @see {@link ListPluginsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListPluginsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPluginsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListPluginsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPluginsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPluginsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPluginsCommandOutput> {
     return deserializeAws_restJson1ListPluginsCommand(output, context);
   }

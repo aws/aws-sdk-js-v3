@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectInputDeviceTransferCommand}.
  */
 export interface RejectInputDeviceTransferCommandInput extends RejectInputDeviceTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectInputDeviceTransferCommand}.
  */
 export interface RejectInputDeviceTransferCommandOutput extends RejectInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Reject the transfer of the specified input device to your AWS account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RejectInputDeviceTransferCommandOutput extends RejectInputDevic
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectInputDeviceTransferCommandInput - {@link RejectInputDeviceTransferCommandInput}
+ * @returns {@link RejectInputDeviceTransferCommandOutput}
  * @see {@link RejectInputDeviceTransferCommandInput} for command's `input` shape.
  * @see {@link RejectInputDeviceTransferCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -96,6 +103,9 @@ export class RejectInputDeviceTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectInputDeviceTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class RejectInputDeviceTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectInputDeviceTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RejectInputDeviceTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

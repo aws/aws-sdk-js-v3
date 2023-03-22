@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetTableCommand, serializeAws_json1_1GetTableCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTableCommand}.
  */
 export interface GetTableCommandInput extends GetTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTableCommand}.
  */
 export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>Table</code> definition in a Data Catalog for
  *       a specified table.</p>
  * @example
@@ -44,6 +49,8 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableCommandInput - {@link GetTableCommandInput}
+ * @returns {@link GetTableCommandOutput}
  * @see {@link GetTableCommandInput} for command's `input` shape.
  * @see {@link GetTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetTableCommand extends $Command<GetTableCommandInput, GetTableComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetTableCommand extends $Command<GetTableCommandInput, GetTableComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableCommandOutput> {
     return deserializeAws_json1_1GetTableCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionSetsCommand}.
  */
 export interface ListPermissionSetsCommandInput extends ListPermissionSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionSetsCommand}.
  */
 export interface ListPermissionSetsCommandOutput extends ListPermissionSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the <a>PermissionSet</a>s in an IAM Identity Center instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPermissionSetsCommandOutput extends ListPermissionSetsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionSetsCommandInput - {@link ListPermissionSetsCommandInput}
+ * @returns {@link ListPermissionSetsCommandOutput}
  * @see {@link ListPermissionSetsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionSetsCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListPermissionSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListPermissionSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPermissionSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPermissionSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionSetsCommandOutput> {
     return deserializeAws_json1_1ListPermissionSetsCommand(output, context);
   }

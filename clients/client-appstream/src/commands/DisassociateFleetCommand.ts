@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateFleetCommand}.
  */
 export interface DisassociateFleetCommandInput extends DisassociateFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateFleetCommand}.
  */
 export interface DisassociateFleetCommandOutput extends DisassociateFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified fleet from the specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFleetCommandInput - {@link DisassociateFleetCommandInput}
+ * @returns {@link DisassociateFleetCommandOutput}
  * @see {@link DisassociateFleetCommandInput} for command's `input` shape.
  * @see {@link DisassociateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -81,6 +88,9 @@ export class DisassociateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DisassociateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateFleetCommandOutput> {
     return deserializeAws_json1_1DisassociateFleetCommand(output, context);
   }

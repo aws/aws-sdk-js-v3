@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactFlowContentCommand}.
  */
 export interface UpdateContactFlowContentCommandInput extends UpdateContactFlowContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactFlowContentCommand}.
  */
 export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlowContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -48,6 +53,8 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactFlowContentCommandInput - {@link UpdateContactFlowContentCommandInput}
+ * @returns {@link UpdateContactFlowContentCommandOutput}
  * @see {@link UpdateContactFlowContentCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowContentCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateContactFlowContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactFlowContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateContactFlowContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactFlowContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateContactFlowContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactFlowContentCommandOutput> {
     return deserializeAws_restJson1UpdateContactFlowContentCommand(output, context);
   }

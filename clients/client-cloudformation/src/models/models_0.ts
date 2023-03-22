@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CloudFormationServiceException as __BaseException } from "./CloudFormationServiceException";
 
+/**
+ * @public
+ */
 export enum AccountFilterType {
   DIFFERENCE = "DIFFERENCE",
   INTERSECTION = "INTERSECTION",
@@ -10,6 +13,9 @@ export enum AccountFilterType {
   UNION = "UNION",
 }
 
+/**
+ * @public
+ */
 export enum AccountGateStatus {
   FAILED = "FAILED",
   SKIPPED = "SKIPPED",
@@ -17,6 +23,7 @@ export enum AccountGateStatus {
 }
 
 /**
+ * @public
  * <p>Structure that contains the results of the account gate function which CloudFormation invokes, if present, before proceeding with a stack set operation in an account and
  *          Region.</p>
  *          <p>For each account and Region, CloudFormation lets you specify a Lambda
@@ -80,6 +87,7 @@ export interface AccountGateResult {
 }
 
 /**
+ * @public
  * <p>The AccountLimit data type.</p>
  *          <p>CloudFormation has the following limits per account:</p>
  *          <ul>
@@ -113,6 +121,7 @@ export interface AccountLimit {
 }
 
 /**
+ * @public
  * <p>Contains logging configuration information for an extension.</p>
  */
 export interface LoggingConfig {
@@ -129,17 +138,26 @@ export interface LoggingConfig {
   LogGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ThirdPartyType {
   HOOK = "HOOK",
   MODULE = "MODULE",
   RESOURCE = "RESOURCE",
 }
 
+/**
+ * @public
+ */
 export enum VersionBump {
   MAJOR = "MAJOR",
   MINOR = "MINOR",
 }
 
+/**
+ * @public
+ */
 export interface ActivateTypeInput {
   /**
    * <p>The extension type.</p>
@@ -228,6 +246,9 @@ export interface ActivateTypeInput {
   MajorVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface ActivateTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the activated extension, in this account and
@@ -237,6 +258,7 @@ export interface ActivateTypeOutput {
 }
 
 /**
+ * @public
  * <p>An error occurred during a CloudFormation registry operation.</p>
  */
 export class CFNRegistryException extends __BaseException {
@@ -258,6 +280,7 @@ export class CFNRegistryException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  */
 export class TypeNotFoundException extends __BaseException {
@@ -279,6 +302,7 @@ export class TypeNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource with the name requested already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -300,6 +324,7 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to
  *             Organizations accounts that are added to a target organization or organizational
  *          unit (OU).</p>
@@ -322,6 +347,7 @@ export interface AutoDeployment {
 }
 
 /**
+ * @public
  * <p>Identifying information for the configuration of a CloudFormation
  *          extension.</p>
  */
@@ -355,6 +381,9 @@ export interface TypeConfigurationIdentifier {
   TypeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeTypeConfigurationsInput {
   /**
    * <p>The list of identifiers for the desired extension configurations.</p>
@@ -363,6 +392,7 @@ export interface BatchDescribeTypeConfigurationsInput {
 }
 
 /**
+ * @public
  * <p>Detailed information concerning an error generated during the setting of configuration
  *          data for a CloudFormation extension.</p>
  */
@@ -385,6 +415,7 @@ export interface BatchDescribeTypeConfigurationsError {
 }
 
 /**
+ * @public
  * <p>Detailed information concerning the specification of a CloudFormation extension
  *          in a given account and region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the
@@ -407,7 +438,7 @@ export interface TypeConfigurationDetails {
    * <p>A JSON string specifying the configuration data for the extension, in this account and
    *          region.</p>
    *          <p>If a configuration hasn't been set for a specified extension, CloudFormation
-   *          returns <code>{}</code>.</p>
+   *          returns <code>\{\}</code>.</p>
    */
   Configuration?: string;
 
@@ -436,6 +467,9 @@ export interface TypeConfigurationDetails {
   IsDefaultConfiguration?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeTypeConfigurationsOutput {
   /**
    * <p>A list of information concerning any errors generated during the setting of the
@@ -457,6 +491,7 @@ export interface BatchDescribeTypeConfigurationsOutput {
 }
 
 /**
+ * @public
  * <p>The specified extension configuration can't be found.</p>
  */
 export class TypeConfigurationNotFoundException extends __BaseException {
@@ -477,12 +512,16 @@ export class TypeConfigurationNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum CallAs {
   DELEGATED_ADMIN = "DELEGATED_ADMIN",
   SELF = "SELF",
 }
 
 /**
+ * @public
  * <p>The input for the <a>CancelUpdateStack</a> action.</p>
  */
 export interface CancelUpdateStackInput {
@@ -502,6 +541,7 @@ export interface CancelUpdateStackInput {
 }
 
 /**
+ * @public
  * <p>A client request token already exists.</p>
  */
 export class TokenAlreadyExistsException extends __BaseException {
@@ -522,12 +562,18 @@ export class TokenAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Capability {
   CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
   CAPABILITY_IAM = "CAPABILITY_IAM",
   CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM",
 }
 
+/**
+ * @public
+ */
 export enum Category {
   ACTIVATED = "ACTIVATED",
   AWS_TYPES = "AWS_TYPES",
@@ -535,6 +581,9 @@ export enum Category {
   THIRD_PARTY = "THIRD_PARTY",
 }
 
+/**
+ * @public
+ */
 export enum ChangeAction {
   Add = "Add",
   Dynamic = "Dynamic",
@@ -543,6 +592,9 @@ export enum ChangeAction {
   Remove = "Remove",
 }
 
+/**
+ * @public
+ */
 export enum ChangeSource {
   Automatic = "Automatic",
   DirectModification = "DirectModification",
@@ -551,11 +603,17 @@ export enum ChangeSource {
   ResourceReference = "ResourceReference",
 }
 
+/**
+ * @public
+ */
 export enum EvaluationType {
   Dynamic = "Dynamic",
   Static = "Static",
 }
 
+/**
+ * @public
+ */
 export enum ResourceAttribute {
   CreationPolicy = "CreationPolicy",
   DeletionPolicy = "DeletionPolicy",
@@ -565,6 +623,9 @@ export enum ResourceAttribute {
   UpdatePolicy = "UpdatePolicy",
 }
 
+/**
+ * @public
+ */
 export enum RequiresRecreation {
   Always = "Always",
   Conditionally = "Conditionally",
@@ -572,6 +633,7 @@ export enum RequiresRecreation {
 }
 
 /**
+ * @public
  * <p>The field that CloudFormation will change, such as the name of a resource's
  *          property, and whether the resource will be recreated.</p>
  */
@@ -600,6 +662,7 @@ export interface ResourceTargetDefinition {
 }
 
 /**
+ * @public
  * <p>For a resource with <code>Modify</code> as the action, the <code>ResourceChange</code>
  *          structure describes the changes CloudFormation will make to that resource.</p>
  */
@@ -634,20 +697,20 @@ export interface ResourceChangeDetail {
    *             <li>
    *                <p>
    *                   <code>ResourceReference</code> entities are <code>Ref</code> intrinsic functions that
-   *                refer to resources in the template, such as <code>{ "Ref" : "MyEC2InstanceResource"
-   *                   }</code>.</p>
+   *                refer to resources in the template, such as <code>\{ "Ref" : "MyEC2InstanceResource"
+   *                   \}</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ParameterReference</code> entities are <code>Ref</code> intrinsic functions
-   *                that get template parameter values, such as <code>{ "Ref" : "MyPasswordParameter"
-   *                   }</code>.</p>
+   *                that get template parameter values, such as <code>\{ "Ref" : "MyPasswordParameter"
+   *                   \}</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ResourceAttribute</code> entities are <code>Fn::GetAtt</code> intrinsic
-   *                functions that get resource attribute values, such as <code>{ "Fn::GetAtt" : [
-   *                   "MyEC2InstanceResource", "PublicDnsName" ] }</code>.</p>
+   *                functions that get resource attribute values, such as <code>\{ "Fn::GetAtt" : [
+   *                   "MyEC2InstanceResource", "PublicDnsName" ] \}</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -679,6 +742,7 @@ export interface ResourceChangeDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about the module from which the resource was created, if the
  *          resource was created from a module included in the stack template.</p>
  *          <p>For more information about modules, see <a href="AWSCloudFormation/latest/UserGuide/modules.html">Using modules to encapsulate and
@@ -715,6 +779,9 @@ export interface ModuleInfo {
   LogicalIdHierarchy?: string;
 }
 
+/**
+ * @public
+ */
 export enum Replacement {
   Conditional = "Conditional",
   False = "False",
@@ -722,6 +789,7 @@ export enum Replacement {
 }
 
 /**
+ * @public
  * <p>The <code>ResourceChange</code> structure describes the resource and the action that
  *             CloudFormation will perform on it if you execute this change set.</p>
  */
@@ -793,11 +861,15 @@ export interface ResourceChange {
   ModuleInfo?: ModuleInfo;
 }
 
+/**
+ * @public
+ */
 export enum ChangeType {
   Resource = "Resource",
 }
 
 /**
+ * @public
  * <p>The <code>Change</code> structure describes the changes CloudFormation will perform
  *          if you execute the change set.</p>
  */
@@ -821,16 +893,23 @@ export interface Change {
   ResourceChange?: ResourceChange;
 }
 
+/**
+ * @public
+ */
 export enum HookFailureMode {
   FAIL = "FAIL",
   WARN = "WARN",
 }
 
+/**
+ * @public
+ */
 export enum HookInvocationPoint {
   PRE_PROVISION = "PRE_PROVISION",
 }
 
 /**
+ * @public
  * <p>Specifies <code>RESOURCE</code> type target details for activated hooks.</p>
  */
 export interface ChangeSetHookResourceTargetDetails {
@@ -850,11 +929,15 @@ export interface ChangeSetHookResourceTargetDetails {
   ResourceAction?: ChangeAction | string;
 }
 
+/**
+ * @public
+ */
 export enum HookTargetType {
   RESOURCE = "RESOURCE",
 }
 
 /**
+ * @public
  * <p>Specifies target details for an activated hook.</p>
  */
 export interface ChangeSetHookTargetDetails {
@@ -870,6 +953,7 @@ export interface ChangeSetHookTargetDetails {
 }
 
 /**
+ * @public
  * <p>Specifies the resource, the hook, and the hook version to be invoked.</p>
  */
 export interface ChangeSetHook {
@@ -956,6 +1040,9 @@ export interface ChangeSetHook {
   TargetDetails?: ChangeSetHookTargetDetails;
 }
 
+/**
+ * @public
+ */
 export enum ChangeSetHooksStatus {
   PLANNED = "PLANNED",
   PLANNING = "PLANNING",
@@ -963,6 +1050,7 @@ export enum ChangeSetHooksStatus {
 }
 
 /**
+ * @public
  * <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
  *          use the <code>ListChangeSets</code> operation.</p>
  */
@@ -984,6 +1072,9 @@ export class ChangeSetNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ChangeSetStatus {
   CREATE_COMPLETE = "CREATE_COMPLETE",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -995,6 +1086,9 @@ export enum ChangeSetStatus {
   FAILED = "FAILED",
 }
 
+/**
+ * @public
+ */
 export enum ExecutionStatus {
   AVAILABLE = "AVAILABLE",
   EXECUTE_COMPLETE = "EXECUTE_COMPLETE",
@@ -1005,6 +1099,7 @@ export enum ExecutionStatus {
 }
 
 /**
+ * @public
  * <p>The <code>ChangeSetSummary</code> structure describes a change set, its status, and the
  *          stack with which it's associated.</p>
  */
@@ -1077,6 +1172,9 @@ export interface ChangeSetSummary {
   RootChangeSetId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ChangeSetType {
   CREATE = "CREATE",
   IMPORT = "IMPORT",
@@ -1084,6 +1182,7 @@ export enum ChangeSetType {
 }
 
 /**
+ * @public
  * <p>The input for the <a>ContinueUpdateRollback</a> action.</p>
  */
 export interface ContinueUpdateRollbackInput {
@@ -1155,11 +1254,13 @@ export interface ContinueUpdateRollbackInput {
 }
 
 /**
+ * @public
  * <p>The output for a <a>ContinueUpdateRollback</a> operation.</p>
  */
 export interface ContinueUpdateRollbackOutput {}
 
 /**
+ * @public
  * <p>The Parameter data type.</p>
  */
 export interface Parameter {
@@ -1192,6 +1293,7 @@ export interface Parameter {
 }
 
 /**
+ * @public
  * <p>Describes the target resource of an import operation.</p>
  */
 export interface ResourceToImport {
@@ -1215,6 +1317,7 @@ export interface ResourceToImport {
 }
 
 /**
+ * @public
  * <p>A rollback trigger CloudFormation monitors during creation and updating of stacks. If any of the
  *          alarms you specify goes to ALARM state during the stack operation or within the specified
  *          monitoring period afterwards, CloudFormation rolls back the entire stack
@@ -1235,6 +1338,7 @@ export interface RollbackTrigger {
 }
 
 /**
+ * @public
  * <p>Structure containing the rollback triggers for CloudFormation to monitor during stack creation
  *          and updating operations, and for the specified monitoring period afterwards.</p>
  *          <p>Rollback triggers enable you to have CloudFormation monitor the state of your application during
@@ -1288,6 +1392,7 @@ export interface RollbackConfiguration {
 }
 
 /**
+ * @public
  * <p>The Tag type enables you to specify a key-value pair that can be used to store
  *          information about an CloudFormation stack.</p>
  */
@@ -1308,6 +1413,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>The input for the <a>CreateChangeSet</a> action.</p>
  */
 export interface CreateChangeSetInput {
@@ -1544,6 +1650,7 @@ export interface CreateChangeSetInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>CreateChangeSet</a> action.</p>
  */
 export interface CreateChangeSetOutput {
@@ -1559,6 +1666,7 @@ export interface CreateChangeSetOutput {
 }
 
 /**
+ * @public
  * <p>The template contains resources with capabilities that weren't specified in the
  *          Capabilities parameter.</p>
  */
@@ -1581,6 +1689,7 @@ export class InsufficientCapabilitiesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota for the resource has already been reached.</p>
  *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
  *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -1603,6 +1712,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum OnFailure {
   DELETE = "DELETE",
   DO_NOTHING = "DO_NOTHING",
@@ -1610,6 +1722,7 @@ export enum OnFailure {
 }
 
 /**
+ * @public
  * <p>The input for <a>CreateStack</a> action.</p>
  */
 export interface CreateStackInput {
@@ -1882,6 +1995,7 @@ export interface CreateStackInput {
 }
 
 /**
+ * @public
  * <p>The output for a <a>CreateStack</a> action.</p>
  */
 export interface CreateStackOutput {
@@ -1892,6 +2006,7 @@ export interface CreateStackOutput {
 }
 
 /**
+ * @public
  * <p>[Service-managed permissions] The Organizations accounts to which StackSets
  *          deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in
  *          your organization or in an OU in your organization.</p>
@@ -1951,12 +2066,16 @@ export interface DeploymentTargets {
   AccountFilterType?: AccountFilterType | string;
 }
 
+/**
+ * @public
+ */
 export enum RegionConcurrencyType {
   PARALLEL = "PARALLEL",
   SEQUENTIAL = "SEQUENTIAL",
 }
 
 /**
+ * @public
  * <p>The user-specified preferences for how CloudFormation performs a stack set
  *          operation.</p>
  *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
@@ -2023,6 +2142,9 @@ export interface StackSetOperationPreferences {
   MaxConcurrentPercentage?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackInstancesInput {
   /**
    * <p>The name or unique ID of the stack set that you want to create stack instances
@@ -2124,6 +2246,9 @@ export interface CreateStackInstancesInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackInstancesOutput {
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -2132,6 +2257,7 @@ export interface CreateStackInstancesOutput {
 }
 
 /**
+ * @public
  * <p>The specified operation isn't valid.</p>
  */
 export class InvalidOperationException extends __BaseException {
@@ -2153,6 +2279,7 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified operation ID already exists.</p>
  */
 export class OperationIdAlreadyExistsException extends __BaseException {
@@ -2174,6 +2301,7 @@ export class OperationIdAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another operation is currently in progress for this stack set. Only one operation can be
  *          performed for a stack set at a given time.</p>
  */
@@ -2196,6 +2324,7 @@ export class OperationInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified stack set doesn't exist.</p>
  */
 export class StackSetNotFoundException extends __BaseException {
@@ -2217,6 +2346,7 @@ export class StackSetNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  */
@@ -2239,6 +2369,7 @@ export class StaleRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource exists, but has been changed.</p>
  */
 export class CreatedButModifiedException extends __BaseException {
@@ -2260,6 +2391,7 @@ export class CreatedButModifiedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
  *          conflicting operations.</p>
  */
@@ -2280,11 +2412,17 @@ export interface ManagedExecution {
   Active?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum PermissionModels {
   SELF_MANAGED = "SELF_MANAGED",
   SERVICE_MANAGED = "SERVICE_MANAGED",
 }
 
+/**
+ * @public
+ */
 export interface CreateStackSetInput {
   /**
    * <p>The name to associate with the stack set. The name must be unique in the Region where
@@ -2525,6 +2663,9 @@ export interface CreateStackSetInput {
   ManagedExecution?: ManagedExecution;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackSetOutput {
   /**
    * <p>The ID of the stack set that you're creating.</p>
@@ -2533,6 +2674,7 @@ export interface CreateStackSetOutput {
 }
 
 /**
+ * @public
  * <p>The specified name is already in use.</p>
  */
 export class NameAlreadyExistsException extends __BaseException {
@@ -2553,6 +2695,9 @@ export class NameAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeactivateTypeInput {
   /**
    * <p>The type name of the extension, in this account and region. If you specified a type name
@@ -2577,9 +2722,13 @@ export interface DeactivateTypeInput {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateTypeOutput {}
 
 /**
+ * @public
  * <p>The input for the <a>DeleteChangeSet</a> action.</p>
  */
 export interface DeleteChangeSetInput {
@@ -2596,11 +2745,13 @@ export interface DeleteChangeSetInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>DeleteChangeSet</a> action.</p>
  */
 export interface DeleteChangeSetOutput {}
 
 /**
+ * @public
  * <p>The specified change set can't be used to update the stack. For example, the change set
  *          status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
  *             <code>UPDATE_IN_PROGRESS</code>.</p>
@@ -2624,6 +2775,7 @@ export class InvalidChangeSetStatusException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for <a>DeleteStack</a> action.</p>
  */
 export interface DeleteStackInput {
@@ -2670,6 +2822,9 @@ export interface DeleteStackInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackInstancesInput {
   /**
    * <p>The name or unique ID of the stack set that you want to delete stack instances
@@ -2744,6 +2899,9 @@ export interface DeleteStackInstancesInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackInstancesOutput {
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -2751,6 +2909,9 @@ export interface DeleteStackInstancesOutput {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackSetInput {
   /**
    * <p>The name or unique ID of the stack set that you're deleting. You can obtain this value
@@ -2780,9 +2941,13 @@ export interface DeleteStackSetInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackSetOutput {}
 
 /**
+ * @public
  * <p>You can't yet delete this stack set, because it still contains one or more stack
  *          instances. Delete all stack instances from the stack set before deleting the stack
  *          set.</p>
@@ -2805,12 +2970,18 @@ export class StackSetNotEmptyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RegistryType {
   HOOK = "HOOK",
   MODULE = "MODULE",
   RESOURCE = "RESOURCE",
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTypeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -2841,9 +3012,13 @@ export interface DeregisterTypeInput {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTypeOutput {}
 
 /**
+ * @public
  * <p>The input for the <a>DescribeAccountLimits</a> action.</p>
  */
 export interface DescribeAccountLimitsInput {
@@ -2854,6 +3029,7 @@ export interface DescribeAccountLimitsInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>DescribeAccountLimits</a> action.</p>
  */
 export interface DescribeAccountLimitsOutput {
@@ -2871,6 +3047,7 @@ export interface DescribeAccountLimitsOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>DescribeChangeSet</a> action.</p>
  */
 export interface DescribeChangeSetInput {
@@ -2894,6 +3071,7 @@ export interface DescribeChangeSetInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>DescribeChangeSet</a> action.</p>
  */
 export interface DescribeChangeSetOutput {
@@ -3008,6 +3186,9 @@ export interface DescribeChangeSetOutput {
   RootChangeSetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChangeSetHooksInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
@@ -3034,6 +3215,9 @@ export interface DescribeChangeSetHooksInput {
   LogicalResourceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChangeSetHooksOutput {
   /**
    * <p>The change set identifier (stack ID).</p>
@@ -3071,6 +3255,9 @@ export interface DescribeChangeSetHooksOutput {
   StackName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePublisherInput {
   /**
    * <p>The ID of the extension publisher.</p>
@@ -3081,17 +3268,26 @@ export interface DescribePublisherInput {
   PublisherId?: string;
 }
 
+/**
+ * @public
+ */
 export enum IdentityProvider {
   AWS_Marketplace = "AWS_Marketplace",
   Bitbucket = "Bitbucket",
   GitHub = "GitHub",
 }
 
+/**
+ * @public
+ */
 export enum PublisherStatus {
   UNVERIFIED = "UNVERIFIED",
   VERIFIED = "VERIFIED",
 }
 
+/**
+ * @public
+ */
 export interface DescribePublisherOutput {
   /**
    * <p>The ID of the extension publisher.</p>
@@ -3116,6 +3312,9 @@ export interface DescribePublisherOutput {
   PublisherProfile?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackDriftDetectionStatusInput {
   /**
    * <p>The ID of the drift detection results of this operation.</p>
@@ -3126,12 +3325,18 @@ export interface DescribeStackDriftDetectionStatusInput {
   StackDriftDetectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StackDriftDetectionStatus {
   DETECTION_COMPLETE = "DETECTION_COMPLETE",
   DETECTION_FAILED = "DETECTION_FAILED",
   DETECTION_IN_PROGRESS = "DETECTION_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum StackDriftStatus {
   DRIFTED = "DRIFTED",
   IN_SYNC = "IN_SYNC",
@@ -3139,6 +3344,9 @@ export enum StackDriftStatus {
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackDriftDetectionStatusOutput {
   /**
    * <p>The ID of the stack.</p>
@@ -3227,6 +3435,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>DescribeStackEvents</a> action.</p>
  */
 export interface DescribeStackEventsInput {
@@ -3252,6 +3461,9 @@ export interface DescribeStackEventsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum HookStatus {
   HOOK_COMPLETE_FAILED = "HOOK_COMPLETE_FAILED",
   HOOK_COMPLETE_SUCCEEDED = "HOOK_COMPLETE_SUCCEEDED",
@@ -3259,6 +3471,9 @@ export enum HookStatus {
   HOOK_IN_PROGRESS = "HOOK_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum ResourceStatus {
   CREATE_COMPLETE = "CREATE_COMPLETE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -3285,6 +3500,7 @@ export enum ResourceStatus {
 }
 
 /**
+ * @public
  * <p>The StackEvent data type.</p>
  */
 export interface StackEvent {
@@ -3392,6 +3608,7 @@ export interface StackEvent {
 }
 
 /**
+ * @public
  * <p>The output for a <a>DescribeStackEvents</a> action.</p>
  */
 export interface DescribeStackEventsOutput {
@@ -3407,6 +3624,9 @@ export interface DescribeStackEventsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackInstanceInput {
   /**
    * <p>The name or the unique stack ID of the stack set that you want to get stack instance
@@ -3447,6 +3667,9 @@ export interface DescribeStackInstanceInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export enum StackInstanceDetailedStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
@@ -3457,6 +3680,7 @@ export enum StackInstanceDetailedStatus {
 }
 
 /**
+ * @public
  * <p>The detailed status of the stack instance.</p>
  */
 export interface StackInstanceComprehensiveStatus {
@@ -3503,6 +3727,9 @@ export interface StackInstanceComprehensiveStatus {
   DetailedStatus?: StackInstanceDetailedStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum StackInstanceStatus {
   CURRENT = "CURRENT",
   INOPERABLE = "INOPERABLE",
@@ -3510,6 +3737,7 @@ export enum StackInstanceStatus {
 }
 
 /**
+ * @public
  * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack
  *          set operation. A stack instance is a reference to an attempted or actual stack in a given
  *          account within a given Region. A stack instance can exist without a stack—for example, if
@@ -3643,6 +3871,9 @@ export interface StackInstance {
   LastOperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackInstanceOutput {
   /**
    * <p>The stack instance that matches the specified request parameters.</p>
@@ -3651,6 +3882,7 @@ export interface DescribeStackInstanceOutput {
 }
 
 /**
+ * @public
  * <p>The specified stack instance doesn't exist.</p>
  */
 export class StackInstanceNotFoundException extends __BaseException {
@@ -3672,6 +3904,7 @@ export class StackInstanceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for <a>DescribeStackResource</a> action.</p>
  */
 export interface DescribeStackResourceInput {
@@ -3698,6 +3931,9 @@ export interface DescribeStackResourceInput {
   LogicalResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StackResourceDriftStatus {
   DELETED = "DELETED",
   IN_SYNC = "IN_SYNC",
@@ -3706,6 +3942,7 @@ export enum StackResourceDriftStatus {
 }
 
 /**
+ * @public
  * <p>Contains information about whether the resource's actual configuration differs, or has
  *             <i>drifted</i>, from its expected configuration.</p>
  */
@@ -3748,6 +3985,7 @@ export interface StackResourceDriftInformation {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about the specified stack resource.</p>
  */
 export interface StackResourceDetail {
@@ -3820,6 +4058,7 @@ export interface StackResourceDetail {
 }
 
 /**
+ * @public
  * <p>The output for a <a>DescribeStackResource</a> action.</p>
  */
 export interface DescribeStackResourceOutput {
@@ -3830,6 +4069,9 @@ export interface DescribeStackResourceOutput {
   StackResourceDetail?: StackResourceDetail;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackResourceDriftsInput {
   /**
    * <p>The name of the stack for which you want drift information.</p>
@@ -3878,6 +4120,7 @@ export interface DescribeStackResourceDriftsInput {
 }
 
 /**
+ * @public
  * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses
  *          context key-value pairs in cases where a resource's logical and physical IDs aren't enough
  *          to uniquely identify that resource. Each context key-value pair specifies a resource that
@@ -3895,6 +4138,9 @@ export interface PhysicalResourceIdContextKeyValuePair {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DifferenceType {
   ADD = "ADD",
   NOT_EQUAL = "NOT_EQUAL",
@@ -3902,6 +4148,7 @@ export enum DifferenceType {
 }
 
 /**
+ * @public
  * <p>Information about a resource property whose actual value differs from its expected
  *          value, as defined in the stack template and any values specified as template parameters.
  *          These will be present only for resources whose <code>StackResourceDriftStatus</code> is
@@ -3950,6 +4197,7 @@ export interface PropertyDifference {
 }
 
 /**
+ * @public
  * <p>Contains the drift information for a resource that has been checked for drift. This
  *          includes actual and expected property values for resources in which CloudFormation has detected
  *          drift. Only resource properties explicitly defined in the stack template are checked for
@@ -4055,6 +4303,9 @@ export interface StackResourceDrift {
   ModuleInfo?: ModuleInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackResourceDriftsOutput {
   /**
    * <p>Drift information for the resources that have been checked for drift in the specified
@@ -4078,6 +4329,7 @@ export interface DescribeStackResourceDriftsOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>DescribeStackResources</a> action.</p>
  */
 export interface DescribeStackResourcesInput {
@@ -4120,6 +4372,7 @@ export interface DescribeStackResourcesInput {
 }
 
 /**
+ * @public
  * <p>The StackResource data type.</p>
  */
 export interface StackResource {
@@ -4186,6 +4439,7 @@ export interface StackResource {
 }
 
 /**
+ * @public
  * <p>The output for a <a>DescribeStackResources</a> action.</p>
  */
 export interface DescribeStackResourcesOutput {
@@ -4196,6 +4450,7 @@ export interface DescribeStackResourcesOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>DescribeStacks</a> action.</p>
  */
 export interface DescribeStacksInput {
@@ -4222,6 +4477,7 @@ export interface DescribeStacksInput {
 }
 
 /**
+ * @public
  * <p>Contains information about whether the stack's actual configuration differs, or has
  *             <i>drifted</i>, from its expected configuration, as defined in the stack
  *          template and any values specified as template parameters. A stack is considered to have
@@ -4264,6 +4520,7 @@ export interface StackDriftInformation {
 }
 
 /**
+ * @public
  * <p>The Output data type.</p>
  */
 export interface Output {
@@ -4288,6 +4545,9 @@ export interface Output {
   ExportName?: string;
 }
 
+/**
+ * @public
+ */
 export enum StackStatus {
   CREATE_COMPLETE = "CREATE_COMPLETE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -4315,6 +4575,7 @@ export enum StackStatus {
 }
 
 /**
+ * @public
  * <p>The Stack data type.</p>
  */
 export interface Stack {
@@ -4457,6 +4718,7 @@ export interface Stack {
 }
 
 /**
+ * @public
  * <p>The output for a <a>DescribeStacks</a> action.</p>
  */
 export interface DescribeStacksOutput {
@@ -4472,6 +4734,9 @@ export interface DescribeStacksOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackSetInput {
   /**
    * <p>The name or unique ID of the stack set whose description you want.</p>
@@ -4500,6 +4765,9 @@ export interface DescribeStackSetInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export enum StackSetDriftDetectionStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -4508,6 +4776,9 @@ export enum StackSetDriftDetectionStatus {
   STOPPED = "STOPPED",
 }
 
+/**
+ * @public
+ */
 export enum StackSetDriftStatus {
   DRIFTED = "DRIFTED",
   IN_SYNC = "IN_SYNC",
@@ -4515,6 +4786,7 @@ export enum StackSetDriftStatus {
 }
 
 /**
+ * @public
  * <p>Detailed information about the drift status of the stack set.</p>
  *          <p>For stack sets, contains information about the last <i>completed</i> drift
  *          operation performed on the stack set. Information about drift operations in-progress isn't
@@ -4634,12 +4906,16 @@ export interface StackSetDriftDetectionDetails {
   FailedStackInstancesCount?: number;
 }
 
+/**
+ * @public
+ */
 export enum StackSetStatus {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
 }
 
 /**
+ * @public
  * <p>A structure that contains information about a stack set. A stack set enables you to
  *          provision stacks into Amazon Web Services accounts and across Regions by using a single
  *             CloudFormation template. In the stack set, you specify the template to use, in
@@ -4764,6 +5040,9 @@ export interface StackSet {
   Regions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackSetOutput {
   /**
    * <p>The specified stack set.</p>
@@ -4771,6 +5050,9 @@ export interface DescribeStackSetOutput {
   StackSet?: StackSet;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackSetOperationInput {
   /**
    * <p>The name or the unique stack ID of the stack set for the stack operation.</p>
@@ -4804,6 +5086,9 @@ export interface DescribeStackSetOperationInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export enum StackSetOperationAction {
   CREATE = "CREATE",
   DELETE = "DELETE",
@@ -4811,6 +5096,9 @@ export enum StackSetOperationAction {
   UPDATE = "UPDATE",
 }
 
+/**
+ * @public
+ */
 export enum StackSetOperationStatus {
   FAILED = "FAILED",
   QUEUED = "QUEUED",
@@ -4821,6 +5109,7 @@ export enum StackSetOperationStatus {
 }
 
 /**
+ * @public
  * <p>Detailed information about the StackSet operation.</p>
  */
 export interface StackSetOperationStatusDetails {
@@ -4831,6 +5120,7 @@ export interface StackSetOperationStatusDetails {
 }
 
 /**
+ * @public
  * <p>The structure that contains information about a stack set operation.</p>
  */
 export interface StackSetOperation {
@@ -4966,6 +5256,9 @@ export interface StackSetOperation {
   StatusDetails?: StackSetOperationStatusDetails;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStackSetOperationOutput {
   /**
    * <p>The specified stack set operation.</p>
@@ -4974,6 +5267,7 @@ export interface DescribeStackSetOperationOutput {
 }
 
 /**
+ * @public
  * <p>The specified ID refers to an operation that doesn't exist.</p>
  */
 export class OperationNotFoundException extends __BaseException {
@@ -4994,6 +5288,9 @@ export class OperationNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeTypeInput {
   /**
    * <p>The kind of extension.</p>
@@ -5038,11 +5335,17 @@ export interface DescribeTypeInput {
   PublicVersionNumber?: string;
 }
 
+/**
+ * @public
+ */
 export enum DeprecatedStatus {
   DEPRECATED = "DEPRECATED",
   LIVE = "LIVE",
 }
 
+/**
+ * @public
+ */
 export enum ProvisioningType {
   FULLY_MUTABLE = "FULLY_MUTABLE",
   IMMUTABLE = "IMMUTABLE",
@@ -5050,6 +5353,7 @@ export enum ProvisioningType {
 }
 
 /**
+ * @public
  * <p>For extensions that are modules, a public third-party extension that must be activated
  *          in your account in order for the module itself to be activated.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html#module-enabling">Activating public
@@ -5086,6 +5390,9 @@ export interface RequiredActivatedType {
   SupportedMajorVersions?: number[];
 }
 
+/**
+ * @public
+ */
 export enum TypeTestsStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -5093,11 +5400,17 @@ export enum TypeTestsStatus {
   PASSED = "PASSED",
 }
 
+/**
+ * @public
+ */
 export enum Visibility {
   PRIVATE = "PRIVATE",
   PUBLIC = "PUBLIC",
 }
 
+/**
+ * @public
+ */
 export interface DescribeTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -5392,6 +5705,9 @@ export interface DescribeTypeOutput {
   AutoUpdate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTypeRegistrationInput {
   /**
    * <p>The identifier for this registration request.</p>
@@ -5403,12 +5719,18 @@ export interface DescribeTypeRegistrationInput {
   RegistrationToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RegistrationStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface DescribeTypeRegistrationOutput {
   /**
    * <p>The current status of the extension registration request.</p>
@@ -5436,6 +5758,9 @@ export interface DescribeTypeRegistrationOutput {
   TypeVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackDriftInput {
   /**
    * <p>The name of the stack for which you want to detect drift.</p>
@@ -5448,6 +5773,9 @@ export interface DetectStackDriftInput {
   LogicalResourceIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DetectStackDriftOutput {
   /**
    * <p>The ID of the drift detection results of this operation.</p>
@@ -5458,6 +5786,9 @@ export interface DetectStackDriftOutput {
   StackDriftDetectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackResourceDriftInput {
   /**
    * <p>The name of the stack to which the resource belongs.</p>
@@ -5470,6 +5801,9 @@ export interface DetectStackResourceDriftInput {
   LogicalResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackResourceDriftOutput {
   /**
    * <p>Information about whether the resource's actual configuration has drifted from its
@@ -5479,6 +5813,9 @@ export interface DetectStackResourceDriftOutput {
   StackResourceDrift: StackResourceDrift | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackSetDriftInput {
   /**
    * <p>The name of the stack set on which to perform the drift detection operation.</p>
@@ -5521,6 +5858,9 @@ export interface DetectStackSetDriftInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface DetectStackSetDriftOutput {
   /**
    * <p>The ID of the drift detection stack set operation.</p>
@@ -5532,6 +5872,7 @@ export interface DetectStackSetDriftOutput {
 }
 
 /**
+ * @public
  * <p>The input for an <a>EstimateTemplateCost</a> action.</p>
  */
 export interface EstimateTemplateCostInput {
@@ -5561,6 +5902,7 @@ export interface EstimateTemplateCostInput {
 }
 
 /**
+ * @public
  * <p>The output for a <a>EstimateTemplateCost</a> action.</p>
  */
 export interface EstimateTemplateCostOutput {
@@ -5572,6 +5914,7 @@ export interface EstimateTemplateCostOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>ExecuteChangeSet</a> action.</p>
  */
 export interface ExecuteChangeSetInput {
@@ -5605,11 +5948,13 @@ export interface ExecuteChangeSetInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>ExecuteChangeSet</a> action.</p>
  */
 export interface ExecuteChangeSetOutput {}
 
 /**
+ * @public
  * <p>The input for the <a>GetStackPolicy</a> action.</p>
  */
 export interface GetStackPolicyInput {
@@ -5621,6 +5966,7 @@ export interface GetStackPolicyInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>GetStackPolicy</a> action.</p>
  */
 export interface GetStackPolicyOutput {
@@ -5631,12 +5977,16 @@ export interface GetStackPolicyOutput {
   StackPolicyBody?: string;
 }
 
+/**
+ * @public
+ */
 export enum TemplateStage {
   Original = "Original",
   Processed = "Processed",
 }
 
 /**
+ * @public
  * <p>The input for a <a>GetTemplate</a> action.</p>
  */
 export interface GetTemplateInput {
@@ -5675,6 +6025,7 @@ export interface GetTemplateInput {
 }
 
 /**
+ * @public
  * <p>The output for <a>GetTemplate</a> action.</p>
  */
 export interface GetTemplateOutput {
@@ -5696,6 +6047,7 @@ export interface GetTemplateOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>GetTemplateSummary</a> action.</p>
  */
 export interface GetTemplateSummaryInput {
@@ -5760,6 +6112,7 @@ export interface GetTemplateSummaryInput {
 }
 
 /**
+ * @public
  * <p>A set of criteria that CloudFormation uses to validate parameter values. Although
  *          other constraints might be defined in the stack template, CloudFormation returns only
  *          the <code>AllowedValues</code> property.</p>
@@ -5772,6 +6125,7 @@ export interface ParameterConstraints {
 }
 
 /**
+ * @public
  * <p>The ParameterDeclaration data type.</p>
  */
 export interface ParameterDeclaration {
@@ -5808,6 +6162,7 @@ export interface ParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>Describes the target resources of a specific type in your import template (for example,
  *          all <code>AWS::S3::Bucket</code> resources) and the properties you can provide during the
  *          import to identify resources of that type.</p>
@@ -5834,6 +6189,7 @@ export interface ResourceIdentifierSummary {
 }
 
 /**
+ * @public
  * <p>The output for the <a>GetTemplateSummary</a> action.</p>
  */
 export interface GetTemplateSummaryOutput {
@@ -5897,6 +6253,9 @@ export interface GetTemplateSummaryOutput {
   ResourceIdentifierSummaries?: ResourceIdentifierSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ImportStacksToStackSetInput {
   /**
    * <p>The name of the stack set. The name must be unique in the Region where you create your
@@ -5951,6 +6310,9 @@ export interface ImportStacksToStackSetInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface ImportStacksToStackSetOutput {
   /**
    * <p>The unique identifier for the stack set operation.</p>
@@ -5959,6 +6321,7 @@ export interface ImportStacksToStackSetOutput {
 }
 
 /**
+ * @public
  * <p>The specified stack ARN doesn't exist or stack doesn't exist corresponding to the ARN in
  *          input.</p>
  */
@@ -5981,6 +6344,7 @@ export class StackNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the <a>ListChangeSets</a> action.</p>
  */
 export interface ListChangeSetsInput {
@@ -5998,6 +6362,7 @@ export interface ListChangeSetsInput {
 }
 
 /**
+ * @public
  * <p>The output for the <a>ListChangeSets</a> action.</p>
  */
 export interface ListChangeSetsOutput {
@@ -6014,6 +6379,9 @@ export interface ListChangeSetsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsInput {
   /**
    * <p>A string (provided by the <a>ListExports</a> response output) that identifies
@@ -6023,6 +6391,7 @@ export interface ListExportsInput {
 }
 
 /**
+ * @public
  * <p>The <code>Export</code> structure describes the exported output values for a
  *          stack.</p>
  */
@@ -6047,6 +6416,9 @@ export interface Export {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsOutput {
   /**
    * <p>The output for the <a>ListExports</a> action.</p>
@@ -6060,6 +6432,9 @@ export interface ListExportsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsInput {
   /**
    * <p>The name of the exported output value. CloudFormation returns the stack names that
@@ -6074,6 +6449,9 @@ export interface ListImportsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsOutput {
   /**
    * <p>A list of stack names that are importing the specified exported output value.</p>
@@ -6087,12 +6465,16 @@ export interface ListImportsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum StackInstanceFilterName {
   DETAILED_STATUS = "DETAILED_STATUS",
   LAST_OPERATION_ID = "LAST_OPERATION_ID",
 }
 
 /**
+ * @public
  * <p>The filter to apply to stack instances</p>
  */
 export interface StackInstanceFilter {
@@ -6107,6 +6489,9 @@ export interface StackInstanceFilter {
   Values?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackInstancesInput {
   /**
    * <p>The name or unique ID of the stack set that you want to list stack instances for.</p>
@@ -6169,6 +6554,7 @@ export interface ListStackInstancesInput {
 }
 
 /**
+ * @public
  * <p>The structure that contains summary information about a stack instance.</p>
  */
 export interface StackInstanceSummary {
@@ -6290,6 +6676,9 @@ export interface StackInstanceSummary {
   LastOperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackInstancesOutput {
   /**
    * <p>A list of <code>StackInstanceSummary</code> structures that contain information about
@@ -6307,6 +6696,7 @@ export interface ListStackInstancesOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>ListStackResource</a> action.</p>
  */
 export interface ListStackResourcesInput {
@@ -6334,6 +6724,7 @@ export interface ListStackResourcesInput {
 }
 
 /**
+ * @public
  * <p>Summarizes information about whether the resource's actual configuration differs, or has
  *             <i>drifted</i>, from its expected configuration.</p>
  */
@@ -6378,6 +6769,7 @@ export interface StackResourceDriftInformationSummary {
 }
 
 /**
+ * @public
  * <p>Contains high-level information about the specified stack resource.</p>
  */
 export interface StackResourceSummary {
@@ -6428,6 +6820,7 @@ export interface StackResourceSummary {
 }
 
 /**
+ * @public
  * <p>The output for a <a>ListStackResources</a> action.</p>
  */
 export interface ListStackResourcesOutput {
@@ -6444,6 +6837,7 @@ export interface ListStackResourcesOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>ListStacks</a> action.</p>
  */
 export interface ListStacksInput {
@@ -6461,6 +6855,7 @@ export interface ListStacksInput {
 }
 
 /**
+ * @public
  * <p>Contains information about whether the stack's actual configuration differs, or has
  *             <i>drifted</i>, from its expected configuration, as defined in the stack
  *          template and any values specified as template parameters. A stack is considered to have
@@ -6503,6 +6898,7 @@ export interface StackDriftInformationSummary {
 }
 
 /**
+ * @public
  * <p>The StackSummary Data Type</p>
  */
 export interface StackSummary {
@@ -6572,6 +6968,7 @@ export interface StackSummary {
 }
 
 /**
+ * @public
  * <p>The output for <a>ListStacks</a> action.</p>
  */
 export interface ListStacksOutput {
@@ -6588,11 +6985,15 @@ export interface ListStacksOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum OperationResultFilterName {
   OPERATION_RESULT_STATUS = "OPERATION_RESULT_STATUS",
 }
 
 /**
+ * @public
  * <p>The status that operation results are filtered by.</p>
  */
 export interface OperationResultFilter {
@@ -6607,6 +7008,9 @@ export interface OperationResultFilter {
   Values?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetOperationResultsInput {
   /**
    * <p>The name or unique ID of the stack set that you want to get operation results
@@ -6664,6 +7068,9 @@ export interface ListStackSetOperationResultsInput {
   Filters?: OperationResultFilter[];
 }
 
+/**
+ * @public
+ */
 export enum StackSetOperationResultStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
@@ -6673,6 +7080,7 @@ export enum StackSetOperationResultStatus {
 }
 
 /**
+ * @public
  * <p>The structure that contains information about a specified operation's results for a
  *          given account in a given Region.</p>
  */
@@ -6742,6 +7150,9 @@ export interface StackSetOperationResultSummary {
   OrganizationalUnitId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetOperationResultsOutput {
   /**
    * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain
@@ -6758,6 +7169,9 @@ export interface ListStackSetOperationResultsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetOperationsInput {
   /**
    * <p>The name or unique ID of the stack set that you want to get operation summaries
@@ -6806,6 +7220,7 @@ export interface ListStackSetOperationsInput {
 }
 
 /**
+ * @public
  * <p>The structures that contain summary information about the specified operation.</p>
  */
 export interface StackSetOperationSummary {
@@ -6897,6 +7312,9 @@ export interface StackSetOperationSummary {
   OperationPreferences?: StackSetOperationPreferences;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetOperationsOutput {
   /**
    * <p>A list of <code>StackSetOperationSummary</code> structures that contain summary
@@ -6913,6 +7331,9 @@ export interface ListStackSetOperationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetsInput {
   /**
    * <p>If the previous paginated request didn't return all the remaining results, the response
@@ -6959,6 +7380,7 @@ export interface ListStackSetsInput {
 }
 
 /**
+ * @public
  * <p>The structures that contain summary information about the specified stack set.</p>
  */
 export interface StackSetSummary {
@@ -7052,6 +7474,9 @@ export interface StackSetSummary {
   ManagedExecution?: ManagedExecution;
 }
 
+/**
+ * @public
+ */
 export interface ListStackSetsOutput {
   /**
    * <p>A list of <code>StackSetSummary</code> structures that contain information about the
@@ -7068,6 +7493,9 @@ export interface ListStackSetsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypeRegistrationsInput {
   /**
    * <p>The kind of extension.</p>
@@ -7114,6 +7542,9 @@ export interface ListTypeRegistrationsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypeRegistrationsOutput {
   /**
    * <p>A list of extension registration tokens.</p>
@@ -7134,6 +7565,7 @@ export interface ListTypeRegistrationsOutput {
 }
 
 /**
+ * @public
  * <p>Filter criteria to use in determining which extensions to return.</p>
  */
 export interface TypeFilters {
@@ -7185,6 +7617,9 @@ export interface TypeFilters {
   TypeNamePrefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypesInput {
   /**
    * <p>The scope at which the extensions are visible and usable in CloudFormation
@@ -7294,6 +7729,7 @@ export interface ListTypesInput {
 }
 
 /**
+ * @public
  * <p>Contains summary information about the specified CloudFormation
  *          extension.</p>
  */
@@ -7408,6 +7844,9 @@ export interface TypeSummary {
   IsActivated?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListTypesOutput {
   /**
    * <p>A list of <code>TypeSummary</code> structures that contain information about the
@@ -7424,6 +7863,9 @@ export interface ListTypesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypeVersionsInput {
   /**
    * <p>The kind of the extension.</p>
@@ -7492,6 +7934,7 @@ export interface ListTypeVersionsInput {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a specific version of a CloudFormation
  *          extension.</p>
  */
@@ -7548,6 +7991,9 @@ export interface TypeVersionSummary {
   PublicVersionNumber?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTypeVersionsOutput {
   /**
    * <p>A list of <code>TypeVersionSummary</code> structures that contain information about the
@@ -7564,6 +8010,9 @@ export interface ListTypeVersionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PublishTypeInput {
   /**
    * <p>The type of the extension.</p>
@@ -7603,6 +8052,9 @@ export interface PublishTypeInput {
   PublicVersionNumber?: string;
 }
 
+/**
+ * @public
+ */
 export interface PublishTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) assigned to the public extension upon publication.</p>
@@ -7611,6 +8063,7 @@ export interface PublishTypeOutput {
 }
 
 /**
+ * @public
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
  *          users.</p>
  */
@@ -7633,6 +8086,7 @@ export class InvalidStateTransitionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
  *          users.</p>
  */
@@ -7654,6 +8108,9 @@ export class OperationStatusCheckFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum OperationStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -7661,6 +8118,9 @@ export enum OperationStatus {
   SUCCESS = "SUCCESS",
 }
 
+/**
+ * @public
+ */
 export enum HandlerErrorCode {
   AccessDenied = "AccessDenied",
   AlreadyExists = "AlreadyExists",
@@ -7683,6 +8143,9 @@ export enum HandlerErrorCode {
   UnsupportedTarget = "UnsupportedTarget",
 }
 
+/**
+ * @public
+ */
 export interface RecordHandlerProgressInput {
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
@@ -7720,8 +8183,14 @@ export interface RecordHandlerProgressInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RecordHandlerProgressOutput {}
 
+/**
+ * @public
+ */
 export interface RegisterPublisherInput {
   /**
    * <p>Whether you accept the <a href="https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf">Terms and Conditions</a> for publishing extensions in the CloudFormation
@@ -7741,6 +8210,9 @@ export interface RegisterPublisherInput {
   ConnectionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterPublisherOutput {
   /**
    * <p>The ID assigned this account by CloudFormation for publishing
@@ -7749,6 +8221,9 @@ export interface RegisterPublisherOutput {
   PublisherId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTypeInput {
   /**
    * <p>The kind of extension.</p>
@@ -7860,6 +8335,9 @@ export interface RegisterTypeInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTypeOutput {
   /**
    * <p>The identifier for this registration request.</p>
@@ -7871,6 +8349,9 @@ export interface RegisterTypeOutput {
   RegistrationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RollbackStackInput {
   /**
    * <p>The name that's associated with the stack.</p>
@@ -7889,6 +8370,9 @@ export interface RollbackStackInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RollbackStackOutput {
   /**
    * <p>Unique identifier of the stack.</p>
@@ -7897,6 +8381,7 @@ export interface RollbackStackOutput {
 }
 
 /**
+ * @public
  * <p>The input for the <a>SetStackPolicy</a> action.</p>
  */
 export interface SetStackPolicyInput {
@@ -7922,6 +8407,9 @@ export interface SetStackPolicyInput {
   StackPolicyURL?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetTypeConfigurationInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the extension, in this account and region.</p>
@@ -7962,6 +8450,9 @@ export interface SetTypeConfigurationInput {
   Type?: ThirdPartyType | string;
 }
 
+/**
+ * @public
+ */
 export interface SetTypeConfigurationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) for the configuration data, in this account and
@@ -7972,6 +8463,9 @@ export interface SetTypeConfigurationOutput {
   ConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetTypeDefaultVersionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension for which you want version summary
@@ -8003,14 +8497,21 @@ export interface SetTypeDefaultVersionInput {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetTypeDefaultVersionOutput {}
 
+/**
+ * @public
+ */
 export enum ResourceSignalStatus {
   FAILURE = "FAILURE",
   SUCCESS = "SUCCESS",
 }
 
 /**
+ * @public
  * <p>The input for the <a>SignalResource</a> action.</p>
  */
 export interface SignalResourceInput {
@@ -8040,6 +8541,9 @@ export interface SignalResourceInput {
   Status: ResourceSignalStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopStackSetOperationInput {
   /**
    * <p>The name or unique ID of the stack set that you want to stop the operation for.</p>
@@ -8073,8 +8577,14 @@ export interface StopStackSetOperationInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface StopStackSetOperationOutput {}
 
+/**
+ * @public
+ */
 export interface TestTypeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -8133,6 +8643,9 @@ export interface TestTypeInput {
   LogDeliveryBucket?: string;
 }
 
+/**
+ * @public
+ */
 export interface TestTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -8141,6 +8654,7 @@ export interface TestTypeOutput {
 }
 
 /**
+ * @public
  * <p>The input for an <a>UpdateStack</a> action.</p>
  */
 export interface UpdateStackInput {
@@ -8406,6 +8920,7 @@ export interface UpdateStackInput {
 }
 
 /**
+ * @public
  * <p>The output for an <a>UpdateStack</a> action.</p>
  */
 export interface UpdateStackOutput {
@@ -8415,6 +8930,9 @@ export interface UpdateStackOutput {
   StackId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackInstancesInput {
   /**
    * <p>The name or unique ID of the stack set associated with the stack instances.</p>
@@ -8522,6 +9040,9 @@ export interface UpdateStackInstancesInput {
   CallAs?: CallAs | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackInstancesOutput {
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -8529,6 +9050,9 @@ export interface UpdateStackInstancesOutput {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackSetInput {
   /**
    * <p>The name or unique ID of the stack set that you want to update.</p>
@@ -8853,6 +9377,9 @@ export interface UpdateStackSetInput {
   ManagedExecution?: ManagedExecution;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackSetOutput {
   /**
    * <p>The unique ID for this stack set operation.</p>
@@ -8860,6 +9387,9 @@ export interface UpdateStackSetOutput {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTerminationProtectionInput {
   /**
    * <p>Whether to enable termination protection on the specified stack.</p>
@@ -8873,6 +9403,9 @@ export interface UpdateTerminationProtectionInput {
   StackName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTerminationProtectionOutput {
   /**
    * <p>The unique ID of the stack.</p>
@@ -8881,6 +9414,7 @@ export interface UpdateTerminationProtectionOutput {
 }
 
 /**
+ * @public
  * <p>The input for <a>ValidateTemplate</a> action.</p>
  */
 export interface ValidateTemplateInput {
@@ -8905,6 +9439,7 @@ export interface ValidateTemplateInput {
 }
 
 /**
+ * @public
  * <p>The TemplateParameter data type.</p>
  */
 export interface TemplateParameter {
@@ -8931,6 +9466,7 @@ export interface TemplateParameter {
 }
 
 /**
+ * @public
  * <p>The output for <a>ValidateTemplate</a> action.</p>
  */
 export interface ValidateTemplateOutput {

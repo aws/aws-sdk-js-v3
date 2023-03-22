@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSpotDatafeedSubscriptionCommand}.
  */
 export interface CreateSpotDatafeedSubscriptionCommandInput extends CreateSpotDatafeedSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSpotDatafeedSubscriptionCommand}.
  */
 export interface CreateSpotDatafeedSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
  *             You can create one data feed per Amazon Web Services account. For more information, see
  *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
@@ -51,6 +56,8 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSpotDatafeedSubscriptionCommandInput - {@link CreateSpotDatafeedSubscriptionCommandInput}
+ * @returns {@link CreateSpotDatafeedSubscriptionCommandOutput}
  * @see {@link CreateSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -96,6 +103,9 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSpotDatafeedSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSpotDatafeedSubscriptionCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     return serializeAws_ec2CreateSpotDatafeedSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

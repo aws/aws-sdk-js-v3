@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListContentsCommand}.
  */
 export interface ListContentsCommandInput extends ListContentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContentsCommand}.
  */
 export interface ListContentsCommandOutput extends ListContentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListContentsCommandOutput extends ListContentsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContentsCommandInput - {@link ListContentsCommandInput}
+ * @returns {@link ListContentsCommandOutput}
  * @see {@link ListContentsCommandInput} for command's `input` shape.
  * @see {@link ListContentsCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListContentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListContentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListContentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContentsCommandOutput> {
     return deserializeAws_restJson1ListContentsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cluster. It also deletes all associated nodes and node endpoints</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
+ * @returns {@link DeleteClusterCommandOutput}
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
     return deserializeAws_json1_1DeleteClusterCommand(output, context);
   }

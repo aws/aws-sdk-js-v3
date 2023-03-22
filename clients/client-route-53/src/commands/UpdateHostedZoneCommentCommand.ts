@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateHostedZoneCommentCommand}.
  */
 export interface UpdateHostedZoneCommentCommandInput extends UpdateHostedZoneCommentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateHostedZoneCommentCommand}.
  */
 export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCommentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the comment for a specified hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,6 +52,8 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHostedZoneCommentCommandInput - {@link UpdateHostedZoneCommentCommandInput}
+ * @returns {@link UpdateHostedZoneCommentCommandOutput}
  * @see {@link UpdateHostedZoneCommentCommandInput} for command's `input` shape.
  * @see {@link UpdateHostedZoneCommentCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHostedZoneCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHostedZoneCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateHostedZoneCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHostedZoneCommentCommandOutput> {
     return deserializeAws_restXmlUpdateHostedZoneCommentCommand(output, context);
   }

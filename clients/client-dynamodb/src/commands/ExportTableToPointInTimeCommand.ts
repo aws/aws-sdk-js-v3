@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExportTableToPointInTimeCommand}.
  */
 export interface ExportTableToPointInTimeCommandInput extends ExportTableToPointInTimeInput {}
 /**
+ * @public
+ *
  * The output of {@link ExportTableToPointInTimeCommand}.
  */
 export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPointInTimeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports table data to an S3 bucket. The table must have point in time recovery
  *             enabled, and you can export data from any time within the point in time recovery
  *             window.</p>
@@ -48,6 +53,8 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportTableToPointInTimeCommandInput - {@link ExportTableToPointInTimeCommandInput}
+ * @returns {@link ExportTableToPointInTimeCommandOutput}
  * @see {@link ExportTableToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link ExportTableToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -101,6 +108,9 @@ export class ExportTableToPointInTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportTableToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class ExportTableToPointInTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportTableToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ExportTableToPointInTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportTableToPointInTimeCommandOutput> {
     return deserializeAws_json1_0ExportTableToPointInTimeCommand(output, context);
   }

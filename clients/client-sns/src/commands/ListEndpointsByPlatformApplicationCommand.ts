@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEndpointsByPlatformApplicationCommand}.
  */
 export interface ListEndpointsByPlatformApplicationCommandInput extends ListEndpointsByPlatformApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEndpointsByPlatformApplicationCommand}.
  */
 export interface ListEndpointsByPlatformApplicationCommandOutput
@@ -37,6 +41,7 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the endpoints and endpoint attributes for devices in a supported push
  *             notification service, such as GCM (Firebase Cloud Messaging) and APNS. The results for
  *                 <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited
@@ -57,6 +62,8 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEndpointsByPlatformApplicationCommandInput - {@link ListEndpointsByPlatformApplicationCommandInput}
+ * @returns {@link ListEndpointsByPlatformApplicationCommandOutput}
  * @see {@link ListEndpointsByPlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsByPlatformApplicationCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEndpointsByPlatformApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListEndpointsByPlatformApplicationCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     return serializeAws_queryListEndpointsByPlatformApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

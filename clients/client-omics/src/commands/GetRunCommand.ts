@@ -23,15 +23,20 @@ import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import { deserializeAws_restJson1GetRunCommand, serializeAws_restJson1GetRunCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRunCommand}.
  */
 export interface GetRunCommandInput extends GetRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRunCommand}.
  */
 export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a workflow run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRunCommandInput - {@link GetRunCommandInput}
+ * @returns {@link GetRunCommandOutput}
  * @see {@link GetRunCommandInput} for command's `input` shape.
  * @see {@link GetRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRunCommandOutput> {
     return deserializeAws_restJson1GetRunCommand(output, context);
   }

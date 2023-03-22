@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomLogSourceCommand}.
  */
 export interface CreateCustomLogSourceCommandInput extends CreateCustomLogSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomLogSourceCommand}.
  */
 export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a third-party custom source in Amazon Security Lake, from the Amazon Web Services Region
  *          where you want to create a custom source. Security Lake can collect logs and events from
  *          third-party custom sources. After creating the appropriate IAM role to
@@ -51,6 +56,8 @@ export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourc
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomLogSourceCommandInput - {@link CreateCustomLogSourceCommandInput}
+ * @returns {@link CreateCustomLogSourceCommandOutput}
  * @see {@link CreateCustomLogSourceCommandInput} for command's `input` shape.
  * @see {@link CreateCustomLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateCustomLogSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomLogSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateCustomLogSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomLogSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCustomLogSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomLogSourceCommandOutput> {
     return deserializeAws_restJson1CreateCustomLogSourceCommand(output, context);
   }

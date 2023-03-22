@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecoveryPointCommand}.
  */
 export interface GetRecoveryPointCommandInput extends GetRecoveryPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecoveryPointCommand}.
  */
 export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a recovery point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecoveryPointCommandInput - {@link GetRecoveryPointCommandInput}
+ * @returns {@link GetRecoveryPointCommandOutput}
  * @see {@link GetRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecoveryPointCommandOutput> {
     return deserializeAws_json1_1GetRecoveryPointCommand(output, context);
   }

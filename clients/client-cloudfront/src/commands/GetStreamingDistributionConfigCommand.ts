@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamingDistributionConfigCommand}.
  */
 export interface GetStreamingDistributionConfigCommandInput extends GetStreamingDistributionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamingDistributionConfigCommand}.
  */
 export interface GetStreamingDistributionConfigCommandOutput
@@ -37,6 +41,7 @@ export interface GetStreamingDistributionConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the configuration information about a streaming distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetStreamingDistributionConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamingDistributionConfigCommandInput - {@link GetStreamingDistributionConfigCommandInput}
+ * @returns {@link GetStreamingDistributionConfigCommandOutput}
  * @see {@link GetStreamingDistributionConfigCommandInput} for command's `input` shape.
  * @see {@link GetStreamingDistributionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetStreamingDistributionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamingDistributionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class GetStreamingDistributionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetStreamingDistributionConfigCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class GetStreamingDistributionConfigCommand extends $Command<
     return serializeAws_restXmlGetStreamingDistributionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

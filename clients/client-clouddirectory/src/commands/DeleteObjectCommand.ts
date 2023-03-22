@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteObjectCommand}.
  */
 export interface DeleteObjectCommandInput extends DeleteObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteObjectCommand}.
  */
 export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an object and its associated attributes. Only objects with no children and no
  *       parents can be deleted. The maximum number of attributes that can be deleted during an object deletion is 30. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon Cloud Directory Limits</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
+ * @returns {@link DeleteObjectCommandOutput}
  * @see {@link DeleteObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectCommandOutput> {
     return deserializeAws_restJson1DeleteObjectCommand(output, context);
   }

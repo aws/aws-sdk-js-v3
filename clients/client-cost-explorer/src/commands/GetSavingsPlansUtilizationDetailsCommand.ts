@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSavingsPlansUtilizationDetailsCommand}.
  */
 export interface GetSavingsPlansUtilizationDetailsCommandInput extends GetSavingsPlansUtilizationDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSavingsPlansUtilizationDetailsCommand}.
  */
 export interface GetSavingsPlansUtilizationDetailsCommandOutput
@@ -37,6 +41,7 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves attribute data along with aggregate utilization and savings data for a given
  *       time period. This doesn't support granular or grouped data (daily/monthly) in response. You
  *       can't retrieve data by dates in a single response similar to
@@ -59,6 +64,8 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSavingsPlansUtilizationDetailsCommandInput - {@link GetSavingsPlansUtilizationDetailsCommandInput}
+ * @returns {@link GetSavingsPlansUtilizationDetailsCommandOutput}
  * @see {@link GetSavingsPlansUtilizationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetSavingsPlansUtilizationDetailsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSavingsPlansUtilizationDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSavingsPlansUtilizationDetailsCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     return serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

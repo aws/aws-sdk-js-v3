@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectRetentionCommand}.
  */
 export interface PutObjectRetentionCommandInput extends PutObjectRetentionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectRetentionCommand}.
  */
 export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
  *           Users or accounts require the <code>s3:PutObjectRetention</code> permission in order to place
  *           an Object Retention configuration on objects. Bypassing a Governance Retention configuration
@@ -52,6 +57,8 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectRetentionCommandInput - {@link PutObjectRetentionCommandInput}
+ * @returns {@link PutObjectRetentionCommandOutput}
  * @see {@link PutObjectRetentionCommandInput} for command's `input` shape.
  * @see {@link PutObjectRetentionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -81,6 +88,9 @@ export class PutObjectRetentionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectRetentionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class PutObjectRetentionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectRetentionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectRetentionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectRetentionCommandOutput> {
     return deserializeAws_restXmlPutObjectRetentionCommand(output, context);
   }

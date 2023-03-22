@@ -196,6 +196,7 @@ import {
 import { RedshiftServerlessClient } from "./RedshiftServerlessClient";
 
 /**
+ * @public
  * <p>This is an interface reference for Amazon Redshift Serverless.
  *            It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift Serverless.
  *         </p>
@@ -211,6 +212,7 @@ import { RedshiftServerlessClient } from "./RedshiftServerlessClient";
  */
 export class RedshiftServerless extends RedshiftServerlessClient {
   /**
+   * @public
    * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots,
    *          see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">Working with snapshots and recovery points</a>.</p>
    */
@@ -244,6 +246,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Redshift Serverless managed VPC endpoint.</p>
    */
   public createEndpointAccess(
@@ -276,6 +279,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates a namespace in Amazon Redshift Serverless.</p>
    */
   public createNamespace(
@@ -308,6 +312,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of all databases in a namespace.
    *          For more information about snapshots, see
    *          <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">
@@ -343,6 +348,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates a usage limit for a specified Amazon Redshift Serverless usage type. The usage limit is identified by the returned usage limit identifier.
    *       </p>
    */
@@ -376,6 +382,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates an workgroup in Amazon Redshift Serverless.</p>
    */
   public createWorkgroup(
@@ -408,6 +415,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Redshift Serverless managed VPC endpoint.</p>
    */
   public deleteEndpointAccess(
@@ -440,6 +448,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a namespace from Amazon Redshift Serverless.
    *          Before you delete the namespace, you can create a final snapshot that has all of the data within the namespace.</p>
    */
@@ -473,6 +482,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified resource policy.</p>
    */
   public deleteResourcePolicy(
@@ -505,6 +515,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a snapshot from Amazon Redshift Serverless.</p>
    */
   public deleteSnapshot(
@@ -537,6 +548,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a usage limit from Amazon Redshift Serverless.</p>
    */
   public deleteUsageLimit(
@@ -569,6 +581,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a workgroup.</p>
    */
   public deleteWorkgroup(
@@ -601,6 +614,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns a database user name and temporary password with
    *          temporary authorization to log in to Amazon Redshift Serverless.</p>
    *          <p>By default, the temporary credentials expire in 900 seconds.
@@ -643,6 +657,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information, such as the name, about a VPC endpoint.</p>
    */
   public getEndpointAccess(
@@ -675,6 +690,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a namespace in Amazon Redshift Serverless.</p>
    */
   public getNamespace(
@@ -704,6 +720,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a recovery point.</p>
    */
   public getRecoveryPoint(
@@ -736,6 +753,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns a resource policy.</p>
    */
   public getResourcePolicy(
@@ -768,6 +786,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific snapshot.</p>
    */
   public getSnapshot(args: GetSnapshotCommandInput, options?: __HttpHandlerOptions): Promise<GetSnapshotCommandOutput>;
@@ -794,6 +813,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a <code>TableRestoreStatus</code> object.</p>
    */
   public getTableRestoreStatus(
@@ -826,6 +846,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a usage limit.</p>
    */
   public getUsageLimit(
@@ -858,6 +879,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific workgroup.</p>
    */
   public getWorkgroup(
@@ -887,6 +909,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>EndpointAccess</code> objects and relevant information.</p>
    */
   public listEndpointAccess(
@@ -919,6 +942,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a list of specified namespaces.</p>
    */
   public listNamespaces(
@@ -951,6 +975,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of recovery points.</p>
    */
   public listRecoveryPoints(
@@ -983,6 +1008,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of snapshots.</p>
    */
   public listSnapshots(
@@ -1015,6 +1041,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an array of <code>TableRestoreStatus</code> objects.</p>
    */
   public listTableRestoreStatus(
@@ -1047,6 +1074,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags assigned to a resource.</p>
    */
   public listTagsForResource(
@@ -1079,6 +1107,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Lists all usage limits within Amazon Redshift Serverless.</p>
    */
   public listUsageLimits(
@@ -1111,6 +1140,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a list of specified workgroups.</p>
    */
   public listWorkgroups(
@@ -1143,6 +1173,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a resource policy. Currently, you can use policies to share snapshots across Amazon Web Services accounts.</p>
    */
   public putResourcePolicy(
@@ -1175,6 +1206,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Restore the data from a recovery point.</p>
    */
   public restoreFromRecoveryPoint(
@@ -1207,6 +1239,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Restores a namespace from a snapshot.</p>
    */
   public restoreFromSnapshot(
@@ -1239,6 +1272,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to
    *          restore tables with <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
    */
@@ -1272,6 +1306,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1298,6 +1333,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag or set of tags from a resource.</p>
    */
   public untagResource(
@@ -1330,6 +1366,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates an Amazon Redshift Serverless managed endpoint.</p>
    */
   public updateEndpointAccess(
@@ -1362,6 +1399,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example,
    *       you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code>
    *       and <code>logExports</code> in a single request.</p>
@@ -1396,6 +1434,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates a snapshot.</p>
    */
   public updateSnapshot(
@@ -1428,6 +1467,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Update a usage limit in Amazon Redshift Serverless. You can't update the usage type or period of a usage limit.</p>
    */
   public updateUsageLimit(
@@ -1460,6 +1500,7 @@ export class RedshiftServerless extends RedshiftServerlessClient {
   }
 
   /**
+   * @public
    * <p>Updates a workgroup with the specified configuration settings. You can't update multiple parameters in one request. For example,
    *       you can update <code>baseCapacity</code> or <code>port</code> in a single request, but you can't update both in the same request.</p>
    */

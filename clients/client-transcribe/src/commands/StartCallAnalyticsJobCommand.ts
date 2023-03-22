@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartCallAnalyticsJobCommand}.
  */
 export interface StartCallAnalyticsJobCommandInput extends StartCallAnalyticsJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCallAnalyticsJobCommand}.
  */
 export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transcribes the audio from a customer service call and applies any additional Request
  *             Parameters you choose to include in your request.</p>
  *          <p>In addition to many standard transcription features, Call Analytics provides you with
@@ -96,6 +101,8 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCallAnalyticsJobCommandInput - {@link StartCallAnalyticsJobCommandInput}
+ * @returns {@link StartCallAnalyticsJobCommandOutput}
  * @see {@link StartCallAnalyticsJobCommandInput} for command's `input` shape.
  * @see {@link StartCallAnalyticsJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -137,6 +144,9 @@ export class StartCallAnalyticsJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCallAnalyticsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class StartCallAnalyticsJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCallAnalyticsJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartCallAnalyticsJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCallAnalyticsJobCommandOutput> {
     return deserializeAws_json1_1StartCallAnalyticsJobCommand(output, context);
   }

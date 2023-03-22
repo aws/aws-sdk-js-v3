@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPhoneNumberOrdersCommand}.
  */
 export interface ListPhoneNumberOrdersCommandInput extends ListPhoneNumberOrdersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPhoneNumberOrdersCommand}.
  */
 export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrdersResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class ListPhoneNumberOrdersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPhoneNumberOrdersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class ListPhoneNumberOrdersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPhoneNumberOrdersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPhoneNumberOrdersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPhoneNumberOrdersCommandOutput> {
     return deserializeAws_restJson1ListPhoneNumberOrdersCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SwapEnvironmentCNAMEsCommand}.
  */
 export interface SwapEnvironmentCNAMEsCommandInput extends SwapEnvironmentCNAMEsMessage {}
 /**
+ * @public
+ *
  * The output of {@link SwapEnvironmentCNAMEsCommand}.
  */
 export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Swaps the CNAMEs of two environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SwapEnvironmentCNAMEsCommandInput - {@link SwapEnvironmentCNAMEsCommandInput}
+ * @returns {@link SwapEnvironmentCNAMEsCommandOutput}
  * @see {@link SwapEnvironmentCNAMEsCommandInput} for command's `input` shape.
  * @see {@link SwapEnvironmentCNAMEsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -76,6 +83,9 @@ export class SwapEnvironmentCNAMEsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SwapEnvironmentCNAMEsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class SwapEnvironmentCNAMEsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SwapEnvironmentCNAMEsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySwapEnvironmentCNAMEsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SwapEnvironmentCNAMEsCommandOutput> {
     return deserializeAws_querySwapEnvironmentCNAMEsCommand(output, context);
   }

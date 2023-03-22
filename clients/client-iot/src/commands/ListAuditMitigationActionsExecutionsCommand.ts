@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAuditMitigationActionsExecutionsCommand}.
  */
 export interface ListAuditMitigationActionsExecutionsCommandInput extends ListAuditMitigationActionsExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAuditMitigationActionsExecutionsCommand}.
  */
 export interface ListAuditMitigationActionsExecutionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of audit mitigation action tasks that were
  *       executed.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsExecutions</a> action.</p>
@@ -50,6 +55,8 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAuditMitigationActionsExecutionsCommandInput - {@link ListAuditMitigationActionsExecutionsCommandInput}
+ * @returns {@link ListAuditMitigationActionsExecutionsCommandOutput}
  * @see {@link ListAuditMitigationActionsExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListAuditMitigationActionsExecutionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListAuditMitigationActionsExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAuditMitigationActionsExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class ListAuditMitigationActionsExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAuditMitigationActionsExecutionsCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class ListAuditMitigationActionsExecutionsCommand extends $Command<
     return serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

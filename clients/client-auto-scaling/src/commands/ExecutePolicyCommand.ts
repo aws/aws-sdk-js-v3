@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ExecutePolicyCommand}.
  */
 export interface ExecutePolicyCommandInput extends ExecutePolicyType {}
 /**
+ * @public
+ *
  * The output of {@link ExecutePolicyCommand}.
  */
 export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Executes the specified policy. This can be useful for testing the design of your
  *             scaling policy.</p>
  * @example
@@ -42,6 +47,8 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecutePolicyCommandInput - {@link ExecutePolicyCommandInput}
+ * @returns {@link ExecutePolicyCommandOutput}
  * @see {@link ExecutePolicyCommandInput} for command's `input` shape.
  * @see {@link ExecutePolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -87,6 +94,9 @@ export class ExecutePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecutePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ExecutePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecutePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryExecutePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecutePolicyCommandOutput> {
     return deserializeAws_queryExecutePolicyCommand(output, context);
   }

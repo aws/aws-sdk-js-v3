@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFileSystemPolicyCommand}.
  */
 export interface PutFileSystemPolicyCommandInput extends PutFileSystemPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutFileSystemPolicyCommand}.
  */
 export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies an Amazon EFS <code>FileSystemPolicy</code> to an Amazon EFS file system.
  *       A file system policy is an IAM resource-based policy and can contain multiple policy statements.
  *       A file system always has exactly one file system policy, which can be the default policy or
@@ -57,6 +62,8 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFileSystemPolicyCommandInput - {@link PutFileSystemPolicyCommandInput}
+ * @returns {@link PutFileSystemPolicyCommandOutput}
  * @see {@link PutFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link PutFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -99,6 +106,9 @@ export class PutFileSystemPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFileSystemPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class PutFileSystemPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFileSystemPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutFileSystemPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFileSystemPolicyCommandOutput> {
     return deserializeAws_restJson1PutFileSystemPolicyCommand(output, context);
   }

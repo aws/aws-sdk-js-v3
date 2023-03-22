@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkerBlockCommand}.
  */
 export interface DeleteWorkerBlockCommandInput extends DeleteWorkerBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkerBlockCommand}.
  */
 export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>DeleteWorkerBlock</code> operation allows you to reinstate a blocked Worker to work on your HITs. This operation reverses the effects of the CreateWorkerBlock operation. You need the Worker ID to use this operation. If the Worker ID is missing or invalid, this operation fails and returns the message “WorkerId is invalid.” If the specified Worker is not blocked, this operation returns successfully.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkerBlockCommandInput - {@link DeleteWorkerBlockCommandInput}
+ * @returns {@link DeleteWorkerBlockCommandOutput}
  * @see {@link DeleteWorkerBlockCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkerBlockCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteWorkerBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkerBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteWorkerBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkerBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWorkerBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkerBlockCommandOutput> {
     return deserializeAws_json1_1DeleteWorkerBlockCommand(output, context);
   }

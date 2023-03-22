@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotebookExecutionsCommand}.
  */
 export interface ListNotebookExecutionsCommandInput extends ListNotebookExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNotebookExecutionsCommand}.
  */
 export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecutionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides summaries of all notebook executions. You can filter the list based on multiple
  *          criteria such as status, time range, and editor id. Returns a maximum of 50 notebook
  *          executions and a marker to track the paging of a longer notebook execution list across
@@ -49,6 +54,8 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookExecutionsCommandInput - {@link ListNotebookExecutionsCommandInput}
+ * @returns {@link ListNotebookExecutionsCommandOutput}
  * @see {@link ListNotebookExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListNotebookExecutionsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListNotebookExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListNotebookExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotebookExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListNotebookExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookExecutionsCommandOutput> {
     return deserializeAws_json1_1ListNotebookExecutionsCommand(output, context);
   }

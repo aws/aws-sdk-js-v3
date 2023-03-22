@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CountClosedWorkflowExecutionsCommand}.
  */
 export interface CountClosedWorkflowExecutionsCommandInput extends CountClosedWorkflowExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link CountClosedWorkflowExecutionsCommand}.
  */
 export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExecutionCount, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of closed workflow executions within the given domain that meet the
  *       specified filtering criteria.</p>
  *          <note>
@@ -92,6 +97,8 @@ export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExec
  * const response = await client.send(command);
  * ```
  *
+ * @param CountClosedWorkflowExecutionsCommandInput - {@link CountClosedWorkflowExecutionsCommandInput}
+ * @returns {@link CountClosedWorkflowExecutionsCommandOutput}
  * @see {@link CountClosedWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link CountClosedWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -121,6 +128,9 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CountClosedWorkflowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CountClosedWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CountClosedWorkflowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

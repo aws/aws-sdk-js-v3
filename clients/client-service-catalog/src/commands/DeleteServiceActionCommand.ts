@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceActionCommand}.
  */
 export interface DeleteServiceActionCommandInput extends DeleteServiceActionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceActionCommand}.
  */
 export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a self-service action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceActionCommandInput - {@link DeleteServiceActionCommandInput}
+ * @returns {@link DeleteServiceActionCommandOutput}
  * @see {@link DeleteServiceActionCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteServiceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteServiceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteServiceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceActionCommandOutput> {
     return deserializeAws_json1_1DeleteServiceActionCommand(output, context);
   }

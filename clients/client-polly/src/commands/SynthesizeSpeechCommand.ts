@@ -29,10 +29,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SynthesizeSpeechCommand}.
  */
 export interface SynthesizeSpeechCommandInput extends SynthesizeSpeechInput {}
 /**
+ * @public
+ *
  * The output of {@link SynthesizeSpeechCommand}.
  */
 export interface SynthesizeSpeechCommandOutput
@@ -40,6 +44,7 @@ export interface SynthesizeSpeechCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
  *       SSML input must be valid, well-formed SSML. Some alphabets might not be
  *       available with all the voices (for example, Cyrillic might not be read at
@@ -55,6 +60,8 @@ export interface SynthesizeSpeechCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SynthesizeSpeechCommandInput - {@link SynthesizeSpeechCommandInput}
+ * @returns {@link SynthesizeSpeechCommandOutput}
  * @see {@link SynthesizeSpeechCommandInput} for command's `input` shape.
  * @see {@link SynthesizeSpeechCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -147,6 +154,9 @@ export class SynthesizeSpeechCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SynthesizeSpeechCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class SynthesizeSpeechCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SynthesizeSpeechCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SynthesizeSpeechCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

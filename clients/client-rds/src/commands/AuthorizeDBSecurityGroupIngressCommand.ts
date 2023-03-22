@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeDBSecurityGroupIngressCommand}.
  */
 export interface AuthorizeDBSecurityGroupIngressCommandInput extends AuthorizeDBSecurityGroupIngressMessage {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeDBSecurityGroupIngressCommand}.
  */
 export interface AuthorizeDBSecurityGroupIngressCommandOutput
@@ -37,6 +41,7 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
  *           groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC
  *           instances. Second, IP ranges are available if the application accessing your database is running on the internet.
@@ -63,6 +68,8 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeDBSecurityGroupIngressCommandInput - {@link AuthorizeDBSecurityGroupIngressCommandInput}
+ * @returns {@link AuthorizeDBSecurityGroupIngressCommandOutput}
  * @see {@link AuthorizeDBSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -117,6 +124,9 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeDBSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,6 +166,9 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AuthorizeDBSecurityGroupIngressCommandInput,
     context: __SerdeContext
@@ -163,6 +176,9 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     return serializeAws_queryAuthorizeDBSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

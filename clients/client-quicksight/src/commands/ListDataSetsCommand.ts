@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataSetsCommand}.
  */
 export interface ListDataSetsCommandInput extends ListDataSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataSetsCommand}.
  */
 export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the datasets belonging to the current Amazon Web Services account in an Amazon Web Services Region.</p>
  *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSetsCommandInput - {@link ListDataSetsCommandInput}
+ * @returns {@link ListDataSetsCommandOutput}
  * @see {@link ListDataSetsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListDataSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListDataSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDataSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetsCommandOutput> {
     return deserializeAws_restJson1ListDataSetsCommand(output, context);
   }

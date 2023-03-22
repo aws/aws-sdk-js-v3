@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePoliciesCommand}.
  */
 export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePoliciesCommand}.
  */
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource policies for the specified resources that you own and have
  *             shared.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
+ * @returns {@link GetResourcePoliciesCommandOutput}
  * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetResourcePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetResourcePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourcePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePoliciesCommandOutput> {
     return deserializeAws_restJson1GetResourcePoliciesCommand(output, context);
   }

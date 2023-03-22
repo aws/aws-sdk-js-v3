@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolversByFunctionCommand}.
  */
 export interface ListResolversByFunctionCommandInput extends ListResolversByFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolversByFunctionCommand}.
  */
 export interface ListResolversByFunctionCommandOutput extends ListResolversByFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the resolvers that are associated with a specific function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResolversByFunctionCommandOutput extends ListResolversByFun
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolversByFunctionCommandInput - {@link ListResolversByFunctionCommandInput}
+ * @returns {@link ListResolversByFunctionCommandOutput}
  * @see {@link ListResolversByFunctionCommandInput} for command's `input` shape.
  * @see {@link ListResolversByFunctionCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListResolversByFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolversByFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListResolversByFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolversByFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListResolversByFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResolversByFunctionCommandOutput> {
     return deserializeAws_restJson1ListResolversByFunctionCommand(output, context);
   }

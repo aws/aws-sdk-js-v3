@@ -61,6 +61,7 @@ import { UpdateRoomCommand, UpdateRoomCommandInput, UpdateRoomCommandOutput } fr
 import { IvschatClient } from "./IvschatClient";
 
 /**
+ * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -283,6 +284,7 @@ import { IvschatClient } from "./IvschatClient";
  */
 export class Ivschat extends IvschatClient {
   /**
+   * @public
    * <p>Creates an encrypted token that is used by a chat participant to establish an individual
    *          WebSocket chat connection to a room. When the token is used to connect to chat, the
    *          connection is valid for the session duration specified in the request. The token becomes
@@ -326,6 +328,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Creates a logging configuration that allows clients to store and record sent
    *          messages.</p>
    */
@@ -359,6 +362,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Creates a room that allows clients to connect and pass messages.</p>
    */
   public createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
@@ -385,6 +389,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified logging configuration.</p>
    */
   public deleteLoggingConfiguration(
@@ -417,6 +422,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Sends an event to a specific room which directs clients to delete a specific message;
    *          that is, unrender it from view and delete it from the client’s chat history. This event’s
    *             <code>EventName</code> is <code>aws:DELETE_MESSAGE</code>. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html">
@@ -452,6 +458,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified room.</p>
    */
   public deleteRoom(args: DeleteRoomCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoomCommandOutput>;
@@ -478,6 +485,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Disconnects all connections using a specified user ID from a room. This replicates the
    *             <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html">
    *             DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
@@ -512,6 +520,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Gets the specified logging configuration.</p>
    */
   public getLoggingConfiguration(
@@ -544,6 +553,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Gets the specified room.</p>
    */
   public getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
@@ -570,6 +580,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Gets summary information about all your logging configurations in the AWS region where
    *          the API request is processed.</p>
    */
@@ -603,6 +614,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Gets summary information about all your rooms in the AWS region where the API request is
    *          processed. Results are sorted in descending order of <code>updateTime</code>.</p>
    */
@@ -630,6 +642,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Gets information about AWS tags for the specified ARN.</p>
    */
   public listTagsForResource(
@@ -662,6 +675,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Sends an event to a room. Use this within your application’s business logic to send
    *          events to clients of a room; e.g., to notify clients to change the way the chat UI is
    *          rendered.</p>
@@ -690,6 +704,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates tags for the AWS resource with the specified ARN.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -716,6 +731,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from the resource with the specified ARN.</p>
    */
   public untagResource(
@@ -748,6 +764,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Updates a specified logging configuration.</p>
    */
   public updateLoggingConfiguration(
@@ -780,6 +797,7 @@ export class Ivschat extends IvschatClient {
   }
 
   /**
+   * @public
    * <p>Updates a room’s configuration.</p>
    */
   public updateRoom(args: UpdateRoomCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoomCommandOutput>;

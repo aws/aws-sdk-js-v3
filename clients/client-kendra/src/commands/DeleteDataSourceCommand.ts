@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataSourceCommand}.
  */
 export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataSourceCommand}.
  */
 export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the
  *       data source is already being deleted. While the data source is being deleted, the
  *         <code>Status</code> field returned by a call to the <code>DescribeDataSource</code> API is
@@ -44,6 +49,8 @@ export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataSourceCommandInput - {@link DeleteDataSourceCommandInput}
+ * @returns {@link DeleteDataSourceCommandOutput}
  * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSourceCommandOutput> {
     return deserializeAws_json1_1DeleteDataSourceCommand(output, context);
   }

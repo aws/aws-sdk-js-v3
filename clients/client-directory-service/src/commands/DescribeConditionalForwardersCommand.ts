@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConditionalForwardersCommand}.
  */
 export interface DescribeConditionalForwardersCommandInput extends DescribeConditionalForwardersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConditionalForwardersCommand}.
  */
 export interface DescribeConditionalForwardersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeConditionalForwardersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains information about the conditional forwarders for this account.</p>
  *          <p>If no input parameters are provided for RemoteDomainNames, this request describes all
  *       conditional forwarders for the specified directory ID.</p>
@@ -50,6 +55,8 @@ export interface DescribeConditionalForwardersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConditionalForwardersCommandInput - {@link DescribeConditionalForwardersCommandInput}
+ * @returns {@link DescribeConditionalForwardersCommandOutput}
  * @see {@link DescribeConditionalForwardersCommandInput} for command's `input` shape.
  * @see {@link DescribeConditionalForwardersCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeConditionalForwardersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConditionalForwardersCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeConditionalForwardersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConditionalForwardersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConditionalForwardersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

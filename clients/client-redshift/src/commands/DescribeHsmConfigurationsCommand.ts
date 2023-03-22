@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHsmConfigurationsCommand}.
  */
 export interface DescribeHsmConfigurationsCommandInput extends DescribeHsmConfigurationsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHsmConfigurationsCommand}.
  */
 export interface DescribeHsmConfigurationsCommandOutput extends HsmConfigurationMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified Amazon Redshift HSM configuration. If no
  *             configuration ID is specified, returns information about all the HSM configurations
  *             owned by your Amazon Web Services account.</p>
@@ -56,6 +61,8 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHsmConfigurationsCommandInput - {@link DescribeHsmConfigurationsCommandInput}
+ * @returns {@link DescribeHsmConfigurationsCommandOutput}
  * @see {@link DescribeHsmConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeHsmConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeHsmConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHsmConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeHsmConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHsmConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeHsmConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

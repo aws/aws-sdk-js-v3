@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatasetCommand}.
  */
 export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatasetCommand}.
  */
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the given dataset. For more information on datasets, see
  *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
+ * @returns {@link DescribeDatasetCommandOutput}
  * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetCommandOutput> {
     return deserializeAws_json1_1DescribeDatasetCommand(output, context);
   }

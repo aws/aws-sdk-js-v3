@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallPolicyCommand}.
  */
 export interface UpdateFirewallPolicyCommandInput extends UpdateFirewallPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallPolicyCommand}.
  */
 export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of the specified firewall policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallPolicyCommandInput - {@link UpdateFirewallPolicyCommandInput}
+ * @returns {@link UpdateFirewallPolicyCommandOutput}
  * @see {@link UpdateFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateFirewallPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateFirewallPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFirewallPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateFirewallPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFirewallPolicyCommandOutput> {
     return deserializeAws_json1_0UpdateFirewallPolicyCommand(output, context);
   }

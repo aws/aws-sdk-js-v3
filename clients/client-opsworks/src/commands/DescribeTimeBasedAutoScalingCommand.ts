@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTimeBasedAutoScalingCommand}.
  */
 export interface DescribeTimeBasedAutoScalingCommandInput extends DescribeTimeBasedAutoScalingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTimeBasedAutoScalingCommand}.
  */
 export interface DescribeTimeBasedAutoScalingCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes time-based auto scaling configurations for specified instances.</p>
  *          <note>
  *             <p>You must specify at least one of the parameters.</p>
@@ -56,6 +61,8 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTimeBasedAutoScalingCommandInput - {@link DescribeTimeBasedAutoScalingCommandInput}
+ * @returns {@link DescribeTimeBasedAutoScalingCommandOutput}
  * @see {@link DescribeTimeBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link DescribeTimeBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeTimeBasedAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTimeBasedAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeTimeBasedAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTimeBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTimeBasedAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CloneBackendCommand}.
  */
 export interface CloneBackendCommandInput extends CloneBackendRequest {}
 /**
+ * @public
+ *
  * The output of {@link CloneBackendCommand}.
  */
 export interface CloneBackendCommandOutput extends CloneBackendResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation clones an existing backend.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CloneBackendCommandInput - {@link CloneBackendCommandInput}
+ * @returns {@link CloneBackendCommandOutput}
  * @see {@link CloneBackendCommandInput} for command's `input` shape.
  * @see {@link CloneBackendCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class CloneBackendCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloneBackendCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CloneBackendCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloneBackendCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CloneBackendCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloneBackendCommandOutput> {
     return deserializeAws_restJson1CloneBackendCommand(output, context);
   }

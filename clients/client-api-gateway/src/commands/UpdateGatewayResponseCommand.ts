@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayResponseCommand}.
  */
 export interface UpdateGatewayResponseCommandInput extends UpdateGatewayResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayResponseCommand}.
  */
 export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a GatewayResponse of a specified response type on the given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayResponseCommandInput - {@link UpdateGatewayResponseCommandInput}
+ * @returns {@link UpdateGatewayResponseCommandOutput}
  * @see {@link UpdateGatewayResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateGatewayResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateGatewayResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGatewayResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayResponseCommandOutput> {
     return deserializeAws_restJson1UpdateGatewayResponseCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceProfilesCommand}.
  */
 export interface ListInstanceProfilesCommandInput extends ListInstanceProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceProfilesCommand}.
  */
 export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the instance profiles that have the specified path prefix. If there are none,
  *             the operation returns an empty list. For more information about instance profiles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
@@ -55,6 +60,8 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceProfilesCommandInput - {@link ListInstanceProfilesCommandInput}
+ * @returns {@link ListInstanceProfilesCommandOutput}
  * @see {@link ListInstanceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfilesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListInstanceProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListInstanceProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListInstanceProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceProfilesCommandOutput> {
     return deserializeAws_queryListInstanceProfilesCommand(output, context);
   }

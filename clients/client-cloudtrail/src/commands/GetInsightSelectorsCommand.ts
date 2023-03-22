@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightSelectorsCommand}.
  */
 export interface GetInsightSelectorsCommandInput extends GetInsightSelectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightSelectorsCommand}.
  */
 export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the settings for the Insights event selectors that you configured for your
  *          trail. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
  *          is enabled on the trail, and if it is, which insight types are enabled. If you run
@@ -52,6 +57,8 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightSelectorsCommandInput - {@link GetInsightSelectorsCommandInput}
+ * @returns {@link GetInsightSelectorsCommandOutput}
  * @see {@link GetInsightSelectorsCommandInput} for command's `input` shape.
  * @see {@link GetInsightSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -130,6 +137,9 @@ export class GetInsightSelectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class GetInsightSelectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInsightSelectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightSelectorsCommandOutput> {
     return deserializeAws_json1_1GetInsightSelectorsCommand(output, context);
   }

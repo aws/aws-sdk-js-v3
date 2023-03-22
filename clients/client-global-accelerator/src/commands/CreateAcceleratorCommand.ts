@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAcceleratorCommand}.
  */
 export interface CreateAcceleratorCommandInput extends CreateAcceleratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAcceleratorCommand}.
  */
 export interface CreateAcceleratorCommandOutput extends CreateAcceleratorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
  * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. </p>
  * 		       <important>
@@ -56,6 +61,8 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAcceleratorCommandInput - {@link CreateAcceleratorCommandInput}
+ * @returns {@link CreateAcceleratorCommandOutput}
  * @see {@link CreateAcceleratorCommandInput} for command's `input` shape.
  * @see {@link CreateAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAcceleratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAcceleratorCommandOutput> {
     return deserializeAws_json1_1CreateAcceleratorCommand(output, context);
   }

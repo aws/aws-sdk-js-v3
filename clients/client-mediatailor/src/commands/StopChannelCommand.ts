@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopChannelCommand}.
  */
 export interface StopChannelCommandInput extends StopChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopChannelCommand}.
  */
 export interface StopChannelCommandOutput extends StopChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StopChannelCommandInput - {@link StopChannelCommandInput}
+ * @returns {@link StopChannelCommandOutput}
  * @see {@link StopChannelCommandInput} for command's `input` shape.
  * @see {@link StopChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class StopChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class StopChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopChannelCommandOutput> {
     return deserializeAws_restJson1StopChannelCommand(output, context);
   }

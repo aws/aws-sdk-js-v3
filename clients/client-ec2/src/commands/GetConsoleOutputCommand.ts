@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetConsoleOutputCommand}.
  */
 export interface GetConsoleOutputCommandInput extends GetConsoleOutputRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConsoleOutputCommand}.
  */
 export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the console output for the specified instance. For Linux instances, the instance
  *             console output displays the exact console output that would normally be displayed on a
  *             physical monitor attached to a computer. For Windows instances, the instance console
@@ -58,6 +63,8 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConsoleOutputCommandInput - {@link GetConsoleOutputCommandInput}
+ * @returns {@link GetConsoleOutputCommandOutput}
  * @see {@link GetConsoleOutputCommandInput} for command's `input` shape.
  * @see {@link GetConsoleOutputCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -99,6 +106,9 @@ export class GetConsoleOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConsoleOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetConsoleOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConsoleOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetConsoleOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConsoleOutputCommandOutput> {
     return deserializeAws_ec2GetConsoleOutputCommand(output, context);
   }

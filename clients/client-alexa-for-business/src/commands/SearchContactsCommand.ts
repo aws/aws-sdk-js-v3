@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchContactsCommand}.
  */
 export interface SearchContactsCommandInput extends SearchContactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchContactsCommand}.
  */
 export interface SearchContactsCommandOutput extends SearchContactsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches contacts and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchContactsCommandInput - {@link SearchContactsCommandInput}
+ * @returns {@link SearchContactsCommandOutput}
  * @see {@link SearchContactsCommandInput} for command's `input` shape.
  * @see {@link SearchContactsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -70,6 +77,9 @@ export class SearchContactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchContactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class SearchContactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchContactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchContactsCommandOutput> {
     return deserializeAws_json1_1SearchContactsCommand(output, context);
   }

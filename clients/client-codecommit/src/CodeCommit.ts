@@ -353,6 +353,7 @@ import {
 } from "./commands/UpdateRepositoryNameCommand";
 
 /**
+ * @public
  * <fullname>AWS CodeCommit</fullname>
  *         <p>This is the <i>AWS CodeCommit API Reference</i>. This reference provides descriptions of the operations and data types for
  *             AWS CodeCommit API along with usage examples.</p>
@@ -753,6 +754,7 @@ import {
  */
 export class CodeCommit extends CodeCommitClient {
   /**
+   * @public
    * <p>Creates an association between an approval rule template and a specified repository.
    *             Then, the next time a pull request is created in the repository where the destination
    *             reference (if specified) matches the destination reference (branch) for the pull
@@ -793,6 +795,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Creates an association between an approval rule template and one or more specified repositories. </p>
    */
   public batchAssociateApprovalRuleTemplateWithRepositories(
@@ -827,6 +830,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about one or more merge conflicts in the attempted merge of two commit specifiers using the squash or three-way merge strategy.</p>
    */
   public batchDescribeMergeConflicts(
@@ -859,6 +863,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Removes the association between an approval rule template and one or more specified repositories. </p>
    */
   public batchDisassociateApprovalRuleTemplateFromRepositories(
@@ -893,6 +898,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the contents of one or more commits in a repository.</p>
    */
   public batchGetCommits(
@@ -925,6 +931,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about one or more repositories.</p>
    *         <note>
    *             <p>The description field for a repository accepts all HTML characters and all valid
@@ -964,6 +971,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Creates a template for approval rules that can then be associated with one or more
    *             repositories in your AWS account. When you associate a template with a repository, AWS
    *             CodeCommit creates an approval rule that matches the conditions of the template for all
@@ -1000,6 +1008,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Creates a branch in a repository and points the branch to a commit.</p>
    *         <note>
    *             <p>Calling the create branch operation does not set a repository's default branch. To do this, call the update default branch operation.</p>
@@ -1032,6 +1041,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Creates a commit for a repository on the tip of a specified branch.</p>
    */
   public createCommit(
@@ -1061,6 +1071,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Creates a pull request in the specified repository.</p>
    */
   public createPullRequest(
@@ -1093,6 +1104,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Creates an approval rule for a pull request.</p>
    */
   public createPullRequestApprovalRule(
@@ -1125,6 +1137,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Creates a new, empty repository.</p>
    */
   public createRepository(
@@ -1157,6 +1170,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Creates an unreferenced commit that represents the result of merging two branches
    *             using a specified merge strategy. This can help you determine the outcome of a potential
    *             merge. This API cannot be used with the fast-forward merge strategy because that
@@ -1196,6 +1210,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified approval rule template. Deleting a template does not remove approval rules on pull requests already created with the template.</p>
    */
   public deleteApprovalRuleTemplate(
@@ -1228,6 +1243,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Deletes a branch from a repository, unless that branch is the default branch for the repository. </p>
    */
   public deleteBranch(
@@ -1257,6 +1273,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Deletes the content of a comment made on a change, file, or commit in a repository.</p>
    */
   public deleteCommentContent(
@@ -1289,6 +1306,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified file from a specified branch. A commit is created on the branch
    *             that contains the revision. The file still exists in the commits earlier to the commit
    *             that contains the deletion.</p>
@@ -1317,6 +1335,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Deletes an approval rule from a specified pull request. Approval rules can be deleted from a pull request only if the pull request is open, and if the
    *             approval rule was created specifically for a pull request and not generated from an approval rule template associated with the repository where the
    *             pull request was created. You cannot delete an approval rule from a merged or closed pull request.</p>
@@ -1351,6 +1370,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Deletes a repository. If a specified repository was already deleted, a null repository
    *             ID is returned.</p>
    *         <important>
@@ -1388,6 +1408,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about one or more merge conflicts in the attempted merge of two
    *             commit specifiers using the squash or three-way merge strategy. If the merge option for
    *             the attempted merge is specified as FAST_FORWARD_MERGE, an exception is thrown.</p>
@@ -1422,6 +1443,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about one or more pull request events.</p>
    */
   public describePullRequestEvents(
@@ -1454,6 +1476,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Removes the association between a template and a repository so that approval rules
    *             based on the template are not automatically created when pull requests are created in
    *             the specified repository. This does not delete any approval rules previously created for
@@ -1491,6 +1514,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Evaluates whether a pull request has met all the conditions specified in its associated approval rules.</p>
    */
   public evaluatePullRequestApprovalRules(
@@ -1523,6 +1547,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specified approval rule template.</p>
    */
   public getApprovalRuleTemplate(
@@ -1555,6 +1580,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns the base-64 encoded content of an individual blob in a repository.</p>
    */
   public getBlob(args: GetBlobCommandInput, options?: __HttpHandlerOptions): Promise<GetBlobCommandOutput>;
@@ -1581,6 +1607,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a repository branch, including its name and the last commit ID.</p>
    */
   public getBranch(args: GetBranchCommandInput, options?: __HttpHandlerOptions): Promise<GetBranchCommandOutput>;
@@ -1607,6 +1634,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns the content of a comment made on a change, file, or commit in a repository. </p>
    *             <note>
    *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -1637,6 +1665,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about reactions to a specified comment ID. Reactions from users who have been deleted will not be included in the count.</p>
    */
   public getCommentReactions(
@@ -1669,6 +1698,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about comments made on the comparison between two commits.</p>
    *         <note>
    *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -1705,6 +1735,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns comments made on a pull request.</p>
    *         <note>
    *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -1741,6 +1772,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a commit, including commit message and committer information.</p>
    */
   public getCommit(args: GetCommitCommandInput, options?: __HttpHandlerOptions): Promise<GetCommitCommandOutput>;
@@ -1767,6 +1799,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the differences in a valid commit specifier (such as a
    *             branch, tag, HEAD, commit ID, or other fully qualified reference). Results can be
    *             limited to a specified path.</p>
@@ -1801,6 +1834,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns the base-64 encoded contents of a specified file and its metadata.</p>
    */
   public getFile(args: GetFileCommandInput, options?: __HttpHandlerOptions): Promise<GetFileCommandOutput>;
@@ -1827,6 +1861,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns the contents of a specified folder in a repository.</p>
    */
   public getFolder(args: GetFolderCommandInput, options?: __HttpHandlerOptions): Promise<GetFolderCommandOutput>;
@@ -1853,6 +1888,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specified merge commit.</p>
    */
   public getMergeCommit(
@@ -1885,6 +1921,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about merge conflicts between the before and after commit IDs for a pull request in a repository.</p>
    */
   public getMergeConflicts(
@@ -1917,6 +1954,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the merge options available for merging two specified
    *             branches. For details about why a merge option is not available, use GetMergeConflicts
    *             or DescribeMergeConflicts.</p>
@@ -1951,6 +1989,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a pull request in a specified repository.</p>
    */
   public getPullRequest(
@@ -1983,6 +2022,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the approval states for a specified pull request. Approval states only apply to pull requests that have one or more
    *         approval rules applied to them.</p>
    */
@@ -2016,6 +2056,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about whether approval rules have been set aside (overridden) for a
    *             pull request, and if so, the Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
    */
@@ -2049,6 +2090,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a repository.</p>
    *
    *         <note>
@@ -2089,6 +2131,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Gets information about triggers configured for a repository.</p>
    */
   public getRepositoryTriggers(
@@ -2121,6 +2164,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Lists all approval rule templates in the specified AWS Region in your AWS account. If
    *             an AWS Region is not specified, the AWS Region where you are signed in is used.</p>
    */
@@ -2154,6 +2198,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Lists all approval rule templates that are associated with a specified repository.</p>
    */
   public listAssociatedApprovalRuleTemplatesForRepository(
@@ -2188,6 +2233,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more branches in a repository.</p>
    */
   public listBranches(
@@ -2217,6 +2263,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of pull requests for a specified repository. The return list can be refined by pull request
    *         status or pull request author ARN.</p>
    */
@@ -2250,6 +2297,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more repositories.</p>
    */
   public listRepositories(
@@ -2282,6 +2330,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Lists all repositories associated with the specified approval rule template.</p>
    */
   public listRepositoriesForApprovalRuleTemplate(
@@ -2316,6 +2365,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Gets information about AWS tags for a specified Amazon Resource Name (ARN) in AWS
    *             CodeCommit. For a list of valid resources in AWS CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a> in the<i> AWS CodeCommit User
    *                 Guide</i>.</p>
@@ -2350,6 +2400,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Merges two branches using the fast-forward merge strategy.</p>
    */
   public mergeBranchesByFastForward(
@@ -2382,6 +2433,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Merges two branches using the squash merge strategy.</p>
    */
   public mergeBranchesBySquash(
@@ -2414,6 +2466,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Merges two specified branches using the three-way merge strategy.</p>
    */
   public mergeBranchesByThreeWay(
@@ -2446,6 +2499,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Attempts to merge the source commit of a pull request into the specified destination
    *             branch for that pull request at the specified commit using the fast-forward merge strategy. If the merge is successful, it closes the pull request.</p>
    */
@@ -2479,6 +2533,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Attempts to merge the source commit of a pull request into the specified destination
    *             branch for that pull request at the specified commit using the squash merge strategy. If the merge is successful, it closes the pull request.</p>
    */
@@ -2512,6 +2567,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Attempts to merge the source commit of a pull request into the specified destination
    *             branch for that pull request at the specified commit using the three-way merge strategy. If the merge is successful, it closes the pull request.</p>
    */
@@ -2545,6 +2601,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Sets aside (overrides) all approval rule requirements for a specified pull request.</p>
    */
   public overridePullRequestApprovalRules(
@@ -2577,6 +2634,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Posts a comment on the comparison between two commits.</p>
    */
   public postCommentForComparedCommit(
@@ -2609,6 +2667,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Posts a comment on a pull request.</p>
    */
   public postCommentForPullRequest(
@@ -2641,6 +2700,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Posts a comment in reply to an existing comment on a comparison between commits or a pull request.</p>
    */
   public postCommentReply(
@@ -2673,6 +2733,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or
    *         update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
    */
@@ -2706,6 +2767,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates a file in a branch in an AWS CodeCommit repository, and generates a commit for the addition in the specified branch.</p>
    */
   public putFile(args: PutFileCommandInput, options?: __HttpHandlerOptions): Promise<PutFileCommandOutput>;
@@ -2732,6 +2794,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Replaces all triggers for a repository. Used to create or delete triggers.</p>
    */
   public putRepositoryTriggers(
@@ -2764,6 +2827,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates tags for a resource in AWS CodeCommit. For a list of valid resources
    *             in AWS CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a> in the <i>AWS CodeCommit User
    *                 Guide</i>.</p>
@@ -2792,6 +2856,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Tests the functionality of repository triggers by sending information to the trigger
    *             target. If real data is available in the repository, the test sends data from the last
    *             commit. If no data is available, sample data is generated.</p>
@@ -2826,6 +2891,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Removes tags for a resource in AWS CodeCommit. For a list of valid resources in AWS
    *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a> in the <i>AWS CodeCommit User
    *                 Guide</i>.</p>
@@ -2860,6 +2926,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Updates the content of an approval rule template. You can change the number of
    *             required approvals, the membership of the approval rule, and whether an approval pool is
    *             defined.</p>
@@ -2894,6 +2961,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Updates the description for a specified approval rule template.</p>
    */
   public updateApprovalRuleTemplateDescription(
@@ -2928,6 +2996,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Updates the name of a specified approval rule template.</p>
    */
   public updateApprovalRuleTemplateName(
@@ -2960,6 +3029,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Replaces the contents of a comment.</p>
    */
   public updateComment(
@@ -2992,6 +3062,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Sets or changes the default branch name for the specified repository.</p>
    *         <note>
    *             <p>If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.</p>
@@ -3027,6 +3098,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and
    *             the approval pool for approvers. </p>
    */
@@ -3060,6 +3132,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Updates the state of a user's approval on a pull request. The user is derived from the signed-in account when the request is made.</p>
    */
   public updatePullRequestApprovalState(
@@ -3092,6 +3165,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Replaces the contents of the description of a pull request.</p>
    */
   public updatePullRequestDescription(
@@ -3124,6 +3198,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Updates the status of a pull request. </p>
    */
   public updatePullRequestStatus(
@@ -3156,6 +3231,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Replaces the title of a pull request.</p>
    */
   public updatePullRequestTitle(
@@ -3188,6 +3264,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Sets or changes the comment or description for a repository.</p>
    *         <note>
    *             <p>The description field for a repository accepts all HTML characters and all valid
@@ -3227,6 +3304,7 @@ export class CodeCommit extends CodeCommitClient {
   }
 
   /**
+   * @public
    * <p>Renames a repository. The repository name must be unique across the calling AWS
    *             account. Repository names are limited to 100 alphanumeric, dash, and underscore
    *             characters, and cannot include certain characters. The suffix .git is prohibited. For

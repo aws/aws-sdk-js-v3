@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSnapshotsCommand}.
  */
 export interface GetSnapshotsCommandInput extends GetSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSnapshotsCommand}.
  */
 export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves search metrics data. The data provides a snapshot of how
  *             your users interact with your search application and how effective
  *             the application is.</p>
@@ -48,6 +53,8 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSnapshotsCommandInput - {@link GetSnapshotsCommandInput}
+ * @returns {@link GetSnapshotsCommandOutput}
  * @see {@link GetSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotsCommandOutput> {
     return deserializeAws_json1_1GetSnapshotsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFastSnapshotRestoresCommand}.
  */
 export interface DescribeFastSnapshotRestoresCommandInput extends DescribeFastSnapshotRestoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFastSnapshotRestoresCommand}.
  */
 export interface DescribeFastSnapshotRestoresCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeFastSnapshotRestoresCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the state of fast snapshot restores for your snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeFastSnapshotRestoresCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFastSnapshotRestoresCommandInput - {@link DescribeFastSnapshotRestoresCommandInput}
+ * @returns {@link DescribeFastSnapshotRestoresCommandOutput}
  * @see {@link DescribeFastSnapshotRestoresCommandInput} for command's `input` shape.
  * @see {@link DescribeFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFastSnapshotRestoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFastSnapshotRestoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeFastSnapshotRestoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

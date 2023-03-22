@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRegistryCommand}.
  */
 export interface DeleteRegistryCommandInput extends DeleteRegistryInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRegistryCommand}.
  */
 export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the entire registry including schema and all of its versions. To get the status of the delete operation, you can call the <code>GetRegistry</code> API after the asynchronous call. Deleting a registry will deactivate all online operations for the registry such as the <code>UpdateRegistry</code>, <code>CreateSchema</code>, <code>UpdateSchema</code>, and <code>RegisterSchemaVersion</code> APIs. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRegistryCommandInput - {@link DeleteRegistryCommandInput}
+ * @returns {@link DeleteRegistryCommandOutput}
  * @see {@link DeleteRegistryCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistryCommandOutput> {
     return deserializeAws_json1_1DeleteRegistryCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCertificateCommand}.
  */
 export interface UpdateCertificateCommandInput extends UpdateCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCertificateCommand}.
  */
 export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of the specified certificate. This operation is
  *          idempotent.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificate</a> action.</p>
@@ -48,6 +53,8 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCertificateCommandInput - {@link UpdateCertificateCommandInput}
+ * @returns {@link UpdateCertificateCommandOutput}
  * @see {@link UpdateCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCertificateCommandOutput> {
     return deserializeAws_restJson1UpdateCertificateCommand(output, context);
   }

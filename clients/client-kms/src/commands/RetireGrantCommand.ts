@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RetireGrantCommand}.
  */
 export interface RetireGrantCommandInput extends RetireGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link RetireGrantCommand}.
  */
 export interface RetireGrantCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
  *       identify the grant to retire, use a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">grant token</a>, or both the grant ID and a
  *       key identifier (key ID or key ARN) of the KMS key. The <a>CreateGrant</a> operation
@@ -86,6 +91,8 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RetireGrantCommandInput - {@link RetireGrantCommandInput}
+ * @returns {@link RetireGrantCommandOutput}
  * @see {@link RetireGrantCommandInput} for command's `input` shape.
  * @see {@link RetireGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -161,6 +168,9 @@ export class RetireGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetireGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -198,10 +208,16 @@ export class RetireGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetireGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RetireGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetireGrantCommandOutput> {
     return deserializeAws_json1_1RetireGrantCommand(output, context);
   }

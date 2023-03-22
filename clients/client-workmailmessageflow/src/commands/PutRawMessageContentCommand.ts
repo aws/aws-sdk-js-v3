@@ -30,15 +30,20 @@ import {
 } from "../WorkMailMessageFlowClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutRawMessageContentCommand}.
  */
 export interface PutRawMessageContentCommandInput extends PutRawMessageContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRawMessageContentCommand}.
  */
 export interface PutRawMessageContentCommandOutput extends PutRawMessageContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the raw content of an in-transit email message, in MIME format.</p>
  *          <p>This example describes how to update in-transit email message. For more information and examples for using this API, see
  *       <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html">
@@ -63,6 +68,8 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRawMessageContentCommandInput - {@link PutRawMessageContentCommandInput}
+ * @returns {@link PutRawMessageContentCommandOutput}
  * @see {@link PutRawMessageContentCommandInput} for command's `input` shape.
  * @see {@link PutRawMessageContentCommandOutput} for command's `response` shape.
  * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.
@@ -115,6 +122,9 @@ export class PutRawMessageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRawMessageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class PutRawMessageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRawMessageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutRawMessageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRawMessageContentCommandOutput> {
     return deserializeAws_restJson1PutRawMessageContentCommand(output, context);
   }

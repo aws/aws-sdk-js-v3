@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataRepositoryAssociationCommand}.
  */
 export interface DeleteDataRepositoryAssociationCommandInput extends DeleteDataRepositoryAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataRepositoryAssociationCommand}.
  */
 export interface DeleteDataRepositoryAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteDataRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a data repository association on an Amazon FSx for Lustre
  *             file system. Deleting the data repository association unlinks the
  *             file system from the Amazon S3 bucket. When deleting a data repository
@@ -54,6 +59,8 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataRepositoryAssociationCommandInput - {@link DeleteDataRepositoryAssociationCommandInput}
+ * @returns {@link DeleteDataRepositoryAssociationCommandOutput}
  * @see {@link DeleteDataRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteDataRepositoryAssociationCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteDataRepositoryAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataRepositoryAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DeleteDataRepositoryAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDataRepositoryAssociationCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DeleteDataRepositoryAssociationCommand extends $Command<
     return serializeAws_json1_1DeleteDataRepositoryAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DistributeDatasetEntriesCommand}.
  */
 export interface DistributeDatasetEntriesCommandInput extends DistributeDatasetEntriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DistributeDatasetEntriesCommand}.
  */
 export interface DistributeDatasetEntriesCommandOutput extends DistributeDatasetEntriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Distributes the entries (images) in a training dataset across the training dataset and the test dataset for a project.
  *          <code>DistributeDatasetEntries</code> moves 20% of the training dataset images to the test dataset.
  *          An entry is a JSON Line that describes an image.
@@ -56,6 +61,8 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
  * const response = await client.send(command);
  * ```
  *
+ * @param DistributeDatasetEntriesCommandInput - {@link DistributeDatasetEntriesCommandInput}
+ * @returns {@link DistributeDatasetEntriesCommandOutput}
  * @see {@link DistributeDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link DistributeDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -104,6 +111,9 @@ export class DistributeDatasetEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DistributeDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DistributeDatasetEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DistributeDatasetEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DistributeDatasetEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DistributeDatasetEntriesCommandOutput> {
     return deserializeAws_json1_1DistributeDatasetEntriesCommand(output, context);
   }

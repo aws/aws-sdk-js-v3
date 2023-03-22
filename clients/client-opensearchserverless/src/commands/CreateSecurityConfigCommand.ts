@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSecurityConfigCommand}.
  */
 export interface CreateSecurityConfigCommandInput extends CreateSecurityConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSecurityConfigCommand}.
  */
 export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies a security configuration for OpenSearch Serverless. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>. </p>
@@ -52,6 +57,8 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecurityConfigCommandInput - {@link CreateSecurityConfigCommandInput}
+ * @returns {@link CreateSecurityConfigCommandOutput}
  * @see {@link CreateSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateSecurityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecurityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateSecurityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecurityConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateSecurityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecurityConfigCommandOutput> {
     return deserializeAws_json1_0CreateSecurityConfigCommand(output, context);
   }

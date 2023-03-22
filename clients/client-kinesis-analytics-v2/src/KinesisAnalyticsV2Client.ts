@@ -157,6 +157,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddApplicationCloudWatchLoggingOptionCommandInput
   | AddApplicationInputCommandInput
@@ -190,6 +193,9 @@ export type ServiceInputTypes =
   | UpdateApplicationCommandInput
   | UpdateApplicationMaintenanceConfigurationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddApplicationCloudWatchLoggingOptionCommandOutput
   | AddApplicationInputCommandOutput
@@ -223,6 +229,9 @@ export type ServiceOutputTypes =
   | UpdateApplicationCommandOutput
   | UpdateApplicationMaintenanceConfigurationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -230,7 +239,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -339,11 +348,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type KinesisAnalyticsV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -354,10 +366,15 @@ type KinesisAnalyticsV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHa
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of KinesisAnalyticsV2Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KinesisAnalyticsV2Client class constructor that set the region, credentials and other options.
  */
 export interface KinesisAnalyticsV2ClientConfig extends KinesisAnalyticsV2ClientConfigType {}
 
+/**
+ * @public
+ */
 type KinesisAnalyticsV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -368,11 +385,14 @@ type KinesisAnalyticsV2ClientResolvedConfigType = __SmithyResolvedConfiguration<
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KinesisAnalyticsV2Client class. This is resolved and normalized from the {@link KinesisAnalyticsV2ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KinesisAnalyticsV2Client class. This is resolved and normalized from the {@link KinesisAnalyticsV2ClientConfig | constructor configuration interface}.
  */
 export interface KinesisAnalyticsV2ClientResolvedConfig extends KinesisAnalyticsV2ClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service
  *       enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time
  *       series analytics, feed real-time dashboards, and create real-time metrics.</p>

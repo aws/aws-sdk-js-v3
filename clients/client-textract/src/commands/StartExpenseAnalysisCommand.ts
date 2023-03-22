@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartExpenseAnalysisCommand}.
  */
 export interface StartExpenseAnalysisCommandInput extends StartExpenseAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartExpenseAnalysisCommand}.
  */
 export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous analysis of invoices or receipts for data like contact information,
  *    items purchased, and vendor names.</p>
  *
@@ -61,6 +66,8 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExpenseAnalysisCommandInput - {@link StartExpenseAnalysisCommandInput}
+ * @returns {@link StartExpenseAnalysisCommandOutput}
  * @see {@link StartExpenseAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartExpenseAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -140,6 +147,9 @@ export class StartExpenseAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExpenseAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,10 +189,16 @@ export class StartExpenseAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExpenseAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartExpenseAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExpenseAnalysisCommandOutput> {
     return deserializeAws_json1_1StartExpenseAnalysisCommand(output, context);
   }

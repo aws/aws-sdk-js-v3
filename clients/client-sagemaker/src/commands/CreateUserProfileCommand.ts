@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserProfileCommand}.
  */
 export interface CreateUserProfileCommandInput extends CreateUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserProfileCommand}.
  */
 export interface CreateUserProfileCommandOutput extends CreateUserProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a user profile. A user profile represents a single user within a domain, and is
  *      the main way to reference a "person" for the purposes of sharing, reporting, and other
  *      user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an
@@ -52,6 +57,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserProfileCommandInput - {@link CreateUserProfileCommandInput}
+ * @returns {@link CreateUserProfileCommandOutput}
  * @see {@link CreateUserProfileCommandInput} for command's `input` shape.
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreateUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserProfileCommandOutput> {
     return deserializeAws_json1_1CreateUserProfileCommand(output, context);
   }

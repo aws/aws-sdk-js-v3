@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterOnPremisesInstanceCommand}.
  */
 export interface DeregisterOnPremisesInstanceCommandInput extends DeregisterOnPremisesInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterOnPremisesInstanceCommand}.
  */
 export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an on-premises instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterOnPremisesInstanceCommandInput - {@link DeregisterOnPremisesInstanceCommandInput}
+ * @returns {@link DeregisterOnPremisesInstanceCommandOutput}
  * @see {@link DeregisterOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterOnPremisesInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterOnPremisesInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetReportGroupsCommand}.
  */
 export interface BatchGetReportGroupsCommandInput extends BatchGetReportGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetReportGroupsCommand}.
  */
 export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns an array of report groups.
  *     </p>
@@ -48,6 +53,8 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetReportGroupsCommandInput - {@link BatchGetReportGroupsCommandInput}
+ * @returns {@link BatchGetReportGroupsCommandOutput}
  * @see {@link BatchGetReportGroupsCommandInput} for command's `input` shape.
  * @see {@link BatchGetReportGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -74,6 +81,9 @@ export class BatchGetReportGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetReportGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class BatchGetReportGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetReportGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetReportGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetReportGroupsCommandOutput> {
     return deserializeAws_json1_1BatchGetReportGroupsCommand(output, context);
   }

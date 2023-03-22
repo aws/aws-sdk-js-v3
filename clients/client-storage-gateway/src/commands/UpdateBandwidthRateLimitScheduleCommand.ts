@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBandwidthRateLimitScheduleCommand}.
  */
 export interface UpdateBandwidthRateLimitScheduleCommandInput extends UpdateBandwidthRateLimitScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBandwidthRateLimitScheduleCommand}.
  */
 export interface UpdateBandwidthRateLimitScheduleCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the bandwidth rate limit schedule for a specified gateway. By default, gateways
  *          do not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in
  *          effect. Use this to initiate or update a gateway's bandwidth rate limit schedule. This
@@ -52,6 +57,8 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBandwidthRateLimitScheduleCommandInput - {@link UpdateBandwidthRateLimitScheduleCommandInput}
+ * @returns {@link UpdateBandwidthRateLimitScheduleCommandOutput}
  * @see {@link UpdateBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateBandwidthRateLimitScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBandwidthRateLimitScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class UpdateBandwidthRateLimitScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateBandwidthRateLimitScheduleCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class UpdateBandwidthRateLimitScheduleCommand extends $Command<
     return serializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

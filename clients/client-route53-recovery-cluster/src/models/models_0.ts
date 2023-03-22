@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { Route53RecoveryClusterServiceException as __BaseException } from "./Route53RecoveryClusterServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient permissions to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a conflict with this request. Try again.</p>
  */
 export class ConflictException extends __BaseException {
@@ -54,6 +56,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
  */
 export class EndpointTemporarilyUnavailableException extends __BaseException {
@@ -72,6 +75,9 @@ export class EndpointTemporarilyUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetRoutingControlStateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the routing control that you want to get the state for.</p>
@@ -79,11 +85,17 @@ export interface GetRoutingControlStateRequest {
   RoutingControlArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RoutingControlState {
   Off = "Off",
   On = "On",
 }
 
+/**
+ * @public
+ */
 export interface GetRoutingControlStateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the response.</p>
@@ -102,6 +114,7 @@ export interface GetRoutingControlStateResponse {
 }
 
 /**
+ * @public
  * <p>There was an unexpected error during processing of the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -127,6 +140,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request references a routing control or control panel that was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -158,6 +172,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because of request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -183,6 +198,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a validation error on the request.</p>
  */
 export interface ValidationExceptionField {
@@ -197,6 +213,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -205,6 +224,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>There was a validation error on the request.</p>
  */
 export class ValidationException extends __BaseException {
@@ -235,6 +255,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListRoutingControlsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the control panel of the routing controls to list.</p>
@@ -253,6 +276,7 @@ export interface ListRoutingControlsRequest {
 }
 
 /**
+ * @public
  * <p>A routing control, which is a simple on/off switch that you
  * 			can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
  * 			the state is Off, traffic does not flow. </p>
@@ -285,6 +309,9 @@ export interface RoutingControl {
   RoutingControlState?: RoutingControlState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListRoutingControlsResponse {
   /**
    * <p>The list of routing controls.</p>
@@ -298,6 +325,7 @@ export interface ListRoutingControlsResponse {
 }
 
 /**
+ * @public
  * <p>The request can't update that many routing control states at the same time. Try again with fewer routing control states.</p>
  */
 export class ServiceLimitExceededException extends __BaseException {
@@ -340,6 +368,9 @@ export class ServiceLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoutingControlStateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the routing control that you want to update the state for.</p>
@@ -361,9 +392,13 @@ export interface UpdateRoutingControlStateRequest {
   SafetyRulesToOverride?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoutingControlStateResponse {}
 
 /**
+ * @public
  * <p>A routing control state entry.</p>
  */
 export interface UpdateRoutingControlStateEntry {
@@ -378,6 +413,9 @@ export interface UpdateRoutingControlStateEntry {
   RoutingControlState: RoutingControlState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoutingControlStatesRequest {
   /**
    * <p>A set of routing control entries that you want to update.</p>
@@ -394,6 +432,9 @@ export interface UpdateRoutingControlStatesRequest {
   SafetyRulesToOverride?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoutingControlStatesResponse {}
 
 /**

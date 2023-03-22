@@ -22,15 +22,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIdentityPoolCommand}.
  */
 export interface DeleteIdentityPoolCommandInput extends DeleteIdentityPoolInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIdentityPoolCommand}.
  */
 export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an identity pool. Once a pool is deleted, users will not be able to
  *          authenticate with the pool.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -44,6 +49,8 @@ export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentityPoolCommandInput - {@link DeleteIdentityPoolCommandInput}
+ * @returns {@link DeleteIdentityPoolCommandOutput}
  * @see {@link DeleteIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteIdentityPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteIdentityPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteIdentityPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityPoolCommandOutput> {
     return deserializeAws_json1_1DeleteIdentityPoolCommand(output, context);
   }

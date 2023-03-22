@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssetCommand}.
  */
 export interface CreateAssetCommandInput extends CreateAssetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssetCommand}.
  */
 export interface CreateAssetCommandOutput extends CreateAssetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a new MediaPackage VOD Asset resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssetCommandInput - {@link CreateAssetCommandInput}
+ * @returns {@link CreateAssetCommandOutput}
  * @see {@link CreateAssetCommandInput} for command's `input` shape.
  * @see {@link CreateAssetCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateAssetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateAssetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAssetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssetCommandOutput> {
     return deserializeAws_restJson1CreateAssetCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMonitoringSubscriptionCommand}.
  */
 export interface CreateMonitoringSubscriptionCommandInput extends CreateMonitoringSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMonitoringSubscriptionCommand}.
  */
 export interface CreateMonitoringSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateMonitoringSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The
  * 			additional metrics incur an additional cost.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in
@@ -51,6 +56,8 @@ export interface CreateMonitoringSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMonitoringSubscriptionCommandInput - {@link CreateMonitoringSubscriptionCommandInput}
+ * @returns {@link CreateMonitoringSubscriptionCommandOutput}
  * @see {@link CreateMonitoringSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateMonitoringSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateMonitoringSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMonitoringSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateMonitoringSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMonitoringSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateMonitoringSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

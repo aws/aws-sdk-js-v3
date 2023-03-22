@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImageCommand}.
  */
 export interface CreateImageCommandInput extends CreateImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImageCommand}.
  */
 export interface CreateImageCommandOutput extends CreateImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new image. This request will create a new image along with all of the
  * 			configured output resources defined in the distribution configuration. You must specify
  * 			exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.</p>
@@ -48,6 +53,8 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImageCommandInput - {@link CreateImageCommandInput}
+ * @returns {@link CreateImageCommandOutput}
  * @see {@link CreateImageCommandInput} for command's `input` shape.
  * @see {@link CreateImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageCommandOutput> {
     return deserializeAws_restJson1CreateImageCommand(output, context);
   }

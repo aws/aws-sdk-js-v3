@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightRuleReportCommand}.
  */
 export interface GetInsightRuleReportCommandInput extends GetInsightRuleReportInput {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightRuleReportCommand}.
  */
 export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns the time series data collected by a Contributor Insights rule. The data includes the identity and number of
  * 		contributors to the log group.</p>
  *          <p>You can also optionally return one or more statistics about each data point in the time series. These statistics can include the following:</p>
@@ -82,6 +87,8 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightRuleReportCommandInput - {@link GetInsightRuleReportCommandInput}
+ * @returns {@link GetInsightRuleReportCommandOutput}
  * @see {@link GetInsightRuleReportCommandInput} for command's `input` shape.
  * @see {@link GetInsightRuleReportCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -114,6 +121,9 @@ export class GetInsightRuleReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightRuleReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class GetInsightRuleReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightRuleReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetInsightRuleReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightRuleReportCommandOutput> {
     return deserializeAws_queryGetInsightRuleReportCommand(output, context);
   }

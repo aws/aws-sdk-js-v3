@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportCertificateCommand}.
  */
 export interface ImportCertificateCommandInput extends ImportCertificateMessage {}
 /**
+ * @public
+ *
  * The output of {@link ImportCertificateCommand}.
  */
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads the specified certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
+ * @returns {@link ImportCertificateCommandOutput}
  * @see {@link ImportCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -99,6 +106,9 @@ export class ImportCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ImportCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportCertificateCommandOutput> {
     return deserializeAws_json1_1ImportCertificateCommand(output, context);
   }

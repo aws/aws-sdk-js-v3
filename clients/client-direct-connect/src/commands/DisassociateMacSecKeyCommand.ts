@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMacSecKeyCommand}.
  */
 export interface DisassociateMacSecKeyCommandInput extends DisassociateMacSecKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMacSecKeyCommand}.
  */
 export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between a MAC Security (MACsec) security key and an Direct Connect dedicated connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMacSecKeyCommandInput - {@link DisassociateMacSecKeyCommandInput}
+ * @returns {@link DisassociateMacSecKeyCommandOutput}
  * @see {@link DisassociateMacSecKeyCommandInput} for command's `input` shape.
  * @see {@link DisassociateMacSecKeyCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -75,6 +82,9 @@ export class DisassociateMacSecKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMacSecKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DisassociateMacSecKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMacSecKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateMacSecKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMacSecKeyCommandOutput> {
     return deserializeAws_json1_1DisassociateMacSecKeyCommand(output, context);
   }

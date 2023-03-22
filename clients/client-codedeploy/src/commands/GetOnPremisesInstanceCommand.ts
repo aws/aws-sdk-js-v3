@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOnPremisesInstanceCommand}.
  */
 export interface GetOnPremisesInstanceCommandInput extends GetOnPremisesInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOnPremisesInstanceCommand}.
  */
 export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets information about an on-premises instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOnPremisesInstanceCommandInput - {@link GetOnPremisesInstanceCommandInput}
+ * @returns {@link GetOnPremisesInstanceCommandOutput}
  * @see {@link GetOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link GetOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetOnPremisesInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOnPremisesInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetOnPremisesInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOnPremisesInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOnPremisesInstanceCommandOutput> {
     return deserializeAws_json1_1GetOnPremisesInstanceCommand(output, context);
   }

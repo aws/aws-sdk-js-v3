@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReportDefinitionCommand}.
  */
 export interface DeleteReportDefinitionCommandInput extends DeleteReportDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReportDefinitionCommand}.
  */
 export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinitionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified report definition in AWS Application Cost Profiler. This stops the report from being
  *       generated.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReportDefinitionCommandInput - {@link DeleteReportDefinitionCommandInput}
+ * @returns {@link DeleteReportDefinitionCommandOutput}
  * @see {@link DeleteReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteReportDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReportDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteReportDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteReportDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportDefinitionCommandOutput> {
     return deserializeAws_restJson1DeleteReportDefinitionCommand(output, context);
   }

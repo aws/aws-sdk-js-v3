@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsByKeyGroupCommand}.
  */
 export interface ListDistributionsByKeyGroupCommandInput extends ListDistributionsByKeyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsByKeyGroupCommand}.
  */
 export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributionsByKeyGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that
  * 			references the specified key group.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -52,6 +57,8 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByKeyGroupCommandInput - {@link ListDistributionsByKeyGroupCommandInput}
+ * @returns {@link ListDistributionsByKeyGroupCommandOutput}
  * @see {@link ListDistributionsByKeyGroupCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDistributionsByKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListDistributionsByKeyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendTemplatedEmailCommand}.
  */
 export interface SendTemplatedEmailCommandInput extends SendTemplatedEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendTemplatedEmailCommand}.
  */
 export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message using an email template and immediately queues it for
  *             sending.</p>
  *         <p>In order to send email using the <code>SendTemplatedEmail</code> operation, your call
@@ -95,6 +100,8 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param SendTemplatedEmailCommandInput - {@link SendTemplatedEmailCommandInput}
+ * @returns {@link SendTemplatedEmailCommandOutput}
  * @see {@link SendTemplatedEmailCommandInput} for command's `input` shape.
  * @see {@link SendTemplatedEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -143,6 +150,9 @@ export class SendTemplatedEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendTemplatedEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class SendTemplatedEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTemplatedEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendTemplatedEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTemplatedEmailCommandOutput> {
     return deserializeAws_querySendTemplatedEmailCommand(output, context);
   }

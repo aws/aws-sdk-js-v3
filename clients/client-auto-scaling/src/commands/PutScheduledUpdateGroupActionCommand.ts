@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutScheduledUpdateGroupActionCommand}.
  */
 export interface PutScheduledUpdateGroupActionCommandInput extends PutScheduledUpdateGroupActionType {}
 /**
+ * @public
+ *
  * The output of {@link PutScheduledUpdateGroupActionCommand}.
  */
 export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param PutScheduledUpdateGroupActionCommandInput - {@link PutScheduledUpdateGroupActionCommandInput}
+ * @returns {@link PutScheduledUpdateGroupActionCommandOutput}
  * @see {@link PutScheduledUpdateGroupActionCommandInput} for command's `input` shape.
  * @see {@link PutScheduledUpdateGroupActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -103,6 +110,9 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutScheduledUpdateGroupActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutScheduledUpdateGroupActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutScheduledUpdateGroupActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

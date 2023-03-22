@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRuntimeVersionsCommand}.
  */
 export interface DescribeRuntimeVersionsCommandInput extends DescribeRuntimeVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRuntimeVersionsCommand}.
  */
 export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Synthetics canary runtime versions. For more information,
  *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
  *             Canary Runtime Versions</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuntimeVersionsCommandInput - {@link DescribeRuntimeVersionsCommandInput}
+ * @returns {@link DescribeRuntimeVersionsCommandOutput}
  * @see {@link DescribeRuntimeVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRuntimeVersionsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeRuntimeVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuntimeVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeRuntimeVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuntimeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRuntimeVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuntimeVersionsCommandOutput> {
     return deserializeAws_restJson1DescribeRuntimeVersionsCommand(output, context);
   }

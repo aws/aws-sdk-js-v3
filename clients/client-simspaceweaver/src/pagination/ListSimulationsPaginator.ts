@@ -10,7 +10,7 @@ import { SimSpaceWeaverClient } from "../SimSpaceWeaverClient";
 import { SimSpaceWeaverPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SimSpaceWeaverClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSimulationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSimulations(
   config: SimSpaceWeaverPaginationConfiguration,
   input: ListSimulationsCommandInput,

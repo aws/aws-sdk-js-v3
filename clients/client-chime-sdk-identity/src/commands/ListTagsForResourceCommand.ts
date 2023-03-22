@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags applied to an Amazon Chime SDK identity resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
     return deserializeAws_restJson1ListTagsForResourceCommand(output, context);
   }

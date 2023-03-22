@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppValidationOutputCommand}.
  */
 export interface GetAppValidationOutputCommandInput extends GetAppValidationOutputRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppValidationOutputCommand}.
  */
 export interface GetAppValidationOutputCommandOutput extends GetAppValidationOutputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves output from validating an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAppValidationOutputCommandOutput extends GetAppValidationOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppValidationOutputCommandInput - {@link GetAppValidationOutputCommandInput}
+ * @returns {@link GetAppValidationOutputCommandOutput}
  * @see {@link GetAppValidationOutputCommandInput} for command's `input` shape.
  * @see {@link GetAppValidationOutputCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetAppValidationOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppValidationOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetAppValidationOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppValidationOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAppValidationOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppValidationOutputCommandOutput> {
     return deserializeAws_json1_1GetAppValidationOutputCommand(output, context);
   }

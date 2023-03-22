@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReverseReplicationCommand}.
  */
 export interface ReverseReplicationCommandInput extends ReverseReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReverseReplicationCommand}.
  */
 export interface ReverseReplicationCommandOutput extends ReverseReplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start replication to origin / target region - applies only to protected instances that originated in EC2.
  *             For recovery instances on target region - starts replication back to origin region.
  *             For failback instances on origin region - starts replication to target region to re-protect them.
@@ -49,6 +54,8 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ReverseReplicationCommandInput - {@link ReverseReplicationCommandInput}
+ * @returns {@link ReverseReplicationCommandOutput}
  * @see {@link ReverseReplicationCommandInput} for command's `input` shape.
  * @see {@link ReverseReplicationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -93,6 +100,9 @@ export class ReverseReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReverseReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ReverseReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReverseReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ReverseReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReverseReplicationCommandOutput> {
     return deserializeAws_restJson1ReverseReplicationCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectInvitationCommand}.
  */
 export interface RejectInvitationCommandInput extends RejectInvitationInput {}
 /**
+ * @public
+ *
  * The output of {@link RejectInvitationCommand}.
  */
 export interface RejectInvitationCommandOutput extends RejectInvitationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects an invitation to join a network. This action can be called by a principal in an Amazon Web Services account that has received an invitation to create a member and join a network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -51,6 +56,8 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectInvitationCommandInput - {@link RejectInvitationCommandInput}
+ * @returns {@link RejectInvitationCommandOutput}
  * @see {@link RejectInvitationCommandInput} for command's `input` shape.
  * @see {@link RejectInvitationCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -95,6 +102,9 @@ export class RejectInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class RejectInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RejectInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectInvitationCommandOutput> {
     return deserializeAws_restJson1RejectInvitationCommand(output, context);
   }

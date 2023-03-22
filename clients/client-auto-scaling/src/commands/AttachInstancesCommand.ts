@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AttachInstancesCommand}.
  */
 export interface AttachInstancesCommandInput extends AttachInstancesQuery {}
 /**
+ * @public
+ *
  * The output of {@link AttachInstancesCommand}.
  */
 export interface AttachInstancesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p>
  *          <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the
  *             number of instances being attached. If the number of instances being attached plus the
@@ -50,6 +55,8 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachInstancesCommandInput - {@link AttachInstancesCommandInput}
+ * @returns {@link AttachInstancesCommandOutput}
  * @see {@link AttachInstancesCommandInput} for command's `input` shape.
  * @see {@link AttachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -94,6 +101,9 @@ export class AttachInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class AttachInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAttachInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachInstancesCommandOutput> {
     return deserializeAws_queryAttachInstancesCommand(output, context);
   }

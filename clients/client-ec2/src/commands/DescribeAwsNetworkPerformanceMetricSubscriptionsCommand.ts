@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommand}.
  */
 export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput
   extends DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommand}.
  */
 export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the current Infrastructure Performance metric subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput - {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput}
+ * @returns {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput}
  * @see {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeAwsNetworkPerformanceMetricSubscriptionsCommand extends $Co
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeAwsNetworkPerformanceMetricSubscriptionsCommand extends $Co
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeAwsNetworkPerformanceMetricSubscriptionsCommand extends $Co
     return serializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterTargetsCommand}.
  */
 export interface RegisterTargetsCommandInput extends RegisterTargetsInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterTargetsCommand}.
  */
 export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the specified targets with the specified target group.</p>
  *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you
  *       register it.</p>
@@ -59,6 +64,8 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTargetsCommandInput - {@link RegisterTargetsCommandInput}
+ * @returns {@link RegisterTargetsCommandOutput}
  * @see {@link RegisterTargetsCommandInput} for command's `input` shape.
  * @see {@link RegisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -136,6 +143,9 @@ export class RegisterTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,10 +185,16 @@ export class RegisterTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRegisterTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTargetsCommandOutput> {
     return deserializeAws_queryRegisterTargetsCommand(output, context);
   }

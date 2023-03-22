@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewaysCommand}.
  */
 export interface DescribeTransitGatewaysCommandInput extends DescribeTransitGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewaysCommand}.
  */
 export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can
  *          filter the results.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewaysCommandInput - {@link DescribeTransitGatewaysCommandInput}
+ * @returns {@link DescribeTransitGatewaysCommandOutput}
  * @see {@link DescribeTransitGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeTransitGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeTransitGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTransitGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTransitGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTransitGatewaysCommandOutput> {
     return deserializeAws_ec2DescribeTransitGatewaysCommand(output, context);
   }

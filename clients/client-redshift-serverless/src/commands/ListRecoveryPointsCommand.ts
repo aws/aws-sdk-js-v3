@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecoveryPointsCommand}.
  */
 export interface ListRecoveryPointsCommandInput extends ListRecoveryPointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecoveryPointsCommand}.
  */
 export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of recovery points.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecoveryPointsCommandInput - {@link ListRecoveryPointsCommandInput}
+ * @returns {@link ListRecoveryPointsCommandOutput}
  * @see {@link ListRecoveryPointsCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListRecoveryPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecoveryPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListRecoveryPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecoveryPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRecoveryPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecoveryPointsCommandOutput> {
     return deserializeAws_json1_1ListRecoveryPointsCommand(output, context);
   }

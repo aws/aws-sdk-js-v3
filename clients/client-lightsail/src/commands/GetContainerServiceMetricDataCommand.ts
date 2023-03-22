@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerServiceMetricDataCommand}.
  */
 export interface GetContainerServiceMetricDataCommandInput extends GetContainerServiceMetricDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerServiceMetricDataCommand}.
  */
 export interface GetContainerServiceMetricDataCommandOutput
@@ -37,6 +41,7 @@ export interface GetContainerServiceMetricDataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the data points of a specific metric of your Amazon Lightsail container
  *       service.</p>
  *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
@@ -51,6 +56,8 @@ export interface GetContainerServiceMetricDataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerServiceMetricDataCommandInput - {@link GetContainerServiceMetricDataCommandInput}
+ * @returns {@link GetContainerServiceMetricDataCommandOutput}
  * @see {@link GetContainerServiceMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetContainerServiceMetricDataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -97,6 +104,9 @@ export class GetContainerServiceMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerServiceMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetContainerServiceMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerServiceMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContainerServiceMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

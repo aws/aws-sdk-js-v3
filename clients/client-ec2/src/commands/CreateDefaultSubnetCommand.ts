@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDefaultSubnetCommand}.
  */
 export interface CreateDefaultSubnetCommandInput extends CreateDefaultSubnetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDefaultSubnetCommand}.
  */
 export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the
  *             specified Availability Zone in your default VPC. You can have only one default subnet
  *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating a default
@@ -49,6 +54,8 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDefaultSubnetCommandInput - {@link CreateDefaultSubnetCommandInput}
+ * @returns {@link CreateDefaultSubnetCommandOutput}
  * @see {@link CreateDefaultSubnetCommandInput} for command's `input` shape.
  * @see {@link CreateDefaultSubnetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateDefaultSubnetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDefaultSubnetCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateDefaultSubnetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDefaultSubnetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateDefaultSubnetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDefaultSubnetCommandOutput> {
     return deserializeAws_ec2CreateDefaultSubnetCommand(output, context);
   }

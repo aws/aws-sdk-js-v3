@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListThemeVersionsCommand}.
  */
 export interface ListThemeVersionsCommandInput extends ListThemeVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThemeVersionsCommand}.
  */
 export interface ListThemeVersionsCommandOutput extends ListThemeVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the versions of the themes in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListThemeVersionsCommandOutput extends ListThemeVersionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThemeVersionsCommandInput - {@link ListThemeVersionsCommandInput}
+ * @returns {@link ListThemeVersionsCommandOutput}
  * @see {@link ListThemeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListThemeVersionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListThemeVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThemeVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListThemeVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThemeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListThemeVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThemeVersionsCommandOutput> {
     return deserializeAws_restJson1ListThemeVersionsCommand(output, context);
   }

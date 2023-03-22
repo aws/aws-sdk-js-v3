@@ -125,6 +125,7 @@ import {
 import { RAMClient } from "./RAMClient";
 
 /**
+ * @public
  * <p>This is the <i>Resource Access Manager API Reference</i>. This documentation provides
  *             descriptions and syntax for each of the actions and data types in RAM. RAM is a
  *             service that helps you securely share your Amazon Web Services resources across Amazon Web Services accounts. If you
@@ -149,6 +150,7 @@ import { RAMClient } from "./RAMClient";
  */
 export class RAM extends RAMClient {
   /**
+   * @public
    * <p>Accepts an invitation to a resource share from another Amazon Web Services account. After you accept the
    *             invitation, the resources included in the resource share are available to interact with in the
    *             relevant Amazon Web Services Management Consoles and tools.</p>
@@ -183,6 +185,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified list of principals and list of resources to a resource share. Principals that
    *             already have access to this resource share immediately receive access to the added resources.
    *             Newly added principals immediately receive access to the resources shared in this resource share. </p>
@@ -217,6 +220,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Adds or replaces the RAM permission for a resource type included in a resource share. You can
    *             have exactly one permission associated with each resource type in the resource share. You can add
    *             a new RAM permission only if there are currently no resources of that resource type
@@ -252,6 +256,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for the resources that you
    *             want to share, a list of principals you want to share the resources with, and the
    *             permissions to grant those principals.</p>
@@ -291,6 +296,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified resource share. This doesn't delete any of the resources that were
    *             associated with the resource share; it only stops the sharing of those resources outside of the
    *             Amazon Web Services account that created them.</p>
@@ -325,6 +331,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified principals or resources from the specified resource share.</p>
    */
   public disassociateResourceShare(
@@ -357,6 +364,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Disassociates an RAM permission from a resource share. Permission changes take effect
    *             immediately. You can remove a RAM permission from a resource share only if there are currently
    *             no resources of the relevant resource type currently attached to the resource share.</p>
@@ -391,6 +399,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Enables resource sharing within your organization in Organizations. Calling this operation
    *             enables RAM to retrieve information about the organization and its structure. This
    *             lets you share resources with all of the accounts in an organization by specifying the
@@ -431,6 +440,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Gets the contents of an RAM permission in JSON format.</p>
    */
   public getPermission(
@@ -463,6 +473,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the resource policies for the specified resources that you own and have
    *             shared.</p>
    */
@@ -496,6 +507,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the resource and principal associations for resource shares that you own.</p>
    */
   public getResourceShareAssociations(
@@ -528,6 +540,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details about invitations that you have received for resource shares.</p>
    */
   public getResourceShareInvitations(
@@ -560,6 +573,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details about the resource shares that you own or that are shared with you.</p>
    */
   public getResourceShares(
@@ -592,6 +606,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the resources in a resource share that is shared with you but for which the invitation is
    *             still <code>PENDING</code>. That means that you haven't accepted or rejected the
    *             invitation and the invitation hasn't expired.</p>
@@ -626,6 +641,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of available RAM permissions that you can use for the supported
    *             resource types. </p>
    */
@@ -659,6 +675,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the available versions of the specified RAM permission.</p>
    */
   public listPermissionVersions(
@@ -691,6 +708,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the principals that you are sharing resources with or that are sharing resources
    *             with you.</p>
    */
@@ -724,6 +742,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the resources that you added to a resource share or the resources that are shared with
    *             you.</p>
    */
@@ -757,6 +776,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the RAM permissions that are associated with a resource share.</p>
    */
   public listResourceSharePermissions(
@@ -789,6 +809,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Lists the resource types that can be shared by RAM.</p>
    */
   public listResourceTypes(
@@ -821,6 +842,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>When you attach a resource-based permission policy to a resource, it automatically
    *             creates a resource share. However, resource shares created this way are visible only to the resource share owner, and
    *             the resource share can't be modified in RAM.</p>
@@ -860,6 +882,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Rejects an invitation to a resource share from another Amazon Web Services account.</p>
    */
   public rejectResourceShareInvitation(
@@ -892,6 +915,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tag keys and values to the specified resource share. The tags are attached
    *             only to the resource share, not to the resources that are in the resource share.</p>
    */
@@ -919,6 +943,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tag key and value pairs from the specified resource share.</p>
    */
   public untagResource(
@@ -951,6 +976,7 @@ export class RAM extends RAMClient {
   }
 
   /**
+   * @public
    * <p>Modifies some of the properties of the specified resource share.</p>
    */
   public updateResourceShare(

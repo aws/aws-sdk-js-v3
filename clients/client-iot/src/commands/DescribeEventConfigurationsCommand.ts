@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventConfigurationsCommand}.
  */
 export interface DescribeEventConfigurationsCommandInput extends DescribeEventConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventConfigurationsCommand}.
  */
 export interface DescribeEventConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEventConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes event configurations.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEventConfigurations</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeEventConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventConfigurationsCommandInput - {@link DescribeEventConfigurationsCommandInput}
+ * @returns {@link DescribeEventConfigurationsCommandOutput}
  * @see {@link DescribeEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeEventConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeEventConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeEventConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

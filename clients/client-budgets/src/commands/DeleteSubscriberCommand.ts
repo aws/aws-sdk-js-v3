@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriberCommand}.
  */
 export interface DeleteSubscriberCommandInput extends DeleteSubscriberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriberCommand}.
  */
 export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subscriber.</p>
  * 		       <important>
  * 			         <p>Deleting the last subscriber to a notification also deletes the notification.</p>
@@ -49,6 +54,8 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriberCommandInput - {@link DeleteSubscriberCommandInput}
+ * @returns {@link DeleteSubscriberCommandOutput}
  * @see {@link DeleteSubscriberCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriberCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteSubscriberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriberCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteSubscriberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSubscriberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriberCommandOutput> {
     return deserializeAws_json1_1DeleteSubscriberCommand(output, context);
   }

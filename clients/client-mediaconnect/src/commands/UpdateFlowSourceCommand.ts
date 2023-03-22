@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFlowSourceCommand}.
  */
 export interface UpdateFlowSourceCommandInput extends UpdateFlowSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFlowSourceCommand}.
  */
 export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates the source of a flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFlowSourceCommandInput - {@link UpdateFlowSourceCommandInput}
+ * @returns {@link UpdateFlowSourceCommandOutput}
  * @see {@link UpdateFlowSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateFlowSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFlowSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateFlowSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFlowSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFlowSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowSourceCommandOutput> {
     return deserializeAws_restJson1UpdateFlowSourceCommand(output, context);
   }

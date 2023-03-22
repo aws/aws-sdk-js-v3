@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSubscriptionFiltersCommand}.
  */
 export interface DescribeSubscriptionFiltersCommandInput extends DescribeSubscriptionFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSubscriptionFiltersCommand}.
  */
 export interface DescribeSubscriptionFiltersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSubscriptionFiltersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix.
  *       The results are ASCII-sorted by filter name.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubscriptionFiltersCommandInput - {@link DescribeSubscriptionFiltersCommandInput}
+ * @returns {@link DescribeSubscriptionFiltersCommandOutput}
  * @see {@link DescribeSubscriptionFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscriptionFiltersCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubscriptionFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubscriptionFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSubscriptionFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListReusableDelegationSetsCommand}.
  */
 export interface ListReusableDelegationSetsCommandInput extends ListReusableDelegationSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReusableDelegationSetsCommand}.
  */
 export interface ListReusableDelegationSetsCommandOutput extends ListReusableDelegationSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of the reusable delegation sets that are associated with the current
  * 				Amazon Web Services account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReusableDelegationSetsCommandInput - {@link ListReusableDelegationSetsCommandInput}
+ * @returns {@link ListReusableDelegationSetsCommandOutput}
  * @see {@link ListReusableDelegationSetsCommandInput} for command's `input` shape.
  * @see {@link ListReusableDelegationSetsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -73,6 +80,9 @@ export class ListReusableDelegationSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReusableDelegationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListReusableDelegationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReusableDelegationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListReusableDelegationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListDecoderManifestSignalsCommand}.
  */
 export interface ListDecoderManifestSignalsCommandInput extends ListDecoderManifestSignalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDecoderManifestSignalsCommand}.
  */
 export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderManifestSignalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> A list of information about signal decoders specified in a decoder manifest. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -49,6 +54,8 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDecoderManifestSignalsCommandInput - {@link ListDecoderManifestSignalsCommandInput}
+ * @returns {@link ListDecoderManifestSignalsCommandOutput}
  * @see {@link ListDecoderManifestSignalsCommandInput} for command's `input` shape.
  * @see {@link ListDecoderManifestSignalsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListDecoderManifestSignalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDecoderManifestSignalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListDecoderManifestSignalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDecoderManifestSignalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListDecoderManifestSignalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

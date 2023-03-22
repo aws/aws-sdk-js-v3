@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQuerySuggestionsBlockListCommand}.
  */
 export interface DeleteQuerySuggestionsBlockListCommandInput extends DeleteQuerySuggestionsBlockListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQuerySuggestionsBlockListCommand}.
  */
 export interface DeleteQuerySuggestionsBlockListCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a block list used for query suggestions for an index.</p>
  *          <p>A deleted block list might not take effect right away. Amazon Kendra
  *             needs to refresh the entire suggestions list to add back the
@@ -50,6 +55,8 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQuerySuggestionsBlockListCommandInput - {@link DeleteQuerySuggestionsBlockListCommandInput}
+ * @returns {@link DeleteQuerySuggestionsBlockListCommandOutput}
  * @see {@link DeleteQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link DeleteQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteQuerySuggestionsBlockListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class DeleteQuerySuggestionsBlockListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class DeleteQuerySuggestionsBlockListCommand extends $Command<
     return serializeAws_json1_1DeleteQuerySuggestionsBlockListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

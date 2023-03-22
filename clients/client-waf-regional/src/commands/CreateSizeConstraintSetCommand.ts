@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSizeConstraintSetCommand}.
  */
 export interface CreateSizeConstraintSetCommandInput extends CreateSizeConstraintSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSizeConstraintSetCommand}.
  */
 export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -77,6 +82,8 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSizeConstraintSetCommandInput - {@link CreateSizeConstraintSetCommandInput}
+ * @returns {@link CreateSizeConstraintSetCommandOutput}
  * @see {@link CreateSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link CreateSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -188,6 +195,9 @@ export class CreateSizeConstraintSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSizeConstraintSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -227,10 +237,16 @@ export class CreateSizeConstraintSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSizeConstraintSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSizeConstraintSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSizeConstraintSetCommandOutput> {
     return deserializeAws_json1_1CreateSizeConstraintSetCommand(output, context);
   }

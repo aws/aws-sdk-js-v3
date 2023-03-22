@@ -30,15 +30,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateViewCommand}.
  */
 export interface UpdateViewCommandInput extends UpdateViewInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateViewCommand}.
  */
 export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies some of the details of a view. You can change the filter string and the list
  *             of included properties. You can't change the name of the view.</p>
  * @example
@@ -51,6 +56,8 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateViewCommandInput - {@link UpdateViewCommandInput}
+ * @returns {@link UpdateViewCommandOutput}
  * @see {@link UpdateViewCommandInput} for command's `input` shape.
  * @see {@link UpdateViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateViewCommandOutput> {
     return deserializeAws_restJson1UpdateViewCommand(output, context);
   }

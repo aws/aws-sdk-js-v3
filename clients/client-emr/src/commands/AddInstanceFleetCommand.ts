@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddInstanceFleetCommand}.
  */
 export interface AddInstanceFleetCommandInput extends AddInstanceFleetInput {}
 /**
+ * @public
+ *
  * The output of {@link AddInstanceFleetCommand}.
  */
 export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an instance fleet to a running cluster.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions
@@ -50,6 +55,8 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AddInstanceFleetCommandInput - {@link AddInstanceFleetCommandInput}
+ * @returns {@link AddInstanceFleetCommandOutput}
  * @see {@link AddInstanceFleetCommandInput} for command's `input` shape.
  * @see {@link AddInstanceFleetCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -80,6 +87,9 @@ export class AddInstanceFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddInstanceFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class AddInstanceFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddInstanceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddInstanceFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddInstanceFleetCommandOutput> {
     return deserializeAws_json1_1AddInstanceFleetCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopLabelingJobCommand}.
  */
 export interface StopLabelingJobCommandInput extends StopLabelingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopLabelingJobCommand}.
  */
 export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results
  *             obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
  * @example
@@ -42,6 +47,8 @@ export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopLabelingJobCommandInput - {@link StopLabelingJobCommandInput}
+ * @returns {@link StopLabelingJobCommandOutput}
  * @see {@link StopLabelingJobCommandInput} for command's `input` shape.
  * @see {@link StopLabelingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -68,6 +75,9 @@ export class StopLabelingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopLabelingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class StopLabelingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopLabelingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopLabelingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopLabelingJobCommandOutput> {
     return deserializeAws_json1_1StopLabelingJobCommand(output, context);
   }

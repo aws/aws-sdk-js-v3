@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReplicationTaskAssessmentCommand}.
  */
 export interface StartReplicationTaskAssessmentCommandInput extends StartReplicationTaskAssessmentMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartReplicationTaskAssessmentCommand}.
  */
 export interface StartReplicationTaskAssessmentCommandOutput
@@ -41,6 +45,7 @@ export interface StartReplicationTaskAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts the replication task assessment for unsupported data types in the source
  *          database. </p>
  *          <p>You can only use this operation for a task if the following conditions are true:</p>
@@ -66,6 +71,8 @@ export interface StartReplicationTaskAssessmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplicationTaskAssessmentCommandInput - {@link StartReplicationTaskAssessmentCommandInput}
+ * @returns {@link StartReplicationTaskAssessmentCommandOutput}
  * @see {@link StartReplicationTaskAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartReplicationTaskAssessmentCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -95,6 +102,9 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplicationTaskAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartReplicationTaskAssessmentCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     return serializeAws_json1_1StartReplicationTaskAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

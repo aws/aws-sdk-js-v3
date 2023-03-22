@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetApplicationsCommand}.
  */
 export interface BatchGetApplicationsCommandInput extends BatchGetApplicationsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetApplicationsCommand}.
  */
 export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more applications. The maximum number of applications
  *             that can be returned is 100.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetApplicationsCommandInput - {@link BatchGetApplicationsCommandInput}
+ * @returns {@link BatchGetApplicationsCommandOutput}
  * @see {@link BatchGetApplicationsCommandInput} for command's `input` shape.
  * @see {@link BatchGetApplicationsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -82,6 +89,9 @@ export class BatchGetApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchGetApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetApplicationsCommandOutput> {
     return deserializeAws_json1_1BatchGetApplicationsCommand(output, context);
   }

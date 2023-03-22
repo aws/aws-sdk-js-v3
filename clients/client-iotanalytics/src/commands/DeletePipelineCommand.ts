@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePipelineCommand}.
  */
 export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePipelineCommand}.
  */
 export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
+ * @returns {@link DeletePipelineCommandOutput}
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeletePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeletePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipelineCommandOutput> {
     return deserializeAws_restJson1DeletePipelineCommand(output, context);
   }

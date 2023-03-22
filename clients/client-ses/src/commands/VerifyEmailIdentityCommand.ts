@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyEmailIdentityCommand}.
  */
 export interface VerifyEmailIdentityCommandInput extends VerifyEmailIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyEmailIdentityCommand}.
  */
 export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current
  *             AWS region and attempts to verify it. As a result of executing this operation, a
  *             verification email is sent to the specified address.</p>
@@ -49,6 +54,8 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyEmailIdentityCommandInput - {@link VerifyEmailIdentityCommandInput}
+ * @returns {@link VerifyEmailIdentityCommandOutput}
  * @see {@link VerifyEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link VerifyEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -83,6 +90,9 @@ export class VerifyEmailIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyEmailIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class VerifyEmailIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryVerifyEmailIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyEmailIdentityCommandOutput> {
     return deserializeAws_queryVerifyEmailIdentityCommand(output, context);
   }

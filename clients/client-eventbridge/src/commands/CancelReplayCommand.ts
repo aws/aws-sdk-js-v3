@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelReplayCommand}.
  */
 export interface CancelReplayCommandInput extends CancelReplayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelReplayCommand}.
  */
 export interface CancelReplayCommandOutput extends CancelReplayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified replay.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelReplayCommandInput - {@link CancelReplayCommandInput}
+ * @returns {@link CancelReplayCommandOutput}
  * @see {@link CancelReplayCommandInput} for command's `input` shape.
  * @see {@link CancelReplayCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -82,6 +89,9 @@ export class CancelReplayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelReplayCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CancelReplayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelReplayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelReplayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelReplayCommandOutput> {
     return deserializeAws_json1_1CancelReplayCommand(output, context);
   }

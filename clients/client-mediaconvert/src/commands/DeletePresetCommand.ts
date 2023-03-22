@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePresetCommand}.
  */
 export interface DeletePresetCommandInput extends DeletePresetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePresetCommand}.
  */
 export interface DeletePresetCommandOutput extends DeletePresetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Permanently delete a preset you have created.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePresetCommandInput - {@link DeletePresetCommandInput}
+ * @returns {@link DeletePresetCommandOutput}
  * @see {@link DeletePresetCommandInput} for command's `input` shape.
  * @see {@link DeletePresetCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeletePresetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePresetCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeletePresetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePresetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePresetCommandOutput> {
     return deserializeAws_restJson1DeletePresetCommand(output, context);
   }

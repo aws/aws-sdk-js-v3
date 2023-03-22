@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetIpamPoolCidrsCommand}.
  */
 export interface GetIpamPoolCidrsCommandInput extends GetIpamPoolCidrsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIpamPoolCidrsCommand}.
  */
 export interface GetIpamPoolCidrsCommandOutput extends GetIpamPoolCidrsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the CIDRs provisioned to an IPAM pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetIpamPoolCidrsCommandOutput extends GetIpamPoolCidrsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIpamPoolCidrsCommandInput - {@link GetIpamPoolCidrsCommandInput}
+ * @returns {@link GetIpamPoolCidrsCommandOutput}
  * @see {@link GetIpamPoolCidrsCommandInput} for command's `input` shape.
  * @see {@link GetIpamPoolCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class GetIpamPoolCidrsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIpamPoolCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetIpamPoolCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIpamPoolCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetIpamPoolCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIpamPoolCidrsCommandOutput> {
     return deserializeAws_ec2GetIpamPoolCidrsCommand(output, context);
   }

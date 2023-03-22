@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutLifecycleHookCommand}.
  */
 export interface PutLifecycleHookCommandInput extends PutLifecycleHookType {}
 /**
+ * @public
+ *
  * The output of {@link PutLifecycleHookCommand}.
  */
 export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p>
  *          <p>Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling instance
  *             lifecycle, and then perform a custom action on instances when the corresponding
@@ -88,6 +93,8 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecycleHookCommandInput - {@link PutLifecycleHookCommandInput}
+ * @returns {@link PutLifecycleHookCommandOutput}
  * @see {@link PutLifecycleHookCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleHookCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -136,6 +143,9 @@ export class PutLifecycleHookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecycleHookCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,10 +185,16 @@ export class PutLifecycleHookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLifecycleHookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutLifecycleHookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLifecycleHookCommandOutput> {
     return deserializeAws_queryPutLifecycleHookCommand(output, context);
   }

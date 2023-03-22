@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAgreementCommand}.
  */
 export interface CreateAgreementCommandInput extends CreateAgreementRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAgreementCommand}.
  */
 export interface CreateAgreementCommandOutput extends CreateAgreementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an agreement. An agreement is a bilateral trading partner agreement, or partnership,
  *       between an Transfer Family server and an AS2 process. The agreement defines the file and message
  *       transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family
@@ -51,6 +56,8 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAgreementCommandInput - {@link CreateAgreementCommandInput}
+ * @returns {@link CreateAgreementCommandOutput}
  * @see {@link CreateAgreementCommandInput} for command's `input` shape.
  * @see {@link CreateAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAgreementCommandOutput> {
     return deserializeAws_json1_1CreateAgreementCommand(output, context);
   }

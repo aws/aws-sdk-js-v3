@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDirectConnectGatewayCommand}.
  */
 export interface DeleteDirectConnectGatewayCommandInput extends DeleteDirectConnectGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDirectConnectGatewayCommand}.
  */
 export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectConnectGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are
  *       attached to the Direct Connect gateway and disassociate all virtual private gateways associated
  *       with the Direct Connect gateway.</p>
@@ -48,6 +53,8 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectConnectGatewayCommandInput - {@link DeleteDirectConnectGatewayCommandInput}
+ * @returns {@link DeleteDirectConnectGatewayCommandOutput}
  * @see {@link DeleteDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectConnectGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDirectConnectGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDirectConnectGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

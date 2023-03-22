@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateEntityToThingCommand}.
  */
 export interface AssociateEntityToThingCommandInput extends AssociateEntityToThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateEntityToThingCommand}.
  */
 export interface AssociateEntityToThingCommandOutput extends AssociateEntityToThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Associates a device with a concrete thing that is in the user's registry.</p>
@@ -49,6 +54,8 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateEntityToThingCommandInput - {@link AssociateEntityToThingCommandInput}
+ * @returns {@link AssociateEntityToThingCommandOutput}
  * @see {@link AssociateEntityToThingCommandInput} for command's `input` shape.
  * @see {@link AssociateEntityToThingCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +91,9 @@ export class AssociateEntityToThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateEntityToThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class AssociateEntityToThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateEntityToThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateEntityToThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateEntityToThingCommandOutput> {
     return deserializeAws_json1_1AssociateEntityToThingCommand(output, context);
   }

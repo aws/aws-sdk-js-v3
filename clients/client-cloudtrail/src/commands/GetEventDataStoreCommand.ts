@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventDataStoreCommand}.
  */
 export interface GetEventDataStoreCommandInput extends GetEventDataStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventDataStoreCommand}.
  */
 export interface GetEventDataStoreCommandOutput extends GetEventDataStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an event data store specified as either an ARN or the ID
  *          portion of the ARN.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetEventDataStoreCommandOutput extends GetEventDataStoreRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventDataStoreCommandInput - {@link GetEventDataStoreCommandInput}
+ * @returns {@link GetEventDataStoreCommandOutput}
  * @see {@link GetEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link GetEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventDataStoreCommandOutput> {
     return deserializeAws_json1_1GetEventDataStoreCommand(output, context);
   }

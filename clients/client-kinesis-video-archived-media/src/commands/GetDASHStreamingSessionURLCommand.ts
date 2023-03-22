@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDASHStreamingSessionURLCommand}.
  */
 export interface GetDASHStreamingSessionURLCommandInput extends GetDASHStreamingSessionURLInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDASHStreamingSessionURLCommand}.
  */
 export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamingSessionURLOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for the stream. You
  *             can then open the URL in a media player to view the stream contents.</p>
  *
@@ -196,6 +201,8 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDASHStreamingSessionURLCommandInput - {@link GetDASHStreamingSessionURLCommandInput}
+ * @returns {@link GetDASHStreamingSessionURLCommandOutput}
  * @see {@link GetDASHStreamingSessionURLCommandInput} for command's `input` shape.
  * @see {@link GetDASHStreamingSessionURLCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -259,6 +266,9 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDASHStreamingSessionURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -298,10 +308,16 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDASHStreamingSessionURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDASHStreamingSessionURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

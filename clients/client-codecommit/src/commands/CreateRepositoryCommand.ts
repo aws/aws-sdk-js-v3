@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRepositoryCommand}.
  */
 export interface CreateRepositoryCommandInput extends CreateRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateRepositoryCommand}.
  */
 export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new, empty repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
+ * @returns {@link CreateRepositoryCommandOutput}
  * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -117,6 +124,9 @@ export class CreateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class CreateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRepositoryCommandOutput> {
     return deserializeAws_json1_1CreateRepositoryCommand(output, context);
   }

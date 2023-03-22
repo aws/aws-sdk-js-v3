@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 
 /**
+ * @public
  * <p>Access to a resource was denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies configuration properties of a notification.</p>
  */
 export interface NotificationProperty {
@@ -39,6 +41,7 @@ export interface NotificationProperty {
 }
 
 /**
+ * @public
  * <p>Defines an action to be initiated by a trigger.</p>
  */
 export interface Action {
@@ -80,6 +83,9 @@ export interface Action {
   CrawlerName?: string;
 }
 
+/**
+ * @public
+ */
 export enum AggFunction {
   avg = "avg",
   count = "count",
@@ -99,6 +105,7 @@ export enum AggFunction {
 }
 
 /**
+ * @public
  * <p>Specifies the set of parameters needed to perform aggregation in the aggregate transform.</p>
  */
 export interface AggregateOperation {
@@ -116,6 +123,7 @@ export interface AggregateOperation {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that groups rows by chosen fields and computes the aggregated value by specified function.</p>
  */
 export interface Aggregate {
@@ -141,6 +149,7 @@ export interface Aggregate {
 }
 
 /**
+ * @public
  * <p>A resource to be created or added already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -165,6 +174,7 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies a single column in a Glue schema definition.</p>
  */
 export interface GlueStudioSchemaColumn {
@@ -180,6 +190,7 @@ export interface GlueStudioSchemaColumn {
 }
 
 /**
+ * @public
  * <p>Specifies a user-defined schema when a schema cannot be determined by Glue.</p>
  */
 export interface GlueSchema {
@@ -190,6 +201,7 @@ export interface GlueSchema {
 }
 
 /**
+ * @public
  * <p>Specifies a connector to an Amazon Athena data source.</p>
  */
 export interface AthenaConnectorSource {
@@ -230,6 +242,7 @@ export interface AthenaConnectorSource {
 }
 
 /**
+ * @public
  * <p>A structure containing information for audit.</p>
  */
 export interface AuditContext {
@@ -250,6 +263,7 @@ export interface AuditContext {
 }
 
 /**
+ * @public
  * <p>A column in a <code>Table</code>.</p>
  */
 export interface Column {
@@ -275,6 +289,7 @@ export interface Column {
 }
 
 /**
+ * @public
  * <p>The unique ID of the schema in the Glue schema registry.</p>
  */
 export interface SchemaId {
@@ -295,6 +310,7 @@ export interface SchemaId {
 }
 
 /**
+ * @public
  * <p>An object that references a schema stored in the Glue Schema Registry.</p>
  */
 export interface SchemaReference {
@@ -315,6 +331,7 @@ export interface SchemaReference {
 }
 
 /**
+ * @public
  * <p>Information about a serialization/deserialization program (SerDe) that serves as an
  *       extractor and loader.</p>
  */
@@ -337,6 +354,7 @@ export interface SerDeInfo {
 }
 
 /**
+ * @public
  * <p>Specifies skewed values in a table. Skewed values are those that occur with very high
  *       frequency.</p>
  */
@@ -359,6 +377,7 @@ export interface SkewedInfo {
 }
 
 /**
+ * @public
  * <p>Specifies the sort order of a sorted column.</p>
  */
 export interface Order {
@@ -375,6 +394,7 @@ export interface Order {
 }
 
 /**
+ * @public
  * <p>Describes the physical storage of table data.</p>
  */
 export interface StorageDescriptor {
@@ -460,6 +480,7 @@ export interface StorageDescriptor {
 }
 
 /**
+ * @public
  * <p>The structure used to create and update a partition.</p>
  */
 export interface PartitionInput {
@@ -491,6 +512,9 @@ export interface PartitionInput {
   LastAnalyzedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreatePartitionRequest {
   /**
    * <p>The ID of the catalog in which the partition is to be created. Currently, this should be
@@ -517,6 +541,7 @@ export interface BatchCreatePartitionRequest {
 }
 
 /**
+ * @public
  * <p>Contains details about an error.</p>
  */
 export interface ErrorDetail {
@@ -532,6 +557,7 @@ export interface ErrorDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about a partition error.</p>
  */
 export interface PartitionError {
@@ -546,6 +572,9 @@ export interface PartitionError {
   ErrorDetail?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreatePartitionResponse {
   /**
    * <p>The errors encountered when trying to create the requested partitions.</p>
@@ -554,6 +583,7 @@ export interface BatchCreatePartitionResponse {
 }
 
 /**
+ * @public
  * <p>A specified entity does not exist</p>
  */
 export class EntityNotFoundException extends __BaseException {
@@ -578,6 +608,7 @@ export class EntityNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An encryption operation failed.</p>
  */
 export class GlueEncryptionException extends __BaseException {
@@ -602,6 +633,7 @@ export class GlueEncryptionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal service error occurred.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -626,6 +658,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input provided was not valid.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -650,6 +683,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation timed out.</p>
  */
 export class OperationTimeoutException extends __BaseException {
@@ -674,6 +708,7 @@ export class OperationTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource numerical limit was exceeded.</p>
  */
 export class ResourceNumberLimitExceededException extends __BaseException {
@@ -697,6 +732,9 @@ export class ResourceNumberLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which the connections reside. If none is provided, the Amazon Web Services
@@ -710,6 +748,9 @@ export interface BatchDeleteConnectionRequest {
   ConnectionNameList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteConnectionResponse {
   /**
    * <p>A list of names of the connection definitions that were
@@ -725,6 +766,7 @@ export interface BatchDeleteConnectionResponse {
 }
 
 /**
+ * @public
  * <p>Contains a list of values defining partitions.</p>
  */
 export interface PartitionValueList {
@@ -734,6 +776,9 @@ export interface PartitionValueList {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeletePartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partition to be deleted resides. If none is provided,
@@ -759,6 +804,9 @@ export interface BatchDeletePartitionRequest {
   PartitionsToDelete: PartitionValueList[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeletePartitionResponse {
   /**
    * <p>The errors encountered when trying to delete the requested partitions.</p>
@@ -766,6 +814,9 @@ export interface BatchDeletePartitionResponse {
   Errors?: PartitionError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableRequest {
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
@@ -791,6 +842,7 @@ export interface BatchDeleteTableRequest {
 }
 
 /**
+ * @public
  * <p>An error record for table operations.</p>
  */
 export interface TableError {
@@ -805,6 +857,9 @@ export interface TableError {
   ErrorDetail?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableResponse {
   /**
    * <p>A list of errors encountered in attempting to delete the specified tables.</p>
@@ -813,6 +868,7 @@ export interface BatchDeleteTableResponse {
 }
 
 /**
+ * @public
  * <p>A resource was not ready for a transaction.</p>
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -836,6 +892,9 @@ export class ResourceNotReadyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableVersionRequest {
   /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
@@ -862,6 +921,7 @@ export interface BatchDeleteTableVersionRequest {
 }
 
 /**
+ * @public
  * <p>An error record for table-version operations.</p>
  */
 export interface TableVersionError {
@@ -881,6 +941,9 @@ export interface TableVersionError {
   ErrorDetail?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableVersionResponse {
   /**
    * <p>A list of errors encountered while trying to delete
@@ -889,6 +952,9 @@ export interface BatchDeleteTableVersionResponse {
   Errors?: TableVersionError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetBlueprintsRequest {
   /**
    * <p>A list of blueprint names.</p>
@@ -907,6 +973,7 @@ export interface BatchGetBlueprintsRequest {
 }
 
 /**
+ * @public
  * <p>When there are multiple versions of a blueprint and the latest version has some errors, this attribute indicates the last successful blueprint definition that is available with the service.</p>
  */
 export interface LastActiveDefinition {
@@ -936,6 +1003,9 @@ export interface LastActiveDefinition {
   BlueprintServiceLocation?: string;
 }
 
+/**
+ * @public
+ */
 export enum BlueprintStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -944,6 +1014,7 @@ export enum BlueprintStatus {
 }
 
 /**
+ * @public
  * <p>The details of a blueprint.</p>
  */
 export interface Blueprint {
@@ -1012,6 +1083,9 @@ export interface Blueprint {
   LastActiveDefinition?: LastActiveDefinition;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetBlueprintsResponse {
   /**
    * <p>Returns a list of blueprint as a <code>Blueprints</code> object.</p>
@@ -1024,6 +1098,9 @@ export interface BatchGetBlueprintsResponse {
   MissingBlueprints?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCrawlersRequest {
   /**
    * <p>A list of crawler names, which might be the names returned from the
@@ -1033,6 +1110,7 @@ export interface BatchGetCrawlersRequest {
 }
 
 /**
+ * @public
  * <p>Specifies Lake Formation configuration settings for the crawler.</p>
  */
 export interface LakeFormationConfiguration {
@@ -1047,6 +1125,9 @@ export interface LakeFormationConfiguration {
   AccountId?: string;
 }
 
+/**
+ * @public
+ */
 export enum LastCrawlStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
@@ -1054,6 +1135,7 @@ export enum LastCrawlStatus {
 }
 
 /**
+ * @public
  * <p>Status and error information about the most recent crawl.</p>
  */
 export interface LastCrawlInfo {
@@ -1088,12 +1170,16 @@ export interface LastCrawlInfo {
   StartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum CrawlerLineageSettings {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
 }
 
 /**
+ * @public
  * <p>Specifies data lineage configuration settings for the crawler.</p>
  */
 export interface LineageConfiguration {
@@ -1111,6 +1197,9 @@ export interface LineageConfiguration {
   CrawlerLineageSettings?: CrawlerLineageSettings | string;
 }
 
+/**
+ * @public
+ */
 export enum RecrawlBehavior {
   CRAWL_EVENT_MODE = "CRAWL_EVENT_MODE",
   CRAWL_EVERYTHING = "CRAWL_EVERYTHING",
@@ -1118,6 +1207,7 @@ export enum RecrawlBehavior {
 }
 
 /**
+ * @public
  * <p>When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html">Incremental Crawls in Glue</a> in the developer guide.</p>
  */
 export interface RecrawlPolicy {
@@ -1130,6 +1220,9 @@ export interface RecrawlPolicy {
   RecrawlBehavior?: RecrawlBehavior | string;
 }
 
+/**
+ * @public
+ */
 export enum ScheduleState {
   NOT_SCHEDULED = "NOT_SCHEDULED",
   SCHEDULED = "SCHEDULED",
@@ -1137,6 +1230,7 @@ export enum ScheduleState {
 }
 
 /**
+ * @public
  * <p>A scheduling object using a <code>cron</code> statement to schedule an event.</p>
  */
 export interface Schedule {
@@ -1153,18 +1247,25 @@ export interface Schedule {
   State?: ScheduleState | string;
 }
 
+/**
+ * @public
+ */
 export enum DeleteBehavior {
   DELETE_FROM_DATABASE = "DELETE_FROM_DATABASE",
   DEPRECATE_IN_DATABASE = "DEPRECATE_IN_DATABASE",
   LOG = "LOG",
 }
 
+/**
+ * @public
+ */
 export enum UpdateBehavior {
   LOG = "LOG",
   UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
 }
 
 /**
+ * @public
  * <p>A policy that specifies update and deletion behaviors for the crawler.</p>
  */
 export interface SchemaChangePolicy {
@@ -1179,6 +1280,9 @@ export interface SchemaChangePolicy {
   DeleteBehavior?: DeleteBehavior | string;
 }
 
+/**
+ * @public
+ */
 export enum CrawlerState {
   READY = "READY",
   RUNNING = "RUNNING",
@@ -1186,6 +1290,7 @@ export enum CrawlerState {
 }
 
 /**
+ * @public
  * <p>Specifies an Glue Data Catalog target.</p>
  */
 export interface CatalogTarget {
@@ -1216,6 +1321,7 @@ export interface CatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a Delta data store to crawl one or more Delta tables.</p>
  */
 export interface DeltaTarget {
@@ -1241,6 +1347,7 @@ export interface DeltaTarget {
 }
 
 /**
+ * @public
  * <p>Specifies an Amazon DynamoDB table to crawl.</p>
  */
 export interface DynamoDBTarget {
@@ -1262,12 +1369,16 @@ export interface DynamoDBTarget {
   scanRate?: number;
 }
 
+/**
+ * @public
+ */
 export enum JdbcMetadataEntry {
   COMMENTS = "COMMENTS",
   RAWTYPES = "RAWTYPES",
 }
 
 /**
+ * @public
  * <p>Specifies a JDBC data store to crawl.</p>
  */
 export interface JdbcTarget {
@@ -1295,6 +1406,7 @@ export interface JdbcTarget {
 }
 
 /**
+ * @public
  * <p>Specifies an Amazon DocumentDB or MongoDB data store to crawl.</p>
  */
 export interface MongoDBTarget {
@@ -1316,6 +1428,7 @@ export interface MongoDBTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a data store in Amazon Simple Storage Service (Amazon S3).</p>
  */
 export interface S3Target {
@@ -1352,6 +1465,7 @@ export interface S3Target {
 }
 
 /**
+ * @public
  * <p>Specifies data stores to crawl.</p>
  */
 export interface CrawlerTargets {
@@ -1387,6 +1501,7 @@ export interface CrawlerTargets {
 }
 
 /**
+ * @public
  * <p>Specifies a crawler program that examines a data source and uses classifiers to try to
  *       determine its schema. If successful, the crawler records metadata concerning the data source
  *       in the Glue Data Catalog.</p>
@@ -1499,6 +1614,9 @@ export interface Crawler {
   LakeFormationConfiguration?: LakeFormationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCrawlersResponse {
   /**
    * <p>A list of crawler definitions.</p>
@@ -1511,6 +1629,9 @@ export interface BatchGetCrawlersResponse {
   CrawlersNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCustomEntityTypesRequest {
   /**
    * <p>A list of names of the custom patterns that you want to retrieve.</p>
@@ -1519,6 +1640,7 @@ export interface BatchGetCustomEntityTypesRequest {
 }
 
 /**
+ * @public
  * <p>An object representing a custom pattern for detecting sensitive data across the columns and rows of your structured data.</p>
  */
 export interface CustomEntityType {
@@ -1539,6 +1661,9 @@ export interface CustomEntityType {
   ContextWords?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCustomEntityTypesResponse {
   /**
    * <p>A list of <code>CustomEntityType</code> objects representing the custom patterns that have been created.</p>
@@ -1551,6 +1676,9 @@ export interface BatchGetCustomEntityTypesResponse {
   CustomEntityTypesNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDataQualityResultRequest {
   /**
    * <p>A list of unique result IDs for the data quality results.</p>
@@ -1559,6 +1687,7 @@ export interface BatchGetDataQualityResultRequest {
 }
 
 /**
+ * @public
  * <p>The database and table in the Glue Data Catalog that is used for input or output data.</p>
  */
 export interface GlueTable {
@@ -1599,6 +1728,7 @@ export interface GlueTable {
 }
 
 /**
+ * @public
  * <p>A data source (an Glue table) for which you want data quality results.</p>
  */
 export interface DataSource {
@@ -1608,6 +1738,9 @@ export interface DataSource {
   GlueTable: GlueTable | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DataQualityRuleResultStatus {
   ERROR = "ERROR",
   FAIL = "FAIL",
@@ -1615,6 +1748,7 @@ export enum DataQualityRuleResultStatus {
 }
 
 /**
+ * @public
  * <p>Describes the result of the evaluation of a data quality rule.</p>
  */
 export interface DataQualityRuleResult {
@@ -1640,6 +1774,7 @@ export interface DataQualityRuleResult {
 }
 
 /**
+ * @public
  * <p>Describes a data quality result.</p>
  */
 export interface DataQualityResult {
@@ -1699,6 +1834,9 @@ export interface DataQualityResult {
   RuleResults?: DataQualityRuleResult[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDataQualityResultResponse {
   /**
    * <p>A list of <code>DataQualityResult</code> objects representing the data quality results.</p>
@@ -1711,6 +1849,9 @@ export interface BatchGetDataQualityResultResponse {
   ResultsNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDevEndpointsRequest {
   /**
    * <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the
@@ -1719,6 +1860,9 @@ export interface BatchGetDevEndpointsRequest {
   DevEndpointNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum WorkerType {
   G_025X = "G.025X",
   G_1X = "G.1X",
@@ -1727,6 +1871,7 @@ export enum WorkerType {
 }
 
 /**
+ * @public
  * <p>A development endpoint where a developer can remotely debug extract, transform, and load
  *       (ETL) scripts.</p>
  */
@@ -1911,6 +2056,9 @@ export interface DevEndpoint {
   Arguments?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDevEndpointsResponse {
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
@@ -1923,6 +2071,9 @@ export interface BatchGetDevEndpointsResponse {
   DevEndpointsNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetJobsRequest {
   /**
    * <p>A list of job names, which might be the names returned from the <code>ListJobs</code>
@@ -1932,6 +2083,7 @@ export interface BatchGetJobsRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog.</p>
  */
 export interface CatalogDeltaSource {
@@ -1962,6 +2114,7 @@ export interface CatalogDeltaSource {
 }
 
 /**
+ * @public
  * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog.</p>
  */
 export interface CatalogHudiSource {
@@ -1992,6 +2145,7 @@ export interface CatalogHudiSource {
 }
 
 /**
+ * @public
  * <p>Specifies options related to data preview for viewing a sample of your data.</p>
  */
 export interface StreamingDataPreviewOptions {
@@ -2007,6 +2161,7 @@ export interface StreamingDataPreviewOptions {
 }
 
 /**
+ * @public
  * <p>Additional options for streaming.</p>
  */
 export interface KafkaStreamingSourceOptions {
@@ -2104,6 +2259,7 @@ export interface KafkaStreamingSourceOptions {
 }
 
 /**
+ * @public
  * <p>Specifies an Apache Kafka data store in the Data Catalog.</p>
  */
 export interface CatalogKafkaSource {
@@ -2143,6 +2299,9 @@ export interface CatalogKafkaSource {
   DataPreviewOptions?: StreamingDataPreviewOptions;
 }
 
+/**
+ * @public
+ */
 export enum StartingPosition {
   EARLIEST = "earliest",
   LATEST = "latest",
@@ -2150,6 +2309,7 @@ export enum StartingPosition {
 }
 
 /**
+ * @public
  * <p>Additional options for the Amazon Kinesis streaming data source.</p>
  */
 export interface KinesisStreamingSourceOptions {
@@ -2255,6 +2415,7 @@ export interface KinesisStreamingSourceOptions {
 }
 
 /**
+ * @public
  * <p>Specifies a Kinesis data source in the Glue Data Catalog.</p>
  */
 export interface CatalogKinesisSource {
@@ -2295,6 +2456,7 @@ export interface CatalogKinesisSource {
 }
 
 /**
+ * @public
  * <p>Specifies a data store in the Glue Data Catalog.</p>
  */
 export interface CatalogSource {
@@ -2315,6 +2477,7 @@ export interface CatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses a Glue Data Catalog table.</p>
  */
 export interface BasicCatalogTarget {
@@ -2340,6 +2503,7 @@ export interface BasicCatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that uses custom code you provide to perform the data transformation. The output is a collection of DynamicFrames.</p>
  */
 export interface CustomCode {
@@ -2369,6 +2533,9 @@ export interface CustomCode {
   OutputSchemas?: GlueSchema[];
 }
 
+/**
+ * @public
+ */
 export enum JDBCConnectionType {
   mysql = "mysql",
   oracle = "oracle",
@@ -2378,6 +2545,7 @@ export enum JDBCConnectionType {
 }
 
 /**
+ * @public
  * <p>Specifies the direct JDBC source connection.</p>
  */
 export interface DirectJDBCSource {
@@ -2413,6 +2581,7 @@ export interface DirectJDBCSource {
 }
 
 /**
+ * @public
  * <p>Specifies an Apache Kafka data store.</p>
  */
 export interface DirectKafkaSource {
@@ -2443,6 +2612,7 @@ export interface DirectKafkaSource {
 }
 
 /**
+ * @public
  * <p>Specifies a direct Amazon Kinesis data source.</p>
  */
 export interface DirectKinesisSource {
@@ -2473,6 +2643,7 @@ export interface DirectKinesisSource {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that removes rows of repeating data from a data set. </p>
  */
 export interface DropDuplicates {
@@ -2493,6 +2664,7 @@ export interface DropDuplicates {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that chooses the data property keys that you want to drop.</p>
  */
 export interface DropFields {
@@ -2513,6 +2685,7 @@ export interface DropFields {
 }
 
 /**
+ * @public
  * <p>Represents whether certain values are recognized as null values for removal.</p>
  */
 export interface NullCheckBoxList {
@@ -2533,6 +2706,7 @@ export interface NullCheckBoxList {
 }
 
 /**
+ * @public
  * <p>A structure representing the datatype of the value.</p>
  */
 export interface Datatype {
@@ -2548,6 +2722,7 @@ export interface Datatype {
 }
 
 /**
+ * @public
  * <p>Represents a custom null value such as a zeros or other value being used as a null placeholder unique to the dataset.</p>
  */
 export interface NullValueField {
@@ -2563,6 +2738,7 @@ export interface NullValueField {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that removes columns from the dataset if all values in the column are 'null'. By default, Glue Studio will recognize null objects, but some values such as empty strings, strings that are "null", -1 integers or other placeholders such as zeros, are not automatically recognized as nulls.</p>
  */
 export interface DropNullFields {
@@ -2588,6 +2764,9 @@ export interface DropNullFields {
   NullTextList?: NullValueField[];
 }
 
+/**
+ * @public
+ */
 export enum ParamType {
   BOOL = "bool",
   COMPLEX = "complex",
@@ -2599,6 +2778,7 @@ export enum ParamType {
 }
 
 /**
+ * @public
  * <p>Specifies the parameters in the config file of the dynamic transform.</p>
  */
 export interface TransformConfigParameter {
@@ -2639,6 +2819,7 @@ export interface TransformConfigParameter {
 }
 
 /**
+ * @public
  * <p>Specifies the set of parameters needed to perform the dynamic transform.</p>
  */
 export interface DynamicTransform {
@@ -2679,6 +2860,7 @@ export interface DynamicTransform {
 }
 
 /**
+ * @public
  * <p>Specifies a DynamoDB data source in the Glue Data Catalog.</p>
  */
 export interface DynamoDBCatalogSource {
@@ -2698,12 +2880,16 @@ export interface DynamoDBCatalogSource {
   Table: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DQTransformOutput {
   EvaluationResults = "EvaluationResults",
   PrimaryInput = "PrimaryInput",
 }
 
 /**
+ * @public
  * <p>Options to configure how your data quality evaluation results are published.</p>
  */
 export interface DQResultsPublishingOptions {
@@ -2728,12 +2914,16 @@ export interface DQResultsPublishingOptions {
   ResultsPublishingEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DQStopJobOnFailureTiming {
   AfterDataLoad = "AfterDataLoad",
   Immediate = "Immediate",
 }
 
 /**
+ * @public
  * <p>Options to configure how your job will stop if your data quality evaluation fails.</p>
  */
 export interface DQStopJobOnFailureOptions {
@@ -2744,6 +2934,7 @@ export interface DQStopJobOnFailureOptions {
 }
 
 /**
+ * @public
  * <p>Specifies your data quality evaluation criteria.</p>
  */
 export interface EvaluateDataQuality {
@@ -2779,6 +2970,7 @@ export interface EvaluateDataQuality {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that locates records in the dataset that have missing values and adds a new field with a value determined by imputation. The input data set is used to train the machine learning model that determines what the missing value should be.</p>
  */
 export interface FillMissingValues {
@@ -2803,6 +2995,9 @@ export interface FillMissingValues {
   FilledPath?: string;
 }
 
+/**
+ * @public
+ */
 export enum FilterOperation {
   EQ = "EQ",
   GT = "GT",
@@ -2813,12 +3008,16 @@ export enum FilterOperation {
   REGEX = "REGEX",
 }
 
+/**
+ * @public
+ */
 export enum FilterValueType {
   COLUMNEXTRACTED = "COLUMNEXTRACTED",
   CONSTANT = "CONSTANT",
 }
 
 /**
+ * @public
  * <p>Represents a single entry in the list of values for a <code>FilterExpression</code>. </p>
  */
 export interface FilterValue {
@@ -2834,6 +3033,7 @@ export interface FilterValue {
 }
 
 /**
+ * @public
  * <p>Specifies a filter expression.</p>
  */
 export interface FilterExpression {
@@ -2853,12 +3053,16 @@ export interface FilterExpression {
   Values: FilterValue[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FilterLogicalOperator {
   AND = "AND",
   OR = "OR",
 }
 
 /**
+ * @public
  * <p>Specifies a transform that splits a dataset into two, based on a filter condition.</p>
  */
 export interface Filter {
@@ -2884,6 +3088,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>Specifies additional connection options for the Amazon S3 data store.</p>
  */
 export interface S3SourceAdditionalOptions {
@@ -2899,6 +3104,7 @@ export interface S3SourceAdditionalOptions {
 }
 
 /**
+ * @public
  * <p>Specifies the data store in the governed Glue Data Catalog.</p>
  */
 export interface GovernedCatalogSource {
@@ -2928,12 +3134,16 @@ export interface GovernedCatalogSource {
   AdditionalOptions?: S3SourceAdditionalOptions;
 }
 
+/**
+ * @public
+ */
 export enum UpdateCatalogBehavior {
   LOG = "LOG",
   UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
 }
 
 /**
+ * @public
  * <p>A policy that specifies update behavior for the crawler.</p>
  */
 export interface CatalogSchemaChangePolicy {
@@ -2949,6 +3159,7 @@ export interface CatalogSchemaChangePolicy {
 }
 
 /**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3 using the Glue Data Catalog.</p>
  */
 export interface GovernedCatalogTarget {
@@ -2983,6 +3194,9 @@ export interface GovernedCatalogTarget {
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
 }
 
+/**
+ * @public
+ */
 export enum JDBCDataType {
   ARRAY = "ARRAY",
   BIGINT = "BIGINT",
@@ -3025,6 +3239,9 @@ export enum JDBCDataType {
   VARCHAR = "VARCHAR",
 }
 
+/**
+ * @public
+ */
 export enum GlueRecordType {
   BIGDECIMAL = "BIGDECIMAL",
   BYTE = "BYTE",
@@ -3039,6 +3256,7 @@ export enum GlueRecordType {
 }
 
 /**
+ * @public
  * <p>Additional connection options for the connector.</p>
  */
 export interface JDBCConnectorOptions {
@@ -3082,12 +3300,13 @@ export interface JDBCConnectorOptions {
   JobBookmarkKeysSortOrder?: string;
 
   /**
-   * <p>Custom data type mapping that builds a mapping from a JDBC data type to an Glue data type. For example, the option <code>"dataTypeMapping":{"FLOAT":"STRING"}</code> maps data fields of JDBC type <code>FLOAT</code> into the Java <code>String</code> type by calling the <code>ResultSet.getString()</code> method of the driver, and uses it to build the Glue record. The <code>ResultSet</code> object is implemented by each driver, so the behavior is specific to the driver you use. Refer to the documentation for your JDBC driver to understand how the driver performs the conversions.</p>
+   * <p>Custom data type mapping that builds a mapping from a JDBC data type to an Glue data type. For example, the option <code>"dataTypeMapping":\{"FLOAT":"STRING"\}</code> maps data fields of JDBC type <code>FLOAT</code> into the Java <code>String</code> type by calling the <code>ResultSet.getString()</code> method of the driver, and uses it to build the Glue record. The <code>ResultSet</code> object is implemented by each driver, so the behavior is specific to the driver you use. Refer to the documentation for your JDBC driver to understand how the driver performs the conversions.</p>
    */
   DataTypeMapping?: Record<string, GlueRecordType | string>;
 }
 
 /**
+ * @public
  * <p>Specifies a connector to a JDBC data source.</p>
  */
 export interface JDBCConnectorSource {
@@ -3133,6 +3352,7 @@ export interface JDBCConnectorSource {
 }
 
 /**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>
  */
 export interface JDBCConnectorTarget {
@@ -3178,6 +3398,7 @@ export interface JDBCConnectorTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a column to be joined.</p>
  */
 export interface JoinColumn {
@@ -3192,6 +3413,9 @@ export interface JoinColumn {
   Keys: string[][] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum JoinType {
   EQUIJOIN = "equijoin",
   LEFT = "left",
@@ -3202,6 +3426,7 @@ export enum JoinType {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that joins two datasets into one dataset using a comparison phrase on the specified data property keys. You can use inner, outer, left, right, left semi, and left anti joins.</p>
  */
 export interface Join {
@@ -3227,6 +3452,7 @@ export interface Join {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that merges a <code>DynamicFrame</code> with a staging <code>DynamicFrame</code> based on the specified primary keys to identify records. Duplicate records (records with the same primary keys) are not de-duplicated. </p>
  */
 export interface Merge {
@@ -3252,6 +3478,7 @@ export interface Merge {
 }
 
 /**
+ * @public
  * <p>Specifies a Microsoft SQL server data source in the Glue Data Catalog.</p>
  */
 export interface MicrosoftSQLServerCatalogSource {
@@ -3272,6 +3499,7 @@ export interface MicrosoftSQLServerCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses Microsoft SQL.</p>
  */
 export interface MicrosoftSQLServerCatalogTarget {
@@ -3297,6 +3525,7 @@ export interface MicrosoftSQLServerCatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a MySQL data source in the Glue Data Catalog.</p>
  */
 export interface MySQLCatalogSource {
@@ -3317,6 +3546,7 @@ export interface MySQLCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses MySQL.</p>
  */
 export interface MySQLCatalogTarget {
@@ -3342,6 +3572,7 @@ export interface MySQLCatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies an Oracle data source in the Glue Data Catalog.</p>
  */
 export interface OracleSQLCatalogSource {
@@ -3362,6 +3593,7 @@ export interface OracleSQLCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses Oracle SQL.</p>
  */
 export interface OracleSQLCatalogTarget {
@@ -3386,6 +3618,9 @@ export interface OracleSQLCatalogTarget {
   Table: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PiiType {
   ColumnAudit = "ColumnAudit",
   ColumnMasking = "ColumnMasking",
@@ -3394,6 +3629,7 @@ export enum PiiType {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that identifies, removes or masks PII data.</p>
  */
 export interface PIIDetection {
@@ -3444,6 +3680,7 @@ export interface PIIDetection {
 }
 
 /**
+ * @public
  * <p>Specifies a PostgresSQL data source in the Glue Data Catalog.</p>
  */
 export interface PostgreSQLCatalogSource {
@@ -3464,6 +3701,7 @@ export interface PostgreSQLCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses Postgres SQL.</p>
  */
 export interface PostgreSQLCatalogTarget {
@@ -3489,6 +3727,7 @@ export interface PostgreSQLCatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies an Amazon Redshift data store.</p>
  */
 export interface RedshiftSource {
@@ -3519,6 +3758,7 @@ export interface RedshiftSource {
 }
 
 /**
+ * @public
  * <p>The options to configure an upsert operation when writing to a Redshift target .</p>
  */
 export interface UpsertRedshiftTargetOptions {
@@ -3539,6 +3779,7 @@ export interface UpsertRedshiftTargetOptions {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses Amazon Redshift.</p>
  */
 export interface RedshiftTarget {
@@ -3579,6 +3820,7 @@ export interface RedshiftTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a Relational database data source in the Glue Data Catalog.</p>
  */
 export interface RelationalCatalogSource {
@@ -3599,6 +3841,7 @@ export interface RelationalCatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that renames a single data property key.</p>
  */
 export interface RenameField {
@@ -3624,6 +3867,7 @@ export interface RenameField {
 }
 
 /**
+ * @public
  * <p>Specifies a Delta Lake data source that is registered in the Glue Data Catalog. The data source must be stored in Amazon S3.</p>
  */
 export interface S3CatalogDeltaSource {
@@ -3654,6 +3898,7 @@ export interface S3CatalogDeltaSource {
 }
 
 /**
+ * @public
  * <p>Specifies a Hudi data source that is registered in the Glue Data Catalog. The Hudi data source must be stored in Amazon S3.</p>
  */
 export interface S3CatalogHudiSource {
@@ -3684,6 +3929,7 @@ export interface S3CatalogHudiSource {
 }
 
 /**
+ * @public
  * <p>Specifies an Amazon S3 data store in the Glue Data Catalog.</p>
  */
 export interface S3CatalogSource {
@@ -3714,6 +3960,7 @@ export interface S3CatalogSource {
 }
 
 /**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3 using the Glue Data Catalog.</p>
  */
 export interface S3CatalogTarget {
@@ -3749,6 +3996,7 @@ export interface S3CatalogTarget {
 }
 
 /**
+ * @public
  * <p>Specifies additional connection options for the Amazon S3 data store.</p>
  */
 export interface S3DirectSourceAdditionalOptions {
@@ -3773,11 +4021,17 @@ export interface S3DirectSourceAdditionalOptions {
   SamplePath?: string;
 }
 
+/**
+ * @public
+ */
 export enum CompressionType {
   BZIP2 = "bzip2",
   GZIP = "gzip",
 }
 
+/**
+ * @public
+ */
 export enum QuoteChar {
   DISABLED = "disabled",
   QUILLEMET = "quillemet",
@@ -3785,6 +4039,9 @@ export enum QuoteChar {
   SINGLE_QUOTE = "single_quote",
 }
 
+/**
+ * @public
+ */
 export enum Separator {
   COMMA = "comma",
   CTRLA = "ctrla",
@@ -3794,6 +4051,7 @@ export enum Separator {
 }
 
 /**
+ * @public
  * <p>Specifies a command-separated value (CSV) data store stored in Amazon S3.</p>
  */
 export interface S3CsvSource {
@@ -3894,6 +4152,7 @@ export interface S3CsvSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that writes to a Delta Lake data source in the Glue Data Catalog.</p>
  */
 export interface S3DeltaCatalogTarget {
@@ -3933,11 +4192,17 @@ export interface S3DeltaCatalogTarget {
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
 }
 
+/**
+ * @public
+ */
 export enum DeltaTargetCompressionType {
   SNAPPY = "snappy",
   UNCOMPRESSED = "uncompressed",
 }
 
+/**
+ * @public
+ */
 export enum TargetFormat {
   AVRO = "avro",
   CSV = "csv",
@@ -3949,6 +4214,7 @@ export enum TargetFormat {
 }
 
 /**
+ * @public
  * <p>A policy that specifies update behavior for the crawler.</p>
  */
 export interface DirectSchemaChangePolicy {
@@ -3974,6 +4240,7 @@ export interface DirectSchemaChangePolicy {
 }
 
 /**
+ * @public
  * <p>Specifies a target that writes to a Delta Lake data source in Amazon S3.</p>
  */
 export interface S3DeltaDirectTarget {
@@ -4019,6 +4286,7 @@ export interface S3DeltaDirectTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a Delta Lake data source stored in Amazon S3.</p>
  */
 export interface S3DeltaSource {
@@ -4049,6 +4317,7 @@ export interface S3DeltaSource {
 }
 
 /**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3.</p>
  */
 export interface S3DirectTarget {
@@ -4088,6 +4357,9 @@ export interface S3DirectTarget {
   SchemaChangePolicy?: DirectSchemaChangePolicy;
 }
 
+/**
+ * @public
+ */
 export enum ParquetCompressionType {
   GZIP = "gzip",
   LZO = "lzo",
@@ -4097,6 +4369,7 @@ export enum ParquetCompressionType {
 }
 
 /**
+ * @public
  * <p>Specifies a data target that writes to Amazon S3 in Apache Parquet columnar storage.</p>
  */
 export interface S3GlueParquetTarget {
@@ -4132,6 +4405,7 @@ export interface S3GlueParquetTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a target that writes to a Hudi data source in the Glue Data Catalog.</p>
  */
 export interface S3HudiCatalogTarget {
@@ -4171,6 +4445,9 @@ export interface S3HudiCatalogTarget {
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
 }
 
+/**
+ * @public
+ */
 export enum HudiTargetCompressionType {
   GZIP = "gzip",
   LZO = "lzo",
@@ -4179,6 +4456,7 @@ export enum HudiTargetCompressionType {
 }
 
 /**
+ * @public
  * <p>Specifies a target that writes to a Hudi data source in Amazon S3.</p>
  */
 export interface S3HudiDirectTarget {
@@ -4224,6 +4502,7 @@ export interface S3HudiDirectTarget {
 }
 
 /**
+ * @public
  * <p>Specifies a Hudi data source stored in Amazon S3.</p>
  */
 export interface S3HudiSource {
@@ -4254,6 +4533,7 @@ export interface S3HudiSource {
 }
 
 /**
+ * @public
  * <p>Specifies a JSON data store stored in Amazon S3.</p>
  */
 export interface S3JsonSource {
@@ -4324,6 +4604,7 @@ export interface S3JsonSource {
 }
 
 /**
+ * @public
  * <p>Specifies an Apache Parquet data store stored in Amazon S3.</p>
  */
 export interface S3ParquetSource {
@@ -4384,6 +4665,7 @@ export interface S3ParquetSource {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that chooses the data property keys that you want to keep.</p>
  */
 export interface SelectFields {
@@ -4404,6 +4686,7 @@ export interface SelectFields {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that chooses one <code>DynamicFrame</code> from a collection of <code>DynamicFrames</code>. The output is the selected <code>DynamicFrame</code>
  *          </p>
  */
@@ -4425,6 +4708,7 @@ export interface SelectFromCollection {
 }
 
 /**
+ * @public
  * <p>Specifies a connector to an Apache Spark data source.</p>
  */
 export interface SparkConnectorSource {
@@ -4460,6 +4744,7 @@ export interface SparkConnectorSource {
 }
 
 /**
+ * @public
  * <p>Specifies a target that uses an Apache Spark connector.</p>
  */
 export interface SparkConnectorTarget {
@@ -4500,6 +4785,7 @@ export interface SparkConnectorTarget {
 }
 
 /**
+ * @public
  * <p>Represents a single entry in the list of values for <code>SqlAliases</code>. </p>
  */
 export interface SqlAlias {
@@ -4515,6 +4801,7 @@ export interface SqlAlias {
 }
 
 /**
+ * @public
  * <p>Specifies a transform where you enter a SQL query using Spark SQL syntax to transform the data. The output is a single <code>DynamicFrame</code>.</p>
  */
 export interface SparkSQL {
@@ -4550,6 +4837,7 @@ export interface SparkSQL {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that writes samples of the data to an Amazon S3 bucket.</p>
  */
 export interface Spigot {
@@ -4580,6 +4868,7 @@ export interface Spigot {
 }
 
 /**
+ * @public
  * <p>Specifies a transform that splits data property keys into two <code>DynamicFrames</code>. The output is a collection of <code>DynamicFrames</code>: one with selected data property keys, and one with the remaining data property keys.</p>
  */
 export interface SplitFields {
@@ -4599,12 +4888,16 @@ export interface SplitFields {
   Paths: string[][] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum UnionType {
   ALL = "ALL",
   DISTINCT = "DISTINCT",
 }
 
 /**
+ * @public
  * <p>Specifies a transform that combines the rows from two or more datasets into a single result.</p>
  */
 export interface Union {
@@ -4627,6 +4920,7 @@ export interface Union {
 }
 
 /**
+ * @public
  * <p>Specifies code that runs when a job is run.</p>
  */
 export interface JobCommand {
@@ -4650,6 +4944,7 @@ export interface JobCommand {
 }
 
 /**
+ * @public
  * <p>Specifies the connections used by a job.</p>
  */
 export interface ConnectionsList {
@@ -4659,12 +4954,16 @@ export interface ConnectionsList {
   Connections?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ExecutionClass {
   FLEX = "FLEX",
   STANDARD = "STANDARD",
 }
 
 /**
+ * @public
  * <p>An execution property of a job.</p>
  */
 export interface ExecutionProperty {
@@ -4676,17 +4975,24 @@ export interface ExecutionProperty {
   MaxConcurrentRuns?: number;
 }
 
+/**
+ * @public
+ */
 export enum SourceControlAuthStrategy {
   AWS_SECRETS_MANAGER = "AWS_SECRETS_MANAGER",
   PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN",
 }
 
+/**
+ * @public
+ */
 export enum SourceControlProvider {
   AWS_CODE_COMMIT = "AWS_CODE_COMMIT",
   GITHUB = "GITHUB",
 }
 
 /**
+ * @public
  * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
  */
 export interface SourceControlDetails {
@@ -4731,6 +5037,9 @@ export interface SourceControlDetails {
   AuthToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetPartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -4755,6 +5064,7 @@ export interface BatchGetPartitionRequest {
 }
 
 /**
+ * @public
  * <p>Represents a slice of table data.</p>
  */
 export interface Partition {
@@ -4806,6 +5116,9 @@ export interface Partition {
   CatalogId?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetPartitionResponse {
   /**
    * <p>A list of the requested partitions.</p>
@@ -4820,6 +5133,7 @@ export interface BatchGetPartitionResponse {
 }
 
 /**
+ * @public
  * <p>An error that indicates your data is in an invalid state.</p>
  */
 export class InvalidStateException extends __BaseException {
@@ -4843,6 +5157,9 @@ export class InvalidStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetTriggersRequest {
   /**
    * <p>A list of trigger names, which may be the names returned from the <code>ListTriggers</code> operation.</p>
@@ -4851,6 +5168,7 @@ export interface BatchGetTriggersRequest {
 }
 
 /**
+ * @public
  * <p>Batch condition that must be met (specified number of events received or batch time window expired)
  *       before EventBridge event trigger fires.</p>
  */
@@ -4866,6 +5184,9 @@ export interface EventBatchingCondition {
   BatchWindow?: number;
 }
 
+/**
+ * @public
+ */
 export enum CrawlState {
   CANCELLED = "CANCELLED",
   CANCELLING = "CANCELLING",
@@ -4875,10 +5196,16 @@ export enum CrawlState {
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export enum LogicalOperator {
   EQUALS = "EQUALS",
 }
 
+/**
+ * @public
+ */
 export enum JobRunState {
   ERROR = "ERROR",
   FAILED = "FAILED",
@@ -4892,6 +5219,7 @@ export enum JobRunState {
 }
 
 /**
+ * @public
  * <p>Defines a condition under which a trigger fires.</p>
  */
 export interface Condition {
@@ -4922,12 +5250,16 @@ export interface Condition {
   CrawlState?: CrawlState | string;
 }
 
+/**
+ * @public
+ */
 export enum Logical {
   AND = "AND",
   ANY = "ANY",
 }
 
 /**
+ * @public
  * <p>Defines the predicate of the trigger, which determines when it fires.</p>
  */
 export interface Predicate {
@@ -4943,6 +5275,9 @@ export interface Predicate {
   Conditions?: Condition[];
 }
 
+/**
+ * @public
+ */
 export enum TriggerState {
   ACTIVATED = "ACTIVATED",
   ACTIVATING = "ACTIVATING",
@@ -4954,6 +5289,9 @@ export enum TriggerState {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export enum TriggerType {
   CONDITIONAL = "CONDITIONAL",
   EVENT = "EVENT",
@@ -4962,6 +5300,7 @@ export enum TriggerType {
 }
 
 /**
+ * @public
  * <p>Information about a specific trigger.</p>
  */
 export interface Trigger {
@@ -5020,6 +5359,9 @@ export interface Trigger {
   EventBatchingCondition?: EventBatchingCondition;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetTriggersResponse {
   /**
    * <p>A list of trigger definitions.</p>
@@ -5032,6 +5374,9 @@ export interface BatchGetTriggersResponse {
   TriggersNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetWorkflowsRequest {
   /**
    * <p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>
@@ -5045,6 +5390,7 @@ export interface BatchGetWorkflowsRequest {
 }
 
 /**
+ * @public
  * <p>The details of a blueprint.</p>
  */
 export interface BlueprintDetails {
@@ -5060,6 +5406,7 @@ export interface BlueprintDetails {
 }
 
 /**
+ * @public
  * <p>An edge represents a directed connection between two Glue components that are part of the workflow the
  *       edge belongs to.</p>
  */
@@ -5076,6 +5423,7 @@ export interface Edge {
 }
 
 /**
+ * @public
  * <p>The details of a crawl in the workflow.</p>
  */
 export interface Crawl {
@@ -5111,6 +5459,7 @@ export interface Crawl {
 }
 
 /**
+ * @public
  * <p>The details of a Crawler node present in the workflow.</p>
  */
 export interface CrawlerNodeDetails {
@@ -5121,6 +5470,7 @@ export interface CrawlerNodeDetails {
 }
 
 /**
+ * @public
  * <p>A job run that was used in the predicate of a conditional trigger
  *       that triggered this job run.</p>
  */
@@ -5137,6 +5487,7 @@ export interface Predecessor {
 }
 
 /**
+ * @public
  * <p>Contains information about a job run.</p>
  */
 export interface JobRun {
@@ -5315,6 +5666,7 @@ export interface JobRun {
 }
 
 /**
+ * @public
  * <p>The details of a Job node present in the workflow.</p>
  */
 export interface JobNodeDetails {
@@ -5325,6 +5677,7 @@ export interface JobNodeDetails {
 }
 
 /**
+ * @public
  * <p>The details of a Trigger node present in the workflow.</p>
  */
 export interface TriggerNodeDetails {
@@ -5334,6 +5687,9 @@ export interface TriggerNodeDetails {
   Trigger?: Trigger;
 }
 
+/**
+ * @public
+ */
 export enum NodeType {
   CRAWLER = "CRAWLER",
   JOB = "JOB",
@@ -5341,6 +5697,7 @@ export enum NodeType {
 }
 
 /**
+ * @public
  * <p>A node represents an Glue component (trigger, crawler, or job) on a workflow graph.</p>
  */
 export interface Node {
@@ -5376,6 +5733,7 @@ export interface Node {
 }
 
 /**
+ * @public
  * <p>A workflow graph represents the complete workflow containing all the Glue components present in the
  *       workflow and all the directed connections between them.</p>
  */
@@ -5392,6 +5750,7 @@ export interface WorkflowGraph {
 }
 
 /**
+ * @public
  * <p>The batch condition that started the workflow run. Either the number of events in the batch size arrived,
  *       in which case the BatchSize member is non-zero, or the batch window expired, in which case the BatchWindow
  *       member is non-zero.</p>
@@ -5409,6 +5768,7 @@ export interface StartingEventBatchCondition {
 }
 
 /**
+ * @public
  * <p>Workflow run statistics provides statistics about the workflow run.</p>
  */
 export interface WorkflowRunStatistics {
@@ -5453,6 +5813,9 @@ export interface WorkflowRunStatistics {
   WaitingActions?: number;
 }
 
+/**
+ * @public
+ */
 export enum WorkflowRunStatus {
   COMPLETED = "COMPLETED",
   ERROR = "ERROR",
@@ -5462,6 +5825,7 @@ export enum WorkflowRunStatus {
 }
 
 /**
+ * @public
  * <p>A workflow run is an execution of a workflow providing all the runtime information.</p>
  */
 export interface WorkflowRun {
@@ -5523,6 +5887,7 @@ export interface WorkflowRun {
 }
 
 /**
+ * @public
  * <p>A workflow is a collection of multiple dependent Glue
  *       jobs and crawlers that are run to complete a complex ETL task. A
  *       workflow manages the execution and monitoring of all its jobs and crawlers.</p>
@@ -5577,6 +5942,9 @@ export interface Workflow {
   BlueprintDetails?: BlueprintDetails;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetWorkflowsResponse {
   /**
    * <p>A list of workflow resource metadata.</p>
@@ -5589,6 +5957,9 @@ export interface BatchGetWorkflowsResponse {
   MissingWorkflows?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchStopJobRunRequest {
   /**
    * <p>The name of the job definition for which to stop job runs.</p>
@@ -5603,6 +5974,7 @@ export interface BatchStopJobRunRequest {
 }
 
 /**
+ * @public
  * <p>Records an error that occurred when attempting to stop a
  *       specified job run.</p>
  */
@@ -5624,6 +5996,7 @@ export interface BatchStopJobRunError {
 }
 
 /**
+ * @public
  * <p>Records a successful request to stop a specified <code>JobRun</code>.</p>
  */
 export interface BatchStopJobRunSuccessfulSubmission {
@@ -5638,6 +6011,9 @@ export interface BatchStopJobRunSuccessfulSubmission {
   JobRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchStopJobRunResponse {
   /**
    * <p>A list of the JobRuns that were successfully submitted for stopping.</p>
@@ -5653,6 +6029,7 @@ export interface BatchStopJobRunResponse {
 }
 
 /**
+ * @public
  * <p>A structure that contains the values and structure used to update a partition.</p>
  */
 export interface BatchUpdatePartitionRequestEntry {
@@ -5667,6 +6044,9 @@ export interface BatchUpdatePartitionRequestEntry {
   PartitionInput: PartitionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdatePartitionRequest {
   /**
    * <p>The ID of the catalog in which the partition is to be updated. Currently, this should be
@@ -5692,6 +6072,7 @@ export interface BatchUpdatePartitionRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a batch update partition error.</p>
  */
 export interface BatchUpdatePartitionFailureEntry {
@@ -5706,6 +6087,9 @@ export interface BatchUpdatePartitionFailureEntry {
   ErrorDetail?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdatePartitionResponse {
   /**
    * <p>The errors encountered when trying to update the requested partitions. A list of <code>BatchUpdatePartitionFailureEntry</code> objects.</p>
@@ -5713,6 +6097,9 @@ export interface BatchUpdatePartitionResponse {
   Errors?: BatchUpdatePartitionFailureEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CancelDataQualityRuleRecommendationRunRequest {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -5720,8 +6107,14 @@ export interface CancelDataQualityRuleRecommendationRunRequest {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDataQualityRuleRecommendationRunResponse {}
 
+/**
+ * @public
+ */
 export interface CancelDataQualityRulesetEvaluationRunRequest {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -5729,8 +6122,14 @@ export interface CancelDataQualityRulesetEvaluationRunRequest {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDataQualityRulesetEvaluationRunResponse {}
 
+/**
+ * @public
+ */
 export interface CancelMLTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -5743,6 +6142,9 @@ export interface CancelMLTaskRunRequest {
   TaskRunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TaskStatusType {
   FAILED = "FAILED",
   RUNNING = "RUNNING",
@@ -5753,6 +6155,9 @@ export enum TaskStatusType {
   TIMEOUT = "TIMEOUT",
 }
 
+/**
+ * @public
+ */
 export interface CancelMLTaskRunResponse {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -5770,6 +6175,9 @@ export interface CancelMLTaskRunResponse {
   Status?: TaskStatusType | string;
 }
 
+/**
+ * @public
+ */
 export interface CancelStatementRequest {
   /**
    * <p>The Session ID of the statement to be cancelled.</p>
@@ -5787,9 +6195,13 @@ export interface CancelStatementRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelStatementResponse {}
 
 /**
+ * @public
  * <p>The session is in an invalid state to perform a requested operation.</p>
  */
 export class IllegalSessionStateException extends __BaseException {
@@ -5813,12 +6225,18 @@ export class IllegalSessionStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DataFormat {
   AVRO = "AVRO",
   JSON = "JSON",
   PROTOBUF = "PROTOBUF",
 }
 
+/**
+ * @public
+ */
 export interface CheckSchemaVersionValidityInput {
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
@@ -5831,6 +6249,9 @@ export interface CheckSchemaVersionValidityInput {
   SchemaDefinition: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CheckSchemaVersionValidityResponse {
   /**
    * <p>Return true, if the schema is valid and false otherwise.</p>
@@ -5843,6 +6264,9 @@ export interface CheckSchemaVersionValidityResponse {
   Error?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBlueprintRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -5865,6 +6289,9 @@ export interface CreateBlueprintRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateBlueprintResponse {
   /**
    * <p>Returns the name of the blueprint that was registered.</p>
@@ -5872,6 +6299,9 @@ export interface CreateBlueprintResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export enum CsvHeaderOption {
   ABSENT = "ABSENT",
   PRESENT = "PRESENT",
@@ -5879,6 +6309,7 @@ export enum CsvHeaderOption {
 }
 
 /**
+ * @public
  * <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateCsvClassifierRequest {
@@ -5929,6 +6360,7 @@ export interface CreateCsvClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
  *       to create.</p>
  */
@@ -5956,6 +6388,7 @@ export interface CreateGrokClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateJsonClassifierRequest {
@@ -5972,6 +6405,7 @@ export interface CreateJsonClassifierRequest {
 }
 
 /**
+ * @public
  * <p>Specifies an XML classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateXMLClassifierRequest {
@@ -5995,6 +6429,9 @@ export interface CreateXMLClassifierRequest {
   RowTag?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClassifierRequest {
   /**
    * <p>A <code>GrokClassifier</code> object specifying the classifier
@@ -6021,8 +6458,14 @@ export interface CreateClassifierRequest {
   CsvClassifier?: CreateCsvClassifierRequest;
 }
 
+/**
+ * @public
+ */
 export interface CreateClassifierResponse {}
 
+/**
+ * @public
+ */
 export enum ConnectionPropertyKey {
   CONFIG_FILES = "CONFIG_FILES",
   CONNECTION_URL = "CONNECTION_URL",
@@ -6056,6 +6499,9 @@ export enum ConnectionPropertyKey {
   USER_NAME = "USERNAME",
 }
 
+/**
+ * @public
+ */
 export enum ConnectionType {
   CUSTOM = "CUSTOM",
   JDBC = "JDBC",
@@ -6067,6 +6513,7 @@ export enum ConnectionType {
 }
 
 /**
+ * @public
  * <p>Specifies the physical requirements for a connection.</p>
  */
 export interface PhysicalConnectionRequirements {
@@ -6089,6 +6536,7 @@ export interface PhysicalConnectionRequirements {
 }
 
 /**
+ * @public
  * <p>A structure that is used to specify a connection to create or update.</p>
  */
 export interface ConnectionInput {
@@ -6212,6 +6660,9 @@ export interface ConnectionInput {
   PhysicalConnectionRequirements?: PhysicalConnectionRequirements;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the connection. If none is provided, the Amazon Web Services
@@ -6231,8 +6682,14 @@ export interface CreateConnectionRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionResponse {}
 
+/**
+ * @public
+ */
 export interface CreateCrawlerRequest {
   /**
    * <p>Name of the new crawler.</p>
@@ -6321,8 +6778,14 @@ export interface CreateCrawlerRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateCrawlerResponse {}
 
+/**
+ * @public
+ */
 export interface CreateCustomEntityTypeRequest {
   /**
    * <p>A name for the custom pattern that allows it to be retrieved or deleted later. This name must be unique per Amazon Web Services account.</p>
@@ -6341,6 +6804,9 @@ export interface CreateCustomEntityTypeRequest {
   ContextWords?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomEntityTypeResponse {
   /**
    * <p>The name of the custom pattern you created.</p>
@@ -6349,6 +6815,7 @@ export interface CreateCustomEntityTypeResponse {
 }
 
 /**
+ * @public
  * <p>The same unique identifier was associated with two different records.</p>
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -6373,6 +6840,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Two processes are trying to modify a resource simultaneously.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -6396,6 +6864,9 @@ export class ConcurrentModificationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Permission {
   ALL = "ALL",
   ALTER = "ALTER",
@@ -6409,6 +6880,7 @@ export enum Permission {
 }
 
 /**
+ * @public
  * <p>The Lake Formation principal.</p>
  */
 export interface DataLakePrincipal {
@@ -6419,6 +6891,7 @@ export interface DataLakePrincipal {
 }
 
 /**
+ * @public
  * <p>Permissions granted to a principal.</p>
  */
 export interface PrincipalPermissions {
@@ -6434,6 +6907,7 @@ export interface PrincipalPermissions {
 }
 
 /**
+ * @public
  * <p>A structure that describes a target database for resource linking.</p>
  */
 export interface DatabaseIdentifier {
@@ -6449,6 +6923,7 @@ export interface DatabaseIdentifier {
 }
 
 /**
+ * @public
  * <p>The structure used to create or update a database.</p>
  */
 export interface DatabaseInput {
@@ -6486,6 +6961,9 @@ export interface DatabaseInput {
   TargetDatabase?: DatabaseIdentifier;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services
@@ -6504,9 +6982,13 @@ export interface CreateDatabaseRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatabaseResponse {}
 
 /**
+ * @public
  * <p>An object representing an Glue table.</p>
  */
 export interface DataQualityTargetTable {
@@ -6521,6 +7003,9 @@ export interface DataQualityTargetTable {
   DatabaseName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataQualityRulesetRequest {
   /**
    * <p>A unique name for the data quality ruleset.</p>
@@ -6553,6 +7038,9 @@ export interface CreateDataQualityRulesetRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataQualityRulesetResponse {
   /**
    * <p>A unique name for the data quality ruleset.</p>
@@ -6560,6 +7048,9 @@ export interface CreateDataQualityRulesetResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDevEndpointRequest {
   /**
    * <p>The name to be assigned to the new <code>DevEndpoint</code>.</p>
@@ -6675,6 +7166,9 @@ export interface CreateDevEndpointRequest {
   Arguments?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDevEndpointResponse {
   /**
    * <p>The name assigned to the new <code>DevEndpoint</code>.</p>
@@ -6787,6 +7281,7 @@ export interface CreateDevEndpointResponse {
 }
 
 /**
+ * @public
  * <p>A value could not be validated.</p>
  */
 export class ValidationException extends __BaseException {
@@ -6810,6 +7305,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateJobResponse {
   /**
    * <p>The unique name that was provided for this job definition.</p>
@@ -6818,6 +7316,7 @@ export interface CreateJobResponse {
 }
 
 /**
+ * @public
  * <p>The parameters to configure the find matches transform.</p>
  */
 export interface FindMatchesParameters {
@@ -6856,11 +7355,15 @@ export interface FindMatchesParameters {
   EnforceProvidedLabels?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TransformType {
   FIND_MATCHES = "FIND_MATCHES",
 }
 
 /**
+ * @public
  * <p>The algorithm-specific parameters that are associated with the machine learning
  *       transform.</p>
  */
@@ -6877,12 +7380,16 @@ export interface TransformParameters {
   FindMatchesParameters?: FindMatchesParameters;
 }
 
+/**
+ * @public
+ */
 export enum MLUserDataEncryptionModeString {
   DISABLED = "DISABLED",
   SSEKMS = "SSE-KMS",
 }
 
 /**
+ * @public
  * <p>The encryption-at-rest settings of the transform that apply to accessing user data.</p>
  */
 export interface MLUserDataEncryption {
@@ -6906,6 +7413,7 @@ export interface MLUserDataEncryption {
 }
 
 /**
+ * @public
  * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
  *          <p>Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.</p>
  */
@@ -6921,6 +7429,9 @@ export interface TransformEncryption {
   TaskRunSecurityConfigurationName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMLTransformRequest {
   /**
    * <p>The unique name that you give the transform when you create it.</p>
@@ -7049,6 +7560,9 @@ export interface CreateMLTransformRequest {
   TransformEncryption?: TransformEncryption;
 }
 
+/**
+ * @public
+ */
 export interface CreateMLTransformResponse {
   /**
    * <p>A unique identifier that is generated for the transform.</p>
@@ -7056,6 +7570,9 @@ export interface CreateMLTransformResponse {
   TransformId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartitionRequest {
   /**
    * <p>The Amazon Web Services account ID of the catalog in which the partition is to be created.</p>
@@ -7080,9 +7597,13 @@ export interface CreatePartitionRequest {
   PartitionInput: PartitionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartitionResponse {}
 
 /**
+ * @public
  * <p>A structure for a partition index.</p>
  */
 export interface PartitionIndex {
@@ -7097,6 +7618,9 @@ export interface PartitionIndex {
   IndexName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartitionIndexRequest {
   /**
    * <p>The catalog ID where the table resides.</p>
@@ -7119,8 +7643,14 @@ export interface CreatePartitionIndexRequest {
   PartitionIndex: PartitionIndex | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePartitionIndexResponse {}
 
+/**
+ * @public
+ */
 export interface CreateRegistryInput {
   /**
    * <p>Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.</p>
@@ -7138,6 +7668,9 @@ export interface CreateRegistryInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRegistryResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the newly created registry.</p>
@@ -7160,6 +7693,9 @@ export interface CreateRegistryResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum Compatibility {
   BACKWARD = "BACKWARD",
   BACKWARD_ALL = "BACKWARD_ALL",
@@ -7172,6 +7708,7 @@ export enum Compatibility {
 }
 
 /**
+ * @public
  * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
  */
 export interface RegistryId {
@@ -7186,6 +7723,9 @@ export interface RegistryId {
   RegistryArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSchemaInput {
   /**
    * <p> This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: <code>arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id</code>.</p>

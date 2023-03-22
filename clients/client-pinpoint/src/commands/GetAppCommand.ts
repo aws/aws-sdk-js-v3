@@ -23,15 +23,20 @@ import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { deserializeAws_restJson1GetAppCommand, serializeAws_restJson1GetAppCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppCommand}.
  */
 export interface GetAppCommandInput extends GetAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppCommand}.
  */
 export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppCommandInput - {@link GetAppCommandInput}
+ * @returns {@link GetAppCommandOutput}
  * @see {@link GetAppCommandInput} for command's `input` shape.
  * @see {@link GetAppCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> {
     return deserializeAws_restJson1GetAppCommand(output, context);
   }

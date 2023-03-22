@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHsmClientCertificateCommand}.
  */
 export interface CreateHsmClientCertificateCommandInput extends CreateHsmClientCertificateMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateHsmClientCertificateCommand}.
  */
 export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClientCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to
  *             the client's HSM in order to store and retrieve the keys used to encrypt the cluster
  *             databases.</p>
@@ -53,6 +58,8 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHsmClientCertificateCommandInput - {@link CreateHsmClientCertificateCommandInput}
+ * @returns {@link CreateHsmClientCertificateCommandOutput}
  * @see {@link CreateHsmClientCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateHsmClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateHsmClientCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHsmClientCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateHsmClientCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHsmClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateHsmClientCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

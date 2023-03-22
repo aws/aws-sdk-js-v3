@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteBudgetActionCommand}.
  */
 export interface ExecuteBudgetActionCommandInput extends ExecuteBudgetActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteBudgetActionCommand}.
  */
 export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Executes a budget action.
  *       </p>
@@ -48,6 +53,8 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteBudgetActionCommandInput - {@link ExecuteBudgetActionCommandInput}
+ * @returns {@link ExecuteBudgetActionCommandOutput}
  * @see {@link ExecuteBudgetActionCommandInput} for command's `input` shape.
  * @see {@link ExecuteBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -92,6 +99,9 @@ export class ExecuteBudgetActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteBudgetActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ExecuteBudgetActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExecuteBudgetActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteBudgetActionCommandOutput> {
     return deserializeAws_json1_1ExecuteBudgetActionCommand(output, context);
   }

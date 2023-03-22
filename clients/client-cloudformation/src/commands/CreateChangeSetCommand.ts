@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChangeSetCommand}.
  */
 export interface CreateChangeSetCommandInput extends CreateChangeSetInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateChangeSetCommand}.
  */
 export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a list of changes that will be applied to a stack so that you can review the
  *          changes before executing them. You can create a change set for a stack that doesn't exist
  *          or an existing stack. If you create a change set for a stack that doesn't exist, the change
@@ -66,6 +71,8 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChangeSetCommandInput - {@link CreateChangeSetCommandInput}
+ * @returns {@link CreateChangeSetCommandOutput}
  * @see {@link CreateChangeSetCommandInput} for command's `input` shape.
  * @see {@link CreateChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChangeSetCommandOutput> {
     return deserializeAws_queryCreateChangeSetCommand(output, context);
   }

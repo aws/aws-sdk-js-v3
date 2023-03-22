@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRateBasedRuleManagedKeysCommand}.
  */
 export interface GetRateBasedRuleManagedKeysCommandInput extends GetRateBasedRuleManagedKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRateBasedRuleManagedKeysCommand}.
  */
 export interface GetRateBasedRuleManagedKeysCommandOutput
@@ -37,6 +41,7 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -58,6 +63,8 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRateBasedRuleManagedKeysCommandInput - {@link GetRateBasedRuleManagedKeysCommandInput}
+ * @returns {@link GetRateBasedRuleManagedKeysCommandOutput}
  * @see {@link GetRateBasedRuleManagedKeysCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedRuleManagedKeysCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -130,6 +137,9 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRateBasedRuleManagedKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRateBasedRuleManagedKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRateBasedRuleManagedKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

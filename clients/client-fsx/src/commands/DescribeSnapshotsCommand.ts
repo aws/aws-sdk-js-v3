@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
  *                 <code>SnapshotIds</code> value is provided. Otherwise, this operation returns all
  *             snapshots owned by your Amazon Web Services account in the Amazon Web Services Region of
@@ -72,6 +77,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
+ * @returns {@link DescribeSnapshotsCommandOutput}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -104,6 +111,9 @@ export class DescribeSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DescribeSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
     return deserializeAws_json1_1DescribeSnapshotsCommand(output, context);
   }

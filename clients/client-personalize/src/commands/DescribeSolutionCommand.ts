@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSolutionCommand}.
  */
 export interface DescribeSolutionCommandInput extends DescribeSolutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSolutionCommand}.
  */
 export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a solution.
  *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSolutionCommandInput - {@link DescribeSolutionCommandInput}
+ * @returns {@link DescribeSolutionCommandOutput}
  * @see {@link DescribeSolutionCommandInput} for command's `input` shape.
  * @see {@link DescribeSolutionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeSolutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSolutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeSolutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSolutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSolutionCommandOutput> {
     return deserializeAws_json1_1DescribeSolutionCommand(output, context);
   }

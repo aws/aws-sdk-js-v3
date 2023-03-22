@@ -96,6 +96,7 @@ import { UpdateRouteCommand, UpdateRouteCommandInput, UpdateRouteCommandOutput }
 import { MigrationHubRefactorSpacesClient } from "./MigrationHubRefactorSpacesClient";
 
 /**
+ * @public
  * <fullname>Amazon Web Services Migration Hub Refactor Spaces</fullname>
  *          <p>This API reference provides descriptions, syntax, and other details about each of the
  *       actions and data types for Amazon Web Services Migration Hub Refactor Spaces (Refactor Spaces). The topic for each action shows the API
@@ -107,6 +108,7 @@ import { MigrationHubRefactorSpacesClient } from "./MigrationHubRefactorSpacesCl
  */
 export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient {
   /**
+   * @public
    * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces application. The account that owns the environment also owns the
    *       applications created inside the environment, regardless of the account that creates the
    *       application. Refactor Spaces provisions an Amazon API Gateway, API Gateway VPC link, and
@@ -142,6 +144,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces environment. The caller owns the environment resource, and all
    *       Refactor Spaces applications, services, and routes created within the environment. They are referred
    *       to as the <i>environment owner</i>. The environment owner has cross-account
@@ -181,6 +184,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces route. The account owner of the service resource is always the
    *       environment owner, regardless of which account creates the route. Routes target a service in
    *       the application. If an application does not have any routes, then the first route must be
@@ -258,6 +262,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces service. The account owner of the service is always the
    *       environment owner, regardless of which account in the environment creates the service.
    *       Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda
@@ -299,6 +304,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces application. Before you can delete an application, you must first
    *       delete any services or routes within the application.</p>
    */
@@ -332,6 +338,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces environment. Before you can delete an environment, you must first
    *       delete any applications and services within the environment.</p>
    */
@@ -365,6 +372,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Deletes the resource policy set for the environment. </p>
    */
   public deleteResourcePolicy(
@@ -397,6 +405,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces route.</p>
    */
   public deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
@@ -423,6 +432,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces service. </p>
    */
   public deleteService(
@@ -455,6 +465,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces application.</p>
    */
   public getApplication(
@@ -487,6 +498,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces environment.</p>
    */
   public getEnvironment(
@@ -519,6 +531,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Gets the resource-based permission policy that is set for the given environment. </p>
    */
   public getResourcePolicy(
@@ -551,6 +564,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces route.</p>
    */
   public getRoute(args: GetRouteCommandInput, options?: __HttpHandlerOptions): Promise<GetRouteCommandOutput>;
@@ -577,6 +591,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces service. </p>
    */
   public getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
@@ -603,6 +618,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Lists all the Amazon Web Services Migration Hub Refactor Spaces applications within an environment. </p>
    */
   public listApplications(
@@ -635,6 +651,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Lists Amazon Web Services Migration Hub Refactor Spaces environments owned by a caller account or shared with the caller
    *       account. </p>
    */
@@ -668,6 +685,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Lists all Amazon Web Services Migration Hub Refactor Spaces service virtual private clouds (VPCs) that are part of the
    *       environment. </p>
    */
@@ -701,6 +719,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Lists all the Amazon Web Services Migration Hub Refactor Spaces routes within an application. </p>
    */
   public listRoutes(args: ListRoutesCommandInput, options?: __HttpHandlerOptions): Promise<ListRoutesCommandOutput>;
@@ -727,6 +746,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Lists all the Amazon Web Services Migration Hub Refactor Spaces services within an application. </p>
    */
   public listServices(
@@ -756,6 +776,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Lists the tags of a resource. The caller account must be the same as the resource’s
    *         <code>OwnerAccountId</code>. Listing tags in other accounts is not supported. </p>
    */
@@ -789,6 +810,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Attaches a resource-based permission policy to the Amazon Web Services Migration Hub Refactor Spaces environment. The policy
    *       must contain the same actions and condition statements as the
    *         <code>arn:aws:ram::aws:permission/AWSRAMDefaultPermissionRefactorSpacesEnvironment</code>
@@ -825,6 +847,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Removes the tags of a given resource. Tags are metadata which can be used to manage a
    *       resource. To tag a resource, the caller account must be the same as the resource’s
    *         <code>OwnerAccountId</code>. Tagging resources in other accounts is not supported.</p>
@@ -857,6 +880,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be used to
    *       manage a resource. To untag a resource, the caller account must be the same as the resource’s
    *         <code>OwnerAccountId</code>. Untagging resources across accounts is not supported. </p>
@@ -891,6 +915,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
+   * @public
    * <p> Updates an Amazon Web Services Migration Hub Refactor Spaces route. </p>
    */
   public updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;

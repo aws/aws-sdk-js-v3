@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link AnalyzeDocumentCommand}.
  */
 export interface AnalyzeDocumentCommandInput extends AnalyzeDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link AnalyzeDocumentCommand}.
  */
 export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Analyzes an input document for relationships between detected items. </p>
  *          <p>The types of information returned are as follows: </p>
  *          <ul>
@@ -94,6 +99,8 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AnalyzeDocumentCommandInput - {@link AnalyzeDocumentCommandInput}
+ * @returns {@link AnalyzeDocumentCommandOutput}
  * @see {@link AnalyzeDocumentCommandInput} for command's `input` shape.
  * @see {@link AnalyzeDocumentCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -160,6 +167,9 @@ export class AnalyzeDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AnalyzeDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -199,10 +209,16 @@ export class AnalyzeDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AnalyzeDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AnalyzeDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AnalyzeDocumentCommandOutput> {
     return deserializeAws_json1_1AnalyzeDocumentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPricingPlansCommand}.
  */
 export interface ListPricingPlansCommandInput extends ListPricingPlansInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPricingPlansCommand}.
  */
 export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A paginated call to get pricing plans for the given billing period. If you don't provide a billing period, the current billing period is used.
  *     </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPricingPlansCommandInput - {@link ListPricingPlansCommandInput}
+ * @returns {@link ListPricingPlansCommandOutput}
  * @see {@link ListPricingPlansCommandInput} for command's `input` shape.
  * @see {@link ListPricingPlansCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListPricingPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPricingPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListPricingPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPricingPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPricingPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPricingPlansCommandOutput> {
     return deserializeAws_restJson1ListPricingPlansCommand(output, context);
   }

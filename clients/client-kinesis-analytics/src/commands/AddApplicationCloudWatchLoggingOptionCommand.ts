@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface AddApplicationCloudWatchLoggingOptionCommandInput
   extends AddApplicationCloudWatchLoggingOptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface AddApplicationCloudWatchLoggingOptionCommandOutput
@@ -38,6 +42,7 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -55,6 +60,8 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationCloudWatchLoggingOptionCommandInput - {@link AddApplicationCloudWatchLoggingOptionCommandInput}
+ * @returns {@link AddApplicationCloudWatchLoggingOptionCommandOutput}
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -93,6 +100,9 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationCloudWatchLoggingOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationCloudWatchLoggingOptionCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     return serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

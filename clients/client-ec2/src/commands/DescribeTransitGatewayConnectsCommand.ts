@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayConnectsCommand}.
  */
 export interface DescribeTransitGatewayConnectsCommandInput extends DescribeTransitGatewayConnectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayConnectsCommand}.
  */
 export interface DescribeTransitGatewayConnectsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTransitGatewayConnectsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Connect attachments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeTransitGatewayConnectsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayConnectsCommandInput - {@link DescribeTransitGatewayConnectsCommandInput}
+ * @returns {@link DescribeTransitGatewayConnectsCommandOutput}
  * @see {@link DescribeTransitGatewayConnectsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayConnectsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeTransitGatewayConnectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayConnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeTransitGatewayConnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayConnectsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeTransitGatewayConnectsCommand extends $Command<
     return serializeAws_ec2DescribeTransitGatewayConnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

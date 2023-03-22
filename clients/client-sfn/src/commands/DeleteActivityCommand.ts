@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteActivityCommand}.
  */
 export interface DeleteActivityCommandInput extends DeleteActivityInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteActivityCommand}.
  */
 export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an activity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteActivityCommandInput - {@link DeleteActivityCommandInput}
+ * @returns {@link DeleteActivityCommandOutput}
  * @see {@link DeleteActivityCommandInput} for command's `input` shape.
  * @see {@link DeleteActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteActivityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteActivityCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteActivityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteActivityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteActivityCommandOutput> {
     return deserializeAws_json1_0DeleteActivityCommand(output, context);
   }

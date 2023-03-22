@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configuration set. Configuration sets enable you to publish email sending
  *             events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -48,6 +53,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
+ * @returns {@link DeleteConfigurationSetCommandOutput}
  * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationSetCommandOutput> {
     return deserializeAws_queryDeleteConfigurationSetCommand(output, context);
   }

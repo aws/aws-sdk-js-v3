@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServerCommand}.
  */
 export interface UpdateServerCommandInput extends UpdateServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServerCommand}.
  */
 export interface UpdateServerCommandOutput extends UpdateServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates settings for a server.
  *     </p>
@@ -51,6 +56,8 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServerCommandInput - {@link UpdateServerCommandInput}
+ * @returns {@link UpdateServerCommandOutput}
  * @see {@link UpdateServerCommandInput} for command's `input` shape.
  * @see {@link UpdateServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerCommandOutput> {
     return deserializeAws_json1_1UpdateServerCommand(output, context);
   }

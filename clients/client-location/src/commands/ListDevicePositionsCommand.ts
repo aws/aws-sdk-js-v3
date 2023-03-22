@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevicePositionsCommand}.
  */
 export interface ListDevicePositionsCommandInput extends ListDevicePositionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDevicePositionsCommand}.
  */
 export interface ListDevicePositionsCommandOutput extends ListDevicePositionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A batch request to retrieve all device positions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicePositionsCommandInput - {@link ListDevicePositionsCommandInput}
+ * @returns {@link ListDevicePositionsCommandOutput}
  * @see {@link ListDevicePositionsCommandInput} for command's `input` shape.
  * @see {@link ListDevicePositionsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDevicePositionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicePositionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDevicePositionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicePositionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDevicePositionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicePositionsCommandOutput> {
     return deserializeAws_restJson1ListDevicePositionsCommand(output, context);
   }

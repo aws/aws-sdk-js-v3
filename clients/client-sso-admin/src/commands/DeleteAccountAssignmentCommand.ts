@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountAssignmentCommand}.
  */
 export interface DeleteAccountAssignmentCommandInput extends DeleteAccountAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountAssignmentCommand}.
  */
 export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a principal's access from a specified AWS account using a specified permission
  *       set.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssig
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountAssignmentCommandInput - {@link DeleteAccountAssignmentCommandInput}
+ * @returns {@link DeleteAccountAssignmentCommandOutput}
  * @see {@link DeleteAccountAssignmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAssignmentCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteAccountAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteAccountAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAccountAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountAssignmentCommandOutput> {
     return deserializeAws_json1_1DeleteAccountAssignmentCommand(output, context);
   }

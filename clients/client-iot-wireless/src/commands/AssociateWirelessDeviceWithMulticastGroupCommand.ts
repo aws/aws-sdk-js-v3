@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWirelessDeviceWithMulticastGroupCommand}.
  */
 export interface AssociateWirelessDeviceWithMulticastGroupCommandInput
   extends AssociateWirelessDeviceWithMulticastGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWirelessDeviceWithMulticastGroupCommand}.
  */
 export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
@@ -38,6 +42,7 @@ export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a wireless device with a multicast group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWirelessDeviceWithMulticastGroupCommandInput - {@link AssociateWirelessDeviceWithMulticastGroupCommandInput}
+ * @returns {@link AssociateWirelessDeviceWithMulticastGroupCommandOutput}
  * @see {@link AssociateWirelessDeviceWithMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessDeviceWithMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -90,6 +97,9 @@ export class AssociateWirelessDeviceWithMulticastGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWirelessDeviceWithMulticastGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class AssociateWirelessDeviceWithMulticastGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWirelessDeviceWithMulticastGroupCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class AssociateWirelessDeviceWithMulticastGroupCommand extends $Command<
     return serializeAws_restJson1AssociateWirelessDeviceWithMulticastGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

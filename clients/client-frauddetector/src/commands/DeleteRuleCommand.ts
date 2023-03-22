@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>
  *          <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
+ * @returns {@link DeleteRuleCommandOutput}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleCommandOutput> {
     return deserializeAws_json1_1DeleteRuleCommand(output, context);
   }

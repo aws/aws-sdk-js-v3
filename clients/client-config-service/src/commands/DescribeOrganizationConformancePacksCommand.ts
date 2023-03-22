@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConformancePacksCommand}.
  */
 export interface DescribeOrganizationConformancePacksCommandInput extends DescribeOrganizationConformancePacksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConformancePacksCommand}.
  */
 export interface DescribeOrganizationConformancePacksCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeOrganizationConformancePacksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of organization conformance packs. </p>
  *          <note>
  *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
@@ -66,6 +71,8 @@ export interface DescribeOrganizationConformancePacksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConformancePacksCommandInput - {@link DescribeOrganizationConformancePacksCommandInput}
+ * @returns {@link DescribeOrganizationConformancePacksCommandOutput}
  * @see {@link DescribeOrganizationConformancePacksCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConformancePacksCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -122,6 +129,9 @@ export class DescribeOrganizationConformancePacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConformancePacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,6 +171,9 @@ export class DescribeOrganizationConformancePacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConformancePacksCommandInput,
     context: __SerdeContext
@@ -168,6 +181,9 @@ export class DescribeOrganizationConformancePacksCommand extends $Command<
     return serializeAws_json1_1DescribeOrganizationConformancePacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

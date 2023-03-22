@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficMirrorFilterRuleCommand}.
  */
 export interface CreateTrafficMirrorFilterRuleCommandInput extends CreateTrafficMirrorFilterRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficMirrorFilterRuleCommand}.
  */
 export interface CreateTrafficMirrorFilterRuleCommandOutput
@@ -37,6 +41,7 @@ export interface CreateTrafficMirrorFilterRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Traffic Mirror filter rule.</p>
  *          <p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p>
  *          <p>You need the Traffic Mirror filter ID when you create the rule.</p>
@@ -50,6 +55,8 @@ export interface CreateTrafficMirrorFilterRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficMirrorFilterRuleCommandInput - {@link CreateTrafficMirrorFilterRuleCommandInput}
+ * @returns {@link CreateTrafficMirrorFilterRuleCommandOutput}
  * @see {@link CreateTrafficMirrorFilterRuleCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class CreateTrafficMirrorFilterRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficMirrorFilterRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateTrafficMirrorFilterRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficMirrorFilterRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateTrafficMirrorFilterRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

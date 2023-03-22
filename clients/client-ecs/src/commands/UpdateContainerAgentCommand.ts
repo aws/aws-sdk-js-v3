@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContainerAgentCommand}.
  */
 export interface UpdateContainerAgentCommandInput extends UpdateContainerAgentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContainerAgentCommand}.
  */
 export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Amazon ECS container agent on a specified container instance. Updating the
  * 			Amazon ECS container agent doesn't interrupt running tasks or services on the container
  * 			instance. The process for updating the agent differs depending on whether your container
@@ -64,6 +69,8 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContainerAgentCommandInput - {@link UpdateContainerAgentCommandInput}
+ * @returns {@link UpdateContainerAgentCommandOutput}
  * @see {@link UpdateContainerAgentCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerAgentCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -120,6 +127,9 @@ export class UpdateContainerAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContainerAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class UpdateContainerAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContainerAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateContainerAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContainerAgentCommandOutput> {
     return deserializeAws_json1_1UpdateContainerAgentCommand(output, context);
   }

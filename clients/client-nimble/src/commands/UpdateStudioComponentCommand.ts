@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStudioComponentCommand}.
  */
 export interface UpdateStudioComponentCommandInput extends UpdateStudioComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStudioComponentCommand}.
  */
 export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a studio component resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponen
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStudioComponentCommandInput - {@link UpdateStudioComponentCommandInput}
+ * @returns {@link UpdateStudioComponentCommandOutput}
  * @see {@link UpdateStudioComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioComponentCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateStudioComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStudioComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateStudioComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStudioComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateStudioComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStudioComponentCommandOutput> {
     return deserializeAws_restJson1UpdateStudioComponentCommand(output, context);
   }

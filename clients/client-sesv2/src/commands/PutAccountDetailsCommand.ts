@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountDetailsCommand}.
  */
 export interface PutAccountDetailsCommandInput extends PutAccountDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountDetailsCommand}.
  */
 export interface PutAccountDetailsCommandOutput extends PutAccountDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update your Amazon SES account details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountDetailsCommandInput - {@link PutAccountDetailsCommandInput}
+ * @returns {@link PutAccountDetailsCommandOutput}
  * @see {@link PutAccountDetailsCommandInput} for command's `input` shape.
  * @see {@link PutAccountDetailsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -78,6 +85,9 @@ export class PutAccountDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class PutAccountDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutAccountDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountDetailsCommandOutput> {
     return deserializeAws_restJson1PutAccountDetailsCommand(output, context);
   }

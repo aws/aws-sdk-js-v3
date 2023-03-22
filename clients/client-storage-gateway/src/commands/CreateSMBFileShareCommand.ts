@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSMBFileShareCommand}.
  */
 export interface CreateSMBFileShareCommandInput extends CreateSMBFileShareInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSMBFileShareCommand}.
  */
 export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Server Message Block (SMB) file share on an existing S3 File Gateway. In
  *          Storage Gateway, a file share is a file system mount point backed by Amazon S3
  *          cloud storage. Storage Gateway exposes file shares using an SMB interface. This operation
@@ -62,6 +67,8 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSMBFileShareCommandInput - {@link CreateSMBFileShareCommandInput}
+ * @returns {@link CreateSMBFileShareCommandOutput}
  * @see {@link CreateSMBFileShareCommandInput} for command's `input` shape.
  * @see {@link CreateSMBFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateSMBFileShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSMBFileShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateSMBFileShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSMBFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSMBFileShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSMBFileShareCommandOutput> {
     return deserializeAws_json1_1CreateSMBFileShareCommand(output, context);
   }

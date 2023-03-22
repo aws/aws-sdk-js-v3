@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListZonalShiftsCommand}.
  */
 export interface ListZonalShiftsCommandInput extends ListZonalShiftsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListZonalShiftsCommand}.
  */
 export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the active zonal shifts in Amazon Route 53 Application Recovery Controller in your AWS account in this AWS Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListZonalShiftsCommandInput - {@link ListZonalShiftsCommandInput}
+ * @returns {@link ListZonalShiftsCommandOutput}
  * @see {@link ListZonalShiftsCommandInput} for command's `input` shape.
  * @see {@link ListZonalShiftsCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListZonalShiftsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListZonalShiftsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListZonalShiftsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListZonalShiftsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListZonalShiftsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListZonalShiftsCommandOutput> {
     return deserializeAws_restJson1ListZonalShiftsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHsmConfigurationCommand}.
  */
 export interface DeleteHsmConfigurationCommandInput extends DeleteHsmConfigurationMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHsmConfigurationCommand}.
  */
 export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon Redshift HSM configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHsmConfigurationCommandInput - {@link DeleteHsmConfigurationCommandInput}
+ * @returns {@link DeleteHsmConfigurationCommandOutput}
  * @see {@link DeleteHsmConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteHsmConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteHsmConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHsmConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteHsmConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHsmConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteHsmConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHsmConfigurationCommandOutput> {
     return deserializeAws_queryDeleteHsmConfigurationCommand(output, context);
   }

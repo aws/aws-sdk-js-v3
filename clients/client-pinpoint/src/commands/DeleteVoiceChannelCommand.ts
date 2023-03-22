@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceChannelCommand}.
  */
 export interface DeleteVoiceChannelCommandInput extends DeleteVoiceChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceChannelCommand}.
  */
 export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the voice channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceChannelCommandInput - {@link DeleteVoiceChannelCommandInput}
+ * @returns {@link DeleteVoiceChannelCommandOutput}
  * @see {@link DeleteVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteVoiceChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteVoiceChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVoiceChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVoiceChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVoiceChannelCommandOutput> {
     return deserializeAws_restJson1DeleteVoiceChannelCommand(output, context);
   }

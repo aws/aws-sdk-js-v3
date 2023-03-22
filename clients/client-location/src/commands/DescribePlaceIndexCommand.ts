@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePlaceIndexCommand}.
  */
 export interface DescribePlaceIndexCommandInput extends DescribePlaceIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePlaceIndexCommand}.
  */
 export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the place index resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePlaceIndexCommandInput - {@link DescribePlaceIndexCommandInput}
+ * @returns {@link DescribePlaceIndexCommandOutput}
  * @see {@link DescribePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link DescribePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribePlaceIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePlaceIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribePlaceIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePlaceIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribePlaceIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlaceIndexCommandOutput> {
     return deserializeAws_restJson1DescribePlaceIndexCommand(output, context);
   }

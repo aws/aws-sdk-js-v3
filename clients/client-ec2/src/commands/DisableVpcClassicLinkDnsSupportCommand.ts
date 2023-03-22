@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableVpcClassicLinkDnsSupportCommand}.
  */
 export interface DisableVpcClassicLinkDnsSupportCommandInput extends DisableVpcClassicLinkDnsSupportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableVpcClassicLinkDnsSupportCommand}.
  */
 export interface DisableVpcClassicLinkDnsSupportCommandOutput
@@ -37,6 +41,7 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
  * 			public IP addresses when addressed between a linked EC2-Classic instance and instances
  * 			in the VPC to which it's linked. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
@@ -55,6 +60,8 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableVpcClassicLinkDnsSupportCommandInput - {@link DisableVpcClassicLinkDnsSupportCommandInput}
+ * @returns {@link DisableVpcClassicLinkDnsSupportCommandOutput}
  * @see {@link DisableVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
  * @see {@link DisableVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -78,6 +85,9 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableVpcClassicLinkDnsSupportCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
     return serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

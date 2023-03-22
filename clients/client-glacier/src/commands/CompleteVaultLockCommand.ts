@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteVaultLockCommand}.
  */
 export interface CompleteVaultLockCommandInput extends CompleteVaultLockInput {}
 /**
+ * @public
+ *
  * The output of {@link CompleteVaultLockCommand}.
  */
 export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation completes the vault locking process by transitioning the vault lock
  *          from the <code>InProgress</code> state to the <code>Locked</code> state, which causes the
  *          vault lock policy to become unchangeable. A vault lock is put into the
@@ -54,6 +59,8 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteVaultLockCommandInput - {@link CompleteVaultLockCommandInput}
+ * @returns {@link CompleteVaultLockCommandOutput}
  * @see {@link CompleteVaultLockCommandInput} for command's `input` shape.
  * @see {@link CompleteVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -103,6 +110,9 @@ export class CompleteVaultLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteVaultLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CompleteVaultLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CompleteVaultLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteVaultLockCommandOutput> {
     return deserializeAws_restJson1CompleteVaultLockCommand(output, context);
   }

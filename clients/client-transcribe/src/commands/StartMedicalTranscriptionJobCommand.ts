@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartMedicalTranscriptionJobCommand}.
  */
 export interface StartMedicalTranscriptionJobCommandInput extends StartMedicalTranscriptionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMedicalTranscriptionJobCommand}.
  */
 export interface StartMedicalTranscriptionJobCommandOutput
@@ -37,6 +41,7 @@ export interface StartMedicalTranscriptionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transcribes the audio from a medical dictation or conversation and applies any
  *             additional Request Parameters you choose to include in your request.</p>
  *          <p>In addition to many standard transcription features, Amazon Transcribe Medical
@@ -96,6 +101,8 @@ export interface StartMedicalTranscriptionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMedicalTranscriptionJobCommandInput - {@link StartMedicalTranscriptionJobCommandInput}
+ * @returns {@link StartMedicalTranscriptionJobCommandOutput}
  * @see {@link StartMedicalTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link StartMedicalTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -137,6 +144,9 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMedicalTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMedicalTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartMedicalTranscriptionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

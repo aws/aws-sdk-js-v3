@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableRadiusCommand}.
  */
 export interface EnableRadiusCommandInput extends EnableRadiusRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableRadiusCommand}.
  */
 export interface EnableRadiusCommandOutput extends EnableRadiusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User
  *          Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
  * @example
@@ -47,6 +52,8 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableRadiusCommandInput - {@link EnableRadiusCommandInput}
+ * @returns {@link EnableRadiusCommandOutput}
  * @see {@link EnableRadiusCommandInput} for command's `input` shape.
  * @see {@link EnableRadiusCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -85,6 +92,9 @@ export class EnableRadiusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableRadiusCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class EnableRadiusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableRadiusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableRadiusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableRadiusCommandOutput> {
     return deserializeAws_json1_1EnableRadiusCommand(output, context);
   }

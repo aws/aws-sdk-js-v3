@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApprovalRuleTemplateDescriptionCommand}.
  */
 export interface UpdateApprovalRuleTemplateDescriptionCommandInput extends UpdateApprovalRuleTemplateDescriptionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApprovalRuleTemplateDescriptionCommand}.
  */
 export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description for a specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApprovalRuleTemplateDescriptionCommandInput - {@link UpdateApprovalRuleTemplateDescriptionCommandInput}
+ * @returns {@link UpdateApprovalRuleTemplateDescriptionCommandOutput}
  * @see {@link UpdateApprovalRuleTemplateDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateApprovalRuleTemplateDescriptionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApprovalRuleTemplateDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApprovalRuleTemplateDescriptionCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     return serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

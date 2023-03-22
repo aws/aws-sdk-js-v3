@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkflowCommand}.
  */
 export interface DeleteWorkflowCommandInput extends DeleteWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkflowCommand}.
  */
 export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
+ * @returns {@link DeleteWorkflowCommandOutput}
  * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowCommandOutput> {
     return deserializeAws_restJson1DeleteWorkflowCommand(output, context);
   }

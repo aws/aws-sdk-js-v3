@@ -2885,6 +2885,7 @@ import {
 import { EC2Client } from "./EC2Client";
 
 /**
+ * @public
  * <fullname>Amazon Elastic Compute Cloud</fullname>
  *          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the Amazon Web Services Cloud.
  *           Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications
@@ -2914,6 +2915,7 @@ import { EC2Client } from "./EC2Client";
  */
 export class EC2 extends EC2Client {
   /**
+   * @public
    * <p>Accepts an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept">Accept a transferred Elastic IP address</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public acceptAddressTransfer(
@@ -2946,6 +2948,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a> call.</p>
    */
   public acceptReservedInstancesExchangeQuote(
@@ -2978,6 +2981,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>
    */
   public acceptTransitGatewayMulticastDomainAssociations(
@@ -3012,6 +3016,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Accepts a transit gateway peering attachment request. The peering attachment must be
    *             in the <code>pendingAcceptance</code> state.</p>
    */
@@ -3047,6 +3052,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Accepts a request to attach a VPC to a transit gateway.</p>
    *          <p>The VPC attachment must be in the <code>pendingAcceptance</code> state.
    *          Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests.
@@ -3082,6 +3088,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Accepts connection requests to your VPC endpoint service.</p>
    */
   public acceptVpcEndpointConnections(
@@ -3114,6 +3121,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must
    *       be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC.
    *       Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
@@ -3151,6 +3159,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon Web Services resources through
    *          bring your own IP addresses (BYOIP).</p>
    *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
@@ -3193,6 +3202,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate
    *          it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address
    *          pool and can be allocated to a different Amazon Web Services account.</p>
@@ -3240,6 +3250,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported
    *             instance type or instance family, the Availability Zone in which to allocate the host,
    *             and the number of hosts to allocate.</p>
@@ -3274,6 +3285,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    *          <note>
    *             <p>This action creates an allocation with strong consistency. The returned CIDR will not overlap with any other allocations from the same pool.</p>
@@ -3309,6 +3321,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing
    * 			security groups with the specified security groups.</p>
    */
@@ -3344,6 +3357,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Assigns one or more IPv6 addresses to the specified network interface. You can
    *             specify one or more specific IPv6 addresses, or you can specify the number of IPv6
    *             addresses to be automatically assigned from within the subnet's IPv6 CIDR block range.
@@ -3386,6 +3400,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Assigns one or more secondary private IP addresses to the specified network interface.</p>
    *          <p>You can specify one or more specific secondary IP addresses, or you can specify the number
    *             of secondary IP addresses to be automatically assigned within the subnet's CIDR block range.
@@ -3433,6 +3448,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public assignPrivateNatGatewayAddress(
@@ -3465,6 +3481,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates an Elastic IP address, or carrier IP address (for instances that are in
    *       subnets in Wavelength Zones) with an instance or a network interface. Before you can use an
    *       Elastic IP address, you must allocate it to your account.</p>
@@ -3524,6 +3541,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p>
    *          <p>If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>) and change the VPC that's associated with it.</p>
    */
@@ -3557,6 +3575,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p>
    *          <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a>
@@ -3592,6 +3611,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate.
    * 			This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more
    * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves
@@ -3636,6 +3656,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates an IAM instance profile with a running or stopped instance. You cannot
    *             associate more than one IAM instance profile with an instance.</p>
    */
@@ -3669,6 +3690,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates one or more targets with an event window. Only one type of target (instance IDs,
    *          Dedicated Host IDs, or tags) can be specified with an event window.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
@@ -3704,6 +3726,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public associateIpamResourceDiscovery(
@@ -3736,6 +3759,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
@@ -3769,6 +3793,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates a subnet in your VPC or an internet gateway or virtual private gateway
    *             attached to your VPC with a route table in your VPC. This association causes traffic
    *             from the subnet or gateway to be routed according to the routes in the route table. The
@@ -3807,6 +3832,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR
    *             block with your subnet. An IPv6 CIDR block must have a prefix length of /64.</p>
    */
@@ -3840,6 +3866,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p>
    *          <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a>
    *             to see the state of the attachment.</p>
@@ -3876,6 +3903,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
    */
   public associateTransitGatewayPolicyTable(
@@ -3908,6 +3936,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates the specified attachment with the specified transit gateway route table. You can
    *         associate only one route table with an attachment.</p>
    */
@@ -3941,6 +3970,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This API action is currently in <b>limited preview only</b>.
    *                 If you are interested in using this feature, contact your account manager.</p>
@@ -3979,6 +4009,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block,
    *             an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that
    *             you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). The IPv6 CIDR block size is fixed
@@ -4019,6 +4050,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
@@ -4060,6 +4092,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and
    * 			the VPC. For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
    */
@@ -4093,6 +4126,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Attaches a network interface to an instance.</p>
    */
   public attachNetworkInterface(
@@ -4125,6 +4159,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
    *          information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access
    *          instance.</p>
@@ -4159,6 +4194,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
    *       with the specified device name.</p>
    *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
@@ -4212,6 +4248,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private
    *             gateway to one VPC at a time.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
@@ -4247,6 +4284,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as
    * 			firewall rules that grant access to networks. You must configure ingress authorization rules to
    * 			enable clients to access resources in Amazon Web Services or on-premises networks.</p>
@@ -4281,6 +4319,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p>
    *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
    *             address ranges, or to the instances that are associated with the specified source
@@ -4323,6 +4362,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Adds the specified inbound (ingress) rules to a security group.</p>
    *          <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR
    *        address range, or from the instances that are associated with the specified destination security
@@ -4369,6 +4409,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Bundles an Amazon instance store-backed Windows instance.</p>
    *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
    *          <note>
@@ -4405,6 +4446,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
    */
   public cancelBundleTask(
@@ -4437,6 +4479,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to
    * 			<code>cancelled</code>.</p>
    *          <p>Instances running in the reserved capacity continue running until you stop them. Stopped
@@ -4474,6 +4517,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation
    * 			Fleet, the following happens:</p>
    *          <ul>
@@ -4520,6 +4564,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all
    *    artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is
    *    in the process of transferring the final disk image, the command fails and returns an exception.</p>
@@ -4556,6 +4601,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels an active export task. The request removes all artifacts of the export, including any partially-created
    *    Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the
    *    command fails and returns an error.</p>
@@ -4590,6 +4636,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
    *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html">
    *         Cancel having an AMI shared with your Amazon Web Services account</a> in the
@@ -4625,6 +4672,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels an in-process import virtual machine or import snapshot task.</p>
    */
   public cancelImportTask(
@@ -4657,6 +4705,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>
    *          <p>For more information, see
    *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
@@ -4692,6 +4741,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels the specified Spot Fleet requests.</p>
    *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.</p>
    *          <p>You must also specify whether a canceled Spot Fleet request should terminate its instances. If you
@@ -4730,6 +4780,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels one or more Spot Instance requests.</p>
    *          <important>
    *             <p>Canceling a Spot Instance request does not terminate running Spot Instances
@@ -4766,6 +4817,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Determines whether a product code is associated with an instance. This action can only
    *             be used by the owner of the product code. It is useful when a product code owner must
    *             verify whether another user's instance is eligible for support.</p>
@@ -4800,6 +4852,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Copies the specified Amazon FPGA Image (AFI) to the current Region.</p>
    */
   public copyFpgaImage(
@@ -4832,6 +4885,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a
    *       Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost
    *       to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
@@ -4876,6 +4930,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy a
    *       snapshot within the same Region, from one Region to another, or from a Region to an Outpost.
    *       You can't copy a snapshot from an Outpost to a Region, from one Outpost to another, or within
@@ -4924,6 +4979,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new Capacity Reservation with the specified attributes.</p>
    *          <p>Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration. This
    * 			gives you the flexibility to selectively add capacity reservations and still get the Regional RI discounts for that usage.
@@ -4970,6 +5026,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a Capacity
    * 			Reservation Fleet</a> in the Amazon EC2 User Guide.</p>
    */
@@ -5003,6 +5060,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>Amazon Web Services Wavelength Developer Guide</i>.</p>
    */
   public createCarrierGateway(
@@ -5035,6 +5093,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Client VPN endpoint. A Client VPN endpoint is the resource you create and configure to
    * 			enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions
    * 			are terminated.</p>
@@ -5069,6 +5128,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the
    * 			available destination network routes. Each route in the route table specifies the path for traﬃc to speciﬁc resources or networks.</p>
    */
@@ -5102,6 +5162,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>
    *      Creates a range of customer-owned IP addresses.
    *       </p>
@@ -5136,6 +5197,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p> Creates a pool of customer-owned IP (CoIP) addresses. </p>
    */
   public createCoipPool(
@@ -5168,6 +5230,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Provides information to Amazon Web Services about your customer gateway device. The
    *             customer gateway device is the appliance at your end of the VPN connection. You
    *             must provide the IP address of the customer gateway device’s external
@@ -5213,6 +5276,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the
    *             specified Availability Zone in your default VPC. You can have only one default subnet
    *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating a default
@@ -5248,6 +5312,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet
    * 			in each Availability Zone. For more information about the components of a default VPC,
    * 			see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPC and
@@ -5294,6 +5359,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a set of DHCP options for your VPC. After creating the set, you must
    * 				associate it with the VPC, causing all existing and new instances that you launch in
    * 				the VPC to use this set of DHCP options. The following are the individual DHCP
@@ -5377,6 +5443,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>[IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only
    * 			internet gateway is used to enable outbound communication over IPv6 from instances in
    * 			your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6
@@ -5412,6 +5479,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Launches an EC2 Fleet.</p>
    *          <p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by
    *          instance type, AMI, Availability Zone, or subnet.</p>
@@ -5441,6 +5509,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface,
    *             subnet, or VPC. </p>
    *          <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
@@ -5483,6 +5552,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p>
    *          <p>The create operation is asynchronous. To verify that the AFI is ready for use,
    *          check the output logs.</p>
@@ -5520,6 +5590,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
    *      	that is either running or stopped.</p>
    *          <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
@@ -5562,6 +5633,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can
    *          run.</p>
    *          <p>You can define either a set of time ranges or a cron expression when creating the event
@@ -5616,6 +5688,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Exports a running or stopped instance to an Amazon S3 bucket.</p>
    *          <p>For information about the supported operating systems, image formats, and known limitations
    *    for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an instance as a VM Using VM Import/Export</a>
@@ -5651,6 +5724,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an internet gateway for use with a VPC. After creating the internet gateway,
    * 			you attach it to a VPC using <a>AttachInternetGateway</a>.</p>
    *          <p>For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
@@ -5685,6 +5759,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use
    *          to automate your IP address management workflows including assigning, tracking,
    *          troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts
@@ -5716,6 +5791,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
@@ -5750,6 +5826,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public createIpamResourceDiscovery(
@@ -5782,6 +5859,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
@@ -5815,6 +5893,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the
    *             specified PEM or PPK format. Amazon EC2 stores the public key and displays the private
    *             key for you to save to a file. The private key is returned as an unencrypted PEM encoded
@@ -5857,6 +5936,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a launch template.</p>
    *          <p>A launch template contains the parameters to launch an instance. When you launch an
    *             instance using <a>RunInstances</a>, you can specify a launch template instead
@@ -5898,6 +5978,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new version of a launch template. You can specify an existing version of
    *             launch template from which to base the new version.</p>
    *          <p>Launch template versions are numbered in the order in which they are created. You
@@ -5938,6 +6019,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a static route for the specified local gateway route table. You must specify one of the
    *          following targets: </p>
    *          <ul>
@@ -5983,6 +6065,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>
    *       Creates a local gateway route table.
    *       </p>
@@ -6017,6 +6100,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>
    *       Creates a local gateway route table virtual interface group association.
    *       </p>
@@ -6053,6 +6137,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Associates the specified VPC with the specified local gateway route table.</p>
    */
   public createLocalGatewayRouteTableVpcAssociation(
@@ -6087,6 +6172,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a managed prefix list. You can specify one or more entries for the prefix list.
    *             Each entry consists of a CIDR block and an optional description.</p>
    */
@@ -6120,6 +6206,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a NAT gateway in the specified subnet. This action creates a network interface
    *           in the specified subnet with a private IP address from the IP address range of the
    *           subnet. You can create either a public NAT gateway or a private NAT gateway.</p>
@@ -6161,6 +6248,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -6195,6 +6283,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules
    * 		        and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated
    * 		        with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of
@@ -6234,6 +6323,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Network Access Scope.</p>
    *          <p>Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams
    *          to verify that their networks on Amazon Web Services conform to their network security and governance
@@ -6269,6 +6359,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a path to analyze for reachability.</p>
    *          <p>Reachability Analyzer enables you to analyze and debug network reachability between
    *           two resources in your virtual private cloud (VPC). For more information, see the
@@ -6304,6 +6395,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a network interface in the specified subnet.</p>
    *          <p>The number of IP addresses you can assign to a network interface varies by instance
    *             type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per ENI Per
@@ -6341,6 +6433,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Grants an Amazon Web Services-authorized account permission to attach the specified network interface to
    *             an instance in their account.</p>
    *          <p>You can grant permission to a single Amazon Web Services account only, and only one account at a time.</p>
@@ -6375,6 +6468,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a placement group in which to launch instances. The strategy of the placement
    *             group determines how the instances are organized within the group. </p>
    *          <p>A <code>cluster</code> placement group is a logical grouping of instances within a
@@ -6416,6 +6510,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a public IPv4 address pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only. To monitor the status of pool creation, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html">DescribePublicIpv4Pools</a>.</p>
    */
   public createPublicIpv4Pool(
@@ -6448,6 +6543,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new
    *       volume that is restored to the original root volume's launch state, that is restored to a
    *       specific snapshot taken from the original root volume, or that is restored from an AMI
@@ -6484,6 +6580,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance
    * 			Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your
    * 			Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p>
@@ -6531,6 +6628,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Starts a task that restores an AMI from an Amazon S3 object that was previously created by using
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
    *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
@@ -6568,6 +6666,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a route in a route table within a VPC.</p>
    *          <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify
    *          exactly one of the resources from the parameter list.</p>
@@ -6614,6 +6713,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -6648,6 +6748,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a security group.</p>
    *          <p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic.
    *          For more information, see
@@ -6697,6 +6798,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for
    *   	backups, to make copies of EBS volumes, and to save data before shutting down an
    *   	instance.</p>
@@ -6753,6 +6855,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates crash-consistent snapshots of multiple EBS volumes and stores the data in S3.
    *     Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot
    *     each that is crash-consistent across the instance.</p>
@@ -6794,6 +6897,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
    *             You can create one data feed per Amazon Web Services account. For more information, see
    *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
@@ -6829,6 +6933,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
    *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
    *         <i>Amazon EC2 User Guide</i>.</p>
@@ -6865,6 +6970,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block.
    *             If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead.
    *             For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both
@@ -6910,6 +7016,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a subnet CIDR reservation. For information about subnet CIDR reservations, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html">Subnet CIDR reservations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createSubnetCidrReservation(
@@ -6942,6 +7049,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or
    *          resources. When you specify an existing tag key, the value is overwritten with
    *          the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and
@@ -6976,6 +7084,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Traffic Mirror filter.</p>
    *          <p>A Traffic Mirror filter is a set of rules that defines the traffic to mirror.</p>
    *          <p>By default, no traffic is mirrored. To mirror traffic, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm">CreateTrafficMirrorFilterRule</a> to add Traffic Mirror rules to the filter. The rules you
@@ -7011,6 +7120,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Traffic Mirror filter rule.</p>
    *          <p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p>
    *          <p>You need the Traffic Mirror filter ID when you create the rule.</p>
@@ -7045,6 +7155,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Traffic Mirror session.</p>
    *          <p>A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it
    *          to the session to define a subset of the traffic to mirror, for example all TCP
@@ -7083,6 +7194,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a target for your Traffic Mirror session.</p>
    *          <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and
    *          the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in
@@ -7120,6 +7232,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a transit gateway.</p>
    *          <p>You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks.
    *           After the transit gateway enters the <code>available</code> state, you can attach your VPCs and VPN
@@ -7164,6 +7277,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>
    *          <p>A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.</p>
    */
@@ -7197,6 +7311,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a
    *             transit gateway and an appliance.</p>
    *          <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
@@ -7232,6 +7347,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a multicast domain using the specified transit gateway.</p>
    *          <p>The transit gateway  must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
    */
@@ -7265,6 +7381,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Requests a transit gateway peering attachment between the specified transit gateway
    *             (requester) and a peer transit gateway (accepter). The peer transit gateway can be in
    *             your account or a different Amazon Web Services account.</p>
@@ -7303,6 +7420,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a transit gateway policy table.</p>
    */
   public createTransitGatewayPolicyTable(
@@ -7335,6 +7453,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a reference (route) to a prefix list in a specified transit gateway route table.</p>
    */
   public createTransitGatewayPrefixListReference(
@@ -7369,6 +7488,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a static route for the specified transit gateway route table.</p>
    */
   public createTransitGatewayRoute(
@@ -7401,6 +7521,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a route table for the specified transit gateway.</p>
    */
   public createTransitGatewayRouteTable(
@@ -7433,6 +7554,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Advertises a new transit gateway route table.</p>
    */
   public createTransitGatewayRouteTableAnnouncement(
@@ -7467,6 +7589,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Attaches the specified VPC to the specified transit gateway.</p>
    *          <p>If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is already attached,
    *          the new VPC CIDR range is not propagated to the default propagation route table.</p>
@@ -7502,6 +7625,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
    */
   public createVerifiedAccessEndpoint(
@@ -7534,6 +7658,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have
    *          similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For
    *          example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and
@@ -7569,6 +7694,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants
    *          access only when your security requirements are met.</p>
    */
@@ -7602,6 +7728,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
    *          information for users and devices. When an application request is made, the identity
    *          information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or
@@ -7637,6 +7764,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
    *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
    *       Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p>
@@ -7676,6 +7804,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a VPC with the specified CIDR blocks. For more information, see
    * 	      <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
@@ -7712,6 +7841,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a
    *             private connection between your VPC and the service. The service may be provided by Amazon Web Services,
    *             an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information,
@@ -7747,6 +7877,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a connection notification for a specified VPC endpoint or VPC endpoint
    *             service. A connection notification notifies you of specific endpoint events. You must
    *             create an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create a Topic</a> in
@@ -7785,6 +7916,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
    *             users, and IAM roles) can connect.</p>
    *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
@@ -7835,6 +7967,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and
    * 		  an accepter VPC with which to create the connection. The accepter VPC can belong to
    * 		  another Amazon Web Services account and can be in a different Region to the requester VPC.
@@ -7879,6 +8012,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a VPN connection between an existing virtual private gateway or transit
    *             gateway and a customer gateway. The supported connection type is
    *             <code>ipsec.1</code>.</p>
@@ -7927,6 +8061,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a static route associated with a VPN connection between an existing virtual
    *             private gateway and a VPN customer gateway. The static route allows traffic to be routed
    *             from the virtual private gateway to the VPN customer gateway.</p>
@@ -7963,6 +8098,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the
    *             VPC side of your VPN connection. You can create a virtual private gateway before
    *             creating the VPC itself.</p>
@@ -7999,6 +8135,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a carrier gateway.</p>
    *          <important>
    *             <p>If you do not delete the route that contains the carrier gateway as the
@@ -8036,6 +8173,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Client VPN endpoint. You must disassociate all target networks before you
    * 			can delete a Client VPN endpoint.</p>
    */
@@ -8069,6 +8207,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using
    * 			the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were
    * 			automatically added when associating a subnet. To remove routes that have been automatically added,
@@ -8104,6 +8243,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes a range of customer-owned IP addresses.
    *       </p>
@@ -8138,6 +8278,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
    */
   public deleteCoipPool(
@@ -8170,6 +8311,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified customer gateway. You must delete the VPN connection before you
    *             can delete the customer gateway.</p>
    */
@@ -8203,6 +8345,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified set of DHCP options. You must disassociate the set of DHCP options before you can delete it. You can disassociate the set of DHCP options by associating either a new set of options or the default set of options with the VPC.</p>
    */
   public deleteDhcpOptions(
@@ -8235,6 +8378,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an egress-only internet gateway.</p>
    */
   public deleteEgressOnlyInternetGateway(
@@ -8267,6 +8411,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified EC2 Fleets.</p>
    *          <p>After you delete an EC2 Fleet, it launches no new instances.</p>
    *          <p>You must also specify whether a deleted EC2 Fleet should terminate its instances. If you
@@ -8321,6 +8466,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes one or more flow logs.</p>
    */
   public deleteFlowLogs(
@@ -8353,6 +8499,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Amazon FPGA Image (AFI).</p>
    */
   public deleteFpgaImage(
@@ -8385,6 +8532,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified event window.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
    *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -8419,6 +8567,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified internet gateway. You must detach the internet gateway from the
    * 			VPC before you can delete it.</p>
    */
@@ -8452,6 +8601,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
@@ -8480,6 +8630,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Delete an IPAM pool.</p>
    *          <note>
    *             <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release
@@ -8519,6 +8670,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public deleteIpamResourceDiscovery(
@@ -8551,6 +8703,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
@@ -8585,6 +8738,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>
    */
   public deleteKeyPair(
@@ -8617,6 +8771,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a launch template. Deleting a launch template deletes all of its
    *             versions.</p>
    */
@@ -8650,6 +8805,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes one or more versions of a launch template. You cannot delete the default
    *             version of a launch template; you must first assign a different version as the default.
    *             If the default version is the only version for the launch template, you must delete the
@@ -8685,6 +8841,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified route from the specified local gateway route table.</p>
    */
   public deleteLocalGatewayRoute(
@@ -8717,6 +8874,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes a local gateway route table.
    *       </p>
@@ -8751,6 +8909,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes a local gateway route table virtual interface group association.
    *       </p>
@@ -8787,6 +8946,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified association between a VPC and local gateway route table.</p>
    */
   public deleteLocalGatewayRouteTableVpcAssociation(
@@ -8821,6 +8981,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified managed prefix list. You must first remove all references to the prefix list in your resources.</p>
    */
   public deleteManagedPrefixList(
@@ -8853,6 +9014,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates its Elastic IP address,
    *           but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway
    *           routes in your route tables.</p>
@@ -8887,6 +9049,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.</p>
    */
   public deleteNetworkAcl(
@@ -8919,6 +9082,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified ingress or egress entry (rule) from the specified network ACL.</p>
    */
   public deleteNetworkAclEntry(
@@ -8951,6 +9115,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Network Access Scope.</p>
    */
   public deleteNetworkInsightsAccessScope(
@@ -8983,6 +9148,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Network Access Scope analysis.</p>
    */
   public deleteNetworkInsightsAccessScopeAnalysis(
@@ -9017,6 +9183,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified network insights analysis.</p>
    */
   public deleteNetworkInsightsAnalysis(
@@ -9049,6 +9216,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified path.</p>
    */
   public deleteNetworkInsightsPath(
@@ -9081,6 +9249,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
    */
   public deleteNetworkInterface(
@@ -9113,6 +9282,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a permission for a network interface. By default, you cannot delete the
    * 			permission if the account for which you're removing the permission has attached the
    * 			network interface to an instance. However, you can force delete the permission,
@@ -9148,6 +9318,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified placement group. You must terminate all instances in the
    *             placement group before you can delete the placement group. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -9182,6 +9353,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only.</p>
    */
   public deletePublicIpv4Pool(
@@ -9214,6 +9386,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the queued purchases for the specified Reserved Instances.</p>
    */
   public deleteQueuedReservedInstances(
@@ -9246,6 +9419,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified route from the specified route table.</p>
    */
   public deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
@@ -9272,6 +9446,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.</p>
    */
   public deleteRouteTable(
@@ -9304,6 +9479,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a security group.</p>
    *          <p>If you attempt to delete a security group that is associated with an instance, or is
    * 			  referenced by another security group, the operation fails with
@@ -9343,6 +9519,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified snapshot.</p>
    *          <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the
    *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
@@ -9384,6 +9561,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the data feed for Spot Instances.</p>
    */
   public deleteSpotDatafeedSubscription(
@@ -9416,6 +9594,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.</p>
    */
   public deleteSubnet(
@@ -9445,6 +9624,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a subnet CIDR reservation.</p>
    */
   public deleteSubnetCidrReservation(
@@ -9477,6 +9657,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified set of tags from the specified set of resources.</p>
    *          <p>To list the current tags, use <a>DescribeTags</a>. For more information about
    *          tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
@@ -9507,6 +9688,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Traffic Mirror filter.</p>
    *          <p>You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.</p>
    */
@@ -9540,6 +9722,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Traffic Mirror rule.</p>
    */
   public deleteTrafficMirrorFilterRule(
@@ -9572,6 +9755,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Traffic Mirror session.</p>
    */
   public deleteTrafficMirrorSession(
@@ -9604,6 +9788,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Traffic Mirror target.</p>
    *          <p>You cannot delete a Traffic Mirror target that is in use by a Traffic Mirror session.</p>
    */
@@ -9637,6 +9822,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified transit gateway.</p>
    */
   public deleteTransitGateway(
@@ -9669,6 +9855,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Connect attachment. You must first delete any Connect peers for
    *             the attachment.</p>
    */
@@ -9702,6 +9889,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Connect peer.</p>
    */
   public deleteTransitGatewayConnectPeer(
@@ -9734,6 +9922,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified transit gateway multicast domain.</p>
    */
   public deleteTransitGatewayMulticastDomain(
@@ -9766,6 +9955,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a transit gateway peering attachment.</p>
    */
   public deleteTransitGatewayPeeringAttachment(
@@ -9800,6 +9990,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified transit gateway policy table.</p>
    */
   public deleteTransitGatewayPolicyTable(
@@ -9832,6 +10023,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
    */
   public deleteTransitGatewayPrefixListReference(
@@ -9866,6 +10058,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified route from the specified transit gateway route table.</p>
    */
   public deleteTransitGatewayRoute(
@@ -9898,6 +10091,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified transit gateway route table. You must disassociate the route table from any
    *           transit gateway route tables before you can delete it.</p>
    */
@@ -9931,6 +10125,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
    */
   public deleteTransitGatewayRouteTableAnnouncement(
@@ -9965,6 +10160,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified VPC attachment.</p>
    */
   public deleteTransitGatewayVpcAttachment(
@@ -9997,6 +10193,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Delete an Amazon Web Services Verified Access endpoint.</p>
    */
   public deleteVerifiedAccessEndpoint(
@@ -10029,6 +10226,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Delete an Amazon Web Services Verified Access group.</p>
    */
   public deleteVerifiedAccessGroup(
@@ -10061,6 +10259,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Delete an Amazon Web Services Verified Access instance.</p>
    */
   public deleteVerifiedAccessInstance(
@@ -10093,6 +10292,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Delete an Amazon Web Services Verified Access trust provider.</p>
    */
   public deleteVerifiedAccessTrustProvider(
@@ -10125,6 +10325,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state
    *       (not attached to an instance).</p>
    *          <p>The volume can remain in the <code>deleting</code> state for several minutes.</p>
@@ -10158,6 +10359,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on.</p>
    */
   public deleteVpc(args: DeleteVpcCommandInput, options?: __HttpHandlerOptions): Promise<DeleteVpcCommandOutput>;
@@ -10184,6 +10386,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified VPC endpoint connection notifications.</p>
    */
   public deleteVpcEndpointConnectionNotifications(
@@ -10218,6 +10421,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified VPC endpoints.</p>
    *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
    *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
@@ -10254,6 +10458,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
    *             an endpoint service configuration, you must reject any <code>Available</code> or
    *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
@@ -10291,6 +10496,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner
    *             of the accepter VPC can delete the VPC peering connection if it's in the
    *                 <code>active</code> state. The owner of the requester VPC can delete a VPC peering
@@ -10327,6 +10533,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified VPN connection.</p>
    *          <p>If you're deleting the VPC and its associated components, we recommend that you detach
    *             the virtual private gateway from the VPC and delete the VPC before deleting the VPN
@@ -10369,6 +10576,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified static route associated with a VPN connection between an
    *             existing virtual private gateway and a VPN customer gateway. The static route allows
    *             traffic to be routed from the virtual private gateway to the VPN customer
@@ -10404,6 +10612,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the specified virtual private gateway. You must first detach the virtual
    *             private gateway from the VPC. Note that you don't need to delete the virtual private
    *             gateway if you plan to delete and recreate the VPN connection between your VPC and your
@@ -10439,6 +10648,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Releases the specified address range that you provisioned for use with your Amazon Web Services resources
    *          through bring your own IP addresses (BYOIP) and deletes the corresponding address pool.</p>
    *          <p>Before you can release an address range, you must stop advertising it using <a>WithdrawByoipCidr</a> and you must not have any IP addresses allocated from its
@@ -10474,6 +10684,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   public deprovisionIpamPoolCidr(
@@ -10506,6 +10717,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deprovision a CIDR from a public IPv4 pool.</p>
    */
   public deprovisionPublicIpv4PoolCidr(
@@ -10538,6 +10750,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to
    *        launch new instances.</p>
    *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
@@ -10581,6 +10794,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
    * 			in scheduled event notifications for resources in the Region.</p>
    */
@@ -10616,6 +10830,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deregisters the specified members (network interfaces) from the  transit gateway multicast group.</p>
    */
   public deregisterTransitGatewayMulticastGroupMembers(
@@ -10650,6 +10865,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Deregisters the specified sources (network interfaces) from the  transit gateway multicast group.</p>
    */
   public deregisterTransitGatewayMulticastGroupSources(
@@ -10684,6 +10900,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p>
    *          <ul>
    *             <li>
@@ -10753,6 +10970,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>
    *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
    * 				For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -10790,6 +11008,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the attributes of the specified Elastic IP addresses. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
    */
   public describeAddressesAttribute(
@@ -10822,6 +11041,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public describeAddressTransfers(
@@ -10854,6 +11074,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the longer ID format settings for all resource types in a specific
    *          Region. This request is useful for performing a quick audit to determine whether a
    *          specific Region is fully opted in for longer IDs (17-character IDs).</p>
@@ -10902,6 +11123,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
    *       you. If there is an event impacting a zone, you can use this request to view the state and any
    *       provided messages for that zone.</p>
@@ -10939,6 +11161,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the current Infrastructure Performance metric subscriptions.</p>
    */
   public describeAwsNetworkPerformanceMetricSubscriptions(
@@ -10973,6 +11196,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>
    *          <note>
    *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>
@@ -11008,6 +11232,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>
    *          <p>To describe the address pools that were created when you provisioned the address
    *           ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>
@@ -11042,6 +11267,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more Capacity Reservation Fleets.</p>
    */
   public describeCapacityReservationFleets(
@@ -11074,6 +11300,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the
    * 		    	Amazon Web Services Region that you're currently using.</p>
    */
@@ -11107,6 +11334,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your carrier gateways.</p>
    */
   public describeCarrierGateways(
@@ -11139,6 +11367,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your linked EC2-Classic instances. This request only returns
    * 			information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
    * 			use this request to return information about other instances.</p>
@@ -11176,6 +11405,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the authorization rules for a specified Client VPN endpoint.</p>
    */
   public describeClientVpnAuthorizationRules(
@@ -11208,6 +11438,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes active client connections and connections that have been terminated within the last 60
    * 			minutes for the specified Client VPN endpoint.</p>
    */
@@ -11241,6 +11472,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more Client VPN endpoints in the account.</p>
    */
   public describeClientVpnEndpoints(
@@ -11273,6 +11505,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the routes for the specified Client VPN endpoint.</p>
    */
   public describeClientVpnRoutes(
@@ -11305,6 +11538,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the target networks associated with the specified Client VPN endpoint.</p>
    */
   public describeClientVpnTargetNetworks(
@@ -11337,6 +11571,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified customer-owned address pools or all of your customer-owned address pools.</p>
    */
   public describeCoipPools(
@@ -11369,6 +11604,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the
    *    <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p>
    *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
@@ -11403,6 +11639,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your VPN customer gateways.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
@@ -11437,6 +11674,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your DHCP options sets.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -11471,6 +11709,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your egress-only internet gateways.</p>
    */
   public describeEgressOnlyInternetGateways(
@@ -11503,6 +11742,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the Elastic Graphics accelerator associated with your instances. For more information
    *             about Elastic Graphics, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon Elastic Graphics</a>.</p>
    */
@@ -11536,6 +11776,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified export image tasks or all of your export image tasks.</p>
    */
   public describeExportImageTasks(
@@ -11568,6 +11809,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified export instance tasks or all of your export instance tasks.</p>
    */
   public describeExportTasks(
@@ -11600,6 +11842,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describe details for Windows AMIs that are configured for faster launching.</p>
    */
   public describeFastLaunchImages(
@@ -11632,6 +11875,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the state of fast snapshot restores for your snapshots.</p>
    */
   public describeFastSnapshotRestores(
@@ -11664,6 +11908,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the events for the specified EC2 Fleet during the specified time.</p>
    *          <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures
    *          that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events
@@ -11701,6 +11946,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the running instances for the specified EC2 Fleet.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -11734,6 +11980,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -11767,6 +12014,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more flow logs.</p>
    *          <p>To view the published flow log records, you must view the log destination. For example,
    *             the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
@@ -11801,6 +12049,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified attribute of the specified Amazon FPGA Image (AFI).</p>
    */
   public describeFpgaImageAttribute(
@@ -11833,6 +12082,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs,
    * 			private AFIs that you own, and AFIs owned by other Amazon Web Services accounts for which you have load
    * 			permissions.</p>
@@ -11867,6 +12117,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the Dedicated Host reservations that are available to purchase.</p>
    *          <p>The results describe all of the Dedicated Host reservation offerings, including
    *             offerings that might not match the instance family and Region of your Dedicated Hosts.
@@ -11905,6 +12156,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes reservations that are associated with Dedicated Hosts in your
    *             account.</p>
    */
@@ -11938,6 +12190,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p>
    *          <p>The results describe only the Dedicated Hosts in the Region you're currently using.
    *             All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have
@@ -11973,6 +12226,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes your IAM instance profile associations.</p>
    */
   public describeIamInstanceProfileAssociations(
@@ -12007,6 +12261,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the ID format settings for resources for the specified IAM user, IAM role, or root
    *       user. For example, you can view the resource types that are enabled for longer IDs. This request only
    *       returns information about resource types whose ID formats can be modified; it does not return
@@ -12057,6 +12312,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p>
    *          <p>The following resource types support longer IDs: <code>bundle</code> |
    *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
@@ -12108,6 +12364,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
    */
   public describeImageAttribute(
@@ -12140,6 +12397,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p>
    *          <p>The images available to you include public images, private images that you own, and private images owned by other
    *        Amazon Web Services accounts for which you have explicit launch permissions.</p>
@@ -12178,6 +12436,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Displays details about an import virtual machine or import snapshot tasks that are already created.</p>
    */
   public describeImportImageTasks(
@@ -12210,6 +12469,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes your import snapshot tasks.</p>
    */
   public describeImportSnapshotTasks(
@@ -12242,6 +12502,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified attribute of the specified instance. You can specify only one
    *             attribute at a time. Valid attribute values are: <code>instanceType</code> |
    *                 <code>kernel</code> | <code>ramdisk</code> | <code>userData</code> |
@@ -12281,6 +12542,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the credit option for CPU usage of the specified burstable performance
    *             instances. The credit options are <code>standard</code> and
    *             <code>unlimited</code>.</p>
@@ -12332,6 +12594,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the tag keys that are registered to appear in scheduled event notifications for
    *       	resources in the current Region.</p>
    */
@@ -12367,6 +12630,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified event windows or all event windows.</p>
    *          <p>If you specify event window IDs, the output includes information for only the specified
    *          event windows. If you specify filters, the output includes information for only those event
@@ -12407,6 +12671,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified instances or all instances.</p>
    *          <p>If you specify instance IDs, the output includes information for only the specified
    *             instances. If you specify filters, the output includes information for only those
@@ -12454,6 +12719,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the status of the specified instances or all of your instances. By default,
    *             only running instances are described, unless you specifically indicate to return the
    *             status of all instances.</p>
@@ -12514,6 +12780,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Returns a list of all instance types offered. The results can be filtered by location (Region or Availability
    *    Zone). If no location is specified, the instance types offered in the current Region are returned.</p>
    */
@@ -12547,6 +12814,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the details of the instance types that are offered in a location. The results can be filtered by the
    *    attributes of the instance types.</p>
    */
@@ -12580,6 +12848,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your internet gateways.</p>
    */
   public describeInternetGateways(
@@ -12612,6 +12881,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Get information about your IPAM pools.</p>
    */
   public describeIpamPools(
@@ -12644,6 +12914,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public describeIpamResourceDiscoveries(
@@ -12676,6 +12947,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes resource discovery association with an Amazon VPC IPAM. An associated resource discovery is a resource discovery that has been associated with an IPAM..</p>
    */
   public describeIpamResourceDiscoveryAssociations(
@@ -12710,6 +12982,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Get information about your IPAM pools.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
@@ -12744,6 +13017,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Get information about your IPAM scopes.</p>
    */
   public describeIpamScopes(
@@ -12776,6 +13050,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes your IPv6 address pools.</p>
    */
   public describeIpv6Pools(
@@ -12808,6 +13083,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified key pairs or all of your key pairs.</p>
    *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a>
    * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -12842,6 +13118,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more launch templates.</p>
    */
   public describeLaunchTemplates(
@@ -12874,6 +13151,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more versions of a specified launch template. You can describe all
    *             versions, individual versions, or a range of versions. You can also describe all the
    *             latest versions or all the default versions of all the launch templates in your
@@ -12909,6 +13187,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.
    *          Alternatively, you can filter the results.</p>
    */
@@ -12942,6 +13221,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the associations between virtual interface groups and local gateway route tables.</p>
    */
   public describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
@@ -12976,6 +13256,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified associations between VPCs and local gateway route tables.</p>
    */
   public describeLocalGatewayRouteTableVpcAssociations(
@@ -13010,6 +13291,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more local gateways. By default, all local gateways are described.
    *         Alternatively, you can filter the results.</p>
    */
@@ -13043,6 +13325,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified local gateway virtual interface groups.</p>
    */
   public describeLocalGatewayVirtualInterfaceGroups(
@@ -13077,6 +13360,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified local gateway virtual interfaces.</p>
    */
   public describeLocalGatewayVirtualInterfaces(
@@ -13111,6 +13395,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.</p>
    *          <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
    */
@@ -13144,6 +13429,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes your Elastic IP addresses that are being moved to the EC2-VPC platform, or that are being restored to the EC2-Classic platform. This request does not return information about any other Elastic IP addresses in your account.</p>
    */
   public describeMovingAddresses(
@@ -13176,6 +13462,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your NAT gateways.</p>
    */
   public describeNatGateways(
@@ -13208,6 +13495,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your network ACLs.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -13242,6 +13530,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified Network Access Scope analyses.</p>
    */
   public describeNetworkInsightsAccessScopeAnalyses(
@@ -13276,6 +13565,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified Network Access Scopes.</p>
    */
   public describeNetworkInsightsAccessScopes(
@@ -13308,6 +13598,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your network insights analyses.</p>
    */
   public describeNetworkInsightsAnalyses(
@@ -13340,6 +13631,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your paths.</p>
    */
   public describeNetworkInsightsPaths(
@@ -13372,6 +13664,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes a network interface attribute. You can specify only one attribute at a time.</p>
    */
   public describeNetworkInterfaceAttribute(
@@ -13404,6 +13697,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the permissions for your network interfaces. </p>
    */
   public describeNetworkInterfacePermissions(
@@ -13436,6 +13730,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your network interfaces.</p>
    */
   public describeNetworkInterfaces(
@@ -13468,6 +13763,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified placement groups or all of your placement groups. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
@@ -13502,6 +13798,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes available Amazon Web Services services in a prefix list format, which includes the prefix list
    *             name and prefix list ID of the service and the IP address range for the service.</p>
    *          <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
@@ -13536,6 +13833,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the ID format settings for the root user and all IAM roles and IAM users
    *             that have explicitly specified a longer ID (17-character ID) preference. </p>
    *          <p>By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they
@@ -13585,6 +13883,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified IPv4 address pools.</p>
    */
   public describePublicIpv4Pools(
@@ -13617,6 +13916,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the Regions that are enabled for your account, or all Regions.</p>
    *          <p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/ec2-service.html">
    *        Amazon Elastic Compute Cloud endpoints and quotas</a>.</p>
@@ -13652,6 +13952,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes a root volume replacement task. For more information, see
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -13685,6 +13986,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of the Reserved Instances that you purchased.</p>
    *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
    * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -13719,6 +14021,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes your account's Reserved Instance listings in the Reserved Instance Marketplace.</p>
    *          <p>The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
    *          <p>As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.</p>
@@ -13756,6 +14059,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -13791,6 +14095,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p>
    *          <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
@@ -13826,6 +14131,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your route tables.</p>
    *          <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
@@ -13861,6 +14167,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Finds available schedules that meet the specified criteria.</p>
    *          <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
    *          <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>
@@ -13898,6 +14205,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
    */
   public describeScheduledInstances(
@@ -13930,6 +14238,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>[VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
    */
   public describeSecurityGroupReferences(
@@ -13962,6 +14271,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your security group rules.</p>
    */
   public describeSecurityGroupRules(
@@ -13994,6 +14304,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified security groups or all of your security groups.</p>
    *          <p>A security group is for use with instances either in the EC2-Classic platform
    * 				or in a specific VPC. For more information, see
@@ -14035,6 +14346,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified attribute of the specified snapshot. You can specify only one
    *       attribute at a time.</p>
    *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -14069,6 +14381,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified EBS snapshots available to you or all of the EBS snapshots
    *       available to you.</p>
    *          <p>The snapshots available to you include public snapshots, private snapshots that you own,
@@ -14143,6 +14456,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the storage tier status of one or more Amazon EBS snapshots.</p>
    */
   public describeSnapshotTierStatus(
@@ -14175,6 +14489,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
    *             Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
@@ -14208,6 +14523,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the running instances for the specified Spot Fleet.</p>
    */
   public describeSpotFleetInstances(
@@ -14240,6 +14556,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the events for the specified Spot Fleet request during the specified
    *             time.</p>
    *          <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This
@@ -14278,6 +14595,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes your Spot Fleet requests.</p>
    *          <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances
    *             are terminated.</p>
@@ -14312,6 +14630,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified Spot Instance requests.</p>
    *          <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by
    *             examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the
@@ -14359,6 +14678,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the Spot price history. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot Instance pricing history</a> in the
    *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <p>When you specify a start and end time, the operation returns the prices of the
@@ -14395,6 +14715,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC.
    *           Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC,
    *           or if they reference a security group in a peer VPC for which the VPC peering connection has
@@ -14430,6 +14751,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the progress of the AMI store tasks. You can describe the store tasks for
    *       specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from
    *       the last 31 days.</p>
@@ -14473,6 +14795,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your subnets.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -14507,6 +14830,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified tags for your EC2 resources.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
    *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -14538,6 +14862,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more Traffic Mirror filters.</p>
    */
   public describeTrafficMirrorFilters(
@@ -14570,6 +14895,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
    */
   public describeTrafficMirrorSessions(
@@ -14602,6 +14928,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Information about one or more Traffic Mirror targets.</p>
    */
   public describeTrafficMirrorTargets(
@@ -14634,6 +14961,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described.
    *          Alternatively, you can filter the results by attachment ID, attachment state, resource ID, or resource owner.</p>
    */
@@ -14667,6 +14995,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more Connect peers.</p>
    */
   public describeTransitGatewayConnectPeers(
@@ -14699,6 +15028,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more Connect attachments.</p>
    */
   public describeTransitGatewayConnects(
@@ -14731,6 +15061,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more transit gateway multicast domains.</p>
    */
   public describeTransitGatewayMulticastDomains(
@@ -14765,6 +15096,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes your transit gateway peering attachments.</p>
    */
   public describeTransitGatewayPeeringAttachments(
@@ -14799,6 +15131,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more transit gateway route policy tables.  </p>
    */
   public describeTransitGatewayPolicyTables(
@@ -14831,6 +15164,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more transit gateway route table advertisements.</p>
    */
   public describeTransitGatewayRouteTableAnnouncements(
@@ -14865,6 +15199,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more transit gateway route tables. By default, all transit gateway route tables are described.
    *          Alternatively, you can filter the results.</p>
    */
@@ -14898,6 +15233,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can
    *          filter the results.</p>
    */
@@ -14931,6 +15267,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.
    *          Alternatively, you can filter the results.</p>
    */
@@ -14964,6 +15301,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This API action is currently in <b>limited preview only</b>.
    *                 If you are interested in using this feature, contact your account manager.</p>
@@ -15000,6 +15338,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describe Amazon Web Services Verified Access endpoints.</p>
    */
   public describeVerifiedAccessEndpoints(
@@ -15032,6 +15371,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describe details of existing Verified Access groups.</p>
    */
   public describeVerifiedAccessGroups(
@@ -15064,6 +15404,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
    */
   public describeVerifiedAccessInstanceLoggingConfigurations(
@@ -15098,6 +15439,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describe Verified Access instances.</p>
    */
   public describeVerifiedAccessInstances(
@@ -15130,6 +15472,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describe details of existing Verified Access trust providers.</p>
    */
   public describeVerifiedAccessTrustProviders(
@@ -15162,6 +15505,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified attribute of the specified volume. You can specify only one
    *       attribute at a time.</p>
    *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -15196,6 +15540,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified EBS volumes or all of your EBS volumes.</p>
    *          <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list
    *       more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
@@ -15231,6 +15576,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the most recent volume modification request for the specified EBS volumes.</p>
    *          <p>If a volume has never been modified, some information in the output will be null.
    *       If a volume has been modified more than once, the output includes only the most
@@ -15269,6 +15615,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the status of the specified volumes. Volume status provides the result of the
    *       checks performed on your volumes to determine events that can impair the performance of your
    *       volumes. The performance of a volume can be affected if an issue occurs on the volume's
@@ -15334,6 +15681,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.</p>
    */
   public describeVpcAttribute(
@@ -15366,6 +15714,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the ClassicLink status of one or more VPCs.</p>
    *          <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -15401,6 +15750,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
@@ -15440,6 +15790,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the connection notifications for VPC endpoints and VPC endpoint
    *             services.</p>
    */
@@ -15475,6 +15826,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the VPC endpoint connections to your VPC endpoint services, including any
    *             endpoints that are pending your acceptance.</p>
    */
@@ -15508,6 +15860,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes your VPC endpoints.</p>
    */
   public describeVpcEndpoints(
@@ -15540,6 +15893,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the VPC endpoint service configurations in your account (your services).</p>
    */
   public describeVpcEndpointServiceConfigurations(
@@ -15574,6 +15928,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the principals (service consumers) that are permitted to discover your VPC
    *             endpoint service.</p>
    */
@@ -15609,6 +15964,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes available services to which you can create a VPC endpoint.</p>
    *          <p>When the service provider and the consumer have different accounts in multiple
    *             Availability Zones, and the consumer views the VPC endpoint service information, the
@@ -15648,6 +16004,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your VPC peering connections.</p>
    */
   public describeVpcPeeringConnections(
@@ -15680,6 +16037,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your VPCs.</p>
    */
   public describeVpcs(
@@ -15709,6 +16067,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your VPN connections.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
@@ -15743,6 +16102,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your virtual private gateways.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
    *                 User Guide</i>.</p>
@@ -15777,6 +16137,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
@@ -15812,6 +16173,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Detaches an internet gateway from a VPC, disabling connectivity between the internet
    * 			and the VPC. The VPC must not contain any running instances with Elastic IP addresses or
    * 			public IPv4 addresses.</p>
@@ -15846,6 +16208,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Detaches a network interface from an instance.</p>
    */
   public detachNetworkInterface(
@@ -15878,6 +16241,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
    */
   public detachVerifiedAccessTrustProvider(
@@ -15910,6 +16274,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the
    *       device within your operating system before detaching the volume. Failure to do so can result
    *       in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens,
@@ -15949,6 +16314,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn
    *             off the VPC and not use it anymore. You can confirm a virtual private gateway has been
    *             completely detached from a VPC by describing the virtual private gateway (any
@@ -15986,6 +16352,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public disableAddressTransfer(
@@ -16018,6 +16385,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables Infrastructure Performance metric subscriptions.</p>
    */
   public disableAwsNetworkPerformanceMetricSubscription(
@@ -16052,6 +16420,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables EBS encryption by default for your account in the current Region.</p>
    *          <p>After you disable encryption by default, you can still create encrypted volumes by
    *       enabling encryption when you create each volume.</p>
@@ -16090,6 +16459,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots.
    * 			When you disable faster launching, the AMI uses the standard launch process for each
    * 			instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>
@@ -16127,6 +16497,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
    */
   public disableFastSnapshotRestores(
@@ -16159,6 +16530,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Cancels the deprecation of the specified AMI.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the
    *         <i>Amazon EC2 User Guide</i>.</p>
@@ -16193,6 +16565,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
@@ -16226,6 +16599,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables access to the EC2 serial console of all instances for your account. By default,
    * 			access to the EC2 serial console is disabled for your account. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
@@ -16261,6 +16635,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables the specified resource attachment from propagating routes to the specified
    *          propagation route table.</p>
    */
@@ -16296,6 +16671,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route
    *             table of a VPC.</p>
    */
@@ -16329,6 +16705,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>
    *          <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -16364,6 +16741,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
    * 			public IP addresses when addressed between a linked EC2-Classic instance and instances
    * 			in the VPC to which it's linked. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
@@ -16403,6 +16781,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
    *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
@@ -16442,6 +16821,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the
    * 			last target network from a Client VPN, the following happens:</p>
    *          <ul>
@@ -16490,6 +16870,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role
    * 			from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and
    * 			encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the
@@ -16528,6 +16909,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
    *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
    *             ID.</p>
@@ -16562,6 +16944,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates one or more targets from an event window.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
    *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -16596,6 +16979,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public disassociateIpamResourceDiscovery(
@@ -16628,6 +17012,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
    *          <p>An EIP will only be released at the end of MaxDrainDurationSeconds. The EIPs stay
@@ -16666,6 +17051,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates a subnet or gateway from a route table.</p>
    *          <p>After you perform this action, the subnet no longer uses the routes in the route table.
    * 				Instead, it uses the routes in the VPC's main route table. For more information
@@ -16702,6 +17088,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv6 CIDR block only. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it. </p>
    */
   public disassociateSubnetCidrBlock(
@@ -16734,6 +17121,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified subnets from the transit gateway multicast domain. </p>
    */
   public disassociateTransitGatewayMulticastDomain(
@@ -16768,6 +17156,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Removes the association between an an attachment and a policy table.</p>
    */
   public disassociateTransitGatewayPolicyTable(
@@ -16802,6 +17191,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates a resource attachment from a transit gateway route table.</p>
    */
   public disassociateTransitGatewayRouteTable(
@@ -16834,6 +17224,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This API action is currently in <b>limited preview only</b>.
    *                 If you are interested in using this feature, contact your account manager.</p>
@@ -16870,6 +17261,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must
    *             specify its association ID. You can get the association ID by using
    *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
@@ -16907,6 +17299,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public enableAddressTransfer(
@@ -16939,6 +17332,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables Infrastructure Performance subscriptions.</p>
    */
   public enableAwsNetworkPerformanceMetricSubscription(
@@ -16973,6 +17367,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables EBS encryption by default for your account in the current Region.</p>
    *          <p>After you enable encryption by default, the EBS volumes that you create are
    *     	always encrypted, either using the default KMS key or the KMS key that you specified
@@ -17016,6 +17411,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>When you enable faster launching for a Windows AMI, images are pre-provisioned,
    * 			using snapshots to launch instances up to 65% faster. To create the optimized Windows
    * 			image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required.
@@ -17056,6 +17452,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
    *          <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.
    *       To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
@@ -17093,6 +17490,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables deprecation of the specified AMI at the specified date and time.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -17126,6 +17524,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
@@ -17159,6 +17558,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Establishes a trust relationship between Reachability Analyzer and Organizations.
    *          This operation must be performed by the management account for the organization.</p>
    *          <p>After you establish a trust relationship, a user in the management account or
@@ -17197,6 +17597,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables access to the EC2 serial console of all instances for your account. By default,
    * 			access to the EC2 serial console is disabled for your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a>
    * 			in the <i>Amazon EC2 User Guide</i>.</p>
@@ -17231,6 +17632,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables the specified attachment to propagate routes to the specified
    *          propagation route table.</p>
    */
@@ -17266,6 +17668,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables a virtual private gateway (VGW) to propagate routes to the specified route
    *             table of a VPC.</p>
    */
@@ -17299,6 +17702,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables I/O operations for a volume that had I/O operations disabled because the data on
    *       the volume was potentially inconsistent.</p>
    */
@@ -17332,6 +17736,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
@@ -17373,6 +17778,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
@@ -17414,6 +17820,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Downloads the client certificate revocation list for the specified Client VPN endpoint.</p>
    */
   public exportClientVpnClientCertificateRevocationList(
@@ -17448,6 +17855,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration
    * 			file includes the Client VPN endpoint and certificate information clients need to establish a connection
    * 			with the Client VPN endpoint.</p>
@@ -17482,6 +17890,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting a VM
    *     directly from an Amazon Machine Image (AMI)</a> in the
    *     <i>VM Import/Export User Guide</i>.</p>
@@ -17510,6 +17919,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Exports routes from the specified transit gateway route table to the specified S3 bucket.
    *          By default, all routes are exported. Alternatively, you can filter by CIDR range.</p>
    *          <p>The routes are saved to the specified bucket in a JSON file. For more information, see
@@ -17546,6 +17956,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Returns the IAM roles that are associated with the specified ACM (ACM) certificate.
    * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate,
    * 			certificate chain, and encrypted private key bundle are stored, and the ARN of the KMS key
@@ -17583,6 +17994,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>
    */
   public getAssociatedIpv6PoolCidrs(
@@ -17615,6 +18027,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets network performance data.</p>
    */
   public getAwsNetworkPerformanceData(
@@ -17647,6 +18060,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner
    * 			and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
    * 			the Capacity Reservation owner's usage.</p>
@@ -17681,6 +18095,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the allocations from the specified customer-owned address pool.</p>
    */
   public getCoipPoolUsage(
@@ -17713,6 +18128,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets the console output for the specified instance. For Linux instances, the instance
    *             console output displays the exact console output that would normally be displayed on a
    *             physical monitor attached to a computer. For Windows instances, the instance console
@@ -17757,6 +18173,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve a JPG-format screenshot of a running instance to help with
    *             troubleshooting.</p>
    *          <p>The returned content is Base64-encoded.</p>
@@ -17791,6 +18208,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the default credit option for CPU usage of a burstable performance instance
    *             family.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
@@ -17826,6 +18244,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes the default KMS key for EBS encryption by default for your account in this Region.
    *   		You can change the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or
    *       <a>ResetEbsDefaultKmsKeyId</a>.</p>
@@ -17862,6 +18281,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Describes whether EBS encryption by default is enabled for your account in the current
    *       Region.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
@@ -17897,6 +18317,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs
    *             with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data.
    *             Based on the information that you provide, we configure resources in the template to do the following:</p>
@@ -17946,6 +18367,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Lists the resource groups to which a Capacity Reservation has been added.</p>
    */
   public getGroupsForCapacityReservation(
@@ -17978,6 +18400,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Preview a reservation purchase with configurations that match those of your Dedicated
    *             Host. You must have active Dedicated Hosts in your account before you purchase a
    *             reservation.</p>
@@ -18014,6 +18437,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Returns a list of instance types with the specified instance attributes. You can
    *          use the response to preview the instance types without launching instances. Note
    *          that the response does not consider capacity.</p>
@@ -18057,6 +18481,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>A binary representation of the UEFI variable store. Only non-volatile variables are
    *             stored. This is a base64 encoded and zlib compressed binary value that must be properly
    *             encoded.</p>
@@ -18099,6 +18524,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   public getIpamAddressHistory(
@@ -18131,6 +18557,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts. Only the IPAM account can get all discovered accounts in the organization.</p>
    */
   public getIpamDiscoveredAccounts(
@@ -18163,6 +18590,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
    */
   public getIpamDiscoveredResourceCidrs(
@@ -18195,6 +18623,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Get a list of all the CIDR allocations in an IPAM pool.</p>
    *          <note>
    *             <p>If you use this action after <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html">AllocateIpamPoolCidr</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>, note that all EC2 API actions follow an <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency">eventual consistency</a> model.</p>
@@ -18230,6 +18659,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Get the CIDRs provisioned to an IPAM pool.</p>
    */
   public getIpamPoolCidrs(
@@ -18262,6 +18692,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated with more than one resource discovery, the resource CIDRs across all of the resource discoveries is returned. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public getIpamResourceCidrs(
@@ -18294,6 +18725,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the configuration data of the specified instance. You can use this data to
    *             create a launch template. </p>
    *          <p>This action calls on other describe actions to get instance information. Depending on
@@ -18333,6 +18765,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the resources that are associated with the specified managed prefix list.</p>
    */
   public getManagedPrefixListAssociations(
@@ -18365,6 +18798,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the entries for a specified managed prefix list.</p>
    */
   public getManagedPrefixListEntries(
@@ -18397,6 +18831,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets the findings for the specified Network Access Scope analysis.</p>
    */
   public getNetworkInsightsAccessScopeAnalysisFindings(
@@ -18431,6 +18866,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets the content for the specified Network Access Scope.</p>
    */
   public getNetworkInsightsAccessScopeContent(
@@ -18463,6 +18899,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the encrypted administrator password for a running Windows instance.</p>
    *          <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
    *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
@@ -18507,6 +18944,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Returns a quote and exchange information for exchanging one or more specified
    *             Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange
    *             cannot be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
@@ -18541,6 +18979,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the access status of your account to the EC2 serial console of all instances. By
    * 			default, access to the EC2 serial console is disabled for your account. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
@@ -18576,6 +19015,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Calculates the Spot placement score for a Region or Availability Zone based on the
    *          specified target capacity and compute requirements.</p>
    *          <p>You can specify your compute requirements either by using
@@ -18615,6 +19055,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the subnet CIDR reservations.</p>
    */
   public getSubnetCidrReservations(
@@ -18647,6 +19088,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Lists the route tables to which the specified resource attachment propagates routes.</p>
    */
   public getTransitGatewayAttachmentPropagations(
@@ -18681,6 +19123,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the associations for the transit gateway multicast domain.</p>
    */
   public getTransitGatewayMulticastDomainAssociations(
@@ -18715,6 +19158,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets a list of the transit gateway policy table associations.</p>
    */
   public getTransitGatewayPolicyTableAssociations(
@@ -18749,6 +19193,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Returns a list of transit gateway policy table entries.</p>
    */
   public getTransitGatewayPolicyTableEntries(
@@ -18781,6 +19226,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>
    */
   public getTransitGatewayPrefixListReferences(
@@ -18815,6 +19261,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the associations for the specified transit gateway route table.</p>
    */
   public getTransitGatewayRouteTableAssociations(
@@ -18849,6 +19296,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the route table propagations for the specified transit gateway route table.</p>
    */
   public getTransitGatewayRouteTablePropagations(
@@ -18883,6 +19331,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Get the Verified Access policy associated with the endpoint.</p>
    */
   public getVerifiedAccessEndpointPolicy(
@@ -18915,6 +19364,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Shows the contents of the Verified Access policy associated with the group.</p>
    */
   public getVerifiedAccessGroupPolicy(
@@ -18947,6 +19397,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer
    *             gateway device specified for your Site-to-Site VPN connection.</p>
    */
@@ -18982,6 +19433,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Obtain a list of customer gateway devices for which sample configuration
    *             files can be provided. The request has no additional parameters. You can also see the
    *             list of device types with sample configuration files available under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer gateway
@@ -19017,6 +19469,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
    *          <p>Uploading a client certificate revocation list resets existing client connections.</p>
    */
@@ -19052,6 +19505,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>To import your virtual machines (VMs) with a console-based experience, you can use the
    *     <i>Import virtual machine images to Amazon Web Services</i> template in the <a href="https://console.aws.amazon.com/migrationhub/orchestrator">Migration Hub Orchestrator console</a>. For more
@@ -19093,6 +19547,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an import instance task using metadata from the specified disk image.</p>
    *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>
    *    instead.</p>
@@ -19131,6 +19586,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Imports the public key from an RSA or ED25519 key pair that you created with a third-party tool.
    *         Compare this with <a>CreateKeyPair</a>, in which Amazon Web Services creates the key pair and gives the keys to you
    *         (Amazon Web Services keeps a copy of the public key). With ImportKeyPair, you create the key pair and give Amazon Web Services just the public key.
@@ -19168,6 +19624,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Imports a disk into an EBS snapshot.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html">Importing a disk as a snapshot using VM Import/Export</a> in the
    *    <i>VM Import/Export User Guide</i>.</p>
@@ -19202,6 +19659,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates an import volume task using metadata from the specified disk image.</p>
    *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use
    *    <a>ImportImage</a> instead. To import a disk to a snapshot, use
@@ -19237,6 +19695,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information,
    *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
    *         Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -19271,6 +19730,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Lists one or more snapshots that are currently in the Recycle Bin.</p>
    */
   public listSnapshotsInRecycleBin(
@@ -19303,6 +19763,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
    */
   public modifyAddressAttribute(
@@ -19335,6 +19796,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your
    *       account.</p>
    *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">
@@ -19370,6 +19832,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies a Capacity Reservation's capacity and the conditions under which it is to be released. You
    * 			cannot change a Capacity Reservation's instance type, EBS optimization, instance store settings,
    * 			platform, Availability Zone, or instance eligibility. If you need to modify any of these
@@ -19406,6 +19869,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies a Capacity Reservation Fleet.</p>
    *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
    * 			creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet
@@ -19442,6 +19906,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
    */
   public modifyClientVpnEndpoint(
@@ -19474,6 +19939,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the default credit option for CPU usage of burstable performance instances.
    *             The default credit option is set at the account level per Amazon Web Services Region, and
    *             is specified per instance family. All new burstable performance instances in the account
@@ -19519,6 +19985,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p>
    *          <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
    *       you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services
@@ -19558,6 +20025,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified EC2 Fleet.</p>
    *          <p>You can only modify an EC2 Fleet request of type <code>maintain</code>.</p>
    *          <p>While the EC2 Fleet is being modified, it is in the <code>modifying</code> state.</p>
@@ -19605,6 +20073,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified attribute of the specified Amazon FPGA Image (AFI).</p>
    */
   public modifyFpgaImageAttribute(
@@ -19637,6 +20106,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
    *             any instances that you launch with a tenancy of <code>host</code> but without a specific
    *             host ID are placed onto any available Dedicated Host in your account that has
@@ -19671,6 +20141,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root
    *        user for an account; or all IAM users, IAM roles, and the root user for an account. You can
    *        specify that resources should receive longer IDs (17-character IDs) when they are created. </p>
@@ -19724,6 +20195,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the ID format for the specified resource on a per-Region basis. You can
    *             specify that resources should receive longer IDs (17-character IDs) when they are
    *             created.</p>
@@ -19779,6 +20251,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
    *          <p>To specify the attribute, you can use the <code>Attribute</code> parameter, or one of the following parameters:
    *        <code>Description</code>, <code>ImdsSupport</code>, or <code>LaunchPermission</code>.</p>
@@ -19816,6 +20289,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified attribute of the specified instance. You can specify only one
    *             attribute at a time.</p>
    *          <p>
@@ -19858,6 +20332,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to configure an
    * 			instance to target a specific Capacity Reservation, run in any <code>open</code> Capacity Reservation with matching
    * 			attributes, or run On-Demand Instance capacity.</p>
@@ -19894,6 +20369,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the credit option for CPU usage on a running or stopped burstable performance
    *             instance. The credit options are <code>standard</code> and
    *             <code>unlimited</code>.</p>
@@ -19930,6 +20406,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the start time for a scheduled Amazon EC2 instance event.</p>
    */
   public modifyInstanceEventStartTime(
@@ -19962,6 +20439,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified event window.</p>
    *          <p>You can define either a set of time ranges or a cron expression when modifying the event
    *          window, but not both.</p>
@@ -20001,6 +20479,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the recovery behavior of your instance to disable simplified automatic
    *             recovery or set the recovery behavior to default. The default configuration will not
    *             enable simplified automatic recovery for an unsupported instance type. For more
@@ -20036,6 +20515,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modify the instance metadata parameters on a running or stopped instance. When you
    *             modify the parameters on a stopped instance, they are applied when the instance is
    *             started. When you modify the parameters on a running instance, the API responds with a
@@ -20074,6 +20554,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the placement attributes for a specified instance. You can do the
    *             following:</p>
    *          <ul>
@@ -20131,6 +20612,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modify the configurations of an IPAM.
    *       </p>
    */
@@ -20158,6 +20640,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modify the configurations of an IPAM pool.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
@@ -20192,6 +20675,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
@@ -20225,6 +20709,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
    */
   public modifyIpamResourceDiscovery(
@@ -20257,6 +20742,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modify an IPAM scope.</p>
    */
   public modifyIpamScope(
@@ -20289,6 +20775,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies a launch template. You can specify which version of the launch template to
    *             set as the default version. When launching an instance, the default version applies when
    *             a launch template version is not specified.</p>
@@ -20323,6 +20810,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified local gateway route.</p>
    */
   public modifyLocalGatewayRoute(
@@ -20355,6 +20843,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified managed prefix list.</p>
    *          <p>Adding or removing entries in a prefix list creates a new version of the prefix list.
    *             Changing the name of the prefix list does not affect the version.</p>
@@ -20391,6 +20880,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified network interface attribute. You can specify only one
    *             attribute at a time. You can use this action to attach and detach security groups from
    *             an existing EC2 instance.</p>
@@ -20425,6 +20915,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the options for instance hostnames for the specified instance.</p>
    */
   public modifyPrivateDnsNameOptions(
@@ -20457,6 +20948,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the configuration of your Reserved Instances, such as the Availability Zone,
    *        instance count, or instance type. The Reserved Instances to be modified must be identical,
    *        except for Availability Zone, network platform, and instance type.</p>
@@ -20496,6 +20988,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the rules of a security group.</p>
    */
   public modifySecurityGroupRules(
@@ -20528,6 +21021,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Adds or removes permission settings for the specified snapshot. You may add or remove
    *       specified Amazon Web Services account IDs from a snapshot's list of create volume permissions, but you cannot
    *       do both in a single operation. If you need to both add and remove account IDs for a snapshot,
@@ -20567,6 +21061,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full
    *       snapshot that includes all of the blocks of data that were written to the volume at the
    *       time the snapshot was created, and moved from the standard tier to the archive
@@ -20603,6 +21098,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified Spot Fleet request.</p>
    *          <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
    *          <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code>
@@ -20659,6 +21155,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
    *          <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
    *          <ul>
@@ -20718,6 +21215,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Allows or restricts mirroring network services.</p>
    *          <p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored.
    *          When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter.
@@ -20755,6 +21253,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified Traffic Mirror rule.</p>
    *          <p>
    *             <code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an IPv4
@@ -20790,6 +21289,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies a Traffic Mirror session.</p>
    */
   public modifyTrafficMirrorSession(
@@ -20822,6 +21322,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified transit gateway. When you modify a transit gateway, the modified options are applied to new transit gateway attachments only. Your existing transit gateway attachments are not modified.</p>
    */
   public modifyTransitGateway(
@@ -20854,6 +21355,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>
    */
   public modifyTransitGatewayPrefixListReference(
@@ -20888,6 +21390,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified VPC attachment.</p>
    */
   public modifyTransitGatewayVpcAttachment(
@@ -20920,6 +21423,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
    */
   public modifyVerifiedAccessEndpoint(
@@ -20952,6 +21456,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified Verified Access endpoint policy.</p>
    */
   public modifyVerifiedAccessEndpointPolicy(
@@ -20984,6 +21489,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified Verified Access group configuration.</p>
    */
   public modifyVerifiedAccessGroup(
@@ -21016,6 +21522,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified Verified Access group policy.</p>
    */
   public modifyVerifiedAccessGroupPolicy(
@@ -21048,6 +21555,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the configuration of the specified Verified Access instance.</p>
    */
   public modifyVerifiedAccessInstance(
@@ -21080,6 +21588,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
    */
   public modifyVerifiedAccessInstanceLoggingConfiguration(
@@ -21114,6 +21623,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
    */
   public modifyVerifiedAccessTrustProvider(
@@ -21146,6 +21656,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
    *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
    *       type, you might be able to apply these changes without stopping the instance or detaching the
@@ -21191,6 +21702,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies a volume attribute.</p>
    *          <p>By default, all I/O operations for the volume are suspended when the data on the volume is
    *       determined to be potentially inconsistent, to prevent undetectable, latent data corruption.
@@ -21229,6 +21741,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the specified attribute of the specified VPC.</p>
    */
   public modifyVpcAttribute(
@@ -21261,6 +21774,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify
    *             depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information,
    *             see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
@@ -21296,6 +21810,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies a connection notification for VPC endpoint or VPC endpoint service. You
    *             can change the SNS topic for the notification, or the events for which to be notified. </p>
    */
@@ -21331,6 +21846,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the attributes of your VPC endpoint service configuration. You can change the
    *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
    *             required for requests to connect to your endpoint service through an interface VPC
@@ -21370,6 +21886,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the payer responsibility for your VPC endpoint service.</p>
    */
   public modifyVpcEndpointServicePayerResponsibility(
@@ -21404,6 +21921,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
    *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
    *             your endpoint service.</p>
@@ -21441,6 +21959,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          </note>
@@ -21498,6 +22017,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the instance tenancy attribute of the specified VPC. You can change the
    *             instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the
    *             instance tenancy attribute to <code>dedicated</code>.</p>
@@ -21537,6 +22057,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site VPN connection. To
    *             modify the target gateway, the following migration options are available:</p>
    *          <ul>
@@ -21604,6 +22125,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>
    *          <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the
    *                 Amazon Web Services side do not change, and the tunnel options do not change. Your
@@ -21640,6 +22162,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the VPN tunnel endpoint certificate.</p>
    */
   public modifyVpnTunnelCertificate(
@@ -21672,6 +22195,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection. You can modify
    *             multiple options for a tunnel in a single request, but you can only modify one tunnel at
    *             a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site VPN tunnel options for your Site-to-Site VPN
@@ -21707,6 +22231,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
    *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
    *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -21742,6 +22267,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The
    *       Elastic IP address must be allocated to your account for more than 24 hours, and it must not
    *       be associated with an instance. After the Elastic IP address is moved, it is no longer
@@ -21782,6 +22308,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p>
    *          <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
    */
@@ -21815,6 +22342,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP
    *          addresses (BYOIP) and creates a corresponding address pool. After the address range is
    *          provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>
@@ -21858,6 +22386,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
@@ -21892,6 +22421,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Provision a CIDR to a public IPv4 pool.</p>
    *          <p>For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
@@ -21925,6 +22455,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Purchase a reservation with configurations that match those of your Dedicated Host.
    *             You must have active Dedicated Hosts in your account before you purchase a reservation.
    *             This action results in the specified reservation being purchased and charged to your
@@ -21960,6 +22491,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower
    *        hourly rate compared to On-Demand instance pricing.</p>
    *          <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings
@@ -22004,6 +22536,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>You can no longer purchase Scheduled Instances.</p>
    *          </note>
@@ -22044,6 +22577,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Requests a reboot of the specified instances. This operation is asynchronous; it only
    *             queues a request to reboot the specified instances. The operation succeeds if the
    *             instances are valid and belong to you. Requests to reboot terminated instances are
@@ -22083,6 +22617,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete
    *       before you can launch an instance from the AMI. For more information about creating AMIs, see
    *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your
@@ -22163,6 +22698,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Registers a set of tag keys to include in scheduled event notifications for your resources.
    *    		</p>
    *          <p>To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.</p>
@@ -22199,6 +22735,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Registers members (network interfaces) with the  transit gateway multicast group. A member is a network interface associated
    *             with a supported EC2 instance that receives multicast traffic. For information about
    *             supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
@@ -22238,6 +22775,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>
    *          <p>A multicast source is a network interface attached to a supported instance that sends
    *             multicast traffic. For information about supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
@@ -22277,6 +22815,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>
    */
   public rejectTransitGatewayMulticastDomainAssociations(
@@ -22311,6 +22850,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Rejects a transit gateway peering attachment request.</p>
    */
   public rejectTransitGatewayPeeringAttachment(
@@ -22345,6 +22885,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Rejects a request to attach a VPC to a transit gateway.</p>
    *          <p>The VPC attachment must be in the <code>pendingAcceptance</code> state.
    *          Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests.
@@ -22380,6 +22921,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>
    */
   public rejectVpcEndpointConnections(
@@ -22412,6 +22954,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Rejects a VPC peering connection request. The VPC peering connection must be in the
    * 				<code>pending-acceptance</code> state. Use the <a>DescribeVpcPeeringConnections</a> request
    * 			to view your outstanding VPC peering connection requests. To delete an active VPC peering
@@ -22447,6 +22990,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Releases the specified Elastic IP address.</p>
    *          <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it
    * 				from any instance that it's associated with. To disassociate an Elastic IP address without
@@ -22496,6 +23040,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>When you no longer want to use an On-Demand Dedicated Host it can be released.
    *             On-Demand billing is stopped and the host goes into <code>released</code> state. The
    *             host ID of Dedicated Hosts that have been released can no longer be specified in another
@@ -22533,6 +23078,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    *          <note>
@@ -22569,6 +23115,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Replaces an IAM instance profile for the specified running instance. You can use
    *             this action to change the IAM instance profile that's associated with an instance
    *             without having to disassociate the existing IAM instance profile first.</p>
@@ -22605,6 +23152,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Changes which network ACL a subnet is associated with. By default when you create a
    * 			subnet, it's automatically associated with the default network ACL. For more
    * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
@@ -22641,6 +23189,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
@@ -22674,6 +23223,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Replaces an existing route within a route table in a VPC.</p>
    *          <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify
    *            exactly one of the resources from the parameter list, or reset the local route to its default
@@ -22708,6 +23258,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation
    *         completes, the subnet or gateway uses the routes in the new route table. For more
    *         information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
@@ -22744,6 +23295,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Replaces the specified route in the specified transit gateway route table.</p>
    */
   public replaceTransitGatewayRoute(
@@ -22776,6 +23328,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Submits feedback about the status of an instance. The instance must be in the
    *                 <code>running</code> state. If your experience with the instance differs from the
    *             instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon
@@ -22812,6 +23365,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Spot Fleet request.</p>
    *          <p>The Spot Fleet request specifies the total target capacity and the On-Demand target
    *             capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand
@@ -22870,6 +23424,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Spot Instance request.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in
    *             the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
@@ -22914,6 +23469,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Resets the attribute of the specified IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
    */
   public resetAddressAttribute(
@@ -22946,6 +23502,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Resets the default KMS key for EBS encryption for your account in this Region
    *       to the Amazon Web Services managed KMS key for EBS.</p>
    *          <p>After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a
@@ -22983,6 +23540,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value.
    * 		    You can only reset the load permission attribute.</p>
    */
@@ -23016,6 +23574,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Resets an attribute of an AMI to its default value.</p>
    */
   public resetImageAttribute(
@@ -23048,6 +23607,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Resets an attribute of an instance to its default value. To reset the
    *                 <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped
    *             state. To reset the <code>sourceDestCheck</code>, the instance can be either running or
@@ -23088,6 +23648,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Resets a network interface attribute. You can specify only one attribute at a time.</p>
    */
   public resetNetworkInterfaceAttribute(
@@ -23120,6 +23681,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Resets permission settings for the specified snapshot.</p>
    *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Share a snapshot</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -23154,6 +23716,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p>
    *          <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -23189,6 +23752,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public restoreImageFromRecycleBin(
@@ -23221,6 +23785,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Restores the entries from a previous version of a managed prefix list to a new version of the prefix list.</p>
    */
   public restoreManagedPrefixListVersion(
@@ -23253,6 +23818,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore
    *       snapshots from the Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -23286,6 +23852,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore
    *       period or restore type for a snapshot that was previously temporarily restored.</p>
    *          <p>For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot">
@@ -23322,6 +23889,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Removes an ingress authorization rule from a Client VPN endpoint. </p>
    */
   public revokeClientVpnIngress(
@@ -23354,6 +23922,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>[VPC only] Removes the specified outbound (egress) rules from a security group for EC2-VPC.
    *        This action does not apply to security groups for use in EC2-Classic.</p>
    *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
@@ -23399,6 +23968,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Removes the specified inbound (ingress) rules from a security group.</p>
    *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
    *            rule properties, the values that you specify (for example, ports) must match the existing rule's
@@ -23445,6 +24015,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Launches the specified number of instances using an AMI for which you have
    *             permissions.</p>
    *          <p>You can specify a number of options, or leave the default options. The following rules
@@ -23535,6 +24106,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Launches the specified Scheduled Instances.</p>
    *          <p>Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using <a>PurchaseScheduledInstances</a>.</p>
    *          <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance,
@@ -23572,6 +24144,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Searches for routes in the specified local gateway route table.</p>
    */
   public searchLocalGatewayRoutes(
@@ -23604,6 +24177,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Searches one or more  transit gateway multicast groups and returns the group membership information.</p>
    */
   public searchTransitGatewayMulticastGroups(
@@ -23636,6 +24210,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Searches for routes in the specified transit gateway route table.</p>
    */
   public searchTransitGatewayRoutes(
@@ -23668,6 +24243,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a
    *                 <i>kernel panic</i> (on Linux instances), or a <i>blue
    *                 screen</i>/<i>stop error</i> (on Windows instances). For
@@ -23714,6 +24290,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>
    *          <p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and
    *             started. When an instance is stopped, the compute resources are released and you are not
@@ -23764,6 +24341,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Starts analyzing the specified Network Access Scope.</p>
    */
   public startNetworkInsightsAccessScopeAnalysis(
@@ -23798,6 +24376,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Starts analyzing the specified path. If the path is reachable, the
    *          operation returns the shortest feasible path.</p>
    */
@@ -23831,6 +24410,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Initiates the verification process to prove that the service provider owns the private
    *             DNS name domain for the endpoint service.</p>
    *          <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
@@ -23868,6 +24448,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Stops an Amazon EBS-backed instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start
    *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for
@@ -23930,6 +24511,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Terminates active Client VPN endpoint connections. This action can be used to terminate a specific client connection, or up to five connections established by a specific user.</p>
    */
   public terminateClientVpnConnections(
@@ -23962,6 +24544,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
    *             instance more than once, each call succeeds. </p>
    *          <p>If you specify multiple instances and the request fails (for example, because of a
@@ -24053,6 +24636,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network interface.</p>
    */
   public unassignIpv6Addresses(
@@ -24085,6 +24669,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a
    *         	network interface.</p>
    */
@@ -24118,6 +24703,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
    *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
@@ -24158,6 +24744,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
    *                 your instances and volumes</a> in the
    *             <i>Amazon EC2 User Guide</i>.</p>
@@ -24192,6 +24779,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>[VPC only] Updates the description of an egress (outbound) security group rule. You
    * 			can replace an existing description, or add a description to a rule that did not have one
    * 			previously. You can remove a description for a security group rule by omitting the
@@ -24229,6 +24817,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Updates the description of an ingress (inbound) security group rule. You can replace an
    * 			existing description, or add a description to a rule that did not have one previously.
    * 		    You can remove a description for a security group rule by omitting the description
@@ -24266,6 +24855,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * @public
    * <p>Stops advertising an address range that is provisioned as an address pool.</p>
    *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
    *          address ranges each time.</p>

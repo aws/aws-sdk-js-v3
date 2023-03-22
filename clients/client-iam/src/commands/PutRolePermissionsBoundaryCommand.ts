@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutRolePermissionsBoundaryCommand}.
  */
 export interface PutRolePermissionsBoundaryCommandInput extends PutRolePermissionsBoundaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRolePermissionsBoundaryCommand}.
  */
 export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates the policy that is specified as the IAM role's permissions boundary.
  *             You can use an Amazon Web Services managed policy or a customer managed policy to set the boundary for
  *             a role. Use the boundary to control the maximum permissions that the role can have.
@@ -55,6 +60,8 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRolePermissionsBoundaryCommandInput - {@link PutRolePermissionsBoundaryCommandInput}
+ * @returns {@link PutRolePermissionsBoundaryCommandOutput}
  * @see {@link PutRolePermissionsBoundaryCommandInput} for command's `input` shape.
  * @see {@link PutRolePermissionsBoundaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -100,6 +107,9 @@ export class PutRolePermissionsBoundaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRolePermissionsBoundaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class PutRolePermissionsBoundaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRolePermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutRolePermissionsBoundaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

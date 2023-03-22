@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotebookInstanceCommand}.
  */
 export interface DescribeNotebookInstanceCommandInput extends DescribeNotebookInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotebookInstanceCommand}.
  */
 export interface DescribeNotebookInstanceCommandOutput extends DescribeNotebookInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a notebook instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeNotebookInstanceCommandOutput extends DescribeNotebookI
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotebookInstanceCommandInput - {@link DescribeNotebookInstanceCommandInput}
+ * @returns {@link DescribeNotebookInstanceCommandOutput}
  * @see {@link DescribeNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeNotebookInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeNotebookInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeNotebookInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNotebookInstanceCommandOutput> {
     return deserializeAws_json1_1DescribeNotebookInstanceCommand(output, context);
   }

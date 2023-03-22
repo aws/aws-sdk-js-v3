@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVoicesCommand}.
  */
 export interface DescribeVoicesCommandInput extends DescribeVoicesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVoicesCommand}.
  */
 export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of voices that are available for use when
  *       requesting speech synthesis. Each voice speaks a specified language, is
  *       either male or female, and is identified by an ID, which is the ASCII
@@ -61,6 +66,8 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVoicesCommandInput - {@link DescribeVoicesCommandInput}
+ * @returns {@link DescribeVoicesCommandOutput}
  * @see {@link DescribeVoicesCommandInput} for command's `input` shape.
  * @see {@link DescribeVoicesCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -129,6 +136,9 @@ export class DescribeVoicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVoicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class DescribeVoicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVoicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVoicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVoicesCommandOutput> {
     return deserializeAws_restJson1DescribeVoicesCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link HeadBucketCommand}.
  */
 export interface HeadBucketCommandInput extends HeadBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link HeadBucketCommand}.
  */
 export interface HeadBucketCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action is useful to determine if a bucket exists and you have permission to
  *          access it. The action returns a <code>200 OK</code> if the bucket exists and you have
  *          permission to access it.</p>
@@ -51,6 +56,8 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param HeadBucketCommandInput - {@link HeadBucketCommandInput}
+ * @returns {@link HeadBucketCommandOutput}
  * @see {@link HeadBucketCommandInput} for command's `input` shape.
  * @see {@link HeadBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -94,6 +101,9 @@ export class HeadBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: HeadBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class HeadBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HeadBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlHeadBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HeadBucketCommandOutput> {
     return deserializeAws_restXmlHeadBucketCommand(output, context);
   }

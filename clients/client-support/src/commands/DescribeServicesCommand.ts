@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServicesCommand}.
  */
 export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServicesCommand}.
  */
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current list of Amazon Web Services services and a list of service categories for each
  *             service. You then use service names and categories in your <a>CreateCase</a>
  *             requests. Each Amazon Web Services service has its own set of categories.</p>
@@ -68,6 +73,8 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServicesCommandInput - {@link DescribeServicesCommandInput}
+ * @returns {@link DescribeServicesCommandOutput}
  * @see {@link DescribeServicesCommandInput} for command's `input` shape.
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServicesCommandOutput> {
     return deserializeAws_json1_1DescribeServicesCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ResourceGroupsTaggingAPIServiceException as __BaseException } from "./ResourceGroupsTaggingAPIServiceException";
 
 /**
+ * @public
  * <p>Information that shows whether a resource is compliant with the effective tag policy,
  *             including details on any noncompliant tag keys.</p>
  */
@@ -26,6 +27,7 @@ export interface ComplianceDetails {
 }
 
 /**
+ * @public
  * <p>The target of the operation is currently being modified by a different request. Try
  *             again later.</p>
  */
@@ -48,6 +50,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because performing this operation violates a constraint. </p>
  *         <p>Some of the reasons in the following list might not apply to this specific
  *             operation.</p>
@@ -87,8 +90,14 @@ export class ConstraintViolationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeReportCreationInput {}
 
+/**
+ * @public
+ */
 export interface DescribeReportCreationOutput {
   /**
    * <p>Reports the status of the operation.</p>
@@ -134,6 +143,7 @@ export interface DescribeReportCreationOutput {
 }
 
 /**
+ * @public
  * <p>The request processing failed because of an unknown error, exception, or failure. You
  *             can retry the request.</p>
  */
@@ -156,6 +166,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This error indicates one of the following:</p>
  *         <ul>
  *             <li>
@@ -197,6 +208,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied to limit the frequency of submitted requests.</p>
  */
 export class ThrottledException extends __BaseException {
@@ -217,12 +229,16 @@ export class ThrottledException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   INTERNAL_SERVICE_EXCEPTION = "InternalServiceException",
   INVALID_PARAMETER_EXCEPTION = "InvalidParameterException",
 }
 
 /**
+ * @public
  * <p>Information about the errors that are returned for each failed resource. This
  *             information can include <code>InternalServiceException</code> and
  *                 <code>InvalidParameterException</code> errors. It can also include any valid error
@@ -275,12 +291,18 @@ export interface FailureInfo {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum GroupByAttribute {
   REGION = "REGION",
   RESOURCE_TYPE = "RESOURCE_TYPE",
   TARGET_ID = "TARGET_ID",
 }
 
+/**
+ * @public
+ */
 export interface GetComplianceSummaryInput {
   /**
    * <p>Specifies target identifiers (usually, specific account IDs) to limit the output by.
@@ -356,6 +378,9 @@ export interface GetComplianceSummaryInput {
   PaginationToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum TargetIdType {
   ACCOUNT = "ACCOUNT",
   OU = "OU",
@@ -363,6 +388,7 @@ export enum TargetIdType {
 }
 
 /**
+ * @public
  * <p>A count of noncompliant resources.</p>
  */
 export interface Summary {
@@ -398,6 +424,9 @@ export interface Summary {
   NonCompliantResources?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetComplianceSummaryOutput {
   /**
    * <p>A table that shows counts of noncompliant resources.</p>
@@ -413,6 +442,7 @@ export interface GetComplianceSummaryOutput {
 }
 
 /**
+ * @public
  * <p>A list of tags (keys and values) that are used to specify the associated
  *             resources.</p>
  */
@@ -430,6 +460,9 @@ export interface TagFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetResourcesInput {
   /**
    * <p>Specifies a <code>PaginationToken</code> response value from a
@@ -463,31 +496,31 @@ export interface GetResourcesInput {
    *             <li>
    *                 <p>If you don't specify a value for a key, the response returns all resources
    *                     that are tagged with that key, with any or no value.</p>
-   *                 <p>For example, for the following filters: <code>filter1= {keyA,{value1}}</code>,
-   *                         <code>filter2={keyB,{value2,value3,value4}}</code>, <code>filter3=
-   *                         {keyC}</code>:</p>
+   *                 <p>For example, for the following filters: <code>filter1= \{keyA,\{value1\}\}</code>,
+   *                         <code>filter2=\{keyB,\{value2,value3,value4\}\}</code>, <code>filter3=
+   *                         \{keyC\}</code>:</p>
    *                 <ul>
    *                   <li>
    *                         <p>
-   *                         <code>GetResources({filter1})</code> returns resources tagged with
+   *                         <code>GetResources(\{filter1\})</code> returns resources tagged with
    *                                 <code>key1=value1</code>
    *                      </p>
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <code>GetResources({filter2})</code> returns resources tagged with
+   *                         <code>GetResources(\{filter2\})</code> returns resources tagged with
    *                                 <code>key2=value2</code> or <code>key2=value3</code> or
    *                                 <code>key2=value4</code>
    *                      </p>
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <code>GetResources({filter3})</code> returns resources tagged with any
+   *                         <code>GetResources(\{filter3\})</code> returns resources tagged with any
    *                             tag with the key <code>key3</code>, and with any or no value</p>
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <code>GetResources({filter1,filter2,filter3})</code> returns resources
+   *                         <code>GetResources(\{filter1,filter2,filter3\})</code> returns resources
    *                             tagged with <code>(key1=value1) and (key2=value2 or key2=value3 or
    *                                 key2=value4) and (key3, any or no value)</code>
    *                      </p>
@@ -578,6 +611,7 @@ export interface GetResourcesInput {
 }
 
 /**
+ * @public
  * <p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize
  *             them. Each tag consists of a key and a value, both of which you define. For more
  *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -597,6 +631,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>A list of resource ARNs and the tags (keys and values) that are associated with
  *             each.</p>
  */
@@ -618,6 +653,9 @@ export interface ResourceTagMapping {
   ComplianceDetails?: ComplianceDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcesOutput {
   /**
    * <p>A string that indicates that there is more data available than this
@@ -634,6 +672,7 @@ export interface GetResourcesOutput {
 }
 
 /**
+ * @public
  * <p>A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request was
  *             denied because the specified <code>PaginationToken</code> has expired.</p>
  */
@@ -655,6 +694,9 @@ export class PaginationTokenExpiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetTagKeysInput {
   /**
    * <p>Specifies a <code>PaginationToken</code> response value from a
@@ -664,6 +706,9 @@ export interface GetTagKeysInput {
   PaginationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTagKeysOutput {
   /**
    * <p>A string that indicates that there is more data available than this
@@ -678,6 +723,9 @@ export interface GetTagKeysOutput {
   TagKeys?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetTagValuesInput {
   /**
    * <p>Specifies a <code>PaginationToken</code> response value from a
@@ -693,6 +741,9 @@ export interface GetTagValuesInput {
   Key: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTagValuesOutput {
   /**
    * <p>A string that indicates that there is more data available than this
@@ -708,6 +759,9 @@ export interface GetTagValuesOutput {
   TagValues?: string[];
 }
 
+/**
+ * @public
+ */
 export interface StartReportCreationInput {
   /**
    * <p>The name of the Amazon S3 bucket where the report will be stored; for example:</p>
@@ -720,8 +774,14 @@ export interface StartReportCreationInput {
   S3Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartReportCreationOutput {}
 
+/**
+ * @public
+ */
 export interface TagResourcesInput {
   /**
    * <p>Specifies the list of ARNs of the resources that you want to apply tags to.</p>
@@ -739,6 +799,9 @@ export interface TagResourcesInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourcesOutput {
   /**
    * <p>A map containing a key-value pair for each failed item that couldn't be tagged. The
@@ -749,6 +812,9 @@ export interface TagResourcesOutput {
   FailedResourcesMap?: Record<string, FailureInfo>;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourcesInput {
   /**
    * <p>Specifies a list of ARNs of the resources that you want to remove tags from.</p>
@@ -766,6 +832,9 @@ export interface UntagResourcesInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourcesOutput {
   /**
    * <p>A map containing a key-value pair for each failed item that couldn't be untagged. The

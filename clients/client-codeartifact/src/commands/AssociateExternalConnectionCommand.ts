@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateExternalConnectionCommand}.
  */
 export interface AssociateExternalConnectionCommandInput extends AssociateExternalConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateExternalConnectionCommand}.
  */
 export interface AssociateExternalConnectionCommandOutput extends AssociateExternalConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an existing external connection to a repository. One external connection is allowed
  *       per repository.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface AssociateExternalConnectionCommandOutput extends AssociateExter
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateExternalConnectionCommandInput - {@link AssociateExternalConnectionCommandInput}
+ * @returns {@link AssociateExternalConnectionCommandOutput}
  * @see {@link AssociateExternalConnectionCommandInput} for command's `input` shape.
  * @see {@link AssociateExternalConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -106,6 +113,9 @@ export class AssociateExternalConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateExternalConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class AssociateExternalConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateExternalConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateExternalConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

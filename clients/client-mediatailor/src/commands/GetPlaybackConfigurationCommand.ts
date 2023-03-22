@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPlaybackConfigurationCommand}.
  */
 export interface GetPlaybackConfigurationCommandInput extends GetPlaybackConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPlaybackConfigurationCommand}.
  */
 export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPlaybackConfigurationCommandInput - {@link GetPlaybackConfigurationCommandInput}
+ * @returns {@link GetPlaybackConfigurationCommandOutput}
  * @see {@link GetPlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetPlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class GetPlaybackConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPlaybackConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetPlaybackConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPlaybackConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPlaybackConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlaybackConfigurationCommandOutput> {
     return deserializeAws_restJson1GetPlaybackConfigurationCommand(output, context);
   }

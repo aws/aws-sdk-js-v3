@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetPreparedStatementCommand}.
  */
 export interface BatchGetPreparedStatementCommandInput extends BatchGetPreparedStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetPreparedStatementCommand}.
  */
 export interface BatchGetPreparedStatementCommandOutput extends BatchGetPreparedStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of a single prepared statement or a list of up to 256 prepared
  *             statements for the array of prepared statement names that you provide. Requires you to
  *             have access to the workgroup to which the prepared statements belong. If a prepared
@@ -50,6 +55,8 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetPreparedStatementCommandInput - {@link BatchGetPreparedStatementCommandInput}
+ * @returns {@link BatchGetPreparedStatementCommandOutput}
  * @see {@link BatchGetPreparedStatementCommandInput} for command's `input` shape.
  * @see {@link BatchGetPreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +88,9 @@ export class BatchGetPreparedStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetPreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class BatchGetPreparedStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetPreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetPreparedStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

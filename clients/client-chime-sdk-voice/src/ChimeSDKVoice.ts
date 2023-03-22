@@ -369,7 +369,13 @@ import {
   ValidateE911AddressCommandOutput,
 } from "./commands/ValidateE911AddressCommand";
 
+/**
+ * @public
+ */
 export class ChimeSDKVoice extends ChimeSDKVoiceClient {
+  /**
+   * @public
+   */
   public associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
@@ -401,6 +407,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -432,6 +441,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
@@ -461,6 +473,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
@@ -490,6 +505,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
     options?: __HttpHandlerOptions
@@ -519,6 +537,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public createProxySession(
     args: CreateProxySessionCommandInput,
     options?: __HttpHandlerOptions
@@ -548,6 +569,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public createSipMediaApplication(
     args: CreateSipMediaApplicationCommandInput,
     options?: __HttpHandlerOptions
@@ -577,6 +601,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public createSipMediaApplicationCall(
     args: CreateSipMediaApplicationCallCommandInput,
     options?: __HttpHandlerOptions
@@ -606,6 +633,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public createSipRule(
     args: CreateSipRuleCommandInput,
     options?: __HttpHandlerOptions
@@ -635,6 +665,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public createVoiceConnector(
     args: CreateVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
@@ -664,6 +697,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public createVoiceConnectorGroup(
     args: CreateVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -693,6 +729,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
@@ -722,6 +761,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteProxySession(
     args: DeleteProxySessionCommandInput,
     options?: __HttpHandlerOptions
@@ -751,6 +793,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteSipMediaApplication(
     args: DeleteSipMediaApplicationCommandInput,
     options?: __HttpHandlerOptions
@@ -780,6 +825,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteSipRule(
     args: DeleteSipRuleCommandInput,
     options?: __HttpHandlerOptions
@@ -809,6 +857,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteVoiceConnector(
     args: DeleteVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
@@ -838,6 +889,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteVoiceConnectorEmergencyCallingConfiguration(
     args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -869,6 +923,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -898,6 +955,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
     options?: __HttpHandlerOptions
@@ -927,6 +987,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteVoiceConnectorProxy(
     args: DeleteVoiceConnectorProxyCommandInput,
     options?: __HttpHandlerOptions
@@ -956,6 +1019,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -987,6 +1053,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
     options?: __HttpHandlerOptions
@@ -1016,6 +1085,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     options?: __HttpHandlerOptions
@@ -1047,6 +1119,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
@@ -1078,6 +1153,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -1109,6 +1187,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1138,6 +1219,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getPhoneNumber(
     args: GetPhoneNumberCommandInput,
     options?: __HttpHandlerOptions
@@ -1167,6 +1251,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
     options?: __HttpHandlerOptions
@@ -1196,6 +1283,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1225,6 +1315,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getProxySession(
     args: GetProxySessionCommandInput,
     options?: __HttpHandlerOptions
@@ -1254,6 +1347,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getSipMediaApplication(
     args: GetSipMediaApplicationCommandInput,
     options?: __HttpHandlerOptions
@@ -1283,6 +1379,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getSipMediaApplicationAlexaSkillConfiguration(
     args: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1314,6 +1413,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getSipMediaApplicationLoggingConfiguration(
     args: GetSipMediaApplicationLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1345,6 +1447,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getSipRule(args: GetSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetSipRuleCommandOutput>;
   public getSipRule(args: GetSipRuleCommandInput, cb: (err: any, data?: GetSipRuleCommandOutput) => void): void;
   public getSipRule(
@@ -1368,6 +1473,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
@@ -1397,6 +1505,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getVoiceConnectorEmergencyCallingConfiguration(
     args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1428,6 +1539,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -1457,6 +1571,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1488,6 +1605,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getVoiceConnectorOrigination(
     args: GetVoiceConnectorOriginationCommandInput,
     options?: __HttpHandlerOptions
@@ -1517,6 +1637,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getVoiceConnectorProxy(
     args: GetVoiceConnectorProxyCommandInput,
     options?: __HttpHandlerOptions
@@ -1546,6 +1669,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1577,6 +1703,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getVoiceConnectorTermination(
     args: GetVoiceConnectorTerminationCommandInput,
     options?: __HttpHandlerOptions
@@ -1606,6 +1735,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
     options?: __HttpHandlerOptions
@@ -1635,6 +1767,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1664,6 +1799,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
     options?: __HttpHandlerOptions
@@ -1693,6 +1831,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
@@ -1722,6 +1863,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listProxySessions(
     args: ListProxySessionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1751,6 +1895,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1780,6 +1927,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listSipRules(
     args: ListSipRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -1806,6 +1956,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1835,6 +1988,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1864,6 +2020,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -1893,6 +2052,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
     options?: __HttpHandlerOptions
@@ -1924,6 +2086,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public putSipMediaApplicationAlexaSkillConfiguration(
     args: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1955,6 +2120,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public putSipMediaApplicationLoggingConfiguration(
     args: PutSipMediaApplicationLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1986,6 +2154,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public putVoiceConnectorEmergencyCallingConfiguration(
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -2017,6 +2188,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -2048,6 +2222,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
     options?: __HttpHandlerOptions
@@ -2077,6 +2254,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public putVoiceConnectorProxy(
     args: PutVoiceConnectorProxyCommandInput,
     options?: __HttpHandlerOptions
@@ -2106,6 +2286,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -2137,6 +2320,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
     options?: __HttpHandlerOptions
@@ -2166,6 +2352,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
     options?: __HttpHandlerOptions
@@ -2197,6 +2386,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
@@ -2226,6 +2418,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
@@ -2255,6 +2450,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -2284,6 +2482,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
@@ -2313,6 +2514,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -2342,6 +2546,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public updateProxySession(
     args: UpdateProxySessionCommandInput,
     options?: __HttpHandlerOptions
@@ -2371,6 +2578,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public updateSipMediaApplication(
     args: UpdateSipMediaApplicationCommandInput,
     options?: __HttpHandlerOptions
@@ -2400,6 +2610,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public updateSipMediaApplicationCall(
     args: UpdateSipMediaApplicationCallCommandInput,
     options?: __HttpHandlerOptions
@@ -2429,6 +2642,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public updateSipRule(
     args: UpdateSipRuleCommandInput,
     options?: __HttpHandlerOptions
@@ -2458,6 +2674,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public updateVoiceConnector(
     args: UpdateVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
@@ -2487,6 +2706,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public updateVoiceConnectorGroup(
     args: UpdateVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -2516,6 +2738,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public validateE911Address(
     args: ValidateE911AddressCommandInput,
     options?: __HttpHandlerOptions

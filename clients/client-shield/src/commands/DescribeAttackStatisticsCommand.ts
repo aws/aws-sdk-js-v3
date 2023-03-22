@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAttackStatisticsCommand}.
  */
 export interface DescribeAttackStatisticsCommandInput extends DescribeAttackStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAttackStatisticsCommand}.
  */
 export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the number and type of attacks Shield has detected in the last year for all resources that belong to your account, regardless of whether you've defined Shield protections for them. This operation is available to Shield customers as well as to Shield Advanced customers.</p>
  *          <p>The operation returns data for the time range of midnight UTC, one year ago, to midnight UTC, today. For example, if the current time is <code>2020-10-26 15:39:32 PDT</code>, equal to <code>2020-10-26 22:39:32 UTC</code>, then the time range for the attack data returned is from <code>2019-10-26 00:00:00 UTC</code> to <code>2020-10-26 00:00:00 UTC</code>. </p>
  *          <p>The time range indicates the period covered by the attack statistics data items.</p>
@@ -48,6 +53,8 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAttackStatisticsCommandInput - {@link DescribeAttackStatisticsCommandInput}
+ * @returns {@link DescribeAttackStatisticsCommandOutput}
  * @see {@link DescribeAttackStatisticsCommandInput} for command's `input` shape.
  * @see {@link DescribeAttackStatisticsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeAttackStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAttackStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeAttackStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAttackStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAttackStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAttackStatisticsCommandOutput> {
     return deserializeAws_json1_1DescribeAttackStatisticsCommand(output, context);
   }

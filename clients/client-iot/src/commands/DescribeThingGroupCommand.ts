@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThingGroupCommand}.
  */
 export interface DescribeThingGroupCommandInput extends DescribeThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThingGroupCommand}.
  */
 export interface DescribeThingGroupCommandOutput extends DescribeThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe a thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThingGroupCommandInput - {@link DescribeThingGroupCommandInput}
+ * @returns {@link DescribeThingGroupCommandOutput}
  * @see {@link DescribeThingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThingGroupCommandOutput> {
     return deserializeAws_restJson1DescribeThingGroupCommand(output, context);
   }

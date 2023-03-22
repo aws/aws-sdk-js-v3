@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessPreviewsCommand}.
  */
 export interface ListAccessPreviewsCommandInput extends ListAccessPreviewsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessPreviewsCommand}.
  */
 export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of access previews for the specified analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessPreviewsCommandInput - {@link ListAccessPreviewsCommandInput}
+ * @returns {@link ListAccessPreviewsCommandOutput}
  * @see {@link ListAccessPreviewsCommandInput} for command's `input` shape.
  * @see {@link ListAccessPreviewsCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAccessPreviewsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessPreviewsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListAccessPreviewsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessPreviewsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAccessPreviewsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessPreviewsCommandOutput> {
     return deserializeAws_restJson1ListAccessPreviewsCommand(output, context);
   }

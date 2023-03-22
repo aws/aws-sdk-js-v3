@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class ListTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
     return deserializeAws_restJson1ListTagsForResourceCommand(output, context);
   }

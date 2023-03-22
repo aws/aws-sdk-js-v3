@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLinksCommand}.
  */
 export interface ListLinksCommandInput extends ListLinksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLinksCommand}.
  */
 export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation in a source account to return a list of links to monitoring account sinks that
  *             this source account has.</p>
  *         <p>To find a list of links for one monitoring account sink, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html">ListAttachedLinks</a> from within the monitoring account.</p>
@@ -48,6 +53,8 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLinksCommandInput - {@link ListLinksCommandInput}
+ * @returns {@link ListLinksCommandOutput}
  * @see {@link ListLinksCommandInput} for command's `input` shape.
  * @see {@link ListLinksCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLinksCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLinksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLinksCommandOutput> {
     return deserializeAws_restJson1ListLinksCommand(output, context);
   }

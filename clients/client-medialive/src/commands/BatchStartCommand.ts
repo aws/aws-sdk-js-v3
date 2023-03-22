@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchStartCommand}.
  */
 export interface BatchStartCommandInput extends BatchStartRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchStartCommand}.
  */
 export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Starts existing resources
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchStartCommandInput - {@link BatchStartCommandInput}
+ * @returns {@link BatchStartCommandOutput}
  * @see {@link BatchStartCommandInput} for command's `input` shape.
  * @see {@link BatchStartCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class BatchStartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchStartCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class BatchStartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchStartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchStartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStartCommandOutput> {
     return deserializeAws_restJson1BatchStartCommand(output, context);
   }

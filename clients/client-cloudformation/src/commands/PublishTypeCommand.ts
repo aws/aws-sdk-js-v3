@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryPublishTypeCommand, serializeAws_queryPublishTypeCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PublishTypeCommand}.
  */
 export interface PublishTypeCommandInput extends PublishTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link PublishTypeCommand}.
  */
 export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes the specified extension to the CloudFormation registry as a public
  *          extension in this region. Public extensions are available for use by all CloudFormation users. For more information about publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to make them available for public use</a> in the
  *                <i>CloudFormation CLI User Guide</i>.</p>
@@ -46,6 +51,8 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishTypeCommandInput - {@link PublishTypeCommandInput}
+ * @returns {@link PublishTypeCommandOutput}
  * @see {@link PublishTypeCommandInput} for command's `input` shape.
  * @see {@link PublishTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -75,6 +82,9 @@ export class PublishTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class PublishTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPublishTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishTypeCommandOutput> {
     return deserializeAws_queryPublishTypeCommand(output, context);
   }

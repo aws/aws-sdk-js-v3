@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficDistributionGroupCommand}.
  */
 export interface CreateTrafficDistributionGroupCommandInput extends CreateTrafficDistributionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficDistributionGroupCommand}.
  */
 export interface CreateTrafficDistributionGroupCommandOutput
@@ -37,6 +41,7 @@ export interface CreateTrafficDistributionGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p>
  *          <p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in
  *    the <i>Amazon Connect Administrator Guide</i>. </p>
@@ -50,6 +55,8 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficDistributionGroupCommandInput - {@link CreateTrafficDistributionGroupCommandInput}
+ * @returns {@link CreateTrafficDistributionGroupCommandOutput}
  * @see {@link CreateTrafficDistributionGroupCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficDistributionGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateTrafficDistributionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficDistributionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class CreateTrafficDistributionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateTrafficDistributionGroupCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class CreateTrafficDistributionGroupCommand extends $Command<
     return serializeAws_restJson1CreateTrafficDistributionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

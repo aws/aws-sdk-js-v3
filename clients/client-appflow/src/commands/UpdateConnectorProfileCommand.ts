@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectorProfileCommand}.
  */
 export interface UpdateConnectorProfileCommandInput extends UpdateConnectorProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectorProfileCommand}.
  */
 export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a given connector profile associated with your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectorProfileCommandInput - {@link UpdateConnectorProfileCommandInput}
+ * @returns {@link UpdateConnectorProfileCommandOutput}
  * @see {@link UpdateConnectorProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorProfileCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateConnectorProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectorProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateConnectorProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectorProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConnectorProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectorProfileCommandOutput> {
     return deserializeAws_restJson1UpdateConnectorProfileCommand(output, context);
   }

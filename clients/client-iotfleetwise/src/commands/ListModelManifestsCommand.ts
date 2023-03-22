@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelManifestsCommand}.
  */
 export interface ListModelManifestsCommandInput extends ListModelManifestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelManifestsCommand}.
  */
 export interface ListModelManifestsCommandOutput extends ListModelManifestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of vehicle models (model manifests). </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -49,6 +54,8 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelManifestsCommandInput - {@link ListModelManifestsCommandInput}
+ * @returns {@link ListModelManifestsCommandOutput}
  * @see {@link ListModelManifestsCommandInput} for command's `input` shape.
  * @see {@link ListModelManifestsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListModelManifestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelManifestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListModelManifestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelManifestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListModelManifestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelManifestsCommandOutput> {
     return deserializeAws_json1_0ListModelManifestsCommand(output, context);
   }

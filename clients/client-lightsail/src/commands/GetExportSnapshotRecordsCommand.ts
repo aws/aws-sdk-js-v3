@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExportSnapshotRecordsCommand}.
  */
 export interface GetExportSnapshotRecordsCommandInput extends GetExportSnapshotRecordsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExportSnapshotRecordsCommand}.
  */
 export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshotRecordsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all export snapshot records created as a result of the <code>export
  *         snapshot</code> operation.</p>
  *          <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related
@@ -50,6 +55,8 @@ export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshot
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExportSnapshotRecordsCommandInput - {@link GetExportSnapshotRecordsCommandInput}
+ * @returns {@link GetExportSnapshotRecordsCommandOutput}
  * @see {@link GetExportSnapshotRecordsCommandInput} for command's `input` shape.
  * @see {@link GetExportSnapshotRecordsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +110,9 @@ export class GetExportSnapshotRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExportSnapshotRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetExportSnapshotRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExportSnapshotRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetExportSnapshotRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExportSnapshotRecordsCommandOutput> {
     return deserializeAws_json1_1GetExportSnapshotRecordsCommand(output, context);
   }

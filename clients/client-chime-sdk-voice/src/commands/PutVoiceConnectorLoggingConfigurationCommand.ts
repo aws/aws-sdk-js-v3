@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorLoggingConfigurationCommand}.
  */
 export interface PutVoiceConnectorLoggingConfigurationCommandInput
   extends PutVoiceConnectorLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorLoggingConfigurationCommand}.
  */
 export interface PutVoiceConnectorLoggingConfigurationCommandOutput
@@ -54,6 +58,9 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,6 +100,9 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVoiceConnectorLoggingConfigurationCommandInput,
     context: __SerdeContext
@@ -100,6 +110,9 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     return serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

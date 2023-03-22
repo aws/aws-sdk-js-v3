@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportHostKeyCommand}.
  */
 export interface ImportHostKeyCommandInput extends ImportHostKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportHostKeyCommand}.
  */
 export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a host key to the server that's specified by the <code>ServerId</code>
  *       parameter.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportHostKeyCommandInput - {@link ImportHostKeyCommandInput}
+ * @returns {@link ImportHostKeyCommandOutput}
  * @see {@link ImportHostKeyCommandInput} for command's `input` shape.
  * @see {@link ImportHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -89,6 +96,9 @@ export class ImportHostKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportHostKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ImportHostKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportHostKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportHostKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportHostKeyCommandOutput> {
     return deserializeAws_json1_1ImportHostKeyCommand(output, context);
   }

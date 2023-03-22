@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDiskCommand}.
  */
 export interface DeleteDiskCommandInput extends DeleteDiskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDiskCommand}.
  */
 export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified block storage disk. The disk must be in the <code>available</code>
  *       state (not attached to a Lightsail instance).</p>
  *          <note>
@@ -53,6 +58,8 @@ export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDiskCommandInput - {@link DeleteDiskCommandInput}
+ * @returns {@link DeleteDiskCommandOutput}
  * @see {@link DeleteDiskCommandInput} for command's `input` shape.
  * @see {@link DeleteDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteDiskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDiskCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeleteDiskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDiskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDiskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDiskCommandOutput> {
     return deserializeAws_json1_1DeleteDiskCommand(output, context);
   }

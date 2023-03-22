@@ -70,6 +70,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreatePipeCommandInput
   | DeletePipeCommandInput
@@ -82,6 +85,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdatePipeCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreatePipeCommandOutput
   | DeletePipeCommandOutput
@@ -94,6 +100,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdatePipeCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -101,7 +110,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -210,11 +219,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type PipesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -225,10 +237,15 @@ type PipesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of PipesClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of PipesClient class constructor that set the region, credentials and other options.
  */
 export interface PipesClientConfig extends PipesClientConfigType {}
 
+/**
+ * @public
+ */
 type PipesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -239,11 +256,14 @@ type PipesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandler
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of PipesClient class. This is resolved and normalized from the {@link PipesClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of PipesClient class. This is resolved and normalized from the {@link PipesClientConfig | constructor configuration interface}.
  */
 export interface PipesClientResolvedConfig extends PipesClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon EventBridge Pipes connects event sources to targets. Pipes reduces the need for specialized knowledge and integration code when developing
  *       event driven architectures. This helps ensures consistency across your company’s applications. With Pipes, the target can be any available EventBridge target.
  *       To set up a pipe, you select the event source, add optional event filtering, define optional enrichment, and select the target for the event data. </p>

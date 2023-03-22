@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBrowserSettingsCommand}.
  */
 export interface CreateBrowserSettingsCommandInput extends CreateBrowserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBrowserSettingsCommand}.
  */
 export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a browser settings resource that can be associated with a web portal. Once
  *          associated with a web portal, browser settings control how the browser will behave once a
  *          user starts a streaming session for the web portal. </p>
@@ -48,6 +53,8 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBrowserSettingsCommandInput - {@link CreateBrowserSettingsCommandInput}
+ * @returns {@link CreateBrowserSettingsCommandOutput}
  * @see {@link CreateBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBrowserSettingsCommandOutput> {
     return deserializeAws_restJson1CreateBrowserSettingsCommand(output, context);
   }

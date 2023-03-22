@@ -18,15 +18,20 @@ import { ReleaseAddressRequest, ReleaseAddressRequestFilterSensitiveLog } from "
 import { deserializeAws_ec2ReleaseAddressCommand, serializeAws_ec2ReleaseAddressCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReleaseAddressCommand}.
  */
 export interface ReleaseAddressCommandInput extends ReleaseAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReleaseAddressCommand}.
  */
 export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases the specified Elastic IP address.</p>
  *          <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it
  * 				from any instance that it's associated with. To disassociate an Elastic IP address without
@@ -55,6 +60,8 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleaseAddressCommandInput - {@link ReleaseAddressCommandInput}
+ * @returns {@link ReleaseAddressCommandOutput}
  * @see {@link ReleaseAddressCommandInput} for command's `input` shape.
  * @see {@link ReleaseAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -100,6 +107,9 @@ export class ReleaseAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleaseAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ReleaseAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleaseAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ReleaseAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleaseAddressCommandOutput> {
     return deserializeAws_ec2ReleaseAddressCommand(output, context);
   }

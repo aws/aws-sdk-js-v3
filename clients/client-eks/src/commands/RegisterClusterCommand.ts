@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterClusterCommand}.
  */
 export interface RegisterClusterCommandInput extends RegisterClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterClusterCommand}.
  */
 export interface RegisterClusterCommandOutput extends RegisterClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Connects a Kubernetes cluster to the Amazon EKS control plane. </p>
  *          <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to
  *             view current information about the cluster and its nodes. </p>
@@ -58,6 +63,8 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterClusterCommandInput - {@link RegisterClusterCommandInput}
+ * @returns {@link RegisterClusterCommandOutput}
  * @see {@link RegisterClusterCommandInput} for command's `input` shape.
  * @see {@link RegisterClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -112,6 +119,9 @@ export class RegisterClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class RegisterClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterClusterCommandOutput> {
     return deserializeAws_restJson1RegisterClusterCommand(output, context);
   }

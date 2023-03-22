@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ReceiveMessageCommand}.
  */
 export interface ReceiveMessageCommandInput extends ReceiveMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReceiveMessageCommand}.
  */
 export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves one or more messages (up to 10), from the specified queue. Using the <code>WaitTimeSeconds</code> parameter enables long-poll support.
  *          For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon SQS Long Polling</a> in the <i>Amazon SQS Developer Guide</i>.
  *     </p>
@@ -82,6 +87,8 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ReceiveMessageCommandInput - {@link ReceiveMessageCommandInput}
+ * @returns {@link ReceiveMessageCommandOutput}
  * @see {@link ReceiveMessageCommandInput} for command's `input` shape.
  * @see {@link ReceiveMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -111,6 +118,9 @@ export class ReceiveMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReceiveMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class ReceiveMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReceiveMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryReceiveMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReceiveMessageCommandOutput> {
     return deserializeAws_queryReceiveMessageCommand(output, context);
   }

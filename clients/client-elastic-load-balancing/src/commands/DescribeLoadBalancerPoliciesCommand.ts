@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoadBalancerPoliciesCommand}.
  */
 export interface DescribeLoadBalancerPoliciesCommandInput extends DescribeLoadBalancerPoliciesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoadBalancerPoliciesCommand}.
  */
 export interface DescribeLoadBalancerPoliciesCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified policies.</p>
  *          <p>If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer.
  *     If you specify a policy name associated with your load balancer, the action returns the description of that policy.
@@ -56,6 +61,8 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancerPoliciesCommandInput - {@link DescribeLoadBalancerPoliciesCommandInput}
+ * @returns {@link DescribeLoadBalancerPoliciesCommandOutput}
  * @see {@link DescribeLoadBalancerPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -115,6 +122,9 @@ export class DescribeLoadBalancerPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancerPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class DescribeLoadBalancerPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoadBalancerPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLoadBalancerPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

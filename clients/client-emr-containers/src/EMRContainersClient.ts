@@ -106,6 +106,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelJobRunCommandInput
   | CreateJobTemplateCommandInput
@@ -127,6 +130,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelJobRunCommandOutput
   | CreateJobTemplateCommandOutput
@@ -148,6 +154,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -155,7 +164,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -264,11 +273,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type EMRContainersClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -279,10 +291,15 @@ type EMRContainersClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of EMRContainersClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of EMRContainersClient class constructor that set the region, credentials and other options.
  */
 export interface EMRContainersClientConfig extends EMRContainersClientConfigType {}
 
+/**
+ * @public
+ */
 type EMRContainersClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -293,11 +310,14 @@ type EMRContainersClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of EMRContainersClient class. This is resolved and normalized from the {@link EMRContainersClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of EMRContainersClient class. This is resolved and normalized from the {@link EMRContainersClientConfig | constructor configuration interface}.
  */
 export interface EMRContainersClientResolvedConfig extends EMRContainersClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon EMR on EKS provides a deployment option for Amazon EMR that allows
  *          you to run open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS).
  *          With this deployment option, you can focus on running analytics workloads while Amazon EMR on EKS builds, configures, and manages containers for open-source applications.

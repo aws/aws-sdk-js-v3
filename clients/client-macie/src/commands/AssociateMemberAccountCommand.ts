@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateMemberAccountCommand}.
  */
 export interface AssociateMemberAccountCommandInput extends AssociateMemberAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateMemberAccountCommand}.
  */
 export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Associates a specified Amazon Web Services account with Amazon Macie Classic as a member
  *       account.</p>
  * @example
@@ -42,6 +47,8 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateMemberAccountCommandInput - {@link AssociateMemberAccountCommandInput}
+ * @returns {@link AssociateMemberAccountCommandOutput}
  * @see {@link AssociateMemberAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberAccountCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -76,6 +83,9 @@ export class AssociateMemberAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMemberAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class AssociateMemberAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateMemberAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateMemberAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberAccountCommandOutput> {
     return deserializeAws_json1_1AssociateMemberAccountCommand(output, context);
   }

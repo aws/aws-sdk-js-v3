@@ -26,10 +26,14 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLedgerPermissionsModeCommand}.
  */
 export interface UpdateLedgerPermissionsModeCommandInput extends UpdateLedgerPermissionsModeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLedgerPermissionsModeCommand}.
  */
 export interface UpdateLedgerPermissionsModeCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateLedgerPermissionsModeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the permissions mode of a ledger.</p>
  *          <important>
  *             <p>Before you switch to the <code>STANDARD</code> permissions mode, you must first
@@ -54,6 +59,8 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLedgerPermissionsModeCommandInput - {@link UpdateLedgerPermissionsModeCommandInput}
+ * @returns {@link UpdateLedgerPermissionsModeCommandOutput}
  * @see {@link UpdateLedgerPermissionsModeCommandInput} for command's `input` shape.
  * @see {@link UpdateLedgerPermissionsModeCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateLedgerPermissionsModeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLedgerPermissionsModeCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateLedgerPermissionsModeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLedgerPermissionsModeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLedgerPermissionsModeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProvisioningParametersCommand}.
  */
 export interface DescribeProvisioningParametersCommandInput extends DescribeProvisioningParametersInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProvisioningParametersCommand}.
  */
 export interface DescribeProvisioningParametersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeProvisioningParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the configuration required to provision the specified product using
  *          the specified provisioning artifact.</p>
  *          <p>If the output contains a TagOption key with an empty list of values, there is a
@@ -55,6 +60,8 @@ export interface DescribeProvisioningParametersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProvisioningParametersCommandInput - {@link DescribeProvisioningParametersCommandInput}
+ * @returns {@link DescribeProvisioningParametersCommandOutput}
  * @see {@link DescribeProvisioningParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningParametersCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeProvisioningParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProvisioningParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeProvisioningParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeProvisioningParametersCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeProvisioningParametersCommand extends $Command<
     return serializeAws_json1_1DescribeProvisioningParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

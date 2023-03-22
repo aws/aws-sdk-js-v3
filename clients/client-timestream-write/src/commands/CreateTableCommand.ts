@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTableCommand}.
  */
 export interface CreateTableCommandInput extends CreateTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTableCommand}.
  */
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new table to an existing database in your account. In an Amazon Web Services account, table names must be at least unique within each Region if they are in the same
  *          database. You might have identical table names in the same Region if the tables are in
  *          separate databases. While creating the table, you must specify the table name, database
@@ -52,6 +57,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTableCommandInput - {@link CreateTableCommandInput}
+ * @returns {@link CreateTableCommandOutput}
  * @see {@link CreateTableCommandInput} for command's `input` shape.
  * @see {@link CreateTableCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class CreateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTableCommandOutput> {
     return deserializeAws_json1_0CreateTableCommand(output, context);
   }

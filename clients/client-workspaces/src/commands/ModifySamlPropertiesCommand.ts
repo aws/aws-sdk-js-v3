@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySamlPropertiesCommand}.
  */
 export interface ModifySamlPropertiesCommandInput extends ModifySamlPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifySamlPropertiesCommand}.
  */
 export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies multiple properties related to SAML 2.0 authentication, including the enablement status,
  *          user access URL, and relay state parameter name that are used for configuring federation with an
  *          SAML 2.0 identity provider.</p>
@@ -48,6 +53,8 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySamlPropertiesCommandInput - {@link ModifySamlPropertiesCommandInput}
+ * @returns {@link ModifySamlPropertiesCommandOutput}
  * @see {@link ModifySamlPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifySamlPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -83,6 +90,9 @@ export class ModifySamlPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySamlPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ModifySamlPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySamlPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifySamlPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySamlPropertiesCommandOutput> {
     return deserializeAws_json1_1ModifySamlPropertiesCommand(output, context);
   }

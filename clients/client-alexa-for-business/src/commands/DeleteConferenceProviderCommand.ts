@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConferenceProviderCommand}.
  */
 export interface DeleteConferenceProviderCommandInput extends DeleteConferenceProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConferenceProviderCommand}.
  */
 export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a conference provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConferenceProviderCommandInput - {@link DeleteConferenceProviderCommandInput}
+ * @returns {@link DeleteConferenceProviderCommandOutput}
  * @see {@link DeleteConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteConferenceProviderCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteConferenceProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConferenceProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteConferenceProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConferenceProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConferenceProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConferenceProviderCommandOutput> {
     return deserializeAws_json1_1DeleteConferenceProviderCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePresignedDomainUrlCommand}.
  */
 export interface CreatePresignedDomainUrlCommandInput extends CreatePresignedDomainUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePresignedDomainUrlCommand}.
  */
 export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDomainUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser,
  *        the user will be automatically signed in to Amazon SageMaker Studio, and granted access to all of
  *        the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume.
@@ -62,6 +67,8 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePresignedDomainUrlCommandInput - {@link CreatePresignedDomainUrlCommandInput}
+ * @returns {@link CreatePresignedDomainUrlCommandOutput}
  * @see {@link CreatePresignedDomainUrlCommandInput} for command's `input` shape.
  * @see {@link CreatePresignedDomainUrlCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePresignedDomainUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePresignedDomainUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePresignedDomainUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePresignedDomainUrlCommandOutput> {
     return deserializeAws_json1_1CreatePresignedDomainUrlCommand(output, context);
   }

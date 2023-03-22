@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateHypervisorCommand}.
  */
 export interface UpdateHypervisorCommandInput extends UpdateHypervisorInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateHypervisorCommand}.
  */
 export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a hypervisor metadata, including its host, username, and password. Specify which
  *       hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in your
  *       request.</p>
@@ -48,6 +53,8 @@ export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHypervisorCommandInput - {@link UpdateHypervisorCommandInput}
+ * @returns {@link UpdateHypervisorCommandOutput}
  * @see {@link UpdateHypervisorCommandInput} for command's `input` shape.
  * @see {@link UpdateHypervisorCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateHypervisorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHypervisorCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateHypervisorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHypervisorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateHypervisorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHypervisorCommandOutput> {
     return deserializeAws_json1_0UpdateHypervisorCommand(output, context);
   }

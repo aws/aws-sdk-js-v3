@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRemediationConfigurationsCommand}.
  */
 export interface PutRemediationConfigurationsCommandInput extends PutRemediationConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRemediationConfigurationsCommand}.
  */
 export interface PutRemediationConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface PutRemediationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates the remediation configuration with a specific Config rule with the
  * 			selected target or action.
  * 			The API creates the <code>RemediationConfiguration</code> object for the Config rule.
@@ -62,6 +67,8 @@ export interface PutRemediationConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRemediationConfigurationsCommandInput - {@link PutRemediationConfigurationsCommandInput}
+ * @returns {@link PutRemediationConfigurationsCommandOutput}
  * @see {@link PutRemediationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link PutRemediationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -114,6 +121,9 @@ export class PutRemediationConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRemediationConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class PutRemediationConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRemediationConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRemediationConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

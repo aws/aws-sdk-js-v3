@@ -26,9 +26,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectCommand}.
  */
-type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
+export type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
   /**
    * For *`PutObjectInput["InlineChunk"]`*, see {@link PutObjectInput.InlineChunk}.
    */
@@ -39,11 +41,14 @@ type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
  */
 export interface PutObjectCommandInput extends PutObjectCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectCommand}.
  */
 export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Upload object that can store object metadata String and data blob in single API call using inline chunk field.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +60,8 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectCommandInput - {@link PutObjectCommandInput}
+ * @returns {@link PutObjectCommandOutput}
  * @see {@link PutObjectCommandInput} for command's `input` shape.
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -102,6 +109,9 @@ export class PutObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class PutObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectCommandOutput> {
     return deserializeAws_restJson1PutObjectCommand(output, context);
   }

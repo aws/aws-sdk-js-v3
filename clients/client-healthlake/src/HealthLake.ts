@@ -65,11 +65,13 @@ import {
 import { HealthLakeClient } from "./HealthLakeClient";
 
 /**
+ * @public
  * <p>Amazon HealthLake is a HIPAA eligibile service that allows customers to store,
  *          transform, query, and analyze their FHIR-formatted data in a consistent fashion in the cloud.</p>
  */
 export class HealthLake extends HealthLakeClient {
   /**
+   * @public
    * <p>Creates a Data Store that can ingest and export FHIR formatted data.</p>
    */
   public createFHIRDatastore(
@@ -102,6 +104,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Data Store. </p>
    */
   public deleteFHIRDatastore(
@@ -134,6 +137,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>Gets the properties associated with the FHIR Data Store, including the Data Store ID,
    *          Data Store ARN, Data Store name, Data Store status, created at, Data Store type version, and
    *          Data Store endpoint.</p>
@@ -168,6 +172,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>Displays the properties of a FHIR export job, including the ID, ARN, name, and the status of the job.</p>
    */
   public describeFHIRExportJob(
@@ -200,6 +205,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job. </p>
    */
   public describeFHIRImportJob(
@@ -232,6 +238,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>Lists all FHIR Data Stores that are in the user’s account, regardless of Data Store
    *          status.</p>
    */
@@ -265,6 +272,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>
    *             Lists all FHIR export jobs associated with an account and their statuses.
    *          </p>
@@ -299,6 +307,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>
    *             Lists all FHIR import jobs associated with an account and their statuses.
    *          </p>
@@ -333,6 +342,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>
    *             Returns a list of all existing tags associated with a Data Store.
    *          </p>
@@ -367,6 +377,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>Begins a FHIR export job.</p>
    */
   public startFHIRExportJob(
@@ -399,6 +410,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>Begins a FHIR Import job.</p>
    */
   public startFHIRImportJob(
@@ -431,6 +443,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>
    *             Adds a user specifed key and value tag to a Data Store.
    *          </p>
@@ -459,6 +472,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * @public
    * <p>
    *             Removes tags from a Data Store.
    *          </p>

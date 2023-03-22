@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopEntitiesDetectionV2JobCommand}.
  */
 export interface StopEntitiesDetectionV2JobCommandInput extends StopEntitiesDetectionV2JobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopEntitiesDetectionV2JobCommand}.
  */
 export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDetectionV2JobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a medical entities detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  * const response = await client.send(command);
  * ```
  *
+ * @param StopEntitiesDetectionV2JobCommandInput - {@link StopEntitiesDetectionV2JobCommandInput}
+ * @returns {@link StopEntitiesDetectionV2JobCommandOutput}
  * @see {@link StopEntitiesDetectionV2JobCommandInput} for command's `input` shape.
  * @see {@link StopEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -84,6 +91,9 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopEntitiesDetectionV2JobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopEntitiesDetectionV2JobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopEntitiesDetectionV2JobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

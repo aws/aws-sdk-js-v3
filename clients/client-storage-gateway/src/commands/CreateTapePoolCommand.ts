@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTapePoolCommand}.
  */
 export interface CreateTapePoolCommandInput extends CreateTapePoolInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTapePoolCommand}.
  */
 export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom tape pool. You can use custom tape pool to enable tape retention
  *          lock on tapes that are archived in the custom pool.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTapePoolCommandInput - {@link CreateTapePoolCommandInput}
+ * @returns {@link CreateTapePoolCommandOutput}
  * @see {@link CreateTapePoolCommandInput} for command's `input` shape.
  * @see {@link CreateTapePoolCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateTapePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTapePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CreateTapePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTapePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTapePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTapePoolCommandOutput> {
     return deserializeAws_json1_1CreateTapePoolCommand(output, context);
   }

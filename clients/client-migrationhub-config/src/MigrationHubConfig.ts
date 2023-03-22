@@ -19,6 +19,7 @@ import {
 import { MigrationHubConfigClient } from "./MigrationHubConfigClient";
 
 /**
+ * @public
  * <p>The AWS Migration Hub home region APIs are available specifically for working with your
  *       Migration Hub home region. You can use these APIs to determine a home region, as well as to
  *       create and work with controls that describe the home region.</p>
@@ -48,6 +49,7 @@ import { MigrationHubConfigClient } from "./MigrationHubConfigClient";
  */
 export class MigrationHubConfig extends MigrationHubConfigClient {
   /**
+   * @public
    * <p>This API sets up the home region for the calling account only.</p>
    */
   public createHomeRegionControl(
@@ -80,6 +82,7 @@ export class MigrationHubConfig extends MigrationHubConfigClient {
   }
 
   /**
+   * @public
    * <p>This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>
    *       fields.</p>
    */
@@ -113,6 +116,7 @@ export class MigrationHubConfig extends MigrationHubConfigClient {
   }
 
   /**
+   * @public
    * <p>Returns the calling account’s home region, if configured. This API is used by other AWS
    *       services to determine the regional endpoint for calling AWS Application Discovery Service and
    *       Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any

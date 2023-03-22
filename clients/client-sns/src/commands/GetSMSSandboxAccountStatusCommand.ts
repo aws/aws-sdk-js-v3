@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSMSSandboxAccountStatusCommand}.
  */
 export interface GetSMSSandboxAccountStatusCommandInput extends GetSMSSandboxAccountStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSMSSandboxAccountStatusCommand}.
  */
 export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAccountStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target
  *             Amazon Web Services Region.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -55,6 +60,8 @@ export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSMSSandboxAccountStatusCommandInput - {@link GetSMSSandboxAccountStatusCommandInput}
+ * @returns {@link GetSMSSandboxAccountStatusCommandOutput}
  * @see {@link GetSMSSandboxAccountStatusCommandInput} for command's `input` shape.
  * @see {@link GetSMSSandboxAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetSMSSandboxAccountStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSMSSandboxAccountStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetSMSSandboxAccountStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSMSSandboxAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSMSSandboxAccountStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

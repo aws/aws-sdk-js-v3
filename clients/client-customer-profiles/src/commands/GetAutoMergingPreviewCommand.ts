@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAutoMergingPreviewCommand}.
  */
 export interface GetAutoMergingPreviewCommandInput extends GetAutoMergingPreviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAutoMergingPreviewCommand}.
  */
 export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPreviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly
  *          selects a sample of matching groups from the existing matching results, and applies the
  *          automerging settings that you provided. You can then view the number of profiles in the
@@ -58,6 +63,8 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAutoMergingPreviewCommandInput - {@link GetAutoMergingPreviewCommandInput}
+ * @returns {@link GetAutoMergingPreviewCommandOutput}
  * @see {@link GetAutoMergingPreviewCommandInput} for command's `input` shape.
  * @see {@link GetAutoMergingPreviewCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetAutoMergingPreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAutoMergingPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class GetAutoMergingPreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAutoMergingPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAutoMergingPreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutoMergingPreviewCommandOutput> {
     return deserializeAws_restJson1GetAutoMergingPreviewCommand(output, context);
   }

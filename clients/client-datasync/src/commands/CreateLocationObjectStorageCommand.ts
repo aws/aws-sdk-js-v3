@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationObjectStorageCommand}.
  */
 export interface CreateLocationObjectStorageCommandInput extends CreateLocationObjectStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationObjectStorageCommand}.
  */
 export interface CreateLocationObjectStorageCommandOutput
@@ -37,6 +41,7 @@ export interface CreateLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an object storage system that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateLocationObjectStorageCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationObjectStorageCommandInput - {@link CreateLocationObjectStorageCommandInput}
+ * @returns {@link CreateLocationObjectStorageCommandOutput}
  * @see {@link CreateLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link CreateLocationObjectStorageCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateLocationObjectStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationObjectStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateLocationObjectStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationObjectStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationObjectStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

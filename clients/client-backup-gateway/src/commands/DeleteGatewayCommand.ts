@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGatewayCommand}.
  */
 export interface DeleteGatewayCommandInput extends DeleteGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGatewayCommand}.
  */
 export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a backup gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
+ * @returns {@link DeleteGatewayCommandOutput}
  * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayCommandOutput> {
     return deserializeAws_json1_0DeleteGatewayCommand(output, context);
   }

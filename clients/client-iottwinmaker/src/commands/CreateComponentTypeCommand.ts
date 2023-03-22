@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateComponentTypeCommand}.
  */
 export interface CreateComponentTypeCommandInput extends CreateComponentTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateComponentTypeCommand}.
  */
 export interface CreateComponentTypeCommandOutput extends CreateComponentTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a component type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComponentTypeCommandInput - {@link CreateComponentTypeCommandInput}
+ * @returns {@link CreateComponentTypeCommandOutput}
  * @see {@link CreateComponentTypeCommandInput} for command's `input` shape.
  * @see {@link CreateComponentTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateComponentTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComponentTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateComponentTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComponentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateComponentTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentTypeCommandOutput> {
     return deserializeAws_restJson1CreateComponentTypeCommand(output, context);
   }

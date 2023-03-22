@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHITsForQualificationTypeCommand}.
  */
 export interface ListHITsForQualificationTypeCommandInput extends ListHITsForQualificationTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHITsForQualificationTypeCommand}.
  */
 export interface ListHITsForQualificationTypeCommandOutput
@@ -37,6 +41,7 @@ export interface ListHITsForQualificationTypeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ListHITsForQualificationType</code> operation returns the HITs that use
  *             the given Qualification type for a Qualification requirement.
@@ -53,6 +58,8 @@ export interface ListHITsForQualificationTypeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHITsForQualificationTypeCommandInput - {@link ListHITsForQualificationTypeCommandInput}
+ * @returns {@link ListHITsForQualificationTypeCommandOutput}
  * @see {@link ListHITsForQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link ListHITsForQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHITsForQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHITsForQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHITsForQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

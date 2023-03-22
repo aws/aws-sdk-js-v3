@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationInstancesCommand}.
  */
 export interface DescribeReplicationInstancesCommandInput extends DescribeReplicationInstancesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationInstancesCommand}.
  */
 export interface DescribeReplicationInstancesCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeReplicationInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about replication instances for your account in the current
  *          region.</p>
  * @example
@@ -53,6 +58,8 @@ export interface DescribeReplicationInstancesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationInstancesCommandInput - {@link DescribeReplicationInstancesCommandInput}
+ * @returns {@link DescribeReplicationInstancesCommandOutput}
  * @see {@link DescribeReplicationInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -106,6 +113,9 @@ export class DescribeReplicationInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class DescribeReplicationInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReplicationInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReplicationInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

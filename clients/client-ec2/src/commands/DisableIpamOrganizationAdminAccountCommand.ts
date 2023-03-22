@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableIpamOrganizationAdminAccountCommand}.
  */
 export interface DisableIpamOrganizationAdminAccountCommandInput extends DisableIpamOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableIpamOrganizationAdminAccountCommand}.
  */
 export interface DisableIpamOrganizationAdminAccountCommandOutput
@@ -37,6 +41,7 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
@@ -49,6 +54,8 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableIpamOrganizationAdminAccountCommandInput - {@link DisableIpamOrganizationAdminAccountCommandInput}
+ * @returns {@link DisableIpamOrganizationAdminAccountCommandOutput}
  * @see {@link DisableIpamOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableIpamOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DisableIpamOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableIpamOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DisableIpamOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableIpamOrganizationAdminAccountCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DisableIpamOrganizationAdminAccountCommand extends $Command<
     return serializeAws_ec2DisableIpamOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

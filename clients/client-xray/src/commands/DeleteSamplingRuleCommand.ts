@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSamplingRuleCommand}.
  */
 export interface DeleteSamplingRuleCommandInput extends DeleteSamplingRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSamplingRuleCommand}.
  */
 export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a sampling rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSamplingRuleCommandInput - {@link DeleteSamplingRuleCommandInput}
+ * @returns {@link DeleteSamplingRuleCommandOutput}
  * @see {@link DeleteSamplingRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteSamplingRuleCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteSamplingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSamplingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteSamplingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSamplingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSamplingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSamplingRuleCommandOutput> {
     return deserializeAws_restJson1DeleteSamplingRuleCommand(output, context);
   }

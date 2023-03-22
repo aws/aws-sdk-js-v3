@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIPSetCommand}.
  */
 export interface UpdateIPSetCommandInput extends UpdateIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIPSetCommand}.
  */
 export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the IPSet specified by the IPSet ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIPSetCommandInput - {@link UpdateIPSetCommandInput}
+ * @returns {@link UpdateIPSetCommandOutput}
  * @see {@link UpdateIPSetCommandInput} for command's `input` shape.
  * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateIPSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIPSetCommandOutput> {
     return deserializeAws_restJson1UpdateIPSetCommand(output, context);
   }

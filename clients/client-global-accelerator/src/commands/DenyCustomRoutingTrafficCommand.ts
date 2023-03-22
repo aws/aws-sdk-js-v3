@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DenyCustomRoutingTrafficCommand}.
  */
 export interface DenyCustomRoutingTrafficCommandInput extends DenyCustomRoutingTrafficRequest {}
 /**
+ * @public
+ *
  * The output of {@link DenyCustomRoutingTrafficCommand}.
  */
 export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC subnet endpoint that cannot receive traffic
  * 			for a custom routing accelerator. You can deny traffic to all destinations in the VPC endpoint, or deny traffic to a
  * 			specified list of destination IP addresses and ports. Note that you cannot specify IP addresses
@@ -50,6 +55,8 @@ export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DenyCustomRoutingTrafficCommandInput - {@link DenyCustomRoutingTrafficCommandInput}
+ * @returns {@link DenyCustomRoutingTrafficCommandOutput}
  * @see {@link DenyCustomRoutingTrafficCommandInput} for command's `input` shape.
  * @see {@link DenyCustomRoutingTrafficCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -82,6 +89,9 @@ export class DenyCustomRoutingTrafficCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DenyCustomRoutingTrafficCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DenyCustomRoutingTrafficCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DenyCustomRoutingTrafficCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DenyCustomRoutingTrafficCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DenyCustomRoutingTrafficCommandOutput> {
     return deserializeAws_json1_1DenyCustomRoutingTrafficCommand(output, context);
   }

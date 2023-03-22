@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForDeliveryStreamCommand}.
  */
 export interface ListTagsForDeliveryStreamCommandInput extends ListTagsForDeliveryStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForDeliveryStreamCommand}.
  */
 export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags for the specified delivery stream. This operation has a limit of five
  *          transactions per second per account. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForDeliveryStreamCommandInput - {@link ListTagsForDeliveryStreamCommandInput}
+ * @returns {@link ListTagsForDeliveryStreamCommandOutput}
  * @see {@link ListTagsForDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link ListTagsForDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsForDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

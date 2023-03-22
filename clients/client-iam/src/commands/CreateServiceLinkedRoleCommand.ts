@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceLinkedRoleCommand}.
  */
 export interface CreateServiceLinkedRoleCommandInput extends CreateServiceLinkedRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceLinkedRoleCommand}.
  */
 export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IAM role that is linked to a specific Amazon Web Services service. The service controls
  *             the attached policies and when the role can be deleted. This helps ensure that the
  *             service is not broken by an unexpectedly changed or deleted role, which could put your
@@ -54,6 +59,8 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceLinkedRoleCommandInput - {@link CreateServiceLinkedRoleCommandInput}
+ * @returns {@link CreateServiceLinkedRoleCommandOutput}
  * @see {@link CreateServiceLinkedRoleCommandInput} for command's `input` shape.
  * @see {@link CreateServiceLinkedRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateServiceLinkedRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceLinkedRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateServiceLinkedRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceLinkedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateServiceLinkedRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceLinkedRoleCommandOutput> {
     return deserializeAws_queryCreateServiceLinkedRoleCommand(output, context);
   }

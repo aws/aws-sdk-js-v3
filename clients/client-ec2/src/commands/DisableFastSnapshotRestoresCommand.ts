@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableFastSnapshotRestoresCommand}.
  */
 export interface DisableFastSnapshotRestoresCommandInput extends DisableFastSnapshotRestoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableFastSnapshotRestoresCommand}.
  */
 export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSnapshotRestoresResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSna
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableFastSnapshotRestoresCommandInput - {@link DisableFastSnapshotRestoresCommandInput}
+ * @returns {@link DisableFastSnapshotRestoresCommandOutput}
  * @see {@link DisableFastSnapshotRestoresCommandInput} for command's `input` shape.
  * @see {@link DisableFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableFastSnapshotRestoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableFastSnapshotRestoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisableFastSnapshotRestoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

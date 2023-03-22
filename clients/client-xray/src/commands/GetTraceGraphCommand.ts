@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTraceGraphCommand}.
  */
 export interface GetTraceGraphCommandInput extends GetTraceGraphRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTraceGraphCommand}.
  */
 export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a service graph for one or more specific trace IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTraceGraphCommandInput - {@link GetTraceGraphCommandInput}
+ * @returns {@link GetTraceGraphCommandOutput}
  * @see {@link GetTraceGraphCommandInput} for command's `input` shape.
  * @see {@link GetTraceGraphCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetTraceGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTraceGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetTraceGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTraceGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTraceGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTraceGraphCommandOutput> {
     return deserializeAws_restJson1GetTraceGraphCommand(output, context);
   }

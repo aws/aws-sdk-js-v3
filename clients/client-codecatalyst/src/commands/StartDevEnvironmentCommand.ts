@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDevEnvironmentCommand}.
  */
 export interface StartDevEnvironmentCommandInput extends StartDevEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDevEnvironmentCommand}.
  */
 export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a specified Dev Environment and puts it into an active state. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDevEnvironmentCommandInput - {@link StartDevEnvironmentCommandInput}
+ * @returns {@link StartDevEnvironmentCommandOutput}
  * @see {@link StartDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link StartDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class StartDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StartDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDevEnvironmentCommandOutput> {
     return deserializeAws_restJson1StartDevEnvironmentCommand(output, context);
   }

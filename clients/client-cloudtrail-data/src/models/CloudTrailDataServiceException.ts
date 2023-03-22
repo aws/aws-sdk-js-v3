@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from CloudTrailData service.
  */
 export class CloudTrailDataServiceException extends __ServiceException {

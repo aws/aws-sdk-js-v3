@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to the specified resource. You use tags to add metadata to
  *          resources, which you can use to categorize these resources. For example, you can categorize
  *          resources by purpose, owner, environment, or team. Each tag consists of a key and a value,
@@ -70,6 +75,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
+ * @returns {@link AddTagsToResourceCommandOutput}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -123,6 +130,9 @@ export class AddTagsToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class AddTagsToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddTagsToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToResourceCommandOutput> {
     return deserializeAws_json1_1AddTagsToResourceCommand(output, context);
   }

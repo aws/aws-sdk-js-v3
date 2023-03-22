@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCertificateCommand}.
  */
 export interface DescribeCertificateCommandInput extends DescribeCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCertificateCommand}.
  */
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the certificate that's identified by the <code>CertificateId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
+ * @returns {@link DescribeCertificateCommandOutput}
  * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificateCommandOutput> {
     return deserializeAws_json1_1DescribeCertificateCommand(output, context);
   }

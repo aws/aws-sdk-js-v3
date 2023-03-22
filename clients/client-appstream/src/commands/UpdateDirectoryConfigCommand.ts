@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDirectoryConfigCommand}.
  */
 export interface UpdateDirectoryConfigCommandInput extends UpdateDirectoryConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDirectoryConfigCommand}.
  */
 export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDirectoryConfigCommandInput - {@link UpdateDirectoryConfigCommandInput}
+ * @returns {@link UpdateDirectoryConfigCommandOutput}
  * @see {@link UpdateDirectoryConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectoryConfigCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateDirectoryConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDirectoryConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateDirectoryConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDirectoryConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDirectoryConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDirectoryConfigCommandOutput> {
     return deserializeAws_json1_1UpdateDirectoryConfigCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMonitoringMembersCommand}.
  */
 export interface StartMonitoringMembersCommandInput extends StartMonitoringMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMonitoringMembersCommand}.
  */
 export interface StartMonitoringMembersCommandOutput extends StartMonitoringMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to
  *       restart monitoring of accounts that you stopped monitoring with the
  *         <code>StopMonitoringMembers</code> operation.</p>
@@ -48,6 +53,8 @@ export interface StartMonitoringMembersCommandOutput extends StartMonitoringMemb
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMonitoringMembersCommandInput - {@link StartMonitoringMembersCommandInput}
+ * @returns {@link StartMonitoringMembersCommandOutput}
  * @see {@link StartMonitoringMembersCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +84,9 @@ export class StartMonitoringMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMonitoringMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class StartMonitoringMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMonitoringMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartMonitoringMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMonitoringMembersCommandOutput> {
     return deserializeAws_restJson1StartMonitoringMembersCommand(output, context);
   }

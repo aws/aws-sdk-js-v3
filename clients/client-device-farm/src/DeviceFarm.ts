@@ -313,6 +313,7 @@ import {
 import { DeviceFarmClient } from "./DeviceFarmClient";
 
 /**
+ * @public
  * <p>Welcome to the AWS Device Farm API documentation, which contains APIs for:</p>
  *         <ul>
  *             <li>
@@ -331,6 +332,7 @@ import { DeviceFarmClient } from "./DeviceFarmClient";
  */
 export class DeviceFarm extends DeviceFarmClient {
   /**
+   * @public
    * <p>Creates a device pool.</p>
    */
   public createDevicePool(
@@ -363,6 +365,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Creates a profile that can be applied to one or more private fleet device
    *             instances.</p>
    */
@@ -396,6 +399,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Creates a network profile.</p>
    */
   public createNetworkProfile(
@@ -428,6 +432,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Creates a project.</p>
    */
   public createProject(
@@ -460,6 +465,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Specifies and starts a remote access session.</p>
    */
   public createRemoteAccessSession(
@@ -492,6 +498,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Creates a Selenium testing project. Projects are used to track <a>TestGridSession</a>
    *          instances.</p>
    */
@@ -525,6 +532,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>
    *          constructor.</p>
    */
@@ -558,6 +566,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Uploads an app or test scripts.</p>
    */
   public createUpload(
@@ -587,6 +596,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud
    *             (VPC) endpoint.</p>
    */
@@ -620,6 +630,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Deletes a device pool given the pool ARN. Does not allow deletion of curated pools
    *             owned by the system.</p>
    */
@@ -653,6 +664,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Deletes a profile that can be applied to one or more private device instances.</p>
    */
   public deleteInstanceProfile(
@@ -685,6 +697,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Deletes a network profile.</p>
    */
   public deleteNetworkProfile(
@@ -717,6 +730,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Deletes an AWS Device Farm project, given the project ARN.</p>
    *         <p> Deleting this resource does not stop an in-progress run.</p>
    */
@@ -750,6 +764,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Deletes a completed remote access session and its results.</p>
    */
   public deleteRemoteAccessSession(
@@ -782,6 +797,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Deletes the run, given the run ARN.</p>
    *         <p> Deleting this resource does not stop an in-progress run.</p>
    */
@@ -809,6 +825,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p> Deletes a Selenium testing project and all content generated under it. </p>
    *          <important>
    *             <p>You cannot undo this operation.</p>
@@ -847,6 +864,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Deletes an upload given the upload ARN.</p>
    */
   public deleteUpload(
@@ -876,6 +894,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.</p>
    */
   public deleteVPCEConfiguration(
@@ -908,6 +927,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the
    *             account.</p>
    */
@@ -941,6 +961,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a unique device type.</p>
    */
   public getDevice(args: GetDeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetDeviceCommandOutput>;
@@ -967,6 +988,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a device instance that belongs to a private device fleet.</p>
    */
   public getDeviceInstance(
@@ -999,6 +1021,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a device pool.</p>
    */
   public getDevicePool(
@@ -1031,6 +1054,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about compatibility with a device pool.</p>
    */
   public getDevicePoolCompatibility(
@@ -1063,6 +1087,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified instance profile.</p>
    */
   public getInstanceProfile(
@@ -1095,6 +1120,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a job.</p>
    */
   public getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
@@ -1121,6 +1147,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a network profile.</p>
    */
   public getNetworkProfile(
@@ -1153,6 +1180,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets the current status and future status of all offerings purchased by an AWS account. The response
    *             indicates how many offerings are currently available and the offerings that will be available in the next
    *             period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the
@@ -1188,6 +1216,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a project.</p>
    */
   public getProject(args: GetProjectCommandInput, options?: __HttpHandlerOptions): Promise<GetProjectCommandOutput>;
@@ -1214,6 +1243,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns a link to a currently running remote access session.</p>
    */
   public getRemoteAccessSession(
@@ -1246,6 +1276,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a run.</p>
    */
   public getRun(args: GetRunCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCommandOutput>;
@@ -1272,6 +1303,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a suite.</p>
    */
   public getSuite(args: GetSuiteCommandInput, options?: __HttpHandlerOptions): Promise<GetSuiteCommandOutput>;
@@ -1298,6 +1330,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a test.</p>
    */
   public getTest(args: GetTestCommandInput, options?: __HttpHandlerOptions): Promise<GetTestCommandOutput>;
@@ -1324,6 +1357,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a Selenium testing project.</p>
    */
   public getTestGridProject(
@@ -1356,6 +1390,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look up sessions:</p>
    *          <ul>
    *             <li>
@@ -1397,6 +1432,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an upload.</p>
    */
   public getUpload(args: GetUploadCommandInput, options?: __HttpHandlerOptions): Promise<GetUploadCommandOutput>;
@@ -1423,6 +1459,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the configuration settings for your Amazon Virtual Private
    *             Cloud (VPC) endpoint.</p>
    */
@@ -1456,6 +1493,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Installs an application to the device in a remote access session. For Android
    *             applications, the file must be in .apk format. For iOS applications, the file must be in
    *             .ipa format.</p>
@@ -1490,6 +1528,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about artifacts.</p>
    */
   public listArtifacts(
@@ -1522,6 +1561,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the private device instances associated with one or more AWS
    *             accounts.</p>
    */
@@ -1555,6 +1595,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about device pools.</p>
    */
   public listDevicePools(
@@ -1587,6 +1628,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about unique device types.</p>
    */
   public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
@@ -1613,6 +1655,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all the instance profiles in an AWS account.</p>
    */
   public listInstanceProfiles(
@@ -1645,6 +1688,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about jobs for a given test run.</p>
    */
   public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
@@ -1671,6 +1715,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of available network profiles.</p>
    */
   public listNetworkProfiles(
@@ -1703,6 +1748,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of offering promotions. Each offering promotion record contains the ID and description
    *             of the promotion. The API returns a <code>NotEligible</code> error if the caller is not permitted to invoke
    *             the operation. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you must be able to invoke this operation.</p>
@@ -1737,6 +1783,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of products or offerings that the user can manage through the API. Each offering record
    *             indicates the recurring price per unit and the frequency for that offering. The API returns a
    *                 <code>NotEligible</code> error if the user is not permitted to invoke the operation.  If you must be
@@ -1772,6 +1819,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS
    *             account. The list is paginated and ordered by a descending timestamp (most recent transactions are first).
    *             The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If
@@ -1807,6 +1855,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about projects.</p>
    */
   public listProjects(
@@ -1836,6 +1885,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all currently running remote access sessions.</p>
    */
   public listRemoteAccessSessions(
@@ -1868,6 +1918,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about runs, given an AWS Device Farm project ARN.</p>
    */
   public listRuns(args: ListRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunsCommandOutput>;
@@ -1894,6 +1945,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
    */
   public listSamples(args: ListSamplesCommandInput, options?: __HttpHandlerOptions): Promise<ListSamplesCommandOutput>;
@@ -1920,6 +1972,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about test suites for a given job.</p>
    */
   public listSuites(args: ListSuitesCommandInput, options?: __HttpHandlerOptions): Promise<ListSuitesCommandOutput>;
@@ -1946,6 +1999,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>List the tags for an AWS Device Farm resource.</p>
    */
   public listTagsForResource(
@@ -1978,6 +2032,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of all Selenium testing projects in your account.</p>
    */
   public listTestGridProjects(
@@ -2010,6 +2065,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the actions taken in a <a>TestGridSession</a>.</p>
    */
   public listTestGridSessionActions(
@@ -2042,6 +2098,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of artifacts created during the session.</p>
    */
   public listTestGridSessionArtifacts(
@@ -2074,6 +2131,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of sessions for a <a>TestGridProject</a>.</p>
    */
   public listTestGridSessions(
@@ -2106,6 +2164,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about tests in a given test suite.</p>
    */
   public listTests(args: ListTestsCommandInput, options?: __HttpHandlerOptions): Promise<ListTestsCommandOutput>;
@@ -2132,6 +2191,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about unique problems, such as exceptions or crashes.</p>
    *         <p>Unique problems are defined as a single instance of an error across a run, job, or suite. For example,
    *             if a call in your application consistently raises an exception (<code>OutOfBoundsException in
@@ -2168,6 +2228,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Gets information about uploads, given an AWS Device Farm project ARN.</p>
    */
   public listUploads(args: ListUploadsCommandInput, options?: __HttpHandlerOptions): Promise<ListUploadsCommandOutput>;
@@ -2194,6 +2255,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all Amazon Virtual Private Cloud (VPC) endpoint
    *             configurations in the AWS account.</p>
    */
@@ -2227,6 +2289,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased
    *             quantity for an offering, unless the renewal was overridden. The API returns a <code>NotEligible</code>
    *             error if the user is not permitted to invoke the operation. If you must be able to invoke this operation,
@@ -2262,6 +2325,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Explicitly sets the quantity of devices to renew for an offering, starting from the
    *                 <code>effectiveDate</code> of the next period. The API returns a <code>NotEligible</code> error if the
    *             user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
@@ -2296,6 +2360,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Schedules a run.</p>
    */
   public scheduleRun(args: ScheduleRunCommandInput, options?: __HttpHandlerOptions): Promise<ScheduleRunCommandOutput>;
@@ -2322,6 +2387,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Initiates a stop request for the current job. AWS Device Farm immediately stops the job on the device
    *             where tests have not started. You are not billed for this device. On the device where tests have started,
    *             setup suite and teardown suite tests run to completion on the device. You are billed for setup, teardown,
@@ -2351,6 +2417,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Ends a specified remote access session.</p>
    */
   public stopRemoteAccessSession(
@@ -2383,6 +2450,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Initiates a stop request for the current test run. AWS Device Farm immediately stops the run on devices
    *             where tests have not started. You are not billed for these devices. On devices where tests have started
    *             executing, setup suite and teardown suite tests run to completion on those devices. You are billed for
@@ -2412,6 +2480,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags
    *             on a resource are not specified in the request parameters, they are not changed. When a resource is deleted,
    *             the tags associated with that resource are also deleted.</p>
@@ -2440,6 +2509,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified tags from a resource.</p>
    */
   public untagResource(
@@ -2472,6 +2542,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Updates information about a private device instance.</p>
    */
   public updateDeviceInstance(
@@ -2504,6 +2575,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Modifies the name, description, and rules in a device pool given the attributes and
    *             the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a
    *             whole (or not at all).</p>
@@ -2538,6 +2610,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Updates information about an existing private device instance profile.</p>
    */
   public updateInstanceProfile(
@@ -2570,6 +2643,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Updates the network profile.</p>
    */
   public updateNetworkProfile(
@@ -2602,6 +2676,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Modifies the specified project name, given the project ARN and a new
    *             name.</p>
    */
@@ -2635,6 +2710,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Change details of a project.</p>
    */
   public updateTestGridProject(
@@ -2667,6 +2743,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Updates an uploaded test spec.</p>
    */
   public updateUpload(
@@ -2696,6 +2773,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
+   * @public
    * <p>Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
    */
   public updateVPCEConfiguration(

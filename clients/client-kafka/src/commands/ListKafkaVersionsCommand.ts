@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListKafkaVersionsCommand}.
  */
 export interface ListKafkaVersionsCommandInput extends ListKafkaVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKafkaVersionsCommand}.
  */
 export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Apache Kafka versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKafkaVersionsCommandInput - {@link ListKafkaVersionsCommandInput}
+ * @returns {@link ListKafkaVersionsCommandOutput}
  * @see {@link ListKafkaVersionsCommandInput} for command's `input` shape.
  * @see {@link ListKafkaVersionsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListKafkaVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKafkaVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListKafkaVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKafkaVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListKafkaVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKafkaVersionsCommandOutput> {
     return deserializeAws_restJson1ListKafkaVersionsCommand(output, context);
   }

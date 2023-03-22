@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProfilePermissionsCommand}.
  */
 export interface ListProfilePermissionsCommandInput extends ListProfilePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProfilePermissionsCommand}.
  */
 export interface ListProfilePermissionsCommandOutput extends ListProfilePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the cross-account permissions associated with a signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfilePermissionsCommandInput - {@link ListProfilePermissionsCommandInput}
+ * @returns {@link ListProfilePermissionsCommandOutput}
  * @see {@link ListProfilePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListProfilePermissionsCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListProfilePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfilePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListProfilePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfilePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProfilePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfilePermissionsCommandOutput> {
     return deserializeAws_restJson1ListProfilePermissionsCommand(output, context);
   }

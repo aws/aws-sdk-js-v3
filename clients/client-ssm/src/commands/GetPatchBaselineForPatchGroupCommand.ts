@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPatchBaselineForPatchGroupCommand}.
  */
 export interface GetPatchBaselineForPatchGroupCommandInput extends GetPatchBaselineForPatchGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPatchBaselineForPatchGroupCommand}.
  */
 export interface GetPatchBaselineForPatchGroupCommandOutput
@@ -37,6 +41,7 @@ export interface GetPatchBaselineForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetPatchBaselineForPatchGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPatchBaselineForPatchGroupCommandInput - {@link GetPatchBaselineForPatchGroupCommandInput}
+ * @returns {@link GetPatchBaselineForPatchGroupCommandOutput}
  * @see {@link GetPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link GetPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -74,6 +81,9 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPatchBaselineForPatchGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPatchBaselineForPatchGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPatchBaselineForPatchGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

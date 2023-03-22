@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeObjectCommand}.
  */
 export interface DescribeObjectCommandInput extends DescribeObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeObjectCommand}.
  */
 export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the headers for an object at the specified path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeObjectCommandInput - {@link DescribeObjectCommandInput}
+ * @returns {@link DescribeObjectCommandOutput}
  * @see {@link DescribeObjectCommandInput} for command's `input` shape.
  * @see {@link DescribeObjectCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeObjectCommandOutput> {
     return deserializeAws_restJson1DescribeObjectCommand(output, context);
   }

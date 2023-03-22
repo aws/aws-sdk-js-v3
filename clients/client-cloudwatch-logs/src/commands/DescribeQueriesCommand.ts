@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQueriesCommand}.
  */
 export interface DescribeQueriesCommandInput extends DescribeQueriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQueriesCommand}.
  */
 export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
  *       been run recently in this account. You can request all queries or limit it to queries of a
  *       specific log group or queries with a certain status.</p>
@@ -48,6 +53,8 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQueriesCommandInput - {@link DescribeQueriesCommandInput}
+ * @returns {@link DescribeQueriesCommandOutput}
  * @see {@link DescribeQueriesCommandInput} for command's `input` shape.
  * @see {@link DescribeQueriesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueriesCommandOutput> {
     return deserializeAws_json1_1DescribeQueriesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreAnalysisCommand}.
  */
 export interface RestoreAnalysisCommandInput extends RestoreAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreAnalysisCommand}.
  */
 export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores an analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreAnalysisCommandInput - {@link RestoreAnalysisCommandInput}
+ * @returns {@link RestoreAnalysisCommandOutput}
  * @see {@link RestoreAnalysisCommandInput} for command's `input` shape.
  * @see {@link RestoreAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +97,9 @@ export class RestoreAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class RestoreAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RestoreAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreAnalysisCommandOutput> {
     return deserializeAws_restJson1RestoreAnalysisCommand(output, context);
   }

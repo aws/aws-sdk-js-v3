@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceDataSyncCommand}.
  */
 export interface UpdateResourceDataSyncCommandInput extends UpdateResourceDataSyncRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceDataSyncCommand}.
  */
 export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataSyncResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a resource data sync. After you create a resource data sync for a Region, you can't
  *    change the account options for that sync. For example, if you create a sync in the us-east-2
  *    (Ohio) Region and you choose the <code>Include only the current account</code> option, you can't
@@ -55,6 +60,8 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceDataSyncCommandInput - {@link UpdateResourceDataSyncCommandInput}
+ * @returns {@link UpdateResourceDataSyncCommandOutput}
  * @see {@link UpdateResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateResourceDataSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceDataSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateResourceDataSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateResourceDataSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceDataSyncCommandOutput> {
     return deserializeAws_json1_1UpdateResourceDataSyncCommand(output, context);
   }

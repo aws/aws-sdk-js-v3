@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceServerCommand}.
  */
 export interface UpdateResourceServerCommandInput extends UpdateResourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceServerCommand}.
  */
 export interface UpdateResourceServerCommandOutput extends UpdateResourceServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
  *         <important>
  *             <p>If you don't provide a value for an attribute, it is set to the default
@@ -55,6 +60,8 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceServerCommandInput - {@link UpdateResourceServerCommandInput}
+ * @returns {@link UpdateResourceServerCommandOutput}
  * @see {@link UpdateResourceServerCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateResourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateResourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateResourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceServerCommandOutput> {
     return deserializeAws_json1_1UpdateResourceServerCommand(output, context);
   }

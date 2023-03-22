@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateUserSettingsCommand}.
  */
 export interface DisassociateUserSettingsCommandInput extends DisassociateUserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateUserSettingsCommand}.
  */
 export interface DisassociateUserSettingsCommandOutput extends DisassociateUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates user settings from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateUserSettingsCommandInput - {@link DisassociateUserSettingsCommandInput}
+ * @returns {@link DisassociateUserSettingsCommandOutput}
  * @see {@link DisassociateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DisassociateUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateUserSettingsCommandOutput> {
     return deserializeAws_restJson1DisassociateUserSettingsCommand(output, context);
   }

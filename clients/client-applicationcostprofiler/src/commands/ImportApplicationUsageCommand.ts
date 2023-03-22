@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportApplicationUsageCommand}.
  */
 export interface ImportApplicationUsageCommandInput extends ImportApplicationUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportApplicationUsageCommand}.
  */
 export interface ImportApplicationUsageCommandOutput extends ImportApplicationUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ingests application usage data from Amazon Simple Storage Service (Amazon S3).</p>
  *          <p>The data must already exist in the S3 location. As part of the action, AWS Application Cost Profiler
  *       copies the object from your S3 bucket to an S3 bucket owned by Amazon for processing
@@ -53,6 +58,8 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportApplicationUsageCommandInput - {@link ImportApplicationUsageCommandInput}
+ * @returns {@link ImportApplicationUsageCommandOutput}
  * @see {@link ImportApplicationUsageCommandInput} for command's `input` shape.
  * @see {@link ImportApplicationUsageCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
@@ -88,6 +95,9 @@ export class ImportApplicationUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportApplicationUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ImportApplicationUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportApplicationUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ImportApplicationUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportApplicationUsageCommandOutput> {
     return deserializeAws_restJson1ImportApplicationUsageCommand(output, context);
   }

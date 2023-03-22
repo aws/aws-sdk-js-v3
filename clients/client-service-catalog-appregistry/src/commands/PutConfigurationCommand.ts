@@ -25,15 +25,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationCommand}.
  */
 export interface PutConfigurationCommandInput extends PutConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationCommand}.
  */
 export interface PutConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Associates a <code>TagKey</code> configuration
  *       to an account.
@@ -48,6 +53,8 @@ export interface PutConfigurationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationCommandInput - {@link PutConfigurationCommandInput}
+ * @returns {@link PutConfigurationCommandOutput}
  * @see {@link PutConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConfigurationCommandOutput> {
     return deserializeAws_restJson1PutConfigurationCommand(output, context);
   }

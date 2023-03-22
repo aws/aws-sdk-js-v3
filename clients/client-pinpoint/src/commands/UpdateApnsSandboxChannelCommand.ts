@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApnsSandboxChannelCommand}.
  */
 export interface UpdateApnsSandboxChannelCommandInput extends UpdateApnsSandboxChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApnsSandboxChannelCommand}.
  */
 export interface UpdateApnsSandboxChannelCommandOutput extends UpdateApnsSandboxChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the APNs sandbox channel for an application or updates the status and settings of the APNs sandbox channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateApnsSandboxChannelCommandOutput extends UpdateApnsSandbox
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApnsSandboxChannelCommandInput - {@link UpdateApnsSandboxChannelCommandInput}
+ * @returns {@link UpdateApnsSandboxChannelCommandOutput}
  * @see {@link UpdateApnsSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateApnsSandboxChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateApnsSandboxChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApnsSandboxChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateApnsSandboxChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApnsSandboxChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApnsSandboxChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApnsSandboxChannelCommandOutput> {
     return deserializeAws_restJson1UpdateApnsSandboxChannelCommand(output, context);
   }

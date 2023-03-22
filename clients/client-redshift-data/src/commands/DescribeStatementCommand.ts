@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStatementCommand}.
  */
 export interface DescribeStatementCommandInput extends DescribeStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStatementCommand}.
  */
 export interface DescribeStatementCommandOutput extends DescribeStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information
  *       includes when the query started, when it finished, the query status, the number of rows returned, and the SQL
  *       statement. </p>
@@ -51,6 +56,8 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStatementCommandInput - {@link DescribeStatementCommandInput}
+ * @returns {@link DescribeStatementCommandOutput}
  * @see {@link DescribeStatementCommandInput} for command's `input` shape.
  * @see {@link DescribeStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStatementCommandOutput> {
     return deserializeAws_json1_1DescribeStatementCommand(output, context);
   }

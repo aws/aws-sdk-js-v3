@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUICustomizationCommand}.
  */
 export interface GetUICustomizationCommandInput extends GetUICustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUICustomizationCommand}.
  */
 export interface GetUICustomizationCommandOutput extends GetUICustomizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the user interface (UI) Customization information for a particular app client's
  *             app UI, if any such information exists for the client. If nothing is set for the
  *             particular client, but there is an existing pool level customization (the app
@@ -55,6 +60,8 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUICustomizationCommandInput - {@link GetUICustomizationCommandInput}
+ * @returns {@link GetUICustomizationCommandOutput}
  * @see {@link GetUICustomizationCommandInput} for command's `input` shape.
  * @see {@link GetUICustomizationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetUICustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUICustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetUICustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUICustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUICustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUICustomizationCommandOutput> {
     return deserializeAws_json1_1GetUICustomizationCommand(output, context);
   }

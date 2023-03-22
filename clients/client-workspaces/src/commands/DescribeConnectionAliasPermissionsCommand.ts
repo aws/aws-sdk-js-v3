@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectionAliasPermissionsCommand}.
  */
 export interface DescribeConnectionAliasPermissionsCommandInput extends DescribeConnectionAliasPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectionAliasPermissionsCommand}.
  */
 export interface DescribeConnectionAliasPermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions that the owner of a connection alias has granted to another
  *             Amazon Web Services account for the specified connection alias. For more information, see
  *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
@@ -51,6 +56,8 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionAliasPermissionsCommandInput - {@link DescribeConnectionAliasPermissionsCommandInput}
+ * @returns {@link DescribeConnectionAliasPermissionsCommandOutput}
  * @see {@link DescribeConnectionAliasPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionAliasPermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionAliasPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConnectionAliasPermissionsCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
     return serializeAws_json1_1DescribeConnectionAliasPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

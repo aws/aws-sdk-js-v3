@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIpamScopesCommand}.
  */
 export interface DescribeIpamScopesCommandInput extends DescribeIpamScopesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIpamScopesCommand}.
  */
 export interface DescribeIpamScopesCommandOutput extends DescribeIpamScopesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about your IPAM scopes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeIpamScopesCommandOutput extends DescribeIpamScopesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIpamScopesCommandInput - {@link DescribeIpamScopesCommandInput}
+ * @returns {@link DescribeIpamScopesCommandOutput}
  * @see {@link DescribeIpamScopesCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamScopesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeIpamScopesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIpamScopesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeIpamScopesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIpamScopesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeIpamScopesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpamScopesCommandOutput> {
     return deserializeAws_ec2DescribeIpamScopesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMedicalVocabulariesCommand}.
  */
 export interface ListMedicalVocabulariesCommandInput extends ListMedicalVocabulariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMedicalVocabulariesCommand}.
  */
 export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabulariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of custom medical vocabularies that match the specified criteria. If
  *             no criteria are specified, all custom medical vocabularies are returned.</p>
  *          <p>To get detailed information about a specific custom medical vocabulary, use the  operation.</p>
@@ -48,6 +53,8 @@ export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabul
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMedicalVocabulariesCommandInput - {@link ListMedicalVocabulariesCommandInput}
+ * @returns {@link ListMedicalVocabulariesCommandOutput}
  * @see {@link ListMedicalVocabulariesCommandInput} for command's `input` shape.
  * @see {@link ListMedicalVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListMedicalVocabulariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMedicalVocabulariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListMedicalVocabulariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMedicalVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMedicalVocabulariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMedicalVocabulariesCommandOutput> {
     return deserializeAws_json1_1ListMedicalVocabulariesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandInput extends CreateClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon EKS control plane. </p>
  *          <p>The Amazon EKS control plane consists of control plane instances that run the
  *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane
@@ -66,6 +71,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -139,6 +146,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
     return deserializeAws_restJson1CreateClusterCommand(output, context);
   }

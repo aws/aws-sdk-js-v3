@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssetModelsCommand}.
  */
 export interface ListAssetModelsCommandInput extends ListAssetModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssetModelsCommand}.
  */
 export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of summaries of all asset models.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssetModelsCommandInput - {@link ListAssetModelsCommandInput}
+ * @returns {@link ListAssetModelsCommandOutput}
  * @see {@link ListAssetModelsCommandInput} for command's `input` shape.
  * @see {@link ListAssetModelsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListAssetModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssetModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListAssetModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssetModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssetModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetModelsCommandOutput> {
     return deserializeAws_restJson1ListAssetModelsCommand(output, context);
   }

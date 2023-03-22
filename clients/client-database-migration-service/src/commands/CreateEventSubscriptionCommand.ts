@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventSubscriptionCommand}.
  */
 export interface CreateEventSubscriptionCommandInput extends CreateEventSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventSubscriptionCommand}.
  */
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates an DMS event notification subscription. </p>
  *          <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of,
  *          provide a list of DMS source IDs (<code>SourceIds</code>) that triggers the events, and
@@ -65,6 +70,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
+ * @returns {@link CreateEventSubscriptionCommandOutput}
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -118,6 +125,9 @@ export class CreateEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class CreateEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSubscriptionCommandOutput> {
     return deserializeAws_json1_1CreateEventSubscriptionCommand(output, context);
   }

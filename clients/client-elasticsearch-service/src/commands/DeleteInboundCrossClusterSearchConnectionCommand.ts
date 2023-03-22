@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInboundCrossClusterSearchConnectionCommand}.
  */
 export interface DeleteInboundCrossClusterSearchConnectionCommandInput
   extends DeleteInboundCrossClusterSearchConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInboundCrossClusterSearchConnectionCommand}.
  */
 export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
@@ -42,6 +46,7 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the destination domain owner to delete an existing inbound cross-cluster search connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInboundCrossClusterSearchConnectionCommandInput - {@link DeleteInboundCrossClusterSearchConnectionCommandInput}
+ * @returns {@link DeleteInboundCrossClusterSearchConnectionCommandOutput}
  * @see {@link DeleteInboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteInboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInboundCrossClusterSearchConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteInboundCrossClusterSearchConnectionCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
     return serializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

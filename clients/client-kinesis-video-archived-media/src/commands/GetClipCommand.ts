@@ -33,15 +33,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClipCommand}.
  */
 export interface GetClipCommandInput extends GetClipInput {}
 /**
+ * @public
+ *
  * The output of {@link GetClipCommand}.
  */
 export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput, "Payload">, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the
  *             specified video stream over the specified time range. </p>
  *         <p>Both the StreamName and the StreamARN parameters are optional, but you must specify
@@ -93,6 +98,8 @@ export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClipCommandInput - {@link GetClipCommandInput}
+ * @returns {@link GetClipCommandOutput}
  * @see {@link GetClipCommandInput} for command's `input` shape.
  * @see {@link GetClipCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -160,6 +167,9 @@ export class GetClipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClipCommandInput) {
     // Start section: command_constructor
     super();
@@ -197,10 +207,16 @@ export class GetClipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetClipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

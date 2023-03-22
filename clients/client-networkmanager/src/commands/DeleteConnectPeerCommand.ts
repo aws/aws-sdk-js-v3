@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectPeerCommand}.
  */
 export interface DeleteConnectPeerCommandInput extends DeleteConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectPeerCommand}.
  */
 export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Connect peer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectPeerCommandInput - {@link DeleteConnectPeerCommandInput}
+ * @returns {@link DeleteConnectPeerCommandOutput}
  * @see {@link DeleteConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectPeerCommandOutput> {
     return deserializeAws_restJson1DeleteConnectPeerCommand(output, context);
   }

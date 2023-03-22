@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConditionalForwarderCommand}.
  */
 export interface CreateConditionalForwarderCommandInput extends CreateConditionalForwarderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConditionalForwarderCommand}.
  */
 export interface CreateConditionalForwarderCommandOutput extends CreateConditionalForwarderResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a conditional forwarder associated with your Amazon Web Services directory. Conditional
  *       forwarders are required in order to set up a trust relationship with another domain. The
  *       conditional forwarder points to the trusted domain.</p>
@@ -48,6 +53,8 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConditionalForwarderCommandInput - {@link CreateConditionalForwarderCommandInput}
+ * @returns {@link CreateConditionalForwarderCommandOutput}
  * @see {@link CreateConditionalForwarderCommandInput} for command's `input` shape.
  * @see {@link CreateConditionalForwarderCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateConditionalForwarderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConditionalForwarderCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateConditionalForwarderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConditionalForwarderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateConditionalForwarderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

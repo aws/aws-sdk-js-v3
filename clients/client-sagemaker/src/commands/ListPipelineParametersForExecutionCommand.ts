@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPipelineParametersForExecutionCommand}.
  */
 export interface ListPipelineParametersForExecutionCommandInput extends ListPipelineParametersForExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPipelineParametersForExecutionCommand}.
  */
 export interface ListPipelineParametersForExecutionCommandOutput
@@ -37,6 +41,7 @@ export interface ListPipelineParametersForExecutionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of parameters for a pipeline execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListPipelineParametersForExecutionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelineParametersForExecutionCommandInput - {@link ListPipelineParametersForExecutionCommandInput}
+ * @returns {@link ListPipelineParametersForExecutionCommandOutput}
  * @see {@link ListPipelineParametersForExecutionCommandInput} for command's `input` shape.
  * @see {@link ListPipelineParametersForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListPipelineParametersForExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelineParametersForExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class ListPipelineParametersForExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPipelineParametersForExecutionCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class ListPipelineParametersForExecutionCommand extends $Command<
     return serializeAws_json1_1ListPipelineParametersForExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

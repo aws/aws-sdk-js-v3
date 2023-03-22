@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoggingConfigurationCommand}.
  */
 export interface CreateLoggingConfigurationCommandInput extends CreateLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoggingConfigurationCommand}.
  */
 export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a logging configuration that allows clients to store and record sent
  *          messages.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoggingConfigurationCommandInput - {@link CreateLoggingConfigurationCommandInput}
+ * @returns {@link CreateLoggingConfigurationCommandOutput}
  * @see {@link CreateLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

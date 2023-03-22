@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCompanyNetworkConfigurationCommand}.
  */
 export interface UpdateCompanyNetworkConfigurationCommandInput extends UpdateCompanyNetworkConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCompanyNetworkConfigurationCommand}.
  */
 export interface UpdateCompanyNetworkConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the company network configuration for the fleet.</p>
@@ -50,6 +55,8 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCompanyNetworkConfigurationCommandInput - {@link UpdateCompanyNetworkConfigurationCommandInput}
+ * @returns {@link UpdateCompanyNetworkConfigurationCommandOutput}
  * @see {@link UpdateCompanyNetworkConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateCompanyNetworkConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCompanyNetworkConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCompanyNetworkConfigurationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateCompanyNetworkConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

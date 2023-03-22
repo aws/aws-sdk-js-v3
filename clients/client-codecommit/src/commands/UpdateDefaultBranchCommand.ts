@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDefaultBranchCommand}.
  */
 export interface UpdateDefaultBranchCommandInput extends UpdateDefaultBranchInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDefaultBranchCommand}.
  */
 export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets or changes the default branch name for the specified repository.</p>
  *         <note>
  *             <p>If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.</p>
@@ -44,6 +49,8 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDefaultBranchCommandInput - {@link UpdateDefaultBranchCommandInput}
+ * @returns {@link UpdateDefaultBranchCommandOutput}
  * @see {@link UpdateDefaultBranchCommandInput} for command's `input` shape.
  * @see {@link UpdateDefaultBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -106,6 +113,9 @@ export class UpdateDefaultBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDefaultBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class UpdateDefaultBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDefaultBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDefaultBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDefaultBranchCommandOutput> {
     return deserializeAws_json1_1UpdateDefaultBranchCommand(output, context);
   }

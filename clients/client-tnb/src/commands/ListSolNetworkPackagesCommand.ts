@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolNetworkPackagesCommand}.
  */
 export interface ListSolNetworkPackagesCommandInput extends ListSolNetworkPackagesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSolNetworkPackagesCommand}.
  */
 export interface ListSolNetworkPackagesCommandOutput extends ListSolNetworkPackagesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists network packages.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSolNetworkPackagesCommandOutput extends ListSolNetworkPacka
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolNetworkPackagesCommandInput - {@link ListSolNetworkPackagesCommandInput}
+ * @returns {@link ListSolNetworkPackagesCommandOutput}
  * @see {@link ListSolNetworkPackagesCommandInput} for command's `input` shape.
  * @see {@link ListSolNetworkPackagesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListSolNetworkPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolNetworkPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListSolNetworkPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolNetworkPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSolNetworkPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolNetworkPackagesCommandOutput> {
     return deserializeAws_restJson1ListSolNetworkPackagesCommand(output, context);
   }

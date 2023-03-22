@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFromGlobalClusterCommand}.
  */
 export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFromGlobalClusterCommand}.
  */
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
  *         standalone cluster with read-write capability instead of being read-only and receiving data from a
  *         primary cluster in a different Region.</p>
@@ -51,6 +56,8 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFromGlobalClusterCommandInput - {@link RemoveFromGlobalClusterCommandInput}
+ * @returns {@link RemoveFromGlobalClusterCommandOutput}
  * @see {@link RemoveFromGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link RemoveFromGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -84,6 +91,9 @@ export class RemoveFromGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFromGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class RemoveFromGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFromGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRemoveFromGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFromGlobalClusterCommandOutput> {
     return deserializeAws_queryRemoveFromGlobalClusterCommand(output, context);
   }

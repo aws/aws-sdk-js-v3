@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateResourceCommand}.
  */
 export interface AssociateResourceCommandInput extends AssociateResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateResourceCommand}.
  */
 export interface AssociateResourceCommandOutput extends AssociateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a canary with a group. Using groups can help you with
  *          managing and automating your canaries, and you can also view aggregated run results and statistics
  *          for all canaries in a group. </p>
@@ -49,6 +54,8 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResourceCommandInput - {@link AssociateResourceCommandInput}
+ * @returns {@link AssociateResourceCommandOutput}
  * @see {@link AssociateResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssociateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResourceCommandOutput> {
     return deserializeAws_restJson1AssociateResourceCommand(output, context);
   }

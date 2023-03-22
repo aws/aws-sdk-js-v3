@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CopyPackageVersionsCommand}.
  */
 export interface CopyPackageVersionsCommandInput extends CopyPackageVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyPackageVersionsCommand}.
  */
 export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Copies package versions from one repository to another repository in the same domain.
  *       </p>
@@ -53,6 +58,8 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyPackageVersionsCommandInput - {@link CopyPackageVersionsCommandInput}
+ * @returns {@link CopyPackageVersionsCommandOutput}
  * @see {@link CopyPackageVersionsCommandInput} for command's `input` shape.
  * @see {@link CopyPackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -109,6 +116,9 @@ export class CopyPackageVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyPackageVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class CopyPackageVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyPackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CopyPackageVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyPackageVersionsCommandOutput> {
     return deserializeAws_restJson1CopyPackageVersionsCommand(output, context);
   }

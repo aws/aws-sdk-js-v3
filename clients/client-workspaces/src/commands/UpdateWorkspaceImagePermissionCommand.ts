@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceImagePermissionCommand}.
  */
 export interface UpdateWorkspaceImagePermissionCommandInput extends UpdateWorkspaceImagePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceImagePermissionCommand}.
  */
 export interface UpdateWorkspaceImagePermissionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shares or unshares an image with one account in the same Amazon Web Services Region by
  *          specifying whether that account has permission to copy the image. If the copy image
  *          permission is granted, the image is shared with that account. If the copy image permission
@@ -70,6 +75,8 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceImagePermissionCommandInput - {@link UpdateWorkspaceImagePermissionCommandInput}
+ * @returns {@link UpdateWorkspaceImagePermissionCommandOutput}
  * @see {@link UpdateWorkspaceImagePermissionCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceImagePermissionCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -108,6 +115,9 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceImagePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,6 +157,9 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateWorkspaceImagePermissionCommandInput,
     context: __SerdeContext
@@ -154,6 +167,9 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
     return serializeAws_json1_1UpdateWorkspaceImagePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

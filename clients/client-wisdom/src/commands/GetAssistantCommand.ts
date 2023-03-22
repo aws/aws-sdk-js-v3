@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssistantCommand}.
  */
 export interface GetAssistantCommandInput extends GetAssistantRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssistantCommand}.
  */
 export interface GetAssistantCommandOutput extends GetAssistantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssistantCommandInput - {@link GetAssistantCommandInput}
+ * @returns {@link GetAssistantCommandOutput}
  * @see {@link GetAssistantCommandInput} for command's `input` shape.
  * @see {@link GetAssistantCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetAssistantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssistantCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetAssistantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAssistantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssistantCommandOutput> {
     return deserializeAws_restJson1GetAssistantCommand(output, context);
   }

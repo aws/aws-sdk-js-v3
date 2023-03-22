@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSystemTemplateCommand}.
  */
 export interface DeleteSystemTemplateCommandInput extends DeleteSystemTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSystemTemplateCommand}.
  */
 export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes a system. New deployments can't contain the system after its deletion.
@@ -49,6 +54,8 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSystemTemplateCommandInput - {@link DeleteSystemTemplateCommandInput}
+ * @returns {@link DeleteSystemTemplateCommandOutput}
  * @see {@link DeleteSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteSystemTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSystemTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteSystemTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSystemTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSystemTemplateCommandOutput> {
     return deserializeAws_json1_1DeleteSystemTemplateCommand(output, context);
   }

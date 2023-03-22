@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListElasticsearchInstanceTypesCommand}.
  */
 export interface ListElasticsearchInstanceTypesCommandInput extends ListElasticsearchInstanceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListElasticsearchInstanceTypesCommand}.
  */
 export interface ListElasticsearchInstanceTypesCommandOutput
@@ -41,6 +45,7 @@ export interface ListElasticsearchInstanceTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ListElasticsearchInstanceTypesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListElasticsearchInstanceTypesCommandInput - {@link ListElasticsearchInstanceTypesCommandInput}
+ * @returns {@link ListElasticsearchInstanceTypesCommandOutput}
  * @see {@link ListElasticsearchInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link ListElasticsearchInstanceTypesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListElasticsearchInstanceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListElasticsearchInstanceTypesCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     return serializeAws_restJson1ListElasticsearchInstanceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

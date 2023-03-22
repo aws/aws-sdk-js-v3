@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQueueCommand}.
  */
 export interface UpdateQueueCommandInput extends UpdateQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQueueCommand}.
  */
 export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Modify one of your existing queues.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQueueCommandInput - {@link UpdateQueueCommandInput}
+ * @returns {@link UpdateQueueCommandOutput}
  * @see {@link UpdateQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQueueCommandOutput> {
     return deserializeAws_restJson1UpdateQueueCommand(output, context);
   }

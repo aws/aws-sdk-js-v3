@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateSummaryCommand}.
  */
 export interface GetTemplateSummaryCommandInput extends GetTemplateSummaryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateSummaryCommand}.
  */
 export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a new or existing template. The
  *             <code>GetTemplateSummary</code> action is useful for viewing parameter information, such
  *          as default parameter values and parameter types, before you create or update a stack or
@@ -54,6 +59,8 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateSummaryCommandInput - {@link GetTemplateSummaryCommandInput}
+ * @returns {@link GetTemplateSummaryCommandOutput}
  * @see {@link GetTemplateSummaryCommandInput} for command's `input` shape.
  * @see {@link GetTemplateSummaryCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetTemplateSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetTemplateSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetTemplateSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateSummaryCommandOutput> {
     return deserializeAws_queryGetTemplateSummaryCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link RenewDomainCommand}.
  */
 export interface RenewDomainCommandInput extends RenewDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link RenewDomainCommand}.
  */
 export interface RenewDomainCommandOutput extends RenewDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation renews a domain for the specified number of years. The cost of renewing
  * 			your domain is billed to your Amazon Web Services account.</p>
  *          <p>We recommend that you renew your domain several weeks before the expiration date. Some
@@ -52,6 +57,8 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param RenewDomainCommandInput - {@link RenewDomainCommandInput}
+ * @returns {@link RenewDomainCommandOutput}
  * @see {@link RenewDomainCommandInput} for command's `input` shape.
  * @see {@link RenewDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -94,6 +101,9 @@ export class RenewDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RenewDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class RenewDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RenewDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RenewDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenewDomainCommandOutput> {
     return deserializeAws_json1_1RenewDomainCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentTextDetectionCommand}.
  */
 export interface GetDocumentTextDetectionCommandInput extends GetDocumentTextDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentTextDetectionCommand}.
  */
 export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document.
  *      Amazon Textract can detect lines of text and the words that make up a line of text.</p>
  *          <p>You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>, which returns a job identifier
@@ -70,6 +75,8 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentTextDetectionCommandInput - {@link GetDocumentTextDetectionCommandInput}
+ * @returns {@link GetDocumentTextDetectionCommandOutput}
  * @see {@link GetDocumentTextDetectionCommandInput} for command's `input` shape.
  * @see {@link GetDocumentTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -127,6 +134,9 @@ export class GetDocumentTextDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentTextDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class GetDocumentTextDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentTextDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDocumentTextDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentTextDetectionCommandOutput> {
     return deserializeAws_json1_1GetDocumentTextDetectionCommand(output, context);
   }

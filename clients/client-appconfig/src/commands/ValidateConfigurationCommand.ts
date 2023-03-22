@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateConfigurationCommand}.
  */
 export interface ValidateConfigurationCommandInput extends ValidateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidateConfigurationCommand}.
  */
 export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uses the validators in a configuration profile to validate a configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateConfigurationCommandInput - {@link ValidateConfigurationCommandInput}
+ * @returns {@link ValidateConfigurationCommandOutput}
  * @see {@link ValidateConfigurationCommandInput} for command's `input` shape.
  * @see {@link ValidateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -86,6 +93,9 @@ export class ValidateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ValidateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ValidateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateConfigurationCommandOutput> {
     return deserializeAws_restJson1ValidateConfigurationCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInventorySchemaCommand}.
  */
 export interface GetInventorySchemaCommandInput extends GetInventorySchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInventorySchemaCommand}.
  */
 export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a list of inventory type names for the account, or return a list of attribute names
  *    for a specific Inventory item type.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInventorySchemaCommandInput - {@link GetInventorySchemaCommandInput}
+ * @returns {@link GetInventorySchemaCommandOutput}
  * @see {@link GetInventorySchemaCommandInput} for command's `input` shape.
  * @see {@link GetInventorySchemaCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetInventorySchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInventorySchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetInventorySchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInventorySchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInventorySchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInventorySchemaCommandOutput> {
     return deserializeAws_json1_1GetInventorySchemaCommand(output, context);
   }

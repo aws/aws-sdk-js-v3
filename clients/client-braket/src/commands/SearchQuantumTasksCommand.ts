@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchQuantumTasksCommand}.
  */
 export interface SearchQuantumTasksCommandInput extends SearchQuantumTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchQuantumTasksCommand}.
  */
 export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for tasks that match the specified filter values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchQuantumTasksCommandInput - {@link SearchQuantumTasksCommandInput}
+ * @returns {@link SearchQuantumTasksCommandOutput}
  * @see {@link SearchQuantumTasksCommandInput} for command's `input` shape.
  * @see {@link SearchQuantumTasksCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -82,6 +89,9 @@ export class SearchQuantumTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchQuantumTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class SearchQuantumTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchQuantumTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchQuantumTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchQuantumTasksCommandOutput> {
     return deserializeAws_restJson1SearchQuantumTasksCommand(output, context);
   }

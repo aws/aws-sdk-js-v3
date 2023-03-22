@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInAppTemplateCommand}.
  */
 export interface UpdateInAppTemplateCommandInput extends UpdateInAppTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInAppTemplateCommand}.
  */
 export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing message template for messages sent through the in-app message channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInAppTemplateCommandInput - {@link UpdateInAppTemplateCommandInput}
+ * @returns {@link UpdateInAppTemplateCommandOutput}
  * @see {@link UpdateInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateInAppTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInAppTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateInAppTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInAppTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateInAppTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInAppTemplateCommandOutput> {
     return deserializeAws_restJson1UpdateInAppTemplateCommand(output, context);
   }

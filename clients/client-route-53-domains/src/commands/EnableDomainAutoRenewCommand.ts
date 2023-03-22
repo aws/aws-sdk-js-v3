@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableDomainAutoRenewCommand}.
  */
 export interface EnableDomainAutoRenewCommandInput extends EnableDomainAutoRenewRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableDomainAutoRenewCommand}.
  */
 export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation configures Amazon Route 53 to automatically renew the specified domain
  * 			before the domain registration expires. The cost of renewing your domain registration is
  * 			billed to your Amazon Web Services account.</p>
@@ -53,6 +58,8 @@ export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRene
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableDomainAutoRenewCommandInput - {@link EnableDomainAutoRenewCommandInput}
+ * @returns {@link EnableDomainAutoRenewCommandOutput}
  * @see {@link EnableDomainAutoRenewCommandInput} for command's `input` shape.
  * @see {@link EnableDomainAutoRenewCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -88,6 +95,9 @@ export class EnableDomainAutoRenewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableDomainAutoRenewCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class EnableDomainAutoRenewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableDomainAutoRenewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableDomainAutoRenewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableDomainAutoRenewCommandOutput> {
     return deserializeAws_json1_1EnableDomainAutoRenewCommand(output, context);
   }

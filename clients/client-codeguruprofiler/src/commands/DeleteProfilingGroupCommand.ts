@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProfilingGroupCommand}.
  */
 export interface DeleteProfilingGroupCommandInput extends DeleteProfilingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProfilingGroupCommand}.
  */
 export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProfilingGroupCommandInput - {@link DeleteProfilingGroupCommandInput}
+ * @returns {@link DeleteProfilingGroupCommandOutput}
  * @see {@link DeleteProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteProfilingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProfilingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteProfilingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProfilingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteProfilingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfilingGroupCommandOutput> {
     return deserializeAws_restJson1DeleteProfilingGroupCommand(output, context);
   }

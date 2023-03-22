@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAddonCommand}.
  */
 export interface CreateAddonCommandInput extends CreateAddonRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAddonCommand}.
  */
 export interface CreateAddonCommandOutput extends CreateAddonResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon EKS add-on.</p>
  *          <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management
  *             of common operational software for Amazon EKS clusters. For more information,
@@ -49,6 +54,8 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAddonCommandInput - {@link CreateAddonCommandInput}
+ * @returns {@link CreateAddonCommandOutput}
  * @see {@link CreateAddonCommandInput} for command's `input` shape.
  * @see {@link CreateAddonCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateAddonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAddonCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateAddonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAddonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAddonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAddonCommandOutput> {
     return deserializeAws_restJson1CreateAddonCommand(output, context);
   }

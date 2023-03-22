@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBEngineVersionsCommand}.
  */
 export interface DescribeDBEngineVersionsCommandInput extends DescribeDBEngineVersionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBEngineVersionsCommand}.
  */
 export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available DB engines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBEngineVersionsCommandInput - {@link DescribeDBEngineVersionsCommandInput}
+ * @returns {@link DescribeDBEngineVersionsCommandOutput}
  * @see {@link DescribeDBEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBEngineVersionsCommandOutput> {
     return deserializeAws_queryDescribeDBEngineVersionsCommand(output, context);
   }

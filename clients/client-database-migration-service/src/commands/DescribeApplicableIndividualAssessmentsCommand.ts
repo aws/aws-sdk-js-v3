@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeApplicableIndividualAssessmentsCommand}.
  */
 export interface DescribeApplicableIndividualAssessmentsCommandInput
   extends DescribeApplicableIndividualAssessmentsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeApplicableIndividualAssessmentsCommand}.
  */
 export interface DescribeApplicableIndividualAssessmentsCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of individual assessments that you can specify for a new premigration
  *          assessment run, given one or more parameters.</p>
  *          <p>If you specify an existing migration task, this operation provides the default individual
@@ -67,6 +72,8 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicableIndividualAssessmentsCommandInput - {@link DescribeApplicableIndividualAssessmentsCommandInput}
+ * @returns {@link DescribeApplicableIndividualAssessmentsCommandOutput}
  * @see {@link DescribeApplicableIndividualAssessmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicableIndividualAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -100,6 +107,9 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicableIndividualAssessmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeApplicableIndividualAssessmentsCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
     return serializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,16 +24,21 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelExplainabilityJobDefinitionCommand}.
  */
 export interface DeleteModelExplainabilityJobDefinitionCommandInput
   extends DeleteModelExplainabilityJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelExplainabilityJobDefinitionCommand}.
  */
 export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon SageMaker model explainability job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelExplainabilityJobDefinitionCommandInput - {@link DeleteModelExplainabilityJobDefinitionCommandInput}
+ * @returns {@link DeleteModelExplainabilityJobDefinitionCommandOutput}
  * @see {@link DeleteModelExplainabilityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteModelExplainabilityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteModelExplainabilityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelExplainabilityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DeleteModelExplainabilityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteModelExplainabilityJobDefinitionCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DeleteModelExplainabilityJobDefinitionCommand extends $Command<
     return serializeAws_json1_1DeleteModelExplainabilityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResolverQueryLogConfigCommand}.
  */
 export interface DisassociateResolverQueryLogConfigCommandInput extends DisassociateResolverQueryLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResolverQueryLogConfigCommand}.
  */
 export interface DisassociateResolverQueryLogConfigCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a VPC from a query logging configuration.</p>
  *          <note>
  *             <p>Before you can delete a query logging configuration, you must first disassociate all VPCs
@@ -62,6 +67,8 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResolverQueryLogConfigCommandInput - {@link DisassociateResolverQueryLogConfigCommandInput}
+ * @returns {@link DisassociateResolverQueryLogConfigCommandOutput}
  * @see {@link DisassociateResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -103,6 +110,9 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResolverQueryLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateResolverQueryLogConfigCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     return serializeAws_json1_1DisassociateResolverQueryLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

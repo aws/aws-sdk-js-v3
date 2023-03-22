@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLogPatternCommand}.
  */
 export interface CreateLogPatternCommandInput extends CreateLogPatternRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLogPatternCommand}.
  */
 export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an log pattern to a <code>LogPatternSet</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLogPatternCommandInput - {@link CreateLogPatternCommandInput}
+ * @returns {@link CreateLogPatternCommandOutput}
  * @see {@link CreateLogPatternCommandInput} for command's `input` shape.
  * @see {@link CreateLogPatternCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateLogPatternCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogPatternCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateLogPatternCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLogPatternCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogPatternCommandOutput> {
     return deserializeAws_json1_1CreateLogPatternCommand(output, context);
   }

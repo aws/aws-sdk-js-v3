@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchProductsCommand}.
  */
 export interface SearchProductsCommandInput extends SearchProductsInput {}
 /**
+ * @public
+ *
  * The output of {@link SearchProductsCommand}.
  */
 export interface SearchProductsCommandOutput extends SearchProductsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the products to which the caller has access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchProductsCommandInput - {@link SearchProductsCommandInput}
+ * @returns {@link SearchProductsCommandOutput}
  * @see {@link SearchProductsCommandInput} for command's `input` shape.
  * @see {@link SearchProductsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +79,9 @@ export class SearchProductsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchProductsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class SearchProductsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchProductsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchProductsCommandOutput> {
     return deserializeAws_json1_1SearchProductsCommand(output, context);
   }

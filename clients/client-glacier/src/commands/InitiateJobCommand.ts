@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateJobCommand}.
  */
 export interface InitiateJobCommandInput extends InitiateJobInput {}
 /**
+ * @public
+ *
  * The output of {@link InitiateJobCommand}.
  */
 export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation initiates a job of the specified type, which can be a select, an archival retrieval,
  *          or a vault retrieval. For more information about using this operation,
  *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html">Initiate
@@ -50,6 +55,8 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateJobCommandInput - {@link InitiateJobCommandInput}
+ * @returns {@link InitiateJobCommandOutput}
  * @see {@link InitiateJobCommandInput} for command's `input` shape.
  * @see {@link InitiateJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -119,6 +126,9 @@ export class InitiateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class InitiateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InitiateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateJobCommandOutput> {
     return deserializeAws_restJson1InitiateJobCommand(output, context);
   }

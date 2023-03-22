@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBandwidthRateLimitCommand}.
  */
 export interface DescribeBandwidthRateLimitCommandInput extends DescribeBandwidthRateLimitInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBandwidthRateLimitCommand}.
  */
 export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
  *          which means no bandwidth rate limiting is in effect. This operation is supported only for
  *          the stored volume, cached volume, and tape gateway types. To describe bandwidth rate limits
@@ -54,6 +59,8 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBandwidthRateLimitCommandInput - {@link DescribeBandwidthRateLimitCommandInput}
+ * @returns {@link DescribeBandwidthRateLimitCommandOutput}
  * @see {@link DescribeBandwidthRateLimitCommandInput} for command's `input` shape.
  * @see {@link DescribeBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -103,6 +110,9 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBandwidthRateLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBandwidthRateLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBandwidthRateLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

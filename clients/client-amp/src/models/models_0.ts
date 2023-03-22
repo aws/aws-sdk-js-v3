@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AmpServiceException as __BaseException } from "./AmpServiceException";
 
 /**
+ * @public
  * User does not have sufficient access to perform this action.
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * Updating or deleting a resource can cause an inconsistent state.
  */
 export class ConflictException extends __BaseException {
@@ -54,6 +56,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * Represents the input of a CreateAlertManagerDefinition operation.
  */
 export interface CreateAlertManagerDefinitionRequest {
@@ -73,6 +76,9 @@ export interface CreateAlertManagerDefinitionRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum AlertManagerDefinitionStatusCode {
   /**
    * Definition has been created/updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
@@ -101,6 +107,7 @@ export enum AlertManagerDefinitionStatusCode {
 }
 
 /**
+ * @public
  * Represents the status of a definition.
  */
 export interface AlertManagerDefinitionStatus {
@@ -116,6 +123,7 @@ export interface AlertManagerDefinitionStatus {
 }
 
 /**
+ * @public
  * Represents the output of a CreateAlertManagerDefinition operation.
  */
 export interface CreateAlertManagerDefinitionResponse {
@@ -126,6 +134,7 @@ export interface CreateAlertManagerDefinitionResponse {
 }
 
 /**
+ * @public
  * Unexpected error during processing of request.
  */
 export class InternalServerException extends __BaseException {
@@ -152,6 +161,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * Request references a resource which does not exist.
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -183,6 +193,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Request would cause a service quota to be exceeded.
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -226,6 +237,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * Request was denied due to request throttling.
  */
 export class ThrottlingException extends __BaseException {
@@ -264,6 +276,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * Stores information about a field passed inside a request that resulted in an exception.
  */
 export interface ValidationExceptionField {
@@ -278,6 +291,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -286,6 +302,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * The input fails to satisfy the constraints specified by an AWS service.
  */
 export class ValidationException extends __BaseException {
@@ -317,6 +334,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * Represents the input of a DeleteAlertManagerDefinition operation.
  */
 export interface DeleteAlertManagerDefinitionRequest {
@@ -332,6 +350,7 @@ export interface DeleteAlertManagerDefinitionRequest {
 }
 
 /**
+ * @public
  * Represents the input of a DescribeAlertManagerDefinition operation.
  */
 export interface DescribeAlertManagerDefinitionRequest {
@@ -342,6 +361,7 @@ export interface DescribeAlertManagerDefinitionRequest {
 }
 
 /**
+ * @public
  * Represents the properties of an alert manager definition.
  */
 export interface AlertManagerDefinitionDescription {
@@ -367,6 +387,7 @@ export interface AlertManagerDefinitionDescription {
 }
 
 /**
+ * @public
  * Represents the output of a DescribeAlertManagerDefinition operation.
  */
 export interface DescribeAlertManagerDefinitionResponse {
@@ -377,6 +398,7 @@ export interface DescribeAlertManagerDefinitionResponse {
 }
 
 /**
+ * @public
  * Represents the input of a PutAlertManagerDefinition operation.
  */
 export interface PutAlertManagerDefinitionRequest {
@@ -397,6 +419,7 @@ export interface PutAlertManagerDefinitionRequest {
 }
 
 /**
+ * @public
  * Represents the output of a PutAlertManagerDefinition operation.
  */
 export interface PutAlertManagerDefinitionResponse {
@@ -406,6 +429,9 @@ export interface PutAlertManagerDefinitionResponse {
   status: AlertManagerDefinitionStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * The ARN of the resource.
@@ -413,6 +439,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * The list of tags assigned to the resource.
@@ -420,6 +449,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * The ARN of the resource.
@@ -432,8 +464,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * The ARN of the resource.
@@ -446,9 +484,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * Represents the input of a CreateWorkspace operation.
  */
 export interface CreateWorkspaceRequest {
@@ -468,6 +510,9 @@ export interface CreateWorkspaceRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum WorkspaceStatusCode {
   /**
    * Workspace has been created and is usable.
@@ -492,6 +537,7 @@ export enum WorkspaceStatusCode {
 }
 
 /**
+ * @public
  * Represents the status of a workspace.
  */
 export interface WorkspaceStatus {
@@ -502,6 +548,7 @@ export interface WorkspaceStatus {
 }
 
 /**
+ * @public
  * Represents the output of a CreateWorkspace operation.
  */
 export interface CreateWorkspaceResponse {
@@ -527,6 +574,7 @@ export interface CreateWorkspaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of a DeleteWorkspace operation.
  */
 export interface DeleteWorkspaceRequest {
@@ -542,6 +590,7 @@ export interface DeleteWorkspaceRequest {
 }
 
 /**
+ * @public
  * Represents the input of a DescribeWorkspace operation.
  */
 export interface DescribeWorkspaceRequest {
@@ -552,6 +601,7 @@ export interface DescribeWorkspaceRequest {
 }
 
 /**
+ * @public
  * Represents the properties of a workspace.
  */
 export interface WorkspaceDescription {
@@ -592,6 +642,7 @@ export interface WorkspaceDescription {
 }
 
 /**
+ * @public
  * Represents the output of a DescribeWorkspace operation.
  */
 export interface DescribeWorkspaceResponse {
@@ -602,6 +653,7 @@ export interface DescribeWorkspaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of a ListWorkspaces operation.
  */
 export interface ListWorkspacesRequest {
@@ -622,6 +674,7 @@ export interface ListWorkspacesRequest {
 }
 
 /**
+ * @public
  * Represents a summary of the properties of a workspace.
  */
 export interface WorkspaceSummary {
@@ -657,6 +710,7 @@ export interface WorkspaceSummary {
 }
 
 /**
+ * @public
  * Represents the output of a ListWorkspaces operation.
  */
 export interface ListWorkspacesResponse {
@@ -672,6 +726,7 @@ export interface ListWorkspacesResponse {
 }
 
 /**
+ * @public
  * Represents the input of a CreateLoggingConfiguration operation.
  */
 export interface CreateLoggingConfigurationRequest {
@@ -691,6 +746,9 @@ export interface CreateLoggingConfigurationRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum LoggingConfigurationStatusCode {
   /**
    * Logging configuration has been created/updated. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
@@ -719,6 +777,7 @@ export enum LoggingConfigurationStatusCode {
 }
 
 /**
+ * @public
  * Represents the status of a logging configuration.
  */
 export interface LoggingConfigurationStatus {
@@ -734,6 +793,7 @@ export interface LoggingConfigurationStatus {
 }
 
 /**
+ * @public
  * Represents the output of a CreateLoggingConfiguration operation.
  */
 export interface CreateLoggingConfigurationResponse {
@@ -744,6 +804,7 @@ export interface CreateLoggingConfigurationResponse {
 }
 
 /**
+ * @public
  * Represents the input of a DeleteLoggingConfiguration operation.
  */
 export interface DeleteLoggingConfigurationRequest {
@@ -759,6 +820,7 @@ export interface DeleteLoggingConfigurationRequest {
 }
 
 /**
+ * @public
  * Represents the input of a DescribeLoggingConfiguration operation.
  */
 export interface DescribeLoggingConfigurationRequest {
@@ -769,6 +831,7 @@ export interface DescribeLoggingConfigurationRequest {
 }
 
 /**
+ * @public
  * Represents the properties of a logging configuration metadata.
  */
 export interface LoggingConfigurationMetadata {
@@ -799,6 +862,7 @@ export interface LoggingConfigurationMetadata {
 }
 
 /**
+ * @public
  * Represents the output of a DescribeLoggingConfiguration operation.
  */
 export interface DescribeLoggingConfigurationResponse {
@@ -809,6 +873,7 @@ export interface DescribeLoggingConfigurationResponse {
 }
 
 /**
+ * @public
  * Represents the input of an UpdateLoggingConfiguration operation.
  */
 export interface UpdateLoggingConfigurationRequest {
@@ -829,6 +894,7 @@ export interface UpdateLoggingConfigurationRequest {
 }
 
 /**
+ * @public
  * Represents the output of an UpdateLoggingConfiguration operation.
  */
 export interface UpdateLoggingConfigurationResponse {
@@ -839,6 +905,7 @@ export interface UpdateLoggingConfigurationResponse {
 }
 
 /**
+ * @public
  * Represents the input of a CreateRuleGroupsNamespace operation.
  */
 export interface CreateRuleGroupsNamespaceRequest {
@@ -868,6 +935,9 @@ export interface CreateRuleGroupsNamespaceRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum RuleGroupsNamespaceStatusCode {
   /**
    * Namespace has been created/updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
@@ -896,6 +966,7 @@ export enum RuleGroupsNamespaceStatusCode {
 }
 
 /**
+ * @public
  * Represents the status of a namespace.
  */
 export interface RuleGroupsNamespaceStatus {
@@ -911,6 +982,7 @@ export interface RuleGroupsNamespaceStatus {
 }
 
 /**
+ * @public
  * Represents the output of a CreateRuleGroupsNamespace operation.
  */
 export interface CreateRuleGroupsNamespaceResponse {
@@ -936,6 +1008,7 @@ export interface CreateRuleGroupsNamespaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of a DeleteRuleGroupsNamespace operation.
  */
 export interface DeleteRuleGroupsNamespaceRequest {
@@ -956,6 +1029,7 @@ export interface DeleteRuleGroupsNamespaceRequest {
 }
 
 /**
+ * @public
  * Represents the input of a DescribeRuleGroupsNamespace operation.
  */
 export interface DescribeRuleGroupsNamespaceRequest {
@@ -971,6 +1045,7 @@ export interface DescribeRuleGroupsNamespaceRequest {
 }
 
 /**
+ * @public
  * Represents a description of the rule groups namespace.
  */
 export interface RuleGroupsNamespaceDescription {
@@ -1011,6 +1086,7 @@ export interface RuleGroupsNamespaceDescription {
 }
 
 /**
+ * @public
  * Represents the output of a DescribeRuleGroupsNamespace operation.
  */
 export interface DescribeRuleGroupsNamespaceResponse {
@@ -1021,6 +1097,7 @@ export interface DescribeRuleGroupsNamespaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of a ListRuleGroupsNamespaces operation.
  */
 export interface ListRuleGroupsNamespacesRequest {
@@ -1046,6 +1123,7 @@ export interface ListRuleGroupsNamespacesRequest {
 }
 
 /**
+ * @public
  * Represents a summary of the rule groups namespace.
  */
 export interface RuleGroupsNamespaceSummary {
@@ -1081,6 +1159,7 @@ export interface RuleGroupsNamespaceSummary {
 }
 
 /**
+ * @public
  * Represents the output of a ListRuleGroupsNamespaces operation.
  */
 export interface ListRuleGroupsNamespacesResponse {
@@ -1096,6 +1175,7 @@ export interface ListRuleGroupsNamespacesResponse {
 }
 
 /**
+ * @public
  * Represents the input of a PutRuleGroupsNamespace operation.
  */
 export interface PutRuleGroupsNamespaceRequest {
@@ -1121,6 +1201,7 @@ export interface PutRuleGroupsNamespaceRequest {
 }
 
 /**
+ * @public
  * Represents the output of a PutRuleGroupsNamespace operation.
  */
 export interface PutRuleGroupsNamespaceResponse {
@@ -1146,6 +1227,7 @@ export interface PutRuleGroupsNamespaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of an UpdateWorkspaceAlias operation.
  */
 export interface UpdateWorkspaceAliasRequest {

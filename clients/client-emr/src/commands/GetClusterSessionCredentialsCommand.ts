@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClusterSessionCredentialsCommand}.
  */
 export interface GetClusterSessionCredentialsCommandInput extends GetClusterSessionCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetClusterSessionCredentialsCommand}.
  */
 export interface GetClusterSessionCredentialsCommandOutput
@@ -37,6 +41,7 @@ export interface GetClusterSessionCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides temporary, HTTP basic credentials that are associated with a given runtime IAM role
  *          and used by a cluster with fine-grained access control activated. You can use these credentials to connect to cluster endpoints that support username and password authentication.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetClusterSessionCredentialsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClusterSessionCredentialsCommandInput - {@link GetClusterSessionCredentialsCommandInput}
+ * @returns {@link GetClusterSessionCredentialsCommandOutput}
  * @see {@link GetClusterSessionCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetClusterSessionCredentialsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetClusterSessionCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClusterSessionCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetClusterSessionCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClusterSessionCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetClusterSessionCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

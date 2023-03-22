@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeApplicationFleetAssociationsCommand}.
  */
 export interface DescribeApplicationFleetAssociationsCommandInput extends DescribeApplicationFleetAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeApplicationFleetAssociationsCommand}.
  */
 export interface DescribeApplicationFleetAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeApplicationFleetAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more application fleet associations. Either ApplicationArn or FleetName must be specified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeApplicationFleetAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationFleetAssociationsCommandInput - {@link DescribeApplicationFleetAssociationsCommandInput}
+ * @returns {@link DescribeApplicationFleetAssociationsCommandOutput}
  * @see {@link DescribeApplicationFleetAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationFleetAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationFleetAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeApplicationFleetAssociationsCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command<
     return serializeAws_json1_1DescribeApplicationFleetAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

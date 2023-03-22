@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateIamInstanceProfileCommand}.
  */
 export interface DisassociateIamInstanceProfileCommandInput extends DisassociateIamInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateIamInstanceProfileCommand}.
  */
 export interface DisassociateIamInstanceProfileCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateIamInstanceProfileCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
  *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
  *             ID.</p>
@@ -50,6 +55,8 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateIamInstanceProfileCommandInput - {@link DisassociateIamInstanceProfileCommandInput}
+ * @returns {@link DisassociateIamInstanceProfileCommandOutput}
  * @see {@link DisassociateIamInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DisassociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -97,6 +104,9 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateIamInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateIamInstanceProfileCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     return serializeAws_ec2DisassociateIamInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

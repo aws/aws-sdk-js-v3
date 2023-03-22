@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIPSetCommand}.
  */
 export interface DeleteIPSetCommandInput extends DeleteIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIPSetCommand}.
  */
 export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP
  *       lists in the console user interface.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIPSetCommandInput - {@link DeleteIPSetCommandInput}
+ * @returns {@link DeleteIPSetCommandOutput}
  * @see {@link DeleteIPSetCommandInput} for command's `input` shape.
  * @see {@link DeleteIPSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteIPSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIPSetCommandOutput> {
     return deserializeAws_restJson1DeleteIPSetCommand(output, context);
   }

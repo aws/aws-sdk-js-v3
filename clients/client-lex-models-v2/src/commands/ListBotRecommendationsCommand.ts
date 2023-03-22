@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBotRecommendationsCommand}.
  */
 export interface ListBotRecommendationsCommandInput extends ListBotRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBotRecommendationsCommand}.
  */
 export interface ListBotRecommendationsCommandOutput extends ListBotRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list of bot recommendations that meet the specified
  *          criteria.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBotRecommendationsCommandInput - {@link ListBotRecommendationsCommandInput}
+ * @returns {@link ListBotRecommendationsCommandOutput}
  * @see {@link ListBotRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListBotRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -86,6 +93,9 @@ export class ListBotRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBotRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListBotRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBotRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBotRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotRecommendationsCommandOutput> {
     return deserializeAws_restJson1ListBotRecommendationsCommand(output, context);
   }

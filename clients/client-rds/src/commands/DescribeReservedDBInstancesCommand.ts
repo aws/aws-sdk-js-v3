@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedDBInstancesCommand}.
  */
 export interface DescribeReservedDBInstancesCommandInput extends DescribeReservedDBInstancesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedDBInstancesCommand}.
  */
 export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInstanceMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedDBInstancesCommandInput - {@link DescribeReservedDBInstancesCommandInput}
+ * @returns {@link DescribeReservedDBInstancesCommandOutput}
  * @see {@link DescribeReservedDBInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeReservedDBInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedDBInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeReservedDBInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservedDBInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeReservedDBInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

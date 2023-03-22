@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link VerifySMSSandboxPhoneNumberCommand}.
  */
 export interface VerifySMSSandboxPhoneNumberCommandInput extends VerifySMSSandboxPhoneNumberInput {}
 /**
+ * @public
+ *
  * The output of {@link VerifySMSSandboxPhoneNumberCommand}.
  */
 export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verifies a destination phone number with a one-time password (OTP) for the calling
  *             Amazon Web Services account.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -55,6 +60,8 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifySMSSandboxPhoneNumberCommandInput - {@link VerifySMSSandboxPhoneNumberCommandInput}
+ * @returns {@link VerifySMSSandboxPhoneNumberCommandOutput}
  * @see {@link VerifySMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link VerifySMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -98,6 +105,9 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifySMSSandboxPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifySMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryVerifySMSSandboxPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

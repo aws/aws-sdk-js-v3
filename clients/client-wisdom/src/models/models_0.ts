@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { WisdomServiceException as __BaseException } from "./WisdomServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Configuration information for Amazon AppIntegrations to automatically ingest content.</p>
  */
 export interface AppIntegrationsConfiguration {
@@ -84,6 +86,7 @@ export interface AppIntegrationsConfiguration {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *       resource. For example, if you're using a <code>Create</code> API (such as
  *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
@@ -106,12 +109,16 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The data that is input into Wisdom as a result of the assistant association.</p>
  */
 export type AssistantAssociationInputData =
   | AssistantAssociationInputData.KnowledgeBaseIdMember
   | AssistantAssociationInputData.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AssistantAssociationInputData {
   /**
    * <p>The identifier of the knowledge base.</p>
@@ -137,10 +144,16 @@ export namespace AssistantAssociationInputData {
   };
 }
 
+/**
+ * @public
+ */
 export enum AssociationType {
   KNOWLEDGE_BASE = "KNOWLEDGE_BASE",
 }
 
+/**
+ * @public
+ */
 export interface CreateAssistantAssociationRequest {
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -172,6 +185,7 @@ export interface CreateAssistantAssociationRequest {
 }
 
 /**
+ * @public
  * <p>Association information about the knowledge base.</p>
  */
 export interface KnowledgeBaseAssociationData {
@@ -187,12 +201,16 @@ export interface KnowledgeBaseAssociationData {
 }
 
 /**
+ * @public
  * <p>The data that is output as a result of the assistant association.</p>
  */
 export type AssistantAssociationOutputData =
   | AssistantAssociationOutputData.KnowledgeBaseAssociationMember
   | AssistantAssociationOutputData.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AssistantAssociationOutputData {
   /**
    * <p>The knowledge base where output data is sent.</p>
@@ -220,6 +238,7 @@ export namespace AssistantAssociationOutputData {
 }
 
 /**
+ * @public
  * <p>Information about the assistant association.</p>
  */
 export interface AssistantAssociationData {
@@ -259,6 +278,9 @@ export interface AssistantAssociationData {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssistantAssociationResponse {
   /**
    * <p>The assistant association.</p>
@@ -267,6 +289,7 @@ export interface CreateAssistantAssociationResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -292,6 +315,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've exceeded your service quota. To perform the requested action, remove some of the
  *       relevant resources, or use service quotas to request a service quota increase.</p>
  */
@@ -312,6 +336,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by a service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -330,6 +355,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssistantAssociationRequest {
   /**
    * <p>The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -342,8 +370,14 @@ export interface DeleteAssistantAssociationRequest {
   assistantId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssistantAssociationResponse {}
 
+/**
+ * @public
+ */
 export interface GetAssistantAssociationRequest {
   /**
    * <p>The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -356,6 +390,9 @@ export interface GetAssistantAssociationRequest {
   assistantId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssistantAssociationResponse {
   /**
    * <p>The assistant association.</p>
@@ -363,6 +400,9 @@ export interface GetAssistantAssociationResponse {
   assistantAssociation?: AssistantAssociationData;
 }
 
+/**
+ * @public
+ */
 export interface ListAssistantAssociationsRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -382,6 +422,7 @@ export interface ListAssistantAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the assistant association.</p>
  */
 export interface AssistantAssociationSummary {
@@ -421,6 +462,9 @@ export interface AssistantAssociationSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListAssistantAssociationsResponse {
   /**
    * <p>Summary information about assistant associations.</p>
@@ -434,6 +478,7 @@ export interface ListAssistantAssociationsResponse {
 }
 
 /**
+ * @public
  * <p>The KMS key used for encryption.</p>
  */
 export interface ServerSideEncryptionConfiguration {
@@ -444,10 +489,16 @@ export interface ServerSideEncryptionConfiguration {
   kmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export enum AssistantType {
   AGENT = "AGENT",
 }
 
+/**
+ * @public
+ */
 export interface CreateAssistantRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -483,6 +534,9 @@ export interface CreateAssistantRequest {
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum AssistantStatus {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -493,6 +547,7 @@ export enum AssistantStatus {
 }
 
 /**
+ * @public
  * <p>The assistant data.</p>
  */
 export interface AssistantData {
@@ -537,6 +592,9 @@ export interface AssistantData {
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateAssistantResponse {
   /**
    * <p>Information about the assistant.</p>
@@ -544,6 +602,9 @@ export interface CreateAssistantResponse {
   assistant?: AssistantData;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssistantRequest {
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -551,8 +612,14 @@ export interface DeleteAssistantRequest {
   assistantId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssistantResponse {}
 
+/**
+ * @public
+ */
 export interface GetAssistantRequest {
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -560,6 +627,9 @@ export interface GetAssistantRequest {
   assistantId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssistantResponse {
   /**
    * <p>Information about the assistant.</p>
@@ -567,6 +637,9 @@ export interface GetAssistantResponse {
   assistant?: AssistantData;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationsRequest {
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -593,6 +666,7 @@ export interface GetRecommendationsRequest {
 }
 
 /**
+ * @public
  * <p>Reference information about the content.</p>
  */
 export interface ContentReference {
@@ -618,6 +692,7 @@ export interface ContentReference {
 }
 
 /**
+ * @public
  * <p>Offset specification to describe highlighting of document excerpts for rendering search
  *       results and recommendations.</p>
  */
@@ -634,6 +709,7 @@ export interface Highlight {
 }
 
 /**
+ * @public
  * <p>The text of the document.</p>
  */
 export interface DocumentText {
@@ -649,6 +725,7 @@ export interface DocumentText {
 }
 
 /**
+ * @public
  * <p>The document.</p>
  */
 export interface Document {
@@ -668,17 +745,24 @@ export interface Document {
   excerpt?: DocumentText;
 }
 
+/**
+ * @public
+ */
 export enum RelevanceLevel {
   HIGH = "HIGH",
   LOW = "LOW",
   MEDIUM = "MEDIUM",
 }
 
+/**
+ * @public
+ */
 export enum RecommendationType {
   KNOWLEDGE_CONTENT = "KNOWLEDGE_CONTENT",
 }
 
 /**
+ * @public
  * <p>Information about the recommendation.</p>
  */
 export interface RecommendationData {
@@ -709,6 +793,7 @@ export interface RecommendationData {
 }
 
 /**
+ * @public
  * <p>Data associated with the QUERY RecommendationTriggerType.</p>
  */
 export interface QueryRecommendationTriggerData {
@@ -719,12 +804,16 @@ export interface QueryRecommendationTriggerData {
 }
 
 /**
+ * @public
  * <p>A union type containing information related to the trigger.</p>
  */
 export type RecommendationTriggerData =
   | RecommendationTriggerData.QueryMember
   | RecommendationTriggerData.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RecommendationTriggerData {
   /**
    * <p>Data associated with the QUERY RecommendationTriggerType.</p>
@@ -750,17 +839,24 @@ export namespace RecommendationTriggerData {
   };
 }
 
+/**
+ * @public
+ */
 export enum RecommendationSourceType {
   ISSUE_DETECTION = "ISSUE_DETECTION",
   OTHER = "OTHER",
   RULE_EVALUATION = "RULE_EVALUATION",
 }
 
+/**
+ * @public
+ */
 export enum RecommendationTriggerType {
   QUERY = "QUERY",
 }
 
 /**
+ * @public
  * <p>A recommendation trigger provides context on the event that produced the referenced
  *       recommendations. Recommendations are only referenced in <code>recommendationIds</code> by a
  *       single RecommendationTrigger.</p>
@@ -802,6 +898,9 @@ export interface RecommendationTrigger {
   recommendationIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationsResponse {
   /**
    * <p>The recommendations.</p>
@@ -814,6 +913,9 @@ export interface GetRecommendationsResponse {
   triggers?: RecommendationTrigger[];
 }
 
+/**
+ * @public
+ */
 export interface ListAssistantsRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -828,6 +930,7 @@ export interface ListAssistantsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the assistant.</p>
  */
 export interface AssistantSummary {
@@ -872,6 +975,9 @@ export interface AssistantSummary {
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface ListAssistantsResponse {
   /**
    * <p>Information about the assistants.</p>
@@ -884,6 +990,9 @@ export interface ListAssistantsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyRecommendationsReceivedRequest {
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -902,6 +1011,7 @@ export interface NotifyRecommendationsReceivedRequest {
 }
 
 /**
+ * @public
  * <p>An error occurred when creating a recommendation.</p>
  */
 export interface NotifyRecommendationsReceivedError {
@@ -916,6 +1026,9 @@ export interface NotifyRecommendationsReceivedError {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyRecommendationsReceivedResponse {
   /**
    * <p>The identifiers of the recommendations.</p>
@@ -928,6 +1041,9 @@ export interface NotifyRecommendationsReceivedResponse {
   errors?: NotifyRecommendationsReceivedError[];
 }
 
+/**
+ * @public
+ */
 export interface QueryAssistantRequest {
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -952,6 +1068,7 @@ export interface QueryAssistantRequest {
 }
 
 /**
+ * @public
  * <p>Information about the result.</p>
  */
 export interface ResultData {
@@ -971,6 +1088,9 @@ export interface ResultData {
   relevanceScore?: number;
 }
 
+/**
+ * @public
+ */
 export interface QueryAssistantResponse {
   /**
    * <p>The results of the query.</p>
@@ -983,15 +1103,22 @@ export interface QueryAssistantResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum FilterField {
   NAME = "NAME",
 }
 
+/**
+ * @public
+ */
 export enum FilterOperator {
   EQUALS = "EQUALS",
 }
 
 /**
+ * @public
  * <p>A search filter.</p>
  */
 export interface Filter {
@@ -1012,6 +1139,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>The search expression.</p>
  */
 export interface SearchExpression {
@@ -1021,6 +1149,9 @@ export interface SearchExpression {
   filters: Filter[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchSessionsRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -1045,6 +1176,7 @@ export interface SearchSessionsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the session.</p>
  */
 export interface SessionSummary {
@@ -1069,6 +1201,9 @@ export interface SessionSummary {
   assistantArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchSessionsResponse {
   /**
    * <p>Summary information about the sessions.</p>
@@ -1081,6 +1216,9 @@ export interface SearchSessionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSessionRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1112,6 +1250,7 @@ export interface CreateSessionRequest {
 }
 
 /**
+ * @public
  * <p>Information about the session.</p>
  */
 export interface SessionData {
@@ -1141,6 +1280,9 @@ export interface SessionData {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSessionResponse {
   /**
    * <p>The session.</p>
@@ -1148,6 +1290,9 @@ export interface CreateSessionResponse {
   session?: SessionData;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionRequest {
   /**
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1160,6 +1305,9 @@ export interface GetSessionRequest {
   sessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionResponse {
   /**
    * <p>The session.</p>
@@ -1167,6 +1315,9 @@ export interface GetSessionResponse {
   session?: SessionData;
 }
 
+/**
+ * @public
+ */
 export interface CreateContentRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1216,6 +1367,9 @@ export interface CreateContentRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ContentStatus {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -1227,6 +1381,7 @@ export enum ContentStatus {
 }
 
 /**
+ * @public
  * <p>Information about the content.</p>
  */
 export interface ContentData {
@@ -1302,6 +1457,9 @@ export interface ContentData {
   urlExpiry: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateContentResponse {
   /**
    * <p>The content.</p>
@@ -1309,6 +1467,9 @@ export interface CreateContentResponse {
   content?: ContentData;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContentRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1321,8 +1482,14 @@ export interface DeleteContentRequest {
   contentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContentResponse {}
 
+/**
+ * @public
+ */
 export interface GetContentRequest {
   /**
    * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1335,6 +1502,9 @@ export interface GetContentRequest {
   knowledgeBaseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContentResponse {
   /**
    * <p>The content.</p>
@@ -1342,6 +1512,9 @@ export interface GetContentResponse {
   content?: ContentData;
 }
 
+/**
+ * @public
+ */
 export interface GetContentSummaryRequest {
   /**
    * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1355,6 +1528,7 @@ export interface GetContentSummaryRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the content.</p>
  */
 export interface ContentSummary {
@@ -1415,6 +1589,9 @@ export interface ContentSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetContentSummaryResponse {
   /**
    * <p>The content summary.</p>
@@ -1422,6 +1599,9 @@ export interface GetContentSummaryResponse {
   contentSummary?: ContentSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListContentsRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -1440,6 +1620,9 @@ export interface ListContentsRequest {
   knowledgeBaseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListContentsResponse {
   /**
    * <p>Information about the content.</p>
@@ -1453,6 +1636,7 @@ export interface ListContentsResponse {
 }
 
 /**
+ * @public
  * <p>The provided <code>revisionId</code> does not match, indicating the content has been
  *       modified since it was last read.</p>
  */
@@ -1472,6 +1656,9 @@ export class PreconditionFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateContentRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN</p>
@@ -1523,6 +1710,9 @@ export interface UpdateContentRequest {
   uploadId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContentResponse {
   /**
    * <p>The content.</p>
@@ -1530,17 +1720,21 @@ export interface UpdateContentResponse {
   content?: ContentData;
 }
 
+/**
+ * @public
+ */
 export enum KnowledgeBaseType {
   CUSTOM = "CUSTOM",
   EXTERNAL = "EXTERNAL",
 }
 
 /**
+ * @public
  * <p>Information about how to render the content.</p>
  */
 export interface RenderingConfiguration {
   /**
-   * <p>A URI template containing exactly one variable in <code>${variableName} </code>format.
+   * <p>A URI template containing exactly one variable in <code>$\{variableName\} </code>format.
    *       This can only be set for <code>EXTERNAL</code> knowledge bases. For Salesforce, ServiceNow,
    *       and Zendesk, the variable must be one of the following:</p>
    *          <ul>
@@ -1566,10 +1760,14 @@ export interface RenderingConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration information about the external data source.</p>
  */
 export type SourceConfiguration = SourceConfiguration.AppIntegrationsMember | SourceConfiguration.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SourceConfiguration {
   /**
    * <p>Configuration information for Amazon AppIntegrations to automatically ingest content.</p>
@@ -1595,6 +1793,9 @@ export namespace SourceConfiguration {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateKnowledgeBaseRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1643,6 +1844,9 @@ export interface CreateKnowledgeBaseRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum KnowledgeBaseStatus {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -1653,6 +1857,7 @@ export enum KnowledgeBaseStatus {
 }
 
 /**
+ * @public
  * <p>Information about the knowledge base.</p>
  */
 export interface KnowledgeBaseData {
@@ -1713,6 +1918,9 @@ export interface KnowledgeBaseData {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateKnowledgeBaseResponse {
   /**
    * <p>The knowledge base.</p>
@@ -1720,6 +1928,9 @@ export interface CreateKnowledgeBaseResponse {
   knowledgeBase?: KnowledgeBaseData;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKnowledgeBaseRequest {
   /**
    * <p>The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1727,8 +1938,14 @@ export interface DeleteKnowledgeBaseRequest {
   knowledgeBaseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKnowledgeBaseResponse {}
 
+/**
+ * @public
+ */
 export interface GetKnowledgeBaseRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1736,6 +1953,9 @@ export interface GetKnowledgeBaseRequest {
   knowledgeBaseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetKnowledgeBaseResponse {
   /**
    * <p>The knowledge base.</p>
@@ -1743,6 +1963,9 @@ export interface GetKnowledgeBaseResponse {
   knowledgeBase?: KnowledgeBaseData;
 }
 
+/**
+ * @public
+ */
 export interface ListKnowledgeBasesRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -1757,6 +1980,7 @@ export interface ListKnowledgeBasesRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the knowledge base.</p>
  */
 export interface KnowledgeBaseSummary {
@@ -1811,6 +2035,9 @@ export interface KnowledgeBaseSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListKnowledgeBasesResponse {
   /**
    * <p>Information about the knowledge bases.</p>
@@ -1823,6 +2050,9 @@ export interface ListKnowledgeBasesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveKnowledgeBaseTemplateUriRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1830,8 +2060,14 @@ export interface RemoveKnowledgeBaseTemplateUriRequest {
   knowledgeBaseId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveKnowledgeBaseTemplateUriResponse {}
 
+/**
+ * @public
+ */
 export interface SearchContentRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -1855,6 +2091,9 @@ export interface SearchContentRequest {
   searchExpression: SearchExpression | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchContentResponse {
   /**
    * <p>Summary information about the content.</p>
@@ -1867,6 +2106,9 @@ export interface SearchContentResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartContentUploadRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1879,6 +2121,9 @@ export interface StartContentUploadRequest {
   contentType: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartContentUploadResponse {
   /**
    * <p>The identifier of the upload.</p>
@@ -1901,6 +2146,9 @@ export interface StartContentUploadResponse {
   headersToInclude: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateKnowledgeBaseTemplateUriRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -1913,6 +2161,9 @@ export interface UpdateKnowledgeBaseTemplateUriRequest {
   templateUri: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateKnowledgeBaseTemplateUriResponse {
   /**
    * <p>The knowledge base to update.</p>
@@ -1920,6 +2171,9 @@ export interface UpdateKnowledgeBaseTemplateUriResponse {
   knowledgeBase?: KnowledgeBaseData;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1927,6 +2181,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -1934,6 +2191,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1946,9 +2206,13 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>Amazon Connect Wisdom throws this exception if you have too many tags in your tag set.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -1973,6 +2237,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1985,6 +2252,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

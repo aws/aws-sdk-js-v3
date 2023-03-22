@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteQueryCommand}.
  */
 export interface ExecuteQueryCommandInput extends ExecuteQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteQueryCommand}.
  */
 export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Run queries to access information from your knowledge graph of entities within individual workspaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteQueryCommandInput - {@link ExecuteQueryCommandInput}
+ * @returns {@link ExecuteQueryCommandOutput}
  * @see {@link ExecuteQueryCommandInput} for command's `input` shape.
  * @see {@link ExecuteQueryCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -87,6 +94,9 @@ export class ExecuteQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ExecuteQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExecuteQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteQueryCommandOutput> {
     return deserializeAws_restJson1ExecuteQueryCommand(output, context);
   }

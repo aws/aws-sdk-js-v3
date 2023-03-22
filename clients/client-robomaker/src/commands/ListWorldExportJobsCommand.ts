@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorldExportJobsCommand}.
  */
 export interface ListWorldExportJobsCommandInput extends ListWorldExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorldExportJobsCommand}.
  */
 export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists world export jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorldExportJobsCommandInput - {@link ListWorldExportJobsCommandInput}
+ * @returns {@link ListWorldExportJobsCommandOutput}
  * @see {@link ListWorldExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListWorldExportJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListWorldExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorldExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListWorldExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorldExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWorldExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorldExportJobsCommandOutput> {
     return deserializeAws_restJson1ListWorldExportJobsCommand(output, context);
   }

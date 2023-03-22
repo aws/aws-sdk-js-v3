@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchChannelsCommand}.
  */
 export interface SearchChannelsCommandInput extends SearchChannelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchChannelsCommand}.
  */
 export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchChannelsCommandInput - {@link SearchChannelsCommandInput}
+ * @returns {@link SearchChannelsCommandOutput}
  * @see {@link SearchChannelsCommandInput} for command's `input` shape.
  * @see {@link SearchChannelsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -91,6 +98,9 @@ export class SearchChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class SearchChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchChannelsCommandOutput> {
     return deserializeAws_restJson1SearchChannelsCommand(output, context);
   }

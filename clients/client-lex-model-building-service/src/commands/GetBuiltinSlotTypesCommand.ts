@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBuiltinSlotTypesCommand}.
  */
 export interface GetBuiltinSlotTypesCommandInput extends GetBuiltinSlotTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBuiltinSlotTypesCommand}.
  */
 export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of built-in slot types that meet the specified
  *       criteria.</p>
  *          <p>For a list of built-in slot types, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference">Slot Type Reference</a> in the <i>Alexa Skills
@@ -56,6 +61,8 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBuiltinSlotTypesCommandInput - {@link GetBuiltinSlotTypesCommandInput}
+ * @returns {@link GetBuiltinSlotTypesCommandOutput}
  * @see {@link GetBuiltinSlotTypesCommandInput} for command's `input` shape.
  * @see {@link GetBuiltinSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetBuiltinSlotTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBuiltinSlotTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetBuiltinSlotTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBuiltinSlotTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBuiltinSlotTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBuiltinSlotTypesCommandOutput> {
     return deserializeAws_restJson1GetBuiltinSlotTypesCommand(output, context);
   }

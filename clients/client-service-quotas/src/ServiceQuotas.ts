@@ -95,12 +95,14 @@ import {
 import { ServiceQuotasClient } from "./ServiceQuotasClient";
 
 /**
+ * @public
  * <p>With Service Quotas, you can view and manage your quotas easily as your AWS workloads
  *       grow. Quotas, also referred to as limits, are the maximum number of resources that you can
  *       create in your AWS account. For more information, see the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/">Service Quotas User Guide</a>.</p>
  */
 export class ServiceQuotas extends ServiceQuotasClient {
   /**
+   * @public
    * <p>Associates your quota request template with your organization. When a new account is
    *       created in your organization, the quota increase requests in the template are automatically
    *       applied to the account. You can add a quota increase request for any adjustable quota to your
@@ -136,6 +138,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Deletes the quota increase request for the specified quota from your quota request
    *       template.</p>
    */
@@ -171,6 +174,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Disables your quota request template. After a template is disabled, the quota increase
    *       requests in the template are not applied to new accounts in your organization. Disabling a
    *       quota request template does not apply its quota increase requests.</p>
@@ -205,6 +209,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the status of the association for the quota request template.</p>
    */
   public getAssociationForServiceQuotaTemplate(
@@ -239,6 +244,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the default value for the specified quota. The default value does not reflect
    *       any quota increases.</p>
    */
@@ -272,6 +278,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the specified quota increase request.</p>
    */
   public getRequestedServiceQuotaChange(
@@ -304,6 +311,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the applied quota value for the specified quota. For some quotas, only the
    *       default values are available. If the applied quota value is not available for a quota, the
    *       quota is not retrieved.</p>
@@ -338,6 +346,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the specified quota increase request in your quota request
    *       template.</p>
    */
@@ -373,6 +382,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Lists the default values for the quotas for the specified AWS service. A default value
    *       does not reflect any quota increases.</p>
    */
@@ -406,6 +416,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the quota increase requests for the specified service.</p>
    */
   public listRequestedServiceQuotaChangeHistory(
@@ -440,6 +451,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the quota increase requests for the specified quota.</p>
    */
   public listRequestedServiceQuotaChangeHistoryByQuota(
@@ -474,6 +486,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Lists the quota increase requests in the specified quota request template.</p>
    */
   public listServiceQuotaIncreaseRequestsInTemplate(
@@ -508,6 +521,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Lists the applied quota values for the specified AWS service. For some quotas, only the
    *       default values are available. If the applied quota value is not available for a quota, the
    *       quota is not retrieved.</p>
@@ -542,6 +556,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Lists the names and codes for the services integrated with Service Quotas.</p>
    */
   public listServices(
@@ -571,6 +586,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the tags assigned to the specified applied quota.</p>
    */
   public listTagsForResource(
@@ -603,6 +619,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Adds a quota increase request to your quota request template.</p>
    */
   public putServiceQuotaIncreaseRequestIntoTemplate(
@@ -637,6 +654,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Submits a quota increase request for the specified quota.</p>
    */
   public requestServiceQuotaIncrease(
@@ -669,6 +687,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to the specified applied quota. You can include one or more tags to add to the
    *       quota.</p>
    */
@@ -696,6 +715,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from the specified applied quota. You can specify one or more tags to
    *       remove.</p>
    */

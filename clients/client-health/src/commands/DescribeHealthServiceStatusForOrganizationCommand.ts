@@ -24,10 +24,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHealthServiceStatusForOrganizationCommand}.
  */
 export interface DescribeHealthServiceStatusForOrganizationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHealthServiceStatusForOrganizationCommand}.
  */
 export interface DescribeHealthServiceStatusForOrganizationCommandOutput
@@ -35,6 +39,7 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation provides status information on enabling or disabling Health to work
  *          with your organization. To call this operation, you must sign in as an IAM user, assume
  *          an IAM role, or sign in as the root user (not recommended) in the organization's
@@ -49,6 +54,8 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHealthServiceStatusForOrganizationCommandInput - {@link DescribeHealthServiceStatusForOrganizationCommandInput}
+ * @returns {@link DescribeHealthServiceStatusForOrganizationCommandOutput}
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHealthServiceStatusForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeHealthServiceStatusForOrganizationCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     return serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

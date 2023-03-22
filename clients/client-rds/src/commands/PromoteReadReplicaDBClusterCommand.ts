@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PromoteReadReplicaDBClusterCommand}.
  */
 export interface PromoteReadReplicaDBClusterCommandInput extends PromoteReadReplicaDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link PromoteReadReplicaDBClusterCommand}.
  */
 export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadReplicaDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Promotes a read replica DB cluster to a standalone DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * const response = await client.send(command);
  * ```
  *
+ * @param PromoteReadReplicaDBClusterCommandInput - {@link PromoteReadReplicaDBClusterCommandInput}
+ * @returns {@link PromoteReadReplicaDBClusterCommandOutput}
  * @see {@link PromoteReadReplicaDBClusterCommandInput} for command's `input` shape.
  * @see {@link PromoteReadReplicaDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -76,6 +83,9 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PromoteReadReplicaDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PromoteReadReplicaDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPromoteReadReplicaDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

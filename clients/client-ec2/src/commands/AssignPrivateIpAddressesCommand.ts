@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssignPrivateIpAddressesCommand}.
  */
 export interface AssignPrivateIpAddressesCommandInput extends AssignPrivateIpAddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignPrivateIpAddressesCommand}.
  */
 export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns one or more secondary private IP addresses to the specified network interface.</p>
  *          <p>You can specify one or more specific secondary IP addresses, or you can specify the number
  *             of secondary IP addresses to be automatically assigned within the subnet's CIDR block range.
@@ -61,6 +66,8 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignPrivateIpAddressesCommandInput - {@link AssignPrivateIpAddressesCommandInput}
+ * @returns {@link AssignPrivateIpAddressesCommandOutput}
  * @see {@link AssignPrivateIpAddressesCommandInput} for command's `input` shape.
  * @see {@link AssignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -110,6 +117,9 @@ export class AssignPrivateIpAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignPrivateIpAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class AssignPrivateIpAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssignPrivateIpAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssignPrivateIpAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignPrivateIpAddressesCommandOutput> {
     return deserializeAws_ec2AssignPrivateIpAddressesCommand(output, context);
   }

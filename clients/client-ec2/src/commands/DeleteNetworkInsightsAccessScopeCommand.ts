@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkInsightsAccessScopeCommand}.
  */
 export interface DeleteNetworkInsightsAccessScopeCommandInput extends DeleteNetworkInsightsAccessScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkInsightsAccessScopeCommand}.
  */
 export interface DeleteNetworkInsightsAccessScopeCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteNetworkInsightsAccessScopeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Network Access Scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteNetworkInsightsAccessScopeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInsightsAccessScopeCommandInput - {@link DeleteNetworkInsightsAccessScopeCommandInput}
+ * @returns {@link DeleteNetworkInsightsAccessScopeCommandOutput}
  * @see {@link DeleteNetworkInsightsAccessScopeCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsAccessScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInsightsAccessScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNetworkInsightsAccessScopeCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command<
     return serializeAws_ec2DeleteNetworkInsightsAccessScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

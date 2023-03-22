@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContainerRecipeCommand}.
  */
 export interface CreateContainerRecipeCommandInput extends CreateContainerRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContainerRecipeCommand}.
  */
 export interface CreateContainerRecipeCommandOutput extends CreateContainerRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContainerRecipeCommandInput - {@link CreateContainerRecipeCommandInput}
+ * @returns {@link CreateContainerRecipeCommandOutput}
  * @see {@link CreateContainerRecipeCommandInput} for command's `input` shape.
  * @see {@link CreateContainerRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateContainerRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContainerRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateContainerRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContainerRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateContainerRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContainerRecipeCommandOutput> {
     return deserializeAws_restJson1CreateContainerRecipeCommand(output, context);
   }

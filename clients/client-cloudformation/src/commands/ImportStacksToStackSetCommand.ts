@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ImportStacksToStackSetCommand}.
  */
 export interface ImportStacksToStackSetCommandInput extends ImportStacksToStackSetInput {}
 /**
+ * @public
+ *
  * The output of {@link ImportStacksToStackSetCommand}.
  */
 export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStackSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Import existing stacks into a new stack sets. Use the stack import operation to import
  *          up to 10 stacks into a new stack set in the same account as the source stack or in a
  *          different administrator account and Region, by specifying the stack ID of the stack you
@@ -54,6 +59,8 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportStacksToStackSetCommandInput - {@link ImportStacksToStackSetCommandInput}
+ * @returns {@link ImportStacksToStackSetCommandOutput}
  * @see {@link ImportStacksToStackSetCommandInput} for command's `input` shape.
  * @see {@link ImportStacksToStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -103,6 +110,9 @@ export class ImportStacksToStackSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportStacksToStackSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class ImportStacksToStackSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportStacksToStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryImportStacksToStackSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportStacksToStackSetCommandOutput> {
     return deserializeAws_queryImportStacksToStackSetCommand(output, context);
   }

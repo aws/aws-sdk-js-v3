@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserHierarchyStructureCommand}.
  */
 export interface DescribeUserHierarchyStructureCommandInput extends DescribeUserHierarchyStructureRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserHierarchyStructureCommand}.
  */
 export interface DescribeUserHierarchyStructureCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeUserHierarchyStructureCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeUserHierarchyStructureCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserHierarchyStructureCommandInput - {@link DescribeUserHierarchyStructureCommandInput}
+ * @returns {@link DescribeUserHierarchyStructureCommandOutput}
  * @see {@link DescribeUserHierarchyStructureCommandInput} for command's `input` shape.
  * @see {@link DescribeUserHierarchyStructureCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserHierarchyStructureCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeUserHierarchyStructureCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     return serializeAws_restJson1DescribeUserHierarchyStructureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

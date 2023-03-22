@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceDefinitionVersionCommand}.
  */
 export interface GetResourceDefinitionVersionCommandInput extends GetResourceDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceDefinitionVersionCommand}.
  */
 export interface GetResourceDefinitionVersionCommandOutput
@@ -37,6 +41,7 @@ export interface GetResourceDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a resource definition version, including which resources are included in the version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetResourceDefinitionVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceDefinitionVersionCommandInput - {@link GetResourceDefinitionVersionCommandInput}
+ * @returns {@link GetResourceDefinitionVersionCommandOutput}
  * @see {@link GetResourceDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetResourceDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class GetResourceDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetResourceDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourceDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

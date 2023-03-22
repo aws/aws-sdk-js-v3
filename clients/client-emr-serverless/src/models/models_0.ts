@@ -3,12 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { EMRServerlessServiceException as __BaseException } from "./EMRServerlessServiceException";
 
+/**
+ * @public
+ */
 export enum Architecture {
   ARM64 = "ARM64",
   X86_64 = "X86_64",
 }
 
 /**
+ * @public
  * <p>The configuration for an application to automatically start on job submission.</p>
  */
 export interface AutoStartConfig {
@@ -20,6 +24,7 @@ export interface AutoStartConfig {
 }
 
 /**
+ * @public
  * <p>The configuration for an application to automatically stop after a certain amount of
  *          time being idle.</p>
  */
@@ -38,6 +43,7 @@ export interface AutoStopConfig {
 }
 
 /**
+ * @public
  * <p>The applied image configuration.</p>
  */
 export interface ImageConfiguration {
@@ -54,6 +60,7 @@ export interface ImageConfiguration {
 }
 
 /**
+ * @public
  * <p>The cumulative configuration requirements for every worker instance of the worker
  *          type.</p>
  */
@@ -75,6 +82,7 @@ export interface WorkerResourceConfig {
 }
 
 /**
+ * @public
  * <p>The initial capacity configuration per worker.</p>
  */
 export interface InitialCapacityConfig {
@@ -90,6 +98,7 @@ export interface InitialCapacityConfig {
 }
 
 /**
+ * @public
  * <p>The maximum allowed cumulative resources for an application. No new resources will be
  *          created once the limit is hit.</p>
  */
@@ -111,6 +120,7 @@ export interface MaximumAllowedResources {
 }
 
 /**
+ * @public
  * <p>The network configuration for customer VPC connectivity.</p>
  */
 export interface NetworkConfiguration {
@@ -125,6 +135,9 @@ export interface NetworkConfiguration {
   securityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ApplicationState {
   CREATED = "CREATED",
   CREATING = "CREATING",
@@ -136,6 +149,7 @@ export enum ApplicationState {
 }
 
 /**
+ * @public
  * <p>The specifications for a worker type.</p>
  */
 export interface WorkerTypeSpecification {
@@ -146,6 +160,7 @@ export interface WorkerTypeSpecification {
 }
 
 /**
+ * @public
  * <p>Information about an application. EMR Serverless uses applications to run jobs.</p>
  */
 export interface Application {
@@ -244,6 +259,7 @@ export interface Application {
 }
 
 /**
+ * @public
  * <p>The summary of attributes associated with an application.</p>
  */
 export interface ApplicationSummary {
@@ -299,6 +315,7 @@ export interface ApplicationSummary {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
@@ -319,6 +336,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The image configuration.</p>
  */
 export interface ImageConfigurationInput {
@@ -330,6 +348,7 @@ export interface ImageConfigurationInput {
 }
 
 /**
+ * @public
  * <p>The specifications for a worker type.</p>
  */
 export interface WorkerTypeSpecificationInput {
@@ -339,6 +358,9 @@ export interface WorkerTypeSpecificationInput {
   imageConfiguration?: ImageConfigurationInput;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -414,6 +436,9 @@ export interface CreateApplicationRequest {
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationResponse {
   /**
    * <p>The output contains the application ID.</p>
@@ -432,6 +457,7 @@ export interface CreateApplicationResponse {
 }
 
 /**
+ * @public
  * <p>Request processing failed because of an error or failure with the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -451,6 +477,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -470,6 +497,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -488,6 +516,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The ID of the application that will be deleted.</p>
@@ -495,8 +526,14 @@ export interface DeleteApplicationRequest {
   applicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface GetApplicationRequest {
   /**
    * <p>The ID of the application that will be described.</p>
@@ -504,6 +541,9 @@ export interface GetApplicationRequest {
   applicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationResponse {
   /**
    * <p>The output displays information about the specified application.</p>
@@ -511,6 +551,9 @@ export interface GetApplicationResponse {
   application: Application | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>The token for the next set of application results.</p>
@@ -529,6 +572,9 @@ export interface ListApplicationsRequest {
   states?: (ApplicationState | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
    * <p>The output lists the specified applications.</p>
@@ -543,6 +589,7 @@ export interface ListApplicationsResponse {
 }
 
 /**
+ * @public
  * <p>The maximum number of resources per account has been reached.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -561,6 +608,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartApplicationRequest {
   /**
    * <p>The ID of the application to start.</p>
@@ -568,8 +618,14 @@ export interface StartApplicationRequest {
   applicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface StopApplicationRequest {
   /**
    * <p>The ID of the application to stop.</p>
@@ -577,8 +633,14 @@ export interface StopApplicationRequest {
   applicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>The ID of the application to update.</p>
@@ -639,6 +701,9 @@ export interface UpdateApplicationRequest {
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {
   /**
    * <p>Information about the updated application.</p>
@@ -646,6 +711,9 @@ export interface UpdateApplicationResponse {
   application: Application | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRunRequest {
   /**
    * <p>The ID of the application on which the job run will be canceled.</p>
@@ -658,6 +726,9 @@ export interface CancelJobRunRequest {
   jobRunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRunResponse {
   /**
    * <p>The output contains the application ID on which the job run is cancelled.</p>
@@ -670,6 +741,9 @@ export interface CancelJobRunResponse {
   jobRunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDashboardForJobRunRequest {
   /**
    * <p>The ID of the application.</p>
@@ -682,6 +756,9 @@ export interface GetDashboardForJobRunRequest {
   jobRunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDashboardForJobRunResponse {
   /**
    * <p>The URL to view job run's dashboard.</p>
@@ -689,6 +766,9 @@ export interface GetDashboardForJobRunResponse {
   url?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRunRequest {
   /**
    * <p>The ID of the application on which the job run is submitted.</p>
@@ -702,6 +782,7 @@ export interface GetJobRunRequest {
 }
 
 /**
+ * @public
  * <p>The managed log persistence configuration for a job run.</p>
  */
 export interface ManagedPersistenceMonitoringConfiguration {
@@ -718,6 +799,7 @@ export interface ManagedPersistenceMonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 configuration for monitoring log publishing. You can configure your jobs
  *          to send log information to Amazon S3.</p>
  */
@@ -734,6 +816,7 @@ export interface S3MonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration setting for monitoring.</p>
  */
 export interface MonitoringConfiguration {
@@ -749,6 +832,7 @@ export interface MonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>The configurations for the Hive job driver.</p>
  */
 export interface Hive {
@@ -769,6 +853,7 @@ export interface Hive {
 }
 
 /**
+ * @public
  * <p>The configurations for the Spark submit job driver.</p>
  */
 export interface SparkSubmit {
@@ -789,10 +874,14 @@ export interface SparkSubmit {
 }
 
 /**
+ * @public
  * <p>The driver that the job runs on.</p>
  */
 export type JobDriver = JobDriver.HiveMember | JobDriver.SparkSubmitMember | JobDriver.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace JobDriver {
   /**
    * <p>The job driver parameters specified for Spark.</p>
@@ -831,6 +920,9 @@ export namespace JobDriver {
   };
 }
 
+/**
+ * @public
+ */
 export enum JobRunState {
   CANCELLED = "CANCELLED",
   CANCELLING = "CANCELLING",
@@ -843,6 +935,7 @@ export enum JobRunState {
 }
 
 /**
+ * @public
  * <p>The aggregate vCPU, memory, and storage resources used from the time job start executing
  *          till the time job is terminated, rounded up to the nearest second.</p>
  */
@@ -866,6 +959,9 @@ export interface TotalResourceUtilization {
   storageGBHour?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListJobRunsRequest {
   /**
    * <p>The ID of the application for which to list the job run.</p>
@@ -900,6 +996,7 @@ export interface ListJobRunsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of attributes associated with a job run.</p>
  */
 export interface JobRunSummary {
@@ -964,6 +1061,9 @@ export interface JobRunSummary {
   type?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobRunsResponse {
   /**
    * <p>The output lists information about the specified job runs.</p>
@@ -977,6 +1077,9 @@ export interface ListJobRunsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunResponse {
   /**
    * <p>This output displays the application ID on which the job run was submitted.</p>
@@ -994,6 +1097,9 @@ export interface StartJobRunResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
@@ -1003,6 +1109,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
@@ -1010,6 +1119,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
@@ -1024,8 +1136,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
@@ -1040,9 +1158,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>A configuration specification to be used when provisioning an application. A
  *          configuration consists of a classification, properties, and optional nested configurations.
  *          A classification refers to an application-specific configuration file. Properties are the
@@ -1066,6 +1188,7 @@ export interface Configuration {
 }
 
 /**
+ * @public
  * <p>A configuration specification to be used to override existing configurations.</p>
  */
 export interface ConfigurationOverrides {
@@ -1081,6 +1204,7 @@ export interface ConfigurationOverrides {
 }
 
 /**
+ * @public
  * <p>Information about a job run. A job run is a unit of work, such as a Spark JAR, Hive
  *          query, or SparkSQL query, that you submit to an EMR Serverless application.</p>
  */
@@ -1174,6 +1298,9 @@ export interface JobRun {
   totalExecutionDurationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunRequest {
   /**
    * <p>The ID of the application on which to run the job.</p>
@@ -1218,6 +1345,9 @@ export interface StartJobRunRequest {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRunResponse {
   /**
    * <p>The output displays information about the job run.</p>

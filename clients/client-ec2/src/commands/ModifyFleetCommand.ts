@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ModifyFleetCommand, serializeAws_ec2ModifyFleetCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyFleetCommand}.
  */
 export interface ModifyFleetCommandInput extends ModifyFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyFleetCommand}.
  */
 export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified EC2 Fleet.</p>
  *          <p>You can only modify an EC2 Fleet request of type <code>maintain</code>.</p>
  *          <p>While the EC2 Fleet is being modified, it is in the <code>modifying</code> state.</p>
@@ -64,6 +69,8 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyFleetCommandInput - {@link ModifyFleetCommandInput}
+ * @returns {@link ModifyFleetCommandOutput}
  * @see {@link ModifyFleetCommandInput} for command's `input` shape.
  * @see {@link ModifyFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -87,6 +94,9 @@ export class ModifyFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ModifyFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyFleetCommandOutput> {
     return deserializeAws_ec2ModifyFleetCommand(output, context);
   }

@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCustomRoutingAcceleratorAttributesCommand}.
  */
 export interface DescribeCustomRoutingAcceleratorAttributesCommandInput
   extends DescribeCustomRoutingAcceleratorAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCustomRoutingAcceleratorAttributesCommand}.
  */
 export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe the attributes of a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomRoutingAcceleratorAttributesCommandInput - {@link DescribeCustomRoutingAcceleratorAttributesCommandInput}
+ * @returns {@link DescribeCustomRoutingAcceleratorAttributesCommandOutput}
  * @see {@link DescribeCustomRoutingAcceleratorAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomRoutingAcceleratorAttributesCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomRoutingAcceleratorAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCustomRoutingAcceleratorAttributesCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command<
     return serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

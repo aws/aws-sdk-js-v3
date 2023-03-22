@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListBucketsCommand}.
  */
 export interface ListBucketsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBucketsCommand}.
  */
 export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all buckets owned by the authenticated sender of the request. To use
  *         this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.</p>
  * @example
@@ -42,6 +47,8 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBucketsCommandInput - {@link ListBucketsCommandInput}
+ * @returns {@link ListBucketsCommandOutput}
  * @see {@link ListBucketsCommandInput} for command's `input` shape.
  * @see {@link ListBucketsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -101,6 +108,9 @@ export class ListBucketsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBucketsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ListBucketsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListBucketsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBucketsCommandOutput> {
     return deserializeAws_restXmlListBucketsCommand(output, context);
   }

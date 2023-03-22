@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCapacityReservationCommand}.
  */
 export interface CreateCapacityReservationCommandInput extends CreateCapacityReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCapacityReservationCommand}.
  */
 export interface CreateCapacityReservationCommandOutput extends CreateCapacityReservationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Capacity Reservation with the specified attributes.</p>
  *          <p>Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration. This
  * 			gives you the flexibility to selectively add capacity reservations and still get the Regional RI discounts for that usage.
@@ -60,6 +65,8 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCapacityReservationCommandInput - {@link CreateCapacityReservationCommandInput}
+ * @returns {@link CreateCapacityReservationCommandOutput}
  * @see {@link CreateCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link CreateCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -83,6 +90,9 @@ export class CreateCapacityReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCapacityReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateCapacityReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateCapacityReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

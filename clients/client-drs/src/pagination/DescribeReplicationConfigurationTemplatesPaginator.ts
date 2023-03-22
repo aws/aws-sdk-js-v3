@@ -10,7 +10,7 @@ import { DrsClient } from "../DrsClient";
 import { DrsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DrsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeReplicationConfigurationTemplatesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeReplicationConfigurationTemplates(
   config: DrsPaginationConfiguration,
   input: DescribeReplicationConfigurationTemplatesCommandInput,

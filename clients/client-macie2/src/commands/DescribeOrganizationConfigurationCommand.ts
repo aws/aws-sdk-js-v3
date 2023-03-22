@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConfigurationCommand}.
  */
 export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConfigurationCommand}.
  */
 export interface DescribeOrganizationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Amazon Macie configuration settings for an organization in Organizations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
+ * @returns {@link DescribeOrganizationConfigurationCommandOutput}
  * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeOrganizationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

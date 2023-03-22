@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetGroupsCommand}.
  */
 export interface ListDatasetGroupsCommandInput extends ListDatasetGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetGroupsCommand}.
  */
 export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of dataset groups created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a> operation.
  *       For each dataset group, this operation returns a summary of its properties, including its
  *       Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
@@ -50,6 +55,8 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetGroupsCommandInput - {@link ListDatasetGroupsCommandInput}
+ * @returns {@link ListDatasetGroupsCommandOutput}
  * @see {@link ListDatasetGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListDatasetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListDatasetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatasetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetGroupsCommandOutput> {
     return deserializeAws_json1_1ListDatasetGroupsCommand(output, context);
   }

@@ -152,6 +152,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | ConfigureLogsForChannelCommandInput
   | ConfigureLogsForPlaybackConfigurationCommandInput
@@ -198,6 +201,9 @@ export type ServiceInputTypes =
   | UpdateSourceLocationCommandInput
   | UpdateVodSourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | ConfigureLogsForChannelCommandOutput
   | ConfigureLogsForPlaybackConfigurationCommandOutput
@@ -244,6 +250,9 @@ export type ServiceOutputTypes =
   | UpdateSourceLocationCommandOutput
   | UpdateVodSourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -251,7 +260,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -360,11 +369,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type MediaTailorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -375,10 +387,15 @@ type MediaTailorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of MediaTailorClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of MediaTailorClient class constructor that set the region, credentials and other options.
  */
 export interface MediaTailorClientConfig extends MediaTailorClientConfigType {}
 
+/**
+ * @public
+ */
 type MediaTailorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -389,11 +406,14 @@ type MediaTailorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of MediaTailorClient class. This is resolved and normalized from the {@link MediaTailorClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of MediaTailorClient class. This is resolved and normalized from the {@link MediaTailorClientConfig | constructor configuration interface}.
  */
 export interface MediaTailorClientResolvedConfig extends MediaTailorClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Use the AWS Elemental MediaTailor SDKs and CLI to configure scalable ad insertion and linear channels. With MediaTailor, you can assemble existing content into a linear stream and serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/">AWS Elemental MediaTailor User Guide</a>.</p>
  *          <p>Through the SDKs and the CLI you manage AWS Elemental MediaTailor configurations and channels the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>
  */

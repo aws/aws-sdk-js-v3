@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddonConfigurationCommand}.
  */
 export interface DescribeAddonConfigurationCommandInput extends DescribeAddonConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddonConfigurationCommand}.
  */
 export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddonConfigurationCommandInput - {@link DescribeAddonConfigurationCommandInput}
+ * @returns {@link DescribeAddonConfigurationCommandOutput}
  * @see {@link DescribeAddonConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAddonConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeAddonConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddonConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeAddonConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddonConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAddonConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

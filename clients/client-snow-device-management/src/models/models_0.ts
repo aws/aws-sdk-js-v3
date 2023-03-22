@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SnowDeviceManagementServiceException as __BaseException } from "./SnowDeviceManagementServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,6 +23,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AttachmentStatus {
   ATTACHED = "ATTACHED",
   ATTACHING = "ATTACHING",
@@ -29,6 +33,9 @@ export enum AttachmentStatus {
   DETACHING = "DETACHING",
 }
 
+/**
+ * @public
+ */
 export interface CancelTaskInput {
   /**
    * <p>The ID of the task that you are attempting to cancel. You can retrieve a task ID by using
@@ -37,6 +44,9 @@ export interface CancelTaskInput {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelTaskOutput {
   /**
    * <p>The ID of the task that you are attempting to cancel.</p>
@@ -45,6 +55,7 @@ export interface CancelTaskOutput {
 }
 
 /**
+ * @public
  * <p>An unexpected error occurred while processing the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -65,6 +76,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request references a resource that doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -84,6 +96,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -106,6 +119,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -125,6 +139,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The physical capacity of the Amazon Web Services Snow Family device. </p>
  */
 export interface Capacity {
@@ -155,20 +170,26 @@ export interface Capacity {
 }
 
 /**
+ * @public
  * <p>A structure used to reboot the device.</p>
  */
 export interface Reboot {}
 
 /**
+ * @public
  * <p>A structure used to unlock a device.</p>
  */
 export interface Unlock {}
 
 /**
+ * @public
  * <p>The command given to the device to execute.</p>
  */
 export type Command = Command.RebootMember | Command.UnlockMember | Command.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Command {
   /**
    * <p>Unlocks the device.</p>
@@ -208,6 +229,7 @@ export namespace Command {
 }
 
 /**
+ * @public
  * <p>The options for how a device's CPU is configured.</p>
  */
 export interface CpuOptions {
@@ -222,6 +244,9 @@ export interface CpuOptions {
   threadsPerCore?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateTaskInput {
   /**
    * <p>A list of managed device IDs.</p>
@@ -250,6 +275,9 @@ export interface CreateTaskInput {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTaskOutput {
   /**
    * <p>The ID of the task that you created.</p>
@@ -263,6 +291,7 @@ export interface CreateTaskOutput {
 }
 
 /**
+ * @public
  * <p>The request would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -281,6 +310,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceInput {
   /**
    * <p>The ID of the device that you are checking the information of.</p>
@@ -288,17 +320,26 @@ export interface DescribeDeviceInput {
   managedDeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum UnlockState {
   LOCKED = "LOCKED",
   UNLOCKED = "UNLOCKED",
   UNLOCKING = "UNLOCKING",
 }
 
+/**
+ * @public
+ */
 export enum IpAddressAssignment {
   DHCP = "DHCP",
   STATIC = "STATIC",
 }
 
+/**
+ * @public
+ */
 export enum PhysicalConnectorType {
   QSFP = "QSFP",
   RJ45 = "RJ45",
@@ -308,6 +349,7 @@ export enum PhysicalConnectorType {
 }
 
 /**
+ * @public
  * <p>The details about the physical network interface for the device.</p>
  */
 export interface PhysicalNetworkInterface {
@@ -350,6 +392,7 @@ export interface PhysicalNetworkInterface {
 }
 
 /**
+ * @public
  * <p>Information about the software on the device.</p>
  */
 export interface SoftwareInformation {
@@ -370,6 +413,9 @@ export interface SoftwareInformation {
   installState?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceOutput {
   /**
    * <p>When the device last contacted the Amazon Web Services Cloud. Indicates that the device is
@@ -430,6 +476,9 @@ export interface DescribeDeviceOutput {
   software?: SoftwareInformation;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceEc2Input {
   /**
    * <p>The ID of the managed device.</p>
@@ -443,6 +492,7 @@ export interface DescribeDeviceEc2Input {
 }
 
 /**
+ * @public
  * <p>Describes a parameter used to set up an Amazon Elastic Block Store (Amazon EBS) volume
  *       in a block device mapping.</p>
  */
@@ -469,6 +519,7 @@ export interface EbsInstanceBlockDevice {
 }
 
 /**
+ * @public
  * <p>The description of a block device mapping.</p>
  */
 export interface InstanceBlockDeviceMapping {
@@ -485,6 +536,7 @@ export interface InstanceBlockDeviceMapping {
 }
 
 /**
+ * @public
  * <p>Information about the device's security group.</p>
  */
 export interface SecurityGroupIdentifier {
@@ -499,6 +551,9 @@ export interface SecurityGroupIdentifier {
   groupName?: string;
 }
 
+/**
+ * @public
+ */
 export enum InstanceStateName {
   PENDING = "PENDING",
   RUNNING = "RUNNING",
@@ -509,6 +564,7 @@ export enum InstanceStateName {
 }
 
 /**
+ * @public
  * <p>The description of the current state of an instance.</p>
  */
 export interface InstanceState {
@@ -567,6 +623,7 @@ export interface InstanceState {
 }
 
 /**
+ * @public
  * <p>The description of an
  *       instance.
  *       Currently, Amazon EC2 instances are the only supported instance type.</p>
@@ -640,6 +697,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * <p>The details about the instance.</p>
  */
 export interface InstanceSummary {
@@ -654,6 +712,9 @@ export interface InstanceSummary {
   lastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceEc2Output {
   /**
    * <p>A list of structures containing information about each instance. </p>
@@ -661,6 +722,9 @@ export interface DescribeDeviceEc2Output {
   instances?: InstanceSummary[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeExecutionInput {
   /**
    * <p>The ID of the task that the action is describing.</p>
@@ -673,6 +737,9 @@ export interface DescribeExecutionInput {
   managedDeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ExecutionState {
   CANCELED = "CANCELED",
   FAILED = "FAILED",
@@ -683,6 +750,9 @@ export enum ExecutionState {
   TIMED_OUT = "TIMED_OUT",
 }
 
+/**
+ * @public
+ */
 export interface DescribeExecutionOutput {
   /**
    * <p>The ID of the task being executed on the device.</p>
@@ -715,6 +785,9 @@ export interface DescribeExecutionOutput {
   lastUpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTaskInput {
   /**
    * <p>The ID of the task to be described.</p>
@@ -722,12 +795,18 @@ export interface DescribeTaskInput {
   taskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TaskState {
   CANCELED = "CANCELED",
   COMPLETED = "COMPLETED",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface DescribeTaskOutput {
   /**
    * <p>The ID of the task.</p>
@@ -777,6 +856,7 @@ export interface DescribeTaskOutput {
 }
 
 /**
+ * @public
  * <p>Identifying information about the device.</p>
  */
 export interface DeviceSummary {
@@ -802,6 +882,9 @@ export interface DeviceSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListExecutionsInput {
   /**
    * <p>The ID of the task.</p>
@@ -825,6 +908,7 @@ export interface ListExecutionsInput {
 }
 
 /**
+ * @public
  * <p>The summary of a task execution on a specified device.</p>
  */
 export interface ExecutionSummary {
@@ -849,6 +933,9 @@ export interface ExecutionSummary {
   state?: ExecutionState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListExecutionsOutput {
   /**
    * <p>A list of executions. Each execution contains the task ID, the device that the task is
@@ -862,6 +949,9 @@ export interface ListExecutionsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceResourcesInput {
   /**
    * <p>The ID of the managed device that you are listing the resources of.</p>
@@ -885,6 +975,7 @@ export interface ListDeviceResourcesInput {
 }
 
 /**
+ * @public
  * <p>A summary of a resource available on the device.</p>
  */
 export interface ResourceSummary {
@@ -904,6 +995,9 @@ export interface ResourceSummary {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceResourcesOutput {
   /**
    * <p>A structure defining the resource's type, Amazon Resource Name (ARN), and ID.</p>
@@ -916,6 +1010,9 @@ export interface ListDeviceResourcesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesInput {
   /**
    * <p>The ID of the job used to order the device.</p>
@@ -933,6 +1030,9 @@ export interface ListDevicesInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesOutput {
   /**
    * <p>A list of device structures that contain information about the device.</p>
@@ -945,6 +1045,9 @@ export interface ListDevicesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
@@ -952,6 +1055,9 @@ export interface ListTagsForResourceInput {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags for the device or task.</p>
@@ -959,6 +1065,9 @@ export interface ListTagsForResourceOutput {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTasksInput {
   /**
    * <p>A structure used to filter the list of tasks.</p>
@@ -977,6 +1086,7 @@ export interface ListTasksInput {
 }
 
 /**
+ * @public
  * <p>Information about the task assigned to one or many devices.</p>
  */
 export interface TaskSummary {
@@ -1002,6 +1112,9 @@ export interface TaskSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTasksOutput {
   /**
    * <p>A list of task structures containing details about each task.</p>
@@ -1014,6 +1127,9 @@ export interface ListTasksOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
@@ -1027,6 +1143,9 @@ export interface TagResourceInput {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>

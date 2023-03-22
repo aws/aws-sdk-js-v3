@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketVersioningCommand}.
  */
 export interface GetBucketVersioningCommandInput extends GetBucketVersioningRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketVersioningCommand}.
  */
 export interface GetBucketVersioningCommandOutput extends GetBucketVersioningResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This operation returns the versioning state
  *             for
@@ -84,6 +89,8 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketVersioningCommandInput - {@link GetBucketVersioningCommandInput}
+ * @returns {@link GetBucketVersioningCommandOutput}
  * @see {@link GetBucketVersioningCommandInput} for command's `input` shape.
  * @see {@link GetBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -111,6 +118,9 @@ export class GetBucketVersioningCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketVersioningCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class GetBucketVersioningCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketVersioningCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketVersioningCommandOutput> {
     return deserializeAws_restXmlGetBucketVersioningCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSimulationApplicationCommand}.
  */
 export interface CreateSimulationApplicationCommandInput extends CreateSimulationApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSimulationApplicationCommand}.
  */
 export interface CreateSimulationApplicationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSimulationApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a simulation application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateSimulationApplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSimulationApplicationCommandInput - {@link CreateSimulationApplicationCommandInput}
+ * @returns {@link CreateSimulationApplicationCommandOutput}
  * @see {@link CreateSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateSimulationApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateSimulationApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSimulationApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateSimulationApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSimulationApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationsCommand}.
  */
 export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationsCommand}.
  */
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the applications associated with a specific Amazon Web Services account. You can provide the
  *          unique identifier of a specific runtime environment in a query parameter to see all applications
  *          associated with that environment.</p>
@@ -48,6 +53,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
+ * @returns {@link ListApplicationsCommandOutput}
  * @see {@link ListApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -83,6 +90,9 @@ export class ListApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationsCommandOutput> {
     return deserializeAws_restJson1ListApplicationsCommand(output, context);
   }

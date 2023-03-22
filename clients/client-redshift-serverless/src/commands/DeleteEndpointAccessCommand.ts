@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointAccessCommand}.
  */
 export interface DeleteEndpointAccessCommandInput extends DeleteEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointAccessCommand}.
  */
 export interface DeleteEndpointAccessCommandOutput extends DeleteEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Redshift Serverless managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteEndpointAccessCommandOutput extends DeleteEndpointAccessR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointAccessCommandInput - {@link DeleteEndpointAccessCommandInput}
+ * @returns {@link DeleteEndpointAccessCommandOutput}
  * @see {@link DeleteEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointAccessCommandOutput> {
     return deserializeAws_json1_1DeleteEndpointAccessCommand(output, context);
   }

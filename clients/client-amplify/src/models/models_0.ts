@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AmplifyServiceException as __BaseException } from "./AmplifyServiceException";
 
 /**
+ * @public
  * <p> A request contains unexpected data. </p>
  */
 export class BadRequestException extends __BaseException {
@@ -22,6 +23,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Stage {
   BETA = "BETA",
   DEVELOPMENT = "DEVELOPMENT",
@@ -31,6 +35,7 @@ export enum Stage {
 }
 
 /**
+ * @public
  * <p> Describes the automated branch creation configuration. </p>
  */
 export interface AutoBranchCreationConfig {
@@ -91,6 +96,7 @@ export interface AutoBranchCreationConfig {
 }
 
 /**
+ * @public
  * <p> Describes a custom rewrite or redirect rule. </p>
  */
 export interface CustomRule {
@@ -139,6 +145,9 @@ export interface CustomRule {
   condition?: string;
 }
 
+/**
+ * @public
+ */
 export enum Platform {
   WEB = "WEB",
   WEB_COMPUTE = "WEB_COMPUTE",
@@ -146,6 +155,7 @@ export enum Platform {
 }
 
 /**
+ * @public
  * <p> The request structure used to create apps in Amplify. </p>
  */
 export interface CreateAppRequest {
@@ -274,6 +284,7 @@ export interface CreateAppRequest {
 }
 
 /**
+ * @public
  * <p> Describes the information about a production branch for an Amplify app. </p>
  */
 export interface ProductionBranch {
@@ -298,6 +309,9 @@ export interface ProductionBranch {
   branchName?: string;
 }
 
+/**
+ * @public
+ */
 export enum RepositoryCloneMethod {
   SIGV4 = "SIGV4",
   SSH = "SSH",
@@ -305,6 +319,7 @@ export enum RepositoryCloneMethod {
 }
 
 /**
+ * @public
  * <p> Represents the different branches of a repository for building, deploying, and
  *             hosting an Amplify app. </p>
  */
@@ -444,6 +459,9 @@ export interface App {
   repositoryCloneMethod?: RepositoryCloneMethod | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppResult {
   /**
    * <p> Represents the different branches of a repository for building, deploying, and
@@ -453,6 +471,7 @@ export interface CreateAppResult {
 }
 
 /**
+ * @public
  * <p> An operation failed because a dependent service threw an exception. </p>
  */
 export class DependentServiceFailureException extends __BaseException {
@@ -472,6 +491,7 @@ export class DependentServiceFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The service failed to perform an operation due to an internal issue. </p>
  */
 export class InternalFailureException extends __BaseException {
@@ -491,6 +511,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> A resource could not be created because service quotas were exceeded. </p>
  */
 export class LimitExceededException extends __BaseException {
@@ -510,6 +531,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> An operation failed due to a lack of access. </p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -529,6 +551,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The request structure for the backend environment create request. </p>
  */
 export interface CreateBackendEnvironmentRequest {
@@ -554,6 +577,7 @@ export interface CreateBackendEnvironmentRequest {
 }
 
 /**
+ * @public
  * <p> Describes the backend environment for an Amplify app. </p>
  */
 export interface BackendEnvironment {
@@ -592,6 +616,7 @@ export interface BackendEnvironment {
 }
 
 /**
+ * @public
  * <p> The result structure for the create backend environment request. </p>
  */
 export interface CreateBackendEnvironmentResult {
@@ -602,6 +627,7 @@ export interface CreateBackendEnvironmentResult {
 }
 
 /**
+ * @public
  * <p> An entity was not found during an operation. </p>
  */
 export class NotFoundException extends __BaseException {
@@ -621,6 +647,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The request structure for the create branch request. </p>
  */
 export interface CreateBranchRequest {
@@ -722,6 +749,7 @@ export interface CreateBranchRequest {
 }
 
 /**
+ * @public
  * <p> The branch for an Amplify app, which maps to a third-party repository branch. </p>
  */
 export interface Branch {
@@ -869,6 +897,7 @@ export interface Branch {
 }
 
 /**
+ * @public
  * <p> The result structure for create branch request. </p>
  */
 export interface CreateBranchResult {
@@ -880,6 +909,7 @@ export interface CreateBranchResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the create a new deployment request. </p>
  */
 export interface CreateDeploymentRequest {
@@ -903,6 +933,7 @@ export interface CreateDeploymentRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the create a new deployment request. </p>
  */
 export interface CreateDeploymentResult {
@@ -925,6 +956,7 @@ export interface CreateDeploymentResult {
 }
 
 /**
+ * @public
  * <p> Describes the settings for the subdomain. </p>
  */
 export interface SubDomainSetting {
@@ -940,6 +972,7 @@ export interface SubDomainSetting {
 }
 
 /**
+ * @public
  * <p> The request structure for the create domain association request. </p>
  */
 export interface CreateDomainAssociationRequest {
@@ -975,6 +1008,9 @@ export interface CreateDomainAssociationRequest {
   autoSubDomainIAMRole?: string;
 }
 
+/**
+ * @public
+ */
 export enum DomainStatus {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -987,6 +1023,7 @@ export enum DomainStatus {
 }
 
 /**
+ * @public
  * <p> The subdomain for the domain association. </p>
  */
 export interface SubDomain {
@@ -1007,6 +1044,7 @@ export interface SubDomain {
 }
 
 /**
+ * @public
  * <p> Describes a domain association that associates a custom domain with an Amplify app.
  *         </p>
  */
@@ -1059,6 +1097,7 @@ export interface DomainAssociation {
 }
 
 /**
+ * @public
  * <p> The result structure for the create domain association request. </p>
  */
 export interface CreateDomainAssociationResult {
@@ -1070,6 +1109,7 @@ export interface CreateDomainAssociationResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the create webhook request. </p>
  */
 export interface CreateWebhookRequest {
@@ -1090,6 +1130,7 @@ export interface CreateWebhookRequest {
 }
 
 /**
+ * @public
  * <p> Describes a webhook that connects repository events to an Amplify app. </p>
  */
 export interface Webhook {
@@ -1130,6 +1171,7 @@ export interface Webhook {
 }
 
 /**
+ * @public
  * <p> The result structure for the create webhook request. </p>
  */
 export interface CreateWebhookResult {
@@ -1140,6 +1182,7 @@ export interface CreateWebhookResult {
 }
 
 /**
+ * @public
  * <p> Describes the request structure for the delete app request. </p>
  */
 export interface DeleteAppRequest {
@@ -1150,6 +1193,7 @@ export interface DeleteAppRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the delete app request. </p>
  */
 export interface DeleteAppResult {
@@ -1161,6 +1205,7 @@ export interface DeleteAppResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the delete backend environment request. </p>
  */
 export interface DeleteBackendEnvironmentRequest {
@@ -1176,6 +1221,7 @@ export interface DeleteBackendEnvironmentRequest {
 }
 
 /**
+ * @public
  * <p> The result structure of the delete backend environment result. </p>
  */
 export interface DeleteBackendEnvironmentResult {
@@ -1186,6 +1232,7 @@ export interface DeleteBackendEnvironmentResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the delete branch request. </p>
  */
 export interface DeleteBranchRequest {
@@ -1201,6 +1248,7 @@ export interface DeleteBranchRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the delete branch request. </p>
  */
 export interface DeleteBranchResult {
@@ -1211,6 +1259,7 @@ export interface DeleteBranchResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the delete domain association request. </p>
  */
 export interface DeleteDomainAssociationRequest {
@@ -1225,6 +1274,9 @@ export interface DeleteDomainAssociationRequest {
   domainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainAssociationResult {
   /**
    * <p> Describes a domain association that associates a custom domain with an Amplify app.
@@ -1234,6 +1286,7 @@ export interface DeleteDomainAssociationResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the delete job request. </p>
  */
 export interface DeleteJobRequest {
@@ -1253,6 +1306,9 @@ export interface DeleteJobRequest {
   jobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum JobType {
   MANUAL = "MANUAL",
   RELEASE = "RELEASE",
@@ -1260,6 +1316,9 @@ export enum JobType {
   WEB_HOOK = "WEB_HOOK",
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   CANCELLED = "CANCELLED",
   CANCELLING = "CANCELLING",
@@ -1271,6 +1330,7 @@ export enum JobStatus {
 }
 
 /**
+ * @public
  * <p> Describes the summary for an execution job for an Amplify app. </p>
  */
 export interface JobSummary {
@@ -1325,6 +1385,7 @@ export interface JobSummary {
 }
 
 /**
+ * @public
  * <p> The result structure for the delete job request. </p>
  */
 export interface DeleteJobResult {
@@ -1335,6 +1396,7 @@ export interface DeleteJobResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the delete webhook request. </p>
  */
 export interface DeleteWebhookRequest {
@@ -1345,6 +1407,7 @@ export interface DeleteWebhookRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the delete webhook request. </p>
  */
 export interface DeleteWebhookResult {
@@ -1355,6 +1418,7 @@ export interface DeleteWebhookResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the generate access logs request. </p>
  */
 export interface GenerateAccessLogsRequest {
@@ -1382,6 +1446,7 @@ export interface GenerateAccessLogsRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the generate access logs request. </p>
  */
 export interface GenerateAccessLogsResult {
@@ -1392,6 +1457,7 @@ export interface GenerateAccessLogsResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the get app request. </p>
  */
 export interface GetAppRequest {
@@ -1401,6 +1467,9 @@ export interface GetAppRequest {
   appId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppResult {
   /**
    * <p> Represents the different branches of a repository for building, deploying, and
@@ -1410,6 +1479,7 @@ export interface GetAppResult {
 }
 
 /**
+ * @public
  * <p> Returns the request structure for the get artifact request. </p>
  */
 export interface GetArtifactUrlRequest {
@@ -1420,6 +1490,7 @@ export interface GetArtifactUrlRequest {
 }
 
 /**
+ * @public
  * <p> Returns the result structure for the get artifact request. </p>
  */
 export interface GetArtifactUrlResult {
@@ -1435,6 +1506,7 @@ export interface GetArtifactUrlResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the get backend environment request. </p>
  */
 export interface GetBackendEnvironmentRequest {
@@ -1450,6 +1522,7 @@ export interface GetBackendEnvironmentRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the get backend environment result. </p>
  */
 export interface GetBackendEnvironmentResult {
@@ -1460,6 +1533,7 @@ export interface GetBackendEnvironmentResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the get branch request. </p>
  */
 export interface GetBranchRequest {
@@ -1474,6 +1548,9 @@ export interface GetBranchRequest {
   branchName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBranchResult {
   /**
    * <p> The branch for an Amplify app, which maps to a third-party repository branch. </p>
@@ -1482,6 +1559,7 @@ export interface GetBranchResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the get domain association request. </p>
  */
 export interface GetDomainAssociationRequest {
@@ -1497,6 +1575,7 @@ export interface GetDomainAssociationRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the get domain association request. </p>
  */
 export interface GetDomainAssociationResult {
@@ -1508,6 +1587,7 @@ export interface GetDomainAssociationResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the get job request. </p>
  */
 export interface GetJobRequest {
@@ -1528,6 +1608,7 @@ export interface GetJobRequest {
 }
 
 /**
+ * @public
  * <p> Describes an execution step, for an execution job, for an Amplify app. </p>
  */
 export interface Step {
@@ -1589,6 +1670,7 @@ export interface Step {
 }
 
 /**
+ * @public
  * <p> Describes an execution job for an Amplify app. </p>
  */
 export interface Job {
@@ -1603,6 +1685,9 @@ export interface Job {
   steps: Step[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJobResult {
   /**
    * <p> Describes an execution job for an Amplify app. </p>
@@ -1611,6 +1696,7 @@ export interface GetJobResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the get webhook request. </p>
  */
 export interface GetWebhookRequest {
@@ -1621,6 +1707,7 @@ export interface GetWebhookRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the get webhook request. </p>
  */
 export interface GetWebhookResult {
@@ -1631,6 +1718,7 @@ export interface GetWebhookResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the list apps request. </p>
  */
 export interface ListAppsRequest {
@@ -1647,6 +1735,7 @@ export interface ListAppsRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for an Amplify app list request. </p>
  */
 export interface ListAppsResult {
@@ -1664,6 +1753,7 @@ export interface ListAppsResult {
 }
 
 /**
+ * @public
  * <p> Describes the request structure for the list artifacts request. </p>
  */
 export interface ListArtifactsRequest {
@@ -1696,6 +1786,7 @@ export interface ListArtifactsRequest {
 }
 
 /**
+ * @public
  * <p> Describes an artifact. </p>
  */
 export interface Artifact {
@@ -1711,6 +1802,7 @@ export interface Artifact {
 }
 
 /**
+ * @public
  * <p> The result structure for the list artifacts request. </p>
  */
 export interface ListArtifactsResult {
@@ -1727,6 +1819,7 @@ export interface ListArtifactsResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the list backend environments request. </p>
  */
 export interface ListBackendEnvironmentsRequest {
@@ -1754,6 +1847,7 @@ export interface ListBackendEnvironmentsRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the list backend environments result. </p>
  */
 export interface ListBackendEnvironmentsResult {
@@ -1770,6 +1864,7 @@ export interface ListBackendEnvironmentsResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the list branches request. </p>
  */
 export interface ListBranchesRequest {
@@ -1792,6 +1887,7 @@ export interface ListBranchesRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the list branches request. </p>
  */
 export interface ListBranchesResult {
@@ -1808,6 +1904,7 @@ export interface ListBranchesResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the list domain associations request. </p>
  */
 export interface ListDomainAssociationsRequest {
@@ -1830,6 +1927,7 @@ export interface ListDomainAssociationsRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the list domain association request. </p>
  */
 export interface ListDomainAssociationsResult {
@@ -1846,6 +1944,7 @@ export interface ListDomainAssociationsResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the list jobs request. </p>
  */
 export interface ListJobsRequest {
@@ -1873,6 +1972,7 @@ export interface ListJobsRequest {
 }
 
 /**
+ * @public
  * <p> The maximum number of records to list in a single response. </p>
  */
 export interface ListJobsResult {
@@ -1889,6 +1989,7 @@ export interface ListJobsResult {
 }
 
 /**
+ * @public
  * <p> The request structure to use to list tags for a resource. </p>
  */
 export interface ListTagsForResourceRequest {
@@ -1899,6 +2000,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p> The response for the list tags for resource request. </p>
  */
 export interface ListTagsForResourceResponse {
@@ -1909,6 +2011,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p> An operation failed due to a non-existent resource. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1930,6 +2033,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The request structure for the list webhooks request. </p>
  */
 export interface ListWebhooksRequest {
@@ -1952,6 +2056,7 @@ export interface ListWebhooksRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the list webhooks request. </p>
  */
 export interface ListWebhooksResult {
@@ -1968,6 +2073,7 @@ export interface ListWebhooksResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the start a deployment request. </p>
  */
 export interface StartDeploymentRequest {
@@ -1995,6 +2101,7 @@ export interface StartDeploymentRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the start a deployment request. </p>
  */
 export interface StartDeploymentResult {
@@ -2005,6 +2112,7 @@ export interface StartDeploymentResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the start job request. </p>
  */
 export interface StartJobRequest {
@@ -2055,6 +2163,7 @@ export interface StartJobRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the run job request. </p>
  */
 export interface StartJobResult {
@@ -2065,6 +2174,7 @@ export interface StartJobResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the stop job request. </p>
  */
 export interface StopJobRequest {
@@ -2085,6 +2195,7 @@ export interface StopJobRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the stop job request. </p>
  */
 export interface StopJobResult {
@@ -2095,6 +2206,7 @@ export interface StopJobResult {
 }
 
 /**
+ * @public
  * <p> The request structure to tag a resource with a tag key and value. </p>
  */
 export interface TagResourceRequest {
@@ -2110,11 +2222,13 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p> The response for the tag resource request. </p>
  */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p> The request structure for the untag resource request. </p>
  */
 export interface UntagResourceRequest {
@@ -2130,11 +2244,13 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p> The response for the untag resource request. </p>
  */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p> The request structure for the update app request. </p>
  */
 export interface UpdateAppRequest {
@@ -2263,6 +2379,7 @@ export interface UpdateAppRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for an Amplify app update request. </p>
  */
 export interface UpdateAppResult {
@@ -2273,6 +2390,7 @@ export interface UpdateAppResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the update branch request. </p>
  */
 export interface UpdateBranchRequest {
@@ -2369,6 +2487,7 @@ export interface UpdateBranchRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the update branch request. </p>
  */
 export interface UpdateBranchResult {
@@ -2379,6 +2498,7 @@ export interface UpdateBranchResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the update domain association request. </p>
  */
 export interface UpdateDomainAssociationRequest {
@@ -2415,6 +2535,7 @@ export interface UpdateDomainAssociationRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the update domain association request. </p>
  */
 export interface UpdateDomainAssociationResult {
@@ -2426,6 +2547,7 @@ export interface UpdateDomainAssociationResult {
 }
 
 /**
+ * @public
  * <p> The request structure for the update webhook request. </p>
  */
 export interface UpdateWebhookRequest {
@@ -2446,6 +2568,7 @@ export interface UpdateWebhookRequest {
 }
 
 /**
+ * @public
  * <p> The result structure for the update webhook request. </p>
  */
 export interface UpdateWebhookResult {

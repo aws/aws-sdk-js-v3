@@ -22,15 +22,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeClusterCommand}.
  */
 export interface ResumeClusterCommandInput extends ResumeClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ResumeClusterCommand}.
  */
 export interface ResumeClusterCommandOutput extends ResumeClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resumes a paused cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +47,8 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeClusterCommandInput - {@link ResumeClusterCommandInput}
+ * @returns {@link ResumeClusterCommandOutput}
  * @see {@link ResumeClusterCommandInput} for command's `input` shape.
  * @see {@link ResumeClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class ResumeClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ResumeClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryResumeClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeClusterCommandOutput> {
     return deserializeAws_queryResumeClusterCommand(output, context);
   }

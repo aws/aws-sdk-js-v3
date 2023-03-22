@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationGroupsCommand}.
  */
 export interface DescribeReplicationGroupsCommandInput extends DescribeReplicationGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationGroupsCommand}.
  */
 export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a particular
  *             replication group. If no identifier is specified, <code>DescribeReplicationGroups</code>
  *             returns information about all replication groups.</p>
@@ -51,6 +56,8 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationGroupsCommandInput - {@link DescribeReplicationGroupsCommandInput}
+ * @returns {@link DescribeReplicationGroupsCommandOutput}
  * @see {@link DescribeReplicationGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -146,6 +153,9 @@ export class DescribeReplicationGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,10 +195,16 @@ export class DescribeReplicationGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReplicationGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeReplicationGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

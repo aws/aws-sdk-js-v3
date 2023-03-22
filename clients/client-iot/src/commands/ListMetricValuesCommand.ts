@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMetricValuesCommand}.
  */
 export interface ListMetricValuesCommandInput extends ListMetricValuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMetricValuesCommand}.
  */
 export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the values reported for an IoT Device Defender metric (device-side metric, cloud-side metric, or custom metric)
  *       by the given thing during the specified time period.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMetricValuesCommandInput - {@link ListMetricValuesCommandInput}
+ * @returns {@link ListMetricValuesCommandOutput}
  * @see {@link ListMetricValuesCommandInput} for command's `input` shape.
  * @see {@link ListMetricValuesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListMetricValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMetricValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListMetricValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMetricValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMetricValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricValuesCommandOutput> {
     return deserializeAws_restJson1ListMetricValuesCommand(output, context);
   }

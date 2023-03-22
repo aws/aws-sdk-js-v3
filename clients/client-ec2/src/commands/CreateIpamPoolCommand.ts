@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateIpamPoolCommand, serializeAws_ec2CreateIpamPoolCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIpamPoolCommand}.
  */
 export interface CreateIpamPoolCommandInput extends CreateIpamPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIpamPoolCommand}.
  */
 export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -45,6 +50,8 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIpamPoolCommandInput - {@link CreateIpamPoolCommandInput}
+ * @returns {@link CreateIpamPoolCommandOutput}
  * @see {@link CreateIpamPoolCommandInput} for command's `input` shape.
  * @see {@link CreateIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class CreateIpamPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIpamPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class CreateIpamPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIpamPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateIpamPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIpamPoolCommandOutput> {
     return deserializeAws_ec2CreateIpamPoolCommand(output, context);
   }

@@ -18,15 +18,20 @@ import { deserializeAws_json1_1DeleteHubCommand, serializeAws_json1_1DeleteHubCo
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHubCommand}.
  */
 export interface DeleteHubCommandInput extends DeleteHubRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHubCommand}.
  */
 export interface DeleteHubCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a hub.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -41,6 +46,8 @@ export interface DeleteHubCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHubCommandInput - {@link DeleteHubCommandInput}
+ * @returns {@link DeleteHubCommandOutput}
  * @see {@link DeleteHubCommandInput} for command's `input` shape.
  * @see {@link DeleteHubCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class DeleteHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHubCommandOutput> {
     return deserializeAws_json1_1DeleteHubCommand(output, context);
   }

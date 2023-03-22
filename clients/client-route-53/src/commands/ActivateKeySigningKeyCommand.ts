@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateKeySigningKeyCommand}.
  */
 export interface ActivateKeySigningKeyCommandInput extends ActivateKeySigningKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ActivateKeySigningKeyCommand}.
  */
 export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This
  * 			operation changes the KSK status to <code>ACTIVE</code>.</p>
  * @example
@@ -48,6 +53,8 @@ export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKe
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateKeySigningKeyCommandInput - {@link ActivateKeySigningKeyCommandInput}
+ * @returns {@link ActivateKeySigningKeyCommandOutput}
  * @see {@link ActivateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link ActivateKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -93,6 +100,9 @@ export class ActivateKeySigningKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateKeySigningKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ActivateKeySigningKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateKeySigningKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlActivateKeySigningKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateKeySigningKeyCommandOutput> {
     return deserializeAws_restXmlActivateKeySigningKeyCommand(output, context);
   }

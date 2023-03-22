@@ -10,7 +10,7 @@ import {
 import { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeGuruReviewerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCodeReviewsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCodeReviews(
   config: CodeGuruReviewerPaginationConfiguration,
   input: ListCodeReviewsCommandInput,

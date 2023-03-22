@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMeetingsCommand}.
  */
 export interface ListMeetingsCommandInput extends ListMeetingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMeetingsCommand}.
  */
 export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Lists up to 100 active Amazon Chime SDK meetings. For more information about the Amazon Chime SDK, see
  * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -49,6 +54,8 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMeetingsCommandInput - {@link ListMeetingsCommandInput}
+ * @returns {@link ListMeetingsCommandOutput}
  * @see {@link ListMeetingsCommandInput} for command's `input` shape.
  * @see {@link ListMeetingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListMeetingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMeetingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListMeetingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMeetingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMeetingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMeetingsCommandOutput> {
     return deserializeAws_restJson1ListMeetingsCommand(output, context);
   }

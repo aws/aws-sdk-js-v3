@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityMailFromDomainAttributesCommand}.
  */
 export interface GetIdentityMailFromDomainAttributesCommandInput extends GetIdentityMailFromDomainAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityMailFromDomainAttributesCommand}.
  */
 export interface GetIdentityMailFromDomainAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
  *             domains).</p>
  *         <p>This operation is throttled at one request per second and can only get custom MAIL
@@ -51,6 +56,8 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityMailFromDomainAttributesCommandInput - {@link GetIdentityMailFromDomainAttributesCommandInput}
+ * @returns {@link GetIdentityMailFromDomainAttributesCommandOutput}
  * @see {@link GetIdentityMailFromDomainAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityMailFromDomainAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityMailFromDomainAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIdentityMailFromDomainAttributesCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     return serializeAws_queryGetIdentityMailFromDomainAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

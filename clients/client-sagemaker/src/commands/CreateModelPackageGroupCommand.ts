@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelPackageGroupCommand}.
  */
 export interface CreateModelPackageGroupCommandInput extends CreateModelPackageGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelPackageGroupCommand}.
  */
 export interface CreateModelPackageGroupCommandOutput extends CreateModelPackageGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a model group. A model group contains a group of model versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelPackageGroupCommandInput - {@link CreateModelPackageGroupCommandInput}
+ * @returns {@link CreateModelPackageGroupCommandOutput}
  * @see {@link CreateModelPackageGroupCommandInput} for command's `input` shape.
  * @see {@link CreateModelPackageGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class CreateModelPackageGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelPackageGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateModelPackageGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelPackageGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateModelPackageGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelPackageGroupCommandOutput> {
     return deserializeAws_json1_1CreateModelPackageGroupCommand(output, context);
   }

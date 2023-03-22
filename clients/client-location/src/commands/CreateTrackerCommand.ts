@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrackerCommand}.
  */
 export interface CreateTrackerCommandInput extends CreateTrackerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrackerCommand}.
  */
 export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and
  *             historical location of devices.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrackerCommandInput - {@link CreateTrackerCommandInput}
+ * @returns {@link CreateTrackerCommandOutput}
  * @see {@link CreateTrackerCommandInput} for command's `input` shape.
  * @see {@link CreateTrackerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrackerCommandOutput> {
     return deserializeAws_restJson1CreateTrackerCommand(output, context);
   }

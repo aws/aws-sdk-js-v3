@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFolderMembershipCommand}.
  */
 export interface CreateFolderMembershipCommandInput extends CreateFolderMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFolderMembershipCommand}.
  */
 export interface CreateFolderMembershipCommandOutput extends CreateFolderMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an asset, such as a dashboard, analysis, or dataset into a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFolderMembershipCommandInput - {@link CreateFolderMembershipCommandInput}
+ * @returns {@link CreateFolderMembershipCommandOutput}
  * @see {@link CreateFolderMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateFolderMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateFolderMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFolderMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateFolderMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFolderMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFolderMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFolderMembershipCommandOutput> {
     return deserializeAws_restJson1CreateFolderMembershipCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatasetImportJobCommand}.
  */
 export interface DescribeDatasetImportJobCommandInput extends DescribeDatasetImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatasetImportJobCommand}.
  */
 export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the dataset import job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>, including the import job status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatasetImportJobCommandInput - {@link DescribeDatasetImportJobCommandInput}
+ * @returns {@link DescribeDatasetImportJobCommandOutput}
  * @see {@link DescribeDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetImportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeDatasetImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeDatasetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDatasetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetImportJobCommandOutput> {
     return deserializeAws_json1_1DescribeDatasetImportJobCommand(output, context);
   }

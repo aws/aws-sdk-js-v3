@@ -10,7 +10,7 @@ import { ConnectCampaignsClient } from "../ConnectCampaignsClient";
 import { ConnectCampaignsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectCampaignsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCampaignsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCampaigns(
   config: ConnectCampaignsPaginationConfiguration,
   input: ListCampaignsCommandInput,

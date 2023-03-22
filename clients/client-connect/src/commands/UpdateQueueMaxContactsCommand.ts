@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQueueMaxContactsCommand}.
  */
 export interface UpdateQueueMaxContactsCommandInput extends UpdateQueueMaxContactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQueueMaxContactsCommand}.
  */
 export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the maximum number of contacts allowed in a queue before it is considered
  *    full.</p>
@@ -43,6 +48,8 @@ export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQueueMaxContactsCommandInput - {@link UpdateQueueMaxContactsCommandInput}
+ * @returns {@link UpdateQueueMaxContactsCommandOutput}
  * @see {@link UpdateQueueMaxContactsCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueMaxContactsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateQueueMaxContactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQueueMaxContactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateQueueMaxContactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQueueMaxContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateQueueMaxContactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQueueMaxContactsCommandOutput> {
     return deserializeAws_restJson1UpdateQueueMaxContactsCommand(output, context);
   }

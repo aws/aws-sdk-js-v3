@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateAttendeeCommand}.
  */
 export interface BatchCreateAttendeeCommandInput extends BatchCreateAttendeeRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateAttendeeCommand}.
  */
 export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates up to 100 attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateAttendeeCommandInput - {@link BatchCreateAttendeeCommandInput}
+ * @returns {@link BatchCreateAttendeeCommandOutput}
  * @see {@link BatchCreateAttendeeCommandInput} for command's `input` shape.
  * @see {@link BatchCreateAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -97,6 +104,9 @@ export class BatchCreateAttendeeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateAttendeeCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class BatchCreateAttendeeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCreateAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchCreateAttendeeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchCreateAttendeeCommandOutput> {
     return deserializeAws_restJson1BatchCreateAttendeeCommand(output, context);
   }

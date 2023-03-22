@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFirewallRuleGroupCommand}.
  */
 export interface CreateFirewallRuleGroupCommandInput extends CreateFirewallRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFirewallRuleGroupCommand}.
  */
 export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty DNS Firewall rule group for filtering DNS network traffic in a VPC. You can add rules to the new rule group
  *            by calling <a>CreateFirewallRule</a>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFirewallRuleGroupCommandInput - {@link CreateFirewallRuleGroupCommandInput}
+ * @returns {@link CreateFirewallRuleGroupCommandOutput}
  * @see {@link CreateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateFirewallRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFirewallRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateFirewallRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFirewallRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFirewallRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallRuleGroupCommandOutput> {
     return deserializeAws_json1_1CreateFirewallRuleGroupCommand(output, context);
   }

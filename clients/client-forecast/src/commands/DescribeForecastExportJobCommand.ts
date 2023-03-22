@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeForecastExportJobCommand}.
  */
 export interface DescribeForecastExportJobCommandInput extends DescribeForecastExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeForecastExportJobCommand}.
  */
 export interface DescribeForecastExportJobCommandOutput extends DescribeForecastExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a forecast export job created using the <a>CreateForecastExportJob</a> operation.</p>
  *          <p>In addition to listing the properties provided by the user in the
  *         <code>CreateForecastExportJob</code> request, this operation lists the following
@@ -70,6 +75,8 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeForecastExportJobCommandInput - {@link DescribeForecastExportJobCommandInput}
+ * @returns {@link DescribeForecastExportJobCommandOutput}
  * @see {@link DescribeForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -101,6 +108,9 @@ export class DescribeForecastExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeForecastExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DescribeForecastExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeForecastExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

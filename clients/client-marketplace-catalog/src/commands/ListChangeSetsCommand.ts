@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChangeSetsCommand}.
  */
 export interface ListChangeSetsCommandInput extends ListChangeSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChangeSetsCommand}.
  */
 export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of change sets owned by the account being used to make the call. You
  *             can filter this list by providing any combination of <code>entityId</code>,
  *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
@@ -55,6 +60,8 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChangeSetsCommandInput - {@link ListChangeSetsCommandInput}
+ * @returns {@link ListChangeSetsCommandOutput}
  * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListChangeSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChangeSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListChangeSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChangeSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListChangeSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangeSetsCommandOutput> {
     return deserializeAws_restJson1ListChangeSetsCommand(output, context);
   }

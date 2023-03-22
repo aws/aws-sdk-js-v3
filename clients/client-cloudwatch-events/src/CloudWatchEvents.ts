@@ -219,6 +219,7 @@ import {
 } from "./commands/UpdateConnectionCommand";
 
 /**
+ * @public
  * <p>Amazon EventBridge helps you to respond to state changes in your Amazon Web Services resources. When your
  *       resources change state, they automatically send events to an event stream. You can create
  *       rules that match selected events in the stream and route them to targets to take action. You
@@ -243,6 +244,7 @@ import {
  */
 export class CloudWatchEvents extends CloudWatchEventsClient {
   /**
+   * @public
    * <p>Activates a partner event source that has been deactivated. Once activated, your matching
    *       event bus will start receiving events from the event source.</p>
    */
@@ -276,6 +278,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Cancels the specified replay.</p>
    */
   public cancelReplay(
@@ -305,6 +308,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Creates an API destination, which is an HTTP invocation endpoint configured as a target
    *       for events.</p>
    */
@@ -338,6 +342,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Creates an archive of events with the specified settings. When you create an archive,
    *       incoming events might not immediately start being sent to the archive. Allow a short period of
    *       time for changes to take effect. If you do not specify a pattern to filter events sent to the
@@ -374,6 +379,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Creates a connection. A connection defines the authorization type and credentials to use
    *       for authorization with an API destination HTTP endpoint.</p>
    */
@@ -407,6 +413,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Creates a new event bus within your account. This can be a custom event bus which you can
    *       use to receive events from your custom applications and services, or it can be a partner event
    *       bus which can be matched to a partner event source.</p>
@@ -441,6 +448,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Called by an SaaS partner to create a partner event source. This operation is not used by
    *       Amazon Web Services customers.</p>
    *          <p>Each partner event source can be used by one Amazon Web Services account to create a matching partner
@@ -496,6 +504,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>You can use this operation to temporarily stop receiving events from the specified partner
    *       event source. The matching event bus is not deleted. </p>
    *          <p>When you deactivate a partner event source, the source goes into PENDING state. If it
@@ -532,6 +541,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Removes all authorization parameters from the connection. This lets you remove the secret
    *       from the connection so you can reuse it without having to create a new connection.</p>
    */
@@ -565,6 +575,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified API destination.</p>
    */
   public deleteApiDestination(
@@ -597,6 +608,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified archive.</p>
    */
   public deleteArchive(
@@ -629,6 +641,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a connection.</p>
    */
   public deleteConnection(
@@ -661,6 +674,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
    *       this event bus need to be deleted. You can't delete your account's default event bus.</p>
    */
@@ -694,6 +708,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>This operation is used by SaaS partners to delete a partner event source. This operation
    *       is not used by Amazon Web Services customers.</p>
    *          <p>When you delete an event source, the status of the corresponding partner event bus in the
@@ -730,6 +745,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified rule.</p>
    *          <p>Before you can delete the rule, you must remove all targets, using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html">RemoveTargets</a>.</p>
    *
@@ -769,6 +785,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details about an API destination.</p>
    */
   public describeApiDestination(
@@ -801,6 +818,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details about an archive.</p>
    */
   public describeArchive(
@@ -833,6 +851,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details about a connection.</p>
    */
   public describeConnection(
@@ -865,6 +884,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Displays details about an event bus in your account. This can include the external Amazon Web Services
    *       accounts that are permitted to write events to your default event bus, and the associated
    *       policy. For custom event buses and partner event buses, it displays the name, ARN, policy,
@@ -903,6 +923,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>This operation lists details about a partner event source that is shared with your
    *       account.</p>
    */
@@ -936,6 +957,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>An SaaS partner can use this operation to list details about a partner event source that
    *       they have created. Amazon Web Services customers do not use this operation. Instead, Amazon Web Services customers can use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html">DescribeEventSource</a>
    *       to see details about a partner event source that is
@@ -971,6 +993,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details about a replay. Use <code>DescribeReplay</code> to determine the
    *       progress of a running replay. A replay processes events to replay based on the time in the
    *       event, and replays them using 1 minute intervals. If you use <code>StartReplay</code> and
@@ -1011,6 +1034,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified rule.</p>
    *          <p>DescribeRule does not list the targets of a rule. To see the targets associated with a
    *       rule, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.</p>
@@ -1042,6 +1066,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Disables the specified rule. A disabled rule won't match any events, and won't
    *       self-trigger if it has a schedule expression.</p>
    *
@@ -1072,6 +1097,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Enables the specified rule. If the rule does not exist, the operation fails.</p>
    *
    *          <p>When you enable a rule, incoming events might not immediately start matching to a newly
@@ -1101,6 +1127,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of API destination in the account in the current Region.</p>
    */
   public listApiDestinations(
@@ -1133,6 +1160,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists your archives. You can either list all the archives or you can provide a prefix to
    *       match to the archive names. Filter parameters are exclusive.</p>
    */
@@ -1163,6 +1191,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of connections from the account.</p>
    */
   public listConnections(
@@ -1195,6 +1224,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists all the event buses in your account, including the default event bus, custom event
    *       buses, and partner event buses.</p>
    */
@@ -1228,6 +1258,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>You can use this to see all the partner event sources that have been shared with your Amazon Web Services
    *       account. For more information about partner event sources, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html">CreateEventBus</a>.</p>
    */
@@ -1261,6 +1292,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>An SaaS partner can use this operation to display the Amazon Web Services account ID that a particular
    *       partner event source name is associated with. This operation is not used by Amazon Web Services
    *       customers.</p>
@@ -1295,6 +1327,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>An SaaS partner can use this operation to list all the partner event source names that
    *       they have created. This operation is not used by Amazon Web Services customers.</p>
    */
@@ -1328,6 +1361,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists your replays. You can either list all the replays or you can provide a prefix to
    *       match to the replay names. Filter parameters are exclusive.</p>
    */
@@ -1355,6 +1389,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
    *       EventBridge can invoke a specific target in your account.</p>
    */
@@ -1388,6 +1423,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide
    *       a prefix to match to the rule names.</p>
    *
@@ -1418,6 +1454,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Displays the tags associated with an EventBridge resource. In EventBridge, rules and event
    *       buses can be tagged.</p>
    */
@@ -1451,6 +1488,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists the targets assigned to the specified rule.</p>
    */
   public listTargetsByRule(
@@ -1483,6 +1521,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
    */
   public putEvents(args: PutEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutEventsCommandOutput>;
@@ -1509,6 +1548,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services
    *       customers do not use this operation.</p>
    */
@@ -1542,6 +1582,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization
    *       to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch
    *       Events) rules in your account are triggered by these events arriving to an event bus in your
@@ -1593,6 +1634,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates the specified rule. Rules are enabled by default, or based on value of
    *       the state. You can disable a rule using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html">DisableRule</a>.</p>
    *
@@ -1665,6 +1707,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified targets to the specified rule, or updates the targets if they are
    *       already associated with the rule.</p>
    *          <p>Targets are the resources that are invoked when a rule is triggered.</p>
@@ -1856,6 +1899,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Revokes the permission of another Amazon Web Services account to be able to put events to the specified
    *       event bus. Specify the account to revoke by the <code>StatementId</code> value that you
    *       associated with the account when you granted it permission with <code>PutPermission</code>.
@@ -1891,6 +1935,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified targets from the specified rule. When the rule is triggered, those
    *       targets are no longer be invoked.</p>
    *
@@ -1931,6 +1976,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Starts the specified replay. Events are not necessarily replayed in the exact same order
    *       that they were added to the archive. A replay processes events to replay based on the time in
    *       the event, and replays them using 1 minute intervals. If you specify an
@@ -1965,6 +2011,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified EventBridge resource. Tags can
    *       help you organize and categorize your resources. You can also use them to scope user
    *       permissions by granting a user permission to access or change only resources with certain tag
@@ -2001,6 +2048,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Tests whether the specified event pattern matches the provided event.</p>
    *          <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs).
    *       However, EventBridge uses an exact match in event patterns and rules. Be sure to use the
@@ -2037,6 +2085,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge
    *       (CloudWatch Events), rules and event buses can be tagged.</p>
    */
@@ -2070,6 +2119,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Updates an API destination.</p>
    */
   public updateApiDestination(
@@ -2102,6 +2152,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified archive.</p>
    */
   public updateArchive(
@@ -2134,6 +2185,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * @public
    * <p>Updates settings for a connection.</p>
    */
   public updateConnection(

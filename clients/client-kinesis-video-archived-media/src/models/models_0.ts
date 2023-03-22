@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { KinesisVideoArchivedMediaServiceException as __BaseException } from "./KinesisVideoArchivedMediaServiceException";
 
 /**
+ * @public
  * <p>Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
  */
 export class ClientLimitExceededException extends __BaseException {
@@ -25,12 +26,16 @@ export class ClientLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ClipFragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
   SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
 /**
+ * @public
  * <p>The range of timestamps for which to return fragments.</p>
  */
 export interface ClipTimestampRange {
@@ -58,6 +63,7 @@ export interface ClipTimestampRange {
 }
 
 /**
+ * @public
  * <p>Describes the timestamp range and timestamp origin of a range of fragments.</p>
  *         <p>Fragments that have duplicate producer timestamps are deduplicated. This means that if
  *             producers are producing a stream of fragments with producer timestamps that are
@@ -78,6 +84,9 @@ export interface ClipFragmentSelector {
   TimestampRange: ClipTimestampRange | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetClipInput {
   /**
    * <p>The name of the stream for which to retrieve the media clip. </p>
@@ -97,6 +106,9 @@ export interface GetClipInput {
   ClipFragmentSelector: ClipFragmentSelector | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetClipOutput {
   /**
    * <p>The content type of the media in the requested clip.</p>
@@ -113,6 +125,7 @@ export interface GetClipOutput {
 }
 
 /**
+ * @public
  * <p>A specified parameter exceeds its restrictions, is not supported, or can't be
  *             used.</p>
  */
@@ -135,6 +148,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The codec private data in at least one of the tracks of the video stream is not valid
  *             for this operation.</p>
  */
@@ -157,6 +171,7 @@ export class InvalidCodecPrivateDataException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more frames in the requested clip could not be parsed based on the specified
  *             codec.</p>
  */
@@ -179,6 +194,7 @@ export class InvalidMediaFrameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No codec private data was found in at least one of tracks of the video stream.</p>
  */
 export class MissingCodecPrivateDataException extends __BaseException {
@@ -200,6 +216,7 @@ export class MissingCodecPrivateDataException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A streaming session was requested for a stream that does not retain data (that is, has
  *             a <code>DataRetentionInHours</code> of 0). </p>
  */
@@ -222,6 +239,7 @@ export class NoDataRetentionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *             stream, or the token has expired.</p>
  */
@@ -244,6 +262,7 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <code>GetMedia</code> throws this error when Kinesis Video Streams can't find the stream
  *             that you specified.</p>
@@ -274,6 +293,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The type of the media (for example, h.264 or h.265 video or ACC or G.711 audio) could
  *             not be determined from the codec IDs of the tracks in the first fragment for a playback
  *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
@@ -297,12 +317,16 @@ export class UnsupportedStreamMediaTypeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DASHFragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
   SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
 /**
+ * @public
  * <p>The start and end of the timestamp range for the requested media.</p>
  *         <p>This value should not be present if <code>PlaybackType</code> is
  *             <code>LIVE</code>.</p>
@@ -345,6 +369,7 @@ export interface DASHTimestampRange {
 }
 
 /**
+ * @public
  * <p>Contains the range of timestamps for the requested media, and the source of the
  *             timestamps. </p>
  */
@@ -382,22 +407,34 @@ export interface DASHFragmentSelector {
   TimestampRange?: DASHTimestampRange;
 }
 
+/**
+ * @public
+ */
 export enum DASHDisplayFragmentNumber {
   ALWAYS = "ALWAYS",
   NEVER = "NEVER",
 }
 
+/**
+ * @public
+ */
 export enum DASHDisplayFragmentTimestamp {
   ALWAYS = "ALWAYS",
   NEVER = "NEVER",
 }
 
+/**
+ * @public
+ */
 export enum DASHPlaybackMode {
   LIVE = "LIVE",
   LIVE_REPLAY = "LIVE_REPLAY",
   ON_DEMAND = "ON_DEMAND",
 }
 
+/**
+ * @public
+ */
 export interface GetDASHStreamingSessionURLInput {
   /**
    * <p>The name of the stream for which to retrieve the MPEG-DASH manifest URL.</p>
@@ -550,6 +587,9 @@ export interface GetDASHStreamingSessionURLInput {
   MaxManifestFragmentResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetDASHStreamingSessionURLOutput {
   /**
    * <p>The URL (containing the session token) that a media player can use to retrieve the
@@ -558,28 +598,41 @@ export interface GetDASHStreamingSessionURLOutput {
   DASHStreamingSessionURL?: string;
 }
 
+/**
+ * @public
+ */
 export enum ContainerFormat {
   FRAGMENTED_MP4 = "FRAGMENTED_MP4",
   MPEG_TS = "MPEG_TS",
 }
 
+/**
+ * @public
+ */
 export enum HLSDiscontinuityMode {
   ALWAYS = "ALWAYS",
   NEVER = "NEVER",
   ON_DISCONTINUITY = "ON_DISCONTINUITY",
 }
 
+/**
+ * @public
+ */
 export enum HLSDisplayFragmentTimestamp {
   ALWAYS = "ALWAYS",
   NEVER = "NEVER",
 }
 
+/**
+ * @public
+ */
 export enum HLSFragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
   SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
 /**
+ * @public
  * <p>The start and end of the timestamp range for the requested media.</p>
  *         <p>This value should not be present if <code>PlaybackType</code> is
  *             <code>LIVE</code>.</p>
@@ -618,6 +671,7 @@ export interface HLSTimestampRange {
 }
 
 /**
+ * @public
  * <p>Contains the range of timestamps for the requested media, and the source of the
  *             timestamps.</p>
  */
@@ -655,12 +709,18 @@ export interface HLSFragmentSelector {
   TimestampRange?: HLSTimestampRange;
 }
 
+/**
+ * @public
+ */
 export enum HLSPlaybackMode {
   LIVE = "LIVE",
   LIVE_REPLAY = "LIVE_REPLAY",
   ON_DEMAND = "ON_DEMAND",
 }
 
+/**
+ * @public
+ */
 export interface GetHLSStreamingSessionURLInput {
   /**
    * <p>The name of the stream for which to retrieve the HLS master playlist URL.</p>
@@ -854,6 +914,9 @@ export interface GetHLSStreamingSessionURLInput {
   MaxMediaPlaylistFragmentResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetHLSStreamingSessionURLOutput {
   /**
    * <p>The URL (containing the session token) that a media player can use to retrieve the HLS
@@ -862,20 +925,32 @@ export interface GetHLSStreamingSessionURLOutput {
   HLSStreamingSessionURL?: string;
 }
 
+/**
+ * @public
+ */
 export enum Format {
   JPEG = "JPEG",
   PNG = "PNG",
 }
 
+/**
+ * @public
+ */
 export enum FormatConfigKey {
   JPEGQuality = "JPEGQuality",
 }
 
+/**
+ * @public
+ */
 export enum ImageSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
   SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
+/**
+ * @public
+ */
 export interface GetImagesInput {
   /**
    * <p>The name of the stream from which to retrieve the images. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -951,12 +1026,16 @@ export interface GetImagesInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ImageError {
   MEDIA_ERROR = "MEDIA_ERROR",
   NO_MEDIA = "NO_MEDIA",
 }
 
 /**
+ * @public
  * <p>A structure that contains the <code>Timestamp</code>, <code>Error</code>, and <code>ImageContent</code>.</p>
  */
 export interface Image {
@@ -988,6 +1067,9 @@ export interface Image {
   ImageContent?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetImagesOutput {
   /**
    * <p>The list of images generated from the video stream. If there is no media available for the given timestamp, the <code>NO_MEDIA</code> error will be listed in the output.
@@ -1001,6 +1083,9 @@ export interface GetImagesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaForFragmentListInput {
   /**
    * <p>The name of the stream from which to retrieve fragment media. Specify either this parameter or the <code>StreamARN</code> parameter.</p>
@@ -1019,6 +1104,9 @@ export interface GetMediaForFragmentListInput {
   Fragments: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaForFragmentListOutput {
   /**
    * <p>The content type of the requested media.</p>
@@ -1063,12 +1151,16 @@ export interface GetMediaForFragmentListOutput {
   Payload?: Readable | ReadableStream | Blob;
 }
 
+/**
+ * @public
+ */
 export enum FragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
   SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
 /**
+ * @public
  * <p>The range of timestamps for which to return fragments.</p>
  */
 export interface TimestampRange {
@@ -1085,6 +1177,7 @@ export interface TimestampRange {
 }
 
 /**
+ * @public
  * <p>Describes the timestamp range and timestamp origin of a range of fragments.</p>
  *         <p>Only fragments with a start timestamp greater than or equal to the given start time
  *             and less than or equal to the end time are returned. For example, if a stream contains
@@ -1118,6 +1211,9 @@ export interface FragmentSelector {
   TimestampRange: TimestampRange | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFragmentsInput {
   /**
    * <p>The name of the stream from which to retrieve a fragment list. Specify either this parameter or the <code>StreamARN</code> parameter.</p>
@@ -1150,6 +1246,7 @@ export interface ListFragmentsInput {
 }
 
 /**
+ * @public
  * <p>Represents a segment of video or other time-delimited data.</p>
  */
 export interface Fragment {
@@ -1181,6 +1278,9 @@ export interface Fragment {
   FragmentLengthInMilliseconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFragmentsOutput {
   /**
    * <p>A list of archived <a>Fragment</a> objects from the stream that meet the

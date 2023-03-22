@@ -501,6 +501,7 @@ import {
 import { IoTWirelessClient } from "./IoTWirelessClient";
 
 /**
+ * @public
  * <p>AWS IoT Wireless provides bi-directional communication between internet-connected wireless
  * 	        devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the
  * 	        IoT Wireless API. These wireless devices use the Low Power Wide Area Networking (LPWAN)
@@ -515,6 +516,7 @@ import { IoTWirelessClient } from "./IoTWirelessClient";
  */
 export class IoTWireless extends IoTWirelessClient {
   /**
+   * @public
    * <p>Associates a partner account with your AWS account.</p>
    */
   public associateAwsAccountWithPartnerAccount(
@@ -549,6 +551,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Associate a multicast group with a FUOTA task.</p>
    */
   public associateMulticastGroupWithFuotaTask(
@@ -581,6 +584,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Associate a wireless device with a FUOTA task.</p>
    */
   public associateWirelessDeviceWithFuotaTask(
@@ -613,6 +617,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Associates a wireless device with a multicast group.</p>
    */
   public associateWirelessDeviceWithMulticastGroup(
@@ -647,6 +652,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Associates a wireless device with a thing.</p>
    */
   public associateWirelessDeviceWithThing(
@@ -679,6 +685,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Associates a wireless gateway with a certificate.</p>
    */
   public associateWirelessGatewayWithCertificate(
@@ -713,6 +720,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Associates a wireless gateway with a thing.</p>
    */
   public associateWirelessGatewayWithThing(
@@ -745,6 +753,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Cancels an existing multicast group session.</p>
    */
   public cancelMulticastGroupSession(
@@ -777,6 +786,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Creates a new destination that maps a device message to an AWS IoT rule.</p>
    */
   public createDestination(
@@ -809,6 +819,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Creates a new device profile.</p>
    */
   public createDeviceProfile(
@@ -841,6 +852,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Creates a FUOTA task.</p>
    */
   public createFuotaTask(
@@ -873,6 +885,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Creates a multicast group.</p>
    */
   public createMulticastGroup(
@@ -905,6 +918,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Creates a new network analyzer configuration.</p>
    */
   public createNetworkAnalyzerConfiguration(
@@ -937,6 +951,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Creates a new service profile.</p>
    */
   public createServiceProfile(
@@ -969,6 +984,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Provisions a wireless device.</p>
    */
   public createWirelessDevice(
@@ -1001,6 +1017,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Provisions a wireless gateway.</p>
    */
   public createWirelessGateway(
@@ -1033,6 +1050,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Creates a task for a wireless gateway.</p>
    */
   public createWirelessGatewayTask(
@@ -1065,6 +1083,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Creates a gateway task definition.</p>
    */
   public createWirelessGatewayTaskDefinition(
@@ -1097,6 +1116,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a destination.</p>
    */
   public deleteDestination(
@@ -1129,6 +1149,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a device profile.</p>
    */
   public deleteDeviceProfile(
@@ -1161,6 +1182,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a FUOTA task.</p>
    */
   public deleteFuotaTask(
@@ -1193,6 +1215,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a multicast group if it is not in use by a fuota task.</p>
    */
   public deleteMulticastGroup(
@@ -1225,6 +1248,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a network analyzer configuration.</p>
    */
   public deleteNetworkAnalyzerConfiguration(
@@ -1257,6 +1281,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Remove queued messages from the downlink queue.</p>
    */
   public deleteQueuedMessages(
@@ -1289,6 +1314,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a service profile.</p>
    */
   public deleteServiceProfile(
@@ -1321,6 +1347,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a wireless device.</p>
    */
   public deleteWirelessDevice(
@@ -1353,6 +1380,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a wireless gateway.</p>
    */
   public deleteWirelessGateway(
@@ -1385,6 +1413,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a wireless gateway task.</p>
    */
   public deleteWirelessGatewayTask(
@@ -1417,6 +1446,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a wireless gateway task definition. Deleting this task definition does not affect tasks that are currently in progress.</p>
    */
   public deleteWirelessGatewayTaskDefinition(
@@ -1449,6 +1479,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates your AWS account from a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, disassociates your AWS account from all partner accounts.</p>
    */
   public disassociateAwsAccountFromPartnerAccount(
@@ -1483,6 +1514,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a multicast group from a fuota task.</p>
    */
   public disassociateMulticastGroupFromFuotaTask(
@@ -1517,6 +1549,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a wireless device from a FUOTA task.</p>
    */
   public disassociateWirelessDeviceFromFuotaTask(
@@ -1551,6 +1584,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a wireless device from a multicast group.</p>
    */
   public disassociateWirelessDeviceFromMulticastGroup(
@@ -1585,6 +1619,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a wireless device from its currently associated thing.</p>
    */
   public disassociateWirelessDeviceFromThing(
@@ -1617,6 +1652,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a wireless gateway from its currently associated certificate.</p>
    */
   public disassociateWirelessGatewayFromCertificate(
@@ -1651,6 +1687,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a wireless gateway from its currently associated thing.</p>
    */
   public disassociateWirelessGatewayFromThing(
@@ -1683,6 +1720,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a destination.</p>
    */
   public getDestination(
@@ -1715,6 +1753,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a device profile.</p>
    */
   public getDeviceProfile(
@@ -1747,6 +1786,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Get the event configuration based on resource types.</p>
    */
   public getEventConfigurationByResourceTypes(
@@ -1779,6 +1819,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a FUOTA task.</p>
    */
   public getFuotaTask(
@@ -1808,6 +1849,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Returns current default log levels or log levels by resource types. Based on resource types, log levels can be
    *             for wireless device log options or wireless gateway log options.</p>
    */
@@ -1841,6 +1883,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a multicast group.</p>
    */
   public getMulticastGroup(
@@ -1873,6 +1916,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a multicast group session.</p>
    */
   public getMulticastGroupSession(
@@ -1905,6 +1949,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Get network analyzer configuration.</p>
    */
   public getNetworkAnalyzerConfiguration(
@@ -1937,6 +1982,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>
    */
   public getPartnerAccount(
@@ -1969,6 +2015,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Get the position information for a given resource.</p>
@@ -2002,6 +2049,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Get position configuration for a given resource.</p>
@@ -2041,6 +2089,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Get estimated position information as a payload in GeoJSON format. The payload measurement data is
    *           resolved using solvers that are provided by third-party vendors.</p>
    */
@@ -2074,6 +2123,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Get the event configuration for a particular resource identifier.</p>
    */
   public getResourceEventConfiguration(
@@ -2106,6 +2156,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Fetches the log-level override, if any, for a given resource-ID and resource-type. It can be used for
    *             a wireless device or a wireless gateway.</p>
    */
@@ -2139,6 +2190,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Get the position information for a given wireless device or a wireless gateway resource.
    *             The position information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
    *                 (WGS84)</a>.</p>
@@ -2173,6 +2225,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets the account-specific endpoint for Configuration and Update Server (CUPS) protocol or LoRaWAN Network Server (LNS) connections.</p>
    */
   public getServiceEndpoint(
@@ -2205,6 +2258,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a service profile.</p>
    */
   public getServiceProfile(
@@ -2237,6 +2291,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a wireless device.</p>
    */
   public getWirelessDevice(
@@ -2269,6 +2324,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets operating information about a wireless device.</p>
    */
   public getWirelessDeviceStatistics(
@@ -2301,6 +2357,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a wireless gateway.</p>
    */
   public getWirelessGateway(
@@ -2333,6 +2390,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets the ID of the certificate that is currently associated with a wireless gateway.</p>
    */
   public getWirelessGatewayCertificate(
@@ -2365,6 +2423,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets the firmware version and other information about a wireless gateway.</p>
    */
   public getWirelessGatewayFirmwareInformation(
@@ -2399,6 +2458,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets operating information about a wireless gateway.</p>
    */
   public getWirelessGatewayStatistics(
@@ -2431,6 +2491,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a wireless gateway task.</p>
    */
   public getWirelessGatewayTask(
@@ -2463,6 +2524,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a wireless gateway task definition.</p>
    */
   public getWirelessGatewayTaskDefinition(
@@ -2495,6 +2557,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the destinations registered to your AWS account.</p>
    */
   public listDestinations(
@@ -2527,6 +2590,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the device profiles registered to your AWS account.</p>
    */
   public listDeviceProfiles(
@@ -2559,6 +2623,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>List event configurations where at least one event topic has been enabled.</p>
    */
   public listEventConfigurations(
@@ -2591,6 +2656,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the FUOTA tasks registered to your AWS account.</p>
    */
   public listFuotaTasks(
@@ -2623,6 +2689,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the multicast groups registered to your AWS account.</p>
    */
   public listMulticastGroups(
@@ -2655,6 +2722,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>List all multicast groups associated with a fuota task.</p>
    */
   public listMulticastGroupsByFuotaTask(
@@ -2687,6 +2755,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the network analyzer configurations.</p>
    */
   public listNetworkAnalyzerConfigurations(
@@ -2719,6 +2788,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the partner accounts associated with your AWS account.</p>
    */
   public listPartnerAccounts(
@@ -2751,6 +2821,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>List position configurations for a given resource, such as positioning solvers.</p>
@@ -2790,6 +2861,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>List queued messages in the downlink queue.</p>
    */
   public listQueuedMessages(
@@ -2822,6 +2894,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the service profiles registered to your AWS account.</p>
    */
   public listServiceProfiles(
@@ -2854,6 +2927,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags (metadata) you have assigned to the resource.</p>
    */
   public listTagsForResource(
@@ -2886,6 +2960,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the wireless devices registered to your AWS account.</p>
    */
   public listWirelessDevices(
@@ -2918,6 +2993,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Lists the wireless gateways registered to your AWS account.</p>
    */
   public listWirelessGateways(
@@ -2950,6 +3026,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>List the wireless gateway tasks definitions registered to your AWS account.</p>
    */
   public listWirelessGatewayTaskDefinitions(
@@ -2982,6 +3059,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Put position configuration for a given resource.</p>
@@ -3020,6 +3098,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Sets the log-level override for a resource-ID and resource-type. This option can be specified for a wireless gateway
    *             or a wireless device. A limit of 200 log level override can be set per account.</p>
    */
@@ -3053,6 +3132,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Removes the log-level overrides for all resources; both wireless devices and wireless gateways.</p>
    */
   public resetAllResourceLogLevels(
@@ -3085,6 +3165,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Removes the log-level override, if any, for a specific resource-ID and resource-type. It can be used for
    *             a wireless device or a wireless gateway.</p>
    */
@@ -3118,6 +3199,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Sends the specified data to a multicast group.</p>
    */
   public sendDataToMulticastGroup(
@@ -3150,6 +3232,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Sends a decrypted application data frame to a device.</p>
    */
   public sendDataToWirelessDevice(
@@ -3182,6 +3265,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Starts a bulk association of all qualifying wireless devices with a multicast group.</p>
    */
   public startBulkAssociateWirelessDeviceWithMulticastGroup(
@@ -3216,6 +3300,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast group.</p>
    */
   public startBulkDisassociateWirelessDeviceFromMulticastGroup(
@@ -3250,6 +3335,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Starts a FUOTA task.</p>
    */
   public startFuotaTask(
@@ -3282,6 +3368,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Starts a multicast group session.</p>
    */
   public startMulticastGroupSession(
@@ -3314,6 +3401,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Adds a tag to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -3340,6 +3428,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Simulates a provisioned device by sending an uplink data payload of <code>Hello</code>.</p>
    */
   public testWirelessDevice(
@@ -3372,6 +3461,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a resource.</p>
    */
   public untagResource(
@@ -3404,6 +3494,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Updates properties of a destination.</p>
    */
   public updateDestination(
@@ -3436,6 +3527,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Update the event configuration based on resource types.</p>
    */
   public updateEventConfigurationByResourceTypes(
@@ -3470,6 +3562,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Updates properties of a FUOTA task.</p>
    */
   public updateFuotaTask(
@@ -3502,6 +3595,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Set default log level, or log levels by resource types. This can be for wireless device log options or
    *             wireless gateways log options and is used to control the log messages that'll be displayed in CloudWatch.</p>
    */
@@ -3535,6 +3629,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Updates properties of a multicast group session.</p>
    */
   public updateMulticastGroup(
@@ -3567,6 +3662,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Update network analyzer configuration.</p>
    */
   public updateNetworkAnalyzerConfiguration(
@@ -3599,6 +3695,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Updates properties of a partner account.</p>
    */
   public updatePartnerAccount(
@@ -3631,6 +3728,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Update the position information of a resource.</p>
@@ -3669,6 +3767,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Update the event configuration for a particular resource identifier.</p>
    */
   public updateResourceEventConfiguration(
@@ -3701,6 +3800,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Update the position information of a given wireless device or a wireless gateway
    *             resource. The position coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
    *                 (WGS84)</a>.</p>
@@ -3735,6 +3835,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Updates properties of a wireless device.</p>
    */
   public updateWirelessDevice(
@@ -3767,6 +3868,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @public
    * <p>Updates properties of a wireless gateway.</p>
    */
   public updateWirelessGateway(

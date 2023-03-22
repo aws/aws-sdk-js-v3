@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataRepositoryAssociationCommand}.
  */
 export interface UpdateDataRepositoryAssociationCommandInput extends UpdateDataRepositoryAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataRepositoryAssociationCommand}.
  */
 export interface UpdateDataRepositoryAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDataRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing data repository association
  *             on an Amazon FSx for Lustre file system. Data repository associations are
  *             supported only for file systems with the <code>Persistent_2</code> deployment type.</p>
@@ -50,6 +55,8 @@ export interface UpdateDataRepositoryAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataRepositoryAssociationCommandInput - {@link UpdateDataRepositoryAssociationCommandInput}
+ * @returns {@link UpdateDataRepositoryAssociationCommandOutput}
  * @see {@link UpdateDataRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateDataRepositoryAssociationCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateDataRepositoryAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataRepositoryAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class UpdateDataRepositoryAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDataRepositoryAssociationCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class UpdateDataRepositoryAssociationCommand extends $Command<
     return serializeAws_json1_1UpdateDataRepositoryAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobLogItemsCommand}.
  */
 export interface DescribeJobLogItemsCommandInput extends DescribeJobLogItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobLogItemsCommand}.
  */
 export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a detailed Job log with pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobLogItemsCommandInput - {@link DescribeJobLogItemsCommandInput}
+ * @returns {@link DescribeJobLogItemsCommandOutput}
  * @see {@link DescribeJobLogItemsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobLogItemsCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeJobLogItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobLogItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeJobLogItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobLogItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobLogItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobLogItemsCommandOutput> {
     return deserializeAws_restJson1DescribeJobLogItemsCommand(output, context);
   }

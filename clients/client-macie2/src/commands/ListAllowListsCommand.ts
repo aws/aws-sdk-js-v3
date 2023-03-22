@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAllowListsCommand}.
  */
 export interface ListAllowListsCommandInput extends ListAllowListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAllowListsCommand}.
  */
 export interface ListAllowListsCommandOutput extends ListAllowListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a subset of information about all the allow lists for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAllowListsCommandOutput extends ListAllowListsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAllowListsCommandInput - {@link ListAllowListsCommandInput}
+ * @returns {@link ListAllowListsCommandOutput}
  * @see {@link ListAllowListsCommandInput} for command's `input` shape.
  * @see {@link ListAllowListsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -81,6 +88,9 @@ export class ListAllowListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAllowListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListAllowListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAllowListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAllowListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAllowListsCommandOutput> {
     return deserializeAws_restJson1ListAllowListsCommand(output, context);
   }

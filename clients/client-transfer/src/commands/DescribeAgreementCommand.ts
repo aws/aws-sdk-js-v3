@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAgreementCommand}.
  */
 export interface DescribeAgreementCommandInput extends DescribeAgreementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAgreementCommand}.
  */
 export interface DescribeAgreementCommandOutput extends DescribeAgreementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the agreement that's identified by the <code>AgreementId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAgreementCommandInput - {@link DescribeAgreementCommandInput}
+ * @returns {@link DescribeAgreementCommandOutput}
  * @see {@link DescribeAgreementCommandInput} for command's `input` shape.
  * @see {@link DescribeAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgreementCommandOutput> {
     return deserializeAws_json1_1DescribeAgreementCommand(output, context);
   }

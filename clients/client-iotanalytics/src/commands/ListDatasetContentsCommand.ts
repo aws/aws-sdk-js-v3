@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetContentsCommand}.
  */
 export interface ListDatasetContentsCommandInput extends ListDatasetContentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetContentsCommand}.
  */
 export interface ListDatasetContentsCommandOutput extends ListDatasetContentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about dataset contents that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDatasetContentsCommandOutput extends ListDatasetContentsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetContentsCommandInput - {@link ListDatasetContentsCommandInput}
+ * @returns {@link ListDatasetContentsCommandOutput}
  * @see {@link ListDatasetContentsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetContentsCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListDatasetContentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetContentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListDatasetContentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDatasetContentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetContentsCommandOutput> {
     return deserializeAws_restJson1ListDatasetContentsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWirelessGatewayTaskCommand}.
  */
 export interface DeleteWirelessGatewayTaskCommandInput extends DeleteWirelessGatewayTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWirelessGatewayTaskCommand}.
  */
 export interface DeleteWirelessGatewayTaskCommandOutput extends DeleteWirelessGatewayTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a wireless gateway task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteWirelessGatewayTaskCommandOutput extends DeleteWirelessGa
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWirelessGatewayTaskCommandInput - {@link DeleteWirelessGatewayTaskCommandInput}
+ * @returns {@link DeleteWirelessGatewayTaskCommandOutput}
  * @see {@link DeleteWirelessGatewayTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessGatewayTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteWirelessGatewayTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWirelessGatewayTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteWirelessGatewayTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWirelessGatewayTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWirelessGatewayTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReservedInstancesListingCommand}.
  */
 export interface CreateReservedInstancesListingCommandInput extends CreateReservedInstancesListingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReservedInstancesListingCommand}.
  */
 export interface CreateReservedInstancesListingCommandOutput
@@ -37,6 +41,7 @@ export interface CreateReservedInstancesListingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance
  * 			Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your
  * 			Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p>
@@ -63,6 +68,8 @@ export interface CreateReservedInstancesListingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReservedInstancesListingCommandInput - {@link CreateReservedInstancesListingCommandInput}
+ * @returns {@link CreateReservedInstancesListingCommandOutput}
  * @see {@link CreateReservedInstancesListingCommandInput} for command's `input` shape.
  * @see {@link CreateReservedInstancesListingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -86,6 +93,9 @@ export class CreateReservedInstancesListingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReservedInstancesListingCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class CreateReservedInstancesListingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateReservedInstancesListingCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class CreateReservedInstancesListingCommand extends $Command<
     return serializeAws_ec2CreateReservedInstancesListingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

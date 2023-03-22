@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorTerminationCommand}.
  */
 export interface PutVoiceConnectorTerminationCommandInput extends PutVoiceConnectorTerminationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorTerminationCommand}.
  */
 export interface PutVoiceConnectorTerminationCommandOutput
@@ -37,6 +41,7 @@ export interface PutVoiceConnectorTerminationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
  *
  *          <note>
@@ -52,6 +57,8 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorTerminationCommandInput - {@link PutVoiceConnectorTerminationCommandInput}
+ * @returns {@link PutVoiceConnectorTerminationCommandOutput}
  * @see {@link PutVoiceConnectorTerminationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorTerminationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -99,6 +106,9 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorTerminationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutVoiceConnectorTerminationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutVoiceConnectorTerminationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

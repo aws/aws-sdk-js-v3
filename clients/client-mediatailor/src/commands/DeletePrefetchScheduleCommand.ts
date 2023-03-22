@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePrefetchScheduleCommand}.
  */
 export interface DeletePrefetchScheduleCommandInput extends DeletePrefetchScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePrefetchScheduleCommand}.
  */
 export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a prefetch schedule for a specific playback configuration. If you call <code>DeletePrefetchSchedule</code> on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePrefetchScheduleCommandInput - {@link DeletePrefetchScheduleCommandInput}
+ * @returns {@link DeletePrefetchScheduleCommandOutput}
  * @see {@link DeletePrefetchScheduleCommandInput} for command's `input` shape.
  * @see {@link DeletePrefetchScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class DeletePrefetchScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePrefetchScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeletePrefetchScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePrefetchScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePrefetchScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePrefetchScheduleCommandOutput> {
     return deserializeAws_restJson1DeletePrefetchScheduleCommand(output, context);
   }

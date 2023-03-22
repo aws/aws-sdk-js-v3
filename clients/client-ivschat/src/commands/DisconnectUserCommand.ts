@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisconnectUserCommand}.
  */
 export interface DisconnectUserCommandInput extends DisconnectUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisconnectUserCommand}.
  */
 export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects all connections using a specified user ID from a room. This replicates the
  *             <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html">
  *             DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
@@ -48,6 +53,8 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectUserCommandInput - {@link DisconnectUserCommandInput}
+ * @returns {@link DisconnectUserCommandOutput}
  * @see {@link DisconnectUserCommandInput} for command's `input` shape.
  * @see {@link DisconnectUserCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisconnectUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DisconnectUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisconnectUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectUserCommandOutput> {
     return deserializeAws_restJson1DisconnectUserCommand(output, context);
   }

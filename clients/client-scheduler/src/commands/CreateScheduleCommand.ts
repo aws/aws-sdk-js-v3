@@ -26,15 +26,20 @@ import {
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScheduleCommand}.
  */
 export interface CreateScheduleCommandInput extends CreateScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateScheduleCommand}.
  */
 export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScheduleCommandInput - {@link CreateScheduleCommandInput}
+ * @returns {@link CreateScheduleCommandOutput}
  * @see {@link CreateScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateScheduleCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduleCommandOutput> {
     return deserializeAws_restJson1CreateScheduleCommand(output, context);
   }

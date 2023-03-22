@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIAMPolicyAssignmentCommand}.
  */
 export interface UpdateIAMPolicyAssignmentCommandInput extends UpdateIAMPolicyAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIAMPolicyAssignmentCommand}.
  */
 export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing IAM policy assignment. This operation updates only the optional
  * 			parameter or parameters that are specified in the request.
  * 		    This overwrites all of the users included in <code>Identities</code>.
@@ -49,6 +54,8 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIAMPolicyAssignmentCommandInput - {@link UpdateIAMPolicyAssignmentCommandInput}
+ * @returns {@link UpdateIAMPolicyAssignmentCommandOutput}
  * @see {@link UpdateIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link UpdateIAMPolicyAssignmentCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIAMPolicyAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIAMPolicyAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateIAMPolicyAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

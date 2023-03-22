@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoadBalancersCommand}.
  */
 export interface DescribeLoadBalancersCommandInput extends DescribeLoadBalancersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoadBalancersCommand}.
  */
 export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
  *          <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the
  *                 <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>
@@ -68,6 +73,8 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancersCommandInput - {@link DescribeLoadBalancersCommandInput}
+ * @returns {@link DescribeLoadBalancersCommandOutput}
  * @see {@link DescribeLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -119,6 +126,9 @@ export class DescribeLoadBalancersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class DescribeLoadBalancersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLoadBalancersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoadBalancersCommandOutput> {
     return deserializeAws_queryDescribeLoadBalancersCommand(output, context);
   }

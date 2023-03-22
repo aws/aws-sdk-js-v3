@@ -28,15 +28,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomRoutingEndpointGroupCommand}.
  */
 export interface DeleteCustomRoutingEndpointGroupCommandInput extends DeleteCustomRoutingEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomRoutingEndpointGroupCommand}.
  */
 export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an endpoint group from a listener for a custom routing accelerator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomRoutingEndpointGroupCommandInput - {@link DeleteCustomRoutingEndpointGroupCommandInput}
+ * @returns {@link DeleteCustomRoutingEndpointGroupCommandOutput}
  * @see {@link DeleteCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteCustomRoutingEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomRoutingEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DeleteCustomRoutingEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCustomRoutingEndpointGroupCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DeleteCustomRoutingEndpointGroupCommand extends $Command<
     return serializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

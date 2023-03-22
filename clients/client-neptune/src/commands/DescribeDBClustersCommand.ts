@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBClustersCommand}.
  */
 export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBClustersCommand}.
  */
 export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about provisioned DB clusters, and supports
  *       pagination.</p>
  *          <note>
@@ -51,6 +56,8 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClustersCommandInput - {@link DescribeDBClustersCommandInput}
+ * @returns {@link DescribeDBClustersCommandOutput}
  * @see {@link DescribeDBClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClustersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeDBClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeDBClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBClustersCommandOutput> {
     return deserializeAws_queryDescribeDBClustersCommand(output, context);
   }

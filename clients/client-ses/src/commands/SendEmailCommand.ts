@@ -23,15 +23,20 @@ import { deserializeAws_querySendEmailCommand, serializeAws_querySendEmailComman
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendEmailCommand}.
  */
 export interface SendEmailCommandInput extends SendEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendEmailCommand}.
  */
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message and immediately queues it for sending. In order to send
  *             email using the <code>SendEmail</code> operation, your message must meet the following
  *             requirements:</p>
@@ -87,6 +92,8 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param SendEmailCommandInput - {@link SendEmailCommandInput}
+ * @returns {@link SendEmailCommandOutput}
  * @see {@link SendEmailCommandInput} for command's `input` shape.
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -173,6 +180,9 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -210,10 +220,16 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEmailCommandOutput> {
     return deserializeAws_querySendEmailCommand(output, context);
   }

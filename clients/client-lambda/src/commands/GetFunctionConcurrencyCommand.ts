@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFunctionConcurrencyCommand}.
  */
 export interface GetFunctionConcurrencyCommandInput extends GetFunctionConcurrencyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFunctionConcurrencyCommand}.
  */
 export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurrencyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a
  *       function, use <a>PutFunctionConcurrency</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurre
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionConcurrencyCommandInput - {@link GetFunctionConcurrencyCommandInput}
+ * @returns {@link GetFunctionConcurrencyCommandOutput}
  * @see {@link GetFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link GetFunctionConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetFunctionConcurrencyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionConcurrencyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetFunctionConcurrencyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFunctionConcurrencyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionConcurrencyCommandOutput> {
     return deserializeAws_restJson1GetFunctionConcurrencyCommand(output, context);
   }

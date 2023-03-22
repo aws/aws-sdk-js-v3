@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeliveryChannelCommand}.
  */
 export interface DeleteDeliveryChannelCommandInput extends DeleteDeliveryChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeliveryChannelCommand}.
  */
 export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the delivery channel.</p>
  *          <p>Before you can delete the delivery channel, you must stop the
  * 			configuration recorder by using the <a>StopConfigurationRecorder</a> action.</p>
@@ -43,6 +48,8 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeliveryChannelCommandInput - {@link DeleteDeliveryChannelCommandInput}
+ * @returns {@link DeleteDeliveryChannelCommandOutput}
  * @see {@link DeleteDeliveryChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteDeliveryChannelCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteDeliveryChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeliveryChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteDeliveryChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeliveryChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDeliveryChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeliveryChannelCommandOutput> {
     return deserializeAws_json1_1DeleteDeliveryChannelCommand(output, context);
   }

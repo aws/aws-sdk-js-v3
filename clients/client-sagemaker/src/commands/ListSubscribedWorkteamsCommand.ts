@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubscribedWorkteamsCommand}.
  */
 export interface ListSubscribedWorkteamsCommandInput extends ListSubscribedWorkteamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSubscribedWorkteamsCommand}.
  */
 export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWorkteamsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the work teams that you are subscribed to in the Amazon Web Services Marketplace. The
  *             list may be empty if no work team satisfies the filter specified in the
  *                 <code>NameContains</code> parameter.</p>
@@ -48,6 +53,8 @@ export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWork
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscribedWorkteamsCommandInput - {@link ListSubscribedWorkteamsCommandInput}
+ * @returns {@link ListSubscribedWorkteamsCommandOutput}
  * @see {@link ListSubscribedWorkteamsCommandInput} for command's `input` shape.
  * @see {@link ListSubscribedWorkteamsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListSubscribedWorkteamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscribedWorkteamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListSubscribedWorkteamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscribedWorkteamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSubscribedWorkteamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscribedWorkteamsCommandOutput> {
     return deserializeAws_json1_1ListSubscribedWorkteamsCommand(output, context);
   }

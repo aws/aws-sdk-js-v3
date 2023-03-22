@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutFeedbackCommand}.
  */
 export interface PutFeedbackCommandInput extends PutFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutFeedbackCommand}.
  */
 export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add feedback for an anomalous metric.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFeedbackCommandInput - {@link PutFeedbackCommandInput}
+ * @returns {@link PutFeedbackCommandOutput}
  * @see {@link PutFeedbackCommandInput} for command's `input` shape.
  * @see {@link PutFeedbackCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class PutFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFeedbackCommandOutput> {
     return deserializeAws_restJson1PutFeedbackCommand(output, context);
   }

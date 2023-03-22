@@ -26,11 +26,15 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopDBInstanceAutomatedBackupsReplicationCommand}.
  */
 export interface StopDBInstanceAutomatedBackupsReplicationCommandInput
   extends StopDBInstanceAutomatedBackupsReplicationMessage {}
 /**
+ * @public
+ *
  * The output of {@link StopDBInstanceAutomatedBackupsReplicationCommand}.
  */
 export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
@@ -38,6 +42,7 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops automated backup replication for a DB instance.</p>
  *          <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
@@ -53,6 +58,8 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDBInstanceAutomatedBackupsReplicationCommandInput - {@link StopDBInstanceAutomatedBackupsReplicationCommandInput}
+ * @returns {@link StopDBInstanceAutomatedBackupsReplicationCommandOutput}
  * @see {@link StopDBInstanceAutomatedBackupsReplicationCommandInput} for command's `input` shape.
  * @see {@link StopDBInstanceAutomatedBackupsReplicationCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -83,6 +90,9 @@ export class StopDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDBInstanceAutomatedBackupsReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class StopDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StopDBInstanceAutomatedBackupsReplicationCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class StopDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     return serializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

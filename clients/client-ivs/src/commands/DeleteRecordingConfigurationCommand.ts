@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecordingConfigurationCommand}.
  */
 export interface DeleteRecordingConfigurationCommandInput extends DeleteRecordingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecordingConfigurationCommand}.
  */
 export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the recording configuration for the specified ARN.</p>
  *          <p>If you try to delete a recording configuration that is associated with a channel, you will
  *       get an error (409 ConflictException). To avoid this, for all channels that reference the
@@ -49,6 +54,8 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecordingConfigurationCommandInput - {@link DeleteRecordingConfigurationCommandInput}
+ * @returns {@link DeleteRecordingConfigurationCommandOutput}
  * @see {@link DeleteRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteRecordingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecordingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteRecordingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecordingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRecordingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

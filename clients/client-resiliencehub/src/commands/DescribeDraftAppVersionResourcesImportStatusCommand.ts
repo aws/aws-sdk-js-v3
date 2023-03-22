@@ -26,11 +26,15 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDraftAppVersionResourcesImportStatusCommand}.
  */
 export interface DescribeDraftAppVersionResourcesImportStatusCommandInput
   extends DescribeDraftAppVersionResourcesImportStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDraftAppVersionResourcesImportStatusCommand}.
  */
 export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of importing resources to an application version.</p>
  *          <note>
  *             <p>If you get a 404 error with
@@ -56,6 +61,8 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDraftAppVersionResourcesImportStatusCommandInput - {@link DescribeDraftAppVersionResourcesImportStatusCommandInput}
+ * @returns {@link DescribeDraftAppVersionResourcesImportStatusCommandOutput}
  * @see {@link DescribeDraftAppVersionResourcesImportStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeDraftAppVersionResourcesImportStatusCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDraftAppVersionResourcesImportStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDraftAppVersionResourcesImportStatusCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
     return serializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

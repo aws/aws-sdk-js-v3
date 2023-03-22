@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationCommand}.
  */
 export interface DeleteApplicationCommandInput extends DeleteApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationCommand}.
  */
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -51,6 +56,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
+ * @returns {@link DeleteApplicationCommandOutput}
  * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationCommandOutput> {
     return deserializeAws_json1_1DeleteApplicationCommand(output, context);
   }

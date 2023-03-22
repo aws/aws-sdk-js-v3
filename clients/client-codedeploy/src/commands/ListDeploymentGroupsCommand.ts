@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentGroupsCommand}.
  */
 export interface ListDeploymentGroupsCommandInput extends ListDeploymentGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentGroupsCommand}.
  */
 export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the deployment groups for an application registered with the IAM
  *             user or Amazon Web Services account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentGroupsCommandInput - {@link ListDeploymentGroupsCommandInput}
+ * @returns {@link ListDeploymentGroupsCommandOutput}
  * @see {@link ListDeploymentGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDeploymentGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDeploymentGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDeploymentGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentGroupsCommandOutput> {
     return deserializeAws_json1_1ListDeploymentGroupsCommand(output, context);
   }

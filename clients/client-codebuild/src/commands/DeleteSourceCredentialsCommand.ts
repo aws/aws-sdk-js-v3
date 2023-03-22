@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSourceCredentialsCommand}.
  */
 export interface DeleteSourceCredentialsCommandInput extends DeleteSourceCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSourceCredentialsCommand}.
  */
 export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSourceCredentialsCommandInput - {@link DeleteSourceCredentialsCommandInput}
+ * @returns {@link DeleteSourceCredentialsCommandOutput}
  * @see {@link DeleteSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteSourceCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSourceCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteSourceCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSourceCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSourceCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSourceCredentialsCommandOutput> {
     return deserializeAws_json1_1DeleteSourceCredentialsCommand(output, context);
   }

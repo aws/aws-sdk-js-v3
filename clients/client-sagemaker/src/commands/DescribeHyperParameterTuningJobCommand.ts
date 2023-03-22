@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHyperParameterTuningJobCommand}.
  */
 export interface DescribeHyperParameterTuningJobCommandInput extends DescribeHyperParameterTuningJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHyperParameterTuningJobCommand}.
  */
 export interface DescribeHyperParameterTuningJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeHyperParameterTuningJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets
  *             a description of a hyperparameter tuning job.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHyperParameterTuningJobCommandInput - {@link DescribeHyperParameterTuningJobCommandInput}
+ * @returns {@link DescribeHyperParameterTuningJobCommandOutput}
  * @see {@link DescribeHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link DescribeHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeHyperParameterTuningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class DescribeHyperParameterTuningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeHyperParameterTuningJobCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class DescribeHyperParameterTuningJobCommand extends $Command<
     return serializeAws_json1_1DescribeHyperParameterTuningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

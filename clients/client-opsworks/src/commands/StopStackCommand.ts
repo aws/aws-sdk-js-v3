@@ -18,15 +18,20 @@ import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { deserializeAws_json1_1StopStackCommand, serializeAws_json1_1StopStackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopStackCommand}.
  */
 export interface StopStackCommandInput extends StopStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopStackCommand}.
  */
 export interface StopStackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specified stack.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -43,6 +48,8 @@ export interface StopStackCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStackCommandInput - {@link StopStackCommandInput}
+ * @returns {@link StopStackCommandOutput}
  * @see {@link StopStackCommandInput} for command's `input` shape.
  * @see {@link StopStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -72,6 +79,9 @@ export class StopStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class StopStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStackCommandOutput> {
     return deserializeAws_json1_1StopStackCommand(output, context);
   }

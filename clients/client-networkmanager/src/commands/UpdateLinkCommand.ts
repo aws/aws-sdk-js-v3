@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLinkCommand}.
  */
 export interface UpdateLinkCommandInput extends UpdateLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLinkCommand}.
  */
 export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details for an existing link. To remove information for any of the
  *             parameters, specify an empty string.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLinkCommandInput - {@link UpdateLinkCommandInput}
+ * @returns {@link UpdateLinkCommandOutput}
  * @see {@link UpdateLinkCommandInput} for command's `input` shape.
  * @see {@link UpdateLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLinkCommandOutput> {
     return deserializeAws_restJson1UpdateLinkCommand(output, context);
   }

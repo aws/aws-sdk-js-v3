@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExtensionCommand}.
  */
 export interface GetExtensionCommandInput extends GetExtensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExtensionCommand}.
  */
 export interface GetExtensionCommandOutput extends GetExtensionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a specified extension.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetExtensionCommandOutput extends GetExtensionResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExtensionCommandInput - {@link GetExtensionCommandInput}
+ * @returns {@link GetExtensionCommandOutput}
  * @see {@link GetExtensionCommandInput} for command's `input` shape.
  * @see {@link GetExtensionCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetExtensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetExtensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetExtensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExtensionCommandOutput> {
     return deserializeAws_restJson1GetExtensionCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLaunchConfigurationCommand}.
  */
 export interface DeleteLaunchConfigurationCommandInput extends LaunchConfigurationNameType {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLaunchConfigurationCommand}.
  */
 export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified launch configuration.</p>
  *          <p>The launch configuration must not be attached to an Auto Scaling group. When this call
  *             completes, the launch configuration is no longer available for use.</p>
@@ -43,6 +48,8 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchConfigurationCommandInput - {@link DeleteLaunchConfigurationCommandInput}
+ * @returns {@link DeleteLaunchConfigurationCommandOutput}
  * @see {@link DeleteLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

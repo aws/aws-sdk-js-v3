@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomMetricsCommand}.
  */
 export interface ListCustomMetricsCommandInput extends ListCustomMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomMetricsCommand}.
  */
 export interface ListCustomMetricsCommandOutput extends ListCustomMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Lists your Device Defender detect custom metrics.
  *     </p>
@@ -49,6 +54,8 @@ export interface ListCustomMetricsCommandOutput extends ListCustomMetricsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomMetricsCommandInput - {@link ListCustomMetricsCommandInput}
+ * @returns {@link ListCustomMetricsCommandOutput}
  * @see {@link ListCustomMetricsCommandInput} for command's `input` shape.
  * @see {@link ListCustomMetricsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListCustomMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListCustomMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCustomMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCustomMetricsCommandOutput> {
     return deserializeAws_restJson1ListCustomMetricsCommand(output, context);
   }

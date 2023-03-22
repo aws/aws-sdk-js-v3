@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApiKeyCommand}.
  */
 export interface CreateApiKeyCommandInput extends CreateApiKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApiKeyCommand}.
  */
 export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a unique key that you can distribute to clients who invoke your API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApiKeyCommandInput - {@link CreateApiKeyCommandInput}
+ * @returns {@link CreateApiKeyCommandOutput}
  * @see {@link CreateApiKeyCommandInput} for command's `input` shape.
  * @see {@link CreateApiKeyCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateApiKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApiKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateApiKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateApiKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiKeyCommandOutput> {
     return deserializeAws_restJson1CreateApiKeyCommand(output, context);
   }

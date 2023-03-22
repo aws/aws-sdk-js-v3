@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptPortfolioShareCommand}.
  */
 export interface AcceptPortfolioShareCommandInput extends AcceptPortfolioShareInput {}
 /**
+ * @public
+ *
  * The output of {@link AcceptPortfolioShareCommand}.
  */
 export interface AcceptPortfolioShareCommandOutput extends AcceptPortfolioShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts an offer to share the specified portfolio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AcceptPortfolioShareCommandOutput extends AcceptPortfolioShareO
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptPortfolioShareCommandInput - {@link AcceptPortfolioShareCommandInput}
+ * @returns {@link AcceptPortfolioShareCommandOutput}
  * @see {@link AcceptPortfolioShareCommandInput} for command's `input` shape.
  * @see {@link AcceptPortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -79,6 +86,9 @@ export class AcceptPortfolioShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptPortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class AcceptPortfolioShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptPortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptPortfolioShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptPortfolioShareCommandOutput> {
     return deserializeAws_json1_1AcceptPortfolioShareCommand(output, context);
   }

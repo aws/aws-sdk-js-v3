@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLanguageModelCommand}.
  */
 export interface DeleteLanguageModelCommandInput extends DeleteLanguageModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLanguageModelCommand}.
  */
 export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom language model. To use this operation, specify the name of the
  *             language model you want to delete using <code>ModelName</code>. custom language model
  *             names are case sensitive.</p>
@@ -43,6 +48,8 @@ export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLanguageModelCommandInput - {@link DeleteLanguageModelCommandInput}
+ * @returns {@link DeleteLanguageModelCommandOutput}
  * @see {@link DeleteLanguageModelCommandInput} for command's `input` shape.
  * @see {@link DeleteLanguageModelCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteLanguageModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLanguageModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteLanguageModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLanguageModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLanguageModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLanguageModelCommandOutput> {
     return deserializeAws_json1_1DeleteLanguageModelCommand(output, context);
   }

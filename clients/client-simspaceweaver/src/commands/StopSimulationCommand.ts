@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopSimulationCommand}.
  */
 export interface StopSimulationCommandInput extends StopSimulationInput {}
 /**
+ * @public
+ *
  * The output of {@link StopSimulationCommand}.
  */
 export interface StopSimulationCommandOutput extends StopSimulationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the given simulation.</p>
  *          <important>
  *             <p>You can't restart a simulation after you stop it.
@@ -51,6 +56,8 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSimulationCommandInput - {@link StopSimulationCommandInput}
+ * @returns {@link StopSimulationCommandOutput}
  * @see {@link StopSimulationCommandInput} for command's `input` shape.
  * @see {@link StopSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -89,6 +96,9 @@ export class StopSimulationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSimulationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StopSimulationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopSimulationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSimulationCommandOutput> {
     return deserializeAws_restJson1StopSimulationCommand(output, context);
   }

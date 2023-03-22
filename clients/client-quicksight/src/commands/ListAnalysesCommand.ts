@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnalysesCommand}.
  */
 export interface ListAnalysesCommandInput extends ListAnalysesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnalysesCommand}.
  */
 export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists Amazon QuickSight analyses that exist in the specified Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnalysesCommandInput - {@link ListAnalysesCommandInput}
+ * @returns {@link ListAnalysesCommandOutput}
  * @see {@link ListAnalysesCommandInput} for command's `input` shape.
  * @see {@link ListAnalysesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAnalysesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnalysesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListAnalysesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnalysesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAnalysesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnalysesCommandOutput> {
     return deserializeAws_restJson1ListAnalysesCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetVerifiedAccessEndpointPolicyCommand}.
  */
 export interface GetVerifiedAccessEndpointPolicyCommandInput extends GetVerifiedAccessEndpointPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVerifiedAccessEndpointPolicyCommand}.
  */
 export interface GetVerifiedAccessEndpointPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface GetVerifiedAccessEndpointPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the Verified Access policy associated with the endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetVerifiedAccessEndpointPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVerifiedAccessEndpointPolicyCommandInput - {@link GetVerifiedAccessEndpointPolicyCommandInput}
+ * @returns {@link GetVerifiedAccessEndpointPolicyCommandOutput}
  * @see {@link GetVerifiedAccessEndpointPolicyCommandInput} for command's `input` shape.
  * @see {@link GetVerifiedAccessEndpointPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class GetVerifiedAccessEndpointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVerifiedAccessEndpointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class GetVerifiedAccessEndpointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVerifiedAccessEndpointPolicyCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class GetVerifiedAccessEndpointPolicyCommand extends $Command<
     return serializeAws_ec2GetVerifiedAccessEndpointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

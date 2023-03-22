@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link TestRenderEmailTemplateCommand}.
  */
 export interface TestRenderEmailTemplateCommandInput extends TestRenderEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestRenderEmailTemplateCommand}.
  */
 export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a preview of the MIME content of an email when provided with a template and a
  *             set of replacement data.</p>
  *          <p>You can execute this operation no more than once per second.</p>
@@ -48,6 +53,8 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  * const response = await client.send(command);
  * ```
  *
+ * @param TestRenderEmailTemplateCommandInput - {@link TestRenderEmailTemplateCommandInput}
+ * @returns {@link TestRenderEmailTemplateCommandOutput}
  * @see {@link TestRenderEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link TestRenderEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -80,6 +87,9 @@ export class TestRenderEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestRenderEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class TestRenderEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestRenderEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TestRenderEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRenderEmailTemplateCommandOutput> {
     return deserializeAws_restJson1TestRenderEmailTemplateCommand(output, context);
   }

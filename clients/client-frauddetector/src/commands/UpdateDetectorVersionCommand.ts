@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDetectorVersionCommand}.
  */
 export interface UpdateDetectorVersionCommandInput extends UpdateDetectorVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDetectorVersionCommand}.
  */
 export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, rule execution mode, and description. You can only update a <code>DRAFT</code> detector version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDetectorVersionCommandInput - {@link UpdateDetectorVersionCommandInput}
+ * @returns {@link UpdateDetectorVersionCommandOutput}
  * @see {@link UpdateDetectorVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateDetectorVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDetectorVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateDetectorVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDetectorVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDetectorVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDetectorVersionCommandOutput> {
     return deserializeAws_json1_1UpdateDetectorVersionCommand(output, context);
   }

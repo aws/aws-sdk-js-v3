@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePortalCommand}.
  */
 export interface DescribePortalCommandInput extends DescribePortalRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePortalCommand}.
  */
 export interface DescribePortalCommandOutput extends DescribePortalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePortalCommandInput - {@link DescribePortalCommandInput}
+ * @returns {@link DescribePortalCommandOutput}
  * @see {@link DescribePortalCommandInput} for command's `input` shape.
  * @see {@link DescribePortalCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribePortalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePortalCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribePortalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribePortalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortalCommandOutput> {
     return deserializeAws_restJson1DescribePortalCommand(output, context);
   }

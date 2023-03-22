@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveAutoScalingPolicyCommand}.
  */
 export interface RemoveAutoScalingPolicyCommandInput extends RemoveAutoScalingPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveAutoScalingPolicyCommand}.
  */
 export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an automatic scaling policy from a specified instance group within an EMR
  *          cluster.</p>
  * @example
@@ -47,6 +52,8 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAutoScalingPolicyCommandInput - {@link RemoveAutoScalingPolicyCommandInput}
+ * @returns {@link RemoveAutoScalingPolicyCommandOutput}
  * @see {@link RemoveAutoScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link RemoveAutoScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -70,6 +77,9 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAutoScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAutoScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveAutoScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveAutoScalingPolicyCommandOutput> {
     return deserializeAws_json1_1RemoveAutoScalingPolicyCommand(output, context);
   }

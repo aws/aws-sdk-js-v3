@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAllowListCommand}.
  */
 export interface DeleteAllowListCommandInput extends DeleteAllowListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAllowListCommand}.
  */
 export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an allow list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAllowListCommandInput - {@link DeleteAllowListCommandInput}
+ * @returns {@link DeleteAllowListCommandOutput}
  * @see {@link DeleteAllowListCommandInput} for command's `input` shape.
  * @see {@link DeleteAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteAllowListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAllowListCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteAllowListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAllowListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAllowListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAllowListCommandOutput> {
     return deserializeAws_restJson1DeleteAllowListCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAuditSuppressionCommand}.
  */
 export interface DescribeAuditSuppressionCommandInput extends DescribeAuditSuppressionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAuditSuppressionCommand}.
  */
 export interface DescribeAuditSuppressionCommandOutput extends DescribeAuditSuppressionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets information about a Device Defender audit suppression.
  *     </p>
@@ -48,6 +53,8 @@ export interface DescribeAuditSuppressionCommandOutput extends DescribeAuditSupp
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAuditSuppressionCommandInput - {@link DescribeAuditSuppressionCommandInput}
+ * @returns {@link DescribeAuditSuppressionCommandOutput}
  * @see {@link DescribeAuditSuppressionCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditSuppressionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeAuditSuppressionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuditSuppressionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeAuditSuppressionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAuditSuppressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAuditSuppressionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAuditSuppressionCommandOutput> {
     return deserializeAws_restJson1DescribeAuditSuppressionCommand(output, context);
   }

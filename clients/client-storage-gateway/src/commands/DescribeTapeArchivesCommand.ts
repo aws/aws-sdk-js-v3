@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTapeArchivesCommand}.
  */
 export interface DescribeTapeArchivesCommandInput extends DescribeTapeArchivesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTapeArchivesCommand}.
  */
 export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This
  *          operation is only supported in the tape gateway type.</p>
  *
@@ -50,6 +55,8 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTapeArchivesCommandInput - {@link DescribeTapeArchivesCommandInput}
+ * @returns {@link DescribeTapeArchivesCommandOutput}
  * @see {@link DescribeTapeArchivesCommandInput} for command's `input` shape.
  * @see {@link DescribeTapeArchivesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -118,6 +125,9 @@ export class DescribeTapeArchivesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTapeArchivesCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class DescribeTapeArchivesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTapeArchivesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTapeArchivesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTapeArchivesCommandOutput> {
     return deserializeAws_json1_1DescribeTapeArchivesCommand(output, context);
   }

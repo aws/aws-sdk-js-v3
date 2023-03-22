@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOrganizationConfigurationCommand}.
  */
 export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrganizationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOrganizationConfigurationCommand}.
  */
 export interface UpdateOrganizationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configurations for your Amazon Inspector organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
+ * @returns {@link UpdateOrganizationConfigurationCommandOutput}
  * @see {@link UpdateOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateOrganizationConfigurationCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateOrganizationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

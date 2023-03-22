@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationAdminAccountsCommand}.
  */
 export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizationAdminAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationAdminAccountsCommand}.
  */
 export interface ListOrganizationAdminAccountsCommandOutput
@@ -37,6 +41,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the delegated Amazon Macie administrator account for an organization in Organizations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
+ * @returns {@link ListOrganizationAdminAccountsCommandOutput}
  * @see {@link ListOrganizationAdminAccountsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationAdminAccountsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +99,9 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationAdminAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrganizationAdminAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListOrganizationAdminAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

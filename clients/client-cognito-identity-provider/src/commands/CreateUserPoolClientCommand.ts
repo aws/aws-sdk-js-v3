@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserPoolClientCommand}.
  */
 export interface CreateUserPoolClientCommandInput extends CreateUserPoolClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserPoolClientCommand}.
  */
 export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the user pool client.</p>
  *         <p>When you create a new user pool client, token revocation is automatically activated.
  *             For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
@@ -53,6 +58,8 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserPoolClientCommandInput - {@link CreateUserPoolClientCommandInput}
+ * @returns {@link CreateUserPoolClientCommandOutput}
  * @see {@link CreateUserPoolClientCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolClientCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateUserPoolClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserPoolClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class CreateUserPoolClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUserPoolClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserPoolClientCommandOutput> {
     return deserializeAws_json1_1CreateUserPoolClientCommand(output, context);
   }

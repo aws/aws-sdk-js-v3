@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetConfigCommand, serializeAws_json1_1GetConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigCommand}.
  */
 export interface GetConfigCommandInput extends GetConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigCommand}.
  */
 export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -54,6 +59,8 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigCommandInput - {@link GetConfigCommandInput}
+ * @returns {@link GetConfigCommandOutput}
  * @see {@link GetConfigCommandInput} for command's `input` shape.
  * @see {@link GetConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigCommandOutput> {
     return deserializeAws_json1_1GetConfigCommand(output, context);
   }

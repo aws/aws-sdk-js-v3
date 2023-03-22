@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketWebsiteCommand}.
  */
 export interface GetBucketWebsiteCommandInput extends GetBucketWebsiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketWebsiteCommand}.
  */
 export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the website configuration for a bucket. To host website on Amazon S3, you can
  *          configure a bucket as website by adding a website configuration. For more information about
  *          hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on
@@ -66,6 +71,8 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketWebsiteCommandInput - {@link GetBucketWebsiteCommandInput}
+ * @returns {@link GetBucketWebsiteCommandOutput}
  * @see {@link GetBucketWebsiteCommandInput} for command's `input` shape.
  * @see {@link GetBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -116,6 +123,9 @@ export class GetBucketWebsiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketWebsiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class GetBucketWebsiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketWebsiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketWebsiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketWebsiteCommandOutput> {
     return deserializeAws_restXmlGetBucketWebsiteCommand(output, context);
   }

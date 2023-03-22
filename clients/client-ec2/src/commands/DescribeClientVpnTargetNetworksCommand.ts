@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClientVpnTargetNetworksCommand}.
  */
 export interface DescribeClientVpnTargetNetworksCommandInput extends DescribeClientVpnTargetNetworksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClientVpnTargetNetworksCommand}.
  */
 export interface DescribeClientVpnTargetNetworksCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeClientVpnTargetNetworksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the target networks associated with the specified Client VPN endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeClientVpnTargetNetworksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientVpnTargetNetworksCommandInput - {@link DescribeClientVpnTargetNetworksCommandInput}
+ * @returns {@link DescribeClientVpnTargetNetworksCommandOutput}
  * @see {@link DescribeClientVpnTargetNetworksCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnTargetNetworksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeClientVpnTargetNetworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientVpnTargetNetworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeClientVpnTargetNetworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeClientVpnTargetNetworksCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeClientVpnTargetNetworksCommand extends $Command<
     return serializeAws_ec2DescribeClientVpnTargetNetworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

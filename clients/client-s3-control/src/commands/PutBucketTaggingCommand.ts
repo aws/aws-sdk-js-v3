@@ -23,15 +23,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketTaggingCommand}.
  */
 export interface PutBucketTaggingCommandInput extends PutBucketTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketTaggingCommand}.
  */
 export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket, see
  *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -125,6 +130,8 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketTaggingCommandInput - {@link PutBucketTaggingCommandInput}
+ * @returns {@link PutBucketTaggingCommandOutput}
  * @see {@link PutBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link PutBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -152,6 +159,9 @@ export class PutBucketTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,10 +203,16 @@ export class PutBucketTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketTaggingCommandOutput> {
     return deserializeAws_restXmlPutBucketTaggingCommand(output, context);
   }

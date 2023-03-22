@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { AppConfigDataServiceException as __BaseException } from "./AppConfigDataServiceException";
 
+/**
+ * @public
+ */
 export enum InvalidParameterProblem {
   /**
    * The parameter was corrupted and could not be understood by the service.
@@ -19,6 +22,7 @@ export enum InvalidParameterProblem {
 }
 
 /**
+ * @public
  * <p>Information about an invalid parameter.</p>
  */
 export interface InvalidParameterDetail {
@@ -29,11 +33,15 @@ export interface InvalidParameterDetail {
 }
 
 /**
+ * @public
  * <p>Detailed information about the input that failed to satisfy the constraints specified by
  *          a call.</p>
  */
 export type BadRequestDetails = BadRequestDetails.InvalidParametersMember | BadRequestDetails.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace BadRequestDetails {
   /**
    * <p>One or more specified parameters are not valid for the call.</p>
@@ -59,6 +67,9 @@ export namespace BadRequestDetails {
   };
 }
 
+/**
+ * @public
+ */
 export enum BadRequestReason {
   /**
    * Indicates there was a problem with one or more of the parameters.
@@ -68,6 +79,7 @@ export enum BadRequestReason {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by the service.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -100,6 +112,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was an internal failure in the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -120,6 +133,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   /**
    * Resource type value for the Application resource.
@@ -144,6 +160,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>The requested resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -176,6 +193,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartConfigurationSessionRequest {
   /**
    * <p>The application ID or the application name.</p>
@@ -200,6 +220,9 @@ export interface StartConfigurationSessionRequest {
   RequiredMinimumPollIntervalInSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartConfigurationSessionResponse {
   /**
    * <p>Token encapsulating state about the configuration session. Provide this token to the
@@ -221,6 +244,7 @@ export interface StartConfigurationSessionResponse {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -241,6 +265,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetLatestConfigurationRequest {
   /**
    * <p>Token describing the current state of the configuration session. To obtain a token,
@@ -258,6 +285,9 @@ export interface GetLatestConfigurationRequest {
   ConfigurationToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLatestConfigurationResponse {
   /**
    * <p>The latest token describing the current state of the configuration session. This

@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTemplateSyncConfigCommand}.
  */
 export interface CreateTemplateSyncConfigCommandInput extends CreateTemplateSyncConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTemplateSyncConfigCommand}.
  */
 export interface CreateTemplateSyncConfigCommandOutput extends CreateTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set up a template to create new template versions automatically by tracking a linked repository. A linked
  *    repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
  *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your repository template
@@ -51,6 +56,8 @@ export interface CreateTemplateSyncConfigCommandOutput extends CreateTemplateSyn
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTemplateSyncConfigCommandInput - {@link CreateTemplateSyncConfigCommandInput}
+ * @returns {@link CreateTemplateSyncConfigCommandOutput}
  * @see {@link CreateTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateTemplateSyncConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTemplateSyncConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateTemplateSyncConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTemplateSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateTemplateSyncConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateSyncConfigCommandOutput> {
     return deserializeAws_json1_0CreateTemplateSyncConfigCommand(output, context);
   }

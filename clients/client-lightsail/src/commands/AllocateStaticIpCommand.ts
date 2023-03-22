@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllocateStaticIpCommand}.
  */
 export interface AllocateStaticIpCommandInput extends AllocateStaticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocateStaticIpCommand}.
  */
 export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allocates a static IP address.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateStaticIpCommandInput - {@link AllocateStaticIpCommandInput}
+ * @returns {@link AllocateStaticIpCommandOutput}
  * @see {@link AllocateStaticIpCommandInput} for command's `input` shape.
  * @see {@link AllocateStaticIpCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class AllocateStaticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateStaticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class AllocateStaticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AllocateStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AllocateStaticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateStaticIpCommandOutput> {
     return deserializeAws_json1_1AllocateStaticIpCommand(output, context);
   }

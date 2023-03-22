@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExtensionAssociationsCommand}.
  */
 export interface ListExtensionAssociationsCommandInput extends ListExtensionAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExtensionAssociationsCommand}.
  */
 export interface ListExtensionAssociationsCommandOutput extends ExtensionAssociations, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all AppConfig extension associations in the account. For more
  *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -49,6 +54,8 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExtensionAssociationsCommandInput - {@link ListExtensionAssociationsCommandInput}
+ * @returns {@link ListExtensionAssociationsCommandOutput}
  * @see {@link ListExtensionAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListExtensionAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExtensionAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListExtensionAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExtensionAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListExtensionAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

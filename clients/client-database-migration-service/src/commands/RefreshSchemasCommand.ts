@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RefreshSchemasCommand}.
  */
 export interface RefreshSchemasCommandInput extends RefreshSchemasMessage {}
 /**
+ * @public
+ *
  * The output of {@link RefreshSchemasCommand}.
  */
 export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Populates the schema for the specified endpoint. This is an asynchronous operation and
  *          can take several minutes. You can check the status of this operation by calling the
  *          DescribeRefreshSchemasStatus operation.</p>
@@ -52,6 +57,8 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param RefreshSchemasCommandInput - {@link RefreshSchemasCommandInput}
+ * @returns {@link RefreshSchemasCommandOutput}
  * @see {@link RefreshSchemasCommandInput} for command's `input` shape.
  * @see {@link RefreshSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -104,6 +111,9 @@ export class RefreshSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RefreshSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class RefreshSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RefreshSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RefreshSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshSchemasCommandOutput> {
     return deserializeAws_json1_1RefreshSchemasCommand(output, context);
   }

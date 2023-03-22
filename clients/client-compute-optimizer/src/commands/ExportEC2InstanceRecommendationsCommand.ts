@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExportEC2InstanceRecommendationsCommand}.
  */
 export interface ExportEC2InstanceRecommendationsCommandInput extends ExportEC2InstanceRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportEC2InstanceRecommendationsCommand}.
  */
 export interface ExportEC2InstanceRecommendationsCommandOutput
@@ -37,6 +41,7 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports optimization recommendations for Amazon EC2 instances.</p>
  *          <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
@@ -53,6 +58,8 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportEC2InstanceRecommendationsCommandInput - {@link ExportEC2InstanceRecommendationsCommandInput}
+ * @returns {@link ExportEC2InstanceRecommendationsCommandOutput}
  * @see {@link ExportEC2InstanceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportEC2InstanceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -101,6 +108,9 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportEC2InstanceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportEC2InstanceRecommendationsCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
     return serializeAws_json1_0ExportEC2InstanceRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

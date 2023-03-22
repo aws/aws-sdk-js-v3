@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePositionCommand}.
  */
 export interface UpdatePositionCommandInput extends UpdatePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePositionCommand}.
  */
 export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Update the position information of a resource.</p>
@@ -52,6 +57,8 @@ export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePositionCommandInput - {@link UpdatePositionCommandInput}
+ * @returns {@link UpdatePositionCommandOutput}
  * @see {@link UpdatePositionCommandInput} for command's `input` shape.
  * @see {@link UpdatePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdatePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdatePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePositionCommandOutput> {
     return deserializeAws_restJson1UpdatePositionCommand(output, context);
   }

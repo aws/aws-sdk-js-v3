@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevicesCommand}.
  */
 export interface ListDevicesCommandInput extends ListDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDevicesCommand}.
  */
 export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about unique device types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
+ * @returns {@link ListDevicesCommandOutput}
  * @see {@link ListDevicesCommandInput} for command's `input` shape.
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicesCommandOutput> {
     return deserializeAws_json1_1ListDevicesCommand(output, context);
   }

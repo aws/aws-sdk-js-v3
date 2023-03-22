@@ -192,6 +192,7 @@ import {
 import { DataBrewClient } from "./DataBrewClient";
 
 /**
+ * @public
  * <p>Glue DataBrew is a visual, cloud-scale data-preparation service. DataBrew
  *             simplifies data preparation tasks, targeting data issues that are hard to spot and
  *             time-consuming to fix. DataBrew empowers users of all technical levels to visualize the
@@ -199,6 +200,7 @@ import { DataBrewClient } from "./DataBrewClient";
  */
 export class DataBrew extends DataBrewClient {
   /**
+   * @public
    * <p>Deletes one or more versions of a recipe at a time.</p>
    *          <p>The entire request will be rejected if:</p>
    *          <ul>
@@ -269,6 +271,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DataBrew dataset.</p>
    */
   public createDataset(
@@ -301,6 +304,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Creates a new job to analyze a dataset and create its data profile.</p>
    */
   public createProfileJob(
@@ -333,6 +337,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DataBrew project.</p>
    */
   public createProject(
@@ -365,6 +370,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Creates a new DataBrew recipe.</p>
    */
   public createRecipe(
@@ -394,6 +400,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Creates a new job to transform input data, using steps defined in an existing Glue DataBrew recipe</p>
    */
   public createRecipeJob(
@@ -426,6 +433,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Creates a new ruleset that can be used in a profile job to validate
    *             the data quality of a dataset.</p>
    */
@@ -459,6 +467,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific
    *             date and time, or at regular intervals.</p>
    */
@@ -492,6 +501,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Deletes a dataset from DataBrew.</p>
    */
   public deleteDataset(
@@ -524,6 +534,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified DataBrew job.</p>
    */
   public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
@@ -550,6 +561,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing DataBrew project.</p>
    */
   public deleteProject(
@@ -582,6 +594,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Deletes a single version of a DataBrew recipe.</p>
    */
   public deleteRecipeVersion(
@@ -614,6 +627,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Deletes a ruleset.</p>
    */
   public deleteRuleset(
@@ -646,6 +660,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified DataBrew schedule.</p>
    */
   public deleteSchedule(
@@ -678,6 +693,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Returns the definition of a specific DataBrew dataset.</p>
    */
   public describeDataset(
@@ -710,6 +726,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Returns the definition of a specific DataBrew job.</p>
    */
   public describeJob(args: DescribeJobCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobCommandOutput>;
@@ -736,6 +753,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Represents one run of a DataBrew job.</p>
    */
   public describeJobRun(
@@ -768,6 +786,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Returns the definition of a specific DataBrew project.</p>
    */
   public describeProject(
@@ -800,6 +819,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Returns the definition of a specific DataBrew recipe corresponding to a particular
    *             version.</p>
    */
@@ -833,6 +853,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Retrieves detailed information about the ruleset.</p>
    */
   public describeRuleset(
@@ -865,6 +886,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Returns the definition of a specific DataBrew schedule.</p>
    */
   public describeSchedule(
@@ -897,6 +919,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the DataBrew datasets.</p>
    */
   public listDatasets(
@@ -926,6 +949,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the previous runs of a particular DataBrew job.</p>
    */
   public listJobRuns(args: ListJobRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobRunsCommandOutput>;
@@ -952,6 +976,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the DataBrew jobs that are defined.</p>
    */
   public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
@@ -978,6 +1003,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the DataBrew projects that are defined.</p>
    */
   public listProjects(
@@ -1007,6 +1033,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the DataBrew recipes that are defined.</p>
    */
   public listRecipes(args: ListRecipesCommandInput, options?: __HttpHandlerOptions): Promise<ListRecipesCommandOutput>;
@@ -1033,6 +1060,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Lists the versions of a particular DataBrew recipe, except for
    *                 <code>LATEST_WORKING</code>.</p>
    */
@@ -1066,6 +1094,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>List all rulesets available in the current account or rulesets associated
    *             with a specific resource (dataset).</p>
    */
@@ -1096,6 +1125,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Lists the DataBrew schedules that are defined.</p>
    */
   public listSchedules(
@@ -1128,6 +1158,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Lists all the tags for a DataBrew resource. </p>
    */
   public listTagsForResource(
@@ -1160,6 +1191,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Publishes a new version of a DataBrew recipe.</p>
    */
   public publishRecipe(
@@ -1192,6 +1224,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Performs a recipe step within an interactive DataBrew session that's currently
    *             open.</p>
    */
@@ -1225,6 +1258,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Runs a DataBrew job.</p>
    */
   public startJobRun(args: StartJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StartJobRunCommandOutput>;
@@ -1251,6 +1285,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Creates an interactive session, enabling you to manipulate data in a DataBrew
    *             project.</p>
    */
@@ -1284,6 +1319,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Stops a particular run of a job.</p>
    */
   public stopJobRun(args: StopJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StopJobRunCommandOutput>;
@@ -1310,6 +1346,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe, job, or
    *             schedule.</p>
    */
@@ -1337,6 +1374,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Removes metadata tags from a DataBrew resource.</p>
    */
   public untagResource(
@@ -1369,6 +1407,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Modifies the definition of an existing DataBrew dataset.</p>
    */
   public updateDataset(
@@ -1401,6 +1440,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Modifies the definition of an existing profile job.</p>
    */
   public updateProfileJob(
@@ -1433,6 +1473,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Modifies the definition of an existing DataBrew project.</p>
    */
   public updateProject(
@@ -1465,6 +1506,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Modifies the definition of the <code>LATEST_WORKING</code> version of a DataBrew
    *             recipe.</p>
    */
@@ -1495,6 +1537,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Modifies the definition of an existing DataBrew recipe job.</p>
    */
   public updateRecipeJob(
@@ -1527,6 +1570,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Updates specified ruleset.</p>
    */
   public updateRuleset(
@@ -1559,6 +1603,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
+   * @public
    * <p>Modifies the definition of an existing DataBrew schedule.</p>
    */
   public updateSchedule(

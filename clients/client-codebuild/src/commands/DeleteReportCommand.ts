@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReportCommand}.
  */
 export interface DeleteReportCommandInput extends DeleteReportInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReportCommand}.
  */
 export interface DeleteReportCommandOutput extends DeleteReportOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a report.
  *     </p>
@@ -48,6 +53,8 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReportCommandInput - {@link DeleteReportCommandInput}
+ * @returns {@link DeleteReportCommandOutput}
  * @see {@link DeleteReportCommandInput} for command's `input` shape.
  * @see {@link DeleteReportCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportCommandOutput> {
     return deserializeAws_json1_1DeleteReportCommand(output, context);
   }

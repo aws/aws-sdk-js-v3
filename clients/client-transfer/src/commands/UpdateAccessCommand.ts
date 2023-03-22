@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccessCommand}.
  */
 export interface UpdateAccessCommandInput extends UpdateAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccessCommand}.
  */
 export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to update parameters for the access specified in the <code>ServerID</code> and
  *       <code>ExternalID</code> parameters.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccessCommandInput - {@link UpdateAccessCommandInput}
+ * @returns {@link UpdateAccessCommandOutput}
  * @see {@link UpdateAccessCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccessCommandOutput> {
     return deserializeAws_json1_1UpdateAccessCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link EvaluateSessionCommand}.
  */
 export interface EvaluateSessionCommandInput extends EvaluateSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link EvaluateSessionCommand}.
  */
 export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates a specified session based on audio data accumulated during a streaming
  *             Amazon Connect Voice ID call.</p>
  * @example
@@ -47,6 +52,8 @@ export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluateSessionCommandInput - {@link EvaluateSessionCommandInput}
+ * @returns {@link EvaluateSessionCommandOutput}
  * @see {@link EvaluateSessionCommandInput} for command's `input` shape.
  * @see {@link EvaluateSessionCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -95,6 +102,9 @@ export class EvaluateSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluateSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class EvaluateSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EvaluateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0EvaluateSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateSessionCommandOutput> {
     return deserializeAws_json1_0EvaluateSessionCommand(output, context);
   }

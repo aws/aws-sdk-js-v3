@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkInsightsAnalysisCommand}.
  */
 export interface DeleteNetworkInsightsAnalysisCommandInput extends DeleteNetworkInsightsAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkInsightsAnalysisCommand}.
  */
 export interface DeleteNetworkInsightsAnalysisCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteNetworkInsightsAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified network insights analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteNetworkInsightsAnalysisCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInsightsAnalysisCommandInput - {@link DeleteNetworkInsightsAnalysisCommandInput}
+ * @returns {@link DeleteNetworkInsightsAnalysisCommandOutput}
  * @see {@link DeleteNetworkInsightsAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteNetworkInsightsAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInsightsAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteNetworkInsightsAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkInsightsAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNetworkInsightsAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

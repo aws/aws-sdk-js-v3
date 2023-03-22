@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCustomerMetadataCommand}.
  */
 export interface DescribeCustomerMetadataCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCustomerMetadataCommand}.
  */
 export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get and view a list of customer agreements, along with their signed status and whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomerMetadataCommandInput - {@link DescribeCustomerMetadataCommandInput}
+ * @returns {@link DescribeCustomerMetadataCommandOutput}
  * @see {@link DescribeCustomerMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomerMetadataCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeCustomerMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomerMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeCustomerMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCustomerMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCustomerMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCustomerMetadataCommandOutput> {
     return deserializeAws_json1_1DescribeCustomerMetadataCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAggregateComplianceByConformancePacksCommand}.
  */
 export interface DescribeAggregateComplianceByConformancePacksCommandInput
   extends DescribeAggregateComplianceByConformancePacksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAggregateComplianceByConformancePacksCommand}.
  */
 export interface DescribeAggregateComplianceByConformancePacksCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each
  * 			conformance pack. Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
  *          <note>
@@ -53,6 +58,8 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAggregateComplianceByConformancePacksCommandInput - {@link DescribeAggregateComplianceByConformancePacksCommandInput}
+ * @returns {@link DescribeAggregateComplianceByConformancePacksCommandOutput}
  * @see {@link DescribeAggregateComplianceByConformancePacksCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateComplianceByConformancePacksCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAggregateComplianceByConformancePacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAggregateComplianceByConformancePacksCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
     return serializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

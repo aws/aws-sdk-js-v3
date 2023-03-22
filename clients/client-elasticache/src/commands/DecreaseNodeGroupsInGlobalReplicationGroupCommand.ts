@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DecreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
 export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandInput
   extends DecreaseNodeGroupsInGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DecreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
 export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
@@ -38,6 +42,7 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decreases the number of node groups in a Global datastore</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DecreaseNodeGroupsInGlobalReplicationGroupCommandInput - {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandInput}
+ * @returns {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput}
  * @see {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -84,6 +91,9 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     return serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

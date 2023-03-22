@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceDefinitionCommand}.
  */
 export interface DeleteDeviceDefinitionCommandInput extends DeleteDeviceDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceDefinitionCommand}.
  */
 export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a device definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceDefinitionCommandInput - {@link DeleteDeviceDefinitionCommandInput}
+ * @returns {@link DeleteDeviceDefinitionCommandOutput}
  * @see {@link DeleteDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteDeviceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteDeviceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDeviceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceDefinitionCommandOutput> {
     return deserializeAws_restJson1DeleteDeviceDefinitionCommand(output, context);
   }

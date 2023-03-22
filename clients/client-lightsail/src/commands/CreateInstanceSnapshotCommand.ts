@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceSnapshotCommand}.
  */
 export interface CreateInstanceSnapshotCommandInput extends CreateInstanceSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceSnapshotCommand}.
  */
 export interface CreateInstanceSnapshotCommandOutput extends CreateInstanceSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of a specific virtual private server, or <i>instance</i>.
  *       You can use a snapshot to create a new instance that is based on that snapshot.</p>
  *          <p>The <code>create instance snapshot</code> operation supports tag-based access control via
@@ -49,6 +54,8 @@ export interface CreateInstanceSnapshotCommandOutput extends CreateInstanceSnaps
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceSnapshotCommandInput - {@link CreateInstanceSnapshotCommandInput}
+ * @returns {@link CreateInstanceSnapshotCommandOutput}
  * @see {@link CreateInstanceSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateInstanceSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateInstanceSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateInstanceSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceSnapshotCommandOutput> {
     return deserializeAws_json1_1CreateInstanceSnapshotCommand(output, context);
   }

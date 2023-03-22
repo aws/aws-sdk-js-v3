@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDedicatedIpsCommand}.
  */
 export interface GetDedicatedIpsCommandInput extends GetDedicatedIpsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDedicatedIpsCommand}.
  */
 export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the dedicated IP addresses that are associated with your Amazon Web Services
  *             account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDedicatedIpsCommandInput - {@link GetDedicatedIpsCommandInput}
+ * @returns {@link GetDedicatedIpsCommandOutput}
  * @see {@link GetDedicatedIpsCommandInput} for command's `input` shape.
  * @see {@link GetDedicatedIpsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +86,9 @@ export class GetDedicatedIpsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDedicatedIpsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetDedicatedIpsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDedicatedIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDedicatedIpsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDedicatedIpsCommandOutput> {
     return deserializeAws_restJson1GetDedicatedIpsCommand(output, context);
   }

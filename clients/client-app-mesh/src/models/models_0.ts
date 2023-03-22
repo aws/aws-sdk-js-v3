@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AppMeshServiceException as __BaseException } from "./AppMeshServiceException";
 
 /**
+ * @public
  * <p>An object that represents the key value pairs for the JSON.</p>
  */
 export interface JsonFormatRef {
@@ -19,10 +20,14 @@ export interface JsonFormatRef {
 }
 
 /**
+ * @public
  * <p>An object that represents the format for the logs.</p>
  */
 export type LoggingFormat = LoggingFormat.JsonMember | LoggingFormat.TextMember | LoggingFormat.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace LoggingFormat {
   /**
    * <p/>
@@ -62,6 +67,7 @@ export namespace LoggingFormat {
 }
 
 /**
+ * @public
  * <p>An object that represents an access log file.</p>
  */
 export interface FileAccessLog {
@@ -87,10 +93,14 @@ export interface FileAccessLog {
 }
 
 /**
+ * @public
  * <p>An object that represents the access logging information for a virtual node.</p>
  */
 export type AccessLog = AccessLog.FileMember | AccessLog.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AccessLog {
   /**
    * <p>The file object to send virtual node access logs to.</p>
@@ -117,6 +127,7 @@ export namespace AccessLog {
 }
 
 /**
+ * @public
  * <p>The request syntax was malformed. Check your request syntax and try again.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -136,6 +147,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You don't have permissions to perform this action.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -155,6 +167,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception, or
  *          failure.</p>
  */
@@ -176,6 +189,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  *
  */
 export interface ListTagsForResourceInput {
@@ -206,6 +220,7 @@ export interface ListTagsForResourceInput {
 }
 
 /**
+ * @public
  * <p>Optional metadata that you apply to a resource to assist with categorization and
  *          organization. Each tag consists of a key and an optional value, both of which you define.
  *          Tag keys can have a maximum character length of 128 characters, and tag values can have
@@ -226,6 +241,7 @@ export interface TagRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListTagsForResourceOutput {
@@ -244,6 +260,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -263,6 +280,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request has failed due to a temporary failure of the service.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -283,6 +301,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
@@ -307,6 +326,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request contains a client token that was used for a previous update resource call
  *          with different specifications. Try the request again with a new client token.</p>
  */
@@ -326,12 +346,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum EgressFilterType {
   ALLOW_ALL = "ALLOW_ALL",
   DROP_ALL = "DROP_ALL",
 }
 
 /**
+ * @public
  * <p>An object that represents the egress filter rules for a service mesh.</p>
  */
 export interface EgressFilter {
@@ -345,6 +369,9 @@ export interface EgressFilter {
   type: EgressFilterType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum IpPreference {
   IPv4_ONLY = "IPv4_ONLY",
   IPv4_PREFERRED = "IPv4_PREFERRED",
@@ -353,6 +380,7 @@ export enum IpPreference {
 }
 
 /**
+ * @public
  * <p>An object that represents the service discovery information for a service mesh.</p>
  */
 export interface MeshServiceDiscovery {
@@ -363,6 +391,7 @@ export interface MeshServiceDiscovery {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a service mesh.</p>
  */
 export interface MeshSpec {
@@ -378,6 +407,7 @@ export interface MeshSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateMeshInput {
@@ -407,6 +437,7 @@ export interface CreateMeshInput {
 }
 
 /**
+ * @public
  * <p>An object that represents metadata for a resource.</p>
  */
 export interface ResourceMetadata {
@@ -448,6 +479,9 @@ export interface ResourceMetadata {
   resourceOwner: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MeshStatusCode {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -455,6 +489,7 @@ export enum MeshStatusCode {
 }
 
 /**
+ * @public
  * <p>An object that represents the status of a service mesh.</p>
  */
 export interface MeshStatus {
@@ -465,6 +500,7 @@ export interface MeshStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a service mesh returned by a describe operation.</p>
  */
 export interface MeshData {
@@ -490,6 +526,7 @@ export interface MeshData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateMeshOutput {
@@ -500,6 +537,7 @@ export interface CreateMeshOutput {
 }
 
 /**
+ * @public
  * <p>You have exceeded a service limit for your account. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html">Service
  *             Limits</a> in the <i>App Mesh User Guide</i>.</p>
  */
@@ -520,6 +558,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteMeshInput {
@@ -530,6 +569,7 @@ export interface DeleteMeshInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteMeshOutput {
@@ -540,6 +580,7 @@ export interface DeleteMeshOutput {
 }
 
 /**
+ * @public
  * <p>You can't delete the specified resource because it's in use or required by another
  *          resource.</p>
  */
@@ -560,6 +601,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeMeshInput {
@@ -576,6 +618,7 @@ export interface DescribeMeshInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeMeshOutput {
@@ -586,6 +629,7 @@ export interface DescribeMeshOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListMeshesInput {
@@ -615,6 +659,7 @@ export interface ListMeshesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a service mesh returned by a list operation.</p>
  */
 export interface MeshRef {
@@ -657,6 +702,7 @@ export interface MeshRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListMeshesOutput {
@@ -675,6 +721,7 @@ export interface ListMeshesOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateMeshInput {
@@ -696,6 +743,7 @@ export interface UpdateMeshInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateMeshOutput {
@@ -706,6 +754,7 @@ export interface UpdateMeshOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a local file certificate.
  *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
  */
@@ -723,6 +772,7 @@ export interface VirtualGatewayListenerTlsFileCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the virtual gateway's listener's Secret Discovery Service
  *          certificate.The proxy must be configured with a local SDS provider via a Unix Domain
  *          Socket. See App Mesh<a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
@@ -738,6 +788,7 @@ export interface VirtualGatewayListenerTlsSdsCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the virtual gateway's client's Transport Layer Security (TLS) certificate.</p>
  */
 export type VirtualGatewayClientTlsCertificate =
@@ -745,6 +796,9 @@ export type VirtualGatewayClientTlsCertificate =
   | VirtualGatewayClientTlsCertificate.SdsMember
   | VirtualGatewayClientTlsCertificate.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayClientTlsCertificate {
   /**
    * <p>An object that represents a local file certificate. The certificate must meet specific
@@ -788,6 +842,7 @@ export namespace VirtualGatewayClientTlsCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the methods by which a subject alternative name on a peer
  *          Transport Layer Security (TLS) certificate can be matched.</p>
  */
@@ -799,6 +854,7 @@ export interface SubjectAlternativeNameMatchers {
 }
 
 /**
+ * @public
  * <p>An object that represents the subject alternative names secured by the
  *          certificate.</p>
  */
@@ -810,6 +866,7 @@ export interface SubjectAlternativeNames {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager
  *          certificate.</p>
  */
@@ -821,6 +878,7 @@ export interface VirtualGatewayTlsValidationContextAcmTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
  */
 export interface VirtualGatewayTlsValidationContextFileTrust {
@@ -832,6 +890,7 @@ export interface VirtualGatewayTlsValidationContextFileTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret Discovery Service
  *          validation context trust. The proxy must be configured with a local SDS provider via a Unix
  *          Domain Socket. See App Mesh
@@ -847,6 +906,7 @@ export interface VirtualGatewayTlsValidationContextSdsTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust.</p>
  */
 export type VirtualGatewayTlsValidationContextTrust =
@@ -855,6 +915,9 @@ export type VirtualGatewayTlsValidationContextTrust =
   | VirtualGatewayTlsValidationContextTrust.SdsMember
   | VirtualGatewayTlsValidationContextTrust.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayTlsValidationContextTrust {
   /**
    * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager certificate.</p>
@@ -910,6 +973,7 @@ export namespace VirtualGatewayTlsValidationContextTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context.</p>
  */
 export interface VirtualGatewayTlsValidationContext {
@@ -927,6 +991,7 @@ export interface VirtualGatewayTlsValidationContext {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) client policy.</p>
  */
 export interface VirtualGatewayClientPolicyTls {
@@ -954,6 +1019,7 @@ export interface VirtualGatewayClientPolicyTls {
 }
 
 /**
+ * @public
  * <p>An object that represents a client policy.</p>
  */
 export interface VirtualGatewayClientPolicy {
@@ -964,6 +1030,7 @@ export interface VirtualGatewayClientPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents the default properties for a backend.</p>
  */
 export interface VirtualGatewayBackendDefaults {
@@ -974,6 +1041,7 @@ export interface VirtualGatewayBackendDefaults {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualGatewayGrpcConnectionPool {
@@ -985,6 +1053,7 @@ export interface VirtualGatewayGrpcConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualGatewayHttpConnectionPool {
@@ -1002,6 +1071,7 @@ export interface VirtualGatewayHttpConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualGatewayHttp2ConnectionPool {
@@ -1013,6 +1083,7 @@ export interface VirtualGatewayHttp2ConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents the type of virtual gateway connection pool.</p>
  *          <p>Only one protocol is used at a time and should be the same protocol as the one chosen
  *          under port mapping.</p>
@@ -1025,6 +1096,9 @@ export type VirtualGatewayConnectionPool =
   | VirtualGatewayConnectionPool.Http2Member
   | VirtualGatewayConnectionPool.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayConnectionPool {
   /**
    * <p>An object that represents a type of connection pool.</p>
@@ -1078,6 +1152,9 @@ export namespace VirtualGatewayConnectionPool {
   };
 }
 
+/**
+ * @public
+ */
 export enum VirtualGatewayPortProtocol {
   GRPC = "grpc",
   HTTP = "http",
@@ -1085,6 +1162,7 @@ export enum VirtualGatewayPortProtocol {
 }
 
 /**
+ * @public
  * <p>An object that represents the health check policy for a virtual gateway's
  *          listener.</p>
  */
@@ -1133,6 +1211,7 @@ export interface VirtualGatewayHealthCheckPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents a port mapping.</p>
  */
 export interface VirtualGatewayPortMapping {
@@ -1148,6 +1227,7 @@ export interface VirtualGatewayPortMapping {
 }
 
 /**
+ * @public
  * <p>An object that represents an Certificate Manager certificate.</p>
  */
 export interface VirtualGatewayListenerTlsAcmCertificate {
@@ -1158,6 +1238,7 @@ export interface VirtualGatewayListenerTlsAcmCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener's Transport Layer Security (TLS) certificate.</p>
  */
 export type VirtualGatewayListenerTlsCertificate =
@@ -1166,6 +1247,9 @@ export type VirtualGatewayListenerTlsCertificate =
   | VirtualGatewayListenerTlsCertificate.SdsMember
   | VirtualGatewayListenerTlsCertificate.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayListenerTlsCertificate {
   /**
    * <p>A reference to an object that represents an Certificate Manager certificate.</p>
@@ -1220,6 +1304,9 @@ export namespace VirtualGatewayListenerTlsCertificate {
   };
 }
 
+/**
+ * @public
+ */
 export enum VirtualGatewayListenerTlsMode {
   DISABLED = "DISABLED",
   PERMISSIVE = "PERMISSIVE",
@@ -1227,6 +1314,7 @@ export enum VirtualGatewayListenerTlsMode {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation context
  *          trust.</p>
  */
@@ -1235,6 +1323,9 @@ export type VirtualGatewayListenerTlsValidationContextTrust =
   | VirtualGatewayListenerTlsValidationContextTrust.SdsMember
   | VirtualGatewayListenerTlsValidationContextTrust.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayListenerTlsValidationContextTrust {
   /**
    * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
@@ -1275,6 +1366,7 @@ export namespace VirtualGatewayListenerTlsValidationContextTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation
  *          context.</p>
  */
@@ -1293,6 +1385,7 @@ export interface VirtualGatewayListenerTlsValidationContext {
 }
 
 /**
+ * @public
  * <p>An object that represents the Transport Layer Security (TLS) properties for a listener.</p>
  */
 export interface VirtualGatewayListenerTls {
@@ -1331,6 +1424,7 @@ export interface VirtualGatewayListenerTls {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener for a virtual gateway.</p>
  */
 export interface VirtualGatewayListener {
@@ -1356,6 +1450,7 @@ export interface VirtualGatewayListener {
 }
 
 /**
+ * @public
  * <p>An object that represents an access log file.</p>
  */
 export interface VirtualGatewayFileAccessLog {
@@ -1376,10 +1471,14 @@ export interface VirtualGatewayFileAccessLog {
 }
 
 /**
+ * @public
  * <p>The access log configuration for a virtual gateway.</p>
  */
 export type VirtualGatewayAccessLog = VirtualGatewayAccessLog.FileMember | VirtualGatewayAccessLog.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayAccessLog {
   /**
    * <p>The file object to send virtual gateway access logs to.</p>
@@ -1406,6 +1505,7 @@ export namespace VirtualGatewayAccessLog {
 }
 
 /**
+ * @public
  * <p>An object that represents logging information.</p>
  */
 export interface VirtualGatewayLogging {
@@ -1416,6 +1516,7 @@ export interface VirtualGatewayLogging {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a service mesh resource.</p>
  */
 export interface VirtualGatewaySpec {
@@ -1436,6 +1537,9 @@ export interface VirtualGatewaySpec {
   logging?: VirtualGatewayLogging;
 }
 
+/**
+ * @public
+ */
 export interface CreateVirtualGatewayInput {
   /**
    * <p>The name to use for the virtual gateway.</p>
@@ -1474,6 +1578,9 @@ export interface CreateVirtualGatewayInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum VirtualGatewayStatusCode {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -1481,6 +1588,7 @@ export enum VirtualGatewayStatusCode {
 }
 
 /**
+ * @public
  * <p>An object that represents the status of the mesh resource.</p>
  */
 export interface VirtualGatewayStatus {
@@ -1491,6 +1599,7 @@ export interface VirtualGatewayStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual gateway returned by a describe operation.</p>
  */
 export interface VirtualGatewayData {
@@ -1520,6 +1629,9 @@ export interface VirtualGatewayData {
   status: VirtualGatewayStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVirtualGatewayOutput {
   /**
    * <p>The full description of your virtual gateway following the create call.</p>
@@ -1527,6 +1639,9 @@ export interface CreateVirtualGatewayOutput {
   virtualGateway: VirtualGatewayData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVirtualGatewayInput {
   /**
    * <p>The name of the virtual gateway to delete.</p>
@@ -1545,6 +1660,9 @@ export interface DeleteVirtualGatewayInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVirtualGatewayOutput {
   /**
    * <p>The virtual gateway that was deleted.</p>
@@ -1552,6 +1670,9 @@ export interface DeleteVirtualGatewayOutput {
   virtualGateway: VirtualGatewayData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVirtualGatewayInput {
   /**
    * <p>The name of the virtual gateway to describe.</p>
@@ -1570,6 +1691,9 @@ export interface DescribeVirtualGatewayInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVirtualGatewayOutput {
   /**
    * <p>The full description of your virtual gateway.</p>
@@ -1577,12 +1701,16 @@ export interface DescribeVirtualGatewayOutput {
   virtualGateway: VirtualGatewayData | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DefaultGatewayRouteRewrite {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>An object representing the gateway route host name to rewrite.</p>
  */
 export interface GatewayRouteHostnameRewrite {
@@ -1593,6 +1721,7 @@ export interface GatewayRouteHostnameRewrite {
 }
 
 /**
+ * @public
  * <p>An object that represents the gateway route to rewrite.</p>
  */
 export interface GrpcGatewayRouteRewrite {
@@ -1603,6 +1732,7 @@ export interface GrpcGatewayRouteRewrite {
 }
 
 /**
+ * @public
  * <p>An object that represents the virtual service that traffic is routed to.</p>
  */
 export interface GatewayRouteVirtualService {
@@ -1613,6 +1743,7 @@ export interface GatewayRouteVirtualService {
 }
 
 /**
+ * @public
  * <p>An object that represents a gateway route target.</p>
  */
 export interface GatewayRouteTarget {
@@ -1628,6 +1759,7 @@ export interface GatewayRouteTarget {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface GrpcGatewayRouteAction {
@@ -1643,6 +1775,7 @@ export interface GrpcGatewayRouteAction {
 }
 
 /**
+ * @public
  * <p>An object representing the gateway route host name to match.</p>
  */
 export interface GatewayRouteHostnameMatch {
@@ -1658,6 +1791,7 @@ export interface GatewayRouteHostnameMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents the range of values to match on. The first character of the range is included in the range, though the last character is not. For example, if the range specified were 1-100, only values 1-99 would be matched.</p>
  */
 export interface MatchRange {
@@ -1673,6 +1807,7 @@ export interface MatchRange {
 }
 
 /**
+ * @public
  * <p>An object representing the method header to be matched.</p>
  */
 export type GrpcMetadataMatchMethod =
@@ -1683,6 +1818,9 @@ export type GrpcMetadataMatchMethod =
   | GrpcMetadataMatchMethod.SuffixMember
   | GrpcMetadataMatchMethod.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace GrpcMetadataMatchMethod {
   /**
    * <p>The exact method header to be matched on.</p>
@@ -1773,6 +1911,7 @@ export namespace GrpcMetadataMatchMethod {
 }
 
 /**
+ * @public
  * <p>An object representing the metadata of the gateway route.</p>
  */
 export interface GrpcGatewayRouteMetadata {
@@ -1794,6 +1933,7 @@ export interface GrpcGatewayRouteMetadata {
 }
 
 /**
+ * @public
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface GrpcGatewayRouteMatch {
@@ -1819,6 +1959,7 @@ export interface GrpcGatewayRouteMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents a gRPC gateway route.</p>
  */
 export interface GrpcGatewayRoute {
@@ -1834,6 +1975,7 @@ export interface GrpcGatewayRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents the path to rewrite.</p>
  */
 export interface HttpGatewayRoutePathRewrite {
@@ -1844,6 +1986,7 @@ export interface HttpGatewayRoutePathRewrite {
 }
 
 /**
+ * @public
  * <p>An object representing the beginning characters of the route to rewrite.</p>
  */
 export interface HttpGatewayRoutePrefixRewrite {
@@ -1859,6 +2002,7 @@ export interface HttpGatewayRoutePrefixRewrite {
 }
 
 /**
+ * @public
  * <p>An object representing the gateway route to rewrite.</p>
  */
 export interface HttpGatewayRouteRewrite {
@@ -1879,6 +2023,7 @@ export interface HttpGatewayRouteRewrite {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface HttpGatewayRouteAction {
@@ -1894,6 +2039,7 @@ export interface HttpGatewayRouteAction {
 }
 
 /**
+ * @public
  * <p>An object that represents the method and value to match with the header value sent in a
  *          request. Specify one match method.</p>
  */
@@ -1905,6 +2051,9 @@ export type HeaderMatchMethod =
   | HeaderMatchMethod.SuffixMember
   | HeaderMatchMethod.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace HeaderMatchMethod {
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
@@ -1995,6 +2144,7 @@ export namespace HeaderMatchMethod {
 }
 
 /**
+ * @public
  * <p>An object that represents the HTTP header in the gateway route.</p>
  */
 export interface HttpGatewayRouteHeader {
@@ -2016,6 +2166,9 @@ export interface HttpGatewayRouteHeader {
   match?: HeaderMatchMethod;
 }
 
+/**
+ * @public
+ */
 export enum HttpMethod {
   CONNECT = "CONNECT",
   DELETE = "DELETE",
@@ -2029,6 +2182,7 @@ export enum HttpMethod {
 }
 
 /**
+ * @public
  * <p>An object representing the path to match in the request.</p>
  */
 export interface HttpPathMatch {
@@ -2044,6 +2198,7 @@ export interface HttpPathMatch {
 }
 
 /**
+ * @public
  * <p>An object representing the query parameter to match.</p>
  */
 export interface QueryParameterMatch {
@@ -2054,6 +2209,7 @@ export interface QueryParameterMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents the query parameter in the request.</p>
  */
 export interface HttpQueryParameter {
@@ -2069,6 +2225,7 @@ export interface HttpQueryParameter {
 }
 
 /**
+ * @public
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface HttpGatewayRouteMatch {
@@ -2114,6 +2271,7 @@ export interface HttpGatewayRouteMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents an HTTP gateway route.</p>
  */
 export interface HttpGatewayRoute {
@@ -2129,6 +2287,7 @@ export interface HttpGatewayRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents a gateway route specification. Specify one gateway route
  *          type.</p>
  */
@@ -2154,6 +2313,9 @@ export interface GatewayRouteSpec {
   grpcRoute?: GrpcGatewayRoute;
 }
 
+/**
+ * @public
+ */
 export interface CreateGatewayRouteInput {
   /**
    * <p>The name to use for the gateway route.</p>
@@ -2199,6 +2361,9 @@ export interface CreateGatewayRouteInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum GatewayRouteStatusCode {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -2206,6 +2371,7 @@ export enum GatewayRouteStatusCode {
 }
 
 /**
+ * @public
  * <p>An object that represents the current status of a gateway route.</p>
  */
 export interface GatewayRouteStatus {
@@ -2216,6 +2382,7 @@ export interface GatewayRouteStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a gateway route returned by a describe operation.</p>
  */
 export interface GatewayRouteData {
@@ -2250,6 +2417,9 @@ export interface GatewayRouteData {
   status: GatewayRouteStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGatewayRouteOutput {
   /**
    * <p>The full description of your gateway route following the create call.</p>
@@ -2257,6 +2427,9 @@ export interface CreateGatewayRouteOutput {
   gatewayRoute: GatewayRouteData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGatewayRouteInput {
   /**
    * <p>The name of the gateway route to delete.</p>
@@ -2280,6 +2453,9 @@ export interface DeleteGatewayRouteInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGatewayRouteOutput {
   /**
    * <p>The gateway route that was deleted.</p>
@@ -2287,6 +2463,9 @@ export interface DeleteGatewayRouteOutput {
   gatewayRoute: GatewayRouteData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGatewayRouteInput {
   /**
    * <p>The name of the gateway route to describe.</p>
@@ -2310,6 +2489,9 @@ export interface DescribeGatewayRouteInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGatewayRouteOutput {
   /**
    * <p>The full description of your gateway route.</p>
@@ -2317,6 +2499,9 @@ export interface DescribeGatewayRouteOutput {
   gatewayRoute: GatewayRouteData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewayRoutesInput {
   /**
    * <p>The name of the service mesh to list gateway routes in.</p>
@@ -2356,6 +2541,7 @@ export interface ListGatewayRoutesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a gateway route returned by a list operation.</p>
  */
 export interface GatewayRouteRef {
@@ -2407,6 +2593,9 @@ export interface GatewayRouteRef {
   lastUpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewayRoutesOutput {
   /**
    * <p>The list of existing gateway routes for the specified service mesh and virtual
@@ -2423,6 +2612,9 @@ export interface ListGatewayRoutesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewayRouteInput {
   /**
    * <p>The name of the gateway route to update.</p>
@@ -2457,6 +2649,9 @@ export interface UpdateGatewayRouteInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewayRouteOutput {
   /**
    * <p>A full description of the gateway route that was updated.</p>
@@ -2464,6 +2659,9 @@ export interface UpdateGatewayRouteOutput {
   gatewayRoute: GatewayRouteData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualGatewaysInput {
   /**
    * <p>The name of the service mesh to list virtual gateways in.</p>
@@ -2498,6 +2696,7 @@ export interface ListVirtualGatewaysInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual gateway returned by a list operation.</p>
  */
 export interface VirtualGatewayRef {
@@ -2544,6 +2743,9 @@ export interface VirtualGatewayRef {
   lastUpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualGatewaysOutput {
   /**
    * <p>The list of existing virtual gateways for the specified service mesh.</p>
@@ -2559,6 +2761,9 @@ export interface ListVirtualGatewaysOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVirtualGatewayInput {
   /**
    * <p>The name of the virtual gateway to update.</p>
@@ -2589,6 +2794,9 @@ export interface UpdateVirtualGatewayInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVirtualGatewayOutput {
   /**
    * <p>A full description of the virtual gateway that was updated.</p>
@@ -2597,6 +2805,7 @@ export interface UpdateVirtualGatewayOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a local file certificate.
  *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
  */
@@ -2614,6 +2823,7 @@ export interface ListenerTlsFileCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the listener's Secret Discovery Service certificate. The proxy
  *          must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh
  *          <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
@@ -2629,6 +2839,7 @@ export interface ListenerTlsSdsCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the client's certificate.</p>
  */
 export type ClientTlsCertificate =
@@ -2636,6 +2847,9 @@ export type ClientTlsCertificate =
   | ClientTlsCertificate.SdsMember
   | ClientTlsCertificate.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ClientTlsCertificate {
   /**
    * <p>An object that represents a local file certificate. The certificate must meet specific
@@ -2678,6 +2892,7 @@ export namespace ClientTlsCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager
  *          certificate.</p>
  */
@@ -2689,6 +2904,7 @@ export interface TlsValidationContextAcmTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
  */
 export interface TlsValidationContextFileTrust {
@@ -2700,6 +2916,7 @@ export interface TlsValidationContextFileTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) Secret Discovery Service validation context trust. The
  *          proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh
  *          <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
@@ -2714,6 +2931,7 @@ export interface TlsValidationContextSdsTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust.</p>
  */
 export type TlsValidationContextTrust =
@@ -2722,6 +2940,9 @@ export type TlsValidationContextTrust =
   | TlsValidationContextTrust.SdsMember
   | TlsValidationContextTrust.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace TlsValidationContextTrust {
   /**
    * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager certificate.</p>
@@ -2777,6 +2998,7 @@ export namespace TlsValidationContextTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents how the proxy will validate its peer during Transport Layer Security (TLS)
  *          negotiation.</p>
  */
@@ -2800,6 +3022,7 @@ export interface TlsValidationContext {
 }
 
 /**
+ * @public
  * <p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>
  */
 export interface ClientPolicyTls {
@@ -2825,6 +3048,7 @@ export interface ClientPolicyTls {
 }
 
 /**
+ * @public
  * <p>An object that represents a client policy.</p>
  */
 export interface ClientPolicy {
@@ -2835,6 +3059,7 @@ export interface ClientPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents the default properties for a backend.</p>
  */
 export interface BackendDefaults {
@@ -2845,6 +3070,7 @@ export interface BackendDefaults {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual service backend for a virtual node.</p>
  */
 export interface VirtualServiceBackend {
@@ -2860,11 +3086,15 @@ export interface VirtualServiceBackend {
 }
 
 /**
+ * @public
  * <p>An object that represents the backends that a virtual node is expected to send outbound
  *          traffic to.</p>
  */
 export type Backend = Backend.VirtualServiceMember | Backend.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Backend {
   /**
    * <p>Specifies a virtual service to use as a backend.  </p>
@@ -2891,6 +3121,7 @@ export namespace Backend {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualNodeGrpcConnectionPool {
@@ -2902,6 +3133,7 @@ export interface VirtualNodeGrpcConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualNodeHttpConnectionPool {
@@ -2919,6 +3151,7 @@ export interface VirtualNodeHttpConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualNodeHttp2ConnectionPool {
@@ -2930,6 +3163,7 @@ export interface VirtualNodeHttp2ConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualNodeTcpConnectionPool {
@@ -2941,6 +3175,7 @@ export interface VirtualNodeTcpConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents the type of virtual node connection pool.</p>
  *          <p>Only one protocol is used at a time and should be the same protocol as the one chosen
  *          under port mapping.</p>
@@ -2955,6 +3190,9 @@ export type VirtualNodeConnectionPool =
   | VirtualNodeConnectionPool.TcpMember
   | VirtualNodeConnectionPool.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualNodeConnectionPool {
   /**
    * <p>An object that represents a type of connection pool.</p>
@@ -3025,6 +3263,9 @@ export namespace VirtualNodeConnectionPool {
   };
 }
 
+/**
+ * @public
+ */
 export enum PortProtocol {
   GRPC = "grpc",
   HTTP = "http",
@@ -3033,6 +3274,7 @@ export enum PortProtocol {
 }
 
 /**
+ * @public
  * <p>An object that represents the health check policy for a virtual node's listener.</p>
  */
 export interface HealthCheckPolicy {
@@ -3079,12 +3321,16 @@ export interface HealthCheckPolicy {
   unhealthyThreshold: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DurationUnit {
   MS = "ms",
   S = "s",
 }
 
 /**
+ * @public
  * <p>An object that represents a duration of time.</p>
  */
 export interface Duration {
@@ -3100,6 +3346,7 @@ export interface Duration {
 }
 
 /**
+ * @public
  * <p>An object that represents the outlier detection for a virtual node's listener.</p>
  */
 export interface OutlierDetection {
@@ -3126,6 +3373,7 @@ export interface OutlierDetection {
 }
 
 /**
+ * @public
  * <p>An object that represents a port mapping.</p>
  */
 export interface PortMapping {
@@ -3141,6 +3389,7 @@ export interface PortMapping {
 }
 
 /**
+ * @public
  * <p>An object that represents types of timeouts. </p>
  */
 export interface GrpcTimeout {
@@ -3158,6 +3407,7 @@ export interface GrpcTimeout {
 }
 
 /**
+ * @public
  * <p>An object that represents types of timeouts. </p>
  */
 export interface HttpTimeout {
@@ -3175,6 +3425,7 @@ export interface HttpTimeout {
 }
 
 /**
+ * @public
  * <p>An object that represents types of timeouts. </p>
  */
 export interface TcpTimeout {
@@ -3185,6 +3436,7 @@ export interface TcpTimeout {
 }
 
 /**
+ * @public
  * <p>An object that represents timeouts for different protocols.</p>
  */
 export type ListenerTimeout =
@@ -3194,6 +3446,9 @@ export type ListenerTimeout =
   | ListenerTimeout.TcpMember
   | ListenerTimeout.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ListenerTimeout {
   /**
    * <p>An object that represents types of timeouts. </p>
@@ -3265,6 +3520,7 @@ export namespace ListenerTimeout {
 }
 
 /**
+ * @public
  * <p>An object that represents an Certificate Manager certificate.</p>
  */
 export interface ListenerTlsAcmCertificate {
@@ -3275,6 +3531,7 @@ export interface ListenerTlsAcmCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener's Transport Layer Security (TLS) certificate.</p>
  */
 export type ListenerTlsCertificate =
@@ -3283,6 +3540,9 @@ export type ListenerTlsCertificate =
   | ListenerTlsCertificate.SdsMember
   | ListenerTlsCertificate.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ListenerTlsCertificate {
   /**
    * <p>A reference to an object that represents an Certificate Manager certificate.</p>
@@ -3337,6 +3597,9 @@ export namespace ListenerTlsCertificate {
   };
 }
 
+/**
+ * @public
+ */
 export enum ListenerTlsMode {
   DISABLED = "DISABLED",
   PERMISSIVE = "PERMISSIVE",
@@ -3344,6 +3607,7 @@ export enum ListenerTlsMode {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener's Transport Layer Security (TLS) validation context trust.</p>
  */
 export type ListenerTlsValidationContextTrust =
@@ -3351,6 +3615,9 @@ export type ListenerTlsValidationContextTrust =
   | ListenerTlsValidationContextTrust.SdsMember
   | ListenerTlsValidationContextTrust.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ListenerTlsValidationContextTrust {
   /**
    * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
@@ -3391,6 +3658,7 @@ export namespace ListenerTlsValidationContextTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener's Transport Layer Security (TLS) validation context.</p>
  */
 export interface ListenerTlsValidationContext {
@@ -3408,6 +3676,7 @@ export interface ListenerTlsValidationContext {
 }
 
 /**
+ * @public
  * <p>An object that represents the Transport Layer Security (TLS) properties for a listener.</p>
  */
 export interface ListenerTls {
@@ -3445,6 +3714,7 @@ export interface ListenerTls {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener for a virtual node.</p>
  */
 export interface Listener {
@@ -3480,6 +3750,7 @@ export interface Listener {
 }
 
 /**
+ * @public
  * <p>An object that represents the logging information for a virtual node.</p>
  */
 export interface Logging {
@@ -3490,6 +3761,7 @@ export interface Logging {
 }
 
 /**
+ * @public
  * <p>An object that represents the Cloud Map attribute information for your
  *          virtual node.</p>
  *          <note>
@@ -3511,6 +3783,7 @@ export interface AwsCloudMapInstanceAttribute {
 }
 
 /**
+ * @public
  * <p>An object that represents the Cloud Map service discovery information for
  *          your virtual node.</p>
  *          <note>
@@ -3543,12 +3816,16 @@ export interface AwsCloudMapServiceDiscovery {
   ipPreference?: IpPreference | string;
 }
 
+/**
+ * @public
+ */
 export enum DnsResponseType {
   ENDPOINTS = "ENDPOINTS",
   LOADBALANCER = "LOADBALANCER",
 }
 
 /**
+ * @public
  * <p>An object that represents the DNS service discovery information for your virtual
  *          node.</p>
  */
@@ -3572,6 +3849,7 @@ export interface DnsServiceDiscovery {
 }
 
 /**
+ * @public
  * <p>An object that represents the service discovery information for a virtual node.</p>
  */
 export type ServiceDiscovery =
@@ -3579,6 +3857,9 @@ export type ServiceDiscovery =
   | ServiceDiscovery.DnsMember
   | ServiceDiscovery.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ServiceDiscovery {
   /**
    * <p>Specifies the DNS information for the virtual node.</p>
@@ -3618,6 +3899,7 @@ export namespace ServiceDiscovery {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a virtual node.</p>
  */
 export interface VirtualNodeSpec {
@@ -3651,6 +3933,7 @@ export interface VirtualNodeSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualNodeInput {
@@ -3691,6 +3974,9 @@ export interface CreateVirtualNodeInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum VirtualNodeStatusCode {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -3698,6 +3984,7 @@ export enum VirtualNodeStatusCode {
 }
 
 /**
+ * @public
  * <p>An object that represents the current status of the virtual node.</p>
  */
 export interface VirtualNodeStatus {
@@ -3708,6 +3995,7 @@ export interface VirtualNodeStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual node returned by a describe operation.</p>
  */
 export interface VirtualNodeData {
@@ -3738,6 +4026,7 @@ export interface VirtualNodeData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualNodeOutput {
@@ -3748,6 +4037,7 @@ export interface CreateVirtualNodeOutput {
 }
 
 /**
+ * @public
  * <p>Deletes a virtual node input.</p>
  */
 export interface DeleteVirtualNodeInput {
@@ -3769,6 +4059,7 @@ export interface DeleteVirtualNodeInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualNodeOutput {
@@ -3779,6 +4070,7 @@ export interface DeleteVirtualNodeOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualNodeInput {
@@ -3800,6 +4092,7 @@ export interface DescribeVirtualNodeInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualNodeOutput {
@@ -3810,6 +4103,7 @@ export interface DescribeVirtualNodeOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualNodesInput {
@@ -3846,6 +4140,7 @@ export interface ListVirtualNodesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual node returned by a list operation.</p>
  */
 export interface VirtualNodeRef {
@@ -3893,6 +4188,7 @@ export interface VirtualNodeRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualNodesOutput {
@@ -3911,6 +4207,7 @@ export interface ListVirtualNodesOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualNodeInput {
@@ -3943,6 +4240,7 @@ export interface UpdateVirtualNodeInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualNodeOutput {
@@ -3953,6 +4251,7 @@ export interface UpdateVirtualNodeOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual router listener.</p>
  */
 export interface VirtualRouterListener {
@@ -3963,6 +4262,7 @@ export interface VirtualRouterListener {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a virtual router.</p>
  */
 export interface VirtualRouterSpec {
@@ -3974,6 +4274,7 @@ export interface VirtualRouterSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualRouterInput {
@@ -4014,6 +4315,9 @@ export interface CreateVirtualRouterInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum VirtualRouterStatusCode {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -4021,6 +4325,7 @@ export enum VirtualRouterStatusCode {
 }
 
 /**
+ * @public
  * <p>An object that represents the status of a virtual router. </p>
  */
 export interface VirtualRouterStatus {
@@ -4031,6 +4336,7 @@ export interface VirtualRouterStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual router returned by a describe operation.</p>
  */
 export interface VirtualRouterData {
@@ -4061,6 +4367,7 @@ export interface VirtualRouterData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualRouterOutput {
@@ -4071,6 +4378,7 @@ export interface CreateVirtualRouterOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualRouterInput {
@@ -4092,6 +4400,7 @@ export interface DeleteVirtualRouterInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualRouterOutput {
@@ -4102,6 +4411,7 @@ export interface DeleteVirtualRouterOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualRouterInput {
@@ -4123,6 +4433,7 @@ export interface DescribeVirtualRouterInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualRouterOutput {
@@ -4133,6 +4444,7 @@ export interface DescribeVirtualRouterOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualRoutersInput {
@@ -4169,6 +4481,7 @@ export interface ListVirtualRoutersInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual router returned by a list operation.</p>
  */
 export interface VirtualRouterRef {
@@ -4216,6 +4529,7 @@ export interface VirtualRouterRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualRoutersOutput {
@@ -4234,6 +4548,7 @@ export interface ListVirtualRoutersOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a target and its relative weight. Traffic is distributed
  *          across targets according to their relative weight. For example, a weighted target with a
  *          relative weight of 50 receives five times as much traffic as one with a relative weight of
@@ -4257,6 +4572,7 @@ export interface WeightedTarget {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface GrpcRouteAction {
@@ -4267,6 +4583,7 @@ export interface GrpcRouteAction {
 }
 
 /**
+ * @public
  * <p>An object that represents the match method. Specify one of the match values.</p>
  */
 export type GrpcRouteMetadataMatchMethod =
@@ -4277,6 +4594,9 @@ export type GrpcRouteMetadataMatchMethod =
   | GrpcRouteMetadataMatchMethod.SuffixMember
   | GrpcRouteMetadataMatchMethod.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace GrpcRouteMetadataMatchMethod {
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
@@ -4367,6 +4687,7 @@ export namespace GrpcRouteMetadataMatchMethod {
 }
 
 /**
+ * @public
  * <p>An object that represents the match metadata for the route.</p>
  */
 export interface GrpcRouteMetadata {
@@ -4387,6 +4708,7 @@ export interface GrpcRouteMetadata {
 }
 
 /**
+ * @public
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface GrpcRouteMatch {
@@ -4412,6 +4734,9 @@ export interface GrpcRouteMatch {
   port?: number;
 }
 
+/**
+ * @public
+ */
 export enum GrpcRetryPolicyEvent {
   CANCELLED = "cancelled",
   DEADLINE_EXCEEDED = "deadline-exceeded",
@@ -4420,11 +4745,15 @@ export enum GrpcRetryPolicyEvent {
   UNAVAILABLE = "unavailable",
 }
 
+/**
+ * @public
+ */
 export enum TcpRetryPolicyEvent {
   CONNECTION_ERROR = "connection-error",
 }
 
 /**
+ * @public
  * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.
  *                Both <code>server-error</code> and <code>gateway-error</code> under <code>httpRetryEvents</code> include the Envoy <code>reset</code> policy. For more information on the
  *                <code>reset</code> policy, see the <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on">Envoy documentation</a>.</p>
@@ -4478,6 +4807,7 @@ export interface GrpcRetryPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents a gRPC route type.</p>
  */
 export interface GrpcRoute {
@@ -4503,6 +4833,7 @@ export interface GrpcRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface HttpRouteAction {
@@ -4513,6 +4844,7 @@ export interface HttpRouteAction {
 }
 
 /**
+ * @public
  * <p>An object that represents the HTTP header in the request.</p>
  */
 export interface HttpRouteHeader {
@@ -4532,12 +4864,16 @@ export interface HttpRouteHeader {
   match?: HeaderMatchMethod;
 }
 
+/**
+ * @public
+ */
 export enum HttpScheme {
   HTTP = "http",
   HTTPS = "https",
 }
 
 /**
+ * @public
  * <p>An object that represents the requirements for a route to match HTTP requests for a
  *          virtual router.</p>
  */
@@ -4585,6 +4921,7 @@ export interface HttpRouteMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.
  *                Both <code>server-error</code> and <code>gateway-error</code> under <code>httpRetryEvents</code> include the Envoy <code>reset</code> policy. For more information on the
  *                <code>reset</code> policy, see the <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on">Envoy documentation</a>.</p>
@@ -4633,6 +4970,7 @@ export interface HttpRetryPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents an HTTP or HTTP/2 route type.</p>
  */
 export interface HttpRoute {
@@ -4658,6 +4996,7 @@ export interface HttpRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface TcpRouteAction {
@@ -4668,6 +5007,7 @@ export interface TcpRouteAction {
 }
 
 /**
+ * @public
  * <p>An object representing the TCP route to match.</p>
  */
 export interface TcpRouteMatch {
@@ -4678,6 +5018,7 @@ export interface TcpRouteMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents a TCP route type.</p>
  */
 export interface TcpRoute {
@@ -4698,6 +5039,7 @@ export interface TcpRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents a route specification. Specify one route type.</p>
  */
 export interface RouteSpec {
@@ -4729,6 +5071,7 @@ export interface RouteSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateRouteInput {
@@ -4775,6 +5118,9 @@ export interface CreateRouteInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum RouteStatusCode {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -4782,6 +5128,7 @@ export enum RouteStatusCode {
 }
 
 /**
+ * @public
  * <p>An object that represents the current status of a route.</p>
  */
 export interface RouteStatus {
@@ -4792,6 +5139,7 @@ export interface RouteStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a route returned by a describe operation.</p>
  */
 export interface RouteData {
@@ -4827,6 +5175,7 @@ export interface RouteData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateRouteOutput {
@@ -4837,6 +5186,7 @@ export interface CreateRouteOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteRouteInput {
@@ -4863,6 +5213,7 @@ export interface DeleteRouteInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteRouteOutput {
@@ -4873,6 +5224,7 @@ export interface DeleteRouteOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeRouteInput {
@@ -4899,6 +5251,7 @@ export interface DescribeRouteInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeRouteOutput {
@@ -4909,6 +5262,7 @@ export interface DescribeRouteOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListRoutesInput {
@@ -4950,6 +5304,7 @@ export interface ListRoutesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a route returned by a list operation.</p>
  */
 export interface RouteRef {
@@ -5002,6 +5357,7 @@ export interface RouteRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListRoutesOutput {
@@ -5020,6 +5376,7 @@ export interface ListRoutesOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateRouteInput {
@@ -5057,6 +5414,7 @@ export interface UpdateRouteInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateRouteOutput {
@@ -5067,6 +5425,7 @@ export interface UpdateRouteOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualRouterInput {
@@ -5099,6 +5458,7 @@ export interface UpdateVirtualRouterInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualRouterOutput {
@@ -5109,6 +5469,7 @@ export interface UpdateVirtualRouterOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual node service provider.</p>
  */
 export interface VirtualNodeServiceProvider {
@@ -5119,6 +5480,7 @@ export interface VirtualNodeServiceProvider {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual node service provider.</p>
  */
 export interface VirtualRouterServiceProvider {
@@ -5129,6 +5491,7 @@ export interface VirtualRouterServiceProvider {
 }
 
 /**
+ * @public
  * <p>An object that represents the provider for a virtual service.</p>
  */
 export type VirtualServiceProvider =
@@ -5136,6 +5499,9 @@ export type VirtualServiceProvider =
   | VirtualServiceProvider.VirtualRouterMember
   | VirtualServiceProvider.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualServiceProvider {
   /**
    * <p>The virtual node associated with a virtual service.</p>
@@ -5175,6 +5541,7 @@ export namespace VirtualServiceProvider {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a virtual service.</p>
  */
 export interface VirtualServiceSpec {
@@ -5186,6 +5553,7 @@ export interface VirtualServiceSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualServiceInput {
@@ -5226,6 +5594,9 @@ export interface CreateVirtualServiceInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export enum VirtualServiceStatusCode {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -5233,6 +5604,7 @@ export enum VirtualServiceStatusCode {
 }
 
 /**
+ * @public
  * <p>An object that represents the status of a virtual service.</p>
  */
 export interface VirtualServiceStatus {
@@ -5243,6 +5615,7 @@ export interface VirtualServiceStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual service returned by a describe operation.</p>
  */
 export interface VirtualServiceData {
@@ -5273,6 +5646,7 @@ export interface VirtualServiceData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualServiceOutput {
@@ -5283,6 +5657,7 @@ export interface CreateVirtualServiceOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualServiceInput {
@@ -5304,6 +5679,7 @@ export interface DeleteVirtualServiceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualServiceOutput {
@@ -5314,6 +5690,7 @@ export interface DeleteVirtualServiceOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualServiceInput {
@@ -5335,6 +5712,7 @@ export interface DescribeVirtualServiceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualServiceOutput {
@@ -5345,6 +5723,7 @@ export interface DescribeVirtualServiceOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualServicesInput {
@@ -5381,6 +5760,7 @@ export interface ListVirtualServicesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual service returned by a list operation.</p>
  */
 export interface VirtualServiceRef {
@@ -5428,6 +5808,7 @@ export interface VirtualServiceRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualServicesOutput {
@@ -5446,6 +5827,7 @@ export interface ListVirtualServicesOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualServiceInput {
@@ -5479,6 +5861,7 @@ export interface UpdateVirtualServiceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualServiceOutput {
@@ -5489,6 +5872,7 @@ export interface UpdateVirtualServiceOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface TagResourceInput {
@@ -5506,11 +5890,13 @@ export interface TagResourceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface TagResourceOutput {}
 
 /**
+ * @public
  * <p>The request exceeds the maximum allowed number of tags allowed per resource. The current
  *          limit is 50 user tags per resource. You must reduce the number of tags in the request. None
  *          of the tags in this request were applied.</p>
@@ -5532,6 +5918,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  *
  */
 export interface UntagResourceInput {
@@ -5547,6 +5934,7 @@ export interface UntagResourceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UntagResourceOutput {}

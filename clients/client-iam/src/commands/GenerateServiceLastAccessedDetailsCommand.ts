@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateServiceLastAccessedDetailsCommand}.
  */
 export interface GenerateServiceLastAccessedDetailsCommandInput extends GenerateServiceLastAccessedDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateServiceLastAccessedDetailsCommand}.
  */
 export interface GenerateServiceLastAccessedDetailsCommandOutput
@@ -37,6 +41,7 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a report that includes details about when an IAM resource (user, group,
  *             role, or policy) was last used in an attempt to access Amazon Web Services services. Recent activity
  *             usually appears within four hours. IAM reports activity for at least the last 400
@@ -101,6 +106,8 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateServiceLastAccessedDetailsCommandInput - {@link GenerateServiceLastAccessedDetailsCommandInput}
+ * @returns {@link GenerateServiceLastAccessedDetailsCommandOutput}
  * @see {@link GenerateServiceLastAccessedDetailsCommandInput} for command's `input` shape.
  * @see {@link GenerateServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -148,6 +155,9 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateServiceLastAccessedDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,6 +197,9 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateServiceLastAccessedDetailsCommandInput,
     context: __SerdeContext
@@ -194,6 +207,9 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
     return serializeAws_queryGenerateServiceLastAccessedDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

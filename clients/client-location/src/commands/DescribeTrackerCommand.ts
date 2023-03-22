@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrackerCommand}.
  */
 export interface DescribeTrackerCommandInput extends DescribeTrackerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrackerCommand}.
  */
 export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the tracker resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrackerCommandInput - {@link DescribeTrackerCommandInput}
+ * @returns {@link DescribeTrackerCommandOutput}
  * @see {@link DescribeTrackerCommandInput} for command's `input` shape.
  * @see {@link DescribeTrackerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrackerCommandOutput> {
     return deserializeAws_restJson1DescribeTrackerCommand(output, context);
   }

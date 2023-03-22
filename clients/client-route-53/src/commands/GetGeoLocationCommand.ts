@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetGeoLocationCommand}.
  */
 export interface GetGeoLocationCommandInput extends GetGeoLocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGeoLocationCommand}.
  */
 export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about whether a specified geographic location is supported for Amazon
  * 			Route 53 geolocation resource record sets.</p>
  *          <p>Route 53 does not perform authorization for this API because it retrieves information
@@ -71,6 +76,8 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGeoLocationCommandInput - {@link GetGeoLocationCommandInput}
+ * @returns {@link GetGeoLocationCommandOutput}
  * @see {@link GetGeoLocationCommandInput} for command's `input` shape.
  * @see {@link GetGeoLocationCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -102,6 +109,9 @@ export class GetGeoLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGeoLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class GetGeoLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGeoLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetGeoLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeoLocationCommandOutput> {
     return deserializeAws_restXmlGetGeoLocationCommand(output, context);
   }

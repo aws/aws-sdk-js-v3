@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSNOMEDCTInferenceJobCommand}.
  */
 export interface StartSNOMEDCTInferenceJobCommandInput extends StartSNOMEDCTInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSNOMEDCTInferenceJobCommand}.
  */
 export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Starts an asynchronous job to detect medical concepts and link them to the SNOMED-CT ontology. Use the DescribeSNOMEDCTInferenceJob operation to track the status of a job.
  *     </p>
@@ -52,6 +57,8 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSNOMEDCTInferenceJobCommandInput - {@link StartSNOMEDCTInferenceJobCommandInput}
+ * @returns {@link StartSNOMEDCTInferenceJobCommandOutput}
  * @see {@link StartSNOMEDCTInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StartSNOMEDCTInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -91,6 +98,9 @@ export class StartSNOMEDCTInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSNOMEDCTInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StartSNOMEDCTInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSNOMEDCTInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartSNOMEDCTInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

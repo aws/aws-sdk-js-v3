@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHarvestJobsCommand}.
  */
 export interface ListHarvestJobsCommandInput extends ListHarvestJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHarvestJobsCommand}.
  */
 export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a collection of HarvestJob records.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHarvestJobsCommandInput - {@link ListHarvestJobsCommandInput}
+ * @returns {@link ListHarvestJobsCommandOutput}
  * @see {@link ListHarvestJobsCommandInput} for command's `input` shape.
  * @see {@link ListHarvestJobsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListHarvestJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHarvestJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListHarvestJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHarvestJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListHarvestJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHarvestJobsCommandOutput> {
     return deserializeAws_restJson1ListHarvestJobsCommand(output, context);
   }

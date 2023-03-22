@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutComponentPolicyCommand}.
  */
 export interface PutComponentPolicyCommandInput extends PutComponentPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutComponentPolicyCommand}.
  */
 export interface PutComponentPolicyCommandOutput extends PutComponentPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
  * 			<code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
  * 			all principals with whom the resource is shared.</p>
@@ -48,6 +53,8 @@ export interface PutComponentPolicyCommandOutput extends PutComponentPolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param PutComponentPolicyCommandInput - {@link PutComponentPolicyCommandInput}
+ * @returns {@link PutComponentPolicyCommandOutput}
  * @see {@link PutComponentPolicyCommandInput} for command's `input` shape.
  * @see {@link PutComponentPolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -97,6 +104,9 @@ export class PutComponentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutComponentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class PutComponentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutComponentPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutComponentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutComponentPolicyCommandOutput> {
     return deserializeAws_restJson1PutComponentPolicyCommand(output, context);
   }

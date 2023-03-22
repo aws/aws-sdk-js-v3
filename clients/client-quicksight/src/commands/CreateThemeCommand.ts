@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateThemeCommand}.
  */
 export interface CreateThemeCommandInput extends CreateThemeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateThemeCommand}.
  */
 export interface CreateThemeCommandOutput extends CreateThemeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a theme.</p>
  *          <p>A <i>theme</i> is set of configuration options for color and layout.
  * 			Themes apply to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
@@ -49,6 +54,8 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThemeCommandInput - {@link CreateThemeCommandInput}
+ * @returns {@link CreateThemeCommandOutput}
  * @see {@link CreateThemeCommandInput} for command's `input` shape.
  * @see {@link CreateThemeCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateThemeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateThemeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateThemeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThemeCommandOutput> {
     return deserializeAws_restJson1CreateThemeCommand(output, context);
   }

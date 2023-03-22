@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectivityInfoCommand}.
  */
 export interface GetConnectivityInfoCommandInput extends GetConnectivityInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectivityInfoCommand}.
  */
 export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves the connectivity information for a core.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectivityInfoCommandInput - {@link GetConnectivityInfoCommandInput}
+ * @returns {@link GetConnectivityInfoCommandOutput}
  * @see {@link GetConnectivityInfoCommandInput} for command's `input` shape.
  * @see {@link GetConnectivityInfoCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetConnectivityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectivityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetConnectivityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectivityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetConnectivityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectivityInfoCommandOutput> {
     return deserializeAws_restJson1GetConnectivityInfoCommand(output, context);
   }

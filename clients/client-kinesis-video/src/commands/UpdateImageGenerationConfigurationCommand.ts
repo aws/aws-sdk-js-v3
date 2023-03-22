@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateImageGenerationConfigurationCommand}.
  */
 export interface UpdateImageGenerationConfigurationCommandInput extends UpdateImageGenerationConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateImageGenerationConfigurationCommand}.
  */
 export interface UpdateImageGenerationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateImageGenerationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateImageGenerationConfigurationCommandInput - {@link UpdateImageGenerationConfigurationCommandInput}
+ * @returns {@link UpdateImageGenerationConfigurationCommandOutput}
  * @see {@link UpdateImageGenerationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateImageGenerationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -107,6 +114,9 @@ export class UpdateImageGenerationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateImageGenerationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class UpdateImageGenerationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateImageGenerationConfigurationCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class UpdateImageGenerationConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateImageGenerationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

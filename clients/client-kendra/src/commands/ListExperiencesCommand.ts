@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExperiencesCommand}.
  */
 export interface ListExperiencesCommandInput extends ListExperiencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExperiencesCommand}.
  */
 export interface ListExperiencesCommandOutput extends ListExperiencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra experience such
  *             as a search application. For more information on creating a search application
  *             experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
@@ -49,6 +54,8 @@ export interface ListExperiencesCommandOutput extends ListExperiencesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExperiencesCommandInput - {@link ListExperiencesCommandInput}
+ * @returns {@link ListExperiencesCommandOutput}
  * @see {@link ListExperiencesCommandInput} for command's `input` shape.
  * @see {@link ListExperiencesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListExperiencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExperiencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListExperiencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExperiencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListExperiencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExperiencesCommandOutput> {
     return deserializeAws_json1_1ListExperiencesCommand(output, context);
   }

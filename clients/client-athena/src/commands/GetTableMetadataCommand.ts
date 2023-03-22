@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTableMetadataCommand}.
  */
 export interface GetTableMetadataCommandInput extends GetTableMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTableMetadataCommand}.
  */
 export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns table metadata for the specified catalog, database, and table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableMetadataCommandInput - {@link GetTableMetadataCommandInput}
+ * @returns {@link GetTableMetadataCommandOutput}
  * @see {@link GetTableMetadataCommandInput} for command's `input` shape.
  * @see {@link GetTableMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetTableMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetTableMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTableMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableMetadataCommandOutput> {
     return deserializeAws_json1_1GetTableMetadataCommand(output, context);
   }

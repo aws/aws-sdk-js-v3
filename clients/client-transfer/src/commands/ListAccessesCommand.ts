@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessesCommand}.
  */
 export interface ListAccessesCommandInput extends ListAccessesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessesCommand}.
  */
 export interface ListAccessesCommandOutput extends ListAccessesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the details for all the accesses you have on your server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAccessesCommandOutput extends ListAccessesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessesCommandInput - {@link ListAccessesCommandInput}
+ * @returns {@link ListAccessesCommandOutput}
  * @see {@link ListAccessesCommandInput} for command's `input` shape.
  * @see {@link ListAccessesCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListAccessesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListAccessesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAccessesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessesCommandOutput> {
     return deserializeAws_json1_1ListAccessesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBranchCommand}.
  */
 export interface CreateBranchCommandInput extends CreateBranchRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBranchCommand}.
  */
 export interface CreateBranchCommandOutput extends CreateBranchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new branch for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBranchCommandInput - {@link CreateBranchCommandInput}
+ * @returns {@link CreateBranchCommandOutput}
  * @see {@link CreateBranchCommandInput} for command's `input` shape.
  * @see {@link CreateBranchCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBranchCommandOutput> {
     return deserializeAws_restJson1CreateBranchCommand(output, context);
   }

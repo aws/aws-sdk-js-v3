@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProtectedQueriesCommand}.
  */
 export interface ListProtectedQueriesCommandInput extends ListProtectedQueriesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListProtectedQueriesCommand}.
  */
 export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists protected queries, sorted by the most recent query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtectedQueriesCommandInput - {@link ListProtectedQueriesCommandInput}
+ * @returns {@link ListProtectedQueriesCommandOutput}
  * @see {@link ListProtectedQueriesCommandInput} for command's `input` shape.
  * @see {@link ListProtectedQueriesCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListProtectedQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtectedQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListProtectedQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtectedQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProtectedQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectedQueriesCommandOutput> {
     return deserializeAws_restJson1ListProtectedQueriesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePricingRulesCommand}.
  */
 export interface AssociatePricingRulesCommandInput extends AssociatePricingRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePricingRulesCommand}.
  */
 export interface AssociatePricingRulesCommandOutput extends AssociatePricingRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Connects an array of <code>PricingRuleArns</code> to a defined <code>PricingPlan</code>.
  *       The maximum number <code>PricingRuleArn</code> that can be associated in one call is 30. </p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePricingRulesCommandInput - {@link AssociatePricingRulesCommandInput}
+ * @returns {@link AssociatePricingRulesCommandOutput}
  * @see {@link AssociatePricingRulesCommandInput} for command's `input` shape.
  * @see {@link AssociatePricingRulesCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -97,6 +104,9 @@ export class AssociatePricingRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePricingRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class AssociatePricingRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociatePricingRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociatePricingRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociatePricingRulesCommandOutput> {
     return deserializeAws_restJson1AssociatePricingRulesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainNameCommand}.
  */
 export interface DeleteDomainNameCommandInput extends DeleteDomainNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainNameCommand}.
  */
 export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom <code>DomainName</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainNameCommandInput - {@link DeleteDomainNameCommandInput}
+ * @returns {@link DeleteDomainNameCommandOutput}
  * @see {@link DeleteDomainNameCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainNameCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteDomainNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteDomainNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDomainNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainNameCommandOutput> {
     return deserializeAws_restJson1DeleteDomainNameCommand(output, context);
   }

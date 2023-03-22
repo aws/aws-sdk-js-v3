@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterEcsClusterCommand}.
  */
 export interface RegisterEcsClusterCommandInput extends RegisterEcsClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterEcsClusterCommand}.
  */
 export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a specified Amazon ECS cluster with a stack. You can register only one
  *       cluster with a stack. A cluster can be registered with only one stack.
  *       For more information, see
@@ -56,6 +61,8 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterEcsClusterCommandInput - {@link RegisterEcsClusterCommandInput}
+ * @returns {@link RegisterEcsClusterCommandOutput}
  * @see {@link RegisterEcsClusterCommandInput} for command's `input` shape.
  * @see {@link RegisterEcsClusterCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -85,6 +92,9 @@ export class RegisterEcsClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterEcsClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class RegisterEcsClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterEcsClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterEcsClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterEcsClusterCommandOutput> {
     return deserializeAws_json1_1RegisterEcsClusterCommand(output, context);
   }

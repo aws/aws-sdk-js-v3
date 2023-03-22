@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPullRequestCommand}.
  */
 export interface GetPullRequestCommandInput extends GetPullRequestInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPullRequestCommand}.
  */
 export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a pull request in a specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPullRequestCommandInput - {@link GetPullRequestCommandInput}
+ * @returns {@link GetPullRequestCommandOutput}
  * @see {@link GetPullRequestCommandInput} for command's `input` shape.
  * @see {@link GetPullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetPullRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPullRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetPullRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPullRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPullRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPullRequestCommandOutput> {
     return deserializeAws_json1_1GetPullRequestCommand(output, context);
   }

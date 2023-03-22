@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomVerificationEmailTemplateCommand}.
  */
 export interface DeleteCustomVerificationEmailTemplateCommandInput
   extends DeleteCustomVerificationEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomVerificationEmailTemplateCommand}.
  */
 export interface DeleteCustomVerificationEmailTemplateCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing custom verification email template.</p>
  *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
  *                 custom verification email templates</a> in the <i>Amazon SES Developer
@@ -53,6 +58,8 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomVerificationEmailTemplateCommandInput - {@link DeleteCustomVerificationEmailTemplateCommandInput}
+ * @returns {@link DeleteCustomVerificationEmailTemplateCommandOutput}
  * @see {@link DeleteCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomVerificationEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
     return serializeAws_restJson1DeleteCustomVerificationEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

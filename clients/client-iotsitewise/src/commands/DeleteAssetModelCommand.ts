@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssetModelCommand}.
  */
 export interface DeleteAssetModelCommandInput extends DeleteAssetModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssetModelCommand}.
  */
 export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an asset model. This action can't be undone. You must delete all assets created
  *       from an asset model before you can delete the model. Also, you can't delete an asset model if
  *       a parent asset model exists that contains a property formula expression that depends on the
@@ -50,6 +55,8 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssetModelCommandInput - {@link DeleteAssetModelCommandInput}
+ * @returns {@link DeleteAssetModelCommandOutput}
  * @see {@link DeleteAssetModelCommandInput} for command's `input` shape.
  * @see {@link DeleteAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteAssetModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssetModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteAssetModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAssetModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssetModelCommandOutput> {
     return deserializeAws_restJson1DeleteAssetModelCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceCommand}.
  */
 export interface GetDeviceCommandInput extends GetDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceCommand}.
  */
 export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the devices available in Amazon Braket.</p>
  *          <note>
  *             <p>For backwards compatibility with older versions of BraketSchemas, OpenQASM
@@ -55,6 +60,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceCommandInput - {@link GetDeviceCommandInput}
+ * @returns {@link GetDeviceCommandOutput}
  * @see {@link GetDeviceCommandInput} for command's `input` shape.
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceCommandOutput> {
     return deserializeAws_restJson1GetDeviceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTransitGatewayCommand}.
  */
 export interface ModifyTransitGatewayCommandInput extends ModifyTransitGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTransitGatewayCommand}.
  */
 export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified transit gateway. When you modify a transit gateway, the modified options are applied to new transit gateway attachments only. Your existing transit gateway attachments are not modified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTransitGatewayCommandInput - {@link ModifyTransitGatewayCommandInput}
+ * @returns {@link ModifyTransitGatewayCommandOutput}
  * @see {@link ModifyTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link ModifyTransitGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ModifyTransitGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTransitGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ModifyTransitGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyTransitGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyTransitGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyTransitGatewayCommandOutput> {
     return deserializeAws_ec2ModifyTransitGatewayCommand(output, context);
   }

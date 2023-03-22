@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelCardVersionsCommand}.
  */
 export interface ListModelCardVersionsCommandInput extends ListModelCardVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelCardVersionsCommand}.
  */
 export interface ListModelCardVersionsCommandOutput extends ListModelCardVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List existing versions of an Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListModelCardVersionsCommandOutput extends ListModelCardVersion
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelCardVersionsCommandInput - {@link ListModelCardVersionsCommandInput}
+ * @returns {@link ListModelCardVersionsCommandOutput}
  * @see {@link ListModelCardVersionsCommandInput} for command's `input` shape.
  * @see {@link ListModelCardVersionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListModelCardVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelCardVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListModelCardVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelCardVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListModelCardVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelCardVersionsCommandOutput> {
     return deserializeAws_json1_1ListModelCardVersionsCommand(output, context);
   }

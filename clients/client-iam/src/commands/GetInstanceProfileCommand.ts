@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceProfileCommand}.
  */
 export interface GetInstanceProfileCommandInput extends GetInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceProfileCommand}.
  */
 export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about the specified instance profile, including the instance
  *             profile's path, GUID, ARN, and role. For more information about instance profiles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
@@ -49,6 +54,8 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceProfileCommandInput - {@link GetInstanceProfileCommandInput}
+ * @returns {@link GetInstanceProfileCommandOutput}
  * @see {@link GetInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link GetInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -112,6 +119,9 @@ export class GetInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class GetInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceProfileCommandOutput> {
     return deserializeAws_queryGetInstanceProfileCommand(output, context);
   }

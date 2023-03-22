@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsageTotalsCommand}.
  */
 export interface ListUsageTotalsCommandInput extends ListUsageTotalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsageTotalsCommand}.
  */
 export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Inspector usage totals over the last 30 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsageTotalsCommandInput - {@link ListUsageTotalsCommandInput}
+ * @returns {@link ListUsageTotalsCommandOutput}
  * @see {@link ListUsageTotalsCommandInput} for command's `input` shape.
  * @see {@link ListUsageTotalsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -82,6 +89,9 @@ export class ListUsageTotalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsageTotalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListUsageTotalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUsageTotalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListUsageTotalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsageTotalsCommandOutput> {
     return deserializeAws_restJson1ListUsageTotalsCommand(output, context);
   }

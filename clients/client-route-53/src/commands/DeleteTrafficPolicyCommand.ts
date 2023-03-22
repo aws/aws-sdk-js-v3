@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrafficPolicyCommand}.
  */
 export interface DeleteTrafficPolicyCommandInput extends DeleteTrafficPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrafficPolicyCommand}.
  */
 export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a traffic policy.</p>
  *          <p>When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that
  * 			it has been deleted. However, Route 53 never fully deletes the traffic policy. Note the
@@ -62,6 +67,8 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrafficPolicyCommandInput - {@link DeleteTrafficPolicyCommandInput}
+ * @returns {@link DeleteTrafficPolicyCommandOutput}
  * @see {@link DeleteTrafficPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteTrafficPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrafficPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DeleteTrafficPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrafficPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteTrafficPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrafficPolicyCommandOutput> {
     return deserializeAws_restXmlDeleteTrafficPolicyCommand(output, context);
   }

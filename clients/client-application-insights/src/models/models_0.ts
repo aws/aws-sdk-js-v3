@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ApplicationInsightsServiceException as __BaseException } from "./ApplicationInsightsServiceException";
 
 /**
+ * @public
  * <p> User does not have permissions to perform this action. </p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type Tier =
   | "ACTIVE_DIRECTORY"
   | "CUSTOM"
@@ -44,9 +48,13 @@ export type Tier =
   | "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP"
   | "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE";
 
+/**
+ * @public
+ */
 export type OsType = "LINUX" | "WINDOWS";
 
 /**
+ * @public
  * <p>Describes a standalone resource or similarly grouped resources that the application is
  *          made up of.</p>
  */
@@ -89,12 +97,16 @@ export interface ApplicationComponent {
   DetectedWorkload?: Record<string, Record<string, string>>;
 }
 
+/**
+ * @public
+ */
 export enum DiscoveryType {
   ACCOUNT_BASED = "ACCOUNT_BASED",
   RESOURCE_GROUP_BASED = "RESOURCE_GROUP_BASED",
 }
 
 /**
+ * @public
  * <p>Describes the status of the application.</p>
  */
 export interface ApplicationInfo {
@@ -155,6 +167,7 @@ export interface ApplicationInfo {
 }
 
 /**
+ * @public
  * <p>The request is not understood by the server.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -175,17 +188,27 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type CloudWatchEventSource = "CODE_DEPLOY" | "EC2" | "HEALTH" | "RDS";
 
+/**
+ * @public
+ */
 export type ConfigurationEventResourceType =
   | "CLOUDFORMATION"
   | "CLOUDWATCH_ALARM"
   | "CLOUDWATCH_LOG"
   | "SSM_ASSOCIATION";
 
+/**
+ * @public
+ */
 export type ConfigurationEventStatus = "ERROR" | "INFO" | "WARN";
 
 /**
+ * @public
  * <p> The event information. </p>
  */
 export interface ConfigurationEvent {
@@ -222,11 +245,15 @@ export interface ConfigurationEvent {
   EventResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export enum GroupingType {
   ACCOUNT_BASED = "ACCOUNT_BASED",
 }
 
 /**
+ * @public
  * <p>An object that defines the tags associated with an application. A
  *             <i>tag</i> is a label that you optionally define and associate with an
  *          application. Tags can help you categorize and manage resources in different ways, such as
@@ -268,6 +295,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -320,6 +350,9 @@ export interface CreateApplicationRequest {
   GroupingType?: GroupingType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationResponse {
   /**
    * <p>Information about the application.</p>
@@ -328,6 +361,7 @@ export interface CreateApplicationResponse {
 }
 
 /**
+ * @public
  * <p>The server encountered an internal error and is unable to complete the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -349,6 +383,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is already created or in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -370,6 +405,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource does not exist in the customer account.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -391,6 +427,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Tags are already registered for the specified application ARN.</p>
  */
 export class TagsAlreadyExistException extends __BaseException {
@@ -412,6 +449,7 @@ export class TagsAlreadyExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The parameter is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -432,6 +470,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -449,8 +490,14 @@ export interface CreateComponentRequest {
   ResourceList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentResponse {}
 
+/**
+ * @public
+ */
 export interface CreateLogPatternRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -489,6 +536,7 @@ export interface CreateLogPatternRequest {
 }
 
 /**
+ * @public
  * <p>An object that defines the log patterns that belongs to a
  *          <code>LogPatternSet</code>.</p>
  */
@@ -529,6 +577,9 @@ export interface LogPattern {
   Rank?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateLogPatternResponse {
   /**
    * <p>The successfully created log pattern.</p>
@@ -541,6 +592,9 @@ export interface CreateLogPatternResponse {
   ResourceGroupName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -548,8 +602,14 @@ export interface DeleteApplicationRequest {
   ResourceGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteComponentRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -562,8 +622,14 @@ export interface DeleteComponentRequest {
   ComponentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteComponentResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteLogPatternRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -581,8 +647,14 @@ export interface DeleteLogPatternRequest {
   PatternName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLogPatternResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeApplicationRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -590,6 +662,9 @@ export interface DescribeApplicationRequest {
   ResourceGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationResponse {
   /**
    * <p>Information about the application.</p>
@@ -597,6 +672,9 @@ export interface DescribeApplicationResponse {
   ApplicationInfo?: ApplicationInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComponentRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -609,6 +687,9 @@ export interface DescribeComponentRequest {
   ComponentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComponentResponse {
   /**
    * <p>Describes a standalone resource or similarly grouped resources that the application is
@@ -622,6 +703,9 @@ export interface DescribeComponentResponse {
   ResourceList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeComponentConfigurationRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -634,6 +718,9 @@ export interface DescribeComponentConfigurationRequest {
   ComponentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComponentConfigurationResponse {
   /**
    * <p>Indicates whether the application component is monitored.</p>
@@ -655,6 +742,9 @@ export interface DescribeComponentConfigurationResponse {
   ComponentConfiguration?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComponentConfigurationRecommendationRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -672,6 +762,9 @@ export interface DescribeComponentConfigurationRecommendationRequest {
   Tier: Tier | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeComponentConfigurationRecommendationResponse {
   /**
    * <p>The recommended configuration settings of the component. The value is the escaped JSON
@@ -680,6 +773,9 @@ export interface DescribeComponentConfigurationRecommendationResponse {
   ComponentConfiguration?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLogPatternRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -697,6 +793,9 @@ export interface DescribeLogPatternRequest {
   PatternName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLogPatternResponse {
   /**
    * <p>The name of the resource group.</p>
@@ -709,6 +808,9 @@ export interface DescribeLogPatternResponse {
   LogPattern?: LogPattern;
 }
 
+/**
+ * @public
+ */
 export interface DescribeObservationRequest {
   /**
    * <p>The ID of the observation.</p>
@@ -716,9 +818,13 @@ export interface DescribeObservationRequest {
   ObservationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type LogFilter = "ERROR" | "INFO" | "WARN";
 
 /**
+ * @public
  * <p>Describes an anomaly or error with the application.</p>
  */
 export interface Observation {
@@ -959,6 +1065,9 @@ export interface Observation {
   XRayNodeType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeObservationResponse {
   /**
    * <p>Information about the observation.</p>
@@ -966,6 +1075,9 @@ export interface DescribeObservationResponse {
   Observation?: Observation;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProblemRequest {
   /**
    * <p>The ID of the problem.</p>
@@ -973,15 +1085,28 @@ export interface DescribeProblemRequest {
   ProblemId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type FeedbackKey = "INSIGHTS_FEEDBACK";
 
+/**
+ * @public
+ */
 export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL";
 
+/**
+ * @public
+ */
 export type SeverityLevel = "High" | "Informative" | "Low" | "Medium";
 
+/**
+ * @public
+ */
 export type Status = "IGNORE" | "PENDING" | "RECURRING" | "RESOLVED";
 
 /**
+ * @public
  * <p>Describes a problem that is detected by correlating observations.</p>
  */
 export interface Problem {
@@ -1047,6 +1172,9 @@ export interface Problem {
   LastRecurrenceTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProblemResponse {
   /**
    * <p>Information about the problem. </p>
@@ -1054,6 +1182,9 @@ export interface DescribeProblemResponse {
   Problem?: Problem;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProblemObservationsRequest {
   /**
    * <p>The ID of the problem.</p>
@@ -1062,6 +1193,7 @@ export interface DescribeProblemObservationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes observations related to the problem.</p>
  */
 export interface RelatedObservations {
@@ -1071,6 +1203,9 @@ export interface RelatedObservations {
   ObservationList?: Observation[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProblemObservationsResponse {
   /**
    * <p>Observations related to the problem.</p>
@@ -1078,6 +1213,9 @@ export interface DescribeProblemObservationsResponse {
   RelatedObservations?: RelatedObservations;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -1091,6 +1229,9 @@ export interface ListApplicationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
    * <p>The list of applications.</p>
@@ -1104,6 +1245,9 @@ export interface ListApplicationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -1122,6 +1266,9 @@ export interface ListComponentsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsResponse {
   /**
    * <p>The list of application components.</p>
@@ -1134,6 +1281,9 @@ export interface ListComponentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationHistoryRequest {
   /**
    * <p>Resource group to which the application belongs. </p>
@@ -1177,6 +1327,9 @@ export interface ListConfigurationHistoryRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationHistoryResponse {
   /**
    * <p> The list of configuration events and their corresponding details. </p>
@@ -1193,6 +1346,9 @@ export interface ListConfigurationHistoryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLogPatternsRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -1216,6 +1372,9 @@ export interface ListLogPatternsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLogPatternsResponse {
   /**
    * <p>The name of the resource group.</p>
@@ -1234,6 +1393,9 @@ export interface ListLogPatternsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLogPatternSetsRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -1252,6 +1414,9 @@ export interface ListLogPatternSetsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLogPatternSetsResponse {
   /**
    * <p>The name of the resource group.</p>
@@ -1270,6 +1435,9 @@ export interface ListLogPatternSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProblemsRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -1305,6 +1473,9 @@ export interface ListProblemsRequest {
   ComponentName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProblemsResponse {
   /**
    * <p>The list of problems. </p>
@@ -1323,6 +1494,9 @@ export interface ListProblemsResponse {
   ResourceGroupName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application that you want to retrieve tag
@@ -1331,6 +1505,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>An array that lists all the tags that are associated with the application. Each tag
@@ -1340,6 +1517,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags
@@ -1355,9 +1535,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The number of the provided tags is beyond the limit, or the number of total tags you are
  *          trying to attach to the specified resource exceeds the limit.</p>
  */
@@ -1384,6 +1568,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application that you want to remove one or more
@@ -1401,8 +1588,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -1439,6 +1632,9 @@ export interface UpdateApplicationRequest {
   AutoConfigEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {
   /**
    * <p>Information about the application. </p>
@@ -1446,6 +1642,9 @@ export interface UpdateApplicationResponse {
   ApplicationInfo?: ApplicationInfo;
 }
 
+/**
+ * @public
+ */
 export interface UpdateComponentRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -1468,8 +1667,14 @@ export interface UpdateComponentRequest {
   ResourceList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateComponentResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateComponentConfigurationRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -1507,8 +1712,14 @@ export interface UpdateComponentConfigurationRequest {
   AutoConfigEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateComponentConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLogPatternRequest {
   /**
    * <p>The name of the resource group.</p>
@@ -1546,6 +1757,9 @@ export interface UpdateLogPatternRequest {
   Rank?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLogPatternResponse {
   /**
    * <p>The name of the resource group.</p>

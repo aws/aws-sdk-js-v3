@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAgreementCommand}.
  */
 export interface DeleteAgreementCommandInput extends DeleteAgreementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAgreementCommand}.
  */
 export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the agreement that's specified in the provided <code>AgreementId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAgreementCommandInput - {@link DeleteAgreementCommandInput}
+ * @returns {@link DeleteAgreementCommandOutput}
  * @see {@link DeleteAgreementCommandInput} for command's `input` shape.
  * @see {@link DeleteAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAgreementCommandOutput> {
     return deserializeAws_json1_1DeleteAgreementCommand(output, context);
   }

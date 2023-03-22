@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListVpcEndpointsCommand}.
  */
 export interface ListVpcEndpointsCommandInput extends ListVpcEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVpcEndpointsCommand}.
  */
 export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the OpenSearch Serverless-managed interface VPC endpoints associated with the current
  *             account. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
@@ -52,6 +57,8 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
+ * @returns {@link ListVpcEndpointsCommandOutput}
  * @see {@link ListVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListVpcEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListVpcEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListVpcEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcEndpointsCommandOutput> {
     return deserializeAws_json1_0ListVpcEndpointsCommand(output, context);
   }

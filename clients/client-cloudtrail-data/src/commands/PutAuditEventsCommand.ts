@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAuditEventsCommand}.
  */
 export interface PutAuditEventsCommandInput extends PutAuditEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAuditEventsCommand}.
  */
 export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ingests your application events into CloudTrail Lake. A required parameter,
  *             <code>auditEvents</code>, accepts the JSON records (also called
  *             <i>payload</i>) of events that you want CloudTrail to ingest. You
@@ -50,6 +55,8 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAuditEventsCommandInput - {@link PutAuditEventsCommandInput}
+ * @returns {@link PutAuditEventsCommandOutput}
  * @see {@link PutAuditEventsCommandInput} for command's `input` shape.
  * @see {@link PutAuditEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailDataClientResolvedConfig | config} for CloudTrailDataClient's `config` shape.
@@ -92,6 +99,9 @@ export class PutAuditEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAuditEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class PutAuditEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAuditEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutAuditEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAuditEventsCommandOutput> {
     return deserializeAws_restJson1PutAuditEventsCommand(output, context);
   }

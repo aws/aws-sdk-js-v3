@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIndicesCommand}.
  */
 export interface ListIndicesCommandInput extends ListIndicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIndicesCommand}.
  */
 export interface ListIndicesCommandOutput extends ListIndicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the search indices.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListIndices</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIndicesCommandInput - {@link ListIndicesCommandInput}
+ * @returns {@link ListIndicesCommandOutput}
  * @see {@link ListIndicesCommandInput} for command's `input` shape.
  * @see {@link ListIndicesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListIndicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIndicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListIndicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIndicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIndicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIndicesCommandOutput> {
     return deserializeAws_restJson1ListIndicesCommand(output, context);
   }

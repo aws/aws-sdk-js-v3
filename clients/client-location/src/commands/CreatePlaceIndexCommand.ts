@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlaceIndexCommand}.
  */
 export interface CreatePlaceIndexCommandInput extends CreatePlaceIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlaceIndexCommand}.
  */
 export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to
  *             geocode addresses and other text queries by using the
  *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
@@ -56,6 +61,8 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlaceIndexCommandInput - {@link CreatePlaceIndexCommandInput}
+ * @returns {@link CreatePlaceIndexCommandOutput}
  * @see {@link CreatePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link CreatePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreatePlaceIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlaceIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreatePlaceIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlaceIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePlaceIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlaceIndexCommandOutput> {
     return deserializeAws_restJson1CreatePlaceIndexCommand(output, context);
   }

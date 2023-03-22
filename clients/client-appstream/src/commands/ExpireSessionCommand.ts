@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExpireSessionCommand}.
  */
 export interface ExpireSessionCommandInput extends ExpireSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExpireSessionCommand}.
  */
 export interface ExpireSessionCommandOutput extends ExpireSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Immediately stops the specified streaming session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ExpireSessionCommandInput - {@link ExpireSessionCommandInput}
+ * @returns {@link ExpireSessionCommandOutput}
  * @see {@link ExpireSessionCommandInput} for command's `input` shape.
  * @see {@link ExpireSessionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -69,6 +76,9 @@ export class ExpireSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExpireSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class ExpireSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExpireSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExpireSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExpireSessionCommandOutput> {
     return deserializeAws_json1_1ExpireSessionCommand(output, context);
   }

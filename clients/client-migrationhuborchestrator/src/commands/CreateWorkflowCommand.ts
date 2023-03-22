@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkflowCommand}.
  */
 export interface CreateWorkflowCommandInput extends CreateMigrationWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkflowCommand}.
  */
 export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a workflow to orchestrate your migrations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
+ * @returns {@link CreateWorkflowCommandOutput}
  * @see {@link CreateWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowCommandOutput> {
     return deserializeAws_restJson1CreateWorkflowCommand(output, context);
   }

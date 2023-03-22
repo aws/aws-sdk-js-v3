@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a resource-based policy to a custom model. You can use this policy to authorize
  *       an entity in another AWS account to import the custom model, which replicates it in Amazon
  *       Comprehend in their account.</p>
@@ -48,6 +53,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -80,6 +87,9 @@ export class PutResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class PutResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
     return deserializeAws_json1_1PutResourcePolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePublicKeyCommand}.
  */
 export interface UpdatePublicKeyCommandInput extends UpdatePublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePublicKeyCommand}.
  */
 export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update public key information. Note that the only value you can change is the
  * 			comment.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePublicKeyCommandInput - {@link UpdatePublicKeyCommandInput}
+ * @returns {@link UpdatePublicKeyCommandOutput}
  * @see {@link UpdatePublicKeyCommandInput} for command's `input` shape.
  * @see {@link UpdatePublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdatePublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdatePublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdatePublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePublicKeyCommandOutput> {
     return deserializeAws_restXmlUpdatePublicKeyCommand(output, context);
   }

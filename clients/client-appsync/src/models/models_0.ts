@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AppSyncServiceException as __BaseException } from "./AppSyncServiceException";
 
 /**
+ * @public
  * <p>You don't have access to perform this operation on this resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,6 +23,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AuthenticationType {
   AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
   API_KEY = "API_KEY",
@@ -31,6 +35,7 @@ export enum AuthenticationType {
 }
 
 /**
+ * @public
  * <p>A <code>LambdaAuthorizerConfig</code> specifies how to authorize AppSync API access when
  *          using the <code>AWS_LAMBDA</code> authorizer mode. Be aware that an AppSync API can have only
  *          one Lambda authorizer configured at a time.</p>
@@ -64,6 +69,7 @@ export interface LambdaAuthorizerConfig {
 }
 
 /**
+ * @public
  * <p>Describes an OpenID Connect (OIDC) configuration.</p>
  */
 export interface OpenIDConnectConfig {
@@ -92,6 +98,7 @@ export interface OpenIDConnectConfig {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Cognito user pool configuration.</p>
  */
 export interface CognitoUserPoolConfig {
@@ -113,6 +120,7 @@ export interface CognitoUserPoolConfig {
 }
 
 /**
+ * @public
  * <p>Describes an additional authentication provider.</p>
  */
 export interface AdditionalAuthenticationProvider {
@@ -138,6 +146,9 @@ export interface AdditionalAuthenticationProvider {
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
 
+/**
+ * @public
+ */
 export enum AssociationStatus {
   Failed = "FAILED",
   Processing = "PROCESSING",
@@ -145,6 +156,7 @@ export enum AssociationStatus {
 }
 
 /**
+ * @public
  * <p>Describes an <code>ApiAssociation</code> object.</p>
  */
 export interface ApiAssociation {
@@ -186,11 +198,17 @@ export interface ApiAssociation {
   deploymentDetail?: string;
 }
 
+/**
+ * @public
+ */
 export enum ApiCachingBehavior {
   FULL_REQUEST_CACHING = "FULL_REQUEST_CACHING",
   PER_RESOLVER_CACHING = "PER_RESOLVER_CACHING",
 }
 
+/**
+ * @public
+ */
 export enum ApiCacheStatus {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -199,6 +217,9 @@ export enum ApiCacheStatus {
   MODIFYING = "MODIFYING",
 }
 
+/**
+ * @public
+ */
 export enum ApiCacheType {
   LARGE = "LARGE",
   LARGE_12X = "LARGE_12X",
@@ -218,6 +239,7 @@ export enum ApiCacheType {
 }
 
 /**
+ * @public
  * <p>The <code>ApiCache</code> object.</p>
  */
 export interface ApiCache {
@@ -360,6 +382,7 @@ export interface ApiCache {
 }
 
 /**
+ * @public
  * <p>Describes an API key.</p>
  *          <p>Customers invoke AppSync GraphQL API operations with API keys as an identity mechanism.
  *          There are two key versions:</p>
@@ -447,6 +470,7 @@ export interface ApiKey {
 }
 
 /**
+ * @public
  * <p>The API key exceeded a limit. Try your request again.</p>
  */
 export class ApiKeyLimitExceededException extends __BaseException {
@@ -466,6 +490,7 @@ export class ApiKeyLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The API key expiration must be set to a value between 1 and 365 days from creation (for
  *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
  */
@@ -486,6 +511,7 @@ export class ApiKeyValidityOutOfBoundsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The GraphQL API exceeded a limit. Try your request again.</p>
  */
 export class ApiLimitExceededException extends __BaseException {
@@ -504,11 +530,15 @@ export class ApiLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RuntimeName {
   APPSYNC_JS = "APPSYNC_JS",
 }
 
 /**
+ * @public
  * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and
  *          version of the runtime to use. Note that if a runtime is specified, code must also be specified.</p>
  */
@@ -526,6 +556,9 @@ export interface AppSyncRuntime {
   runtimeVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApiRequest {
   /**
    * <p>The domain name.</p>
@@ -538,6 +571,9 @@ export interface AssociateApiRequest {
   apiId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApiResponse {
   /**
    * <p>The <code>ApiAssociation</code> object.</p>
@@ -546,6 +582,7 @@ export interface AssociateApiResponse {
 }
 
 /**
+ * @public
  * <p>Describes the location of the error in a code sample.</p>
  */
 export interface CodeErrorLocation {
@@ -566,6 +603,7 @@ export interface CodeErrorLocation {
 }
 
 /**
+ * @public
  * <p>Describes an AppSync error.</p>
  */
 export interface CodeError {
@@ -588,6 +626,7 @@ export interface CodeError {
 }
 
 /**
+ * @public
  * <p>Provides further details for the reason behind the bad request. For reason type <code>CODE_ERROR</code>, the
  *          detail will contain a list of code errors.</p>
  */
@@ -598,11 +637,15 @@ export interface BadRequestDetail {
   codeErrors?: CodeError[];
 }
 
+/**
+ * @public
+ */
 export enum BadRequestReason {
   CODE_ERROR = "CODE_ERROR",
 }
 
 /**
+ * @public
  * <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
  *          field values, and then try again.</p>
  */
@@ -637,6 +680,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal AppSync error occurred. Try your request again.</p>
  */
 export class InternalFailureException extends __BaseException {
@@ -656,6 +700,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -674,11 +719,15 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AuthorizationType {
   AWS_IAM = "AWS_IAM",
 }
 
 /**
+ * @public
  * <p>The Identity and Access Management (IAM) configuration.</p>
  */
 export interface AwsIamConfig {
@@ -694,6 +743,7 @@ export interface AwsIamConfig {
 }
 
 /**
+ * @public
  * <p>The authorization configuration in case the HTTP endpoint requires authorization.</p>
  */
 export interface AuthorizationConfig {
@@ -716,6 +766,7 @@ export interface AuthorizationConfig {
 }
 
 /**
+ * @public
  * <p>Another modification is in progress at this time and it must complete before you can make your
  *          change.</p>
  */
@@ -736,6 +787,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateApiCache</code> operation.</p>
  */
 export interface CreateApiCacheRequest {
@@ -856,6 +908,7 @@ export interface CreateApiCacheRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>CreateApiCache</code> operation.</p>
  */
 export interface CreateApiCacheResponse {
@@ -866,6 +919,7 @@ export interface CreateApiCacheResponse {
 }
 
 /**
+ * @public
  * <p>You aren't authorized to perform this operation.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -884,6 +938,9 @@ export class UnauthorizedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateApiKeyRequest {
   /**
    * <p>The ID for your GraphQL API.</p>
@@ -903,6 +960,9 @@ export interface CreateApiKeyRequest {
   expires?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateApiKeyResponse {
   /**
    * <p>The API key.</p>
@@ -911,6 +971,7 @@ export interface CreateApiKeyResponse {
 }
 
 /**
+ * @public
  * <p>The request exceeded a limit. Try your request again.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -930,6 +991,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a Delta Sync configuration.</p>
  */
 export interface DeltaSyncConfig {
@@ -950,6 +1012,7 @@ export interface DeltaSyncConfig {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon DynamoDB data source configuration.</p>
  */
 export interface DynamodbDataSourceConfig {
@@ -980,6 +1043,7 @@ export interface DynamodbDataSourceConfig {
 }
 
 /**
+ * @public
  * <p>Describes an OpenSearch data source configuration.</p>
  *          <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This configuration is
  *          deprecated. For new data sources, use <a>OpenSearchServiceDataSourceConfig</a> to specify an OpenSearch data source.</p>
@@ -997,6 +1061,7 @@ export interface ElasticsearchDataSourceConfig {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon EventBridge bus data source configuration.</p>
  */
 export interface EventBridgeDataSourceConfig {
@@ -1008,6 +1073,7 @@ export interface EventBridgeDataSourceConfig {
 }
 
 /**
+ * @public
  * <p>Describes an HTTP data source configuration.</p>
  */
 export interface HttpDataSourceConfig {
@@ -1025,6 +1091,7 @@ export interface HttpDataSourceConfig {
 }
 
 /**
+ * @public
  * <p>Describes an Lambda data source configuration.</p>
  */
 export interface LambdaDataSourceConfig {
@@ -1035,6 +1102,7 @@ export interface LambdaDataSourceConfig {
 }
 
 /**
+ * @public
  * <p>Describes an OpenSearch data source configuration.</p>
  */
 export interface OpenSearchServiceDataSourceConfig {
@@ -1050,6 +1118,7 @@ export interface OpenSearchServiceDataSourceConfig {
 }
 
 /**
+ * @public
  * <p>The Amazon Relational Database Service (Amazon RDS) HTTP endpoint configuration.</p>
  */
 export interface RdsHttpEndpointConfig {
@@ -1079,11 +1148,15 @@ export interface RdsHttpEndpointConfig {
   awsSecretStoreArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum RelationalDatabaseSourceType {
   RDS_HTTP_ENDPOINT = "RDS_HTTP_ENDPOINT",
 }
 
 /**
+ * @public
  * <p>Describes a relational database data source configuration.</p>
  */
 export interface RelationalDatabaseDataSourceConfig {
@@ -1105,6 +1178,9 @@ export interface RelationalDatabaseDataSourceConfig {
   rdsHttpEndpointConfig?: RdsHttpEndpointConfig;
 }
 
+/**
+ * @public
+ */
 export enum DataSourceType {
   AMAZON_DYNAMODB = "AMAZON_DYNAMODB",
   AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
@@ -1116,6 +1192,9 @@ export enum DataSourceType {
   RELATIONAL_DATABASE = "RELATIONAL_DATABASE",
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceRequest {
   /**
    * <p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>
@@ -1183,6 +1262,7 @@ export interface CreateDataSourceRequest {
 }
 
 /**
+ * @public
  * <p>Describes a data source.</p>
  */
 export interface DataSource {
@@ -1288,6 +1368,9 @@ export interface DataSource {
   eventBridgeConfig?: EventBridgeDataSourceConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceResponse {
   /**
    * <p>The <code>DataSource</code> object.</p>
@@ -1295,6 +1378,9 @@ export interface CreateDataSourceResponse {
   dataSource?: DataSource;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainNameRequest {
   /**
    * <p>The domain name.</p>
@@ -1313,6 +1399,7 @@ export interface CreateDomainNameRequest {
 }
 
 /**
+ * @public
  * <p>Describes a configuration for a custom domain.</p>
  */
 export interface DomainNameConfig {
@@ -1342,6 +1429,9 @@ export interface DomainNameConfig {
   hostedZoneId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainNameResponse {
   /**
    * <p>The configuration for the <code>DomainName</code>.</p>
@@ -1349,11 +1439,17 @@ export interface CreateDomainNameResponse {
   domainNameConfig?: DomainNameConfig;
 }
 
+/**
+ * @public
+ */
 export enum ConflictDetectionType {
   NONE = "NONE",
   VERSION = "VERSION",
 }
 
+/**
+ * @public
+ */
 export enum ConflictHandlerType {
   AUTOMERGE = "AUTOMERGE",
   LAMBDA = "LAMBDA",
@@ -1362,6 +1458,7 @@ export enum ConflictHandlerType {
 }
 
 /**
+ * @public
  * <p>The <code>LambdaConflictHandlerConfig</code> object when configuring <code>LAMBDA</code> as the Conflict
  *          Handler.</p>
  */
@@ -1373,6 +1470,7 @@ export interface LambdaConflictHandlerConfig {
 }
 
 /**
+ * @public
  * <p>Describes a Sync configuration for a resolver.</p>
  *          <p>Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is
  *          invoked.</p>
@@ -1424,6 +1522,9 @@ export interface SyncConfig {
   lambdaConflictHandlerConfig?: LambdaConflictHandlerConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionRequest {
   /**
    * <p>The GraphQL API ID.</p>
@@ -1489,6 +1590,7 @@ export interface CreateFunctionRequest {
 }
 
 /**
+ * @public
  * <p>A function is a reusable entity. You can use multiple functions to compose the resolver logic.</p>
  */
 export interface FunctionConfiguration {
@@ -1559,6 +1661,9 @@ export interface FunctionConfiguration {
   code?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionResponse {
   /**
    * <p>The <code>Function</code> object.</p>
@@ -1566,6 +1671,9 @@ export interface CreateFunctionResponse {
   functionConfiguration?: FunctionConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum FieldLogLevel {
   ALL = "ALL",
   ERROR = "ERROR",
@@ -1573,6 +1681,7 @@ export enum FieldLogLevel {
 }
 
 /**
+ * @public
  * <p>The Amazon CloudWatch Logs configuration.</p>
  */
 export interface LogConfig {
@@ -1629,12 +1738,16 @@ export interface LogConfig {
   excludeVerboseContent?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DefaultAction {
   ALLOW = "ALLOW",
   DENY = "DENY",
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Cognito user pool configuration.</p>
  */
 export interface UserPoolConfig {
@@ -1661,6 +1774,9 @@ export interface UserPoolConfig {
   appIdClientRegex?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGraphqlApiRequest {
   /**
    * <p>A user-supplied name for the <code>GraphqlApi</code>.</p>
@@ -1710,6 +1826,7 @@ export interface CreateGraphqlApiRequest {
 }
 
 /**
+ * @public
  * <p>Describes a GraphQL API.</p>
  */
 export interface GraphqlApi {
@@ -1780,6 +1897,9 @@ export interface GraphqlApi {
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateGraphqlApiResponse {
   /**
    * <p>The <code>GraphqlApi</code>.</p>
@@ -1788,6 +1908,7 @@ export interface CreateGraphqlApiResponse {
 }
 
 /**
+ * @public
  * <p>The caching configuration for a resolver that has caching activated.</p>
  */
 export interface CachingConfig {
@@ -1805,12 +1926,16 @@ export interface CachingConfig {
   cachingKeys?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ResolverKind {
   PIPELINE = "PIPELINE",
   UNIT = "UNIT",
 }
 
 /**
+ * @public
  * <p>The pipeline configuration for a resolver of kind <code>PIPELINE</code>.</p>
  */
 export interface PipelineConfig {
@@ -1820,6 +1945,9 @@ export interface PipelineConfig {
   functions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateResolverRequest {
   /**
    * <p>The ID for the GraphQL API for which the resolver is being created.</p>
@@ -1907,6 +2035,7 @@ export interface CreateResolverRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resolver.</p>
  */
 export interface Resolver {
@@ -1991,6 +2120,9 @@ export interface Resolver {
   code?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResolverResponse {
   /**
    * <p>The <code>Resolver</code> object.</p>
@@ -1998,11 +2130,17 @@ export interface CreateResolverResponse {
   resolver?: Resolver;
 }
 
+/**
+ * @public
+ */
 export enum TypeDefinitionFormat {
   JSON = "JSON",
   SDL = "SDL",
 }
 
+/**
+ * @public
+ */
 export interface CreateTypeRequest {
   /**
    * <p>The API ID.</p>
@@ -2023,6 +2161,7 @@ export interface CreateTypeRequest {
 }
 
 /**
+ * @public
  * <p>Describes a type.</p>
  */
 export interface Type {
@@ -2052,6 +2191,9 @@ export interface Type {
   format?: TypeDefinitionFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTypeResponse {
   /**
    * <p>The <code>Type</code> object.</p>
@@ -2060,6 +2202,7 @@ export interface CreateTypeResponse {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteApiCache</code> operation.</p>
  */
 export interface DeleteApiCacheRequest {
@@ -2070,10 +2213,14 @@ export interface DeleteApiCacheRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DeleteApiCache</code> operation.</p>
  */
 export interface DeleteApiCacheResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteApiKeyRequest {
   /**
    * <p>The API ID.</p>
@@ -2086,8 +2233,14 @@ export interface DeleteApiKeyRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApiKeyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDataSourceRequest {
   /**
    * <p>The API ID.</p>
@@ -2100,8 +2253,14 @@ export interface DeleteDataSourceRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSourceResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDomainNameRequest {
   /**
    * <p>The domain name.</p>
@@ -2109,8 +2268,14 @@ export interface DeleteDomainNameRequest {
   domainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainNameResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteFunctionRequest {
   /**
    * <p>The GraphQL API ID.</p>
@@ -2123,8 +2288,14 @@ export interface DeleteFunctionRequest {
   functionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFunctionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteGraphqlApiRequest {
   /**
    * <p>The API ID.</p>
@@ -2132,8 +2303,14 @@ export interface DeleteGraphqlApiRequest {
   apiId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGraphqlApiResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteResolverRequest {
   /**
    * <p>The API ID.</p>
@@ -2151,8 +2328,14 @@ export interface DeleteResolverRequest {
   fieldName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResolverResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteTypeRequest {
   /**
    * <p>The API ID.</p>
@@ -2165,8 +2348,14 @@ export interface DeleteTypeRequest {
   typeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTypeResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateApiRequest {
   /**
    * <p>The domain name.</p>
@@ -2174,8 +2363,14 @@ export interface DisassociateApiRequest {
   domainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateApiResponse {}
 
+/**
+ * @public
+ */
 export interface EvaluateCodeRequest {
   /**
    * <p>The runtime to be used when evaluating the code. Currently, only the <code>APPSYNC_JS</code> runtime is
@@ -2203,6 +2398,7 @@ export interface EvaluateCodeRequest {
 }
 
 /**
+ * @public
  * <p>Contains the list of errors from a code evaluation response.</p>
  */
 export interface EvaluateCodeErrorDetail {
@@ -2217,6 +2413,9 @@ export interface EvaluateCodeErrorDetail {
   codeErrors?: CodeError[];
 }
 
+/**
+ * @public
+ */
 export interface EvaluateCodeResponse {
   /**
    * <p>The result of the evaluation operation.</p>
@@ -2235,6 +2434,9 @@ export interface EvaluateCodeResponse {
   logs?: string[];
 }
 
+/**
+ * @public
+ */
 export interface EvaluateMappingTemplateRequest {
   /**
    * <p>The mapping template; this can be a request or response template. A <code>template</code> is required for
@@ -2250,6 +2452,7 @@ export interface EvaluateMappingTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Contains the list of errors generated. When using JavaScript, this will apply to the request or response
  *          function evaluation.</p>
  */
@@ -2260,6 +2463,9 @@ export interface ErrorDetail {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export interface EvaluateMappingTemplateResponse {
   /**
    * <p>The mapping template; this can be a request or response template.</p>
@@ -2279,6 +2485,7 @@ export interface EvaluateMappingTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>FlushApiCache</code> operation.</p>
  */
 export interface FlushApiCacheRequest {
@@ -2289,10 +2496,14 @@ export interface FlushApiCacheRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>FlushApiCache</code> operation.</p>
  */
 export interface FlushApiCacheResponse {}
 
+/**
+ * @public
+ */
 export interface GetApiAssociationRequest {
   /**
    * <p>The domain name.</p>
@@ -2300,6 +2511,9 @@ export interface GetApiAssociationRequest {
   domainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApiAssociationResponse {
   /**
    * <p>The <code>ApiAssociation</code> object.</p>
@@ -2308,6 +2522,7 @@ export interface GetApiAssociationResponse {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetApiCache</code> operation.</p>
  */
 export interface GetApiCacheRequest {
@@ -2318,6 +2533,7 @@ export interface GetApiCacheRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetApiCache</code> operation.</p>
  */
 export interface GetApiCacheResponse {
@@ -2327,6 +2543,9 @@ export interface GetApiCacheResponse {
   apiCache?: ApiCache;
 }
 
+/**
+ * @public
+ */
 export interface GetDataSourceRequest {
   /**
    * <p>The API ID.</p>
@@ -2339,6 +2558,9 @@ export interface GetDataSourceRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataSourceResponse {
   /**
    * <p>The <code>DataSource</code> object.</p>
@@ -2346,6 +2568,9 @@ export interface GetDataSourceResponse {
   dataSource?: DataSource;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainNameRequest {
   /**
    * <p>The domain name.</p>
@@ -2353,6 +2578,9 @@ export interface GetDomainNameRequest {
   domainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainNameResponse {
   /**
    * <p>The configuration for the <code>DomainName</code>.</p>
@@ -2360,6 +2588,9 @@ export interface GetDomainNameResponse {
   domainNameConfig?: DomainNameConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionRequest {
   /**
    * <p>The GraphQL API ID.</p>
@@ -2372,6 +2603,9 @@ export interface GetFunctionRequest {
   functionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFunctionResponse {
   /**
    * <p>The <code>Function</code> object.</p>
@@ -2379,6 +2613,9 @@ export interface GetFunctionResponse {
   functionConfiguration?: FunctionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetGraphqlApiRequest {
   /**
    * <p>The API ID for the GraphQL API.</p>
@@ -2386,6 +2623,9 @@ export interface GetGraphqlApiRequest {
   apiId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetGraphqlApiResponse {
   /**
    * <p>The <code>GraphqlApi</code> object.</p>
@@ -2393,11 +2633,17 @@ export interface GetGraphqlApiResponse {
   graphqlApi?: GraphqlApi;
 }
 
+/**
+ * @public
+ */
 export enum OutputType {
   JSON = "JSON",
   SDL = "SDL",
 }
 
+/**
+ * @public
+ */
 export interface GetIntrospectionSchemaRequest {
   /**
    * <p>The API ID.</p>
@@ -2415,6 +2661,9 @@ export interface GetIntrospectionSchemaRequest {
   includeDirectives?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetIntrospectionSchemaResponse {
   /**
    * <p>The schema, in GraphQL Schema Definition Language (SDL) format.</p>
@@ -2425,6 +2674,7 @@ export interface GetIntrospectionSchemaResponse {
 }
 
 /**
+ * @public
  * <p>The GraphQL schema is not valid.</p>
  */
 export class GraphQLSchemaException extends __BaseException {
@@ -2443,6 +2693,9 @@ export class GraphQLSchemaException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetResolverRequest {
   /**
    * <p>The API ID.</p>
@@ -2460,6 +2713,9 @@ export interface GetResolverRequest {
   fieldName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResolverResponse {
   /**
    * <p>The <code>Resolver</code> object.</p>
@@ -2467,6 +2723,9 @@ export interface GetResolverResponse {
   resolver?: Resolver;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaCreationStatusRequest {
   /**
    * <p>The API ID.</p>
@@ -2474,6 +2733,9 @@ export interface GetSchemaCreationStatusRequest {
   apiId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SchemaStatus {
   Active = "ACTIVE",
   Deleting = "DELETING",
@@ -2483,6 +2745,9 @@ export enum SchemaStatus {
   Success = "SUCCESS",
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaCreationStatusResponse {
   /**
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the
@@ -2496,6 +2761,9 @@ export interface GetSchemaCreationStatusResponse {
   details?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTypeRequest {
   /**
    * <p>The API ID.</p>
@@ -2513,6 +2781,9 @@ export interface GetTypeRequest {
   format: TypeDefinitionFormat | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTypeResponse {
   /**
    * <p>The <code>Type</code> object.</p>
@@ -2520,6 +2791,9 @@ export interface GetTypeResponse {
   type?: Type;
 }
 
+/**
+ * @public
+ */
 export interface ListApiKeysRequest {
   /**
    * <p>The API ID.</p>
@@ -2538,6 +2812,9 @@ export interface ListApiKeysRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApiKeysResponse {
   /**
    * <p>The <code>ApiKey</code> objects.</p>
@@ -2551,6 +2828,9 @@ export interface ListApiKeysResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSourcesRequest {
   /**
    * <p>The API ID.</p>
@@ -2569,6 +2849,9 @@ export interface ListDataSourcesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSourcesResponse {
   /**
    * <p>The <code>DataSource</code> objects.</p>
@@ -2582,6 +2865,9 @@ export interface ListDataSourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainNamesRequest {
   /**
    * <p>The API token.</p>
@@ -2594,6 +2880,9 @@ export interface ListDomainNamesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainNamesResponse {
   /**
    * <p>Lists configurations for multiple domain names.</p>
@@ -2606,6 +2895,9 @@ export interface ListDomainNamesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionsRequest {
   /**
    * <p>The GraphQL API ID.</p>
@@ -2624,6 +2916,9 @@ export interface ListFunctionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFunctionsResponse {
   /**
    * <p>A list of <code>Function</code> objects.</p>
@@ -2637,6 +2932,9 @@ export interface ListFunctionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGraphqlApisRequest {
   /**
    * <p>An identifier that was returned from the previous call to this operation, which you can use to return the
@@ -2650,6 +2948,9 @@ export interface ListGraphqlApisRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListGraphqlApisResponse {
   /**
    * <p>The <code>GraphqlApi</code> objects.</p>
@@ -2663,6 +2964,9 @@ export interface ListGraphqlApisResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResolversRequest {
   /**
    * <p>The API ID.</p>
@@ -2686,6 +2990,9 @@ export interface ListResolversRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListResolversResponse {
   /**
    * <p>The <code>Resolver</code> objects.</p>
@@ -2699,6 +3006,9 @@ export interface ListResolversResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResolversByFunctionRequest {
   /**
    * <p>The API ID.</p>
@@ -2722,6 +3032,9 @@ export interface ListResolversByFunctionRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListResolversByFunctionResponse {
   /**
    * <p>The list of resolvers.</p>
@@ -2734,6 +3047,9 @@ export interface ListResolversByFunctionResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
@@ -2741,6 +3057,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A <code>TagMap</code> object.</p>
@@ -2748,6 +3067,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTypesRequest {
   /**
    * <p>The API ID.</p>
@@ -2771,6 +3093,9 @@ export interface ListTypesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTypesResponse {
   /**
    * <p>The <code>Type</code> objects.</p>
@@ -2784,6 +3109,9 @@ export interface ListTypesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartSchemaCreationRequest {
   /**
    * <p>The API ID.</p>
@@ -2796,6 +3124,9 @@ export interface StartSchemaCreationRequest {
   definition: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartSchemaCreationResponse {
   /**
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the
@@ -2804,6 +3135,9 @@ export interface StartSchemaCreationResponse {
   status?: SchemaStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
@@ -2816,8 +3150,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>
@@ -2830,9 +3170,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>Represents the input of a <code>UpdateApiCache</code> operation.</p>
  */
 export interface UpdateApiCacheRequest {
@@ -2943,6 +3287,7 @@ export interface UpdateApiCacheRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>UpdateApiCache</code> operation.</p>
  */
 export interface UpdateApiCacheResponse {
@@ -2952,6 +3297,9 @@ export interface UpdateApiCacheResponse {
   apiCache?: ApiCache;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApiKeyRequest {
   /**
    * <p>The ID for the GraphQL API.</p>
@@ -2975,6 +3323,9 @@ export interface UpdateApiKeyRequest {
   expires?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApiKeyResponse {
   /**
    * <p>The API key.</p>
@@ -2982,6 +3333,9 @@ export interface UpdateApiKeyResponse {
   apiKey?: ApiKey;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSourceRequest {
   /**
    * <p>The API ID.</p>
@@ -3046,6 +3400,9 @@ export interface UpdateDataSourceRequest {
   eventBridgeConfig?: EventBridgeDataSourceConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSourceResponse {
   /**
    * <p>The updated <code>DataSource</code> object.</p>
@@ -3053,6 +3410,9 @@ export interface UpdateDataSourceResponse {
   dataSource?: DataSource;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainNameRequest {
   /**
    * <p>The domain name.</p>
@@ -3065,6 +3425,9 @@ export interface UpdateDomainNameRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainNameResponse {
   /**
    * <p>The configuration for the <code>DomainName</code>.</p>
@@ -3072,6 +3435,9 @@ export interface UpdateDomainNameResponse {
   domainNameConfig?: DomainNameConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionRequest {
   /**
    * <p>The GraphQL API ID.</p>
@@ -3142,6 +3508,9 @@ export interface UpdateFunctionRequest {
   code?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFunctionResponse {
   /**
    * <p>The <code>Function</code> object.</p>
@@ -3149,6 +3518,9 @@ export interface UpdateFunctionResponse {
   functionConfiguration?: FunctionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGraphqlApiRequest {
   /**
    * <p>The API ID.</p>
@@ -3196,6 +3568,9 @@ export interface UpdateGraphqlApiRequest {
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGraphqlApiResponse {
   /**
    * <p>The updated <code>GraphqlApi</code> object.</p>
@@ -3203,6 +3578,9 @@ export interface UpdateGraphqlApiResponse {
   graphqlApi?: GraphqlApi;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResolverRequest {
   /**
    * <p>The API ID.</p>
@@ -3289,6 +3667,9 @@ export interface UpdateResolverRequest {
   code?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResolverResponse {
   /**
    * <p>The updated <code>Resolver</code> object.</p>
@@ -3296,6 +3677,9 @@ export interface UpdateResolverResponse {
   resolver?: Resolver;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTypeRequest {
   /**
    * <p>The API ID.</p>
@@ -3318,6 +3702,9 @@ export interface UpdateTypeRequest {
   format: TypeDefinitionFormat | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTypeResponse {
   /**
    * <p>The updated <code>Type</code> object.</p>

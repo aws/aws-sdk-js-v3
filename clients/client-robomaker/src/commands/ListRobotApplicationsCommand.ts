@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRobotApplicationsCommand}.
  */
 export interface ListRobotApplicationsCommandInput extends ListRobotApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRobotApplicationsCommand}.
  */
 export interface ListRobotApplicationsCommandOutput extends ListRobotApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of robot application. You can optionally provide filters to retrieve
  *          specific robot applications.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRobotApplicationsCommandInput - {@link ListRobotApplicationsCommandInput}
+ * @returns {@link ListRobotApplicationsCommandOutput}
  * @see {@link ListRobotApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListRobotApplicationsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListRobotApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRobotApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListRobotApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRobotApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRobotApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRobotApplicationsCommandOutput> {
     return deserializeAws_restJson1ListRobotApplicationsCommand(output, context);
   }

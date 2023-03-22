@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandInput extends CreateApplicationMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application that has one configuration template named <code>default</code>
  *       and no application versions.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
+ * @returns {@link CreateApplicationCommandOutput}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
     return deserializeAws_queryCreateApplicationCommand(output, context);
   }

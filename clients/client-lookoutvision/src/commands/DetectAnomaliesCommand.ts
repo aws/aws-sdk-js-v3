@@ -26,9 +26,11 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectAnomaliesCommand}.
  */
-type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
+export type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
   /**
    * For *`DetectAnomaliesRequest["Body"]`*, see {@link DetectAnomaliesRequest.Body}.
    */
@@ -39,11 +41,14 @@ type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
  */
 export interface DetectAnomaliesCommandInput extends DetectAnomaliesCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link DetectAnomaliesCommand}.
  */
 export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects anomalies in an image that you supply. </p>
  *          <p>The response from <code>DetectAnomalies</code> includes a boolean prediction
  *          that the image contains one or more anomalies and a confidence value for the prediction.
@@ -69,6 +74,8 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectAnomaliesCommandInput - {@link DetectAnomaliesCommandInput}
+ * @returns {@link DetectAnomaliesCommandOutput}
  * @see {@link DetectAnomaliesCommandInput} for command's `input` shape.
  * @see {@link DetectAnomaliesCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -111,6 +118,9 @@ export class DetectAnomaliesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectAnomaliesCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DetectAnomaliesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectAnomaliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DetectAnomaliesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectAnomaliesCommandOutput> {
     return deserializeAws_restJson1DetectAnomaliesCommand(output, context);
   }

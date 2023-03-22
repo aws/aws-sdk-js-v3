@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventDestinationCommand}.
  */
 export interface DeleteEventDestinationCommandInput extends DeleteEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventDestinationCommand}.
  */
 export interface DeleteEventDestinationCommandOutput extends DeleteEventDestinationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing event destination.</p>
  *         <p>An event destination is a location where you send response information about the
  *             messages that you send. For example, when a message is delivered successfully, you can
@@ -54,6 +59,8 @@ export interface DeleteEventDestinationCommandOutput extends DeleteEventDestinat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventDestinationCommandInput - {@link DeleteEventDestinationCommandInput}
+ * @returns {@link DeleteEventDestinationCommandOutput}
  * @see {@link DeleteEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventDestinationCommandOutput> {
     return deserializeAws_json1_0DeleteEventDestinationCommand(output, context);
   }

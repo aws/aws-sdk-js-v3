@@ -10,7 +10,7 @@ import {
 import { CodeartifactPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeartifactClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPackageVersionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPackageVersions(
   config: CodeartifactPaginationConfiguration,
   input: ListPackageVersionsCommandInput,

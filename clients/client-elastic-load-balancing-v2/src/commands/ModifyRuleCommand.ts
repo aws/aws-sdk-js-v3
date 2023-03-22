@@ -27,15 +27,20 @@ import {
 import { deserializeAws_queryModifyRuleCommand, serializeAws_queryModifyRuleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyRuleCommand}.
  */
 export interface ModifyRuleCommandInput extends ModifyRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyRuleCommand}.
  */
 export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the specified properties of the specified rule. Any properties that you do not
  *       specify are unchanged.</p>
  *          <p>To add an item to a list, remove an item from a list, or update an item in a list, you
@@ -51,6 +56,8 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyRuleCommandInput - {@link ModifyRuleCommandInput}
+ * @returns {@link ModifyRuleCommandOutput}
  * @see {@link ModifyRuleCommandInput} for command's `input` shape.
  * @see {@link ModifyRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -154,6 +161,9 @@ export class ModifyRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -191,10 +201,16 @@ export class ModifyRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyRuleCommandOutput> {
     return deserializeAws_queryModifyRuleCommand(output, context);
   }

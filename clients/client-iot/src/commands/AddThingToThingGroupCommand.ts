@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddThingToThingGroupCommand}.
  */
 export interface AddThingToThingGroupCommandInput extends AddThingToThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddThingToThingGroupCommand}.
  */
 export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a thing to a thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToThingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param AddThingToThingGroupCommandInput - {@link AddThingToThingGroupCommandInput}
+ * @returns {@link AddThingToThingGroupCommandOutput}
  * @see {@link AddThingToThingGroupCommandInput} for command's `input` shape.
  * @see {@link AddThingToThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class AddThingToThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddThingToThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AddThingToThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddThingToThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddThingToThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddThingToThingGroupCommandOutput> {
     return deserializeAws_restJson1AddThingToThingGroupCommand(output, context);
   }

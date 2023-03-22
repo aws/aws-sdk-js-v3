@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerImagesCommand}.
  */
 export interface GetContainerImagesCommandInput extends GetContainerImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerImagesCommand}.
  */
 export interface GetContainerImagesCommandOutput extends GetContainerImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the container images that are registered to your Amazon Lightsail container
  *       service.</p>
  *          <note>
@@ -52,6 +57,8 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerImagesCommandInput - {@link GetContainerImagesCommandInput}
+ * @returns {@link GetContainerImagesCommandOutput}
  * @see {@link GetContainerImagesCommandInput} for command's `input` shape.
  * @see {@link GetContainerImagesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetContainerImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetContainerImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContainerImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerImagesCommandOutput> {
     return deserializeAws_json1_1GetContainerImagesCommand(output, context);
   }

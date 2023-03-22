@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesCommand}.
  */
 export interface ListResourcesCommandInput extends ListResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesCommand}.
  */
 export interface ListResourcesCommandOutput extends ListResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summaries of the organization's resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
+ * @returns {@link ListResourcesCommandOutput}
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesCommandOutput> {
     return deserializeAws_json1_1ListResourcesCommand(output, context);
   }

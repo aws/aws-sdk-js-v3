@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLoggingConfigurationCommand}.
  */
 export interface UpdateLoggingConfigurationCommandInput extends UpdateLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLoggingConfigurationCommand}.
  */
 export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the logging configuration for the specified firewall. </p>
  *          <p>To change the logging configuration, retrieve the <a>LoggingConfiguration</a> by calling <a>DescribeLoggingConfiguration</a>, then change it and provide
  *          the modified object to this update call. You must change the logging configuration one
@@ -71,6 +76,8 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLoggingConfigurationCommandInput - {@link UpdateLoggingConfigurationCommandInput}
+ * @returns {@link UpdateLoggingConfigurationCommandOutput}
  * @see {@link UpdateLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -126,6 +133,9 @@ export class UpdateLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class UpdateLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

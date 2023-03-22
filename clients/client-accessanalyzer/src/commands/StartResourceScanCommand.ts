@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartResourceScanCommand}.
  */
 export interface StartResourceScanCommandInput extends StartResourceScanRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartResourceScanCommand}.
  */
 export interface StartResourceScanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Immediately starts a scan of the policies applied to the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StartResourceScanCommandInput - {@link StartResourceScanCommandInput}
+ * @returns {@link StartResourceScanCommandOutput}
  * @see {@link StartResourceScanCommandInput} for command's `input` shape.
  * @see {@link StartResourceScanCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -79,6 +86,9 @@ export class StartResourceScanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartResourceScanCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class StartResourceScanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartResourceScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartResourceScanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartResourceScanCommandOutput> {
     return deserializeAws_restJson1StartResourceScanCommand(output, context);
   }

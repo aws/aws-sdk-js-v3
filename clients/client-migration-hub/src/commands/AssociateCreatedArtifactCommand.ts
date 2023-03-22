@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateCreatedArtifactCommand}.
  */
 export interface AssociateCreatedArtifactCommandInput extends AssociateCreatedArtifactRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateCreatedArtifactCommand}.
  */
 export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedArtifactResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a created artifact of an AWS cloud resource, the target receiving the
  *          migration, with the migration task performed by a migration tool. This API has the
  *          following traits:</p>
@@ -63,6 +68,8 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateCreatedArtifactCommandInput - {@link AssociateCreatedArtifactCommandInput}
+ * @returns {@link AssociateCreatedArtifactCommandOutput}
  * @see {@link AssociateCreatedArtifactCommandInput} for command's `input` shape.
  * @see {@link AssociateCreatedArtifactCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -120,6 +127,9 @@ export class AssociateCreatedArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateCreatedArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class AssociateCreatedArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateCreatedArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateCreatedArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCreatedArtifactCommandOutput> {
     return deserializeAws_json1_1AssociateCreatedArtifactCommand(output, context);
   }

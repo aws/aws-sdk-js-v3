@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateClientVpnTargetNetworkCommand}.
  */
 export interface AssociateClientVpnTargetNetworkCommandInput extends AssociateClientVpnTargetNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateClientVpnTargetNetworkCommand}.
  */
 export interface AssociateClientVpnTargetNetworkCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateClientVpnTargetNetworkCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p>
  *          <p>If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>) and change the VPC that's associated with it.</p>
  * @example
@@ -49,6 +54,8 @@ export interface AssociateClientVpnTargetNetworkCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateClientVpnTargetNetworkCommandInput - {@link AssociateClientVpnTargetNetworkCommandInput}
+ * @returns {@link AssociateClientVpnTargetNetworkCommandOutput}
  * @see {@link AssociateClientVpnTargetNetworkCommandInput} for command's `input` shape.
  * @see {@link AssociateClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateClientVpnTargetNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateClientVpnTargetNetworkCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
     return serializeAws_ec2AssociateClientVpnTargetNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

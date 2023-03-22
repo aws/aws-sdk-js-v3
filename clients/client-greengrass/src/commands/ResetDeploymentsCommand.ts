@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetDeploymentsCommand}.
  */
 export interface ResetDeploymentsCommandInput extends ResetDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetDeploymentsCommand}.
  */
 export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Resets a group's deployments.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetDeploymentsCommandInput - {@link ResetDeploymentsCommandInput}
+ * @returns {@link ResetDeploymentsCommandOutput}
  * @see {@link ResetDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ResetDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class ResetDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ResetDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ResetDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetDeploymentsCommandOutput> {
     return deserializeAws_restJson1ResetDeploymentsCommand(output, context);
   }

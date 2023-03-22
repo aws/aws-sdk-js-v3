@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExclusionsCommand}.
  */
 export interface DescribeExclusionsCommandInput extends DescribeExclusionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExclusionsCommand}.
  */
 export interface DescribeExclusionsCommandOutput extends DescribeExclusionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the exclusions that are specified by the exclusions' ARNs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExclusionsCommandInput - {@link DescribeExclusionsCommandInput}
+ * @returns {@link DescribeExclusionsCommandOutput}
  * @see {@link DescribeExclusionsCommandInput} for command's `input` shape.
  * @see {@link DescribeExclusionsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeExclusionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExclusionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeExclusionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExclusionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeExclusionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExclusionsCommandOutput> {
     return deserializeAws_json1_1DescribeExclusionsCommand(output, context);
   }

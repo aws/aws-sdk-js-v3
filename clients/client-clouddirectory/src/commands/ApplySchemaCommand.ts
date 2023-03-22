@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ApplySchemaCommand}.
  */
 export interface ApplySchemaCommandInput extends ApplySchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link ApplySchemaCommand}.
  */
 export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the input published schema, at the specified version, into the <a>Directory</a> with the same
  *       name and version as that of the published schema.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplySchemaCommandInput - {@link ApplySchemaCommandInput}
+ * @returns {@link ApplySchemaCommandOutput}
  * @see {@link ApplySchemaCommandInput} for command's `input` shape.
  * @see {@link ApplySchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -100,6 +107,9 @@ export class ApplySchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplySchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class ApplySchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApplySchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ApplySchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApplySchemaCommandOutput> {
     return deserializeAws_restJson1ApplySchemaCommand(output, context);
   }

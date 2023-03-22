@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainDeliverabilityCampaignCommand}.
  */
 export interface GetDomainDeliverabilityCampaignCommandInput extends GetDomainDeliverabilityCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainDeliverabilityCampaignCommand}.
  */
 export interface GetDomainDeliverabilityCampaignCommandOutput
@@ -37,6 +41,7 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available
  *             for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -51,6 +56,8 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainDeliverabilityCampaignCommandInput - {@link GetDomainDeliverabilityCampaignCommandInput}
+ * @returns {@link GetDomainDeliverabilityCampaignCommandOutput}
  * @see {@link GetDomainDeliverabilityCampaignCommandInput} for command's `input` shape.
  * @see {@link GetDomainDeliverabilityCampaignCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainDeliverabilityCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDomainDeliverabilityCampaignCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     return serializeAws_restJson1GetDomainDeliverabilityCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

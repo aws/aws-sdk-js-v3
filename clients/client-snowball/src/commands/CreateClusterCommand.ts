@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandInput extends CreateClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandOutput extends CreateClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty cluster. Each cluster supports five nodes. You use the <a>CreateJob</a> action separately to create the jobs for each of these nodes. The
  *       cluster does not ship until these five node jobs have been created.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -119,6 +126,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
     return deserializeAws_json1_1CreateClusterCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartDeviceAuthorizationCommand}.
  */
 export interface StartDeviceAuthorizationCommandInput extends StartDeviceAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDeviceAuthorizationCommand}.
  */
 export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthorizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates device authorization by requesting a pair of verification codes from the
  *       authorization service.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDeviceAuthorizationCommandInput - {@link StartDeviceAuthorizationCommandInput}
+ * @returns {@link StartDeviceAuthorizationCommandOutput}
  * @see {@link StartDeviceAuthorizationCommandInput} for command's `input` shape.
  * @see {@link StartDeviceAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
@@ -91,6 +98,9 @@ export class StartDeviceAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeviceAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StartDeviceAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeviceAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartDeviceAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceAuthorizationCommandOutput> {
     return deserializeAws_restJson1StartDeviceAuthorizationCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSlackChannelConfigurationCommand}.
  */
 export interface DeleteSlackChannelConfigurationCommandInput extends DeleteSlackChannelConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSlackChannelConfigurationCommand}.
  */
 export interface DeleteSlackChannelConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteSlackChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Slack channel configuration from your Amazon Web Services account. This operation doesn't
  *       delete your Slack channel.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSlackChannelConfigurationCommandInput - {@link DeleteSlackChannelConfigurationCommandInput}
+ * @returns {@link DeleteSlackChannelConfigurationCommandOutput}
  * @see {@link DeleteSlackChannelConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSlackChannelConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -114,6 +121,9 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSlackChannelConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,6 +163,9 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteSlackChannelConfigurationCommandInput,
     context: __SerdeContext
@@ -160,6 +173,9 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
     return serializeAws_restJson1DeleteSlackChannelConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

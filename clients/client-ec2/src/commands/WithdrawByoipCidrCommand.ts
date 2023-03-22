@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link WithdrawByoipCidrCommand}.
  */
 export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link WithdrawByoipCidrCommand}.
  */
 export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops advertising an address range that is provisioned as an address pool.</p>
  *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
  *          address ranges each time.</p>
@@ -50,6 +55,8 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param WithdrawByoipCidrCommandInput - {@link WithdrawByoipCidrCommandInput}
+ * @returns {@link WithdrawByoipCidrCommandOutput}
  * @see {@link WithdrawByoipCidrCommandInput} for command's `input` shape.
  * @see {@link WithdrawByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class WithdrawByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: WithdrawByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class WithdrawByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: WithdrawByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2WithdrawByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WithdrawByoipCidrCommandOutput> {
     return deserializeAws_ec2WithdrawByoipCidrCommand(output, context);
   }

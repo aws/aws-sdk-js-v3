@@ -26,15 +26,20 @@ import {
 import { QLDBSessionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBSessionClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendCommandCommand}.
  */
 export interface SendCommandCommandInput extends SendCommandRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendCommandCommand}.
  */
 export interface SendCommandCommandOutput extends SendCommandResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a command to an Amazon QLDB ledger.</p>
  *          <note>
  *             <p>Instead of interacting directly with this API, we recommend using the QLDB driver
@@ -66,6 +71,8 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param SendCommandCommandInput - {@link SendCommandCommandInput}
+ * @returns {@link SendCommandCommandOutput}
  * @see {@link SendCommandCommandInput} for command's `input` shape.
  * @see {@link SendCommandCommandOutput} for command's `response` shape.
  * @see {@link QLDBSessionClientResolvedConfig | config} for QLDBSessionClient's `config` shape.
@@ -109,6 +116,9 @@ export class SendCommandCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendCommandCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class SendCommandCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SendCommandCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendCommandCommandOutput> {
     return deserializeAws_json1_0SendCommandCommand(output, context);
   }

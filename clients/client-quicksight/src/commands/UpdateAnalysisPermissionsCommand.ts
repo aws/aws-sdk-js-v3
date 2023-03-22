@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAnalysisPermissionsCommand}.
  */
 export interface UpdateAnalysisPermissionsCommandInput extends UpdateAnalysisPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAnalysisPermissionsCommand}.
  */
 export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the read and write permissions for an analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAnalysisPermissionsCommandInput - {@link UpdateAnalysisPermissionsCommandInput}
+ * @returns {@link UpdateAnalysisPermissionsCommandOutput}
  * @see {@link UpdateAnalysisPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateAnalysisPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateAnalysisPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAnalysisPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateAnalysisPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAnalysisPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAnalysisPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

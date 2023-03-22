@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSiteAddressCommand}.
  */
 export interface UpdateSiteAddressCommandInput extends UpdateSiteAddressInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSiteAddressCommand}.
  */
 export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the address of the specified site.</p>
  *          <p>You can't update a site address if there is an order in progress. You must wait for the
  *       order to complete or cancel the order.</p>
@@ -50,6 +55,8 @@ export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSiteAddressCommandInput - {@link UpdateSiteAddressCommandInput}
+ * @returns {@link UpdateSiteAddressCommandOutput}
  * @see {@link UpdateSiteAddressCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteAddressCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateSiteAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSiteAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateSiteAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSiteAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSiteAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSiteAddressCommandOutput> {
     return deserializeAws_restJson1UpdateSiteAddressCommand(output, context);
   }

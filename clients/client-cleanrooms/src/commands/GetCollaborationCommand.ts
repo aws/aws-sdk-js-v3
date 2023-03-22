@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCollaborationCommand}.
  */
 export interface GetCollaborationCommandInput extends GetCollaborationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetCollaborationCommand}.
  */
 export interface GetCollaborationCommandOutput extends GetCollaborationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about a collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCollaborationCommandInput - {@link GetCollaborationCommandInput}
+ * @returns {@link GetCollaborationCommandOutput}
  * @see {@link GetCollaborationCommandInput} for command's `input` shape.
  * @see {@link GetCollaborationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetCollaborationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCollaborationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetCollaborationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCollaborationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCollaborationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCollaborationCommandOutput> {
     return deserializeAws_restJson1GetCollaborationCommand(output, context);
   }

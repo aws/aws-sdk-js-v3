@@ -61,6 +61,7 @@ import {
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
+ * @public
  * <p>One or more preconditions aren't met.</p>
  */
 export class PreconditionNotMetException extends __BaseException {
@@ -87,6 +88,7 @@ export class PreconditionNotMetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A date-time parameter.</p>
  */
 export interface DateTimeParameter {
@@ -102,6 +104,7 @@ export interface DateTimeParameter {
 }
 
 /**
+ * @public
  * <p>A decimal parameter.</p>
  */
 export interface DecimalParameter {
@@ -117,6 +120,7 @@ export interface DecimalParameter {
 }
 
 /**
+ * @public
  * <p>An integer parameter.</p>
  */
 export interface IntegerParameter {
@@ -132,6 +136,7 @@ export interface IntegerParameter {
 }
 
 /**
+ * @public
  * <p>A string parameter.</p>
  */
 export interface StringParameter {
@@ -147,6 +152,7 @@ export interface StringParameter {
 }
 
 /**
+ * @public
  * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
  */
 export interface _Parameters {
@@ -172,6 +178,7 @@ export interface _Parameters {
 }
 
 /**
+ * @public
  * <p>Permission for the resource.</p>
  */
 export interface ResourcePermission {
@@ -200,6 +207,9 @@ export interface ResourcePermission {
   Actions: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you are creating an analysis.</p>
@@ -262,6 +272,9 @@ export interface CreateAnalysisRequest {
   Definition?: AnalysisDefinition;
 }
 
+/**
+ * @public
+ */
 export interface CreateAnalysisResponse {
   /**
    * <p>The ARN for the analysis.</p>
@@ -290,6 +303,7 @@ export interface CreateAnalysisResponse {
 }
 
 /**
+ * @public
  * <p>A limit is exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -322,6 +336,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
@@ -351,6 +366,7 @@ export class UnsupportedUserEditionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A transform operation that creates calculated columns. Columns created in one such
  *             operation form a lexical closure.</p>
  */
@@ -362,6 +378,7 @@ export interface CreateColumnsOperation {
 }
 
 /**
+ * @public
  * <p>The drill down options for data points in a dashbaord.</p>
  */
 export interface DataPointDrillUpDownOption {
@@ -372,6 +389,7 @@ export interface DataPointDrillUpDownOption {
 }
 
 /**
+ * @public
  * <p>The data point menu options of a dashboard.</p>
  */
 export interface DataPointMenuLabelOption {
@@ -382,6 +400,7 @@ export interface DataPointMenuLabelOption {
 }
 
 /**
+ * @public
  * <p>The data point tooltip options.</p>
  */
 export interface DataPointTooltipOption {
@@ -392,6 +411,7 @@ export interface DataPointTooltipOption {
 }
 
 /**
+ * @public
  * <p>Export to .csv option.</p>
  */
 export interface ExportToCSVOption {
@@ -402,6 +422,7 @@ export interface ExportToCSVOption {
 }
 
 /**
+ * @public
  * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
  */
 export interface ExportWithHiddenFieldsOption {
@@ -411,12 +432,16 @@ export interface ExportWithHiddenFieldsOption {
   AvailabilityStatus?: DashboardBehavior | string;
 }
 
+/**
+ * @public
+ */
 export enum DashboardUIState {
   COLLAPSED = "COLLAPSED",
   EXPANDED = "EXPANDED",
 }
 
 /**
+ * @public
  * <p>Sheet controls option.</p>
  */
 export interface SheetControlsOption {
@@ -427,6 +452,7 @@ export interface SheetControlsOption {
 }
 
 /**
+ * @public
  * <p>The sheet layout maximization options of a dashbaord.</p>
  */
 export interface SheetLayoutElementMaximizationOption {
@@ -437,6 +463,7 @@ export interface SheetLayoutElementMaximizationOption {
 }
 
 /**
+ * @public
  * <p>The axis sort options for a visual.</p>
  */
 export interface VisualAxisSortOption {
@@ -447,6 +474,7 @@ export interface VisualAxisSortOption {
 }
 
 /**
+ * @public
  * <p>The menu options for a visual.</p>
  */
 export interface VisualMenuOption {
@@ -457,6 +485,7 @@ export interface VisualMenuOption {
 }
 
 /**
+ * @public
  * <p>Determines if hidden fields are included in an exported dashboard.</p>
  */
 export interface ExportHiddenFieldsOption {
@@ -467,6 +496,7 @@ export interface ExportHiddenFieldsOption {
 }
 
 /**
+ * @public
  * <p>The visual publish options of a visual in a dashboard</p>
  */
 export interface DashboardVisualPublishOptions {
@@ -477,6 +507,7 @@ export interface DashboardVisualPublishOptions {
 }
 
 /**
+ * @public
  * <p>Dashboard publish options.</p>
  */
 export interface DashboardPublishOptions {
@@ -539,6 +570,7 @@ export interface DashboardPublishOptions {
 }
 
 /**
+ * @public
  * <p>The contents of a dashboard.</p>
  */
 export interface DashboardVersionDefinition {
@@ -584,6 +616,7 @@ export interface DashboardVersionDefinition {
 }
 
 /**
+ * @public
  * <p>Dashboard source template.</p>
  */
 export interface DashboardSourceTemplate {
@@ -599,6 +632,7 @@ export interface DashboardSourceTemplate {
 }
 
 /**
+ * @public
  * <p>Dashboard source entity.</p>
  */
 export interface DashboardSourceEntity {
@@ -608,6 +642,9 @@ export interface DashboardSourceEntity {
   SourceTemplate?: DashboardSourceTemplate;
 }
 
+/**
+ * @public
+ */
 export interface CreateDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you want to create the dashboard.</p>
@@ -715,6 +752,9 @@ export interface CreateDashboardRequest {
   Definition?: DashboardVersionDefinition;
 }
 
+/**
+ * @public
+ */
 export interface CreateDashboardResponse {
   /**
    * <p>The ARN of the dashboard.</p>
@@ -749,6 +789,7 @@ export interface CreateDashboardResponse {
 }
 
 /**
+ * @public
  * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
  */
 export interface DataSetUsageConfiguration {
@@ -764,6 +805,7 @@ export interface DataSetUsageConfiguration {
 }
 
 /**
+ * @public
  * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
  */
 export interface FieldFolder {
@@ -778,12 +820,16 @@ export interface FieldFolder {
   columns?: string[];
 }
 
+/**
+ * @public
+ */
 export enum DataSetImportMode {
   DIRECT_QUERY = "DIRECT_QUERY",
   SPICE = "SPICE",
 }
 
 /**
+ * @public
  * <p>A transform operation that filters rows based on a condition.</p>
  */
 export interface FilterOperation {
@@ -795,6 +841,7 @@ export interface FilterOperation {
 }
 
 /**
+ * @public
  * <p>A transform operation that projects columns. Operations that come after a projection
  *             can only refer to projected columns.</p>
  */
@@ -806,6 +853,7 @@ export interface ProjectOperation {
 }
 
 /**
+ * @public
  * <p>A transform operation that renames a column.</p>
  */
 export interface RenameColumnOperation {
@@ -821,6 +869,7 @@ export interface RenameColumnOperation {
 }
 
 /**
+ * @public
  * <p>A transform operation that tags a column with additional information.</p>
  */
 export interface TagColumnOperation {
@@ -839,6 +888,7 @@ export interface TagColumnOperation {
 }
 
 /**
+ * @public
  * <p>A transform operation that removes tags associated with a column.</p>
  */
 export interface UntagColumnOperation {
@@ -854,6 +904,7 @@ export interface UntagColumnOperation {
 }
 
 /**
+ * @public
  * <p>A data transformation on a logical table. This is a variant type structure. For this
  *             structure to be valid, only one of the attributes can be non-null.</p>
  */
@@ -867,6 +918,9 @@ export type TransformOperation =
   | TransformOperation.UntagColumnOperationMember
   | TransformOperation.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace TransformOperation {
   /**
    * <p>An operation that projects columns. Operations that come after a projection can only
@@ -1004,6 +1058,7 @@ export namespace TransformOperation {
 }
 
 /**
+ * @public
  * <p>Properties associated with the columns participating in a join.</p>
  */
 export interface JoinKeyProperties {
@@ -1014,6 +1069,9 @@ export interface JoinKeyProperties {
   UniqueKey?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum JoinType {
   INNER = "INNER",
   LEFT = "LEFT",
@@ -1022,6 +1080,7 @@ export enum JoinType {
 }
 
 /**
+ * @public
  * <p>The instructions associated with a join. </p>
  */
 export interface JoinInstruction {
@@ -1057,6 +1116,7 @@ export interface JoinInstruction {
 }
 
 /**
+ * @public
  * <p>Information about the source of a logical table. This is a variant type structure. For
  *             this structure to be valid, only one of the attributes can be non-null.</p>
  */
@@ -1078,6 +1138,7 @@ export interface LogicalTableSource {
 }
 
 /**
+ * @public
  * <p>A <i>logical table</i> is a unit that joins and that data
  *             transformations operate on. A logical table has a source, which can be either a physical
  *             table or result of a join. When a logical table points to a physical table, the logical
@@ -1100,6 +1161,9 @@ export interface LogicalTable {
   Source: LogicalTableSource | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InputColumnDataType {
   BIT = "BIT",
   BOOLEAN = "BOOLEAN",
@@ -1111,6 +1175,7 @@ export enum InputColumnDataType {
 }
 
 /**
+ * @public
  * <p>Metadata for a column that is used as the input of a transform operation.</p>
  */
 export interface InputColumn {
@@ -1126,6 +1191,7 @@ export interface InputColumn {
 }
 
 /**
+ * @public
  * <p>A physical table type built from the results of the custom SQL query.</p>
  */
 export interface CustomSql {
@@ -1151,6 +1217,7 @@ export interface CustomSql {
 }
 
 /**
+ * @public
  * <p>A physical table type for relational data sources.</p>
  */
 export interface RelationalTable {
@@ -1180,6 +1247,9 @@ export interface RelationalTable {
   InputColumns: InputColumn[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FileFormat {
   CLF = "CLF",
   CSV = "CSV",
@@ -1189,12 +1259,16 @@ export enum FileFormat {
   XLSX = "XLSX",
 }
 
+/**
+ * @public
+ */
 export enum TextQualifier {
   DOUBLE_QUOTE = "DOUBLE_QUOTE",
   SINGLE_QUOTE = "SINGLE_QUOTE",
 }
 
 /**
+ * @public
  * <p>Information about the format for a source file or files.</p>
  */
 export interface UploadSettings {
@@ -1225,6 +1299,7 @@ export interface UploadSettings {
 }
 
 /**
+ * @public
  * <p>A physical table type for an S3 data source.</p>
  */
 export interface S3Source {
@@ -1248,6 +1323,7 @@ export interface S3Source {
 }
 
 /**
+ * @public
  * <p>A view of a data source that contains information about the shape of the data in the
  *             underlying source. This is a variant type structure. For this structure to be valid,
  *             only one of the attributes can be non-null.</p>
@@ -1258,6 +1334,9 @@ export type PhysicalTable =
   | PhysicalTable.S3SourceMember
   | PhysicalTable.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace PhysicalTable {
   /**
    * <p>A physical table type for relational data sources.</p>
@@ -1311,22 +1390,32 @@ export namespace PhysicalTable {
   };
 }
 
+/**
+ * @public
+ */
 export enum RowLevelPermissionFormatVersion {
   VERSION_1 = "VERSION_1",
   VERSION_2 = "VERSION_2",
 }
 
+/**
+ * @public
+ */
 export enum RowLevelPermissionPolicy {
   DENY_ACCESS = "DENY_ACCESS",
   GRANT_ACCESS = "GRANT_ACCESS",
 }
 
+/**
+ * @public
+ */
 export enum Status {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Information about a dataset that contains permissions for row-level security (RLS).
  *             The permissions dataset maps fields to users or groups. For more information, see
  *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
@@ -1364,6 +1453,7 @@ export interface RowLevelPermissionDataSet {
 }
 
 /**
+ * @public
  * <p>A set of rules associated with a tag.</p>
  */
 export interface RowLevelPermissionTagRule {
@@ -1389,6 +1479,7 @@ export interface RowLevelPermissionTagRule {
 }
 
 /**
+ * @public
  * <p>The configuration of tags on a dataset to set row-level security. </p>
  */
 export interface RowLevelPermissionTagConfiguration {
@@ -1403,6 +1494,9 @@ export interface RowLevelPermissionTagConfiguration {
   TagRules: RowLevelPermissionTagRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSetRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -1477,6 +1571,9 @@ export interface CreateDataSetRequest {
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -1512,6 +1609,7 @@ export interface CreateDataSetResponse {
 }
 
 /**
+ * @public
  * <p>The required parameters that are needed to connect to a Databricks data source.</p>
  */
 export interface DatabricksParameters {
@@ -1532,6 +1630,7 @@ export interface DatabricksParameters {
 }
 
 /**
+ * @public
  * <p>The required parameters for connecting to an Exasol data source.</p>
  */
 export interface ExasolParameters {
@@ -1547,6 +1646,7 @@ export interface ExasolParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Jira.</p>
  */
 export interface JiraParameters {
@@ -1557,6 +1657,7 @@ export interface JiraParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for MariaDB.</p>
  */
 export interface MariaDbParameters {
@@ -1577,6 +1678,7 @@ export interface MariaDbParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for MySQL.</p>
  */
 export interface MySqlParameters {
@@ -1597,6 +1699,7 @@ export interface MySqlParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Oracle.</p>
  */
 export interface OracleParameters {
@@ -1617,6 +1720,7 @@ export interface OracleParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for PostgreSQL.</p>
  */
 export interface PostgreSqlParameters {
@@ -1637,6 +1741,7 @@ export interface PostgreSqlParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Presto.</p>
  */
 export interface PrestoParameters {
@@ -1657,6 +1762,7 @@ export interface PrestoParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Amazon RDS.</p>
  */
 export interface RdsParameters {
@@ -1672,6 +1778,7 @@ export interface RdsParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
  *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
  *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
@@ -1700,6 +1807,7 @@ export interface RedshiftParameters {
 }
 
 /**
+ * @public
  * <p>Amazon S3 manifest file location.</p>
  */
 export interface ManifestFileLocation {
@@ -1715,6 +1823,7 @@ export interface ManifestFileLocation {
 }
 
 /**
+ * @public
  * <p>The parameters for S3.</p>
  */
 export interface S3Parameters {
@@ -1731,6 +1840,7 @@ export interface S3Parameters {
 }
 
 /**
+ * @public
  * <p>The parameters for ServiceNow.</p>
  */
 export interface ServiceNowParameters {
@@ -1741,6 +1851,7 @@ export interface ServiceNowParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Snowflake.</p>
  */
 export interface SnowflakeParameters {
@@ -1761,6 +1872,7 @@ export interface SnowflakeParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Spark.</p>
  */
 export interface SparkParameters {
@@ -1776,6 +1888,7 @@ export interface SparkParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for SQL Server.</p>
  */
 export interface SqlServerParameters {
@@ -1796,6 +1909,7 @@ export interface SqlServerParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Teradata.</p>
  */
 export interface TeradataParameters {
@@ -1816,6 +1930,7 @@ export interface TeradataParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Twitter.</p>
  */
 export interface TwitterParameters {
@@ -1831,6 +1946,7 @@ export interface TwitterParameters {
 }
 
 /**
+ * @public
  * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
  *             This is a variant type structure. For this structure to be valid, only one of the
  *             attributes can be non-null.</p>
@@ -1861,6 +1977,9 @@ export type DataSourceParameters =
   | DataSourceParameters.TwitterParametersMember
   | DataSourceParameters.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace DataSourceParameters {
   /**
    * <p>The parameters for OpenSearch.</p>
@@ -2639,6 +2758,7 @@ export namespace DataSourceParameters {
 }
 
 /**
+ * @public
  * <p>The combination of user name and password that are used as credentials.</p>
  */
 export interface CredentialPair {
@@ -2667,6 +2787,7 @@ export interface CredentialPair {
 }
 
 /**
+ * @public
  * <p>Data source credentials. This is a variant type structure. For this structure to be
  *             valid, only one of the attributes can be non-null.</p>
  */
@@ -2694,6 +2815,7 @@ export interface DataSourceCredentials {
 }
 
 /**
+ * @public
  * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
  *             underlying data source.</p>
  */
@@ -2704,6 +2826,9 @@ export interface SslProperties {
   DisableSsl?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DataSourceType {
   ADOBE_ANALYTICS = "ADOBE_ANALYTICS",
   AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
@@ -2734,6 +2859,7 @@ export enum DataSourceType {
 }
 
 /**
+ * @public
  * <p>VPC connection properties.</p>
  */
 export interface VpcConnectionProperties {
@@ -2743,6 +2869,9 @@ export interface VpcConnectionProperties {
   VpcConnectionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -2799,6 +2928,9 @@ export interface CreateDataSourceRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -2826,10 +2958,16 @@ export interface CreateDataSourceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export enum FolderType {
   SHARED = "SHARED",
 }
 
+/**
+ * @public
+ */
 export interface CreateFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account where you want to create the folder.</p>
@@ -2870,6 +3008,9 @@ export interface CreateFolderRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -2892,12 +3033,18 @@ export interface CreateFolderResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export enum MemberType {
   ANALYSIS = "ANALYSIS",
   DASHBOARD = "DASHBOARD",
   DATASET = "DATASET",
 }
 
+/**
+ * @public
+ */
 export interface CreateFolderMembershipRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -2921,6 +3068,7 @@ export interface CreateFolderMembershipRequest {
 }
 
 /**
+ * @public
  * <p>An asset in a Amazon QuickSight folder, such as a dashboard, analysis, or dataset.</p>
  */
 export interface FolderMember {
@@ -2935,6 +3083,9 @@ export interface FolderMember {
   MemberType?: MemberType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFolderMembershipResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -2953,6 +3104,7 @@ export interface CreateFolderMembershipResponse {
 }
 
 /**
+ * @public
  * <p>The request object for this operation. </p>
  */
 export interface CreateGroupRequest {
@@ -2979,6 +3131,7 @@ export interface CreateGroupRequest {
 }
 
 /**
+ * @public
  * <p>A <i>group</i> in Amazon QuickSight consists of a set of users. You can
  *             use groups to make it easier to manage access and security. </p>
  */
@@ -3005,6 +3158,7 @@ export interface Group {
 }
 
 /**
+ * @public
  * <p>The response object for this operation.</p>
  */
 export interface CreateGroupResponse {
@@ -3024,6 +3178,9 @@ export interface CreateGroupResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupMembershipRequest {
   /**
    * <p>The name of the user that you want to add to the group membership.</p>
@@ -3048,6 +3205,7 @@ export interface CreateGroupMembershipRequest {
 }
 
 /**
+ * @public
  * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
  *             can't be members of another group. .</p>
  */
@@ -3063,6 +3221,9 @@ export interface GroupMember {
   MemberName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupMembershipResponse {
   /**
    * <p>The group member.</p>
@@ -3080,6 +3241,9 @@ export interface CreateGroupMembershipResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateIAMPolicyAssignmentRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you want to assign an IAM policy to Amazon QuickSight users or
@@ -3130,6 +3294,9 @@ export interface CreateIAMPolicyAssignmentRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateIAMPolicyAssignmentResponse {
   /**
    * <p>The name of the assignment. This name must be unique within the Amazon Web Services account.</p>
@@ -3183,11 +3350,17 @@ export interface CreateIAMPolicyAssignmentResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export enum IngestionType {
   FULL_REFRESH = "FULL_REFRESH",
   INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
 }
 
+/**
+ * @public
+ */
 export interface CreateIngestionRequest {
   /**
    * <p>The ID of the dataset used in the ingestion.</p>
@@ -3210,6 +3383,9 @@ export interface CreateIngestionRequest {
   IngestionType?: IngestionType | string;
 }
 
+/**
+ * @public
+ */
 export enum IngestionStatus {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
@@ -3219,6 +3395,9 @@ export enum IngestionStatus {
   RUNNING = "RUNNING",
 }
 
+/**
+ * @public
+ */
 export interface CreateIngestionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
@@ -3246,10 +3425,16 @@ export interface CreateIngestionResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export enum IdentityStore {
   QUICKSIGHT = "QUICKSIGHT",
 }
 
+/**
+ * @public
+ */
 export interface CreateNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to create the Amazon QuickSight namespace in.</p>
@@ -3273,6 +3458,9 @@ export interface CreateNamespaceRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum NamespaceStatus {
   CREATED = "CREATED",
   CREATING = "CREATING",
@@ -3281,6 +3469,9 @@ export enum NamespaceStatus {
   RETRYABLE_FAILURE = "RETRYABLE_FAILURE",
 }
 
+/**
+ * @public
+ */
 export interface CreateNamespaceResponse {
   /**
    * <p>The ARN of the Amazon QuickSight namespace you created. </p>
@@ -3325,6 +3516,7 @@ export interface CreateNamespaceResponse {
 }
 
 /**
+ * @public
  * <p>Dataset schema.</p>
  */
 export interface DataSetSchema {
@@ -3335,6 +3527,7 @@ export interface DataSetSchema {
 }
 
 /**
+ * @public
  * <p>Dataset configuration.</p>
  */
 export interface DataSetConfiguration {
@@ -3355,6 +3548,7 @@ export interface DataSetConfiguration {
 }
 
 /**
+ * @public
  * <p>The detailed definition of a template.</p>
  */
 export interface TemplateVersionDefinition {
@@ -3403,6 +3597,7 @@ export interface TemplateVersionDefinition {
 }
 
 /**
+ * @public
  * <p>The source analysis of the template.</p>
  */
 export interface TemplateSourceAnalysis {
@@ -3419,6 +3614,7 @@ export interface TemplateSourceAnalysis {
 }
 
 /**
+ * @public
  * <p>The source template of the template.</p>
  */
 export interface TemplateSourceTemplate {
@@ -3429,6 +3625,7 @@ export interface TemplateSourceTemplate {
 }
 
 /**
+ * @public
  * <p>The source entity of the template.</p>
  */
 export interface TemplateSourceEntity {
@@ -3443,6 +3640,9 @@ export interface TemplateSourceEntity {
   SourceTemplate?: TemplateSourceTemplate;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateRequest {
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon QuickSight account.</p>
@@ -3503,6 +3703,9 @@ export interface CreateTemplateRequest {
   Definition?: TemplateVersionDefinition;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateResponse {
   /**
    * <p>The ARN for the template.</p>
@@ -3536,6 +3739,9 @@ export interface CreateTemplateResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you creating an alias for.</p>
@@ -3561,6 +3767,7 @@ export interface CreateTemplateAliasRequest {
 }
 
 /**
+ * @public
  * <p>The template alias.</p>
  */
 export interface TemplateAlias {
@@ -3580,6 +3787,9 @@ export interface TemplateAlias {
   TemplateVersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateAliasResponse {
   /**
    * <p>Information about the template alias.</p>
@@ -3598,6 +3808,7 @@ export interface CreateTemplateAliasResponse {
 }
 
 /**
+ * @public
  * <p>The theme colors that are used for data colors in charts. The colors description is a
  *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
  *                 <code>#</code>, for example #37BFF5. </p>
@@ -3621,6 +3832,7 @@ export interface DataColorPalette {
 }
 
 /**
+ * @public
  * <p>Display options related to tiles on a sheet.</p>
  */
 export interface TileStyle {
@@ -3631,6 +3843,7 @@ export interface TileStyle {
 }
 
 /**
+ * @public
  * <p>The display options for gutter spacing between tiles on a sheet.</p>
  */
 export interface GutterStyle {
@@ -3642,6 +3855,7 @@ export interface GutterStyle {
 }
 
 /**
+ * @public
  * <p>The display options for margins around the outside edge of sheets.</p>
  */
 export interface MarginStyle {
@@ -3652,6 +3866,7 @@ export interface MarginStyle {
 }
 
 /**
+ * @public
  * <p>The display options for the layout of tiles on a sheet.</p>
  */
 export interface TileLayoutStyle {
@@ -3667,6 +3882,7 @@ export interface TileLayoutStyle {
 }
 
 /**
+ * @public
  * <p>The theme display options for sheets. </p>
  */
 export interface SheetStyle {
@@ -3682,6 +3898,7 @@ export interface SheetStyle {
 }
 
 /**
+ * @public
  * <p>Determines the font settings.</p>
  */
 export interface Font {
@@ -3692,6 +3909,7 @@ export interface Font {
 }
 
 /**
+ * @public
  * <p>Determines the typography options.</p>
  */
 export interface Typography {
@@ -3702,6 +3920,7 @@ export interface Typography {
 }
 
 /**
+ * @public
  * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
  *             description is a hexadecimal color code that consists of six alphanumerical characters,
  *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
@@ -3801,6 +4020,7 @@ export interface UIColorPalette {
 }
 
 /**
+ * @public
  * <p>The theme configuration. This configuration contains all of the display properties for
  *             a theme.</p>
  */
@@ -3827,6 +4047,9 @@ export interface ThemeConfiguration {
   Typography?: Typography;
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you want to store the new theme. </p>
@@ -3878,6 +4101,9 @@ export interface CreateThemeRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the theme.</p>
@@ -3910,6 +4136,9 @@ export interface CreateThemeResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme for the new theme alias.</p>
@@ -3935,6 +4164,7 @@ export interface CreateThemeAliasRequest {
 }
 
 /**
+ * @public
  * <p>An alias for a theme.</p>
  */
 export interface ThemeAlias {
@@ -3954,6 +4184,9 @@ export interface ThemeAlias {
   ThemeVersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeAliasResponse {
   /**
    * <p>Information about the theme alias.</p>
@@ -3971,6 +4204,9 @@ export interface CreateThemeAliasResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export enum DashboardErrorType {
   ACCESS_DENIED = "ACCESS_DENIED",
   COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
@@ -3985,6 +4221,7 @@ export enum DashboardErrorType {
 }
 
 /**
+ * @public
  * <p>Dashboard error.</p>
  */
 export interface DashboardError {
@@ -4005,6 +4242,7 @@ export interface DashboardError {
 }
 
 /**
+ * @public
  * <p>Dashboard version.</p>
  */
 export interface DashboardVersion {
@@ -4061,6 +4299,7 @@ export interface DashboardVersion {
 }
 
 /**
+ * @public
  * <p>Dashboard.</p>
  */
 export interface Dashboard {
@@ -4100,6 +4339,9 @@ export interface Dashboard {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum DashboardFilterAttribute {
   DASHBOARD_NAME = "DASHBOARD_NAME",
   DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
@@ -4111,6 +4353,7 @@ export enum DashboardFilterAttribute {
 }
 
 /**
+ * @public
  * <p>A filter that you apply when searching for dashboards. </p>
  */
 export interface DashboardSearchFilter {
@@ -4163,6 +4406,7 @@ export interface DashboardSearchFilter {
 }
 
 /**
+ * @public
  * <p>Dashboard summary.</p>
  */
 export interface DashboardSummary {
@@ -4203,6 +4447,7 @@ export interface DashboardSummary {
 }
 
 /**
+ * @public
  * <p>Dashboard version summary.</p>
  */
 export interface DashboardVersionSummary {
@@ -4238,6 +4483,7 @@ export interface DashboardVersionSummary {
 }
 
 /**
+ * @public
  * <p>Output column.</p>
  */
 export interface OutputColumn {
@@ -4258,6 +4504,7 @@ export interface OutputColumn {
 }
 
 /**
+ * @public
  * <p>Dataset.</p>
  */
 export interface DataSet {
@@ -4348,6 +4595,9 @@ export interface DataSet {
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum DataSetFilterAttribute {
   DATASET_NAME = "DATASET_NAME",
   DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
@@ -4358,6 +4608,7 @@ export enum DataSetFilterAttribute {
 }
 
 /**
+ * @public
  * <p>A filter that you apply when searching for datasets.</p>
  */
 export interface DataSetSearchFilter {
@@ -4410,6 +4661,7 @@ export interface DataSetSearchFilter {
 }
 
 /**
+ * @public
  * <p>Dataset summary.</p>
  */
 export interface DataSetSummary {
@@ -4459,6 +4711,9 @@ export interface DataSetSummary {
   ColumnLevelPermissionRulesApplied?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DataSourceErrorInfoType {
   ACCESS_DENIED = "ACCESS_DENIED",
   CONFLICT = "CONFLICT",
@@ -4471,6 +4726,7 @@ export enum DataSourceErrorInfoType {
 }
 
 /**
+ * @public
  * <p>Error information for the data source creation or update.</p>
  */
 export interface DataSourceErrorInfo {
@@ -4486,6 +4742,7 @@ export interface DataSourceErrorInfo {
 }
 
 /**
+ * @public
  * <p>The structure of a data source.</p>
  */
 export interface DataSource {
@@ -4569,6 +4826,9 @@ export interface DataSource {
   SecretArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum DataSourceFilterAttribute {
   DATASOURCE_NAME = "DATASOURCE_NAME",
   DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
@@ -4577,6 +4837,7 @@ export enum DataSourceFilterAttribute {
 }
 
 /**
+ * @public
  * <p>A filter that you apply when searching for data sources.</p>
  */
 export interface DataSourceSearchFilter {
@@ -4621,6 +4882,7 @@ export interface DataSourceSearchFilter {
 }
 
 /**
+ * @public
  * <p>A <code>DataSourceSummary</code> object that returns a summary of a data source.</p>
  */
 export interface DataSourceSummary {
@@ -4655,6 +4917,9 @@ export interface DataSourceSummary {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in
@@ -4668,6 +4933,9 @@ export interface DeleteAccountCustomizationRequest {
   Namespace?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountCustomizationResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4680,6 +4948,9 @@ export interface DeleteAccountCustomizationResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountSubscriptionRequest {
   /**
    * <p>The Amazon Web Services account ID of the account that you want to delete.</p>
@@ -4687,6 +4958,9 @@ export interface DeleteAccountSubscriptionRequest {
   AwsAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountSubscriptionResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4699,6 +4973,9 @@ export interface DeleteAccountSubscriptionResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you want to delete an analysis.</p>
@@ -4725,6 +5002,9 @@ export interface DeleteAnalysisRequest {
   ForceDeleteWithoutRecovery?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnalysisResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -4752,6 +5032,9 @@ export interface DeleteAnalysisResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -4771,6 +5054,9 @@ export interface DeleteDashboardRequest {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDashboardResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -4793,6 +5079,9 @@ export interface DeleteDashboardResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSetRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -4805,6 +5094,9 @@ export interface DeleteDataSetRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -4827,6 +5119,9 @@ export interface DeleteDataSetResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSourceRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -4839,6 +5134,9 @@ export interface DeleteDataSourceRequest {
   DataSourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
@@ -4861,6 +5159,9 @@ export interface DeleteDataSourceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -4873,6 +5174,9 @@ export interface DeleteFolderRequest {
   FolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -4895,6 +5199,9 @@ export interface DeleteFolderResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderMembershipRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -4918,6 +5225,9 @@ export interface DeleteFolderMembershipRequest {
   MemberType: MemberType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderMembershipResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -4930,6 +5240,9 @@ export interface DeleteFolderMembershipResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupRequest {
   /**
    * <p>The name of the group that you want to delete.</p>
@@ -4948,6 +5261,9 @@ export interface DeleteGroupRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4960,6 +5276,9 @@ export interface DeleteGroupResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupMembershipRequest {
   /**
    * <p>The name of the user that you want to delete from the group membership.</p>
@@ -4983,6 +5302,9 @@ export interface DeleteGroupMembershipRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupMembershipResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4995,6 +5317,9 @@ export interface DeleteGroupMembershipResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIAMPolicyAssignmentRequest {
   /**
    * <p>The Amazon Web Services account ID where you want to delete the IAM policy assignment.</p>
@@ -5012,6 +5337,9 @@ export interface DeleteIAMPolicyAssignmentRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIAMPolicyAssignmentResponse {
   /**
    * <p>The name of the assignment. </p>
@@ -5029,6 +5357,9 @@ export interface DeleteIAMPolicyAssignmentResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to delete the Amazon QuickSight namespace from.</p>
@@ -5041,6 +5372,9 @@ export interface DeleteNamespaceRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -5053,6 +5387,9 @@ export interface DeleteNamespaceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you're deleting.</p>
@@ -5072,6 +5409,9 @@ export interface DeleteTemplateRequest {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -5094,6 +5434,9 @@ export interface DeleteTemplateResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the item to delete.</p>
@@ -5114,6 +5457,9 @@ export interface DeleteTemplateAliasRequest {
   AliasName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateAliasResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -5141,6 +5487,9 @@ export interface DeleteTemplateAliasResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThemeRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're deleting.</p>
@@ -5161,6 +5510,9 @@ export interface DeleteThemeRequest {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThemeResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -5183,6 +5535,9 @@ export interface DeleteThemeResponse {
   ThemeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
@@ -5200,6 +5555,9 @@ export interface DeleteThemeAliasRequest {
   AliasName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThemeAliasResponse {
   /**
    * <p>The name for the theme alias.</p>
@@ -5227,6 +5585,9 @@ export interface DeleteThemeAliasResponse {
   ThemeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The name of the user that you want to delete.</p>
@@ -5245,6 +5606,9 @@ export interface DeleteUserRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -5258,6 +5622,7 @@ export interface DeleteUserResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteUserByPrincipalIdRequest {
@@ -5278,6 +5643,9 @@ export interface DeleteUserByPrincipalIdRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserByPrincipalIdResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -5290,6 +5658,9 @@ export interface DeleteUserByPrincipalIdResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to describe Amazon QuickSight customizations
@@ -5313,6 +5684,9 @@ export interface DescribeAccountCustomizationRequest {
   Resolved?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountCustomizationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the customization that's associated with this Amazon Web Services account.</p>
@@ -5345,6 +5719,9 @@ export interface DescribeAccountCustomizationResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountSettingsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the settings that you want to list.</p>
@@ -5352,6 +5729,9 @@ export interface DescribeAccountSettingsRequest {
   AwsAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountSettingsResponse {
   /**
    * <p>The Amazon QuickSight settings for this Amazon Web Services account. This information
@@ -5375,6 +5755,9 @@ export interface DescribeAccountSettingsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountSubscriptionRequest {
   /**
    * <p>The Amazon Web Services account ID associated with your Amazon QuickSight account.</p>
@@ -5382,6 +5765,9 @@ export interface DescribeAccountSubscriptionRequest {
   AwsAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountSubscriptionResponse {
   /**
    * <p>A structure that contains the following elements:</p>
@@ -5418,6 +5804,9 @@ export interface DescribeAccountSubscriptionResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
@@ -5432,6 +5821,9 @@ export interface DescribeAnalysisRequest {
   AnalysisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisResponse {
   /**
    * <p>A metadata structure that contains summary information for the analysis that you're
@@ -5450,6 +5842,9 @@ export interface DescribeAnalysisResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisDefinitionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
@@ -5464,6 +5859,9 @@ export interface DescribeAnalysisDefinitionRequest {
   AnalysisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisDefinitionResponse {
   /**
    * <p>The ID of the analysis described.</p>
@@ -5544,6 +5942,9 @@ export interface DescribeAnalysisDefinitionResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisPermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
@@ -5558,6 +5959,9 @@ export interface DescribeAnalysisPermissionsRequest {
   AnalysisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisPermissionsResponse {
   /**
    * <p>The ID of the analysis whose permissions you're describing.</p>
@@ -5587,6 +5991,9 @@ export interface DescribeAnalysisPermissionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -5611,6 +6018,9 @@ export interface DescribeDashboardRequest {
   AliasName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardResponse {
   /**
    * <p>Information about the dashboard.</p>
@@ -5628,6 +6038,9 @@ export interface DescribeDashboardResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardDefinitionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -5652,6 +6065,9 @@ export interface DescribeDashboardDefinitionRequest {
   AliasName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardDefinitionResponse {
   /**
    * <p>The ID of the dashboard described.</p>
@@ -5760,6 +6176,9 @@ export interface DescribeDashboardDefinitionResponse {
   DashboardPublishOptions?: DashboardPublishOptions;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardPermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're describing
@@ -5774,6 +6193,7 @@ export interface DescribeDashboardPermissionsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains the configuration of a shareable link to the dashboard.</p>
  */
 export interface LinkSharingConfiguration {
@@ -5783,6 +6203,9 @@ export interface LinkSharingConfiguration {
   Permissions?: ResourcePermission[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardPermissionsResponse {
   /**
    * <p>The ID for the dashboard.</p>
@@ -5818,6 +6241,9 @@ export interface DescribeDashboardPermissionsResponse {
   LinkSharingConfiguration?: LinkSharingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSetRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5830,6 +6256,9 @@ export interface DescribeDataSetRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSetResponse {
   /**
    * <p>Information on the dataset.</p>
@@ -5847,6 +6276,9 @@ export interface DescribeDataSetResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSetPermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5859,6 +6291,9 @@ export interface DescribeDataSetPermissionsRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSetPermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -5886,6 +6321,9 @@ export interface DescribeDataSetPermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSourceRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5898,6 +6336,9 @@ export interface DescribeDataSourceRequest {
   DataSourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSourceResponse {
   /**
    * <p>The information on the data source.</p>
@@ -5915,6 +6356,9 @@ export interface DescribeDataSourceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSourcePermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5927,6 +6371,9 @@ export interface DescribeDataSourcePermissionsRequest {
   DataSourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSourcePermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -5954,6 +6401,9 @@ export interface DescribeDataSourcePermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -5967,6 +6417,7 @@ export interface DescribeFolderRequest {
 }
 
 /**
+ * @public
  * <p>A folder in Amazon QuickSight.</p>
  */
 export interface Folder {
@@ -6006,6 +6457,9 @@ export interface Folder {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -6023,6 +6477,9 @@ export interface DescribeFolderResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderPermissionsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -6035,6 +6492,9 @@ export interface DescribeFolderPermissionsRequest {
   FolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderPermissionsResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -6062,6 +6522,9 @@ export interface DescribeFolderPermissionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderResolvedPermissionsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -6074,6 +6537,9 @@ export interface DescribeFolderResolvedPermissionsRequest {
   FolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderResolvedPermissionsResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -6101,6 +6567,9 @@ export interface DescribeFolderResolvedPermissionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupRequest {
   /**
    * <p>The name of the group that you want to describe.</p>
@@ -6119,6 +6588,9 @@ export interface DescribeGroupRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupResponse {
   /**
    * <p>The name of the group.</p>
@@ -6136,6 +6608,9 @@ export interface DescribeGroupResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupMembershipRequest {
   /**
    * <p>The user name of the user that you want to search for.</p>
@@ -6159,6 +6634,9 @@ export interface DescribeGroupMembershipRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupMembershipResponse {
   /**
    * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
@@ -6177,6 +6655,9 @@ export interface DescribeGroupMembershipResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIAMPolicyAssignmentRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the assignment that you want to describe.</p>
@@ -6195,6 +6676,7 @@ export interface DescribeIAMPolicyAssignmentRequest {
 }
 
 /**
+ * @public
  * <p>An Identity and Access Management (IAM) policy assignment.</p>
  */
 export interface IAMPolicyAssignment {
@@ -6229,6 +6711,9 @@ export interface IAMPolicyAssignment {
   AssignmentStatus?: AssignmentStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIAMPolicyAssignmentResponse {
   /**
    * <p>Information describing the IAM policy assignment.</p>
@@ -6247,6 +6732,7 @@ export interface DescribeIAMPolicyAssignmentResponse {
 }
 
 /**
+ * @public
  * <p>The <code>NextToken</code> value isn't valid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -6272,6 +6758,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeIngestionRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -6289,6 +6778,9 @@ export interface DescribeIngestionRequest {
   IngestionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum IngestionErrorType {
   ACCOUNT_CAPACITY_LIMIT_EXCEEDED = "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
   CONNECTION_FAILURE = "CONNECTION_FAILURE",
@@ -6337,6 +6829,7 @@ export enum IngestionErrorType {
 }
 
 /**
+ * @public
  * <p>Error information for the SPICE ingestion of a dataset.</p>
  */
 export interface ErrorInfo {
@@ -6352,6 +6845,7 @@ export interface ErrorInfo {
 }
 
 /**
+ * @public
  * <p>Information about a queued dataset SPICE ingestion.</p>
  */
 export interface QueueInfo {
@@ -6367,11 +6861,17 @@ export interface QueueInfo {
   QueuedIngestion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum IngestionRequestSource {
   MANUAL = "MANUAL",
   SCHEDULED = "SCHEDULED",
 }
 
+/**
+ * @public
+ */
 export enum IngestionRequestType {
   EDIT = "EDIT",
   FULL_REFRESH = "FULL_REFRESH",
@@ -6380,6 +6880,7 @@ export enum IngestionRequestType {
 }
 
 /**
+ * @public
  * <p>Information about rows for a data set SPICE ingestion.</p>
  */
 export interface RowInfo {
@@ -6400,6 +6901,7 @@ export interface RowInfo {
 }
 
 /**
+ * @public
  * <p>Information about the SPICE ingestion for a dataset.</p>
  */
 export interface Ingestion {
@@ -6459,6 +6961,9 @@ export interface Ingestion {
   RequestType?: IngestionRequestType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIngestionResponse {
   /**
    * <p>Information about the ingestion.</p>
@@ -6476,6 +6981,9 @@ export interface DescribeIngestionResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpRestrictionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
@@ -6483,6 +6991,9 @@ export interface DescribeIpRestrictionRequest {
   AwsAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpRestrictionResponse {
   /**
    * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
@@ -6510,6 +7021,9 @@ export interface DescribeIpRestrictionResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespace that you want to describe.</p>
@@ -6522,12 +7036,16 @@ export interface DescribeNamespaceRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NamespaceErrorType {
   INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
   PERMISSION_DENIED = "PERMISSION_DENIED",
 }
 
 /**
+ * @public
  * <p>Errors that occur during namespace creation.</p>
  */
 export interface NamespaceError {
@@ -6543,6 +7061,7 @@ export interface NamespaceError {
 }
 
 /**
+ * @public
  * <p>The error type.</p>
  */
 export interface NamespaceInfoV2 {
@@ -6577,6 +7096,9 @@ export interface NamespaceInfoV2 {
   NamespaceError?: NamespaceError;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNamespaceResponse {
   /**
    * <p>The information about the namespace that you're describing. The response includes
@@ -6597,6 +7119,9 @@ export interface DescribeNamespaceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
@@ -6623,6 +7148,9 @@ export interface DescribeTemplateRequest {
   AliasName?: string;
 }
 
+/**
+ * @public
+ */
 export enum TemplateErrorType {
   ACCESS_DENIED = "ACCESS_DENIED",
   DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
@@ -6631,6 +7159,7 @@ export enum TemplateErrorType {
 }
 
 /**
+ * @public
  * <p>List of errors that occurred when the template version creation failed.</p>
  */
 export interface TemplateError {
@@ -6651,6 +7180,7 @@ export interface TemplateError {
 }
 
 /**
+ * @public
  * <p>A version of a template.</p>
  */
 export interface TemplateVersion {
@@ -6741,6 +7271,7 @@ export interface TemplateVersion {
 }
 
 /**
+ * @public
  * <p>A template object. A <i>template</i> is an entity in Amazon QuickSight that
  *             encapsulates the metadata required to create an analysis and that you can use to create
  *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
@@ -6782,6 +7313,9 @@ export interface Template {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateResponse {
   /**
    * <p>The template structure for the object you want to describe.</p>
@@ -6799,6 +7333,9 @@ export interface DescribeTemplateResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template alias that you're
@@ -6820,6 +7357,9 @@ export interface DescribeTemplateAliasRequest {
   AliasName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateAliasResponse {
   /**
    * <p>Information about the template alias.</p>
@@ -6837,6 +7377,9 @@ export interface DescribeTemplateAliasResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateDefinitionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template. You must be using the
@@ -6863,6 +7406,9 @@ export interface DescribeTemplateDefinitionRequest {
   AliasName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateDefinitionResponse {
   /**
    * <p>The descriptive name of the template.</p>
@@ -6943,6 +7489,9 @@ export interface DescribeTemplateDefinitionResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplatePermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
@@ -6955,6 +7504,9 @@ export interface DescribeTemplatePermissionsRequest {
   TemplateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplatePermissionsResponse {
   /**
    * <p>The ID for the template.</p>
@@ -6982,6 +7534,9 @@ export interface DescribeTemplatePermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemeRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
@@ -7008,17 +7563,24 @@ export interface DescribeThemeRequest {
   AliasName?: string;
 }
 
+/**
+ * @public
+ */
 export enum ThemeType {
   ALL = "ALL",
   CUSTOM = "CUSTOM",
   QUICKSIGHT = "QUICKSIGHT",
 }
 
+/**
+ * @public
+ */
 export enum ThemeErrorType {
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
 }
 
 /**
+ * @public
  * <p>Theme error.</p>
  */
 export interface ThemeError {
@@ -7034,6 +7596,7 @@ export interface ThemeError {
 }
 
 /**
+ * @public
  * <p>A version of a theme.</p>
  */
 export interface ThemeVersion {
@@ -7080,6 +7643,7 @@ export interface ThemeVersion {
 }
 
 /**
+ * @public
  * <p>Summary information about a theme.</p>
  */
 export interface Theme {
@@ -7120,6 +7684,9 @@ export interface Theme {
   Type?: ThemeType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemeResponse {
   /**
    * <p>The information about the theme that you are describing.</p>
@@ -7137,6 +7704,9 @@ export interface DescribeThemeResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme alias that you're
@@ -7155,6 +7725,9 @@ export interface DescribeThemeAliasRequest {
   AliasName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemeAliasResponse {
   /**
    * <p>Information about the theme alias.</p>
@@ -7172,6 +7745,9 @@ export interface DescribeThemeAliasResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemePermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
@@ -7184,6 +7760,9 @@ export interface DescribeThemePermissionsRequest {
   ThemeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemePermissionsResponse {
   /**
    * <p>The ID for the theme.</p>
@@ -7211,6 +7790,9 @@ export interface DescribeThemePermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserRequest {
   /**
    * <p>The name of the user that you want to describe.</p>
@@ -7229,11 +7811,17 @@ export interface DescribeUserRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum IdentityType {
   IAM = "IAM",
   QUICKSIGHT = "QUICKSIGHT",
 }
 
+/**
+ * @public
+ */
 export enum UserRole {
   ADMIN = "ADMIN",
   AUTHOR = "AUTHOR",
@@ -7243,6 +7831,7 @@ export enum UserRole {
 }
 
 /**
+ * @public
  * <p>A registered user of Amazon QuickSight. </p>
  */
 export interface User {
@@ -7343,6 +7932,9 @@ export interface User {
   ExternalLoginId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserResponse {
   /**
    * <p>The user name.</p>
@@ -7361,6 +7953,7 @@ export interface DescribeUserResponse {
 }
 
 /**
+ * @public
  * <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
  * 			added to the approved list by an Amazon QuickSight admin.</p>
  */
@@ -7387,12 +7980,18 @@ export class DomainNotWhitelistedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum EmbeddingIdentityType {
   ANONYMOUS = "ANONYMOUS",
   IAM = "IAM",
   QUICKSIGHT = "QUICKSIGHT",
 }
 
+/**
+ * @public
+ */
 export enum FolderFilterAttribute {
   DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
   DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
@@ -7404,6 +8003,7 @@ export enum FolderFilterAttribute {
 }
 
 /**
+ * @public
  * <p>An object that consists of a member Amazon Resource Name (ARN) and a member ID.</p>
  */
 export interface MemberIdArnPair {
@@ -7419,6 +8019,7 @@ export interface MemberIdArnPair {
 }
 
 /**
+ * @public
  * <p>A filter to use to search an Amazon QuickSight folder.</p>
  */
 export interface FolderSearchFilter {
@@ -7472,6 +8073,7 @@ export interface FolderSearchFilter {
 }
 
 /**
+ * @public
  * <p>A summary of information about an existing Amazon QuickSight folder. </p>
  */
 export interface FolderSummary {
@@ -7507,6 +8109,7 @@ export interface FolderSummary {
 }
 
 /**
+ * @public
  * <p>The key-value pair used for the row-level security tags feature.</p>
  */
 export interface SessionTag {
@@ -7521,6 +8124,9 @@ export interface SessionTag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GenerateEmbedUrlForAnonymousUserRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
@@ -7570,6 +8176,9 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   AllowedDomains?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GenerateEmbedUrlForAnonymousUserResponse {
   /**
    * <p>The embed URL for the dashboard.</p>
@@ -7593,6 +8202,7 @@ export interface GenerateEmbedUrlForAnonymousUserResponse {
 }
 
 /**
+ * @public
  * <p>The number of minutes specified for the lifetime of a session isn't valid. The session
  * 			lifetime must be 15-600 minutes.</p>
  */
@@ -7620,6 +8230,7 @@ export class SessionLifetimeInMinutesInvalidException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
  * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
  * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
@@ -7654,6 +8265,7 @@ export class UnsupportedPricingPlanException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The state perssitence configuration of an embedded dashboard.</p>
  */
 export interface StatePersistenceConfigurations {
@@ -7664,6 +8276,7 @@ export interface StatePersistenceConfigurations {
 }
 
 /**
+ * @public
  * <p>The feature configuration for an embedded dashboard.</p>
  */
 export interface RegisteredUserDashboardFeatureConfigurations {
@@ -7674,6 +8287,7 @@ export interface RegisteredUserDashboardFeatureConfigurations {
 }
 
 /**
+ * @public
  * <p>Information about the dashboard you want to embed.</p>
  */
 export interface RegisteredUserDashboardEmbeddingConfiguration {
@@ -7690,6 +8304,7 @@ export interface RegisteredUserDashboardEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
  */
 export interface RegisteredUserDashboardVisualEmbeddingConfiguration {
@@ -7701,6 +8316,7 @@ export interface RegisteredUserDashboardVisualEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>Information about the Q search bar embedding experience.</p>
  */
 export interface RegisteredUserQSearchBarEmbeddingConfiguration {
@@ -7716,6 +8332,7 @@ export interface RegisteredUserQSearchBarEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>The feature configurations of an embedded Amazon QuickSight console.</p>
  */
 export interface RegisteredUserConsoleFeatureConfigurations {
@@ -7726,6 +8343,7 @@ export interface RegisteredUserConsoleFeatureConfigurations {
 }
 
 /**
+ * @public
  * <p>Information about the Amazon QuickSight console that you want to embed.</p>
  */
 export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
@@ -7772,6 +8390,7 @@ export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
 }
 
 /**
+ * @public
  * <p>The type of experience you want to embed. For registered users, you can embed Amazon QuickSight dashboards or the Amazon QuickSight console.</p>
  *          <note>
  *             <p>Exactly one of the experience configurations is required. You can choose
@@ -7832,6 +8451,9 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
   DashboardVisual?: RegisteredUserDashboardVisualEmbeddingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GenerateEmbedUrlForRegisteredUserRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
@@ -7866,6 +8488,9 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
   AllowedDomains?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GenerateEmbedUrlForRegisteredUserResponse {
   /**
    * <p>The embed URL for the Amazon QuickSight dashboard, visual, Q search bar, or console.</p>
@@ -7884,6 +8509,7 @@ export interface GenerateEmbedUrlForRegisteredUserResponse {
 }
 
 /**
+ * @public
  * <p>The user with the provided name isn't found. This error can happen in any operation
  * 			that requires finding a user based on a provided user name, such as
  * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
@@ -7911,6 +8537,9 @@ export class QuickSightUserNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>

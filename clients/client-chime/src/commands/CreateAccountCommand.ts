@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountCommand}.
  */
 export interface CreateAccountCommandInput extends CreateAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountCommand}.
  */
 export interface CreateAccountCommandOutput extends CreateAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Chime account under the administrator's AWS account. Only <code>Team</code>
  *             account types are currently supported for this action. For more information about different account types, see
  *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountCommandInput - {@link CreateAccountCommandInput}
+ * @returns {@link CreateAccountCommandOutput}
  * @see {@link CreateAccountCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountCommandOutput> {
     return deserializeAws_restJson1CreateAccountCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationSetTrackingOptionsCommand}.
  */
 export interface UpdateConfigurationSetTrackingOptionsCommandInput
   extends UpdateConfigurationSetTrackingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationSetTrackingOptionsCommand}.
  */
 export interface UpdateConfigurationSetTrackingOptionsCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an association between a configuration set and a custom domain for open and
  *             click event tracking. </p>
  *         <p>By default, images and links used for tracking open and click events are hosted on
@@ -53,6 +58,8 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetTrackingOptionsCommandInput - {@link UpdateConfigurationSetTrackingOptionsCommandInput}
+ * @returns {@link UpdateConfigurationSetTrackingOptionsCommandOutput}
  * @see {@link UpdateConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetTrackingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
     return serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

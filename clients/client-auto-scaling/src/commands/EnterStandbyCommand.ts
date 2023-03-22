@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryEnterStandbyCommand, serializeAws_queryEnterStandbyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EnterStandbyCommand}.
  */
 export interface EnterStandbyCommandInput extends EnterStandbyQuery {}
 /**
+ * @public
+ *
  * The output of {@link EnterStandbyCommand}.
  */
 export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Moves the specified instances into the standby state.</p>
  *          <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can
  *             enter standby as long as the desired capacity of the Auto Scaling group after the instances are
@@ -52,6 +57,8 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param EnterStandbyCommandInput - {@link EnterStandbyCommandInput}
+ * @returns {@link EnterStandbyCommandOutput}
  * @see {@link EnterStandbyCommandInput} for command's `input` shape.
  * @see {@link EnterStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -110,6 +117,9 @@ export class EnterStandbyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnterStandbyCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class EnterStandbyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnterStandbyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryEnterStandbyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnterStandbyCommandOutput> {
     return deserializeAws_queryEnterStandbyCommand(output, context);
   }

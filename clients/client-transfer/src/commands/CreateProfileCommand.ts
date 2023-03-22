@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProfileCommand}.
  */
 export interface CreateProfileCommandInput extends CreateProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProfileCommand}.
  */
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the local or partner profile to use for AS2 transfers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
+ * @returns {@link CreateProfileCommandOutput}
  * @see {@link CreateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateProfileCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfileCommandOutput> {
     return deserializeAws_json1_1CreateProfileCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatabasesCommand}.
  */
 export interface ListDatabasesCommandInput extends ListDatabasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatabasesCommand}.
  */
 export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the databases in a cluster.
  *       A token is returned to page through the database list.
  *       Depending on the authorization method, use one of the
@@ -63,6 +68,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
+ * @returns {@link ListDatabasesCommandOutput}
  * @see {@link ListDatabasesCommandInput} for command's `input` shape.
  * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListDatabasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatabasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListDatabasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatabasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatabasesCommandOutput> {
     return deserializeAws_json1_1ListDatabasesCommand(output, context);
   }

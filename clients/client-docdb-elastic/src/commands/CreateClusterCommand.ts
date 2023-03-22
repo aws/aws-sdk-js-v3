@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandInput extends CreateClusterInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandOutput extends CreateClusterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Elastic DocumentDB cluster and returns its Cluster structure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
     return deserializeAws_restJson1CreateClusterCommand(output, context);
   }

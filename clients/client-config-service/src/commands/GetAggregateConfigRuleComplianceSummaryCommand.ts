@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAggregateConfigRuleComplianceSummaryCommand}.
  */
 export interface GetAggregateConfigRuleComplianceSummaryCommandInput
   extends GetAggregateConfigRuleComplianceSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAggregateConfigRuleComplianceSummaryCommand}.
  */
 export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
@@ -38,6 +42,7 @@ export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of compliant and noncompliant rules for one
  * 			or more accounts and regions in an aggregator.</p>
  *          <note>
@@ -55,6 +60,8 @@ export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAggregateConfigRuleComplianceSummaryCommandInput - {@link GetAggregateConfigRuleComplianceSummaryCommandInput}
+ * @returns {@link GetAggregateConfigRuleComplianceSummaryCommandOutput}
  * @see {@link GetAggregateConfigRuleComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAggregateConfigRuleComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAggregateConfigRuleComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAggregateConfigRuleComplianceSummaryCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     return serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

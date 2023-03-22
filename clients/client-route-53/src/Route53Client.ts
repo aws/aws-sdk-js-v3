@@ -274,6 +274,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | ActivateKeySigningKeyCommandInput
   | AssociateVPCWithHostedZoneCommandInput
@@ -346,6 +349,9 @@ export type ServiceInputTypes =
   | UpdateTrafficPolicyCommentCommandInput
   | UpdateTrafficPolicyInstanceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | ActivateKeySigningKeyCommandOutput
   | AssociateVPCWithHostedZoneCommandOutput
@@ -418,6 +424,9 @@ export type ServiceOutputTypes =
   | UpdateTrafficPolicyCommentCommandOutput
   | UpdateTrafficPolicyInstanceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -425,7 +434,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -534,11 +543,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type Route53ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -549,10 +561,15 @@ type Route53ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of Route53Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of Route53Client class constructor that set the region, credentials and other options.
  */
 export interface Route53ClientConfig extends Route53ClientConfigType {}
 
+/**
+ * @public
+ */
 type Route53ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -563,11 +580,14 @@ type Route53ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of Route53Client class. This is resolved and normalized from the {@link Route53ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of Route53Client class. This is resolved and normalized from the {@link Route53ClientConfig | constructor configuration interface}.
  */
 export interface Route53ClientResolvedConfig extends Route53ClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web
  * 			service.</p>
  *          <p>You can use Route 53 to:</p>

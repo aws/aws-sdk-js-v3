@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePreparedStatementCommand}.
  */
 export interface DeletePreparedStatementCommandInput extends DeletePreparedStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link DeletePreparedStatementCommand}.
  */
 export interface DeletePreparedStatementCommandOutput extends DeletePreparedStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the prepared statement with the specified name from the specified
  *             workgroup.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePreparedStatementCommandInput - {@link DeletePreparedStatementCommandInput}
+ * @returns {@link DeletePreparedStatementCommandOutput}
  * @see {@link DeletePreparedStatementCommandInput} for command's `input` shape.
  * @see {@link DeletePreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeletePreparedStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeletePreparedStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePreparedStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePreparedStatementCommandOutput> {
     return deserializeAws_json1_1DeletePreparedStatementCommand(output, context);
   }

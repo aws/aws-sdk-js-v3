@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEdgePackagingJobCommand}.
  */
 export interface DescribeEdgePackagingJobCommandInput extends DescribeEdgePackagingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEdgePackagingJobCommand}.
  */
 export interface DescribeEdgePackagingJobCommandOutput extends DescribeEdgePackagingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A description of edge packaging jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeEdgePackagingJobCommandOutput extends DescribeEdgePacka
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEdgePackagingJobCommandInput - {@link DescribeEdgePackagingJobCommandInput}
+ * @returns {@link DescribeEdgePackagingJobCommandOutput}
  * @see {@link DescribeEdgePackagingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeEdgePackagingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeEdgePackagingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEdgePackagingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeEdgePackagingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEdgePackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEdgePackagingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEdgePackagingJobCommandOutput> {
     return deserializeAws_json1_1DescribeEdgePackagingJobCommand(output, context);
   }

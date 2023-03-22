@@ -21,15 +21,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveRoleFromDBClusterCommand}.
  */
 export interface RemoveRoleFromDBClusterCommandInput extends RemoveRoleFromDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RemoveRoleFromDBClusterCommand}.
  */
 export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the asssociation of an Amazon Web Services Identity and Access Management (IAM) role from a
  *             DB cluster.</p>
  *          <p>For more information on Amazon Aurora DB clusters, see
@@ -49,6 +54,8 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveRoleFromDBClusterCommandInput - {@link RemoveRoleFromDBClusterCommandInput}
+ * @returns {@link RemoveRoleFromDBClusterCommandOutput}
  * @see {@link RemoveRoleFromDBClusterCommandInput} for command's `input` shape.
  * @see {@link RemoveRoleFromDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -82,6 +89,9 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveRoleFromDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveRoleFromDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRemoveRoleFromDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveRoleFromDBClusterCommandOutput> {
     return deserializeAws_queryRemoveRoleFromDBClusterCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetPersonalPINCommand}.
  */
 export interface ResetPersonalPINCommandInput extends ResetPersonalPINRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetPersonalPINCommand}.
  */
 export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account. Returns
  *             the <a>User</a> object with the updated personal meeting PIN.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetPersonalPINCommandInput - {@link ResetPersonalPINCommandInput}
+ * @returns {@link ResetPersonalPINCommandOutput}
  * @see {@link ResetPersonalPINCommandInput} for command's `input` shape.
  * @see {@link ResetPersonalPINCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -91,6 +98,9 @@ export class ResetPersonalPINCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetPersonalPINCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ResetPersonalPINCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetPersonalPINCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ResetPersonalPINCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetPersonalPINCommandOutput> {
     return deserializeAws_restJson1ResetPersonalPINCommand(output, context);
   }

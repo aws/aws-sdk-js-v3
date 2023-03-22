@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTemplateCommand}.
  */
 export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTemplateCommand}.
  */
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a template either from a <code>TemplateDefinition</code> or from an existing Amazon QuickSight analysis or template. You can use the resulting
  * 			template to create additional dashboards, templates, or analyses.</p>
  *          <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
@@ -53,6 +58,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTemplateCommandInput - {@link CreateTemplateCommandInput}
+ * @returns {@link CreateTemplateCommandOutput}
  * @see {@link CreateTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -109,6 +116,9 @@ export class CreateTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class CreateTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateCommandOutput> {
     return deserializeAws_restJson1CreateTemplateCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListSignalCatalogNodesCommand}.
  */
 export interface ListSignalCatalogNodesCommandInput extends ListSignalCatalogNodesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSignalCatalogNodesCommand}.
  */
 export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNodesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists of information about the signals (nodes) specified in a signal catalog. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -49,6 +54,8 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSignalCatalogNodesCommandInput - {@link ListSignalCatalogNodesCommandInput}
+ * @returns {@link ListSignalCatalogNodesCommandOutput}
  * @see {@link ListSignalCatalogNodesCommandInput} for command's `input` shape.
  * @see {@link ListSignalCatalogNodesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListSignalCatalogNodesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSignalCatalogNodesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListSignalCatalogNodesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSignalCatalogNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListSignalCatalogNodesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSignalCatalogNodesCommandOutput> {
     return deserializeAws_json1_0ListSignalCatalogNodesCommand(output, context);
   }

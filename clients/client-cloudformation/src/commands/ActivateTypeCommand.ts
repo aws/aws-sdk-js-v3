@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryActivateTypeCommand, serializeAws_queryActivateTypeCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateTypeCommand}.
  */
 export interface ActivateTypeCommandInput extends ActivateTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link ActivateTypeCommand}.
  */
 export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates a public third-party extension, making it available for use in stack
  *          templates. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using
  *             public extensions</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateTypeCommandInput - {@link ActivateTypeCommandInput}
+ * @returns {@link ActivateTypeCommandOutput}
  * @see {@link ActivateTypeCommandInput} for command's `input` shape.
  * @see {@link ActivateTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -77,6 +84,9 @@ export class ActivateTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ActivateTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryActivateTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateTypeCommandOutput> {
     return deserializeAws_queryActivateTypeCommand(output, context);
   }

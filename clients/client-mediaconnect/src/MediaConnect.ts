@@ -126,10 +126,12 @@ import {
 import { MediaConnectClient } from "./MediaConnectClient";
 
 /**
+ * @public
  * API for AWS Elemental MediaConnect
  */
 export class MediaConnect extends MediaConnectClient {
   /**
+   * @public
    * Adds media streams to an existing flow. After you add a media stream to a flow, you can associate it with a source and/or an output that uses the ST 2110 JPEG XS or CDI protocol.
    */
   public addFlowMediaStreams(
@@ -162,6 +164,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Adds outputs to an existing flow. You can create up to 50 outputs per flow.
    */
   public addFlowOutputs(
@@ -194,6 +197,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Adds Sources to flow
    */
   public addFlowSources(
@@ -226,6 +230,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Adds VPC interfaces to flow
    */
   public addFlowVpcInterfaces(
@@ -258,6 +263,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
    */
   public createFlow(args: CreateFlowCommandInput, options?: __HttpHandlerOptions): Promise<CreateFlowCommandOutput>;
@@ -284,6 +290,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Deletes a flow. Before you can delete a flow, you must stop the flow.
    */
   public deleteFlow(args: DeleteFlowCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFlowCommandOutput>;
@@ -310,6 +317,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Displays the details of a flow. The response includes the flow ARN, name, and Availability Zone, as well as details about the source, outputs, and entitlements.
    */
   public describeFlow(
@@ -339,6 +347,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Displays the details of an offering. The response includes the offering description, duration, outbound bandwidth, price, and Amazon Resource Name (ARN).
    */
   public describeOffering(
@@ -371,6 +380,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Displays the details of a reservation. The response includes the reservation name, state, start date and time, and the details of the offering that make up the rest of the reservation (such as price, duration, and outbound bandwidth).
    */
   public describeReservation(
@@ -403,6 +413,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Grants entitlements to an existing flow.
    */
   public grantFlowEntitlements(
@@ -435,6 +446,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.
    */
   public listEntitlements(
@@ -467,6 +479,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Displays a list of flows that are associated with this account. This request returns a paginated result.
    */
   public listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
@@ -493,6 +506,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Displays a list of all offerings that are available to this account in the current AWS Region. If you have an active reservation (which means you've purchased an offering that has already started and hasn't expired yet), your account isn't eligible for other offerings.
    */
   public listOfferings(
@@ -525,6 +539,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Displays a list of all reservations that have been purchased by this account in the current AWS Region. This list includes all reservations in all states (such as active and expired).
    */
   public listReservations(
@@ -557,6 +572,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * List all tags on an AWS Elemental MediaConnect resource
    */
   public listTagsForResource(
@@ -589,6 +605,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Submits a request to purchase an offering. If you already have an active reservation, you can't purchase another offering.
    */
   public purchaseOffering(
@@ -621,6 +638,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Removes a media stream from a flow. This action is only available if the media stream is not associated with a source or output.
    */
   public removeFlowMediaStream(
@@ -653,6 +671,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Removes an output from an existing flow. This request can be made only on an output that does not have an entitlement associated with it. If the output has an entitlement, you must revoke the entitlement instead. When an entitlement is revoked from a flow, the service automatically removes the associated output.
    */
   public removeFlowOutput(
@@ -685,6 +704,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Removes a source from an existing flow. This request can be made only if there is more than one source on the flow.
    */
   public removeFlowSource(
@@ -717,6 +737,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Removes a VPC Interface from an existing flow. This request can be made only on a VPC interface that does not have a Source or Output associated with it. If the VPC interface is referenced by a Source or Output, you must first delete or update the Source or Output to no longer reference the VPC interface.
    */
   public removeFlowVpcInterface(
@@ -749,6 +770,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Revokes an entitlement from a flow. Once an entitlement is revoked, the content becomes unavailable to the subscriber and the associated output is removed.
    */
   public revokeFlowEntitlement(
@@ -781,6 +803,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Starts a flow.
    */
   public startFlow(args: StartFlowCommandInput, options?: __HttpHandlerOptions): Promise<StartFlowCommandOutput>;
@@ -807,6 +830,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Stops a flow.
    */
   public stopFlow(args: StopFlowCommandInput, options?: __HttpHandlerOptions): Promise<StopFlowCommandOutput>;
@@ -833,6 +857,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are deleted as well.
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -859,6 +884,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Deletes specified tags from a resource.
    */
   public untagResource(
@@ -891,6 +917,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Updates flow
    */
   public updateFlow(args: UpdateFlowCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFlowCommandOutput>;
@@ -917,6 +944,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * You can change an entitlement's description, subscribers, and encryption. If you change the subscribers, the service will remove the outputs that are are used by the subscribers that are removed.
    */
   public updateFlowEntitlement(
@@ -949,6 +977,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Updates an existing media stream.
    */
   public updateFlowMediaStream(
@@ -981,6 +1010,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Updates an existing flow output.
    */
   public updateFlowOutput(
@@ -1013,6 +1043,7 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * @public
    * Updates the source of a flow.
    */
   public updateFlowSource(

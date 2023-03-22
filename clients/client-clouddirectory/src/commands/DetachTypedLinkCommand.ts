@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachTypedLinkCommand}.
  */
 export interface DetachTypedLinkCommandInput extends DetachTypedLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachTypedLinkCommand}.
  */
 export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachTypedLinkCommandInput - {@link DetachTypedLinkCommandInput}
+ * @returns {@link DetachTypedLinkCommandOutput}
  * @see {@link DetachTypedLinkCommandInput} for command's `input` shape.
  * @see {@link DetachTypedLinkCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -93,6 +100,9 @@ export class DetachTypedLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachTypedLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DetachTypedLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachTypedLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DetachTypedLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachTypedLinkCommandOutput> {
     return deserializeAws_restJson1DetachTypedLinkCommand(output, context);
   }

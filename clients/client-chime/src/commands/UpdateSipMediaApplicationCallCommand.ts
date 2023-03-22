@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSipMediaApplicationCallCommand}.
  */
 export interface UpdateSipMediaApplicationCallCommandInput extends UpdateSipMediaApplicationCallRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSipMediaApplicationCallCommand}.
  */
 export interface UpdateSipMediaApplicationCallCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateSipMediaApplicationCallCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Invokes the AWS Lambda function associated with the SIP media application and transaction ID in an update request. The Lambda function can then return a new set of actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateSipMediaApplicationCallCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSipMediaApplicationCallCommandInput - {@link UpdateSipMediaApplicationCallCommandInput}
+ * @returns {@link UpdateSipMediaApplicationCallCommandOutput}
  * @see {@link UpdateSipMediaApplicationCallCommandInput} for command's `input` shape.
  * @see {@link UpdateSipMediaApplicationCallCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateSipMediaApplicationCallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSipMediaApplicationCallCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateSipMediaApplicationCallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSipMediaApplicationCallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSipMediaApplicationCallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

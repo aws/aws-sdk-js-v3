@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMetricAttributionCommand}.
  */
 export interface DeleteMetricAttributionCommandInput extends DeleteMetricAttributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMetricAttributionCommand}.
  */
 export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a metric attribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMetricAttributionCommandInput - {@link DeleteMetricAttributionCommandInput}
+ * @returns {@link DeleteMetricAttributionCommandOutput}
  * @see {@link DeleteMetricAttributionCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricAttributionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteMetricAttributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMetricAttributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteMetricAttributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMetricAttributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMetricAttributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricAttributionCommandOutput> {
     return deserializeAws_json1_1DeleteMetricAttributionCommand(output, context);
   }

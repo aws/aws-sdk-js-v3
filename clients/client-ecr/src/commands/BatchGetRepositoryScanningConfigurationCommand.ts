@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetRepositoryScanningConfigurationCommand}.
  */
 export interface BatchGetRepositoryScanningConfigurationCommandInput
   extends BatchGetRepositoryScanningConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetRepositoryScanningConfigurationCommand}.
  */
 export interface BatchGetRepositoryScanningConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the scanning configuration for one or more repositories.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetRepositoryScanningConfigurationCommandInput - {@link BatchGetRepositoryScanningConfigurationCommandInput}
+ * @returns {@link BatchGetRepositoryScanningConfigurationCommandOutput}
  * @see {@link BatchGetRepositoryScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link BatchGetRepositoryScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -86,6 +93,9 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetRepositoryScanningConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchGetRepositoryScanningConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
     return serializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

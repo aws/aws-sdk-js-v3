@@ -28,15 +28,20 @@ import {
 import { deserializeAws_json1_1GetDeviceCommand, serializeAws_json1_1GetDeviceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceCommand}.
  */
 export interface GetDeviceCommandInput extends GetDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceCommand}.
  */
 export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceCommandInput - {@link GetDeviceCommandInput}
+ * @returns {@link GetDeviceCommandOutput}
  * @see {@link GetDeviceCommandInput} for command's `input` shape.
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceCommandOutput> {
     return deserializeAws_json1_1GetDeviceCommand(output, context);
   }

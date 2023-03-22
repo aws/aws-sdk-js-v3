@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserPhoneConfigCommand}.
  */
 export interface UpdateUserPhoneConfigCommandInput extends UpdateUserPhoneConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserPhoneConfigCommand}.
  */
 export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the phone configuration settings for the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserPhoneConfigCommandInput - {@link UpdateUserPhoneConfigCommandInput}
+ * @returns {@link UpdateUserPhoneConfigCommandOutput}
  * @see {@link UpdateUserPhoneConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPhoneConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateUserPhoneConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserPhoneConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateUserPhoneConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserPhoneConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateUserPhoneConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserPhoneConfigCommandOutput> {
     return deserializeAws_restJson1UpdateUserPhoneConfigCommand(output, context);
   }

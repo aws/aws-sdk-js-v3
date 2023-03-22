@@ -3,6 +3,9 @@ import { PaginationConfiguration } from "@aws-sdk/types";
 
 import { MediaConnectClient } from "../MediaConnectClient";
 
+/**
+ * @public
+ */
 export interface MediaConnectPaginationConfiguration extends PaginationConfiguration {
   client: MediaConnectClient;
 }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartOrganizationServiceAccessUpdateCommand}.
  */
 export interface StartOrganizationServiceAccessUpdateCommandInput extends StartOrganizationServiceAccessUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartOrganizationServiceAccessUpdateCommand}.
  */
 export interface StartOrganizationServiceAccessUpdateCommandOutput
@@ -37,6 +41,7 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartOrganizationServiceAccessUpdateCommandInput - {@link StartOrganizationServiceAccessUpdateCommandInput}
+ * @returns {@link StartOrganizationServiceAccessUpdateCommandOutput}
  * @see {@link StartOrganizationServiceAccessUpdateCommandInput} for command's `input` shape.
  * @see {@link StartOrganizationServiceAccessUpdateCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartOrganizationServiceAccessUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartOrganizationServiceAccessUpdateCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command<
     return serializeAws_restJson1StartOrganizationServiceAccessUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

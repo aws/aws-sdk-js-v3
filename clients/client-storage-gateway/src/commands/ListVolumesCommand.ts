@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListVolumesCommand}.
  */
 export interface ListVolumesCommandInput extends ListVolumesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListVolumesCommand}.
  */
 export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The
  *          response includes only the volume ARNs. If you want additional volume information, use the
  *             <a>DescribeStorediSCSIVolumes</a> or the <a>DescribeCachediSCSIVolumes</a> API.</p>
@@ -55,6 +60,8 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVolumesCommandInput - {@link ListVolumesCommandInput}
+ * @returns {@link ListVolumesCommandOutput}
  * @see {@link ListVolumesCommandInput} for command's `input` shape.
  * @see {@link ListVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -123,6 +130,9 @@ export class ListVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class ListVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVolumesCommandOutput> {
     return deserializeAws_json1_1ListVolumesCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssignInstanceCommand}.
  */
 export interface AssignInstanceCommandInput extends AssignInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignInstanceCommand}.
  */
 export interface AssignInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assign a registered instance to a layer.</p>
  *          <ul>
  *             <li>
@@ -58,6 +63,8 @@ export interface AssignInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignInstanceCommandInput - {@link AssignInstanceCommandInput}
+ * @returns {@link AssignInstanceCommandOutput}
  * @see {@link AssignInstanceCommandInput} for command's `input` shape.
  * @see {@link AssignInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssignInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssignInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssignInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssignInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignInstanceCommandOutput> {
     return deserializeAws_json1_1AssignInstanceCommand(output, context);
   }

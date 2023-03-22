@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootReplicationInstanceCommand}.
  */
 export interface RebootReplicationInstanceCommandInput extends RebootReplicationInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebootReplicationInstanceCommand}.
  */
 export interface RebootReplicationInstanceCommandOutput extends RebootReplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
  *          replication instance becomes available again.</p>
  * @example
@@ -51,6 +56,8 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootReplicationInstanceCommandInput - {@link RebootReplicationInstanceCommandInput}
+ * @returns {@link RebootReplicationInstanceCommandOutput}
  * @see {@link RebootReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -80,6 +87,9 @@ export class RebootReplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootReplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class RebootReplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RebootReplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

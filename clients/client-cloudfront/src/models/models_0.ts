@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
 
+/**
+ * @public
+ */
 export enum ResponseHeadersPolicyAccessControlAllowMethodsValues {
   ALL = "ALL",
   DELETE = "DELETE",
@@ -15,6 +18,7 @@ export enum ResponseHeadersPolicyAccessControlAllowMethodsValues {
 }
 
 /**
+ * @public
  * <p>Access denied.</p>
  */
 export class AccessDenied extends __BaseException {
@@ -36,6 +40,7 @@ export class AccessDenied extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A list of CloudFront key pair identifiers.</p>
  */
 export interface KeyPairIds {
@@ -51,6 +56,7 @@ export interface KeyPairIds {
 }
 
 /**
+ * @public
  * <p>A list of identifiers for the public keys that CloudFront can use to verify the signatures
  * 			of signed URLs and signed cookies.</p>
  */
@@ -67,6 +73,7 @@ export interface KGKeyPairIds {
 }
 
 /**
+ * @public
  * <p>A list of key groups, and the public keys in each key group, that CloudFront can use to
  * 			verify the signatures of signed URLs and signed cookies.</p>
  */
@@ -91,6 +98,7 @@ export interface ActiveTrustedKeyGroups {
 }
 
 /**
+ * @public
  * <p>A list of Amazon Web Services accounts and the active CloudFront key pairs in each account that CloudFront can
  * 			use to verify the signatures of signed URLs and signed cookies.</p>
  */
@@ -110,6 +118,7 @@ export interface Signer {
 }
 
 /**
+ * @public
  * <p>A list of Amazon Web Services accounts and the active CloudFront key pairs in each account that CloudFront can
  * 			use to verify the signatures of signed URLs and signed cookies.</p>
  */
@@ -134,6 +143,7 @@ export interface ActiveTrustedSigners {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about CNAMEs (alternate domain names), if
  * 			any, for this distribution.</p>
  */
@@ -151,6 +161,9 @@ export interface Aliases {
   Items?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ICPRecordalStatus {
   APPROVED = "APPROVED",
   PENDING = "PENDING",
@@ -158,6 +171,7 @@ export enum ICPRecordalStatus {
 }
 
 /**
+ * @public
  * <p>Amazon Web Services services in China customers must file for an Internet Content Provider (ICP)
  * 			recordal if they want to serve content publicly on an alternate domain name, also known
  * 			as a CNAME, that they've added to CloudFront. AliasICPRecordal provides the ICP recordal
@@ -203,6 +217,9 @@ export interface AliasICPRecordal {
   ICPRecordalStatus?: ICPRecordalStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum Method {
   DELETE = "DELETE",
   GET = "GET",
@@ -214,6 +231,7 @@ export enum Method {
 }
 
 /**
+ * @public
  * <p>A complex type that controls whether CloudFront caches the response to requests using the
  * 			specified HTTP methods. There are two choices:</p>
  *          <ul>
@@ -247,6 +265,7 @@ export interface CachedMethods {
 }
 
 /**
+ * @public
  * <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your
  * 			Amazon S3 bucket or your custom origin. There are three choices:</p>
  *          <ul>
@@ -302,6 +321,9 @@ export interface AllowedMethods {
   CachedMethods?: CachedMethods;
 }
 
+/**
+ * @public
+ */
 export interface AssociateAliasRequest {
   /**
    * <p>The ID of the distribution that you're associating the alias with.</p>
@@ -315,6 +337,7 @@ export interface AssociateAliasRequest {
 }
 
 /**
+ * @public
  * <p>The update contains modifications that are not allowed.</p>
  */
 export class IllegalUpdate extends __BaseException {
@@ -336,6 +359,7 @@ export class IllegalUpdate extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An argument is invalid.</p>
  */
 export class InvalidArgument extends __BaseException {
@@ -357,6 +381,7 @@ export class InvalidArgument extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified distribution does not exist.</p>
  */
 export class NoSuchDistribution extends __BaseException {
@@ -378,6 +403,7 @@ export class NoSuchDistribution extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  */
 export class TooManyDistributionCNAMEs extends __BaseException {
@@ -399,6 +425,7 @@ export class TooManyDistributionCNAMEs extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Invalidation batch specified is too large.</p>
  */
 export class BatchTooLarge extends __BaseException {
@@ -419,6 +446,9 @@ export class BatchTooLarge extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ItemSelection {
   all = "all",
   none = "none",
@@ -426,6 +456,7 @@ export enum ItemSelection {
 }
 
 /**
+ * @public
  * <p>Contains a list of cookie names.</p>
  */
 export interface CookieNames {
@@ -441,6 +472,7 @@ export interface CookieNames {
 }
 
 /**
+ * @public
  * <p>This field is deprecated. We recommend that you use a cache policy or an origin
  * 			request policy instead of this field.</p>
  *          <p>If you want to include cookies in the cache key, use <code>CookiesConfig</code> in a
@@ -495,6 +527,7 @@ export interface CookiePreference {
 }
 
 /**
+ * @public
  * <p>Contains a list of HTTP header names.</p>
  */
 export interface Headers {
@@ -510,6 +543,7 @@ export interface Headers {
 }
 
 /**
+ * @public
  * <p>This field is deprecated. We recommend that you use a cache policy or an origin
  * 			request policy instead of this field.</p>
  *          <p>If you want to include query strings in the cache key, use
@@ -537,6 +571,7 @@ export interface QueryStringCacheKeys {
 }
 
 /**
+ * @public
  * <p>This field is deprecated. We recommend that you use a cache policy or an origin
  * 			request policy instead of this field.</p>
  *          <p>If you want to include values in the cache key, use a cache policy. For more
@@ -623,6 +658,9 @@ export interface ForwardedValues {
   QueryStringCacheKeys?: QueryStringCacheKeys;
 }
 
+/**
+ * @public
+ */
 export enum EventType {
   origin_request = "origin-request",
   origin_response = "origin-response",
@@ -631,6 +669,7 @@ export enum EventType {
 }
 
 /**
+ * @public
  * <p>A CloudFront function that is associated with a cache behavior in a CloudFront
  * 			distribution.</p>
  */
@@ -650,6 +689,7 @@ export interface FunctionAssociation {
 }
 
 /**
+ * @public
  * <p>A list of CloudFront functions that are associated with a cache behavior in a CloudFront
  * 			distribution. CloudFront functions must be published to the <code>LIVE</code> stage to
  * 			associate them with a cache behavior.</p>
@@ -669,6 +709,7 @@ export interface FunctionAssociations {
 }
 
 /**
+ * @public
  * <p>A complex type that contains a Lambda@Edge function association.</p>
  */
 export interface LambdaFunctionAssociation {
@@ -721,6 +762,7 @@ export interface LambdaFunctionAssociation {
 }
 
 /**
+ * @public
  * <p>A complex type that specifies a list of Lambda@Edge functions associations for a cache
  * 			behavior.</p>
  *          <p>If you want to invoke one or more Lambda@Edge functions triggered by requests that
@@ -749,6 +791,7 @@ export interface LambdaFunctionAssociations {
 }
 
 /**
+ * @public
  * <p>A list of key groups whose public keys CloudFront can use to verify the signatures of signed
  * 			URLs and signed cookies.</p>
  */
@@ -772,6 +815,7 @@ export interface TrustedKeyGroups {
 }
 
 /**
+ * @public
  * <p>A list of Amazon Web Services accounts whose public keys CloudFront can use to verify the signatures of
  * 			signed URLs and signed cookies.</p>
  */
@@ -794,6 +838,9 @@ export interface TrustedSigners {
   Items?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ViewerProtocolPolicy {
   allow_all = "allow-all",
   https_only = "https-only",
@@ -801,6 +848,7 @@ export enum ViewerProtocolPolicy {
 }
 
 /**
+ * @public
  * <p>A complex type that describes how CloudFront processes requests.</p>
  *          <p>You must create at least as many cache behaviors (including the default cache
  * 			behavior) as you have origins if you want CloudFront to serve objects from all of the origins.
@@ -1067,6 +1115,7 @@ export interface CacheBehavior {
 }
 
 /**
+ * @public
  * <p>A complex type that contains zero or more <code>CacheBehavior</code> elements.</p>
  */
 export interface CacheBehaviors {
@@ -1082,6 +1131,9 @@ export interface CacheBehaviors {
   Items?: CacheBehavior[];
 }
 
+/**
+ * @public
+ */
 export enum CachePolicyCookieBehavior {
   all = "all",
   allExcept = "allExcept",
@@ -1090,6 +1142,7 @@ export enum CachePolicyCookieBehavior {
 }
 
 /**
+ * @public
  * <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
  * 			are included in the cache key and in requests that CloudFront sends to the origin.</p>
  */
@@ -1136,12 +1189,16 @@ export interface CachePolicyCookiesConfig {
   Cookies?: CookieNames;
 }
 
+/**
+ * @public
+ */
 export enum CachePolicyHeaderBehavior {
   none = "none",
   whitelist = "whitelist",
 }
 
 /**
+ * @public
  * <p>An object that determines whether any HTTP headers (and if so, which headers) are included
  * 			in the cache key and in requests that CloudFront sends to the origin.</p>
  */
@@ -1173,6 +1230,9 @@ export interface CachePolicyHeadersConfig {
   Headers?: Headers;
 }
 
+/**
+ * @public
+ */
 export enum CachePolicyQueryStringBehavior {
   all = "all",
   allExcept = "allExcept",
@@ -1181,6 +1241,7 @@ export enum CachePolicyQueryStringBehavior {
 }
 
 /**
+ * @public
  * <p>Contains a list of query string names.</p>
  */
 export interface QueryStringNames {
@@ -1196,6 +1257,7 @@ export interface QueryStringNames {
 }
 
 /**
+ * @public
  * <p>An object that determines whether any URL query strings in viewer requests (and if so, which
  * 			query strings) are included in the cache key and in requests that CloudFront sends to the
  * 			origin.</p>
@@ -1258,6 +1320,7 @@ export interface CachePolicyQueryStringsConfig {
 }
 
 /**
+ * @public
  * <p>This object determines the values that CloudFront includes in the cache key. These values
  * 			can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to
  * 			find an object in its cache that it can return to the viewer.</p>
@@ -1359,6 +1422,7 @@ export interface ParametersInCacheKeyAndForwardedToOrigin {
 }
 
 /**
+ * @public
  * <p>A cache policy configuration.</p>
  *          <p>This configuration determines the following:</p>
  *          <ul>
@@ -1433,6 +1497,7 @@ export interface CachePolicyConfig {
 }
 
 /**
+ * @public
  * <p>A cache policy.</p>
  *          <p>When it's attached to a cache behavior, the cache policy determines the
  * 			following:</p>
@@ -1471,6 +1536,7 @@ export interface CachePolicy {
 }
 
 /**
+ * @public
  * <p>A cache policy with this name already exists. You must provide a unique name. To
  * 			modify an existing cache policy, use <code>UpdateCachePolicy</code>.</p>
  */
@@ -1493,6 +1559,7 @@ export class CachePolicyAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Cannot delete the cache policy because it is attached to one or more cache
  * 			behaviors.</p>
  */
@@ -1514,12 +1581,16 @@ export class CachePolicyInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum CachePolicyType {
   custom = "custom",
   managed = "managed",
 }
 
 /**
+ * @public
  * <p>Contains a cache policy.</p>
  */
 export interface CachePolicySummary {
@@ -1536,6 +1607,7 @@ export interface CachePolicySummary {
 }
 
 /**
+ * @public
  * <p>A list of cache policies.</p>
  */
 export interface CachePolicyList {
@@ -1563,6 +1635,7 @@ export interface CachePolicyList {
 }
 
 /**
+ * @public
  * <p>You can't change the value of a public key.</p>
  */
 export class CannotChangeImmutablePublicKeyFields extends __BaseException {
@@ -1583,6 +1656,9 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum CertificateSource {
   acm = "acm",
   cloudfront = "cloudfront",
@@ -1590,6 +1666,7 @@ export enum CertificateSource {
 }
 
 /**
+ * @public
  * <p>The CNAME specified is already defined for CloudFront.</p>
  */
 export class CNAMEAlreadyExists extends __BaseException {
@@ -1610,6 +1687,9 @@ export class CNAMEAlreadyExists extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CopyDistributionRequest {
   /**
    * <p>The identifier of the primary distribution whose configuration you are copying. To get
@@ -1640,6 +1720,7 @@ export interface CopyDistributionRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that controls:</p>
  *          <ul>
  *             <li>
@@ -1729,6 +1810,7 @@ export interface CustomErrorResponse {
 }
 
 /**
+ * @public
  * <p>A complex type that controls:</p>
  *          <ul>
  *             <li>
@@ -1759,6 +1841,7 @@ export interface CustomErrorResponses {
 }
 
 /**
+ * @public
  * <p>A complex type that describes the default cache behavior if you don't specify a
  * 				<code>CacheBehavior</code> element or if request URLs don't match any of the values
  * 			of <code>PathPattern</code> in <code>CacheBehavior</code> elements. You must create
@@ -1994,6 +2077,9 @@ export interface DefaultCacheBehavior {
   MaxTTL?: number;
 }
 
+/**
+ * @public
+ */
 export enum HttpVersion {
   http1_1 = "http1.1",
   http2 = "http2",
@@ -2002,6 +2088,7 @@ export enum HttpVersion {
 }
 
 /**
+ * @public
  * <p>A complex type that controls whether access logs are written for the
  * 			distribution.</p>
  */
@@ -2043,6 +2130,7 @@ export interface LoggingConfig {
 }
 
 /**
+ * @public
  * <p>A complex data type for the status codes that you specify that, when returned by a
  * 			primary origin, trigger CloudFront to failover to a second origin.</p>
  */
@@ -2059,6 +2147,7 @@ export interface StatusCodes {
 }
 
 /**
+ * @public
  * <p>A complex data type that includes information about the failover criteria for an
  * 			origin group, including the status codes for which CloudFront will failover from the
  * 			primary origin to the second origin.</p>
@@ -2072,6 +2161,7 @@ export interface OriginGroupFailoverCriteria {
 }
 
 /**
+ * @public
  * <p>An origin in an origin group.</p>
  */
 export interface OriginGroupMember {
@@ -2082,6 +2172,7 @@ export interface OriginGroupMember {
 }
 
 /**
+ * @public
  * <p>A complex data type for the origins included in an origin group.</p>
  */
 export interface OriginGroupMembers {
@@ -2097,6 +2188,7 @@ export interface OriginGroupMembers {
 }
 
 /**
+ * @public
  * <p>An origin group includes two origins (a primary origin and a second origin to failover
  * 			to) and a failover criteria that you specify. You create an origin group to support
  * 			origin failover in CloudFront. When you create or update a distribution, you can
@@ -2123,6 +2215,7 @@ export interface OriginGroup {
 }
 
 /**
+ * @public
  * <p>A complex data type for the origin groups specified for a distribution.</p>
  */
 export interface OriginGroups {
@@ -2138,6 +2231,7 @@ export interface OriginGroups {
 }
 
 /**
+ * @public
  * <p>A complex type that contains <code>HeaderName</code> and <code>HeaderValue</code>
  * 			elements, if any, for this distribution.</p>
  */
@@ -2158,6 +2252,7 @@ export interface OriginCustomHeader {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the list of Custom Headers for each origin.</p>
  */
 export interface CustomHeaders {
@@ -2175,12 +2270,18 @@ export interface CustomHeaders {
   Items?: OriginCustomHeader[];
 }
 
+/**
+ * @public
+ */
 export enum OriginProtocolPolicy {
   http_only = "http-only",
   https_only = "https-only",
   match_viewer = "match-viewer",
 }
 
+/**
+ * @public
+ */
 export enum SslProtocol {
   SSLv3 = "SSLv3",
   TLSv1 = "TLSv1",
@@ -2189,6 +2290,7 @@ export enum SslProtocol {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
  * 			when establishing an HTTPS connection with your origin.</p>
  */
@@ -2206,6 +2308,7 @@ export interface OriginSslProtocols {
 }
 
 /**
+ * @public
  * <p>A custom origin. A custom origin is any origin that is <i>not</i> an
  * 			Amazon S3 bucket, with one exception. An Amazon S3 bucket that is <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">configured with
  * 				static website hosting</a>
@@ -2277,6 +2380,7 @@ export interface CustomOriginConfig {
 }
 
 /**
+ * @public
  * <p>CloudFront Origin Shield.</p>
  *          <p>Using Origin Shield can help reduce the load on your origin. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html">Using Origin Shield</a> in the
@@ -2305,6 +2409,7 @@ export interface OriginShield {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the Amazon S3 origin. If the origin is a
  * 			custom origin or an S3 bucket that is configured as a website endpoint, use the
  * 				<code>CustomOriginConfig</code> element instead.</p>
@@ -2335,6 +2440,7 @@ export interface S3OriginConfig {
 }
 
 /**
+ * @public
  * <p>An origin.</p>
  *          <p>An origin is the location where content is stored, and from which CloudFront gets content to
  * 			serve to viewers. To specify an origin:</p>
@@ -2454,6 +2560,7 @@ export interface Origin {
 }
 
 /**
+ * @public
  * <p>Contains information about the origins for this distribution.</p>
  */
 export interface Origins {
@@ -2468,12 +2575,18 @@ export interface Origins {
   Items: Origin[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PriceClass {
   PriceClass_100 = "PriceClass_100",
   PriceClass_200 = "PriceClass_200",
   PriceClass_All = "PriceClass_All",
 }
 
+/**
+ * @public
+ */
 export enum GeoRestrictionType {
   blacklist = "blacklist",
   none = "none",
@@ -2481,6 +2594,7 @@ export enum GeoRestrictionType {
 }
 
 /**
+ * @public
  * <p>A complex type that controls the countries in which your content is distributed. CloudFront
  * 			determines the location of your users using <code>MaxMind</code> GeoIP databases.
  * 		</p>
@@ -2534,6 +2648,7 @@ export interface GeoRestriction {
 }
 
 /**
+ * @public
  * <p>A complex type that identifies ways in which you want to restrict distribution of your
  * 			content.</p>
  */
@@ -2545,6 +2660,9 @@ export interface Restrictions {
   GeoRestriction: GeoRestriction | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MinimumProtocolVersion {
   SSLv3 = "SSLv3",
   TLSv1 = "TLSv1",
@@ -2555,6 +2673,9 @@ export enum MinimumProtocolVersion {
   TLSv1_2_2021 = "TLSv1.2_2021",
 }
 
+/**
+ * @public
+ */
 export enum SSLSupportMethod {
   sni_only = "sni-only",
   static_ip = "static-ip",
@@ -2562,6 +2683,7 @@ export enum SSLSupportMethod {
 }
 
 /**
+ * @public
  * <p>A complex type that determines the distribution's SSL/TLS configuration for
  * 			communicating with viewers.</p>
  *          <p>If the distribution doesn't use <code>Aliases</code> (also known as alternate domain
@@ -2777,6 +2899,7 @@ export interface ViewerCertificate {
 }
 
 /**
+ * @public
  * <p>A distribution configuration.</p>
  */
 export interface DistributionConfig {
@@ -2985,6 +3108,7 @@ export interface DistributionConfig {
 }
 
 /**
+ * @public
  * <p>A distribution tells CloudFront where you want content to be delivered from, and the details
  * 			about how to track and manage content delivery.</p>
  */
@@ -3054,6 +3178,9 @@ export interface Distribution {
   AliasICPRecordals?: AliasICPRecordal[];
 }
 
+/**
+ * @public
+ */
 export interface CopyDistributionResult {
   /**
    * <p>A distribution tells CloudFront where you want content to be delivered from, and the details
@@ -3073,6 +3200,7 @@ export interface CopyDistributionResult {
 }
 
 /**
+ * @public
  * <p>The caller reference you attempted to create the distribution with is associated with
  * 			another distribution.</p>
  */
@@ -3095,6 +3223,7 @@ export class DistributionAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified configuration for field-level encryption can't be associated with the
  * 			specified cache behavior.</p>
  */
@@ -3120,6 +3249,7 @@ export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior exten
 }
 
 /**
+ * @public
  * <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
  * 			match.</p>
  */
@@ -3142,6 +3272,7 @@ export class InconsistentQuantities extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The default root object file name is too big or contains an invalid character.</p>
  */
 export class InvalidDefaultRootObject extends __BaseException {
@@ -3163,6 +3294,7 @@ export class InvalidDefaultRootObject extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An invalid error code was specified.</p>
  */
 export class InvalidErrorCode extends __BaseException {
@@ -3184,6 +3316,7 @@ export class InvalidErrorCode extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request contains forward cookies option which doesn't match with the expectation
  * 			for the <code>whitelisted</code> list of cookie names. Either list of cookie names has
  * 			been specified when not allowed or list of cookie names is missing when expected.</p>
@@ -3207,6 +3340,7 @@ export class InvalidForwardCookies extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A CloudFront function association is invalid.</p>
  */
 export class InvalidFunctionAssociation extends __BaseException {
@@ -3228,6 +3362,7 @@ export class InvalidFunctionAssociation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified geo restriction parameter is not valid.</p>
  */
 export class InvalidGeoRestrictionParameter extends __BaseException {
@@ -3249,6 +3384,7 @@ export class InvalidGeoRestrictionParameter extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The headers specified are not valid for an Amazon S3 origin.</p>
  */
 export class InvalidHeadersForS3Origin extends __BaseException {
@@ -3270,6 +3406,7 @@ export class InvalidHeadersForS3Origin extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <code>If-Match</code> version is missing or not valid.</p>
  */
 export class InvalidIfMatchVersion extends __BaseException {
@@ -3291,6 +3428,7 @@ export class InvalidIfMatchVersion extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified Lambda@Edge function association is invalid.</p>
  */
 export class InvalidLambdaFunctionAssociation extends __BaseException {
@@ -3312,6 +3450,7 @@ export class InvalidLambdaFunctionAssociation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The location code specified is not valid.</p>
  */
 export class InvalidLocationCode extends __BaseException {
@@ -3333,6 +3472,7 @@ export class InvalidLocationCode extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The minimum protocol version specified is not valid.</p>
  */
 export class InvalidMinimumProtocolVersion extends __BaseException {
@@ -3354,6 +3494,7 @@ export class InvalidMinimumProtocolVersion extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
  */
 export class InvalidOrigin extends __BaseException {
@@ -3375,6 +3516,7 @@ export class InvalidOrigin extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The origin access control is not valid.</p>
  */
 export class InvalidOriginAccessControl extends __BaseException {
@@ -3396,6 +3538,7 @@ export class InvalidOriginAccessControl extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The origin access identity is not valid or doesn't exist.</p>
  */
 export class InvalidOriginAccessIdentity extends __BaseException {
@@ -3417,6 +3560,7 @@ export class InvalidOriginAccessIdentity extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The keep alive timeout specified for the origin is not valid.</p>
  */
 export class InvalidOriginKeepaliveTimeout extends __BaseException {
@@ -3438,6 +3582,7 @@ export class InvalidOriginKeepaliveTimeout extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The read timeout specified for the origin is not valid.</p>
  */
 export class InvalidOriginReadTimeout extends __BaseException {
@@ -3459,6 +3604,7 @@ export class InvalidOriginReadTimeout extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support
  * 			only clients that support Server Name Indication (SNI).</p>
  */
@@ -3481,6 +3627,7 @@ export class InvalidProtocolSettings extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The query string parameters specified are not valid.</p>
  */
 export class InvalidQueryStringParameters extends __BaseException {
@@ -3502,6 +3649,7 @@ export class InvalidQueryStringParameters extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The relative path is too big, is not URL-encoded, or does not begin with a slash
  * 			(/).</p>
  */
@@ -3524,6 +3672,7 @@ export class InvalidRelativePath extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol
  * 			in your request, or omit the <code>RequiredProtocols</code> element from your
  * 			distribution configuration.</p>
@@ -3547,6 +3696,7 @@ export class InvalidRequiredProtocol extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A response code is not valid.</p>
  */
 export class InvalidResponseCode extends __BaseException {
@@ -3568,6 +3718,7 @@ export class InvalidResponseCode extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The TTL order specified is not valid.</p>
  */
 export class InvalidTTLOrder extends __BaseException {
@@ -3589,6 +3740,7 @@ export class InvalidTTLOrder extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A viewer certificate specified is not valid.</p>
  */
 export class InvalidViewerCertificate extends __BaseException {
@@ -3610,6 +3762,7 @@ export class InvalidViewerCertificate extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest
  * 			version of WAF, use the ACL ARN, for example
  * 				<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
@@ -3635,6 +3788,7 @@ export class InvalidWebACLId extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation requires a body. Ensure that the body is present and the
  * 				<code>Content-Type</code> header is set.</p>
  */
@@ -3657,6 +3811,7 @@ export class MissingBody extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The cache policy does not exist.</p>
  */
 export class NoSuchCachePolicy extends __BaseException {
@@ -3678,6 +3833,7 @@ export class NoSuchCachePolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified configuration for field-level encryption doesn't exist.</p>
  */
 export class NoSuchFieldLevelEncryptionConfig extends __BaseException {
@@ -3699,6 +3855,7 @@ export class NoSuchFieldLevelEncryptionConfig extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No origin exists with the specified <code>Origin Id</code>.</p>
  */
 export class NoSuchOrigin extends __BaseException {
@@ -3720,6 +3877,7 @@ export class NoSuchOrigin extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The origin request policy does not exist.</p>
  */
 export class NoSuchOriginRequestPolicy extends __BaseException {
@@ -3741,6 +3899,7 @@ export class NoSuchOriginRequestPolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The real-time log configuration does not exist.</p>
  */
 export class NoSuchRealtimeLogConfig extends __BaseException {
@@ -3762,6 +3921,7 @@ export class NoSuchRealtimeLogConfig extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The response headers policy does not exist.</p>
  */
 export class NoSuchResponseHeadersPolicy extends __BaseException {
@@ -3783,6 +3943,7 @@ export class NoSuchResponseHeadersPolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  */
@@ -3805,6 +3966,7 @@ export class PreconditionFailed extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
  */
 export class RealtimeLogConfigOwnerMismatch extends __BaseException {
@@ -3826,6 +3988,7 @@ export class RealtimeLogConfigOwnerMismatch extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You cannot create more cache behaviors for the distribution.</p>
  */
 export class TooManyCacheBehaviors extends __BaseException {
@@ -3847,6 +4010,7 @@ export class TooManyCacheBehaviors extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You cannot create anymore custom SSL/TLS certificates.</p>
  */
 export class TooManyCertificates extends __BaseException {
@@ -3868,6 +4032,7 @@ export class TooManyCertificates extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request contains more cookie names in the whitelist than are allowed per cache
  * 			behavior.</p>
  */
@@ -3890,6 +4055,7 @@ export class TooManyCookieNamesInWhiteList extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Processing your request would cause you to exceed the maximum number of distributions
  * 			allowed.</p>
  */
@@ -3912,6 +4078,7 @@ export class TooManyDistributions extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of distributions have been associated with the specified cache
  * 			policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -3935,6 +4102,7 @@ export class TooManyDistributionsAssociatedToCachePolicy extends __BaseException
 }
 
 /**
+ * @public
  * <p>The maximum number of distributions have been associated with the specified
  * 			configuration for field-level encryption.</p>
  */
@@ -3960,6 +4128,7 @@ export class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends 
 }
 
 /**
+ * @public
  * <p>The number of distributions that reference this key group is more than the maximum
  * 			allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -3983,6 +4152,7 @@ export class TooManyDistributionsAssociatedToKeyGroup extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of distributions have been associated with the specified origin
  * 			request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -4007,6 +4177,7 @@ export class TooManyDistributionsAssociatedToOriginRequestPolicy extends __BaseE
 }
 
 /**
+ * @public
  * <p>The maximum number of distributions have been associated with the specified response
  * 			headers policy.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -4032,6 +4203,7 @@ export class TooManyDistributionsAssociatedToResponseHeadersPolicy extends __Bas
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of distributions that are associated with a CloudFront
  * 			function. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -4055,6 +4227,7 @@ export class TooManyDistributionsWithFunctionAssociations extends __BaseExceptio
 }
 
 /**
+ * @public
  * <p>Processing your request would cause the maximum number of distributions with
  * 			Lambda@Edge function associations per owner to be exceeded.</p>
  */
@@ -4077,6 +4250,7 @@ export class TooManyDistributionsWithLambdaAssociations extends __BaseException 
 }
 
 /**
+ * @public
  * <p>The maximum number of distributions have been associated with the specified
  * 			Lambda@Edge function.</p>
  */
@@ -4099,6 +4273,7 @@ export class TooManyDistributionsWithSingleFunctionARN extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of CloudFront function associations for this
  * 			distribution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -4122,6 +4297,7 @@ export class TooManyFunctionAssociations extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request contains too many headers in forwarded values.</p>
  */
 export class TooManyHeadersInForwardedValues extends __BaseException {
@@ -4143,6 +4319,7 @@ export class TooManyHeadersInForwardedValues extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of key groups referenced by this distribution is more than the maximum
  * 			allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -4166,6 +4343,7 @@ export class TooManyKeyGroupsAssociatedToDistribution extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request contains more Lambda@Edge function associations than are allowed per
  * 			distribution.</p>
  */
@@ -4188,6 +4366,7 @@ export class TooManyLambdaFunctionAssociations extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request contains too many origin custom headers.</p>
  */
 export class TooManyOriginCustomHeaders extends __BaseException {
@@ -4209,6 +4388,7 @@ export class TooManyOriginCustomHeaders extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Processing your request would cause you to exceed the maximum number of origin groups
  * 			allowed.</p>
  */
@@ -4231,6 +4411,7 @@ export class TooManyOriginGroupsPerDistribution extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You cannot create more origins for the distribution.</p>
  */
 export class TooManyOrigins extends __BaseException {
@@ -4252,6 +4433,7 @@ export class TooManyOrigins extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request contains too many query string parameters.</p>
  */
 export class TooManyQueryStringParameters extends __BaseException {
@@ -4273,6 +4455,7 @@ export class TooManyQueryStringParameters extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request contains more trusted signers than are allowed per distribution.</p>
  */
 export class TooManyTrustedSigners extends __BaseException {
@@ -4294,6 +4477,7 @@ export class TooManyTrustedSigners extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified key group does not exist.</p>
  */
 export class TrustedKeyGroupDoesNotExist extends __BaseException {
@@ -4315,6 +4499,7 @@ export class TrustedKeyGroupDoesNotExist extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of your trusted signers don't exist.</p>
  */
 export class TrustedSignerDoesNotExist extends __BaseException {
@@ -4335,6 +4520,9 @@ export class TrustedSignerDoesNotExist extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateCachePolicyRequest {
   /**
    * <p>A cache policy configuration.</p>
@@ -4342,6 +4530,9 @@ export interface CreateCachePolicyRequest {
   CachePolicyConfig: CachePolicyConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCachePolicyResult {
   /**
    * <p>A cache policy.</p>
@@ -4360,6 +4551,7 @@ export interface CreateCachePolicyResult {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -4383,6 +4575,7 @@ export class TooManyCachePolicies extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of cookies in the cache policy exceeds the maximum. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -4406,6 +4599,7 @@ export class TooManyCookiesInCachePolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of headers in the cache policy exceeds the maximum. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -4429,6 +4623,7 @@ export class TooManyHeadersInCachePolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of query strings in the cache policy exceeds the maximum. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -4452,6 +4647,7 @@ export class TooManyQueryStringsInCachePolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>If the <code>CallerReference</code> is a value you already sent in a previous request
  * 			to create an identity but the content of the
  * 				<code>CloudFrontOriginAccessIdentityConfig</code> is different from the original
@@ -4477,6 +4673,7 @@ export class CloudFrontOriginAccessIdentityAlreadyExists extends __BaseException
 }
 
 /**
+ * @public
  * <p>Origin access identity configuration. Send a <code>GET</code> request to the
  * 					<code>/<i>CloudFront API version</i>/CloudFront/identity ID/config</code>
  * 			resource.</p>
@@ -4508,6 +4705,7 @@ export interface CloudFrontOriginAccessIdentityConfig {
 }
 
 /**
+ * @public
  * <p>The request to create a new origin access identity (OAI). An origin access identity is
  * 			a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all
  * 			or just some of your Amazon S3 content. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html"> Restricting Access to Amazon S3 Content by Using an Origin Access Identity</a> in
@@ -4521,6 +4719,7 @@ export interface CreateCloudFrontOriginAccessIdentityRequest {
 }
 
 /**
+ * @public
  * <p>CloudFront origin access identity.</p>
  */
 export interface CloudFrontOriginAccessIdentity {
@@ -4543,6 +4742,7 @@ export interface CloudFrontOriginAccessIdentity {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateCloudFrontOriginAccessIdentityResult {
@@ -4563,6 +4763,7 @@ export interface CreateCloudFrontOriginAccessIdentityResult {
 }
 
 /**
+ * @public
  * <p>Processing your request would cause you to exceed the maximum number of origin access
  * 			identities allowed.</p>
  */
@@ -4585,6 +4786,7 @@ export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A continuous deployment policy with this configuration already exists.</p>
  */
 export class ContinuousDeploymentPolicyAlreadyExists extends __BaseException {
@@ -4606,6 +4808,7 @@ export class ContinuousDeploymentPolicyAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The CloudFront domain name of the staging distribution.</p>
  */
 export interface StagingDistributionDnsNames {
@@ -4621,6 +4824,7 @@ export interface StagingDistributionDnsNames {
 }
 
 /**
+ * @public
  * <p>This configuration determines which HTTP requests are sent to the staging
  * 			distribution. If the HTTP request contains a header and value that matches what you
  * 			specify here, the request is sent to the staging distribution. Otherwise the request is
@@ -4640,6 +4844,7 @@ export interface ContinuousDeploymentSingleHeaderConfig {
 }
 
 /**
+ * @public
  * <p>Session stickiness provides the ability to define multiple requests from a single
  * 			viewer as a single session. This prevents the potentially inconsistent experience of
  * 			sending some of a given user's requests to your staging distribution, while others are
@@ -4662,6 +4867,7 @@ export interface SessionStickinessConfig {
 }
 
 /**
+ * @public
  * <p>Contains the percentage of traffic to send to a staging distribution.</p>
  */
 export interface ContinuousDeploymentSingleWeightConfig {
@@ -4680,12 +4886,16 @@ export interface ContinuousDeploymentSingleWeightConfig {
   SessionStickinessConfig?: SessionStickinessConfig;
 }
 
+/**
+ * @public
+ */
 export enum ContinuousDeploymentPolicyType {
   SingleHeader = "SingleHeader",
   SingleWeight = "SingleWeight",
 }
 
 /**
+ * @public
  * <p>The traffic configuration of your continuous deployment.</p>
  */
 export interface TrafficConfig {
@@ -4706,6 +4916,7 @@ export interface TrafficConfig {
 }
 
 /**
+ * @public
  * <p>Contains the configuration for a continuous deployment policy.</p>
  */
 export interface ContinuousDeploymentPolicyConfig {
@@ -4730,6 +4941,9 @@ export interface ContinuousDeploymentPolicyConfig {
   TrafficConfig?: TrafficConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateContinuousDeploymentPolicyRequest {
   /**
    * <p>Contains the configuration for a continuous deployment policy.</p>
@@ -4738,6 +4952,7 @@ export interface CreateContinuousDeploymentPolicyRequest {
 }
 
 /**
+ * @public
  * <p>A continuous deployment policy.</p>
  */
 export interface ContinuousDeploymentPolicy {
@@ -4757,6 +4972,9 @@ export interface ContinuousDeploymentPolicy {
   ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateContinuousDeploymentPolicyResult {
   /**
    * <p>A continuous deployment policy.</p>
@@ -4776,6 +4994,7 @@ export interface CreateContinuousDeploymentPolicyResult {
 }
 
 /**
+ * @public
  * <p>A continuous deployment policy for this staging distribution already exists.</p>
  */
 export class StagingDistributionInUse extends __BaseException {
@@ -4797,6 +5016,7 @@ export class StagingDistributionInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of continuous deployment policies for this
  * 			Amazon Web Services account.</p>
  */
@@ -4819,6 +5039,7 @@ export class TooManyContinuousDeploymentPolicies extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You cannot delete a continuous deployment policy that is associated with a primary
  * 			distribution.</p>
  */
@@ -4841,6 +5062,7 @@ export class ContinuousDeploymentPolicyInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request to create a new distribution.</p>
  */
 export interface CreateDistributionRequest {
@@ -4851,6 +5073,7 @@ export interface CreateDistributionRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateDistributionResult {
@@ -4871,6 +5094,7 @@ export interface CreateDistributionResult {
 }
 
 /**
+ * @public
  * <p>An origin cannot contain both an origin access control (OAC) and an origin access
  * 			identity (OAI).</p>
  */
@@ -4893,6 +5117,7 @@ export class IllegalOriginAccessConfiguration extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An origin access control is associated with an origin whose domain name is not
  * 			supported.</p>
  */
@@ -4915,6 +5140,7 @@ export class InvalidDomainNameForOriginAccessControl extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The continuous deployment policy doesn't exist.</p>
  */
 export class NoSuchContinuousDeploymentPolicy extends __BaseException {
@@ -4936,6 +5162,7 @@ export class NoSuchContinuousDeploymentPolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of distributions have been associated with the specified origin
  * 			access control.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -4961,6 +5188,7 @@ export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseE
 }
 
 /**
+ * @public
  * <p>A complex type that contains <code>Tag</code> key and <code>Tag</code> value.</p>
  */
 export interface Tag {
@@ -4982,6 +5210,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
  */
 export interface Tags {
@@ -4992,6 +5221,7 @@ export interface Tags {
 }
 
 /**
+ * @public
  * <p>A distribution Configuration and a list of tags to be associated with the
  * 			distribution.</p>
  */
@@ -5008,6 +5238,7 @@ export interface DistributionConfigWithTags {
 }
 
 /**
+ * @public
  * <p>The request to create a new distribution with tags.</p>
  */
 export interface CreateDistributionWithTagsRequest {
@@ -5018,6 +5249,7 @@ export interface CreateDistributionWithTagsRequest {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateDistributionWithTagsResult {
@@ -5038,6 +5270,7 @@ export interface CreateDistributionWithTagsResult {
 }
 
 /**
+ * @public
  * <p>The tagging specified is not valid.</p>
  */
 export class InvalidTagging extends __BaseException {
@@ -5058,11 +5291,15 @@ export class InvalidTagging extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Format {
   URLEncoded = "URLEncoded",
 }
 
 /**
+ * @public
  * <p>A field-level encryption content type profile.</p>
  */
 export interface ContentTypeProfile {
@@ -5083,6 +5320,7 @@ export interface ContentTypeProfile {
 }
 
 /**
+ * @public
  * <p>Field-level encryption content type-profile.</p>
  */
 export interface ContentTypeProfiles {
@@ -5098,6 +5336,7 @@ export interface ContentTypeProfiles {
 }
 
 /**
+ * @public
  * <p>The configuration for a field-level encryption content type-profile mapping.</p>
  */
 export interface ContentTypeProfileConfig {
@@ -5116,6 +5355,7 @@ export interface ContentTypeProfileConfig {
 }
 
 /**
+ * @public
  * <p>Query argument-profile mapping for field-level encryption.</p>
  */
 export interface QueryArgProfile {
@@ -5131,6 +5371,7 @@ export interface QueryArgProfile {
 }
 
 /**
+ * @public
  * <p>Query argument-profile mapping for field-level encryption.</p>
  */
 export interface QueryArgProfiles {
@@ -5147,6 +5388,7 @@ export interface QueryArgProfiles {
 }
 
 /**
+ * @public
  * <p>Configuration for query argument-profile mapping for field-level encryption.</p>
  */
 export interface QueryArgProfileConfig {
@@ -5164,6 +5406,7 @@ export interface QueryArgProfileConfig {
 }
 
 /**
+ * @public
  * <p>A complex data type that includes the profile configurations specified for field-level
  * 			encryption.</p>
  */
@@ -5193,6 +5436,9 @@ export interface FieldLevelEncryptionConfig {
   ContentTypeProfileConfig?: ContentTypeProfileConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateFieldLevelEncryptionConfigRequest {
   /**
    * <p>The request to create a new field-level encryption configuration.</p>
@@ -5201,6 +5447,7 @@ export interface CreateFieldLevelEncryptionConfigRequest {
 }
 
 /**
+ * @public
  * <p>A complex data type that includes the profile configurations and other options
  * 			specified for field-level encryption.</p>
  */
@@ -5224,6 +5471,9 @@ export interface FieldLevelEncryption {
   FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFieldLevelEncryptionConfigResult {
   /**
    * <p>Returned when you create a new field-level encryption configuration.</p>
@@ -5243,6 +5493,7 @@ export interface CreateFieldLevelEncryptionConfigResult {
 }
 
 /**
+ * @public
  * <p>The specified configuration for field-level encryption already exists.</p>
  */
 export class FieldLevelEncryptionConfigAlreadyExists extends __BaseException {
@@ -5264,6 +5515,7 @@ export class FieldLevelEncryptionConfigAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified profile for field-level encryption doesn't exist.</p>
  */
 export class NoSuchFieldLevelEncryptionProfile extends __BaseException {
@@ -5285,6 +5537,7 @@ export class NoSuchFieldLevelEncryptionProfile extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No profile specified for the field-level encryption query argument.</p>
  */
 export class QueryArgProfileEmpty extends __BaseException {
@@ -5306,6 +5559,7 @@ export class QueryArgProfileEmpty extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of configurations for field-level encryption have been
  * 			created.</p>
  */
@@ -5328,6 +5582,7 @@ export class TooManyFieldLevelEncryptionConfigs extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of content type profiles for field-level encryption have been
  * 			created.</p>
  */
@@ -5350,6 +5605,7 @@ export class TooManyFieldLevelEncryptionContentTypeProfiles extends __BaseExcept
 }
 
 /**
+ * @public
  * <p>The maximum number of query arg profiles for field-level encryption have been
  * 			created.</p>
  */
@@ -5372,6 +5628,7 @@ export class TooManyFieldLevelEncryptionQueryArgProfiles extends __BaseException
 }
 
 /**
+ * @public
  * <p>A complex data type that includes the field patterns to match for field-level
  * 			encryption.</p>
  */
@@ -5388,6 +5645,7 @@ export interface FieldPatterns {
 }
 
 /**
+ * @public
  * <p>Complex data type for field-level encryption profiles that includes the encryption key
  * 			and field pattern specifications.</p>
  */
@@ -5415,6 +5673,7 @@ export interface EncryptionEntity {
 }
 
 /**
+ * @public
  * <p>Complex data type for field-level encryption profiles that includes all of the
  * 			encryption entities.</p>
  */
@@ -5433,6 +5692,7 @@ export interface EncryptionEntities {
 }
 
 /**
+ * @public
  * <p>A complex data type of profiles for the field-level encryption.</p>
  */
 export interface FieldLevelEncryptionProfileConfig {
@@ -5460,6 +5720,9 @@ export interface FieldLevelEncryptionProfileConfig {
   EncryptionEntities: EncryptionEntities | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFieldLevelEncryptionProfileRequest {
   /**
    * <p>The request to create a field-level encryption profile.</p>
@@ -5468,6 +5731,7 @@ export interface CreateFieldLevelEncryptionProfileRequest {
 }
 
 /**
+ * @public
  * <p>A complex data type for field-level encryption profiles.</p>
  */
 export interface FieldLevelEncryptionProfile {
@@ -5490,6 +5754,9 @@ export interface FieldLevelEncryptionProfile {
   FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFieldLevelEncryptionProfileResult {
   /**
    * <p>Returned when you create a new field-level encryption profile.</p>
@@ -5509,6 +5776,7 @@ export interface CreateFieldLevelEncryptionProfileResult {
 }
 
 /**
+ * @public
  * <p>The specified profile for field-level encryption already exists.</p>
  */
 export class FieldLevelEncryptionProfileAlreadyExists extends __BaseException {
@@ -5530,6 +5798,7 @@ export class FieldLevelEncryptionProfileAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum size of a profile for field-level encryption was exceeded.</p>
  */
 export class FieldLevelEncryptionProfileSizeExceeded extends __BaseException {
@@ -5551,6 +5820,7 @@ export class FieldLevelEncryptionProfileSizeExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified public key doesn't exist.</p>
  */
 export class NoSuchPublicKey extends __BaseException {
@@ -5572,6 +5842,7 @@ export class NoSuchPublicKey extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of encryption entities for field-level encryption have been
  * 			created.</p>
  */
@@ -5594,6 +5865,7 @@ export class TooManyFieldLevelEncryptionEncryptionEntities extends __BaseExcepti
 }
 
 /**
+ * @public
  * <p>The maximum number of field patterns for field-level encryption have been
  * 			created.</p>
  */
@@ -5616,6 +5888,7 @@ export class TooManyFieldLevelEncryptionFieldPatterns extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of profiles for field-level encryption have been created.</p>
  */
 export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
@@ -5636,11 +5909,15 @@ export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum FunctionRuntime {
   cloudfront_js_1_0 = "cloudfront-js-1.0",
 }
 
 /**
+ * @public
  * <p>Contains configuration information about a CloudFront function.</p>
  */
 export interface FunctionConfig {
@@ -5656,6 +5933,9 @@ export interface FunctionConfig {
   Runtime: FunctionRuntime | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionRequest {
   /**
    * <p>A name to identify the function.</p>
@@ -5676,12 +5956,16 @@ export interface CreateFunctionRequest {
   FunctionCode: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FunctionStage {
   DEVELOPMENT = "DEVELOPMENT",
   LIVE = "LIVE",
 }
 
 /**
+ * @public
  * <p>Contains metadata about a CloudFront function.</p>
  */
 export interface FunctionMetadata {
@@ -5713,6 +5997,7 @@ export interface FunctionMetadata {
 }
 
 /**
+ * @public
  * <p>Contains configuration information and metadata about a CloudFront function.</p>
  */
 export interface FunctionSummary {
@@ -5737,6 +6022,9 @@ export interface FunctionSummary {
   FunctionMetadata: FunctionMetadata | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFunctionResult {
   /**
    * <p>Contains configuration information and metadata about a CloudFront function.</p>
@@ -5756,6 +6044,7 @@ export interface CreateFunctionResult {
 }
 
 /**
+ * @public
  * <p>A function with the same name already exists in this Amazon Web Services account. To create a
  * 			function, you must provide a unique name. To update an existing function, use
  * 				<code>UpdateFunction</code>.</p>
@@ -5779,6 +6068,7 @@ export class FunctionAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -5801,6 +6091,7 @@ export class FunctionSizeLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -5824,6 +6115,7 @@ export class TooManyFunctions extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation is not supported in this region.</p>
  */
 export class UnsupportedOperation extends __BaseException {
@@ -5845,6 +6137,7 @@ export class UnsupportedOperation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the objects that you want to
  * 			invalidate. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects to Invalidate</a> in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -5863,6 +6156,7 @@ export interface Paths {
 }
 
 /**
+ * @public
  * <p>An invalidation batch.</p>
  */
 export interface InvalidationBatch {
@@ -5893,6 +6187,7 @@ export interface InvalidationBatch {
 }
 
 /**
+ * @public
  * <p>The request to create an invalidation.</p>
  */
 export interface CreateInvalidationRequest {
@@ -5908,6 +6203,7 @@ export interface CreateInvalidationRequest {
 }
 
 /**
+ * @public
  * <p>An invalidation.</p>
  */
 export interface Invalidation {
@@ -5935,6 +6231,7 @@ export interface Invalidation {
 }
 
 /**
+ * @public
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateInvalidationResult {
@@ -5951,6 +6248,7 @@ export interface CreateInvalidationResult {
 }
 
 /**
+ * @public
  * <p>You have exceeded the maximum number of allowable InProgress invalidation batch
  * 			requests, or invalidation objects.</p>
  */
@@ -5973,6 +6271,7 @@ export class TooManyInvalidationsInProgress extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A key group configuration.</p>
  *          <p>A key group contains a list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
  */
@@ -5994,6 +6293,9 @@ export interface KeyGroupConfig {
   Comment?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyGroupRequest {
   /**
    * <p>A key group configuration.</p>
@@ -6002,6 +6304,7 @@ export interface CreateKeyGroupRequest {
 }
 
 /**
+ * @public
  * <p>A key group.</p>
  *          <p>A key group contains a list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
  */
@@ -6022,6 +6325,9 @@ export interface KeyGroup {
   KeyGroupConfig: KeyGroupConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyGroupResult {
   /**
    * <p>The key group that was just created.</p>
@@ -6040,6 +6346,7 @@ export interface CreateKeyGroupResult {
 }
 
 /**
+ * @public
  * <p>A key group with this name already exists. You must provide a unique name. To modify
  * 			an existing key group, use <code>UpdateKeyGroup</code>.</p>
  */
@@ -6062,6 +6369,7 @@ export class KeyGroupAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of key groups for this Amazon Web Services account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -6085,6 +6393,7 @@ export class TooManyKeyGroups extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of public keys in this key group is more than the maximum allowed. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -6107,12 +6416,16 @@ export class TooManyPublicKeysInKeyGroup extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RealtimeMetricsSubscriptionStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>A subscription configuration for additional CloudWatch metrics.</p>
  */
 export interface RealtimeMetricsSubscriptionConfig {
@@ -6124,6 +6437,7 @@ export interface RealtimeMetricsSubscriptionConfig {
 }
 
 /**
+ * @public
  * <p>A monitoring subscription. This structure contains information about whether
  * 			additional CloudWatch metrics are enabled for a given CloudFront distribution.</p>
  */
@@ -6134,6 +6448,9 @@ export interface MonitoringSubscription {
   RealtimeMetricsSubscriptionConfig?: RealtimeMetricsSubscriptionConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateMonitoringSubscriptionRequest {
   /**
    * <p>The ID of the distribution that you are enabling metrics for.</p>
@@ -6147,6 +6464,9 @@ export interface CreateMonitoringSubscriptionRequest {
   MonitoringSubscription: MonitoringSubscription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMonitoringSubscriptionResult {
   /**
    * <p>A monitoring subscription. This structure contains information about whether
@@ -6156,6 +6476,7 @@ export interface CreateMonitoringSubscriptionResult {
 }
 
 /**
+ * @public
  * <p>A monitoring subscription already exists for the specified distribution.</p>
  */
 export class MonitoringSubscriptionAlreadyExists extends __BaseException {
@@ -6176,22 +6497,32 @@ export class MonitoringSubscriptionAlreadyExists extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum OriginAccessControlOriginTypes {
   mediastore = "mediastore",
   s3 = "s3",
 }
 
+/**
+ * @public
+ */
 export enum OriginAccessControlSigningBehaviors {
   always = "always",
   never = "never",
   no_override = "no-override",
 }
 
+/**
+ * @public
+ */
 export enum OriginAccessControlSigningProtocols {
   sigv4 = "sigv4",
 }
 
 /**
+ * @public
  * <p>A CloudFront origin access control configuration.</p>
  */
 export interface OriginAccessControlConfig {
@@ -6251,6 +6582,9 @@ export interface OriginAccessControlConfig {
   OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateOriginAccessControlRequest {
   /**
    * <p>Contains the origin access control.</p>
@@ -6259,6 +6593,7 @@ export interface CreateOriginAccessControlRequest {
 }
 
 /**
+ * @public
  * <p>A CloudFront origin access control, including its unique identifier.</p>
  */
 export interface OriginAccessControl {
@@ -6273,6 +6608,9 @@ export interface OriginAccessControl {
   OriginAccessControlConfig?: OriginAccessControlConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateOriginAccessControlResult {
   /**
    * <p>Contains an origin access control.</p>
@@ -6291,6 +6629,7 @@ export interface CreateOriginAccessControlResult {
 }
 
 /**
+ * @public
  * <p>An origin access control with the specified parameters already exists.</p>
  */
 export class OriginAccessControlAlreadyExists extends __BaseException {
@@ -6312,6 +6651,7 @@ export class OriginAccessControlAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of origin access controls in your Amazon Web Services account exceeds the maximum
  * 			allowed.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -6335,6 +6675,9 @@ export class TooManyOriginAccessControls extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum OriginRequestPolicyCookieBehavior {
   all = "all",
   allExcept = "allExcept",
@@ -6343,6 +6686,7 @@ export enum OriginRequestPolicyCookieBehavior {
 }
 
 /**
+ * @public
  * <p>An object that determines whether any cookies in viewer requests (and if so, which
  * 			cookies) are included in requests that CloudFront sends to the origin.</p>
  */
@@ -6388,6 +6732,9 @@ export interface OriginRequestPolicyCookiesConfig {
   Cookies?: CookieNames;
 }
 
+/**
+ * @public
+ */
 export enum OriginRequestPolicyHeaderBehavior {
   allExcept = "allExcept",
   allViewer = "allViewer",
@@ -6397,6 +6744,7 @@ export enum OriginRequestPolicyHeaderBehavior {
 }
 
 /**
+ * @public
  * <p>An object that determines whether any HTTP headers (and if so, which headers) are
  * 			included in requests that CloudFront sends to the origin.</p>
  */
@@ -6448,6 +6796,9 @@ export interface OriginRequestPolicyHeadersConfig {
   Headers?: Headers;
 }
 
+/**
+ * @public
+ */
 export enum OriginRequestPolicyQueryStringBehavior {
   all = "all",
   allExcept = "allExcept",
@@ -6456,6 +6807,7 @@ export enum OriginRequestPolicyQueryStringBehavior {
 }
 
 /**
+ * @public
  * <p>An object that determines whether any URL query strings in viewer requests (and if so,
  * 			which query strings) are included in requests that CloudFront sends to the origin.</p>
  */
@@ -6516,6 +6868,7 @@ export interface OriginRequestPolicyQueryStringsConfig {
 }
 
 /**
+ * @public
  * <p>An origin request policy configuration.</p>
  *          <p>This configuration determines the values that CloudFront includes in requests that it sends
  * 			to the origin. Each request that CloudFront sends to the origin includes the following:</p>
@@ -6569,6 +6922,9 @@ export interface OriginRequestPolicyConfig {
   QueryStringsConfig: OriginRequestPolicyQueryStringsConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateOriginRequestPolicyRequest {
   /**
    * <p>An origin request policy configuration.</p>
@@ -6577,6 +6933,7 @@ export interface CreateOriginRequestPolicyRequest {
 }
 
 /**
+ * @public
  * <p>An origin request policy.</p>
  *          <p>When it's attached to a cache behavior, the origin request policy determines the
  * 			values that CloudFront includes in requests that it sends to the origin. Each request that
@@ -6619,6 +6976,9 @@ export interface OriginRequestPolicy {
   OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateOriginRequestPolicyResult {
   /**
    * <p>An origin request policy.</p>
@@ -6637,6 +6997,7 @@ export interface CreateOriginRequestPolicyResult {
 }
 
 /**
+ * @public
  * <p>An origin request policy with this name already exists. You must provide a unique
  * 			name. To modify an existing origin request policy, use
  * 				<code>UpdateOriginRequestPolicy</code>.</p>
@@ -6660,6 +7021,7 @@ export class OriginRequestPolicyAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of cookies in the origin request policy exceeds the maximum. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -6683,6 +7045,7 @@ export class TooManyCookiesInOriginRequestPolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of headers in the origin request policy exceeds the maximum. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -6706,6 +7069,7 @@ export class TooManyHeadersInOriginRequestPolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of origin request policies for this Amazon Web Services account.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -6729,6 +7093,7 @@ export class TooManyOriginRequestPolicies extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of query strings in the origin request policy exceeds the maximum. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -6752,6 +7117,7 @@ export class TooManyQueryStringsInOriginRequestPolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Configuration information about a public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
  */
 export interface PublicKeyConfig {
@@ -6778,6 +7144,9 @@ export interface PublicKeyConfig {
   Comment?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePublicKeyRequest {
   /**
    * <p>A CloudFront public key configuration.</p>
@@ -6786,6 +7155,7 @@ export interface CreatePublicKeyRequest {
 }
 
 /**
+ * @public
  * <p>A public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
  */
 export interface PublicKey {
@@ -6805,6 +7175,9 @@ export interface PublicKey {
   PublicKeyConfig: PublicKeyConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePublicKeyResult {
   /**
    * <p>The public key.</p>
@@ -6823,6 +7196,7 @@ export interface CreatePublicKeyResult {
 }
 
 /**
+ * @public
  * <p>The specified public key already exists.</p>
  */
 export class PublicKeyAlreadyExists extends __BaseException {
@@ -6844,6 +7218,7 @@ export class PublicKeyAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of public keys for field-level encryption have been created. To
  * 			create a new public key, delete one of the existing keys.</p>
  */
@@ -6866,6 +7241,7 @@ export class TooManyPublicKeys extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
  * 			log data.</p>
  */
@@ -6886,6 +7262,7 @@ export interface KinesisStreamConfig {
 }
 
 /**
+ * @public
  * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
  * 			log data in a real-time log configuration.</p>
  */
@@ -6903,6 +7280,9 @@ export interface EndPoint {
   KinesisStreamConfig?: KinesisStreamConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateRealtimeLogConfigRequest {
   /**
    * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
@@ -6931,6 +7311,7 @@ export interface CreateRealtimeLogConfigRequest {
 }
 
 /**
+ * @public
  * <p>A real-time log configuration.</p>
  */
 export interface RealtimeLogConfig {
@@ -6967,6 +7348,9 @@ export interface RealtimeLogConfig {
   Fields: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRealtimeLogConfigResult {
   /**
    * <p>A real-time log configuration.</p>
@@ -6975,6 +7359,7 @@ export interface CreateRealtimeLogConfigResult {
 }
 
 /**
+ * @public
  * <p>A real-time log configuration with this name already exists. You must provide a unique
  * 			name. To modify an existing real-time log configuration, use
  * 				<code>UpdateRealtimeLogConfig</code>.</p>
@@ -6998,6 +7383,7 @@ export class RealtimeLogConfigAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of real-time log configurations for this
  * 			Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -7021,6 +7407,7 @@ export class TooManyRealtimeLogConfigs extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A list of HTTP header names that CloudFront includes as values for the
  * 				<code>Access-Control-Allow-Headers</code> HTTP response header.</p>
  *          <p>For more information about the <code>Access-Control-Allow-Headers</code> HTTP response
@@ -7040,6 +7427,7 @@ export interface ResponseHeadersPolicyAccessControlAllowHeaders {
 }
 
 /**
+ * @public
  * <p>A list of HTTP methods that CloudFront includes as values for the
  * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
  *          <p>For more information about the <code>Access-Control-Allow-Methods</code> HTTP response
@@ -7103,6 +7491,7 @@ export interface ResponseHeadersPolicyAccessControlAllowMethods {
 }
 
 /**
+ * @public
  * <p>A list of origins (domain names) that CloudFront can use as the value for the
  * 				<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
  *          <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response
@@ -7122,6 +7511,7 @@ export interface ResponseHeadersPolicyAccessControlAllowOrigins {
 }
 
 /**
+ * @public
  * <p>A list of HTTP headers that CloudFront includes as values for the
  * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
  *          <p>For more information about the <code>Access-Control-Expose-Headers</code> HTTP
@@ -7140,6 +7530,7 @@ export interface ResponseHeadersPolicyAccessControlExposeHeaders {
 }
 
 /**
+ * @public
  * <p>A configuration for a set of HTTP response headers that are used for cross-origin
  * 			resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for
  * 			CORS requests that match a cache behavior associated with this response headers
@@ -7204,6 +7595,7 @@ export interface ResponseHeadersPolicyCorsConfig {
 }
 
 /**
+ * @public
  * <p>An HTTP response header name and its value. CloudFront includes this header in HTTP
  * 			responses that it sends for requests that match a cache behavior that's associated with
  * 			this response headers policy.</p>
@@ -7227,6 +7619,7 @@ export interface ResponseHeadersPolicyCustomHeader {
 }
 
 /**
+ * @public
  * <p>A list of HTTP response header names and their values. CloudFront includes these headers in
  * 			HTTP responses that it sends for requests that match a cache behavior that's associated
  * 			with this response headers policy.</p>
@@ -7244,6 +7637,7 @@ export interface ResponseHeadersPolicyCustomHeadersConfig {
 }
 
 /**
+ * @public
  * <p>The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the
  * 			cache behavior that this response headers policy is attached to.</p>
  */
@@ -7255,6 +7649,7 @@ export interface ResponseHeadersPolicyRemoveHeader {
 }
 
 /**
+ * @public
  * <p>A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the
  * 			cache behavior that this response headers policy is attached to.</p>
  */
@@ -7271,6 +7666,7 @@ export interface ResponseHeadersPolicyRemoveHeadersConfig {
 }
 
 /**
+ * @public
  * <p>The policy directives and their values that CloudFront includes as values for the
  * 				<code>Content-Security-Policy</code> HTTP response header.</p>
  *          <p>For more information about the <code>Content-Security-Policy</code> HTTP response
@@ -7292,6 +7688,7 @@ export interface ResponseHeadersPolicyContentSecurityPolicy {
 }
 
 /**
+ * @public
  * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
  * 			header with its value set to <code>nosniff</code>.</p>
  *          <p>For more information about the <code>X-Content-Type-Options</code> HTTP response
@@ -7306,12 +7703,16 @@ export interface ResponseHeadersPolicyContentTypeOptions {
   Override: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FrameOptionsList {
   DENY = "DENY",
   SAMEORIGIN = "SAMEORIGIN",
 }
 
 /**
+ * @public
  * <p>Determines whether CloudFront includes the <code>X-Frame-Options</code> HTTP response header
  * 			and the header's value.</p>
  *          <p>For more information about the <code>X-Frame-Options</code> HTTP response header, see
@@ -7333,6 +7734,9 @@ export interface ResponseHeadersPolicyFrameOptions {
   FrameOption: FrameOptionsList | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReferrerPolicyList {
   no_referrer = "no-referrer",
   no_referrer_when_downgrade = "no-referrer-when-downgrade",
@@ -7345,6 +7749,7 @@ export enum ReferrerPolicyList {
 }
 
 /**
+ * @public
  * <p>Determines whether CloudFront includes the <code>Referrer-Policy</code> HTTP response header
  * 			and the header's value.</p>
  *          <p>For more information about the <code>Referrer-Policy</code> HTTP response header, see
@@ -7409,6 +7814,7 @@ export interface ResponseHeadersPolicyReferrerPolicy {
 }
 
 /**
+ * @public
  * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP
  * 			response header and the header's value.</p>
  *          <p>For more information about the <code>Strict-Transport-Security</code> HTTP response
@@ -7442,6 +7848,7 @@ export interface ResponseHeadersPolicyStrictTransportSecurity {
 }
 
 /**
+ * @public
  * <p>Determines whether CloudFront includes the <code>X-XSS-Protection</code> HTTP response
  * 			header and the header's value.</p>
  *          <p>For more information about the <code>X-XSS-Protection</code> HTTP response header, see
@@ -7483,6 +7890,7 @@ export interface ResponseHeadersPolicyXSSProtection {
 }
 
 /**
+ * @public
  * <p>A configuration for a set of security-related HTTP response headers. CloudFront adds these
  * 			headers to HTTP responses that it sends for requests that match a cache behavior
  * 			associated with this response headers policy.</p>
@@ -7538,6 +7946,7 @@ export interface ResponseHeadersPolicySecurityHeadersConfig {
 }
 
 /**
+ * @public
  * <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses
  * 			sent from CloudFront. CloudFront adds this header to HTTP responses that it sends in response to
  * 			requests that match a cache behavior that's associated with this response headers
@@ -7571,6 +7980,7 @@ export interface ResponseHeadersPolicyServerTimingHeadersConfig {
 }
 
 /**
+ * @public
  * <p>A response headers policy configuration.</p>
  *          <p>A response headers policy configuration contains metadata about the response headers policy,
  * 			and configurations for sets of HTTP response headers.</p>
@@ -7616,6 +8026,9 @@ export interface ResponseHeadersPolicyConfig {
   RemoveHeadersConfig?: ResponseHeadersPolicyRemoveHeadersConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateResponseHeadersPolicyRequest {
   /**
    * <p>Contains metadata about the response headers policy, and a set of configurations that
@@ -7625,6 +8038,7 @@ export interface CreateResponseHeadersPolicyRequest {
 }
 
 /**
+ * @public
  * <p>A response headers policy.</p>
  *          <p>A response headers policy contains information about a set of HTTP response headers.</p>
  *          <p>After you create a response headers policy, you can use its ID to attach it to one or more

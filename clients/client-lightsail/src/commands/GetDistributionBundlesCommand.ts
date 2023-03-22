@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDistributionBundlesCommand}.
  */
 export interface GetDistributionBundlesCommandInput extends GetDistributionBundlesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDistributionBundlesCommand}.
  */
 export interface GetDistributionBundlesCommandOutput extends GetDistributionBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the bundles that can be applied to your Amazon Lightsail content delivery network
  *       (CDN) distributions.</p>
  *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
@@ -49,6 +54,8 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDistributionBundlesCommandInput - {@link GetDistributionBundlesCommandInput}
+ * @returns {@link GetDistributionBundlesCommandOutput}
  * @see {@link GetDistributionBundlesCommandInput} for command's `input` shape.
  * @see {@link GetDistributionBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetDistributionBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDistributionBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetDistributionBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDistributionBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDistributionBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDistributionBundlesCommandOutput> {
     return deserializeAws_json1_1GetDistributionBundlesCommand(output, context);
   }

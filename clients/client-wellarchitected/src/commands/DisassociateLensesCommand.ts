@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateLensesCommand}.
  */
 export interface DisassociateLensesCommandInput extends DisassociateLensesInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateLensesCommand}.
  */
 export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate a lens from a workload.</p>
  *         <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
  *         <note>
@@ -46,6 +51,8 @@ export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateLensesCommandInput - {@link DisassociateLensesCommandInput}
+ * @returns {@link DisassociateLensesCommandOutput}
  * @see {@link DisassociateLensesCommandInput} for command's `input` shape.
  * @see {@link DisassociateLensesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -87,6 +94,9 @@ export class DisassociateLensesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateLensesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DisassociateLensesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateLensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateLensesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLensesCommandOutput> {
     return deserializeAws_restJson1DisassociateLensesCommand(output, context);
   }

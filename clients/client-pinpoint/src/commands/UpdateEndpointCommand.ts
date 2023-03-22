@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointCommand}.
  */
 export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointCommand}.
  */
 export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes for an endpoint. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
+ * @returns {@link UpdateEndpointCommandOutput}
  * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointCommandOutput> {
     return deserializeAws_restJson1UpdateEndpointCommand(output, context);
   }

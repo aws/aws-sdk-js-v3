@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLegalHoldCommand}.
  */
 export interface GetLegalHoldCommandInput extends GetLegalHoldInput {}
 /**
+ * @public
+ *
  * The output of {@link GetLegalHoldCommand}.
  */
 export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action returns details for a specified legal hold. The details are the
  *          body of a legal hold in JSON format, in addition to metadata.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLegalHoldCommandInput - {@link GetLegalHoldCommandInput}
+ * @returns {@link GetLegalHoldCommandOutput}
  * @see {@link GetLegalHoldCommandInput} for command's `input` shape.
  * @see {@link GetLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLegalHoldCommandOutput> {
     return deserializeAws_restJson1GetLegalHoldCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePatchBaselineCommand}.
  */
 export interface DeletePatchBaselineCommandInput extends DeletePatchBaselineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePatchBaselineCommand}.
  */
 export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a patch baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePatchBaselineCommandInput - {@link DeletePatchBaselineCommandInput}
+ * @returns {@link DeletePatchBaselineCommandOutput}
  * @see {@link DeletePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link DeletePatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeletePatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeletePatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePatchBaselineCommandOutput> {
     return deserializeAws_json1_1DeletePatchBaselineCommand(output, context);
   }

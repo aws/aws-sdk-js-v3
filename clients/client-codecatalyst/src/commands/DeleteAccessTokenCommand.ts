@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessTokenCommand}.
  */
 export interface DeleteAccessTokenCommandInput extends DeleteAccessTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessTokenCommand}.
  */
 export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified personal access token (PAT). A personal access token can only be deleted by the user who created it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessTokenCommandInput - {@link DeleteAccessTokenCommandInput}
+ * @returns {@link DeleteAccessTokenCommandOutput}
  * @see {@link DeleteAccessTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteAccessTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteAccessTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAccessTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessTokenCommandOutput> {
     return deserializeAws_restJson1DeleteAccessTokenCommand(output, context);
   }

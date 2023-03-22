@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRepositoryAssociationsCommand}.
  */
 export interface ListRepositoryAssociationsCommandInput extends ListRepositoryAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRepositoryAssociationsCommand}.
  */
 export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html">RepositoryAssociationSummary</a> objects that contain summary information about a
  *          repository association. You can filter the returned list by <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType">ProviderType</a>, <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name">Name</a>, <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State">State</a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner">Owner</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRepositoryAssociationsCommandInput - {@link ListRepositoryAssociationsCommandInput}
+ * @returns {@link ListRepositoryAssociationsCommandOutput}
  * @see {@link ListRepositoryAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListRepositoryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListRepositoryAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRepositoryAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListRepositoryAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRepositoryAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRepositoryAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

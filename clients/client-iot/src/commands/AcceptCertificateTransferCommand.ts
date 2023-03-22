@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptCertificateTransferCommand}.
  */
 export interface AcceptCertificateTransferCommandInput extends AcceptCertificateTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptCertificateTransferCommand}.
  */
 export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a pending certificate transfer. The default state of the certificate is
  *          INACTIVE.</p>
  *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
@@ -48,6 +53,8 @@ export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptCertificateTransferCommandInput - {@link AcceptCertificateTransferCommandInput}
+ * @returns {@link AcceptCertificateTransferCommandOutput}
  * @see {@link AcceptCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link AcceptCertificateTransferCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -93,6 +100,9 @@ export class AcceptCertificateTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptCertificateTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class AcceptCertificateTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptCertificateTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AcceptCertificateTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

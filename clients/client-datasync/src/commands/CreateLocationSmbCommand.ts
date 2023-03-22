@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationSmbCommand}.
  */
 export interface CreateLocationSmbCommandInput extends CreateLocationSmbRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationSmbCommand}.
  */
 export interface CreateLocationSmbCommandOutput extends CreateLocationSmbResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for a Server Message Block (SMB) file server that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating an SMB location</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationSmbCommandInput - {@link CreateLocationSmbCommandInput}
+ * @returns {@link CreateLocationSmbCommandOutput}
  * @see {@link CreateLocationSmbCommandInput} for command's `input` shape.
  * @see {@link CreateLocationSmbCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateLocationSmbCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationSmbCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateLocationSmbCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationSmbCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationSmbCommandOutput> {
     return deserializeAws_json1_1CreateLocationSmbCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNetworkInsightsAnalysesCommand}.
  */
 export interface DescribeNetworkInsightsAnalysesCommandInput extends DescribeNetworkInsightsAnalysesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNetworkInsightsAnalysesCommand}.
  */
 export interface DescribeNetworkInsightsAnalysesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your network insights analyses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNetworkInsightsAnalysesCommandInput - {@link DescribeNetworkInsightsAnalysesCommandInput}
+ * @returns {@link DescribeNetworkInsightsAnalysesCommandOutput}
  * @see {@link DescribeNetworkInsightsAnalysesCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInsightsAnalysesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNetworkInsightsAnalysesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNetworkInsightsAnalysesCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command<
     return serializeAws_ec2DescribeNetworkInsightsAnalysesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

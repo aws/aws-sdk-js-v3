@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified cluster. The cluster transitions to the <code>INACTIVE</code>
  * 			state. Clusters with an <code>INACTIVE</code> status might remain discoverable in your
  * 			account for a period of time. However, this behavior is subject to change in the future.
@@ -51,6 +56,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
+ * @returns {@link DeleteClusterCommandOutput}
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -133,6 +140,9 @@ export class DeleteClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class DeleteClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
     return deserializeAws_json1_1DeleteClusterCommand(output, context);
   }

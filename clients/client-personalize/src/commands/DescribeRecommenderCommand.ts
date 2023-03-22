@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecommenderCommand}.
  */
 export interface DescribeRecommenderCommandInput extends DescribeRecommenderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecommenderCommand}.
  */
 export interface DescribeRecommenderCommandOutput extends DescribeRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the given recommender, including its status.</p>
  *          <p>A recommender can be in one of the following states:</p>
  *          <ul>
@@ -63,6 +68,8 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommenderCommandInput - {@link DescribeRecommenderCommandInput}
+ * @returns {@link DescribeRecommenderCommandOutput}
  * @see {@link DescribeRecommenderCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecommenderCommandOutput> {
     return deserializeAws_json1_1DescribeRecommenderCommand(output, context);
   }

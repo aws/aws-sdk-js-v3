@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchModifyClusterSnapshotsCommand}.
  */
 export interface BatchModifyClusterSnapshotsCommandInput extends BatchModifyClusterSnapshotsMessage {}
 /**
+ * @public
+ *
  * The output of {@link BatchModifyClusterSnapshotsCommand}.
  */
 export interface BatchModifyClusterSnapshotsCommandOutput
@@ -37,6 +41,7 @@ export interface BatchModifyClusterSnapshotsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a set of cluster snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchModifyClusterSnapshotsCommandInput - {@link BatchModifyClusterSnapshotsCommandInput}
+ * @returns {@link BatchModifyClusterSnapshotsCommandOutput}
  * @see {@link BatchModifyClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link BatchModifyClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -79,6 +86,9 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchModifyClusterSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchModifyClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryBatchModifyClusterSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

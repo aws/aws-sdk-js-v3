@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGlobalTableCommand}.
  */
 export interface UpdateGlobalTableCommandInput extends UpdateGlobalTableInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGlobalTableCommand}.
  */
 export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or removes replicas in the specified global table. The global table must already
  *             exist to be able to use this operation. Any replica to be added must be empty, have the
  *             same name as the global table, have the same key schema, have DynamoDB Streams enabled,
@@ -88,6 +93,8 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGlobalTableCommandInput - {@link UpdateGlobalTableCommandInput}
+ * @returns {@link UpdateGlobalTableCommandOutput}
  * @see {@link UpdateGlobalTableCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -129,6 +136,9 @@ export class UpdateGlobalTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class UpdateGlobalTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateGlobalTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalTableCommandOutput> {
     return deserializeAws_json1_0UpdateGlobalTableCommand(output, context);
   }

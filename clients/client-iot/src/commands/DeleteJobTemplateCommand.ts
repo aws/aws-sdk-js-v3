@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteJobTemplateCommand}.
  */
 export interface DeleteJobTemplateCommandInput extends DeleteJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteJobTemplateCommand}.
  */
 export interface DeleteJobTemplateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified job template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteJobTemplateCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobTemplateCommandInput - {@link DeleteJobTemplateCommandInput}
+ * @returns {@link DeleteJobTemplateCommandOutput}
  * @see {@link DeleteJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTemplateCommandOutput> {
     return deserializeAws_restJson1DeleteJobTemplateCommand(output, context);
   }

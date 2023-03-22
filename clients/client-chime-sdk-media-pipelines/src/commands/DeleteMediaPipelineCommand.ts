@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMediaPipelineCommand}.
  */
 export interface DeleteMediaPipelineCommandInput extends DeleteMediaPipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMediaPipelineCommand}.
  */
 export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMediaPipelineCommandInput - {@link DeleteMediaPipelineCommandInput}
+ * @returns {@link DeleteMediaPipelineCommandOutput}
  * @see {@link DeleteMediaPipelineCommandInput} for command's `input` shape.
  * @see {@link DeleteMediaPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteMediaPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMediaPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteMediaPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMediaPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMediaPipelineCommandOutput> {
     return deserializeAws_restJson1DeleteMediaPipelineCommand(output, context);
   }

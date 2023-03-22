@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMaintenanceWindowCommand}.
  */
 export interface GetMaintenanceWindowCommandInput extends GetMaintenanceWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMaintenanceWindowCommand}.
  */
 export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMaintenanceWindowCommandInput - {@link GetMaintenanceWindowCommandInput}
+ * @returns {@link GetMaintenanceWindowCommandOutput}
  * @see {@link GetMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMaintenanceWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMaintenanceWindowCommandOutput> {
     return deserializeAws_json1_1GetMaintenanceWindowCommand(output, context);
   }

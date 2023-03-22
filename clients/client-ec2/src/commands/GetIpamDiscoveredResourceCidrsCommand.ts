@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetIpamDiscoveredResourceCidrsCommand}.
  */
 export interface GetIpamDiscoveredResourceCidrsCommandInput extends GetIpamDiscoveredResourceCidrsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIpamDiscoveredResourceCidrsCommand}.
  */
 export interface GetIpamDiscoveredResourceCidrsCommandOutput
@@ -37,6 +41,7 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIpamDiscoveredResourceCidrsCommandInput - {@link GetIpamDiscoveredResourceCidrsCommandInput}
+ * @returns {@link GetIpamDiscoveredResourceCidrsCommandOutput}
  * @see {@link GetIpamDiscoveredResourceCidrsCommandInput} for command's `input` shape.
  * @see {@link GetIpamDiscoveredResourceCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIpamDiscoveredResourceCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIpamDiscoveredResourceCidrsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command<
     return serializeAws_ec2GetIpamDiscoveredResourceCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

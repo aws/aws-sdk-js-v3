@@ -26,15 +26,20 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link StreamJournalToKinesisCommand}.
  */
 export interface StreamJournalToKinesisCommandInput extends StreamJournalToKinesisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StreamJournalToKinesisCommand}.
  */
 export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKinesisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a journal stream for a given Amazon QLDB ledger. The stream captures every
  *          document revision that is committed to the ledger's journal and delivers the data to a
  *          specified Amazon Kinesis Data Streams resource.</p>
@@ -48,6 +53,8 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * const response = await client.send(command);
  * ```
  *
+ * @param StreamJournalToKinesisCommandInput - {@link StreamJournalToKinesisCommandInput}
+ * @returns {@link StreamJournalToKinesisCommandOutput}
  * @see {@link StreamJournalToKinesisCommandInput} for command's `input` shape.
  * @see {@link StreamJournalToKinesisCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -80,6 +87,9 @@ export class StreamJournalToKinesisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StreamJournalToKinesisCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class StreamJournalToKinesisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StreamJournalToKinesisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StreamJournalToKinesisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StreamJournalToKinesisCommandOutput> {
     return deserializeAws_restJson1StreamJournalToKinesisCommand(output, context);
   }

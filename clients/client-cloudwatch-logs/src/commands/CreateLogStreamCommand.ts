@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLogStreamCommand}.
  */
 export interface CreateLogStreamCommandInput extends CreateLogStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLogStreamCommand}.
  */
 export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a log stream for the specified log group. A log stream is a sequence of log events
  *       that originate from a single source, such as an application instance or a resource that is
  *       being monitored.</p>
@@ -57,6 +62,8 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLogStreamCommandInput - {@link CreateLogStreamCommandInput}
+ * @returns {@link CreateLogStreamCommandOutput}
  * @see {@link CreateLogStreamCommandInput} for command's `input` shape.
  * @see {@link CreateLogStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateLogStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateLogStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLogStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogStreamCommandOutput> {
     return deserializeAws_json1_1CreateLogStreamCommand(output, context);
   }

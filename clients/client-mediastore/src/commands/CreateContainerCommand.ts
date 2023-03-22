@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContainerCommand}.
  */
 export interface CreateContainerCommandInput extends CreateContainerInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateContainerCommand}.
  */
 export interface CreateContainerCommandOutput extends CreateContainerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a storage container to hold objects. A container is similar to a bucket in
  *          the Amazon S3 service.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContainerCommandInput - {@link CreateContainerCommandInput}
+ * @returns {@link CreateContainerCommandOutput}
  * @see {@link CreateContainerCommandInput} for command's `input` shape.
  * @see {@link CreateContainerCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateContainerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContainerCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateContainerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContainerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateContainerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContainerCommandOutput> {
     return deserializeAws_json1_1CreateContainerCommand(output, context);
   }

@@ -18,15 +18,20 @@ import { TagUserRequest, TagUserRequestFilterSensitiveLog } from "../models/mode
 import { deserializeAws_queryTagUserCommand, serializeAws_queryTagUserCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagUserCommand}.
  */
 export interface TagUserCommandInput extends TagUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagUserCommand}.
  */
 export interface TagUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM user. If a tag with the same key name already exists,
  *       then that tag is overwritten with the new value.</p>
  *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -81,6 +86,8 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TagUserCommandInput - {@link TagUserCommandInput}
+ * @returns {@link TagUserCommandOutput}
  * @see {@link TagUserCommandInput} for command's `input` shape.
  * @see {@link TagUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -141,6 +148,9 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,10 +188,16 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagUserCommandOutput> {
     return deserializeAws_queryTagUserCommand(output, context);
   }

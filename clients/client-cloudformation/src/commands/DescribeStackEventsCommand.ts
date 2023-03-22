@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackEventsCommand}.
  */
 export interface DescribeStackEventsCommandInput extends DescribeStackEventsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackEventsCommand}.
  */
 export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all stack related events for a specified stack in reverse chronological order.
  *          For more information about a stack's event history, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html">Stacks</a> in the
  *          CloudFormation User Guide.</p>
@@ -52,6 +57,8 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackEventsCommandInput - {@link DescribeStackEventsCommandInput}
+ * @returns {@link DescribeStackEventsCommandOutput}
  * @see {@link DescribeStackEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeStackEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeStackEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeStackEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeStackEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackEventsCommandOutput> {
     return deserializeAws_queryDescribeStackEventsCommand(output, context);
   }

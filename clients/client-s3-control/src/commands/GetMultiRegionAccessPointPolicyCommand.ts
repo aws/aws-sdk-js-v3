@@ -28,10 +28,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMultiRegionAccessPointPolicyCommand}.
  */
 export interface GetMultiRegionAccessPointPolicyCommandInput extends GetMultiRegionAccessPointPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMultiRegionAccessPointPolicyCommand}.
  */
 export interface GetMultiRegionAccessPointPolicyCommandOutput
@@ -39,6 +43,7 @@ export interface GetMultiRegionAccessPointPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the access control policy of the specified Multi-Region Access Point.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information
  *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
@@ -67,6 +72,8 @@ export interface GetMultiRegionAccessPointPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMultiRegionAccessPointPolicyCommandInput - {@link GetMultiRegionAccessPointPolicyCommandInput}
+ * @returns {@link GetMultiRegionAccessPointPolicyCommandOutput}
  * @see {@link GetMultiRegionAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link GetMultiRegionAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetMultiRegionAccessPointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMultiRegionAccessPointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class GetMultiRegionAccessPointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetMultiRegionAccessPointPolicyCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class GetMultiRegionAccessPointPolicyCommand extends $Command<
     return serializeAws_restXmlGetMultiRegionAccessPointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

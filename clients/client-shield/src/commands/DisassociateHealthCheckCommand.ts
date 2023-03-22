@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateHealthCheckCommand}.
  */
 export interface DisassociateHealthCheckCommandInput extends DisassociateHealthCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateHealthCheckCommand}.
  */
 export interface DisassociateHealthCheckCommandOutput extends DisassociateHealthCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes health-based detection from the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and response. </p>
  *          <p>You define the health check in Route 53 and then associate or disassociate it with your Shield Advanced protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DisassociateHealthCheckCommandOutput extends DisassociateHealth
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateHealthCheckCommandInput - {@link DisassociateHealthCheckCommandInput}
+ * @returns {@link DisassociateHealthCheckCommandOutput}
  * @see {@link DisassociateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link DisassociateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisassociateHealthCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateHealthCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DisassociateHealthCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateHealthCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateHealthCheckCommandOutput> {
     return deserializeAws_json1_1DisassociateHealthCheckCommand(output, context);
   }

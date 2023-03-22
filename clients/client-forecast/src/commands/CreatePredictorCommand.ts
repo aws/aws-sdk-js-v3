@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePredictorCommand}.
  */
 export interface CreatePredictorCommandInput extends CreatePredictorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePredictorCommand}.
  */
 export interface CreatePredictorCommandOutput extends CreatePredictorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p> This operation creates a legacy predictor that does not include all the predictor
  *         functionalities provided by Amazon Forecast. To create a predictor that is compatible with all
@@ -105,6 +110,8 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePredictorCommandInput - {@link CreatePredictorCommandInput}
+ * @returns {@link CreatePredictorCommandOutput}
  * @see {@link CreatePredictorCommandInput} for command's `input` shape.
  * @see {@link CreatePredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -145,6 +152,9 @@ export class CreatePredictorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePredictorCommandInput) {
     // Start section: command_constructor
     super();
@@ -184,10 +194,16 @@ export class CreatePredictorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePredictorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePredictorCommandOutput> {
     return deserializeAws_json1_1CreatePredictorCommand(output, context);
   }

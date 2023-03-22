@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetGrantCommand, serializeAws_json1_1GetGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGrantCommand}.
  */
 export interface GetGrantCommandInput extends GetGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGrantCommand}.
  */
 export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets detailed information about the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGrantCommandInput - {@link GetGrantCommandInput}
+ * @returns {@link GetGrantCommandOutput}
  * @see {@link GetGrantCommandInput} for command's `input` shape.
  * @see {@link GetGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGrantCommandOutput> {
     return deserializeAws_json1_1GetGrantCommand(output, context);
   }

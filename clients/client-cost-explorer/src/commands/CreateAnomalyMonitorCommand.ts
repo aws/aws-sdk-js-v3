@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAnomalyMonitorCommand}.
  */
 export interface CreateAnomalyMonitorCommandInput extends CreateAnomalyMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAnomalyMonitorCommand}.
  */
 export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cost anomaly detection monitor with the requested type and monitor
  *       specification. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAnomalyMonitorCommandInput - {@link CreateAnomalyMonitorCommandInput}
+ * @returns {@link CreateAnomalyMonitorCommandOutput}
  * @see {@link CreateAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateAnomalyMonitorCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -73,6 +80,9 @@ export class CreateAnomalyMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAnomalyMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateAnomalyMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAnomalyMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAnomalyMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnomalyMonitorCommandOutput> {
     return deserializeAws_json1_1CreateAnomalyMonitorCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSubscribedWorkteamCommand}.
  */
 export interface DescribeSubscribedWorkteamCommandInput extends DescribeSubscribedWorkteamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSubscribedWorkteamCommand}.
  */
 export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscribedWorkteamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a work team provided by a vendor. It returns details about the
  *             subscription with a vendor in the Amazon Web Services Marketplace.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubscribedWorkteamCommandInput - {@link DescribeSubscribedWorkteamCommandInput}
+ * @returns {@link DescribeSubscribedWorkteamCommandOutput}
  * @see {@link DescribeSubscribedWorkteamCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscribedWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubscribedWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubscribedWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSubscribedWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

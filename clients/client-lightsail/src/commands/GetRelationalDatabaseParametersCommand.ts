@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseParametersCommand}.
  */
 export interface GetRelationalDatabaseParametersCommandInput extends GetRelationalDatabaseParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseParametersCommand}.
  */
 export interface GetRelationalDatabaseParametersCommandOutput
@@ -37,6 +41,7 @@ export interface GetRelationalDatabaseParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all of the runtime parameters offered by the underlying database software, or
  *       engine, for a specific database in Amazon Lightsail.</p>
  *          <p>In addition to the parameter names and values, this operation returns other information
@@ -52,6 +57,8 @@ export interface GetRelationalDatabaseParametersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseParametersCommandInput - {@link GetRelationalDatabaseParametersCommandInput}
+ * @returns {@link GetRelationalDatabaseParametersCommandOutput}
  * @see {@link GetRelationalDatabaseParametersCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseParametersCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -105,6 +112,9 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseParametersCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
     return serializeAws_json1_1GetRelationalDatabaseParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

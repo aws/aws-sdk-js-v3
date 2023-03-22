@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListScheduledActionsCommand}.
  */
 export interface ListScheduledActionsCommandInput extends ListScheduledActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListScheduledActionsCommand}.
  */
 export interface ListScheduledActionsCommandOutput extends ListScheduledActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of configuration changes that are scheduled for a domain. These changes can
  *    be <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
  *     updates</a> or <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
@@ -49,6 +54,8 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScheduledActionsCommandInput - {@link ListScheduledActionsCommandInput}
+ * @returns {@link ListScheduledActionsCommandOutput}
  * @see {@link ListScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link ListScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListScheduledActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScheduledActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListScheduledActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListScheduledActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledActionsCommandOutput> {
     return deserializeAws_restJson1ListScheduledActionsCommand(output, context);
   }

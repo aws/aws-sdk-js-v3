@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotificationRuleCommand}.
  */
 export interface DescribeNotificationRuleCommandInput extends DescribeNotificationRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotificationRuleCommand}.
  */
 export interface DescribeNotificationRuleCommandOutput extends DescribeNotificationRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specified notification rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotificationRuleCommandInput - {@link DescribeNotificationRuleCommandInput}
+ * @returns {@link DescribeNotificationRuleCommandOutput}
  * @see {@link DescribeNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationRuleCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeNotificationRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeNotificationRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeNotificationRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNotificationRuleCommandOutput> {
     return deserializeAws_restJson1DescribeNotificationRuleCommand(output, context);
   }

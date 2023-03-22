@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkloadsCommand}.
  */
 export interface ListWorkloadsCommandInput extends ListWorkloadsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkloadsCommand}.
  */
 export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List workloads. Paginated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkloadsCommandInput - {@link ListWorkloadsCommandInput}
+ * @returns {@link ListWorkloadsCommandOutput}
  * @see {@link ListWorkloadsCommandInput} for command's `input` shape.
  * @see {@link ListWorkloadsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListWorkloadsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkloadsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListWorkloadsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkloadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWorkloadsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkloadsCommandOutput> {
     return deserializeAws_restJson1ListWorkloadsCommand(output, context);
   }

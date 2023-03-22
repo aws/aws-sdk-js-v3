@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMedicalVocabularyCommand}.
  */
 export interface UpdateMedicalVocabularyCommandInput extends UpdateMedicalVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMedicalVocabularyCommand}.
  */
 export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing custom medical vocabulary with new values. This operation
  *             overwrites all existing information with your new values; you cannot append new terms
  *             onto an existing custom vocabulary.</p>
@@ -48,6 +53,8 @@ export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocab
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMedicalVocabularyCommandInput - {@link UpdateMedicalVocabularyCommandInput}
+ * @returns {@link UpdateMedicalVocabularyCommandOutput}
  * @see {@link UpdateMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link UpdateMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateMedicalVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMedicalVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateMedicalVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMedicalVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMedicalVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMedicalVocabularyCommandOutput> {
     return deserializeAws_json1_1UpdateMedicalVocabularyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSentimentDetectionJobsCommand}.
  */
 export interface ListSentimentDetectionJobsCommandInput extends ListSentimentDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSentimentDetectionJobsCommand}.
  */
 export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDetectionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of sentiment detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSentimentDetectionJobsCommandInput - {@link ListSentimentDetectionJobsCommandInput}
+ * @returns {@link ListSentimentDetectionJobsCommandOutput}
  * @see {@link ListSentimentDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListSentimentDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListSentimentDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSentimentDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListSentimentDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSentimentDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSentimentDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to create a dataset. A dataset stores data retrieved from a data store by applying a
  *         <code>queryAction</code> (a SQL query) or a <code>containerAction</code> (executing a
  *       containerized application). This operation creates the skeleton of a dataset. The dataset can
@@ -50,6 +55,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
+ * @returns {@link CreateDatasetCommandOutput}
  * @see {@link CreateDatasetCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
     return deserializeAws_restJson1CreateDatasetCommand(output, context);
   }

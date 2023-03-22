@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotAliasCommand}.
  */
 export interface GetBotAliasCommandInput extends GetBotAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotAliasCommand}.
  */
 export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an Amazon Lex bot alias. For more information
  *       about aliases, see <a>versioning-aliases</a>.</p>
  *          <p>This operation requires permissions for the
@@ -53,6 +58,8 @@ export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotAliasCommandInput - {@link GetBotAliasCommandInput}
+ * @returns {@link GetBotAliasCommandOutput}
  * @see {@link GetBotAliasCommandInput} for command's `input` shape.
  * @see {@link GetBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotAliasCommandOutput> {
     return deserializeAws_restJson1GetBotAliasCommand(output, context);
   }

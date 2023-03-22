@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelExportTaskCommand}.
  */
 export interface CancelExportTaskCommandInput extends CancelExportTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelExportTaskCommand}.
  */
 export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an active export task. The request removes all artifacts of the export, including any partially-created
  *    Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the
  *    command fails and returns an error.</p>
@@ -43,6 +48,8 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
+ * @returns {@link CancelExportTaskCommandOutput}
  * @see {@link CancelExportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -66,6 +73,9 @@ export class CancelExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class CancelExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelExportTaskCommandOutput> {
     return deserializeAws_ec2CancelExportTaskCommand(output, context);
   }

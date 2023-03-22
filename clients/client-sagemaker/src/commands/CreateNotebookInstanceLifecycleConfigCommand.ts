@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNotebookInstanceLifecycleConfigCommand}.
  */
 export interface CreateNotebookInstanceLifecycleConfigCommandInput extends CreateNotebookInstanceLifecycleConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateNotebookInstanceLifecycleConfigCommand}.
  */
 export interface CreateNotebookInstanceLifecycleConfigCommandOutput
@@ -37,6 +41,7 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a lifecycle configuration that you can associate with a notebook instance. A
  *                 <i>lifecycle configuration</i> is a collection of shell scripts that
  *             run when you create or start a notebook instance.</p>
@@ -61,6 +66,8 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNotebookInstanceLifecycleConfigCommandInput - {@link CreateNotebookInstanceLifecycleConfigCommandInput}
+ * @returns {@link CreateNotebookInstanceLifecycleConfigCommandOutput}
  * @see {@link CreateNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link CreateNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNotebookInstanceLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
     return serializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

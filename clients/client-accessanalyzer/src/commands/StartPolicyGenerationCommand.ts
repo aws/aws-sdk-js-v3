@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartPolicyGenerationCommand}.
  */
 export interface StartPolicyGenerationCommandInput extends StartPolicyGenerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartPolicyGenerationCommand}.
  */
 export interface StartPolicyGenerationCommandOutput extends StartPolicyGenerationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the policy generation request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * const response = await client.send(command);
  * ```
  *
+ * @param StartPolicyGenerationCommandInput - {@link StartPolicyGenerationCommandInput}
+ * @returns {@link StartPolicyGenerationCommandOutput}
  * @see {@link StartPolicyGenerationCommandInput} for command's `input` shape.
  * @see {@link StartPolicyGenerationCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartPolicyGenerationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartPolicyGenerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartPolicyGenerationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartPolicyGenerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartPolicyGenerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPolicyGenerationCommandOutput> {
     return deserializeAws_restJson1StartPolicyGenerationCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEmergencyContactSettingsCommand}.
  */
 export interface UpdateEmergencyContactSettingsCommandInput extends UpdateEmergencyContactSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEmergencyContactSettingsCommand}.
  */
 export interface UpdateEmergencyContactSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateEmergencyContactSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of the list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateEmergencyContactSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEmergencyContactSettingsCommandInput - {@link UpdateEmergencyContactSettingsCommandInput}
+ * @returns {@link UpdateEmergencyContactSettingsCommandOutput}
  * @see {@link UpdateEmergencyContactSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateEmergencyContactSettingsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEmergencyContactSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateEmergencyContactSettingsCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     return serializeAws_json1_1UpdateEmergencyContactSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

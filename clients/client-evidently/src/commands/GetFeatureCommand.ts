@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFeatureCommand}.
  */
 export interface GetFeatureCommandInput extends GetFeatureRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFeatureCommand}.
  */
 export interface GetFeatureCommandOutput extends GetFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details about one feature. You must already know the feature name. To
  *       retrieve a list of features in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html">ListFeatures</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetFeatureCommandOutput extends GetFeatureResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFeatureCommandInput - {@link GetFeatureCommandInput}
+ * @returns {@link GetFeatureCommandOutput}
  * @see {@link GetFeatureCommandInput} for command's `input` shape.
  * @see {@link GetFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFeatureCommandOutput> {
     return deserializeAws_restJson1GetFeatureCommand(output, context);
   }

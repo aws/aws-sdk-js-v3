@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProvisioningTemplateCommand}.
  */
 export interface UpdateProvisioningTemplateCommandInput extends UpdateProvisioningTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProvisioningTemplateCommand}.
  */
 export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProvisioningTemplateCommandInput - {@link UpdateProvisioningTemplateCommandInput}
+ * @returns {@link UpdateProvisioningTemplateCommandOutput}
  * @see {@link UpdateProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateProvisioningTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProvisioningTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateProvisioningTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProvisioningTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProvisioningTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

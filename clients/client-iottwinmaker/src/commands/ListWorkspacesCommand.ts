@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkspacesCommand}.
  */
 export interface ListWorkspacesCommandInput extends ListWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkspacesCommand}.
  */
 export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about workspaces in the current account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkspacesCommandInput - {@link ListWorkspacesCommandInput}
+ * @returns {@link ListWorkspacesCommandOutput}
  * @see {@link ListWorkspacesCommandInput} for command's `input` shape.
  * @see {@link ListWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkspacesCommandOutput> {
     return deserializeAws_restJson1ListWorkspacesCommand(output, context);
   }

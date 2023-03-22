@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateConfigurationItemsToApplicationCommand}.
  */
 export interface AssociateConfigurationItemsToApplicationCommandInput
   extends AssociateConfigurationItemsToApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateConfigurationItemsToApplicationCommand}.
  */
 export interface AssociateConfigurationItemsToApplicationCommandOutput
@@ -42,6 +46,7 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates one or more configuration items with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateConfigurationItemsToApplicationCommandInput - {@link AssociateConfigurationItemsToApplicationCommandInput}
+ * @returns {@link AssociateConfigurationItemsToApplicationCommandOutput}
  * @see {@link AssociateConfigurationItemsToApplicationCommandInput} for command's `input` shape.
  * @see {@link AssociateConfigurationItemsToApplicationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -93,6 +100,9 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateConfigurationItemsToApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateConfigurationItemsToApplicationCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     return serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

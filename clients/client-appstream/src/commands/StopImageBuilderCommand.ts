@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopImageBuilderCommand}.
  */
 export interface StopImageBuilderCommandInput extends StopImageBuilderRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopImageBuilderCommand}.
  */
 export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the specified image builder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StopImageBuilderCommandInput - {@link StopImageBuilderCommandInput}
+ * @returns {@link StopImageBuilderCommandOutput}
  * @see {@link StopImageBuilderCommandInput} for command's `input` shape.
  * @see {@link StopImageBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +85,9 @@ export class StopImageBuilderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopImageBuilderCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class StopImageBuilderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopImageBuilderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopImageBuilderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopImageBuilderCommandOutput> {
     return deserializeAws_json1_1StopImageBuilderCommand(output, context);
   }

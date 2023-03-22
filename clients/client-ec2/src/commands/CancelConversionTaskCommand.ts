@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelConversionTaskCommand}.
  */
 export interface CancelConversionTaskCommandInput extends CancelConversionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelConversionTaskCommand}.
  */
 export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all
  *    artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is
  *    in the process of transferring the final disk image, the command fails and returns an exception.</p>
@@ -45,6 +50,8 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelConversionTaskCommandInput - {@link CancelConversionTaskCommandInput}
+ * @returns {@link CancelConversionTaskCommandOutput}
  * @see {@link CancelConversionTaskCommandInput} for command's `input` shape.
  * @see {@link CancelConversionTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class CancelConversionTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelConversionTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class CancelConversionTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelConversionTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelConversionTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelConversionTaskCommandOutput> {
     return deserializeAws_ec2CancelConversionTaskCommand(output, context);
   }

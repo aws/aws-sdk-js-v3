@@ -10,7 +10,7 @@ import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRoutingProfilesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRoutingProfiles(
   config: ConnectPaginationConfiguration,
   input: ListRoutingProfilesCommandInput,

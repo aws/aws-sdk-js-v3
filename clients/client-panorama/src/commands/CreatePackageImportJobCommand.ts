@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePackageImportJobCommand}.
  */
 export interface CreatePackageImportJobCommandInput extends CreatePackageImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePackageImportJobCommand}.
  */
 export interface CreatePackageImportJobCommandOutput extends CreatePackageImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a node package.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePackageImportJobCommandInput - {@link CreatePackageImportJobCommandInput}
+ * @returns {@link CreatePackageImportJobCommandOutput}
  * @see {@link CreatePackageImportJobCommandInput} for command's `input` shape.
  * @see {@link CreatePackageImportJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreatePackageImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePackageImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreatePackageImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePackageImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePackageImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePackageImportJobCommandOutput> {
     return deserializeAws_restJson1CreatePackageImportJobCommand(output, context);
   }

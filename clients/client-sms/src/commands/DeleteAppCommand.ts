@@ -23,15 +23,20 @@ import { deserializeAws_json1_1DeleteAppCommand, serializeAws_json1_1DeleteAppCo
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandInput extends DeleteAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified application. Optionally deletes the launched stack associated with
  *             the application and all Server Migration Service replication jobs for servers in the application.</p>
  * @example
@@ -44,6 +49,8 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
+ * @returns {@link DeleteAppCommandOutput}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppCommandOutput> {
     return deserializeAws_json1_1DeleteAppCommand(output, context);
   }

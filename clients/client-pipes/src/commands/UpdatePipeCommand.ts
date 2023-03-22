@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipeCommand}.
  */
 export interface UpdatePipeCommandInput extends UpdatePipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipeCommand}.
  */
 export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an existing pipe. When you call <code>UpdatePipe</code>, only the fields that are included in the request are changed, the rest are unchanged.
  *          The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or
  *          <code>TargetParameters</code> objects. The fields in these objects are updated atomically as one and override existing values. This is by design and means that
@@ -51,6 +56,8 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipeCommandInput - {@link UpdatePipeCommandInput}
+ * @returns {@link UpdatePipeCommandOutput}
  * @see {@link UpdatePipeCommandInput} for command's `input` shape.
  * @see {@link UpdatePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdatePipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdatePipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipeCommandOutput> {
     return deserializeAws_restJson1UpdatePipeCommand(output, context);
   }

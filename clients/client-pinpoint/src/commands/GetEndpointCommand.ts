@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEndpointCommand}.
  */
 export interface GetEndpointCommandInput extends GetEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEndpointCommand}.
  */
 export interface GetEndpointCommandOutput extends GetEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the settings and attributes of a specific endpoint for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEndpointCommandInput - {@link GetEndpointCommandInput}
+ * @returns {@link GetEndpointCommandOutput}
  * @see {@link GetEndpointCommandInput} for command's `input` shape.
  * @see {@link GetEndpointCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEndpointCommandOutput> {
     return deserializeAws_restJson1GetEndpointCommand(output, context);
   }

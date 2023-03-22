@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTranscriptionJobCommand}.
  */
 export interface DeleteTranscriptionJobCommandInput extends DeleteTranscriptionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTranscriptionJobCommand}.
  */
 export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a transcription job. To use this operation, specify the name of the job you
  *             want to delete using <code>TranscriptionJobName</code>. Job names are case
  *             sensitive.</p>
@@ -43,6 +48,8 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTranscriptionJobCommandInput - {@link DeleteTranscriptionJobCommandInput}
+ * @returns {@link DeleteTranscriptionJobCommandOutput}
  * @see {@link DeleteTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link DeleteTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteTranscriptionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteTranscriptionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTranscriptionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTranscriptionJobCommandOutput> {
     return deserializeAws_json1_1DeleteTranscriptionJobCommand(output, context);
   }

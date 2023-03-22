@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThemeCommand}.
  */
 export interface DeleteThemeCommandInput extends DeleteThemeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThemeCommand}.
  */
 export interface DeleteThemeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a theme from an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteThemeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThemeCommandInput - {@link DeleteThemeCommandInput}
+ * @returns {@link DeleteThemeCommandOutput}
  * @see {@link DeleteThemeCommandInput} for command's `input` shape.
  * @see {@link DeleteThemeCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteThemeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteThemeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteThemeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThemeCommandOutput> {
     return deserializeAws_restJson1DeleteThemeCommand(output, context);
   }

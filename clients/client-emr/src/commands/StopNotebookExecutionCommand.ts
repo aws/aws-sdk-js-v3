@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopNotebookExecutionCommand}.
  */
 export interface StopNotebookExecutionCommandInput extends StopNotebookExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StopNotebookExecutionCommand}.
  */
 export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a notebook execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopNotebookExecutionCommandInput - {@link StopNotebookExecutionCommandInput}
+ * @returns {@link StopNotebookExecutionCommandOutput}
  * @see {@link StopNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link StopNotebookExecutionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -71,6 +78,9 @@ export class StopNotebookExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopNotebookExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class StopNotebookExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopNotebookExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopNotebookExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopNotebookExecutionCommandOutput> {
     return deserializeAws_json1_1StopNotebookExecutionCommand(output, context);
   }

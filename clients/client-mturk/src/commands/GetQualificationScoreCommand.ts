@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQualificationScoreCommand}.
  */
 export interface GetQualificationScoreCommandInput extends GetQualificationScoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQualificationScoreCommand}.
  */
 export interface GetQualificationScoreCommandOutput extends GetQualificationScoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>GetQualificationScore</code>
@@ -59,6 +64,8 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQualificationScoreCommandInput - {@link GetQualificationScoreCommandInput}
+ * @returns {@link GetQualificationScoreCommandOutput}
  * @see {@link GetQualificationScoreCommandInput} for command's `input` shape.
  * @see {@link GetQualificationScoreCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetQualificationScoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQualificationScoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetQualificationScoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQualificationScoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetQualificationScoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQualificationScoreCommandOutput> {
     return deserializeAws_json1_1GetQualificationScoreCommand(output, context);
   }

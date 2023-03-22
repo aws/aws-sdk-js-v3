@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIdentityCommand}.
  */
 export interface DeleteIdentityCommandInput extends DeleteIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIdentityCommand}.
  */
 export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified identity (an email address or a domain) from the list of
  *             verified identities.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -48,6 +53,8 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentityCommandInput - {@link DeleteIdentityCommandInput}
+ * @returns {@link DeleteIdentityCommandOutput}
  * @see {@link DeleteIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityCommandOutput> {
     return deserializeAws_queryDeleteIdentityCommand(output, context);
   }

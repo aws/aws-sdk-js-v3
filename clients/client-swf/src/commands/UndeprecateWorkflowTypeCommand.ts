@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UndeprecateWorkflowTypeCommand}.
  */
 export interface UndeprecateWorkflowTypeCommandInput extends UndeprecateWorkflowTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link UndeprecateWorkflowTypeCommand}.
  */
 export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Undeprecates a previously deprecated <i>workflow type</i>. After a workflow type has
  *       been undeprecated, you can create new executions of that type. </p>
  *          <note>
@@ -82,6 +87,8 @@ export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param UndeprecateWorkflowTypeCommandInput - {@link UndeprecateWorkflowTypeCommandInput}
+ * @returns {@link UndeprecateWorkflowTypeCommandOutput}
  * @see {@link UndeprecateWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link UndeprecateWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -114,6 +121,9 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UndeprecateWorkflowTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UndeprecateWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UndeprecateWorkflowTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateWorkflowTypeCommandOutput> {
     return deserializeAws_json1_0UndeprecateWorkflowTypeCommand(output, context);
   }

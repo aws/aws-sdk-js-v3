@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReturnShippingLabelCommand}.
  */
 export interface CreateReturnShippingLabelCommandInput extends CreateReturnShippingLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReturnShippingLabelCommand}.
  */
 export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShippingLabelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a shipping label that will be used to return the Snow device to Amazon Web Services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReturnShippingLabelCommandInput - {@link CreateReturnShippingLabelCommandInput}
+ * @returns {@link CreateReturnShippingLabelCommandOutput}
  * @see {@link CreateReturnShippingLabelCommandInput} for command's `input` shape.
  * @see {@link CreateReturnShippingLabelCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateReturnShippingLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReturnShippingLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateReturnShippingLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReturnShippingLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateReturnShippingLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTemplateSyncConfigCommand}.
  */
 export interface DeleteTemplateSyncConfigCommandInput extends DeleteTemplateSyncConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTemplateSyncConfigCommand}.
  */
 export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a template sync configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTemplateSyncConfigCommandInput - {@link DeleteTemplateSyncConfigCommandInput}
+ * @returns {@link DeleteTemplateSyncConfigCommandOutput}
  * @see {@link DeleteTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteTemplateSyncConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTemplateSyncConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteTemplateSyncConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTemplateSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteTemplateSyncConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTemplateSyncConfigCommandOutput> {
     return deserializeAws_json1_0DeleteTemplateSyncConfigCommand(output, context);
   }

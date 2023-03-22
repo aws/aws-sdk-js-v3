@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySnapshotCopyRetentionPeriodCommand}.
  */
 export interface ModifySnapshotCopyRetentionPeriodCommandInput extends ModifySnapshotCopyRetentionPeriodMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifySnapshotCopyRetentionPeriodCommand}.
  */
 export interface ModifySnapshotCopyRetentionPeriodCommandOutput
@@ -37,6 +41,7 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after
  *             they are copied from the source Amazon Web Services Region. By default, this operation only changes the
  *             retention period of copied automated snapshots. The retention periods for both new and
@@ -54,6 +59,8 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySnapshotCopyRetentionPeriodCommandInput - {@link ModifySnapshotCopyRetentionPeriodCommandInput}
+ * @returns {@link ModifySnapshotCopyRetentionPeriodCommandOutput}
  * @see {@link ModifySnapshotCopyRetentionPeriodCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotCopyRetentionPeriodCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -95,6 +102,9 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySnapshotCopyRetentionPeriodCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifySnapshotCopyRetentionPeriodCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     return serializeAws_queryModifySnapshotCopyRetentionPeriodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

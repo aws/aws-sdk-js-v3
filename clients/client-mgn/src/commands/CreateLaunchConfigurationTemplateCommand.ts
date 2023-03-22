@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLaunchConfigurationTemplateCommand}.
  */
 export interface CreateLaunchConfigurationTemplateCommandInput extends CreateLaunchConfigurationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLaunchConfigurationTemplateCommand}.
  */
 export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchConfigurationTemplate, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Launch Configuration Template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLaunchConfigurationTemplateCommandInput - {@link CreateLaunchConfigurationTemplateCommandInput}
+ * @returns {@link CreateLaunchConfigurationTemplateCommandOutput}
  * @see {@link CreateLaunchConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLaunchConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateLaunchConfigurationTemplateCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
     return serializeAws_restJson1CreateLaunchConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

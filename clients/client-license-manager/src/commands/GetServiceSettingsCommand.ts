@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceSettingsCommand}.
  */
 export interface GetServiceSettingsCommandInput extends GetServiceSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceSettingsCommand}.
  */
 export interface GetServiceSettingsCommandOutput extends GetServiceSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the License Manager settings for the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceSettingsCommandInput - {@link GetServiceSettingsCommandInput}
+ * @returns {@link GetServiceSettingsCommandOutput}
  * @see {@link GetServiceSettingsCommandInput} for command's `input` shape.
  * @see {@link GetServiceSettingsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetServiceSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetServiceSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetServiceSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceSettingsCommandOutput> {
     return deserializeAws_json1_1GetServiceSettingsCommand(output, context);
   }

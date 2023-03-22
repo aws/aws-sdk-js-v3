@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGameSessionCommand}.
  */
 export interface CreateGameSessionCommandInput extends CreateGameSessionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateGameSessionCommand}.
  */
 export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a multiplayer game session for players in a specific fleet location. This
  *             operation prompts an available server process to start a game session and retrieves
  *             connection information for the new game session. As an alternative, consider using the
@@ -86,6 +91,8 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGameSessionCommandInput - {@link CreateGameSessionCommandInput}
+ * @returns {@link CreateGameSessionCommandOutput}
  * @see {@link CreateGameSessionCommandInput} for command's `input` shape.
  * @see {@link CreateGameSessionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -156,6 +163,9 @@ export class CreateGameSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGameSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -195,10 +205,16 @@ export class CreateGameSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGameSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGameSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGameSessionCommandOutput> {
     return deserializeAws_json1_1CreateGameSessionCommand(output, context);
   }

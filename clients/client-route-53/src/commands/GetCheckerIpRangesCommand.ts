@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetCheckerIpRangesCommand}.
  */
 export interface GetCheckerIpRangesCommandInput extends GetCheckerIpRangesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCheckerIpRangesCommand}.
  */
 export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Route 53 does not perform authorization for this API because it retrieves information
  * 			that is already available to the public.</p>
  *          <important>
@@ -55,6 +60,8 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCheckerIpRangesCommandInput - {@link GetCheckerIpRangesCommandInput}
+ * @returns {@link GetCheckerIpRangesCommandOutput}
  * @see {@link GetCheckerIpRangesCommandInput} for command's `input` shape.
  * @see {@link GetCheckerIpRangesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -78,6 +85,9 @@ export class GetCheckerIpRangesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCheckerIpRangesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetCheckerIpRangesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCheckerIpRangesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetCheckerIpRangesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCheckerIpRangesCommandOutput> {
     return deserializeAws_restXmlGetCheckerIpRangesCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CodeGuruReviewerServiceException as __BaseException } from "./CodeGuruReviewerServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,17 +25,24 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AnalysisType {
   CODE_QUALITY = "CodeQuality",
   SECURITY = "Security",
 }
 
+/**
+ * @public
+ */
 export enum EncryptionOption {
   AoCmk = "AWS_OWNED_CMK",
   CmCmk = "CUSTOMER_MANAGED_CMK",
 }
 
 /**
+ * @public
  * <p>An object that contains:</p>
  *          <ul>
  *             <li>
@@ -63,6 +71,7 @@ export interface KMSKeyDetails {
 }
 
 /**
+ * @public
  * <p>Information about a third-party source repository connected to CodeGuru Reviewer.</p>
  */
 export interface ThirdPartySourceRepository {
@@ -85,6 +94,7 @@ export interface ThirdPartySourceRepository {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon Web Services CodeCommit repository. The CodeCommit repository must be in
  *          the same Amazon Web Services Region and Amazon Web Services account where its CodeGuru Reviewer code reviews are
  *          configured.</p>
@@ -98,6 +108,7 @@ export interface CodeCommitRepository {
 }
 
 /**
+ * @public
  * <p>Information about a repository in an S3 bucket.</p>
  */
 export interface S3Repository {
@@ -113,6 +124,7 @@ export interface S3Repository {
 }
 
 /**
+ * @public
  * <p>Information about an associated Amazon Web Services CodeCommit repository or an associated repository
  *          that is managed by Amazon Web Services CodeStar Connections (for example, Bitbucket). This
  *             <code>Repository</code> object is not used if your source code is in an associated
@@ -140,6 +152,9 @@ export interface Repository {
   S3Bucket?: S3Repository;
 }
 
+/**
+ * @public
+ */
 export interface AssociateRepositoryRequest {
   /**
    * <p>The repository to associate.</p>
@@ -187,6 +202,9 @@ export interface AssociateRepositoryRequest {
   KMSKeyDetails?: KMSKeyDetails;
 }
 
+/**
+ * @public
+ */
 export enum ProviderType {
   BITBUCKET = "Bitbucket",
   CODE_COMMIT = "CodeCommit",
@@ -196,6 +214,7 @@ export enum ProviderType {
 }
 
 /**
+ * @public
  * <p>Code artifacts are source code artifacts and build artifacts used in a repository
  *          analysis or a pull request review.</p>
  *          <ul>
@@ -226,6 +245,7 @@ export interface CodeArtifacts {
 }
 
 /**
+ * @public
  * <p>Specifies the name of an S3 bucket and a <code>CodeArtifacts</code> object that contains
  *          the S3 object keys for a source code .zip file and for a build artifacts .zip file that
  *          contains .jar or .class files.</p>
@@ -244,6 +264,9 @@ export interface S3RepositoryDetails {
   CodeArtifacts?: CodeArtifacts;
 }
 
+/**
+ * @public
+ */
 export enum RepositoryAssociationState {
   ASSOCIATED = "Associated",
   ASSOCIATING = "Associating",
@@ -253,6 +276,7 @@ export enum RepositoryAssociationState {
 }
 
 /**
+ * @public
  * <p>Information about a repository association. The <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeRepositoryAssociation.html">DescribeRepositoryAssociation</a> operation returns a
  *             <code>RepositoryAssociation</code> object.</p>
  */
@@ -370,6 +394,9 @@ export interface RepositoryAssociation {
   S3RepositoryDetails?: S3RepositoryDetails;
 }
 
+/**
+ * @public
+ */
 export interface AssociateRepositoryResponse {
   /**
    * <p>Information about the repository association.</p>
@@ -396,6 +423,7 @@ export interface AssociateRepositoryResponse {
 }
 
 /**
+ * @public
  * <p>The requested operation would cause a conflict with the current state of a service
  *          resource associated with the request. Resolve the conflict before retrying this request.
  *       </p>
@@ -419,6 +447,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The server encountered an internal error and is unable to complete the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -440,6 +469,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -461,6 +491,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the specified constraints.</p>
  */
 export class ValidationException extends __BaseException {
@@ -482,6 +513,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that specifies the tip of a branch in an associated
  *          repository.</p>
  */
@@ -494,6 +526,7 @@ export interface RepositoryHeadSourceCodeType {
 }
 
 /**
+ * @public
  * <p>A type of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that
  *          specifies a code diff between a source and destination branch in an associated
  *          repository.</p>
@@ -511,6 +544,7 @@ export interface BranchDiffSourceCodeType {
 }
 
 /**
+ * @public
  * <p>A type of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that
  *          specifies the commit diff for a pull request on an associated repository. The
  *             <code>SourceCommit</code> and <code>DestinationCommit</code> fields are required to do a
@@ -536,6 +570,7 @@ export interface CommitDiffSourceCodeType {
 }
 
 /**
+ * @public
  * <p>Information about an event. The event might be a push, pull request, scheduled request,
  *          or another type of event.</p>
  */
@@ -553,6 +588,9 @@ export interface EventInfo {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export enum VendorName {
   GITHUB = "GitHub",
   GITLAB = "GitLab",
@@ -560,6 +598,7 @@ export enum VendorName {
 }
 
 /**
+ * @public
  * <p>Metadata that is associated with a code review. This applies to both pull request and
  *          repository analysis code reviews.</p>
  */
@@ -592,6 +631,7 @@ export interface RequestMetadata {
 }
 
 /**
+ * @public
  * <p>Information about an associated repository in an S3 bucket. The associated repository
  *          contains a source code .zip file and a build artifacts .zip file that contains .jar or
  *          .class files.</p>
@@ -610,6 +650,7 @@ export interface S3BucketRepository {
 }
 
 /**
+ * @public
  * <p>Specifies the source code that is analyzed in a code review.</p>
  */
 export interface SourceCodeType {
@@ -647,6 +688,7 @@ export interface SourceCodeType {
 }
 
 /**
+ * @public
  * <p>A code review type that analyzes all code under a specified branch in an associated
  *          repository. The associated repository is specified using its ARN when you call <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">CreateCodeReview</a>.</p>
  */
@@ -664,6 +706,7 @@ export interface RepositoryAnalysis {
 }
 
 /**
+ * @public
  * <p>The type of a code review. There are two code review types:</p>
  *          <ul>
  *             <li>
@@ -693,6 +736,9 @@ export interface CodeReviewType {
   AnalysisTypes?: (AnalysisType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCodeReviewRequest {
   /**
    * <p>The name of the code review. The name of each code review in your Amazon Web Services account must be
@@ -720,6 +766,9 @@ export interface CreateCodeReviewRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ConfigFileState {
   ABSENT = "Absent",
   PRESENT = "Present",
@@ -727,6 +776,7 @@ export enum ConfigFileState {
 }
 
 /**
+ * @public
  * <p>Information about the statistics from the code review.</p>
  */
 export interface Metrics {
@@ -754,6 +804,9 @@ export interface Metrics {
   FindingsCount?: number;
 }
 
+/**
+ * @public
+ */
 export enum JobState {
   COMPLETED = "Completed",
   DELETING = "Deleting",
@@ -761,12 +814,16 @@ export enum JobState {
   PENDING = "Pending",
 }
 
+/**
+ * @public
+ */
 export enum Type {
   PULL_REQUEST = "PullRequest",
   REPOSITORY_ANALYSIS = "RepositoryAnalysis",
 }
 
 /**
+ * @public
  * <p>Information about a code review. A code review belongs to the associated repository that
  *          contains the reviewed code.</p>
  */
@@ -878,6 +935,9 @@ export interface CodeReview {
   ConfigFileState?: ConfigFileState | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCodeReviewResponse {
   /**
    * <p>Information about a code review. A code review belongs to the associated repository that
@@ -887,6 +947,7 @@ export interface CreateCodeReviewResponse {
 }
 
 /**
+ * @public
  * <p> The resource specified in the request was not found. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -907,6 +968,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeCodeReviewRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
@@ -915,6 +979,9 @@ export interface DescribeCodeReviewRequest {
   CodeReviewArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCodeReviewResponse {
   /**
    * <p>Information about the code review.</p>
@@ -922,6 +989,9 @@ export interface DescribeCodeReviewResponse {
   CodeReview?: CodeReview;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommendationFeedbackRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
@@ -946,12 +1016,16 @@ export interface DescribeRecommendationFeedbackRequest {
   UserId?: string;
 }
 
+/**
+ * @public
+ */
 export enum Reaction {
   THUMBS_DOWN = "ThumbsDown",
   THUMBS_UP = "ThumbsUp",
 }
 
 /**
+ * @public
  * <p>Information about the recommendation feedback.</p>
  */
 export interface RecommendationFeedback {
@@ -993,6 +1067,9 @@ export interface RecommendationFeedback {
   LastUpdatedTimeStamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommendationFeedbackResponse {
   /**
    * <p>The recommendation feedback given by the user.</p>
@@ -1000,6 +1077,9 @@ export interface DescribeRecommendationFeedbackResponse {
   RecommendationFeedback?: RecommendationFeedback;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRepositoryAssociationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
@@ -1007,6 +1087,9 @@ export interface DescribeRepositoryAssociationRequest {
   AssociationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRepositoryAssociationResponse {
   /**
    * <p>Information about the repository association.</p>
@@ -1033,6 +1116,7 @@ export interface DescribeRepositoryAssociationResponse {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request was not found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -1053,6 +1137,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisassociateRepositoryRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
@@ -1060,6 +1147,9 @@ export interface DisassociateRepositoryRequest {
   AssociationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateRepositoryResponse {
   /**
    * <p>Information about the disassociated repository.</p>
@@ -1085,6 +1175,9 @@ export interface DisassociateRepositoryResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListCodeReviewsRequest {
   /**
    * <p>List of provider types for filtering that needs to be applied before displaying the
@@ -1144,6 +1237,7 @@ export interface ListCodeReviewsRequest {
 }
 
 /**
+ * @public
  * <p>Information about metrics summaries.</p>
  */
 export interface MetricsSummary {
@@ -1186,6 +1280,7 @@ export interface MetricsSummary {
 }
 
 /**
+ * @public
  * <p>Information about the summary of the code review.</p>
  */
 export interface CodeReviewSummary {
@@ -1272,6 +1367,9 @@ export interface CodeReviewSummary {
   SourceCodeType?: SourceCodeType;
 }
 
+/**
+ * @public
+ */
 export interface ListCodeReviewsResponse {
   /**
    * <p>A list of code reviews that meet the criteria of the request.</p>
@@ -1284,6 +1382,9 @@ export interface ListCodeReviewsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecommendationFeedbackRequest {
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -1321,6 +1422,7 @@ export interface ListRecommendationFeedbackRequest {
 }
 
 /**
+ * @public
  * <p>Information about recommendation feedback summaries.</p>
  */
 export interface RecommendationFeedbackSummary {
@@ -1345,6 +1447,9 @@ export interface RecommendationFeedbackSummary {
   UserId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecommendationFeedbackResponse {
   /**
    * <p>Recommendation feedback summaries corresponding to the code review ARN.</p>
@@ -1360,6 +1465,9 @@ export interface ListRecommendationFeedbackResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecommendationsRequest {
   /**
    * <p>Pagination token.</p>
@@ -1378,6 +1486,9 @@ export interface ListRecommendationsRequest {
   CodeReviewArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RecommendationCategory {
   AWS_BEST_PRACTICES = "AWSBestPractices",
   AWS_CLOUDFORMATION_ISSUES = "AWSCloudFormationIssues",
@@ -1393,6 +1504,7 @@ export enum RecommendationCategory {
 }
 
 /**
+ * @public
  * <p>Metadata about a rule. Rule metadata includes an ID, a name, a list of tags, and a short and long description. CodeGuru Reviewer uses rules to analyze code. A rule's recommendation is included in analysis results if code is detected that violates the rule.</p>
  */
 export interface RuleMetadata {
@@ -1422,6 +1534,9 @@ export interface RuleMetadata {
   RuleTags?: string[];
 }
 
+/**
+ * @public
+ */
 export enum Severity {
   CRITICAL = "Critical",
   HIGH = "High",
@@ -1431,6 +1546,7 @@ export enum Severity {
 }
 
 /**
+ * @public
  * <p>Information about recommendations.</p>
  */
 export interface RecommendationSummary {
@@ -1479,6 +1595,9 @@ export interface RecommendationSummary {
   Severity?: Severity | string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecommendationsResponse {
   /**
    * <p>List of recommendations for the requested code review.</p>
@@ -1491,6 +1610,9 @@ export interface ListRecommendationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoryAssociationsRequest {
   /**
    * <p>List of provider types to use as a filter.</p>
@@ -1576,6 +1698,7 @@ export interface ListRepositoryAssociationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a repository association. The <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a> operation returns a list of
  *             <code>RepositoryAssociationSummary</code> objects.</p>
  */
@@ -1659,6 +1782,9 @@ export interface RepositoryAssociationSummary {
   State?: RepositoryAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListRepositoryAssociationsResponse {
   /**
    * <p>A list of repository associations that meet the criteria of the request.</p>
@@ -1674,6 +1800,9 @@ export interface ListRepositoryAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
@@ -1681,6 +1810,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
@@ -1701,6 +1833,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutRecommendationFeedbackRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
@@ -1721,8 +1856,14 @@ export interface PutRecommendationFeedbackRequest {
   Reactions: (Reaction | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRecommendationFeedbackResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
@@ -1748,8 +1889,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
@@ -1762,6 +1909,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

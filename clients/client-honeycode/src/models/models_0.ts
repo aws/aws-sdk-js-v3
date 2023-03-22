@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { HoneycodeServiceException as __BaseException } from "./HoneycodeServiceException";
 
 /**
+ * @public
  * <p>
  *             You do not have sufficient access to perform this action. Check that the workbook is owned by you and your
  *             IAM policy allows access to the resource in the request.
@@ -26,6 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The automation execution did not end successfully.</p>
  */
 export class AutomationExecutionException extends __BaseException {
@@ -45,6 +47,7 @@ export class AutomationExecutionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The automation execution timed out.</p>
  */
 export class AutomationExecutionTimeoutException extends __BaseException {
@@ -64,6 +67,7 @@ export class AutomationExecutionTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             CellInput object contains the data needed to create or update cells in a table.
  *         </p>
@@ -93,6 +97,7 @@ export interface CellInput {
 }
 
 /**
+ * @public
  * <p>
  *             Data needed to create a single row in a table as part of the BatchCreateTableRows request.
  *         </p>
@@ -117,6 +122,9 @@ export interface CreateRowData {
   cellsToCreate: Record<string, CellInput> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateTableRowsRequest {
   /**
    * <p>The ID of the workbook where the new rows are being added.</p>
@@ -164,6 +172,7 @@ export interface BatchCreateTableRowsRequest {
 }
 
 /**
+ * @public
  * <p>
  *             A single item in a batch that failed to perform the intended action because of an error preventing it from
  *             succeeding.
@@ -187,6 +196,9 @@ export interface FailedBatchItem {
   errorMessage: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateTableRowsResult {
   /**
    * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
@@ -209,6 +221,7 @@ export interface BatchCreateTableRowsResult {
 }
 
 /**
+ * @public
  * <p>There were unexpected errors from the server.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -228,6 +241,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request timed out.</p>
  */
 export class RequestTimeoutException extends __BaseException {
@@ -247,6 +261,7 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A Workbook, Table, App, Screen or Screen Automation was not found with the given ID.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -266,6 +281,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             The request caused service quota to be breached.
  *         </p>
@@ -287,6 +303,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Remote service is unreachable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -306,6 +323,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Tps(transactions per second) rate reached.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -325,6 +343,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
@@ -345,6 +364,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableRowsRequest {
   /**
    * <p>The ID of the workbook where the rows are being deleted.</p>
@@ -389,6 +411,9 @@ export interface BatchDeleteTableRowsRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteTableRowsResult {
   /**
    * <p>The updated workbook cursor after deleting the rows from the table.</p>
@@ -406,6 +431,7 @@ export interface BatchDeleteTableRowsResult {
 }
 
 /**
+ * @public
  * <p>
  *             Data needed to create a single row in a table as part of the BatchCreateTableRows request.
  *         </p>
@@ -427,6 +453,9 @@ export interface UpdateRowData {
   cellsToUpdate: Record<string, CellInput> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateTableRowsRequest {
   /**
    * <p>The ID of the workbook where the rows are being updated.</p>
@@ -474,6 +503,9 @@ export interface BatchUpdateTableRowsRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateTableRowsResult {
   /**
    * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
@@ -491,6 +523,7 @@ export interface BatchUpdateTableRowsResult {
 }
 
 /**
+ * @public
  * <p>
  *             An object that represents a filter formula along with the id of the context row under which the filter
  *             function needs to evaluate.
@@ -519,6 +552,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>
  *             Data needed to upsert rows in a table as part of a single item in the BatchUpsertTableRows request.
  *         </p>
@@ -558,6 +592,9 @@ export interface UpsertRowData {
   cellsToUpdate: Record<string, CellInput> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpsertTableRowsRequest {
   /**
    * <p>The ID of the workbook where the rows are being upserted.</p>
@@ -606,12 +643,16 @@ export interface BatchUpsertTableRowsRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum UpsertAction {
   Appended = "APPENDED",
   Updated = "UPDATED",
 }
 
 /**
+ * @public
  * <p>
  *             An object that represents the result of a single upsert row request.
  *         </p>
@@ -634,6 +675,9 @@ export interface UpsertRowsResult {
   upsertAction: UpsertAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpsertTableRowsResult {
   /**
    * <p>
@@ -659,6 +703,9 @@ export interface BatchUpsertTableRowsResult {
   failedBatchItems?: FailedBatchItem[];
 }
 
+/**
+ * @public
+ */
 export enum Format {
   Accounting = "ACCOUNTING",
   Auto = "AUTO",
@@ -675,6 +722,7 @@ export enum Format {
 }
 
 /**
+ * @public
  * <p>An object that represents a single cell in a table.</p>
  */
 export interface Cell {
@@ -771,6 +819,7 @@ export interface Cell {
 }
 
 /**
+ * @public
  * <p>Metadata for column in the table.</p>
  */
 export interface ColumnMetadata {
@@ -786,6 +835,7 @@ export interface ColumnMetadata {
 }
 
 /**
+ * @public
  * <p>The data in a particular data cell defined on the screen.</p>
  */
 export interface DataItem {
@@ -808,6 +858,9 @@ export interface DataItem {
   formattedValue?: string;
 }
 
+/**
+ * @public
+ */
 export enum ImportDataCharacterEncoding {
   ISO_8859_1 = "ISO-8859-1",
   US_ASCII = "US-ASCII",
@@ -818,6 +871,7 @@ export enum ImportDataCharacterEncoding {
 }
 
 /**
+ * @public
  * <p>
  *             An object that contains the options relating to parsing delimited text as part of an import request.
  *         </p>
@@ -844,6 +898,9 @@ export interface DelimitedTextImportOptions {
   dataCharacterEncoding?: ImportDataCharacterEncoding | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTableDataImportJobRequest {
   /**
    * <p>The ID of the workbook into which data was imported.</p>
@@ -870,6 +927,9 @@ export interface DescribeTableDataImportJobRequest {
   jobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   AccessDenied = "ACCESS_DENIED",
   FileEmptyError = "FILE_EMPTY_ERROR",
@@ -888,6 +948,7 @@ export enum ErrorCode {
 }
 
 /**
+ * @public
  * <p>
  *             An object that contains the configuration parameters for the data source of an import request.
  *         </p>
@@ -902,6 +963,7 @@ export interface ImportDataSourceConfig {
 }
 
 /**
+ * @public
  * <p>An object that has details about the source of the data that was submitted for import.</p>
  */
 export interface ImportDataSource {
@@ -912,6 +974,7 @@ export interface ImportDataSource {
 }
 
 /**
+ * @public
  * <p>An object that contains the properties for importing data to a specific column in a table.</p>
  */
 export interface SourceDataColumnProperties {
@@ -922,6 +985,7 @@ export interface SourceDataColumnProperties {
 }
 
 /**
+ * @public
  * <p>An object that contains the options relating to the destination of the import request.</p>
  */
 export interface DestinationOptions {
@@ -932,6 +996,7 @@ export interface DestinationOptions {
 }
 
 /**
+ * @public
  * <p>An object that contains the options specified by the sumitter of the import request.</p>
  */
 export interface ImportOptions {
@@ -947,6 +1012,7 @@ export interface ImportOptions {
 }
 
 /**
+ * @public
  * <p>An object that contains the attributes of the submitter of the import job.</p>
  */
 export interface ImportJobSubmitter {
@@ -962,6 +1028,7 @@ export interface ImportJobSubmitter {
 }
 
 /**
+ * @public
  * <p>The metadata associated with the table data import job that was submitted.</p>
  */
 export interface TableDataImportJobMetadata {
@@ -986,6 +1053,9 @@ export interface TableDataImportJobMetadata {
   dataSource: ImportDataSource | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TableDataImportJobStatus {
   Completed = "COMPLETED",
   Failed = "FAILED",
@@ -993,6 +1063,9 @@ export enum TableDataImportJobStatus {
   Submitted = "SUBMITTED",
 }
 
+/**
+ * @public
+ */
 export interface DescribeTableDataImportJobResult {
   /**
    * <p>
@@ -1024,6 +1097,7 @@ export interface DescribeTableDataImportJobResult {
 }
 
 /**
+ * @public
  * <p>The input variables to the app to be used by the InvokeScreenAutomation action request.</p>
  */
 export interface VariableValue {
@@ -1033,6 +1107,9 @@ export interface VariableValue {
   rawValue: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetScreenDataRequest {
   /**
    * <p>The ID of the workbook that contains the screen.</p>
@@ -1083,6 +1160,7 @@ export interface GetScreenDataRequest {
 }
 
 /**
+ * @public
  * <p>A single row in the ResultSet.</p>
  */
 export interface ResultRow {
@@ -1098,6 +1176,7 @@ export interface ResultRow {
 }
 
 /**
+ * @public
  * <p>
  *             ResultSet contains the results of the request for a single block or list defined on the screen.
  *         </p>
@@ -1112,7 +1191,7 @@ export interface ResultSet {
    *         </p>
    *         <p>
    *             For example, a task list that displays the task name, due date and assigned person might have headers
-   *             [ { "name": "Task Name"}, {"name": "Due Date", "format": "DATE"}, {"name": "Assigned", "format": "CONTACT"} ].
+   *             [ \{ "name": "Task Name"\}, \{"name": "Due Date", "format": "DATE"\}, \{"name": "Assigned", "format": "CONTACT"\} ].
    *             Every row in the result will have the task name as the first item, due date as the second item and assigned
    *             person as the third item. If a particular task does not have a due date, that row will still have a blank
    *             value in the second element and the assigned person will still be in the third element.
@@ -1129,6 +1208,9 @@ export interface ResultSet {
   rows: ResultRow[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetScreenDataResult {
   /**
    * <p>A map of all the rows on the screen keyed by block name.</p>
@@ -1152,10 +1234,16 @@ export interface GetScreenDataResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ImportSourceDataFormat {
   DelimitedText = "DELIMITED_TEXT",
 }
 
+/**
+ * @public
+ */
 export interface InvokeScreenAutomationRequest {
   /**
    * <p>The ID of the workbook that contains the screen automation.</p>
@@ -1209,6 +1297,9 @@ export interface InvokeScreenAutomationRequest {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface InvokeScreenAutomationResult {
   /**
    * <p>The updated workbook cursor after performing the automation action.</p>
@@ -1216,6 +1307,9 @@ export interface InvokeScreenAutomationResult {
   workbookCursor: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTableColumnsRequest {
   /**
    * <p>The ID of the workbook that contains the table whose columns are being retrieved.</p>
@@ -1246,6 +1340,7 @@ export interface ListTableColumnsRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains attributes about a single column in a table</p>
  */
 export interface TableColumn {
@@ -1268,6 +1363,9 @@ export interface TableColumn {
   format?: Format | string;
 }
 
+/**
+ * @public
+ */
 export interface ListTableColumnsResult {
   /**
    * <p>
@@ -1294,6 +1392,9 @@ export interface ListTableColumnsResult {
   workbookCursor?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTableRowsRequest {
   /**
    * <p>The ID of the workbook that contains the table whose rows are being retrieved.</p>
@@ -1338,6 +1439,7 @@ export interface ListTableRowsRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains attributes about a single row in a table</p>
  */
 export interface TableRow {
@@ -1353,6 +1455,9 @@ export interface TableRow {
   cells: Cell[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTableRowsResult {
   /**
    * <p>
@@ -1394,6 +1499,9 @@ export interface ListTableRowsResult {
   workbookCursor: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTablesRequest {
   /**
    * <p>The ID of the workbook whose tables are being retrieved.</p>
@@ -1421,6 +1529,7 @@ export interface ListTablesRequest {
 }
 
 /**
+ * @public
  * <p>An object representing the properties of a table in a workbook.</p>
  */
 export interface Table {
@@ -1435,6 +1544,9 @@ export interface Table {
   tableName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTablesResult {
   /**
    * <p>
@@ -1461,6 +1573,9 @@ export interface ListTablesResult {
   workbookCursor?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN).</p>
@@ -1468,6 +1583,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>The resource's tags.</p>
@@ -1475,6 +1593,9 @@ export interface ListTagsForResourceResult {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface QueryTableRowsRequest {
   /**
    * <p>The ID of the workbook whose table rows are being queried.</p>
@@ -1515,6 +1636,9 @@ export interface QueryTableRowsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface QueryTableRowsResult {
   /**
    * <p>
@@ -1548,6 +1672,9 @@ export interface QueryTableRowsResult {
   workbookCursor: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartTableDataImportJobRequest {
   /**
    * <p>The ID of the workbook where the rows are being imported.</p>
@@ -1603,6 +1730,9 @@ export interface StartTableDataImportJobRequest {
   clientRequestToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartTableDataImportJobResult {
   /**
    * <p>
@@ -1620,6 +1750,9 @@ export interface StartTableDataImportJobResult {
   jobStatus: TableDataImportJobStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN).</p>
@@ -1632,8 +1765,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN).</p>
@@ -1646,6 +1785,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {}
 
 /**

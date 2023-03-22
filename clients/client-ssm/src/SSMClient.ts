@@ -471,6 +471,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddTagsToResourceCommandInput
   | AssociateOpsItemRelatedItemCommandInput
@@ -611,6 +614,9 @@ export type ServiceInputTypes =
   | UpdateResourceDataSyncCommandInput
   | UpdateServiceSettingCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddTagsToResourceCommandOutput
   | AssociateOpsItemRelatedItemCommandOutput
@@ -751,6 +757,9 @@ export type ServiceOutputTypes =
   | UpdateResourceDataSyncCommandOutput
   | UpdateServiceSettingCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -758,7 +767,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -867,11 +876,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SSMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -882,10 +894,15 @@ type SSMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SSMClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SSMClient class constructor that set the region, credentials and other options.
  */
 export interface SSMClientConfig extends SSMClientConfigType {}
 
+/**
+ * @public
+ */
 type SSMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -896,11 +913,14 @@ type SSMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SSMClient class. This is resolved and normalized from the {@link SSMClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SSMClient class. This is resolved and normalized from the {@link SSMClientConfig | constructor configuration interface}.
  */
 export interface SSMClientResolvedConfig extends SSMClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Web Services Systems Manager is the operations hub for your Amazon Web Services applications and resources and a secure
  *    end-to-end management solution for hybrid cloud environments that enables safe and secure
  *    operations at scale.</p>

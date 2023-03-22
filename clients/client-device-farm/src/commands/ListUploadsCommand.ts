@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUploadsCommand}.
  */
 export interface ListUploadsCommandInput extends ListUploadsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUploadsCommand}.
  */
 export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about uploads, given an AWS Device Farm project ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUploadsCommandInput - {@link ListUploadsCommandInput}
+ * @returns {@link ListUploadsCommandOutput}
  * @see {@link ListUploadsCommandInput} for command's `input` shape.
  * @see {@link ListUploadsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -98,6 +105,9 @@ export class ListUploadsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUploadsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListUploadsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUploadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUploadsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUploadsCommandOutput> {
     return deserializeAws_json1_1ListUploadsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMobileDeviceAccessRulesCommand}.
  */
 export interface ListMobileDeviceAccessRulesCommandInput extends ListMobileDeviceAccessRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMobileDeviceAccessRulesCommand}.
  */
 export interface ListMobileDeviceAccessRulesCommandOutput
@@ -37,6 +41,7 @@ export interface ListMobileDeviceAccessRulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the mobile device access rules for the specified WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListMobileDeviceAccessRulesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMobileDeviceAccessRulesCommandInput - {@link ListMobileDeviceAccessRulesCommandInput}
+ * @returns {@link ListMobileDeviceAccessRulesCommandOutput}
  * @see {@link ListMobileDeviceAccessRulesCommandInput} for command's `input` shape.
  * @see {@link ListMobileDeviceAccessRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListMobileDeviceAccessRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMobileDeviceAccessRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListMobileDeviceAccessRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMobileDeviceAccessRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMobileDeviceAccessRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

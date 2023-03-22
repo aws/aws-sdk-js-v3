@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServerCommand}.
  */
 export interface DeleteServerCommandInput extends DeleteServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServerCommand}.
  */
 export interface DeleteServerCommandOutput extends DeleteServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes the server and the underlying AWS CloudFormation stacks
  *       (including the server's EC2 instance). When you run this command, the server state is updated
@@ -61,6 +66,8 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServerCommandInput - {@link DeleteServerCommandInput}
+ * @returns {@link DeleteServerCommandOutput}
  * @see {@link DeleteServerCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCommandOutput> {
     return deserializeAws_json1_1DeleteServerCommand(output, context);
   }

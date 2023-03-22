@@ -117,6 +117,7 @@ import {
 } from "./commands/VerifySessionCommand";
 
 /**
+ * @public
  * <note>
  *             <p>
  *                <b>Amazon CodeCatalyst is in preview release and subject to change.</b>
@@ -232,6 +233,7 @@ import {
  */
 export class CodeCatalyst extends CodeCatalystClient {
   /**
+   * @public
    * <p>Creates a personal access token (PAT) for the current user. A personal access token (PAT) is similar to a password.
    *       It is associated with your user account. You use PATs to access Amazon CodeCatalyst resources such as source repositories from third-party applications
    *       like Git and integrated development environments (IDEs). For more information, see
@@ -267,6 +269,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development Dev Environment that you can use to quickly work on the code stored in the source repositories of your project.
    *       </p>
    *          <note>
@@ -304,6 +307,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Creates a project in a specified space.</p>
    */
   public createProject(
@@ -336,6 +340,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Creates a branch in a specified source repository in Amazon CodeCatalyst. </p>
    *          <note>
    *             <p>This API only creates a branch in a source repository hosted in Amazon CodeCatalyst. You cannot use this API to create a branch in a linked repository.</p>
@@ -371,6 +376,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified personal access token (PAT). A personal access token can only be deleted by the user who created it.</p>
    */
   public deleteAccessToken(
@@ -403,6 +409,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Dev Environment.  </p>
    */
   public deleteDevEnvironment(
@@ -435,6 +442,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a Dev Environment for a source repository in a project. Dev Environments are specific to the user who creates them.</p>
    */
   public getDevEnvironment(
@@ -467,6 +475,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a project.</p>
    */
   public getProject(args: GetProjectCommandInput, options?: __HttpHandlerOptions): Promise<GetProjectCommandOutput>;
@@ -493,6 +502,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the URLs that can be used with a Git client to clone a source
    *       repository.</p>
    */
@@ -526,6 +536,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an space.</p>
    */
   public getSpace(args: GetSpaceCommandInput, options?: __HttpHandlerOptions): Promise<GetSpaceCommandOutput>;
@@ -552,6 +563,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the Amazon Web Services account used for billing purposes
    *       and the billing plan for the space.</p>
    */
@@ -585,6 +597,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a user. </p>
    */
   public getUserDetails(
@@ -617,6 +630,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Lists all personal access tokens (PATs) associated with the user who calls the API. You can only list PATs associated with your user account.</p>
    */
   public listAccessTokens(
@@ -649,6 +663,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Retrives a list of Dev Environments in a project.</p>
    */
   public listDevEnvironments(
@@ -681,6 +696,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of events that occurred during a specified time period in a space. You can use these events to audit user and system activity in a space.</p>
    */
   public listEventLogs(
@@ -713,6 +729,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of projects.</p>
    */
   public listProjects(
@@ -742,6 +759,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of source repositories in a project.</p>
    */
   public listSourceRepositories(
@@ -774,6 +792,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of branches in a specified source repository.</p>
    */
   public listSourceRepositoryBranches(
@@ -806,6 +825,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of spaces.</p>
    */
   public listSpaces(args: ListSpacesCommandInput, options?: __HttpHandlerOptions): Promise<ListSpacesCommandOutput>;
@@ -832,6 +852,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Starts a specified Dev Environment and puts it into an active state. </p>
    */
   public startDevEnvironment(
@@ -864,6 +885,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Starts a session for a specified Dev Environment.</p>
    */
   public startDevEnvironmentSession(
@@ -896,6 +918,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Pauses a specified Dev Environment and places it in a non-running state. Stopped Dev Environments do not consume compute minutes.</p>
    */
   public stopDevEnvironment(
@@ -928,6 +951,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Stops a session for a specified Dev Environment.</p>
    */
   public stopDevEnvironmentSession(
@@ -960,6 +984,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Changes one or more values for a Dev Environment. Updating certain values of the Dev Environment will cause a restart.</p>
    */
   public updateDevEnvironment(
@@ -992,6 +1017,7 @@ export class CodeCatalyst extends CodeCatalystClient {
   }
 
   /**
+   * @public
    * <p>Verifies whether the calling user has a valid Amazon CodeCatalyst login and session.  If successful, this returns the ID of the user in Amazon CodeCatalyst.</p>
    */
   public verifySession(

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListFirewallPoliciesCommand}.
  */
 export interface ListFirewallPoliciesCommandInput extends ListFirewallPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFirewallPoliciesCommand}.
  */
 export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the metadata for the firewall policies that you have defined. Depending on
  *          your setting for max results and the number of firewall policies, a single call might not
  *          return the full list. </p>
@@ -48,6 +53,8 @@ export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallPoliciesCommandInput - {@link ListFirewallPoliciesCommandInput}
+ * @returns {@link ListFirewallPoliciesCommandOutput}
  * @see {@link ListFirewallPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListFirewallPoliciesCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListFirewallPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListFirewallPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListFirewallPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallPoliciesCommandOutput> {
     return deserializeAws_json1_0ListFirewallPoliciesCommand(output, context);
   }

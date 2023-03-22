@@ -10,7 +10,7 @@ import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAssociationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAssociations(
   config: SSMPaginationConfiguration,
   input: ListAssociationsCommandInput,

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCampaignVersionCommand}.
  */
 export interface GetCampaignVersionCommandInput extends GetCampaignVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCampaignVersionCommand}.
  */
 export interface GetCampaignVersionCommandOutput extends GetCampaignVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCampaignVersionCommandOutput extends GetCampaignVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignVersionCommandInput - {@link GetCampaignVersionCommandInput}
+ * @returns {@link GetCampaignVersionCommandOutput}
  * @see {@link GetCampaignVersionCommandInput} for command's `input` shape.
  * @see {@link GetCampaignVersionCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetCampaignVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetCampaignVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCampaignVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignVersionCommandOutput> {
     return deserializeAws_restJson1GetCampaignVersionCommand(output, context);
   }

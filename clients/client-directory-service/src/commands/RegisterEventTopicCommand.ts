@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterEventTopicCommand}.
  */
 export interface RegisterEventTopicCommandInput extends RegisterEventTopicRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterEventTopicCommand}.
  */
 export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a directory with an Amazon SNS topic. This establishes the directory as a
  *       publisher to the specified Amazon SNS topic. You can then receive email or text (SMS) messages when
  *       the status of your directory changes. You get notified if your directory goes from an Active
@@ -50,6 +55,8 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterEventTopicCommandInput - {@link RegisterEventTopicCommandInput}
+ * @returns {@link RegisterEventTopicCommandOutput}
  * @see {@link RegisterEventTopicCommandInput} for command's `input` shape.
  * @see {@link RegisterEventTopicCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -85,6 +92,9 @@ export class RegisterEventTopicCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterEventTopicCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class RegisterEventTopicCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterEventTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterEventTopicCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterEventTopicCommandOutput> {
     return deserializeAws_json1_1RegisterEventTopicCommand(output, context);
   }

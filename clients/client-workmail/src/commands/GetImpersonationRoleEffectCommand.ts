@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetImpersonationRoleEffectCommand}.
  */
 export interface GetImpersonationRoleEffectCommandInput extends GetImpersonationRoleEffectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetImpersonationRoleEffectCommand}.
  */
 export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonationRoleEffectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests whether the given impersonation role can impersonate a target user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonatio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImpersonationRoleEffectCommandInput - {@link GetImpersonationRoleEffectCommandInput}
+ * @returns {@link GetImpersonationRoleEffectCommandOutput}
  * @see {@link GetImpersonationRoleEffectCommandInput} for command's `input` shape.
  * @see {@link GetImpersonationRoleEffectCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetImpersonationRoleEffectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImpersonationRoleEffectCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetImpersonationRoleEffectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImpersonationRoleEffectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetImpersonationRoleEffectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

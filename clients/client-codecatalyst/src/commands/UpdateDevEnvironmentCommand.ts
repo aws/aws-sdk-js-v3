@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDevEnvironmentCommand}.
  */
 export interface UpdateDevEnvironmentCommandInput extends UpdateDevEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDevEnvironmentCommand}.
  */
 export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes one or more values for a Dev Environment. Updating certain values of the Dev Environment will cause a restart.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDevEnvironmentCommandInput - {@link UpdateDevEnvironmentCommandInput}
+ * @returns {@link UpdateDevEnvironmentCommandOutput}
  * @see {@link UpdateDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDevEnvironmentCommandOutput> {
     return deserializeAws_restJson1UpdateDevEnvironmentCommand(output, context);
   }

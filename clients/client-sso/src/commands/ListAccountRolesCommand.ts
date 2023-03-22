@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountRolesCommand}.
  */
 export interface ListAccountRolesCommandInput extends ListAccountRolesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountRolesCommand}.
  */
 export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all roles that are assigned to the user for a given AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountRolesCommandInput - {@link ListAccountRolesCommandInput}
+ * @returns {@link ListAccountRolesCommandOutput}
  * @see {@link ListAccountRolesCommandInput} for command's `input` shape.
  * @see {@link ListAccountRolesCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAccountRolesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListAccountRolesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAccountRolesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountRolesCommandOutput> {
     return deserializeAws_restJson1ListAccountRolesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCrawlerCommand}.
  */
 export interface CreateCrawlerCommandInput extends CreateCrawlerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCrawlerCommand}.
  */
 export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new crawler with specified targets, role, configuration, and optional schedule.
  *       At least one crawl target must be specified, in the <code>s3Targets</code> field, the
  *         <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
@@ -48,6 +53,8 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCrawlerCommandInput - {@link CreateCrawlerCommandInput}
+ * @returns {@link CreateCrawlerCommandOutput}
  * @see {@link CreateCrawlerCommandInput} for command's `input` shape.
  * @see {@link CreateCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -83,6 +90,9 @@ export class CreateCrawlerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCrawlerCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateCrawlerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCrawlerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCrawlerCommandOutput> {
     return deserializeAws_json1_1CreateCrawlerCommand(output, context);
   }

@@ -201,11 +201,13 @@ import {
 import { FSxClient } from "./FSxClient";
 
 /**
+ * @public
  * <p>Amazon FSx is a fully managed service that makes it easy for storage and
  *             application administrators to launch and use shared file storage.</p>
  */
 export class FSx extends FSxClient {
   /**
+   * @public
    * <p>Use this action to associate one or more Domain Name Server (DNS) aliases with an existing Amazon FSx for Windows File Server file system.
    *         A file system can have a maximum of 50 DNS aliases associated with it at any one time. If you try to
    *         associate a DNS alias that is already associated with the file system, FSx takes no action on that alias in the request.
@@ -248,6 +250,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the
    *             <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel a task, Amazon FSx does the following.</p>
    *          <ul>
@@ -292,6 +295,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Copies an existing backup within the same Amazon Web Services account to another Amazon Web Services Region
    *          (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five
    *          backup copy requests in progress to a single destination Region per account.</p>
@@ -338,6 +342,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates a backup of an existing Amazon FSx for Windows File Server file
    *             system, Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP
    *             volume, or Amazon FSx for OpenZFS file system. We recommend creating regular
@@ -422,6 +427,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon FSx for Lustre data repository association (DRA). A data
    *             repository association is a link between a directory on the file system and
    *             an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
@@ -470,6 +476,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon FSx for Lustre data repository task. You use data repository tasks
    *             to perform bulk operations between your Amazon FSx file system and its linked data
    *             repositories. An example of a data repository task is exporting any data and metadata
@@ -511,6 +518,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon File Cache resource.</p>
    *          <p>You can use this operation with a client request token in the request that
    *             Amazon File Cache uses to ensure idempotent creation.
@@ -566,6 +574,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates a new, empty Amazon FSx file system. You can create the following supported
    *         Amazon FSx file systems using the <code>CreateFileSystem</code> API operation:</p>
    *          <ul>
@@ -643,6 +652,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File
    *             Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.</p>
    *          <p>If a file system with the specified client request token exists and the parameters
@@ -707,6 +717,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With
    *             snapshots, you can easily undo file changes and compare file versions by restoring the
    *             volume to a previous version.</p>
@@ -766,6 +777,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.</p>
    */
   public createStorageVirtualMachine(
@@ -798,6 +810,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.</p>
    */
   public createVolume(
@@ -827,6 +840,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon FSx for NetApp ONTAP volume from an
    *             existing Amazon FSx volume backup.</p>
    */
@@ -860,6 +874,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
    *             its data is gone.</p>
    *          <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
@@ -896,6 +911,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Deletes a data repository association on an Amazon FSx for Lustre
    *             file system. Deleting the data repository association unlinks the
    *             file system from the Amazon S3 bucket. When deleting a data repository
@@ -934,6 +950,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon File Cache resource. After deletion, the cache no longer exists, and its data
    *             is gone.</p>
    *          <p>The <code>DeleteFileCache</code> operation returns while the cache has the
@@ -977,6 +994,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Deletes a file system. After deletion, the file system no longer exists, and its data
    *             is gone. Any existing automatic backups and snapshots are also deleted.</p>
    *          <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
@@ -1031,6 +1049,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
    *             exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
    *             file system backup. </p>
@@ -1067,6 +1086,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior
    *         to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the operation will fail.</p>
    */
@@ -1100,6 +1120,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
    *             volume.</p>
    */
@@ -1130,6 +1151,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of a specific Amazon FSx backup, if a
    *                 <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
    *             backups owned by your Amazon Web Services account in the Amazon Web Services Region of the
@@ -1187,6 +1209,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
    *             data repository associations, if one or more <code>AssociationIds</code> values
    *             are provided in the request, or if filters are used in the request. Data repository
@@ -1237,6 +1260,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository tasks, if
    *             one or more <code>TaskIds</code> values are provided in the request, or if filters are used in the request.
    *             You can use filters to narrow the response to include just tasks for specific file systems or caches,
@@ -1278,6 +1302,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of a specific Amazon File Cache resource, if a
    *             <code>FileCacheIds</code> value is provided for that cache. Otherwise, it
    *             returns descriptions of all caches owned by your Amazon Web Services account in the
@@ -1337,6 +1362,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Returns the DNS aliases that are associated with the specified Amazon FSx for Windows File Server file system. A history of
    *             all DNS aliases that have been associated with and disassociated from the file system is available in the list of <a>AdministrativeAction</a>
    *         provided in the <a>DescribeFileSystems</a> operation response.</p>
@@ -1371,6 +1397,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of specific Amazon FSx file systems, if a
    *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
    *             returns descriptions of all file systems owned by your Amazon Web Services account in the
@@ -1430,6 +1457,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
    *                 <code>SnapshotIds</code> value is provided. Otherwise, this operation returns all
    *             snapshots owned by your Amazon Web Services account in the Amazon Web Services Region of
@@ -1488,6 +1516,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).</p>
    */
   public describeStorageVirtualMachines(
@@ -1520,6 +1549,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for
    *             OpenZFS volumes.</p>
    */
@@ -1553,6 +1583,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases
    *             from an Amazon FSx for Windows File Server file system. If you attempt to disassociate a DNS alias that is not
    *             associated with the file system, Amazon FSx responds with a 400 Bad Request. For more information, see
@@ -1593,6 +1624,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Lists tags for Amazon FSx resources.</p>
    *          <p>When retrieving all tags, you can optionally specify the <code>MaxResults</code>
    *             parameter to limit the number of tags in a response. If more tags remain, Amazon FSx
@@ -1648,6 +1680,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Releases the file system lock from an Amazon FSx for OpenZFS file
    *             system.</p>
    */
@@ -1681,6 +1714,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
    *             snapshot.</p>
    */
@@ -1714,6 +1748,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Tags an Amazon FSx resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1740,6 +1775,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>This action removes a tag from an Amazon FSx resource.</p>
    */
   public untagResource(
@@ -1772,6 +1808,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of an existing data repository association
    *             on an Amazon FSx for Lustre file system. Data repository associations are
    *             supported only for file systems with the <code>Persistent_2</code> deployment type.</p>
@@ -1806,6 +1843,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of an existing Amazon File Cache resource.
    *             You can update multiple properties in a single request.</p>
    */
@@ -1839,6 +1877,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to update the configuration of an existing Amazon FSx file
    *       system. You can update multiple properties in a single request.</p>
    *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
@@ -2023,6 +2062,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Updates the name of an Amazon FSx for OpenZFS snapshot.</p>
    */
   public updateSnapshot(
@@ -2055,6 +2095,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Updates an Amazon FSx for ONTAP storage virtual machine (SVM).</p>
    */
   public updateStorageVirtualMachine(
@@ -2087,6 +2128,7 @@ export class FSx extends FSxClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.</p>
    */
   public updateVolume(

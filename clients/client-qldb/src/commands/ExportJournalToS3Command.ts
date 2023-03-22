@@ -26,15 +26,20 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExportJournalToS3Command}.
  */
 export interface ExportJournalToS3CommandInput extends ExportJournalToS3Request {}
 /**
+ * @public
+ *
  * The output of {@link ExportJournalToS3Command}.
  */
 export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports journal contents within a date and time range from a ledger into a specified
  *          Amazon Simple Storage Service (Amazon S3) bucket. A journal export job can write the data objects in either the text
  *          or binary representation of Amazon Ion format, or in <i>JSON Lines</i> text
@@ -60,6 +65,8 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportJournalToS3CommandInput - {@link ExportJournalToS3CommandInput}
+ * @returns {@link ExportJournalToS3CommandOutput}
  * @see {@link ExportJournalToS3CommandInput} for command's `input` shape.
  * @see {@link ExportJournalToS3CommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -89,6 +96,9 @@ export class ExportJournalToS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportJournalToS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ExportJournalToS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportJournalToS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportJournalToS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportJournalToS3CommandOutput> {
     return deserializeAws_restJson1ExportJournalToS3Command(output, context);
   }

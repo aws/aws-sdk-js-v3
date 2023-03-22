@@ -18,15 +18,20 @@ import { ScanInput, ScanInputFilterSensitiveLog, ScanOutput, ScanOutputFilterSen
 import { deserializeAws_json1_0ScanCommand, serializeAws_json1_0ScanCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ScanCommand}.
  */
 export interface ScanCommandInput extends ScanInput {}
 /**
+ * @public
+ *
  * The output of {@link ScanCommand}.
  */
 export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>Scan</code> operation returns one or more items and item attributes by
  *             accessing every item in a table or a secondary index. To have DynamoDB return fewer
  *             items, you can provide a <code>FilterExpression</code> operation.</p>
@@ -63,6 +68,8 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ScanCommandInput - {@link ScanCommandInput}
+ * @returns {@link ScanCommandOutput}
  * @see {@link ScanCommandInput} for command's `input` shape.
  * @see {@link ScanCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -149,6 +156,9 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ScanCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ScanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScanCommandOutput> {
     return deserializeAws_json1_0ScanCommand(output, context);
   }

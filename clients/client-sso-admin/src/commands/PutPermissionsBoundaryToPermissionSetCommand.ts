@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutPermissionsBoundaryToPermissionSetCommand}.
  */
 export interface PutPermissionsBoundaryToPermissionSetCommandInput
   extends PutPermissionsBoundaryToPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPermissionsBoundaryToPermissionSetCommand}.
  */
 export interface PutPermissionsBoundaryToPermissionSetCommandOutput
@@ -38,6 +42,7 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an AWS managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPermissionsBoundaryToPermissionSetCommandInput - {@link PutPermissionsBoundaryToPermissionSetCommandInput}
+ * @returns {@link PutPermissionsBoundaryToPermissionSetCommandOutput}
  * @see {@link PutPermissionsBoundaryToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link PutPermissionsBoundaryToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -95,6 +102,9 @@ export class PutPermissionsBoundaryToPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPermissionsBoundaryToPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class PutPermissionsBoundaryToPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutPermissionsBoundaryToPermissionSetCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class PutPermissionsBoundaryToPermissionSetCommand extends $Command<
     return serializeAws_json1_1PutPermissionsBoundaryToPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

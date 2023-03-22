@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { Route53RecoveryControlConfigServiceException as __BaseException } from "./Route53RecoveryControlConfigServiceException";
 
 /**
+ * @public
  * <p>A cluster endpoint. Specify an endpoint when you want to set or retrieve a routing control state in the cluster.</p>
  */
 export interface ClusterEndpoint {
@@ -18,6 +19,9 @@ export interface ClusterEndpoint {
   Region?: string;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   DEPLOYED = "DEPLOYED",
   PENDING = "PENDING",
@@ -25,6 +29,7 @@ export enum Status {
 }
 
 /**
+ * @public
  * <p>A set of five redundant Regional endpoints against which you can execute API calls to update or get the state of routing controls. You can host multiple control panels and routing controls on one cluster.</p>
  */
 export interface Cluster {
@@ -50,6 +55,7 @@ export interface Cluster {
 }
 
 /**
+ * @public
  * <p>A control panel represents a group of routing controls that can be changed together in a single transaction.</p>
  */
 export interface ControlPanel {
@@ -85,6 +91,7 @@ export interface ControlPanel {
 }
 
 /**
+ * @public
  * <p>A routing control has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control traffic routing.</p>
  */
 export interface RoutingControl {
@@ -109,6 +116,9 @@ export interface RoutingControl {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export enum RuleType {
   AND = "AND",
   ATLEAST = "ATLEAST",
@@ -116,6 +126,7 @@ export enum RuleType {
 }
 
 /**
+ * @public
  * <p>The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many control states must be ON after a transaction completes.</p>
  */
 export interface RuleConfig {
@@ -136,6 +147,7 @@ export interface RuleConfig {
 }
 
 /**
+ * @public
  * <p>An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>
  */
 export interface AssertionRule {
@@ -176,6 +188,7 @@ export interface AssertionRule {
 }
 
 /**
+ * @public
  * <p>A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>
  */
 export interface GatingRule {
@@ -221,6 +234,7 @@ export interface GatingRule {
 }
 
 /**
+ * @public
  * <p>A safety rule. A safety rule can be an assertion rule or a gating rule.</p>
  */
 export interface Rule {
@@ -236,6 +250,7 @@ export interface Rule {
 }
 
 /**
+ * @public
  * <p>403 response - You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -257,6 +272,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An update to an assertion rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.</p>
  */
 export interface AssertionRuleUpdate {
@@ -277,6 +293,7 @@ export interface AssertionRuleUpdate {
 }
 
 /**
+ * @public
  * <p>409 response - ConflictException. You might be using a predefined variable.</p>
  */
 export class ConflictException extends __BaseException {
@@ -298,6 +315,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Creates a cluster.</p>
  */
 export interface CreateClusterRequest {
@@ -317,6 +335,9 @@ export interface CreateClusterRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterResponse {
   /**
    * <p>The cluster that was created.</p>
@@ -325,6 +346,7 @@ export interface CreateClusterResponse {
 }
 
 /**
+ * @public
  * <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -346,6 +368,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -367,6 +390,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>402 response - You attempted to create more resources than the service allows based on service quotas.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -388,6 +412,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>429 response - LimitExceededException or TooManyRequestsException.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -409,6 +434,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  */
 export class ValidationException extends __BaseException {
@@ -430,6 +456,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The details of the control panel that you're creating.</p>
  */
 export interface CreateControlPanelRequest {
@@ -454,6 +481,9 @@ export interface CreateControlPanelRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateControlPanelResponse {
   /**
    * <p>Information about a control panel.</p>
@@ -462,6 +492,7 @@ export interface CreateControlPanelResponse {
 }
 
 /**
+ * @public
  * <p>The details of the routing control that you're creating.</p>
  */
 export interface CreateRoutingControlRequest {
@@ -486,6 +517,9 @@ export interface CreateRoutingControlRequest {
   RoutingControlName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoutingControlResponse {
   /**
    * <p>The routing control that is created.</p>
@@ -494,6 +528,7 @@ export interface CreateRoutingControlResponse {
 }
 
 /**
+ * @public
  * <p>A new assertion rule for a control panel.</p>
  */
 export interface NewAssertionRule {
@@ -524,6 +559,7 @@ export interface NewAssertionRule {
 }
 
 /**
+ * @public
  * <p>A new gating rule for a control panel.</p>
  */
 export interface NewGatingRule {
@@ -559,6 +595,7 @@ export interface NewGatingRule {
 }
 
 /**
+ * @public
  * <p>The request body that you include when you create a safety rule.</p>
  */
 export interface CreateSafetyRuleRequest {
@@ -583,6 +620,9 @@ export interface CreateSafetyRuleRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSafetyRuleResponse {
   /**
    * <p>The assertion rule created.</p>
@@ -595,6 +635,9 @@ export interface CreateSafetyRuleResponse {
   GatingRule?: GatingRule;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster that you're deleting.</p>
@@ -602,8 +645,14 @@ export interface DeleteClusterRequest {
   ClusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteControlPanelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the control panel.</p>
@@ -611,8 +660,14 @@ export interface DeleteControlPanelRequest {
   ControlPanelArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteControlPanelResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRoutingControlRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the routing control that you're deleting.</p>
@@ -620,8 +675,14 @@ export interface DeleteRoutingControlRequest {
   RoutingControlArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRoutingControlResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSafetyRuleRequest {
   /**
    * <p>The ARN of the safety rule.</p>
@@ -629,8 +690,14 @@ export interface DeleteSafetyRuleRequest {
   SafetyRuleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSafetyRuleResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -638,6 +705,9 @@ export interface DescribeClusterRequest {
   ClusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterResponse {
   /**
    * <p>The cluster for the DescribeCluster request.</p>
@@ -645,6 +715,9 @@ export interface DescribeClusterResponse {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface DescribeControlPanelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the control panel.</p>
@@ -652,6 +725,9 @@ export interface DescribeControlPanelRequest {
   ControlPanelArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeControlPanelResponse {
   /**
    * <p>Information about the control panel.</p>
@@ -659,6 +735,9 @@ export interface DescribeControlPanelResponse {
   ControlPanel?: ControlPanel;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRoutingControlRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the routing control.</p>
@@ -666,6 +745,9 @@ export interface DescribeRoutingControlRequest {
   RoutingControlArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRoutingControlResponse {
   /**
    * <p>Information about the routing control.</p>
@@ -673,6 +755,9 @@ export interface DescribeRoutingControlResponse {
   RoutingControl?: RoutingControl;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSafetyRuleRequest {
   /**
    * <p>The ARN of the safety rule.</p>
@@ -680,6 +765,9 @@ export interface DescribeSafetyRuleRequest {
   SafetyRuleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSafetyRuleResponse {
   /**
    * <p>The assertion rule in the response.</p>
@@ -693,6 +781,7 @@ export interface DescribeSafetyRuleResponse {
 }
 
 /**
+ * @public
  * <p>Update to a gating rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.</p>
  */
 export interface GatingRuleUpdate {
@@ -712,6 +801,9 @@ export interface GatingRuleUpdate {
   WaitPeriodMs: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedRoute53HealthChecksRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -729,6 +821,9 @@ export interface ListAssociatedRoute53HealthChecksRequest {
   RoutingControlArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedRoute53HealthChecksResponse {
   /**
    * <p>Identifiers for the health checks.</p>
@@ -741,6 +836,9 @@ export interface ListAssociatedRoute53HealthChecksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -753,6 +851,9 @@ export interface ListClustersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersResponse {
   /**
    * <p>An array of the clusters in an account.</p>
@@ -765,6 +866,9 @@ export interface ListClustersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlPanelsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of a cluster.</p>
@@ -782,6 +886,9 @@ export interface ListControlPanelsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListControlPanelsResponse {
   /**
    * <p>The result of a successful ListControlPanel request.</p>
@@ -794,6 +901,9 @@ export interface ListControlPanelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRoutingControlsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the control panel.</p>
@@ -811,6 +921,9 @@ export interface ListRoutingControlsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRoutingControlsResponse {
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
@@ -823,6 +936,9 @@ export interface ListRoutingControlsResponse {
   RoutingControls?: RoutingControl[];
 }
 
+/**
+ * @public
+ */
 export interface ListSafetyRulesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the control panel.</p>
@@ -840,6 +956,9 @@ export interface ListSafetyRulesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSafetyRulesResponse {
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
@@ -852,6 +971,9 @@ export interface ListSafetyRulesResponse {
   SafetyRules?: Rule[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
@@ -859,6 +981,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
@@ -867,6 +992,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Request of adding tag to the resource</p>
  */
 export interface TagResourceRequest {
@@ -881,8 +1007,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
@@ -895,9 +1027,13 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>The details of the control panel that you're updating.</p>
  */
 export interface UpdateControlPanelRequest {
@@ -912,6 +1048,9 @@ export interface UpdateControlPanelRequest {
   ControlPanelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateControlPanelResponse {
   /**
    * <p>The control panel to update.</p>
@@ -920,6 +1059,7 @@ export interface UpdateControlPanelResponse {
 }
 
 /**
+ * @public
  * <p>The details of the routing control that you're updating.</p>
  */
 export interface UpdateRoutingControlRequest {
@@ -934,6 +1074,9 @@ export interface UpdateRoutingControlRequest {
   RoutingControlName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRoutingControlResponse {
   /**
    * <p>The routing control that was updated.</p>
@@ -942,6 +1085,7 @@ export interface UpdateRoutingControlResponse {
 }
 
 /**
+ * @public
  * <p>A rule that you add to Application Recovery Controller to ensure that recovery actions don't accidentally impair your application's availability.</p>
  */
 export interface UpdateSafetyRuleRequest {
@@ -956,6 +1100,9 @@ export interface UpdateSafetyRuleRequest {
   GatingRuleUpdate?: GatingRuleUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSafetyRuleResponse {
   /**
    * <p>The assertion rule updated.</p>

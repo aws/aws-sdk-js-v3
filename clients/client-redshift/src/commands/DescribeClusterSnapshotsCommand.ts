@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterSnapshotsCommand}.
  */
 export interface DescribeClusterSnapshotsCommandInput extends DescribeClusterSnapshotsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterSnapshotsCommand}.
  */
 export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns one or more snapshot objects, which contain metadata about your cluster
  *             snapshots. By default, this operation returns information about all snapshots of all
  *             clusters that are owned by your Amazon Web Services account. No information is returned for
@@ -58,6 +63,8 @@ export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, 
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterSnapshotsCommandInput - {@link DescribeClusterSnapshotsCommandInput}
+ * @returns {@link DescribeClusterSnapshotsCommandOutput}
  * @see {@link DescribeClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeClusterSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeClusterSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterSnapshotsCommandOutput> {
     return deserializeAws_queryDescribeClusterSnapshotsCommand(output, context);
   }

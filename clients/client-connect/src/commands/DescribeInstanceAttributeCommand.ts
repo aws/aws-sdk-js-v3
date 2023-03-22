@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceAttributeCommand}.
  */
 export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceAttributeCommand}.
  */
 export interface DescribeInstanceAttributeCommandOutput extends DescribeInstanceAttributeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the specified instance attribute.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeInstanceAttributeCommandOutput extends DescribeInstance
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceAttributeCommandInput - {@link DescribeInstanceAttributeCommandInput}
+ * @returns {@link DescribeInstanceAttributeCommandOutput}
  * @see {@link DescribeInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeInstanceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeInstanceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeInstanceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

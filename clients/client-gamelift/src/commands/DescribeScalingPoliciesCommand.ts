@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingPoliciesCommand}.
  */
 export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoliciesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingPoliciesCommand}.
  */
 export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all scaling policies applied to a fleet.</p>
  *         <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
  *             by policy status, such as to retrieve only active scaling policies. Use the pagination
@@ -52,6 +57,8 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingPoliciesCommandInput - {@link DescribeScalingPoliciesCommandInput}
+ * @returns {@link DescribeScalingPoliciesCommandOutput}
  * @see {@link DescribeScalingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeScalingPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeScalingPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeScalingPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScalingPoliciesCommandOutput> {
     return deserializeAws_json1_1DescribeScalingPoliciesCommand(output, context);
   }

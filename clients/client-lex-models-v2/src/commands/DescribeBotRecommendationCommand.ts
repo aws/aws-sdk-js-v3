@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBotRecommendationCommand}.
  */
 export interface DescribeBotRecommendationCommandInput extends DescribeBotRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBotRecommendationCommand}.
  */
 export interface DescribeBotRecommendationCommandOutput extends DescribeBotRecommendationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides metadata information about a bot recommendation. This
  *          information will enable you to get a description on the request inputs,
  *          to download associated transcripts after processing is complete, and to
@@ -50,6 +55,8 @@ export interface DescribeBotRecommendationCommandOutput extends DescribeBotRecom
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBotRecommendationCommandInput - {@link DescribeBotRecommendationCommandInput}
+ * @returns {@link DescribeBotRecommendationCommandOutput}
  * @see {@link DescribeBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link DescribeBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeBotRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBotRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeBotRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBotRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

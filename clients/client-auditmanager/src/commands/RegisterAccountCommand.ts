@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterAccountCommand}.
  */
 export interface RegisterAccountCommandInput extends RegisterAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterAccountCommand}.
  */
 export interface RegisterAccountCommandOutput extends RegisterAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Enables Audit Manager for the specified Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterAccountCommandInput - {@link RegisterAccountCommandInput}
+ * @returns {@link RegisterAccountCommandOutput}
  * @see {@link RegisterAccountCommandInput} for command's `input` shape.
  * @see {@link RegisterAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -86,6 +93,9 @@ export class RegisterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class RegisterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterAccountCommandOutput> {
     return deserializeAws_restJson1RegisterAccountCommand(output, context);
   }

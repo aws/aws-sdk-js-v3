@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateProductWithPortfolioCommand}.
  */
 export interface AssociateProductWithPortfolioCommandInput extends AssociateProductWithPortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateProductWithPortfolioCommand}.
  */
 export interface AssociateProductWithPortfolioCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateProductWithPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified product with the specified portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -49,6 +54,8 @@ export interface AssociateProductWithPortfolioCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateProductWithPortfolioCommandInput - {@link AssociateProductWithPortfolioCommandInput}
+ * @returns {@link AssociateProductWithPortfolioCommandOutput}
  * @see {@link AssociateProductWithPortfolioCommandInput} for command's `input` shape.
  * @see {@link AssociateProductWithPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -82,6 +89,9 @@ export class AssociateProductWithPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateProductWithPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AssociateProductWithPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateProductWithPortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateProductWithPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

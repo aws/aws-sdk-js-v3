@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationSetEventDestinationCommand}.
  */
 export interface UpdateConfigurationSetEventDestinationCommandInput
   extends UpdateConfigurationSetEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationSetEventDestinationCommand}.
  */
 export interface UpdateConfigurationSetEventDestinationCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetEventDestinationCommandInput - {@link UpdateConfigurationSetEventDestinationCommandInput}
+ * @returns {@link UpdateConfigurationSetEventDestinationCommandOutput}
  * @see {@link UpdateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     return serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

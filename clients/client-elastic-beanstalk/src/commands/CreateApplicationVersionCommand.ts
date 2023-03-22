@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationVersionCommand}.
  */
 export interface CreateApplicationVersionCommandInput extends CreateApplicationVersionMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationVersionCommand}.
  */
 export interface CreateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application version for the specified application. You can create an
  *       application version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the
  *       output of an AWS CodeBuild build as follows:</p>
@@ -62,6 +67,8 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationVersionCommandInput - {@link CreateApplicationVersionCommandInput}
+ * @returns {@link CreateApplicationVersionCommandOutput}
  * @see {@link CreateApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -147,6 +154,9 @@ export class CreateApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class CreateApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationVersionCommandOutput> {
     return deserializeAws_queryCreateApplicationVersionCommand(output, context);
   }

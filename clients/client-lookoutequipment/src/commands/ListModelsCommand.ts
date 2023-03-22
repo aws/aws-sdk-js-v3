@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelsCommand}.
  */
 export interface ListModelsCommandInput extends ListModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelsCommand}.
  */
 export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a list of all models in the account, including model name and ARN, dataset,
  *          and status. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelsCommandInput - {@link ListModelsCommandInput}
+ * @returns {@link ListModelsCommandOutput}
  * @see {@link ListModelsCommandInput} for command's `input` shape.
  * @see {@link ListModelsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelsCommandOutput> {
     return deserializeAws_json1_0ListModelsCommand(output, context);
   }

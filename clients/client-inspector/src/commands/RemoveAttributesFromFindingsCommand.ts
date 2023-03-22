@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveAttributesFromFindingsCommand}.
  */
 export interface RemoveAttributesFromFindingsCommandInput extends RemoveAttributesFromFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveAttributesFromFindingsCommand}.
  */
 export interface RemoveAttributesFromFindingsCommandOutput
@@ -37,6 +41,7 @@ export interface RemoveAttributesFromFindingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes entire attributes (key and value pairs) from the findings that are specified
  *          by the ARNs of the findings where an attribute with the specified key exists.</p>
  * @example
@@ -49,6 +54,8 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAttributesFromFindingsCommandInput - {@link RemoveAttributesFromFindingsCommandInput}
+ * @returns {@link RemoveAttributesFromFindingsCommandOutput}
  * @see {@link RemoveAttributesFromFindingsCommandInput} for command's `input` shape.
  * @see {@link RemoveAttributesFromFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -110,6 +117,9 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAttributesFromFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAttributesFromFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveAttributesFromFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

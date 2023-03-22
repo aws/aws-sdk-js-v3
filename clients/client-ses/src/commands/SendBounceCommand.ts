@@ -23,15 +23,20 @@ import { deserializeAws_querySendBounceCommand, serializeAws_querySendBounceComm
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendBounceCommand}.
  */
 export interface SendBounceCommandInput extends SendBounceRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendBounceCommand}.
  */
 export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates and sends a bounce message to the sender of an email you received through
  *             Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p>
  *         <note>
@@ -51,6 +56,8 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param SendBounceCommandInput - {@link SendBounceCommandInput}
+ * @returns {@link SendBounceCommandOutput}
  * @see {@link SendBounceCommandInput} for command's `input` shape.
  * @see {@link SendBounceCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -78,6 +85,9 @@ export class SendBounceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendBounceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class SendBounceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBounceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendBounceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBounceCommandOutput> {
     return deserializeAws_querySendBounceCommand(output, context);
   }

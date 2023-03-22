@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReplaysCommand}.
  */
 export interface ListReplaysCommandInput extends ListReplaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReplaysCommand}.
  */
 export interface ListReplaysCommandOutput extends ListReplaysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your replays. You can either list all the replays or you can provide a prefix to
  *       match to the replay names. Filter parameters are exclusive.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReplaysCommandInput - {@link ListReplaysCommandInput}
+ * @returns {@link ListReplaysCommandOutput}
  * @see {@link ListReplaysCommandInput} for command's `input` shape.
  * @see {@link ListReplaysCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -73,6 +80,9 @@ export class ListReplaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReplaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListReplaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReplaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReplaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReplaysCommandOutput> {
     return deserializeAws_json1_1ListReplaysCommand(output, context);
   }

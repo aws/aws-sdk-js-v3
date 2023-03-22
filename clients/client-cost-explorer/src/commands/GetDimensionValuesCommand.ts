@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDimensionValuesCommand}.
  */
 export interface GetDimensionValuesCommandInput extends GetDimensionValuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDimensionValuesCommand}.
  */
 export interface GetDimensionValuesCommandOutput extends GetDimensionValuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all available filter values for a specified filter over a period of time. You
  *       can search the dimension values for an arbitrary string. </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDimensionValuesCommandInput - {@link GetDimensionValuesCommandInput}
+ * @returns {@link GetDimensionValuesCommandOutput}
  * @see {@link GetDimensionValuesCommandInput} for command's `input` shape.
  * @see {@link GetDimensionValuesCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetDimensionValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDimensionValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetDimensionValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDimensionValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDimensionValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDimensionValuesCommandOutput> {
     return deserializeAws_json1_1GetDimensionValuesCommand(output, context);
   }

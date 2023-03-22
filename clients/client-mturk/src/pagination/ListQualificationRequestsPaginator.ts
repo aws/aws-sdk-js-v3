@@ -10,7 +10,7 @@ import { MTurkClient } from "../MTurkClient";
 import { MTurkPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MTurkClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListQualificationRequestsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListQualificationRequests(
   config: MTurkPaginationConfiguration,
   input: ListQualificationRequestsCommandInput,

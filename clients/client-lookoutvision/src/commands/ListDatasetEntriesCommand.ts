@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetEntriesCommand}.
  */
 export interface ListDatasetEntriesCommandInput extends ListDatasetEntriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetEntriesCommand}.
  */
 export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the JSON Lines within a dataset. An Amazon Lookout for Vision JSON Line contains the anomaly
  *       information for a single image, including the image location and the assigned label.</p>
  *          <p>This operation requires permissions to perform the
@@ -49,6 +54,8 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetEntriesCommandInput - {@link ListDatasetEntriesCommandInput}
+ * @returns {@link ListDatasetEntriesCommandOutput}
  * @see {@link ListDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link ListDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListDatasetEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListDatasetEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDatasetEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetEntriesCommandOutput> {
     return deserializeAws_restJson1ListDatasetEntriesCommand(output, context);
   }

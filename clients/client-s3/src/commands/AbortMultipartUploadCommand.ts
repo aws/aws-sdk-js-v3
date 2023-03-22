@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link AbortMultipartUploadCommand}.
  */
 export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link AbortMultipartUploadCommand}.
  */
 export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action aborts a multipart upload. After a multipart upload is aborted, no
  *          additional parts can be uploaded using that upload ID. The storage consumed by any
  *          previously uploaded parts will be freed. However, if any part uploads are currently in
@@ -84,6 +89,8 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * const response = await client.send(command);
  * ```
  *
+ * @param AbortMultipartUploadCommandInput - {@link AbortMultipartUploadCommandInput}
+ * @returns {@link AbortMultipartUploadCommandOutput}
  * @see {@link AbortMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link AbortMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -129,6 +136,9 @@ export class AbortMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AbortMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class AbortMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AbortMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlAbortMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortMultipartUploadCommandOutput> {
     return deserializeAws_restXmlAbortMultipartUploadCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExperimentTemplateCommand}.
  */
 export interface CreateExperimentTemplateCommandInput extends CreateExperimentTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExperimentTemplateCommand}.
  */
 export interface CreateExperimentTemplateCommandOutput extends CreateExperimentTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an experiment template. </p>
  *          <p>An experiment template includes the following components:</p>
  *          <ul>
@@ -68,6 +73,8 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExperimentTemplateCommandInput - {@link CreateExperimentTemplateCommandInput}
+ * @returns {@link CreateExperimentTemplateCommandOutput}
  * @see {@link CreateExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateExperimentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExperimentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateExperimentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExperimentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateExperimentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExperimentTemplateCommandOutput> {
     return deserializeAws_restJson1CreateExperimentTemplateCommand(output, context);
   }

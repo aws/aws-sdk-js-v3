@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutEmailIdentityDkimSigningAttributesCommand}.
  */
 export interface PutEmailIdentityDkimSigningAttributesCommandInput
   extends PutEmailIdentityDkimSigningAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEmailIdentityDkimSigningAttributesCommand}.
  */
 export interface PutEmailIdentityDkimSigningAttributesCommandOutput
@@ -38,6 +42,7 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to configure or change the DKIM authentication settings for an email domain
  *             identity. You can use this operation to do any of the following:</p>
  *          <ul>
@@ -71,6 +76,8 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailIdentityDkimSigningAttributesCommandInput - {@link PutEmailIdentityDkimSigningAttributesCommandInput}
+ * @returns {@link PutEmailIdentityDkimSigningAttributesCommandOutput}
  * @see {@link PutEmailIdentityDkimSigningAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityDkimSigningAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -103,6 +110,9 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailIdentityDkimSigningAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailIdentityDkimSigningAttributesCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     return serializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

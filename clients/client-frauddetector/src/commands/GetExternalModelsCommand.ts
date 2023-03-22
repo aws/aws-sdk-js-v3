@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExternalModelsCommand}.
  */
 export interface GetExternalModelsCommandInput extends GetExternalModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExternalModelsCommand}.
  */
 export interface GetExternalModelsCommandOutput extends GetExternalModelsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details for one or more Amazon SageMaker models that have been imported into the
  *          service. This is a paginated API. If you provide a null <code>maxResults</code>, this
  *          actions retrieves a maximum of 10 records per page. If you provide a
@@ -51,6 +56,8 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExternalModelsCommandInput - {@link GetExternalModelsCommandInput}
+ * @returns {@link GetExternalModelsCommandOutput}
  * @see {@link GetExternalModelsCommandInput} for command's `input` shape.
  * @see {@link GetExternalModelsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetExternalModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExternalModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetExternalModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExternalModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetExternalModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExternalModelsCommandOutput> {
     return deserializeAws_json1_1GetExternalModelsCommand(output, context);
   }

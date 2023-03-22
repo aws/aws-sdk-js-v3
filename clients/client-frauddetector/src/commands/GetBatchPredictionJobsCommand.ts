@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBatchPredictionJobsCommand}.
  */
 export interface GetBatchPredictionJobsCommandInput extends GetBatchPredictionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBatchPredictionJobsCommand}.
  */
 export interface GetBatchPredictionJobsCommandOutput extends GetBatchPredictionJobsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all batch prediction jobs or a specific job if you specify a job ID. This is a paginated API. If you provide a null maxResults, this action retrieves a maximum of 50 records per page. If you provide a maxResults, the value must be between 1 and 50. To get the next page results, provide the pagination token from the GetBatchPredictionJobsResponse as part of your request. A null pagination token fetches the records from the beginning.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBatchPredictionJobsCommandOutput extends GetBatchPredictionJ
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBatchPredictionJobsCommandInput - {@link GetBatchPredictionJobsCommandInput}
+ * @returns {@link GetBatchPredictionJobsCommandOutput}
  * @see {@link GetBatchPredictionJobsCommandInput} for command's `input` shape.
  * @see {@link GetBatchPredictionJobsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetBatchPredictionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBatchPredictionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetBatchPredictionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBatchPredictionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBatchPredictionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBatchPredictionJobsCommandOutput> {
     return deserializeAws_json1_1GetBatchPredictionJobsCommand(output, context);
   }

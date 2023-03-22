@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobTemplatesCommand}.
  */
 export interface ListJobTemplatesCommandInput extends ListJobTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobTemplatesCommand}.
  */
 export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of job templates.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobTemplates</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobTemplatesCommandInput - {@link ListJobTemplatesCommandInput}
+ * @returns {@link ListJobTemplatesCommandOutput}
  * @see {@link ListJobTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListJobTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListJobTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListJobTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListJobTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobTemplatesCommandOutput> {
     return deserializeAws_restJson1ListJobTemplatesCommand(output, context);
   }

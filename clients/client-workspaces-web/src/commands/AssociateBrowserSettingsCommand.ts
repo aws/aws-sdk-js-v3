@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateBrowserSettingsCommand}.
  */
 export interface AssociateBrowserSettingsCommandInput extends AssociateBrowserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateBrowserSettingsCommand}.
  */
 export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a browser settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserS
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateBrowserSettingsCommandInput - {@link AssociateBrowserSettingsCommandInput}
+ * @returns {@link AssociateBrowserSettingsCommandOutput}
  * @see {@link AssociateBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssociateBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateBrowserSettingsCommandOutput> {
     return deserializeAws_restJson1AssociateBrowserSettingsCommand(output, context);
   }

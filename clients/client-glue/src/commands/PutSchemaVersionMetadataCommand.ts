@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSchemaVersionMetadataCommand}.
  */
 export interface PutSchemaVersionMetadataCommandInput extends PutSchemaVersionMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link PutSchemaVersionMetadataCommand}.
  */
 export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Puts the metadata key value pair for a specified schema version ID. A maximum of 10 key value pairs will be allowed per schema version. They can be added over one or more calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSchemaVersionMetadataCommandInput - {@link PutSchemaVersionMetadataCommandInput}
+ * @returns {@link PutSchemaVersionMetadataCommandOutput}
  * @see {@link PutSchemaVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link PutSchemaVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class PutSchemaVersionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSchemaVersionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class PutSchemaVersionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSchemaVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutSchemaVersionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSchemaVersionMetadataCommandOutput> {
     return deserializeAws_json1_1PutSchemaVersionMetadataCommand(output, context);
   }

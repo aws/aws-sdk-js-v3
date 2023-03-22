@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDataShareConsumerCommand}.
  */
 export interface AssociateDataShareConsumerCommandInput extends AssociateDataShareConsumerMessage {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDataShareConsumerCommand}.
  */
 export interface AssociateDataShareConsumerCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
+ * @public
  * <p>From a datashare consumer account, associates a datashare with the
  *             account (AssociateEntireAccount) or the specified namespace (ConsumerArn). If you make this association, the consumer
  *             can consume the datashare.</p>
@@ -48,6 +53,8 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDataShareConsumerCommandInput - {@link AssociateDataShareConsumerCommandInput}
+ * @returns {@link AssociateDataShareConsumerCommandOutput}
  * @see {@link AssociateDataShareConsumerCommandInput} for command's `input` shape.
  * @see {@link AssociateDataShareConsumerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -77,6 +84,9 @@ export class AssociateDataShareConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDataShareConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class AssociateDataShareConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDataShareConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAssociateDataShareConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

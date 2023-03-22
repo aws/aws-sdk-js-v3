@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomKeyStoreCommand}.
  */
 export interface DeleteCustomKeyStoreCommandInput extends DeleteCustomKeyStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomKeyStoreCommand}.
  */
 export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not affect any backing elements of the
  *       custom key store. It does not delete the CloudHSM cluster that is associated with an CloudHSM key
  *       store, or affect any users or keys in the cluster. For an external key store, it does not
@@ -104,6 +109,8 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomKeyStoreCommandInput - {@link DeleteCustomKeyStoreCommandInput}
+ * @returns {@link DeleteCustomKeyStoreCommandOutput}
  * @see {@link DeleteCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -188,6 +195,9 @@ export class DeleteCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -227,10 +237,16 @@ export class DeleteCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomKeyStoreCommandOutput> {
     return deserializeAws_json1_1DeleteCustomKeyStoreCommand(output, context);
   }

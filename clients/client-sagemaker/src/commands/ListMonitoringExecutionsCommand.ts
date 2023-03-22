@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMonitoringExecutionsCommand}.
  */
 export interface ListMonitoringExecutionsCommandInput extends ListMonitoringExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMonitoringExecutionsCommand}.
  */
 export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns list of all monitoring job executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitoringExecutionsCommandInput - {@link ListMonitoringExecutionsCommandInput}
+ * @returns {@link ListMonitoringExecutionsCommandOutput}
  * @see {@link ListMonitoringExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListMonitoringExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitoringExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListMonitoringExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitoringExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMonitoringExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitoringExecutionsCommandOutput> {
     return deserializeAws_json1_1ListMonitoringExecutionsCommand(output, context);
   }

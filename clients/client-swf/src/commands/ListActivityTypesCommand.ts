@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListActivityTypesCommand}.
  */
 export interface ListActivityTypesCommandInput extends ListActivityTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListActivityTypesCommand}.
  */
 export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all activities registered in the specified domain that match
  *       the specified name and registration status. The result includes information like creation
  *       date, current status of the activity, etc. The results may be split into multiple pages. To
@@ -73,6 +78,8 @@ export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActivityTypesCommandInput - {@link ListActivityTypesCommandInput}
+ * @returns {@link ListActivityTypesCommandOutput}
  * @see {@link ListActivityTypesCommandInput} for command's `input` shape.
  * @see {@link ListActivityTypesCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -102,6 +109,9 @@ export class ListActivityTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActivityTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ListActivityTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActivityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListActivityTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActivityTypesCommandOutput> {
     return deserializeAws_json1_0ListActivityTypesCommand(output, context);
   }

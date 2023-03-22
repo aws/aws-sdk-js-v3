@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeCacheSecurityGroupIngressCommand}.
  */
 export interface RevokeCacheSecurityGroupIngressCommandInput extends RevokeCacheSecurityGroupIngressMessage {}
 /**
+ * @public
+ *
  * The output of {@link RevokeCacheSecurityGroupIngressCommand}.
  */
 export interface RevokeCacheSecurityGroupIngressCommandOutput
@@ -37,6 +41,7 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes ingress from a cache security group.
  *             Use this operation to disallow access from an Amazon EC2 security group
  *             that had been previously authorized.</p>
@@ -50,6 +55,8 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeCacheSecurityGroupIngressCommandInput - {@link RevokeCacheSecurityGroupIngressCommandInput}
+ * @returns {@link RevokeCacheSecurityGroupIngressCommandOutput}
  * @see {@link RevokeCacheSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -101,6 +108,9 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeCacheSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RevokeCacheSecurityGroupIngressCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
     return serializeAws_queryRevokeCacheSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRouteCommand}.
  */
 export interface DeleteRouteCommandInput extends DeleteRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRouteCommand}.
  */
 export interface DeleteRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
+ * @returns {@link DeleteRouteCommandOutput}
  * @see {@link DeleteRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class DeleteRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteCommandOutput> {
     return deserializeAws_restJson1DeleteRouteCommand(output, context);
   }

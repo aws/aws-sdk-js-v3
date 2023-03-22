@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RunPipelineActivityCommand}.
  */
 export interface RunPipelineActivityCommandInput extends RunPipelineActivityRequest {}
 /**
+ * @public
+ *
  * The output of {@link RunPipelineActivityCommand}.
  */
 export interface RunPipelineActivityCommandOutput extends RunPipelineActivityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulates the results of running a pipeline activity on a message payload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
  * const response = await client.send(command);
  * ```
  *
+ * @param RunPipelineActivityCommandInput - {@link RunPipelineActivityCommandInput}
+ * @returns {@link RunPipelineActivityCommandOutput}
  * @see {@link RunPipelineActivityCommandInput} for command's `input` shape.
  * @see {@link RunPipelineActivityCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -81,6 +88,9 @@ export class RunPipelineActivityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunPipelineActivityCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RunPipelineActivityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunPipelineActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RunPipelineActivityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunPipelineActivityCommandOutput> {
     return deserializeAws_restJson1RunPipelineActivityCommand(output, context);
   }

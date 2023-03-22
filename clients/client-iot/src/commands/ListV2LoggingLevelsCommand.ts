@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListV2LoggingLevelsCommand}.
  */
 export interface ListV2LoggingLevelsCommandInput extends ListV2LoggingLevelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListV2LoggingLevelsCommand}.
  */
 export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists logging levels.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListV2LoggingLevels</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListV2LoggingLevelsCommandInput - {@link ListV2LoggingLevelsCommandInput}
+ * @returns {@link ListV2LoggingLevelsCommandOutput}
  * @see {@link ListV2LoggingLevelsCommandInput} for command's `input` shape.
  * @see {@link ListV2LoggingLevelsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListV2LoggingLevelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListV2LoggingLevelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListV2LoggingLevelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListV2LoggingLevelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListV2LoggingLevelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListV2LoggingLevelsCommandOutput> {
     return deserializeAws_restJson1ListV2LoggingLevelsCommand(output, context);
   }

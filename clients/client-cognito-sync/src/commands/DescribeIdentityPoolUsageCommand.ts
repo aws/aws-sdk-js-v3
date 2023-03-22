@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIdentityPoolUsageCommand}.
  */
 export interface DescribeIdentityPoolUsageCommandInput extends DescribeIdentityPoolUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIdentityPoolUsageCommand}.
  */
 export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentityPoolUsageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets usage details (for example, data storage) about a particular identity pool.</p>
  *       <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
  *
@@ -51,14 +56,14 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  * X-AMZ-DATE: 20141111T205737Z
  * AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>, SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid, Signature=<signature>
  *
- * {
+ * \{
  *     "Operation": "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsage",
  *     "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
  *     "Input":
- *     {
+ *     \{
  *         "IdentityPoolId": "IDENTITY_POOL_ID"
- *     }
- * }
+ *     \}
+ * \}
  *                </request>
  *             <response>
  * 1.1 200 OK
@@ -67,20 +72,20 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  * content-length: 271
  * date: Tue, 11 Nov 2014 20:57:37 GMT
  *
- * {
+ * \{
  *     "Output":
- *     {
+ *     \{
  *         "__type": "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsageResponse",
  *         "IdentityPoolUsage":
- *         {
+ *         \{
  *             "DataStorage": 0,
  *             "IdentityPoolId": "IDENTITY_POOL_ID",
  *             "LastModifiedDate": 1.413231134115E9,
  *             "SyncSessionsCount": null
- *         }
- *     },
+ *         \}
+ *     \},
  *     "Version": "1.0"
- * }
+ * \}
  *                </response>
  *          </example>
  *       </examples>
@@ -94,6 +99,8 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdentityPoolUsageCommandInput - {@link DescribeIdentityPoolUsageCommandInput}
+ * @returns {@link DescribeIdentityPoolUsageCommandOutput}
  * @see {@link DescribeIdentityPoolUsageCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityPoolUsageCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -137,6 +144,9 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdentityPoolUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIdentityPoolUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeIdentityPoolUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

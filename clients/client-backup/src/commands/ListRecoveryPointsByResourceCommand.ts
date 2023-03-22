@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecoveryPointsByResourceCommand}.
  */
 export interface ListRecoveryPointsByResourceCommandInput extends ListRecoveryPointsByResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRecoveryPointsByResourceCommand}.
  */
 export interface ListRecoveryPointsByResourceCommandOutput
@@ -37,6 +41,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about all the recovery points of the type specified by a
  *          resource Amazon Resource Name (ARN).</p>
  *          <note>
@@ -53,6 +58,8 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecoveryPointsByResourceCommandInput - {@link ListRecoveryPointsByResourceCommandInput}
+ * @returns {@link ListRecoveryPointsByResourceCommandOutput}
  * @see {@link ListRecoveryPointsByResourceCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByResourceCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecoveryPointsByResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecoveryPointsByResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecoveryPointsByResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

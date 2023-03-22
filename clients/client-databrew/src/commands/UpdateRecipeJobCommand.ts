@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRecipeJobCommand}.
  */
 export interface UpdateRecipeJobCommandInput extends UpdateRecipeJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRecipeJobCommand}.
  */
 export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the definition of an existing DataBrew recipe job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecipeJobCommandInput - {@link UpdateRecipeJobCommandInput}
+ * @returns {@link UpdateRecipeJobCommandOutput}
  * @see {@link UpdateRecipeJobCommandInput} for command's `input` shape.
  * @see {@link UpdateRecipeJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateRecipeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecipeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateRecipeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRecipeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRecipeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecipeJobCommandOutput> {
     return deserializeAws_restJson1UpdateRecipeJobCommand(output, context);
   }

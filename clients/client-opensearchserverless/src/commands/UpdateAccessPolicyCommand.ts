@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccessPolicyCommand}.
  */
 export interface UpdateAccessPolicyCommandInput extends UpdateAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccessPolicyCommand}.
  */
 export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
  *             access control for Amazon OpenSearch Serverless</a>.</p>
  * @example
@@ -51,6 +56,8 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccessPolicyCommandInput - {@link UpdateAccessPolicyCommandInput}
+ * @returns {@link UpdateAccessPolicyCommandOutput}
  * @see {@link UpdateAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccessPolicyCommandOutput> {
     return deserializeAws_json1_0UpdateAccessPolicyCommand(output, context);
   }

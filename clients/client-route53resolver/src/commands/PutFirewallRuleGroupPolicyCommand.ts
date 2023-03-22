@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutFirewallRuleGroupPolicyCommand}.
  */
 export interface PutFirewallRuleGroupPolicyCommandInput extends PutFirewallRuleGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutFirewallRuleGroupPolicyCommand}.
  */
 export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRuleGroupPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an Identity and Access Management (Amazon Web Services IAM) policy for sharing the rule
  * 			group. You can use the policy to share the rule group using Resource Access Manager
  * 			(RAM). </p>
@@ -48,6 +53,8 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFirewallRuleGroupPolicyCommandInput - {@link PutFirewallRuleGroupPolicyCommandInput}
+ * @returns {@link PutFirewallRuleGroupPolicyCommandOutput}
  * @see {@link PutFirewallRuleGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutFirewallRuleGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutFirewallRuleGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFirewallRuleGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutFirewallRuleGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFirewallRuleGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutFirewallRuleGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

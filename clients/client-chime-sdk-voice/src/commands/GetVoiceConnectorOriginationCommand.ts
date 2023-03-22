@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorOriginationCommand}.
  */
 export interface GetVoiceConnectorOriginationCommandInput extends GetVoiceConnectorOriginationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorOriginationCommand}.
  */
 export interface GetVoiceConnectorOriginationCommandOutput
@@ -53,6 +57,9 @@ export class GetVoiceConnectorOriginationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorOriginationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,10 +99,16 @@ export class GetVoiceConnectorOriginationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVoiceConnectorOriginationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetVoiceConnectorOriginationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainEndpointOptionsCommand}.
  */
 export interface UpdateDomainEndpointOptionsCommandInput extends UpdateDomainEndpointOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainEndpointOptionsCommand}.
  */
 export interface UpdateDomainEndpointOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDomainEndpointOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html" target="_blank">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainEndpointOptionsCommandInput - {@link UpdateDomainEndpointOptionsCommandInput}
+ * @returns {@link UpdateDomainEndpointOptionsCommandOutput}
  * @see {@link UpdateDomainEndpointOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainEndpointOptionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainEndpointOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainEndpointOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateDomainEndpointOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

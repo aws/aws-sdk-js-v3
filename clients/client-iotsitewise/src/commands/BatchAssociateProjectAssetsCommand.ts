@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateProjectAssetsCommand}.
  */
 export interface BatchAssociateProjectAssetsCommandInput extends BatchAssociateProjectAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateProjectAssetsCommand}.
  */
 export interface BatchAssociateProjectAssetsCommandOutput
@@ -37,6 +41,7 @@ export interface BatchAssociateProjectAssetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a group (batch) of assets with an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchAssociateProjectAssetsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateProjectAssetsCommandInput - {@link BatchAssociateProjectAssetsCommandInput}
+ * @returns {@link BatchAssociateProjectAssetsCommandOutput}
  * @see {@link BatchAssociateProjectAssetsCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateProjectAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -93,6 +100,9 @@ export class BatchAssociateProjectAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateProjectAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class BatchAssociateProjectAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchAssociateProjectAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchAssociateProjectAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

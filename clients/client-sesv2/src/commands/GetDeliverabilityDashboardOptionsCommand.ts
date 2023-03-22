@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeliverabilityDashboardOptionsCommand}.
  */
 export interface GetDeliverabilityDashboardOptionsCommandInput extends GetDeliverabilityDashboardOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeliverabilityDashboardOptionsCommand}.
  */
 export interface GetDeliverabilityDashboardOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve information about the status of the Deliverability dashboard for your account. When
  *             the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other
  *             metrics for the domains that you use to send email. You also gain the ability to perform
@@ -54,6 +59,8 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeliverabilityDashboardOptionsCommandInput - {@link GetDeliverabilityDashboardOptionsCommandInput}
+ * @returns {@link GetDeliverabilityDashboardOptionsCommandOutput}
  * @see {@link GetDeliverabilityDashboardOptionsCommandInput} for command's `input` shape.
  * @see {@link GetDeliverabilityDashboardOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -86,6 +93,9 @@ export class GetDeliverabilityDashboardOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeliverabilityDashboardOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetDeliverabilityDashboardOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDeliverabilityDashboardOptionsCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetDeliverabilityDashboardOptionsCommand extends $Command<
     return serializeAws_restJson1GetDeliverabilityDashboardOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

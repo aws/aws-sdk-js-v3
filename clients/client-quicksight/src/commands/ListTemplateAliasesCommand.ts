@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTemplateAliasesCommand}.
  */
 export interface ListTemplateAliasesCommandInput extends ListTemplateAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTemplateAliasesCommand}.
  */
 export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the aliases of a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplateAliasesCommandInput - {@link ListTemplateAliasesCommandInput}
+ * @returns {@link ListTemplateAliasesCommandOutput}
  * @see {@link ListTemplateAliasesCommandInput} for command's `input` shape.
  * @see {@link ListTemplateAliasesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListTemplateAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplateAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListTemplateAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplateAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTemplateAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateAliasesCommandOutput> {
     return deserializeAws_restJson1ListTemplateAliasesCommand(output, context);
   }

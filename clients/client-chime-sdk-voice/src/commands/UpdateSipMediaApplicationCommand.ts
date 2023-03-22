@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSipMediaApplicationCommand}.
  */
 export interface UpdateSipMediaApplicationCommandInput extends UpdateSipMediaApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSipMediaApplicationCommand}.
  */
 export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaApplicationResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class UpdateSipMediaApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSipMediaApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class UpdateSipMediaApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSipMediaApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

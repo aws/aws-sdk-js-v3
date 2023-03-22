@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ModifyHostsCommand, serializeAws_ec2ModifyHostsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyHostsCommand}.
  */
 export interface ModifyHostsCommandInput extends ModifyHostsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyHostsCommand}.
  */
 export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
  *             any instances that you launch with a tenancy of <code>host</code> but without a specific
  *             host ID are placed onto any available Dedicated Host in your account that has
@@ -51,6 +56,8 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyHostsCommandInput - {@link ModifyHostsCommandInput}
+ * @returns {@link ModifyHostsCommandOutput}
  * @see {@link ModifyHostsCommandInput} for command's `input` shape.
  * @see {@link ModifyHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class ModifyHostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ModifyHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyHostsCommandOutput> {
     return deserializeAws_ec2ModifyHostsCommand(output, context);
   }

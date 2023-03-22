@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProvisioningTemplateVersionCommand}.
  */
 export interface DeleteProvisioningTemplateVersionCommandInput extends DeleteProvisioningTemplateVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProvisioningTemplateVersionCommand}.
  */
 export interface DeleteProvisioningTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteProvisioningTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a provisioning template version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteProvisioningTemplateVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProvisioningTemplateVersionCommandInput - {@link DeleteProvisioningTemplateVersionCommandInput}
+ * @returns {@link DeleteProvisioningTemplateVersionCommandOutput}
  * @see {@link DeleteProvisioningTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisioningTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProvisioningTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteProvisioningTemplateVersionCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     return serializeAws_restJson1DeleteProvisioningTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

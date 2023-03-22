@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListInferenceExperimentsCommand}.
  */
 export interface ListInferenceExperimentsCommandInput extends ListInferenceExperimentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInferenceExperimentsCommand}.
  */
 export interface ListInferenceExperimentsCommandOutput extends ListInferenceExperimentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of all inference experiments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInferenceExperimentsCommandInput - {@link ListInferenceExperimentsCommandInput}
+ * @returns {@link ListInferenceExperimentsCommandOutput}
  * @see {@link ListInferenceExperimentsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceExperimentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListInferenceExperimentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInferenceExperimentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListInferenceExperimentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInferenceExperimentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListInferenceExperimentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInferenceExperimentsCommandOutput> {
     return deserializeAws_json1_1ListInferenceExperimentsCommand(output, context);
   }

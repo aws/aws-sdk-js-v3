@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFargateProfilesCommand}.
  */
 export interface ListFargateProfilesCommandInput extends ListFargateProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFargateProfilesCommand}.
  */
 export interface ListFargateProfilesCommandOutput extends ListFargateProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Fargate profiles associated with the specified cluster in
  *             your Amazon Web Services account in the specified Region.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFargateProfilesCommandInput - {@link ListFargateProfilesCommandInput}
+ * @returns {@link ListFargateProfilesCommandOutput}
  * @see {@link ListFargateProfilesCommandInput} for command's `input` shape.
  * @see {@link ListFargateProfilesCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListFargateProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFargateProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListFargateProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFargateProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFargateProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFargateProfilesCommandOutput> {
     return deserializeAws_restJson1ListFargateProfilesCommand(output, context);
   }

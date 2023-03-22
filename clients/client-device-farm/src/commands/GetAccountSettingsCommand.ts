@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountSettingsCommand}.
  */
 export interface GetAccountSettingsCommandInput extends GetAccountSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountSettingsCommand}.
  */
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the
  *             account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
+ * @returns {@link GetAccountSettingsCommandOutput}
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -102,6 +109,9 @@ export class GetAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class GetAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSettingsCommandOutput> {
     return deserializeAws_json1_1GetAccountSettingsCommand(output, context);
   }

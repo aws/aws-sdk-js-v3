@@ -26,15 +26,20 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppMonitorCommand}.
  */
 export interface CreateAppMonitorCommandInput extends CreateAppMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppMonitorCommand}.
  */
 export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that
  *       data to RUM. The data includes performance and reliability information such as page load time, client-side errors,
  *       and user behavior.</p>
@@ -54,6 +59,8 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppMonitorCommandInput - {@link CreateAppMonitorCommandInput}
+ * @returns {@link CreateAppMonitorCommandOutput}
  * @see {@link CreateAppMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateAppMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreateAppMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAppMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppMonitorCommandOutput> {
     return deserializeAws_restJson1CreateAppMonitorCommand(output, context);
   }

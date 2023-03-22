@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePackagingGroupCommand}.
  */
 export interface CreatePackagingGroupCommandInput extends CreatePackagingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePackagingGroupCommand}.
  */
 export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a new MediaPackage VOD PackagingGroup resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePackagingGroupCommandInput - {@link CreatePackagingGroupCommandInput}
+ * @returns {@link CreatePackagingGroupCommandOutput}
  * @see {@link CreatePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link CreatePackagingGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreatePackagingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePackagingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreatePackagingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePackagingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePackagingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePackagingGroupCommandOutput> {
     return deserializeAws_restJson1CreatePackagingGroupCommand(output, context);
   }

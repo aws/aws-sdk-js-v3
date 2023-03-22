@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartDocumentAnalysisCommand}.
  */
 export interface StartDocumentAnalysisCommandInput extends StartDocumentAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDocumentAnalysisCommand}.
  */
 export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous analysis of an input document for relationships between detected
  *          items such as key-value pairs, tables, and selection elements.</p>
  *
@@ -63,6 +68,8 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDocumentAnalysisCommandInput - {@link StartDocumentAnalysisCommandInput}
+ * @returns {@link StartDocumentAnalysisCommandOutput}
  * @see {@link StartDocumentAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartDocumentAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -142,6 +149,9 @@ export class StartDocumentAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDocumentAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class StartDocumentAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDocumentAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDocumentAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDocumentAnalysisCommandOutput> {
     return deserializeAws_json1_1StartDocumentAnalysisCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBrokerCommand}.
  */
 export interface DescribeBrokerCommandInput extends DescribeBrokerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBrokerCommand}.
  */
 export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified broker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBrokerCommandInput - {@link DescribeBrokerCommandInput}
+ * @returns {@link DescribeBrokerCommandOutput}
  * @see {@link DescribeBrokerCommandInput} for command's `input` shape.
  * @see {@link DescribeBrokerCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeBrokerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBrokerCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeBrokerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBrokerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBrokerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBrokerCommandOutput> {
     return deserializeAws_restJson1DescribeBrokerCommand(output, context);
   }

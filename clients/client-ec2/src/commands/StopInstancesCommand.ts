@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2StopInstancesCommand, serializeAws_ec2StopInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link StopInstancesCommand}.
  */
 export interface StopInstancesCommandInput extends StopInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopInstancesCommand}.
  */
 export interface StopInstancesCommandOutput extends StopInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an Amazon EBS-backed instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start
  *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for
@@ -73,6 +78,8 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInstancesCommandInput - {@link StopInstancesCommandInput}
+ * @returns {@link StopInstancesCommandOutput}
  * @see {@link StopInstancesCommandInput} for command's `input` shape.
  * @see {@link StopInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -126,6 +133,9 @@ export class StopInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class StopInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2StopInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInstancesCommandOutput> {
     return deserializeAws_ec2StopInstancesCommand(output, context);
   }

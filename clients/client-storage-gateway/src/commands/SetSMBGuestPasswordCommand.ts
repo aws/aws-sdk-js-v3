@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetSMBGuestPasswordCommand}.
  */
 export interface SetSMBGuestPasswordCommandInput extends SetSMBGuestPasswordInput {}
 /**
+ * @public
+ *
  * The output of {@link SetSMBGuestPasswordCommand}.
  */
 export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
  *          user is the user when the authentication method for the file share is set to
  *             <code>GuestAccess</code>. This operation only supported for S3 File Gateways</p>
@@ -48,6 +53,8 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSMBGuestPasswordCommandInput - {@link SetSMBGuestPasswordCommandInput}
+ * @returns {@link SetSMBGuestPasswordCommandOutput}
  * @see {@link SetSMBGuestPasswordCommandInput} for command's `input` shape.
  * @see {@link SetSMBGuestPasswordCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class SetSMBGuestPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSMBGuestPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class SetSMBGuestPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSMBGuestPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetSMBGuestPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSMBGuestPasswordCommandOutput> {
     return deserializeAws_json1_1SetSMBGuestPasswordCommand(output, context);
   }

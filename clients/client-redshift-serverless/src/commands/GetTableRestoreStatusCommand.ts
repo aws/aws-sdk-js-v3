@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTableRestoreStatusCommand}.
  */
 export interface GetTableRestoreStatusCommandInput extends GetTableRestoreStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTableRestoreStatusCommand}.
  */
 export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a <code>TableRestoreStatus</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableRestoreStatusCommandInput - {@link GetTableRestoreStatusCommandInput}
+ * @returns {@link GetTableRestoreStatusCommandOutput}
  * @see {@link GetTableRestoreStatusCommandInput} for command's `input` shape.
  * @see {@link GetTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetTableRestoreStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableRestoreStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetTableRestoreStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTableRestoreStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableRestoreStatusCommandOutput> {
     return deserializeAws_json1_1GetTableRestoreStatusCommand(output, context);
   }

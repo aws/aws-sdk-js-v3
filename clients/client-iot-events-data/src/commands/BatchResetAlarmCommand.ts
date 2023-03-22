@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchResetAlarmCommand}.
  */
 export interface BatchResetAlarmCommandInput extends BatchResetAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchResetAlarmCommand}.
  */
 export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets one or more alarms. The alarms return to the <code>NORMAL</code> state after you
  *       reset them.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchResetAlarmCommandInput - {@link BatchResetAlarmCommandInput}
+ * @returns {@link BatchResetAlarmCommandOutput}
  * @see {@link BatchResetAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchResetAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -82,6 +89,9 @@ export class BatchResetAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchResetAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchResetAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchResetAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchResetAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchResetAlarmCommandOutput> {
     return deserializeAws_restJson1BatchResetAlarmCommand(output, context);
   }

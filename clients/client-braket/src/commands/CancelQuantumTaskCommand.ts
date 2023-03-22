@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelQuantumTaskCommand}.
  */
 export interface CancelQuantumTaskCommandInput extends CancelQuantumTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelQuantumTaskCommand}.
  */
 export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelQuantumTaskCommandInput - {@link CancelQuantumTaskCommandInput}
+ * @returns {@link CancelQuantumTaskCommandOutput}
  * @see {@link CancelQuantumTaskCommandInput} for command's `input` shape.
  * @see {@link CancelQuantumTaskCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -88,6 +95,9 @@ export class CancelQuantumTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelQuantumTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CancelQuantumTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelQuantumTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelQuantumTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelQuantumTaskCommandOutput> {
     return deserializeAws_restJson1CancelQuantumTaskCommand(output, context);
   }

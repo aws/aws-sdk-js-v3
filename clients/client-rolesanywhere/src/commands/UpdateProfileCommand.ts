@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProfileCommand}.
  */
 export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProfileCommand}.
  */
 export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the profile. A profile is configuration resource to list the roles that RolesAnywhere service is trusted to assume. In addition, by applying a profile you can scope-down permissions with IAM managed policies.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
+ * @returns {@link UpdateProfileCommandOutput}
  * @see {@link UpdateProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfileCommandOutput> {
     return deserializeAws_restJson1UpdateProfileCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptReservedInstancesExchangeQuoteCommand}.
  */
 export interface AcceptReservedInstancesExchangeQuoteCommandInput extends AcceptReservedInstancesExchangeQuoteRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptReservedInstancesExchangeQuoteCommand}.
  */
 export interface AcceptReservedInstancesExchangeQuoteCommandOutput
@@ -37,6 +41,7 @@ export interface AcceptReservedInstancesExchangeQuoteCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a> call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AcceptReservedInstancesExchangeQuoteCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptReservedInstancesExchangeQuoteCommandInput - {@link AcceptReservedInstancesExchangeQuoteCommandInput}
+ * @returns {@link AcceptReservedInstancesExchangeQuoteCommandOutput}
  * @see {@link AcceptReservedInstancesExchangeQuoteCommandInput} for command's `input` shape.
  * @see {@link AcceptReservedInstancesExchangeQuoteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptReservedInstancesExchangeQuoteCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptReservedInstancesExchangeQuoteCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
     return serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

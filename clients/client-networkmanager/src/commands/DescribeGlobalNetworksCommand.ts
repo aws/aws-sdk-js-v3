@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGlobalNetworksCommand}.
  */
 export interface DescribeGlobalNetworksCommandInput extends DescribeGlobalNetworksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGlobalNetworksCommand}.
  */
 export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetworksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more global networks. By default, all global networks are
  *             described. To describe the objects in your global network, you must use the appropriate
  *                 <code>Get*</code> action. For example, to list the transit gateways in your global
@@ -49,6 +54,8 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalNetworksCommandInput - {@link DescribeGlobalNetworksCommandInput}
+ * @returns {@link DescribeGlobalNetworksCommandOutput}
  * @see {@link DescribeGlobalNetworksCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalNetworksCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeGlobalNetworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalNetworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeGlobalNetworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGlobalNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeGlobalNetworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalNetworksCommandOutput> {
     return deserializeAws_restJson1DescribeGlobalNetworksCommand(output, context);
   }

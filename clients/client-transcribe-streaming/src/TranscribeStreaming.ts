@@ -19,6 +19,7 @@ import {
 import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
 
 /**
+ * @public
  * <p>Amazon Transcribe streaming offers three main types of real-time transcription:
  *       <b>Standard</b>, <b>Medical</b>, and
  *       <b>Call Analytics</b>.</p>
@@ -45,6 +46,7 @@ import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
  */
 export class TranscribeStreaming extends TranscribeStreamingClient {
   /**
+   * @public
    * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
    *       Amazon Transcribe and the transcription results are streamed to your application. Use this operation
    *       for <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Call Analytics</a> transcriptions.</p>
@@ -100,6 +102,7 @@ export class TranscribeStreaming extends TranscribeStreamingClient {
   }
 
   /**
+   * @public
    * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
    *             Amazon Transcribe Medical and the transcription results are streamed to your
    *             application.</p>
@@ -155,6 +158,7 @@ export class TranscribeStreaming extends TranscribeStreamingClient {
   }
 
   /**
+   * @public
    * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
    *       Amazon Transcribe and the transcription results are streamed to your application.</p>
    *          <p>The following parameters are required:</p>

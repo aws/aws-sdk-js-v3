@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopRecommenderCommand}.
  */
 export interface StopRecommenderCommandInput extends StopRecommenderRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopRecommenderCommand}.
  */
 export interface StopRecommenderCommandOutput extends StopRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StopRecommenderCommandInput - {@link StopRecommenderCommandInput}
+ * @returns {@link StopRecommenderCommandOutput}
  * @see {@link StopRecommenderCommandInput} for command's `input` shape.
  * @see {@link StopRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -78,6 +85,9 @@ export class StopRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class StopRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRecommenderCommandOutput> {
     return deserializeAws_json1_1StopRecommenderCommand(output, context);
   }

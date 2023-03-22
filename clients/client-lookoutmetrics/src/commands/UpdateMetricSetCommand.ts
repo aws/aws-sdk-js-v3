@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMetricSetCommand}.
  */
 export interface UpdateMetricSetCommandInput extends UpdateMetricSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMetricSetCommand}.
  */
 export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMetricSetCommandInput - {@link UpdateMetricSetCommandInput}
+ * @returns {@link UpdateMetricSetCommandOutput}
  * @see {@link UpdateMetricSetCommandInput} for command's `input` shape.
  * @see {@link UpdateMetricSetCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateMetricSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMetricSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateMetricSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMetricSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMetricSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMetricSetCommandOutput> {
     return deserializeAws_restJson1UpdateMetricSetCommand(output, context);
   }

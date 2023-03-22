@@ -10,7 +10,7 @@ import { SecurityLakeClient } from "../SecurityLakeClient";
 import { SecurityLakePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityLakeClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetDatalakeStatusCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetDatalakeStatus(
   config: SecurityLakePaginationConfiguration,
   input: GetDatalakeStatusCommandInput,

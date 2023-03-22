@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFeatureCommand}.
  */
 export interface CreateFeatureCommandInput extends CreateFeatureRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFeatureCommand}.
  */
 export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Evidently <i>feature</i> that you want to launch or test. You can define up to
  *        five variations of a feature, and use these variations in your launches and experiments. A feature must be created in
  *        a project. For information about creating a project, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html">CreateProject</a>.</p>
@@ -50,6 +55,8 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFeatureCommandInput - {@link CreateFeatureCommandInput}
+ * @returns {@link CreateFeatureCommandOutput}
  * @see {@link CreateFeatureCommandInput} for command's `input` shape.
  * @see {@link CreateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFeatureCommandOutput> {
     return deserializeAws_restJson1CreateFeatureCommand(output, context);
   }

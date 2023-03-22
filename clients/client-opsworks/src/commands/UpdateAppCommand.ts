@@ -18,15 +18,20 @@ import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { deserializeAws_json1_1UpdateAppCommand, serializeAws_json1_1UpdateAppCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppCommand}.
  */
 export interface UpdateAppCommandInput extends UpdateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppCommand}.
  */
 export interface UpdateAppCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified app.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Deploy or Manage
@@ -43,6 +48,8 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppCommandInput - {@link UpdateAppCommandInput}
+ * @returns {@link UpdateAppCommandOutput}
  * @see {@link UpdateAppCommandInput} for command's `input` shape.
  * @see {@link UpdateAppCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdateAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class UpdateAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppCommandOutput> {
     return deserializeAws_json1_1UpdateAppCommand(output, context);
   }

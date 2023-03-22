@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcknowledgeThirdPartyJobCommand}.
  */
 export interface AcknowledgeThirdPartyJobCommandInput extends AcknowledgeThirdPartyJobInput {}
 /**
+ * @public
+ *
  * The output of {@link AcknowledgeThirdPartyJobCommand}.
  */
 export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdPartyJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Confirms a job worker has received the specified job. Used for partner actions
  *             only.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * const response = await client.send(command);
  * ```
  *
+ * @param AcknowledgeThirdPartyJobCommandInput - {@link AcknowledgeThirdPartyJobCommandInput}
+ * @returns {@link AcknowledgeThirdPartyJobCommandOutput}
  * @see {@link AcknowledgeThirdPartyJobCommandInput} for command's `input` shape.
  * @see {@link AcknowledgeThirdPartyJobCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -82,6 +89,9 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcknowledgeThirdPartyJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcknowledgeThirdPartyJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcknowledgeThirdPartyJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcknowledgeThirdPartyJobCommandOutput> {
     return deserializeAws_json1_1AcknowledgeThirdPartyJobCommand(output, context);
   }

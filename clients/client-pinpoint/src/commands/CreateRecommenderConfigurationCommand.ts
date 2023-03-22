@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecommenderConfigurationCommand}.
  */
 export interface CreateRecommenderConfigurationCommandInput extends CreateRecommenderConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecommenderConfigurationCommand}.
  */
 export interface CreateRecommenderConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateRecommenderConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Pinpoint configuration for a recommender model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateRecommenderConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecommenderConfigurationCommandInput - {@link CreateRecommenderConfigurationCommandInput}
+ * @returns {@link CreateRecommenderConfigurationCommandOutput}
  * @see {@link CreateRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateRecommenderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateRecommenderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecommenderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class CreateRecommenderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateRecommenderConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class CreateRecommenderConfigurationCommand extends $Command<
     return serializeAws_restJson1CreateRecommenderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

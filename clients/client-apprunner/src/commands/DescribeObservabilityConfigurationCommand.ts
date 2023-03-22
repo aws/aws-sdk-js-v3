@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeObservabilityConfigurationCommand}.
  */
 export interface DescribeObservabilityConfigurationCommandInput extends DescribeObservabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeObservabilityConfigurationCommand}.
  */
 export interface DescribeObservabilityConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeObservabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a full description of an App Runner observability configuration resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeObservabilityConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeObservabilityConfigurationCommandInput - {@link DescribeObservabilityConfigurationCommandInput}
+ * @returns {@link DescribeObservabilityConfigurationCommandOutput}
  * @see {@link DescribeObservabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeObservabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeObservabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeObservabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeObservabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeObservabilityConfigurationCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeObservabilityConfigurationCommand extends $Command<
     return serializeAws_json1_0DescribeObservabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

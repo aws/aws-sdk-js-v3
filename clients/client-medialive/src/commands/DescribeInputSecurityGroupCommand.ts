@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInputSecurityGroupCommand}.
  */
 export interface DescribeInputSecurityGroupCommandInput extends DescribeInputSecurityGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInputSecurityGroupCommand}.
  */
 export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Produces a summary of an Input Security Group
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInputSecurityGroupCommandInput - {@link DescribeInputSecurityGroupCommandInput}
+ * @returns {@link DescribeInputSecurityGroupCommandOutput}
  * @see {@link DescribeInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeInputSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeInputSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInputSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeInputSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInputSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeInputSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

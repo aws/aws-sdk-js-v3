@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatabaseCommand}.
  */
 export interface DeleteDatabaseCommandInput extends DeleteDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatabaseCommand}.
  */
 export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a specified database from a Data Catalog.</p>
  *          <note>
  *             <p>After completing this operation, you no longer have access to the tables (and all table
@@ -58,6 +63,8 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatabaseCommandInput - {@link DeleteDatabaseCommandInput}
+ * @returns {@link DeleteDatabaseCommandOutput}
  * @see {@link DeleteDatabaseCommandInput} for command's `input` shape.
  * @see {@link DeleteDatabaseCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeleteDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatabaseCommandOutput> {
     return deserializeAws_json1_1DeleteDatabaseCommand(output, context);
   }

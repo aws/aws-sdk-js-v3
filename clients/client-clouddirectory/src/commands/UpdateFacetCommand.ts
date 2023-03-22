@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFacetCommand}.
  */
 export interface UpdateFacetCommandInput extends UpdateFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFacetCommand}.
  */
 export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Does the following:</p>
  *          <ol>
  *             <li>
@@ -57,6 +62,8 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFacetCommandInput - {@link UpdateFacetCommandInput}
+ * @returns {@link UpdateFacetCommandOutput}
  * @see {@link UpdateFacetCommandInput} for command's `input` shape.
  * @see {@link UpdateFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -116,6 +123,9 @@ export class UpdateFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class UpdateFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFacetCommandOutput> {
     return deserializeAws_restJson1UpdateFacetCommand(output, context);
   }

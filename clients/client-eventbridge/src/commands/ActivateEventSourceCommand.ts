@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateEventSourceCommand}.
  */
 export interface ActivateEventSourceCommandInput extends ActivateEventSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ActivateEventSourceCommand}.
  */
 export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates a partner event source that has been deactivated. Once activated, your matching
  *       event bus will start receiving events from the event source.</p>
  * @example
@@ -42,6 +47,8 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateEventSourceCommandInput - {@link ActivateEventSourceCommandInput}
+ * @returns {@link ActivateEventSourceCommandOutput}
  * @see {@link ActivateEventSourceCommandInput} for command's `input` shape.
  * @see {@link ActivateEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -80,6 +87,9 @@ export class ActivateEventSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ActivateEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ActivateEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateEventSourceCommandOutput> {
     return deserializeAws_json1_1ActivateEventSourceCommand(output, context);
   }

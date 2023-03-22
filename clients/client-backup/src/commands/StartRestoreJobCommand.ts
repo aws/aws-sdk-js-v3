@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRestoreJobCommand}.
  */
 export interface StartRestoreJobCommandInput extends StartRestoreJobInput {}
 /**
+ * @public
+ *
  * The output of {@link StartRestoreJobCommand}.
  */
 export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRestoreJobCommandInput - {@link StartRestoreJobCommandInput}
+ * @returns {@link StartRestoreJobCommandOutput}
  * @see {@link StartRestoreJobCommandInput} for command's `input` shape.
  * @see {@link StartRestoreJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +89,9 @@ export class StartRestoreJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRestoreJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StartRestoreJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRestoreJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartRestoreJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRestoreJobCommandOutput> {
     return deserializeAws_restJson1StartRestoreJobCommand(output, context);
   }

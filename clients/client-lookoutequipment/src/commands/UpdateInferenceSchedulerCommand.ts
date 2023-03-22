@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInferenceSchedulerCommand}.
  */
 export interface UpdateInferenceSchedulerCommandInput extends UpdateInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInferenceSchedulerCommand}.
  */
 export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an inference scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInferenceSchedulerCommandInput - {@link UpdateInferenceSchedulerCommandInput}
+ * @returns {@link UpdateInferenceSchedulerCommandOutput}
  * @see {@link UpdateInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link UpdateInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInferenceSchedulerCommandOutput> {
     return deserializeAws_json1_0UpdateInferenceSchedulerCommand(output, context);
   }

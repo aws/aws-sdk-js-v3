@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDiscoverersCommand}.
  */
 export interface ListDiscoverersCommandInput extends ListDiscoverersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDiscoverersCommand}.
  */
 export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the discoverers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDiscoverersCommandInput - {@link ListDiscoverersCommandInput}
+ * @returns {@link ListDiscoverersCommandOutput}
  * @see {@link ListDiscoverersCommandInput} for command's `input` shape.
  * @see {@link ListDiscoverersCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListDiscoverersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDiscoverersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListDiscoverersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDiscoverersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDiscoverersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDiscoverersCommandOutput> {
     return deserializeAws_restJson1ListDiscoverersCommand(output, context);
   }

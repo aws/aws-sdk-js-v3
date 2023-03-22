@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGameSessionsCommand}.
  */
 export interface DescribeGameSessionsCommandInput extends DescribeGameSessionsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGameSessionsCommand}.
  */
 export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a set of one or more game sessions in a specific fleet location. You can
  *             optionally filter the results by current game session status.</p>
  *         <p>This operation can be used in the following ways: </p>
@@ -87,6 +92,8 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameSessionsCommandInput - {@link DescribeGameSessionsCommandInput}
+ * @returns {@link DescribeGameSessionsCommandOutput}
  * @see {@link DescribeGameSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -133,6 +140,9 @@ export class DescribeGameSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class DescribeGameSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeGameSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGameSessionsCommandOutput> {
     return deserializeAws_json1_1DescribeGameSessionsCommand(output, context);
   }

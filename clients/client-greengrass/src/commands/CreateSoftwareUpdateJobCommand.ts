@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSoftwareUpdateJobCommand}.
  */
 export interface CreateSoftwareUpdateJobCommandInput extends CreateSoftwareUpdateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSoftwareUpdateJobCommand}.
  */
 export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpdateJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a software update for a core or group of cores (specified as an IoT thing group.) Use this to update the OTA Agent as well as the Greengrass core software. It makes use of the IoT Jobs feature which provides additional commands to manage a Greengrass core software update job.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSoftwareUpdateJobCommandInput - {@link CreateSoftwareUpdateJobCommandInput}
+ * @returns {@link CreateSoftwareUpdateJobCommandOutput}
  * @see {@link CreateSoftwareUpdateJobCommandInput} for command's `input` shape.
  * @see {@link CreateSoftwareUpdateJobCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateSoftwareUpdateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSoftwareUpdateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateSoftwareUpdateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSoftwareUpdateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSoftwareUpdateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSoftwareUpdateJobCommandOutput> {
     return deserializeAws_restJson1CreateSoftwareUpdateJobCommand(output, context);
   }

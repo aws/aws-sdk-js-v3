@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCopyJobCommand}.
  */
 export interface StartCopyJobCommandInput extends StartCopyJobInput {}
 /**
+ * @public
+ *
  * The output of {@link StartCopyJobCommand}.
  */
 export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a job to create a one-time copy of the specified resource.</p>
  *          <p>Does not support continuous backups.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCopyJobCommandInput - {@link StartCopyJobCommandInput}
+ * @returns {@link StartCopyJobCommandOutput}
  * @see {@link StartCopyJobCommandInput} for command's `input` shape.
  * @see {@link StartCopyJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -91,6 +98,9 @@ export class StartCopyJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCopyJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class StartCopyJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCopyJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartCopyJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCopyJobCommandOutput> {
     return deserializeAws_restJson1StartCopyJobCommand(output, context);
   }

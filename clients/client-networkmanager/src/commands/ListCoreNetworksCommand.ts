@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCoreNetworksCommand}.
  */
 export interface ListCoreNetworksCommandInput extends ListCoreNetworksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCoreNetworksCommand}.
  */
 export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of owned and shared core networks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoreNetworksCommandInput - {@link ListCoreNetworksCommandInput}
+ * @returns {@link ListCoreNetworksCommandOutput}
  * @see {@link ListCoreNetworksCommandInput} for command's `input` shape.
  * @see {@link ListCoreNetworksCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListCoreNetworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoreNetworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListCoreNetworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoreNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCoreNetworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoreNetworksCommandOutput> {
     return deserializeAws_restJson1ListCoreNetworksCommand(output, context);
   }

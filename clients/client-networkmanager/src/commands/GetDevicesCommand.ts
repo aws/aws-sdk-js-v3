@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDevicesCommand}.
  */
 export interface GetDevicesCommandInput extends GetDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDevicesCommand}.
  */
 export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more of your devices in a global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevicesCommandInput - {@link GetDevicesCommandInput}
+ * @returns {@link GetDevicesCommandOutput}
  * @see {@link GetDevicesCommandInput} for command's `input` shape.
  * @see {@link GetDevicesCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevicesCommandOutput> {
     return deserializeAws_restJson1GetDevicesCommand(output, context);
   }

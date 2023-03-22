@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAvailabilityZonesCommand}.
  */
 export interface DescribeAvailabilityZonesCommandInput extends DescribeAvailabilityZonesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAvailabilityZonesCommand}.
  */
 export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabilityZonesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
  *       you. If there is an event impacting a zone, you can use this request to view the state and any
  *       provided messages for that zone.</p>
@@ -51,6 +56,8 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAvailabilityZonesCommandInput - {@link DescribeAvailabilityZonesCommandInput}
+ * @returns {@link DescribeAvailabilityZonesCommandOutput}
  * @see {@link DescribeAvailabilityZonesCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailabilityZonesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -113,6 +120,9 @@ export class DescribeAvailabilityZonesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAvailabilityZonesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DescribeAvailabilityZonesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAvailabilityZonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeAvailabilityZonesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVerifiedAccessGroupPolicyCommand}.
  */
 export interface ModifyVerifiedAccessGroupPolicyCommandInput extends ModifyVerifiedAccessGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVerifiedAccessGroupPolicyCommand}.
  */
 export interface ModifyVerifiedAccessGroupPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified Verified Access group policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessGroupPolicyCommandInput - {@link ModifyVerifiedAccessGroupPolicyCommandInput}
+ * @returns {@link ModifyVerifiedAccessGroupPolicyCommandOutput}
  * @see {@link ModifyVerifiedAccessGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVerifiedAccessGroupPolicyCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
     return serializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

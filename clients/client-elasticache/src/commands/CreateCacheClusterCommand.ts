@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCacheClusterCommand}.
  */
 export interface CreateCacheClusterCommandInput extends CreateCacheClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateCacheClusterCommand}.
  */
 export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a cluster. All nodes in the
  *             cluster run the same protocol-compliant cache engine software, either Memcached
  *             or Redis.</p>
@@ -49,6 +54,8 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCacheClusterCommandInput - {@link CreateCacheClusterCommandInput}
+ * @returns {@link CreateCacheClusterCommandOutput}
  * @see {@link CreateCacheClusterCommandInput} for command's `input` shape.
  * @see {@link CreateCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -157,6 +164,9 @@ export class CreateCacheClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,10 +206,16 @@ export class CreateCacheClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateCacheClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheClusterCommandOutput> {
     return deserializeAws_queryCreateCacheClusterCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the resource-based permission policy that is set for the given environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
  * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePolicyCommandOutput> {
     return deserializeAws_restJson1GetResourcePolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelBatchImportJobCommand}.
  */
 export interface CancelBatchImportJobCommandInput extends CancelBatchImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelBatchImportJobCommand}.
  */
 export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Cancels an in-progress batch import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelBatchImportJobCommandInput - {@link CancelBatchImportJobCommandInput}
+ * @returns {@link CancelBatchImportJobCommandOutput}
  * @see {@link CancelBatchImportJobCommandInput} for command's `input` shape.
  * @see {@link CancelBatchImportJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class CancelBatchImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelBatchImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CancelBatchImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelBatchImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelBatchImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBatchImportJobCommandOutput> {
     return deserializeAws_json1_1CancelBatchImportJobCommand(output, context);
   }

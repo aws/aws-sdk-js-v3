@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTransitGatewayMulticastDomainCommand}.
  */
 export interface AssociateTransitGatewayMulticastDomainCommandInput
   extends AssociateTransitGatewayMulticastDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTransitGatewayMulticastDomainCommand}.
  */
 export interface AssociateTransitGatewayMulticastDomainCommandOutput
@@ -38,6 +42,7 @@ export interface AssociateTransitGatewayMulticastDomainCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p>
  *          <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a>
  *             to see the state of the attachment.</p>
@@ -51,6 +56,8 @@ export interface AssociateTransitGatewayMulticastDomainCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTransitGatewayMulticastDomainCommandInput - {@link AssociateTransitGatewayMulticastDomainCommandInput}
+ * @returns {@link AssociateTransitGatewayMulticastDomainCommandOutput}
  * @see {@link AssociateTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTransitGatewayMulticastDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command<
     return serializeAws_ec2AssociateTransitGatewayMulticastDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

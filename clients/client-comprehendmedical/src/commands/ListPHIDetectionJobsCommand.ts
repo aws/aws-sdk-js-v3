@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPHIDetectionJobsCommand}.
  */
 export interface ListPHIDetectionJobsCommandInput extends ListPHIDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPHIDetectionJobsCommand}.
  */
 export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of protected health information (PHI) detection jobs that you have
  *       submitted.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPHIDetectionJobsCommandInput - {@link ListPHIDetectionJobsCommandInput}
+ * @returns {@link ListPHIDetectionJobsCommandOutput}
  * @see {@link ListPHIDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListPHIDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListPHIDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPHIDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListPHIDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPHIDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPHIDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPHIDetectionJobsCommandOutput> {
     return deserializeAws_json1_1ListPHIDetectionJobsCommand(output, context);
   }

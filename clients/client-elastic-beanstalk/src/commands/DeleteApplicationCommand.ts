@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationCommand}.
  */
 export interface DeleteApplicationCommandInput extends DeleteApplicationMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationCommand}.
  */
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified application along with all associated versions and
  *       configurations. The application versions will not be deleted from your Amazon S3
  *       bucket.</p>
@@ -46,6 +51,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
+ * @returns {@link DeleteApplicationCommandOutput}
  * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationCommandOutput> {
     return deserializeAws_queryDeleteApplicationCommand(output, context);
   }

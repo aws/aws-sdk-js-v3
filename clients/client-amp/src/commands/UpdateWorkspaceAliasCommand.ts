@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceAliasCommand}.
  */
 export interface UpdateWorkspaceAliasCommandInput extends UpdateWorkspaceAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceAliasCommand}.
  */
 export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Updates an AMP workspace alias.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceAliasCommandInput - {@link UpdateWorkspaceAliasCommandInput}
+ * @returns {@link UpdateWorkspaceAliasCommandOutput}
  * @see {@link UpdateWorkspaceAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceAliasCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateWorkspaceAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateWorkspaceAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateWorkspaceAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceAliasCommandOutput> {
     return deserializeAws_restJson1UpdateWorkspaceAliasCommand(output, context);
   }

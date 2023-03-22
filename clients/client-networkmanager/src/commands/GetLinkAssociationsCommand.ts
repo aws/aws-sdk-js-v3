@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLinkAssociationsCommand}.
  */
 export interface GetLinkAssociationsCommandInput extends GetLinkAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLinkAssociationsCommand}.
  */
 export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the link associations for a device or a link. Either the device ID or the link ID
  *             must be specified.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLinkAssociationsCommandInput - {@link GetLinkAssociationsCommandInput}
+ * @returns {@link GetLinkAssociationsCommandOutput}
  * @see {@link GetLinkAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetLinkAssociationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetLinkAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLinkAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetLinkAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLinkAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLinkAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkAssociationsCommandOutput> {
     return deserializeAws_restJson1GetLinkAssociationsCommand(output, context);
   }

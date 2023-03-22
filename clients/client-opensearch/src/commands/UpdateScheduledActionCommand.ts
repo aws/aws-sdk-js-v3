@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateScheduledActionCommand}.
  */
 export interface UpdateScheduledActionCommandInput extends UpdateScheduledActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateScheduledActionCommand}.
  */
 export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reschedules a planned domain configuration change for a later time. This change can be a
  *    scheduled <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
  *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
@@ -49,6 +54,8 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateScheduledActionCommandInput - {@link UpdateScheduledActionCommandInput}
+ * @returns {@link UpdateScheduledActionCommandOutput}
  * @see {@link UpdateScheduledActionCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduledActionCommandOutput> {
     return deserializeAws_restJson1UpdateScheduledActionCommand(output, context);
   }

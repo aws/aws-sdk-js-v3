@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchMeterUsageCommand}.
  */
 export interface BatchMeterUsageCommandInput extends BatchMeterUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchMeterUsageCommand}.
  */
 export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>BatchMeterUsage</code> is called from a SaaS application listed on AWS
  *             Marketplace to post metering records for a set of customers.</p>
@@ -76,6 +81,8 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchMeterUsageCommandInput - {@link BatchMeterUsageCommandInput}
+ * @returns {@link BatchMeterUsageCommandOutput}
  * @see {@link BatchMeterUsageCommandInput} for command's `input` shape.
  * @see {@link BatchMeterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
@@ -135,6 +142,9 @@ export class BatchMeterUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchMeterUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class BatchMeterUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchMeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchMeterUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchMeterUsageCommandOutput> {
     return deserializeAws_json1_1BatchMeterUsageCommand(output, context);
   }

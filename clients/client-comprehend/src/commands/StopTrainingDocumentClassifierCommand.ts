@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopTrainingDocumentClassifierCommand}.
  */
 export interface StopTrainingDocumentClassifierCommandInput extends StopTrainingDocumentClassifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopTrainingDocumentClassifierCommand}.
  */
 export interface StopTrainingDocumentClassifierCommandOutput
@@ -37,6 +41,7 @@ export interface StopTrainingDocumentClassifierCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a document classifier training job while in progress.</p>
  *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
  *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
@@ -53,6 +58,8 @@ export interface StopTrainingDocumentClassifierCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTrainingDocumentClassifierCommandInput - {@link StopTrainingDocumentClassifierCommandInput}
+ * @returns {@link StopTrainingDocumentClassifierCommandOutput}
  * @see {@link StopTrainingDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link StopTrainingDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -88,6 +95,9 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTrainingDocumentClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StopTrainingDocumentClassifierCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
     return serializeAws_json1_1StopTrainingDocumentClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

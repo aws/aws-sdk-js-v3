@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContainerInstancesStateCommand}.
  */
 export interface UpdateContainerInstancesStateCommandInput extends UpdateContainerInstancesStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContainerInstancesStateCommand}.
  */
 export interface UpdateContainerInstancesStateCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateContainerInstancesStateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the status of an Amazon ECS container instance.</p>
  *          <p>Once a container instance has reached an <code>ACTIVE</code> state, you can change the
  * 			status of a container instance to <code>DRAINING</code> to manually remove an instance
@@ -96,6 +101,8 @@ export interface UpdateContainerInstancesStateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContainerInstancesStateCommandInput - {@link UpdateContainerInstancesStateCommandInput}
+ * @returns {@link UpdateContainerInstancesStateCommandOutput}
  * @see {@link UpdateContainerInstancesStateCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerInstancesStateCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -134,6 +141,9 @@ export class UpdateContainerInstancesStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContainerInstancesStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class UpdateContainerInstancesStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContainerInstancesStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateContainerInstancesStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

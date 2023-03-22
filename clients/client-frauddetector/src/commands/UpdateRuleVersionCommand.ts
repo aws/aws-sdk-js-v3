@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleVersionCommand}.
  */
 export interface UpdateRuleVersionCommandInput extends UpdateRuleVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleVersionCommand}.
  */
 export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a rule version resulting in a new rule version. Updates a rule version resulting in a new rule version (version 1, 2, 3 ...). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleVersionCommandInput - {@link UpdateRuleVersionCommandInput}
+ * @returns {@link UpdateRuleVersionCommandOutput}
  * @see {@link UpdateRuleVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateRuleVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateRuleVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRuleVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleVersionCommandOutput> {
     return deserializeAws_json1_1UpdateRuleVersionCommand(output, context);
   }

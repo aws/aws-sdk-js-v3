@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptAttachmentCommand}.
  */
 export interface AcceptAttachmentCommandInput extends AcceptAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptAttachmentCommand}.
  */
 export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a core network attachment request. </p>
  *          <p>Once the attachment request is accepted by a core network owner, the attachment is
  *          created and connected to a core network.</p>
@@ -48,6 +53,8 @@ export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptAttachmentCommandInput - {@link AcceptAttachmentCommandInput}
+ * @returns {@link AcceptAttachmentCommandOutput}
  * @see {@link AcceptAttachmentCommandInput} for command's `input` shape.
  * @see {@link AcceptAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class AcceptAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class AcceptAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AcceptAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptAttachmentCommandOutput> {
     return deserializeAws_restJson1AcceptAttachmentCommand(output, context);
   }

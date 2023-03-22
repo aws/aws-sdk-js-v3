@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpnConnectionsCommand}.
  */
 export interface DescribeVpnConnectionsCommandInput extends DescribeVpnConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpnConnectionsCommand}.
  */
 export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnectionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your VPN connections.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpnConnectionsCommandInput - {@link DescribeVpnConnectionsCommandInput}
+ * @returns {@link DescribeVpnConnectionsCommandOutput}
  * @see {@link DescribeVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpnConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeVpnConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpnConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeVpnConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpnConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpnConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpnConnectionsCommandOutput> {
     return deserializeAws_ec2DescribeVpnConnectionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRelationalDatabaseCommand}.
  */
 export interface UpdateRelationalDatabaseCommandInput extends UpdateRelationalDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRelationalDatabaseCommand}.
  */
 export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the update of one or more attributes of a database in Amazon Lightsail.</p>
  *          <p>Updates are applied immediately, or in cases where the updates could result in an outage,
  *       are applied during the database's predefined maintenance window.</p>
@@ -51,6 +56,8 @@ export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalD
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRelationalDatabaseCommandInput - {@link UpdateRelationalDatabaseCommandInput}
+ * @returns {@link UpdateRelationalDatabaseCommandOutput}
  * @see {@link UpdateRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link UpdateRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class UpdateRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class UpdateRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRelationalDatabaseCommandOutput> {
     return deserializeAws_json1_1UpdateRelationalDatabaseCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMatchmakingConfigurationCommand}.
  */
 export interface DeleteMatchmakingConfigurationCommandInput extends DeleteMatchmakingConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMatchmakingConfigurationCommand}.
  */
 export interface DeleteMatchmakingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently removes a FlexMatch matchmaking configuration. To delete, specify the
  *             configuration name. A matchmaking configuration cannot be deleted if it is being used in
  *             any active matchmaking tickets.</p>
@@ -50,6 +55,8 @@ export interface DeleteMatchmakingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMatchmakingConfigurationCommandInput - {@link DeleteMatchmakingConfigurationCommandInput}
+ * @returns {@link DeleteMatchmakingConfigurationCommandOutput}
  * @see {@link DeleteMatchmakingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteMatchmakingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMatchmakingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteMatchmakingConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     return serializeAws_json1_1DeleteMatchmakingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProjectCommand}.
  */
 export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProjectCommand}.
  */
 export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a project from IoT SiteWise Monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
+ * @returns {@link DeleteProjectCommandOutput}
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectCommandOutput> {
     return deserializeAws_restJson1DeleteProjectCommand(output, context);
   }

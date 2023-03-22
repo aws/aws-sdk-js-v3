@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProfileJobCommand}.
  */
 export interface UpdateProfileJobCommandInput extends UpdateProfileJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProfileJobCommand}.
  */
 export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the definition of an existing profile job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProfileJobCommandInput - {@link UpdateProfileJobCommandInput}
+ * @returns {@link UpdateProfileJobCommandOutput}
  * @see {@link UpdateProfileJobCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateProfileJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProfileJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateProfileJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProfileJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProfileJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfileJobCommandOutput> {
     return deserializeAws_restJson1UpdateProfileJobCommand(output, context);
   }

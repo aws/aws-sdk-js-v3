@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStudioCommand}.
  */
 export interface UpdateStudioCommandInput extends UpdateStudioRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStudioCommand}.
  */
 export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a Studio resource.</p>
  *         <p>Currently, this operation only supports updating the displayName of your
  *             studio.</p>
@@ -48,6 +53,8 @@ export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStudioCommandInput - {@link UpdateStudioCommandInput}
+ * @returns {@link UpdateStudioCommandOutput}
  * @see {@link UpdateStudioCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStudioCommandOutput> {
     return deserializeAws_restJson1UpdateStudioCommand(output, context);
   }

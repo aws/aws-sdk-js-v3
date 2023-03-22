@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStudioComponentCommand}.
  */
 export interface DeleteStudioComponentCommandInput extends DeleteStudioComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStudioComponentCommand}.
  */
 export interface DeleteStudioComponentCommandOutput extends DeleteStudioComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a studio component resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteStudioComponentCommandOutput extends DeleteStudioComponen
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStudioComponentCommandInput - {@link DeleteStudioComponentCommandInput}
+ * @returns {@link DeleteStudioComponentCommandOutput}
  * @see {@link DeleteStudioComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioComponentCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteStudioComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStudioComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteStudioComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStudioComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteStudioComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStudioComponentCommandOutput> {
     return deserializeAws_restJson1DeleteStudioComponentCommand(output, context);
   }

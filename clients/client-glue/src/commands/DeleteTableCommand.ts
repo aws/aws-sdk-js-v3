@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTableCommand}.
  */
 export interface DeleteTableCommandInput extends DeleteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTableCommand}.
  */
 export interface DeleteTableCommandOutput extends DeleteTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a table definition from the Data Catalog.</p>
  *          <note>
  *             <p>After completing this operation, you no longer have access to the table versions and
@@ -56,6 +61,8 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
+ * @returns {@link DeleteTableCommandOutput}
  * @see {@link DeleteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTableCommandOutput> {
     return deserializeAws_json1_1DeleteTableCommand(output, context);
   }

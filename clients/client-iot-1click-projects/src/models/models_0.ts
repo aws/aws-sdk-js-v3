@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { IoT1ClickProjectsServiceException as __BaseException } from "./IoT1ClickProjectsServiceException";
 
+/**
+ * @public
+ */
 export interface AssociateDeviceWithPlacementRequest {
   /**
    * <p>The name of the project containing the placement in which to associate the device.</p>
@@ -27,9 +30,13 @@ export interface AssociateDeviceWithPlacementRequest {
   deviceTemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDeviceWithPlacementResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export class InternalFailureException extends __BaseException {
@@ -51,6 +58,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -72,6 +80,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ResourceConflictException extends __BaseException {
@@ -93,6 +102,7 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -113,6 +123,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreatePlacementRequest {
   /**
    * <p>The name of the placement to be created.</p>
@@ -131,9 +144,13 @@ export interface CreatePlacementRequest {
   attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlacementResponse {}
 
 /**
+ * @public
  * <p>An object representing a device for a placement template (see <a>PlacementTemplate</a>).</p>
  */
 export interface DeviceTemplate {
@@ -150,6 +167,7 @@ export interface DeviceTemplate {
 }
 
 /**
+ * @public
  * <p>An object defining the template for a placement.</p>
  */
 export interface PlacementTemplate {
@@ -166,6 +184,9 @@ export interface PlacementTemplate {
   deviceTemplates?: Record<string, DeviceTemplate>;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectRequest {
   /**
    * <p>The name of the project to create.</p>
@@ -187,14 +208,20 @@ export interface CreateProjectRequest {
 
   /**
    * <p>Optional tags (metadata key/value pairs) to be associated with the project. For example,
-   *         <code>{ {"key1": "value1", "key2": "value2"} }</code>. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
+   *         <code>\{ \{"key1": "value1", "key2": "value2"\} \}</code>. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
    *         Strategies</a>.</p>
    */
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePlacementRequest {
   /**
    * <p>The name of the empty placement to delete.</p>
@@ -207,9 +234,13 @@ export interface DeletePlacementRequest {
   projectName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlacementResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -230,6 +261,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectRequest {
   /**
    * <p>The name of the empty project to delete.</p>
@@ -237,8 +271,14 @@ export interface DeleteProjectRequest {
   projectName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectResponse {}
 
+/**
+ * @public
+ */
 export interface DescribePlacementRequest {
   /**
    * <p>The name of the placement within a project.</p>
@@ -252,6 +292,7 @@ export interface DescribePlacementRequest {
 }
 
 /**
+ * @public
  * <p>An object describing a project's placement.</p>
  */
 export interface PlacementDescription {
@@ -283,6 +324,9 @@ export interface PlacementDescription {
   updatedDate: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlacementResponse {
   /**
    * <p>An object describing the placement.</p>
@@ -290,6 +334,9 @@ export interface DescribePlacementResponse {
   placement: PlacementDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectRequest {
   /**
    * <p>The name of the project to be described.</p>
@@ -298,6 +345,7 @@ export interface DescribeProjectRequest {
 }
 
 /**
+ * @public
  * <p>An object providing detailed information for a particular project associated with an AWS
  *       account and region.</p>
  */
@@ -339,6 +387,9 @@ export interface ProjectDescription {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectResponse {
   /**
    * <p>An object describing the project.</p>
@@ -346,6 +397,9 @@ export interface DescribeProjectResponse {
   project: ProjectDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDeviceFromPlacementRequest {
   /**
    * <p>The name of the project that contains the placement.</p>
@@ -363,8 +417,14 @@ export interface DisassociateDeviceFromPlacementRequest {
   deviceTemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDeviceFromPlacementResponse {}
 
+/**
+ * @public
+ */
 export interface GetDevicesInPlacementRequest {
   /**
    * <p>The name of the project containing the placement.</p>
@@ -377,6 +437,9 @@ export interface GetDevicesInPlacementRequest {
   placementName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicesInPlacementResponse {
   /**
    * <p>An object containing the devices (zero or more) within the placement.</p>
@@ -384,6 +447,9 @@ export interface GetDevicesInPlacementResponse {
   devices: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPlacementsRequest {
   /**
    * <p>The project containing the placements to be listed.</p>
@@ -403,6 +469,7 @@ export interface ListPlacementsRequest {
 }
 
 /**
+ * @public
  * <p>An object providing summary information for a particular placement.</p>
  */
 export interface PlacementSummary {
@@ -429,6 +496,9 @@ export interface PlacementSummary {
   updatedDate: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPlacementsResponse {
   /**
    * <p>An object listing the requested placements.</p>
@@ -442,6 +512,9 @@ export interface ListPlacementsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsRequest {
   /**
    * <p>The token to retrieve the next set of results.</p>
@@ -456,6 +529,7 @@ export interface ListProjectsRequest {
 }
 
 /**
+ * @public
  * <p>An object providing summary information for a particular project for an associated AWS
  *       account and region.</p>
  */
@@ -487,6 +561,9 @@ export interface ProjectSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsResponse {
   /**
    * <p>An object containing the list of projects.</p>
@@ -500,6 +577,9 @@ export interface ListProjectsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource whose tags you want to list.</p>
@@ -507,6 +587,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags (metadata key/value pairs) which you have assigned to the resource.</p>
@@ -514,6 +597,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resouce for which tag(s) should be added or modified.</p>
@@ -527,8 +613,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource whose tag you want to remove.</p>
@@ -541,8 +633,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdatePlacementRequest {
   /**
    * <p>The name of the placement to update.</p>
@@ -561,8 +659,14 @@ export interface UpdatePlacementRequest {
   attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePlacementResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateProjectRequest {
   /**
    * <p>The name of the project to be updated.</p>
@@ -583,6 +687,9 @@ export interface UpdateProjectRequest {
   placementTemplate?: PlacementTemplate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectResponse {}
 
 /**

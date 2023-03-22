@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetResourceLogLevelCommand}.
  */
 export interface ResetResourceLogLevelCommandInput extends ResetResourceLogLevelRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetResourceLogLevelCommand}.
  */
 export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLevelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the log-level override, if any, for a specific resource-ID and resource-type. It can be used for
  *             a wireless device or a wireless gateway.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLeve
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetResourceLogLevelCommandInput - {@link ResetResourceLogLevelCommandInput}
+ * @returns {@link ResetResourceLogLevelCommandOutput}
  * @see {@link ResetResourceLogLevelCommandInput} for command's `input` shape.
  * @see {@link ResetResourceLogLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -85,6 +92,9 @@ export class ResetResourceLogLevelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetResourceLogLevelCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ResetResourceLogLevelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetResourceLogLevelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ResetResourceLogLevelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetResourceLogLevelCommandOutput> {
     return deserializeAws_restJson1ResetResourceLogLevelCommand(output, context);
   }

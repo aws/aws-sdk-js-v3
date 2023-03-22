@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetResourceAccessForBucketCommand}.
  */
 export interface SetResourceAccessForBucketCommandInput extends SetResourceAccessForBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetResourceAccessForBucketCommand}.
  */
 export interface SetResourceAccessForBucketCommandOutput extends SetResourceAccessForBucketResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the Amazon Lightsail resources that can access the specified Lightsail
  *       bucket.</p>
  *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
@@ -49,6 +54,8 @@ export interface SetResourceAccessForBucketCommandOutput extends SetResourceAcce
  * const response = await client.send(command);
  * ```
  *
+ * @param SetResourceAccessForBucketCommandInput - {@link SetResourceAccessForBucketCommandInput}
+ * @returns {@link SetResourceAccessForBucketCommandOutput}
  * @see {@link SetResourceAccessForBucketCommandInput} for command's `input` shape.
  * @see {@link SetResourceAccessForBucketCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +102,9 @@ export class SetResourceAccessForBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetResourceAccessForBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class SetResourceAccessForBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetResourceAccessForBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetResourceAccessForBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

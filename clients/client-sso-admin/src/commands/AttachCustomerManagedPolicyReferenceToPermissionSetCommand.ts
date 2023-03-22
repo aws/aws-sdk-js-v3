@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommand}.
  */
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput
   extends AttachCustomerManagedPolicyReferenceToPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommand}.
  */
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput
@@ -38,6 +42,7 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified customer managed policy to the specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput - {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput}
+ * @returns {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput}
  * @see {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -99,6 +106,9 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
     return serializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

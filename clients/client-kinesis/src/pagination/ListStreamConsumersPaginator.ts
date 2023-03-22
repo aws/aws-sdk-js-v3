@@ -10,7 +10,7 @@ import { KinesisClient } from "../KinesisClient";
 import { KinesisPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KinesisClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStreamConsumersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListStreamConsumers(
   config: KinesisPaginationConfiguration,
   input: ListStreamConsumersCommandInput,

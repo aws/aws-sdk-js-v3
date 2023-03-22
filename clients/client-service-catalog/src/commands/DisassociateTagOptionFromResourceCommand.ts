@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTagOptionFromResourceCommand}.
  */
 export interface DisassociateTagOptionFromResourceCommandInput extends DisassociateTagOptionFromResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTagOptionFromResourceCommand}.
  */
 export interface DisassociateTagOptionFromResourceCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateTagOptionFromResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified TagOption from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateTagOptionFromResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTagOptionFromResourceCommandInput - {@link DisassociateTagOptionFromResourceCommandInput}
+ * @returns {@link DisassociateTagOptionFromResourceCommandOutput}
  * @see {@link DisassociateTagOptionFromResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateTagOptionFromResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -79,6 +86,9 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTagOptionFromResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTagOptionFromResourceCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     return serializeAws_json1_1DisassociateTagOptionFromResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

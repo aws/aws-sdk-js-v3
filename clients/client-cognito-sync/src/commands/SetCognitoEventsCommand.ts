@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SetCognitoEventsCommand}.
  */
 export interface SetCognitoEventsCommandInput extends SetCognitoEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetCognitoEventsCommand}.
  */
 export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetCognitoEventsCommandInput - {@link SetCognitoEventsCommandInput}
+ * @returns {@link SetCognitoEventsCommandOutput}
  * @see {@link SetCognitoEventsCommandInput} for command's `input` shape.
  * @see {@link SetCognitoEventsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -84,6 +91,9 @@ export class SetCognitoEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetCognitoEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class SetCognitoEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetCognitoEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SetCognitoEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetCognitoEventsCommandOutput> {
     return deserializeAws_restJson1SetCognitoEventsCommand(output, context);
   }

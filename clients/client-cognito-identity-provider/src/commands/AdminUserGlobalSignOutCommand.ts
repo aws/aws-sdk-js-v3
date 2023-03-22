@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminUserGlobalSignOutCommand}.
  */
 export interface AdminUserGlobalSignOutCommandInput extends AdminUserGlobalSignOutRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminUserGlobalSignOutCommand}.
  */
 export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSignOutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Signs out a user from all devices. You must sign <code>AdminUserGlobalSignOut</code> requests
  *             with Amazon Web Services credentials. It also invalidates all refresh tokens that Amazon Cognito has issued to
  *             a user. The user's current access and ID tokens remain valid until they expire. By
@@ -57,6 +62,8 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminUserGlobalSignOutCommandInput - {@link AdminUserGlobalSignOutCommandInput}
+ * @returns {@link AdminUserGlobalSignOutCommandOutput}
  * @see {@link AdminUserGlobalSignOutCommandInput} for command's `input` shape.
  * @see {@link AdminUserGlobalSignOutCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -101,6 +108,9 @@ export class AdminUserGlobalSignOutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminUserGlobalSignOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class AdminUserGlobalSignOutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminUserGlobalSignOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminUserGlobalSignOutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminUserGlobalSignOutCommandOutput> {
     return deserializeAws_json1_1AdminUserGlobalSignOutCommand(output, context);
   }

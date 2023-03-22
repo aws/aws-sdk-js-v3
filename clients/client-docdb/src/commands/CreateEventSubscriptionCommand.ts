@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventSubscriptionCommand}.
  */
 export interface CreateEventSubscriptionCommandInput extends CreateEventSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventSubscriptionCommand}.
  */
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon DocumentDB event notification subscription. This action requires a topic Amazon Resource Name (ARN) created by using the Amazon DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the Amazon SNS console.</p>
  *         <p>You can specify the type of source (<code>SourceType</code>) that you want to be notified of. You can also provide a list of Amazon DocumentDB sources (<code>SourceIds</code>) that trigger the events, and you can provide a list of event categories (<code>EventCategories</code>) for events that you want to be notified of. For example, you can specify <code>SourceType = db-instance</code>, <code>SourceIds = mydbinstance1, mydbinstance2</code> and <code>EventCategories = Availability, Backup</code>.</p>
  *         <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code> (such as <code>SourceType = db-instance</code> and <code>SourceIdentifier = myDBInstance1</code>), you are notified of all the <code>db-instance</code> events for the specified source. If you specify a <code>SourceType</code> but do not specify a <code>SourceIdentifier</code>, you receive notice of the events for that source type for all your Amazon DocumentDB sources. If you do not specify either the <code>SourceType</code> or the <code>SourceIdentifier</code>, you are notified of events generated from all Amazon DocumentDB sources belonging to your customer account.</p>
@@ -48,6 +53,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
+ * @returns {@link CreateEventSubscriptionCommandOutput}
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSubscriptionCommandOutput> {
     return deserializeAws_queryCreateEventSubscriptionCommand(output, context);
   }

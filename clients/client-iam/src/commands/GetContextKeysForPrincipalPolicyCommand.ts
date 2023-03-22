@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetContextKeysForPrincipalPolicyCommand}.
  */
 export interface GetContextKeysForPrincipalPolicyCommandInput extends GetContextKeysForPrincipalPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContextKeysForPrincipalPolicyCommand}.
  */
 export interface GetContextKeysForPrincipalPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all of the context keys referenced in all the IAM policies that are
  *             attached to the specified IAM entity. The entity can be an IAM user, group, or role.
  *             If you specify a user, then the request also includes all of the policies attached to
@@ -61,6 +66,8 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContextKeysForPrincipalPolicyCommandInput - {@link GetContextKeysForPrincipalPolicyCommandInput}
+ * @returns {@link GetContextKeysForPrincipalPolicyCommandOutput}
  * @see {@link GetContextKeysForPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContextKeysForPrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContextKeysForPrincipalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetContextKeysForPrincipalPolicyCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
     return serializeAws_queryGetContextKeysForPrincipalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartChangeSetCommand}.
  */
 export interface StartChangeSetCommandInput extends StartChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartChangeSetCommand}.
  */
 export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to request changes for your entities. Within a single
  *                 <code>ChangeSet</code>, you can't start the same change type against the same entity
  *             multiple times. Additionally, when a <code>ChangeSet</code> is running, all the entities
@@ -60,6 +65,8 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartChangeSetCommandInput - {@link StartChangeSetCommandInput}
+ * @returns {@link StartChangeSetCommandOutput}
  * @see {@link StartChangeSetCommandInput} for command's `input` shape.
  * @see {@link StartChangeSetCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
@@ -104,6 +111,9 @@ export class StartChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class StartChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartChangeSetCommandOutput> {
     return deserializeAws_restJson1StartChangeSetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTrustStoreCommand}.
  */
 export interface AssociateTrustStoreCommandInput extends AssociateTrustStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTrustStoreCommand}.
  */
 export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a trust store with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTrustStoreCommandInput - {@link AssociateTrustStoreCommandInput}
+ * @returns {@link AssociateTrustStoreCommandOutput}
  * @see {@link AssociateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link AssociateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class AssociateTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class AssociateTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrustStoreCommandOutput> {
     return deserializeAws_restJson1AssociateTrustStoreCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTransitGatewayPrefixListReferenceCommand}.
  */
 export interface ModifyTransitGatewayPrefixListReferenceCommandInput
   extends ModifyTransitGatewayPrefixListReferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTransitGatewayPrefixListReferenceCommand}.
  */
 export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
@@ -38,6 +42,7 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTransitGatewayPrefixListReferenceCommandInput - {@link ModifyTransitGatewayPrefixListReferenceCommandInput}
+ * @returns {@link ModifyTransitGatewayPrefixListReferenceCommandOutput}
  * @see {@link ModifyTransitGatewayPrefixListReferenceCommandInput} for command's `input` shape.
  * @see {@link ModifyTransitGatewayPrefixListReferenceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTransitGatewayPrefixListReferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyTransitGatewayPrefixListReferenceCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     return serializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

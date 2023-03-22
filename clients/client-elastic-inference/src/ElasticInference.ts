@@ -30,12 +30,14 @@ import {
 import { ElasticInferenceClient } from "./ElasticInferenceClient";
 
 /**
+ * @public
  * <p>
  *             Elastic Inference public APIs.
  *         </p>
  */
 export class ElasticInference extends ElasticInferenceClient {
   /**
+   * @public
    * <p>
    *             Describes the locations in which a given accelerator type or set of types is present in a given region.
    *         </p>
@@ -70,6 +72,7 @@ export class ElasticInference extends ElasticInferenceClient {
   }
 
   /**
+   * @public
    * <p>
    *             Describes information over a provided set of accelerators belonging to an account.
    *         </p>
@@ -104,6 +107,7 @@ export class ElasticInference extends ElasticInferenceClient {
   }
 
   /**
+   * @public
    * <p>
    *             Describes the accelerator types available in a given region, as well as their characteristics, such as memory and throughput.
    *         </p>
@@ -138,6 +142,7 @@ export class ElasticInference extends ElasticInferenceClient {
   }
 
   /**
+   * @public
    * <p>
    *             Returns all tags of an Elastic Inference Accelerator.
    *         </p>
@@ -172,6 +177,7 @@ export class ElasticInference extends ElasticInferenceClient {
   }
 
   /**
+   * @public
    * <p>
    *             Adds the specified tags to an Elastic Inference Accelerator.
    *         </p>
@@ -200,6 +206,7 @@ export class ElasticInference extends ElasticInferenceClient {
   }
 
   /**
+   * @public
    * <p>
    *             Removes the specified tags from an Elastic Inference Accelerator.
    *         </p>

@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFirewallRuleGroupAssociationsCommand}.
  */
 export interface ListFirewallRuleGroupAssociationsCommandInput extends ListFirewallRuleGroupAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFirewallRuleGroupAssociationsCommand}.
  */
 export interface ListFirewallRuleGroupAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListFirewallRuleGroupAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the firewall rule group associations that you have defined. Each association enables DNS filtering for a VPC with one rule group. </p>
  *          <p>A single call might return only a partial list of the associations. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -49,6 +54,8 @@ export interface ListFirewallRuleGroupAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallRuleGroupAssociationsCommandInput - {@link ListFirewallRuleGroupAssociationsCommandInput}
+ * @returns {@link ListFirewallRuleGroupAssociationsCommandOutput}
  * @see {@link ListFirewallRuleGroupAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallRuleGroupAssociationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListFirewallRuleGroupAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallRuleGroupAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class ListFirewallRuleGroupAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFirewallRuleGroupAssociationsCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class ListFirewallRuleGroupAssociationsCommand extends $Command<
     return serializeAws_json1_1ListFirewallRuleGroupAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

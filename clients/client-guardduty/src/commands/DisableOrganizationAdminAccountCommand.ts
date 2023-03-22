@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableOrganizationAdminAccountCommand}.
  */
 export interface DisableOrganizationAdminAccountCommandInput extends DisableOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableOrganizationAdminAccountCommand}.
  */
 export interface DisableOrganizationAdminAccountCommandOutput
@@ -37,6 +41,7 @@ export interface DisableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables an Amazon Web Services account within the Organization as the GuardDuty delegated
  *       administrator.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableOrganizationAdminAccountCommandInput - {@link DisableOrganizationAdminAccountCommandInput}
+ * @returns {@link DisableOrganizationAdminAccountCommandOutput}
  * @see {@link DisableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -78,6 +85,9 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableOrganizationAdminAccountCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     return serializeAws_restJson1DisableOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

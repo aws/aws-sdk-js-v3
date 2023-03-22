@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBlueprintRunCommand}.
  */
 export interface StartBlueprintRunCommandInput extends StartBlueprintRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartBlueprintRunCommand}.
  */
 export interface StartBlueprintRunCommandOutput extends StartBlueprintRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new run of the specified blueprint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBlueprintRunCommandInput - {@link StartBlueprintRunCommandInput}
+ * @returns {@link StartBlueprintRunCommandOutput}
  * @see {@link StartBlueprintRunCommandInput} for command's `input` shape.
  * @see {@link StartBlueprintRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartBlueprintRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBlueprintRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartBlueprintRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBlueprintRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartBlueprintRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBlueprintRunCommandOutput> {
     return deserializeAws_json1_1StartBlueprintRunCommand(output, context);
   }

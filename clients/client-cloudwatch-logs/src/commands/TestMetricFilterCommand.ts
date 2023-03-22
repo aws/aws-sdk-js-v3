@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TestMetricFilterCommand}.
  */
 export interface TestMetricFilterCommandInput extends TestMetricFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestMetricFilterCommand}.
  */
 export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests the filter pattern of a metric filter against a sample of log event messages. You
  *       can use this operation to validate the correctness of a metric filter pattern.</p>
  * @example
@@ -47,6 +52,8 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param TestMetricFilterCommandInput - {@link TestMetricFilterCommandInput}
+ * @returns {@link TestMetricFilterCommandOutput}
  * @see {@link TestMetricFilterCommandInput} for command's `input` shape.
  * @see {@link TestMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -76,6 +83,9 @@ export class TestMetricFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestMetricFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class TestMetricFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestMetricFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TestMetricFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestMetricFilterCommandOutput> {
     return deserializeAws_json1_1TestMetricFilterCommand(output, context);
   }

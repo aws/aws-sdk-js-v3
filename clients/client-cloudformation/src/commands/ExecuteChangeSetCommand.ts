@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteChangeSetCommand}.
  */
 export interface ExecuteChangeSetCommandInput extends ExecuteChangeSetInput {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteChangeSetCommand}.
  */
 export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a stack using the input information that was provided when the specified change
  *          set was created. After the call successfully completes, CloudFormation starts updating
  *          the stack. Use the <a>DescribeStacks</a> action to view the status of the
@@ -56,6 +61,8 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteChangeSetCommandInput - {@link ExecuteChangeSetCommandInput}
+ * @returns {@link ExecuteChangeSetCommandOutput}
  * @see {@link ExecuteChangeSetCommandInput} for command's `input` shape.
  * @see {@link ExecuteChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -95,6 +102,9 @@ export class ExecuteChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ExecuteChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryExecuteChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteChangeSetCommandOutput> {
     return deserializeAws_queryExecuteChangeSetCommand(output, context);
   }

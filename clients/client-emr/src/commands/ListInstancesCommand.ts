@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstancesCommand}.
  */
 export interface ListInstancesCommandInput extends ListInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListInstancesCommand}.
  */
 export interface ListInstancesCommandOutput extends ListInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information for all active EC2 instances and EC2 instances terminated in the
  *          last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are
  *          considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.</p>
@@ -48,6 +53,8 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
+ * @returns {@link ListInstancesCommandOutput}
  * @see {@link ListInstancesCommandInput} for command's `input` shape.
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstancesCommandOutput> {
     return deserializeAws_json1_1ListInstancesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDimensionsCommand}.
  */
 export interface ListDimensionsCommandInput extends ListDimensionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDimensionsCommand}.
  */
 export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the set of dimensions that are defined for your Amazon Web Services accounts.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDimensions</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDimensionsCommandInput - {@link ListDimensionsCommandInput}
+ * @returns {@link ListDimensionsCommandOutput}
  * @see {@link ListDimensionsCommandInput} for command's `input` shape.
  * @see {@link ListDimensionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListDimensionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDimensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListDimensionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDimensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDimensionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDimensionsCommandOutput> {
     return deserializeAws_restJson1ListDimensionsCommand(output, context);
   }

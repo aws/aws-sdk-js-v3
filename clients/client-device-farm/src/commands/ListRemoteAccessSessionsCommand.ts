@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRemoteAccessSessionsCommand}.
  */
 export interface ListRemoteAccessSessionsCommandInput extends ListRemoteAccessSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRemoteAccessSessionsCommand}.
  */
 export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessSessionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all currently running remote access sessions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRemoteAccessSessionsCommandInput - {@link ListRemoteAccessSessionsCommandInput}
+ * @returns {@link ListRemoteAccessSessionsCommandOutput}
  * @see {@link ListRemoteAccessSessionsCommandInput} for command's `input` shape.
  * @see {@link ListRemoteAccessSessionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -98,6 +105,9 @@ export class ListRemoteAccessSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRemoteAccessSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class ListRemoteAccessSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRemoteAccessSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRemoteAccessSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRemoteAccessSessionsCommandOutput> {
     return deserializeAws_json1_1ListRemoteAccessSessionsCommand(output, context);
   }

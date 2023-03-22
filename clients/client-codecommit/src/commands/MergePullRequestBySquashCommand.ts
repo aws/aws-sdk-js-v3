@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergePullRequestBySquashCommand}.
  */
 export interface MergePullRequestBySquashCommandInput extends MergePullRequestBySquashInput {}
 /**
+ * @public
+ *
  * The output of {@link MergePullRequestBySquashCommand}.
  */
 export interface MergePullRequestBySquashCommandOutput extends MergePullRequestBySquashOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to merge the source commit of a pull request into the specified destination
  *             branch for that pull request at the specified commit using the squash merge strategy. If the merge is successful, it closes the pull request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  * const response = await client.send(command);
  * ```
  *
+ * @param MergePullRequestBySquashCommandInput - {@link MergePullRequestBySquashCommandInput}
+ * @returns {@link MergePullRequestBySquashCommandOutput}
  * @see {@link MergePullRequestBySquashCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestBySquashCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -197,6 +204,9 @@ export class MergePullRequestBySquashCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergePullRequestBySquashCommandInput) {
     // Start section: command_constructor
     super();
@@ -236,10 +246,16 @@ export class MergePullRequestBySquashCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergePullRequestBySquashCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MergePullRequestBySquashCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergePullRequestBySquashCommandOutput> {
     return deserializeAws_json1_1MergePullRequestBySquashCommand(output, context);
   }

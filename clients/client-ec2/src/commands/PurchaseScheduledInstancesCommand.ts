@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseScheduledInstancesCommand}.
  */
 export interface PurchaseScheduledInstancesCommandInput extends PurchaseScheduledInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseScheduledInstancesCommand}.
  */
 export interface PurchaseScheduledInstancesCommandOutput extends PurchaseScheduledInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>You can no longer purchase Scheduled Instances.</p>
  *          </note>
@@ -54,6 +59,8 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseScheduledInstancesCommandInput - {@link PurchaseScheduledInstancesCommandInput}
+ * @returns {@link PurchaseScheduledInstancesCommandOutput}
  * @see {@link PurchaseScheduledInstancesCommandInput} for command's `input` shape.
  * @see {@link PurchaseScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -123,6 +130,9 @@ export class PurchaseScheduledInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseScheduledInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class PurchaseScheduledInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseScheduledInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2PurchaseScheduledInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

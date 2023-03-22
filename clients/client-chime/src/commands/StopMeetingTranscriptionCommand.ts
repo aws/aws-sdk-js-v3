@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopMeetingTranscriptionCommand}.
  */
 export interface StopMeetingTranscriptionCommandInput extends StopMeetingTranscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopMeetingTranscriptionCommand}.
  */
 export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTranscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops transcription for the specified <code>meetingId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMeetingTranscriptionCommandInput - {@link StopMeetingTranscriptionCommandInput}
+ * @returns {@link StopMeetingTranscriptionCommandOutput}
  * @see {@link StopMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StopMeetingTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class StopMeetingTranscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMeetingTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class StopMeetingTranscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMeetingTranscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopMeetingTranscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMeetingTranscriptionCommandOutput> {
     return deserializeAws_restJson1StopMeetingTranscriptionCommand(output, context);
   }

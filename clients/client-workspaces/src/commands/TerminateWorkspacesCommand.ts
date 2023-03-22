@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateWorkspacesCommand}.
  */
 export interface TerminateWorkspacesCommandInput extends TerminateWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateWorkspacesCommand}.
  */
 export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the specified WorkSpaces.</p>
  *          <important>
  *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
@@ -70,6 +75,8 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateWorkspacesCommandInput - {@link TerminateWorkspacesCommandInput}
+ * @returns {@link TerminateWorkspacesCommandOutput}
  * @see {@link TerminateWorkspacesCommandInput} for command's `input` shape.
  * @see {@link TerminateWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -93,6 +100,9 @@ export class TerminateWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class TerminateWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TerminateWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateWorkspacesCommandOutput> {
     return deserializeAws_json1_1TerminateWorkspacesCommand(output, context);
   }

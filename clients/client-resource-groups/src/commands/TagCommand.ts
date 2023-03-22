@@ -18,15 +18,20 @@ import { deserializeAws_restJson1TagCommand, serializeAws_restJson1TagCommand } 
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link TagCommand}.
  */
 export interface TagCommandInput extends TagInput {}
 /**
+ * @public
+ *
  * The output of {@link TagCommand}.
  */
 export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource
  *             group are not changed if they are not specified in the request parameters.</p>
  *          <important>
@@ -56,6 +61,8 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TagCommandInput - {@link TagCommandInput}
+ * @returns {@link TagCommandOutput}
  * @see {@link TagCommandInput} for command's `input` shape.
  * @see {@link TagCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -94,6 +101,9 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagCommandOutput> {
     return deserializeAws_restJson1TagCommand(output, context);
   }

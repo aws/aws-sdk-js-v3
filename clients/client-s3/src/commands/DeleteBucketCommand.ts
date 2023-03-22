@@ -21,15 +21,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketCommand}.
  */
 export interface DeleteBucketCommandInput extends DeleteBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketCommand}.
  */
 export interface DeleteBucketCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the S3 bucket. All objects (including all object versions and delete markers) in
  *          the bucket must be deleted before the bucket itself can be deleted.</p>
  *          <p class="title">
@@ -57,6 +62,8 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketCommandInput - {@link DeleteBucketCommandInput}
+ * @returns {@link DeleteBucketCommandOutput}
  * @see {@link DeleteBucketCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketCommandOutput> {
     return deserializeAws_restXmlDeleteBucketCommand(output, context);
   }

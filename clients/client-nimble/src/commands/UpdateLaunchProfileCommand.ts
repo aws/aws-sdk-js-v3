@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLaunchProfileCommand}.
  */
 export interface UpdateLaunchProfileCommandInput extends UpdateLaunchProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLaunchProfileCommand}.
  */
 export interface UpdateLaunchProfileCommandOutput extends UpdateLaunchProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a launch profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateLaunchProfileCommandOutput extends UpdateLaunchProfileRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLaunchProfileCommandInput - {@link UpdateLaunchProfileCommandInput}
+ * @returns {@link UpdateLaunchProfileCommandOutput}
  * @see {@link UpdateLaunchProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchProfileCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateLaunchProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLaunchProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateLaunchProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLaunchProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLaunchProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLaunchProfileCommandOutput> {
     return deserializeAws_restJson1UpdateLaunchProfileCommand(output, context);
   }

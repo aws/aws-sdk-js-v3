@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCrawlersCommand}.
  */
 export interface ListCrawlersCommandInput extends ListCrawlersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCrawlersCommand}.
  */
 export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the names of all crawler resources in this Amazon Web Services account, or the
  *       resources with the specified tag. This operation allows you to see which
  *       resources are available in your account, and their names.</p>
@@ -51,6 +56,8 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCrawlersCommandInput - {@link ListCrawlersCommandInput}
+ * @returns {@link ListCrawlersCommandOutput}
  * @see {@link ListCrawlersCommandInput} for command's `input` shape.
  * @see {@link ListCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListCrawlersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCrawlersCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListCrawlersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCrawlersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCrawlersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCrawlersCommandOutput> {
     return deserializeAws_json1_1ListCrawlersCommand(output, context);
   }

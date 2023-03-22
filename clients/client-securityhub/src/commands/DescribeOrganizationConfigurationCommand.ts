@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConfigurationCommand}.
  */
 export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConfigurationCommand}.
  */
 export interface DescribeOrganizationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the Organizations configuration for Security Hub. Can only be
  *          called from a Security Hub administrator account.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
+ * @returns {@link DescribeOrganizationConfigurationCommandOutput}
  * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConfigurationCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeOrganizationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSessionsCommand}.
  */
 export interface ListSessionsCommandInput extends ListSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSessionsCommand}.
  */
 export interface ListSessionsCommandOutput extends ListSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve a list of sessions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSessionsCommandInput - {@link ListSessionsCommandInput}
+ * @returns {@link ListSessionsCommandOutput}
  * @see {@link ListSessionsCommandInput} for command's `input` shape.
  * @see {@link ListSessionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSessionsCommandOutput> {
     return deserializeAws_json1_1ListSessionsCommand(output, context);
   }

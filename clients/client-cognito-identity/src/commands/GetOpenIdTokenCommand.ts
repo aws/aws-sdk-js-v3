@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOpenIdTokenCommand}.
  */
 export interface GetOpenIdTokenCommandInput extends GetOpenIdTokenInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOpenIdTokenCommand}.
  */
 export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by
  *             <a>GetId</a>. You can optionally add additional logins for the identity.
  *          Supplying multiple logins creates an implicit link.</p>
@@ -50,6 +55,8 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpenIdTokenCommandInput - {@link GetOpenIdTokenCommandInput}
+ * @returns {@link GetOpenIdTokenCommandOutput}
  * @see {@link GetOpenIdTokenCommandInput} for command's `input` shape.
  * @see {@link GetOpenIdTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -97,6 +104,9 @@ export class GetOpenIdTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpenIdTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetOpenIdTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOpenIdTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOpenIdTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpenIdTokenCommandOutput> {
     return deserializeAws_json1_1GetOpenIdTokenCommand(output, context);
   }

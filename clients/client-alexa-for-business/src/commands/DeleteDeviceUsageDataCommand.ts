@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceUsageDataCommand}.
  */
 export interface DeleteDeviceUsageDataCommandInput extends DeleteDeviceUsageDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceUsageDataCommand}.
  */
 export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When this action is called for a specified shared device, it allows authorized users to
  *          delete the device's entire previous history of voice input data and associated response
  *          data. This action can be called once every 24 hours for a specific shared device.</p>
@@ -48,6 +53,8 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceUsageDataCommandInput - {@link DeleteDeviceUsageDataCommandInput}
+ * @returns {@link DeleteDeviceUsageDataCommandOutput}
  * @see {@link DeleteDeviceUsageDataCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceUsageDataCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceUsageDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceUsageDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDeviceUsageDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceUsageDataCommandOutput> {
     return deserializeAws_json1_1DeleteDeviceUsageDataCommand(output, context);
   }

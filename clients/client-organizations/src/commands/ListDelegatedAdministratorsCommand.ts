@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDelegatedAdministratorsCommand}.
  */
 export interface ListDelegatedAdministratorsCommandInput extends ListDelegatedAdministratorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDelegatedAdministratorsCommand}.
  */
 export interface ListDelegatedAdministratorsCommandOutput
@@ -37,6 +41,7 @@ export interface ListDelegatedAdministratorsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Web Services accounts that are designated as delegated administrators in this
  *             organization.</p>
  *          <p>This operation can be called only from the organization's
@@ -51,6 +56,8 @@ export interface ListDelegatedAdministratorsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDelegatedAdministratorsCommandInput - {@link ListDelegatedAdministratorsCommandInput}
+ * @returns {@link ListDelegatedAdministratorsCommandOutput}
  * @see {@link ListDelegatedAdministratorsCommandInput} for command's `input` shape.
  * @see {@link ListDelegatedAdministratorsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -400,6 +407,9 @@ export class ListDelegatedAdministratorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDelegatedAdministratorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -439,10 +449,16 @@ export class ListDelegatedAdministratorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDelegatedAdministratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDelegatedAdministratorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

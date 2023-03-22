@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHostedConfigurationVersionCommand}.
  */
 export interface DeleteHostedConfigurationVersionCommandInput extends DeleteHostedConfigurationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHostedConfigurationVersionCommand}.
  */
 export interface DeleteHostedConfigurationVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a version of a configuration from the AppConfig hosted configuration
  *          store.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHostedConfigurationVersionCommandInput - {@link DeleteHostedConfigurationVersionCommandInput}
+ * @returns {@link DeleteHostedConfigurationVersionCommandOutput}
  * @see {@link DeleteHostedConfigurationVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteHostedConfigurationVersionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteHostedConfigurationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHostedConfigurationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DeleteHostedConfigurationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteHostedConfigurationVersionCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DeleteHostedConfigurationVersionCommand extends $Command<
     return serializeAws_restJson1DeleteHostedConfigurationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

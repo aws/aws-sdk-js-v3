@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DisableKinesisStreamingDestinationCommand}.
  */
 export interface DisableKinesisStreamingDestinationCommandInput extends KinesisStreamingDestinationInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableKinesisStreamingDestinationCommand}.
  */
 export interface DisableKinesisStreamingDestinationCommandOutput
@@ -37,6 +41,7 @@ export interface DisableKinesisStreamingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
  *             without deleting either of the resources.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableKinesisStreamingDestinationCommandInput - {@link DisableKinesisStreamingDestinationCommandInput}
+ * @returns {@link DisableKinesisStreamingDestinationCommandOutput}
  * @see {@link DisableKinesisStreamingDestinationCommandInput} for command's `input` shape.
  * @see {@link DisableKinesisStreamingDestinationCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -99,6 +106,9 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableKinesisStreamingDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableKinesisStreamingDestinationCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
     return serializeAws_json1_0DisableKinesisStreamingDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

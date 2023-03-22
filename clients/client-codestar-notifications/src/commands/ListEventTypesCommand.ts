@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventTypesCommand}.
  */
 export interface ListEventTypesCommandInput extends ListEventTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventTypesCommand}.
  */
 export interface ListEventTypesCommandOutput extends ListEventTypesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the event types available for configuring notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventTypesCommandInput - {@link ListEventTypesCommandInput}
+ * @returns {@link ListEventTypesCommandOutput}
  * @see {@link ListEventTypesCommandInput} for command's `input` shape.
  * @see {@link ListEventTypesCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListEventTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListEventTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEventTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventTypesCommandOutput> {
     return deserializeAws_restJson1ListEventTypesCommand(output, context);
   }

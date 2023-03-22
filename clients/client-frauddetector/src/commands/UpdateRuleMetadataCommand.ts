@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleMetadataCommand}.
  */
 export interface UpdateRuleMetadataCommandInput extends UpdateRuleMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleMetadataCommand}.
  */
 export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a rule's metadata. The description attribute can be updated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleMetadataCommandInput - {@link UpdateRuleMetadataCommandInput}
+ * @returns {@link UpdateRuleMetadataCommandOutput}
  * @see {@link UpdateRuleMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateRuleMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateRuleMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRuleMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleMetadataCommandOutput> {
     return deserializeAws_json1_1UpdateRuleMetadataCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMetricAttributionsCommand}.
  */
 export interface ListMetricAttributionsCommandInput extends ListMetricAttributionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMetricAttributionsCommand}.
  */
 export interface ListMetricAttributionsCommandOutput extends ListMetricAttributionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists metric attributions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListMetricAttributionsCommandOutput extends ListMetricAttributi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMetricAttributionsCommandInput - {@link ListMetricAttributionsCommandInput}
+ * @returns {@link ListMetricAttributionsCommandOutput}
  * @see {@link ListMetricAttributionsCommandInput} for command's `input` shape.
  * @see {@link ListMetricAttributionsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListMetricAttributionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMetricAttributionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListMetricAttributionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMetricAttributionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMetricAttributionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricAttributionsCommandOutput> {
     return deserializeAws_json1_1ListMetricAttributionsCommand(output, context);
   }

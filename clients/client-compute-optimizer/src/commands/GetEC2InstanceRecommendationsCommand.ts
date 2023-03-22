@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEC2InstanceRecommendationsCommand}.
  */
 export interface GetEC2InstanceRecommendationsCommandInput extends GetEC2InstanceRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEC2InstanceRecommendationsCommand}.
  */
 export interface GetEC2InstanceRecommendationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetEC2InstanceRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Amazon EC2 instance recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a specific set of requirements. For more
  *             information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
@@ -52,6 +57,8 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEC2InstanceRecommendationsCommandInput - {@link GetEC2InstanceRecommendationsCommandInput}
+ * @returns {@link GetEC2InstanceRecommendationsCommandOutput}
  * @see {@link GetEC2InstanceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetEC2InstanceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEC2InstanceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEC2InstanceRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetEC2InstanceRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

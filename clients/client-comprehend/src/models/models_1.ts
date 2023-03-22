@@ -4,6 +4,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ComprehendServiceException as __BaseException } from "./ComprehendServiceException";
 import { FlywheelProperties, JobStatus, Tag, VpcConfig } from "./models_0";
 
+/**
+ * @public
+ */
 export interface StopTargetedSentimentDetectionJobRequest {
   /**
    * <p>The identifier of the targeted sentiment detection job to stop.</p>
@@ -11,6 +14,9 @@ export interface StopTargetedSentimentDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTargetedSentimentDetectionJobResponse {
   /**
    * <p>The identifier of the targeted sentiment detection job to stop.</p>
@@ -25,6 +31,9 @@ export interface StopTargetedSentimentDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StopTrainingDocumentClassifierRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier currently being
@@ -33,8 +42,14 @@ export interface StopTrainingDocumentClassifierRequest {
   DocumentClassifierArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTrainingDocumentClassifierResponse {}
 
+/**
+ * @public
+ */
 export interface StopTrainingEntityRecognizerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer currently being
@@ -43,9 +58,13 @@ export interface StopTrainingEntityRecognizerRequest {
   EntityRecognizerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTrainingEntityRecognizerResponse {}
 
 /**
+ * @public
  * <p>Concurrent modification of the tags associated with an Amazon Comprehend resource is not
  *       supported. </p>
  */
@@ -67,6 +86,9 @@ export class ConcurrentModificationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want
@@ -81,9 +103,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The request contains more tag keys than can be associated with a resource (50 tag keys per
  *       resource).</p>
  */
@@ -105,6 +131,9 @@ export class TooManyTagKeysException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you
@@ -121,8 +150,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateEndpointRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>
@@ -152,6 +187,9 @@ export interface UpdateEndpointRequest {
   FlywheelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the new model.</p>
@@ -160,6 +198,7 @@ export interface UpdateEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Data security configuration.</p>
  */
 export interface UpdateDataSecurityConfig {
@@ -193,6 +232,9 @@ export interface UpdateDataSecurityConfig {
   VpcConfig?: VpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlywheelRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the flywheel to update.</p>
@@ -216,6 +258,9 @@ export interface UpdateFlywheelRequest {
   DataSecurityConfig?: UpdateDataSecurityConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlywheelResponse {
   /**
    * <p>The flywheel properties.</p>

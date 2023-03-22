@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetBandwidthRateLimitScheduleCommand}.
  */
 export interface GetBandwidthRateLimitScheduleCommandInput extends GetBandwidthRateLimitScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBandwidthRateLimitScheduleCommand}.
  */
 export interface GetBandwidthRateLimitScheduleCommandOutput
@@ -37,6 +41,7 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the bandwidth rate limit schedule for a specified gateway.
  *       By default, gateways do not have bandwidth rate limit schedules, which means
  *       no bandwidth rate limiting is in effect. Use this to get a gateway's
@@ -51,6 +56,8 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBandwidthRateLimitScheduleCommandInput - {@link GetBandwidthRateLimitScheduleCommandInput}
+ * @returns {@link GetBandwidthRateLimitScheduleCommandOutput}
  * @see {@link GetBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link GetBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetBandwidthRateLimitScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBandwidthRateLimitScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetBandwidthRateLimitScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBandwidthRateLimitScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetBandwidthRateLimitScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

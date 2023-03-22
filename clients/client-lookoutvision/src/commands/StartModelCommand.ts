@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartModelCommand}.
  */
 export interface StartModelCommandInput extends StartModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartModelCommand}.
  */
 export interface StartModelCommandOutput extends StartModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the running of the version of an Amazon Lookout for Vision model. Starting a model takes a while
  *          to complete. To check the current state of the model, use <a>DescribeModel</a>.</p>
  *          <p>A model is ready to use when its status is <code>HOSTED</code>.</p>
@@ -56,6 +61,8 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param StartModelCommandInput - {@link StartModelCommandInput}
+ * @returns {@link StartModelCommandOutput}
  * @see {@link StartModelCommandInput} for command's `input` shape.
  * @see {@link StartModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -102,6 +109,9 @@ export class StartModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class StartModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartModelCommandOutput> {
     return deserializeAws_restJson1StartModelCommand(output, context);
   }

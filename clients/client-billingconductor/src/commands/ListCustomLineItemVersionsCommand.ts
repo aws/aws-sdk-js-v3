@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomLineItemVersionsCommand}.
  */
 export interface ListCustomLineItemVersionsCommandInput extends ListCustomLineItemVersionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomLineItemVersionsCommand}.
  */
 export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineItemVersionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A paginated call to get a list of all custom line item versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomLineItemVersionsCommandInput - {@link ListCustomLineItemVersionsCommandInput}
+ * @returns {@link ListCustomLineItemVersionsCommandOutput}
  * @see {@link ListCustomLineItemVersionsCommandInput} for command's `input` shape.
  * @see {@link ListCustomLineItemVersionsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListCustomLineItemVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomLineItemVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListCustomLineItemVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomLineItemVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCustomLineItemVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

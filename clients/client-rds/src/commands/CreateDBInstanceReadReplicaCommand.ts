@@ -27,15 +27,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBInstanceReadReplicaCommand}.
  */
 export interface CreateDBInstanceReadReplicaCommandInput extends CreateDBInstanceReadReplicaMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBInstanceReadReplicaCommand}.
  */
 export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstanceReadReplicaResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB instance that acts as a read replica for an existing source DB
  *             instance. You can create a read replica for a DB instance running MySQL, MariaDB,
  *             Oracle, PostgreSQL, or SQL Server. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read
@@ -58,6 +63,8 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBInstanceReadReplicaCommandInput - {@link CreateDBInstanceReadReplicaCommandInput}
+ * @returns {@link CreateDBInstanceReadReplicaCommandOutput}
  * @see {@link CreateDBInstanceReadReplicaCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -182,6 +189,9 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBInstanceReadReplicaCommandInput) {
     // Start section: command_constructor
     super();
@@ -222,10 +232,16 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBInstanceReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBInstanceReadReplicaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

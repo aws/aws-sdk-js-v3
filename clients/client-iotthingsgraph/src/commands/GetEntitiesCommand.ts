@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEntitiesCommand}.
  */
 export interface GetEntitiesCommandInput extends GetEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEntitiesCommand}.
  */
 export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
@@ -79,6 +84,8 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEntitiesCommandInput - {@link GetEntitiesCommandInput}
+ * @returns {@link GetEntitiesCommandOutput}
  * @see {@link GetEntitiesCommandInput} for command's `input` shape.
  * @see {@link GetEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -114,6 +121,9 @@ export class GetEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class GetEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEntitiesCommandOutput> {
     return deserializeAws_json1_1GetEntitiesCommand(output, context);
   }

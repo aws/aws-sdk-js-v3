@@ -142,6 +142,7 @@ import {
 import { EFSClient } from "./EFSClient";
 
 /**
+ * @public
  * <fullname>Amazon Elastic File System</fullname>
  *          <p>Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for
  *       use with Amazon EC2 Linux and Mac instances in the Amazon Web Services Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and
@@ -150,6 +151,7 @@ import { EFSClient } from "./EFSClient";
  */
 export class EFS extends EFSClient {
   /**
+   * @public
    * <p>Creates an EFS access point. An access point is an application-specific view into an EFS
    *       file system that applies an operating system user and group, and a file system path, to any
    *       file system request made through the access point. The operating system user and group
@@ -195,6 +197,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new, empty file system. The operation requires a creation token in the
    *       request that Amazon EFS uses to ensure idempotent creation (calling the operation with same
    *       creation token has no effect). If a file system does not currently exist that is owned by the
@@ -275,6 +278,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Creates a mount target for a file system. You can then mount the file system on EC2
    *       instances by using the mount target.</p>
    *          <p>You can create one mount target in each Availability Zone in your VPC. All EC2
@@ -446,6 +450,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Creates a replication configuration that replicates an existing EFS file system to a new,
    *       read-only file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
    *           <i>Amazon EFS User Guide</i>. The replication configuration
@@ -559,6 +564,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <note>
@@ -596,6 +602,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified access point. After deletion is complete, new clients can no
    *       longer connect to the access points. Clients connected to the access point at the time of
    *       deletion will continue to function until they terminate their connection.</p>
@@ -631,6 +638,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a file system, permanently severing access to its contents. Upon return, the
    *       file system no longer exists and you can't access any contents of the deleted file
    *       system.</p>
@@ -682,6 +690,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the <code>FileSystemPolicy</code> for the specified file system.
    *       The default <code>FileSystemPolicy</code> goes into effect once the existing policy is deleted.
    *       For more information about the default file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html">Using Resource-based Policies with EFS</a>.</p>
@@ -717,6 +726,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified mount target.</p>
    *          <p>This operation forcibly breaks any mounts of the file system by using the mount target
    *       that is being deleted, which might disrupt instances or applications using those mounts. To
@@ -779,6 +789,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing replication configuration. To delete a replication configuration, you
    *       must make the request from the Amazon Web Services Region in which the destination file system
    *       is located. Deleting a replication configuration ends the replication process. After a
@@ -816,6 +827,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <note>
@@ -853,6 +865,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of a specific Amazon EFS access point if the <code>AccessPointId</code> is provided.
    *       If you provide an EFS <code>FileSystemId</code>, it returns descriptions of all access points for that file system.
    *       You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in the request, but not both. </p>
@@ -888,6 +901,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Returns the account preferences settings for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.
    *       For more information, see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon EFS resource IDs</a>.</p>
    */
@@ -921,6 +935,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Returns the backup policy for the specified EFS file system.</p>
    */
   public describeBackupPolicy(
@@ -953,6 +968,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>
    *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
    */
@@ -986,6 +1002,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of a specific Amazon EFS file system if either the file system
    *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
    *       returns descriptions of all file systems owned by the caller's Amazon Web Services account in the
@@ -1037,6 +1054,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
    *       EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code> object
    *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
@@ -1077,6 +1095,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
    *       for a file system. When requesting all of the current mount targets, the order of mount
    *       targets returned in the response is unspecified.</p>
@@ -1115,6 +1134,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Returns the security groups currently in effect for a mount target. This operation
    *       requires that the network interface of the mount target has been created and the lifecycle
    *       state of the mount target is not <code>deleted</code>.</p>
@@ -1162,6 +1182,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the replication configuration for a specific file system. If a file system is
    *       not specified, all of the replication configurations for the Amazon Web Services account in an
    *         Amazon Web Services Region are retrieved.</p>
@@ -1196,6 +1217,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <note>
@@ -1236,6 +1258,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags for a top-level EFS resource. You must provide the ID of the resource that you want to retrieve the tags for.</p>
    *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
    */
@@ -1269,6 +1292,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Modifies the set of security groups in effect for a mount target.</p>
    *          <p>When you create a mount target, Amazon EFS also creates a new network interface. For
    *       more information, see <a>CreateMountTarget</a>. This operation replaces the security groups in effect for the
@@ -1320,6 +1344,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to set the account preference in the current Amazon Web Services Region
    *       to use long 17 character (63 bit) or short 8 character (32 bit) resource IDs for
    *       new EFS file system and mount target resources. All existing resource IDs are not affected
@@ -1362,6 +1387,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system. </p>
    */
   public putBackupPolicy(
@@ -1394,6 +1420,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Applies an Amazon EFS <code>FileSystemPolicy</code> to an Amazon EFS file system.
    *       A file system policy is an IAM resource-based policy and can contain multiple policy statements.
    *       A file system always has exactly one file system policy, which can be the default policy or
@@ -1437,6 +1464,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Use this action to manage EFS lifecycle management and EFS Intelligent-Tiering. A
    *         <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
    *       objects that define the following:</p>
@@ -1515,6 +1543,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Creates a tag for an EFS resource. You can create tags for EFS file systems and access points using this API operation.</p>
    *          <p>This operation requires permissions for the <code>elasticfilesystem:TagResource</code> action.</p>
    */
@@ -1542,6 +1571,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from an EFS resource. You can remove tags from EFS file systems and access points using this API operation.</p>
    *          <p>This operation requires permissions for the <code>elasticfilesystem:UntagResource</code> action.</p>
    */
@@ -1575,6 +1605,7 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @public
    * <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
    *       system.</p>
    */

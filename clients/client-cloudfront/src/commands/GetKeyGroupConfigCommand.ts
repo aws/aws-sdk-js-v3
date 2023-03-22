@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetKeyGroupConfigCommand}.
  */
 export interface GetKeyGroupConfigCommandInput extends GetKeyGroupConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetKeyGroupConfigCommand}.
  */
 export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a key group configuration.</p>
  *          <p>To get a key group configuration, you must provide the key group's identifier. If the
  * 			key group is referenced in a distribution's cache behavior, you can get the key group's
@@ -51,6 +56,8 @@ export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKeyGroupConfigCommandInput - {@link GetKeyGroupConfigCommandInput}
+ * @returns {@link GetKeyGroupConfigCommandOutput}
  * @see {@link GetKeyGroupConfigCommandInput} for command's `input` shape.
  * @see {@link GetKeyGroupConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetKeyGroupConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKeyGroupConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetKeyGroupConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKeyGroupConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetKeyGroupConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyGroupConfigCommandOutput> {
     return deserializeAws_restXmlGetKeyGroupConfigCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopFlowCommand}.
  */
 export interface StopFlowCommandInput extends StopFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopFlowCommand}.
  */
 export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deactivates the existing flow. For on-demand flows, this operation returns an
  *         <code>unsupportedOperationException</code> error message. For schedule and event-triggered
  *       flows, this operation deactivates the flow. </p>
@@ -48,6 +53,8 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param StopFlowCommandInput - {@link StopFlowCommandInput}
+ * @returns {@link StopFlowCommandOutput}
  * @see {@link StopFlowCommandInput} for command's `input` shape.
  * @see {@link StopFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -86,6 +93,9 @@ export class StopFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StopFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFlowCommandOutput> {
     return deserializeAws_restJson1StopFlowCommand(output, context);
   }

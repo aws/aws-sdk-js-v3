@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelCommand}.
  */
 export interface DescribeModelCommandInput extends DescribeModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelCommand}.
  */
 export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a version of an Amazon Lookout for Vision model.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DescribeModel</code> operation.</p>
@@ -48,6 +53,8 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
+ * @returns {@link DescribeModelCommandOutput}
  * @see {@link DescribeModelCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
     return deserializeAws_restJson1DescribeModelCommand(output, context);
   }

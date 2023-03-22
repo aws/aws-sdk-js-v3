@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTraceSummariesCommand}.
  */
 export interface GetTraceSummariesCommandInput extends GetTraceSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTraceSummariesCommand}.
  */
 export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves IDs and annotations for traces available for a specified time frame using an
  *       optional filter. To get the full traces, pass the trace IDs to
  *       <code>BatchGetTraces</code>.</p>
@@ -62,6 +67,8 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTraceSummariesCommandInput - {@link GetTraceSummariesCommandInput}
+ * @returns {@link GetTraceSummariesCommandOutput}
  * @see {@link GetTraceSummariesCommandInput} for command's `input` shape.
  * @see {@link GetTraceSummariesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetTraceSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTraceSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetTraceSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTraceSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTraceSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTraceSummariesCommandOutput> {
     return deserializeAws_restJson1GetTraceSummariesCommand(output, context);
   }

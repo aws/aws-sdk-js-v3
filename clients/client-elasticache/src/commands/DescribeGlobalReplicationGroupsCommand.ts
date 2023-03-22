@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGlobalReplicationGroupsCommand}.
  */
 export interface DescribeGlobalReplicationGroupsCommandInput extends DescribeGlobalReplicationGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGlobalReplicationGroupsCommand}.
  */
 export interface DescribeGlobalReplicationGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global datastores. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalReplicationGroupsCommandInput - {@link DescribeGlobalReplicationGroupsCommandInput}
+ * @returns {@link DescribeGlobalReplicationGroupsCommandOutput}
  * @see {@link DescribeGlobalReplicationGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalReplicationGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalReplicationGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeGlobalReplicationGroupsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command<
     return serializeAws_queryDescribeGlobalReplicationGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

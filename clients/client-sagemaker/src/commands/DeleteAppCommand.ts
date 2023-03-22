@@ -18,15 +18,20 @@ import { deserializeAws_json1_1DeleteAppCommand, serializeAws_json1_1DeleteAppCo
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandInput extends DeleteAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to stop and delete an app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,6 +43,8 @@ export interface DeleteAppCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
+ * @returns {@link DeleteAppCommandOutput}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,10 +114,16 @@ export class DeleteAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppCommandOutput> {
     return deserializeAws_json1_1DeleteAppCommand(output, context);
   }

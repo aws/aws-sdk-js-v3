@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectPiiEntitiesCommand}.
  */
 export interface DetectPiiEntitiesCommandInput extends DetectPiiEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectPiiEntitiesCommand}.
  */
 export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects the input text for entities that contain personally identifiable information
  *       (PII) and returns information about them.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectPiiEntitiesCommandInput - {@link DetectPiiEntitiesCommandInput}
+ * @returns {@link DetectPiiEntitiesCommandOutput}
  * @see {@link DetectPiiEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectPiiEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -86,6 +93,9 @@ export class DetectPiiEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectPiiEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DetectPiiEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectPiiEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectPiiEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectPiiEntitiesCommandOutput> {
     return deserializeAws_json1_1DetectPiiEntitiesCommand(output, context);
   }

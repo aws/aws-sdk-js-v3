@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetSecurityTokenServicePreferencesCommand}.
  */
 export interface SetSecurityTokenServicePreferencesCommandInput extends SetSecurityTokenServicePreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetSecurityTokenServicePreferencesCommand}.
  */
 export interface SetSecurityTokenServicePreferencesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified version of the global endpoint token as the token version used for
  *             the Amazon Web Services account.</p>
  *          <p>By default, Security Token Service (STS) is available as a global service, and all STS requests
@@ -62,6 +67,8 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSecurityTokenServicePreferencesCommandInput - {@link SetSecurityTokenServicePreferencesCommandInput}
+ * @returns {@link SetSecurityTokenServicePreferencesCommandOutput}
  * @see {@link SetSecurityTokenServicePreferencesCommandInput} for command's `input` shape.
  * @see {@link SetSecurityTokenServicePreferencesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -100,6 +107,9 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSecurityTokenServicePreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetSecurityTokenServicePreferencesCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     return serializeAws_querySetSecurityTokenServicePreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

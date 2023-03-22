@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePoliciesCommand}.
  */
 export interface DescribePoliciesCommandInput extends DescribePoliciesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribePoliciesCommand}.
  */
 export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the scaling policies in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePoliciesCommandInput - {@link DescribePoliciesCommandInput}
+ * @returns {@link DescribePoliciesCommandOutput}
  * @see {@link DescribePoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribePoliciesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -114,6 +121,9 @@ export class DescribePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class DescribePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePoliciesCommandOutput> {
     return deserializeAws_queryDescribePoliciesCommand(output, context);
   }

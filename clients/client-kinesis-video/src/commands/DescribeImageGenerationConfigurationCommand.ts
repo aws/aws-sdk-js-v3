@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageGenerationConfigurationCommand}.
  */
 export interface DescribeImageGenerationConfigurationCommandInput extends DescribeImageGenerationConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageGenerationConfigurationCommand}.
  */
 export interface DescribeImageGenerationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeImageGenerationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeImageGenerationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageGenerationConfigurationCommandInput - {@link DescribeImageGenerationConfigurationCommandInput}
+ * @returns {@link DescribeImageGenerationConfigurationCommandOutput}
  * @see {@link DescribeImageGenerationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeImageGenerationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeImageGenerationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageGenerationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeImageGenerationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeImageGenerationConfigurationCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeImageGenerationConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeImageGenerationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

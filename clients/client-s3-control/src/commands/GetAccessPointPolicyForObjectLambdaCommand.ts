@@ -27,10 +27,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessPointPolicyForObjectLambdaCommand}.
  */
 export interface GetAccessPointPolicyForObjectLambdaCommandInput extends GetAccessPointPolicyForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessPointPolicyForObjectLambdaCommand}.
  */
 export interface GetAccessPointPolicyForObjectLambdaCommandOutput
@@ -38,6 +42,7 @@ export interface GetAccessPointPolicyForObjectLambdaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the resource policy for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *          <code>GetAccessPointPolicyForObjectLambda</code>:</p>
@@ -63,6 +68,8 @@ export interface GetAccessPointPolicyForObjectLambdaCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointPolicyForObjectLambdaCommandInput - {@link GetAccessPointPolicyForObjectLambdaCommandInput}
+ * @returns {@link GetAccessPointPolicyForObjectLambdaCommandOutput}
  * @see {@link GetAccessPointPolicyForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetAccessPointPolicyForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointPolicyForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class GetAccessPointPolicyForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAccessPointPolicyForObjectLambdaCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class GetAccessPointPolicyForObjectLambdaCommand extends $Command<
     return serializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

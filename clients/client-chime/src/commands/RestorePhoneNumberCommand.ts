@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RestorePhoneNumberCommand}.
  */
 export interface RestorePhoneNumberCommandInput extends RestorePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestorePhoneNumberCommand}.
  */
 export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Moves a phone number from the <b>Deletion queue</b> back into the
  *             phone number <b>Inventory</b>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param RestorePhoneNumberCommandInput - {@link RestorePhoneNumberCommandInput}
+ * @returns {@link RestorePhoneNumberCommandOutput}
  * @see {@link RestorePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link RestorePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -94,6 +101,9 @@ export class RestorePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestorePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class RestorePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestorePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RestorePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestorePhoneNumberCommandOutput> {
     return deserializeAws_restJson1RestorePhoneNumberCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStudioLifecycleConfigCommand}.
  */
 export interface DescribeStudioLifecycleConfigCommandInput extends DescribeStudioLifecycleConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStudioLifecycleConfigCommand}.
  */
 export interface DescribeStudioLifecycleConfigCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeStudioLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Studio Lifecycle Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStudioLifecycleConfigCommandInput - {@link DescribeStudioLifecycleConfigCommandInput}
+ * @returns {@link DescribeStudioLifecycleConfigCommandOutput}
  * @see {@link DescribeStudioLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeStudioLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeStudioLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStudioLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeStudioLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStudioLifecycleConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStudioLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

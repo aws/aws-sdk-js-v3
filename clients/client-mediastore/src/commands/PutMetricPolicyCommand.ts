@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutMetricPolicyCommand}.
  */
 export interface PutMetricPolicyCommandInput extends PutMetricPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutMetricPolicyCommand}.
  */
 export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetricPolicyCommandInput - {@link PutMetricPolicyCommandInput}
+ * @returns {@link PutMetricPolicyCommandOutput}
  * @see {@link PutMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link PutMetricPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -79,6 +86,9 @@ export class PutMetricPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetricPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class PutMetricPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetricPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutMetricPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricPolicyCommandOutput> {
     return deserializeAws_json1_1PutMetricPolicyCommand(output, context);
   }

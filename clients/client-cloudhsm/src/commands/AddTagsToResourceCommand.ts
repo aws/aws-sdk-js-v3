@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -58,6 +63,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
+ * @returns {@link AddTagsToResourceCommandOutput}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -90,6 +97,9 @@ export class AddTagsToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class AddTagsToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddTagsToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToResourceCommandOutput> {
     return deserializeAws_json1_1AddTagsToResourceCommand(output, context);
   }

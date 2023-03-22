@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCertificateOptionsCommand}.
  */
 export interface UpdateCertificateOptionsCommandInput extends UpdateCertificateOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCertificateOptionsCommand}.
  */
 export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a certificate. Currently, you can use this function to specify whether to opt in
  *       to or out of recording your certificate in a certificate transparency log. For more
  *       information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency"> Opting Out of
@@ -44,6 +49,8 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCertificateOptionsCommandInput - {@link UpdateCertificateOptionsCommandInput}
+ * @returns {@link UpdateCertificateOptionsCommandOutput}
  * @see {@link UpdateCertificateOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateOptionsCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateCertificateOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCertificateOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateCertificateOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCertificateOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCertificateOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCertificateOptionsCommandOutput> {
     return deserializeAws_json1_1UpdateCertificateOptionsCommand(output, context);
   }

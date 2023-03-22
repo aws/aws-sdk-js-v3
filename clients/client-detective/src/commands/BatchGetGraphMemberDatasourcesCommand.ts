@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetGraphMemberDatasourcesCommand}.
  */
 export interface BatchGetGraphMemberDatasourcesCommandInput extends BatchGetGraphMemberDatasourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetGraphMemberDatasourcesCommand}.
  */
 export interface BatchGetGraphMemberDatasourcesCommandOutput
@@ -37,6 +41,7 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets data source package information for the behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetGraphMemberDatasourcesCommandInput - {@link BatchGetGraphMemberDatasourcesCommandInput}
+ * @returns {@link BatchGetGraphMemberDatasourcesCommandOutput}
  * @see {@link BatchGetGraphMemberDatasourcesCommandInput} for command's `input` shape.
  * @see {@link BatchGetGraphMemberDatasourcesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -84,6 +91,9 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetGraphMemberDatasourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchGetGraphMemberDatasourcesCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command<
     return serializeAws_restJson1BatchGetGraphMemberDatasourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

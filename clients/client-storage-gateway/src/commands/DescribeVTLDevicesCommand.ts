@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVTLDevicesCommand}.
  */
 export interface DescribeVTLDevicesCommandInput extends DescribeVTLDevicesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVTLDevicesCommand}.
  */
 export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of virtual tape library (VTL) devices for the specified tape
  *          gateway. In the response, Storage Gateway returns VTL device information.</p>
  *
@@ -49,6 +54,8 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVTLDevicesCommandInput - {@link DescribeVTLDevicesCommandInput}
+ * @returns {@link DescribeVTLDevicesCommandOutput}
  * @see {@link DescribeVTLDevicesCommandInput} for command's `input` shape.
  * @see {@link DescribeVTLDevicesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -138,6 +145,9 @@ export class DescribeVTLDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVTLDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,10 +187,16 @@ export class DescribeVTLDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVTLDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeVTLDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVTLDevicesCommandOutput> {
     return deserializeAws_json1_1DescribeVTLDevicesCommand(output, context);
   }

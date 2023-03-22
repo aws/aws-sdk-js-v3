@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTargetedSentimentDetectionJobCommand}.
  */
 export interface DescribeTargetedSentimentDetectionJobCommandInput
   extends DescribeTargetedSentimentDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTargetedSentimentDetectionJobCommand}.
  */
 export interface DescribeTargetedSentimentDetectionJobCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeTargetedSentimentDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a targeted sentiment detection job. Use this operation
  *       to get the status of the job.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeTargetedSentimentDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTargetedSentimentDetectionJobCommandInput - {@link DescribeTargetedSentimentDetectionJobCommandInput}
+ * @returns {@link DescribeTargetedSentimentDetectionJobCommandOutput}
  * @see {@link DescribeTargetedSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetedSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeTargetedSentimentDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTargetedSentimentDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DescribeTargetedSentimentDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTargetedSentimentDetectionJobCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DescribeTargetedSentimentDetectionJobCommand extends $Command<
     return serializeAws_json1_1DescribeTargetedSentimentDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

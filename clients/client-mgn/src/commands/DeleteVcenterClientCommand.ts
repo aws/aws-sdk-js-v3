@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVcenterClientCommand}.
  */
 export interface DeleteVcenterClientCommandInput extends DeleteVcenterClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVcenterClientCommand}.
  */
 export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a given vCenter client by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVcenterClientCommandInput - {@link DeleteVcenterClientCommandInput}
+ * @returns {@link DeleteVcenterClientCommandOutput}
  * @see {@link DeleteVcenterClientCommandInput} for command's `input` shape.
  * @see {@link DeleteVcenterClientCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteVcenterClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVcenterClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteVcenterClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVcenterClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVcenterClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVcenterClientCommandOutput> {
     return deserializeAws_restJson1DeleteVcenterClientCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostedConfigurationVersionCommand}.
  */
 export interface GetHostedConfigurationVersionCommandInput extends GetHostedConfigurationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHostedConfigurationVersionCommand}.
  */
 export interface GetHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a specific configuration version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetHostedConfigurationVersionCommandOutput extends HostedConfig
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostedConfigurationVersionCommandInput - {@link GetHostedConfigurationVersionCommandInput}
+ * @returns {@link GetHostedConfigurationVersionCommandOutput}
  * @see {@link GetHostedConfigurationVersionCommandInput} for command's `input` shape.
  * @see {@link GetHostedConfigurationVersionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetHostedConfigurationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostedConfigurationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetHostedConfigurationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostedConfigurationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetHostedConfigurationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

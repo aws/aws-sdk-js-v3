@@ -127,10 +127,12 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { FinspaceDataClient } from "./FinspaceDataClient";
 
 /**
+ * @public
  * <p> The FinSpace APIs let you take actions inside the FinSpace.</p>
  */
 export class FinspaceData extends FinspaceDataClient {
   /**
+   * @public
    * <p>Adds a user account to a permission group to grant permissions for actions a user can perform in FinSpace.</p>
    */
   public associateUserToPermissionGroup(
@@ -163,6 +165,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Changeset in a FinSpace Dataset.</p>
    */
   public createChangeset(
@@ -195,6 +198,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Creates a new FinSpace Dataset.</p>
    */
   public createDataset(
@@ -227,6 +231,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Creates a Dataview for a Dataset.</p>
    */
   public createDataView(
@@ -259,6 +264,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Creates a group of permissions for various actions that a user can perform in FinSpace.</p>
    */
   public createPermissionGroup(
@@ -291,6 +297,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Creates a new user in FinSpace.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
@@ -317,6 +324,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Deletes a FinSpace Dataset.</p>
    */
   public deleteDataset(
@@ -349,6 +357,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Deletes a permission group. This action is irreversible.</p>
    */
   public deletePermissionGroup(
@@ -381,6 +390,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Denies access to the FinSpace web application and API for the specified user.</p>
    */
   public disableUser(args: DisableUserCommandInput, options?: __HttpHandlerOptions): Promise<DisableUserCommandOutput>;
@@ -407,6 +417,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Removes a user account from a permission group.</p>
    */
   public disassociateUserFromPermissionGroup(
@@ -439,6 +450,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p> Allows the specified user to access the FinSpace web application and API.</p>
    */
   public enableUser(args: EnableUserCommandInput, options?: __HttpHandlerOptions): Promise<EnableUserCommandOutput>;
@@ -465,6 +477,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Get information about a Changeset.</p>
    */
   public getChangeset(
@@ -494,6 +507,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a Dataset.</p>
    */
   public getDataset(args: GetDatasetCommandInput, options?: __HttpHandlerOptions): Promise<GetDatasetCommandOutput>;
@@ -520,6 +534,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a Dataview.</p>
    */
   public getDataView(args: GetDataViewCommandInput, options?: __HttpHandlerOptions): Promise<GetDataViewCommandOutput>;
@@ -546,6 +561,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Returns the credentials to access the external Dataview from an S3 location. To call this API:</p>
    *          <ul>
    *             <li>
@@ -586,6 +602,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of a specific permission group.</p>
    */
   public getPermissionGroup(
@@ -618,6 +635,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Request programmatic credentials to use with FinSpace SDK.</p>
    */
   public getProgrammaticAccessCredentials(
@@ -650,6 +668,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details for a specific user.</p>
    */
   public getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
@@ -676,6 +695,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>A temporary Amazon S3 location, where you can copy your files from a source location to stage or use
    *       as a scratch space in FinSpace notebook.</p>
    */
@@ -709,6 +729,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Lists the FinSpace Changesets for a Dataset.</p>
    */
   public listChangesets(
@@ -741,6 +762,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the active Datasets that a user has access to.</p>
    */
   public listDatasets(
@@ -770,6 +792,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Lists all available Dataviews for a Dataset.</p>
    */
   public listDataViews(
@@ -802,6 +825,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Lists all available permission groups in FinSpace.</p>
    */
   public listPermissionGroups(
@@ -834,6 +858,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Lists all the permission groups that are associated with a specific user account.</p>
    */
   public listPermissionGroupsByUser(
@@ -866,6 +891,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Lists all available user accounts in FinSpace.</p>
    */
   public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
@@ -892,6 +918,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Lists details of all the users in a specific permission group.</p>
    */
   public listUsersByPermissionGroup(
@@ -924,6 +951,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Resets the password for a specified user ID and generates a temporary one. Only a superuser can reset password for other users. Resetting the password immediately invalidates the previous password associated with the user.</p>
    */
   public resetUserPassword(
@@ -956,6 +984,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Updates a FinSpace Changeset.</p>
    */
   public updateChangeset(
@@ -988,6 +1017,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Updates a FinSpace Dataset.</p>
    */
   public updateDataset(
@@ -1020,6 +1050,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.</p>
    */
   public updatePermissionGroup(
@@ -1052,6 +1083,7 @@ export class FinspaceData extends FinspaceDataClient {
   }
 
   /**
+   * @public
    * <p>Modifies the details of the specified user account. You cannot update the <code>userId</code> for a user.</p>
    */
   public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;

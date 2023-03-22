@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or overwrites one or more tags for the specified resource. <i>Tags</i>
  *    are metadata that you can assign to your automations, documents, managed nodes, maintenance
  *    windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your
@@ -92,6 +97,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
+ * @returns {@link AddTagsToResourceCommandOutput}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -132,6 +139,9 @@ export class AddTagsToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class AddTagsToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddTagsToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToResourceCommandOutput> {
     return deserializeAws_json1_1AddTagsToResourceCommand(output, context);
   }

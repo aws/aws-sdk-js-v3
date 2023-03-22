@@ -194,6 +194,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchCreateCustomVocabularyItemCommandInput
   | BatchDeleteCustomVocabularyItemCommandInput
@@ -267,6 +270,9 @@ export type ServiceInputTypes =
   | UpdateSlotCommandInput
   | UpdateSlotTypeCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchCreateCustomVocabularyItemCommandOutput
   | BatchDeleteCustomVocabularyItemCommandOutput
@@ -340,6 +346,9 @@ export type ServiceOutputTypes =
   | UpdateSlotCommandOutput
   | UpdateSlotTypeCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -347,7 +356,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -456,11 +465,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type LexModelsV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -471,10 +483,15 @@ type LexModelsV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of LexModelsV2Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of LexModelsV2Client class constructor that set the region, credentials and other options.
  */
 export interface LexModelsV2ClientConfig extends LexModelsV2ClientConfigType {}
 
+/**
+ * @public
+ */
 type LexModelsV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -485,11 +502,14 @@ type LexModelsV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of LexModelsV2Client class. This is resolved and normalized from the {@link LexModelsV2ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of LexModelsV2Client class. This is resolved and normalized from the {@link LexModelsV2ClientConfig | constructor configuration interface}.
  */
 export interface LexModelsV2ClientResolvedConfig extends LexModelsV2ClientResolvedConfigType {}
 
 /**
+ * @public
  * <p></p>
  */
 export class LexModelsV2Client extends __Client<

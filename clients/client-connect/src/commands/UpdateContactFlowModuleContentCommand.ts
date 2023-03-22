@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactFlowModuleContentCommand}.
  */
 export interface UpdateContactFlowModuleContentCommandInput extends UpdateContactFlowModuleContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactFlowModuleContentCommand}.
  */
 export interface UpdateContactFlowModuleContentCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateContactFlowModuleContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateContactFlowModuleContentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactFlowModuleContentCommandInput - {@link UpdateContactFlowModuleContentCommandInput}
+ * @returns {@link UpdateContactFlowModuleContentCommandOutput}
  * @see {@link UpdateContactFlowModuleContentCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowModuleContentCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateContactFlowModuleContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactFlowModuleContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class UpdateContactFlowModuleContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateContactFlowModuleContentCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class UpdateContactFlowModuleContentCommand extends $Command<
     return serializeAws_restJson1UpdateContactFlowModuleContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

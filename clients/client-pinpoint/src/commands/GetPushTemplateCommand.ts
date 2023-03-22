@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPushTemplateCommand}.
  */
 export interface GetPushTemplateCommandInput extends GetPushTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPushTemplateCommand}.
  */
 export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPushTemplateCommandInput - {@link GetPushTemplateCommandInput}
+ * @returns {@link GetPushTemplateCommandOutput}
  * @see {@link GetPushTemplateCommandInput} for command's `input` shape.
  * @see {@link GetPushTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetPushTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPushTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetPushTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPushTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPushTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPushTemplateCommandOutput> {
     return deserializeAws_restJson1GetPushTemplateCommand(output, context);
   }

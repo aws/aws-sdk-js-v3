@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCloudFrontOriginAccessIdentityCommand}.
  */
 export interface UpdateCloudFrontOriginAccessIdentityCommandInput extends UpdateCloudFrontOriginAccessIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCloudFrontOriginAccessIdentityCommand}.
  */
 export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCloudFrontOriginAccessIdentityCommandInput - {@link UpdateCloudFrontOriginAccessIdentityCommandInput}
+ * @returns {@link UpdateCloudFrontOriginAccessIdentityCommandOutput}
  * @see {@link UpdateCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link UpdateCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     return serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

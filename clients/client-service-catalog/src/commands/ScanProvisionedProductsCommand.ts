@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ScanProvisionedProductsCommand}.
  */
 export interface ScanProvisionedProductsCommandInput extends ScanProvisionedProductsInput {}
 /**
+ * @public
+ *
  * The output of {@link ScanProvisionedProductsCommand}.
  */
 export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedProductsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the provisioned products that are available (not terminated).</p>
  *          <p>To use additional filtering, see <a>SearchProvisionedProducts</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * const response = await client.send(command);
  * ```
  *
+ * @param ScanProvisionedProductsCommandInput - {@link ScanProvisionedProductsCommandInput}
+ * @returns {@link ScanProvisionedProductsCommandOutput}
  * @see {@link ScanProvisionedProductsCommandInput} for command's `input` shape.
  * @see {@link ScanProvisionedProductsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -73,6 +80,9 @@ export class ScanProvisionedProductsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ScanProvisionedProductsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ScanProvisionedProductsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ScanProvisionedProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ScanProvisionedProductsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScanProvisionedProductsCommandOutput> {
     return deserializeAws_json1_1ScanProvisionedProductsCommand(output, context);
   }

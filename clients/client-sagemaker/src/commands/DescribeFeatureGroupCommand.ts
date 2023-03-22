@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFeatureGroupCommand}.
  */
 export interface DescribeFeatureGroupCommandInput extends DescribeFeatureGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFeatureGroupCommand}.
  */
 export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to describe a <code>FeatureGroup</code>. The response includes
  *          information on the creation time, <code>FeatureGroup</code> name, the unique identifier for
  *          each <code>FeatureGroup</code>, and more.</p>
@@ -48,6 +53,8 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFeatureGroupCommandInput - {@link DescribeFeatureGroupCommandInput}
+ * @returns {@link DescribeFeatureGroupCommandOutput}
  * @see {@link DescribeFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeFeatureGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFeatureGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeFeatureGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFeatureGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFeatureGroupCommandOutput> {
     return deserializeAws_json1_1DescribeFeatureGroupCommand(output, context);
   }

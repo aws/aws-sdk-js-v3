@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetsForPolicyCommand}.
  */
 export interface ListTargetsForPolicyCommandInput extends ListTargetsForPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetsForPolicyCommand}.
  */
 export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List targets for the specified policy.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForPolicy</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsForPolicyCommandInput - {@link ListTargetsForPolicyCommandInput}
+ * @returns {@link ListTargetsForPolicyCommandOutput}
  * @see {@link ListTargetsForPolicyCommandInput} for command's `input` shape.
  * @see {@link ListTargetsForPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListTargetsForPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsForPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListTargetsForPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTargetsForPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsForPolicyCommandOutput> {
     return deserializeAws_restJson1ListTargetsForPolicyCommand(output, context);
   }

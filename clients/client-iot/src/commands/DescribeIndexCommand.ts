@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIndexCommand}.
  */
 export interface DescribeIndexCommandInput extends DescribeIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIndexCommand}.
  */
 export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a search index.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeIndex</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIndexCommandInput - {@link DescribeIndexCommandInput}
+ * @returns {@link DescribeIndexCommandOutput}
  * @see {@link DescribeIndexCommandInput} for command's `input` shape.
  * @see {@link DescribeIndexCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIndexCommandOutput> {
     return deserializeAws_restJson1DescribeIndexCommand(output, context);
   }

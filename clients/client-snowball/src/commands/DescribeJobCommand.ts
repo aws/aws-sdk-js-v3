@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandInput extends DescribeJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific job including shipping information, job status,
  *       and other important metadata. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
+ * @returns {@link DescribeJobCommandOutput}
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -116,6 +123,9 @@ export class DescribeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class DescribeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobCommandOutput> {
     return deserializeAws_json1_1DescribeJobCommand(output, context);
   }

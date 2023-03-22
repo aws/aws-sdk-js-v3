@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRecordBatchCommand}.
  */
 export interface PutRecordBatchCommandInput extends PutRecordBatchInput {}
 /**
+ * @public
+ *
  * The output of {@link PutRecordBatchCommand}.
  */
 export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes multiple data records into a delivery stream in a single call, which can
  *          achieve higher throughput per producer than when writing single records. To write single
  *          data records into a delivery stream, use <a>PutRecord</a>. Applications using
@@ -96,6 +101,8 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecordBatchCommandInput - {@link PutRecordBatchCommandInput}
+ * @returns {@link PutRecordBatchCommandOutput}
  * @see {@link PutRecordBatchCommandInput} for command's `input` shape.
  * @see {@link PutRecordBatchCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -138,6 +145,9 @@ export class PutRecordBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecordBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,10 +187,16 @@ export class PutRecordBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecordBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRecordBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordBatchCommandOutput> {
     return deserializeAws_json1_1PutRecordBatchCommand(output, context);
   }

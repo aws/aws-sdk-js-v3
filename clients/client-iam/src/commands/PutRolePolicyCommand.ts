@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutRolePolicyCommand}.
  */
 export interface PutRolePolicyCommandInput extends PutRolePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRolePolicyCommand}.
  */
 export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM
  *             role.</p>
  *          <p>When you embed an inline policy in a role, the inline policy is used as part of the
@@ -60,6 +65,8 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRolePolicyCommandInput - {@link PutRolePolicyCommandInput}
+ * @returns {@link PutRolePolicyCommandOutput}
  * @see {@link PutRolePolicyCommandInput} for command's `input` shape.
  * @see {@link PutRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -118,6 +125,9 @@ export class PutRolePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRolePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class PutRolePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutRolePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRolePolicyCommandOutput> {
     return deserializeAws_queryPutRolePolicyCommand(output, context);
   }

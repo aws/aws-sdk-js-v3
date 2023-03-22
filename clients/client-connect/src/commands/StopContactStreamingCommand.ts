@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopContactStreamingCommand}.
  */
 export interface StopContactStreamingCommandInput extends StopContactStreamingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopContactStreamingCommand}.
  */
 export interface StopContactStreamingCommandOutput extends StopContactStreamingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Ends message streaming on a specified contact. To restart message streaming on that
  *    contact, call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>
  *    API. </p>
@@ -48,6 +53,8 @@ export interface StopContactStreamingCommandOutput extends StopContactStreamingR
  * const response = await client.send(command);
  * ```
  *
+ * @param StopContactStreamingCommandInput - {@link StopContactStreamingCommandInput}
+ * @returns {@link StopContactStreamingCommandOutput}
  * @see {@link StopContactStreamingCommandInput} for command's `input` shape.
  * @see {@link StopContactStreamingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class StopContactStreamingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopContactStreamingCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StopContactStreamingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopContactStreamingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopContactStreamingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContactStreamingCommandOutput> {
     return deserializeAws_restJson1StopContactStreamingCommand(output, context);
   }

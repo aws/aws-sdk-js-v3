@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStorageVirtualMachinesCommand}.
  */
 export interface DescribeStorageVirtualMachinesCommandInput extends DescribeStorageVirtualMachinesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStorageVirtualMachinesCommand}.
  */
 export interface DescribeStorageVirtualMachinesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeStorageVirtualMachinesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStorageVirtualMachinesCommandInput - {@link DescribeStorageVirtualMachinesCommandInput}
+ * @returns {@link DescribeStorageVirtualMachinesCommandOutput}
  * @see {@link DescribeStorageVirtualMachinesCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageVirtualMachinesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeStorageVirtualMachinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStorageVirtualMachinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeStorageVirtualMachinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeStorageVirtualMachinesCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeStorageVirtualMachinesCommand extends $Command<
     return serializeAws_json1_1DescribeStorageVirtualMachinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

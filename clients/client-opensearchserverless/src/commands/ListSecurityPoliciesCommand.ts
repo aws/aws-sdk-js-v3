@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityPoliciesCommand}.
  */
 export interface ListSecurityPoliciesCommandInput extends ListSecurityPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityPoliciesCommand}.
  */
 export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about configured OpenSearch Serverless security policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityPoliciesCommandInput - {@link ListSecurityPoliciesCommandInput}
+ * @returns {@link ListSecurityPoliciesCommandOutput}
  * @see {@link ListSecurityPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListSecurityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListSecurityPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListSecurityPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListSecurityPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityPoliciesCommandOutput> {
     return deserializeAws_json1_0ListSecurityPoliciesCommand(output, context);
   }

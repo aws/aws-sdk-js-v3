@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KinesisAnalyticsV2ServiceException as __BaseException } from "./KinesisAnalyticsV2ServiceException";
 
 /**
+ * @public
  * <p>Provides a description of Amazon CloudWatch logging options, including the log stream
  *       Amazon Resource Name (ARN). </p>
  */
@@ -14,6 +15,9 @@ export interface CloudWatchLoggingOption {
   LogStreamARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationCloudWatchLoggingOptionRequest {
   /**
    * <p>The Kinesis Data Analytics application name.</p>
@@ -45,6 +49,7 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon CloudWatch logging option.</p>
  */
 export interface CloudWatchLoggingOptionDescription {
@@ -69,6 +74,9 @@ export interface CloudWatchLoggingOptionDescription {
   RoleARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationCloudWatchLoggingOptionResponse {
   /**
    * <p>The application's ARN.</p>
@@ -89,6 +97,7 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
 }
 
 /**
+ * @public
  * <p>Exception thrown as a result of concurrent modifications to an application. This error can
  *       be the result of attempting to modify an application without using the current application
  *       ID.</p>
@@ -112,6 +121,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user-provided application configuration is not valid.</p>
  */
 export class InvalidApplicationConfigurationException extends __BaseException {
@@ -133,6 +143,7 @@ export class InvalidApplicationConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified input parameter value is not valid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -154,6 +165,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request JSON is not valid for the operation.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -175,6 +187,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The application is not available for this operation.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -196,6 +209,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specified application can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -217,6 +231,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes the number of
  *       in-application streams to create for a given streaming source. </p>
  */
@@ -228,6 +243,7 @@ export interface InputParallelism {
 }
 
 /**
+ * @public
  * <p>An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is
  *       used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application. </p>
  */
@@ -243,6 +259,7 @@ export interface InputLambdaProcessor {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes a processor that is
  *       used to preprocess the records in the stream before being processed by your application code.
  *       Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">Amazon Lambda</a>.</p>
@@ -256,6 +273,7 @@ export interface InputProcessingConfiguration {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes the mapping of each
  *       data element in the streaming source to the corresponding column in the in-application
  *       stream.</p>
@@ -281,6 +299,7 @@ export interface RecordColumn {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record
  *       format uses delimiters, such as CSV. For example, the following sample records use CSV format,
  *       where the records use the <i>'\n'</i> as the row delimiter and a comma (",") as
@@ -308,6 +327,7 @@ export interface CSVMappingParameters {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, provides additional mapping
  *       information when JSON is the record format on the streaming source.</p>
  */
@@ -319,6 +339,7 @@ export interface JSONMappingParameters {
 }
 
 /**
+ * @public
  * <p>When you configure a SQL-based Kinesis Data Analytics application's input at the
  *       time of creating or updating an application, provides additional mapping information specific
  *       to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the
@@ -337,12 +358,16 @@ export interface MappingParameters {
   CSVMappingParameters?: CSVMappingParameters;
 }
 
+/**
+ * @public
+ */
 export enum RecordFormatType {
   CSV = "CSV",
   JSON = "JSON",
 }
 
 /**
+ * @public
  * <p> For a SQL-based Kinesis Data Analytics application, describes the record format
  *       and relevant mapping information that should be applied to schematize the records on the
  *       stream. </p>
@@ -362,6 +387,7 @@ export interface RecordFormat {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes the format of the
  *       data in the streaming source, and how each data element maps to corresponding columns created
  *       in the in-application stream. </p>
@@ -384,6 +410,7 @@ export interface SourceSchema {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data
  *       Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon
  *       Resource Name (ARN).</p>
@@ -396,6 +423,7 @@ export interface KinesisFirehoseInput {
 }
 
 /**
+ * @public
  * <p> Identifies a Kinesis data stream as the streaming source. You provide the
  *       stream's Amazon Resource Name (ARN).</p>
  */
@@ -407,6 +435,7 @@ export interface KinesisStreamsInput {
 }
 
 /**
+ * @public
  * <p>When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream
  *       name that is created,
  *       and the mapping between the two. </p>
@@ -451,6 +480,9 @@ export interface Input {
   InputSchema: SourceSchema | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationInputRequest {
   /**
    * <p>The name of your existing application to which you want to add the streaming
@@ -471,6 +503,7 @@ export interface AddApplicationInputRequest {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, an object that contains the
  *       Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in
  *       the stream.</p>
@@ -498,6 +531,7 @@ export interface InputLambdaProcessorDescription {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, provides the configuration
  *         information about an input processor. Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">Amazon Lambda</a>.</p>
  */
@@ -509,6 +543,9 @@ export interface InputProcessingConfigurationDescription {
   InputLambdaProcessorDescription?: InputLambdaProcessorDescription;
 }
 
+/**
+ * @public
+ */
 export enum InputStartingPosition {
   LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
   NOW = "NOW",
@@ -516,6 +553,7 @@ export enum InputStartingPosition {
 }
 
 /**
+ * @public
  * <p>Describes the point at which the application reads from
  *       the streaming source.</p>
  */
@@ -546,6 +584,7 @@ export interface InputStartingPositionConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon Kinesis Data Firehose delivery stream that is configured as the streaming source
  *       in the application input configuration. </p>
  */
@@ -567,6 +606,7 @@ export interface KinesisFirehoseInputDescription {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes the Kinesis data
  *       stream that is configured as the streaming source in the application input configuration. </p>
  */
@@ -589,6 +629,7 @@ export interface KinesisStreamsInputDescription {
 }
 
 /**
+ * @public
  * <p>Describes the application input configuration for a SQL-based Kinesis Data Analytics application. </p>
  */
 export interface InputDescription {
@@ -641,6 +682,9 @@ export interface InputDescription {
   InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationInputResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -662,6 +706,7 @@ export interface AddApplicationInputResponse {
 }
 
 /**
+ * @public
  * <p>The user-provided application code (query) is not valid. This can be a simple syntax
  *       error.</p>
  */
@@ -683,6 +728,9 @@ export class CodeValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationInputProcessingConfigurationRequest {
   /**
    * <p>The name of the application to which you want to add the input processing
@@ -710,6 +758,9 @@ export interface AddApplicationInputProcessingConfigurationRequest {
   InputProcessingConfiguration: InputProcessingConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationInputProcessingConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -735,6 +786,7 @@ export interface AddApplicationInputProcessingConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Describes the data format when records are written to the destination in a SQL-based Kinesis Data Analytics application. </p>
  */
 export interface DestinationSchema {
@@ -745,6 +797,7 @@ export interface DestinationSchema {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, when configuring application
  *       output, identifies a Kinesis Data Firehose delivery stream as the destination. You provide the
  *       stream Amazon Resource Name (ARN) of the delivery stream. </p>
@@ -757,6 +810,7 @@ export interface KinesisFirehoseOutput {
 }
 
 /**
+ * @public
  * <p>When you configure a SQL-based Kinesis Data Analytics application's output,
  *       identifies a Kinesis data stream as the destination. You provide the stream Amazon Resource
  *       Name (ARN). </p>
@@ -769,6 +823,7 @@ export interface KinesisStreamsOutput {
 }
 
 /**
+ * @public
  * <p>When you configure a SQL-based Kinesis Data Analytics application's output,
  *       identifies an Amazon Lambda function as the destination. You provide the function Amazon Resource
  *       Name (ARN) of the Lambda function. </p>
@@ -785,6 +840,7 @@ export interface LambdaOutput {
 }
 
 /**
+ * @public
  * <p> Describes a SQL-based Kinesis Data Analytics application's output configuration,
  *       in which you identify an in-application stream and a destination where you want the
  *       in-application stream data to be written. The destination can be a Kinesis data stream or a
@@ -821,6 +877,9 @@ export interface Output {
   DestinationSchema: DestinationSchema | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationOutputRequest {
   /**
    * <p>The name of the application to which you want to add the output configuration.</p>
@@ -845,6 +904,7 @@ export interface AddApplicationOutputRequest {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application's output, describes the Kinesis
  *       Data Firehose delivery stream that is configured as its destination.</p>
  */
@@ -867,6 +927,7 @@ export interface KinesisFirehoseOutputDescription {
 }
 
 /**
+ * @public
  * <p>For an SQL-based Kinesis Data Analytics application's output, describes the Kinesis
  *       data stream that is configured as its destination. </p>
  */
@@ -889,6 +950,7 @@ export interface KinesisStreamsOutputDescription {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application's output, describes the Amazon
  *       Lambda function that is configured as its destination. </p>
  */
@@ -911,6 +973,7 @@ export interface LambdaOutputDescription {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes the application
  *       output configuration, which includes the in-application stream name and the destination where
  *       the stream data is written. The destination can be a Kinesis data stream or a Kinesis Data
@@ -951,6 +1014,9 @@ export interface OutputDescription {
   DestinationSchema?: DestinationSchema;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationOutputResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -974,6 +1040,7 @@ export interface AddApplicationOutputResponse {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, identifies the Amazon S3
  *       bucket and object that contains the reference data.</p>
  *
@@ -993,6 +1060,7 @@ export interface S3ReferenceDataSource {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes the reference data
  *       source by providing the source information (Amazon S3 bucket name and object key name), the
  *       resulting in-application table name that is created, and the necessary schema to map the data
@@ -1017,6 +1085,9 @@ export interface ReferenceDataSource {
   ReferenceSchema: SourceSchema | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationReferenceDataSourceRequest {
   /**
    * <p>The name of an existing application.</p>
@@ -1042,6 +1113,7 @@ export interface AddApplicationReferenceDataSourceRequest {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, provides the bucket name and
  *       object key name that stores the reference data.</p>
  */
@@ -1069,6 +1141,7 @@ export interface S3ReferenceDataSourceDescription {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes the reference data
  *       source configured for an application.</p>
  */
@@ -1095,6 +1168,9 @@ export interface ReferenceDataSourceDescription {
   ReferenceSchema?: SourceSchema;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationReferenceDataSourceResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -1118,6 +1194,7 @@ export interface AddApplicationReferenceDataSourceResponse {
 }
 
 /**
+ * @public
  * <p>Describes the parameters of a VPC used by the application.</p>
  */
 export interface VpcConfiguration {
@@ -1134,6 +1211,9 @@ export interface VpcConfiguration {
   SecurityGroupIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationVpcConfigurationRequest {
   /**
    * <p>The name of an existing application.</p>
@@ -1167,6 +1247,7 @@ export interface AddApplicationVpcConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Describes the parameters of a VPC used by the application.</p>
  */
 export interface VpcConfigurationDescription {
@@ -1193,6 +1274,9 @@ export interface VpcConfigurationDescription {
   SecurityGroupIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationVpcConfigurationResponse {
   /**
    * <p>The ARN of the application.</p>
@@ -1212,6 +1296,7 @@ export interface AddApplicationVpcConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>For a Kinesis Data Analytics application provides a
  *       description of an Amazon S3 object, including the Amazon Resource Name (ARN) of the S3 bucket,
  *       the name of the Amazon S3 object that contains the data, and the version number of the Amazon
@@ -1235,6 +1320,7 @@ export interface S3ContentLocation {
 }
 
 /**
+ * @public
  * <p>Specifies either the application code, or the location of the application code, for a
  *       Flink-based Kinesis Data Analytics application. </p>
  */
@@ -1255,12 +1341,16 @@ export interface CodeContent {
   S3ContentLocation?: S3ContentLocation;
 }
 
+/**
+ * @public
+ */
 export enum CodeContentType {
   PLAINTEXT = "PLAINTEXT",
   ZIPFILE = "ZIPFILE",
 }
 
 /**
+ * @public
  * <p>Describes code configuration for an application.</p>
  */
 export interface ApplicationCodeConfiguration {
@@ -1276,6 +1366,7 @@ export interface ApplicationCodeConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the location of an application's code stored in an S3 bucket.</p>
  */
 export interface S3ApplicationCodeLocationDescription {
@@ -1296,6 +1387,7 @@ export interface S3ApplicationCodeLocationDescription {
 }
 
 /**
+ * @public
  * <p>Describes details about the code of a Kinesis Data Analytics application.</p>
  */
 export interface CodeContentDescription {
@@ -1322,6 +1414,7 @@ export interface CodeContentDescription {
 }
 
 /**
+ * @public
  * <p>Describes code configuration for an application.</p>
  */
 export interface ApplicationCodeConfigurationDescription {
@@ -1337,6 +1430,7 @@ export interface ApplicationCodeConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Describes an update for the Amazon S3 code content location for an application.</p>
  */
 export interface S3ContentLocationUpdate {
@@ -1357,6 +1451,7 @@ export interface S3ContentLocationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes an update to the code of an application. Not supported for Apache Zeppelin.</p>
  */
 export interface CodeContentUpdate {
@@ -1377,6 +1472,7 @@ export interface CodeContentUpdate {
 }
 
 /**
+ * @public
  * <p>Describes code configuration updates for an application. This is supported for a Flink-based Kinesis Data Analytics application or a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationCodeConfigurationUpdate {
@@ -1392,6 +1488,7 @@ export interface ApplicationCodeConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationSnapshotConfiguration {
@@ -1402,6 +1499,7 @@ export interface ApplicationSnapshotConfiguration {
 }
 
 /**
+ * @public
  * <p>Property key-value pairs passed into an application.</p>
  */
 export interface PropertyGroup {
@@ -1417,6 +1515,7 @@ export interface PropertyGroup {
 }
 
 /**
+ * @public
  * <p>Describes execution properties for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface EnvironmentProperties {
@@ -1426,12 +1525,16 @@ export interface EnvironmentProperties {
   PropertyGroups: PropertyGroup[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConfigurationType {
   CUSTOM = "CUSTOM",
   DEFAULT = "DEFAULT",
 }
 
 /**
+ * @public
  * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault
  *       tolerance.
  *       For more information, see
@@ -1500,6 +1603,9 @@ export interface CheckpointConfiguration {
   MinPauseBetweenCheckpoints?: number;
 }
 
+/**
+ * @public
+ */
 export enum LogLevel {
   DEBUG = "DEBUG",
   ERROR = "ERROR",
@@ -1507,6 +1613,9 @@ export enum LogLevel {
   WARN = "WARN",
 }
 
+/**
+ * @public
+ */
 export enum MetricsLevel {
   APPLICATION = "APPLICATION",
   OPERATOR = "OPERATOR",
@@ -1515,6 +1624,7 @@ export enum MetricsLevel {
 }
 
 /**
+ * @public
  * <p>Describes configuration parameters for Amazon CloudWatch logging for an application. For more information about CloudWatch logging, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p>
  */
 export interface MonitoringConfiguration {
@@ -1538,6 +1648,7 @@ export interface MonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes parameters for how a Flink-based Kinesis Data Analytics application
  *       executes multiple tasks simultaneously. For more information about parallelism,
  *       see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html">Parallel Execution</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
@@ -1575,6 +1686,7 @@ export interface ParallelismConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.</p>
  */
 export interface FlinkApplicationConfiguration {
@@ -1601,6 +1713,7 @@ export interface FlinkApplicationConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface SqlApplicationConfiguration {
@@ -1624,6 +1737,7 @@ export interface SqlApplicationConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.</p>
  */
 export interface GlueDataCatalogConfiguration {
@@ -1634,6 +1748,7 @@ export interface GlueDataCatalogConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface CatalogConfiguration {
@@ -1643,12 +1758,16 @@ export interface CatalogConfiguration {
   GlueDataCatalogConfiguration: GlueDataCatalogConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ArtifactType {
   DEPENDENCY_JAR = "DEPENDENCY_JAR",
   UDF = "UDF",
 }
 
 /**
+ * @public
  * <p>The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.</p>
  */
 export interface MavenReference {
@@ -1669,6 +1788,7 @@ export interface MavenReference {
 }
 
 /**
+ * @public
  * <p>Specifies dependency JARs, as well as JAR files that contain user-defined functions (UDF).</p>
  */
 export interface CustomArtifactConfiguration {
@@ -1693,6 +1813,7 @@ export interface CustomArtifactConfiguration {
 }
 
 /**
+ * @public
  * <p>The S3 bucket that holds the application information.</p>
  */
 export interface S3ContentBaseLocation {
@@ -1708,6 +1829,7 @@ export interface S3ContentBaseLocation {
 }
 
 /**
+ * @public
  * <p>The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.</p>
  */
 export interface DeployAsApplicationConfiguration {
@@ -1719,6 +1841,7 @@ export interface DeployAsApplicationConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p>
  */
 export interface ZeppelinMonitoringConfiguration {
@@ -1729,6 +1852,7 @@ export interface ZeppelinMonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface ZeppelinApplicationConfiguration {
@@ -1754,6 +1878,7 @@ export interface ZeppelinApplicationConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the creation parameters for a Kinesis Data Analytics application.</p>
  */
 export interface ApplicationConfiguration {
@@ -1794,6 +1919,7 @@ export interface ApplicationConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationSnapshotConfigurationDescription {
@@ -1804,6 +1930,7 @@ export interface ApplicationSnapshotConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Describes the execution properties for an Apache Flink runtime.</p>
  */
 export interface EnvironmentPropertyDescriptions {
@@ -1814,6 +1941,7 @@ export interface EnvironmentPropertyDescriptions {
 }
 
 /**
+ * @public
  * <p>Describes checkpointing parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface CheckpointConfigurationDescription {
@@ -1874,6 +2002,7 @@ export interface CheckpointConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Describes configuration parameters for CloudWatch logging for an application.</p>
  */
 export interface MonitoringConfigurationDescription {
@@ -1894,6 +2023,7 @@ export interface MonitoringConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Describes parameters for how a Flink-based Kinesis Data Analytics application
  *       executes multiple tasks simultaneously.</p>
  */
@@ -1934,6 +2064,7 @@ export interface ParallelismConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Describes configuration parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface FlinkApplicationConfigurationDescription {
@@ -1961,6 +2092,9 @@ export interface FlinkApplicationConfigurationDescription {
   JobPlanDescription?: string;
 }
 
+/**
+ * @public
+ */
 export enum ApplicationRestoreType {
   RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT",
   RESTORE_FROM_LATEST_SNAPSHOT = "RESTORE_FROM_LATEST_SNAPSHOT",
@@ -1968,6 +2102,7 @@ export enum ApplicationRestoreType {
 }
 
 /**
+ * @public
  * <p>Specifies the method and snapshot to use when restarting an application using previously saved application state.</p>
  */
 export interface ApplicationRestoreConfiguration {
@@ -1985,6 +2120,7 @@ export interface ApplicationRestoreConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the starting parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface FlinkRunConfiguration {
@@ -2007,6 +2143,7 @@ export interface FlinkRunConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the starting properties for a Kinesis Data Analytics application.</p>
  */
 export interface RunConfigurationDescription {
@@ -2022,6 +2159,7 @@ export interface RunConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface SqlApplicationConfigurationDescription {
@@ -2045,6 +2183,7 @@ export interface SqlApplicationConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.</p>
  */
 export interface GlueDataCatalogConfigurationDescription {
@@ -2055,6 +2194,7 @@ export interface GlueDataCatalogConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface CatalogConfigurationDescription {
@@ -2065,6 +2205,7 @@ export interface CatalogConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Specifies a dependency JAR or a JAR of user-defined functions.</p>
  */
 export interface CustomArtifactConfigurationDescription {
@@ -2089,6 +2230,7 @@ export interface CustomArtifactConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>The description of the S3 base location that holds the application.</p>
  */
 export interface S3ContentBaseLocationDescription {
@@ -2104,6 +2246,7 @@ export interface S3ContentBaseLocationDescription {
 }
 
 /**
+ * @public
  * <p>The configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state.</p>
  */
 export interface DeployAsApplicationConfigurationDescription {
@@ -2114,6 +2257,7 @@ export interface DeployAsApplicationConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>The monitoring configuration for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface ZeppelinMonitoringConfigurationDescription {
@@ -2124,6 +2268,7 @@ export interface ZeppelinMonitoringConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>The configuration of a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface ZeppelinApplicationConfigurationDescription {
@@ -2149,6 +2294,7 @@ export interface ZeppelinApplicationConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Describes details about the application code and starting parameters for a Kinesis Data Analytics application.</p>
  */
 export interface ApplicationConfigurationDescription {
@@ -2194,6 +2340,7 @@ export interface ApplicationConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Describes updates to whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationSnapshotConfigurationUpdate {
@@ -2204,6 +2351,7 @@ export interface ApplicationSnapshotConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to the execution property groups for a Flink-based Kinesis Data Analytics application or a Studio notebook.</p>
  */
 export interface EnvironmentPropertyUpdates {
@@ -2214,6 +2362,7 @@ export interface EnvironmentPropertyUpdates {
 }
 
 /**
+ * @public
  * <p>Describes updates to the checkpointing parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface CheckpointConfigurationUpdate {
@@ -2277,6 +2426,7 @@ export interface CheckpointConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to configuration parameters for Amazon CloudWatch logging for an application.</p>
  */
 export interface MonitoringConfigurationUpdate {
@@ -2300,6 +2450,7 @@ export interface MonitoringConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to parameters for how an application executes multiple tasks simultaneously.</p>
  */
 export interface ParallelismConfigurationUpdate {
@@ -2331,6 +2482,7 @@ export interface ParallelismConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to the configuration parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface FlinkApplicationConfigurationUpdate {
@@ -2353,6 +2505,7 @@ export interface FlinkApplicationConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, provides updates to the
  *       parallelism count.</p>
  */
@@ -2364,6 +2517,7 @@ export interface InputParallelismUpdate {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, represents an update to the
  *         <a>InputLambdaProcessor</a> that is used to preprocess the records in the
  *       stream.</p>
@@ -2381,6 +2535,7 @@ export interface InputLambdaProcessorUpdate {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes updates to an <a>InputProcessingConfiguration</a>.</p>
  */
 export interface InputProcessingConfigurationUpdate {
@@ -2391,6 +2546,7 @@ export interface InputProcessingConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates for an SQL-based Kinesis Data Analytics application's input
  *       schema.</p>
  */
@@ -2413,6 +2569,7 @@ export interface InputSchemaUpdate {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, when updating application
  *       input configuration, provides information about a Kinesis Data Firehose delivery stream as the
  *       streaming source.</p>
@@ -2425,6 +2582,7 @@ export interface KinesisFirehoseInputUpdate {
 }
 
 /**
+ * @public
  * <p>When you update the input configuration for a SQL-based Kinesis Data Analytics application, provides information about a
  *       Kinesis stream as the streaming
  *       source.</p>
@@ -2437,6 +2595,7 @@ export interface KinesisStreamsInputUpdate {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes updates to a
  *       specific input configuration (identified by the <code>InputId</code> of an application). </p>
  */
@@ -2482,6 +2641,7 @@ export interface InputUpdate {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, when updating an output
  *       configuration using the <a>UpdateApplication</a> operation, provides information
  *       about a Kinesis Data Firehose delivery stream that is configured as the destination.</p>
@@ -2494,6 +2654,7 @@ export interface KinesisFirehoseOutputUpdate {
 }
 
 /**
+ * @public
  * <p>When you update a SQL-based Kinesis Data Analytics application's output
  *       configuration using the <a>UpdateApplication</a> operation, provides information
  *       about a Kinesis data stream that is configured as the destination.</p>
@@ -2507,6 +2668,7 @@ export interface KinesisStreamsOutputUpdate {
 }
 
 /**
+ * @public
  * <p>When you update an SQL-based Kinesis Data Analytics application's output
  *       configuration using the <a>UpdateApplication</a> operation, provides information
  *       about an Amazon Lambda function that is configured as the destination.</p>
@@ -2523,6 +2685,7 @@ export interface LambdaOutputUpdate {
 }
 
 /**
+ * @public
  * <p> For a SQL-based Kinesis Data Analytics application, describes updates to the
  *       output configuration identified by the <code>OutputId</code>. </p>
  */
@@ -2563,6 +2726,7 @@ export interface OutputUpdate {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, describes the Amazon S3 bucket
  *       name and object key name for an in-application reference table. </p>
  */
@@ -2579,6 +2743,7 @@ export interface S3ReferenceDataSourceUpdate {
 }
 
 /**
+ * @public
  * <p>When you update a reference data source configuration for a
  *        SQL-based Kinesis Data Analytics application, this object provides all the updated values
  *       (such as the source bucket name and object key name), the in-application table name that is created,
@@ -2610,6 +2775,7 @@ export interface ReferenceDataSourceUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to the input streams, destination streams, and reference data sources
  *       for a SQL-based Kinesis Data Analytics application.</p>
  */
@@ -2634,6 +2800,7 @@ export interface SqlApplicationConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to the VPC configuration used by the application.</p>
  */
 export interface VpcConfigurationUpdate {
@@ -2657,6 +2824,7 @@ export interface VpcConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Updates to the configuration of the Glue Data Catalog that you use for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface GlueDataCatalogConfigurationUpdate {
@@ -2667,6 +2835,7 @@ export interface GlueDataCatalogConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Updates to the configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface CatalogConfigurationUpdate {
@@ -2677,6 +2846,7 @@ export interface CatalogConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>The information required to update the S3 base location that holds the application.</p>
  */
 export interface S3ContentBaseLocationUpdate {
@@ -2692,6 +2862,7 @@ export interface S3ContentBaseLocationUpdate {
 }
 
 /**
+ * @public
  * <p>Updates to the configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state.</p>
  */
 export interface DeployAsApplicationConfigurationUpdate {
@@ -2702,6 +2873,7 @@ export interface DeployAsApplicationConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Updates to the monitoring configuration for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface ZeppelinMonitoringConfigurationUpdate {
@@ -2712,6 +2884,7 @@ export interface ZeppelinMonitoringConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Updates to the configuration of Kinesis Data Analytics Studio notebook.</p>
  */
 export interface ZeppelinApplicationConfigurationUpdate {
@@ -2737,6 +2910,7 @@ export interface ZeppelinApplicationConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to an application's configuration.</p>
  */
 export interface ApplicationConfigurationUpdate {
@@ -2779,6 +2953,7 @@ export interface ApplicationConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>The details of the maintenance configuration for the application.</p>
  */
 export interface ApplicationMaintenanceConfigurationDescription {
@@ -2793,11 +2968,17 @@ export interface ApplicationMaintenanceConfigurationDescription {
   ApplicationMaintenanceWindowEndTime: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ApplicationMode {
   INTERACTIVE = "INTERACTIVE",
   STREAMING = "STREAMING",
 }
 
+/**
+ * @public
+ */
 export enum ApplicationStatus {
   AUTOSCALING = "AUTOSCALING",
   DELETING = "DELETING",
@@ -2812,6 +2993,9 @@ export enum ApplicationStatus {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export enum RuntimeEnvironment {
   FLINK_1_11 = "FLINK-1_11",
   FLINK_1_13 = "FLINK-1_13",
@@ -2824,6 +3008,7 @@ export enum RuntimeEnvironment {
 }
 
 /**
+ * @public
  * <p>Describes the application, including the application Amazon Resource Name (ARN), status,
  *       latest version, and input and output configurations.</p>
  */
@@ -2918,6 +3103,7 @@ export interface ApplicationDetail {
 }
 
 /**
+ * @public
  * <p>Describes the updated maintenance configuration for the application.</p>
  */
 export interface ApplicationMaintenanceConfigurationUpdate {
@@ -2928,6 +3114,7 @@ export interface ApplicationMaintenanceConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Provides application summary information, including the application Amazon Resource Name (ARN), name, and status.</p>
  */
 export interface ApplicationSummary {
@@ -2963,6 +3150,7 @@ export interface ApplicationSummary {
 }
 
 /**
+ * @public
  * <p>The summary of the application version.</p>
  */
 export interface ApplicationVersionSummary {
@@ -2978,6 +3166,7 @@ export interface ApplicationVersionSummary {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon CloudWatch logging option updates.</p>
  */
 export interface CloudWatchLoggingOptionUpdate {
@@ -2994,6 +3183,7 @@ export interface CloudWatchLoggingOptionUpdate {
 }
 
 /**
+ * @public
  * <p>A key-value pair (the value is optional) that you can define and assign to Amazon resources.
  *         If you specify a tag that already exists, the tag value is replaced with the value that you
  *         specify in the request. Note that
@@ -3014,6 +3204,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>The name of your application (for example, <code>sample-app</code>).</p>
@@ -3064,6 +3257,9 @@ export interface CreateApplicationRequest {
   ApplicationMode?: ApplicationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationResponse {
   /**
    * <p>In response to your <code>CreateApplication</code> request, Kinesis Data Analytics returns a
@@ -3073,6 +3269,7 @@ export interface CreateApplicationResponse {
 }
 
 /**
+ * @public
  * <p>The number of allowed resources has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -3094,6 +3291,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum
  *         number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  */
@@ -3114,6 +3312,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  */
@@ -3135,11 +3334,17 @@ export class UnsupportedOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum UrlType {
   FLINK_DASHBOARD_URL = "FLINK_DASHBOARD_URL",
   ZEPPELIN_UI_URL = "ZEPPELIN_UI_URL",
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationPresignedUrlRequest {
   /**
    * <p>The name of the application.</p>
@@ -3158,6 +3363,9 @@ export interface CreateApplicationPresignedUrlRequest {
   SessionExpirationDurationInSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationPresignedUrlResponse {
   /**
    * <p>The URL of the extension.</p>
@@ -3165,6 +3373,9 @@ export interface CreateApplicationPresignedUrlResponse {
   AuthorizedUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationSnapshotRequest {
   /**
    * <p>The name of an existing application</p>
@@ -3177,8 +3388,14 @@ export interface CreateApplicationSnapshotRequest {
   SnapshotName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationSnapshotResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The name of the application to delete.</p>
@@ -3191,8 +3408,14 @@ export interface DeleteApplicationRequest {
   CreateTimestamp: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   /**
    * <p>The application name.</p>
@@ -3223,6 +3446,9 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   ConditionalToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationCloudWatchLoggingOptionResponse {
   /**
    * <p>The application's Amazon Resource Name (ARN).</p>
@@ -3242,6 +3468,9 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse {
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationInputProcessingConfigurationRequest {
   /**
    * <p>The name of the application.</p>
@@ -3264,6 +3493,9 @@ export interface DeleteApplicationInputProcessingConfigurationRequest {
   InputId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationInputProcessingConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -3276,6 +3508,9 @@ export interface DeleteApplicationInputProcessingConfigurationResponse {
   ApplicationVersionId?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationOutputRequest {
   /**
    * <p>The application name.</p>
@@ -3301,6 +3536,9 @@ export interface DeleteApplicationOutputRequest {
   OutputId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationOutputResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -3313,6 +3551,9 @@ export interface DeleteApplicationOutputResponse {
   ApplicationVersionId?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationReferenceDataSourceRequest {
   /**
    * <p>The name of an existing application.</p>
@@ -3336,6 +3577,9 @@ export interface DeleteApplicationReferenceDataSourceRequest {
   ReferenceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationReferenceDataSourceResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -3348,6 +3592,9 @@ export interface DeleteApplicationReferenceDataSourceResponse {
   ApplicationVersionId?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationSnapshotRequest {
   /**
    * <p>The name of an existing application.</p>
@@ -3367,8 +3614,14 @@ export interface DeleteApplicationSnapshotRequest {
   SnapshotCreationTimestamp: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationSnapshotResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteApplicationVpcConfigurationRequest {
   /**
    * <p>The name of an existing application.</p>
@@ -3398,6 +3651,9 @@ export interface DeleteApplicationVpcConfigurationRequest {
   ConditionalToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationVpcConfigurationResponse {
   /**
    * <p>The ARN of the Kinesis Data Analytics application.</p>
@@ -3410,6 +3666,9 @@ export interface DeleteApplicationVpcConfigurationResponse {
   ApplicationVersionId?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -3422,6 +3681,9 @@ export interface DescribeApplicationRequest {
   IncludeAdditionalDetails?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationResponse {
   /**
    * <p>Provides a description of the application, such as the application's Amazon Resource Name
@@ -3430,6 +3692,9 @@ export interface DescribeApplicationResponse {
   ApplicationDetail: ApplicationDetail | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationSnapshotRequest {
   /**
    * <p>The name of an existing application.</p>
@@ -3443,6 +3708,9 @@ export interface DescribeApplicationSnapshotRequest {
   SnapshotName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SnapshotStatus {
   CREATING = "CREATING",
   DELETING = "DELETING",
@@ -3451,6 +3719,7 @@ export enum SnapshotStatus {
 }
 
 /**
+ * @public
  * <p>Provides details about a snapshot of application state.</p>
  */
 export interface SnapshotDetails {
@@ -3475,6 +3744,9 @@ export interface SnapshotDetails {
   SnapshotCreationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationSnapshotResponse {
   /**
    * <p>An object containing information about the application snapshot.</p>
@@ -3482,6 +3754,9 @@ export interface DescribeApplicationSnapshotResponse {
   SnapshotDetails: SnapshotDetails | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationVersionRequest {
   /**
    * <p>The name of the application for which you want to get the version description.</p>
@@ -3494,6 +3769,9 @@ export interface DescribeApplicationVersionRequest {
   ApplicationVersionId: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationVersionResponse {
   /**
    * <p>Describes the application, including the application Amazon Resource Name (ARN), status,
@@ -3503,6 +3781,7 @@ export interface DescribeApplicationVersionResponse {
 }
 
 /**
+ * @public
  * <p>For a SQL-based Kinesis Data Analytics application, provides a description of an
  *       Amazon S3 data source, including the Amazon Resource Name (ARN) of the S3 bucket and the name
  *       of the Amazon S3 object that contains the data.</p>
@@ -3519,6 +3798,9 @@ export interface S3Configuration {
   FileKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DiscoverInputSchemaRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the streaming source.</p>
@@ -3549,6 +3831,9 @@ export interface DiscoverInputSchemaRequest {
   InputProcessingConfiguration?: InputProcessingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DiscoverInputSchemaResponse {
   /**
    * <p>The schema inferred from the streaming source. It identifies the format of the data in the
@@ -3576,6 +3861,7 @@ export interface DiscoverInputSchemaResponse {
 }
 
 /**
+ * @public
  * <p>Discovery failed to get a record from the streaming source because of the Kinesis
  *       Streams <code>ProvisionedThroughputExceededException</code>. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a> in the Amazon Kinesis Streams API Reference.</p>
  */
@@ -3598,6 +3884,7 @@ export class ResourceProvisionedThroughputExceededException extends __BaseExcept
 }
 
 /**
+ * @public
  * <p>The service cannot complete the request.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -3619,6 +3906,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The data format is not valid. Kinesis Data Analytics cannot detect the schema for
  *       the given streaming source.</p>
  */
@@ -3651,6 +3939,9 @@ export class UnableToDetectSchemaException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>The maximum number of applications to list.</p>
@@ -3666,6 +3957,9 @@ export interface ListApplicationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
    * <p>A list of <code>ApplicationSummary</code> objects.</p>
@@ -3681,6 +3975,9 @@ export interface ListApplicationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationSnapshotsRequest {
   /**
    * <p>The name of an existing application.</p>
@@ -3700,6 +3997,9 @@ export interface ListApplicationSnapshotsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationSnapshotsResponse {
   /**
    * <p>A collection of objects containing information about the application snapshots.</p>
@@ -3712,6 +4012,9 @@ export interface ListApplicationSnapshotsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationVersionsRequest {
   /**
    * <p>The name of the application for which you want to list all versions.</p>
@@ -3730,6 +4033,9 @@ export interface ListApplicationVersionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationVersionsResponse {
   /**
    * <p>A list of the application versions and the associated configuration summaries. The list includes application versions that were rolled back.</p>
@@ -3745,6 +4051,9 @@ export interface ListApplicationVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the application for which to retrieve tags.</p>
@@ -3752,6 +4061,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The key-value tags assigned to the application.</p>
@@ -3759,6 +4071,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface RollbackApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -3772,6 +4087,9 @@ export interface RollbackApplicationRequest {
   CurrentApplicationVersionId: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RollbackApplicationResponse {
   /**
    * <p>Describes the application, including the application Amazon Resource Name (ARN), status,
@@ -3781,6 +4099,7 @@ export interface RollbackApplicationResponse {
 }
 
 /**
+ * @public
  * <p>Describes the starting parameters for a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface SqlRunConfiguration {
@@ -3797,6 +4116,7 @@ export interface SqlRunConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the starting parameters for an Kinesis Data Analytics application.</p>
  */
 export interface RunConfiguration {
@@ -3817,6 +4137,9 @@ export interface RunConfiguration {
   ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface StartApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -3829,8 +4152,14 @@ export interface StartApplicationRequest {
   RunConfiguration?: RunConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface StartApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface StopApplicationRequest {
   /**
    * <p>The name of the running application to stop.</p>
@@ -3854,8 +4183,14 @@ export interface StopApplicationRequest {
   Force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StopApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the application to assign the tags.</p>
@@ -3868,8 +4203,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the Kinesis Data Analytics application from which to remove the tags.</p>
@@ -3882,9 +4223,13 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>Describes the updates to the starting parameters for a Kinesis Data Analytics application.</p>
  */
 export interface RunConfigurationUpdate {
@@ -3899,6 +4244,9 @@ export interface RunConfigurationUpdate {
   ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>The name of the application to update.</p>
@@ -3946,6 +4294,9 @@ export interface UpdateApplicationRequest {
   ConditionalToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {
   /**
    * <p>Describes application updates.</p>
@@ -3953,6 +4304,9 @@ export interface UpdateApplicationResponse {
   ApplicationDetail: ApplicationDetail | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationMaintenanceConfigurationRequest {
   /**
    * <p>The name of the application for which you want to update the maintenance configuration.</p>
@@ -3965,6 +4319,9 @@ export interface UpdateApplicationMaintenanceConfigurationRequest {
   ApplicationMaintenanceConfigurationUpdate: ApplicationMaintenanceConfigurationUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationMaintenanceConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>

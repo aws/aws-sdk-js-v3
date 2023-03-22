@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContainerImageCommand}.
  */
 export interface DeleteContainerImageCommandInput extends DeleteContainerImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContainerImageCommand}.
  */
 export interface DeleteContainerImageCommandOutput extends DeleteContainerImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a container image that is registered to your Amazon Lightsail container
  *       service.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteContainerImageCommandOutput extends DeleteContainerImageR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContainerImageCommandInput - {@link DeleteContainerImageCommandInput}
+ * @returns {@link DeleteContainerImageCommandOutput}
  * @see {@link DeleteContainerImageCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerImageCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteContainerImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContainerImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteContainerImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContainerImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteContainerImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContainerImageCommandOutput> {
     return deserializeAws_json1_1DeleteContainerImageCommand(output, context);
   }

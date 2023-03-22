@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExperimentCommand}.
  */
 export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExperimentCommand}.
  */
 export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Evidently experiment. The feature used for the experiment is not deleted.</p>
  *          <p>To stop an experiment without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopExperiment.html">StopExperiment</a>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExperimentCommandInput - {@link DeleteExperimentCommandInput}
+ * @returns {@link DeleteExperimentCommandOutput}
  * @see {@link DeleteExperimentCommandInput} for command's `input` shape.
  * @see {@link DeleteExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentCommandOutput> {
     return deserializeAws_restJson1DeleteExperimentCommand(output, context);
   }

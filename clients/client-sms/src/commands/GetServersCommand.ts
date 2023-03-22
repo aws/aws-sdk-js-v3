@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServersCommand}.
  */
 export interface GetServersCommandInput extends GetServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServersCommand}.
  */
 export interface GetServersCommandOutput extends GetServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the servers in your server catalog.</p>
  *         <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServersCommandInput - {@link GetServersCommandInput}
+ * @returns {@link GetServersCommandOutput}
  * @see {@link GetServersCommandInput} for command's `input` shape.
  * @see {@link GetServersCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServersCommandOutput> {
     return deserializeAws_json1_1GetServersCommand(output, context);
   }

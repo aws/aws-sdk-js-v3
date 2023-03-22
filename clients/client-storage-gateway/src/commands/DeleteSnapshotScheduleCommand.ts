@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSnapshotScheduleCommand}.
  */
 export interface DeleteSnapshotScheduleCommandInput extends DeleteSnapshotScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSnapshotScheduleCommand}.
  */
 export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a snapshot of a volume.</p>
  *
  *          <p>You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API
@@ -60,6 +65,8 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSnapshotScheduleCommandInput - {@link DeleteSnapshotScheduleCommandInput}
+ * @returns {@link DeleteSnapshotScheduleCommandOutput}
  * @see {@link DeleteSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -107,6 +114,9 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotScheduleCommandOutput> {
     return deserializeAws_json1_1DeleteSnapshotScheduleCommand(output, context);
   }

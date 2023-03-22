@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSimulationJobBatchCommand}.
  */
 export interface DescribeSimulationJobBatchCommandInput extends DescribeSimulationJobBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSimulationJobBatchCommand}.
  */
 export interface DescribeSimulationJobBatchCommandOutput extends DescribeSimulationJobBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a simulation job batch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSimulationJobBatchCommandOutput extends DescribeSimulat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSimulationJobBatchCommandInput - {@link DescribeSimulationJobBatchCommandInput}
+ * @returns {@link DescribeSimulationJobBatchCommandOutput}
  * @see {@link DescribeSimulationJobBatchCommandInput} for command's `input` shape.
  * @see {@link DescribeSimulationJobBatchCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeSimulationJobBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSimulationJobBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeSimulationJobBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSimulationJobBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSimulationJobBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

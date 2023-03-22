@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandInput extends DeleteClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandOutput extends DeleteClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web
  *             service indicates that the request was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete
  *             operation cannot be canceled or reverted once submitted.
@@ -61,6 +66,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
+ * @returns {@link DeleteClusterCommandOutput}
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -103,6 +110,9 @@ export class DeleteClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
     return deserializeAws_queryDeleteClusterCommand(output, context);
   }

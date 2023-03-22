@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStorageVirtualMachineCommand}.
  */
 export interface DeleteStorageVirtualMachineCommandInput extends DeleteStorageVirtualMachineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStorageVirtualMachineCommand}.
  */
 export interface DeleteStorageVirtualMachineCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteStorageVirtualMachineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior
  *         to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the operation will fail.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteStorageVirtualMachineCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStorageVirtualMachineCommandInput - {@link DeleteStorageVirtualMachineCommandInput}
+ * @returns {@link DeleteStorageVirtualMachineCommandOutput}
  * @see {@link DeleteStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link DeleteStorageVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteStorageVirtualMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStorageVirtualMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteStorageVirtualMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStorageVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteStorageVirtualMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ImportSignalCatalogCommand}.
  */
 export interface ImportSignalCatalogCommandInput extends ImportSignalCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportSignalCatalogCommand}.
  */
 export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a signal catalog using your existing VSS formatted content from your local
  *             device. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportSignalCatalogCommandInput - {@link ImportSignalCatalogCommandInput}
+ * @returns {@link ImportSignalCatalogCommandOutput}
  * @see {@link ImportSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -95,6 +102,9 @@ export class ImportSignalCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportSignalCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ImportSignalCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ImportSignalCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportSignalCatalogCommandOutput> {
     return deserializeAws_json1_0ImportSignalCatalogCommand(output, context);
   }

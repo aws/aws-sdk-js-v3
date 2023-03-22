@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableApplicationLayerAutomaticResponseCommand}.
  */
 export interface DisableApplicationLayerAutomaticResponseCommandInput
   extends DisableApplicationLayerAutomaticResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableApplicationLayerAutomaticResponseCommand}.
  */
 export interface DisableApplicationLayerAutomaticResponseCommandOutput
@@ -38,6 +42,7 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disable the Shield Advanced automatic application layer DDoS mitigation feature for the protected resource. This
  *        stops Shield Advanced from creating, verifying, and applying WAF rules for attacks that it detects for the resource. </p>
  * @example
@@ -50,6 +55,8 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableApplicationLayerAutomaticResponseCommandInput - {@link DisableApplicationLayerAutomaticResponseCommandInput}
+ * @returns {@link DisableApplicationLayerAutomaticResponseCommandOutput}
  * @see {@link DisableApplicationLayerAutomaticResponseCommandInput} for command's `input` shape.
  * @see {@link DisableApplicationLayerAutomaticResponseCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -89,6 +96,9 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableApplicationLayerAutomaticResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableApplicationLayerAutomaticResponseCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
     return serializeAws_json1_1DisableApplicationLayerAutomaticResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

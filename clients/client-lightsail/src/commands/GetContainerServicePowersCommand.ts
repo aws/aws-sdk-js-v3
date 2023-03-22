@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerServicePowersCommand}.
  */
 export interface GetContainerServicePowersCommandInput extends GetContainerServicePowersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerServicePowersCommand}.
  */
 export interface GetContainerServicePowersCommandOutput extends GetContainerServicePowersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of powers that can be specified for your Amazon Lightsail container
  *       services.</p>
  *          <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the
@@ -49,6 +54,8 @@ export interface GetContainerServicePowersCommandOutput extends GetContainerServ
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerServicePowersCommandInput - {@link GetContainerServicePowersCommandInput}
+ * @returns {@link GetContainerServicePowersCommandOutput}
  * @see {@link GetContainerServicePowersCommandInput} for command's `input` shape.
  * @see {@link GetContainerServicePowersCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetContainerServicePowersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerServicePowersCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetContainerServicePowersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerServicePowersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContainerServicePowersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

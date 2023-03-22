@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchPutDocumentCommand}.
  */
 export interface BatchPutDocumentCommandInput extends BatchPutDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchPutDocumentCommand}.
  */
 export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more documents to an index.</p>
  *          <p>The <code>BatchPutDocument</code> API enables you to ingest
  *       inline documents or a set of documents stored in an Amazon S3 bucket. Use
@@ -57,6 +62,8 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutDocumentCommandInput - {@link BatchPutDocumentCommandInput}
+ * @returns {@link BatchPutDocumentCommandOutput}
  * @see {@link BatchPutDocumentCommandInput} for command's `input` shape.
  * @see {@link BatchPutDocumentCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -109,6 +116,9 @@ export class BatchPutDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class BatchPutDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchPutDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutDocumentCommandOutput> {
     return deserializeAws_json1_1BatchPutDocumentCommand(output, context);
   }

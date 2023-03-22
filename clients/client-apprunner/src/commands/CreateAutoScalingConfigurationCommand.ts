@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAutoScalingConfigurationCommand}.
  */
 export interface CreateAutoScalingConfigurationCommandInput extends CreateAutoScalingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAutoScalingConfigurationCommand}.
  */
 export interface CreateAutoScalingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an App Runner automatic scaling configuration resource. App Runner requires this resource when you create or update App Runner services and you require
  *       non-default auto scaling settings. You can share an auto scaling configuration across multiple services.</p>
  *          <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>AutoScalingConfigurationName</code>. The call
@@ -56,6 +61,8 @@ export interface CreateAutoScalingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAutoScalingConfigurationCommandInput - {@link CreateAutoScalingConfigurationCommandInput}
+ * @returns {@link CreateAutoScalingConfigurationCommandOutput}
  * @see {@link CreateAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateAutoScalingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAutoScalingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class CreateAutoScalingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAutoScalingConfigurationCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class CreateAutoScalingConfigurationCommand extends $Command<
     return serializeAws_json1_0CreateAutoScalingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

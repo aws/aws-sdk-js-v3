@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutEmailIdentityConfigurationSetAttributesCommand}.
  */
 export interface PutEmailIdentityConfigurationSetAttributesCommandInput
   extends PutEmailIdentityConfigurationSetAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEmailIdentityConfigurationSetAttributesCommand}.
  */
 export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
@@ -38,6 +42,7 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to associate a configuration set with an email identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailIdentityConfigurationSetAttributesCommandInput - {@link PutEmailIdentityConfigurationSetAttributesCommandInput}
+ * @returns {@link PutEmailIdentityConfigurationSetAttributesCommandOutput}
  * @see {@link PutEmailIdentityConfigurationSetAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityConfigurationSetAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailIdentityConfigurationSetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailIdentityConfigurationSetAttributesCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
     return serializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

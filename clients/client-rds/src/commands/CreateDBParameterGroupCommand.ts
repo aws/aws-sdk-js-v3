@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBParameterGroupCommand}.
  */
 export interface CreateDBParameterGroupCommandInput extends CreateDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBParameterGroupCommand}.
  */
 export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB parameter group.</p>
  *          <p>A DB parameter group is initially created with the default parameters for the
  *             database engine used by the DB instance. To provide custom values for any of the
@@ -65,6 +70,8 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBParameterGroupCommandInput - {@link CreateDBParameterGroupCommandInput}
+ * @returns {@link CreateDBParameterGroupCommandOutput}
  * @see {@link CreateDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -113,6 +120,9 @@ export class CreateDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class CreateDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBParameterGroupCommandOutput> {
     return deserializeAws_queryCreateDBParameterGroupCommand(output, context);
   }

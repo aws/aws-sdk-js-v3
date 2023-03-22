@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevelopmentSchemaArnsCommand}.
  */
 export interface ListDevelopmentSchemaArnsCommandInput extends ListDevelopmentSchemaArnsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDevelopmentSchemaArnsCommand}.
  */
 export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentSchemaArnsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves each Amazon Resource Name (ARN) of schemas in the development
  *       state.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevelopmentSchemaArnsCommandInput - {@link ListDevelopmentSchemaArnsCommandInput}
+ * @returns {@link ListDevelopmentSchemaArnsCommandOutput}
  * @see {@link ListDevelopmentSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListDevelopmentSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevelopmentSchemaArnsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevelopmentSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDevelopmentSchemaArnsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

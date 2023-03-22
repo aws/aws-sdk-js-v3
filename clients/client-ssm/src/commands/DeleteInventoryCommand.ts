@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInventoryCommand}.
  */
 export interface DeleteInventoryCommandInput extends DeleteInventoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInventoryCommand}.
  */
 export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a custom inventory type or the data associated with a custom Inventory type. Deleting
  *    a custom inventory type is also referred to as deleting a custom inventory schema.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInventoryCommandInput - {@link DeleteInventoryCommandInput}
+ * @returns {@link DeleteInventoryCommandOutput}
  * @see {@link DeleteInventoryCommandInput} for command's `input` shape.
  * @see {@link DeleteInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteInventoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInventoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteInventoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInventoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInventoryCommandOutput> {
     return deserializeAws_json1_1DeleteInventoryCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteViewCommand}.
  */
 export interface DeleteViewCommandInput extends DeleteViewInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteViewCommand}.
  */
 export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified view.</p>
  *          <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use
  *             until you configure a new default by calling the <a>AssociateDefaultView</a>
@@ -53,6 +58,8 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteViewCommandInput - {@link DeleteViewCommandInput}
+ * @returns {@link DeleteViewCommandOutput}
  * @see {@link DeleteViewCommandInput} for command's `input` shape.
  * @see {@link DeleteViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteViewCommandOutput> {
     return deserializeAws_restJson1DeleteViewCommand(output, context);
   }

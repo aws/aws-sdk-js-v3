@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommendationsCommand}.
  */
 export interface GetRecommendationsCommandInput extends GetRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommendationsCommand}.
  */
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Returns a list of
  *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Recommendation.html">
@@ -57,6 +62,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommendationsCommandInput - {@link GetRecommendationsCommandInput}
+ * @returns {@link GetRecommendationsCommandOutput}
  * @see {@link GetRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecommendationsCommandOutput> {
     return deserializeAws_restJson1GetRecommendationsCommand(output, context);
   }

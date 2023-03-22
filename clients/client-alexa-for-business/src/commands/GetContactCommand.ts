@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactCommand}.
  */
 export interface GetContactCommandInput extends GetContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactCommand}.
  */
 export interface GetContactCommandOutput extends GetContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the contact details by the contact ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactCommandInput - {@link GetContactCommandInput}
+ * @returns {@link GetContactCommandOutput}
  * @see {@link GetContactCommandInput} for command's `input` shape.
  * @see {@link GetContactCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class GetContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactCommandOutput> {
     return deserializeAws_json1_1GetContactCommand(output, context);
   }

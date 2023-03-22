@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePHIDetectionJobCommand}.
  */
 export interface DescribePHIDetectionJobCommandInput extends DescribePHIDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePHIDetectionJobCommand}.
  */
 export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a protected health information (PHI) detection job.
  *       Use this operation to get the status of a detection job.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetecti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePHIDetectionJobCommandInput - {@link DescribePHIDetectionJobCommandInput}
+ * @returns {@link DescribePHIDetectionJobCommandOutput}
  * @see {@link DescribePHIDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribePHIDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribePHIDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePHIDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribePHIDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePHIDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePHIDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePHIDetectionJobCommandOutput> {
     return deserializeAws_json1_1DescribePHIDetectionJobCommand(output, context);
   }

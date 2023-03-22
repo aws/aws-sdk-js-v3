@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectAssignmentCommand}.
  */
 export interface RejectAssignmentCommandInput extends RejectAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectAssignmentCommand}.
  */
 export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>RejectAssignment</code> operation rejects the results of a completed assignment.
  *         </p>
@@ -58,6 +63,8 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectAssignmentCommandInput - {@link RejectAssignmentCommandInput}
+ * @returns {@link RejectAssignmentCommandOutput}
  * @see {@link RejectAssignmentCommandInput} for command's `input` shape.
  * @see {@link RejectAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -87,6 +94,9 @@ export class RejectAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class RejectAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RejectAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectAssignmentCommandOutput> {
     return deserializeAws_json1_1RejectAssignmentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExclusionsPreviewCommand}.
  */
 export interface GetExclusionsPreviewCommandInput extends GetExclusionsPreviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExclusionsPreviewCommand}.
  */
 export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the exclusions preview (a list of ExclusionPreview objects) specified by
  *          the preview token. You can obtain the preview token by running the CreateExclusionsPreview
  *          API.</p>
@@ -48,6 +53,8 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExclusionsPreviewCommandInput - {@link GetExclusionsPreviewCommandInput}
+ * @returns {@link GetExclusionsPreviewCommandOutput}
  * @see {@link GetExclusionsPreviewCommandInput} for command's `input` shape.
  * @see {@link GetExclusionsPreviewCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetExclusionsPreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExclusionsPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetExclusionsPreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExclusionsPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetExclusionsPreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExclusionsPreviewCommandOutput> {
     return deserializeAws_json1_1GetExclusionsPreviewCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotChannelAssociationCommand}.
  */
 export interface GetBotChannelAssociationCommandInput extends GetBotChannelAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotChannelAssociationCommand}.
  */
 export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the association between an Amazon Lex bot and
  *       a messaging platform.</p>
  *          <p>This operation requires permissions for the
@@ -53,6 +58,8 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotChannelAssociationCommandInput - {@link GetBotChannelAssociationCommandInput}
+ * @returns {@link GetBotChannelAssociationCommandOutput}
  * @see {@link GetBotChannelAssociationCommandInput} for command's `input` shape.
  * @see {@link GetBotChannelAssociationCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetBotChannelAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotChannelAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetBotChannelAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotChannelAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBotChannelAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotChannelAssociationCommandOutput> {
     return deserializeAws_restJson1GetBotChannelAssociationCommand(output, context);
   }

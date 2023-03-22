@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyDomainDkimCommand}.
  */
 export interface VerifyDomainDkimCommandInput extends VerifyDomainDkimRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyDomainDkimCommand}.
  */
 export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of DKIM tokens for a domain identity.</p>
  *         <important>
  *             <p>When you execute the <code>VerifyDomainDkim</code> operation, the domain that you
@@ -84,6 +89,8 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyDomainDkimCommandInput - {@link VerifyDomainDkimCommandInput}
+ * @returns {@link VerifyDomainDkimCommandOutput}
  * @see {@link VerifyDomainDkimCommandInput} for command's `input` shape.
  * @see {@link VerifyDomainDkimCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -127,6 +134,9 @@ export class VerifyDomainDkimCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyDomainDkimCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class VerifyDomainDkimCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyDomainDkimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryVerifyDomainDkimCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyDomainDkimCommandOutput> {
     return deserializeAws_queryVerifyDomainDkimCommand(output, context);
   }

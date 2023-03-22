@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSlotTypeVersionsCommand}.
  */
 export interface GetSlotTypeVersionsCommandInput extends GetSlotTypeVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSlotTypeVersionsCommand}.
  */
 export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about all versions of a slot type.</p>
  *          <p>The <code>GetSlotTypeVersions</code> operation returns a
  *         <code>SlotTypeMetadata</code> object for each version of a slot type.
@@ -60,6 +65,8 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSlotTypeVersionsCommandInput - {@link GetSlotTypeVersionsCommandInput}
+ * @returns {@link GetSlotTypeVersionsCommandOutput}
  * @see {@link GetSlotTypeVersionsCommandInput} for command's `input` shape.
  * @see {@link GetSlotTypeVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetSlotTypeVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSlotTypeVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetSlotTypeVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSlotTypeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSlotTypeVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSlotTypeVersionsCommandOutput> {
     return deserializeAws_restJson1GetSlotTypeVersionsCommand(output, context);
   }

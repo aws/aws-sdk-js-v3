@@ -26,10 +26,14 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteRumMetricDefinitionsCommand}.
  */
 export interface BatchDeleteRumMetricDefinitionsCommandInput extends BatchDeleteRumMetricDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteRumMetricDefinitionsCommand}.
  */
 export interface BatchDeleteRumMetricDefinitionsCommandOutput
@@ -37,6 +41,7 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified metrics from being sent to an extended metrics destination.</p>
  *          <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid,
  *          those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still
@@ -53,6 +58,8 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteRumMetricDefinitionsCommandInput - {@link BatchDeleteRumMetricDefinitionsCommandInput}
+ * @returns {@link BatchDeleteRumMetricDefinitionsCommandOutput}
  * @see {@link BatchDeleteRumMetricDefinitionsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -94,6 +101,9 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteRumMetricDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDeleteRumMetricDefinitionsCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
     return serializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

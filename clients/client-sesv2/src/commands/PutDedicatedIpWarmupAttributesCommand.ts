@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutDedicatedIpWarmupAttributesCommand}.
  */
 export interface PutDedicatedIpWarmupAttributesCommandInput extends PutDedicatedIpWarmupAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDedicatedIpWarmupAttributesCommand}.
  */
 export interface PutDedicatedIpWarmupAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDedicatedIpWarmupAttributesCommandInput - {@link PutDedicatedIpWarmupAttributesCommandInput}
+ * @returns {@link PutDedicatedIpWarmupAttributesCommandOutput}
  * @see {@link PutDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -80,6 +87,9 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDedicatedIpWarmupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     return serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

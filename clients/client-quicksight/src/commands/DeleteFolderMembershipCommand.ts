@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFolderMembershipCommand}.
  */
 export interface DeleteFolderMembershipCommandInput extends DeleteFolderMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFolderMembershipCommand}.
  */
 export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an asset, such as a dashboard, analysis, or dataset, from a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFolderMembershipCommandInput - {@link DeleteFolderMembershipCommandInput}
+ * @returns {@link DeleteFolderMembershipCommandOutput}
  * @see {@link DeleteFolderMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteFolderMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFolderMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteFolderMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFolderMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFolderMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFolderMembershipCommandOutput> {
     return deserializeAws_restJson1DeleteFolderMembershipCommand(output, context);
   }

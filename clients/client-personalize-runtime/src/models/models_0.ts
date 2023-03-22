@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { PersonalizeRuntimeServiceException as __BaseException } from "./PersonalizeRuntimeServiceException";
 
+/**
+ * @public
+ */
 export interface GetPersonalizedRankingRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign to use for generating the personalized
@@ -51,6 +54,7 @@ export interface GetPersonalizedRankingRequest {
 }
 
 /**
+ * @public
  * <p>An object that identifies an item.</p>
  *          <p>The  and  APIs return a list of
  *       <code>PredictedItem</code>s.</p>
@@ -73,6 +77,9 @@ export interface PredictedItem {
   promotionName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPersonalizedRankingResponse {
   /**
    * <p>A list of items in order of most likely interest to the user. The maximum is 500.</p>
@@ -86,6 +93,7 @@ export interface GetPersonalizedRankingResponse {
 }
 
 /**
+ * @public
  * <p>Provide a valid value for the field or parameter.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -105,6 +113,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -124,6 +133,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information on a promotion. A promotion defines additional business rules that apply to a configurable subset of recommended items.</p>
  */
 export interface Promotion {
@@ -158,6 +168,9 @@ export interface Promotion {
   filterValues?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>
@@ -222,6 +235,9 @@ export interface GetRecommendationsRequest {
   promotions?: Promotion[];
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationsResponse {
   /**
    * <p>A list of recommendations sorted in descending order by prediction score. There can be a

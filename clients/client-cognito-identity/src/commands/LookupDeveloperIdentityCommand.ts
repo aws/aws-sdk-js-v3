@@ -27,15 +27,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link LookupDeveloperIdentityCommand}.
  */
 export interface LookupDeveloperIdentityCommandInput extends LookupDeveloperIdentityInput {}
 /**
+ * @public
+ *
  * The output of {@link LookupDeveloperIdentityCommand}.
  */
 export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>IdentityID</code> associated with a
  *             <code>DeveloperUserIdentifier</code> or the list of <code>DeveloperUserIdentifier</code>
  *          values associated with an <code>IdentityId</code> for an existing identity. Either
@@ -63,6 +68,8 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  * const response = await client.send(command);
  * ```
  *
+ * @param LookupDeveloperIdentityCommandInput - {@link LookupDeveloperIdentityCommandInput}
+ * @returns {@link LookupDeveloperIdentityCommandOutput}
  * @see {@link LookupDeveloperIdentityCommandInput} for command's `input` shape.
  * @see {@link LookupDeveloperIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -106,6 +113,9 @@ export class LookupDeveloperIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LookupDeveloperIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class LookupDeveloperIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LookupDeveloperIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1LookupDeveloperIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LookupDeveloperIdentityCommandOutput> {
     return deserializeAws_json1_1LookupDeveloperIdentityCommand(output, context);
   }

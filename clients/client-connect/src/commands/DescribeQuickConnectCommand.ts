@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQuickConnectCommand}.
  */
 export interface DescribeQuickConnectCommandInput extends DescribeQuickConnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQuickConnectCommand}.
  */
 export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the quick connect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQuickConnectCommandInput - {@link DescribeQuickConnectCommandInput}
+ * @returns {@link DescribeQuickConnectCommandOutput}
  * @see {@link DescribeQuickConnectCommandInput} for command's `input` shape.
  * @see {@link DescribeQuickConnectCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeQuickConnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQuickConnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeQuickConnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQuickConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeQuickConnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQuickConnectCommandOutput> {
     return deserializeAws_restJson1DescribeQuickConnectCommand(output, context);
   }

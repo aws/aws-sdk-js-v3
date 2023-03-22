@@ -28,15 +28,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link SelectObjectContentCommand}.
  */
 export interface SelectObjectContentCommandInput extends SelectObjectContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link SelectObjectContentCommand}.
  */
 export interface SelectObjectContentCommandOutput extends SelectObjectContentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action filters the contents of an Amazon S3 object based on a simple structured query
  *          language (SQL) statement. In the request, along with the SQL expression, you must also
  *          specify a data serialization format (JSON, CSV, or Apache Parquet) of the object. Amazon S3 uses
@@ -162,6 +167,8 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * const response = await client.send(command);
  * ```
  *
+ * @param SelectObjectContentCommandInput - {@link SelectObjectContentCommandInput}
+ * @returns {@link SelectObjectContentCommandOutput}
  * @see {@link SelectObjectContentCommandInput} for command's `input` shape.
  * @see {@link SelectObjectContentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -191,6 +198,9 @@ export class SelectObjectContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SelectObjectContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -231,10 +241,16 @@ export class SelectObjectContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SelectObjectContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlSelectObjectContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext

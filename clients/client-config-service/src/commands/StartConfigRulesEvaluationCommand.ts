@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartConfigRulesEvaluationCommand}.
  */
 export interface StartConfigRulesEvaluationCommandInput extends StartConfigRulesEvaluationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartConfigRulesEvaluationCommand}.
  */
 export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRulesEvaluationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs an on-demand evaluation for the specified Config rules
  * 			against the last known configuration state of the resources. Use
  * 				<code>StartConfigRulesEvaluation</code> when you want to test
@@ -91,6 +96,8 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConfigRulesEvaluationCommandInput - {@link StartConfigRulesEvaluationCommandInput}
+ * @returns {@link StartConfigRulesEvaluationCommandOutput}
  * @see {@link StartConfigRulesEvaluationCommandInput} for command's `input` shape.
  * @see {@link StartConfigRulesEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -155,6 +162,9 @@ export class StartConfigRulesEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConfigRulesEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -194,10 +204,16 @@ export class StartConfigRulesEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartConfigRulesEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartConfigRulesEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

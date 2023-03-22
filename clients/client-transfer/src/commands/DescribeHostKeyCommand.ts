@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHostKeyCommand}.
  */
 export interface DescribeHostKeyCommandInput extends DescribeHostKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHostKeyCommand}.
  */
 export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of the host key that's specified by the <code>HostKeyId</code> and <code>ServerId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHostKeyCommandInput - {@link DescribeHostKeyCommandInput}
+ * @returns {@link DescribeHostKeyCommandOutput}
  * @see {@link DescribeHostKeyCommandInput} for command's `input` shape.
  * @see {@link DescribeHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeHostKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHostKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeHostKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHostKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeHostKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHostKeyCommandOutput> {
     return deserializeAws_json1_1DescribeHostKeyCommand(output, context);
   }

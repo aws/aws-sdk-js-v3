@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVerifiedAccessEndpointCommand}.
  */
 export interface CreateVerifiedAccessEndpointCommandInput extends CreateVerifiedAccessEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVerifiedAccessEndpointCommand}.
  */
 export interface CreateVerifiedAccessEndpointCommandOutput
@@ -37,6 +41,7 @@ export interface CreateVerifiedAccessEndpointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVerifiedAccessEndpointCommandInput - {@link CreateVerifiedAccessEndpointCommandInput}
+ * @returns {@link CreateVerifiedAccessEndpointCommandOutput}
  * @see {@link CreateVerifiedAccessEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVerifiedAccessEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVerifiedAccessEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVerifiedAccessEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

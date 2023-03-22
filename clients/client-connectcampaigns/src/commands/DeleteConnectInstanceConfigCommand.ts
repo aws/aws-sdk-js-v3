@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectInstanceConfigCommand}.
  */
 export interface DeleteConnectInstanceConfigCommandInput extends DeleteConnectInstanceConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectInstanceConfigCommand}.
  */
 export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a connect instance config from the specified AWS account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectInstanceConfigCommandInput - {@link DeleteConnectInstanceConfigCommandInput}
+ * @returns {@link DeleteConnectInstanceConfigCommandOutput}
  * @see {@link DeleteConnectInstanceConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectInstanceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteConnectInstanceConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectInstanceConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteConnectInstanceConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectInstanceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteConnectInstanceConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLabelingJobCommand}.
  */
 export interface CreateLabelingJobCommandInput extends CreateLabelingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLabelingJobCommand}.
  */
 export interface CreateLabelingJobCommandOutput extends CreateLabelingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job that uses workers to label the data objects in your input dataset. You
  *             can use the labeled data to train machine learning models. </p>
  *          <p>You can select your workforce from one of three providers:</p>
@@ -83,6 +88,8 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLabelingJobCommandInput - {@link CreateLabelingJobCommandInput}
+ * @returns {@link CreateLabelingJobCommandOutput}
  * @see {@link CreateLabelingJobCommandInput} for command's `input` shape.
  * @see {@link CreateLabelingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -113,6 +120,9 @@ export class CreateLabelingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLabelingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class CreateLabelingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLabelingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLabelingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelingJobCommandOutput> {
     return deserializeAws_json1_1CreateLabelingJobCommand(output, context);
   }

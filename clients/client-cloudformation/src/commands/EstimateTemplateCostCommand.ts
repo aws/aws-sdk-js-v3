@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EstimateTemplateCostCommand}.
  */
 export interface EstimateTemplateCostCommandInput extends EstimateTemplateCostInput {}
 /**
+ * @public
+ *
  * The output of {@link EstimateTemplateCostCommand}.
  */
 export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly Calculator URL with a query string that describes the
  *          resources required to run the template.</p>
  * @example
@@ -47,6 +52,8 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * const response = await client.send(command);
  * ```
  *
+ * @param EstimateTemplateCostCommandInput - {@link EstimateTemplateCostCommandInput}
+ * @returns {@link EstimateTemplateCostCommandOutput}
  * @see {@link EstimateTemplateCostCommandInput} for command's `input` shape.
  * @see {@link EstimateTemplateCostCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -70,6 +77,9 @@ export class EstimateTemplateCostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EstimateTemplateCostCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class EstimateTemplateCostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EstimateTemplateCostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryEstimateTemplateCostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EstimateTemplateCostCommandOutput> {
     return deserializeAws_queryEstimateTemplateCostCommand(output, context);
   }

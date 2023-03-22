@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSamplingTargetsCommand}.
  */
 export interface GetSamplingTargetsCommandInput extends GetSamplingTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSamplingTargetsCommand}.
  */
 export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a sampling quota for rules that the service is using to sample requests.
  *       </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSamplingTargetsCommandInput - {@link GetSamplingTargetsCommandInput}
+ * @returns {@link GetSamplingTargetsCommandOutput}
  * @see {@link GetSamplingTargetsCommandInput} for command's `input` shape.
  * @see {@link GetSamplingTargetsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetSamplingTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSamplingTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetSamplingTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSamplingTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSamplingTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSamplingTargetsCommandOutput> {
     return deserializeAws_restJson1GetSamplingTargetsCommand(output, context);
   }

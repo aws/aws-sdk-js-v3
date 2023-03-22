@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApplicationRevisionCommand}.
  */
 export interface GetApplicationRevisionCommandInput extends GetApplicationRevisionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetApplicationRevisionCommand}.
  */
 export interface GetApplicationRevisionCommandOutput extends GetApplicationRevisionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an application revision.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetApplicationRevisionCommandOutput extends GetApplicationRevis
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationRevisionCommandInput - {@link GetApplicationRevisionCommandInput}
+ * @returns {@link GetApplicationRevisionCommandOutput}
  * @see {@link GetApplicationRevisionCommandInput} for command's `input` shape.
  * @see {@link GetApplicationRevisionCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetApplicationRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetApplicationRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApplicationRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetApplicationRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationRevisionCommandOutput> {
     return deserializeAws_json1_1GetApplicationRevisionCommand(output, context);
   }

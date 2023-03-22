@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessCommand}.
  */
 export interface DeleteAccessCommandInput extends DeleteAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessCommand}.
  */
 export interface DeleteAccessCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to delete the access specified in the <code>ServerID</code> and
  *       <code>ExternalID</code> parameters.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessCommandInput - {@link DeleteAccessCommandInput}
+ * @returns {@link DeleteAccessCommandOutput}
  * @see {@link DeleteAccessCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessCommandOutput> {
     return deserializeAws_json1_1DeleteAccessCommand(output, context);
   }

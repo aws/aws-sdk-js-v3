@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainControllersCommand}.
  */
 export interface DescribeDomainControllersCommandInput extends DescribeDomainControllersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainControllersCommand}.
  */
 export interface DescribeDomainControllersCommandOutput extends DescribeDomainControllersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about any domain controllers in your directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainControllersCommandInput - {@link DescribeDomainControllersCommandInput}
+ * @returns {@link DescribeDomainControllersCommandOutput}
  * @see {@link DescribeDomainControllersCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainControllersCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeDomainControllersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainControllersCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeDomainControllersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainControllersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDomainControllersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTaskSetCommand}.
  */
 export interface CreateTaskSetCommandInput extends CreateTaskSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTaskSetCommand}.
  */
 export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a task set in the specified cluster and service. This is used when a service
  * 			uses the <code>EXTERNAL</code> deployment controller type. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment
@@ -49,6 +54,8 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTaskSetCommandInput - {@link CreateTaskSetCommandInput}
+ * @returns {@link CreateTaskSetCommandOutput}
  * @see {@link CreateTaskSetCommandInput} for command's `input` shape.
  * @see {@link CreateTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -111,6 +118,9 @@ export class CreateTaskSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTaskSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class CreateTaskSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTaskSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTaskSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskSetCommandOutput> {
     return deserializeAws_json1_1CreateTaskSetCommand(output, context);
   }

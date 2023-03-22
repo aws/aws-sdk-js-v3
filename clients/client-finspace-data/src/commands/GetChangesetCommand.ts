@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChangesetCommand}.
  */
 export interface GetChangesetCommandInput extends GetChangesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChangesetCommand}.
  */
 export interface GetChangesetCommandOutput extends GetChangesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about a Changeset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChangesetCommandInput - {@link GetChangesetCommandInput}
+ * @returns {@link GetChangesetCommandOutput}
  * @see {@link GetChangesetCommandInput} for command's `input` shape.
  * @see {@link GetChangesetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetChangesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChangesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetChangesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChangesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetChangesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangesetCommandOutput> {
     return deserializeAws_restJson1GetChangesetCommand(output, context);
   }

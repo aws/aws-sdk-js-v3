@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
  * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
  *          on an instance.</p>
  */
@@ -20,6 +21,7 @@ export interface AcceleratorCount {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
  *          on an instance. To exclude accelerator-enabled instance types, set <code>Max</code> to
  *             <code>0</code>.</p>
@@ -39,6 +41,9 @@ export interface AcceleratorCountRequest {
   Max?: number;
 }
 
+/**
+ * @public
+ */
 export enum AcceleratorManufacturer {
   AMAZON_WEB_SERVICES = "amazon-web-services",
   AMD = "amd",
@@ -46,6 +51,9 @@ export enum AcceleratorManufacturer {
   XILINX = "xilinx",
 }
 
+/**
+ * @public
+ */
 export enum AcceleratorName {
   A100 = "a100",
   INFERENTIA = "inferentia",
@@ -59,6 +67,7 @@ export enum AcceleratorName {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
  */
 export interface AcceleratorTotalMemoryMiB {
@@ -76,6 +85,7 @@ export interface AcceleratorTotalMemoryMiB {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
  */
 export interface AcceleratorTotalMemoryMiBRequest {
@@ -92,12 +102,18 @@ export interface AcceleratorTotalMemoryMiBRequest {
   Max?: number;
 }
 
+/**
+ * @public
+ */
 export enum AcceleratorType {
   FPGA = "fpga",
   GPU = "gpu",
   INFERENCE = "inference",
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   capacity_reservation = "capacity-reservation",
   capacity_reservation_fleet = "capacity-reservation-fleet",
@@ -187,6 +203,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>Describes a tag.</p>
  */
 export interface Tag {
@@ -205,6 +222,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>The tags to apply to a resource when the resource is being created. When you specify a tag, you must
  *        specify the resource type to tag, otherwise the request will fail.</p>
  *          <note>
@@ -226,6 +244,9 @@ export interface TagSpecification {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptAddressTransferRequest {
   /**
    * <p>The Elastic IP address you are accepting for transfer.</p>
@@ -247,6 +268,9 @@ export interface AcceptAddressTransferRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum AddressTransferStatus {
   accepted = "accepted",
   disabled = "disabled",
@@ -254,6 +278,7 @@ export enum AddressTransferStatus {
 }
 
 /**
+ * @public
  * <p>Details on the Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  */
 export interface AddressTransfer {
@@ -290,6 +315,9 @@ export interface AddressTransfer {
   AddressTransferStatus?: AddressTransferStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptAddressTransferResult {
   /**
    * <p>An Elastic IP address transfer.</p>
@@ -298,6 +326,7 @@ export interface AcceptAddressTransferResult {
 }
 
 /**
+ * @public
  * <p>Details about the target configuration.</p>
  */
 export interface TargetConfigurationRequest {
@@ -314,6 +343,7 @@ export interface TargetConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for accepting the quote.</p>
  */
 export interface AcceptReservedInstancesExchangeQuoteRequest {
@@ -338,6 +368,7 @@ export interface AcceptReservedInstancesExchangeQuoteRequest {
 }
 
 /**
+ * @public
  * <p>The result of the exchange and whether it was <code>successful</code>.</p>
  */
 export interface AcceptReservedInstancesExchangeQuoteResult {
@@ -347,6 +378,9 @@ export interface AcceptReservedInstancesExchangeQuoteResult {
   ExchangeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -371,6 +405,9 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayAttachmentResourceType {
   connect = "connect",
   direct_connect_gateway = "direct-connect-gateway",
@@ -380,6 +417,9 @@ export enum TransitGatewayAttachmentResourceType {
   vpn = "vpn",
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayMulitcastDomainAssociationState {
   associated = "associated",
   associating = "associating",
@@ -391,6 +431,7 @@ export enum TransitGatewayMulitcastDomainAssociationState {
 }
 
 /**
+ * @public
  * <p>Describes the subnet association with the transit gateway multicast domain.</p>
  */
 export interface SubnetAssociation {
@@ -406,6 +447,7 @@ export interface SubnetAssociation {
 }
 
 /**
+ * @public
  * <p>Describes the multicast domain associations.</p>
  */
 export interface TransitGatewayMulticastDomainAssociations {
@@ -440,6 +482,9 @@ export interface TransitGatewayMulticastDomainAssociations {
   Subnets?: SubnetAssociation[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayMulticastDomainAssociationsResult {
   /**
    * <p>Information about the multicast domain associations.</p>
@@ -447,6 +492,9 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsResult {
   Associations?: TransitGatewayMulticastDomainAssociations;
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayPeeringAttachmentRequest {
   /**
    * <p>The ID of the transit gateway attachment.</p>
@@ -462,6 +510,7 @@ export interface AcceptTransitGatewayPeeringAttachmentRequest {
 }
 
 /**
+ * @public
  * <p>Information about the transit gateway in the peering attachment.</p>
  */
 export interface PeeringTgwInfo {
@@ -486,12 +535,16 @@ export interface PeeringTgwInfo {
   Region?: string;
 }
 
+/**
+ * @public
+ */
 export enum DynamicRoutingValue {
   disable = "disable",
   enable = "enable",
 }
 
 /**
+ * @public
  * <p>Describes dynamic routing for the transit gateway peering attachment.</p>
  */
 export interface TransitGatewayPeeringAttachmentOptions {
@@ -501,6 +554,9 @@ export interface TransitGatewayPeeringAttachmentOptions {
   DynamicRouting?: DynamicRoutingValue | string;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayAttachmentState {
   available = "available",
   deleted = "deleted",
@@ -518,6 +574,7 @@ export enum TransitGatewayAttachmentState {
 }
 
 /**
+ * @public
  * <p>The status of the transit gateway peering attachment.</p>
  */
 export interface PeeringAttachmentStatus {
@@ -533,6 +590,7 @@ export interface PeeringAttachmentStatus {
 }
 
 /**
+ * @public
  * <p>Describes the transit gateway peering attachment.</p>
  */
 export interface TransitGatewayPeeringAttachment {
@@ -582,6 +640,9 @@ export interface TransitGatewayPeeringAttachment {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayPeeringAttachmentResult {
   /**
    * <p>The transit gateway peering attachment.</p>
@@ -589,6 +650,9 @@ export interface AcceptTransitGatewayPeeringAttachmentResult {
   TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayVpcAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -603,22 +667,32 @@ export interface AcceptTransitGatewayVpcAttachmentRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ApplianceModeSupportValue {
   disable = "disable",
   enable = "enable",
 }
 
+/**
+ * @public
+ */
 export enum DnsSupportValue {
   disable = "disable",
   enable = "enable",
 }
 
+/**
+ * @public
+ */
 export enum Ipv6SupportValue {
   disable = "disable",
   enable = "enable",
 }
 
 /**
+ * @public
  * <p>Describes the VPC attachment options.</p>
  */
 export interface TransitGatewayVpcAttachmentOptions {
@@ -639,6 +713,7 @@ export interface TransitGatewayVpcAttachmentOptions {
 }
 
 /**
+ * @public
  * <p>Describes a VPC attachment.</p>
  */
 export interface TransitGatewayVpcAttachment {
@@ -688,6 +763,9 @@ export interface TransitGatewayVpcAttachment {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayVpcAttachmentResult {
   /**
    * <p>The VPC attachment.</p>
@@ -695,6 +773,9 @@ export interface AcceptTransitGatewayVpcAttachmentResult {
   TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
 }
 
+/**
+ * @public
+ */
 export interface AcceptVpcEndpointConnectionsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -715,6 +796,7 @@ export interface AcceptVpcEndpointConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the error that occurred. For more information about errors, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
  */
 export interface UnsuccessfulItemError {
@@ -730,6 +812,7 @@ export interface UnsuccessfulItemError {
 }
 
 /**
+ * @public
  * <p>Information about items that were not successfully processed in a batch call.</p>
  */
 export interface UnsuccessfulItem {
@@ -744,6 +827,9 @@ export interface UnsuccessfulItem {
   ResourceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptVpcEndpointConnectionsResult {
   /**
    * <p>Information about the interface endpoints that were not accepted, if
@@ -752,6 +838,9 @@ export interface AcceptVpcEndpointConnectionsResult {
   Unsuccessful?: UnsuccessfulItem[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptVpcPeeringConnectionRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -768,6 +857,7 @@ export interface AcceptVpcPeeringConnectionRequest {
 }
 
 /**
+ * @public
  * <p>Describes an IPv4 CIDR block.</p>
  */
 export interface CidrBlock {
@@ -778,6 +868,7 @@ export interface CidrBlock {
 }
 
 /**
+ * @public
  * <p>Describes an IPv6 CIDR block.</p>
  */
 export interface Ipv6CidrBlock {
@@ -788,6 +879,7 @@ export interface Ipv6CidrBlock {
 }
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -811,6 +903,7 @@ export interface VpcPeeringConnectionOptionsDescription {
 }
 
 /**
+ * @public
  * <p>Describes a VPC in a VPC peering connection.</p>
  */
 export interface VpcPeeringConnectionVpcInfo {
@@ -850,6 +943,9 @@ export interface VpcPeeringConnectionVpcInfo {
   Region?: string;
 }
 
+/**
+ * @public
+ */
 export enum VpcPeeringConnectionStateReasonCode {
   active = "active",
   deleted = "deleted",
@@ -863,6 +959,7 @@ export enum VpcPeeringConnectionStateReasonCode {
 }
 
 /**
+ * @public
  * <p>Describes the status of a VPC peering connection.</p>
  */
 export interface VpcPeeringConnectionStateReason {
@@ -878,6 +975,7 @@ export interface VpcPeeringConnectionStateReason {
 }
 
 /**
+ * @public
  * <p>Describes a VPC peering connection.</p>
  */
 export interface VpcPeeringConnection {
@@ -912,6 +1010,9 @@ export interface VpcPeeringConnection {
   VpcPeeringConnectionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptVpcPeeringConnectionResult {
   /**
    * <p>Information about the VPC peering connection.</p>
@@ -920,6 +1021,7 @@ export interface AcceptVpcPeeringConnectionResult {
 }
 
 /**
+ * @public
  * <p>Describes a range of ports.</p>
  */
 export interface PortRange {
@@ -935,6 +1037,7 @@ export interface PortRange {
 }
 
 /**
+ * @public
  * <p>Describes a network access control (ACL) rule.</p>
  */
 export interface AnalysisAclRule {
@@ -970,6 +1073,7 @@ export interface AnalysisAclRule {
 }
 
 /**
+ * @public
  * <p>Describes a path component.</p>
  */
 export interface AnalysisComponent {
@@ -990,6 +1094,7 @@ export interface AnalysisComponent {
 }
 
 /**
+ * @public
  * <p>Describes additional settings for a stateful rule.</p>
  */
 export interface RuleOption {
@@ -1005,6 +1110,7 @@ export interface RuleOption {
 }
 
 /**
+ * @public
  * <p>Describes the rule options for a stateful rule group.</p>
  */
 export interface RuleGroupRuleOptionsPair {
@@ -1020,6 +1126,7 @@ export interface RuleGroupRuleOptionsPair {
 }
 
 /**
+ * @public
  * <p>Describes the type of a stateful rule group.</p>
  */
 export interface RuleGroupTypePair {
@@ -1035,6 +1142,7 @@ export interface RuleGroupTypePair {
 }
 
 /**
+ * @public
  * <p>Describes an additional detail for a path analysis. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/additional-detail-codes.html">Reachability Analyzer additional detail codes</a>.</p>
  */
 export interface AdditionalDetail {
@@ -1080,6 +1188,7 @@ export interface AdditionalDetail {
 }
 
 /**
+ * @public
  * <p>Describes a load balancer listener.</p>
  */
 export interface AnalysisLoadBalancerListener {
@@ -1095,6 +1204,7 @@ export interface AnalysisLoadBalancerListener {
 }
 
 /**
+ * @public
  * <p>Describes a stateful rule.</p>
  */
 export interface FirewallStatefulRule {
@@ -1141,6 +1251,7 @@ export interface FirewallStatefulRule {
 }
 
 /**
+ * @public
  * <p>Describes a stateless rule.</p>
  */
 export interface FirewallStatelessRule {
@@ -1187,6 +1298,7 @@ export interface FirewallStatelessRule {
 }
 
 /**
+ * @public
  * <p>Describes a load balancer target.</p>
  */
 export interface AnalysisLoadBalancerTarget {
@@ -1212,6 +1324,7 @@ export interface AnalysisLoadBalancerTarget {
 }
 
 /**
+ * @public
  * <p>Describes a route table route.</p>
  */
 export interface AnalysisRouteTableRoute {
@@ -1306,6 +1419,7 @@ export interface AnalysisRouteTableRoute {
 }
 
 /**
+ * @public
  * <p>Describes a security group rule.</p>
  */
 export interface AnalysisSecurityGroupRule {
@@ -1349,6 +1463,7 @@ export interface AnalysisSecurityGroupRule {
 }
 
 /**
+ * @public
  * <p>Describes a route in a transit gateway route table.</p>
  */
 export interface TransitGatewayRouteTableRoute {
@@ -1397,6 +1512,7 @@ export interface TransitGatewayRouteTableRoute {
 }
 
 /**
+ * @public
  * <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
  */
 export interface Explanation {
@@ -1675,6 +1791,7 @@ export interface Explanation {
 }
 
 /**
+ * @public
  * <p>Describes a header. Reflects any changes made by a component as traffic passes through.
  *          The fields of an inbound header are null except for the first component of a path.</p>
  */
@@ -1706,6 +1823,7 @@ export interface AnalysisPacketHeader {
 }
 
 /**
+ * @public
  * <p>Describes a path component.</p>
  */
 export interface PathComponent {
@@ -1811,6 +1929,7 @@ export interface PathComponent {
 }
 
 /**
+ * @public
  * <p>Describes a finding for a Network Access Scope.</p>
  */
 export interface AccessScopeAnalysisFinding {
@@ -1835,12 +1954,16 @@ export interface AccessScopeAnalysisFinding {
   FindingComponents?: PathComponent[];
 }
 
+/**
+ * @public
+ */
 export enum Protocol {
   tcp = "tcp",
   udp = "udp",
 }
 
 /**
+ * @public
  * <p>Describes a packet header statement.</p>
  */
 export interface PacketHeaderStatement {
@@ -1881,6 +2004,7 @@ export interface PacketHeaderStatement {
 }
 
 /**
+ * @public
  * <p>Describes a resource statement.</p>
  */
 export interface ResourceStatement {
@@ -1896,6 +2020,7 @@ export interface ResourceStatement {
 }
 
 /**
+ * @public
  * <p>Describes a path statement.</p>
  */
 export interface PathStatement {
@@ -1911,6 +2036,7 @@ export interface PathStatement {
 }
 
 /**
+ * @public
  * <p>Describes a through resource statement.</p>
  */
 export interface ThroughResourcesStatement {
@@ -1921,6 +2047,7 @@ export interface ThroughResourcesStatement {
 }
 
 /**
+ * @public
  * <p>Describes a path.</p>
  */
 export interface AccessScopePath {
@@ -1941,6 +2068,7 @@ export interface AccessScopePath {
 }
 
 /**
+ * @public
  * <p>Describes a packet header statement.</p>
  */
 export interface PacketHeaderStatementRequest {
@@ -1981,6 +2109,7 @@ export interface PacketHeaderStatementRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource statement.</p>
  */
 export interface ResourceStatementRequest {
@@ -1996,6 +2125,7 @@ export interface ResourceStatementRequest {
 }
 
 /**
+ * @public
  * <p>Describes a path statement.</p>
  */
 export interface PathStatementRequest {
@@ -2011,6 +2141,7 @@ export interface PathStatementRequest {
 }
 
 /**
+ * @public
  * <p>Describes a through resource statement.</p>
  */
 export interface ThroughResourcesStatementRequest {
@@ -2021,6 +2152,7 @@ export interface ThroughResourcesStatementRequest {
 }
 
 /**
+ * @public
  * <p>Describes a path.</p>
  */
 export interface AccessScopePathRequest {
@@ -2041,6 +2173,7 @@ export interface AccessScopePathRequest {
 }
 
 /**
+ * @public
  * <p>Describes a value of an account attribute.</p>
  */
 export interface AccountAttributeValue {
@@ -2051,6 +2184,7 @@ export interface AccountAttributeValue {
 }
 
 /**
+ * @public
  * <p>Describes an account attribute.</p>
  */
 export interface AccountAttribute {
@@ -2065,17 +2199,24 @@ export interface AccountAttribute {
   AttributeValues?: AccountAttributeValue[];
 }
 
+/**
+ * @public
+ */
 export enum AccountAttributeName {
   default_vpc = "default-vpc",
   supported_platforms = "supported-platforms",
 }
 
+/**
+ * @public
+ */
 export enum InstanceHealthStatus {
   HEALTHY_STATUS = "healthy",
   UNHEALTHY_STATUS = "unhealthy",
 }
 
 /**
+ * @public
  * <p>Describes a running instance in a Spot Fleet.</p>
  */
 export interface ActiveInstance {
@@ -2102,6 +2243,9 @@ export interface ActiveInstance {
   InstanceHealth?: InstanceHealthStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum ActivityStatus {
   ERROR = "error",
   FULFILLED = "fulfilled",
@@ -2109,6 +2253,9 @@ export enum ActivityStatus {
   PENDING_TERMINATION = "pending_termination",
 }
 
+/**
+ * @public
+ */
 export enum PrincipalType {
   Account = "Account",
   All = "All",
@@ -2119,6 +2266,7 @@ export enum PrincipalType {
 }
 
 /**
+ * @public
  * <p>Describes a principal.</p>
  */
 export interface AddedPrincipal {
@@ -2144,6 +2292,7 @@ export interface AddedPrincipal {
 }
 
 /**
+ * @public
  * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
  *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -2156,6 +2305,7 @@ export interface AddIpamOperatingRegion {
 }
 
 /**
+ * @public
  * <p>An entry for a prefix list.</p>
  */
 export interface AddPrefixListEntry {
@@ -2171,12 +2321,16 @@ export interface AddPrefixListEntry {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export enum DomainType {
   standard = "standard",
   vpc = "vpc",
 }
 
 /**
+ * @public
  * <p>Describes an Elastic IP address, or a carrier IP address.</p>
  */
 export interface Address {
@@ -2255,6 +2409,7 @@ export interface Address {
 }
 
 /**
+ * @public
  * <p>The status of an updated pointer (PTR) record for an Elastic IP address.</p>
  */
 export interface PtrUpdateStatus {
@@ -2275,6 +2430,7 @@ export interface PtrUpdateStatus {
 }
 
 /**
+ * @public
  * <p>The attributes associated with an Elastic IP address.</p>
  */
 export interface AddressAttribute {
@@ -2299,15 +2455,24 @@ export interface AddressAttribute {
   PtrRecordUpdate?: PtrUpdateStatus;
 }
 
+/**
+ * @public
+ */
 export enum AddressAttributeName {
   domain_name = "domain-name",
 }
 
+/**
+ * @public
+ */
 export enum AddressFamily {
   ipv4 = "ipv4",
   ipv6 = "ipv6",
 }
 
+/**
+ * @public
+ */
 export interface AdvertiseByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
@@ -2323,6 +2488,9 @@ export interface AdvertiseByoipCidrRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ByoipCidrState {
   advertised = "advertised",
   deprovisioned = "deprovisioned",
@@ -2335,6 +2503,7 @@ export enum ByoipCidrState {
 }
 
 /**
+ * @public
  * <p>Information about an address range that is provisioned for use with your Amazon Web Services resources
  *          through bring your own IP addresses (BYOIP).</p>
  */
@@ -2360,6 +2529,9 @@ export interface ByoipCidr {
   State?: ByoipCidrState | string;
 }
 
+/**
+ * @public
+ */
 export interface AdvertiseByoipCidrResult {
   /**
    * <p>Information about the address range.</p>
@@ -2367,11 +2539,17 @@ export interface AdvertiseByoipCidrResult {
   ByoipCidr?: ByoipCidr;
 }
 
+/**
+ * @public
+ */
 export enum Affinity {
   default = "default",
   host = "host",
 }
 
+/**
+ * @public
+ */
 export interface AllocateAddressRequest {
   /**
    * <p>Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.</p>
@@ -2421,6 +2599,9 @@ export interface AllocateAddressRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface AllocateAddressResult {
   /**
    * <p>The Elastic IP address.</p>
@@ -2466,21 +2647,33 @@ export interface AllocateAddressResult {
   CarrierIp?: string;
 }
 
+/**
+ * @public
+ */
 export enum AutoPlacement {
   off = "off",
   on = "on",
 }
 
+/**
+ * @public
+ */
 export enum HostMaintenance {
   off = "off",
   on = "on",
 }
 
+/**
+ * @public
+ */
 export enum HostRecovery {
   off = "off",
   on = "on",
 }
 
+/**
+ * @public
+ */
 export interface AllocateHostsRequest {
   /**
    * <p>Indicates whether the host accepts any untargeted instance launches that match its
@@ -2557,6 +2750,7 @@ export interface AllocateHostsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of AllocateHosts.</p>
  */
 export interface AllocateHostsResult {
@@ -2567,6 +2761,9 @@ export interface AllocateHostsResult {
   HostIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface AllocateIpamPoolCidrRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -2629,6 +2826,9 @@ export interface AllocateIpamPoolCidrRequest {
   DisallowedCidrs?: string[];
 }
 
+/**
+ * @public
+ */
 export enum IpamPoolAllocationResourceType {
   custom = "custom",
   ec2_public_ipv4_pool = "ec2-public-ipv4-pool",
@@ -2637,6 +2837,7 @@ export enum IpamPoolAllocationResourceType {
 }
 
 /**
+ * @public
  * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.</p>
  */
 export interface IpamPoolAllocation {
@@ -2677,6 +2878,9 @@ export interface IpamPoolAllocation {
   ResourceOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface AllocateIpamPoolCidrResult {
   /**
    * <p>Information about the allocation created.</p>
@@ -2684,6 +2888,9 @@ export interface AllocateIpamPoolCidrResult {
   IpamPoolAllocation?: IpamPoolAllocation;
 }
 
+/**
+ * @public
+ */
 export enum AllocationState {
   available = "available",
   pending = "pending",
@@ -2693,6 +2900,9 @@ export enum AllocationState {
   under_assessment = "under-assessment",
 }
 
+/**
+ * @public
+ */
 export enum AllocationStrategy {
   CAPACITY_OPTIMIZED = "capacityOptimized",
   CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized",
@@ -2701,11 +2911,15 @@ export enum AllocationStrategy {
   PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized",
 }
 
+/**
+ * @public
+ */
 export enum AllocationType {
   used = "used",
 }
 
 /**
+ * @public
  * <p>Describes a principal.</p>
  */
 export interface AllowedPrincipal {
@@ -2735,12 +2949,16 @@ export interface AllowedPrincipal {
   ServiceId?: string;
 }
 
+/**
+ * @public
+ */
 export enum AllowsMultipleInstanceTypes {
   off = "off",
   on = "on",
 }
 
 /**
+ * @public
  * <p>Describes an potential intermediate component of a feasible path.</p>
  */
 export interface AlternatePathHint {
@@ -2755,6 +2973,9 @@ export interface AlternatePathHint {
   ComponentArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -2778,6 +2999,9 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
   /**
    * <p>The IDs of the applied security groups.</p>
@@ -2785,6 +3009,9 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface AssignIpv6AddressesRequest {
   /**
    * <p>The number of additional IPv6 addresses to assign to the network interface.
@@ -2818,6 +3045,9 @@ export interface AssignIpv6AddressesRequest {
   NetworkInterfaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssignIpv6AddressesResult {
   /**
    * <p>The new IPv6 addresses assigned to the network interface. Existing IPv6 addresses
@@ -2837,6 +3067,7 @@ export interface AssignIpv6AddressesResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for AssignPrivateIpAddresses.</p>
  */
 export interface AssignPrivateIpAddressesRequest {
@@ -2873,6 +3104,7 @@ export interface AssignPrivateIpAddressesRequest {
 }
 
 /**
+ * @public
  * <p>Describes an IPv4 prefix.</p>
  */
 export interface Ipv4PrefixSpecification {
@@ -2885,6 +3117,7 @@ export interface Ipv4PrefixSpecification {
 }
 
 /**
+ * @public
  * <p>Describes the private IP addresses assigned to a network interface.</p>
  */
 export interface AssignedPrivateIpAddress {
@@ -2894,6 +3127,9 @@ export interface AssignedPrivateIpAddress {
   PrivateIpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssignPrivateIpAddressesResult {
   /**
    * <p>The ID of the network interface.</p>
@@ -2911,6 +3147,9 @@ export interface AssignPrivateIpAddressesResult {
   AssignedIpv4Prefixes?: Ipv4PrefixSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface AssignPrivateNatGatewayAddressRequest {
   /**
    * <p>The NAT gateway ID.</p>
@@ -2935,6 +3174,9 @@ export interface AssignPrivateNatGatewayAddressRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum NatGatewayAddressStatus {
   ASSIGNING = "assigning",
   ASSOCIATING = "associating",
@@ -2945,6 +3187,7 @@ export enum NatGatewayAddressStatus {
 }
 
 /**
+ * @public
  * <p>Describes the IP addresses and network interface associated with a NAT gateway.</p>
  */
 export interface NatGatewayAddress {
@@ -2989,6 +3232,9 @@ export interface NatGatewayAddress {
   Status?: NatGatewayAddressStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface AssignPrivateNatGatewayAddressResult {
   /**
    * <p>The NAT gateway ID.</p>
@@ -3001,6 +3247,9 @@ export interface AssignPrivateNatGatewayAddressResult {
   NatGatewayAddresses?: NatGatewayAddress[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateAddressRequest {
   /**
    * <p>[EC2-VPC] The allocation ID. This is required for EC2-VPC.</p>
@@ -3045,6 +3294,9 @@ export interface AssociateAddressRequest {
   PrivateIpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateAddressResult {
   /**
    * <p>[EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.</p>
@@ -3052,6 +3304,9 @@ export interface AssociateAddressResult {
   AssociationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateClientVpnTargetNetworkRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -3074,6 +3329,9 @@ export interface AssociateClientVpnTargetNetworkRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum AssociationStatusCode {
   associated = "associated",
   associating = "associating",
@@ -3083,6 +3341,7 @@ export enum AssociationStatusCode {
 }
 
 /**
+ * @public
  * <p>Describes the state of a target network association.</p>
  */
 export interface AssociationStatus {
@@ -3097,6 +3356,9 @@ export interface AssociationStatus {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateClientVpnTargetNetworkResult {
   /**
    * <p>The unique ID of the target network association.</p>
@@ -3109,6 +3371,9 @@ export interface AssociateClientVpnTargetNetworkResult {
   Status?: AssociationStatus;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDhcpOptionsRequest {
   /**
    * <p>The ID of the DHCP options set, or <code>default</code> to associate
@@ -3129,6 +3394,9 @@ export interface AssociateDhcpOptionsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateEnclaveCertificateIamRoleRequest {
   /**
    * <p>The ARN of the ACM certificate with which to associate the IAM role.</p>
@@ -3147,6 +3415,9 @@ export interface AssociateEnclaveCertificateIamRoleRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateEnclaveCertificateIamRoleResult {
   /**
    * <p>The name of the Amazon S3 bucket to which the certificate was uploaded.</p>
@@ -3166,6 +3437,7 @@ export interface AssociateEnclaveCertificateIamRoleResult {
 }
 
 /**
+ * @public
  * <p>Describes an IAM instance profile.</p>
  */
 export interface IamInstanceProfileSpecification {
@@ -3180,6 +3452,9 @@ export interface IamInstanceProfileSpecification {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateIamInstanceProfileRequest {
   /**
    * <p>The IAM instance profile.</p>
@@ -3193,6 +3468,7 @@ export interface AssociateIamInstanceProfileRequest {
 }
 
 /**
+ * @public
  * <p>Describes an IAM instance profile.</p>
  */
 export interface IamInstanceProfile {
@@ -3207,6 +3483,9 @@ export interface IamInstanceProfile {
   Id?: string;
 }
 
+/**
+ * @public
+ */
 export enum IamInstanceProfileAssociationState {
   ASSOCIATED = "associated",
   ASSOCIATING = "associating",
@@ -3215,6 +3494,7 @@ export enum IamInstanceProfileAssociationState {
 }
 
 /**
+ * @public
  * <p>Describes an association between an IAM instance profile and an instance.</p>
  */
 export interface IamInstanceProfileAssociation {
@@ -3244,6 +3524,9 @@ export interface IamInstanceProfileAssociation {
   Timestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AssociateIamInstanceProfileResult {
   /**
    * <p>Information about the IAM instance profile association.</p>
@@ -3252,6 +3535,7 @@ export interface AssociateIamInstanceProfileResult {
 }
 
 /**
+ * @public
  * <p>One or more targets associated with the specified event window. Only one
  *             <i>type</i> of target (instance ID, instance tag, or Dedicated Host ID)
  *          can be associated with an event window.</p>
@@ -3276,6 +3560,9 @@ export interface InstanceEventWindowAssociationRequest {
   DedicatedHostIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateInstanceEventWindowRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3296,6 +3583,7 @@ export interface AssociateInstanceEventWindowRequest {
 }
 
 /**
+ * @public
  * <p>One or more targets associated with the event window.</p>
  */
 export interface InstanceEventWindowAssociationTarget {
@@ -3316,6 +3604,9 @@ export interface InstanceEventWindowAssociationTarget {
   DedicatedHostIds?: string[];
 }
 
+/**
+ * @public
+ */
 export enum InstanceEventWindowState {
   active = "active",
   creating = "creating",
@@ -3323,6 +3614,9 @@ export enum InstanceEventWindowState {
   deleting = "deleting",
 }
 
+/**
+ * @public
+ */
 export enum WeekDay {
   friday = "friday",
   monday = "monday",
@@ -3334,6 +3628,7 @@ export enum WeekDay {
 }
 
 /**
+ * @public
  * <p>The start day and time and the end day and time of the time range, in UTC.</p>
  */
 export interface InstanceEventWindowTimeRange {
@@ -3359,6 +3654,7 @@ export interface InstanceEventWindowTimeRange {
 }
 
 /**
+ * @public
  * <p>The event window.</p>
  */
 export interface InstanceEventWindow {
@@ -3398,6 +3694,9 @@ export interface InstanceEventWindow {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateInstanceEventWindowResult {
   /**
    * <p>Information about the event window.</p>
@@ -3405,6 +3704,9 @@ export interface AssociateInstanceEventWindowResult {
   InstanceEventWindow?: InstanceEventWindow;
 }
 
+/**
+ * @public
+ */
 export interface AssociateIpamResourceDiscoveryRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -3434,11 +3736,17 @@ export interface AssociateIpamResourceDiscoveryRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum IpamAssociatedResourceDiscoveryStatus {
   ACTIVE = "active",
   NOT_FOUND = "not-found",
 }
 
+/**
+ * @public
+ */
 export enum IpamResourceDiscoveryAssociationState {
   ASSOCIATE_COMPLETE = "associate-complete",
   ASSOCIATE_FAILED = "associate-failed",
@@ -3452,6 +3760,7 @@ export enum IpamResourceDiscoveryAssociationState {
 }
 
 /**
+ * @public
  * <p>An IPAM resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM. IPAM aggregates the resource CIDRs discovered by the associated resource discovery.</p>
  */
 export interface IpamResourceDiscoveryAssociation {
@@ -3561,6 +3870,9 @@ export interface IpamResourceDiscoveryAssociation {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateIpamResourceDiscoveryResult {
   /**
    * <p>A resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM.</p>
@@ -3568,6 +3880,9 @@ export interface AssociateIpamResourceDiscoveryResult {
   IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateNatGatewayAddressRequest {
   /**
    * <p>The NAT gateway ID.</p>
@@ -3592,6 +3907,9 @@ export interface AssociateNatGatewayAddressRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateNatGatewayAddressResult {
   /**
    * <p>The NAT gateway ID.</p>
@@ -3604,6 +3922,9 @@ export interface AssociateNatGatewayAddressResult {
   NatGatewayAddresses?: NatGatewayAddress[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateRouteTableRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3628,6 +3949,9 @@ export interface AssociateRouteTableRequest {
   GatewayId?: string;
 }
 
+/**
+ * @public
+ */
 export enum RouteTableAssociationStateCode {
   associated = "associated",
   associating = "associating",
@@ -3637,6 +3961,7 @@ export enum RouteTableAssociationStateCode {
 }
 
 /**
+ * @public
  * <p>Describes the state of an association between a route table and a subnet or gateway.</p>
  */
 export interface RouteTableAssociationState {
@@ -3651,6 +3976,9 @@ export interface RouteTableAssociationState {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateRouteTableResult {
   /**
    * <p>The route table association ID. This ID is required for disassociating the route
@@ -3664,6 +3992,9 @@ export interface AssociateRouteTableResult {
   AssociationState?: RouteTableAssociationState;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSubnetCidrBlockRequest {
   /**
    * <p>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix
@@ -3677,6 +4008,9 @@ export interface AssociateSubnetCidrBlockRequest {
   SubnetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SubnetCidrBlockStateCode {
   associated = "associated",
   associating = "associating",
@@ -3687,6 +4021,7 @@ export enum SubnetCidrBlockStateCode {
 }
 
 /**
+ * @public
  * <p>Describes the state of a CIDR block.</p>
  */
 export interface SubnetCidrBlockState {
@@ -3702,6 +4037,7 @@ export interface SubnetCidrBlockState {
 }
 
 /**
+ * @public
  * <p>Describes an association between a subnet and an IPv6 CIDR block.</p>
  */
 export interface SubnetIpv6CidrBlockAssociation {
@@ -3721,6 +4057,9 @@ export interface SubnetIpv6CidrBlockAssociation {
   Ipv6CidrBlockState?: SubnetCidrBlockState;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSubnetCidrBlockResult {
   /**
    * <p>Information about the IPv6 association.</p>
@@ -3733,6 +4072,9 @@ export interface AssociateSubnetCidrBlockResult {
   SubnetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -3757,6 +4099,9 @@ export interface AssociateTransitGatewayMulticastDomainRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayMulticastDomainResult {
   /**
    * <p>Information about the transit gateway multicast domain associations.</p>
@@ -3764,6 +4109,9 @@ export interface AssociateTransitGatewayMulticastDomainResult {
   Associations?: TransitGatewayMulticastDomainAssociations;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayPolicyTableRequest {
   /**
    * <p>The ID of the transit gateway policy table to associate with the transit gateway attachment.</p>
@@ -3783,6 +4131,9 @@ export interface AssociateTransitGatewayPolicyTableRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayAssociationState {
   associated = "associated",
   associating = "associating",
@@ -3791,6 +4142,7 @@ export enum TransitGatewayAssociationState {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway policy table association.</p>
  */
 export interface TransitGatewayPolicyTableAssociation {
@@ -3820,6 +4172,9 @@ export interface TransitGatewayPolicyTableAssociation {
   State?: TransitGatewayAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayPolicyTableResult {
   /**
    * <p>Describes the association of a transit gateway and a transit gateway policy table.</p>
@@ -3827,6 +4182,9 @@ export interface AssociateTransitGatewayPolicyTableResult {
   Association?: TransitGatewayPolicyTableAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayRouteTableRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -3847,6 +4205,7 @@ export interface AssociateTransitGatewayRouteTableRequest {
 }
 
 /**
+ * @public
  * <p>Describes an association between a resource attachment and a transit gateway route table.</p>
  */
 export interface TransitGatewayAssociation {
@@ -3876,6 +4235,9 @@ export interface TransitGatewayAssociation {
   State?: TransitGatewayAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayRouteTableResult {
   /**
    * <p>The ID of the association.</p>
@@ -3883,6 +4245,9 @@ export interface AssociateTransitGatewayRouteTableResult {
   Association?: TransitGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrunkInterfaceRequest {
   /**
    * <p>The ID of the branch network interface.</p>
@@ -3919,12 +4284,16 @@ export interface AssociateTrunkInterfaceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum InterfaceProtocolType {
   GRE = "GRE",
   VLAN = "VLAN",
 }
 
 /**
+ * @public
  * <note>
  *             <p>Currently available in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
@@ -3968,6 +4337,9 @@ export interface TrunkInterfaceAssociation {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrunkInterfaceResult {
   /**
    * <p>Information about the association between the trunk network interface and branch network interface.</p>
@@ -3982,6 +4354,9 @@ export interface AssociateTrunkInterfaceResult {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateVpcCidrBlockRequest {
   /**
    * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.</p>
@@ -4039,6 +4414,9 @@ export interface AssociateVpcCidrBlockRequest {
   Ipv6NetmaskLength?: number;
 }
 
+/**
+ * @public
+ */
 export enum VpcCidrBlockStateCode {
   associated = "associated",
   associating = "associating",
@@ -4049,6 +4427,7 @@ export enum VpcCidrBlockStateCode {
 }
 
 /**
+ * @public
  * <p>Describes the state of a CIDR block.</p>
  */
 export interface VpcCidrBlockState {
@@ -4064,6 +4443,7 @@ export interface VpcCidrBlockState {
 }
 
 /**
+ * @public
  * <p>Describes an IPv4 CIDR block associated with a VPC.</p>
  */
 export interface VpcCidrBlockAssociation {
@@ -4084,6 +4464,7 @@ export interface VpcCidrBlockAssociation {
 }
 
 /**
+ * @public
  * <p>Describes an IPv6 CIDR block associated with a VPC.</p>
  */
 export interface VpcIpv6CidrBlockAssociation {
@@ -4114,6 +4495,9 @@ export interface VpcIpv6CidrBlockAssociation {
   Ipv6Pool?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateVpcCidrBlockResult {
   /**
    * <p>Information about the IPv6 CIDR block association.</p>
@@ -4131,6 +4515,9 @@ export interface AssociateVpcCidrBlockResult {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AttachClassicLinkVpcRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4155,6 +4542,9 @@ export interface AttachClassicLinkVpcRequest {
   VpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachClassicLinkVpcResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -4162,6 +4552,9 @@ export interface AttachClassicLinkVpcResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AttachInternetGatewayRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4182,6 +4575,7 @@ export interface AttachInternetGatewayRequest {
 }
 
 /**
+ * @public
  * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it’s enabled, TCP traffic
  * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
  * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
@@ -4196,6 +4590,7 @@ export interface EnaSrdUdpSpecification {
 }
 
 /**
+ * @public
  * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
  * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
  * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
@@ -4218,6 +4613,7 @@ export interface EnaSrdSpecification {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for AttachNetworkInterface.</p>
  */
 export interface AttachNetworkInterfaceRequest {
@@ -4257,6 +4653,7 @@ export interface AttachNetworkInterfaceRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of AttachNetworkInterface.</p>
  */
 export interface AttachNetworkInterfaceResult {
@@ -4271,6 +4668,9 @@ export interface AttachNetworkInterfaceResult {
   NetworkCardIndex?: number;
 }
 
+/**
+ * @public
+ */
 export interface AttachVerifiedAccessTrustProviderRequest {
   /**
    * <p>The ID of the Amazon Web Services Verified Access instance.</p>
@@ -4296,22 +4696,32 @@ export interface AttachVerifiedAccessTrustProviderRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DeviceTrustProviderType {
   crowdstrike = "crowdstrike",
   jamf = "jamf",
 }
 
+/**
+ * @public
+ */
 export enum TrustProviderType {
   device = "device",
   user = "user",
 }
 
+/**
+ * @public
+ */
 export enum UserTrustProviderType {
   iam_identity_center = "iam-identity-center",
   oidc = "oidc",
 }
 
 /**
+ * @public
  * <p>Condensed information about a trust provider.</p>
  */
 export interface VerifiedAccessTrustProviderCondensed {
@@ -4342,6 +4752,7 @@ export interface VerifiedAccessTrustProviderCondensed {
 }
 
 /**
+ * @public
  * <p>Describes a Verified Access instance.</p>
  */
 export interface VerifiedAccessInstance {
@@ -4377,6 +4788,7 @@ export interface VerifiedAccessInstance {
 }
 
 /**
+ * @public
  * <p>Options for an Amazon Web Services Verified Access device-identity based trust provider.</p>
  */
 export interface DeviceOptions {
@@ -4387,6 +4799,7 @@ export interface DeviceOptions {
 }
 
 /**
+ * @public
  * <p>Options for OIDC-based, user-identity type trust provider.</p>
  */
 export interface OidcOptions {
@@ -4427,6 +4840,7 @@ export interface OidcOptions {
 }
 
 /**
+ * @public
  * <p>Describes a Verified Access trust provider.</p>
  */
 export interface VerifiedAccessTrustProvider {
@@ -4486,6 +4900,9 @@ export interface VerifiedAccessTrustProvider {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AttachVerifiedAccessTrustProviderResult {
   /**
    * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
@@ -4498,6 +4915,9 @@ export interface AttachVerifiedAccessTrustProviderResult {
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
+/**
+ * @public
+ */
 export interface AttachVolumeRequest {
   /**
    * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
@@ -4523,6 +4943,9 @@ export interface AttachVolumeRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum VolumeAttachmentState {
   attached = "attached",
   attaching = "attaching",
@@ -4532,6 +4955,7 @@ export enum VolumeAttachmentState {
 }
 
 /**
+ * @public
  * <p>Describes volume attachment details.</p>
  */
 export interface VolumeAttachment {
@@ -4567,6 +4991,7 @@ export interface VolumeAttachment {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for AttachVpnGateway.</p>
  */
 export interface AttachVpnGatewayRequest {
@@ -4589,6 +5014,9 @@ export interface AttachVpnGatewayRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum AttachmentStatus {
   attached = "attached",
   attaching = "attaching",
@@ -4597,6 +5025,7 @@ export enum AttachmentStatus {
 }
 
 /**
+ * @public
  * <p>Describes an attachment between a virtual private gateway and a VPC.</p>
  */
 export interface VpcAttachment {
@@ -4612,6 +5041,7 @@ export interface VpcAttachment {
 }
 
 /**
+ * @public
  * <p>Contains the output of AttachVpnGateway.</p>
  */
 export interface AttachVpnGatewayResult {
@@ -4621,6 +5051,9 @@ export interface AttachVpnGatewayResult {
   VpcAttachment?: VpcAttachment;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeClientVpnIngressRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -4660,6 +5093,9 @@ export interface AuthorizeClientVpnIngressRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ClientVpnAuthorizationRuleStatusCode {
   active = "active",
   authorizing = "authorizing",
@@ -4668,6 +5104,7 @@ export enum ClientVpnAuthorizationRuleStatusCode {
 }
 
 /**
+ * @public
  * <p>Describes the state of an authorization rule.</p>
  */
 export interface ClientVpnAuthorizationRuleStatus {
@@ -4682,6 +5119,9 @@ export interface ClientVpnAuthorizationRuleStatus {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeClientVpnIngressResult {
   /**
    * <p>The current state of the authorization rule.</p>
@@ -4690,6 +5130,7 @@ export interface AuthorizeClientVpnIngressResult {
 }
 
 /**
+ * @public
  * <p>Describes an IPv4 range.</p>
  */
 export interface IpRange {
@@ -4702,12 +5143,13 @@ export interface IpRange {
   /**
    * <p>A description for the security group rule that references this IPv4 address range.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
-   *         spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   *         spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    */
   Description?: string;
 }
 
 /**
+ * @public
  * <p>[EC2-VPC only] Describes an IPv6 range.</p>
  */
 export interface Ipv6Range {
@@ -4720,19 +5162,20 @@ export interface Ipv6Range {
   /**
    * <p>A description for the security group rule that references this IPv6 address range.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
-   *         spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   *         spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    */
   Description?: string;
 }
 
 /**
+ * @public
  * <p>Describes a prefix list ID.</p>
  */
 export interface PrefixListId {
   /**
    * <p>A description for the security group rule that references this prefix list ID.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
-   *       spaces, and ._-:/()#,@[]+=;{}!$*</p>
+   *       spaces, and ._-:/()#,@[]+=;\{\}!$*</p>
    */
   Description?: string;
 
@@ -4743,6 +5186,7 @@ export interface PrefixListId {
 }
 
 /**
+ * @public
  * <p>Describes a security group and Amazon Web Services account ID pair.</p>
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -4753,7 +5197,7 @@ export interface UserIdGroupPair {
    * <p>A description for the security group rule that references this user ID group
    * 			pair.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
-   *       spaces, and ._-:/()#,@[]+=;{}!$*</p>
+   *       spaces, and ._-:/()#,@[]+=;\{\}!$*</p>
    */
   Description?: string;
 
@@ -4798,6 +5242,7 @@ export interface UserIdGroupPair {
 }
 
 /**
+ * @public
  * <p>Describes a set of permissions for a security group rule.</p>
  */
 export interface IpPermission {
@@ -4848,6 +5293,9 @@ export interface IpPermission {
   UserIdGroupPairs?: UserIdGroupPair[];
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeSecurityGroupEgressRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4907,6 +5355,7 @@ export interface AuthorizeSecurityGroupEgressRequest {
 }
 
 /**
+ * @public
  * <p> Describes the security group that is referenced in the security group rule.</p>
  */
 export interface ReferencedSecurityGroup {
@@ -4937,6 +5386,7 @@ export interface ReferencedSecurityGroup {
 }
 
 /**
+ * @public
  * <p>Describes a security group rule.</p>
  */
 export interface SecurityGroupRule {
@@ -5012,6 +5462,9 @@ export interface SecurityGroupRule {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeSecurityGroupEgressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -5024,6 +5477,9 @@ export interface AuthorizeSecurityGroupEgressResult {
   SecurityGroupRules?: SecurityGroupRule[];
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeSecurityGroupIngressRequest {
   /**
    * <p>The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source
@@ -5108,6 +5564,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeSecurityGroupIngressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -5121,6 +5580,7 @@ export interface AuthorizeSecurityGroupIngressResult {
 }
 
 /**
+ * @public
  * <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>
  */
 export interface S3Storage {
@@ -5154,6 +5614,7 @@ export interface S3Storage {
 }
 
 /**
+ * @public
  * <p>Describes the storage location for an instance store-backed AMI.</p>
  */
 export interface Storage {
@@ -5164,6 +5625,7 @@ export interface Storage {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for BundleInstance.</p>
  */
 export interface BundleInstanceRequest {
@@ -5189,6 +5651,7 @@ export interface BundleInstanceRequest {
 }
 
 /**
+ * @public
  * <p>Describes an error for <a>BundleInstance</a>.</p>
  */
 export interface BundleTaskError {
@@ -5203,6 +5666,9 @@ export interface BundleTaskError {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum BundleTaskState {
   bundling = "bundling",
   cancelling = "cancelling",
@@ -5214,6 +5680,7 @@ export enum BundleTaskState {
 }
 
 /**
+ * @public
  * <p>Describes a bundle task.</p>
  */
 export interface BundleTask {
@@ -5259,6 +5726,7 @@ export interface BundleTask {
 }
 
 /**
+ * @public
  * <p>Contains the output of BundleInstance.</p>
  */
 export interface BundleInstanceResult {
@@ -5269,6 +5737,7 @@ export interface BundleInstanceResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CancelBundleTask.</p>
  */
 export interface CancelBundleTaskRequest {
@@ -5286,6 +5755,7 @@ export interface CancelBundleTaskRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of CancelBundleTask.</p>
  */
 export interface CancelBundleTaskResult {
@@ -5295,6 +5765,9 @@ export interface CancelBundleTaskResult {
   BundleTask?: BundleTask;
 }
 
+/**
+ * @public
+ */
 export interface CancelCapacityReservationRequest {
   /**
    * <p>The ID of the Capacity Reservation to be cancelled.</p>
@@ -5307,6 +5780,9 @@ export interface CancelCapacityReservationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelCapacityReservationResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -5314,6 +5790,9 @@ export interface CancelCapacityReservationResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelCapacityReservationFleetsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -5327,6 +5806,7 @@ export interface CancelCapacityReservationFleetsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a Capacity Reservation Fleet cancellation error.</p>
  */
 export interface CancelCapacityReservationFleetError {
@@ -5342,6 +5822,7 @@ export interface CancelCapacityReservationFleetError {
 }
 
 /**
+ * @public
  * <p>Describes a Capacity Reservation Fleet that could not be cancelled.</p>
  */
 export interface FailedCapacityReservationFleetCancellationResult {
@@ -5356,6 +5837,9 @@ export interface FailedCapacityReservationFleetCancellationResult {
   CancelCapacityReservationFleetError?: CancelCapacityReservationFleetError;
 }
 
+/**
+ * @public
+ */
 export enum CapacityReservationFleetState {
   ACTIVE = "active",
   CANCELLED = "cancelled",
@@ -5369,6 +5853,7 @@ export enum CapacityReservationFleetState {
 }
 
 /**
+ * @public
  * <p>Describes a Capacity Reservation Fleet that was successfully cancelled.</p>
  */
 export interface CapacityReservationFleetCancellationState {
@@ -5388,6 +5873,9 @@ export interface CapacityReservationFleetCancellationState {
   CapacityReservationFleetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelCapacityReservationFleetsResult {
   /**
    * <p>Information about the Capacity Reservation Fleets that were successfully cancelled.</p>
@@ -5400,6 +5888,9 @@ export interface CancelCapacityReservationFleetsResult {
   FailedFleetCancellations?: FailedCapacityReservationFleetCancellationResult[];
 }
 
+/**
+ * @public
+ */
 export interface CancelConversionRequest {
   /**
    * <p>The ID of the conversion task.</p>
@@ -5419,6 +5910,9 @@ export interface CancelConversionRequest {
   ReasonMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelExportTaskRequest {
   /**
    * <p>The ID of the export task. This is the ID returned by <code>CreateInstanceExportTask</code>.</p>
@@ -5426,6 +5920,9 @@ export interface CancelExportTaskRequest {
   ExportTaskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelImageLaunchPermissionRequest {
   /**
    * <p>The ID of the AMI that was shared with your Amazon Web Services account.</p>
@@ -5440,6 +5937,9 @@ export interface CancelImageLaunchPermissionRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelImageLaunchPermissionResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -5447,6 +5947,9 @@ export interface CancelImageLaunchPermissionResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelImportTaskRequest {
   /**
    * <p>The reason for canceling the task.</p>
@@ -5466,6 +5969,9 @@ export interface CancelImportTaskRequest {
   ImportTaskId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelImportTaskResult {
   /**
    * <p>The ID of the task being canceled.</p>
@@ -5484,6 +5990,7 @@ export interface CancelImportTaskResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CancelReservedInstancesListing.</p>
  */
 export interface CancelReservedInstancesListingRequest {
@@ -5493,6 +6000,9 @@ export interface CancelReservedInstancesListingRequest {
   ReservedInstancesListingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ListingState {
   available = "available",
   cancelled = "cancelled",
@@ -5501,6 +6011,7 @@ export enum ListingState {
 }
 
 /**
+ * @public
  * <p>Describes a Reserved Instance listing state.</p>
  */
 export interface InstanceCount {
@@ -5515,11 +6026,15 @@ export interface InstanceCount {
   State?: ListingState | string;
 }
 
+/**
+ * @public
+ */
 export enum CurrencyCodeValues {
   USD = "USD",
 }
 
 /**
+ * @public
  * <p>Describes the price for a Reserved Instance.</p>
  */
 export interface PriceSchedule {
@@ -5546,6 +6061,9 @@ export interface PriceSchedule {
   Term?: number;
 }
 
+/**
+ * @public
+ */
 export enum ListingStatus {
   active = "active",
   cancelled = "cancelled",
@@ -5554,6 +6072,7 @@ export enum ListingStatus {
 }
 
 /**
+ * @public
  * <p>Describes a Reserved Instance listing.</p>
  */
 export interface ReservedInstancesListing {
@@ -5610,6 +6129,7 @@ export interface ReservedInstancesListing {
 }
 
 /**
+ * @public
  * <p>Contains the output of CancelReservedInstancesListing.</p>
  */
 export interface CancelReservedInstancesListingResult {
@@ -5620,6 +6140,7 @@ export interface CancelReservedInstancesListingResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CancelSpotFleetRequests.</p>
  */
 export interface CancelSpotFleetRequestsRequest {
@@ -5644,6 +6165,9 @@ export interface CancelSpotFleetRequestsRequest {
   TerminateInstances: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BatchState {
   ACTIVE = "active",
   CANCELLED = "cancelled",
@@ -5655,6 +6179,7 @@ export enum BatchState {
 }
 
 /**
+ * @public
  * <p>Describes a Spot Fleet request that was successfully canceled.</p>
  */
 export interface CancelSpotFleetRequestsSuccessItem {
@@ -5674,6 +6199,9 @@ export interface CancelSpotFleetRequestsSuccessItem {
   SpotFleetRequestId?: string;
 }
 
+/**
+ * @public
+ */
 export enum CancelBatchErrorCode {
   FLEET_REQUEST_ID_DOES_NOT_EXIST = "fleetRequestIdDoesNotExist",
   FLEET_REQUEST_ID_MALFORMED = "fleetRequestIdMalformed",
@@ -5682,6 +6210,7 @@ export enum CancelBatchErrorCode {
 }
 
 /**
+ * @public
  * <p>Describes a Spot Fleet error.</p>
  */
 export interface CancelSpotFleetRequestsError {
@@ -5697,6 +6226,7 @@ export interface CancelSpotFleetRequestsError {
 }
 
 /**
+ * @public
  * <p>Describes a Spot Fleet request that was not successfully canceled.</p>
  */
 export interface CancelSpotFleetRequestsErrorItem {
@@ -5712,6 +6242,7 @@ export interface CancelSpotFleetRequestsErrorItem {
 }
 
 /**
+ * @public
  * <p>Contains the output of CancelSpotFleetRequests.</p>
  */
 export interface CancelSpotFleetRequestsResponse {
@@ -5727,6 +6258,7 @@ export interface CancelSpotFleetRequestsResponse {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CancelSpotInstanceRequests.</p>
  */
 export interface CancelSpotInstanceRequestsRequest {
@@ -5744,6 +6276,9 @@ export interface CancelSpotInstanceRequestsRequest {
   SpotInstanceRequestIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CancelSpotInstanceRequestState {
   active = "active",
   cancelled = "cancelled",
@@ -5753,6 +6288,7 @@ export enum CancelSpotInstanceRequestState {
 }
 
 /**
+ * @public
  * <p>Describes a request to cancel a Spot Instance.</p>
  */
 export interface CancelledSpotInstanceRequest {
@@ -5768,6 +6304,7 @@ export interface CancelledSpotInstanceRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of CancelSpotInstanceRequests.</p>
  */
 export interface CancelSpotInstanceRequestsResult {
@@ -5777,6 +6314,9 @@ export interface CancelSpotInstanceRequestsResult {
   CancelledSpotInstanceRequests?: CancelledSpotInstanceRequest[];
 }
 
+/**
+ * @public
+ */
 export interface ConfirmProductInstanceRequest {
   /**
    * <p>The ID of the instance.</p>
@@ -5796,6 +6336,9 @@ export interface ConfirmProductInstanceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmProductInstanceResult {
   /**
    * <p>The Amazon Web Services account ID of the instance owner. This is only present if the
@@ -5810,6 +6353,9 @@ export interface ConfirmProductInstanceResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CopyFpgaImageRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5845,6 +6391,9 @@ export interface CopyFpgaImageRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyFpgaImageResult {
   /**
    * <p>The ID of the new AFI.</p>
@@ -5853,6 +6402,7 @@ export interface CopyFpgaImageResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CopyImage.</p>
  */
 export interface CopyImageRequest {
@@ -5954,6 +6504,7 @@ export interface CopyImageRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of CopyImage.</p>
  */
 export interface CopyImageResult {
@@ -5963,6 +6514,9 @@ export interface CopyImageResult {
   ImageId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopySnapshotRequest {
   /**
    * <p>A description for the EBS snapshot.</p>
@@ -6065,6 +6619,9 @@ export interface CopySnapshotRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CopySnapshotResult {
   /**
    * <p>The ID of the new snapshot.</p>
@@ -6077,16 +6634,25 @@ export interface CopySnapshotResult {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum EndDateType {
   limited = "limited",
   unlimited = "unlimited",
 }
 
+/**
+ * @public
+ */
 export enum InstanceMatchCriteria {
   open = "open",
   targeted = "targeted",
 }
 
+/**
+ * @public
+ */
 export enum CapacityReservationInstancePlatform {
   LINUX_UNIX = "Linux/UNIX",
   LINUX_WITH_SQL_SERVER_ENTERPRISE = "Linux with SQL Server Enterprise",
@@ -6107,11 +6673,17 @@ export enum CapacityReservationInstancePlatform {
   WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web",
 }
 
+/**
+ * @public
+ */
 export enum CapacityReservationTenancy {
   dedicated = "dedicated",
   default = "default",
 }
 
+/**
+ * @public
+ */
 export interface CreateCapacityReservationRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
@@ -6254,6 +6826,7 @@ export interface CreateCapacityReservationRequest {
 }
 
 /**
+ * @public
  * <p>Information about instance capacity usage for a Capacity Reservation.</p>
  */
 export interface CapacityAllocation {
@@ -6270,6 +6843,9 @@ export interface CapacityAllocation {
   Count?: number;
 }
 
+/**
+ * @public
+ */
 export enum CapacityReservationState {
   active = "active",
   cancelled = "cancelled",
@@ -6279,6 +6855,7 @@ export enum CapacityReservationState {
 }
 
 /**
+ * @public
  * <p>Describes a Capacity Reservation.</p>
  */
 export interface CapacityReservation {
@@ -6474,6 +7051,9 @@ export interface CapacityReservation {
   CapacityAllocations?: CapacityAllocation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCapacityReservationResult {
   /**
    * <p>Information about the Capacity Reservation.</p>
@@ -6481,10 +7061,16 @@ export interface CreateCapacityReservationResult {
   CapacityReservation?: CapacityReservation;
 }
 
+/**
+ * @public
+ */
 export enum FleetInstanceMatchCriteria {
   open = "open",
 }
 
+/**
+ * @public
+ */
 export enum _InstanceType {
   a1_2xlarge = "a1.2xlarge",
   a1_4xlarge = "a1.4xlarge",
@@ -7127,6 +7713,7 @@ export enum _InstanceType {
 }
 
 /**
+ * @public
  * <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
  */
 export interface ReservationFleetInstanceSpecification {
@@ -7180,10 +7767,16 @@ export interface ReservationFleetInstanceSpecification {
   Priority?: number;
 }
 
+/**
+ * @public
+ */
 export enum FleetCapacityReservationTenancy {
   default = "default",
 }
 
+/**
+ * @public
+ */
 export interface CreateCapacityReservationFleetRequest {
   /**
    * <p>The strategy used by the Capacity Reservation Fleet to determine which of the
@@ -7268,6 +7861,7 @@ export interface CreateCapacityReservationFleetRequest {
 }
 
 /**
+ * @public
  * <p>Information about a Capacity Reservation in a Capacity Reservation Fleet.</p>
  */
 export interface FleetCapacityReservation {
@@ -7333,6 +7927,9 @@ export interface FleetCapacityReservation {
   Priority?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateCapacityReservationFleetResult {
   /**
    * <p>The ID of the Capacity Reservation Fleet.</p>
@@ -7390,6 +7987,9 @@ export interface CreateCapacityReservationFleetResult {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCarrierGatewayRequest {
   /**
    * <p>The ID of the VPC to associate with the carrier gateway.</p>
@@ -7416,6 +8016,9 @@ export interface CreateCarrierGatewayRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum CarrierGatewayState {
   available = "available",
   deleted = "deleted",
@@ -7424,6 +8027,7 @@ export enum CarrierGatewayState {
 }
 
 /**
+ * @public
  * <p>Describes a carrier gateway.</p>
  */
 export interface CarrierGateway {
@@ -7453,6 +8057,9 @@ export interface CarrierGateway {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCarrierGatewayResult {
   /**
    * <p>Information about the carrier gateway.</p>
@@ -7461,6 +8068,7 @@ export interface CreateCarrierGatewayResult {
 }
 
 /**
+ * @public
  * <p>Describes the Active Directory to be used for client authentication.</p>
  */
 export interface DirectoryServiceAuthenticationRequest {
@@ -7471,6 +8079,7 @@ export interface DirectoryServiceAuthenticationRequest {
 }
 
 /**
+ * @public
  * <p>The IAM SAML identity provider used for federated authentication.</p>
  */
 export interface FederatedAuthenticationRequest {
@@ -7486,6 +8095,7 @@ export interface FederatedAuthenticationRequest {
 }
 
 /**
+ * @public
  * <p>Information about the client certificate to be used for authentication.</p>
  */
 export interface CertificateAuthenticationRequest {

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateComputerCommand}.
  */
 export interface CreateComputerCommandInput extends CreateComputerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateComputerCommand}.
  */
 export interface CreateComputerCommandOutput extends CreateComputerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Active Directory computer object in the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComputerCommandInput - {@link CreateComputerCommandInput}
+ * @returns {@link CreateComputerCommandOutput}
  * @see {@link CreateComputerCommandInput} for command's `input` shape.
  * @see {@link CreateComputerCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateComputerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComputerCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateComputerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComputerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateComputerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComputerCommandOutput> {
     return deserializeAws_json1_1CreateComputerCommand(output, context);
   }

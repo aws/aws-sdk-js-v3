@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHumanTaskUiCommand}.
  */
 export interface DeleteHumanTaskUiCommandInput extends DeleteHumanTaskUiRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHumanTaskUiCommand}.
  */
 export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to delete a human task user interface (worker task template).</p>
  *          <p>
  *       To see a list of human task user interfaces
@@ -50,6 +55,8 @@ export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHumanTaskUiCommandInput - {@link DeleteHumanTaskUiCommandInput}
+ * @returns {@link DeleteHumanTaskUiCommandOutput}
  * @see {@link DeleteHumanTaskUiCommandInput} for command's `input` shape.
  * @see {@link DeleteHumanTaskUiCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteHumanTaskUiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHumanTaskUiCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteHumanTaskUiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHumanTaskUiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteHumanTaskUiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHumanTaskUiCommandOutput> {
     return deserializeAws_json1_1DeleteHumanTaskUiCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCapacityProviderCommand}.
  */
 export interface CreateCapacityProviderCommandInput extends CreateCapacityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCapacityProviderCommand}.
  */
 export interface CreateCapacityProviderCommandOutput extends CreateCapacityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS
  * 			cluster and are used in capacity provider strategies to facilitate cluster auto
  * 			scaling.</p>
@@ -52,6 +57,8 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCapacityProviderCommandInput - {@link CreateCapacityProviderCommandInput}
+ * @returns {@link CreateCapacityProviderCommandOutput}
  * @see {@link CreateCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link CreateCapacityProviderCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateCapacityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCapacityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateCapacityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCapacityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCapacityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCapacityProviderCommandOutput> {
     return deserializeAws_json1_1CreateCapacityProviderCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWebACLCommand}.
  */
 export interface CreateWebACLCommandInput extends CreateWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWebACLCommand}.
  */
 export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a>WebACL</a> per the specifications provided.</p>
  *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, Amazon Cognito user pool, or an App Runner service.  </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWebACLCommandInput - {@link CreateWebACLCommandInput}
+ * @returns {@link CreateWebACLCommandOutput}
  * @see {@link CreateWebACLCommandInput} for command's `input` shape.
  * @see {@link CreateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -159,6 +166,9 @@ export class CreateWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,10 +206,16 @@ export class CreateWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebACLCommandOutput> {
     return deserializeAws_json1_1CreateWebACLCommand(output, context);
   }

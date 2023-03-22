@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of tags associated with a resource. Only bots, bot
  *          aliases, and bot channels can have tags associated with them.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -86,6 +93,9 @@ export class ListTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
     return deserializeAws_restJson1ListTagsForResourceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListConflictingAliasesCommand}.
  */
 export interface ListConflictingAliasesCommandInput extends ListConflictingAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConflictingAliasesCommand}.
  */
 export interface ListConflictingAliasesCommandOutput extends ListConflictingAliasesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of aliases (also called CNAMEs or alternate domain names) that conflict or
  * 			overlap with the provided alias, and the associated CloudFront distributions and Amazon Web Services
  * 			accounts for each conflicting alias. In the returned list, the distribution and account
@@ -68,6 +73,8 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConflictingAliasesCommandInput - {@link ListConflictingAliasesCommandInput}
+ * @returns {@link ListConflictingAliasesCommandOutput}
  * @see {@link ListConflictingAliasesCommandInput} for command's `input` shape.
  * @see {@link ListConflictingAliasesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListConflictingAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConflictingAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ListConflictingAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConflictingAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListConflictingAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConflictingAliasesCommandOutput> {
     return deserializeAws_restXmlListConflictingAliasesCommand(output, context);
   }

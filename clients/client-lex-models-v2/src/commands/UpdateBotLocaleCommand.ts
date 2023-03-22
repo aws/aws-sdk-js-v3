@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBotLocaleCommand}.
  */
 export interface UpdateBotLocaleCommandInput extends UpdateBotLocaleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBotLocaleCommand}.
  */
 export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings that a bot has for a specific locale.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBotLocaleCommandInput - {@link UpdateBotLocaleCommandInput}
+ * @returns {@link UpdateBotLocaleCommandOutput}
  * @see {@link UpdateBotLocaleCommandInput} for command's `input` shape.
  * @see {@link UpdateBotLocaleCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateBotLocaleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBotLocaleCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateBotLocaleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBotLocaleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBotLocaleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBotLocaleCommandOutput> {
     return deserializeAws_restJson1UpdateBotLocaleCommand(output, context);
   }

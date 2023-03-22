@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverQueryLogConfigAssociationCommand}.
  */
 export interface GetResolverQueryLogConfigAssociationCommandInput extends GetResolverQueryLogConfigAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverQueryLogConfigAssociationCommand}.
  */
 export interface GetResolverQueryLogConfigAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface GetResolverQueryLogConfigAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC
  * 			with a query logging configuration, Resolver logs DNS queries that originate in that VPC.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetResolverQueryLogConfigAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverQueryLogConfigAssociationCommandInput - {@link GetResolverQueryLogConfigAssociationCommandInput}
+ * @returns {@link GetResolverQueryLogConfigAssociationCommandOutput}
  * @see {@link GetResolverQueryLogConfigAssociationCommandInput} for command's `input` shape.
  * @see {@link GetResolverQueryLogConfigAssociationCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetResolverQueryLogConfigAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverQueryLogConfigAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class GetResolverQueryLogConfigAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetResolverQueryLogConfigAssociationCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class GetResolverQueryLogConfigAssociationCommand extends $Command<
     return serializeAws_json1_1GetResolverQueryLogConfigAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

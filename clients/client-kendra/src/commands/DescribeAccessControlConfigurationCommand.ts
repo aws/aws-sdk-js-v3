@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccessControlConfigurationCommand}.
  */
 export interface DescribeAccessControlConfigurationCommandInput extends DescribeAccessControlConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccessControlConfigurationCommand}.
  */
 export interface DescribeAccessControlConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an access control configuration that you created for your
  *             documents in an index. This includes user and group access information for your
  *             documents. This is useful for user context filtering, where search results are
@@ -51,6 +56,8 @@ export interface DescribeAccessControlConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccessControlConfigurationCommandInput - {@link DescribeAccessControlConfigurationCommandInput}
+ * @returns {@link DescribeAccessControlConfigurationCommandOutput}
  * @see {@link DescribeAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeAccessControlConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccessControlConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DescribeAccessControlConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAccessControlConfigurationCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DescribeAccessControlConfigurationCommand extends $Command<
     return serializeAws_json1_1DescribeAccessControlConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

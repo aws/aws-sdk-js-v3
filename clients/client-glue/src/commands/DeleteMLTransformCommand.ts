@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMLTransformCommand}.
  */
 export interface DeleteMLTransformCommandInput extends DeleteMLTransformRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMLTransformCommand}.
  */
 export interface DeleteMLTransformCommandOutput extends DeleteMLTransformResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Glue machine learning transform. Machine learning transforms are a special
  *       type of transform that use machine learning to learn the details of the transformation to be
  *       performed by learning from examples provided by humans. These transformations are then saved
@@ -51,6 +56,8 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMLTransformCommandInput - {@link DeleteMLTransformCommandInput}
+ * @returns {@link DeleteMLTransformCommandOutput}
  * @see {@link DeleteMLTransformCommandInput} for command's `input` shape.
  * @see {@link DeleteMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteMLTransformCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMLTransformCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteMLTransformCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMLTransformCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMLTransformCommandOutput> {
     return deserializeAws_json1_1DeleteMLTransformCommand(output, context);
   }

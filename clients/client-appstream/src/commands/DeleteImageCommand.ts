@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImageCommand}.
  */
 export interface DeleteImageCommandInput extends DeleteImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImageCommand}.
  */
 export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified image. You cannot delete an image when it is in use.
  *             After you delete an image, you cannot provision new capacity using the image.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImageCommandInput - {@link DeleteImageCommandInput}
+ * @returns {@link DeleteImageCommandOutput}
  * @see {@link DeleteImageCommandInput} for command's `input` shape.
  * @see {@link DeleteImageCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageCommandOutput> {
     return deserializeAws_json1_1DeleteImageCommand(output, context);
   }

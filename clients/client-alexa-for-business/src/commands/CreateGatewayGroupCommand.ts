@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGatewayGroupCommand}.
  */
 export interface CreateGatewayGroupCommandInput extends CreateGatewayGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGatewayGroupCommand}.
  */
 export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a gateway group with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGatewayGroupCommandInput - {@link CreateGatewayGroupCommandInput}
+ * @returns {@link CreateGatewayGroupCommandOutput}
  * @see {@link CreateGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateGatewayGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGatewayGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateGatewayGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGatewayGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGatewayGroupCommandOutput> {
     return deserializeAws_json1_1CreateGatewayGroupCommand(output, context);
   }

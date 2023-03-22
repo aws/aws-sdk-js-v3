@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFlywheelCommand}.
  */
 export interface CreateFlywheelCommandInput extends CreateFlywheelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFlywheelCommand}.
  */
 export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A flywheel is an AWS resource that orchestrates the ongoing training of a model for custom classification
  *       or custom entity recognition. You can create a flywheel to start with an existing trained model, or
  *       Comprehend can create and train a new model.</p>
@@ -56,6 +61,8 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFlywheelCommandInput - {@link CreateFlywheelCommandInput}
+ * @returns {@link CreateFlywheelCommandOutput}
  * @see {@link CreateFlywheelCommandInput} for command's `input` shape.
  * @see {@link CreateFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -119,6 +126,9 @@ export class CreateFlywheelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFlywheelCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class CreateFlywheelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFlywheelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFlywheelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlywheelCommandOutput> {
     return deserializeAws_json1_1CreateFlywheelCommand(output, context);
   }

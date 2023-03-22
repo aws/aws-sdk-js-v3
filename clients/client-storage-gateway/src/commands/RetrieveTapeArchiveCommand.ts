@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link RetrieveTapeArchiveCommand}.
  */
 export interface RetrieveTapeArchiveCommandInput extends RetrieveTapeArchiveInput {}
 /**
+ * @public
+ *
  * The output of {@link RetrieveTapeArchiveCommand}.
  */
 export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape gateway.
  *          Virtual tapes archived in the VTS are not associated with any gateway. However after a tape
  *          is retrieved, it is associated with a gateway, even though it is also listed in the VTS,
@@ -53,6 +58,8 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * const response = await client.send(command);
  * ```
  *
+ * @param RetrieveTapeArchiveCommandInput - {@link RetrieveTapeArchiveCommandInput}
+ * @returns {@link RetrieveTapeArchiveCommandOutput}
  * @see {@link RetrieveTapeArchiveCommandInput} for command's `input` shape.
  * @see {@link RetrieveTapeArchiveCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -101,6 +108,9 @@ export class RetrieveTapeArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetrieveTapeArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class RetrieveTapeArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetrieveTapeArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RetrieveTapeArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveTapeArchiveCommandOutput> {
     return deserializeAws_json1_1RetrieveTapeArchiveCommand(output, context);
   }

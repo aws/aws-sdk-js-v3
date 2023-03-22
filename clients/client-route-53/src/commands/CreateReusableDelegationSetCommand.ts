@@ -27,10 +27,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReusableDelegationSetCommand}.
  */
 export interface CreateReusableDelegationSetCommandInput extends CreateReusableDelegationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReusableDelegationSetCommand}.
  */
 export interface CreateReusableDelegationSetCommandOutput
@@ -38,6 +42,7 @@ export interface CreateReusableDelegationSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple
  * 			hosted zones that were created by the same Amazon Web Services account. </p>
  *          <p>You can also create a reusable delegation set that uses the four name servers that are
@@ -106,6 +111,8 @@ export interface CreateReusableDelegationSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReusableDelegationSetCommandInput - {@link CreateReusableDelegationSetCommandInput}
+ * @returns {@link CreateReusableDelegationSetCommandOutput}
  * @see {@link CreateReusableDelegationSetCommandInput} for command's `input` shape.
  * @see {@link CreateReusableDelegationSetCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -156,6 +163,9 @@ export class CreateReusableDelegationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReusableDelegationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,10 +206,16 @@ export class CreateReusableDelegationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReusableDelegationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateReusableDelegationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

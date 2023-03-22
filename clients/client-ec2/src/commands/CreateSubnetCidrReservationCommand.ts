@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubnetCidrReservationCommand}.
  */
 export interface CreateSubnetCidrReservationCommandInput extends CreateSubnetCidrReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubnetCidrReservationCommand}.
  */
 export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCidrReservationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a subnet CIDR reservation. For information about subnet CIDR reservations, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html">Subnet CIDR reservations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCi
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubnetCidrReservationCommandInput - {@link CreateSubnetCidrReservationCommandInput}
+ * @returns {@link CreateSubnetCidrReservationCommandOutput}
  * @see {@link CreateSubnetCidrReservationCommandInput} for command's `input` shape.
  * @see {@link CreateSubnetCidrReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class CreateSubnetCidrReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubnetCidrReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CreateSubnetCidrReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubnetCidrReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateSubnetCidrReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

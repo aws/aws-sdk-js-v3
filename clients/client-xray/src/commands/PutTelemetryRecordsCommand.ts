@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutTelemetryRecordsCommand}.
  */
 export interface PutTelemetryRecordsCommandInput extends PutTelemetryRecordsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutTelemetryRecordsCommand}.
  */
 export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by the Amazon Web Services X-Ray daemon to upload telemetry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param PutTelemetryRecordsCommandInput - {@link PutTelemetryRecordsCommandInput}
+ * @returns {@link PutTelemetryRecordsCommandOutput}
  * @see {@link PutTelemetryRecordsCommandInput} for command's `input` shape.
  * @see {@link PutTelemetryRecordsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +82,9 @@ export class PutTelemetryRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutTelemetryRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class PutTelemetryRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutTelemetryRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutTelemetryRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTelemetryRecordsCommandOutput> {
     return deserializeAws_restJson1PutTelemetryRecordsCommand(output, context);
   }

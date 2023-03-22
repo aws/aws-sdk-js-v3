@@ -27,10 +27,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOpenIdTokenForDeveloperIdentityCommand}.
  */
 export interface GetOpenIdTokenForDeveloperIdentityCommandInput extends GetOpenIdTokenForDeveloperIdentityInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOpenIdTokenForDeveloperIdentityCommand}.
  */
 export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
@@ -38,6 +42,7 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect
  *          token for a user authenticated by your backend authentication process. Supplying multiple
  *          logins will create an implicit linked account. You can only specify one developer provider
@@ -61,6 +66,8 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpenIdTokenForDeveloperIdentityCommandInput - {@link GetOpenIdTokenForDeveloperIdentityCommandInput}
+ * @returns {@link GetOpenIdTokenForDeveloperIdentityCommandOutput}
  * @see {@link GetOpenIdTokenForDeveloperIdentityCommandInput} for command's `input` shape.
  * @see {@link GetOpenIdTokenForDeveloperIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -108,6 +115,9 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpenIdTokenForDeveloperIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,6 +158,9 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetOpenIdTokenForDeveloperIdentityCommandInput,
     context: __SerdeContext
@@ -155,6 +168,9 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
     return serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

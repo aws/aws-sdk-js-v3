@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTopicsDetectionJobCommand}.
  */
 export interface StartTopicsDetectionJobCommandInput extends StartTopicsDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTopicsDetectionJobCommand}.
  */
 export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous topic detection job. Use the
  *         <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTopicsDetectionJobCommandInput - {@link StartTopicsDetectionJobCommandInput}
+ * @returns {@link StartTopicsDetectionJobCommandOutput}
  * @see {@link StartTopicsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartTopicsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -88,6 +95,9 @@ export class StartTopicsDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTopicsDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StartTopicsDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTopicsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartTopicsDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTopicsDetectionJobCommandOutput> {
     return deserializeAws_json1_1StartTopicsDetectionJobCommand(output, context);
   }

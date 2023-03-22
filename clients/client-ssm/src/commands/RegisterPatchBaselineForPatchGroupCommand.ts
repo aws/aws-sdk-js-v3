@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterPatchBaselineForPatchGroupCommand}.
  */
 export interface RegisterPatchBaselineForPatchGroupCommandInput extends RegisterPatchBaselineForPatchGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterPatchBaselineForPatchGroupCommand}.
  */
 export interface RegisterPatchBaselineForPatchGroupCommandOutput
@@ -37,6 +41,7 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a patch baseline for a patch group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterPatchBaselineForPatchGroupCommandInput - {@link RegisterPatchBaselineForPatchGroupCommandInput}
+ * @returns {@link RegisterPatchBaselineForPatchGroupCommandOutput}
  * @see {@link RegisterPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link RegisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -93,6 +100,9 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterPatchBaselineForPatchGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterPatchBaselineForPatchGroupCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
     return serializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationTaskIndividualAssessmentsCommand}.
  */
 export interface DescribeReplicationTaskIndividualAssessmentsCommandInput
   extends DescribeReplicationTaskIndividualAssessmentsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationTaskIndividualAssessmentsCommand}.
  */
 export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of individual assessments based on filter settings.</p>
  *          <p>These filter settings can specify a combination of premigration assessment runs,
  *          migration tasks, and assessment status values.</p>
@@ -55,6 +60,8 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationTaskIndividualAssessmentsCommandInput - {@link DescribeReplicationTaskIndividualAssessmentsCommandInput}
+ * @returns {@link DescribeReplicationTaskIndividualAssessmentsCommandOutput}
  * @see {@link DescribeReplicationTaskIndividualAssessmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskIndividualAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationTaskIndividualAssessmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationTaskIndividualAssessmentsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     return serializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

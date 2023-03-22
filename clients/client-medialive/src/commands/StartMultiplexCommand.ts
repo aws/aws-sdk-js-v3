@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMultiplexCommand}.
  */
 export interface StartMultiplexCommandInput extends StartMultiplexRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMultiplexCommand}.
  */
 export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Start (run) the multiplex. Starting the multiplex does not start the channels. You must explicitly start each channel.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMultiplexCommandInput - {@link StartMultiplexCommandInput}
+ * @returns {@link StartMultiplexCommandOutput}
  * @see {@link StartMultiplexCommandInput} for command's `input` shape.
  * @see {@link StartMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class StartMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class StartMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMultiplexCommandOutput> {
     return deserializeAws_restJson1StartMultiplexCommand(output, context);
   }

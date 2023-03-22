@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KinesisVideoSignalingServiceException as __BaseException } from "./KinesisVideoSignalingServiceException";
 
 /**
+ * @public
  * <p>Your request was throttled because you have exceeded the limit of allowed client
  *             calls. Try making the call later.</p>
  */
@@ -25,10 +26,16 @@ export class ClientLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Service {
   TURN = "TURN",
 }
 
+/**
+ * @public
+ */
 export interface GetIceServerConfigRequest {
   /**
    * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
@@ -54,6 +61,7 @@ export interface GetIceServerConfigRequest {
 }
 
 /**
+ * @public
  * <p>A structure for the ICE server connection data.</p>
  */
 export interface IceServer {
@@ -80,6 +88,9 @@ export interface IceServer {
   Ttl?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetIceServerConfigResponse {
   /**
    * <p>The list of ICE server information objects.</p>
@@ -88,6 +99,7 @@ export interface GetIceServerConfigResponse {
 }
 
 /**
+ * @public
  * <p>The value for this input parameter is invalid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -109,6 +121,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified client is invalid.</p>
  */
 export class InvalidClientException extends __BaseException {
@@ -128,6 +141,7 @@ export class InvalidClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The caller is not authorized to perform this operation.</p>
  */
 export class NotAuthorizedException extends __BaseException {
@@ -149,6 +163,7 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource is not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -170,6 +185,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>If the client session is expired. Once the client is connected, the session is valid
  *             for 45 minutes. Client should reconnect to the channel to continue sending/receiving
  *             messages.</p>
@@ -190,6 +206,9 @@ export class SessionExpiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SendAlexaOfferToMasterRequest {
   /**
    * <p>The ARN of the signaling channel by which Alexa and the master peer
@@ -208,6 +227,9 @@ export interface SendAlexaOfferToMasterRequest {
   MessagePayload: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendAlexaOfferToMasterResponse {
   /**
    * <p>The base64-encoded SDP answer content.</p>

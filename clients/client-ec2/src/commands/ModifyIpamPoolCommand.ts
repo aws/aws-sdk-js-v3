@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ModifyIpamPoolCommand, serializeAws_ec2ModifyIpamPoolCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyIpamPoolCommand}.
  */
 export interface ModifyIpamPoolCommandInput extends ModifyIpamPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyIpamPoolCommand}.
  */
 export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the configurations of an IPAM pool.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -45,6 +50,8 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyIpamPoolCommandInput - {@link ModifyIpamPoolCommandInput}
+ * @returns {@link ModifyIpamPoolCommandOutput}
  * @see {@link ModifyIpamPoolCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class ModifyIpamPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyIpamPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class ModifyIpamPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyIpamPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyIpamPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIpamPoolCommandOutput> {
     return deserializeAws_ec2ModifyIpamPoolCommand(output, context);
   }

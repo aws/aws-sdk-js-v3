@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SFNServiceException as __BaseException } from "./SFNServiceException";
 
 /**
+ * @public
  * <p>The specified activity does not exist.</p>
  */
 export class ActivityDoesNotExist extends __BaseException {
@@ -23,6 +24,7 @@ export class ActivityDoesNotExist extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains details about an activity that failed during an execution.</p>
  */
 export interface ActivityFailedEventDetails {
@@ -38,6 +40,7 @@ export interface ActivityFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>The maximum number of activities has been reached. Existing activities must be deleted
  *       before a new activity can be created.</p>
  */
@@ -58,6 +61,7 @@ export class ActivityLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains details about an activity.</p>
  */
 export interface ActivityListItem {
@@ -74,7 +78,7 @@ export interface ActivityListItem {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -100,6 +104,7 @@ export interface ActivityListItem {
 }
 
 /**
+ * @public
  * <p>Provides details about input or output in an execution history event.</p>
  */
 export interface HistoryEventExecutionDataDetails {
@@ -111,6 +116,7 @@ export interface HistoryEventExecutionDataDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about an activity scheduled during an execution.</p>
  */
 export interface ActivityScheduledEventDetails {
@@ -141,6 +147,7 @@ export interface ActivityScheduledEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about an activity schedule failure that occurred during an
  *       execution.</p>
  */
@@ -157,6 +164,7 @@ export interface ActivityScheduleFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the start of an activity during an execution.</p>
  */
 export interface ActivityStartedEventDetails {
@@ -168,6 +176,7 @@ export interface ActivityStartedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about an activity that successfully terminated during an
  *       execution.</p>
  */
@@ -184,6 +193,7 @@ export interface ActivitySucceededEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about an activity timeout that occurred during an execution.</p>
  */
 export interface ActivityTimedOutEventDetails {
@@ -199,6 +209,7 @@ export interface ActivityTimedOutEventDetails {
 }
 
 /**
+ * @public
  * <p>The maximum number of workers concurrently polling for activity tasks has been
  *       reached.</p>
  */
@@ -219,6 +230,7 @@ export class ActivityWorkerLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Tags are key-value pairs that can be associated with Step Functions state machines and
  *       activities.</p>
  *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
@@ -239,6 +251,9 @@ export interface Tag {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateActivityInput {
   /**
    * <p>The name of the activity to create. This name must be unique for your Amazon Web Services account and region for 90 days. For more information,
@@ -250,7 +265,7 @@ export interface CreateActivityInput {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -280,6 +295,9 @@ export interface CreateActivityInput {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateActivityOutput {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the created activity.</p>
@@ -293,6 +311,7 @@ export interface CreateActivityOutput {
 }
 
 /**
+ * @public
  * <p>The provided name is not valid.</p>
  */
 export class InvalidName extends __BaseException {
@@ -312,6 +331,7 @@ export class InvalidName extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
  *       Step Functions Developer Guide.</p>
  */
@@ -334,6 +354,7 @@ export class TooManyTags extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CloudWatchLogsLogGroup {
@@ -346,6 +367,7 @@ export interface CloudWatchLogsLogGroup {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface LogDestination {
@@ -355,6 +377,9 @@ export interface LogDestination {
   cloudWatchLogsLogGroup?: CloudWatchLogsLogGroup;
 }
 
+/**
+ * @public
+ */
 export enum LogLevel {
   ALL = "ALL",
   ERROR = "ERROR",
@@ -363,6 +388,7 @@ export enum LogLevel {
 }
 
 /**
+ * @public
  * <p>The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs
  *       options.</p>
  */
@@ -386,6 +412,7 @@ export interface LoggingConfiguration {
 }
 
 /**
+ * @public
  * <p>Selects whether or not the state machine's X-Ray tracing is enabled. Default is
  *         <code>false</code>
  *          </p>
@@ -397,11 +424,17 @@ export interface TracingConfiguration {
   enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum StateMachineType {
   EXPRESS = "EXPRESS",
   STANDARD = "STANDARD",
 }
 
+/**
+ * @public
+ */
 export interface CreateStateMachineInput {
   /**
    * <p>The name of the state machine. </p>
@@ -411,7 +444,7 @@ export interface CreateStateMachineInput {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -473,6 +506,9 @@ export interface CreateStateMachineInput {
   tracingConfiguration?: TracingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateStateMachineOutput {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the created state machine.</p>
@@ -486,6 +522,7 @@ export interface CreateStateMachineOutput {
 }
 
 /**
+ * @public
  * <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  */
 export class InvalidArn extends __BaseException {
@@ -505,6 +542,7 @@ export class InvalidArn extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided Amazon States Language definition is not valid.</p>
  */
 export class InvalidDefinition extends __BaseException {
@@ -524,6 +562,7 @@ export class InvalidDefinition extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidLoggingConfiguration extends __BaseException {
@@ -543,6 +582,7 @@ export class InvalidLoggingConfiguration extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
  *       been set to <code>true</code> or <code>false</code>.</p>
  */
@@ -563,6 +603,7 @@ export class InvalidTracingConfiguration extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A state machine with the same name but a different definition or role ARN already
  *       exists.</p>
  */
@@ -583,6 +624,7 @@ export class StateMachineAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified state machine is being deleted.</p>
  */
 export class StateMachineDeleting extends __BaseException {
@@ -602,6 +644,7 @@ export class StateMachineDeleting extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of state machines has been reached. Existing state machines must be
  *       deleted before a new state machine can be created.</p>
  */
@@ -622,6 +665,7 @@ export class StateMachineLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class StateMachineTypeNotSupported extends __BaseException {
@@ -640,6 +684,9 @@ export class StateMachineTypeNotSupported extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteActivityInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the activity to delete.</p>
@@ -647,8 +694,14 @@ export interface DeleteActivityInput {
   activityArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteActivityOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteStateMachineInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine to delete.</p>
@@ -656,8 +709,14 @@ export interface DeleteStateMachineInput {
   stateMachineArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStateMachineOutput {}
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   API_DOES_NOT_SUPPORT_LABELED_ARNS = "API_DOES_NOT_SUPPORT_LABELED_ARNS",
   CANNOT_UPDATE_COMPLETED_MAP_RUN = "CANNOT_UPDATE_COMPLETED_MAP_RUN",
@@ -665,6 +724,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -689,6 +749,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeActivityInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the activity to describe.</p>
@@ -696,6 +759,9 @@ export interface DescribeActivityInput {
   activityArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActivityOutput {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
@@ -710,7 +776,7 @@ export interface DescribeActivityOutput {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -735,6 +801,9 @@ export interface DescribeActivityOutput {
   creationDate: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExecutionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the execution to describe.</p>
@@ -743,6 +812,7 @@ export interface DescribeExecutionInput {
 }
 
 /**
+ * @public
  * <p>Provides details about execution input or output.</p>
  */
 export interface CloudWatchEventsExecutionDataDetails {
@@ -753,6 +823,9 @@ export interface CloudWatchEventsExecutionDataDetails {
   included?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ExecutionStatus {
   ABORTED = "ABORTED",
   FAILED = "FAILED",
@@ -761,6 +834,9 @@ export enum ExecutionStatus {
   TIMED_OUT = "TIMED_OUT",
 }
 
+/**
+ * @public
+ */
 export interface DescribeExecutionOutput {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
@@ -780,7 +856,7 @@ export interface DescribeExecutionOutput {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -860,6 +936,7 @@ export interface DescribeExecutionOutput {
 }
 
 /**
+ * @public
  * <p>The specified execution does not exist.</p>
  */
 export class ExecutionDoesNotExist extends __BaseException {
@@ -878,6 +955,9 @@ export class ExecutionDoesNotExist extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeMapRunInput {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>
@@ -886,6 +966,7 @@ export interface DescribeMapRunInput {
 }
 
 /**
+ * @public
  * <p>Contains details about all of the child workflow executions started by a Map Run.</p>
  */
 export interface MapRunExecutionCounts {
@@ -931,6 +1012,7 @@ export interface MapRunExecutionCounts {
 }
 
 /**
+ * @public
  * <p>Contains details about items that were processed in all of the child workflow executions that were started by a Map Run.</p>
  */
 export interface MapRunItemCounts {
@@ -975,6 +1057,9 @@ export interface MapRunItemCounts {
   resultsWritten: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MapRunStatus {
   ABORTED = "ABORTED",
   FAILED = "FAILED",
@@ -982,6 +1067,9 @@ export enum MapRunStatus {
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface DescribeMapRunOutput {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>
@@ -1035,6 +1123,7 @@ export interface DescribeMapRunOutput {
 }
 
 /**
+ * @public
  * <p>Could not find the referenced resource. Only state machine and activity ARNs are
  *       supported.</p>
  */
@@ -1056,6 +1145,9 @@ export class ResourceNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeStateMachineInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine to describe.</p>
@@ -1063,11 +1155,17 @@ export interface DescribeStateMachineInput {
   stateMachineArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StateMachineStatus {
   ACTIVE = "ACTIVE",
   DELETING = "DELETING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeStateMachineOutput {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the state machine.</p>
@@ -1082,7 +1180,7 @@ export interface DescribeStateMachineOutput {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1146,6 +1244,7 @@ export interface DescribeStateMachineOutput {
 }
 
 /**
+ * @public
  * <p>The specified state machine does not exist.</p>
  */
 export class StateMachineDoesNotExist extends __BaseException {
@@ -1164,6 +1263,9 @@ export class StateMachineDoesNotExist extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeStateMachineForExecutionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the execution you want state machine information for.</p>
@@ -1171,6 +1273,9 @@ export interface DescribeStateMachineForExecutionInput {
   executionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStateMachineForExecutionOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine associated with the execution.</p>
@@ -1220,6 +1325,9 @@ export interface DescribeStateMachineForExecutionOutput {
   label?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetActivityTaskInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task
@@ -1234,6 +1342,9 @@ export interface GetActivityTaskInput {
   workerName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetActivityTaskOutput {
   /**
    * <p>A token that identifies the scheduled task. This token must be copied and included in
@@ -1249,6 +1360,9 @@ export interface GetActivityTaskOutput {
   input?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetExecutionHistoryInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the execution.</p>
@@ -1281,6 +1395,7 @@ export interface GetExecutionHistoryInput {
 }
 
 /**
+ * @public
  * <p>Contains details about an abort of an execution.</p>
  */
 export interface ExecutionAbortedEventDetails {
@@ -1296,6 +1411,7 @@ export interface ExecutionAbortedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about an execution failure event.</p>
  */
 export interface ExecutionFailedEventDetails {
@@ -1311,6 +1427,7 @@ export interface ExecutionFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the start of the execution.</p>
  */
 export interface ExecutionStartedEventDetails {
@@ -1331,6 +1448,7 @@ export interface ExecutionStartedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the successful termination of the execution.</p>
  */
 export interface ExecutionSucceededEventDetails {
@@ -1346,6 +1464,7 @@ export interface ExecutionSucceededEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the execution timeout that occurred during the execution.</p>
  */
 export interface ExecutionTimedOutEventDetails {
@@ -1361,6 +1480,7 @@ export interface ExecutionTimedOutEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a Lambda function that failed during an execution.</p>
  */
 export interface LambdaFunctionFailedEventDetails {
@@ -1376,6 +1496,7 @@ export interface LambdaFunctionFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the credentials that Step Functions uses for a task.</p>
  */
 export interface TaskCredentials {
@@ -1386,6 +1507,7 @@ export interface TaskCredentials {
 }
 
 /**
+ * @public
  * <p>Contains details about a Lambda function scheduled during an execution.</p>
  */
 export interface LambdaFunctionScheduledEventDetails {
@@ -1416,6 +1538,7 @@ export interface LambdaFunctionScheduledEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a failed Lambda function schedule event that occurred during an
  *       execution.</p>
  */
@@ -1432,6 +1555,7 @@ export interface LambdaFunctionScheduleFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a lambda function that failed to start during an execution.</p>
  */
 export interface LambdaFunctionStartFailedEventDetails {
@@ -1447,6 +1571,7 @@ export interface LambdaFunctionStartFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a Lambda function that successfully terminated during an
  *       execution.</p>
  */
@@ -1463,6 +1588,7 @@ export interface LambdaFunctionSucceededEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a Lambda function timeout that occurred during an execution.</p>
  */
 export interface LambdaFunctionTimedOutEventDetails {
@@ -1478,6 +1604,7 @@ export interface LambdaFunctionTimedOutEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about an iteration of a Map state.</p>
  */
 export interface MapIterationEventDetails {
@@ -1493,6 +1620,7 @@ export interface MapIterationEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a Map Run failure event that occurred during a state machine execution.</p>
  */
 export interface MapRunFailedEventDetails {
@@ -1508,6 +1636,7 @@ export interface MapRunFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a Map Run that was started during a state machine execution.</p>
  */
 export interface MapRunStartedEventDetails {
@@ -1518,6 +1647,7 @@ export interface MapRunStartedEventDetails {
 }
 
 /**
+ * @public
  * <p>Details about a Map state that was started.</p>
  */
 export interface MapStateStartedEventDetails {
@@ -1528,6 +1658,7 @@ export interface MapStateStartedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a state entered during an execution.</p>
  */
 export interface StateEnteredEventDetails {
@@ -1548,6 +1679,7 @@ export interface StateEnteredEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about an exit from a state during an execution.</p>
  */
 export interface StateExitedEventDetails {
@@ -1559,7 +1691,7 @@ export interface StateExitedEventDetails {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1590,6 +1722,7 @@ export interface StateExitedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a task failure event.</p>
  */
 export interface TaskFailedEventDetails {
@@ -1615,6 +1748,7 @@ export interface TaskFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a task scheduled during an execution.</p>
  */
 export interface TaskScheduledEventDetails {
@@ -1656,6 +1790,7 @@ export interface TaskScheduledEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the start of a task during an execution.</p>
  */
 export interface TaskStartedEventDetails {
@@ -1671,6 +1806,7 @@ export interface TaskStartedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a task that failed to start during an execution.</p>
  */
 export interface TaskStartFailedEventDetails {
@@ -1696,6 +1832,7 @@ export interface TaskStartFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a task that failed to submit during an execution.</p>
  */
 export interface TaskSubmitFailedEventDetails {
@@ -1721,6 +1858,7 @@ export interface TaskSubmitFailedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a task submitted to a resource .</p>
  */
 export interface TaskSubmittedEventDetails {
@@ -1746,6 +1884,7 @@ export interface TaskSubmittedEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the successful completion of a task state.</p>
  */
 export interface TaskSucceededEventDetails {
@@ -1772,6 +1911,7 @@ export interface TaskSucceededEventDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about a resource timeout that occurred during an execution.</p>
  */
 export interface TaskTimedOutEventDetails {
@@ -1796,6 +1936,9 @@ export interface TaskTimedOutEventDetails {
   cause?: string;
 }
 
+/**
+ * @public
+ */
 export enum HistoryEventType {
   ActivityFailed = "ActivityFailed",
   ActivityScheduleFailed = "ActivityScheduleFailed",
@@ -1859,6 +2002,7 @@ export enum HistoryEventType {
 }
 
 /**
+ * @public
  * <p>Contains details about the events of an execution.</p>
  */
 export interface HistoryEvent {
@@ -2056,6 +2200,9 @@ export interface HistoryEvent {
   mapRunFailedEventDetails?: MapRunFailedEventDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetExecutionHistoryOutput {
   /**
    * <p>The list of events that occurred in the execution.</p>
@@ -2070,6 +2217,7 @@ export interface GetExecutionHistoryOutput {
 }
 
 /**
+ * @public
  * <p>The provided token is not valid.</p>
  */
 export class InvalidToken extends __BaseException {
@@ -2088,6 +2236,9 @@ export class InvalidToken extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListActivitiesInput {
   /**
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
@@ -2103,6 +2254,9 @@ export interface ListActivitiesInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListActivitiesOutput {
   /**
    * <p>The list of activities.</p>
@@ -2116,6 +2270,9 @@ export interface ListActivitiesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExecutionsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</p>
@@ -2150,6 +2307,7 @@ export interface ListExecutionsInput {
 }
 
 /**
+ * @public
  * <p>Contains details about an execution.</p>
  */
 export interface ExecutionListItem {
@@ -2171,7 +2329,7 @@ export interface ExecutionListItem {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2216,6 +2374,9 @@ export interface ExecutionListItem {
   itemCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListExecutionsOutput {
   /**
    * <p>The list of matching executions.</p>
@@ -2229,6 +2390,9 @@ export interface ListExecutionsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMapRunsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the execution for which the Map Runs must be listed.</p>
@@ -2250,6 +2414,7 @@ export interface ListMapRunsInput {
 }
 
 /**
+ * @public
  * <p>Contains details about a specific Map Run.</p>
  */
 export interface MapRunListItem {
@@ -2279,6 +2444,9 @@ export interface MapRunListItem {
   stopDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListMapRunsOutput {
   /**
    * <p>An array that lists information related to a Map Run, such as the Amazon Resource Name (ARN) of the Map Run and the ARN of the state machine that started the Map Run.</p>
@@ -2292,6 +2460,9 @@ export interface ListMapRunsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStateMachinesInput {
   /**
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
@@ -2308,6 +2479,7 @@ export interface ListStateMachinesInput {
 }
 
 /**
+ * @public
  * <p>Contains details about the state machine.</p>
  */
 export interface StateMachineListItem {
@@ -2324,7 +2496,7 @@ export interface StateMachineListItem {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2354,6 +2526,9 @@ export interface StateMachineListItem {
   creationDate: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListStateMachinesOutput {
   stateMachines: StateMachineListItem[] | undefined;
   /**
@@ -2363,6 +2538,9 @@ export interface ListStateMachinesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
@@ -2370,6 +2548,9 @@ export interface ListTagsForResourceInput {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>An array of tags associated with the resource.</p>
@@ -2377,6 +2558,9 @@ export interface ListTagsForResourceOutput {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface SendTaskFailureInput {
   /**
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
@@ -2396,8 +2580,14 @@ export interface SendTaskFailureInput {
   cause?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendTaskFailureOutput {}
 
+/**
+ * @public
+ */
 export class TaskDoesNotExist extends __BaseException {
   readonly name: "TaskDoesNotExist" = "TaskDoesNotExist";
   readonly $fault: "client" = "client";
@@ -2414,6 +2604,9 @@ export class TaskDoesNotExist extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class TaskTimedOut extends __BaseException {
   readonly name: "TaskTimedOut" = "TaskTimedOut";
   readonly $fault: "client" = "client";
@@ -2430,6 +2623,9 @@ export class TaskTimedOut extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SendTaskHeartbeatInput {
   /**
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
@@ -2439,9 +2635,13 @@ export interface SendTaskHeartbeatInput {
   taskToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendTaskHeartbeatOutput {}
 
 /**
+ * @public
  * <p>The provided JSON output data is not valid.</p>
  */
 export class InvalidOutput extends __BaseException {
@@ -2460,6 +2660,9 @@ export class InvalidOutput extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SendTaskSuccessInput {
   /**
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
@@ -2474,9 +2677,13 @@ export interface SendTaskSuccessInput {
   output: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendTaskSuccessOutput {}
 
 /**
+ * @public
  * <p>The execution has the same <code>name</code> as another execution (but a different
  *         <code>input</code>).</p>
  *          <note>
@@ -2501,6 +2708,7 @@ export class ExecutionAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of running executions has been reached. Running executions must end or
  *       be stopped before a new execution can be started.</p>
  */
@@ -2521,6 +2729,7 @@ export class ExecutionLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided JSON input data is not valid.</p>
  */
 export class InvalidExecutionInput extends __BaseException {
@@ -2539,6 +2748,9 @@ export class InvalidExecutionInput extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartExecutionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine to execute.</p>
@@ -2555,7 +2767,7 @@ export interface StartExecutionInput {
    *                <p>white space</p>
    *             </li>
    *             <li>
-   *                <p>brackets <code>< > { } [ ]</code>
+   *                <p>brackets <code>< > \{ \} [ ]</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2577,55 +2789,11 @@ export interface StartExecutionInput {
   /**
    * <p>The string that contains the JSON input data for the execution, for example:</p>
    *          <p>
-   *             <code>"input": "{\"first_name\" : \"test\"}"</code>
+   *             <code>"input": "\{\"first_name\" : \"test\"\}"</code>
    *          </p>
    *          <note>
    *             <p>If you don't include any JSON input data, you still must include the two braces, for
-   *         example: <code>"input": "{}"</code>
-   *             </p>
-   *          </note>
-   *          <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
-   */
-  input?: string;
-
-  /**
-   * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
-   *       payload.</p>
-   */
-  traceHeader?: string;
-}
-
-export interface StartExecutionOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
-   */
-  executionArn: string | undefined;
-
-  /**
-   * <p>The date the execution is started.</p>
-   */
-  startDate: Date | undefined;
-}
-
-export interface StartSyncExecutionInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the state machine to execute.</p>
-   */
-  stateMachineArn: string | undefined;
-
-  /**
-   * <p>The name of the execution.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The string that contains the JSON input data for the execution, for example:</p>
-   *          <p>
-   *             <code>"input": "{\"first_name\" : \"test\"}"</code>
-   *          </p>
-   *          <note>
-   *             <p>If you don't include any JSON input data, you still must include the two braces, for
-   *         example: <code>"input": "{}"</code>
+   *         example: <code>"input": "\{\}"</code>
    *             </p>
    *          </note>
    *          <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
@@ -2640,6 +2808,57 @@ export interface StartSyncExecutionInput {
 }
 
 /**
+ * @public
+ */
+export interface StartExecutionOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
+   */
+  executionArn: string | undefined;
+
+  /**
+   * <p>The date the execution is started.</p>
+   */
+  startDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSyncExecutionInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine to execute.</p>
+   */
+  stateMachineArn: string | undefined;
+
+  /**
+   * <p>The name of the execution.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The string that contains the JSON input data for the execution, for example:</p>
+   *          <p>
+   *             <code>"input": "\{\"first_name\" : \"test\"\}"</code>
+   *          </p>
+   *          <note>
+   *             <p>If you don't include any JSON input data, you still must include the two braces, for
+   *         example: <code>"input": "\{\}"</code>
+   *             </p>
+   *          </note>
+   *          <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
+   */
+  input?: string;
+
+  /**
+   * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
+   *       payload.</p>
+   */
+  traceHeader?: string;
+}
+
+/**
+ * @public
  * <p>An object that describes workflow billing details.</p>
  */
 export interface BillingDetails {
@@ -2654,12 +2873,18 @@ export interface BillingDetails {
   billedDurationInMilliseconds?: number;
 }
 
+/**
+ * @public
+ */
 export enum SyncExecutionStatus {
   FAILED = "FAILED",
   SUCCEEDED = "SUCCEEDED",
   TIMED_OUT = "TIMED_OUT",
 }
 
+/**
+ * @public
+ */
 export interface StartSyncExecutionOutput {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
@@ -2737,6 +2962,9 @@ export interface StartSyncExecutionOutput {
   billingDetails?: BillingDetails;
 }
 
+/**
+ * @public
+ */
 export interface StopExecutionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the execution to stop.</p>
@@ -2754,6 +2982,9 @@ export interface StopExecutionInput {
   cause?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopExecutionOutput {
   /**
    * <p>The date the execution is stopped.</p>
@@ -2761,6 +2992,9 @@ export interface StopExecutionOutput {
   stopDate: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
@@ -2774,8 +3008,14 @@ export interface TagResourceInput {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
@@ -2788,8 +3028,14 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateMapRunInput {
   /**
    * <p>The Amazon Resource Name (ARN) of a Map Run.</p>
@@ -2812,9 +3058,13 @@ export interface UpdateMapRunInput {
   toleratedFailureCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMapRunOutput {}
 
 /**
+ * @public
  * <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
  *       and <code>roleArn</code> are not specified.</p>
  */
@@ -2834,6 +3084,9 @@ export class MissingRequiredParameter extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateStateMachineInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine.</p>
@@ -2862,6 +3115,9 @@ export interface UpdateStateMachineInput {
   tracingConfiguration?: TracingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStateMachineOutput {
   /**
    * <p>The date and time the state machine was updated.</p>

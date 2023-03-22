@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAwsAccountWithPartnerAccountCommand}.
  */
 export interface AssociateAwsAccountWithPartnerAccountCommandInput
   extends AssociateAwsAccountWithPartnerAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAwsAccountWithPartnerAccountCommand}.
  */
 export interface AssociateAwsAccountWithPartnerAccountCommandOutput
@@ -38,6 +42,7 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a partner account with your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAwsAccountWithPartnerAccountCommandInput - {@link AssociateAwsAccountWithPartnerAccountCommandInput}
+ * @returns {@link AssociateAwsAccountWithPartnerAccountCommandOutput}
  * @see {@link AssociateAwsAccountWithPartnerAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateAwsAccountWithPartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -90,6 +97,9 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAwsAccountWithPartnerAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateAwsAccountWithPartnerAccountCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
     return serializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

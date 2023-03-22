@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSolNetworkInstanceCommand}.
  */
 export interface CreateSolNetworkInstanceCommandInput extends CreateSolNetworkInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSolNetworkInstanceCommand}.
  */
 export interface CreateSolNetworkInstanceCommandOutput extends CreateSolNetworkInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed. Creating a network instance is the third step after creating a network package. For more information about network instances, <a href="https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.</p>
  *          <p>Once you create a network instance, you can instantiate it. To instantiate a network, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html">InstantiateSolNetworkInstance</a>.</p>
@@ -48,6 +53,8 @@ export interface CreateSolNetworkInstanceCommandOutput extends CreateSolNetworkI
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSolNetworkInstanceCommandInput - {@link CreateSolNetworkInstanceCommandInput}
+ * @returns {@link CreateSolNetworkInstanceCommandOutput}
  * @see {@link CreateSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateSolNetworkInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSolNetworkInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateSolNetworkInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSolNetworkInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSolNetworkInstanceCommandOutput> {
     return deserializeAws_restJson1CreateSolNetworkInstanceCommand(output, context);
   }

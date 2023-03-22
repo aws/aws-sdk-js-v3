@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVcenterClientsCommand}.
  */
 export interface DescribeVcenterClientsCommandInput extends DescribeVcenterClientsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVcenterClientsCommand}.
  */
 export interface DescribeVcenterClientsCommandOutput extends DescribeVcenterClientsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the installed vCenter clients.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeVcenterClientsCommandOutput extends DescribeVcenterClie
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVcenterClientsCommandInput - {@link DescribeVcenterClientsCommandInput}
+ * @returns {@link DescribeVcenterClientsCommandOutput}
  * @see {@link DescribeVcenterClientsCommandInput} for command's `input` shape.
  * @see {@link DescribeVcenterClientsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeVcenterClientsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVcenterClientsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeVcenterClientsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVcenterClientsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVcenterClientsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVcenterClientsCommandOutput> {
     return deserializeAws_restJson1DescribeVcenterClientsCommand(output, context);
   }

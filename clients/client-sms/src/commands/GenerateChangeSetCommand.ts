@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateChangeSetCommand}.
  */
 export interface GenerateChangeSetCommandInput extends GenerateChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateChangeSetCommand}.
  */
 export interface GenerateChangeSetCommandOutput extends GenerateChangeSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a target change set for a currently launched stack and writes it to an Amazon S3
  *             object in the customer’s Amazon S3 bucket.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateChangeSetCommandInput - {@link GenerateChangeSetCommandInput}
+ * @returns {@link GenerateChangeSetCommandOutput}
  * @see {@link GenerateChangeSetCommandInput} for command's `input` shape.
  * @see {@link GenerateChangeSetCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -86,6 +93,9 @@ export class GenerateChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GenerateChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateChangeSetCommandOutput> {
     return deserializeAws_json1_1GenerateChangeSetCommand(output, context);
   }

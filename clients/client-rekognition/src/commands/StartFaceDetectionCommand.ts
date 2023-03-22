@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartFaceDetectionCommand}.
  */
 export interface StartFaceDetectionCommandInput extends StartFaceDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFaceDetectionCommand}.
  */
 export interface StartFaceDetectionCommandOutput extends StartFaceDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous detection of faces in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect faces in a video stored in an Amazon S3 bucket.
  *        Use <a>Video</a> to specify the bucket name and the filename of the video.
@@ -57,6 +62,8 @@ export interface StartFaceDetectionCommandOutput extends StartFaceDetectionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFaceDetectionCommandInput - {@link StartFaceDetectionCommandInput}
+ * @returns {@link StartFaceDetectionCommandOutput}
  * @see {@link StartFaceDetectionCommandInput} for command's `input` shape.
  * @see {@link StartFaceDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -113,6 +120,9 @@ export class StartFaceDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFaceDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class StartFaceDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFaceDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartFaceDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFaceDetectionCommandOutput> {
     return deserializeAws_json1_1StartFaceDetectionCommand(output, context);
   }

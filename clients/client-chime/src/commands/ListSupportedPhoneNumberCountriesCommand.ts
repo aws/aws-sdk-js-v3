@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSupportedPhoneNumberCountriesCommand}.
  */
 export interface ListSupportedPhoneNumberCountriesCommandInput extends ListSupportedPhoneNumberCountriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSupportedPhoneNumberCountriesCommand}.
  */
 export interface ListSupportedPhoneNumberCountriesCommandOutput
@@ -37,6 +41,7 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists supported phone number countries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSupportedPhoneNumberCountriesCommandInput - {@link ListSupportedPhoneNumberCountriesCommandInput}
+ * @returns {@link ListSupportedPhoneNumberCountriesCommandOutput}
  * @see {@link ListSupportedPhoneNumberCountriesCommandInput} for command's `input` shape.
  * @see {@link ListSupportedPhoneNumberCountriesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSupportedPhoneNumberCountriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSupportedPhoneNumberCountriesCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     return serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

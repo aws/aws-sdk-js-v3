@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketCommand}.
  */
 export interface DeleteBucketCommandInput extends DeleteBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketCommand}.
  */
 export interface DeleteBucketCommandOutput extends DeleteBucketResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Amazon Lightsail bucket.</p>
  *          <note>
  *             <p>When you delete your bucket, the bucket name is released and can be reused for a new
@@ -50,6 +55,8 @@ export interface DeleteBucketCommandOutput extends DeleteBucketResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketCommandInput - {@link DeleteBucketCommandInput}
+ * @returns {@link DeleteBucketCommandOutput}
  * @see {@link DeleteBucketCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketCommandOutput> {
     return deserializeAws_json1_1DeleteBucketCommand(output, context);
   }

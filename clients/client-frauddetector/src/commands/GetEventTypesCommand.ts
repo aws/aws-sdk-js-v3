@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventTypesCommand}.
  */
 export interface GetEventTypesCommandInput extends GetEventTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventTypesCommand}.
  */
 export interface GetEventTypesCommandOutput extends GetEventTypesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all event types or a specific event type if name is provided. This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
  *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
@@ -51,6 +56,8 @@ export interface GetEventTypesCommandOutput extends GetEventTypesResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventTypesCommandInput - {@link GetEventTypesCommandInput}
+ * @returns {@link GetEventTypesCommandOutput}
  * @see {@link GetEventTypesCommandInput} for command's `input` shape.
  * @see {@link GetEventTypesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetEventTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetEventTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEventTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventTypesCommandOutput> {
     return deserializeAws_json1_1GetEventTypesCommand(output, context);
   }

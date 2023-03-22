@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationSetCommand}.
  */
 export interface DescribeConfigurationSetCommandInput extends DescribeConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationSetCommand}.
  */
 export interface DescribeConfigurationSetCommandOutput extends DescribeConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of the specified configuration set. For information about using
  *             configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -49,6 +54,8 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationSetCommandInput - {@link DescribeConfigurationSetCommandInput}
+ * @returns {@link DescribeConfigurationSetCommandOutput}
  * @see {@link DescribeConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigurationSetCommandOutput> {
     return deserializeAws_queryDescribeConfigurationSetCommand(output, context);
   }

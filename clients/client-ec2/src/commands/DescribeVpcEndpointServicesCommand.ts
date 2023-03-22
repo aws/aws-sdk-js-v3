@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointServicesCommand}.
  */
 export interface DescribeVpcEndpointServicesCommandInput extends DescribeVpcEndpointServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointServicesCommand}.
  */
 export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEndpointServicesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes available services to which you can create a VPC endpoint.</p>
  *          <p>When the service provider and the consumer have different accounts in multiple
  *             Availability Zones, and the consumer views the VPC endpoint service information, the
@@ -53,6 +58,8 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointServicesCommandInput - {@link DescribeVpcEndpointServicesCommandInput}
+ * @returns {@link DescribeVpcEndpointServicesCommandOutput}
  * @see {@link DescribeVpcEndpointServicesCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointServicesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeVpcEndpointServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeVpcEndpointServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcEndpointServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpcEndpointServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

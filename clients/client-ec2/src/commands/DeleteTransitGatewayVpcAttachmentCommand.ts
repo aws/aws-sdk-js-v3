@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTransitGatewayVpcAttachmentCommand}.
  */
 export interface DeleteTransitGatewayVpcAttachmentCommandInput extends DeleteTransitGatewayVpcAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTransitGatewayVpcAttachmentCommand}.
  */
 export interface DeleteTransitGatewayVpcAttachmentCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteTransitGatewayVpcAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPC attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteTransitGatewayVpcAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayVpcAttachmentCommandInput - {@link DeleteTransitGatewayVpcAttachmentCommandInput}
+ * @returns {@link DeleteTransitGatewayVpcAttachmentCommandOutput}
  * @see {@link DeleteTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     return serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociatePrincipalFromPortfolioCommand}.
  */
 export interface DisassociatePrincipalFromPortfolioCommandInput extends DisassociatePrincipalFromPortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociatePrincipalFromPortfolioCommand}.
  */
 export interface DisassociatePrincipalFromPortfolioCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a previously associated principal ARN from a specified
  *          portfolio.</p>
  *          <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the
@@ -56,6 +61,8 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePrincipalFromPortfolioCommandInput - {@link DisassociatePrincipalFromPortfolioCommandInput}
+ * @returns {@link DisassociatePrincipalFromPortfolioCommandOutput}
  * @see {@link DisassociatePrincipalFromPortfolioCommandInput} for command's `input` shape.
  * @see {@link DisassociatePrincipalFromPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -85,6 +92,9 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePrincipalFromPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociatePrincipalFromPortfolioCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     return serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

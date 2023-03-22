@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptPageCommand}.
  */
 export interface AcceptPageCommandInput extends AcceptPageRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptPageCommand}.
  */
 export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to acknowledge an engagement to a contact channel during an incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptPageCommandInput - {@link AcceptPageCommandInput}
+ * @returns {@link AcceptPageCommandOutput}
  * @see {@link AcceptPageCommandInput} for command's `input` shape.
  * @see {@link AcceptPageCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -99,6 +106,9 @@ export class AcceptPageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptPageCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class AcceptPageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptPageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptPageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptPageCommandOutput> {
     return deserializeAws_json1_1AcceptPageCommand(output, context);
   }

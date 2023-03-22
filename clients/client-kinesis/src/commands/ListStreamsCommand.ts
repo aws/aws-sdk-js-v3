@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandInput extends ListStreamsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your Kinesis data streams.</p>
  *          <p>The number of streams may be too large to return from a single call to
  *                 <code>ListStreams</code>. You can limit the number of returned streams using the
@@ -61,6 +66,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
+ * @returns {@link ListStreamsCommandOutput}
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamsCommandOutput> {
     return deserializeAws_json1_1ListStreamsCommand(output, context);
   }

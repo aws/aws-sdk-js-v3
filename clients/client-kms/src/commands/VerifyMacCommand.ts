@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1VerifyMacCommand, serializeAws_json1_1VerifyMacCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyMacCommand}.
  */
 export interface VerifyMacCommandInput extends VerifyMacRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyMacCommand}.
  */
 export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verifies the hash-based message authentication code (HMAC) for a specified message, HMAC
  *       KMS key, and MAC algorithm. To verify the HMAC, <code>VerifyMac</code> computes an HMAC using
  *       the message, HMAC KMS key, and MAC algorithm that you specify, and compares the computed HMAC
@@ -63,6 +68,8 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyMacCommandInput - {@link VerifyMacCommandInput}
+ * @returns {@link VerifyMacCommandOutput}
  * @see {@link VerifyMacCommandInput} for command's `input` shape.
  * @see {@link VerifyMacCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -165,6 +172,9 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyMacCommandInput) {
     // Start section: command_constructor
     super();
@@ -202,10 +212,16 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyMacCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1VerifyMacCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyMacCommandOutput> {
     return deserializeAws_json1_1VerifyMacCommand(output, context);
   }

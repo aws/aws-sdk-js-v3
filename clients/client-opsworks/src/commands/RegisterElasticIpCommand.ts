@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterElasticIpCommand}.
  */
 export interface RegisterElasticIpCommandInput extends RegisterElasticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterElasticIpCommand}.
  */
 export interface RegisterElasticIpCommandOutput extends RegisterElasticIpResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an Elastic IP address with a specified stack. An address can be registered with
  *       only one stack at a time. If the address is already registered, you must first deregister it
  *       by calling <a>DeregisterElasticIp</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
@@ -53,6 +58,8 @@ export interface RegisterElasticIpCommandOutput extends RegisterElasticIpResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterElasticIpCommandInput - {@link RegisterElasticIpCommandInput}
+ * @returns {@link RegisterElasticIpCommandOutput}
  * @see {@link RegisterElasticIpCommandInput} for command's `input` shape.
  * @see {@link RegisterElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -82,6 +89,9 @@ export class RegisterElasticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterElasticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class RegisterElasticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterElasticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterElasticIpCommandOutput> {
     return deserializeAws_json1_1RegisterElasticIpCommand(output, context);
   }

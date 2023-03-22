@@ -6,7 +6,7 @@ import { GlacierClient } from "../GlacierClient";
 import { GlacierPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlacierClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListJobs(
   config: GlacierPaginationConfiguration,
   input: ListJobsCommandInput,

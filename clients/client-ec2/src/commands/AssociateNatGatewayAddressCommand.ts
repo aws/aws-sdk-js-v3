@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateNatGatewayAddressCommand}.
  */
 export interface AssociateNatGatewayAddressCommandInput extends AssociateNatGatewayAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateNatGatewayAddressCommand}.
  */
 export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateNatGatewayAddressCommandInput - {@link AssociateNatGatewayAddressCommandInput}
+ * @returns {@link AssociateNatGatewayAddressCommandOutput}
  * @see {@link AssociateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link AssociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class AssociateNatGatewayAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateNatGatewayAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class AssociateNatGatewayAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateNatGatewayAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateNatGatewayAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

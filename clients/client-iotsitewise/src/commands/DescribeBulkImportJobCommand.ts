@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBulkImportJobCommand}.
  */
 export interface DescribeBulkImportJobCommandInput extends DescribeBulkImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBulkImportJobCommand}.
  */
 export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a bulk import job request. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
  *         a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBulkImportJobCommandInput - {@link DescribeBulkImportJobCommandInput}
+ * @returns {@link DescribeBulkImportJobCommandOutput}
  * @see {@link DescribeBulkImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBulkImportJobCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeBulkImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBulkImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeBulkImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBulkImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBulkImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBulkImportJobCommandOutput> {
     return deserializeAws_restJson1DescribeBulkImportJobCommand(output, context);
   }

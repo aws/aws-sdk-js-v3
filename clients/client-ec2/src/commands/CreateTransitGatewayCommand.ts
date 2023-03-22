@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayCommand}.
  */
 export interface CreateTransitGatewayCommandInput extends CreateTransitGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayCommand}.
  */
 export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a transit gateway.</p>
  *          <p>You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks.
  *           After the transit gateway enters the <code>available</code> state, you can attach your VPCs and VPN
@@ -58,6 +63,8 @@ export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayCommandInput - {@link CreateTransitGatewayCommandInput}
+ * @returns {@link CreateTransitGatewayCommandOutput}
  * @see {@link CreateTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -81,6 +88,9 @@ export class CreateTransitGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateTransitGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTransitGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateTransitGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTransitGatewayCommandOutput> {
     return deserializeAws_ec2CreateTransitGatewayCommand(output, context);
   }

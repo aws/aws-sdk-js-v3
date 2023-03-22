@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstancePatchStatesForPatchGroupCommand}.
  */
 export interface DescribeInstancePatchStatesForPatchGroupCommandInput
   extends DescribeInstancePatchStatesForPatchGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstancePatchStatesForPatchGroupCommand}.
  */
 export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
  *    group.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancePatchStatesForPatchGroupCommandInput - {@link DescribeInstancePatchStatesForPatchGroupCommandInput}
+ * @returns {@link DescribeInstancePatchStatesForPatchGroupCommandOutput}
  * @see {@link DescribeInstancePatchStatesForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchStatesForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancePatchStatesForPatchGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInstancePatchStatesForPatchGroupCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
     return serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateComponentCommand}.
  */
 export interface UpdateComponentCommandInput extends UpdateComponentInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateComponentCommand}.
  */
 export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a component.</p>
  *          <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p>
  *          <note>
@@ -54,6 +59,8 @@ export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateComponentCommandInput - {@link UpdateComponentCommandInput}
+ * @returns {@link UpdateComponentCommandOutput}
  * @see {@link UpdateComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class UpdateComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComponentCommandOutput> {
     return deserializeAws_json1_0UpdateComponentCommand(output, context);
   }

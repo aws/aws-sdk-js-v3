@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TagCertificateAuthorityCommand}.
  */
 export interface TagCertificateAuthorityCommandInput extends TagCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagCertificateAuthorityCommand}.
  */
 export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to your private CA. Tags are labels that you can use to identify
  * 			and organize your Amazon Web Services resources. Each tag consists of a key and an optional value. You
  * 			specify the private CA on input by its Amazon Resource Name (ARN). You specify the tag
@@ -55,6 +60,8 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param TagCertificateAuthorityCommandInput - {@link TagCertificateAuthorityCommandInput}
+ * @returns {@link TagCertificateAuthorityCommandOutput}
  * @see {@link TagCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link TagCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -97,6 +104,9 @@ export class TagCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class TagCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TagCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagCertificateAuthorityCommandOutput> {
     return deserializeAws_json1_1TagCertificateAuthorityCommand(output, context);
   }

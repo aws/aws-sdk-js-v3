@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRepositoriesForApprovalRuleTemplateCommand}.
  */
 export interface ListRepositoriesForApprovalRuleTemplateCommandInput
   extends ListRepositoriesForApprovalRuleTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRepositoriesForApprovalRuleTemplateCommand}.
  */
 export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
@@ -38,6 +42,7 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all repositories associated with the specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRepositoriesForApprovalRuleTemplateCommandInput - {@link ListRepositoriesForApprovalRuleTemplateCommandInput}
+ * @returns {@link ListRepositoriesForApprovalRuleTemplateCommandOutput}
  * @see {@link ListRepositoriesForApprovalRuleTemplateCommandInput} for command's `input` shape.
  * @see {@link ListRepositoriesForApprovalRuleTemplateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -106,6 +113,9 @@ export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRepositoriesForApprovalRuleTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,6 +161,9 @@ export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRepositoriesForApprovalRuleTemplateCommandInput,
     context: __SerdeContext
@@ -158,6 +171,9 @@ export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<
     return serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

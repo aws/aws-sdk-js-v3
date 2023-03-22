@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubnetGroupCommand}.
  */
 export interface UpdateSubnetGroupCommandInput extends UpdateSubnetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubnetGroupCommand}.
  */
 export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a subnet group. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html">Updating a subnet group</a>
  *          </p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubnetGroupCommandInput - {@link UpdateSubnetGroupCommandInput}
+ * @returns {@link UpdateSubnetGroupCommandOutput}
  * @see {@link UpdateSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubnetGroupCommandOutput> {
     return deserializeAws_json1_1UpdateSubnetGroupCommand(output, context);
   }

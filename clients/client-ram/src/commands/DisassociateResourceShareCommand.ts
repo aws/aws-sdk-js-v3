@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResourceShareCommand}.
  */
 export interface DisassociateResourceShareCommandInput extends DisassociateResourceShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResourceShareCommand}.
  */
 export interface DisassociateResourceShareCommandOutput extends DisassociateResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified principals or resources from the specified resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResourceShareCommandInput - {@link DisassociateResourceShareCommandInput}
+ * @returns {@link DisassociateResourceShareCommandOutput}
  * @see {@link DisassociateResourceShareCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -101,6 +108,9 @@ export class DisassociateResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DisassociateResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

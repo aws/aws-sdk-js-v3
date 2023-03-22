@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBClusterEndpointCommand}.
  */
 export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndpointMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBClusterEndpointCommand}.
  */
 export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p>
  *          <note>
  *             <p>This action applies only to Aurora DB clusters.</p>
@@ -49,6 +54,8 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterEndpointCommandInput - {@link CreateDBClusterEndpointCommandInput}
+ * @returns {@link CreateDBClusterEndpointCommandOutput}
  * @see {@link CreateDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateDBClusterEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateDBClusterEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBClusterEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterEndpointCommandOutput> {
     return deserializeAws_queryCreateDBClusterEndpointCommand(output, context);
   }

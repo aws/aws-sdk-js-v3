@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListInferenceEventsCommand}.
  */
 export interface ListInferenceEventsCommandInput extends ListInferenceEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInferenceEventsCommand}.
  */
 export interface ListInferenceEventsCommandOutput extends ListInferenceEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists all inference events that have been found for the specified inference scheduler.
  *       </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListInferenceEventsCommandOutput extends ListInferenceEventsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInferenceEventsCommandInput - {@link ListInferenceEventsCommandInput}
+ * @returns {@link ListInferenceEventsCommandOutput}
  * @see {@link ListInferenceEventsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceEventsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListInferenceEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInferenceEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListInferenceEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInferenceEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListInferenceEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInferenceEventsCommandOutput> {
     return deserializeAws_json1_0ListInferenceEventsCommand(output, context);
   }

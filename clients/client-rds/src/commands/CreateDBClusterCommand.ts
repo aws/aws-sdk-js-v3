@@ -27,15 +27,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBClusterCommand}.
  */
 export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBClusterCommand}.
  */
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
  *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
  *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
@@ -55,6 +60,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterCommandInput - {@link CreateDBClusterCommandInput}
+ * @returns {@link CreateDBClusterCommandOutput}
  * @see {@link CreateDBClusterCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -171,6 +178,9 @@ export class CreateDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,10 +221,16 @@ export class CreateDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterCommandOutput> {
     return deserializeAws_queryCreateDBClusterCommand(output, context);
   }

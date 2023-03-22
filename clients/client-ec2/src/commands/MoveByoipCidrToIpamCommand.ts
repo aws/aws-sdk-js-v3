@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link MoveByoipCidrToIpamCommand}.
  */
 export interface MoveByoipCidrToIpamCommandInput extends MoveByoipCidrToIpamRequest {}
 /**
+ * @public
+ *
  * The output of {@link MoveByoipCidrToIpamCommand}.
  */
 export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p>
  *          <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamRes
  * const response = await client.send(command);
  * ```
  *
+ * @param MoveByoipCidrToIpamCommandInput - {@link MoveByoipCidrToIpamCommandInput}
+ * @returns {@link MoveByoipCidrToIpamCommandOutput}
  * @see {@link MoveByoipCidrToIpamCommandInput} for command's `input` shape.
  * @see {@link MoveByoipCidrToIpamCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class MoveByoipCidrToIpamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MoveByoipCidrToIpamCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class MoveByoipCidrToIpamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MoveByoipCidrToIpamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2MoveByoipCidrToIpamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MoveByoipCidrToIpamCommandOutput> {
     return deserializeAws_ec2MoveByoipCidrToIpamCommand(output, context);
   }

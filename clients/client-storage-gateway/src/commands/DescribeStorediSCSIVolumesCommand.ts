@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStorediSCSIVolumesCommand}.
  */
 export interface DescribeStorediSCSIVolumesCommandInput extends DescribeStorediSCSIVolumesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStorediSCSIVolumesCommand}.
  */
 export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStorediSCSIVolumesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of the gateway volumes specified in the request. The list of
  *          gateway volumes in the request must be from one gateway. In the response, Storage Gateway returns volume information sorted by volume ARNs. This operation is only
  *          supported in stored volume gateway type.</p>
@@ -48,6 +53,8 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStorediSCSIVolumesCommandInput - {@link DescribeStorediSCSIVolumesCommandInput}
+ * @returns {@link DescribeStorediSCSIVolumesCommandOutput}
  * @see {@link DescribeStorediSCSIVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeStorediSCSIVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -113,6 +120,9 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStorediSCSIVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStorediSCSIVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStorediSCSIVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,11 +24,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput
   extends DeleteVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput extends __MetadataBearer {}
@@ -50,6 +54,9 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,6 +102,9 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
     context: __SerdeContext
@@ -102,6 +112,9 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     return serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

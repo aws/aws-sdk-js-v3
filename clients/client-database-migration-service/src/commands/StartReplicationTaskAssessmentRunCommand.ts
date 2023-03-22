@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReplicationTaskAssessmentRunCommand}.
  */
 export interface StartReplicationTaskAssessmentRunCommandInput extends StartReplicationTaskAssessmentRunMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartReplicationTaskAssessmentRunCommand}.
  */
 export interface StartReplicationTaskAssessmentRunCommandOutput
@@ -41,6 +45,7 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new premigration assessment run for one or more individual assessments
  *          of a migration task.</p>
  *          <p>The assessments that you can specify depend on the source and target database engine and
@@ -58,6 +63,8 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplicationTaskAssessmentRunCommandInput - {@link StartReplicationTaskAssessmentRunCommandInput}
+ * @returns {@link StartReplicationTaskAssessmentRunCommandOutput}
  * @see {@link StartReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StartReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -119,6 +126,9 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplicationTaskAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,6 +168,9 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartReplicationTaskAssessmentRunCommandInput,
     context: __SerdeContext
@@ -165,6 +178,9 @@ export class StartReplicationTaskAssessmentRunCommand extends $Command<
     return serializeAws_json1_1StartReplicationTaskAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

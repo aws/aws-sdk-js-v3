@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNamespaceCommand}.
  */
 export interface UpdateNamespaceCommandInput extends UpdateNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNamespaceCommand}.
  */
 export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example,
  *       you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code>
  *       and <code>logExports</code> in a single request.</p>
@@ -52,6 +57,8 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNamespaceCommandInput - {@link UpdateNamespaceCommandInput}
+ * @returns {@link UpdateNamespaceCommandOutput}
  * @see {@link UpdateNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdateNamespaceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNamespaceCommandOutput> {
     return deserializeAws_json1_1UpdateNamespaceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIpGroupsCommand}.
  */
 export interface DescribeIpGroupsCommandInput extends DescribeIpGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIpGroupsCommand}.
  */
 export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your IP access control groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIpGroupsCommandInput - {@link DescribeIpGroupsCommandInput}
+ * @returns {@link DescribeIpGroupsCommandOutput}
  * @see {@link DescribeIpGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeIpGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIpGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeIpGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIpGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeIpGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpGroupsCommandOutput> {
     return deserializeAws_json1_1DescribeIpGroupsCommand(output, context);
   }

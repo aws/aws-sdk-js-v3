@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAuditStreamConfigurationCommand}.
  */
 export interface UpdateAuditStreamConfigurationCommandInput extends UpdateAuditStreamConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAuditStreamConfigurationCommand}.
  */
 export interface UpdateAuditStreamConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateAuditStreamConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the audit stream configuration for the fleet.</p>
@@ -50,6 +55,8 @@ export interface UpdateAuditStreamConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAuditStreamConfigurationCommandInput - {@link UpdateAuditStreamConfigurationCommandInput}
+ * @returns {@link UpdateAuditStreamConfigurationCommandOutput}
  * @see {@link UpdateAuditStreamConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAuditStreamConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAuditStreamConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAuditStreamConfigurationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateAuditStreamConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAttributesCommand}.
  */
 export interface PutAttributesCommandInput extends PutAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAttributesCommand}.
  */
 export interface PutAttributesCommandOutput extends PutAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create or update an attribute on an Amazon ECS resource. If the attribute doesn't exist,
  * 			it's created. If the attribute exists, its value is replaced with the specified value.
  * 			To delete an attribute, use <a>DeleteAttributes</a>. For more information,
@@ -49,6 +54,8 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAttributesCommandInput - {@link PutAttributesCommandInput}
+ * @returns {@link PutAttributesCommandOutput}
  * @see {@link PutAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAttributesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -89,6 +96,9 @@ export class PutAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAttributesCommandOutput> {
     return deserializeAws_json1_1PutAttributesCommand(output, context);
   }

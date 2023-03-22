@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBSubnetGroupsCommand}.
  */
 export interface DescribeDBSubnetGroupsCommandInput extends DescribeDBSubnetGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBSubnetGroupsCommand}.
  */
 export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
  *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the descriptions of the specified <code>DBSubnetGroup</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBSubnetGroupsCommandInput - {@link DescribeDBSubnetGroupsCommandInput}
+ * @returns {@link DescribeDBSubnetGroupsCommandOutput}
  * @see {@link DescribeDBSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSubnetGroupsCommandOutput> {
     return deserializeAws_queryDescribeDBSubnetGroupsCommand(output, context);
   }

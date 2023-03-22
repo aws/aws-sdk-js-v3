@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesInProtectionGroupCommand}.
  */
 export interface ListResourcesInProtectionGroupCommandInput extends ListResourcesInProtectionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesInProtectionGroupCommand}.
  */
 export interface ListResourcesInProtectionGroupCommandOutput
@@ -37,6 +41,7 @@ export interface ListResourcesInProtectionGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resources that are included in the protection group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListResourcesInProtectionGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesInProtectionGroupCommandInput - {@link ListResourcesInProtectionGroupCommandInput}
+ * @returns {@link ListResourcesInProtectionGroupCommandOutput}
  * @see {@link ListResourcesInProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link ListResourcesInProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListResourcesInProtectionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesInProtectionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class ListResourcesInProtectionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResourcesInProtectionGroupCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class ListResourcesInProtectionGroupCommand extends $Command<
     return serializeAws_json1_1ListResourcesInProtectionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

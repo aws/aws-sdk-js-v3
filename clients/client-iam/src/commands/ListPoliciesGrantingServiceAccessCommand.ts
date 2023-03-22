@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListPoliciesGrantingServiceAccessCommand}.
  */
 export interface ListPoliciesGrantingServiceAccessCommandInput extends ListPoliciesGrantingServiceAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPoliciesGrantingServiceAccessCommand}.
  */
 export interface ListPoliciesGrantingServiceAccessCommandOutput
@@ -37,6 +41,7 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of policies that the IAM identity (user, group, or role) can use to
  *             access each specified service.</p>
  *          <note>
@@ -87,6 +92,8 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPoliciesGrantingServiceAccessCommandInput - {@link ListPoliciesGrantingServiceAccessCommandInput}
+ * @returns {@link ListPoliciesGrantingServiceAccessCommandOutput}
  * @see {@link ListPoliciesGrantingServiceAccessCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesGrantingServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -166,6 +173,9 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPoliciesGrantingServiceAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -205,6 +215,9 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPoliciesGrantingServiceAccessCommandInput,
     context: __SerdeContext
@@ -212,6 +225,9 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     return serializeAws_queryListPoliciesGrantingServiceAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

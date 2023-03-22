@@ -10,7 +10,7 @@ import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IAMClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListInstanceProfilesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListInstanceProfiles(
   config: IAMPaginationConfiguration,
   input: ListInstanceProfilesCommandInput,

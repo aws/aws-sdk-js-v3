@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceBundleCommand}.
  */
 export interface UpdateWorkspaceBundleCommandInput extends UpdateWorkspaceBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceBundleCommand}.
  */
 export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html">
  *             Update a Custom WorkSpaces Bundle</a>.</p>
@@ -53,6 +58,8 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceBundleCommandInput - {@link UpdateWorkspaceBundleCommandInput}
+ * @returns {@link UpdateWorkspaceBundleCommandOutput}
  * @see {@link UpdateWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceBundleCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateWorkspaceBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateWorkspaceBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateWorkspaceBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceBundleCommandOutput> {
     return deserializeAws_json1_1UpdateWorkspaceBundleCommand(output, context);
   }

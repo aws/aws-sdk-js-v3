@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatalakeAutoEnableCommand}.
  */
 export interface CreateDatalakeAutoEnableCommandInput extends CreateDatalakeAutoEnableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatalakeAutoEnableCommand}.
  */
 export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAutoEnableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Automatically enables Amazon Security Lake for new member accounts in your organization.
  *          Security Lake is not automatically enabled for any existing member accounts in your
  *          organization.</p>
@@ -48,6 +53,8 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatalakeAutoEnableCommandInput - {@link CreateDatalakeAutoEnableCommandInput}
+ * @returns {@link CreateDatalakeAutoEnableCommandOutput}
  * @see {@link CreateDatalakeAutoEnableCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeAutoEnableCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatalakeAutoEnableCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDatalakeAutoEnableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatalakeAutoEnableCommandOutput> {
     return deserializeAws_restJson1CreateDatalakeAutoEnableCommand(output, context);
   }

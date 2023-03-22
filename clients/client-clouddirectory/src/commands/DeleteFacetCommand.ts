@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFacetCommand}.
  */
 export interface DeleteFacetCommandInput extends DeleteFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFacetCommand}.
  */
 export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a given <a>Facet</a>. All attributes and <a>Rule</a>s
  *       that are associated with the facet will be deleted. Only development schema facets are allowed
  *       deletion.</p>
@@ -48,6 +53,8 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFacetCommandInput - {@link DeleteFacetCommandInput}
+ * @returns {@link DeleteFacetCommandOutput}
  * @see {@link DeleteFacetCommandInput} for command's `input` shape.
  * @see {@link DeleteFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DeleteFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFacetCommandOutput> {
     return deserializeAws_restJson1DeleteFacetCommand(output, context);
   }

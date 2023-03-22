@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMailboxPermissionsCommand}.
  */
 export interface ListMailboxPermissionsCommandInput extends ListMailboxPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMailboxPermissionsCommand}.
  */
 export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the mailbox permissions associated with a user, group, or resource
  *          mailbox.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMailboxPermissionsCommandInput - {@link ListMailboxPermissionsCommandInput}
+ * @returns {@link ListMailboxPermissionsCommandOutput}
  * @see {@link ListMailboxPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListMailboxPermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListMailboxPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMailboxPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListMailboxPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMailboxPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMailboxPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMailboxPermissionsCommandOutput> {
     return deserializeAws_json1_1ListMailboxPermissionsCommand(output, context);
   }

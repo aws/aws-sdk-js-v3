@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListScenesCommand}.
  */
 export interface ListScenesCommandInput extends ListScenesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListScenesCommand}.
  */
 export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all scenes in a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScenesCommandInput - {@link ListScenesCommandInput}
+ * @returns {@link ListScenesCommandOutput}
  * @see {@link ListScenesCommandInput} for command's `input` shape.
  * @see {@link ListScenesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListScenesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScenesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListScenesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScenesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListScenesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScenesCommandOutput> {
     return deserializeAws_restJson1ListScenesCommand(output, context);
   }

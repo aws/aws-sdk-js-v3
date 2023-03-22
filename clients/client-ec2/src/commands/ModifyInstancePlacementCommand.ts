@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstancePlacementCommand}.
  */
 export interface ModifyInstancePlacementCommandInput extends ModifyInstancePlacementRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstancePlacementCommand}.
  */
 export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlacementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the placement attributes for a specified instance. You can do the
  *             following:</p>
  *          <ul>
@@ -71,6 +76,8 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstancePlacementCommandInput - {@link ModifyInstancePlacementCommandInput}
+ * @returns {@link ModifyInstancePlacementCommandOutput}
  * @see {@link ModifyInstancePlacementCommandInput} for command's `input` shape.
  * @see {@link ModifyInstancePlacementCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -94,6 +101,9 @@ export class ModifyInstancePlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstancePlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ModifyInstancePlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstancePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstancePlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyInstancePlacementCommandOutput> {
     return deserializeAws_ec2ModifyInstancePlacementCommand(output, context);
   }

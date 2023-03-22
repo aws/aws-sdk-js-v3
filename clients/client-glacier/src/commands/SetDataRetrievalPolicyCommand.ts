@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SetDataRetrievalPolicyCommand}.
  */
 export interface SetDataRetrievalPolicyCommandInput extends SetDataRetrievalPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link SetDataRetrievalPolicyCommand}.
  */
 export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation sets and then enacts a data retrieval policy in the region specified
  *          in the PUT request. You can set one policy per region for an AWS account. The policy is
  *          enacted within a few minutes of a successful PUT operation.</p>
@@ -46,6 +51,8 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDataRetrievalPolicyCommandInput - {@link SetDataRetrievalPolicyCommandInput}
+ * @returns {@link SetDataRetrievalPolicyCommandOutput}
  * @see {@link SetDataRetrievalPolicyCommandInput} for command's `input` shape.
  * @see {@link SetDataRetrievalPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -97,6 +104,9 @@ export class SetDataRetrievalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDataRetrievalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class SetDataRetrievalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDataRetrievalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SetDataRetrievalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDataRetrievalPolicyCommandOutput> {
     return deserializeAws_restJson1SetDataRetrievalPolicyCommand(output, context);
   }

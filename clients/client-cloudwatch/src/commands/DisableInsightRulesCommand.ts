@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DisableInsightRulesCommand}.
  */
 export interface DisableInsightRulesCommandInput extends DisableInsightRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableInsightRulesCommand}.
  */
 export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
  * 		not incur costs.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableInsightRulesCommandInput - {@link DisableInsightRulesCommandInput}
+ * @returns {@link DisableInsightRulesCommandOutput}
  * @see {@link DisableInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DisableInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -76,6 +83,9 @@ export class DisableInsightRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DisableInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDisableInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableInsightRulesCommandOutput> {
     return deserializeAws_queryDisableInsightRulesCommand(output, context);
   }

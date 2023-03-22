@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProtectionGroupCommand}.
  */
 export interface DeleteProtectionGroupCommandInput extends DeleteProtectionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProtectionGroupCommand}.
  */
 export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified protection group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProtectionGroupCommandInput - {@link DeleteProtectionGroupCommandInput}
+ * @returns {@link DeleteProtectionGroupCommandOutput}
  * @see {@link DeleteProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteProtectionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProtectionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteProtectionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteProtectionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProtectionGroupCommandOutput> {
     return deserializeAws_json1_1DeleteProtectionGroupCommand(output, context);
   }

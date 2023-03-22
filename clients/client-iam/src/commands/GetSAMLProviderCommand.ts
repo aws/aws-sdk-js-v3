@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetSAMLProviderCommand}.
  */
 export interface GetSAMLProviderCommandInput extends GetSAMLProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSAMLProviderCommand}.
  */
 export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
  *             resource object was created or updated.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSAMLProviderCommandInput - {@link GetSAMLProviderCommandInput}
+ * @returns {@link GetSAMLProviderCommandOutput}
  * @see {@link GetSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link GetSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSAMLProviderCommandOutput> {
     return deserializeAws_queryGetSAMLProviderCommand(output, context);
   }

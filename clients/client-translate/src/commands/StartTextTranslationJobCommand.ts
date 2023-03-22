@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartTextTranslationJobCommand}.
  */
 export interface StartTextTranslationJobCommandInput extends StartTextTranslationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTextTranslationJobCommand}.
  */
 export interface StartTextTranslationJobCommandOutput extends StartTextTranslationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous batch translation job. Use batch translation jobs to
  *       translate large volumes of text across multiple documents at once.
  *       For batch translation, you can input documents with different source languages (specify <code>auto</code>
@@ -54,6 +59,8 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTextTranslationJobCommandInput - {@link StartTextTranslationJobCommandInput}
+ * @returns {@link StartTextTranslationJobCommandOutput}
  * @see {@link StartTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link StartTextTranslationJobCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -101,6 +108,9 @@ export class StartTextTranslationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTextTranslationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class StartTextTranslationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTextTranslationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartTextTranslationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTextTranslationJobCommandOutput> {
     return deserializeAws_json1_1StartTextTranslationJobCommand(output, context);
   }

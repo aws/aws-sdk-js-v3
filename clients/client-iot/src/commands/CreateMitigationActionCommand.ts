@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMitigationActionCommand}.
  */
 export interface CreateMitigationActionCommandInput extends CreateMitigationActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMitigationActionCommand}.
  */
 export interface CreateMitigationActionCommandOutput extends CreateMitigationActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names.
  *       For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateMitigationAction</a> action.</p>
@@ -48,6 +53,8 @@ export interface CreateMitigationActionCommandOutput extends CreateMitigationAct
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMitigationActionCommandInput - {@link CreateMitigationActionCommandInput}
+ * @returns {@link CreateMitigationActionCommandOutput}
  * @see {@link CreateMitigationActionCommandInput} for command's `input` shape.
  * @see {@link CreateMitigationActionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateMitigationActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMitigationActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateMitigationActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMitigationActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMitigationActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMitigationActionCommandOutput> {
     return deserializeAws_restJson1CreateMitigationActionCommand(output, context);
   }

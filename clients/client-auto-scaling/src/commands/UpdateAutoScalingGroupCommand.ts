@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAutoScalingGroupCommand}.
  */
 export interface UpdateAutoScalingGroupCommandInput extends UpdateAutoScalingGroupType {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAutoScalingGroupCommand}.
  */
 export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
  *          </p>
@@ -84,6 +89,8 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAutoScalingGroupCommandInput - {@link UpdateAutoScalingGroupCommandInput}
+ * @returns {@link UpdateAutoScalingGroupCommandOutput}
  * @see {@link UpdateAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -136,6 +143,9 @@ export class UpdateAutoScalingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAutoScalingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,10 +185,16 @@ export class UpdateAutoScalingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAutoScalingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAutoScalingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAutoScalingGroupCommandOutput> {
     return deserializeAws_queryUpdateAutoScalingGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateThreatIntelSetCommand}.
  */
 export interface UpdateThreatIntelSetCommandInput extends UpdateThreatIntelSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateThreatIntelSetCommand}.
  */
 export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateThreatIntelSetCommandInput - {@link UpdateThreatIntelSetCommandInput}
+ * @returns {@link UpdateThreatIntelSetCommandOutput}
  * @see {@link UpdateThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link UpdateThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateThreatIntelSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateThreatIntelSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdateThreatIntelSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateThreatIntelSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateThreatIntelSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThreatIntelSetCommandOutput> {
     return deserializeAws_restJson1UpdateThreatIntelSetCommand(output, context);
   }

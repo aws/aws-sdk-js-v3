@@ -68,6 +68,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateEnvironmentCommandInput
   | DeleteEnvironmentCommandInput
@@ -78,6 +81,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateEnvironmentCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateEnvironmentCommandOutput
   | DeleteEnvironmentCommandOutput
@@ -88,6 +94,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateEnvironmentCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -95,7 +104,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -204,11 +213,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type FinspaceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -219,10 +231,15 @@ type FinspaceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of FinspaceClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of FinspaceClient class constructor that set the region, credentials and other options.
  */
 export interface FinspaceClientConfig extends FinspaceClientConfigType {}
 
+/**
+ * @public
+ */
 type FinspaceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -233,11 +250,14 @@ type FinspaceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of FinspaceClient class. This is resolved and normalized from the {@link FinspaceClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of FinspaceClient class. This is resolved and normalized from the {@link FinspaceClientConfig | constructor configuration interface}.
  */
 export interface FinspaceClientResolvedConfig extends FinspaceClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The FinSpace management service provides the APIs for managing FinSpace environments.</p>
  */
 export class FinspaceClient extends __Client<

@@ -162,6 +162,7 @@ import {
 import { PanoramaClient } from "./PanoramaClient";
 
 /**
+ * @public
  * <fullname>AWS Panorama</fullname>
  *          <p>
  *             <b>Overview</b>
@@ -171,6 +172,7 @@ import { PanoramaClient } from "./PanoramaClient";
  */
 export class Panorama extends PanoramaClient {
   /**
+   * @public
    * <p>Creates an application instance and deploys it to a device.</p>
    */
   public createApplicationInstance(
@@ -203,6 +205,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Creates a job to run on a device. A job can update a device's software or reboot it.</p>
    */
   public createJobForDevices(
@@ -235,6 +238,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Creates a camera stream node.</p>
    */
   public createNodeFromTemplateJob(
@@ -267,6 +271,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Creates a package and storage location in an Amazon S3 access point.</p>
    */
   public createPackage(
@@ -299,6 +304,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Imports a node package.</p>
    */
   public createPackageImportJob(
@@ -331,6 +337,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Deletes a device.</p>
    */
   public deleteDevice(
@@ -360,6 +367,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Deletes a package.</p>
    *          <note>
    *             <p>To delete a package, you need permission to call <code>s3:DeleteObject</code> in addition to permissions for
@@ -396,6 +404,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Deregisters a package version.</p>
    */
   public deregisterPackageVersion(
@@ -428,6 +437,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an application instance on a device.</p>
    */
   public describeApplicationInstance(
@@ -460,6 +470,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an application instance's configuration manifest.</p>
    */
   public describeApplicationInstanceDetails(
@@ -492,6 +503,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a device.</p>
    */
   public describeDevice(
@@ -524,6 +536,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a device job.</p>
    */
   public describeDeviceJob(
@@ -556,6 +569,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a node.</p>
    */
   public describeNode(
@@ -585,6 +599,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a job to create a camera stream node.</p>
    */
   public describeNodeFromTemplateJob(
@@ -617,6 +632,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a package.</p>
    */
   public describePackage(
@@ -649,6 +665,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a package import job.</p>
    */
   public describePackageImportJob(
@@ -681,6 +698,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a package version.</p>
    */
   public describePackageVersion(
@@ -713,6 +731,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of application instance dependencies.</p>
    */
   public listApplicationInstanceDependencies(
@@ -745,6 +764,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of application node instances.</p>
    */
   public listApplicationInstanceNodeInstances(
@@ -777,6 +797,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of application instances.</p>
    */
   public listApplicationInstances(
@@ -809,6 +830,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of devices.</p>
    */
   public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
@@ -835,6 +857,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of jobs.</p>
    */
   public listDevicesJobs(
@@ -867,6 +890,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of camera stream node jobs.</p>
    */
   public listNodeFromTemplateJobs(
@@ -899,6 +923,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of nodes.</p>
    */
   public listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
@@ -925,6 +950,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of package import jobs.</p>
    */
   public listPackageImportJobs(
@@ -957,6 +983,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of packages.</p>
    */
   public listPackages(
@@ -986,6 +1013,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags for a resource.</p>
    */
   public listTagsForResource(
@@ -1018,6 +1046,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Creates a device and returns a configuration archive. The configuration archive is a ZIP file that contains a
    *       provisioning certificate that is valid for 5 minutes. Name the configuration archive
    *           <code>certificates-omni_<i>device-name</i>.zip</code> and transfer it to the device within 5
@@ -1053,6 +1082,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Registers a package version.</p>
    */
   public registerPackageVersion(
@@ -1085,6 +1115,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Removes an application instance.</p>
    */
   public removeApplicationInstance(
@@ -1117,6 +1148,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Signal camera nodes to stop or resume.</p>
    */
   public signalApplicationInstanceNodeInstances(
@@ -1151,6 +1183,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Tags a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1177,6 +1210,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a resource.</p>
    */
   public untagResource(
@@ -1209,6 +1243,7 @@ export class Panorama extends PanoramaClient {
   }
 
   /**
+   * @public
    * <p>Updates a device's metadata.</p>
    */
   public updateDeviceMetadata(

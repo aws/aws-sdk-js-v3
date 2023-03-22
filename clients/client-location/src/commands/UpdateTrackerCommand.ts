@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrackerCommand}.
  */
 export interface UpdateTrackerCommandInput extends UpdateTrackerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrackerCommand}.
  */
 export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified properties of a given tracker resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrackerCommandInput - {@link UpdateTrackerCommandInput}
+ * @returns {@link UpdateTrackerCommandOutput}
  * @see {@link UpdateTrackerCommandInput} for command's `input` shape.
  * @see {@link UpdateTrackerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrackerCommandOutput> {
     return deserializeAws_restJson1UpdateTrackerCommand(output, context);
   }

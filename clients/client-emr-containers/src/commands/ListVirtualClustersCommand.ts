@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVirtualClustersCommand}.
  */
 export interface ListVirtualClustersCommandInput extends ListVirtualClustersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVirtualClustersCommand}.
  */
 export interface ListVirtualClustersCommandOutput extends ListVirtualClustersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the specified virtual cluster. Virtual cluster is a managed
  *          entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
  *          clusters. They do not consume any additional resource in your system. A single virtual
@@ -51,6 +56,8 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualClustersCommandInput - {@link ListVirtualClustersCommandInput}
+ * @returns {@link ListVirtualClustersCommandOutput}
  * @see {@link ListVirtualClustersCommandInput} for command's `input` shape.
  * @see {@link ListVirtualClustersCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListVirtualClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListVirtualClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVirtualClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVirtualClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualClustersCommandOutput> {
     return deserializeAws_restJson1ListVirtualClustersCommand(output, context);
   }

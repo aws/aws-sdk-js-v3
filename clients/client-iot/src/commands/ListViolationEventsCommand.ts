@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListViolationEventsCommand}.
  */
 export interface ListViolationEventsCommandInput extends ListViolationEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListViolationEventsCommand}.
  */
 export interface ListViolationEventsCommandOutput extends ListViolationEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Device Defender security profile violations discovered during the given time period.
  *       You can use filters to limit the results to those alerts issued for a particular security profile,
  *       behavior, or thing (device).</p>
@@ -49,6 +54,8 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListViolationEventsCommandInput - {@link ListViolationEventsCommandInput}
+ * @returns {@link ListViolationEventsCommandOutput}
  * @see {@link ListViolationEventsCommandInput} for command's `input` shape.
  * @see {@link ListViolationEventsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListViolationEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListViolationEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListViolationEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListViolationEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListViolationEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListViolationEventsCommandOutput> {
     return deserializeAws_restJson1ListViolationEventsCommand(output, context);
   }

@@ -40,11 +40,13 @@ import {
 } from "./commands/UpdateResourceCommand";
 
 /**
+ * @public
  * <p>For more information about Amazon Web Services Cloud Control API, see the <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html">Amazon Web Services Cloud Control API User
  *         Guide</a>.</p>
  */
 export class CloudControl extends CloudControlClient {
   /**
+   * @public
    * <p>Cancels the specified resource operation request. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel">Canceling resource operation requests</a> in the
    *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    *          <p>Only resource operations requests with a status of <code>PENDING</code> or
@@ -80,6 +82,7 @@ export class CloudControl extends CloudControlClient {
   }
 
   /**
+   * @public
    * <p>Creates the specified resource. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html">Creating a
    *         resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    *          <p>After you have initiated a resource creation request, you can monitor the progress of your
@@ -116,6 +119,7 @@ export class CloudControl extends CloudControlClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified resource. For details, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-delete.html">Deleting a
    *         resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    *          <p>After you have initiated a resource deletion request, you can monitor the progress of your
@@ -152,6 +156,7 @@ export class CloudControl extends CloudControlClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the current state of the specified resource. For details, see
    *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html">Reading a resource's current state</a>.</p>
    *          <p>You can use this action to return information about an existing resource in your account
@@ -181,6 +186,7 @@ export class CloudControl extends CloudControlClient {
   }
 
   /**
+   * @public
    * <p>Returns the current status of a resource operation request. For more information, see
    *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track">Tracking the progress of resource operation requests</a> in the
    *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
@@ -215,6 +221,7 @@ export class CloudControl extends CloudControlClient {
   }
 
   /**
+   * @public
    * <p>Returns existing resource operation requests. This includes requests of all status types.
    *       For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list">Listing active resource operation requests</a> in the
    *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
@@ -252,6 +259,7 @@ export class CloudControl extends CloudControlClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified resources. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html">Discovering resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    *          <p>You can use this action to return information about existing resources in your account and
    *       Amazon Web Services Region, whether those resources were provisioned using Cloud Control API.</p>
@@ -286,6 +294,7 @@ export class CloudControl extends CloudControlClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified property values in the resource.</p>
    *          <p>You specify your resource property updates as a list of patch operations contained in a
    *       JSON patch document that adheres to the <a href="https://datatracker.ietf.org/doc/html/rfc6902">

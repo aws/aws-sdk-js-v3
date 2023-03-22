@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnomalyDetectorsCommand}.
  */
 export interface ListAnomalyDetectorsCommandInput extends ListAnomalyDetectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnomalyDetectorsCommand}.
  */
 export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the detectors in the current AWS Region.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -48,6 +53,8 @@ export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnomalyDetectorsCommandInput - {@link ListAnomalyDetectorsCommandInput}
+ * @returns {@link ListAnomalyDetectorsCommandOutput}
  * @see {@link ListAnomalyDetectorsCommandInput} for command's `input` shape.
  * @see {@link ListAnomalyDetectorsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListAnomalyDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnomalyDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListAnomalyDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnomalyDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAnomalyDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnomalyDetectorsCommandOutput> {
     return deserializeAws_restJson1ListAnomalyDetectorsCommand(output, context);
   }

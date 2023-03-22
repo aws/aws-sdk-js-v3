@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetKMSEncryptionKeyCommand}.
  */
 export interface GetKMSEncryptionKeyCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetKMSEncryptionKeyCommand}.
  */
 export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the encryption key if a KMS key has been specified to be used to encrypt content in Amazon Fraud Detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKMSEncryptionKeyCommandInput - {@link GetKMSEncryptionKeyCommandInput}
+ * @returns {@link GetKMSEncryptionKeyCommandOutput}
  * @see {@link GetKMSEncryptionKeyCommandInput} for command's `input` shape.
  * @see {@link GetKMSEncryptionKeyCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetKMSEncryptionKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKMSEncryptionKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetKMSEncryptionKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKMSEncryptionKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetKMSEncryptionKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKMSEncryptionKeyCommandOutput> {
     return deserializeAws_json1_1GetKMSEncryptionKeyCommand(output, context);
   }

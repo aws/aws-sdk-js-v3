@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ReorderReceiptRuleSetCommand}.
  */
 export interface ReorderReceiptRuleSetCommandInput extends ReorderReceiptRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReorderReceiptRuleSetCommand}.
  */
 export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reorders the receipt rules within a receipt rule set.</p>
  *         <note>
  *             <p>All of the rules in the rule set must be represented in this request. That is,
@@ -53,6 +58,8 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  * const response = await client.send(command);
  * ```
  *
+ * @param ReorderReceiptRuleSetCommandInput - {@link ReorderReceiptRuleSetCommandInput}
+ * @returns {@link ReorderReceiptRuleSetCommandOutput}
  * @see {@link ReorderReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link ReorderReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -97,6 +104,9 @@ export class ReorderReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReorderReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ReorderReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReorderReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryReorderReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReorderReceiptRuleSetCommandOutput> {
     return deserializeAws_queryReorderReceiptRuleSetCommand(output, context);
   }

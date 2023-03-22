@@ -3,12 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { IAMServiceException as __BaseException } from "./IAMServiceException";
 
+/**
+ * @public
+ */
 export enum AccessAdvisorUsageGranularityType {
   ACTION_LEVEL = "ACTION_LEVEL",
   SERVICE_LEVEL = "SERVICE_LEVEL",
 }
 
 /**
+ * @public
  * <p>An object that contains details about when a principal in the reported Organizations entity
  *          last attempted to access an Amazon Web Services service. A principal can be an IAM user, an IAM role,
  *          or the Amazon Web Services account root user within the reported Organizations entity.</p>
@@ -63,12 +67,16 @@ export interface AccessDetail {
   TotalAuthenticatedEntities?: number;
 }
 
+/**
+ * @public
+ */
 export enum StatusType {
   Active = "Active",
   Inactive = "Inactive",
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Web Services access key.</p>
  *          <p> This data type is used as a response element in the <a>CreateAccessKey</a>
  *          and <a>ListAccessKeys</a> operations. </p>
@@ -107,6 +115,7 @@ export interface AccessKey {
 }
 
 /**
+ * @public
  * <p>Contains information about the last time an Amazon Web Services access key was used since IAM began
  *          tracking this information on April 22, 2015.</p>
  *          <p>This data type is used as a response element in the <a>GetAccessKeyLastUsed</a> operation.</p>
@@ -171,6 +180,7 @@ export interface AccessKeyLastUsed {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Web Services access key, without its secret key.</p>
  *          <p>This data type is used as a response element in the <a>ListAccessKeys</a>
  *          operation.</p>
@@ -198,6 +208,9 @@ export interface AccessKeyMetadata {
   CreateDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AddClientIDToOpenIDConnectProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to
@@ -213,6 +226,7 @@ export interface AddClientIDToOpenIDConnectProviderRequest {
 }
 
 /**
+ * @public
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  */
@@ -233,6 +247,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted to create resources beyond the current
  *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  */
@@ -253,6 +268,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  */
@@ -273,6 +289,7 @@ export class NoSuchEntityException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  */
@@ -292,6 +309,9 @@ export class ServiceFailureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AddRoleToInstanceProfileRequest {
   /**
    * <p>The name of the instance profile to update.</p>
@@ -309,6 +329,7 @@ export interface AddRoleToInstanceProfileRequest {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted to create a resource that already
  *       exists.</p>
  */
@@ -329,6 +350,7 @@ export class EntityAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because only the service that depends on the service-linked role
  *       can modify or delete the role on your behalf. The error message includes the name of the
  *       service that depends on this service-linked role. You must request the change through that
@@ -350,6 +372,9 @@ export class UnmodifiableEntityException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AddUserToGroupRequest {
   /**
    * <p>The name of the group to update.</p>
@@ -366,17 +391,24 @@ export interface AddUserToGroupRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AssignmentStatusType {
   Any = "Any",
   Assigned = "Assigned",
   Unassigned = "Unassigned",
 }
 
+/**
+ * @public
+ */
 export enum PermissionsBoundaryAttachmentType {
   Policy = "PermissionsBoundaryPolicy",
 }
 
 /**
+ * @public
  * <p>Contains information about an attached permissions boundary.</p>
  *          <p>An attached permissions boundary is a managed policy that has been attached to a user or
  *          role to set the permissions boundary.</p>
@@ -398,6 +430,7 @@ export interface AttachedPermissionsBoundary {
 }
 
 /**
+ * @public
  * <p>Contains information about an attached policy.</p>
  *          <p>An attached policy is a managed policy that has been attached to a user, group, or role.
  *          This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p>
@@ -418,6 +451,9 @@ export interface AttachedPolicy {
   PolicyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AttachGroupPolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) of the group to attach the policy to.</p>
@@ -434,6 +470,7 @@ export interface AttachGroupPolicyRequest {
 }
 
 /**
+ * @public
  * <p>The request failed because Amazon Web Services service role policies can only be attached to the
  *       service-linked role for that service.</p>
  */
@@ -453,6 +490,9 @@ export class PolicyNotAttachableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AttachRolePolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) of the role to attach the policy to.</p>
@@ -468,6 +508,9 @@ export interface AttachRolePolicyRequest {
   PolicyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachUserPolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) of the IAM user to attach the policy to.</p>
@@ -483,6 +526,9 @@ export interface AttachUserPolicyRequest {
   PolicyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ChangePasswordRequest {
   /**
    * <p>The IAM user's current password.</p>
@@ -504,6 +550,7 @@ export interface ChangePasswordRequest {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
  *       such as a user name that was deleted and then recreated. The error indicates that the request
  *       is likely to succeed if you try again after waiting several minutes. The error message
@@ -526,6 +573,7 @@ export class EntityTemporarilyUnmodifiableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the type of user for the transaction was
  *       incorrect.</p>
  */
@@ -546,6 +594,7 @@ export class InvalidUserTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the provided password did not meet the requirements
  *       imposed by the account password policy.</p>
  */
@@ -565,6 +614,9 @@ export class PasswordPolicyViolationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessKeyRequest {
   /**
    * <p>The name of the IAM user that the new key will belong to.</p>
@@ -575,6 +627,7 @@ export interface CreateAccessKeyRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreateAccessKey</a> request.
  *     </p>
  */
@@ -585,6 +638,9 @@ export interface CreateAccessKeyResponse {
   AccessKey: AccessKey | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountAliasRequest {
   /**
    * <p>The account alias to create.</p>
@@ -595,6 +651,9 @@ export interface CreateAccountAliasRequest {
   AccountAlias: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupRequest {
   /**
    * <p> The path to the group. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -617,6 +676,7 @@ export interface CreateGroupRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an IAM group entity.</p>
  *          <p>This data type is used as a response element in the following operations:</p>
  *          <ul>
@@ -671,6 +731,7 @@ export interface Group {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreateGroup</a> request. </p>
  */
 export interface CreateGroupResponse {
@@ -681,6 +742,7 @@ export interface CreateGroupResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because multiple requests to change this object were submitted
  *       simultaneously. Wait a few minutes and submit your request again.</p>
  */
@@ -701,6 +763,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A structure that represents user-provided metadata that can be associated with an IAM
  *       resource. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -728,6 +791,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceProfileRequest {
   /**
    * <p>The name of the instance profile to create.</p>
@@ -760,6 +826,7 @@ export interface CreateInstanceProfileRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the last time that an IAM role was used. This includes the
  *          date and time and the Region in which the role was last used. Activity is only reported for
  *          the trailing 400 days. This period can be shorter if your Region began supporting these
@@ -786,6 +853,7 @@ export interface RoleLastUsed {
 }
 
 /**
+ * @public
  * <p>Contains information about an IAM role. This structure is returned as a response
  *          element in several API operations that interact with roles.</p>
  */
@@ -864,6 +932,7 @@ export interface Role {
 }
 
 /**
+ * @public
  * <p>Contains information about an instance profile.</p>
  *          <p>This data type is used as a response element in the following operations:</p>
  *          <ul>
@@ -932,6 +1001,7 @@ export interface InstanceProfile {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreateInstanceProfile</a> request.
  *     </p>
  */
@@ -942,6 +1012,9 @@ export interface CreateInstanceProfileResponse {
   InstanceProfile: InstanceProfile | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLoginProfileRequest {
   /**
    * <p>The name of the IAM user to create a password for. The user must already
@@ -970,6 +1043,7 @@ export interface CreateLoginProfileRequest {
 }
 
 /**
+ * @public
  * <p>Contains the user name and password create date for a user.</p>
  *          <p> This data type is used as a response element in the <a>CreateLoginProfile</a> and <a>GetLoginProfile</a> operations. </p>
  */
@@ -991,6 +1065,7 @@ export interface LoginProfile {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreateLoginProfile</a> request.
  *     </p>
  */
@@ -1001,6 +1076,9 @@ export interface CreateLoginProfileResponse {
   LoginProfile: LoginProfile | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateOpenIDConnectProviderRequest {
   /**
    * <p>The URL of the identity provider. The URL must begin with <code>https://</code> and
@@ -1062,6 +1140,7 @@ export interface CreateOpenIDConnectProviderRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreateOpenIDConnectProvider</a>
  *       request. </p>
  */
@@ -1081,6 +1160,9 @@ export interface CreateOpenIDConnectProviderResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePolicyRequest {
   /**
    * <p>The friendly name of the policy.</p>
@@ -1156,6 +1238,7 @@ export interface CreatePolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a managed policy.</p>
  *          <p>This data type is used as a response element in the <a>CreatePolicy</a>,
  *             <a>GetPolicy</a>, and <a>ListPolicies</a> operations. </p>
@@ -1242,6 +1325,7 @@ export interface Policy {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreatePolicy</a> request.
  *     </p>
  */
@@ -1253,6 +1337,7 @@ export interface CreatePolicyResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the policy document was malformed. The error message
  *       describes the specific error.</p>
  */
@@ -1272,6 +1357,9 @@ export class MalformedPolicyDocumentException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreatePolicyVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new
@@ -1319,6 +1407,7 @@ export interface CreatePolicyVersionRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a version of a managed policy.</p>
  *          <p>This data type is used as a response element in the <a>CreatePolicyVersion</a>, <a>GetPolicyVersion</a>, <a>ListPolicyVersions</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
@@ -1356,6 +1445,7 @@ export interface PolicyVersion {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreatePolicyVersion</a> request.
  *     </p>
  */
@@ -1366,6 +1456,9 @@ export interface CreatePolicyVersionResponse {
   PolicyVersion?: PolicyVersion;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoleRequest {
   /**
    * <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -1463,6 +1556,7 @@ export interface CreateRoleRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreateRole</a> request. </p>
  */
 export interface CreateRoleResponse {
@@ -1472,6 +1566,9 @@ export interface CreateRoleResponse {
   Role: Role | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSAMLProviderRequest {
   /**
    * <p>An XML document generated by an identity provider (IdP) that supports SAML 2.0. The
@@ -1505,6 +1602,7 @@ export interface CreateSAMLProviderRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreateSAMLProvider</a> request.
  *     </p>
  */
@@ -1522,6 +1620,9 @@ export interface CreateSAMLProviderResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceLinkedRoleRequest {
   /**
    * <p>The service principal for the Amazon Web Services service to which this role is attached. You use a
@@ -1554,6 +1655,9 @@ export interface CreateServiceLinkedRoleRequest {
   CustomSuffix?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceLinkedRoleResponse {
   /**
    * <p>A <a>Role</a> object that contains details about the newly created
@@ -1562,6 +1666,9 @@ export interface CreateServiceLinkedRoleResponse {
   Role?: Role;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceSpecificCredentialRequest {
   /**
    * <p>The name of the IAM user that is to be associated with the credentials. The new
@@ -1581,6 +1688,7 @@ export interface CreateServiceSpecificCredentialRequest {
 }
 
 /**
+ * @public
  * <p>Contains the details of a service-specific credential.</p>
  */
 export interface ServiceSpecificCredential {
@@ -1625,6 +1733,9 @@ export interface ServiceSpecificCredential {
   Status: StatusType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceSpecificCredentialResponse {
   /**
    * <p>A structure that contains information about the newly created service-specific
@@ -1638,6 +1749,7 @@ export interface CreateServiceSpecificCredentialResponse {
 }
 
 /**
+ * @public
  * <p>The specified service does not support service-specific credentials.</p>
  */
 export class ServiceNotSupportedException extends __BaseException {
@@ -1656,6 +1768,9 @@ export class ServiceNotSupportedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p> The path for the user name. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -1702,6 +1817,7 @@ export interface CreateUserRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an IAM user entity.</p>
  *          <p>This data type is used as a response element in the following operations:</p>
  *          <ul>
@@ -1793,6 +1909,7 @@ export interface User {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreateUser</a> request. </p>
  */
 export interface CreateUserResponse {
@@ -1802,6 +1919,9 @@ export interface CreateUserResponse {
   User?: User;
 }
 
+/**
+ * @public
+ */
 export interface CreateVirtualMFADeviceRequest {
   /**
    * <p> The path for the virtual MFA device. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -1835,6 +1955,7 @@ export interface CreateVirtualMFADeviceRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a virtual MFA device.</p>
  */
 export interface VirtualMFADevice {
@@ -1876,6 +1997,7 @@ export interface VirtualMFADevice {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>CreateVirtualMFADevice</a> request.
  *     </p>
  */
@@ -1886,6 +2008,9 @@ export interface CreateVirtualMFADeviceResponse {
   VirtualMFADevice: VirtualMFADevice | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateMFADeviceRequest {
   /**
    * <p>The name of the user whose MFA device you want to deactivate.</p>
@@ -1904,6 +2029,9 @@ export interface DeactivateMFADeviceRequest {
   SerialNumber: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessKeyRequest {
   /**
    * <p>The name of the user whose access key pair you want to delete.</p>
@@ -1921,6 +2049,9 @@ export interface DeleteAccessKeyRequest {
   AccessKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountAliasRequest {
   /**
    * <p>The name of the account alias to delete.</p>
@@ -1932,6 +2063,7 @@ export interface DeleteAccountAliasRequest {
 }
 
 /**
+ * @public
  * <p>The request was rejected because it attempted to delete a resource that has attached
  *       subordinate entities. The error message describes these entities.</p>
  */
@@ -1951,6 +2083,9 @@ export class DeleteConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupRequest {
   /**
    * <p>The name of the IAM group to delete.</p>
@@ -1960,6 +2095,9 @@ export interface DeleteGroupRequest {
   GroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupPolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) identifying the group that the policy is embedded
@@ -1977,6 +2115,9 @@ export interface DeleteGroupPolicyRequest {
   PolicyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceProfileRequest {
   /**
    * <p>The name of the instance profile to delete.</p>
@@ -1986,6 +2127,9 @@ export interface DeleteInstanceProfileRequest {
   InstanceProfileName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLoginProfileRequest {
   /**
    * <p>The name of the user whose password you want to delete.</p>
@@ -1995,6 +2139,9 @@ export interface DeleteLoginProfileRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteOpenIDConnectProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to
@@ -2003,6 +2150,9 @@ export interface DeleteOpenIDConnectProviderRequest {
   OpenIDConnectProviderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to delete.</p>
@@ -2011,6 +2161,9 @@ export interface DeletePolicyRequest {
   PolicyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePolicyVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a
@@ -2030,6 +2183,9 @@ export interface DeletePolicyVersionRequest {
   VersionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRoleRequest {
   /**
    * <p>The name of the role to delete.</p>
@@ -2039,6 +2195,9 @@ export interface DeleteRoleRequest {
   RoleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRolePermissionsBoundaryRequest {
   /**
    * <p>The name (friendly name, not ARN) of the IAM role from which you want to remove the
@@ -2047,6 +2206,9 @@ export interface DeleteRolePermissionsBoundaryRequest {
   RoleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRolePolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) identifying the role that the policy is embedded
@@ -2064,6 +2226,9 @@ export interface DeleteRolePolicyRequest {
   PolicyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSAMLProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider to delete.</p>
@@ -2071,6 +2236,9 @@ export interface DeleteSAMLProviderRequest {
   SAMLProviderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServerCertificateRequest {
   /**
    * <p>The name of the server certificate you want to delete.</p>
@@ -2080,6 +2248,9 @@ export interface DeleteServerCertificateRequest {
   ServerCertificateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceLinkedRoleRequest {
   /**
    * <p>The name of the service-linked role to be deleted.</p>
@@ -2087,6 +2258,9 @@ export interface DeleteServiceLinkedRoleRequest {
   RoleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceLinkedRoleResponse {
   /**
    * <p>The deletion task identifier that you can use to check the status of the deletion.
@@ -2096,6 +2270,9 @@ export interface DeleteServiceLinkedRoleResponse {
   DeletionTaskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceSpecificCredentialRequest {
   /**
    * <p>The name of the IAM user associated with the service-specific credential. If this
@@ -2115,6 +2292,9 @@ export interface DeleteServiceSpecificCredentialRequest {
   ServiceSpecificCredentialId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSigningCertificateRequest {
   /**
    * <p>The name of the user the signing certificate belongs to.</p>
@@ -2131,6 +2311,9 @@ export interface DeleteSigningCertificateRequest {
   CertificateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSSHPublicKeyRequest {
   /**
    * <p>The name of the IAM user associated with the SSH public key.</p>
@@ -2147,6 +2330,9 @@ export interface DeleteSSHPublicKeyRequest {
   SSHPublicKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The name of the user to delete.</p>
@@ -2156,6 +2342,9 @@ export interface DeleteUserRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserPermissionsBoundaryRequest {
   /**
    * <p>The name (friendly name, not ARN) of the IAM user from which you want to remove the
@@ -2164,6 +2353,9 @@ export interface DeleteUserPermissionsBoundaryRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserPolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) identifying the user that the policy is embedded
@@ -2181,6 +2373,9 @@ export interface DeleteUserPolicyRequest {
   PolicyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVirtualMFADeviceRequest {
   /**
    * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices,
@@ -2192,6 +2387,9 @@ export interface DeleteVirtualMFADeviceRequest {
   SerialNumber: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachGroupPolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) of the IAM group to detach the policy from.</p>
@@ -2207,6 +2405,9 @@ export interface DetachGroupPolicyRequest {
   PolicyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachRolePolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) of the IAM role to detach the policy from.</p>
@@ -2222,6 +2423,9 @@ export interface DetachRolePolicyRequest {
   PolicyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachUserPolicyRequest {
   /**
    * <p>The name (friendly name, not ARN) of the IAM user to detach the policy from.</p>
@@ -2237,6 +2441,9 @@ export interface DetachUserPolicyRequest {
   PolicyArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableMFADeviceRequest {
   /**
    * <p>The name of the IAM user for whom you want to enable the MFA device.</p>
@@ -2284,6 +2491,7 @@ export interface EnableMFADeviceRequest {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the authentication code was not recognized. The error
  *       message describes the specific error.</p>
  */
@@ -2303,6 +2511,9 @@ export class InvalidAuthenticationCodeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ReportStateType {
   COMPLETE = "COMPLETE",
   INPROGRESS = "INPROGRESS",
@@ -2310,6 +2521,7 @@ export enum ReportStateType {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GenerateCredentialReport</a>
  *       request. </p>
  */
@@ -2325,6 +2537,9 @@ export interface GenerateCredentialReportResponse {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateOrganizationsAccessReportRequest {
   /**
    * <p>The path of the Organizations entity (root, OU, or account). You can build an entity path
@@ -2345,6 +2560,9 @@ export interface GenerateOrganizationsAccessReportRequest {
   OrganizationsPolicyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateOrganizationsAccessReportResponse {
   /**
    * <p>The job identifier that you can use in the <a>GetOrganizationsAccessReport</a> operation.</p>
@@ -2353,6 +2571,7 @@ export interface GenerateOrganizationsAccessReportResponse {
 }
 
 /**
+ * @public
  * <p>The request failed because the maximum number of concurrent requests for this account are
  *       already running.</p>
  */
@@ -2372,6 +2591,9 @@ export class ReportGenerationLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GenerateServiceLastAccessedDetailsRequest {
   /**
    * <p>The ARN of the IAM resource (user, group, role, or managed policy) used to generate
@@ -2390,6 +2612,9 @@ export interface GenerateServiceLastAccessedDetailsRequest {
   Granularity?: AccessAdvisorUsageGranularityType | string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateServiceLastAccessedDetailsResponse {
   /**
    * <p>The <code>JobId</code> that you can use in the <a>GetServiceLastAccessedDetails</a> or <a>GetServiceLastAccessedDetailsWithEntities</a> operations. The
@@ -2400,6 +2625,9 @@ export interface GenerateServiceLastAccessedDetailsResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessKeyLastUsedRequest {
   /**
    * <p>The identifier of an access key.</p>
@@ -2410,6 +2638,7 @@ export interface GetAccessKeyLastUsedRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetAccessKeyLastUsed</a> request.
  *       It is also returned as a member of the <a>AccessKeyMetaData</a> structure returned
  *       by the <a>ListAccessKeys</a> action.</p>
@@ -2427,6 +2656,9 @@ export interface GetAccessKeyLastUsedResponse {
   AccessKeyLastUsed?: AccessKeyLastUsed;
 }
 
+/**
+ * @public
+ */
 export enum EntityType {
   AWSManagedPolicy = "AWSManagedPolicy",
   Group = "Group",
@@ -2435,6 +2667,9 @@ export enum EntityType {
   User = "User",
 }
 
+/**
+ * @public
+ */
 export interface GetAccountAuthorizationDetailsRequest {
   /**
    * <p>A list of entity types used to filter the results. Only the entities that match the
@@ -2467,6 +2702,7 @@ export interface GetAccountAuthorizationDetailsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an IAM policy, including the policy document.</p>
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
  */
@@ -2483,6 +2719,7 @@ export interface PolicyDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about an IAM group, including all of the group's policies.</p>
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
  */
@@ -2530,6 +2767,7 @@ export interface GroupDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about a managed policy, including the policy's ARN, versions, and
  *          the number of principal entities (users, groups, and roles) that the policy is attached
  *          to.</p>
@@ -2618,6 +2856,7 @@ export interface ManagedPolicyDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about an IAM role, including all of the role's policies.</p>
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
  */
@@ -2699,6 +2938,7 @@ export interface RoleDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about an IAM user, including all the user's policies and all the
  *          IAM groups the user is in.</p>
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
@@ -2765,6 +3005,7 @@ export interface UserDetail {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetAccountAuthorizationDetails</a>
  *       request. </p>
  */
@@ -2808,6 +3049,7 @@ export interface GetAccountAuthorizationDetailsResponse {
 }
 
 /**
+ * @public
  * <p>Contains information about the account password policy.</p>
  *          <p> This data type is used as a response element in the <a>GetAccountPasswordPolicy</a> operation. </p>
  */
@@ -2820,7 +3062,7 @@ export interface PasswordPolicy {
   /**
    * <p>Specifies whether IAM user passwords must contain at least one of the following
    *          symbols:</p>
-   *          <p>! @ # $ % ^ & * ( ) _ + - = [ ] { } | '</p>
+   *          <p>! @ # $ % ^ & * ( ) _ + - = [ ] \{ \} | '</p>
    */
   RequireSymbols?: boolean;
 
@@ -2880,6 +3122,7 @@ export interface PasswordPolicy {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetAccountPasswordPolicy</a>
  *       request. </p>
  */
@@ -2890,6 +3133,9 @@ export interface GetAccountPasswordPolicyResponse {
   PasswordPolicy: PasswordPolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SummaryKeyType {
   AccessKeysPerUserQuota = "AccessKeysPerUserQuota",
   AccountAccessKeysPresent = "AccountAccessKeysPresent",
@@ -2920,6 +3166,7 @@ export enum SummaryKeyType {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetAccountSummary</a> request.
  *     </p>
  */
@@ -2931,6 +3178,9 @@ export interface GetAccountSummaryResponse {
   SummaryMap?: Record<string, number>;
 }
 
+/**
+ * @public
+ */
 export interface GetContextKeysForCustomPolicyRequest {
   /**
    * <p>A list of policies for which you want the list of context keys referenced in those
@@ -2957,6 +3207,7 @@ export interface GetContextKeysForCustomPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetContextKeysForPrincipalPolicy</a> or <a>GetContextKeysForCustomPolicy</a> request. </p>
  */
 export interface GetContextKeysForPolicyResponse {
@@ -2966,6 +3217,9 @@ export interface GetContextKeysForPolicyResponse {
   ContextKeyNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetContextKeysForPrincipalPolicyRequest {
   /**
    * <p>The ARN of a user, group, or role whose policies contain the context keys that you
@@ -3003,6 +3257,7 @@ export interface GetContextKeysForPrincipalPolicyRequest {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the most recent credential report has expired. To
  *       generate a new credential report, use <a>GenerateCredentialReport</a>. For more
  *       information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in the
@@ -3025,6 +3280,7 @@ export class CredentialReportExpiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the credential report does not exist. To generate a
  *       credential report, use <a>GenerateCredentialReport</a>.</p>
  */
@@ -3045,6 +3301,7 @@ export class CredentialReportNotPresentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the credential report is still being generated.</p>
  */
 export class CredentialReportNotReadyException extends __BaseException {
@@ -3063,11 +3320,15 @@ export class CredentialReportNotReadyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ReportFormatType {
   text_csv = "text/csv",
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetCredentialReport</a> request.
  *     </p>
  */
@@ -3088,6 +3349,9 @@ export interface GetCredentialReportResponse {
   GeneratedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupRequest {
   /**
    * <p>The name of the group.</p>
@@ -3118,6 +3382,7 @@ export interface GetGroupRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetGroup</a> request. </p>
  */
 export interface GetGroupResponse {
@@ -3149,6 +3414,9 @@ export interface GetGroupResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupPolicyRequest {
   /**
    * <p>The name of the group the policy is associated with.</p>
@@ -3166,6 +3434,7 @@ export interface GetGroupPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetGroupPolicy</a> request.
  *     </p>
  */
@@ -3189,6 +3458,9 @@ export interface GetGroupPolicyResponse {
   PolicyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInstanceProfileRequest {
   /**
    * <p>The name of the instance profile to get information about.</p>
@@ -3199,6 +3471,7 @@ export interface GetInstanceProfileRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetInstanceProfile</a> request.
  *     </p>
  */
@@ -3209,6 +3482,9 @@ export interface GetInstanceProfileResponse {
   InstanceProfile: InstanceProfile | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLoginProfileRequest {
   /**
    * <p>The name of the user whose login profile you want to retrieve.</p>
@@ -3219,6 +3495,7 @@ export interface GetLoginProfileRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetLoginProfile</a> request.
  *     </p>
  */
@@ -3230,6 +3507,9 @@ export interface GetLoginProfileResponse {
   LoginProfile: LoginProfile | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetOpenIDConnectProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get
@@ -3240,6 +3520,7 @@ export interface GetOpenIDConnectProviderRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetOpenIDConnectProvider</a>
  *       request. </p>
  */
@@ -3276,6 +3557,9 @@ export interface GetOpenIDConnectProviderResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum SortKeyType {
   LAST_AUTHENTICATED_TIME_ASCENDING = "LAST_AUTHENTICATED_TIME_ASCENDING",
   LAST_AUTHENTICATED_TIME_DESCENDING = "LAST_AUTHENTICATED_TIME_DESCENDING",
@@ -3283,6 +3567,9 @@ export enum SortKeyType {
   SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface GetOrganizationsAccessReportRequest {
   /**
    * <p>The identifier of the request generated by the <a>GenerateOrganizationsAccessReport</a> operation.</p>
@@ -3318,6 +3605,7 @@ export interface GetOrganizationsAccessReportRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the reason that the operation failed.</p>
  *          <p>This data type is used as a response element in the <a>GetOrganizationsAccessReport</a>, <a>GetServiceLastAccessedDetails</a>, and <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
  */
@@ -3333,12 +3621,18 @@ export interface ErrorDetails {
   Code: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum JobStatusType {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface GetOrganizationsAccessReportResponse {
   /**
    * <p>The status of the job.</p>
@@ -3401,6 +3695,9 @@ export interface GetOrganizationsAccessReportResponse {
   ErrorDetails?: ErrorDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the managed policy that you want information
@@ -3411,6 +3708,7 @@ export interface GetPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetPolicy</a> request. </p>
  */
 export interface GetPolicyResponse {
@@ -3420,6 +3718,9 @@ export interface GetPolicyResponse {
   Policy?: Policy;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the managed policy that you want information
@@ -3438,6 +3739,7 @@ export interface GetPolicyVersionRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetPolicyVersion</a> request.
  *     </p>
  */
@@ -3448,6 +3750,9 @@ export interface GetPolicyVersionResponse {
   PolicyVersion?: PolicyVersion;
 }
 
+/**
+ * @public
+ */
 export interface GetRoleRequest {
   /**
    * <p>The name of the IAM role to get information about.</p>
@@ -3458,6 +3763,7 @@ export interface GetRoleRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetRole</a> request. </p>
  */
 export interface GetRoleResponse {
@@ -3467,6 +3773,9 @@ export interface GetRoleResponse {
   Role: Role | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRolePolicyRequest {
   /**
    * <p>The name of the role associated with the policy.</p>
@@ -3484,6 +3793,7 @@ export interface GetRolePolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetRolePolicy</a> request.
  *     </p>
  */
@@ -3507,6 +3817,9 @@ export interface GetRolePolicyResponse {
   PolicyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSAMLProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get
@@ -3517,6 +3830,7 @@ export interface GetSAMLProviderRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetSAMLProvider</a> request.
  *     </p>
  */
@@ -3544,6 +3858,9 @@ export interface GetSAMLProviderResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface GetServerCertificateRequest {
   /**
    * <p>The name of the server certificate you want to retrieve information about.</p>
@@ -3554,6 +3871,7 @@ export interface GetServerCertificateRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a server certificate without its certificate body,
  *          certificate chain, and private key.</p>
  *          <p> This data type is used as a response element in the <a>UploadServerCertificate</a> and <a>ListServerCertificates</a>
@@ -3596,6 +3914,7 @@ export interface ServerCertificateMetadata {
 }
 
 /**
+ * @public
  * <p>Contains information about a server certificate.</p>
  *          <p> This data type is used as a response element in the <a>GetServerCertificate</a> operation. </p>
  */
@@ -3624,6 +3943,7 @@ export interface ServerCertificate {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetServerCertificate</a> request.
  *     </p>
  */
@@ -3634,6 +3954,9 @@ export interface GetServerCertificateResponse {
   ServerCertificate: ServerCertificate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceLastAccessedDetailsRequest {
   /**
    * <p>The ID of the request generated by the <a>GenerateServiceLastAccessedDetails</a> operation. The <code>JobId</code>
@@ -3665,6 +3988,7 @@ export interface GetServiceLastAccessedDetailsRequest {
 }
 
 /**
+ * @public
  * <p>Contains details about the most recent attempt to access an action within the
  *          service.</p>
  *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
@@ -3702,6 +4026,7 @@ export interface TrackedActionLastAccessed {
 }
 
 /**
+ * @public
  * <p>Contains details about the most recent attempt to access the service.</p>
  *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
  */
@@ -3765,6 +4090,9 @@ export interface ServiceLastAccessed {
   TrackedActionsLastAccessed?: TrackedActionLastAccessed[];
 }
 
+/**
+ * @public
+ */
 export interface GetServiceLastAccessedDetailsResponse {
   /**
    * <p>The status of the job.</p>
@@ -3821,6 +4149,9 @@ export interface GetServiceLastAccessedDetailsResponse {
   Error?: ErrorDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
   /**
    * <p>The ID of the request generated by the <code>GenerateServiceLastAccessedDetails</code>
@@ -3861,6 +4192,9 @@ export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export enum PolicyOwnerEntityType {
   GROUP = "GROUP",
   ROLE = "ROLE",
@@ -3868,6 +4202,7 @@ export enum PolicyOwnerEntityType {
 }
 
 /**
+ * @public
  * <p>Contains details about the specified entity (user or role).</p>
  *          <p>This data type is an element of the <a>EntityDetails</a> object.</p>
  */
@@ -3902,6 +4237,7 @@ export interface EntityInfo {
 }
 
 /**
+ * @public
  * <p>An object that contains details about when the IAM entities (users or roles) were last
  *          used in an attempt to access the specified Amazon Web Services service.</p>
  *          <p>This data type is a response element in the <a>GetServiceLastAccessedDetailsWithEntities</a> operation.</p>
@@ -3923,6 +4259,9 @@ export interface EntityDetails {
   LastAuthenticated?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   /**
    * <p>The status of the job.</p>
@@ -3973,6 +4312,9 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   Error?: ErrorDetails;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceLinkedRoleDeletionStatusRequest {
   /**
    * <p>The deletion task identifier. This identifier is returned by the <a>DeleteServiceLinkedRole</a> operation in the format
@@ -3982,6 +4324,7 @@ export interface GetServiceLinkedRoleDeletionStatusRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains details about how a service-linked role is used, if that
  *          information is returned by the service.</p>
  *          <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
@@ -3999,6 +4342,7 @@ export interface RoleUsageType {
 }
 
 /**
+ * @public
  * <p>The reason that the service-linked role deletion failed.</p>
  *          <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
  */
@@ -4019,6 +4363,9 @@ export interface DeletionTaskFailureReasonType {
   RoleUsageList?: RoleUsageType[];
 }
 
+/**
+ * @public
+ */
 export enum DeletionTaskStatusType {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -4026,6 +4373,9 @@ export enum DeletionTaskStatusType {
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface GetServiceLinkedRoleDeletionStatusResponse {
   /**
    * <p>The status of the deletion.</p>
@@ -4038,11 +4388,17 @@ export interface GetServiceLinkedRoleDeletionStatusResponse {
   Reason?: DeletionTaskFailureReasonType;
 }
 
+/**
+ * @public
+ */
 export enum EncodingType {
   PEM = "PEM",
   SSH = "SSH",
 }
 
+/**
+ * @public
+ */
 export interface GetSSHPublicKeyRequest {
   /**
    * <p>The name of the IAM user associated with the SSH public key.</p>
@@ -4067,6 +4423,7 @@ export interface GetSSHPublicKeyRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an SSH public key.</p>
  *          <p>This data type is used as a response element in the <a>GetSSHPublicKey</a>
  *          and <a>UploadSSHPublicKey</a> operations. </p>
@@ -4107,6 +4464,7 @@ export interface SSHPublicKey {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetSSHPublicKey</a>
  *       request.</p>
  */
@@ -4118,6 +4476,7 @@ export interface GetSSHPublicKeyResponse {
 }
 
 /**
+ * @public
  * <p>The request was rejected because the public key encoding format is unsupported or
  *       unrecognized.</p>
  */
@@ -4137,6 +4496,9 @@ export class UnrecognizedPublicKeyEncodingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetUserRequest {
   /**
    * <p>The name of the user to get information about.</p>
@@ -4148,6 +4510,7 @@ export interface GetUserRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetUser</a> request. </p>
  */
 export interface GetUserResponse {
@@ -4172,6 +4535,9 @@ export interface GetUserResponse {
   User: User | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetUserPolicyRequest {
   /**
    * <p>The name of the user who the policy is associated with.</p>
@@ -4189,6 +4555,7 @@ export interface GetUserPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>GetUserPolicy</a> request.
  *     </p>
  */
@@ -4212,6 +4579,9 @@ export interface GetUserPolicyResponse {
   PolicyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessKeysRequest {
   /**
    * <p>The name of the user.</p>
@@ -4242,6 +4612,7 @@ export interface ListAccessKeysRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListAccessKeys</a> request.
  *     </p>
  */
@@ -4269,6 +4640,9 @@ export interface ListAccessKeysResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountAliasesRequest {
   /**
    * <p>Use this parameter only when paginating results and only after
@@ -4292,6 +4666,7 @@ export interface ListAccountAliasesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListAccountAliases</a> request.
  *     </p>
  */
@@ -4320,6 +4695,9 @@ export interface ListAccountAliasesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAttachedGroupPoliciesRequest {
   /**
    * <p>The name (friendly name, not ARN) of the group to list attached policies for.</p>
@@ -4360,6 +4738,7 @@ export interface ListAttachedGroupPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListAttachedGroupPolicies</a>
  *       request. </p>
  */
@@ -4387,6 +4766,9 @@ export interface ListAttachedGroupPoliciesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAttachedRolePoliciesRequest {
   /**
    * <p>The name (friendly name, not ARN) of the role to list attached policies for.</p>
@@ -4427,6 +4809,7 @@ export interface ListAttachedRolePoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListAttachedRolePolicies</a>
  *       request. </p>
  */
@@ -4454,6 +4837,9 @@ export interface ListAttachedRolePoliciesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAttachedUserPoliciesRequest {
   /**
    * <p>The name (friendly name, not ARN) of the user to list attached policies for.</p>
@@ -4494,6 +4880,7 @@ export interface ListAttachedUserPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListAttachedUserPolicies</a>
  *       request. </p>
  */
@@ -4521,11 +4908,17 @@ export interface ListAttachedUserPoliciesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export enum PolicyUsageType {
   PermissionsBoundary = "PermissionsBoundary",
   PermissionsPolicy = "PermissionsPolicy",
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesForPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy for which you want the
@@ -4585,6 +4978,7 @@ export interface ListEntitiesForPolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a group that a managed policy is attached to.</p>
  *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
@@ -4605,6 +4999,7 @@ export interface PolicyGroup {
 }
 
 /**
+ * @public
  * <p>Contains information about a role that a managed policy is attached to.</p>
  *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
@@ -4625,6 +5020,7 @@ export interface PolicyRole {
 }
 
 /**
+ * @public
  * <p>Contains information about a user that a managed policy is attached to.</p>
  *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
@@ -4645,6 +5041,7 @@ export interface PolicyUser {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListEntitiesForPolicy</a> request.
  *     </p>
  */
@@ -4682,6 +5079,9 @@ export interface ListEntitiesForPolicyResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupPoliciesRequest {
   /**
    * <p>The name of the group to list policies for.</p>
@@ -4712,6 +5112,7 @@ export interface ListGroupPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListGroupPolicies</a> request.
  *     </p>
  */
@@ -4741,6 +5142,9 @@ export interface ListGroupPoliciesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsRequest {
   /**
    * <p> The path prefix for filtering the results. For example, the prefix
@@ -4776,6 +5180,7 @@ export interface ListGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListGroups</a> request. </p>
  */
 export interface ListGroupsResponse {
@@ -4802,6 +5207,9 @@ export interface ListGroupsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsForUserRequest {
   /**
    * <p>The name of the user to list groups for.</p>
@@ -4832,6 +5240,7 @@ export interface ListGroupsForUserRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListGroupsForUser</a> request.
  *     </p>
  */
@@ -4859,6 +5268,9 @@ export interface ListGroupsForUserResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceProfilesRequest {
   /**
    * <p> The path prefix for filtering the results. For example, the prefix
@@ -4894,6 +5306,7 @@ export interface ListInstanceProfilesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListInstanceProfiles</a> request.
  *     </p>
  */
@@ -4921,6 +5334,9 @@ export interface ListInstanceProfilesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceProfilesForRoleRequest {
   /**
    * <p>The name of the role to list instance profiles for.</p>
@@ -4951,6 +5367,7 @@ export interface ListInstanceProfilesForRoleRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListInstanceProfilesForRole</a>
  *       request. </p>
  */
@@ -4978,6 +5395,9 @@ export interface ListInstanceProfilesForRoleResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceProfileTagsRequest {
   /**
    * <p>The name of the IAM instance profile whose tags you want to see.</p>
@@ -5007,6 +5427,9 @@ export interface ListInstanceProfileTagsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListInstanceProfileTagsResponse {
   /**
    * <p>The list of tags that are currently attached to the IAM instance profile. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
@@ -5031,6 +5454,9 @@ export interface ListInstanceProfileTagsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMFADevicesRequest {
   /**
    * <p>The name of the user whose MFA devices you want to list.</p>
@@ -5061,6 +5487,7 @@ export interface ListMFADevicesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an MFA device.</p>
  *          <p>This data type is used as a response element in the <a>ListMFADevices</a>
  *          operation.</p>
@@ -5084,6 +5511,7 @@ export interface MFADevice {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListMFADevices</a> request.
  *     </p>
  */
@@ -5111,6 +5539,9 @@ export interface ListMFADevicesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMFADeviceTagsRequest {
   /**
    * <p>The unique identifier for the IAM virtual MFA device whose tags you want to see.
@@ -5141,6 +5572,9 @@ export interface ListMFADeviceTagsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListMFADeviceTagsResponse {
   /**
    * <p>The list of tags that are currently attached to the virtual MFA device. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
@@ -5165,9 +5599,13 @@ export interface ListMFADeviceTagsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOpenIDConnectProvidersRequest {}
 
 /**
+ * @public
  * <p>Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect provider.</p>
  */
 export interface OpenIDConnectProviderListEntry {
@@ -5180,6 +5618,7 @@ export interface OpenIDConnectProviderListEntry {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListOpenIDConnectProviders</a>
  *       request. </p>
  */
@@ -5190,6 +5629,9 @@ export interface ListOpenIDConnectProvidersResponse {
   OpenIDConnectProviderList?: OpenIDConnectProviderListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface ListOpenIDConnectProviderTagsRequest {
   /**
    * <p>The ARN of the OpenID Connect (OIDC) identity provider whose tags you want to
@@ -5220,6 +5662,9 @@ export interface ListOpenIDConnectProviderTagsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListOpenIDConnectProviderTagsResponse {
   /**
    * <p>The list of tags that are currently attached to the OpenID Connect (OIDC) identity
@@ -5245,12 +5690,18 @@ export interface ListOpenIDConnectProviderTagsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export enum PolicyScopeType {
   AWS = "AWS",
   All = "All",
   Local = "Local",
 }
 
+/**
+ * @public
+ */
 export interface ListPoliciesRequest {
   /**
    * <p>The scope to use for filtering the results.</p>
@@ -5312,6 +5763,7 @@ export interface ListPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListPolicies</a> request.
  *     </p>
  */
@@ -5339,6 +5791,9 @@ export interface ListPoliciesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPoliciesGrantingServiceAccessRequest {
   /**
    * <p>Use this parameter only when paginating results and only after
@@ -5366,12 +5821,16 @@ export interface ListPoliciesGrantingServiceAccessRequest {
   ServiceNamespaces: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PolicyType {
   INLINE = "INLINE",
   MANAGED = "MANAGED",
 }
 
 /**
+ * @public
  * <p>Contains details about the permissions policies that are attached to the specified
  *          identity (user, group, or role).</p>
  *          <p>This data type is an element of the <a>ListPoliciesGrantingServiceAccessEntry</a> object.</p>
@@ -5415,6 +5874,7 @@ export interface PolicyGrantingServiceAccess {
 }
 
 /**
+ * @public
  * <p>Contains details about the permissions policies that are attached to the specified
  *          identity (user, group, or role).</p>
  *          <p>This data type is used as a response element in the <a>ListPoliciesGrantingServiceAccess</a> operation.</p>
@@ -5438,6 +5898,9 @@ export interface ListPoliciesGrantingServiceAccessEntry {
   Policies?: PolicyGrantingServiceAccess[];
 }
 
+/**
+ * @public
+ */
 export interface ListPoliciesGrantingServiceAccessResponse {
   /**
    * <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about
@@ -5463,6 +5926,9 @@ export interface ListPoliciesGrantingServiceAccessResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPolicyTagsRequest {
   /**
    * <p>The ARN of the IAM customer managed policy whose tags you want to see.</p>
@@ -5492,6 +5958,9 @@ export interface ListPolicyTagsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPolicyTagsResponse {
   /**
    * <p>The list of tags that are currently attached to the IAM customer managed policy.
@@ -5517,6 +5986,9 @@ export interface ListPolicyTagsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPolicyVersionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy for which you want the
@@ -5547,6 +6019,7 @@ export interface ListPolicyVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListPolicyVersions</a> request.
  *     </p>
  */
@@ -5576,6 +6049,9 @@ export interface ListPolicyVersionsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRolePoliciesRequest {
   /**
    * <p>The name of the role to list policies for.</p>
@@ -5606,6 +6082,7 @@ export interface ListRolePoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListRolePolicies</a> request.
  *     </p>
  */
@@ -5633,6 +6110,9 @@ export interface ListRolePoliciesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRolesRequest {
   /**
    * <p> The path prefix for filtering the results. For example, the prefix
@@ -5668,6 +6148,7 @@ export interface ListRolesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListRoles</a> request. </p>
  */
 export interface ListRolesResponse {
@@ -5694,6 +6175,9 @@ export interface ListRolesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRoleTagsRequest {
   /**
    * <p>The name of the IAM role for which you want to see the list of tags.</p>
@@ -5723,6 +6207,9 @@ export interface ListRoleTagsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRoleTagsResponse {
   /**
    * <p>The list of tags that are currently attached to the role. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
@@ -5747,9 +6234,13 @@ export interface ListRoleTagsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSAMLProvidersRequest {}
 
 /**
+ * @public
  * <p>Contains the list of SAML providers for this account.</p>
  */
 export interface SAMLProviderListEntry {
@@ -5770,6 +6261,7 @@ export interface SAMLProviderListEntry {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListSAMLProviders</a> request.
  *     </p>
  */
@@ -5781,6 +6273,9 @@ export interface ListSAMLProvidersResponse {
   SAMLProviderList?: SAMLProviderListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface ListSAMLProviderTagsRequest {
   /**
    * <p>The ARN of the Security Assertion Markup Language (SAML) identity provider whose tags
@@ -5811,6 +6306,9 @@ export interface ListSAMLProviderTagsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSAMLProviderTagsResponse {
   /**
    * <p>The list of tags that are currently attached to the Security Assertion Markup Language
@@ -5836,6 +6334,9 @@ export interface ListSAMLProviderTagsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServerCertificatesRequest {
   /**
    * <p> The path prefix for filtering the results. For example:
@@ -5871,6 +6372,7 @@ export interface ListServerCertificatesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListServerCertificates</a> request.
  *     </p>
  */
@@ -5898,6 +6400,9 @@ export interface ListServerCertificatesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServerCertificateTagsRequest {
   /**
    * <p>The name of the IAM server certificate whose tags you want to see.</p>
@@ -5927,6 +6432,9 @@ export interface ListServerCertificateTagsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListServerCertificateTagsResponse {
   /**
    * <p>The list of tags that are currently attached to the IAM server certificate.
@@ -5952,6 +6460,9 @@ export interface ListServerCertificateTagsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceSpecificCredentialsRequest {
   /**
    * <p>The name of the user whose service-specific credentials you want information about. If
@@ -5970,6 +6481,7 @@ export interface ListServiceSpecificCredentialsRequest {
 }
 
 /**
+ * @public
  * <p>Contains additional details about a service-specific credential.</p>
  */
 export interface ServiceSpecificCredentialMetadata {
@@ -6006,6 +6518,9 @@ export interface ServiceSpecificCredentialMetadata {
   ServiceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListServiceSpecificCredentialsResponse {
   /**
    * <p>A list of structures that each contain details about a service-specific
@@ -6014,6 +6529,9 @@ export interface ListServiceSpecificCredentialsResponse {
   ServiceSpecificCredentials?: ServiceSpecificCredentialMetadata[];
 }
 
+/**
+ * @public
+ */
 export interface ListSigningCertificatesRequest {
   /**
    * <p>The name of the IAM user whose signing certificates you want to examine.</p>
@@ -6044,6 +6562,7 @@ export interface ListSigningCertificatesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an X.509 signing certificate.</p>
  *          <p>This data type is used as a response element in the <a>UploadSigningCertificate</a> and <a>ListSigningCertificates</a>
  *          operations. </p>
@@ -6077,6 +6596,7 @@ export interface SigningCertificate {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListSigningCertificates</a>
  *       request. </p>
  */
@@ -6104,6 +6624,9 @@ export interface ListSigningCertificatesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSSHPublicKeysRequest {
   /**
    * <p>The name of the IAM user to list SSH public keys for. If none is specified, the
@@ -6136,6 +6659,7 @@ export interface ListSSHPublicKeysRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an SSH public key, without the key's body or
  *          fingerprint.</p>
  *          <p>This data type is used as a response element in the <a>ListSSHPublicKeys</a>
@@ -6167,6 +6691,7 @@ export interface SSHPublicKeyMetadata {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListSSHPublicKeys</a>
  *       request.</p>
  */
@@ -6194,6 +6719,9 @@ export interface ListSSHPublicKeysResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUserPoliciesRequest {
   /**
    * <p>The name of the user to list policies for.</p>
@@ -6224,6 +6752,7 @@ export interface ListUserPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListUserPolicies</a> request.
  *     </p>
  */
@@ -6251,6 +6780,9 @@ export interface ListUserPoliciesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * <p> The path prefix for filtering the results. For example:
@@ -6286,6 +6818,7 @@ export interface ListUsersRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListUsers</a> request. </p>
  */
 export interface ListUsersResponse {
@@ -6312,6 +6845,9 @@ export interface ListUsersResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUserTagsRequest {
   /**
    * <p>The name of the IAM user whose tags you want to see.</p>
@@ -6341,6 +6877,9 @@ export interface ListUserTagsRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListUserTagsResponse {
   /**
    * <p>The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
@@ -6365,6 +6904,9 @@ export interface ListUserTagsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualMFADevicesRequest {
   /**
    * <p> The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list.
@@ -6396,6 +6938,7 @@ export interface ListVirtualMFADevicesRequest {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>ListVirtualMFADevices</a> request.
  *     </p>
  */
@@ -6424,6 +6967,9 @@ export interface ListVirtualMFADevicesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutGroupPolicyRequest {
   /**
    * <p>The name of the group to associate the policy with.</p>
@@ -6464,6 +7010,9 @@ export interface PutGroupPolicyRequest {
   PolicyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRolePermissionsBoundaryRequest {
   /**
    * <p>The name (friendly name, not ARN) of the IAM role for which you want to set the
@@ -6485,6 +7034,9 @@ export interface PutRolePermissionsBoundaryRequest {
   PermissionsBoundary: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRolePolicyRequest {
   /**
    * <p>The name of the role to associate the policy with.</p>
@@ -6525,6 +7077,9 @@ export interface PutRolePolicyRequest {
   PolicyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutUserPermissionsBoundaryRequest {
   /**
    * <p>The name (friendly name, not ARN) of the IAM user for which you want to set the
@@ -6546,6 +7101,9 @@ export interface PutUserPermissionsBoundaryRequest {
   PermissionsBoundary: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutUserPolicyRequest {
   /**
    * <p>The name of the user to associate the policy with.</p>
@@ -6586,6 +7144,9 @@ export interface PutUserPolicyRequest {
   PolicyDocument: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveClientIDFromOpenIDConnectProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the
@@ -6601,6 +7162,9 @@ export interface RemoveClientIDFromOpenIDConnectProviderRequest {
   ClientID: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveRoleFromInstanceProfileRequest {
   /**
    * <p>The name of the instance profile to update.</p>
@@ -6617,6 +7181,9 @@ export interface RemoveRoleFromInstanceProfileRequest {
   RoleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveUserFromGroupRequest {
   /**
    * <p>The name of the group to update.</p>
@@ -6633,6 +7200,9 @@ export interface RemoveUserFromGroupRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResetServiceSpecificCredentialRequest {
   /**
    * <p>The name of the IAM user associated with the service-specific credential. If this
@@ -6651,6 +7221,9 @@ export interface ResetServiceSpecificCredentialRequest {
   ServiceSpecificCredentialId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResetServiceSpecificCredentialResponse {
   /**
    * <p>A structure with details about the updated service-specific credential, including the
@@ -6663,6 +7236,9 @@ export interface ResetServiceSpecificCredentialResponse {
   ServiceSpecificCredential?: ServiceSpecificCredential;
 }
 
+/**
+ * @public
+ */
 export interface ResyncMFADeviceRequest {
   /**
    * <p>The name of the user whose MFA device you want to resynchronize.</p>
@@ -6691,6 +7267,9 @@ export interface ResyncMFADeviceRequest {
   AuthenticationCode2: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetDefaultPolicyVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to
@@ -6707,11 +7286,17 @@ export interface SetDefaultPolicyVersionRequest {
   VersionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum GlobalEndpointTokenVersion {
   v1Token = "v1Token",
   v2Token = "v2Token",
 }
 
+/**
+ * @public
+ */
 export interface SetSecurityTokenServicePreferencesRequest {
   /**
    * <p>The version of the global endpoint token. Version 1 tokens are valid only in Amazon Web Services Regions that are available by default. These tokens do not work in
@@ -6726,6 +7311,7 @@ export interface SetSecurityTokenServicePreferencesRequest {
 }
 
 /**
+ * @public
  * <p>The request failed because a provided policy could not be successfully evaluated. An
  *       additional detailed message indicates the source of the failure.</p>
  */
@@ -6745,6 +7331,9 @@ export class PolicyEvaluationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ContextKeyTypeEnum {
   BINARY = "binary",
   BINARY_LIST = "binaryList",
@@ -6761,6 +7350,7 @@ export enum ContextKeyTypeEnum {
 }
 
 /**
+ * @public
  * <p>Contains information about a condition context key. It includes the name of the key and
  *          specifies the value (or values, if the context key supports multiple values) to use in the
  *          simulation. This information is used when evaluating the <code>Condition</code> elements of
@@ -6789,6 +7379,9 @@ export interface ContextEntry {
   ContextKeyType?: ContextKeyTypeEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface SimulateCustomPolicyRequest {
   /**
    * <p>A list of policy documents to include in the simulation. Each document is specified as
@@ -7001,6 +7594,9 @@ export interface SimulateCustomPolicyRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export enum PolicyEvaluationDecisionType {
   ALLOWED = "allowed",
   EXPLICIT_DENY = "explicitDeny",
@@ -7008,6 +7604,7 @@ export enum PolicyEvaluationDecisionType {
 }
 
 /**
+ * @public
  * <p>Contains the row and column of a location of a <code>Statement</code> element in a
  *          policy document.</p>
  *          <p>This data type is used as a member of the <code>
@@ -7026,6 +7623,9 @@ export interface Position {
   Column?: number;
 }
 
+/**
+ * @public
+ */
 export enum PolicySourceType {
   AWS_MANAGED = "aws-managed",
   GROUP = "group",
@@ -7037,6 +7637,7 @@ export enum PolicySourceType {
 }
 
 /**
+ * @public
  * <p>Contains a reference to a <code>Statement</code> element in a policy document that
  *          determines the result of the simulation.</p>
  *          <p>This data type is used by the <code>MatchedStatements</code> member of the <code>
@@ -7067,6 +7668,7 @@ export interface Statement {
 }
 
 /**
+ * @public
  * <p>Contains information about the effect that Organizations has on a policy simulation.</p>
  */
 export interface OrganizationsDecisionDetail {
@@ -7078,6 +7680,7 @@ export interface OrganizationsDecisionDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about the effect that a permissions boundary has on a policy
  *          simulation when the boundary is applied to an IAM entity.</p>
  */
@@ -7096,6 +7699,7 @@ export interface PermissionsBoundaryDecisionDetail {
 }
 
 /**
+ * @public
  * <p>Contains the result of the simulation of a single API operation call on a single
  *          resource.</p>
  *          <p>This data type is used by a member of the <a>EvaluationResult</a> data
@@ -7149,6 +7753,7 @@ export interface ResourceSpecificResult {
 }
 
 /**
+ * @public
  * <p>Contains the results of a simulation.</p>
  *          <p>This data type is used by the return parameter of <code>
  *                <a>SimulateCustomPolicy</a>
@@ -7228,6 +7833,7 @@ export interface EvaluationResult {
 }
 
 /**
+ * @public
  * <p>Contains the response to a successful <a>SimulatePrincipalPolicy</a> or
  *       <a>SimulateCustomPolicy</a> request.</p>
  */
@@ -7255,6 +7861,9 @@ export interface SimulatePolicyResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface SimulatePrincipalPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to
@@ -7478,6 +8087,9 @@ export interface SimulatePrincipalPolicyRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagInstanceProfileRequest {
   /**
    * <p>The name of the IAM instance profile to which you want to add tags.</p>
@@ -7493,6 +8105,9 @@ export interface TagInstanceProfileRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagMFADeviceRequest {
   /**
    * <p>The unique identifier for the IAM virtual MFA device to which you want to add tags.
@@ -7509,6 +8124,9 @@ export interface TagMFADeviceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagOpenIDConnectProviderRequest {
   /**
    * <p>The ARN of the OIDC identity provider in IAM to which you want to add tags.</p>
@@ -7524,6 +8142,9 @@ export interface TagOpenIDConnectProviderRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagPolicyRequest {
   /**
    * <p>The ARN of the IAM customer managed policy to which you want to add tags.</p>
@@ -7539,6 +8160,9 @@ export interface TagPolicyRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagRoleRequest {
   /**
    * <p>The name of the IAM role to which you want to add tags.</p>
@@ -7553,6 +8177,9 @@ export interface TagRoleRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagSAMLProviderRequest {
   /**
    * <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
@@ -7568,6 +8195,9 @@ export interface TagSAMLProviderRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagServerCertificateRequest {
   /**
    * <p>The name of the IAM server certificate to which you want to add tags.</p>
@@ -7583,6 +8213,9 @@ export interface TagServerCertificateRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagUserRequest {
   /**
    * <p>The name of the IAM user to which you want to add tags.</p>
@@ -7597,6 +8230,9 @@ export interface TagUserRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagInstanceProfileRequest {
   /**
    * <p>The name of the IAM instance profile from which you want to remove tags.</p>
@@ -7612,6 +8248,9 @@ export interface UntagInstanceProfileRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagMFADeviceRequest {
   /**
    * <p>The unique identifier for the IAM virtual MFA device from which you want to remove
@@ -7628,6 +8267,9 @@ export interface UntagMFADeviceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagOpenIDConnectProviderRequest {
   /**
    * <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>

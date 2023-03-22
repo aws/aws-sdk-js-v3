@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateTemplateCommand}.
  */
 export interface ValidateTemplateCommandInput extends ValidateTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link ValidateTemplateCommand}.
  */
 export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates a specified template. CloudFormation first checks if the template is
  *          valid JSON. If it isn't, CloudFormation checks if the template is valid YAML. If
  *          both these checks fail, CloudFormation returns a template validation error.</p>
@@ -48,6 +53,8 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateTemplateCommandInput - {@link ValidateTemplateCommandInput}
+ * @returns {@link ValidateTemplateCommandOutput}
  * @see {@link ValidateTemplateCommandInput} for command's `input` shape.
  * @see {@link ValidateTemplateCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -71,6 +78,9 @@ export class ValidateTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ValidateTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryValidateTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateTemplateCommandOutput> {
     return deserializeAws_queryValidateTemplateCommand(output, context);
   }

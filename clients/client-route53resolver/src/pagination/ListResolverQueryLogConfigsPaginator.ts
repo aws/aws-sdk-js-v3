@@ -10,7 +10,7 @@ import { Route53ResolverClient } from "../Route53ResolverClient";
 import { Route53ResolverPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Route53ResolverClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListResolverQueryLogConfigsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListResolverQueryLogConfigs(
   config: Route53ResolverPaginationConfiguration,
   input: ListResolverQueryLogConfigsCommandInput,

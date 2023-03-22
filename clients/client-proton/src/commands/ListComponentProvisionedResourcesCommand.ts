@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListComponentProvisionedResourcesCommand}.
  */
 export interface ListComponentProvisionedResourcesCommandInput extends ListComponentProvisionedResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListComponentProvisionedResourcesCommand}.
  */
 export interface ListComponentProvisionedResourcesCommandOutput
@@ -37,6 +41,7 @@ export interface ListComponentProvisionedResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List provisioned resources for a component with details.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -51,6 +56,8 @@ export interface ListComponentProvisionedResourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentProvisionedResourcesCommandInput - {@link ListComponentProvisionedResourcesCommandInput}
+ * @returns {@link ListComponentProvisionedResourcesCommandOutput}
  * @see {@link ListComponentProvisionedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListComponentProvisionedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListComponentProvisionedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentProvisionedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListComponentProvisionedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListComponentProvisionedResourcesCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListComponentProvisionedResourcesCommand extends $Command<
     return serializeAws_json1_0ListComponentProvisionedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

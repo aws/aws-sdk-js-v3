@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfiguredTableAssociationCommand}.
  */
 export interface CreateConfiguredTableAssociationCommandInput extends CreateConfiguredTableAssociationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfiguredTableAssociationCommand}.
  */
 export interface CreateConfiguredTableAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateConfiguredTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a configured table association. A configured table association links a
  *          configured table with a collaboration.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateConfiguredTableAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfiguredTableAssociationCommandInput - {@link CreateConfiguredTableAssociationCommandInput}
+ * @returns {@link CreateConfiguredTableAssociationCommandOutput}
  * @see {@link CreateConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateConfiguredTableAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfiguredTableAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class CreateConfiguredTableAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateConfiguredTableAssociationCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class CreateConfiguredTableAssociationCommand extends $Command<
     return serializeAws_restJson1CreateConfiguredTableAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

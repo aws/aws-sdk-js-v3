@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutRecommendationPreferencesCommand}.
  */
 export interface PutRecommendationPreferencesCommandInput extends PutRecommendationPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRecommendationPreferencesCommand}.
  */
 export interface PutRecommendationPreferencesCommandOutput
@@ -37,6 +41,7 @@ export interface PutRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new recommendation preference or updates an existing recommendation
  *             preference, such as enhanced infrastructure metrics.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
@@ -52,6 +57,8 @@ export interface PutRecommendationPreferencesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecommendationPreferencesCommandInput - {@link PutRecommendationPreferencesCommandInput}
+ * @returns {@link PutRecommendationPreferencesCommandOutput}
  * @see {@link PutRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +107,9 @@ export class PutRecommendationPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class PutRecommendationPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecommendationPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0PutRecommendationPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

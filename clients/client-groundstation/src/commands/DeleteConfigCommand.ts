@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigCommand}.
  */
 export interface DeleteConfigCommandInput extends DeleteConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigCommand}.
  */
 export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>Config</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigCommandInput - {@link DeleteConfigCommandInput}
+ * @returns {@link DeleteConfigCommandOutput}
  * @see {@link DeleteConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigCommandOutput> {
     return deserializeAws_restJson1DeleteConfigCommand(output, context);
   }

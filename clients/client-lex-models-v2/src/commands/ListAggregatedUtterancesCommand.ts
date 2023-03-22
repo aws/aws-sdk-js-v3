@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAggregatedUtterancesCommand}.
  */
 export interface ListAggregatedUtterancesCommandInput extends ListAggregatedUtterancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAggregatedUtterancesCommand}.
  */
 export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtterancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of utterances that users have sent to the
  *          bot.</p>
  *          <p>Utterances are aggregated by the text of the utterance. For example,
@@ -70,6 +75,8 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAggregatedUtterancesCommandInput - {@link ListAggregatedUtterancesCommandInput}
+ * @returns {@link ListAggregatedUtterancesCommandOutput}
  * @see {@link ListAggregatedUtterancesCommandInput} for command's `input` shape.
  * @see {@link ListAggregatedUtterancesCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -110,6 +117,9 @@ export class ListAggregatedUtterancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAggregatedUtterancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class ListAggregatedUtterancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAggregatedUtterancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAggregatedUtterancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAggregatedUtterancesCommandOutput> {
     return deserializeAws_restJson1ListAggregatedUtterancesCommand(output, context);
   }

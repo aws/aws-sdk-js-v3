@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRuleGroupCommand}.
  */
 export interface DescribeRuleGroupCommandInput extends DescribeRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRuleGroupCommand}.
  */
 export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the data objects for the specified rule group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuleGroupCommandInput - {@link DescribeRuleGroupCommandInput}
+ * @returns {@link DescribeRuleGroupCommandOutput}
  * @see {@link DescribeRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuleGroupCommandOutput> {
     return deserializeAws_json1_0DescribeRuleGroupCommand(output, context);
   }

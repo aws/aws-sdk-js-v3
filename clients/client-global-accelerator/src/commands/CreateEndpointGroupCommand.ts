@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEndpointGroupCommand}.
  */
 export interface CreateEndpointGroupCommandInput extends CreateEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEndpointGroupCommand}.
  */
 export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one Amazon Web Services
  * 			Region. A resource must be valid and active when you add it as an endpoint.</p>
  * @example
@@ -51,6 +56,8 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEndpointGroupCommandInput - {@link CreateEndpointGroupCommandInput}
+ * @returns {@link CreateEndpointGroupCommandOutput}
  * @see {@link CreateEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointGroupCommandOutput> {
     return deserializeAws_json1_1CreateEndpointGroupCommand(output, context);
   }

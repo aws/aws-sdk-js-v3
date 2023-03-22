@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCoreNetworkCommand}.
  */
 export interface CreateCoreNetworkCommandInput extends CreateCoreNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCoreNetworkCommand}.
  */
 export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a core network as part of your global network, and optionally, with a core network policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCoreNetworkCommandInput - {@link CreateCoreNetworkCommandInput}
+ * @returns {@link CreateCoreNetworkCommandOutput}
  * @see {@link CreateCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateCoreNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCoreNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateCoreNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCoreNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCoreNetworkCommandOutput> {
     return deserializeAws_restJson1CreateCoreNetworkCommand(output, context);
   }

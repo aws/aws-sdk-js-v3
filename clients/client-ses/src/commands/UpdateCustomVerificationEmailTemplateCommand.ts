@@ -24,16 +24,21 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomVerificationEmailTemplateCommand}.
  */
 export interface UpdateCustomVerificationEmailTemplateCommandInput
   extends UpdateCustomVerificationEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomVerificationEmailTemplateCommand}.
  */
 export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing custom verification email template.</p>
  *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
  *                 Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomVerificationEmailTemplateCommandInput - {@link UpdateCustomVerificationEmailTemplateCommandInput}
+ * @returns {@link UpdateCustomVerificationEmailTemplateCommandOutput}
  * @see {@link UpdateCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomVerificationEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     return serializeAws_queryUpdateCustomVerificationEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

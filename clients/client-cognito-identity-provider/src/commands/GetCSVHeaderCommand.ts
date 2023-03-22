@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCSVHeaderCommand}.
  */
 export interface GetCSVHeaderCommandInput extends GetCSVHeaderRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCSVHeaderCommand}.
  */
 export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the header information for the comma-separated value (CSV) file to be used as
  *             input for the user import job.</p>
  * @example
@@ -52,6 +57,8 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCSVHeaderCommandInput - {@link GetCSVHeaderCommandInput}
+ * @returns {@link GetCSVHeaderCommandOutput}
  * @see {@link GetCSVHeaderCommandInput} for command's `input` shape.
  * @see {@link GetCSVHeaderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetCSVHeaderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCSVHeaderCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetCSVHeaderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCSVHeaderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCSVHeaderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCSVHeaderCommandOutput> {
     return deserializeAws_json1_1GetCSVHeaderCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrafficMirrorFilterRuleCommand}.
  */
 export interface DeleteTrafficMirrorFilterRuleCommandInput extends DeleteTrafficMirrorFilterRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrafficMirrorFilterRuleCommand}.
  */
 export interface DeleteTrafficMirrorFilterRuleCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteTrafficMirrorFilterRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Traffic Mirror rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteTrafficMirrorFilterRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrafficMirrorFilterRuleCommandInput - {@link DeleteTrafficMirrorFilterRuleCommandInput}
+ * @returns {@link DeleteTrafficMirrorFilterRuleCommandOutput}
  * @see {@link DeleteTrafficMirrorFilterRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrafficMirrorFilterRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrafficMirrorFilterRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

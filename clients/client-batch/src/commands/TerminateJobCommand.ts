@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateJobCommand}.
  */
 export interface TerminateJobCommandInput extends TerminateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateJobCommand}.
  */
 export interface TerminateJobCommandOutput extends TerminateJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code> state are
  *    terminated, which causes them to transition to <code>FAILED</code>. Jobs that have not progressed to the
  *     <code>STARTING</code> state are cancelled.</p>
@@ -48,6 +53,8 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateJobCommandInput - {@link TerminateJobCommandInput}
+ * @returns {@link TerminateJobCommandOutput}
  * @see {@link TerminateJobCommandInput} for command's `input` shape.
  * @see {@link TerminateJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -91,6 +98,9 @@ export class TerminateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class TerminateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TerminateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateJobCommandOutput> {
     return deserializeAws_restJson1TerminateJobCommand(output, context);
   }

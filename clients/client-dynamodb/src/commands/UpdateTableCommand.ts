@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandInput extends UpdateTableInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
  *             Streams settings for a given table.</p>
  *          <important>
@@ -72,6 +77,8 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
+ * @returns {@link UpdateTableCommandOutput}
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -174,6 +181,9 @@ export class UpdateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,10 +221,16 @@ export class UpdateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableCommandOutput> {
     return deserializeAws_json1_0UpdateTableCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoadBalancerCommand}.
  */
 export interface CreateLoadBalancerCommandInput extends CreateAccessPointInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoadBalancerCommand}.
  */
 export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Classic Load Balancer.</p>
  *
  *         <p>You can add listeners, security groups, subnets, and tags when you create your load balancer,
@@ -63,6 +68,8 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
+ * @returns {@link CreateLoadBalancerCommandOutput}
  * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -283,6 +290,9 @@ export class CreateLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -322,10 +332,16 @@ export class CreateLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
     return deserializeAws_queryCreateLoadBalancerCommand(output, context);
   }

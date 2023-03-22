@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportBackendStorageCommand}.
  */
 export interface ImportBackendStorageCommandInput extends ImportBackendStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportBackendStorageCommand}.
  */
 export interface ImportBackendStorageCommandOutput extends ImportBackendStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports an existing backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ImportBackendStorageCommandOutput extends ImportBackendStorageR
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportBackendStorageCommandInput - {@link ImportBackendStorageCommandInput}
+ * @returns {@link ImportBackendStorageCommandOutput}
  * @see {@link ImportBackendStorageCommandInput} for command's `input` shape.
  * @see {@link ImportBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class ImportBackendStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportBackendStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ImportBackendStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ImportBackendStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportBackendStorageCommandOutput> {
     return deserializeAws_restJson1ImportBackendStorageCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAuditTasksCommand}.
  */
 export interface ListAuditTasksCommandInput extends ListAuditTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAuditTasksCommand}.
  */
 export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Device Defender audits that have been performed during a given
  *           time period.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditTasks</a> action.</p>
@@ -48,6 +53,8 @@ export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAuditTasksCommandInput - {@link ListAuditTasksCommandInput}
+ * @returns {@link ListAuditTasksCommandOutput}
  * @see {@link ListAuditTasksCommandInput} for command's `input` shape.
  * @see {@link ListAuditTasksCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListAuditTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAuditTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListAuditTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAuditTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAuditTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAuditTasksCommandOutput> {
     return deserializeAws_restJson1ListAuditTasksCommand(output, context);
   }

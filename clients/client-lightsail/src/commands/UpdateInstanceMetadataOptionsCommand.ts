@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInstanceMetadataOptionsCommand}.
  */
 export interface UpdateInstanceMetadataOptionsCommandInput extends UpdateInstanceMetadataOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInstanceMetadataOptionsCommand}.
  */
 export interface UpdateInstanceMetadataOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
  *       instance. When you modify the parameters on a running instance, the <code>GetInstance</code>
  *       or <code>GetInstances</code> API operation initially responds with a state of
@@ -53,6 +58,8 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceMetadataOptionsCommandInput - {@link UpdateInstanceMetadataOptionsCommandInput}
+ * @returns {@link UpdateInstanceMetadataOptionsCommandOutput}
  * @see {@link UpdateInstanceMetadataOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceMetadataOptionsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +113,9 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceMetadataOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceMetadataOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateInstanceMetadataOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

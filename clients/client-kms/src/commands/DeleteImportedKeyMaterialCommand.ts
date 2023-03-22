@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImportedKeyMaterialCommand}.
  */
 export interface DeleteImportedKeyMaterialCommandInput extends DeleteImportedKeyMaterialRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImportedKeyMaterialCommand}.
  */
 export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes key material that you previously imported. This operation makes the specified KMS
  *       key unusable. For more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a>
  *       in the <i>Key Management Service Developer Guide</i>. </p>
@@ -72,6 +77,8 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImportedKeyMaterialCommandInput - {@link DeleteImportedKeyMaterialCommandInput}
+ * @returns {@link DeleteImportedKeyMaterialCommandOutput}
  * @see {@link DeleteImportedKeyMaterialCommandInput} for command's `input` shape.
  * @see {@link DeleteImportedKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -144,6 +151,9 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImportedKeyMaterialCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,10 +193,16 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImportedKeyMaterialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteImportedKeyMaterialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

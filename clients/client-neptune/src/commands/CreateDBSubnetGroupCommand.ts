@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBSubnetGroupCommand}.
  */
 export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBSubnetGroupCommand}.
  */
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
  *       least two AZs in the Amazon Region.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBSubnetGroupCommandInput - {@link CreateDBSubnetGroupCommandInput}
+ * @returns {@link CreateDBSubnetGroupCommandOutput}
  * @see {@link CreateDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateDBSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateDBSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSubnetGroupCommandOutput> {
     return deserializeAws_queryCreateDBSubnetGroupCommand(output, context);
   }

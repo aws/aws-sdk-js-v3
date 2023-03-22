@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRxNormInferenceJobsCommand}.
  */
 export interface ListRxNormInferenceJobsCommandInput extends ListRxNormInferenceJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRxNormInferenceJobsCommand}.
  */
 export interface ListRxNormInferenceJobsCommandOutput extends ListRxNormInferenceJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of InferRxNorm jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListRxNormInferenceJobsCommandOutput extends ListRxNormInferenc
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRxNormInferenceJobsCommandInput - {@link ListRxNormInferenceJobsCommandInput}
+ * @returns {@link ListRxNormInferenceJobsCommandOutput}
  * @see {@link ListRxNormInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListRxNormInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListRxNormInferenceJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRxNormInferenceJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListRxNormInferenceJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRxNormInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRxNormInferenceJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRxNormInferenceJobsCommandOutput> {
     return deserializeAws_json1_1ListRxNormInferenceJobsCommand(output, context);
   }

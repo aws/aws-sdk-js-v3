@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoadBalancersCommand}.
  */
 export interface DescribeLoadBalancersCommandInput extends DescribeLoadBalancersInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoadBalancersCommand}.
  */
 export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified load balancers or all of your load balancers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancersCommandInput - {@link DescribeLoadBalancersCommandInput}
+ * @returns {@link DescribeLoadBalancersCommandOutput}
  * @see {@link DescribeLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -121,6 +128,9 @@ export class DescribeLoadBalancersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class DescribeLoadBalancersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLoadBalancersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoadBalancersCommandOutput> {
     return deserializeAws_queryDescribeLoadBalancersCommand(output, context);
   }

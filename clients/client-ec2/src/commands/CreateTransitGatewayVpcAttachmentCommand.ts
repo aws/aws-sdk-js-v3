@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayVpcAttachmentCommand}.
  */
 export interface CreateTransitGatewayVpcAttachmentCommandInput extends CreateTransitGatewayVpcAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayVpcAttachmentCommand}.
  */
 export interface CreateTransitGatewayVpcAttachmentCommandOutput
@@ -37,6 +41,7 @@ export interface CreateTransitGatewayVpcAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified VPC to the specified transit gateway.</p>
  *          <p>If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is already attached,
  *          the new VPC CIDR range is not propagated to the default propagation route table.</p>
@@ -51,6 +56,8 @@ export interface CreateTransitGatewayVpcAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayVpcAttachmentCommandInput - {@link CreateTransitGatewayVpcAttachmentCommandInput}
+ * @returns {@link CreateTransitGatewayVpcAttachmentCommandOutput}
  * @see {@link CreateTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CreateTransitGatewayVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CreateTransitGatewayVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CreateTransitGatewayVpcAttachmentCommand extends $Command<
     return serializeAws_ec2CreateTransitGatewayVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPolicyVersionCommand}.
  */
 export interface GetPolicyVersionCommandInput extends GetPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPolicyVersionCommand}.
  */
 export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified policy version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPolicyVersion</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPolicyVersionCommandInput - {@link GetPolicyVersionCommandInput}
+ * @returns {@link GetPolicyVersionCommandOutput}
  * @see {@link GetPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link GetPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyVersionCommandOutput> {
     return deserializeAws_restJson1GetPolicyVersionCommand(output, context);
   }

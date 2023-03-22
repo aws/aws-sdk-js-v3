@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRasterDataCollectionsCommand}.
  */
 export interface ListRasterDataCollectionsCommandInput extends ListRasterDataCollectionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRasterDataCollectionsCommand}.
  */
 export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCollectionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to get raster data collections.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRasterDataCollectionsCommandInput - {@link ListRasterDataCollectionsCommandInput}
+ * @returns {@link ListRasterDataCollectionsCommandOutput}
  * @see {@link ListRasterDataCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListRasterDataCollectionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListRasterDataCollectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRasterDataCollectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListRasterDataCollectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRasterDataCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRasterDataCollectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

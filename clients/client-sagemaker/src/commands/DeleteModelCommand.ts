@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandInput extends DeleteModelInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
  *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not delete
  *             model artifacts, inference code, or the IAM role that you specified when creating the
@@ -44,6 +49,8 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
+ * @returns {@link DeleteModelCommandOutput}
  * @see {@link DeleteModelCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,10 +114,16 @@ export class DeleteModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCommandOutput> {
     return deserializeAws_json1_1DeleteModelCommand(output, context);
   }

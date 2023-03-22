@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociationsCommand}.
  */
 export interface ListAssociationsCommandInput extends ListAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociationsCommand}.
  */
 export interface ListAssociationsCommandOutput extends ListAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the associations in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociationsCommandInput - {@link ListAssociationsCommandInput}
+ * @returns {@link ListAssociationsCommandOutput}
  * @see {@link ListAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociationsCommandOutput> {
     return deserializeAws_json1_1ListAssociationsCommand(output, context);
   }

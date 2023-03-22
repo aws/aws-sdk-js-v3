@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandInput extends UntagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandOutput extends UntagResourceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association of the specified tags from an Amazon Pinpoint SMS Voice V2
  *             resource. For more information on tags see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/tagging-resources.html"> Tagging Amazon Pinpoint resources</a> in the <i>Amazon Pinpoint Developer
  *                 Guide</i>. </p>
@@ -52,6 +57,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -93,6 +100,9 @@ export class UntagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UntagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
     return deserializeAws_json1_0UntagResourceCommand(output, context);
   }

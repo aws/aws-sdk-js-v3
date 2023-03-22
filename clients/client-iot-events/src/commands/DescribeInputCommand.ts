@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInputCommand}.
  */
 export interface DescribeInputCommandInput extends DescribeInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInputCommand}.
  */
 export interface DescribeInputCommandOutput extends DescribeInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInputCommandInput - {@link DescribeInputCommandInput}
+ * @returns {@link DescribeInputCommandOutput}
  * @see {@link DescribeInputCommandInput} for command's `input` shape.
  * @see {@link DescribeInputCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInputCommandOutput> {
     return deserializeAws_restJson1DescribeInputCommand(output, context);
   }

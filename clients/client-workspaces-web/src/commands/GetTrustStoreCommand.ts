@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrustStoreCommand}.
  */
 export interface GetTrustStoreCommandInput extends GetTrustStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrustStoreCommand}.
  */
 export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrustStoreCommandInput - {@link GetTrustStoreCommandInput}
+ * @returns {@link GetTrustStoreCommandOutput}
  * @see {@link GetTrustStoreCommandInput} for command's `input` shape.
  * @see {@link GetTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrustStoreCommandOutput> {
     return deserializeAws_restJson1GetTrustStoreCommand(output, context);
   }

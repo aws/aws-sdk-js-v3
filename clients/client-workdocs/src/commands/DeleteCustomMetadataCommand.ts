@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomMetadataCommand}.
  */
 export interface DeleteCustomMetadataCommandInput extends DeleteCustomMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomMetadataCommand}.
  */
 export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes custom metadata from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomMetadataCommandInput - {@link DeleteCustomMetadataCommandInput}
+ * @returns {@link DeleteCustomMetadataCommandOutput}
  * @see {@link DeleteCustomMetadataCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteCustomMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteCustomMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCustomMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomMetadataCommandOutput> {
     return deserializeAws_restJson1DeleteCustomMetadataCommand(output, context);
   }

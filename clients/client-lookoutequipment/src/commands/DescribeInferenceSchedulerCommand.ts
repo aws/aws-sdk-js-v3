@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInferenceSchedulerCommand}.
  */
 export interface DescribeInferenceSchedulerCommandInput extends DescribeInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInferenceSchedulerCommand}.
  */
 export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Specifies information about the inference scheduler being used, including name, model,
  *          status, and associated metadata </p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInferenceSchedulerCommandInput - {@link DescribeInferenceSchedulerCommandInput}
+ * @returns {@link DescribeInferenceSchedulerCommandOutput}
  * @see {@link DescribeInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

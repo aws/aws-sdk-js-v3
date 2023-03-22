@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstanceCreditSpecificationCommand}.
  */
 export interface ModifyInstanceCreditSpecificationCommandInput extends ModifyInstanceCreditSpecificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstanceCreditSpecificationCommand}.
  */
 export interface ModifyInstanceCreditSpecificationCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the credit option for CPU usage on a running or stopped burstable performance
  *             instance. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
@@ -52,6 +57,8 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceCreditSpecificationCommandInput - {@link ModifyInstanceCreditSpecificationCommandInput}
+ * @returns {@link ModifyInstanceCreditSpecificationCommandOutput}
  * @see {@link ModifyInstanceCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceCreditSpecificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyInstanceCreditSpecificationCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
     return serializeAws_ec2ModifyInstanceCreditSpecificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

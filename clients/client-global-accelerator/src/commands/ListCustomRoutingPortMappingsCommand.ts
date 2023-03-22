@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomRoutingPortMappingsCommand}.
  */
 export interface ListCustomRoutingPortMappingsCommandInput extends ListCustomRoutingPortMappingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomRoutingPortMappingsCommand}.
  */
 export interface ListCustomRoutingPortMappingsCommandOutput
@@ -41,6 +45,7 @@ export interface ListCustomRoutingPortMappingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a complete mapping from the public accelerator IP address and port to destination EC2 instance
  * 		IP addresses and ports in the virtual public cloud (VPC) subnet endpoint for a custom routing accelerator.
  * 		For each subnet endpoint that you add, Global Accelerator creates a new static port mapping for the accelerator. The port
@@ -60,6 +65,8 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomRoutingPortMappingsCommandInput - {@link ListCustomRoutingPortMappingsCommandInput}
+ * @returns {@link ListCustomRoutingPortMappingsCommandOutput}
  * @see {@link ListCustomRoutingPortMappingsCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingPortMappingsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -98,6 +105,9 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomRoutingPortMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomRoutingPortMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCustomRoutingPortMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

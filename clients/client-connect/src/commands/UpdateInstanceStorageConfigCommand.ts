@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInstanceStorageConfigCommand}.
  */
 export interface UpdateInstanceStorageConfigCommandInput extends UpdateInstanceStorageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInstanceStorageConfigCommand}.
  */
 export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
  * @example
@@ -45,6 +50,8 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceStorageConfigCommandInput - {@link UpdateInstanceStorageConfigCommandInput}
+ * @returns {@link UpdateInstanceStorageConfigCommandOutput}
  * @see {@link UpdateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceStorageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceStorageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateInstanceStorageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

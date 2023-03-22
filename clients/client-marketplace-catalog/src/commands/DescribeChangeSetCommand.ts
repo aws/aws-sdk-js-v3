@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChangeSetCommand}.
  */
 export interface DescribeChangeSetCommandInput extends DescribeChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChangeSetCommand}.
  */
 export interface DescribeChangeSetCommandOutput extends DescribeChangeSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a given change set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChangeSetCommandInput - {@link DescribeChangeSetCommandInput}
+ * @returns {@link DescribeChangeSetCommandOutput}
  * @see {@link DescribeChangeSetCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChangeSetCommandOutput> {
     return deserializeAws_restJson1DescribeChangeSetCommand(output, context);
   }

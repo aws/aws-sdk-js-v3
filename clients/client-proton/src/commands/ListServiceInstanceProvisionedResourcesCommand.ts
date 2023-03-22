@@ -26,11 +26,15 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceInstanceProvisionedResourcesCommand}.
  */
 export interface ListServiceInstanceProvisionedResourcesCommandInput
   extends ListServiceInstanceProvisionedResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceInstanceProvisionedResourcesCommand}.
  */
 export interface ListServiceInstanceProvisionedResourcesCommandOutput
@@ -38,6 +42,7 @@ export interface ListServiceInstanceProvisionedResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List provisioned resources for a service instance with details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListServiceInstanceProvisionedResourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceInstanceProvisionedResourcesCommandInput - {@link ListServiceInstanceProvisionedResourcesCommandInput}
+ * @returns {@link ListServiceInstanceProvisionedResourcesCommandOutput}
  * @see {@link ListServiceInstanceProvisionedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListServiceInstanceProvisionedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListServiceInstanceProvisionedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceInstanceProvisionedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class ListServiceInstanceProvisionedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListServiceInstanceProvisionedResourcesCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class ListServiceInstanceProvisionedResourcesCommand extends $Command<
     return serializeAws_json1_0ListServiceInstanceProvisionedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1UpdateACLCommand, serializeAws_json1_1UpdateACLCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateACLCommand}.
  */
 export interface UpdateACLCommandInput extends UpdateACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateACLCommand}.
  */
 export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the list of users that belong to the Access Control List.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateACLCommandInput - {@link UpdateACLCommandInput}
+ * @returns {@link UpdateACLCommandOutput}
  * @see {@link UpdateACLCommandInput} for command's `input` shape.
  * @see {@link UpdateACLCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateACLCommandOutput> {
     return deserializeAws_json1_1UpdateACLCommand(output, context);
   }

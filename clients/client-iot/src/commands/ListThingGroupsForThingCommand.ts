@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThingGroupsForThingCommand}.
  */
 export interface ListThingGroupsForThingCommandInput extends ListThingGroupsForThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThingGroupsForThingCommand}.
  */
 export interface ListThingGroupsForThingCommandOutput extends ListThingGroupsForThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the thing groups to which the specified thing belongs.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingGroupsForThing</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListThingGroupsForThingCommandOutput extends ListThingGroupsFor
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThingGroupsForThingCommandInput - {@link ListThingGroupsForThingCommandInput}
+ * @returns {@link ListThingGroupsForThingCommandOutput}
  * @see {@link ListThingGroupsForThingCommandInput} for command's `input` shape.
  * @see {@link ListThingGroupsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListThingGroupsForThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThingGroupsForThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListThingGroupsForThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThingGroupsForThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListThingGroupsForThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingGroupsForThingCommandOutput> {
     return deserializeAws_restJson1ListThingGroupsForThingCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOfferingStatusCommand}.
  */
 export interface GetOfferingStatusCommandInput extends GetOfferingStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOfferingStatusCommand}.
  */
 export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current status and future status of all offerings purchased by an AWS account. The response
  *             indicates how many offerings are currently available and the offerings that will be available in the next
  *             period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the
@@ -49,6 +54,8 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOfferingStatusCommandInput - {@link GetOfferingStatusCommandInput}
+ * @returns {@link GetOfferingStatusCommandOutput}
  * @see {@link GetOfferingStatusCommandInput} for command's `input` shape.
  * @see {@link GetOfferingStatusCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -126,6 +133,9 @@ export class GetOfferingStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOfferingStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class GetOfferingStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOfferingStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOfferingStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOfferingStatusCommandOutput> {
     return deserializeAws_json1_1GetOfferingStatusCommand(output, context);
   }

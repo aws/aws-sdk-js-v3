@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchFlowExecutionsCommand}.
  */
 export interface SearchFlowExecutionsCommandInput extends SearchFlowExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchFlowExecutionsCommand}.
  */
 export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
@@ -48,6 +53,8 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFlowExecutionsCommandInput - {@link SearchFlowExecutionsCommandInput}
+ * @returns {@link SearchFlowExecutionsCommandOutput}
  * @see {@link SearchFlowExecutionsCommandInput} for command's `input` shape.
  * @see {@link SearchFlowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +90,9 @@ export class SearchFlowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFlowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class SearchFlowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFlowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchFlowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFlowExecutionsCommandOutput> {
     return deserializeAws_json1_1SearchFlowExecutionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataSetPermissionsCommand}.
  */
 export interface UpdateDataSetPermissionsCommandInput extends UpdateDataSetPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataSetPermissionsCommand}.
  */
 export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the permissions on a dataset.</p>
  *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSetPermissionsCommandInput - {@link UpdateDataSetPermissionsCommandInput}
+ * @returns {@link UpdateDataSetPermissionsCommandOutput}
  * @see {@link UpdateDataSetPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSetPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateDataSetPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSetPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateDataSetPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSetPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDataSetPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSetPermissionsCommandOutput> {
     return deserializeAws_restJson1UpdateDataSetPermissionsCommand(output, context);
   }

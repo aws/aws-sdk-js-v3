@@ -84,10 +84,12 @@ import {
 import { QLDBClient } from "./QLDBClient";
 
 /**
+ * @public
  * <p>The control plane for Amazon QLDB</p>
  */
 export class QLDB extends QLDBClient {
   /**
+   * @public
    * <p>Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its current
    *          status must be <code>ACTIVE</code>.</p>
    *          <p>You can't restart a stream after you cancel it. Canceled QLDB stream resources are
@@ -124,6 +126,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a new ledger in your Amazon Web Services account in the current Region.</p>
    */
   public createLedger(
@@ -153,6 +156,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Deletes a ledger and all of its contents. This action is irreversible.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
@@ -184,6 +188,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about a given Amazon QLDB journal stream. The output
    *          includes the Amazon Resource Name (ARN), stream name, current status, creation time, and
    *          the parameters of the original stream creation request.</p>
@@ -221,6 +226,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a journal export job, including the ledger name, export ID,
    *          creation time, current status, and the parameters of the original export creation
    *          request.</p>
@@ -261,6 +267,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a ledger, including its state, permissions mode, encryption at
    *          rest settings, and when it was created.</p>
    */
@@ -294,6 +301,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Exports journal contents within a date and time range from a ledger into a specified
    *          Amazon Simple Storage Service (Amazon S3) bucket. A journal export job can write the data objects in either the text
    *          or binary representation of Amazon Ion format, or in <i>JSON Lines</i> text
@@ -340,6 +348,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a block object at a specified address in a journal. Also returns a proof of the
    *          specified block for verification if <code>DigestTipAddress</code> is provided.</p>
    *          <p>For information about the data contents in a block, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html">Journal contents</a> in the
@@ -375,6 +384,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns the digest of a ledger at the latest committed block in the journal. The
    *          response includes a 256-bit hash value and a block address.</p>
    */
@@ -402,6 +412,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns a revision data object for a specified document ID and block address. Also
    *          returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
    *          is provided.</p>
@@ -430,6 +441,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of all Amazon QLDB journal stream descriptors for a given ledger. The
    *          output of each stream descriptor includes the same details that are returned by
    *             <code>DescribeJournalKinesisStream</code>.</p>
@@ -470,6 +482,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of journal export job descriptions for all ledgers that are associated
    *          with the current Amazon Web Services account and Region.</p>
    *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
@@ -508,6 +521,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of journal export job descriptions for a specified ledger.</p>
    *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
    *          you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
@@ -545,6 +559,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of ledger summaries that are associated with the current Amazon Web Services account
    *          and Region.</p>
    *          <p>This action returns a maximum of 100 items and is paginated so that you can
@@ -574,6 +589,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Returns all tags for a specified Amazon QLDB resource.</p>
    */
   public listTagsForResource(
@@ -606,6 +622,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Creates a journal stream for a given Amazon QLDB ledger. The stream captures every
    *          document revision that is committed to the ledger's journal and delivers the data to a
    *          specified Amazon Kinesis Data Streams resource.</p>
@@ -640,6 +657,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to a specified Amazon QLDB resource.</p>
    *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
    *          resource, your request fails and returns an error.</p>
@@ -668,6 +686,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a specified Amazon QLDB resource. You can specify up to 50
    *          tag keys to remove.</p>
    */
@@ -701,6 +720,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Updates properties on a ledger.</p>
    */
   public updateLedger(
@@ -730,6 +750,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
+   * @public
    * <p>Updates the permissions mode of a ledger.</p>
    *          <important>
    *             <p>Before you switch to the <code>STANDARD</code> permissions mode, you must first

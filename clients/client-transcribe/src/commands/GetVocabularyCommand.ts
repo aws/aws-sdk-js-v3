@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetVocabularyCommand}.
  */
 export interface GetVocabularyCommandInput extends GetVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVocabularyCommand}.
  */
 export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified custom vocabulary.</p>
  *          <p>To view the status of the specified custom vocabulary, check the
  *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
@@ -52,6 +57,8 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVocabularyCommandInput - {@link GetVocabularyCommandInput}
+ * @returns {@link GetVocabularyCommandOutput}
  * @see {@link GetVocabularyCommandInput} for command's `input` shape.
  * @see {@link GetVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVocabularyCommandOutput> {
     return deserializeAws_json1_1GetVocabularyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelIngestionCommand}.
  */
 export interface CancelIngestionCommandInput extends CancelIngestionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelIngestionCommand}.
  */
 export interface CancelIngestionCommandOutput extends CancelIngestionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an ongoing ingestion of data into SPICE.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelIngestionCommandInput - {@link CancelIngestionCommandInput}
+ * @returns {@link CancelIngestionCommandOutput}
  * @see {@link CancelIngestionCommandInput} for command's `input` shape.
  * @see {@link CancelIngestionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +97,9 @@ export class CancelIngestionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelIngestionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CancelIngestionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelIngestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelIngestionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelIngestionCommandOutput> {
     return deserializeAws_restJson1CancelIngestionCommand(output, context);
   }

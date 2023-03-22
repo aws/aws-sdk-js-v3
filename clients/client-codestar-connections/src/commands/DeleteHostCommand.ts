@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHostCommand}.
  */
 export interface DeleteHostCommandInput extends DeleteHostInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHostCommand}.
  */
 export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.</p>
  *          <note>
  *             <p>A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.</p>
@@ -53,6 +58,8 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHostCommandInput - {@link DeleteHostCommandInput}
+ * @returns {@link DeleteHostCommandOutput}
  * @see {@link DeleteHostCommandInput} for command's `input` shape.
  * @see {@link DeleteHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteHostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHostCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteHostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteHostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostCommandOutput> {
     return deserializeAws_json1_0DeleteHostCommand(output, context);
   }

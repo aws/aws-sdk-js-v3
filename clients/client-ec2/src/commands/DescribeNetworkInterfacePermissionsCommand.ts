@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNetworkInterfacePermissionsCommand}.
  */
 export interface DescribeNetworkInterfacePermissionsCommandInput extends DescribeNetworkInterfacePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNetworkInterfacePermissionsCommand}.
  */
 export interface DescribeNetworkInterfacePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeNetworkInterfacePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions for your network interfaces. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeNetworkInterfacePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNetworkInterfacePermissionsCommandInput - {@link DescribeNetworkInterfacePermissionsCommandInput}
+ * @returns {@link DescribeNetworkInterfacePermissionsCommandOutput}
  * @see {@link DescribeNetworkInterfacePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInterfacePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNetworkInterfacePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNetworkInterfacePermissionsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     return serializeAws_ec2DescribeNetworkInterfacePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

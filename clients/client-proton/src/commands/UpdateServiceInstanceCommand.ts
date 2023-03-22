@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceInstanceCommand}.
  */
 export interface UpdateServiceInstanceCommandInput extends UpdateServiceInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceInstanceCommand}.
  */
 export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a service instance.</p>
  *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p>
  *          <note>
@@ -54,6 +59,8 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceInstanceCommandInput - {@link UpdateServiceInstanceCommandInput}
+ * @returns {@link UpdateServiceInstanceCommandOutput}
  * @see {@link UpdateServiceInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceInstanceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateServiceInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateServiceInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateServiceInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceInstanceCommandOutput> {
     return deserializeAws_json1_0UpdateServiceInstanceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDiscovererCommand}.
  */
 export interface UpdateDiscovererCommandInput extends UpdateDiscovererRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDiscovererCommand}.
  */
 export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the discoverer</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDiscovererCommandInput - {@link UpdateDiscovererCommandInput}
+ * @returns {@link UpdateDiscovererCommandOutput}
  * @see {@link UpdateDiscovererCommandInput} for command's `input` shape.
  * @see {@link UpdateDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateDiscovererCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDiscovererCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateDiscovererCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDiscovererCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDiscovererCommandOutput> {
     return deserializeAws_restJson1UpdateDiscovererCommand(output, context);
   }

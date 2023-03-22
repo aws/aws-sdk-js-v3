@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopPHIDetectionJobCommand}.
  */
 export interface StopPHIDetectionJobCommandInput extends StopPHIDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopPHIDetectionJobCommand}.
  */
 export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a protected health information (PHI) detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StopPHIDetectionJobCommandInput - {@link StopPHIDetectionJobCommandInput}
+ * @returns {@link StopPHIDetectionJobCommandOutput}
  * @see {@link StopPHIDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopPHIDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -84,6 +91,9 @@ export class StopPHIDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopPHIDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StopPHIDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopPHIDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopPHIDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPHIDetectionJobCommandOutput> {
     return deserializeAws_json1_1StopPHIDetectionJobCommand(output, context);
   }

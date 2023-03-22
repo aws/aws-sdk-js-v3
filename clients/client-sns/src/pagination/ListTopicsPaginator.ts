@@ -6,7 +6,7 @@ import { SNSClient } from "../SNSClient";
 import { SNSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SNSClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTopicsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTopics(
   config: SNSPaginationConfiguration,
   input: ListTopicsCommandInput,

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListImageRecipesCommand}.
  */
 export interface ListImageRecipesCommandInput extends ListImageRecipesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImageRecipesCommand}.
  */
 export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of image recipes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImageRecipesCommandInput - {@link ListImageRecipesCommandInput}
+ * @returns {@link ListImageRecipesCommandOutput}
  * @see {@link ListImageRecipesCommandInput} for command's `input` shape.
  * @see {@link ListImageRecipesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListImageRecipesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImageRecipesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListImageRecipesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImageRecipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListImageRecipesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImageRecipesCommandOutput> {
     return deserializeAws_restJson1ListImageRecipesCommand(output, context);
   }

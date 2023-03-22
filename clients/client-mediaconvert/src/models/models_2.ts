@@ -13,6 +13,9 @@ import {
   StatusUpdateInterval,
 } from "./models_1";
 
+/**
+ * @public
+ */
 export interface GetJobResponse {
   /**
    * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -20,6 +23,9 @@ export interface GetJobResponse {
   Job?: Job;
 }
 
+/**
+ * @public
+ */
 export interface GetJobTemplateRequest {
   /**
    * The name of the job template.
@@ -27,6 +33,9 @@ export interface GetJobTemplateRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJobTemplateResponse {
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
@@ -34,14 +43,21 @@ export interface GetJobTemplateResponse {
   JobTemplate?: JobTemplate;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyRequest {}
 
+/**
+ * @public
+ */
 export enum InputPolicy {
   ALLOWED = "ALLOWED",
   DISALLOWED = "DISALLOWED",
 }
 
 /**
+ * @public
  * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
  */
 export interface Policy {
@@ -61,6 +77,9 @@ export interface Policy {
   S3Inputs?: InputPolicy | string;
 }
 
+/**
+ * @public
+ */
 export interface GetPolicyResponse {
   /**
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -68,6 +87,9 @@ export interface GetPolicyResponse {
   Policy?: Policy;
 }
 
+/**
+ * @public
+ */
 export interface GetPresetRequest {
   /**
    * The name of the preset.
@@ -75,6 +97,9 @@ export interface GetPresetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPresetResponse {
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
@@ -82,6 +107,9 @@ export interface GetPresetResponse {
   Preset?: Preset;
 }
 
+/**
+ * @public
+ */
 export interface GetQueueRequest {
   /**
    * The name of the queue that you want information about.
@@ -89,6 +117,9 @@ export interface GetQueueRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetQueueResponse {
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
@@ -96,17 +127,26 @@ export interface GetQueueResponse {
   Queue?: Queue;
 }
 
+/**
+ * @public
+ */
 export enum JobTemplateListBy {
   CREATION_DATE = "CREATION_DATE",
   NAME = "NAME",
   SYSTEM = "SYSTEM",
 }
 
+/**
+ * @public
+ */
 export enum Order {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface ListJobsRequest {
   /**
    * Optional. Number of jobs, up to twenty, that will be returned at one time.
@@ -134,6 +174,9 @@ export interface ListJobsRequest {
   Status?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsResponse {
   /**
    * List of jobs
@@ -146,6 +189,9 @@ export interface ListJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobTemplatesRequest {
   /**
    * Optionally, specify a job template category to limit responses to only job templates from that category.
@@ -173,6 +219,9 @@ export interface ListJobTemplatesRequest {
   Order?: Order | string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobTemplatesResponse {
   /**
    * List of Job templates.
@@ -185,12 +234,18 @@ export interface ListJobTemplatesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum PresetListBy {
   CREATION_DATE = "CREATION_DATE",
   NAME = "NAME",
   SYSTEM = "SYSTEM",
 }
 
+/**
+ * @public
+ */
 export interface ListPresetsRequest {
   /**
    * Optionally, specify a preset category to limit responses to only presets from that category.
@@ -218,6 +273,9 @@ export interface ListPresetsRequest {
   Order?: Order | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPresetsResponse {
   /**
    * Use this string to request the next batch of presets.
@@ -230,11 +288,17 @@ export interface ListPresetsResponse {
   Presets?: Preset[];
 }
 
+/**
+ * @public
+ */
 export enum QueueListBy {
   CREATION_DATE = "CREATION_DATE",
   NAME = "NAME",
 }
 
+/**
+ * @public
+ */
 export interface ListQueuesRequest {
   /**
    * Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
@@ -257,6 +321,9 @@ export interface ListQueuesRequest {
   Order?: Order | string;
 }
 
+/**
+ * @public
+ */
 export interface ListQueuesResponse {
   /**
    * Use this string to request the next batch of queues.
@@ -269,6 +336,9 @@ export interface ListQueuesResponse {
   Queues?: Queue[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
@@ -277,6 +347,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
  */
 export interface ResourceTags {
@@ -291,6 +362,9 @@ export interface ResourceTags {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
@@ -298,6 +372,9 @@ export interface ListTagsForResourceResponse {
   ResourceTags?: ResourceTags;
 }
 
+/**
+ * @public
+ */
 export interface PutPolicyRequest {
   /**
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -305,6 +382,9 @@ export interface PutPolicyRequest {
   Policy: Policy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutPolicyResponse {
   /**
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -312,6 +392,9 @@ export interface PutPolicyResponse {
   Policy?: Policy;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
@@ -324,8 +407,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to remove tags from. To get the ARN, send a GET request with the resource name.
@@ -338,8 +427,14 @@ export interface UntagResourceRequest {
   TagKeys?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateJobTemplateRequest {
   /**
    * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
@@ -387,6 +482,9 @@ export interface UpdateJobTemplateRequest {
   StatusUpdateInterval?: StatusUpdateInterval | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobTemplateResponse {
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
@@ -394,6 +492,9 @@ export interface UpdateJobTemplateResponse {
   JobTemplate?: JobTemplate;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePresetRequest {
   /**
    * The new category for the preset, if you are changing it.
@@ -416,6 +517,9 @@ export interface UpdatePresetRequest {
   Settings?: PresetSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePresetResponse {
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
@@ -423,6 +527,9 @@ export interface UpdatePresetResponse {
   Preset?: Preset;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQueueRequest {
   /**
    * The new description for the queue, if you are changing it.
@@ -445,6 +552,9 @@ export interface UpdateQueueRequest {
   Status?: QueueStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQueueResponse {
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.

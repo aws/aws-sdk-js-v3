@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceConnectorGroupCommand}.
  */
 export interface DeleteVoiceConnectorGroupCommandInput extends DeleteVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceConnectorGroupCommand}.
  */
 export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon Chime Voice Connector group. Any
  * <code>VoiceConnectorItems</code>
  * and phone numbers associated with the group must be removed before it can be deleted.</p>
@@ -46,6 +51,8 @@ export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceConnectorGroupCommandInput - {@link DeleteVoiceConnectorGroupCommandInput}
+ * @returns {@link DeleteVoiceConnectorGroupCommandOutput}
  * @see {@link DeleteVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

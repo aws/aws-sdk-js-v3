@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link RequestServiceQuotaIncreaseCommand}.
  */
 export interface RequestServiceQuotaIncreaseCommandInput extends RequestServiceQuotaIncreaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link RequestServiceQuotaIncreaseCommand}.
  */
 export interface RequestServiceQuotaIncreaseCommandOutput
@@ -37,6 +41,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits a quota increase request for the specified quota.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestServiceQuotaIncreaseCommandInput - {@link RequestServiceQuotaIncreaseCommandInput}
+ * @returns {@link RequestServiceQuotaIncreaseCommandOutput}
  * @see {@link RequestServiceQuotaIncreaseCommandInput} for command's `input` shape.
  * @see {@link RequestServiceQuotaIncreaseCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -100,6 +107,9 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestServiceQuotaIncreaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestServiceQuotaIncreaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RequestServiceQuotaIncreaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

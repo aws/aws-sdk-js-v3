@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCellsCommand}.
  */
 export interface ListCellsCommandInput extends ListCellsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCellsCommand}.
  */
 export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the cells for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCellsCommandInput - {@link ListCellsCommandInput}
+ * @returns {@link ListCellsCommandOutput}
  * @see {@link ListCellsCommandInput} for command's `input` shape.
  * @see {@link ListCellsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListCellsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCellsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListCellsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCellsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCellsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCellsCommandOutput> {
     return deserializeAws_restJson1ListCellsCommand(output, context);
   }

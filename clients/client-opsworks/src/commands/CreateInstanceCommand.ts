@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceCommand}.
  */
 export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceCommand}.
  */
 export interface CreateInstanceCommandOutput extends CreateInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an instance in a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html">Adding an
  *         Instance to a Layer</a>.</p>
  *          <p>
@@ -52,6 +57,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceCommandInput - {@link CreateInstanceCommandInput}
+ * @returns {@link CreateInstanceCommandOutput}
  * @see {@link CreateInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceCommandOutput> {
     return deserializeAws_json1_1CreateInstanceCommand(output, context);
   }

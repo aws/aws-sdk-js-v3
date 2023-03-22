@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServerCertificateCommand}.
  */
 export interface DeleteServerCertificateCommandInput extends DeleteServerCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServerCertificateCommand}.
  */
 export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified server certificate.</p>
  *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
@@ -55,6 +60,8 @@ export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServerCertificateCommandInput - {@link DeleteServerCertificateCommandInput}
+ * @returns {@link DeleteServerCertificateCommandOutput}
  * @see {@link DeleteServerCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCertificateCommandOutput> {
     return deserializeAws_queryDeleteServerCertificateCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationInstanceCommand}.
  */
 export interface CreateReplicationInstanceCommandInput extends CreateReplicationInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationInstanceCommand}.
  */
 export interface CreateReplicationInstanceCommandOutput extends CreateReplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the replication instance using the specified parameters.</p>
  *          <p>DMS requires that your account have certain roles with appropriate permissions
  *          before you can create a replication instance. For information on the required roles, see
@@ -55,6 +60,8 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationInstanceCommandInput - {@link CreateReplicationInstanceCommandInput}
+ * @returns {@link CreateReplicationInstanceCommandOutput}
  * @see {@link CreateReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -190,6 +197,9 @@ export class CreateReplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -229,10 +239,16 @@ export class CreateReplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateReplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

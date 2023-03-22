@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreCoreNetworkPolicyVersionCommand}.
  */
 export interface RestoreCoreNetworkPolicyVersionCommandInput extends RestoreCoreNetworkPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreCoreNetworkPolicyVersionCommand}.
  */
 export interface RestoreCoreNetworkPolicyVersionCommandOutput
@@ -37,6 +41,7 @@ export interface RestoreCoreNetworkPolicyVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a previous policy version as a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and restored policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RestoreCoreNetworkPolicyVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreCoreNetworkPolicyVersionCommandInput - {@link RestoreCoreNetworkPolicyVersionCommandInput}
+ * @returns {@link RestoreCoreNetworkPolicyVersionCommandOutput}
  * @see {@link RestoreCoreNetworkPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link RestoreCoreNetworkPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class RestoreCoreNetworkPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreCoreNetworkPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class RestoreCoreNetworkPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RestoreCoreNetworkPolicyVersionCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class RestoreCoreNetworkPolicyVersionCommand extends $Command<
     return serializeAws_restJson1RestoreCoreNetworkPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLicenseConversionTasksCommand}.
  */
 export interface ListLicenseConversionTasksCommandInput extends ListLicenseConversionTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLicenseConversionTasksCommand}.
  */
 export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConversionTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the license type conversion tasks for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLicenseConversionTasksCommandInput - {@link ListLicenseConversionTasksCommandInput}
+ * @returns {@link ListLicenseConversionTasksCommandOutput}
  * @see {@link ListLicenseConversionTasksCommandInput} for command's `input` shape.
  * @see {@link ListLicenseConversionTasksCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListLicenseConversionTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLicenseConversionTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListLicenseConversionTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLicenseConversionTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLicenseConversionTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

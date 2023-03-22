@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProgressUpdateStreamCommand}.
  */
 export interface DeleteProgressUpdateStreamCommandInput extends DeleteProgressUpdateStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProgressUpdateStreamCommand}.
  */
 export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressUpdateStreamResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a progress update stream, including all of its tasks, which was previously
  *          created as an AWS resource used for access control. This API has the following
  *          traits:</p>
@@ -76,6 +81,8 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProgressUpdateStreamCommandInput - {@link DeleteProgressUpdateStreamCommandInput}
+ * @returns {@link DeleteProgressUpdateStreamCommandOutput}
  * @see {@link DeleteProgressUpdateStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteProgressUpdateStreamCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -133,6 +140,9 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProgressUpdateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProgressUpdateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteProgressUpdateStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

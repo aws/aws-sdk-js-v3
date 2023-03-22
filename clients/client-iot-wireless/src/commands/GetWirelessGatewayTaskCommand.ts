@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWirelessGatewayTaskCommand}.
  */
 export interface GetWirelessGatewayTaskCommandInput extends GetWirelessGatewayTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWirelessGatewayTaskCommand}.
  */
 export interface GetWirelessGatewayTaskCommandOutput extends GetWirelessGatewayTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a wireless gateway task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetWirelessGatewayTaskCommandOutput extends GetWirelessGatewayT
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessGatewayTaskCommandInput - {@link GetWirelessGatewayTaskCommandInput}
+ * @returns {@link GetWirelessGatewayTaskCommandOutput}
  * @see {@link GetWirelessGatewayTaskCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetWirelessGatewayTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessGatewayTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetWirelessGatewayTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWirelessGatewayTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWirelessGatewayTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWirelessGatewayTaskCommandOutput> {
     return deserializeAws_restJson1GetWirelessGatewayTaskCommand(output, context);
   }

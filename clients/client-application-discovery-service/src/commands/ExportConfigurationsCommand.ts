@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportConfigurationsCommand}.
  */
 export interface ExportConfigurationsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link ExportConfigurationsCommand}.
  */
 export interface ExportConfigurationsCommandOutput extends ExportConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecated. Use <code>StartExportTask</code> instead.</p>
@@ -52,6 +57,8 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportConfigurationsCommandInput - {@link ExportConfigurationsCommandInput}
+ * @returns {@link ExportConfigurationsCommandOutput}
  * @see {@link ExportConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ExportConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -95,6 +102,9 @@ export class ExportConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ExportConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExportConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportConfigurationsCommandOutput> {
     return deserializeAws_json1_1ExportConfigurationsCommand(output, context);
   }

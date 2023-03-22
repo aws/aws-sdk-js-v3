@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessPointCommand}.
  */
 export interface GetAccessPointCommandInput extends GetAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessPointCommand}.
  */
 export interface GetAccessPointCommandOutput extends GetAccessPointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration information about the specified access point.</p>
  *          <p></p>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a> section.</p>
@@ -67,6 +72,8 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointCommandInput - {@link GetAccessPointCommandInput}
+ * @returns {@link GetAccessPointCommandOutput}
  * @see {@link GetAccessPointCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessPointCommandOutput> {
     return deserializeAws_restXmlGetAccessPointCommand(output, context);
   }

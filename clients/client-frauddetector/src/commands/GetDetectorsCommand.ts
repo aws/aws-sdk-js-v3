@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDetectorsCommand}.
  */
 export interface GetDetectorsCommandInput extends GetDetectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDetectorsCommand}.
  */
 export interface GetDetectorsCommandOutput extends GetDetectorsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all detectors or a single detector if a <code>detectorId</code> is specified. This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
  *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
@@ -51,6 +56,8 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDetectorsCommandInput - {@link GetDetectorsCommandInput}
+ * @returns {@link GetDetectorsCommandOutput}
  * @see {@link GetDetectorsCommandInput} for command's `input` shape.
  * @see {@link GetDetectorsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDetectorsCommandOutput> {
     return deserializeAws_json1_1GetDetectorsCommand(output, context);
   }

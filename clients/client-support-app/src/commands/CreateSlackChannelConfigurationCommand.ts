@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSlackChannelConfigurationCommand}.
  */
 export interface CreateSlackChannelConfigurationCommandInput extends CreateSlackChannelConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSlackChannelConfigurationCommand}.
  */
 export interface CreateSlackChannelConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSlackChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Slack channel configuration for your Amazon Web Services account.</p>
  *          <note>
  *             <ul>
@@ -68,6 +73,8 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSlackChannelConfigurationCommandInput - {@link CreateSlackChannelConfigurationCommandInput}
+ * @returns {@link CreateSlackChannelConfigurationCommandOutput}
  * @see {@link CreateSlackChannelConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSlackChannelConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -134,6 +141,9 @@ export class CreateSlackChannelConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSlackChannelConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,6 +183,9 @@ export class CreateSlackChannelConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSlackChannelConfigurationCommandInput,
     context: __SerdeContext
@@ -180,6 +193,9 @@ export class CreateSlackChannelConfigurationCommand extends $Command<
     return serializeAws_restJson1CreateSlackChannelConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

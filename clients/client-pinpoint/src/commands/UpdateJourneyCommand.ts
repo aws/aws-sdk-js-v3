@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJourneyCommand}.
  */
 export interface UpdateJourneyCommandInput extends UpdateJourneyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJourneyCommand}.
  */
 export interface UpdateJourneyCommandOutput extends UpdateJourneyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration and other settings for a journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateJourneyCommandOutput extends UpdateJourneyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJourneyCommandInput - {@link UpdateJourneyCommandInput}
+ * @returns {@link UpdateJourneyCommandOutput}
  * @see {@link UpdateJourneyCommandInput} for command's `input` shape.
  * @see {@link UpdateJourneyCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateJourneyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJourneyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateJourneyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJourneyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateJourneyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJourneyCommandOutput> {
     return deserializeAws_restJson1UpdateJourneyCommand(output, context);
   }

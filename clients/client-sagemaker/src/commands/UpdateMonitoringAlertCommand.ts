@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMonitoringAlertCommand}.
  */
 export interface UpdateMonitoringAlertCommandInput extends UpdateMonitoringAlertRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMonitoringAlertCommand}.
  */
 export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAlertResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the parameters of a model monitor alert.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAler
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMonitoringAlertCommandInput - {@link UpdateMonitoringAlertCommandInput}
+ * @returns {@link UpdateMonitoringAlertCommandOutput}
  * @see {@link UpdateMonitoringAlertCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitoringAlertCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateMonitoringAlertCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMonitoringAlertCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateMonitoringAlertCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMonitoringAlertCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMonitoringAlertCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitoringAlertCommandOutput> {
     return deserializeAws_json1_1UpdateMonitoringAlertCommand(output, context);
   }

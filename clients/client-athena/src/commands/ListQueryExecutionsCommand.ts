@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueryExecutionsCommand}.
  */
 export interface ListQueryExecutionsCommandInput extends ListQueryExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListQueryExecutionsCommand}.
  */
 export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of available query execution IDs for the queries in the specified
  *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
  *             the primary workgroup. Requires you to have access to the workgroup in which the queries
@@ -52,6 +57,8 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueryExecutionsCommandInput - {@link ListQueryExecutionsCommandInput}
+ * @returns {@link ListQueryExecutionsCommandOutput}
  * @see {@link ListQueryExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListQueryExecutionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListQueryExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueryExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListQueryExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueryExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListQueryExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueryExecutionsCommandOutput> {
     return deserializeAws_json1_1ListQueryExecutionsCommand(output, context);
   }

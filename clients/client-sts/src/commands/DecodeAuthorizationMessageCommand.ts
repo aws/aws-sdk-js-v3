@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DecodeAuthorizationMessageCommand}.
  */
 export interface DecodeAuthorizationMessageCommandInput extends DecodeAuthorizationMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DecodeAuthorizationMessageCommand}.
  */
 export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthorizationMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decodes additional information about the authorization status of a request from an
  *          encoded message returned in response to an Amazon Web Services request.</p>
  *          <p>For example, if a user is not authorized to perform an operation that he or she has
@@ -82,6 +87,8 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  * const response = await client.send(command);
  * ```
  *
+ * @param DecodeAuthorizationMessageCommandInput - {@link DecodeAuthorizationMessageCommandInput}
+ * @returns {@link DecodeAuthorizationMessageCommandOutput}
  * @see {@link DecodeAuthorizationMessageCommandInput} for command's `input` shape.
  * @see {@link DecodeAuthorizationMessageCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -127,6 +134,9 @@ export class DecodeAuthorizationMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecodeAuthorizationMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,10 +177,16 @@ export class DecodeAuthorizationMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecodeAuthorizationMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDecodeAuthorizationMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

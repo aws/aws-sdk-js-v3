@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationsCommand}.
  */
 export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationsCommand}.
  */
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -62,6 +67,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
+ * @returns {@link ListApplicationsCommandOutput}
  * @see {@link ListApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationsCommandOutput> {
     return deserializeAws_json1_1ListApplicationsCommand(output, context);
   }

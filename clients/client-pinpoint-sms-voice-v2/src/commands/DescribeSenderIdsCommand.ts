@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSenderIdsCommand}.
  */
 export interface DescribeSenderIdsCommandInput extends DescribeSenderIdsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSenderIdsCommand}.
  */
 export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified SenderIds or all SenderIds associated with your Amazon Web Services account.</p>
  *         <p>If you specify SenderIds, the output includes information for only the specified
  *             SenderIds. If you specify filters, the output includes information for only those
@@ -55,6 +60,8 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSenderIdsCommandInput - {@link DescribeSenderIdsCommandInput}
+ * @returns {@link DescribeSenderIdsCommandOutput}
  * @see {@link DescribeSenderIdsCommandInput} for command's `input` shape.
  * @see {@link DescribeSenderIdsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeSenderIdsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSenderIdsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DescribeSenderIdsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSenderIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeSenderIdsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSenderIdsCommandOutput> {
     return deserializeAws_json1_0DescribeSenderIdsCommand(output, context);
   }

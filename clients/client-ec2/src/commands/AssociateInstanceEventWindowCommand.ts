@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateInstanceEventWindowCommand}.
  */
 export interface AssociateInstanceEventWindowCommandInput extends AssociateInstanceEventWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateInstanceEventWindowCommand}.
  */
 export interface AssociateInstanceEventWindowCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateInstanceEventWindowCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates one or more targets with an event window. Only one type of target (instance IDs,
  *          Dedicated Host IDs, or tags) can be specified with an event window.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
@@ -51,6 +56,8 @@ export interface AssociateInstanceEventWindowCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateInstanceEventWindowCommandInput - {@link AssociateInstanceEventWindowCommandInput}
+ * @returns {@link AssociateInstanceEventWindowCommandOutput}
  * @see {@link AssociateInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link AssociateInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class AssociateInstanceEventWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class AssociateInstanceEventWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateInstanceEventWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

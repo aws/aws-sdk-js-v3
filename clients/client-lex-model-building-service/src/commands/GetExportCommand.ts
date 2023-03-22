@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExportCommand}.
  */
 export interface GetExportCommandInput extends GetExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExportCommand}.
  */
 export interface GetExportCommandOutput extends GetExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports the contents of a Amazon Lex resource in a specified format.
  *     </p>
  * @example
@@ -51,6 +56,8 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExportCommandInput - {@link GetExportCommandInput}
+ * @returns {@link GetExportCommandOutput}
  * @see {@link GetExportCommandInput} for command's `input` shape.
  * @see {@link GetExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExportCommandOutput> {
     return deserializeAws_restJson1GetExportCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDefaultViewCommand}.
  */
 export interface DisassociateDefaultViewCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDefaultViewCommand}.
  */
 export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>After you call this operation, the affected Amazon Web Services Region no longer has a default view.
  *             All <a>Search</a> operations in that Region must explicitly specify a view or
  *             the operation fails. You can configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
@@ -49,6 +54,8 @@ export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDefaultViewCommandInput - {@link DisassociateDefaultViewCommandInput}
+ * @returns {@link DisassociateDefaultViewCommandOutput}
  * @see {@link DisassociateDefaultViewCommandInput} for command's `input` shape.
  * @see {@link DisassociateDefaultViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -88,6 +95,9 @@ export class DisassociateDefaultViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDefaultViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DisassociateDefaultViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDefaultViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateDefaultViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDefaultViewCommandOutput> {
     return deserializeAws_restJson1DisassociateDefaultViewCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRestoreJobsCommand}.
  */
 export interface ListRestoreJobsCommandInput extends ListRestoreJobsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRestoreJobsCommand}.
  */
 export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of jobs that Backup initiated to restore a saved resource,
  *          including details about the recovery process.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRestoreJobsCommandInput - {@link ListRestoreJobsCommandInput}
+ * @returns {@link ListRestoreJobsCommandOutput}
  * @see {@link ListRestoreJobsCommandInput} for command's `input` shape.
  * @see {@link ListRestoreJobsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListRestoreJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRestoreJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListRestoreJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRestoreJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRestoreJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRestoreJobsCommandOutput> {
     return deserializeAws_restJson1ListRestoreJobsCommand(output, context);
   }

@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddApplicationVpcConfigurationCommand}.
  */
 export interface AddApplicationVpcConfigurationCommandInput extends AddApplicationVpcConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddApplicationVpcConfigurationCommand}.
  */
 export interface AddApplicationVpcConfigurationCommandOutput
@@ -41,6 +45,7 @@ export interface AddApplicationVpcConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store
  *         and access resources securely.</p>
  *          <p>Note the following about VPC configurations for Kinesis Data Analytics applications:</p>
@@ -63,6 +68,8 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationVpcConfigurationCommandInput - {@link AddApplicationVpcConfigurationCommandInput}
+ * @returns {@link AddApplicationVpcConfigurationCommandOutput}
  * @see {@link AddApplicationVpcConfigurationCommandInput} for command's `input` shape.
  * @see {@link AddApplicationVpcConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -103,6 +110,9 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationVpcConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationVpcConfigurationCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
     return serializeAws_json1_1AddApplicationVpcConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

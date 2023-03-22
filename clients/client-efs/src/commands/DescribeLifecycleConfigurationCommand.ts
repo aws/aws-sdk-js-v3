@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLifecycleConfigurationCommand}.
  */
 export interface DescribeLifecycleConfigurationCommandInput extends DescribeLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLifecycleConfigurationCommand}.
  */
 export interface DescribeLifecycleConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeLifecycleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
  *       EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code> object
  *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
@@ -56,6 +61,8 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLifecycleConfigurationCommandInput - {@link DescribeLifecycleConfigurationCommandInput}
+ * @returns {@link DescribeLifecycleConfigurationCommandOutput}
  * @see {@link DescribeLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -110,6 +117,9 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,6 +159,9 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLifecycleConfigurationCommandInput,
     context: __SerdeContext
@@ -156,6 +169,9 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

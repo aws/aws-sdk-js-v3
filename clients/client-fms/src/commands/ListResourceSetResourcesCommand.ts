@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceSetResourcesCommand}.
  */
 export interface ListResourceSetResourcesCommandInput extends ListResourceSetResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceSetResourcesCommand}.
  */
 export interface ListResourceSetResourcesCommandOutput extends ListResourceSetResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of resources that are currently associated to a resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResourceSetResourcesCommandOutput extends ListResourceSetRe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceSetResourcesCommandInput - {@link ListResourceSetResourcesCommandInput}
+ * @returns {@link ListResourceSetResourcesCommandOutput}
  * @see {@link ListResourceSetResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourceSetResourcesCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListResourceSetResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceSetResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListResourceSetResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceSetResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourceSetResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceSetResourcesCommandOutput> {
     return deserializeAws_json1_1ListResourceSetResourcesCommand(output, context);
   }

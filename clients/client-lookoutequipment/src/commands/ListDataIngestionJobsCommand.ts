@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataIngestionJobsCommand}.
  */
 export interface ListDataIngestionJobsCommandInput extends ListDataIngestionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataIngestionJobsCommand}.
  */
 export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of all data ingestion jobs, including dataset name and ARN, S3 location
  *          of the input data, status, and so on. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataIngestionJobsCommandInput - {@link ListDataIngestionJobsCommandInput}
+ * @returns {@link ListDataIngestionJobsCommandOutput}
  * @see {@link ListDataIngestionJobsCommandInput} for command's `input` shape.
  * @see {@link ListDataIngestionJobsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListDataIngestionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataIngestionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListDataIngestionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataIngestionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListDataIngestionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataIngestionJobsCommandOutput> {
     return deserializeAws_json1_0ListDataIngestionJobsCommand(output, context);
   }

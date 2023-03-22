@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCertificatesByCACommand}.
  */
 export interface ListCertificatesByCACommandInput extends ListCertificatesByCARequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCertificatesByCACommand}.
  */
 export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the device certificates signed by the specified CA certificate.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificatesByCA</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCertificatesByCACommandInput - {@link ListCertificatesByCACommandInput}
+ * @returns {@link ListCertificatesByCACommandOutput}
  * @see {@link ListCertificatesByCACommandInput} for command's `input` shape.
  * @see {@link ListCertificatesByCACommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListCertificatesByCACommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCertificatesByCACommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListCertificatesByCACommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCertificatesByCACommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCertificatesByCACommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCertificatesByCACommandOutput> {
     return deserializeAws_restJson1ListCertificatesByCACommand(output, context);
   }

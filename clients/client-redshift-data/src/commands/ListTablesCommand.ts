@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTablesCommand}.
  */
 export interface ListTablesCommandInput extends ListTablesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTablesCommand}.
  */
 export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the tables in a database. If neither <code>SchemaPattern</code> nor <code>TablePattern</code> are specified, then
  *        all tables in the database are returned.
  *       A token is returned to page through the table list.
@@ -64,6 +69,8 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTablesCommandInput - {@link ListTablesCommandInput}
+ * @returns {@link ListTablesCommandOutput}
  * @see {@link ListTablesCommandInput} for command's `input` shape.
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTablesCommandOutput> {
     return deserializeAws_json1_1ListTablesCommand(output, context);
   }

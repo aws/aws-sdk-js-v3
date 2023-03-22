@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddFlowSourcesCommand}.
  */
 export interface AddFlowSourcesCommandInput extends AddFlowSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddFlowSourcesCommand}.
  */
 export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Adds Sources to flow
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param AddFlowSourcesCommandInput - {@link AddFlowSourcesCommandInput}
+ * @returns {@link AddFlowSourcesCommandOutput}
  * @see {@link AddFlowSourcesCommandInput} for command's `input` shape.
  * @see {@link AddFlowSourcesCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class AddFlowSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddFlowSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AddFlowSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddFlowSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddFlowSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowSourcesCommandOutput> {
     return deserializeAws_restJson1AddFlowSourcesCommand(output, context);
   }

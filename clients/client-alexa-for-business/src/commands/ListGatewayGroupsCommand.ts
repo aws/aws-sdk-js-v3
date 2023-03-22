@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGatewayGroupsCommand}.
  */
 export interface ListGatewayGroupsCommandInput extends ListGatewayGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGatewayGroupsCommand}.
  */
 export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details of
  *          a specific gateway group.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGatewayGroupsCommandInput - {@link ListGatewayGroupsCommandInput}
+ * @returns {@link ListGatewayGroupsCommandOutput}
  * @see {@link ListGatewayGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGatewayGroupsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -70,6 +77,9 @@ export class ListGatewayGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGatewayGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListGatewayGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGatewayGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGatewayGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewayGroupsCommandOutput> {
     return deserializeAws_json1_1ListGatewayGroupsCommand(output, context);
   }

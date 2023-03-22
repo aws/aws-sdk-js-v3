@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemporaryGlueTableCredentialsCommand}.
  */
 export interface GetTemporaryGlueTableCredentialsCommandInput extends GetTemporaryGlueTableCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTemporaryGlueTableCredentialsCommand}.
  */
 export interface GetTemporaryGlueTableCredentialsCommandOutput
@@ -37,6 +41,7 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a caller in a secure environment to assume a role with permission to access Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated with a registered location, for example an Amazon S3 bucket, with a scope down policy which restricts the access to a single prefix.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemporaryGlueTableCredentialsCommandInput - {@link GetTemporaryGlueTableCredentialsCommandInput}
+ * @returns {@link GetTemporaryGlueTableCredentialsCommandOutput}
  * @see {@link GetTemporaryGlueTableCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetTemporaryGlueTableCredentialsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemporaryGlueTableCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTemporaryGlueTableCredentialsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
     return serializeAws_restJson1GetTemporaryGlueTableCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

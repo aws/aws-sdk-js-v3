@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnassignInstanceCommand}.
  */
 export interface UnassignInstanceCommandInput extends UnassignInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnassignInstanceCommand}.
  */
 export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unassigns a registered instance from all layers that are using the instance.
  *           The instance remains in the stack as an unassigned instance, and can be assigned to
  *           another layer as needed. You cannot use this action with instances that were created
@@ -49,6 +54,8 @@ export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UnassignInstanceCommandInput - {@link UnassignInstanceCommandInput}
+ * @returns {@link UnassignInstanceCommandOutput}
  * @see {@link UnassignInstanceCommandInput} for command's `input` shape.
  * @see {@link UnassignInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -78,6 +85,9 @@ export class UnassignInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnassignInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UnassignInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnassignInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UnassignInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnassignInstanceCommandOutput> {
     return deserializeAws_json1_1UnassignInstanceCommand(output, context);
   }

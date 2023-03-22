@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationVpcConfigurationCommand}.
  */
 export interface DeleteApplicationVpcConfigurationCommandInput extends DeleteApplicationVpcConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationVpcConfigurationCommand}.
  */
 export interface DeleteApplicationVpcConfigurationCommandOutput
@@ -41,6 +45,7 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a VPC configuration from a Kinesis Data Analytics application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationVpcConfigurationCommandInput - {@link DeleteApplicationVpcConfigurationCommandInput}
+ * @returns {@link DeleteApplicationVpcConfigurationCommandOutput}
  * @see {@link DeleteApplicationVpcConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationVpcConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationVpcConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteApplicationVpcConfigurationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     return serializeAws_json1_1DeleteApplicationVpcConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

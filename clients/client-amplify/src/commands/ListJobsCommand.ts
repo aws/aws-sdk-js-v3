@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobsCommand}.
  */
 export interface ListJobsCommandInput extends ListJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobsCommand}.
  */
 export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists the jobs for a branch of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobsCommandInput - {@link ListJobsCommandInput}
+ * @returns {@link ListJobsCommandOutput}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsCommandOutput> {
     return deserializeAws_restJson1ListJobsCommand(output, context);
   }

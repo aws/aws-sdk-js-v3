@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImportCommand}.
  */
 export interface StartImportCommandInput extends StartImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImportCommand}.
  */
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts importing a bot, bot locale, or custom vocabulary from a zip
  *          archive that you uploaded to an S3 bucket.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportCommandInput - {@link StartImportCommandInput}
+ * @returns {@link StartImportCommandOutput}
  * @see {@link StartImportCommandInput} for command's `input` shape.
  * @see {@link StartImportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class StartImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StartImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportCommandOutput> {
     return deserializeAws_restJson1StartImportCommand(output, context);
   }

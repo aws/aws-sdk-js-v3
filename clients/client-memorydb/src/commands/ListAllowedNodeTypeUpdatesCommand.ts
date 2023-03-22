@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAllowedNodeTypeUpdatesCommand}.
  */
 export interface ListAllowedNodeTypeUpdatesCommandInput extends ListAllowedNodeTypeUpdatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAllowedNodeTypeUpdatesCommand}.
  */
 export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNodeTypeUpdatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available node types that you can scale to from your cluster's current node type.
  *
  *          When you use the UpdateCluster operation to scale your cluster, the value of the NodeType parameter must be one of the node types returned by this operation.</p>
@@ -48,6 +53,8 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAllowedNodeTypeUpdatesCommandInput - {@link ListAllowedNodeTypeUpdatesCommandInput}
+ * @returns {@link ListAllowedNodeTypeUpdatesCommandOutput}
  * @see {@link ListAllowedNodeTypeUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListAllowedNodeTypeUpdatesCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAllowedNodeTypeUpdatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAllowedNodeTypeUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAllowedNodeTypeUpdatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

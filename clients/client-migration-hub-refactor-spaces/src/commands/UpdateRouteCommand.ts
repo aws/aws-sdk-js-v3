@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRouteCommand}.
  */
 export interface UpdateRouteCommandInput extends UpdateRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRouteCommand}.
  */
 export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates an Amazon Web Services Migration Hub Refactor Spaces route. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRouteCommandInput - {@link UpdateRouteCommandInput}
+ * @returns {@link UpdateRouteCommandOutput}
  * @see {@link UpdateRouteCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRouteCommandOutput> {
     return deserializeAws_restJson1UpdateRouteCommand(output, context);
   }

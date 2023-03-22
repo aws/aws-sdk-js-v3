@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDefaultEncryptionConfigurationCommand}.
  */
 export interface DescribeDefaultEncryptionConfigurationCommandInput
   extends DescribeDefaultEncryptionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDefaultEncryptionConfigurationCommand}.
  */
 export interface DescribeDefaultEncryptionConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the default encryption configuration for the Amazon Web Services account in
  *       the default or specified Region. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -51,6 +56,8 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDefaultEncryptionConfigurationCommandInput - {@link DescribeDefaultEncryptionConfigurationCommandInput}
+ * @returns {@link DescribeDefaultEncryptionConfigurationCommandOutput}
  * @see {@link DescribeDefaultEncryptionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultEncryptionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDefaultEncryptionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDefaultEncryptionConfigurationCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

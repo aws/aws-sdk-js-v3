@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCaseCommand}.
  */
 export interface GetCaseCommandInput extends GetCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCaseCommand}.
  */
 export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific case if it exists. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCaseCommandInput - {@link GetCaseCommandInput}
+ * @returns {@link GetCaseCommandOutput}
  * @see {@link GetCaseCommandInput} for command's `input` shape.
  * @see {@link GetCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCaseCommandOutput> {
     return deserializeAws_restJson1GetCaseCommand(output, context);
   }

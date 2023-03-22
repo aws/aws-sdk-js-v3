@@ -25,15 +25,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceSetCommand}.
  */
 export interface DeleteResourceSetCommandInput extends DeleteResourceSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceSetCommand}.
  */
 export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceSetCommandInput - {@link DeleteResourceSetCommandInput}
+ * @returns {@link DeleteResourceSetCommandOutput}
  * @see {@link DeleteResourceSetCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceSetCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteResourceSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteResourceSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteResourceSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceSetCommandOutput> {
     return deserializeAws_restJson1DeleteResourceSetCommand(output, context);
   }

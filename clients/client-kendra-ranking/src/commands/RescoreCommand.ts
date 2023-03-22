@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_0RescoreCommand, serializeAws_json1_0RescoreCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RescoreCommand}.
  */
 export interface RescoreCommandInput extends RescoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link RescoreCommand}.
  */
 export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rescores or re-ranks search results from a search service
  *             such as OpenSearch (self managed). You use the semantic search
  *             capabilities of Amazon Kendra Intelligent Ranking to
@@ -46,6 +51,8 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RescoreCommandInput - {@link RescoreCommandInput}
+ * @returns {@link RescoreCommandOutput}
  * @see {@link RescoreCommandInput} for command's `input` shape.
  * @see {@link RescoreCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
@@ -98,6 +105,9 @@ export class RescoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RescoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class RescoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RescoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RescoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RescoreCommandOutput> {
     return deserializeAws_json1_0RescoreCommand(output, context);
   }

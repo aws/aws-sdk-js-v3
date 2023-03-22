@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableStageTransitionCommand}.
  */
 export interface EnableStageTransitionCommandInput extends EnableStageTransitionInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableStageTransitionCommand}.
  */
 export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableStageTransitionCommandInput - {@link EnableStageTransitionCommandInput}
+ * @returns {@link EnableStageTransitionCommandOutput}
  * @see {@link EnableStageTransitionCommandInput} for command's `input` shape.
  * @see {@link EnableStageTransitionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -73,6 +80,9 @@ export class EnableStageTransitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableStageTransitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class EnableStageTransitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableStageTransitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableStageTransitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableStageTransitionCommandOutput> {
     return deserializeAws_json1_1EnableStageTransitionCommand(output, context);
   }

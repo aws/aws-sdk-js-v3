@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelSchemaExtensionCommand}.
  */
 export interface CancelSchemaExtensionCommandInput extends CancelSchemaExtensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelSchemaExtensionCommand}.
  */
 export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema
  *       extension has started replicating to all domain controllers, the task can no longer be
  *       canceled. A schema extension can be canceled during any of the following states;
@@ -50,6 +55,8 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelSchemaExtensionCommandInput - {@link CancelSchemaExtensionCommandInput}
+ * @returns {@link CancelSchemaExtensionCommandOutput}
  * @see {@link CancelSchemaExtensionCommandInput} for command's `input` shape.
  * @see {@link CancelSchemaExtensionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class CancelSchemaExtensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelSchemaExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CancelSchemaExtensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelSchemaExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelSchemaExtensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSchemaExtensionCommandOutput> {
     return deserializeAws_json1_1CancelSchemaExtensionCommand(output, context);
   }

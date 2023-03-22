@@ -24,6 +24,7 @@ import {
 import { Route53RecoveryClusterClient } from "./Route53RecoveryClusterClient";
 
 /**
+ * @public
  * <p>Welcome to the Routing Control (Recovery Cluster) API Reference Guide for Amazon Route 53 Application Recovery Controller.</p>
  * 			      <p>With Route 53 ARC, you can use routing control with extreme reliability to
  * 			recover applications by rerouting traffic across
@@ -67,6 +68,7 @@ import { Route53RecoveryClusterClient } from "./Route53RecoveryClusterClient";
  */
 export class Route53RecoveryCluster extends Route53RecoveryClusterClient {
   /**
+   * @public
    * <p>Get the state for a routing control. A routing control is a simple on/off switch that you
    * 				can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
    * 				the state is Off, traffic does not flow. </p>
@@ -129,6 +131,7 @@ export class Route53RecoveryCluster extends Route53RecoveryClusterClient {
   }
 
   /**
+   * @public
    * <p>List routing control names and Amazon Resource Names (ARNs), as well as the routing control
    * 			state for each routing control, along with the control panel name and control panel ARN for the routing controls.
    * 			If you specify a control panel ARN, this call lists the routing controls in the control panel. Otherwise, it lists
@@ -192,6 +195,7 @@ export class Route53RecoveryCluster extends Route53RecoveryClusterClient {
   }
 
   /**
+   * @public
    * <p>Set the state of the routing control to reroute traffic. You can set the value to be On or
    * 			Off. When the state is On, traffic flows to a cell. When the state is Off, traffic does not
    * 			flow.</p>
@@ -257,6 +261,7 @@ export class Route53RecoveryCluster extends Route53RecoveryClusterClient {
   }
 
   /**
+   * @public
    * <p>Set multiple routing control states. You can set the value for each state to be On or Off.
    * 			When the state is On, traffic flows to a cell. When it's Off, traffic does not
    * 			flow.</p>

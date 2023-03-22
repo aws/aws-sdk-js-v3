@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterSnapshotCommand}.
  */
 export interface CreateClusterSnapshotCommandInput extends CreateClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterSnapshotCommand}.
  */
 export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a manual snapshot of the specified cluster. The cluster must be in the
  *                 <code>available</code> state. </p>
  *          <p>
@@ -51,6 +56,8 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterSnapshotCommandInput - {@link CreateClusterSnapshotCommandInput}
+ * @returns {@link CreateClusterSnapshotCommandOutput}
  * @see {@link CreateClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterSnapshotCommandOutput> {
     return deserializeAws_queryCreateClusterSnapshotCommand(output, context);
   }

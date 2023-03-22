@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLifecyclePolicyCommand}.
  */
 export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLifecyclePolicyCommand}.
  */
 export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified lifecycle policy and halts the automated operations that the
  * 			policy specified.</p>
  *          <p>For more information about deleting a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete">Delete lifecycle
@@ -49,6 +54,8 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLifecyclePolicyCommandInput - {@link DeleteLifecyclePolicyCommandInput}
+ * @returns {@link DeleteLifecyclePolicyCommandOutput}
  * @see {@link DeleteLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLifecyclePolicyCommandOutput> {
     return deserializeAws_restJson1DeleteLifecyclePolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCrlCommand}.
  */
 export interface DeleteCrlCommandInput extends ScalarCrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCrlCommand}.
  */
 export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a certificate revocation list (CRL).</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCrlCommandInput - {@link DeleteCrlCommandInput}
+ * @returns {@link DeleteCrlCommandOutput}
  * @see {@link DeleteCrlCommandInput} for command's `input` shape.
  * @see {@link DeleteCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCrlCommandOutput> {
     return deserializeAws_restJson1DeleteCrlCommand(output, context);
   }

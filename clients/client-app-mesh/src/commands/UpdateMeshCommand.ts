@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMeshCommand}.
  */
 export interface UpdateMeshCommandInput extends UpdateMeshInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMeshCommand}.
  */
 export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMeshCommandInput - {@link UpdateMeshCommandInput}
+ * @returns {@link UpdateMeshCommandOutput}
  * @see {@link UpdateMeshCommandInput} for command's `input` shape.
  * @see {@link UpdateMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateMeshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMeshCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateMeshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMeshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMeshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMeshCommandOutput> {
     return deserializeAws_restJson1UpdateMeshCommand(output, context);
   }

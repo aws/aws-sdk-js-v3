@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTaskDefinitionsCommand}.
  */
 export interface DeleteTaskDefinitionsCommandInput extends DeleteTaskDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTaskDefinitionsCommand}.
  */
 export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more task definitions.</p>
  *          <p>You must deregister a task definition revision before you delete it. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html">DeregisterTaskDefinition</a>.</p>
@@ -59,6 +64,8 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTaskDefinitionsCommandInput - {@link DeleteTaskDefinitionsCommandInput}
+ * @returns {@link DeleteTaskDefinitionsCommandOutput}
  * @see {@link DeleteTaskDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteTaskDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTaskDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteTaskDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTaskDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTaskDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskDefinitionsCommandOutput> {
     return deserializeAws_json1_1DeleteTaskDefinitionsCommand(output, context);
   }

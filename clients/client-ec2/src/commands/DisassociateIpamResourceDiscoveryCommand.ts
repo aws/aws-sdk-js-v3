@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateIpamResourceDiscoveryCommand}.
  */
 export interface DisassociateIpamResourceDiscoveryCommandInput extends DisassociateIpamResourceDiscoveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateIpamResourceDiscoveryCommand}.
  */
 export interface DisassociateIpamResourceDiscoveryCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateIpamResourceDiscoveryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateIpamResourceDiscoveryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateIpamResourceDiscoveryCommandInput - {@link DisassociateIpamResourceDiscoveryCommandInput}
+ * @returns {@link DisassociateIpamResourceDiscoveryCommandOutput}
  * @see {@link DisassociateIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link DisassociateIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DisassociateIpamResourceDiscoveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateIpamResourceDiscoveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DisassociateIpamResourceDiscoveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateIpamResourceDiscoveryCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DisassociateIpamResourceDiscoveryCommand extends $Command<
     return serializeAws_ec2DisassociateIpamResourceDiscoveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

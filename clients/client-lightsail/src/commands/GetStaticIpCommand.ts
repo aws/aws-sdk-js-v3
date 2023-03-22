@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStaticIpCommand}.
  */
 export interface GetStaticIpCommandInput extends GetStaticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStaticIpCommand}.
  */
 export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an Amazon Lightsail static IP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStaticIpCommandInput - {@link GetStaticIpCommandInput}
+ * @returns {@link GetStaticIpCommandOutput}
  * @see {@link GetStaticIpCommandInput} for command's `input` shape.
  * @see {@link GetStaticIpCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetStaticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStaticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetStaticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetStaticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStaticIpCommandOutput> {
     return deserializeAws_json1_1GetStaticIpCommand(output, context);
   }

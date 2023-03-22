@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobTemplateCommand}.
  */
 export interface UpdateJobTemplateCommandInput extends UpdateJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobTemplateCommand}.
  */
 export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Modify one of your existing job templates.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobTemplateCommandInput - {@link UpdateJobTemplateCommandInput}
+ * @returns {@link UpdateJobTemplateCommandOutput}
  * @see {@link UpdateJobTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobTemplateCommandOutput> {
     return deserializeAws_restJson1UpdateJobTemplateCommand(output, context);
   }

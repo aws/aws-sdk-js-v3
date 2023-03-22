@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBulkDeploymentStatusCommand}.
  */
 export interface GetBulkDeploymentStatusCommandInput extends GetBulkDeploymentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBulkDeploymentStatusCommand}.
  */
 export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns the status of a bulk deployment.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentS
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBulkDeploymentStatusCommandInput - {@link GetBulkDeploymentStatusCommandInput}
+ * @returns {@link GetBulkDeploymentStatusCommandOutput}
  * @see {@link GetBulkDeploymentStatusCommandInput} for command's `input` shape.
  * @see {@link GetBulkDeploymentStatusCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetBulkDeploymentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBulkDeploymentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetBulkDeploymentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBulkDeploymentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBulkDeploymentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBulkDeploymentStatusCommandOutput> {
     return deserializeAws_restJson1GetBulkDeploymentStatusCommand(output, context);
   }

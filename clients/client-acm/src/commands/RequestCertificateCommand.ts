@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RequestCertificateCommand}.
  */
 export interface RequestCertificateCommandInput extends RequestCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RequestCertificateCommand}.
  */
 export interface RequestCertificateCommandOutput extends RequestCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests an ACM certificate for use with other Amazon Web Services services. To request an ACM
  *       certificate, you must specify a fully qualified domain name (FQDN) in the
  *         <code>DomainName</code> parameter. You can also specify additional FQDNs in the
@@ -61,6 +66,8 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestCertificateCommandInput - {@link RequestCertificateCommandInput}
+ * @returns {@link RequestCertificateCommandOutput}
  * @see {@link RequestCertificateCommandInput} for command's `input` shape.
  * @see {@link RequestCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -107,6 +114,9 @@ export class RequestCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class RequestCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RequestCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestCertificateCommandOutput> {
     return deserializeAws_json1_1RequestCertificateCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetAlarmStateCommand}.
  */
 export interface SetAlarmStateCommandInput extends SetAlarmStateInput {}
 /**
+ * @public
+ *
  * The output of {@link SetAlarmStateCommand}.
  */
 export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Temporarily sets the state of an alarm for testing purposes. When the updated
  * 			state differs from the previous value, the action configured for
  * 			the appropriate state is invoked. For example, if your alarm is configured to send an
@@ -56,6 +61,8 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetAlarmStateCommandInput - {@link SetAlarmStateCommandInput}
+ * @returns {@link SetAlarmStateCommandOutput}
  * @see {@link SetAlarmStateCommandInput} for command's `input` shape.
  * @see {@link SetAlarmStateCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -85,6 +92,9 @@ export class SetAlarmStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetAlarmStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class SetAlarmStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetAlarmStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetAlarmStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetAlarmStateCommandOutput> {
     return deserializeAws_querySetAlarmStateCommand(output, context);
   }

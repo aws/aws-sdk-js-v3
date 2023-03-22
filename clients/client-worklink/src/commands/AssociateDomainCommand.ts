@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDomainCommand}.
  */
 export interface AssociateDomainCommandInput extends AssociateDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDomainCommand}.
  */
 export interface AssociateDomainCommandOutput extends AssociateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Specifies a domain to be associated to Amazon WorkLink.</p>
@@ -48,6 +53,8 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDomainCommandInput - {@link AssociateDomainCommandInput}
+ * @returns {@link AssociateDomainCommandOutput}
  * @see {@link AssociateDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -89,6 +96,9 @@ export class AssociateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class AssociateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDomainCommandOutput> {
     return deserializeAws_restJson1AssociateDomainCommand(output, context);
   }

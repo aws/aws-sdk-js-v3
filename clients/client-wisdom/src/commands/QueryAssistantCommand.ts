@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link QueryAssistantCommand}.
  */
 export interface QueryAssistantCommandInput extends QueryAssistantRequest {}
 /**
+ * @public
+ *
  * The output of {@link QueryAssistantCommand}.
  */
 export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs a manual search against the specified assistant. To retrieve recommendations for
  *       an assistant, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.
  *     </p>
@@ -48,6 +53,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryAssistantCommandInput - {@link QueryAssistantCommandInput}
+ * @returns {@link QueryAssistantCommandOutput}
  * @see {@link QueryAssistantCommandInput} for command's `input` shape.
  * @see {@link QueryAssistantCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -80,6 +87,9 @@ export class QueryAssistantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryAssistantCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class QueryAssistantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1QueryAssistantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryAssistantCommandOutput> {
     return deserializeAws_restJson1QueryAssistantCommand(output, context);
   }

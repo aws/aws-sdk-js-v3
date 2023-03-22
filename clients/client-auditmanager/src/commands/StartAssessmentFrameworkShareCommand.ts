@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAssessmentFrameworkShareCommand}.
  */
 export interface StartAssessmentFrameworkShareCommandInput extends StartAssessmentFrameworkShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAssessmentFrameworkShareCommand}.
  */
 export interface StartAssessmentFrameworkShareCommandOutput
@@ -37,6 +41,7 @@ export interface StartAssessmentFrameworkShareCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a share request for a custom framework in Audit Manager. </p>
  *          <p>The share request specifies a recipient and notifies them that a custom framework is
  *          available. Recipients have 120 days to accept or decline the request. If no action is
@@ -84,6 +89,8 @@ export interface StartAssessmentFrameworkShareCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAssessmentFrameworkShareCommandInput - {@link StartAssessmentFrameworkShareCommandInput}
+ * @returns {@link StartAssessmentFrameworkShareCommandOutput}
  * @see {@link StartAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentFrameworkShareCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -121,6 +128,9 @@ export class StartAssessmentFrameworkShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAssessmentFrameworkShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class StartAssessmentFrameworkShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAssessmentFrameworkShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartAssessmentFrameworkShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

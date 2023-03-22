@@ -26,10 +26,14 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExportSchemaCommand}.
  */
 export interface ExportSchemaCommandInput extends ExportSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportSchemaCommand}.
  */
 export interface ExportSchemaCommandOutput extends ExportSchemaResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class ExportSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,10 +95,16 @@ export class ExportSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportSchemaCommandOutput> {
     return deserializeAws_restJson1ExportSchemaCommand(output, context);
   }

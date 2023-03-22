@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePullThroughCacheRuleCommand}.
  */
 export interface DeletePullThroughCacheRuleCommandInput extends DeletePullThroughCacheRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePullThroughCacheRuleCommand}.
  */
 export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a pull through cache rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePullThroughCacheRuleCommandInput - {@link DeletePullThroughCacheRuleCommandInput}
+ * @returns {@link DeletePullThroughCacheRuleCommandOutput}
  * @see {@link DeletePullThroughCacheRuleCommandInput} for command's `input` shape.
  * @see {@link DeletePullThroughCacheRuleCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePullThroughCacheRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePullThroughCacheRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePullThroughCacheRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

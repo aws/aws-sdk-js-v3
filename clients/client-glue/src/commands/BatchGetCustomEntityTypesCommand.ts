@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetCustomEntityTypesCommand}.
  */
 export interface BatchGetCustomEntityTypesCommandInput extends BatchGetCustomEntityTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetCustomEntityTypesCommand}.
  */
 export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEntityTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details for the custom patterns specified by a list of names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEn
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetCustomEntityTypesCommandInput - {@link BatchGetCustomEntityTypesCommandInput}
+ * @returns {@link BatchGetCustomEntityTypesCommandOutput}
  * @see {@link BatchGetCustomEntityTypesCommandInput} for command's `input` shape.
  * @see {@link BatchGetCustomEntityTypesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetCustomEntityTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetCustomEntityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetCustomEntityTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

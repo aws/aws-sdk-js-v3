@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentTemplateVersionCommand}.
  */
 export interface CreateEnvironmentTemplateVersionCommandInput extends CreateEnvironmentTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentTemplateVersionCommand}.
  */
 export interface CreateEnvironmentTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateEnvironmentTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new major or minor version of an environment template. A major version of an environment template is a version that
  *         <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major
  *       version.</p>
@@ -50,6 +55,8 @@ export interface CreateEnvironmentTemplateVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentTemplateVersionCommandInput - {@link CreateEnvironmentTemplateVersionCommandInput}
+ * @returns {@link CreateEnvironmentTemplateVersionCommandOutput}
  * @see {@link CreateEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateEnvironmentTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class CreateEnvironmentTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateEnvironmentTemplateVersionCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class CreateEnvironmentTemplateVersionCommand extends $Command<
     return serializeAws_json1_0CreateEnvironmentTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

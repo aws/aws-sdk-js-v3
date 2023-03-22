@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListFieldLevelEncryptionConfigsCommand}.
  */
 export interface ListFieldLevelEncryptionConfigsCommandInput extends ListFieldLevelEncryptionConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFieldLevelEncryptionConfigsCommand}.
  */
 export interface ListFieldLevelEncryptionConfigsCommandOutput
@@ -37,6 +41,7 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all field-level encryption configurations that have been created in CloudFront for this
  * 			account.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFieldLevelEncryptionConfigsCommandInput - {@link ListFieldLevelEncryptionConfigsCommandInput}
+ * @returns {@link ListFieldLevelEncryptionConfigsCommandOutput}
  * @see {@link ListFieldLevelEncryptionConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFieldLevelEncryptionConfigsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFieldLevelEncryptionConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFieldLevelEncryptionConfigsCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
     return serializeAws_restXmlListFieldLevelEncryptionConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

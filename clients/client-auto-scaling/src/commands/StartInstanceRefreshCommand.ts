@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link StartInstanceRefreshCommand}.
  */
 export interface StartInstanceRefreshCommandInput extends StartInstanceRefreshType {}
 /**
+ * @public
+ *
  * The output of {@link StartInstanceRefreshCommand}.
  */
 export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an instance refresh. During an instance refresh, Amazon EC2 Auto Scaling performs a rolling
  *             update of instances in an Auto Scaling group. Instances are terminated first and then replaced,
  *             which temporarily reduces the capacity available within your Auto Scaling group.</p>
@@ -69,6 +74,8 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * const response = await client.send(command);
  * ```
  *
+ * @param StartInstanceRefreshCommandInput - {@link StartInstanceRefreshCommandInput}
+ * @returns {@link StartInstanceRefreshCommandOutput}
  * @see {@link StartInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link StartInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -133,6 +140,9 @@ export class StartInstanceRefreshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartInstanceRefreshCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class StartInstanceRefreshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartInstanceRefreshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStartInstanceRefreshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInstanceRefreshCommandOutput> {
     return deserializeAws_queryStartInstanceRefreshCommand(output, context);
   }

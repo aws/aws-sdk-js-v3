@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddApplicationInputCommand}.
  */
 export interface AddApplicationInputCommandInput extends AddApplicationInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddApplicationInputCommand}.
  */
 export interface AddApplicationInputCommandOutput extends AddApplicationInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Adds a streaming source to your SQL-based Kinesis Data Analytics application.
  *     </p>
@@ -59,6 +64,8 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationInputCommandInput - {@link AddApplicationInputCommandInput}
+ * @returns {@link AddApplicationInputCommandOutput}
  * @see {@link AddApplicationInputCommandInput} for command's `input` shape.
  * @see {@link AddApplicationInputCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -103,6 +110,9 @@ export class AddApplicationInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class AddApplicationInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddApplicationInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddApplicationInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddApplicationInputCommandOutput> {
     return deserializeAws_json1_1AddApplicationInputCommand(output, context);
   }

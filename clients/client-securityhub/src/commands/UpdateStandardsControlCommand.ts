@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStandardsControlCommand}.
  */
 export interface UpdateStandardsControlCommandInput extends UpdateStandardsControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStandardsControlCommand}.
  */
 export interface UpdateStandardsControlCommandOutput extends UpdateStandardsControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to control whether an individual security standard control is enabled or
  *          disabled.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStandardsControlCommandInput - {@link UpdateStandardsControlCommandInput}
+ * @returns {@link UpdateStandardsControlCommandOutput}
  * @see {@link UpdateStandardsControlCommandInput} for command's `input` shape.
  * @see {@link UpdateStandardsControlCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateStandardsControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStandardsControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateStandardsControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStandardsControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateStandardsControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStandardsControlCommandOutput> {
     return deserializeAws_restJson1UpdateStandardsControlCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddPermissionCommand}.
  */
 export interface AddPermissionCommandInput extends AddPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddPermissionCommand}.
  */
 export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a permission to a queue for a specific
  *       <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>.
  *       This allows sharing access to the queue.</p>
@@ -80,6 +85,8 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
+ * @returns {@link AddPermissionCommandOutput}
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -109,6 +116,9 @@ export class AddPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class AddPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPermissionCommandOutput> {
     return deserializeAws_queryAddPermissionCommand(output, context);
   }

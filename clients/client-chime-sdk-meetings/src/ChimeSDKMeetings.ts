@@ -72,12 +72,14 @@ import {
 } from "./commands/UpdateAttendeeCapabilitiesCommand";
 
 /**
+ * @public
  * <p>The Amazon Chime SDK meetings APIs in this section allow software developers to create Amazon Chime SDK meetings, set the AWS Regions for meetings, create and manage users, and send and
  *             receive meeting notifications. For more information about the meeting APIs, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html">Amazon Chime SDK meetings</a>.</p>
  */
 export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   /**
+   * @public
    * <p>Creates up to 100 attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
    *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
@@ -111,6 +113,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Updates <code>AttendeeCapabilities</code> except the capabilities listed in an <code>ExcludedAttendeeIds</code> table.</p>
    *          <note>
    *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
@@ -165,6 +168,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>
    *            Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -202,6 +206,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
    *            in the <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see
@@ -240,6 +245,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>
    *            Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
@@ -278,6 +284,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
    *            <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -313,6 +320,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees, disconnects all clients, and prevents new clients from
    *            joining the meeting. For more information about the Amazon Chime SDK, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the
@@ -348,6 +356,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>
    *             Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see
    *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -378,6 +387,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see
    *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
    *             in the <i>Amazon Chime Developer Guide</i>.</p>
@@ -406,6 +416,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>
    *             Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
    *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -442,6 +453,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the tags available for the specified resource.</p>
    */
   public listTagsForResource(
@@ -474,6 +486,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Starts transcription for the specified <code>meetingId</code>. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
    *             Using Amazon Chime SDK live transcription
    *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
@@ -512,6 +525,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Stops transcription for the specified <code>meetingId</code>. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
    *             Using Amazon Chime SDK live transcription
    *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
@@ -550,6 +564,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>The resource that supports tags.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -576,6 +591,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified resources. When you specify a tag key, the action removes both that key and its associated value. The operation succeeds even if you
    *                 attempt to remove tags from a resource that were already removed. Note the following:</p>
    *          <ul>
@@ -629,6 +645,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>The capabilties that you want to update.</p>
    *          <note>
    *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see

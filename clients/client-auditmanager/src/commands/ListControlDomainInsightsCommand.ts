@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListControlDomainInsightsCommand}.
  */
 export interface ListControlDomainInsightsCommandInput extends ListControlDomainInsightsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListControlDomainInsightsCommand}.
  */
 export interface ListControlDomainInsightsCommandOutput extends ListControlDomainInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the latest analytics data for control domains across all of your active
  *          assessments. </p>
  *          <note>
@@ -53,6 +58,8 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlDomainInsightsCommandInput - {@link ListControlDomainInsightsCommandInput}
+ * @returns {@link ListControlDomainInsightsCommandOutput}
  * @see {@link ListControlDomainInsightsCommandInput} for command's `input` shape.
  * @see {@link ListControlDomainInsightsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListControlDomainInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlDomainInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListControlDomainInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListControlDomainInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListControlDomainInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

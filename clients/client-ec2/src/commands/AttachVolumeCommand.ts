@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2AttachVolumeCommand, serializeAws_ec2AttachVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AttachVolumeCommand}.
  */
 export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachVolumeCommand}.
  */
 export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
  *       with the specified device name.</p>
  *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
@@ -67,6 +72,8 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachVolumeCommandInput - {@link AttachVolumeCommandInput}
+ * @returns {@link AttachVolumeCommandOutput}
  * @see {@link AttachVolumeCommandInput} for command's `input` shape.
  * @see {@link AttachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -112,6 +119,9 @@ export class AttachVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class AttachVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AttachVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachVolumeCommandOutput> {
     return deserializeAws_ec2AttachVolumeCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateSecurityProfileBehaviorsCommand}.
  */
 export interface ValidateSecurityProfileBehaviorsCommandInput extends ValidateSecurityProfileBehaviorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidateSecurityProfileBehaviorsCommand}.
  */
 export interface ValidateSecurityProfileBehaviorsCommandOutput
@@ -37,6 +41,7 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates a Device Defender security profile behaviors specification.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ValidateSecurityProfileBehaviors</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateSecurityProfileBehaviorsCommandInput - {@link ValidateSecurityProfileBehaviorsCommandInput}
+ * @returns {@link ValidateSecurityProfileBehaviorsCommandOutput}
  * @see {@link ValidateSecurityProfileBehaviorsCommandInput} for command's `input` shape.
  * @see {@link ValidateSecurityProfileBehaviorsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -81,6 +88,9 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateSecurityProfileBehaviorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ValidateSecurityProfileBehaviorsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     return serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

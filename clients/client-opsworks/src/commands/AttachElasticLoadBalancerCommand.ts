@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachElasticLoadBalancerCommand}.
  */
 export interface AttachElasticLoadBalancerCommandInput extends AttachElasticLoadBalancerRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachElasticLoadBalancerCommand}.
  */
 export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks Stacks does not support
  *           Application Load Balancer. You can only use Classic Load Balancer with AWS OpsWorks Stacks.
  *           For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html">Elastic Load
@@ -57,6 +62,8 @@ export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachElasticLoadBalancerCommandInput - {@link AttachElasticLoadBalancerCommandInput}
+ * @returns {@link AttachElasticLoadBalancerCommandOutput}
  * @see {@link AttachElasticLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link AttachElasticLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -86,6 +93,9 @@ export class AttachElasticLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachElasticLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class AttachElasticLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachElasticLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AttachElasticLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

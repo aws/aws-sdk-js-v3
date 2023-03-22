@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallConfigCommand}.
  */
 export interface UpdateFirewallConfigCommandInput extends UpdateFirewallConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallConfigCommand}.
  */
 export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of the firewall behavior provided by DNS Firewall for a single
  * 			VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallConfigCommandInput - {@link UpdateFirewallConfigCommandInput}
+ * @returns {@link UpdateFirewallConfigCommandOutput}
  * @see {@link UpdateFirewallConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateFirewallConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateFirewallConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFirewallConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFirewallConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFirewallConfigCommandOutput> {
     return deserializeAws_json1_1UpdateFirewallConfigCommand(output, context);
   }

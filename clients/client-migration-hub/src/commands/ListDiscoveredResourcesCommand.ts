@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDiscoveredResourcesCommand}.
  */
 export interface ListDiscoveredResourcesCommandInput extends ListDiscoveredResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDiscoveredResourcesCommand}.
  */
 export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDiscoveredResourcesCommandInput - {@link ListDiscoveredResourcesCommandInput}
+ * @returns {@link ListDiscoveredResourcesCommandOutput}
  * @see {@link ListDiscoveredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListDiscoveredResourcesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListDiscoveredResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDiscoveredResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListDiscoveredResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDiscoveredResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDiscoveredResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDiscoveredResourcesCommandOutput> {
     return deserializeAws_json1_1ListDiscoveredResourcesCommand(output, context);
   }

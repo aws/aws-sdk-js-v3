@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIPSetCommand}.
  */
 export interface CreateIPSetCommandInput extends CreateIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIPSetCommand}.
  */
 export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <a>IPSet</a>, which you use to identify web requests that
  *          originate from specific IP addresses or ranges of IP addresses. For example, if you're
  *          receiving a lot of requests from a ranges of IP addresses, you can configure WAF to
@@ -49,6 +54,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
+ * @returns {@link CreateIPSetCommandOutput}
  * @see {@link CreateIPSetCommandInput} for command's `input` shape.
  * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -122,6 +129,9 @@ export class CreateIPSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class CreateIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIPSetCommandOutput> {
     return deserializeAws_json1_1CreateIPSetCommand(output, context);
   }

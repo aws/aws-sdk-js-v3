@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDataProtectionPolicyCommand}.
  */
 export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDataProtectionPolicyCommand}.
  */
 export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive
  *       data that's ingested by the log group by auditing and masking the sensitive log data.</p>
  *          <important>
@@ -60,6 +65,8 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
+ * @returns {@link PutDataProtectionPolicyCommandOutput}
  * @see {@link PutDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -98,6 +105,9 @@ export class PutDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class PutDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataProtectionPolicyCommandOutput> {
     return deserializeAws_json1_1PutDataProtectionPolicyCommand(output, context);
   }

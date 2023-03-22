@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFleetLocationsCommand}.
  */
 export interface CreateFleetLocationsCommandInput extends CreateFleetLocationsInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateFleetLocationsCommand}.
  */
 export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds remote locations to a fleet and begins populating the new locations with EC2
  *             instances. The new instances conform to the fleet's instance type, auto-scaling, and
  *             other configuration settings. </p>
@@ -69,6 +74,8 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFleetLocationsCommandInput - {@link CreateFleetLocationsCommandInput}
+ * @returns {@link CreateFleetLocationsCommandOutput}
  * @see {@link CreateFleetLocationsCommandInput} for command's `input` shape.
  * @see {@link CreateFleetLocationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -120,6 +127,9 @@ export class CreateFleetLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFleetLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class CreateFleetLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFleetLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFleetLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetLocationsCommandOutput> {
     return deserializeAws_json1_1CreateFleetLocationsCommand(output, context);
   }

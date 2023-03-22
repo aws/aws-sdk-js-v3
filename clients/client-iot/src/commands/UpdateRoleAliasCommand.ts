@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoleAliasCommand}.
  */
 export interface UpdateRoleAliasCommandInput extends UpdateRoleAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoleAliasCommand}.
  */
 export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a role alias.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateRoleAlias</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoleAliasCommandInput - {@link UpdateRoleAliasCommandInput}
+ * @returns {@link UpdateRoleAliasCommandOutput}
  * @see {@link UpdateRoleAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateRoleAliasCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateRoleAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoleAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateRoleAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoleAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRoleAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoleAliasCommandOutput> {
     return deserializeAws_restJson1UpdateRoleAliasCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllocatePrivateVirtualInterfaceCommand}.
  */
 export interface AllocatePrivateVirtualInterfaceCommandInput extends AllocatePrivateVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocatePrivateVirtualInterfaceCommand}.
  */
 export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a private virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>.
  *       Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>
@@ -48,6 +53,8 @@ export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInt
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocatePrivateVirtualInterfaceCommandInput - {@link AllocatePrivateVirtualInterfaceCommandInput}
+ * @returns {@link AllocatePrivateVirtualInterfaceCommandOutput}
  * @see {@link AllocatePrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocatePrivateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocatePrivateVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AllocatePrivateVirtualInterfaceCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
     return serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

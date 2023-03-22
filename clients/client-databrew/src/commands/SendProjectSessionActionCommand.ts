@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendProjectSessionActionCommand}.
  */
 export interface SendProjectSessionActionCommandInput extends SendProjectSessionActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendProjectSessionActionCommand}.
  */
 export interface SendProjectSessionActionCommandOutput extends SendProjectSessionActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs a recipe step within an interactive DataBrew session that's currently
  *             open.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * const response = await client.send(command);
  * ```
  *
+ * @param SendProjectSessionActionCommandInput - {@link SendProjectSessionActionCommandInput}
+ * @returns {@link SendProjectSessionActionCommandOutput}
  * @see {@link SendProjectSessionActionCommandInput} for command's `input` shape.
  * @see {@link SendProjectSessionActionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -79,6 +86,9 @@ export class SendProjectSessionActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendProjectSessionActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class SendProjectSessionActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendProjectSessionActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendProjectSessionActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendProjectSessionActionCommandOutput> {
     return deserializeAws_restJson1SendProjectSessionActionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAnalysisCommand}.
  */
 export interface DeleteAnalysisCommandInput extends DeleteAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAnalysisCommand}.
  */
 export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during
  *             which you can restore the analysis. If you don't specify a recovery window value, the
  *             operation defaults to 30 days. Amazon QuickSight attaches a <code>DeletionTime</code> stamp to
@@ -57,6 +62,8 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnalysisCommandInput - {@link DeleteAnalysisCommandInput}
+ * @returns {@link DeleteAnalysisCommandOutput}
  * @see {@link DeleteAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnalysisCommandOutput> {
     return deserializeAws_restJson1DeleteAnalysisCommand(output, context);
   }

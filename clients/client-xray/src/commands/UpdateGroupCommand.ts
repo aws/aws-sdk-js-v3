@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a group resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
+ * @returns {@link UpdateGroupCommandOutput}
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupCommandOutput> {
     return deserializeAws_restJson1UpdateGroupCommand(output, context);
   }

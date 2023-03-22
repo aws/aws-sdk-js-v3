@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAcceptedPortfolioSharesCommand}.
  */
 export interface ListAcceptedPortfolioSharesCommandInput extends ListAcceptedPortfolioSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAcceptedPortfolioSharesCommand}.
  */
 export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPortfolioSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all imported portfolios for which account-to-account shares were accepted by
  *          this account. By specifying the <code>PortfolioShareType</code>, you can list portfolios for which
  *          organizational shares were accepted by this account.</p>
@@ -48,6 +53,8 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAcceptedPortfolioSharesCommandInput - {@link ListAcceptedPortfolioSharesCommandInput}
+ * @returns {@link ListAcceptedPortfolioSharesCommandOutput}
  * @see {@link ListAcceptedPortfolioSharesCommandInput} for command's `input` shape.
  * @see {@link ListAcceptedPortfolioSharesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAcceptedPortfolioSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAcceptedPortfolioSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAcceptedPortfolioSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

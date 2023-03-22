@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClientVpnRouteCommand}.
  */
 export interface DeleteClientVpnRouteCommandInput extends DeleteClientVpnRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClientVpnRouteCommand}.
  */
 export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using
  * 			the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were
  * 			automatically added when associating a subnet. To remove routes that have been automatically added,
@@ -49,6 +54,8 @@ export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClientVpnRouteCommandInput - {@link DeleteClientVpnRouteCommandInput}
+ * @returns {@link DeleteClientVpnRouteCommandOutput}
  * @see {@link DeleteClientVpnRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteClientVpnRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteClientVpnRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClientVpnRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteClientVpnRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClientVpnRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteClientVpnRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientVpnRouteCommandOutput> {
     return deserializeAws_ec2DeleteClientVpnRouteCommand(output, context);
   }

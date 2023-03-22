@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileSystemPolicyCommand}.
  */
 export interface DescribeFileSystemPolicyCommandInput extends DescribeFileSystemPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileSystemPolicyCommand}.
  */
 export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemPolicyCommandInput - {@link DescribeFileSystemPolicyCommandInput}
+ * @returns {@link DescribeFileSystemPolicyCommandOutput}
  * @see {@link DescribeFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileSystemPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFileSystemPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemPolicyCommandOutput> {
     return deserializeAws_restJson1DescribeFileSystemPolicyCommand(output, context);
   }

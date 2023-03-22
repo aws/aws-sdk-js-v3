@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplayCommand}.
  */
 export interface DescribeReplayCommandInput extends DescribeReplayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplayCommand}.
  */
 export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about a replay. Use <code>DescribeReplay</code> to determine the
  *       progress of a running replay. A replay processes events to replay based on the time in the
  *       event, and replays them using 1 minute intervals. If you use <code>StartReplay</code> and
@@ -54,6 +59,8 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplayCommandInput - {@link DescribeReplayCommandInput}
+ * @returns {@link DescribeReplayCommandOutput}
  * @see {@link DescribeReplayCommandInput} for command's `input` shape.
  * @see {@link DescribeReplayCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeReplayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplayCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeReplayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReplayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReplayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReplayCommandOutput> {
     return deserializeAws_json1_1DescribeReplayCommand(output, context);
   }

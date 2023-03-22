@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLineageGroupPolicyCommand}.
  */
 export interface GetLineageGroupPolicyCommandInput extends GetLineageGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLineageGroupPolicyCommand}.
  */
 export interface GetLineageGroupPolicyCommandOutput extends GetLineageGroupPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The resource policy for the lineage group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLineageGroupPolicyCommandOutput extends GetLineageGroupPolic
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLineageGroupPolicyCommandInput - {@link GetLineageGroupPolicyCommandInput}
+ * @returns {@link GetLineageGroupPolicyCommandOutput}
  * @see {@link GetLineageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetLineageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetLineageGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLineageGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetLineageGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLineageGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLineageGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLineageGroupPolicyCommandOutput> {
     return deserializeAws_json1_1GetLineageGroupPolicyCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommendationPreferencesCommand}.
  */
 export interface GetRecommendationPreferencesCommandInput extends GetRecommendationPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommendationPreferencesCommand}.
  */
 export interface GetRecommendationPreferencesCommandOutput
@@ -37,6 +41,7 @@ export interface GetRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns existing recommendation preferences, such as enhanced infrastructure
  *             metrics.</p>
  *          <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
@@ -55,6 +60,8 @@ export interface GetRecommendationPreferencesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommendationPreferencesCommandInput - {@link GetRecommendationPreferencesCommandInput}
+ * @returns {@link GetRecommendationPreferencesCommandOutput}
  * @see {@link GetRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -103,6 +110,9 @@ export class GetRecommendationPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetRecommendationPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommendationPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetRecommendationPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

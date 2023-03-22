@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSnapshotScheduleCommand}.
  */
 export interface UpdateSnapshotScheduleCommandInput extends UpdateSnapshotScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSnapshotScheduleCommand}.
  */
 export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a snapshot schedule configured for a gateway volume. This operation is only
  *          supported in the cached volume and stored volume gateway types.</p>
  *
@@ -55,6 +60,8 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSnapshotScheduleCommandInput - {@link UpdateSnapshotScheduleCommandInput}
+ * @returns {@link UpdateSnapshotScheduleCommandOutput}
  * @see {@link UpdateSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -105,6 +112,9 @@ export class UpdateSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class UpdateSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSnapshotScheduleCommandOutput> {
     return deserializeAws_json1_1UpdateSnapshotScheduleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopAppCommand}.
  */
 export interface StopAppCommandInput extends StopAppInput {}
 /**
+ * @public
+ *
  * The output of {@link StopAppCommand}.
  */
 export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the given custom app and shuts down all of its allocated compute resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopAppCommandInput - {@link StopAppCommandInput}
+ * @returns {@link StopAppCommandOutput}
  * @see {@link StopAppCommandInput} for command's `input` shape.
  * @see {@link StopAppCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -84,6 +91,9 @@ export class StopAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StopAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAppCommandOutput> {
     return deserializeAws_restJson1StopAppCommand(output, context);
   }

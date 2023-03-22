@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link LookupEventsCommand}.
  */
 export interface LookupEventsCommandInput extends LookupEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link LookupEventsCommand}.
  */
 export interface LookupEventsCommandOutput extends LookupEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management events</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail Insights events</a> that are captured by CloudTrail.
  *          You can look up events that occurred in a region within the last 90 days. Lookup supports
  *          the following attributes for management events:</p>
@@ -93,6 +98,8 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param LookupEventsCommandInput - {@link LookupEventsCommandInput}
+ * @returns {@link LookupEventsCommandOutput}
  * @see {@link LookupEventsCommandInput} for command's `input` shape.
  * @see {@link LookupEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -140,6 +147,9 @@ export class LookupEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LookupEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,10 +187,16 @@ export class LookupEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LookupEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1LookupEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LookupEventsCommandOutput> {
     return deserializeAws_json1_1LookupEventsCommand(output, context);
   }

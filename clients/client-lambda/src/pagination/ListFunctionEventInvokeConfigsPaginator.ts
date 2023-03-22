@@ -10,7 +10,7 @@ import { LambdaClient } from "../LambdaClient";
 import { LambdaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LambdaClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFunctionEventInvokeConfigsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFunctionEventInvokeConfigs(
   config: LambdaPaginationConfiguration,
   input: ListFunctionEventInvokeConfigsCommandInput,

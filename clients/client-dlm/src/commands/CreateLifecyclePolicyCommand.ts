@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLifecyclePolicyCommand}.
  */
 export interface CreateLifecyclePolicyCommandInput extends CreateLifecyclePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLifecyclePolicyCommand}.
  */
 export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a policy to manage the lifecycle of the specified Amazon Web Services resources. You can
  * 			create up to 100 lifecycle policies.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLifecyclePolicyCommandInput - {@link CreateLifecyclePolicyCommandInput}
+ * @returns {@link CreateLifecyclePolicyCommandOutput}
  * @see {@link CreateLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link CreateLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLifecyclePolicyCommandOutput> {
     return deserializeAws_restJson1CreateLifecyclePolicyCommand(output, context);
   }

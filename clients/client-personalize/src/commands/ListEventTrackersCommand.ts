@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventTrackersCommand}.
  */
 export interface ListEventTrackersCommandInput extends ListEventTrackersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventTrackersCommand}.
  */
 export interface ListEventTrackersCommandOutput extends ListEventTrackersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of event trackers associated with the account.
  *       The response provides the properties for each event tracker, including the Amazon Resource
  *       Name (ARN) and tracking ID. For more
@@ -49,6 +54,8 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventTrackersCommandInput - {@link ListEventTrackersCommandInput}
+ * @returns {@link ListEventTrackersCommandOutput}
  * @see {@link ListEventTrackersCommandInput} for command's `input` shape.
  * @see {@link ListEventTrackersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListEventTrackersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventTrackersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListEventTrackersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventTrackersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEventTrackersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventTrackersCommandOutput> {
     return deserializeAws_json1_1ListEventTrackersCommand(output, context);
   }

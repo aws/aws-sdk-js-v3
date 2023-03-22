@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChangeSetCommand}.
  */
 export interface DescribeChangeSetCommandInput extends DescribeChangeSetInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChangeSetCommand}.
  */
 export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the inputs for the change set and a list of changes that CloudFormation will
  *          make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating Stacks Using Change Sets</a> in the CloudFormation User Guide.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChangeSetCommandInput - {@link DescribeChangeSetCommandInput}
+ * @returns {@link DescribeChangeSetCommandOutput}
  * @see {@link DescribeChangeSetCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChangeSetCommandOutput> {
     return deserializeAws_queryDescribeChangeSetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationGroupCommand}.
  */
 export interface CreateReplicationGroupCommandInput extends CreateReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationGroupCommand}.
  */
 export interface CreateReplicationGroupCommandOutput extends CreateReplicationGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group.</p>
  *          <p>This API can be used to create a standalone regional replication group or a secondary replication group associated with a Global datastore.</p>
  *          <p>A Redis (cluster mode disabled) replication group is a collection of clusters,
@@ -70,6 +75,8 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationGroupCommandInput - {@link CreateReplicationGroupCommandInput}
+ * @returns {@link CreateReplicationGroupCommandOutput}
  * @see {@link CreateReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -245,6 +252,9 @@ export class CreateReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -284,10 +294,16 @@ export class CreateReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationGroupCommandOutput> {
     return deserializeAws_queryCreateReplicationGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PollForJobsCommand}.
  */
 export interface PollForJobsCommandInput extends PollForJobsInput {}
 /**
+ * @public
+ *
  * The output of {@link PollForJobsCommand}.
  */
 export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about any jobs for AWS CodePipeline to act on.
  *                 <code>PollForJobs</code> is valid only for action types with "Custom" in the owner
  *             field. If the action type contains "AWS" or "ThirdParty" in the owner field, the
@@ -55,6 +60,8 @@ export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param PollForJobsCommandInput - {@link PollForJobsCommandInput}
+ * @returns {@link PollForJobsCommandOutput}
  * @see {@link PollForJobsCommandInput} for command's `input` shape.
  * @see {@link PollForJobsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -84,6 +91,9 @@ export class PollForJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PollForJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PollForJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PollForJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PollForJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForJobsCommandOutput> {
     return deserializeAws_json1_1PollForJobsCommand(output, context);
   }

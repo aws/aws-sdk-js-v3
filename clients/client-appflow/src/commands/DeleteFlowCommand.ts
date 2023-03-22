@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFlowCommand}.
  */
 export interface DeleteFlowCommandInput extends DeleteFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFlowCommand}.
  */
 export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can
  *       delete flows one at a time. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlowCommandInput - {@link DeleteFlowCommandInput}
+ * @returns {@link DeleteFlowCommandOutput}
  * @see {@link DeleteFlowCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowCommandOutput> {
     return deserializeAws_restJson1DeleteFlowCommand(output, context);
   }

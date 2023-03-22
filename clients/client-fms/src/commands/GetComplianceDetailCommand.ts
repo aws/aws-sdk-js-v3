@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComplianceDetailCommand}.
  */
 export interface GetComplianceDetailCommandInput extends GetComplianceDetailRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetComplianceDetailCommand}.
  */
 export interface GetComplianceDetailCommandOutput extends GetComplianceDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed compliance information about the specified member account. Details
  *       include resources that are in and out of compliance with the specified policy. </p>
  *          <ul>
@@ -69,6 +74,8 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceDetailCommandInput - {@link GetComplianceDetailCommandInput}
+ * @returns {@link GetComplianceDetailCommandOutput}
  * @see {@link GetComplianceDetailCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -109,6 +116,9 @@ export class GetComplianceDetailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceDetailCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class GetComplianceDetailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComplianceDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetComplianceDetailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComplianceDetailCommandOutput> {
     return deserializeAws_json1_1GetComplianceDetailCommand(output, context);
   }

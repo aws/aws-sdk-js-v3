@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartLabelDetectionCommand}.
  */
 export interface StartLabelDetectionCommandInput extends StartLabelDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartLabelDetectionCommand}.
  */
 export interface StartLabelDetectionCommandOutput extends StartLabelDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous detection of labels in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world entities.
  *        This includes objects like flower, tree, and table; events like
@@ -70,6 +75,8 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StartLabelDetectionCommandInput - {@link StartLabelDetectionCommandInput}
+ * @returns {@link StartLabelDetectionCommandOutput}
  * @see {@link StartLabelDetectionCommandInput} for command's `input` shape.
  * @see {@link StartLabelDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -126,6 +133,9 @@ export class StartLabelDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartLabelDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class StartLabelDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartLabelDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartLabelDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLabelDetectionCommandOutput> {
     return deserializeAws_json1_1StartLabelDetectionCommand(output, context);
   }

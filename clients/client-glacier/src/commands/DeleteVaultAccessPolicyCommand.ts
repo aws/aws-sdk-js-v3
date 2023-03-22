@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVaultAccessPolicyCommand}.
  */
 export interface DeleteVaultAccessPolicyCommandInput extends DeleteVaultAccessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVaultAccessPolicyCommand}.
  */
 export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes the access policy associated with the specified vault. The
  *          operation is eventually consistent; that is, it might take some time for Amazon S3 Glacier to
  *          completely remove the access policy, and you might still see the effect of the policy for a
@@ -47,6 +52,8 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVaultAccessPolicyCommandInput - {@link DeleteVaultAccessPolicyCommandInput}
+ * @returns {@link DeleteVaultAccessPolicyCommandOutput}
  * @see {@link DeleteVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteVaultAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVaultAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteVaultAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVaultAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVaultAccessPolicyCommandOutput> {
     return deserializeAws_restJson1DeleteVaultAccessPolicyCommand(output, context);
   }

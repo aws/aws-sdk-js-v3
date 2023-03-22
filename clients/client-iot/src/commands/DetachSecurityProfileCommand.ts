@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachSecurityProfileCommand}.
  */
 export interface DetachSecurityProfileCommandInput extends DetachSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachSecurityProfileCommand}.
  */
 export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachSecurityProfile</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachSecurityProfileCommandInput - {@link DetachSecurityProfileCommandInput}
+ * @returns {@link DetachSecurityProfileCommandOutput}
  * @see {@link DetachSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DetachSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DetachSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DetachSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DetachSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachSecurityProfileCommandOutput> {
     return deserializeAws_restJson1DetachSecurityProfileCommand(output, context);
   }

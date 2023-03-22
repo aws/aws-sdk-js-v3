@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandInput extends DeleteFleetInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all resources and information related a fleet. Any current fleet instances,
  *             including those in remote locations, are shut down. You don't need to call
  *                 <code>DeleteFleetLocations</code> separately.</p>
@@ -59,6 +64,8 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
+ * @returns {@link DeleteFleetCommandOutput}
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DeleteFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetCommandOutput> {
     return deserializeAws_json1_1DeleteFleetCommand(output, context);
   }

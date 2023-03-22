@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssetPropertyValueCommand}.
  */
 export interface GetAssetPropertyValueCommandInput extends GetAssetPropertyValueRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssetPropertyValueCommand}.
  */
 export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an asset property's current value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
  *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -57,6 +62,8 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssetPropertyValueCommandInput - {@link GetAssetPropertyValueCommandInput}
+ * @returns {@link GetAssetPropertyValueCommandOutput}
  * @see {@link GetAssetPropertyValueCommandInput} for command's `input` shape.
  * @see {@link GetAssetPropertyValueCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetAssetPropertyValueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssetPropertyValueCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetAssetPropertyValueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssetPropertyValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAssetPropertyValueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssetPropertyValueCommandOutput> {
     return deserializeAws_restJson1GetAssetPropertyValueCommand(output, context);
   }

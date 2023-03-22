@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkflowStepGroupCommand}.
  */
 export interface CreateWorkflowStepGroupCommandInput extends CreateWorkflowStepGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkflowStepGroupCommand}.
  */
 export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStepGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a step group in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStep
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkflowStepGroupCommandInput - {@link CreateWorkflowStepGroupCommandInput}
+ * @returns {@link CreateWorkflowStepGroupCommandOutput}
  * @see {@link CreateWorkflowStepGroupCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateWorkflowStepGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkflowStepGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateWorkflowStepGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkflowStepGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWorkflowStepGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowStepGroupCommandOutput> {
     return deserializeAws_restJson1CreateWorkflowStepGroupCommand(output, context);
   }

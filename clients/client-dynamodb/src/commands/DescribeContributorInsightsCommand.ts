@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeContributorInsightsCommand}.
  */
 export interface DescribeContributorInsightsCommandInput extends DescribeContributorInsightsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeContributorInsightsCommand}.
  */
 export interface DescribeContributorInsightsCommandOutput extends DescribeContributorInsightsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about contributor insights for a given table or global secondary
  *             index.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContributorInsightsCommandInput - {@link DescribeContributorInsightsCommandInput}
+ * @returns {@link DescribeContributorInsightsCommandOutput}
  * @see {@link DescribeContributorInsightsCommandInput} for command's `input` shape.
  * @see {@link DescribeContributorInsightsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeContributorInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContributorInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeContributorInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContributorInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeContributorInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

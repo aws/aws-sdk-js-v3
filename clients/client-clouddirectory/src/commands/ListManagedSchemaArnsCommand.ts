@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListManagedSchemaArnsCommand}.
  */
 export interface ListManagedSchemaArnsCommandInput extends ListManagedSchemaArnsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListManagedSchemaArnsCommand}.
  */
 export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArnsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedSchemaArnsCommandInput - {@link ListManagedSchemaArnsCommandInput}
+ * @returns {@link ListManagedSchemaArnsCommandOutput}
  * @see {@link ListManagedSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListManagedSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListManagedSchemaArnsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedSchemaArnsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListManagedSchemaArnsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListManagedSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListManagedSchemaArnsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedSchemaArnsCommandOutput> {
     return deserializeAws_restJson1ListManagedSchemaArnsCommand(output, context);
   }

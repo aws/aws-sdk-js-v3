@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportTerminologyCommand}.
  */
 export interface ImportTerminologyCommandInput extends ImportTerminologyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportTerminologyCommand}.
  */
 export interface ImportTerminologyCommandOutput extends ImportTerminologyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a custom terminology, depending on whether one already exists for the
  *       given terminology name. Importing a terminology with the same name as an existing one will
  *       merge the terminologies based on the chosen merge strategy. The only supported merge strategy
@@ -53,6 +58,8 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportTerminologyCommandInput - {@link ImportTerminologyCommandInput}
+ * @returns {@link ImportTerminologyCommandOutput}
  * @see {@link ImportTerminologyCommandInput} for command's `input` shape.
  * @see {@link ImportTerminologyCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -98,6 +105,9 @@ export class ImportTerminologyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportTerminologyCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class ImportTerminologyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportTerminologyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportTerminologyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportTerminologyCommandOutput> {
     return deserializeAws_json1_1ImportTerminologyCommand(output, context);
   }

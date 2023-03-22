@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationSetSendingEnabledCommand}.
  */
 export interface UpdateConfigurationSetSendingEnabledCommandInput extends UpdateConfigurationSetSendingEnabledRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationSetSendingEnabledCommand}.
  */
 export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables email sending for messages sent using a specific configuration set
  *             in a given AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms
  *             to temporarily pause email sending for a configuration set when the reputation metrics
@@ -49,6 +54,8 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetSendingEnabledCommandInput - {@link UpdateConfigurationSetSendingEnabledCommandInput}
+ * @returns {@link UpdateConfigurationSetSendingEnabledCommandOutput}
  * @see {@link UpdateConfigurationSetSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetSendingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetSendingEnabledCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     return serializeAws_queryUpdateConfigurationSetSendingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

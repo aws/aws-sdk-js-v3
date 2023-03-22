@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationResourceLifecycleCommand}.
  */
 export interface UpdateApplicationResourceLifecycleCommandInput extends UpdateApplicationResourceLifecycleMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationResourceLifecycleCommand}.
  */
 export interface UpdateApplicationResourceLifecycleCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies lifecycle settings for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationResourceLifecycleCommandInput - {@link UpdateApplicationResourceLifecycleCommandInput}
+ * @returns {@link UpdateApplicationResourceLifecycleCommandOutput}
  * @see {@link UpdateApplicationResourceLifecycleCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationResourceLifecycleCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationResourceLifecycleCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApplicationResourceLifecycleCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     return serializeAws_queryUpdateApplicationResourceLifecycleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

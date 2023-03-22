@@ -121,6 +121,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchGetCollectionCommandInput
   | BatchGetVpcEndpointCommandInput
@@ -154,6 +157,9 @@ export type ServiceInputTypes =
   | UpdateSecurityPolicyCommandInput
   | UpdateVpcEndpointCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchGetCollectionCommandOutput
   | BatchGetVpcEndpointCommandOutput
@@ -187,6 +193,9 @@ export type ServiceOutputTypes =
   | UpdateSecurityPolicyCommandOutput
   | UpdateVpcEndpointCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -194,7 +203,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -303,11 +312,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type OpenSearchServerlessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -318,10 +330,15 @@ type OpenSearchServerlessClientConfigType = Partial<__SmithyConfiguration<__Http
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of OpenSearchServerlessClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of OpenSearchServerlessClient class constructor that set the region, credentials and other options.
  */
 export interface OpenSearchServerlessClientConfig extends OpenSearchServerlessClientConfigType {}
 
+/**
+ * @public
+ */
 type OpenSearchServerlessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -332,11 +349,14 @@ type OpenSearchServerlessClientResolvedConfigType = __SmithyResolvedConfiguratio
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of OpenSearchServerlessClient class. This is resolved and normalized from the {@link OpenSearchServerlessClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of OpenSearchServerlessClient class. This is resolved and normalized from the {@link OpenSearchServerlessClientConfig | constructor configuration interface}.
  */
 export interface OpenSearchServerlessClientResolvedConfig extends OpenSearchServerlessClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Use the Amazon OpenSearch Serverless API to create, configure, and manage OpenSearch Serverless collections and
  *             security policies.</p>
  *         <p>OpenSearch Serverless is an on-demand, pre-provisioned serverless configuration for

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBackendAPICommand}.
  */
 export interface UpdateBackendAPICommandInput extends UpdateBackendAPIRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBackendAPICommand}.
  */
 export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBackendAPICommandInput - {@link UpdateBackendAPICommandInput}
+ * @returns {@link UpdateBackendAPICommandOutput}
  * @see {@link UpdateBackendAPICommandInput} for command's `input` shape.
  * @see {@link UpdateBackendAPICommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateBackendAPICommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBackendAPICommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateBackendAPICommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBackendAPICommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBackendAPICommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackendAPICommandOutput> {
     return deserializeAws_restJson1UpdateBackendAPICommand(output, context);
   }

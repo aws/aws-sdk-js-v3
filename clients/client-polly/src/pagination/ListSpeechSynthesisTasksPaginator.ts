@@ -10,7 +10,7 @@ import { PollyClient } from "../PollyClient";
 import { PollyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PollyClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSpeechSynthesisTasksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSpeechSynthesisTasks(
   config: PollyPaginationConfiguration,
   input: ListSpeechSynthesisTasksCommandInput,

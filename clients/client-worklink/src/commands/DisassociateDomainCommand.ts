@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDomainCommand}.
  */
 export interface DisassociateDomainCommandInput extends DisassociateDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDomainCommand}.
  */
 export interface DisassociateDomainCommandOutput extends DisassociateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
@@ -48,6 +53,8 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDomainCommandInput - {@link DisassociateDomainCommandInput}
+ * @returns {@link DisassociateDomainCommandOutput}
  * @see {@link DisassociateDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisassociateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DisassociateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDomainCommandOutput> {
     return deserializeAws_restJson1DisassociateDomainCommand(output, context);
   }

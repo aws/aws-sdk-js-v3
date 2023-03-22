@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProvisionedProductPlanCommand}.
  */
 export interface DescribeProvisionedProductPlanCommandInput extends DescribeProvisionedProductPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProvisionedProductPlanCommand}.
  */
 export interface DescribeProvisionedProductPlanCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the resource changes for the specified plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeProvisionedProductPlanCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProvisionedProductPlanCommandInput - {@link DescribeProvisionedProductPlanCommandInput}
+ * @returns {@link DescribeProvisionedProductPlanCommandOutput}
  * @see {@link DescribeProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeProvisionedProductPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProvisionedProductPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class DescribeProvisionedProductPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeProvisionedProductPlanCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class DescribeProvisionedProductPlanCommand extends $Command<
     return serializeAws_json1_1DescribeProvisionedProductPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

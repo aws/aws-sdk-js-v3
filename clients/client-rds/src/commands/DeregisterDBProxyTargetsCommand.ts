@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterDBProxyTargetsCommand}.
  */
 export interface DeregisterDBProxyTargetsCommandInput extends DeregisterDBProxyTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterDBProxyTargetsCommand}.
  */
 export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterDBProxyTargetsCommandInput - {@link DeregisterDBProxyTargetsCommandInput}
+ * @returns {@link DeregisterDBProxyTargetsCommandOutput}
  * @see {@link DeregisterDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link DeregisterDBProxyTargetsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterDBProxyTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterDBProxyTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeregisterDBProxyTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterDBProxyTargetsCommandOutput> {
     return deserializeAws_queryDeregisterDBProxyTargetsCommand(output, context);
   }

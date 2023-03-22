@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyMigrationTaskStateCommand}.
  */
 export interface NotifyMigrationTaskStateCommandInput extends NotifyMigrationTaskStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link NotifyMigrationTaskStateCommand}.
  */
 export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTaskStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notifies Migration Hub of the current status, progress, or other detail regarding a
  *          migration task. This API has the following traits:</p>
  *          <ul>
@@ -63,6 +68,8 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyMigrationTaskStateCommandInput - {@link NotifyMigrationTaskStateCommandInput}
+ * @returns {@link NotifyMigrationTaskStateCommandOutput}
  * @see {@link NotifyMigrationTaskStateCommandInput} for command's `input` shape.
  * @see {@link NotifyMigrationTaskStateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -120,6 +127,9 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyMigrationTaskStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyMigrationTaskStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1NotifyMigrationTaskStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyMigrationTaskStateCommandOutput> {
     return deserializeAws_json1_1NotifyMigrationTaskStateCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteParameterGroupCommand}.
  */
 export interface DeleteParameterGroupCommandInput extends DeleteParameterGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteParameterGroupCommand}.
  */
 export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is
  *             associated with any DAX clusters.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteParameterGroupCommandInput - {@link DeleteParameterGroupCommandInput}
+ * @returns {@link DeleteParameterGroupCommandOutput}
  * @see {@link DeleteParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteParameterGroupCommandOutput> {
     return deserializeAws_json1_1DeleteParameterGroupCommand(output, context);
   }

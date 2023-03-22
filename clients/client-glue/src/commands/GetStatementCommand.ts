@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStatementCommand}.
  */
 export interface GetStatementCommandInput extends GetStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStatementCommand}.
  */
 export interface GetStatementCommandOutput extends GetStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStatementCommandInput - {@link GetStatementCommandInput}
+ * @returns {@link GetStatementCommandOutput}
  * @see {@link GetStatementCommandInput} for command's `input` shape.
  * @see {@link GetStatementCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatementCommandOutput> {
     return deserializeAws_json1_1GetStatementCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResolverRuleCommand}.
  */
 export interface UpdateResolverRuleCommandInput extends UpdateResolverRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResolverRuleCommand}.
  */
 export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates settings for a specified Resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional.
  * 			If you don't specify a parameter, it retains its current value.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResolverRuleCommandInput - {@link UpdateResolverRuleCommandInput}
+ * @returns {@link UpdateResolverRuleCommandOutput}
  * @see {@link UpdateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverRuleCommandOutput> {
     return deserializeAws_json1_1UpdateResolverRuleCommand(output, context);
   }

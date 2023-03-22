@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EnableMFADeviceCommand}.
  */
 export interface EnableMFADeviceCommandInput extends EnableMFADeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableMFADeviceCommand}.
  */
 export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified MFA device and associates it with the specified IAM user. When
  *             enabled, the MFA device is required for every subsequent login by the IAM user
  *             associated with the device.</p>
@@ -43,6 +48,8 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableMFADeviceCommandInput - {@link EnableMFADeviceCommandInput}
+ * @returns {@link EnableMFADeviceCommandOutput}
  * @see {@link EnableMFADeviceCommandInput} for command's `input` shape.
  * @see {@link EnableMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -92,6 +99,9 @@ export class EnableMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class EnableMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryEnableMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMFADeviceCommandOutput> {
     return deserializeAws_queryEnableMFADeviceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomLineItemsCommand}.
  */
 export interface ListCustomLineItemsCommandInput extends ListCustomLineItemsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomLineItemsCommand}.
  */
 export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       A paginated call to get a list of all custom line items (FFLIs) for the given billing period. If you don't provide a billing period, the current billing period is used.
  *     </p>
@@ -48,6 +53,8 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomLineItemsCommandInput - {@link ListCustomLineItemsCommandInput}
+ * @returns {@link ListCustomLineItemsCommandOutput}
  * @see {@link ListCustomLineItemsCommandInput} for command's `input` shape.
  * @see {@link ListCustomLineItemsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListCustomLineItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomLineItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListCustomLineItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomLineItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCustomLineItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCustomLineItemsCommandOutput> {
     return deserializeAws_restJson1ListCustomLineItemsCommand(output, context);
   }

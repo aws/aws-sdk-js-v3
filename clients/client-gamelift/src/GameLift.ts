@@ -464,6 +464,7 @@ import {
 import { GameLiftClient } from "./GameLiftClient";
 
 /**
+ * @public
  * <p>Amazon GameLift provides solutions for hosting session-based multiplayer game servers in the
  *             cloud, including tools for deploying, operating, and scaling game servers. Built on
  *             Amazon Web Services global computing infrastructure, GameLift helps you deliver high-performance,
@@ -525,6 +526,7 @@ import { GameLiftClient } from "./GameLiftClient";
  */
 export class GameLift extends GameLiftClient {
   /**
+   * @public
    * <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A
    *             matchmaking configuration may require player acceptance; if so, then matches built with
    *             that configuration cannot be completed unless all players accept the proposed match
@@ -579,6 +581,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -652,6 +655,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Creates an alias for a fleet. In most situations, you can use an alias ID in place of
    *             a fleet ID. An alias provides a level of abstraction for a fleet that is useful when
    *             redirecting player traffic from one fleet to another, such as when updating your game
@@ -697,6 +701,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon GameLift build resource for your game server binary files. Combine game
    *             server binaries into a zip file for use with Amazon GameLift. </p>
    *         <important>
@@ -765,6 +770,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Creates a fleet of Amazon Elastic Compute Cloud (Amazon Elastic Compute Cloud) instances to host your
    *             custom game server or Realtime Servers. Use this operation to configure the computing resources for
    *             your fleet and provide instructions for running game servers on each instance.</p>
@@ -826,6 +832,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Adds remote locations to a fleet and begins populating the new locations with EC2
    *             instances. The new instances conform to the fleet's instance type, auto-scaling, and
    *             other configuration settings. </p>
@@ -881,6 +888,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -954,6 +962,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Creates a multiplayer game session for players in a specific fleet location. This
    *             operation prompts an available server process to start a game session and retrieves
    *             connection information for the new game session. As an alternative, consider using the
@@ -1026,6 +1035,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Creates a placement queue that processes requests for new game sessions. A queue uses
    *             FleetIQ algorithms to determine the best placement locations and find an available game
    *             server there, then prompts the game server process to start a new game session. </p>
@@ -1103,6 +1113,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom location for use in an Anywhere fleet.</p>
    */
   public createLocation(
@@ -1135,6 +1146,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
    *             FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking
    *             configuration sets out rules for matching players and forming teams. If you're also
@@ -1192,6 +1204,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match
    *             to create, such as the number and size of teams. It also sets the parameters for
    *             acceptable player matches, such as minimum skill level or character type.</p>
@@ -1254,6 +1267,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Reserves an open player slot in a game session for a player. New player sessions can
    *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
    *             and has a player creation policy of <code>ACCEPT_ALL</code>. You can add a group of
@@ -1303,6 +1317,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Reserves open slots in a game session for a group of players. New player sessions can
    *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
    *             and has a player creation policy of <code>ACCEPT_ALL</code>. To add a single player to a
@@ -1353,6 +1368,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that
    *             provide configuration settings and optional custom game logic for your game. The script
    *             is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is
@@ -1421,6 +1437,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Requests authorization to create or delete a peer connection between the VPC for your
    *             Amazon GameLift fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game servers on
    *             your fleet to communicate directly with other Amazon Web Services resources. After you've received
@@ -1479,6 +1496,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon Web Services account with the VPC
    *             for your Amazon GameLift fleet. VPC peering enables the game servers on your fleet to communicate
    *             directly with other Amazon Web Services resources. You can peer with VPCs in any Amazon Web Services account that
@@ -1534,6 +1552,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Deletes an alias. This operation removes all record of the alias. Game clients
    *             attempting to access a server process using the deleted alias receive an error. To
    *             delete an alias, specify the alias ID to be deleted.</p>
@@ -1568,6 +1587,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Deletes a build. This operation permanently deletes the build resource and any
    *             uploaded build files. Deleting a build does not affect the status of any active fleets
    *             using the build, but you can no longer create new fleets with the deleted build.</p>
@@ -1607,6 +1627,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Deletes all resources and information related a fleet. Any current fleet instances,
    *             including those in remote locations, are shut down. You don't need to call
    *                 <code>DeleteFleetLocations</code> separately.</p>
@@ -1651,6 +1672,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Removes locations from a multi-location fleet. When deleting a location, all game
    *             server process and all instances that are still active in the location are shut down. </p>
    *         <p>To delete fleet locations, identify the fleet ID and provide a list of the locations
@@ -1696,6 +1718,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -1762,6 +1785,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Deletes a game session queue. Once a queue is successfully deleted, unfulfilled <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> requests that reference the queue will fail. To
    *             delete a queue, specify the queue name.</p>
    */
@@ -1795,6 +1819,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Deletes a custom location.</p>
    *         <p>Before deleting a custom location, review any fleets currently using the custom
    *             location and deregister the location if it is in use. For more information see, <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html">DeregisterCompute</a>.</p>
@@ -1829,6 +1854,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Permanently removes a FlexMatch matchmaking configuration. To delete, specify the
    *             configuration name. A matchmaking configuration cannot be deleted if it is being used in
    *             any active matchmaking tickets.</p>
@@ -1863,6 +1889,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule set
    *             name. Rule sets cannot be deleted if they are currently being used by a matchmaking
    *             configuration. </p>
@@ -1908,6 +1935,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in force and
    *             GameLift removes all record of it. To delete a scaling policy, specify both the scaling
    *             policy name and the fleet ID it is associated with.</p>
@@ -1944,6 +1972,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Realtime script. This operation permanently deletes the script record. If
    *             script files were uploaded, they are also deleted (files stored in an S3 bucket are not
    *             deleted). </p>
@@ -1991,6 +2020,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to
    *             delete an existing VPC peering connection, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html">DeleteVpcPeeringConnection</a>.</p>
    *          <p>
@@ -2030,6 +2060,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Removes a VPC peering connection. To delete the connection, you must have a valid
    *             authorization for the VPC peering connection that you want to delete.. </p>
    *         <p>Once a valid authorization exists, call this operation from the Amazon Web Services account that is
@@ -2072,6 +2103,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Removes a compute resource from the specified fleet. Deregister your compute resources
    *             before you delete the compute.</p>
    */
@@ -2105,6 +2137,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -2152,6 +2185,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves properties for an alias. This operation returns all alias metadata and
    *             settings. To get an alias's target fleet ID only, use <code>ResolveAlias</code>. </p>
    *         <p>To get alias properties, specify the alias ID. If successful, the requested alias
@@ -2193,6 +2227,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves properties for a custom game build. To request a build resource, specify a
    *             build ID. If successful, an object containing the build properties is returned.</p>
    *         <p>
@@ -2236,6 +2271,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves properties for a compute resource. To request a compute resource specify the
    *             fleet ID and compute name. If successful, GameLift returns an object containing the build
    *             properties.</p>
@@ -2270,6 +2306,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the instance limits and current utilization for an Amazon Web Services Region or location.
    *             Instance limits control the number of instances, per instance type, per location, that
    *             your Amazon Web Services account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>. The information
@@ -2356,6 +2393,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves core fleet-wide properties, including the computing hardware and deployment
    *             configuration for all instances in the fleet.</p>
    *         <p>This operation can be used in the following ways: </p>
@@ -2415,6 +2453,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the resource capacity settings for one or more fleets. The data returned
    *             includes the current fleet capacity (number of EC2 instances), and settings that can
    *             control how capacity scaling. For fleets with remote locations, this operation retrieves
@@ -2482,6 +2521,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves entries from a fleet's event log. Fleet events are initiated by changes in
    *             status, such as during fleet creation and termination, changes in capacity, etc. If a
    *             fleet has multiple locations, events are also initiated by changes to status and
@@ -2528,6 +2568,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information on a fleet's remote locations, including life-cycle status and
    *             any suspended fleet activity. </p>
    *         <p>This operation can be used in the following ways: </p>
@@ -2585,6 +2626,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the resource capacity settings for a fleet location. The data returned
    *             includes the current capacity (number of EC2 instances) and some scaling settings for
    *             the requested fleet location. Use this operation to retrieve capacity information for a
@@ -2634,6 +2676,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves current usage data for a fleet location. Utilization data provides a
    *             snapshot of current game hosting activity at the requested location. Use this operation
    *             to retrieve utilization information for a fleet's remote location or home Region (you
@@ -2683,6 +2726,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify the
    *             range of IP addresses and port settings that incoming traffic can use to access server
    *             processes in the fleet. Game sessions that are running on instances in the fleet must
@@ -2740,6 +2784,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
    *             snapshot of how the fleet's hosting resources are currently being used. For fleets with
    *             remote locations, this operation retrieves data for the fleet's home Region only. See
@@ -2807,6 +2852,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -2853,6 +2899,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -2901,6 +2948,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -2955,6 +3003,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves additional game session properties, including the game session protection
    *             policy in force, a set of one or more game sessions in a specific fleet location. You
    *             can optionally filter the results by current game session status.</p>
@@ -3021,6 +3070,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information, including current status, about a game session placement
    *             request. </p>
    *         <p>To get game session placement details, specify the placement ID.</p>
@@ -3060,6 +3110,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the properties for one or more game session queues. When requesting multiple
    *             queues, use the pagination parameters to retrieve results as a set of sequential pages.
    *             When specifying a list of queues, objects are returned only for queues that currently
@@ -3102,6 +3153,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a set of one or more game sessions in a specific fleet location. You can
    *             optionally filter the results by current game session status.</p>
    *         <p>This operation can be used in the following ways: </p>
@@ -3175,6 +3227,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a fleet's instances, including instance IDs, connection
    *             data, and status. </p>
    *         <p>This operation can be used in the following ways:</p>
@@ -3243,6 +3296,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket
    *             information, including--after a successful match is made--connection information for the
    *             resulting new game session. </p>
@@ -3296,6 +3350,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of FlexMatch matchmaking configurations. </p>
    *         <p>This operation offers the following options: (1) retrieve all matchmaking
    *             configurations, (2) retrieve configurations for a specified list, or (3) retrieve all
@@ -3340,6 +3395,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details for FlexMatch matchmaking rule sets. You can request all existing
    *             rule sets for the Region, or provide a list of one or more rule set names. When
    *             requesting multiple items, use the pagination parameters to retrieve results as a set of
@@ -3386,6 +3442,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves properties for one or more player sessions. </p>
    *         <p>This action can be used in the following ways: </p>
    *         <ul>
@@ -3444,6 +3501,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration tells
    *             GameLift which server processes to run (and how) on each instance in the fleet.</p>
    *         <p>To get the runtime configuration that is currently in forces for a fleet, provide the
@@ -3493,6 +3551,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all scaling policies applied to a fleet.</p>
    *         <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
    *             by policy status, such as to retrieve only active scaling policies. Use the pagination
@@ -3531,6 +3590,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves properties for a Realtime script. </p>
    *         <p>To request a script record, specify the script ID. If successful, an object containing
    *             the script properties is returned.</p>
@@ -3577,6 +3637,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves valid VPC peering authorizations that are pending for the Amazon Web Services account.
    *             This operation returns all VPC peering authorizations and requests for peering. This
    *             includes those initiated and received by this account. </p>
@@ -3617,6 +3678,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information on VPC peering connections. Use this operation to get peering
    *             information for all fleets or for one specific fleet ID. </p>
    *         <p>To retrieve connection information, call this operation from the Amazon Web Services account that is
@@ -3661,6 +3723,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,
    *             gathering benchmarking data, or observing activity in real time. </p>
    *         <p>To remotely access an instance, you need credentials that match the operating system
@@ -3715,6 +3778,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Requests an authorization token from GameLift. The authorization token is used by your
    *             game server to authenticate with GameLift. Each authentication token has an expiration
    *             token. To continue using the compute resource to host your game server, regularly
@@ -3750,6 +3814,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the location of stored game session logs for a specified game session. When
    *             a game session is terminated, GameLift automatically stores the logs in Amazon S3 and
    *             retains them for 14 days. Use this URL to download the logs.</p>
@@ -3792,6 +3857,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,
    *             gathering benchmarking data, or observing activity in real time. </p>
    *         <p>To remotely access an instance, you need credentials that match the operating system
@@ -3852,6 +3918,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all aliases for this Amazon Web Services account. You can filter the result set by alias
    *             name and/or routing strategy type. Use the pagination parameters to retrieve results in
    *             sequential pages.</p>
@@ -3889,6 +3956,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves build resources for all builds associated with the Amazon Web Services account in use. You
    *             can limit results to builds that are in a specific status by using the
    *                 <code>Status</code> parameter. Use the pagination parameters to retrieve results in
@@ -3931,6 +3999,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all compute resources registered to a fleet in your Amazon Web Services account. You can filter the result set by location.</p>
    */
   public listCompute(args: ListComputeCommandInput, options?: __HttpHandlerOptions): Promise<ListComputeCommandOutput>;
@@ -3957,6 +4026,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can call this
    *             operation to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
    *             specify a Region in your request. You can filter the result set to find only those
@@ -4015,6 +4085,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Lists a game server groups.</p>
    */
   public listGameServerGroups(
@@ -4047,6 +4118,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -4092,6 +4164,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Lists all custom and Amazon Web Services locations.</p>
    */
   public listLocations(
@@ -4124,6 +4197,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves script records for all Realtime scripts that are associated with the Amazon Web Services
    *             account in use. </p>
    *         <p>
@@ -4163,6 +4237,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all tags that are assigned to a GameLift resource. Resource tags are used to
    *             organize Amazon Web Services resources for a range of purposes. This operation handles the permissions
    *             necessary to manage tags for the following GameLift resource types:</p>
@@ -4238,6 +4313,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a scaling policy for a fleet. Scaling policies are used to
    *             automatically scale a fleet's hosting capacity to meet player demand. An active scaling
    *             policy instructs Amazon GameLift to track a fleet metric and automatically change the fleet's
@@ -4327,6 +4403,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Registers your compute resources in a fleet you previously created. After you register
    *             a compute to your fleet, you can monitor and manage your compute using GameLift. The
    *             operation returns the compute resource containing SDK endpoint you can use to connect
@@ -4379,6 +4456,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -4433,6 +4511,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build
    *             files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see
    *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html">GameSession</a>.</p>
@@ -4479,6 +4558,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the fleet ID that an alias is currently pointing to.</p>
    *          <p>
    *             <b>Related actions</b>
@@ -4514,6 +4594,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -4565,6 +4646,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all active game sessions that match a set of search criteria and sorts them
    *             into a specified order. </p>
    *         <p>This operation is not designed to be continually called to track game session status.
@@ -4683,6 +4765,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Resumes certain types of activity on fleet instances that were suspended with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. For multi-location fleets, fleet actions are managed
    *             separately for each location. Currently, this operation is used to restart a fleet's
    *             auto-scaling activity.</p>
@@ -4738,6 +4821,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Places a request for a new game session in a queue. When processing a placement
    *             request, Amazon GameLift searches for available resources on the queue's destinations, scanning
    *             each until it finds resources or the placement request times out.</p>
@@ -4809,6 +4893,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Finds new players to fill open slots in currently running game sessions. The backfill
    *             match process is essentially identical to the process of forming new matches. Backfill
    *             requests use the same matchmaker that was used to make the original match, and they
@@ -4878,6 +4963,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking
    *             rules. With games that use GameLift managed hosting, this operation also triggers GameLift
    *             to find hosting resources and start a new game session for the new match. Each
@@ -4939,6 +5025,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Suspends certain types of activity in a fleet location. Currently, this operation is
    *             used to stop auto-scaling activity. For multi-location fleets, fleet actions are managed
    *             separately for each location. </p>
@@ -4997,6 +5084,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Cancels a game session placement that is in <code>PENDING</code> status. To stop a
    *             placement, provide the placement ID values. If successful, the placement is moved to
    *                 <code>CANCELLED</code> status.</p>
@@ -5031,6 +5119,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Cancels a matchmaking ticket or match backfill ticket that is currently being
    *             processed. To stop the matchmaking operation, specify the ticket ID. If successful, work
    *             on the ticket is stopped, and the ticket status is changed to
@@ -5081,6 +5170,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -5142,6 +5232,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p> Assigns a tag to a GameLift resource. Amazon Web Services resource tags provide an additional
    *             management tool set. You can use tags to organize resources, create IAM permissions
    *             policies to manage access to groups of resources, customize Amazon Web Services cost breakdowns, etc.
@@ -5215,6 +5306,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag that is assigned to a GameLift resource. Resource tags are used to
    *             organize Amazon Web Services resources for a range of purposes. This operation handles the permissions
    *             necessary to manage tags for the following GameLift resource types:</p>
@@ -5293,6 +5385,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates properties for an alias. To update properties, specify the alias ID to be
    *             updated and provide the information to be changed. To reassign an alias to another
    *             fleet, provide an updated routing strategy. If successful, the updated alias record is
@@ -5328,6 +5421,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates metadata in a build resource, including the build name and version. To update
    *             the metadata, specify the build ID to update and provide the new values. If successful,
    *             a build object containing the updated metadata is returned.</p>
@@ -5366,6 +5460,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates a fleet's mutable attributes, including game session protection and resource
    *             creation limits.</p>
    *         <p>To update fleet attributes, specify the fleet ID and the property values that you want
@@ -5409,6 +5504,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates capacity settings for a fleet. For fleets with multiple locations, use this
    *             operation to manage capacity settings in each location individually. Fleet capacity
    *             determines the number of game sessions and players that can be hosted based on the fleet
@@ -5485,6 +5581,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates permissions that allow inbound traffic to connect to game sessions that are
    *             being hosted on instances in the fleet. </p>
    *         <p>To update settings, specify the fleet ID to be updated and specify the changes to be
@@ -5534,6 +5631,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -5602,6 +5700,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>
    *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
    *          </p>
@@ -5651,6 +5750,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates the mutable properties of a game session. </p>
    *         <p>To update a game session, specify the game session ID and the values you want to
    *             change. </p>
@@ -5689,6 +5789,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of a game session queue, which determines how the queue
    *             processes new game session requests. To update settings, specify the queue name to be
    *             updated and provide the new settings. When updating destinations, provide a complete
@@ -5731,6 +5832,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all
    *             matches and game sessions that are created after the update. To update settings, specify
    *             the configuration name to be updated and provide the new settings. </p>
@@ -5772,6 +5874,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates the current runtime configuration for the specified fleet, which tells GameLift
    *             how to launch server processes on all instances in the fleet. You can update a fleet's
    *             runtime configuration at any time after the fleet is created; it does not need to be in
@@ -5822,6 +5925,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Updates Realtime script metadata and content.</p>
    *         <p>To update script metadata, specify the script ID and provide updated name and/or
    *             version values. </p>
@@ -5872,6 +5976,7 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
+   * @public
    * <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that the
    *             rule set is using syntactically correct JSON and that it conforms to allowed property
    *             expressions. To validate syntax, provide a rule set JSON string.</p>

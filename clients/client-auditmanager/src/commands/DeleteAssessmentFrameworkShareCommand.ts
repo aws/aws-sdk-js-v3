@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssessmentFrameworkShareCommand}.
  */
 export interface DeleteAssessmentFrameworkShareCommandInput extends DeleteAssessmentFrameworkShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssessmentFrameworkShareCommand}.
  */
 export interface DeleteAssessmentFrameworkShareCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a share request for a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentFrameworkShareCommandInput - {@link DeleteAssessmentFrameworkShareCommandInput}
+ * @returns {@link DeleteAssessmentFrameworkShareCommandOutput}
  * @see {@link DeleteAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentFrameworkShareCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentFrameworkShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAssessmentFrameworkShareCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DeleteAssessmentFrameworkShareCommand extends $Command<
     return serializeAws_restJson1DeleteAssessmentFrameworkShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

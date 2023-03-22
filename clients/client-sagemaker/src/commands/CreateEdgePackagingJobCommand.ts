@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEdgePackagingJobCommand}.
  */
 export interface CreateEdgePackagingJobCommandInput extends CreateEdgePackagingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEdgePackagingJobCommand}.
  */
 export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a SageMaker Edge Manager model packaging job. Edge Manager will use the model artifacts from the Amazon Simple Storage Service bucket that you specify. After the model has been packaged, Amazon SageMaker saves the resulting artifacts to an S3 bucket that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEdgePackagingJobCommandInput - {@link CreateEdgePackagingJobCommandInput}
+ * @returns {@link CreateEdgePackagingJobCommandOutput}
  * @see {@link CreateEdgePackagingJobCommandInput} for command's `input` shape.
  * @see {@link CreateEdgePackagingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -68,6 +75,9 @@ export class CreateEdgePackagingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEdgePackagingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class CreateEdgePackagingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEdgePackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEdgePackagingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEdgePackagingJobCommandOutput> {
     return deserializeAws_json1_1CreateEdgePackagingJobCommand(output, context);
   }

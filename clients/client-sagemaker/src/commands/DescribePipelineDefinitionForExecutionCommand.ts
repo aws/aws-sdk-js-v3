@@ -26,11 +26,15 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePipelineDefinitionForExecutionCommand}.
  */
 export interface DescribePipelineDefinitionForExecutionCommandInput
   extends DescribePipelineDefinitionForExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePipelineDefinitionForExecutionCommand}.
  */
 export interface DescribePipelineDefinitionForExecutionCommandOutput
@@ -38,6 +42,7 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details of an execution's pipeline definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePipelineDefinitionForExecutionCommandInput - {@link DescribePipelineDefinitionForExecutionCommandInput}
+ * @returns {@link DescribePipelineDefinitionForExecutionCommandOutput}
  * @see {@link DescribePipelineDefinitionForExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribePipelineDefinitionForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePipelineDefinitionForExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePipelineDefinitionForExecutionCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
     return serializeAws_json1_1DescribePipelineDefinitionForExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

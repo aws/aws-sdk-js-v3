@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPeeringsCommand}.
  */
 export interface ListPeeringsCommandInput extends ListPeeringsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPeeringsCommand}.
  */
 export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the peerings for a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPeeringsCommandInput - {@link ListPeeringsCommandInput}
+ * @returns {@link ListPeeringsCommandOutput}
  * @see {@link ListPeeringsCommandInput} for command's `input` shape.
  * @see {@link ListPeeringsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListPeeringsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPeeringsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListPeeringsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPeeringsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPeeringsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPeeringsCommandOutput> {
     return deserializeAws_restJson1ListPeeringsCommand(output, context);
   }

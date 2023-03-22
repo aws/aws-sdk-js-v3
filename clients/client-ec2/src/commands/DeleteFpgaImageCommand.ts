@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DeleteFpgaImageCommand, serializeAws_ec2DeleteFpgaImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFpgaImageCommand}.
  */
 export interface DeleteFpgaImageCommandInput extends DeleteFpgaImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFpgaImageCommand}.
  */
 export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon FPGA Image (AFI).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFpgaImageCommandInput - {@link DeleteFpgaImageCommandInput}
+ * @returns {@link DeleteFpgaImageCommandOutput}
  * @see {@link DeleteFpgaImageCommandInput} for command's `input` shape.
  * @see {@link DeleteFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -66,6 +73,9 @@ export class DeleteFpgaImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFpgaImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class DeleteFpgaImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFpgaImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteFpgaImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFpgaImageCommandOutput> {
     return deserializeAws_ec2DeleteFpgaImageCommand(output, context);
   }

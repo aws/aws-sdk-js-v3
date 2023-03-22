@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachTypedLinkCommand}.
  */
 export interface AttachTypedLinkCommandInput extends AttachTypedLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachTypedLinkCommand}.
  */
 export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachTypedLinkCommandInput - {@link AttachTypedLinkCommandInput}
+ * @returns {@link AttachTypedLinkCommandOutput}
  * @see {@link AttachTypedLinkCommandInput} for command's `input` shape.
  * @see {@link AttachTypedLinkCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +109,9 @@ export class AttachTypedLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachTypedLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class AttachTypedLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachTypedLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AttachTypedLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachTypedLinkCommandOutput> {
     return deserializeAws_restJson1AttachTypedLinkCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegenerateSecurityTokenCommand}.
  */
 export interface RegenerateSecurityTokenCommandInput extends RegenerateSecurityTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegenerateSecurityTokenCommand}.
  */
 export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurityTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Regenerates the security token for a bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurity
  * const response = await client.send(command);
  * ```
  *
+ * @param RegenerateSecurityTokenCommandInput - {@link RegenerateSecurityTokenCommandInput}
+ * @returns {@link RegenerateSecurityTokenCommandOutput}
  * @see {@link RegenerateSecurityTokenCommandInput} for command's `input` shape.
  * @see {@link RegenerateSecurityTokenCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class RegenerateSecurityTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegenerateSecurityTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class RegenerateSecurityTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegenerateSecurityTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegenerateSecurityTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegenerateSecurityTokenCommandOutput> {
     return deserializeAws_restJson1RegenerateSecurityTokenCommand(output, context);
   }

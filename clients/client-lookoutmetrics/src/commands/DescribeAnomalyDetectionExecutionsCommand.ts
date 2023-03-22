@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAnomalyDetectionExecutionsCommand}.
  */
 export interface DescribeAnomalyDetectionExecutionsCommandInput extends DescribeAnomalyDetectionExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAnomalyDetectionExecutionsCommand}.
  */
 export interface DescribeAnomalyDetectionExecutionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the status of the specified anomaly detection jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnomalyDetectionExecutionsCommandInput - {@link DescribeAnomalyDetectionExecutionsCommandInput}
+ * @returns {@link DescribeAnomalyDetectionExecutionsCommandOutput}
  * @see {@link DescribeAnomalyDetectionExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyDetectionExecutionsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAnomalyDetectionExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnomalyDetectionExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DescribeAnomalyDetectionExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAnomalyDetectionExecutionsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DescribeAnomalyDetectionExecutionsCommand extends $Command<
     return serializeAws_restJson1DescribeAnomalyDetectionExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

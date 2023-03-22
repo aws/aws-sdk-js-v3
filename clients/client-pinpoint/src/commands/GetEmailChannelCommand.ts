@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEmailChannelCommand}.
  */
 export interface GetEmailChannelCommandInput extends GetEmailChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEmailChannelCommand}.
  */
 export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the email channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEmailChannelCommandInput - {@link GetEmailChannelCommandInput}
+ * @returns {@link GetEmailChannelCommandOutput}
  * @see {@link GetEmailChannelCommandInput} for command's `input` shape.
  * @see {@link GetEmailChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetEmailChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEmailChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetEmailChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEmailChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEmailChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailChannelCommandOutput> {
     return deserializeAws_restJson1GetEmailChannelCommand(output, context);
   }

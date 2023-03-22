@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDestinationCommand}.
  */
 export interface DeleteDestinationCommandInput extends DeleteDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDestinationCommand}.
  */
 export interface DeleteDestinationCommandOutput extends DeleteDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDestinationCommandInput - {@link DeleteDestinationCommandInput}
+ * @returns {@link DeleteDestinationCommandOutput}
  * @see {@link DeleteDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDestinationCommandOutput> {
     return deserializeAws_restJson1DeleteDestinationCommand(output, context);
   }

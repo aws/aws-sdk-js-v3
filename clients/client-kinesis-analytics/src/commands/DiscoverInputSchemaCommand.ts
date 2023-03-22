@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DiscoverInputSchemaCommand}.
  */
 export interface DiscoverInputSchemaCommandInput extends DiscoverInputSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DiscoverInputSchemaCommand}.
  */
 export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -60,6 +65,8 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DiscoverInputSchemaCommandInput - {@link DiscoverInputSchemaCommandInput}
+ * @returns {@link DiscoverInputSchemaCommandOutput}
  * @see {@link DiscoverInputSchemaCommandInput} for command's `input` shape.
  * @see {@link DiscoverInputSchemaCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -100,6 +107,9 @@ export class DiscoverInputSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DiscoverInputSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DiscoverInputSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DiscoverInputSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DiscoverInputSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DiscoverInputSchemaCommandOutput> {
     return deserializeAws_json1_1DiscoverInputSchemaCommand(output, context);
   }

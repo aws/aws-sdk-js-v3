@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackResourceDriftsCommand}.
  */
 export interface DescribeStackResourceDriftsCommandInput extends DescribeStackResourceDriftsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackResourceDriftsCommand}.
  */
 export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackResourceDriftsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns drift information for the resources that have been checked for drift in the
  *          specified stack. This includes actual and expected configuration values for resources where
  *          CloudFormation detects configuration drift.</p>
@@ -55,6 +60,8 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackResourceDriftsCommandInput - {@link DescribeStackResourceDriftsCommandInput}
+ * @returns {@link DescribeStackResourceDriftsCommandOutput}
  * @see {@link DescribeStackResourceDriftsCommandInput} for command's `input` shape.
  * @see {@link DescribeStackResourceDriftsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeStackResourceDriftsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackResourceDriftsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeStackResourceDriftsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackResourceDriftsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeStackResourceDriftsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

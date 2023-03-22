@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ServerlessApplicationRepositoryServiceException as __BaseException } from "./ServerlessApplicationRepositoryServiceException";
 
 /**
+ * @public
  * <p>A nested application summary.</p>
  */
 export interface ApplicationDependencySummary {
@@ -19,6 +20,7 @@ export interface ApplicationDependencySummary {
 }
 
 /**
+ * @public
  * <p>Policy statement applied to the application.</p>
  */
 export interface ApplicationPolicyStatement {
@@ -45,6 +47,7 @@ export interface ApplicationPolicyStatement {
 }
 
 /**
+ * @public
  * <p>Summary of details about the application.</p>
  */
 export interface ApplicationSummary {
@@ -89,6 +92,9 @@ export interface ApplicationSummary {
   SpdxLicenseId?: string;
 }
 
+/**
+ * @public
+ */
 export enum Capability {
   CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
   CAPABILITY_IAM = "CAPABILITY_IAM",
@@ -97,6 +103,7 @@ export enum Capability {
 }
 
 /**
+ * @public
  * <p>Parameters supported by the application.</p>
  */
 export interface ParameterDefinition {
@@ -184,6 +191,7 @@ export interface ParameterDefinition {
 }
 
 /**
+ * @public
  * <p>Parameter value of the application.</p>
  */
 export interface ParameterValue {
@@ -200,6 +208,7 @@ export interface ParameterValue {
 }
 
 /**
+ * @public
  * <p>This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger">RollbackTrigger</a>
  *  </i> Data Type.</p>
  */
@@ -218,6 +227,7 @@ export interface RollbackTrigger {
 }
 
 /**
+ * @public
  * <p>This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag">Tag</a>
  *  </i> Data Type.</p>
  */
@@ -238,6 +248,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>An application version summary.</p>
  */
 export interface VersionSummary {
@@ -265,6 +276,7 @@ export interface VersionSummary {
 }
 
 /**
+ * @public
  * <p>One of the parameters in the request is invalid.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -295,6 +307,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource already exists.</p>
  */
 export class ConflictException extends __BaseException {
@@ -324,6 +337,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
@@ -407,6 +423,7 @@ export interface CreateApplicationRequest {
 }
 
 /**
+ * @public
  * <p>Application version details.</p>
  */
 export interface Version {
@@ -481,6 +498,9 @@ export interface Version {
   TemplateUrl: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -549,6 +569,7 @@ export interface CreateApplicationResponse {
 }
 
 /**
+ * @public
  * <p>The client is not authenticated.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -579,6 +600,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -609,6 +631,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is sending more than the allowed number of requests per unit of time.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -638,6 +661,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -670,6 +696,9 @@ export interface CreateApplicationVersionRequest {
   TemplateUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationVersionResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -743,6 +772,7 @@ export interface CreateApplicationVersionResponse {
 }
 
 /**
+ * @public
  * <p>This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a>
  *  </i> Data Type.</p>
  */
@@ -760,6 +790,9 @@ export interface RollbackConfiguration {
   RollbackTriggers?: RollbackTrigger[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCloudFormationChangeSetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -854,11 +887,14 @@ export interface CreateCloudFormationChangeSetRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
+   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]\{8\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{12\}</p>
    */
   TemplateId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCloudFormationChangeSetResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -883,6 +919,9 @@ export interface CreateCloudFormationChangeSetResponse {
   StackId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCloudFormationTemplateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -897,12 +936,18 @@ export interface CreateCloudFormationTemplateRequest {
   SemanticVersion?: string;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   ACTIVE = "ACTIVE",
   EXPIRED = "EXPIRED",
   PREPARING = "PREPARING",
 }
 
+/**
+ * @public
+ */
 export interface CreateCloudFormationTemplateResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -934,7 +979,7 @@ export interface CreateCloudFormationTemplateResponse {
   Status?: Status | string;
 
   /**
-   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
+   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]\{8\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{12\}</p>
    */
   TemplateId?: string;
 
@@ -946,6 +991,7 @@ export interface CreateCloudFormationTemplateResponse {
 }
 
 /**
+ * @public
  * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -975,6 +1021,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -982,6 +1031,9 @@ export interface DeleteApplicationRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -994,6 +1046,9 @@ export interface GetApplicationRequest {
   SemanticVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -1061,6 +1116,9 @@ export interface GetApplicationResponse {
   Version?: Version;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1068,6 +1126,9 @@ export interface GetApplicationPolicyRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationPolicyResponse {
   /**
    * <p>An array of policy statements applied to the application.</p>
@@ -1075,6 +1136,9 @@ export interface GetApplicationPolicyResponse {
   Statements?: ApplicationPolicyStatement[];
 }
 
+/**
+ * @public
+ */
 export interface GetCloudFormationTemplateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1082,11 +1146,14 @@ export interface GetCloudFormationTemplateRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
+   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]\{8\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{12\}</p>
    */
   TemplateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCloudFormationTemplateResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -1118,7 +1185,7 @@ export interface GetCloudFormationTemplateResponse {
   Status?: Status | string;
 
   /**
-   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
+   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]\{8\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{12\}</p>
    */
   TemplateId?: string;
 
@@ -1129,6 +1196,9 @@ export interface GetCloudFormationTemplateResponse {
   TemplateUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationDependenciesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1151,6 +1221,9 @@ export interface ListApplicationDependenciesRequest {
   SemanticVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationDependenciesResponse {
   /**
    * <p>An array of application summaries nested in the application.</p>
@@ -1163,6 +1236,9 @@ export interface ListApplicationDependenciesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>The total number of items to return.</p>
@@ -1175,6 +1251,9 @@ export interface ListApplicationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
    * <p>An array of application summaries.</p>
@@ -1187,6 +1266,9 @@ export interface ListApplicationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationVersionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1204,6 +1286,9 @@ export interface ListApplicationVersionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationVersionsResponse {
   /**
    * <p>The token to request the next page of results.</p>
@@ -1216,6 +1301,9 @@ export interface ListApplicationVersionsResponse {
   Versions?: VersionSummary[];
 }
 
+/**
+ * @public
+ */
 export interface PutApplicationPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1228,6 +1316,9 @@ export interface PutApplicationPolicyRequest {
   Statements: ApplicationPolicyStatement[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutApplicationPolicyResponse {
   /**
    * <p>An array of policy statements applied to the application.</p>
@@ -1235,6 +1326,9 @@ export interface PutApplicationPolicyResponse {
   Statements?: ApplicationPolicyStatement[];
 }
 
+/**
+ * @public
+ */
 export interface UnshareApplicationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1247,6 +1341,9 @@ export interface UnshareApplicationRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1284,6 +1381,9 @@ export interface UpdateApplicationRequest {
   ReadmeUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>

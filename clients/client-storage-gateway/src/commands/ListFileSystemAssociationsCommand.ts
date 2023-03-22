@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFileSystemAssociationsCommand}.
  */
 export interface ListFileSystemAssociationsCommandInput extends ListFileSystemAssociationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListFileSystemAssociationsCommand}.
  */
 export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemAssociationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of <code>FileSystemAssociationSummary</code> objects. Each object contains a
  *          summary of a file system association. This operation is only supported for FSx File
  *          Gateways.</p>
@@ -48,6 +53,8 @@ export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemA
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFileSystemAssociationsCommandInput - {@link ListFileSystemAssociationsCommandInput}
+ * @returns {@link ListFileSystemAssociationsCommandOutput}
  * @see {@link ListFileSystemAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListFileSystemAssociationsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListFileSystemAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFileSystemAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListFileSystemAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFileSystemAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFileSystemAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

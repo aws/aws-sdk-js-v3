@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSolutionCommand}.
  */
 export interface DeleteSolutionCommandInput extends DeleteSolutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSolutionCommand}.
  */
 export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all versions of a solution and the <code>Solution</code> object itself.
  *       Before deleting a solution, you must delete all campaigns based on
  *       the solution. To determine what campaigns are using the solution, call
@@ -47,6 +52,8 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSolutionCommandInput - {@link DeleteSolutionCommandInput}
+ * @returns {@link DeleteSolutionCommandOutput}
  * @see {@link DeleteSolutionCommandInput} for command's `input` shape.
  * @see {@link DeleteSolutionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteSolutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSolutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteSolutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSolutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSolutionCommandOutput> {
     return deserializeAws_json1_1DeleteSolutionCommand(output, context);
   }

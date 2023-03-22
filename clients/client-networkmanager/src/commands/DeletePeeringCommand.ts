@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePeeringCommand}.
  */
 export interface DeletePeeringCommandInput extends DeletePeeringRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePeeringCommand}.
  */
 export interface DeletePeeringCommandOutput extends DeletePeeringResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing peering connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePeeringCommandOutput extends DeletePeeringResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePeeringCommandInput - {@link DeletePeeringCommandInput}
+ * @returns {@link DeletePeeringCommandOutput}
  * @see {@link DeletePeeringCommandInput} for command's `input` shape.
  * @see {@link DeletePeeringCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeletePeeringCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePeeringCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeletePeeringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePeeringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePeeringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePeeringCommandOutput> {
     return deserializeAws_restJson1DeletePeeringCommand(output, context);
   }

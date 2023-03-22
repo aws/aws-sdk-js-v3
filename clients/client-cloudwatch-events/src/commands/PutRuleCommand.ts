@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1PutRuleCommand, serializeAws_json1_1PutRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRuleCommand}.
  */
 export interface PutRuleCommandInput extends PutRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRuleCommand}.
  */
 export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the specified rule. Rules are enabled by default, or based on value of
  *       the state. You can disable a rule using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html">DisableRule</a>.</p>
  *
@@ -89,6 +94,8 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRuleCommandInput - {@link PutRuleCommandInput}
+ * @returns {@link PutRuleCommandOutput}
  * @see {@link PutRuleCommandInput} for command's `input` shape.
  * @see {@link PutRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -136,6 +143,9 @@ export class PutRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class PutRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRuleCommandOutput> {
     return deserializeAws_json1_1PutRuleCommand(output, context);
   }

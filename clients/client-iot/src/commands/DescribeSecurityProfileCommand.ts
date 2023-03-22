@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityProfileCommand}.
  */
 export interface DescribeSecurityProfileCommandInput extends DescribeSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityProfileCommand}.
  */
 export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeSecurityProfile</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityProfileCommandInput - {@link DescribeSecurityProfileCommandInput}
+ * @returns {@link DescribeSecurityProfileCommandOutput}
  * @see {@link DescribeSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityProfileCommandOutput> {
     return deserializeAws_restJson1DescribeSecurityProfileCommand(output, context);
   }

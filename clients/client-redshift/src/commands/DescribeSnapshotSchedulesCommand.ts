@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotSchedulesCommand}.
  */
 export interface DescribeSnapshotSchedulesCommandInput extends DescribeSnapshotSchedulesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotSchedulesCommand}.
  */
 export interface DescribeSnapshotSchedulesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSnapshotSchedulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of snapshot schedules. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotSchedulesCommandInput - {@link DescribeSnapshotSchedulesCommandInput}
+ * @returns {@link DescribeSnapshotSchedulesCommandOutput}
  * @see {@link DescribeSnapshotSchedulesCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotSchedulesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeSnapshotSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMethodResponseCommand}.
  */
 export interface UpdateMethodResponseCommandInput extends UpdateMethodResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMethodResponseCommand}.
  */
 export interface UpdateMethodResponseCommandOutput extends MethodResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing MethodResponse resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMethodResponseCommandOutput extends MethodResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMethodResponseCommandInput - {@link UpdateMethodResponseCommandInput}
+ * @returns {@link UpdateMethodResponseCommandOutput}
  * @see {@link UpdateMethodResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateMethodResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateMethodResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMethodResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateMethodResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMethodResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMethodResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMethodResponseCommandOutput> {
     return deserializeAws_restJson1UpdateMethodResponseCommand(output, context);
   }

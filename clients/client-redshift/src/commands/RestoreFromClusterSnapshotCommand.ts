@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreFromClusterSnapshotCommand}.
  */
 export interface RestoreFromClusterSnapshotCommandInput extends RestoreFromClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreFromClusterSnapshotCommand}.
  */
 export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting
  *             cluster with the same configuration as the original cluster from which the snapshot was
  *             created, except that the new cluster is created with the default cluster security and
@@ -57,6 +62,8 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreFromClusterSnapshotCommandInput - {@link RestoreFromClusterSnapshotCommandInput}
+ * @returns {@link RestoreFromClusterSnapshotCommandOutput}
  * @see {@link RestoreFromClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreFromClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -193,6 +200,9 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreFromClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -232,10 +242,16 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreFromClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRestoreFromClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

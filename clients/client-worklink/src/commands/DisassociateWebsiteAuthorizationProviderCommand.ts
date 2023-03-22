@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWebsiteAuthorizationProviderCommand}.
  */
 export interface DisassociateWebsiteAuthorizationProviderCommandInput
   extends DisassociateWebsiteAuthorizationProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWebsiteAuthorizationProviderCommand}.
  */
 export interface DisassociateWebsiteAuthorizationProviderCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Disassociates a website authorization provider from a specified fleet. After the
@@ -53,6 +58,8 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWebsiteAuthorizationProviderCommandInput - {@link DisassociateWebsiteAuthorizationProviderCommandInput}
+ * @returns {@link DisassociateWebsiteAuthorizationProviderCommandOutput}
  * @see {@link DisassociateWebsiteAuthorizationProviderCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebsiteAuthorizationProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -94,6 +101,9 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWebsiteAuthorizationProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWebsiteAuthorizationProviderCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
     return serializeAws_restJson1DisassociateWebsiteAuthorizationProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

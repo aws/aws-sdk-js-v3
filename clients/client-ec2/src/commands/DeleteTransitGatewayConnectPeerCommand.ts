@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTransitGatewayConnectPeerCommand}.
  */
 export interface DeleteTransitGatewayConnectPeerCommandInput extends DeleteTransitGatewayConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTransitGatewayConnectPeerCommand}.
  */
 export interface DeleteTransitGatewayConnectPeerCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteTransitGatewayConnectPeerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Connect peer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteTransitGatewayConnectPeerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayConnectPeerCommandInput - {@link DeleteTransitGatewayConnectPeerCommandInput}
+ * @returns {@link DeleteTransitGatewayConnectPeerCommandOutput}
  * @see {@link DeleteTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteTransitGatewayConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DeleteTransitGatewayConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTransitGatewayConnectPeerCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DeleteTransitGatewayConnectPeerCommand extends $Command<
     return serializeAws_ec2DeleteTransitGatewayConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartFileTransferCommand}.
  */
 export interface StartFileTransferCommandInput extends StartFileTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFileTransferCommand}.
  */
 export interface StartFileTransferCommandOutput extends StartFileTransferResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Begins an outbound file transfer to a remote AS2 server. You specify the <code>ConnectorId</code> and the file
  *       paths for where to send the files. </p>
  * @example
@@ -47,6 +52,8 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFileTransferCommandInput - {@link StartFileTransferCommandInput}
+ * @returns {@link StartFileTransferCommandOutput}
  * @see {@link StartFileTransferCommandInput} for command's `input` shape.
  * @see {@link StartFileTransferCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -86,6 +93,9 @@ export class StartFileTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFileTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class StartFileTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFileTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartFileTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFileTransferCommandOutput> {
     return deserializeAws_json1_1StartFileTransferCommand(output, context);
   }

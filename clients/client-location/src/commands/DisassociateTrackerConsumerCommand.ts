@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTrackerConsumerCommand}.
  */
 export interface DisassociateTrackerConsumerCommandInput extends DisassociateTrackerConsumerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTrackerConsumerCommand}.
  */
 export interface DisassociateTrackerConsumerCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateTrackerConsumerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between a tracker resource and a geofence collection.</p>
  *          <note>
  *             <p>Once you unlink a tracker resource from a geofence collection, the tracker
@@ -52,6 +57,8 @@ export interface DisassociateTrackerConsumerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTrackerConsumerCommandInput - {@link DisassociateTrackerConsumerCommandInput}
+ * @returns {@link DisassociateTrackerConsumerCommandOutput}
  * @see {@link DisassociateTrackerConsumerCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrackerConsumerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -91,6 +98,9 @@ export class DisassociateTrackerConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTrackerConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DisassociateTrackerConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateTrackerConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateTrackerConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

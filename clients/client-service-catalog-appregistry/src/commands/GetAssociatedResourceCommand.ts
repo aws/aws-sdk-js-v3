@@ -30,15 +30,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssociatedResourceCommand}.
  */
 export interface GetAssociatedResourceCommandInput extends GetAssociatedResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssociatedResourceCommand}.
  */
 export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the resource associated with the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssociatedResourceCommandInput - {@link GetAssociatedResourceCommandInput}
+ * @returns {@link GetAssociatedResourceCommandOutput}
  * @see {@link GetAssociatedResourceCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetAssociatedResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociatedResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetAssociatedResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssociatedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAssociatedResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssociatedResourceCommandOutput> {
     return deserializeAws_restJson1GetAssociatedResourceCommand(output, context);
   }

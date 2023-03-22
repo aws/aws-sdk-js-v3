@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWhatIfAnalysesCommand}.
  */
 export interface ListWhatIfAnalysesCommandInput extends ListWhatIfAnalysesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWhatIfAnalysesCommand}.
  */
 export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of what-if analyses created using the <a>CreateWhatIfAnalysis</a> operation. For each what-if analysis, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if analysis ARN with the <a>DescribeWhatIfAnalysis</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWhatIfAnalysesCommandInput - {@link ListWhatIfAnalysesCommandInput}
+ * @returns {@link ListWhatIfAnalysesCommandOutput}
  * @see {@link ListWhatIfAnalysesCommandInput} for command's `input` shape.
  * @see {@link ListWhatIfAnalysesCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListWhatIfAnalysesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWhatIfAnalysesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListWhatIfAnalysesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWhatIfAnalysesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWhatIfAnalysesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWhatIfAnalysesCommandOutput> {
     return deserializeAws_json1_1ListWhatIfAnalysesCommand(output, context);
   }

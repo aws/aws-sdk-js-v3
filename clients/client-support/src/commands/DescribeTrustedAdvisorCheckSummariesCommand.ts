@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrustedAdvisorCheckSummariesCommand}.
  */
 export interface DescribeTrustedAdvisorCheckSummariesCommandInput extends DescribeTrustedAdvisorCheckSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrustedAdvisorCheckSummariesCommand}.
  */
 export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the results for the Trusted Advisor check summaries for the check IDs that you
  *             specified. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  *          <p>The response contains an array of <a>TrustedAdvisorCheckSummary</a>
@@ -69,6 +74,8 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrustedAdvisorCheckSummariesCommandInput - {@link DescribeTrustedAdvisorCheckSummariesCommandInput}
+ * @returns {@link DescribeTrustedAdvisorCheckSummariesCommandOutput}
  * @see {@link DescribeTrustedAdvisorCheckSummariesCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckSummariesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrustedAdvisorCheckSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrustedAdvisorCheckSummariesCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     return serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

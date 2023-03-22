@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBudgetCommand}.
  */
 export interface DescribeBudgetCommandInput extends DescribeBudgetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBudgetCommand}.
  */
 export interface DescribeBudgetCommandOutput extends DescribeBudgetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a budget.</p>
  * 		       <important>
  * 			         <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples">Examples</a> section. </p>
@@ -49,6 +54,8 @@ export interface DescribeBudgetCommandOutput extends DescribeBudgetResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBudgetCommandInput - {@link DescribeBudgetCommandInput}
+ * @returns {@link DescribeBudgetCommandOutput}
  * @see {@link DescribeBudgetCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeBudgetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBudgetCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeBudgetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBudgetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBudgetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBudgetCommandOutput> {
     return deserializeAws_json1_1DescribeBudgetCommand(output, context);
   }

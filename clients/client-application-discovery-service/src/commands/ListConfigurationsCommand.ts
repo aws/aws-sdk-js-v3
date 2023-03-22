@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigurationsCommand}.
  */
 export interface ListConfigurationsCommandInput extends ListConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigurationsCommand}.
  */
 export interface ListConfigurationsCommandOutput extends ListConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of configuration items as specified by the value passed to the
  *       required parameter <code>configurationType</code>. Optional filtering may be applied to refine
  *       search results.</p>
@@ -52,6 +57,8 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationsCommandInput - {@link ListConfigurationsCommandInput}
+ * @returns {@link ListConfigurationsCommandOutput}
  * @see {@link ListConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationsCommandOutput> {
     return deserializeAws_json1_1ListConfigurationsCommand(output, context);
   }

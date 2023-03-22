@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEvaluationResultsCommand}.
  */
 export interface DeleteEvaluationResultsCommandInput extends DeleteEvaluationResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEvaluationResultsCommand}.
  */
 export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationResultsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the evaluation results for the specified Config
  * 			rule. You can specify one Config rule per request. After you
  * 			delete the evaluation results, you can call the <a>StartConfigRulesEvaluation</a> API to start evaluating
@@ -49,6 +54,8 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEvaluationResultsCommandInput - {@link DeleteEvaluationResultsCommandInput}
+ * @returns {@link DeleteEvaluationResultsCommandOutput}
  * @see {@link DeleteEvaluationResultsCommandInput} for command's `input` shape.
  * @see {@link DeleteEvaluationResultsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteEvaluationResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEvaluationResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteEvaluationResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEvaluationResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEvaluationResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEvaluationResultsCommandOutput> {
     return deserializeAws_json1_1DeleteEvaluationResultsCommand(output, context);
   }

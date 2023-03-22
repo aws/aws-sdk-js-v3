@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventStreamCommand}.
  */
 export interface GetEventStreamCommandInput extends GetEventStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventStreamCommand}.
  */
 export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the event stream settings for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventStreamCommandInput - {@link GetEventStreamCommandInput}
+ * @returns {@link GetEventStreamCommandOutput}
  * @see {@link GetEventStreamCommandInput} for command's `input` shape.
  * @see {@link GetEventStreamCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetEventStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetEventStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEventStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventStreamCommandOutput> {
     return deserializeAws_restJson1GetEventStreamCommand(output, context);
   }

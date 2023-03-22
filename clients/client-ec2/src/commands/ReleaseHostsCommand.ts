@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ReleaseHostsCommand, serializeAws_ec2ReleaseHostsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReleaseHostsCommand}.
  */
 export interface ReleaseHostsCommandInput extends ReleaseHostsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReleaseHostsCommand}.
  */
 export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When you no longer want to use an On-Demand Dedicated Host it can be released.
  *             On-Demand billing is stopped and the host goes into <code>released</code> state. The
  *             host ID of Dedicated Hosts that have been released can no longer be specified in another
@@ -51,6 +56,8 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleaseHostsCommandInput - {@link ReleaseHostsCommandInput}
+ * @returns {@link ReleaseHostsCommandOutput}
  * @see {@link ReleaseHostsCommandInput} for command's `input` shape.
  * @see {@link ReleaseHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class ReleaseHostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleaseHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ReleaseHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleaseHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ReleaseHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleaseHostsCommandOutput> {
     return deserializeAws_ec2ReleaseHostsCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2AllocateAddressCommand, serializeAws_ec2AllocateAddressCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AllocateAddressCommand}.
  */
 export interface AllocateAddressCommandInput extends AllocateAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocateAddressCommand}.
  */
 export interface AllocateAddressCommandOutput extends AllocateAddressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate
  *          it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address
  *          pool and can be allocated to a different Amazon Web Services account.</p>
@@ -58,6 +63,8 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateAddressCommandInput - {@link AllocateAddressCommandInput}
+ * @returns {@link AllocateAddressCommandOutput}
  * @see {@link AllocateAddressCommandInput} for command's `input` shape.
  * @see {@link AllocateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -114,6 +121,9 @@ export class AllocateAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class AllocateAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AllocateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AllocateAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateAddressCommandOutput> {
     return deserializeAws_ec2AllocateAddressCommand(output, context);
   }

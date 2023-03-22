@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyAddressAttributeCommand}.
  */
 export interface ModifyAddressAttributeCommandInput extends ModifyAddressAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyAddressAttributeCommand}.
  */
 export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttrib
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyAddressAttributeCommandInput - {@link ModifyAddressAttributeCommandInput}
+ * @returns {@link ModifyAddressAttributeCommandOutput}
  * @see {@link ModifyAddressAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyAddressAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ModifyAddressAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyAddressAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ModifyAddressAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyAddressAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyAddressAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyAddressAttributeCommandOutput> {
     return deserializeAws_ec2ModifyAddressAttributeCommand(output, context);
   }

@@ -4,6 +4,9 @@ import { ClientVpnConnectionStatus } from "./models_3";
 import { NetworkInsightsAnalysis } from "./models_4";
 import { InstanceMonitoring, InstanceStateChange } from "./models_6";
 
+/**
+ * @public
+ */
 export interface StartNetworkInsightsAnalysisResult {
   /**
    * <p>Information about the network insights analysis.</p>
@@ -11,6 +14,9 @@ export interface StartNetworkInsightsAnalysisResult {
   NetworkInsightsAnalysis?: NetworkInsightsAnalysis;
 }
 
+/**
+ * @public
+ */
 export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -25,6 +31,9 @@ export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
   ServiceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartVpcEndpointServicePrivateDnsVerificationResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -32,6 +41,9 @@ export interface StartVpcEndpointServicePrivateDnsVerificationResult {
   ReturnValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StopInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
@@ -66,6 +78,9 @@ export interface StopInstancesRequest {
   Force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StopInstancesResult {
   /**
    * <p>Information about the stopped instances.</p>
@@ -73,6 +88,9 @@ export interface StopInstancesResult {
   StoppingInstances?: InstanceStateChange[];
 }
 
+/**
+ * @public
+ */
 export interface TerminateClientVpnConnectionsRequest {
   /**
    * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
@@ -97,6 +115,7 @@ export interface TerminateClientVpnConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a terminated Client VPN endpoint client connection.</p>
  */
 export interface TerminateConnectionStatus {
@@ -116,6 +135,9 @@ export interface TerminateConnectionStatus {
   CurrentStatus?: ClientVpnConnectionStatus;
 }
 
+/**
+ * @public
+ */
 export interface TerminateClientVpnConnectionsResult {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -133,6 +155,9 @@ export interface TerminateClientVpnConnectionsResult {
   ConnectionStatuses?: TerminateConnectionStatus[];
 }
 
+/**
+ * @public
+ */
 export interface TerminateInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
@@ -149,6 +174,9 @@ export interface TerminateInstancesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface TerminateInstancesResult {
   /**
    * <p>Information about the terminated instances.</p>
@@ -156,6 +184,9 @@ export interface TerminateInstancesResult {
   TerminatingInstances?: InstanceStateChange[];
 }
 
+/**
+ * @public
+ */
 export interface UnassignIpv6AddressesRequest {
   /**
    * <p>The IPv6 addresses to unassign from the network interface.</p>
@@ -173,6 +204,9 @@ export interface UnassignIpv6AddressesRequest {
   NetworkInterfaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnassignIpv6AddressesResult {
   /**
    * <p>The ID of the network interface.</p>
@@ -191,6 +225,7 @@ export interface UnassignIpv6AddressesResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for UnassignPrivateIpAddresses.</p>
  */
 export interface UnassignPrivateIpAddressesRequest {
@@ -211,6 +246,9 @@ export interface UnassignPrivateIpAddressesRequest {
   Ipv4Prefixes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UnassignPrivateNatGatewayAddressRequest {
   /**
    * <p>The NAT gateway ID.</p>
@@ -235,6 +273,9 @@ export interface UnassignPrivateNatGatewayAddressRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UnassignPrivateNatGatewayAddressResult {
   /**
    * <p>The NAT gateway ID.</p>
@@ -247,6 +288,9 @@ export interface UnassignPrivateNatGatewayAddressResult {
   NatGatewayAddresses?: NatGatewayAddress[];
 }
 
+/**
+ * @public
+ */
 export interface UnmonitorInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
@@ -261,6 +305,9 @@ export interface UnmonitorInstancesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UnmonitorInstancesResult {
   /**
    * <p>The monitoring information.</p>
@@ -269,6 +316,7 @@ export interface UnmonitorInstancesResult {
 }
 
 /**
+ * @public
  * <p>Describes the description of a security group rule.</p>
  *          <p>You can use this when you want to update the security group rule description for either an inbound or outbound rule.</p>
  */
@@ -284,6 +332,9 @@ export interface SecurityGroupRuleDescription {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -318,6 +369,9 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
   SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -325,6 +379,9 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -360,6 +417,9 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
   SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -367,6 +427,9 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface WithdrawByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation.</p>
@@ -381,6 +444,9 @@ export interface WithdrawByoipCidrRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface WithdrawByoipCidrResult {
   /**
    * <p>Information about the address pool.</p>

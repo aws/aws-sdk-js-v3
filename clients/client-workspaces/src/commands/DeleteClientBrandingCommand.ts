@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClientBrandingCommand}.
  */
 export interface DeleteClientBrandingCommandInput extends DeleteClientBrandingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClientBrandingCommand}.
  */
 export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes customized client branding. Client branding allows you to customize your
  *          WorkSpace's client login portal. You can tailor your login portal company logo, the support
  *          email address, support link, link to reset password, and a custom message for users trying
@@ -51,6 +56,8 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClientBrandingCommandInput - {@link DeleteClientBrandingCommandInput}
+ * @returns {@link DeleteClientBrandingCommandOutput}
  * @see {@link DeleteClientBrandingCommandInput} for command's `input` shape.
  * @see {@link DeleteClientBrandingCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteClientBrandingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClientBrandingCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteClientBrandingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClientBrandingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteClientBrandingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientBrandingCommandOutput> {
     return deserializeAws_json1_1DeleteClientBrandingCommand(output, context);
   }

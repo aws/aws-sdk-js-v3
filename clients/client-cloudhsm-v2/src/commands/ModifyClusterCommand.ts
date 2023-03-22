@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandInput extends ModifyClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies AWS CloudHSM cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
+ * @returns {@link ModifyClusterCommandOutput}
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -87,6 +94,9 @@ export class ModifyClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ModifyClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterCommandOutput> {
     return deserializeAws_json1_1ModifyClusterCommand(output, context);
   }

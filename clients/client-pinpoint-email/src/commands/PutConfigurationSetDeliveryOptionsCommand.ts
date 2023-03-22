@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationSetDeliveryOptionsCommand}.
  */
 export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfigurationSetDeliveryOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationSetDeliveryOptionsCommand}.
  */
 export interface PutConfigurationSetDeliveryOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
  *             to create groups of dedicated IP addresses for sending specific types of email.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetDeliveryOptionsCommandInput - {@link PutConfigurationSetDeliveryOptionsCommandInput}
+ * @returns {@link PutConfigurationSetDeliveryOptionsCommandOutput}
  * @see {@link PutConfigurationSetDeliveryOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetDeliveryOptionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetDeliveryOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutConfigurationSetDeliveryOptionsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     return serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

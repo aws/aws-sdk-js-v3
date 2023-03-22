@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUsageLimitsCommand}.
  */
 export interface DescribeUsageLimitsCommandInput extends DescribeUsageLimitsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUsageLimitsCommand}.
  */
 export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shows usage limits on a cluster.
  *             Results are filtered based on the combination of input usage limit identifier, cluster identifier, and feature type parameters:</p>
  *          <ul>
@@ -65,6 +70,8 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUsageLimitsCommandInput - {@link DescribeUsageLimitsCommandInput}
+ * @returns {@link DescribeUsageLimitsCommandOutput}
  * @see {@link DescribeUsageLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeUsageLimitsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeUsageLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUsageLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeUsageLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUsageLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeUsageLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUsageLimitsCommandOutput> {
     return deserializeAws_queryDescribeUsageLimitsCommand(output, context);
   }

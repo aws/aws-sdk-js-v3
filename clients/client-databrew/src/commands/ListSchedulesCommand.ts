@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchedulesCommand}.
  */
 export interface ListSchedulesCommandInput extends ListSchedulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSchedulesCommand}.
  */
 export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the DataBrew schedules that are defined.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchedulesCommandInput - {@link ListSchedulesCommandInput}
+ * @returns {@link ListSchedulesCommandOutput}
  * @see {@link ListSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListSchedulesCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchedulesCommandOutput> {
     return deserializeAws_restJson1ListSchedulesCommand(output, context);
   }

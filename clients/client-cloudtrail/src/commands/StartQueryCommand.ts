@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartQueryCommand}.
  */
 export interface StartQueryCommandInput extends StartQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartQueryCommand}.
  */
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a CloudTrail Lake query. The required <code>QueryStatement</code>
  *          parameter provides your SQL query, enclosed in single quotation marks. Use the optional
  *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
@@ -49,6 +54,8 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param StartQueryCommandInput - {@link StartQueryCommandInput}
+ * @returns {@link StartQueryCommandOutput}
  * @see {@link StartQueryCommandInput} for command's `input` shape.
  * @see {@link StartQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -120,6 +127,9 @@ export class StartQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class StartQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryCommandOutput> {
     return deserializeAws_json1_1StartQueryCommand(output, context);
   }

@@ -27,15 +27,20 @@ import {
 import { deserializeAws_json1_0GetHostCommand, serializeAws_json1_0GetHostCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostCommand}.
  */
 export interface GetHostCommandInput extends GetHostInput {}
 /**
+ * @public
+ *
  * The output of {@link GetHostCommand}.
  */
 export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the host ARN and details such as status, provider type, endpoint, and, if
  *       applicable, the VPC configuration.</p>
  * @example
@@ -48,6 +53,8 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostCommandInput - {@link GetHostCommandInput}
+ * @returns {@link GetHostCommandOutput}
  * @see {@link GetHostCommandInput} for command's `input` shape.
  * @see {@link GetHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetHostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetHostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetHostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostCommandOutput> {
     return deserializeAws_json1_0GetHostCommand(output, context);
   }

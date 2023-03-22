@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketOwnershipControlsCommand}.
  */
 export interface GetBucketOwnershipControlsCommandInput extends GetBucketOwnershipControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketOwnershipControlsCommand}.
  */
 export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwnershipControlsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
  *          must have the <code>s3:GetBucketOwnershipControls</code> permission. For more information
  *          about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
@@ -63,6 +68,8 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketOwnershipControlsCommandInput - {@link GetBucketOwnershipControlsCommandInput}
+ * @returns {@link GetBucketOwnershipControlsCommandOutput}
  * @see {@link GetBucketOwnershipControlsCommandInput} for command's `input` shape.
  * @see {@link GetBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -92,6 +99,9 @@ export class GetBucketOwnershipControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketOwnershipControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetBucketOwnershipControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketOwnershipControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketOwnershipControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

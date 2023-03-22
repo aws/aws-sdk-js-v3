@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentationVersionCommand}.
  */
 export interface UpdateDocumentationVersionCommandInput extends UpdateDocumentationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentationVersionCommand}.
  */
 export interface UpdateDocumentationVersionCommandOutput extends DocumentationVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a documentation version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDocumentationVersionCommandOutput extends DocumentationVe
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentationVersionCommandInput - {@link UpdateDocumentationVersionCommandInput}
+ * @returns {@link UpdateDocumentationVersionCommandOutput}
  * @see {@link UpdateDocumentationVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentationVersionCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateDocumentationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateDocumentationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDocumentationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

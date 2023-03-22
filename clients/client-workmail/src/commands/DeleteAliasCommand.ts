@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAliasCommand}.
  */
 export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAliasCommand}.
  */
 export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove one or more specified aliases from a set of aliases for a given
  *          user.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
+ * @returns {@link DeleteAliasCommandOutput}
  * @see {@link DeleteAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAliasCommandOutput> {
     return deserializeAws_json1_1DeleteAliasCommand(output, context);
   }

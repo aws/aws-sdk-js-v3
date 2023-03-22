@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCustomRulePolicyCommand}.
  */
 export interface GetCustomRulePolicyCommandInput extends GetCustomRulePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCustomRulePolicyCommand}.
  */
 export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the policy definition containing the logic for your Config Custom Policy rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCustomRulePolicyCommandInput - {@link GetCustomRulePolicyCommandInput}
+ * @returns {@link GetCustomRulePolicyCommandOutput}
  * @see {@link GetCustomRulePolicyCommandInput} for command's `input` shape.
  * @see {@link GetCustomRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetCustomRulePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCustomRulePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetCustomRulePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCustomRulePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCustomRulePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCustomRulePolicyCommandOutput> {
     return deserializeAws_json1_1GetCustomRulePolicyCommand(output, context);
   }

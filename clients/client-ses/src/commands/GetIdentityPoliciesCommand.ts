@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityPoliciesCommand}.
  */
 export interface GetIdentityPoliciesCommandInput extends GetIdentityPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityPoliciesCommand}.
  */
 export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the requested sending authorization policies for the given identity (an email
  *             address or a domain). The policies are returned as a map of policy names to policy
  *             contents. You can retrieve a maximum of 20 policies at a time.</p>
@@ -57,6 +62,8 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityPoliciesCommandInput - {@link GetIdentityPoliciesCommandInput}
+ * @returns {@link GetIdentityPoliciesCommandOutput}
  * @see {@link GetIdentityPoliciesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetIdentityPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class GetIdentityPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdentityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetIdentityPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityPoliciesCommandOutput> {
     return deserializeAws_queryGetIdentityPoliciesCommand(output, context);
   }

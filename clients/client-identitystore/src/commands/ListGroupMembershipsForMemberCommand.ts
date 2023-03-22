@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupMembershipsForMemberCommand}.
  */
 export interface ListGroupMembershipsForMemberCommandInput extends ListGroupMembershipsForMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupMembershipsForMemberCommand}.
  */
 export interface ListGroupMembershipsForMemberCommandOutput
@@ -37,6 +41,7 @@ export interface ListGroupMembershipsForMemberCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>For the specified member in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListGroupMembershipsForMemberCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupMembershipsForMemberCommandInput - {@link ListGroupMembershipsForMemberCommandInput}
+ * @returns {@link ListGroupMembershipsForMemberCommandOutput}
  * @see {@link ListGroupMembershipsForMemberCommandInput} for command's `input` shape.
  * @see {@link ListGroupMembershipsForMemberCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListGroupMembershipsForMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupMembershipsForMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListGroupMembershipsForMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupMembershipsForMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGroupMembershipsForMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

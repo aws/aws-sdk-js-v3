@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryDescribeTypeCommand, serializeAws_queryDescribeTypeCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTypeCommand}.
  */
 export interface DescribeTypeCommandInput extends DescribeTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTypeCommand}.
  */
 export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about an extension that has been registered.</p>
  *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information
  *          about that specific extension version. Otherwise, it returns information about the default
@@ -46,6 +51,8 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTypeCommandInput - {@link DescribeTypeCommandInput}
+ * @returns {@link DescribeTypeCommandOutput}
  * @see {@link DescribeTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTypeCommandOutput> {
     return deserializeAws_queryDescribeTypeCommand(output, context);
   }

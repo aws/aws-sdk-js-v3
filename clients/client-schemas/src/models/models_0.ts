@@ -6,11 +6,17 @@ import {
 
 import { SchemasServiceException as __BaseException } from "./SchemasServiceException";
 
+/**
+ * @public
+ */
 export enum DiscovererState {
   STARTED = "STARTED",
   STOPPED = "STOPPED",
 }
 
+/**
+ * @public
+ */
 export interface DiscovererSummary {
   /**
    * <p>The ARN of the discoverer.</p>
@@ -43,6 +49,9 @@ export interface DiscovererSummary {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RegistrySummary {
   /**
    * <p>The ARN of the registry.</p>
@@ -61,6 +70,7 @@ export interface RegistrySummary {
 }
 
 /**
+ * @public
  * <p>A summary of schema details.</p>
  */
 export interface SchemaSummary {
@@ -90,11 +100,17 @@ export interface SchemaSummary {
   VersionCount?: number;
 }
 
+/**
+ * @public
+ */
 export enum Type {
   JSONSchemaDraft4 = "JSONSchemaDraft4",
   OpenApi3 = "OpenApi3",
 }
 
+/**
+ * @public
+ */
 export interface SchemaVersionSummary {
   /**
    * <p>The ARN of the schema version.</p>
@@ -117,6 +133,9 @@ export interface SchemaVersionSummary {
   Type?: Type | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchSchemaVersionSummary {
   /**
    * <p>The date the schema version was created.</p>
@@ -134,6 +153,9 @@ export interface SearchSchemaVersionSummary {
   Type?: Type | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchSchemaSummary {
   /**
    * <p>The name of the registry.</p>
@@ -156,6 +178,9 @@ export interface SearchSchemaSummary {
   SchemaVersions?: SearchSchemaVersionSummary[];
 }
 
+/**
+ * @public
+ */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
@@ -183,12 +208,18 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum CodeGenerationStatus {
   CREATE_COMPLETE = "CREATE_COMPLETE",
   CREATE_FAILED = "CREATE_FAILED",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
@@ -216,6 +247,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateDiscovererRequest {
   /**
    * <p>A description for the discoverer.</p>
@@ -238,6 +272,9 @@ export interface CreateDiscovererRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDiscovererResponse {
   /**
    * <p>The description of the discoverer.</p>
@@ -275,6 +312,9 @@ export interface CreateDiscovererResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
@@ -302,6 +342,9 @@ export class ForbiddenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class InternalServerErrorException extends __BaseException {
   readonly name: "InternalServerErrorException" = "InternalServerErrorException";
   readonly $fault: "server" = "server";
@@ -329,6 +372,9 @@ export class InternalServerErrorException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
@@ -356,6 +402,9 @@ export class ServiceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class UnauthorizedException extends __BaseException {
   readonly name: "UnauthorizedException" = "UnauthorizedException";
   readonly $fault: "client" = "client";
@@ -383,6 +432,9 @@ export class UnauthorizedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateRegistryRequest {
   /**
    * <p>A description of the registry to be created.</p>
@@ -400,6 +452,9 @@ export interface CreateRegistryRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRegistryResponse {
   /**
    * <p>The description of the registry.</p>
@@ -422,6 +477,9 @@ export interface CreateRegistryResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSchemaRequest {
   /**
    * <p>The source of the schema definition.</p>
@@ -454,6 +512,9 @@ export interface CreateSchemaRequest {
   Type: Type | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSchemaResponse {
   /**
    * <p>The description of the schema.</p>
@@ -496,6 +557,9 @@ export interface CreateSchemaResponse {
   VersionCreatedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDiscovererRequest {
   /**
    * <p>The ID of the discoverer.</p>
@@ -503,6 +567,9 @@ export interface DeleteDiscovererRequest {
   DiscovererId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
@@ -530,6 +597,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteRegistryRequest {
   /**
    * <p>The name of the registry.</p>
@@ -537,6 +607,9 @@ export interface DeleteRegistryRequest {
   RegistryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The name of the registry.</p>
@@ -544,6 +617,9 @@ export interface DeleteResourcePolicyRequest {
   RegistryName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSchemaRequest {
   /**
    * <p>The name of the registry.</p>
@@ -556,6 +632,9 @@ export interface DeleteSchemaRequest {
   SchemaName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSchemaVersionRequest {
   /**
    * <p>The name of the registry.</p>
@@ -573,6 +652,9 @@ export interface DeleteSchemaVersionRequest {
   SchemaVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCodeBindingRequest {
   /**
    * <p>The language of the code binding.</p>
@@ -595,6 +677,9 @@ export interface DescribeCodeBindingRequest {
   SchemaVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCodeBindingResponse {
   /**
    * <p>The time and date that the code binding was created.</p>
@@ -617,6 +702,9 @@ export interface DescribeCodeBindingResponse {
   Status?: CodeGenerationStatus | string;
 }
 
+/**
+ * @public
+ */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
@@ -644,6 +732,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeDiscovererRequest {
   /**
    * <p>The ID of the discoverer.</p>
@@ -651,6 +742,9 @@ export interface DescribeDiscovererRequest {
   DiscovererId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDiscovererResponse {
   /**
    * <p>The description of the discoverer.</p>
@@ -688,6 +782,9 @@ export interface DescribeDiscovererResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRegistryRequest {
   /**
    * <p>The name of the registry.</p>
@@ -695,6 +792,9 @@ export interface DescribeRegistryRequest {
   RegistryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRegistryResponse {
   /**
    * <p>The description of the registry.</p>
@@ -717,6 +817,9 @@ export interface DescribeRegistryResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSchemaRequest {
   /**
    * <p>The name of the registry.</p>
@@ -734,6 +837,9 @@ export interface DescribeSchemaRequest {
   SchemaVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSchemaResponse {
   /**
    * <p>The source of the schema definition.</p>
@@ -781,6 +887,9 @@ export interface DescribeSchemaResponse {
   VersionCreatedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ExportSchemaRequest {
   /**
    * <p>The name of the registry.</p>
@@ -800,6 +909,9 @@ export interface ExportSchemaRequest {
   Type: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportSchemaResponse {
   Content?: string;
   SchemaArn?: string;
@@ -808,6 +920,9 @@ export interface ExportSchemaResponse {
   Type?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCodeBindingSourceRequest {
   /**
    * <p>The language of the code binding.</p>
@@ -830,10 +945,16 @@ export interface GetCodeBindingSourceRequest {
   SchemaVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCodeBindingSourceResponse {
   Body?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface GetDiscoveredSchemaRequest {
   /**
    * <p>An array of strings where each string is a JSON event. These are the events that were used to generate the schema. The array includes a single type of event and has a maximum size of 10 events.</p>
@@ -846,6 +967,9 @@ export interface GetDiscoveredSchemaRequest {
   Type: Type | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDiscoveredSchemaResponse {
   /**
    * <p>The source of the schema definition.</p>
@@ -853,6 +977,9 @@ export interface GetDiscoveredSchemaResponse {
   Content?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>The name of the registry.</p>
@@ -860,6 +987,9 @@ export interface GetResourcePolicyRequest {
   RegistryName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyResponse {
   /**
    * <p>The resource-based policy.</p>
@@ -872,6 +1002,9 @@ export interface GetResourcePolicyResponse {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export class GoneException extends __BaseException {
   readonly name: "GoneException" = "GoneException";
   readonly $fault: "client" = "client";
@@ -899,6 +1032,9 @@ export class GoneException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListDiscoverersRequest {
   /**
    * <p>Specifying this limits the results to only those discoverer IDs that start with the specified prefix.</p>
@@ -917,6 +1053,9 @@ export interface ListDiscoverersRequest {
   SourceArnPrefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDiscoverersResponse {
   /**
    * <p>An array of DiscovererSummary information.</p>
@@ -929,6 +1068,9 @@ export interface ListDiscoverersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegistriesRequest {
   Limit?: number;
   /**
@@ -947,6 +1089,9 @@ export interface ListRegistriesRequest {
   Scope?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegistriesResponse {
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -959,6 +1104,9 @@ export interface ListRegistriesResponse {
   Registries?: RegistrySummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasRequest {
   Limit?: number;
   /**
@@ -977,6 +1125,9 @@ export interface ListSchemasRequest {
   SchemaNamePrefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasResponse {
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -989,6 +1140,9 @@ export interface ListSchemasResponse {
   Schemas?: SchemaSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListSchemaVersionsRequest {
   Limit?: number;
   /**
@@ -1007,6 +1161,9 @@ export interface ListSchemaVersionsRequest {
   SchemaName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemaVersionsResponse {
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -1019,6 +1176,9 @@ export interface ListSchemaVersionsResponse {
   SchemaVersions?: SchemaVersionSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1026,6 +1186,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Key-value pairs associated with a resource.</p>
@@ -1033,6 +1196,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export class PreconditionFailedException extends __BaseException {
   readonly name: "PreconditionFailedException" = "PreconditionFailedException";
   readonly $fault: "client" = "client";
@@ -1060,6 +1226,9 @@ export class PreconditionFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutCodeBindingRequest {
   /**
    * <p>The language of the code binding.</p>
@@ -1082,6 +1251,9 @@ export interface PutCodeBindingRequest {
   SchemaVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutCodeBindingResponse {
   /**
    * <p>The time and date that the code binding was created.</p>
@@ -1105,6 +1277,7 @@ export interface PutCodeBindingResponse {
 }
 
 /**
+ * @public
  * <p>The name of the policy.</p>
  */
 export interface PutResourcePolicyRequest {
@@ -1124,6 +1297,9 @@ export interface PutResourcePolicyRequest {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>The resource-based policy.</p>
@@ -1136,6 +1312,9 @@ export interface PutResourcePolicyResponse {
   RevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchSchemasRequest {
   /**
    * <p>Specifying this limits the results to only schemas that include the provided keywords.</p>
@@ -1154,6 +1333,9 @@ export interface SearchSchemasRequest {
   RegistryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchSchemasResponse {
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -1166,6 +1348,9 @@ export interface SearchSchemasResponse {
   Schemas?: SearchSchemaSummary[];
 }
 
+/**
+ * @public
+ */
 export interface StartDiscovererRequest {
   /**
    * <p>The ID of the discoverer.</p>
@@ -1173,6 +1358,9 @@ export interface StartDiscovererRequest {
   DiscovererId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDiscovererResponse {
   /**
    * <p>The ID of the discoverer.</p>
@@ -1185,6 +1373,9 @@ export interface StartDiscovererResponse {
   State?: DiscovererState | string;
 }
 
+/**
+ * @public
+ */
 export interface StopDiscovererRequest {
   /**
    * <p>The ID of the discoverer.</p>
@@ -1192,6 +1383,9 @@ export interface StopDiscovererRequest {
   DiscovererId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDiscovererResponse {
   /**
    * <p>The ID of the discoverer.</p>
@@ -1205,6 +1399,7 @@ export interface StopDiscovererResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface TagResourceRequest {
@@ -1219,6 +1414,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1231,6 +1429,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDiscovererRequest {
   /**
    * <p>The description of the discoverer to update.</p>
@@ -1248,6 +1449,9 @@ export interface UpdateDiscovererRequest {
   CrossAccount?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDiscovererResponse {
   /**
    * <p>The description of the discoverer.</p>
@@ -1286,6 +1490,7 @@ export interface UpdateDiscovererResponse {
 }
 
 /**
+ * @public
  * <p>Updates the registry.</p>
  */
 export interface UpdateRegistryRequest {
@@ -1300,6 +1505,9 @@ export interface UpdateRegistryRequest {
   RegistryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRegistryResponse {
   /**
    * <p>The description of the registry.</p>
@@ -1322,6 +1530,9 @@ export interface UpdateRegistryResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSchemaRequest {
   /**
    * <p>The ID of the client token.</p>
@@ -1354,6 +1565,9 @@ export interface UpdateSchemaRequest {
   Type?: Type | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSchemaResponse {
   /**
    * <p>The description of the schema.</p>

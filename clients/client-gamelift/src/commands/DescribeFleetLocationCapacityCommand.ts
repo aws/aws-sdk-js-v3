@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetLocationCapacityCommand}.
  */
 export interface DescribeFleetLocationCapacityCommandInput extends DescribeFleetLocationCapacityInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetLocationCapacityCommand}.
  */
 export interface DescribeFleetLocationCapacityCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeFleetLocationCapacityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource capacity settings for a fleet location. The data returned
  *             includes the current capacity (number of EC2 instances) and some scaling settings for
  *             the requested fleet location. Use this operation to retrieve capacity information for a
@@ -65,6 +70,8 @@ export interface DescribeFleetLocationCapacityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetLocationCapacityCommandInput - {@link DescribeFleetLocationCapacityCommandInput}
+ * @returns {@link DescribeFleetLocationCapacityCommandOutput}
  * @see {@link DescribeFleetLocationCapacityCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetLocationCapacityCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -105,6 +112,9 @@ export class DescribeFleetLocationCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetLocationCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DescribeFleetLocationCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetLocationCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetLocationCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

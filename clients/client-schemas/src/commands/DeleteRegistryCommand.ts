@@ -21,15 +21,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRegistryCommand}.
  */
 export interface DeleteRegistryCommandInput extends DeleteRegistryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRegistryCommand}.
  */
 export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRegistryCommandInput - {@link DeleteRegistryCommandInput}
+ * @returns {@link DeleteRegistryCommandOutput}
  * @see {@link DeleteRegistryCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistryCommandOutput> {
     return deserializeAws_restJson1DeleteRegistryCommand(output, context);
   }

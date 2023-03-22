@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkflowCommand}.
  */
 export interface DeleteWorkflowCommandInput extends DeleteWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkflowCommand}.
  */
 export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
+ * @returns {@link DeleteWorkflowCommandOutput}
  * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowCommandOutput> {
     return deserializeAws_json1_1DeleteWorkflowCommand(output, context);
   }

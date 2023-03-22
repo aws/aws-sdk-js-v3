@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLifecycleHookCommand}.
  */
 export interface DeleteLifecycleHookCommandInput extends DeleteLifecycleHookType {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLifecycleHookCommand}.
  */
 export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified lifecycle hook.</p>
  *          <p>If there are any outstanding lifecycle actions, they are completed first
  *                 (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating
@@ -49,6 +54,8 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLifecycleHookCommandInput - {@link DeleteLifecycleHookCommandInput}
+ * @returns {@link DeleteLifecycleHookCommandOutput}
  * @see {@link DeleteLifecycleHookCommandInput} for command's `input` shape.
  * @see {@link DeleteLifecycleHookCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteLifecycleHookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLifecycleHookCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteLifecycleHookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLifecycleHookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteLifecycleHookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLifecycleHookCommandOutput> {
     return deserializeAws_queryDeleteLifecycleHookCommand(output, context);
   }

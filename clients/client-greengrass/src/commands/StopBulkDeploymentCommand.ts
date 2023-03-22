@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopBulkDeploymentCommand}.
  */
 export interface StopBulkDeploymentCommandInput extends StopBulkDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopBulkDeploymentCommand}.
  */
 export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBulkDeploymentCommandInput - {@link StopBulkDeploymentCommandInput}
+ * @returns {@link StopBulkDeploymentCommandOutput}
  * @see {@link StopBulkDeploymentCommandInput} for command's `input` shape.
  * @see {@link StopBulkDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class StopBulkDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBulkDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class StopBulkDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBulkDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopBulkDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBulkDeploymentCommandOutput> {
     return deserializeAws_restJson1StopBulkDeploymentCommand(output, context);
   }

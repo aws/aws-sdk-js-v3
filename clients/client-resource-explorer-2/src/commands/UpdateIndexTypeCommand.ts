@@ -30,15 +30,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIndexTypeCommand}.
  */
 export interface UpdateIndexTypeCommandInput extends UpdateIndexTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIndexTypeCommand}.
  */
 export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the type of the index from one of the following types to the other. For more
  *             information about indexes and the role they perform in Amazon Web Services Resource Explorer, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on
  *                 cross-Region search by creating an aggregator index</a> in the
@@ -106,6 +111,8 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIndexTypeCommandInput - {@link UpdateIndexTypeCommandInput}
+ * @returns {@link UpdateIndexTypeCommandOutput}
  * @see {@link UpdateIndexTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateIndexTypeCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -157,6 +164,9 @@ export class UpdateIndexTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIndexTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,10 +206,16 @@ export class UpdateIndexTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIndexTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateIndexTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIndexTypeCommandOutput> {
     return deserializeAws_restJson1UpdateIndexTypeCommand(output, context);
   }

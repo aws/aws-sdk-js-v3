@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIpamResourceDiscoveryCommand}.
  */
 export interface DeleteIpamResourceDiscoveryCommandInput extends DeleteIpamResourceDiscoveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIpamResourceDiscoveryCommand}.
  */
 export interface DeleteIpamResourceDiscoveryCommandOutput extends DeleteIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteIpamResourceDiscoveryCommandOutput extends DeleteIpamReso
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIpamResourceDiscoveryCommandInput - {@link DeleteIpamResourceDiscoveryCommandInput}
+ * @returns {@link DeleteIpamResourceDiscoveryCommandOutput}
  * @see {@link DeleteIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link DeleteIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteIpamResourceDiscoveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIpamResourceDiscoveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteIpamResourceDiscoveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIpamResourceDiscoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteIpamResourceDiscoveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

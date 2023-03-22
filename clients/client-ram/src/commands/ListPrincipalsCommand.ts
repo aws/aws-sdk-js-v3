@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPrincipalsCommand}.
  */
 export interface ListPrincipalsCommandInput extends ListPrincipalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPrincipalsCommand}.
  */
 export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the principals that you are sharing resources with or that are sharing resources
  *             with you.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPrincipalsCommandInput - {@link ListPrincipalsCommandInput}
+ * @returns {@link ListPrincipalsCommandOutput}
  * @see {@link ListPrincipalsCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListPrincipalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPrincipalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListPrincipalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPrincipalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPrincipalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPrincipalsCommandOutput> {
     return deserializeAws_restJson1ListPrincipalsCommand(output, context);
   }

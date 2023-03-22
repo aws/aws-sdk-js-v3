@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTimeSeriesCommand}.
  */
 export interface DeleteTimeSeriesCommandInput extends DeleteTimeSeriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTimeSeriesCommand}.
  */
 export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a time series (data stream). If you delete a time series that's associated with an
  *       asset property, the asset property still exists, but the time series will no longer be
  *       associated with this asset property.</p>
@@ -62,6 +67,8 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTimeSeriesCommandInput - {@link DeleteTimeSeriesCommandInput}
+ * @returns {@link DeleteTimeSeriesCommandOutput}
  * @see {@link DeleteTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link DeleteTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -105,6 +112,9 @@ export class DeleteTimeSeriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTimeSeriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DeleteTimeSeriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTimeSeriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTimeSeriesCommandOutput> {
     return deserializeAws_restJson1DeleteTimeSeriesCommand(output, context);
   }

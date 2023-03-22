@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePipelineExecutionCommand}.
  */
 export interface DescribePipelineExecutionCommandInput extends DescribePipelineExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePipelineExecutionCommand}.
  */
 export interface DescribePipelineExecutionCommandOutput extends DescribePipelineExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details of a pipeline execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePipelineExecutionCommandInput - {@link DescribePipelineExecutionCommandInput}
+ * @returns {@link DescribePipelineExecutionCommandOutput}
  * @see {@link DescribePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribePipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribePipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribePipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

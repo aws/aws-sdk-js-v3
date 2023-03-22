@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWirelessGatewayFromThingCommand}.
  */
 export interface DisassociateWirelessGatewayFromThingCommandInput extends DisassociateWirelessGatewayFromThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWirelessGatewayFromThingCommand}.
  */
 export interface DisassociateWirelessGatewayFromThingCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a wireless gateway from its currently associated thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWirelessGatewayFromThingCommandInput - {@link DisassociateWirelessGatewayFromThingCommandInput}
+ * @returns {@link DisassociateWirelessGatewayFromThingCommandOutput}
  * @see {@link DisassociateWirelessGatewayFromThingCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessGatewayFromThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +96,9 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWirelessGatewayFromThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWirelessGatewayFromThingCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DisassociateWirelessGatewayFromThingCommand extends $Command<
     return serializeAws_restJson1DisassociateWirelessGatewayFromThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

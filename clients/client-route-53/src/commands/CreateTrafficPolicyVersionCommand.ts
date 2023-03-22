@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficPolicyVersionCommand}.
  */
 export interface CreateTrafficPolicyVersionCommandInput extends CreateTrafficPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficPolicyVersionCommand}.
  */
 export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of an existing traffic policy. When you create a new version of
  * 			a traffic policy, you specify the ID of the traffic policy that you want to update and a
  * 			JSON-formatted document that describes the new version. You use traffic policies to
@@ -53,6 +58,8 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficPolicyVersionCommandInput - {@link CreateTrafficPolicyVersionCommandInput}
+ * @returns {@link CreateTrafficPolicyVersionCommandOutput}
  * @see {@link CreateTrafficPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -98,6 +105,9 @@ export class CreateTrafficPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateTrafficPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateTrafficPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

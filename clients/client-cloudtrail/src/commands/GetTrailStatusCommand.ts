@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrailStatusCommand}.
  */
 export interface GetTrailStatusCommandInput extends GetTrailStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrailStatusCommand}.
  */
 export interface GetTrailStatusCommandOutput extends GetTrailStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a JSON-formatted list of information about the specified trail. Fields include
  *          information on delivery errors, Amazon SNS and Amazon S3 errors, and start
  *          and stop logging times for each trail. This operation returns trail status from a single
@@ -50,6 +55,8 @@ export interface GetTrailStatusCommandOutput extends GetTrailStatusResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrailStatusCommandInput - {@link GetTrailStatusCommandInput}
+ * @returns {@link GetTrailStatusCommandOutput}
  * @see {@link GetTrailStatusCommandInput} for command's `input` shape.
  * @see {@link GetTrailStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -119,6 +126,9 @@ export class GetTrailStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrailStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class GetTrailStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrailStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTrailStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrailStatusCommandOutput> {
     return deserializeAws_json1_1GetTrailStatusCommand(output, context);
   }

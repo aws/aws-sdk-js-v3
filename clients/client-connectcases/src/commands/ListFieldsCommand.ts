@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFieldsCommand}.
  */
 export interface ListFieldsCommandInput extends ListFieldsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFieldsCommand}.
  */
 export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all fields in a Cases domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFieldsCommandInput - {@link ListFieldsCommandInput}
+ * @returns {@link ListFieldsCommandOutput}
  * @see {@link ListFieldsCommandInput} for command's `input` shape.
  * @see {@link ListFieldsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListFieldsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFieldsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListFieldsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFieldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFieldsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFieldsCommandOutput> {
     return deserializeAws_restJson1ListFieldsCommand(output, context);
   }

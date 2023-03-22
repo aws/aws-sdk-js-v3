@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDetectorCommand}.
  */
 export interface PutDetectorCommandInput extends PutDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDetectorCommand}.
  */
 export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a detector. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDetectorCommandInput - {@link PutDetectorCommandInput}
+ * @returns {@link PutDetectorCommandOutput}
  * @see {@link PutDetectorCommandInput} for command's `input` shape.
  * @see {@link PutDetectorCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class PutDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDetectorCommandOutput> {
     return deserializeAws_json1_1PutDetectorCommand(output, context);
   }

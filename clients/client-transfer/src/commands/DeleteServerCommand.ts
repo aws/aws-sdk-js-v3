@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServerCommand}.
  */
 export interface DeleteServerCommandInput extends DeleteServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServerCommand}.
  */
 export interface DeleteServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
  *          <p>No response returns from this operation.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServerCommandInput - {@link DeleteServerCommandInput}
+ * @returns {@link DeleteServerCommandOutput}
  * @see {@link DeleteServerCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCommandOutput> {
     return deserializeAws_json1_1DeleteServerCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSchemaCommand}.
  */
 export interface UpdateSchemaCommandInput extends UpdateSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSchemaCommand}.
  */
 export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the schema name with a new name. Only development schema names can be
  *       updated.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
+ * @returns {@link UpdateSchemaCommandOutput}
  * @see {@link UpdateSchemaCommandInput} for command's `input` shape.
  * @see {@link UpdateSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSchemaCommandOutput> {
     return deserializeAws_restJson1UpdateSchemaCommand(output, context);
   }

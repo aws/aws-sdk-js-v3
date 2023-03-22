@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSMSSandboxPhoneNumberCommand}.
  */
 export interface CreateSMSSandboxPhoneNumberCommandInput extends CreateSMSSandboxPhoneNumberInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSMSSandboxPhoneNumberCommand}.
  */
 export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a
  *             one-time password (OTP) to that phone number.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -55,6 +60,8 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSMSSandboxPhoneNumberCommandInput - {@link CreateSMSSandboxPhoneNumberCommandInput}
+ * @returns {@link CreateSMSSandboxPhoneNumberCommandOutput}
  * @see {@link CreateSMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link CreateSMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSMSSandboxPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateSMSSandboxPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

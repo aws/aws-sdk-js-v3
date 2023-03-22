@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetAssetPropertyValueCommand}.
  */
 export interface BatchGetAssetPropertyValueCommandInput extends BatchGetAssetPropertyValueRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetAssetPropertyValueCommand}.
  */
 export interface BatchGetAssetPropertyValueCommandOutput extends BatchGetAssetPropertyValueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current value for one or more asset properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
  *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchGetAssetPropertyValueCommandOutput extends BatchGetAssetPr
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetAssetPropertyValueCommandInput - {@link BatchGetAssetPropertyValueCommandInput}
+ * @returns {@link BatchGetAssetPropertyValueCommandOutput}
  * @see {@link BatchGetAssetPropertyValueCommandInput} for command's `input` shape.
  * @see {@link BatchGetAssetPropertyValueCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -86,6 +93,9 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetAssetPropertyValueCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class BatchGetAssetPropertyValueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetAssetPropertyValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetAssetPropertyValueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDetectorModelVersionsCommand}.
  */
 export interface ListDetectorModelVersionsCommandInput extends ListDetectorModelVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDetectorModelVersionsCommand}.
  */
 export interface ListDetectorModelVersionsCommandOutput extends ListDetectorModelVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the versions of a detector model. Only the metadata associated with each
  *       detector model version is returned.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDetectorModelVersionsCommandInput - {@link ListDetectorModelVersionsCommandInput}
+ * @returns {@link ListDetectorModelVersionsCommandOutput}
  * @see {@link ListDetectorModelVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDetectorModelVersionsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListDetectorModelVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDetectorModelVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListDetectorModelVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDetectorModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDetectorModelVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

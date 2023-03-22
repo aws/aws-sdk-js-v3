@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAttendeeCommand}.
  */
 export interface GetAttendeeCommandInput extends GetAttendeeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAttendeeCommand}.
  */
 export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -50,6 +55,8 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAttendeeCommandInput - {@link GetAttendeeCommandInput}
+ * @returns {@link GetAttendeeCommandOutput}
  * @see {@link GetAttendeeCommandInput} for command's `input` shape.
  * @see {@link GetAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetAttendeeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAttendeeCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetAttendeeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAttendeeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttendeeCommandOutput> {
     return deserializeAws_restJson1GetAttendeeCommand(output, context);
   }

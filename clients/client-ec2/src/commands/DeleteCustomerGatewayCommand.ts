@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomerGatewayCommand}.
  */
 export interface DeleteCustomerGatewayCommandInput extends DeleteCustomerGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomerGatewayCommand}.
  */
 export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified customer gateway. You must delete the VPN connection before you
  *             can delete the customer gateway.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomerGatewayCommandInput - {@link DeleteCustomerGatewayCommandInput}
+ * @returns {@link DeleteCustomerGatewayCommandOutput}
  * @see {@link DeleteCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteCustomerGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomerGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteCustomerGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteCustomerGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomerGatewayCommandOutput> {
     return deserializeAws_ec2DeleteCustomerGatewayCommand(output, context);
   }

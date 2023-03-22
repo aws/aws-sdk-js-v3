@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeContactRecordingCommand}.
  */
 export interface ResumeContactRecordingCommandInput extends ResumeContactRecordingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResumeContactRecordingCommand}.
  */
 export interface ResumeContactRecordingCommandOutput extends ResumeContactRecordingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When a contact is being recorded, and the recording has been suspended using
  *    SuspendContactRecording, this API resumes recording the call.</p>
  *          <p>Only voice recordings are supported at this time.</p>
@@ -48,6 +53,8 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeContactRecordingCommandInput - {@link ResumeContactRecordingCommandInput}
+ * @returns {@link ResumeContactRecordingCommandOutput}
  * @see {@link ResumeContactRecordingCommandInput} for command's `input` shape.
  * @see {@link ResumeContactRecordingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -80,6 +87,9 @@ export class ResumeContactRecordingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeContactRecordingCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ResumeContactRecordingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeContactRecordingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ResumeContactRecordingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeContactRecordingCommandOutput> {
     return deserializeAws_restJson1ResumeContactRecordingCommand(output, context);
   }

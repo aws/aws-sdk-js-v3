@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNotificationRuleCommand}.
  */
 export interface CreateNotificationRuleCommandInput extends CreateNotificationRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNotificationRuleCommand}.
  */
 export interface CreateNotificationRuleCommandOutput extends CreateNotificationRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a notification rule for a resource. The rule specifies the events you want
  *             notifications about and the targets (such as Chatbot topics or Chatbot clients configured for Slack) where you want to receive
  *             them.</p>
@@ -52,6 +57,8 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNotificationRuleCommandInput - {@link CreateNotificationRuleCommandInput}
+ * @returns {@link CreateNotificationRuleCommandOutput}
  * @see {@link CreateNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationRuleCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateNotificationRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNotificationRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreateNotificationRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateNotificationRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNotificationRuleCommandOutput> {
     return deserializeAws_restJson1CreateNotificationRuleCommand(output, context);
   }

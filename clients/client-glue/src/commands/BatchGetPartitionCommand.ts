@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetPartitionCommand}.
  */
 export interface BatchGetPartitionCommandInput extends BatchGetPartitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetPartitionCommand}.
  */
 export interface BatchGetPartitionCommandOutput extends BatchGetPartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves partitions in a batch request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetPartitionCommandOutput extends BatchGetPartitionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetPartitionCommandInput - {@link BatchGetPartitionCommandInput}
+ * @returns {@link BatchGetPartitionCommandOutput}
  * @see {@link BatchGetPartitionCommandInput} for command's `input` shape.
  * @see {@link BatchGetPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class BatchGetPartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetPartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class BatchGetPartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetPartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetPartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetPartitionCommandOutput> {
     return deserializeAws_json1_1BatchGetPartitionCommand(output, context);
   }

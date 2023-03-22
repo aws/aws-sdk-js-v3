@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLiveSourcesCommand}.
  */
 export interface ListLiveSourcesCommandInput extends ListLiveSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLiveSourcesCommand}.
  */
 export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the live sources contained in a source location. A source represents a piece of content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLiveSourcesCommandInput - {@link ListLiveSourcesCommandInput}
+ * @returns {@link ListLiveSourcesCommandOutput}
  * @see {@link ListLiveSourcesCommandInput} for command's `input` shape.
  * @see {@link ListLiveSourcesCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListLiveSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLiveSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListLiveSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLiveSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLiveSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLiveSourcesCommandOutput> {
     return deserializeAws_restJson1ListLiveSourcesCommand(output, context);
   }

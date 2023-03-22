@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAlertsCommand}.
  */
 export interface ListAlertsCommandInput extends ListAlertsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAlertsCommand}.
  */
 export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the alerts that are associated with a MediaTailor channel assembly resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAlertsCommandInput - {@link ListAlertsCommandInput}
+ * @returns {@link ListAlertsCommandOutput}
  * @see {@link ListAlertsCommandInput} for command's `input` shape.
  * @see {@link ListAlertsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListAlertsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAlertsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class ListAlertsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAlertsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAlertsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlertsCommandOutput> {
     return deserializeAws_restJson1ListAlertsCommand(output, context);
   }

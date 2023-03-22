@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link SearchTransitGatewayRoutesCommand}.
  */
 export interface SearchTransitGatewayRoutesCommandInput extends SearchTransitGatewayRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchTransitGatewayRoutesCommand}.
  */
 export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGatewayRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for routes in the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchTransitGatewayRoutesCommandInput - {@link SearchTransitGatewayRoutesCommandInput}
+ * @returns {@link SearchTransitGatewayRoutesCommandOutput}
  * @see {@link SearchTransitGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link SearchTransitGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class SearchTransitGatewayRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchTransitGatewayRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class SearchTransitGatewayRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchTransitGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2SearchTransitGatewayRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

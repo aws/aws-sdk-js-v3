@@ -23,15 +23,20 @@ import { deserializeAws_json1_1GetWebACLCommand, serializeAws_json1_1GetWebACLCo
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetWebACLCommand}.
  */
 export interface GetWebACLCommandInput extends GetWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWebACLCommand}.
  */
 export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified <a>WebACL</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWebACLCommandInput - {@link GetWebACLCommandInput}
+ * @returns {@link GetWebACLCommandOutput}
  * @see {@link GetWebACLCommandInput} for command's `input` shape.
  * @see {@link GetWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -100,6 +107,9 @@ export class GetWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebACLCommandOutput> {
     return deserializeAws_json1_1GetWebACLCommand(output, context);
   }

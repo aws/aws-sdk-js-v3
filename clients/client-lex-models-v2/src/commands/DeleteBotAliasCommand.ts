@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBotAliasCommand}.
  */
 export interface DeleteBotAliasCommandInput extends DeleteBotAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBotAliasCommand}.
  */
 export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified bot alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBotAliasCommandInput - {@link DeleteBotAliasCommandInput}
+ * @returns {@link DeleteBotAliasCommandOutput}
  * @see {@link DeleteBotAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBotAliasCommandOutput> {
     return deserializeAws_restJson1DeleteBotAliasCommand(output, context);
   }

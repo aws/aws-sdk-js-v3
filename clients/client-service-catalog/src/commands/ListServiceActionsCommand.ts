@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceActionsCommand}.
  */
 export interface ListServiceActionsCommandInput extends ListServiceActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceActionsCommand}.
  */
 export interface ListServiceActionsCommandOutput extends ListServiceActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all self-service actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceActionsCommandInput - {@link ListServiceActionsCommandInput}
+ * @returns {@link ListServiceActionsCommandOutput}
  * @see {@link ListServiceActionsCommandInput} for command's `input` shape.
  * @see {@link ListServiceActionsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListServiceActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListServiceActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListServiceActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceActionsCommandOutput> {
     return deserializeAws_json1_1ListServiceActionsCommand(output, context);
   }

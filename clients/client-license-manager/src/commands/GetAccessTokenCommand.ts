@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessTokenCommand}.
  */
 export interface GetAccessTokenCommandInput extends GetAccessTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessTokenCommand}.
  */
 export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a temporary access token to use with AssumeRoleWithWebIdentity. Access tokens
  *           are valid for one hour.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessTokenCommandInput - {@link GetAccessTokenCommandInput}
+ * @returns {@link GetAccessTokenCommandOutput}
  * @see {@link GetAccessTokenCommandInput} for command's `input` shape.
  * @see {@link GetAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetAccessTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetAccessTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAccessTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessTokenCommandOutput> {
     return deserializeAws_json1_1GetAccessTokenCommand(output, context);
   }

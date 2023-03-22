@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateGlobalReplicationGroupCommand}.
  */
 export interface DisassociateGlobalReplicationGroupCommandInput extends DisassociateGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateGlobalReplicationGroupCommand}.
  */
 export interface DisassociateGlobalReplicationGroupCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a secondary cluster from the Global datastore using the Global datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that Amazon region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateGlobalReplicationGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateGlobalReplicationGroupCommandInput - {@link DisassociateGlobalReplicationGroupCommandInput}
+ * @returns {@link DisassociateGlobalReplicationGroupCommandOutput}
  * @see {@link DisassociateGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -83,6 +90,9 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateGlobalReplicationGroupCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     return serializeAws_queryDisassociateGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

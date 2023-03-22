@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAddressCommand}.
  */
 export interface AssociateAddressCommandInput extends AssociateAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAddressCommand}.
  */
 export interface AssociateAddressCommandOutput extends AssociateAddressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Elastic IP address, or carrier IP address (for instances that are in
  *       subnets in Wavelength Zones) with an instance or a network interface. Before you can use an
  *       Elastic IP address, you must allocate it to your account.</p>
@@ -73,6 +78,8 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAddressCommandInput - {@link AssociateAddressCommandInput}
+ * @returns {@link AssociateAddressCommandOutput}
  * @see {@link AssociateAddressCommandInput} for command's `input` shape.
  * @see {@link AssociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -142,6 +149,9 @@ export class AssociateAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class AssociateAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAddressCommandOutput> {
     return deserializeAws_ec2AssociateAddressCommand(output, context);
   }

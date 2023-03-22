@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecretVersionStageCommand}.
  */
 export interface UpdateSecretVersionStageCommandInput extends UpdateSecretVersionStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecretVersionStageCommand}.
  */
 export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersionStageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging labels to
  *       track a version as it progresses through the secret rotation process. Each staging label can be
  *       attached to only one version at a time. To add a staging label to a version when it is already
@@ -67,6 +72,8 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecretVersionStageCommandInput - {@link UpdateSecretVersionStageCommandInput}
+ * @returns {@link UpdateSecretVersionStageCommandOutput}
  * @see {@link UpdateSecretVersionStageCommandInput} for command's `input` shape.
  * @see {@link UpdateSecretVersionStageCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -178,6 +185,9 @@ export class UpdateSecretVersionStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecretVersionStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -217,10 +227,16 @@ export class UpdateSecretVersionStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecretVersionStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSecretVersionStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecretVersionStageCommandOutput> {
     return deserializeAws_json1_1UpdateSecretVersionStageCommand(output, context);
   }

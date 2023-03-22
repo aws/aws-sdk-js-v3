@@ -27,15 +27,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIdentitiesCommand}.
  */
 export interface DeleteIdentitiesCommandInput extends DeleteIdentitiesInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIdentitiesCommand}.
  */
 export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes identities from an identity pool. You can specify a list of 1-60 identities
  *          that you want to delete.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -49,6 +54,8 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentitiesCommandInput - {@link DeleteIdentitiesCommandInput}
+ * @returns {@link DeleteIdentitiesCommandOutput}
  * @see {@link DeleteIdentitiesCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentitiesCommandOutput> {
     return deserializeAws_json1_1DeleteIdentitiesCommand(output, context);
   }

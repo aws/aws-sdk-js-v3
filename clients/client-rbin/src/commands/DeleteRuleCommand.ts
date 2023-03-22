@@ -26,15 +26,20 @@ import {
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-delete-rule">
  *       Delete Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
+ * @returns {@link DeleteRuleCommandOutput}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleCommandOutput> {
     return deserializeAws_restJson1DeleteRuleCommand(output, context);
   }

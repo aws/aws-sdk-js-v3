@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMaintenanceStartTimeCommand}.
  */
 export interface UpdateMaintenanceStartTimeCommandInput extends UpdateMaintenanceStartTimeInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMaintenanceStartTimeCommand}.
  */
 export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a gateway's weekly maintenance start time information, including day and
  *          time of the week. The maintenance time is the time in your gateway's time zone.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMaintenanceStartTimeCommandInput - {@link UpdateMaintenanceStartTimeCommandInput}
+ * @returns {@link UpdateMaintenanceStartTimeCommandOutput}
  * @see {@link UpdateMaintenanceStartTimeCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceStartTimeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMaintenanceStartTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMaintenanceStartTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMaintenanceStartTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

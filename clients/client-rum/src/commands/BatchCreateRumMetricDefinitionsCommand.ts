@@ -26,10 +26,14 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateRumMetricDefinitionsCommand}.
  */
 export interface BatchCreateRumMetricDefinitionsCommandInput extends BatchCreateRumMetricDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateRumMetricDefinitionsCommand}.
  */
 export interface BatchCreateRumMetricDefinitionsCommandOutput
@@ -37,6 +41,7 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies the extended metrics and custom metrics that you want a CloudWatch RUM app monitor to send to a destination. Valid
  *          destinations include CloudWatch and Evidently.</p>
  *          <p>By default, RUM app monitors send some metrics to CloudWatch. These default metrics
@@ -87,6 +92,8 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateRumMetricDefinitionsCommandInput - {@link BatchCreateRumMetricDefinitionsCommandInput}
+ * @returns {@link BatchCreateRumMetricDefinitionsCommandOutput}
  * @see {@link BatchCreateRumMetricDefinitionsCommandInput} for command's `input` shape.
  * @see {@link BatchCreateRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -131,6 +138,9 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateRumMetricDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,6 +180,9 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchCreateRumMetricDefinitionsCommandInput,
     context: __SerdeContext
@@ -177,6 +190,9 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command<
     return serializeAws_restJson1BatchCreateRumMetricDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

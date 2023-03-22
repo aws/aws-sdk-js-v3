@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmCustomerAgreementCommand}.
  */
 export interface ConfirmCustomerAgreementCommandInput extends ConfirmCustomerAgreementRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmCustomerAgreementCommand}.
  */
 export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAgreementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       The confirmation of the terms of agreement when creating the connection/link aggregation group (LAG).
  *     </p>
@@ -48,6 +53,8 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmCustomerAgreementCommandInput - {@link ConfirmCustomerAgreementCommandInput}
+ * @returns {@link ConfirmCustomerAgreementCommandOutput}
  * @see {@link ConfirmCustomerAgreementCommandInput} for command's `input` shape.
  * @see {@link ConfirmCustomerAgreementCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -77,6 +84,9 @@ export class ConfirmCustomerAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmCustomerAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ConfirmCustomerAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmCustomerAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ConfirmCustomerAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmCustomerAgreementCommandOutput> {
     return deserializeAws_json1_1ConfirmCustomerAgreementCommand(output, context);
   }

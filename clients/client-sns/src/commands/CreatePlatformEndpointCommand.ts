@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlatformEndpointCommand}.
  */
 export interface CreatePlatformEndpointCommandInput extends CreatePlatformEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlatformEndpointCommand}.
  */
 export interface CreatePlatformEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for a device and mobile app on one of the supported push
  *             notification services, such as GCM (Firebase Cloud Messaging) and APNS.
  *                 <code>CreatePlatformEndpoint</code> requires the <code>PlatformApplicationArn</code>
@@ -59,6 +64,8 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlatformEndpointCommandInput - {@link CreatePlatformEndpointCommandInput}
+ * @returns {@link CreatePlatformEndpointCommandOutput}
  * @see {@link CreatePlatformEndpointCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformEndpointCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreatePlatformEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlatformEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreatePlatformEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlatformEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreatePlatformEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlatformEndpointCommandOutput> {
     return deserializeAws_queryCreatePlatformEndpointCommand(output, context);
   }

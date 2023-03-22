@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomRoutingPortMappingsByDestinationCommand}.
  */
 export interface ListCustomRoutingPortMappingsByDestinationCommandInput
   extends ListCustomRoutingPortMappingsByDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomRoutingPortMappingsByDestinationCommand}.
  */
 export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
@@ -42,6 +46,7 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the port mappings for a specific EC2 instance (destination) in a VPC subnet endpoint. The
  * 			response is the mappings for one destination IP address. This is useful when your subnet endpoint has mappings that
  * 			span multiple custom routing accelerators in your account, or for scenarios where you only want to
@@ -56,6 +61,8 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomRoutingPortMappingsByDestinationCommandInput - {@link ListCustomRoutingPortMappingsByDestinationCommandInput}
+ * @returns {@link ListCustomRoutingPortMappingsByDestinationCommandOutput}
  * @see {@link ListCustomRoutingPortMappingsByDestinationCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingPortMappingsByDestinationCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomRoutingPortMappingsByDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListCustomRoutingPortMappingsByDestinationCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
     return serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

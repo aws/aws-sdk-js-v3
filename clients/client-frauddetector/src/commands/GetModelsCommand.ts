@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetModelsCommand, serializeAws_json1_1GetModelsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetModelsCommand}.
  */
 export interface GetModelsCommandInput extends GetModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetModelsCommand}.
  */
 export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p>
  *          <p>This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
@@ -49,6 +54,8 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelsCommandInput - {@link GetModelsCommandInput}
+ * @returns {@link GetModelsCommandOutput}
  * @see {@link GetModelsCommandInput} for command's `input` shape.
  * @see {@link GetModelsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelsCommandOutput> {
     return deserializeAws_json1_1GetModelsCommand(output, context);
   }

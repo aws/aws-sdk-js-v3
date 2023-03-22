@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelMailboxExportJobCommand}.
  */
 export interface CancelMailboxExportJobCommandInput extends CancelMailboxExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelMailboxExportJobCommand}.
  */
 export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a mailbox export job.</p>
  *          <note>
  *             <p>If the mailbox export job is near completion, it might not be possible to cancel
@@ -50,6 +55,8 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelMailboxExportJobCommandInput - {@link CancelMailboxExportJobCommandInput}
+ * @returns {@link CancelMailboxExportJobCommandOutput}
  * @see {@link CancelMailboxExportJobCommandInput} for command's `input` shape.
  * @see {@link CancelMailboxExportJobCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -88,6 +95,9 @@ export class CancelMailboxExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelMailboxExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CancelMailboxExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelMailboxExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelMailboxExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelMailboxExportJobCommandOutput> {
     return deserializeAws_json1_1CancelMailboxExportJobCommand(output, context);
   }

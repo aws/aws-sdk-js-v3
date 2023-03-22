@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVerifiedAccessEndpointCommand}.
  */
 export interface ModifyVerifiedAccessEndpointCommandInput extends ModifyVerifiedAccessEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVerifiedAccessEndpointCommand}.
  */
 export interface ModifyVerifiedAccessEndpointCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessEndpointCommandInput - {@link ModifyVerifiedAccessEndpointCommandInput}
+ * @returns {@link ModifyVerifiedAccessEndpointCommandOutput}
  * @see {@link ModifyVerifiedAccessEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class ModifyVerifiedAccessEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ModifyVerifiedAccessEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVerifiedAccessEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVerifiedAccessEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCellCommand}.
  */
 export interface GetCellCommandInput extends GetCellRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCellCommand}.
  */
 export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a cell including cell name, cell Amazon Resource Name (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with their associated recovery group ARNs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCellCommandInput - {@link GetCellCommandInput}
+ * @returns {@link GetCellCommandOutput}
  * @see {@link GetCellCommandInput} for command's `input` shape.
  * @see {@link GetCellCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetCellCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCellCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetCellCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCellCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCellCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCellCommandOutput> {
     return deserializeAws_restJson1GetCellCommand(output, context);
   }

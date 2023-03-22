@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOriginEndpointsCommand}.
  */
 export interface ListOriginEndpointsCommandInput extends ListOriginEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOriginEndpointsCommand}.
  */
 export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a collection of OriginEndpoint records.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOriginEndpointsCommandInput - {@link ListOriginEndpointsCommandInput}
+ * @returns {@link ListOriginEndpointsCommandOutput}
  * @see {@link ListOriginEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListOriginEndpointsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListOriginEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOriginEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListOriginEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOriginEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListOriginEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOriginEndpointsCommandOutput> {
     return deserializeAws_restJson1ListOriginEndpointsCommand(output, context);
   }

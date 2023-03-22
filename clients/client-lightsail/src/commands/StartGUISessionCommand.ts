@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartGUISessionCommand}.
  */
 export interface StartGUISessionCommandInput extends StartGUISessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartGUISessionCommand}.
  */
 export interface StartGUISessionCommandOutput extends StartGUISessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a graphical user interface (GUI) session that’s used to access a virtual
  *       computer’s operating system and application. The session will be active for 1 hour. Use this action to resume the session after it expires. </p>
  * @example
@@ -47,6 +52,8 @@ export interface StartGUISessionCommandOutput extends StartGUISessionResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartGUISessionCommandInput - {@link StartGUISessionCommandInput}
+ * @returns {@link StartGUISessionCommandOutput}
  * @see {@link StartGUISessionCommandInput} for command's `input` shape.
  * @see {@link StartGUISessionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -93,6 +100,9 @@ export class StartGUISessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartGUISessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class StartGUISessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartGUISessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartGUISessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartGUISessionCommandOutput> {
     return deserializeAws_json1_1StartGUISessionCommand(output, context);
   }

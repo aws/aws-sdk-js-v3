@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRelatedItemsCommand}.
  */
 export interface ListRelatedItemsCommandInput extends ListRelatedItemsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRelatedItemsCommand}.
  */
 export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all related items for an incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRelatedItemsCommandInput - {@link ListRelatedItemsCommandInput}
+ * @returns {@link ListRelatedItemsCommandOutput}
  * @see {@link ListRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link ListRelatedItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListRelatedItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRelatedItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListRelatedItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRelatedItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRelatedItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRelatedItemsCommandOutput> {
     return deserializeAws_restJson1ListRelatedItemsCommand(output, context);
   }

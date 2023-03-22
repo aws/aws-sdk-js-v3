@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStagesCommand}.
  */
 export interface ListStagesCommandInput extends ListStagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStagesCommand}.
  */
 export interface ListStagesCommandOutput extends ListStagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a paginated list of stage summaries from the game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStagesCommandOutput extends ListStagesResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStagesCommandInput - {@link ListStagesCommandInput}
+ * @returns {@link ListStagesCommandOutput}
  * @see {@link ListStagesCommandInput} for command's `input` shape.
  * @see {@link ListStagesCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListStagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListStagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStagesCommandOutput> {
     return deserializeAws_restJson1ListStagesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNetworkAclsCommand}.
  */
 export interface DescribeNetworkAclsCommandInput extends DescribeNetworkAclsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNetworkAclsCommand}.
  */
 export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your network ACLs.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNetworkAclsCommandInput - {@link DescribeNetworkAclsCommandInput}
+ * @returns {@link DescribeNetworkAclsCommandOutput}
  * @see {@link DescribeNetworkAclsCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkAclsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -119,6 +126,9 @@ export class DescribeNetworkAclsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNetworkAclsCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class DescribeNetworkAclsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNetworkAclsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeNetworkAclsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNetworkAclsCommandOutput> {
     return deserializeAws_ec2DescribeNetworkAclsCommand(output, context);
   }

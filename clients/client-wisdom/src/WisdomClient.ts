@@ -118,6 +118,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAssistantAssociationCommandInput
   | CreateAssistantCommandInput
@@ -151,6 +154,9 @@ export type ServiceInputTypes =
   | UpdateContentCommandInput
   | UpdateKnowledgeBaseTemplateUriCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAssistantAssociationCommandOutput
   | CreateAssistantCommandOutput
@@ -184,6 +190,9 @@ export type ServiceOutputTypes =
   | UpdateContentCommandOutput
   | UpdateKnowledgeBaseTemplateUriCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -191,7 +200,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -300,11 +309,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type WisdomClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -315,10 +327,15 @@ type WisdomClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of WisdomClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of WisdomClient class constructor that set the region, credentials and other options.
  */
 export interface WisdomClientConfig extends WisdomClientConfigType {}
 
+/**
+ * @public
+ */
 type WisdomClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -329,11 +346,14 @@ type WisdomClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of WisdomClient class. This is resolved and normalized from the {@link WisdomClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of WisdomClient class. This is resolved and normalized from the {@link WisdomClientConfig | constructor configuration interface}.
  */
 export interface WisdomClientResolvedConfig extends WisdomClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Connect Wisdom delivers agents the information they need to solve customer issues as they're
  *       actively speaking with customers. Agents can search across connected repositories from within
  *       their agent desktop to find answers quickly. Use Amazon Connect Wisdom to create an assistant and a

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestCustomDataIdentifierCommand}.
  */
 export interface TestCustomDataIdentifierCommandInput extends TestCustomDataIdentifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestCustomDataIdentifierCommand}.
  */
 export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests a custom data identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIde
  * const response = await client.send(command);
  * ```
  *
+ * @param TestCustomDataIdentifierCommandInput - {@link TestCustomDataIdentifierCommandInput}
+ * @returns {@link TestCustomDataIdentifierCommandOutput}
  * @see {@link TestCustomDataIdentifierCommandInput} for command's `input` shape.
  * @see {@link TestCustomDataIdentifierCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class TestCustomDataIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestCustomDataIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class TestCustomDataIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestCustomDataIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TestCustomDataIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestCustomDataIdentifierCommandOutput> {
     return deserializeAws_restJson1TestCustomDataIdentifierCommand(output, context);
   }

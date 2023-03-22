@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheParameterGroupsCommand}.
  */
 export interface DescribeCacheParameterGroupsCommandInput extends DescribeCacheParameterGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheParameterGroupsCommand}.
  */
 export interface DescribeCacheParameterGroupsCommandOutput extends CacheParameterGroupsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of cache parameter group
  *             descriptions. If a cache parameter group name is specified, the list contains only
  *             the descriptions for that group.</p>
@@ -48,6 +53,8 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheParameterGroupsCommandInput - {@link DescribeCacheParameterGroupsCommandInput}
+ * @returns {@link DescribeCacheParameterGroupsCommandOutput}
  * @see {@link DescribeCacheParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -102,6 +109,9 @@ export class DescribeCacheParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DescribeCacheParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheParameterGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

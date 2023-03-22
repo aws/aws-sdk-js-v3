@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTeamMemberCommand}.
  */
 export interface UpdateTeamMemberCommandInput extends UpdateTeamMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTeamMemberCommand}.
  */
 export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a
  *       team member's role in the project, or change whether they have remote access to project
  *       resources.</p>
@@ -48,6 +53,8 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTeamMemberCommandInput - {@link UpdateTeamMemberCommandInput}
+ * @returns {@link UpdateTeamMemberCommandOutput}
  * @see {@link UpdateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link UpdateTeamMemberCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateTeamMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTeamMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateTeamMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTeamMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTeamMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTeamMemberCommandOutput> {
     return deserializeAws_json1_1UpdateTeamMemberCommand(output, context);
   }

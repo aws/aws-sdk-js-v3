@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityProfileCommand}.
  */
 export interface DescribeSecurityProfileCommandInput extends DescribeSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityProfileCommand}.
  */
 export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Gets basic information about the security profle.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityProfileCommandInput - {@link DescribeSecurityProfileCommandInput}
+ * @returns {@link DescribeSecurityProfileCommandOutput}
  * @see {@link DescribeSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityProfileCommandOutput> {
     return deserializeAws_restJson1DescribeSecurityProfileCommand(output, context);
   }

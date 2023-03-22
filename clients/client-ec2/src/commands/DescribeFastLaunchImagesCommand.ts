@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFastLaunchImagesCommand}.
  */
 export interface DescribeFastLaunchImagesCommandInput extends DescribeFastLaunchImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFastLaunchImagesCommand}.
  */
 export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunchImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe details for Windows AMIs that are configured for faster launching.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFastLaunchImagesCommandInput - {@link DescribeFastLaunchImagesCommandInput}
+ * @returns {@link DescribeFastLaunchImagesCommandOutput}
  * @see {@link DescribeFastLaunchImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeFastLaunchImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeFastLaunchImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFastLaunchImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeFastLaunchImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFastLaunchImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeFastLaunchImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFastLaunchImagesCommandOutput> {
     return deserializeAws_ec2DescribeFastLaunchImagesCommand(output, context);
   }

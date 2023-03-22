@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThingRegistrationTasksCommand}.
  */
 export interface ListThingRegistrationTasksCommandInput extends ListThingRegistrationTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThingRegistrationTasksCommand}.
  */
 export interface ListThingRegistrationTasksCommandOutput extends ListThingRegistrationTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List bulk thing provisioning tasks.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingRegistrationTasks</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThingRegistrationTasksCommandInput - {@link ListThingRegistrationTasksCommandInput}
+ * @returns {@link ListThingRegistrationTasksCommandOutput}
  * @see {@link ListThingRegistrationTasksCommandInput} for command's `input` shape.
  * @see {@link ListThingRegistrationTasksCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListThingRegistrationTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThingRegistrationTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListThingRegistrationTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThingRegistrationTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListThingRegistrationTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProfileKeyCommand}.
  */
 export interface DeleteProfileKeyCommandInput extends DeleteProfileKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProfileKeyCommand}.
  */
 export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a searchable key from a customer profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProfileKeyCommandInput - {@link DeleteProfileKeyCommandInput}
+ * @returns {@link DeleteProfileKeyCommandOutput}
  * @see {@link DeleteProfileKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileKeyCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteProfileKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProfileKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteProfileKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProfileKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteProfileKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileKeyCommandOutput> {
     return deserializeAws_restJson1DeleteProfileKeyCommand(output, context);
   }

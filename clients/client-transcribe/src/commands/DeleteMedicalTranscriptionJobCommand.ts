@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMedicalTranscriptionJobCommand}.
  */
 export interface DeleteMedicalTranscriptionJobCommandInput extends DeleteMedicalTranscriptionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMedicalTranscriptionJobCommand}.
  */
 export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a medical transcription job. To use this operation, specify the name of the
  *             job you want to delete using <code>MedicalTranscriptionJobName</code>. Job names are
  *             case sensitive.</p>
@@ -46,6 +51,8 @@ export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMedicalTranscriptionJobCommandInput - {@link DeleteMedicalTranscriptionJobCommandInput}
+ * @returns {@link DeleteMedicalTranscriptionJobCommandOutput}
  * @see {@link DeleteMedicalTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link DeleteMedicalTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMedicalTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMedicalTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMedicalTranscriptionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

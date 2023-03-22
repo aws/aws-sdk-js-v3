@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchSystemTemplatesCommand}.
  */
 export interface SearchSystemTemplatesCommandInput extends SearchSystemTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchSystemTemplatesCommand}.
  */
 export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>
@@ -48,6 +53,8 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSystemTemplatesCommandInput - {@link SearchSystemTemplatesCommandInput}
+ * @returns {@link SearchSystemTemplatesCommandOutput}
  * @see {@link SearchSystemTemplatesCommandInput} for command's `input` shape.
  * @see {@link SearchSystemTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -80,6 +87,9 @@ export class SearchSystemTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSystemTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class SearchSystemTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSystemTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchSystemTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSystemTemplatesCommandOutput> {
     return deserializeAws_json1_1SearchSystemTemplatesCommand(output, context);
   }

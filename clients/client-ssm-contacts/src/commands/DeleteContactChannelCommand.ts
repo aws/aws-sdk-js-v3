@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContactChannelCommand}.
  */
 export interface DeleteContactChannelCommandInput extends DeleteContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContactChannelCommand}.
  */
 export interface DeleteContactChannelCommandOutput extends DeleteContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>To no longer receive engagements on a contact channel, you can delete the channel from a
  *          contact. Deleting the contact channel removes it from the contact's engagement plan. If you
  *          delete the only contact channel for a contact, you won't be able to engage that contact
@@ -49,6 +54,8 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContactChannelCommandInput - {@link DeleteContactChannelCommandInput}
+ * @returns {@link DeleteContactChannelCommandOutput}
  * @see {@link DeleteContactChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DeleteContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactChannelCommandOutput> {
     return deserializeAws_json1_1DeleteContactChannelCommand(output, context);
   }

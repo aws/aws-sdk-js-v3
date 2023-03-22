@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualServiceCommand}.
  */
 export interface DeleteVirtualServiceCommandInput extends DeleteVirtualServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualServiceCommand}.
  */
 export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing virtual service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualServiceCommandInput - {@link DeleteVirtualServiceCommandInput}
+ * @returns {@link DeleteVirtualServiceCommandOutput}
  * @see {@link DeleteVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualServiceCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteVirtualServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteVirtualServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVirtualServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualServiceCommandOutput> {
     return deserializeAws_restJson1DeleteVirtualServiceCommand(output, context);
   }

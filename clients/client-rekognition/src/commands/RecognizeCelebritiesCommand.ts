@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link RecognizeCelebritiesCommand}.
  */
 export interface RecognizeCelebritiesCommandInput extends RecognizeCelebritiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RecognizeCelebritiesCommand}.
  */
 export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of celebrities recognized in the input image. For more
  *       information, see Recognizing celebrities in the Amazon Rekognition Developer Guide. </p>
  *          <p>
@@ -72,6 +77,8 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  * const response = await client.send(command);
  * ```
  *
+ * @param RecognizeCelebritiesCommandInput - {@link RecognizeCelebritiesCommandInput}
+ * @returns {@link RecognizeCelebritiesCommandOutput}
  * @see {@link RecognizeCelebritiesCommandInput} for command's `input` shape.
  * @see {@link RecognizeCelebritiesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -124,6 +131,9 @@ export class RecognizeCelebritiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecognizeCelebritiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class RecognizeCelebritiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecognizeCelebritiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RecognizeCelebritiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecognizeCelebritiesCommandOutput> {
     return deserializeAws_json1_1RecognizeCelebritiesCommand(output, context);
   }

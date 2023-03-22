@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ContainsPiiEntitiesCommand}.
  */
 export interface ContainsPiiEntitiesCommandInput extends ContainsPiiEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ContainsPiiEntitiesCommand}.
  */
 export interface ContainsPiiEntitiesCommandOutput extends ContainsPiiEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Analyzes input text for the presence of personally identifiable information (PII) and
  *       returns the labels of identified PII entity types such as name, address, bank account number,
  *       or phone number.</p>
@@ -48,6 +53,8 @@ export interface ContainsPiiEntitiesCommandOutput extends ContainsPiiEntitiesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ContainsPiiEntitiesCommandInput - {@link ContainsPiiEntitiesCommandInput}
+ * @returns {@link ContainsPiiEntitiesCommandOutput}
  * @see {@link ContainsPiiEntitiesCommandInput} for command's `input` shape.
  * @see {@link ContainsPiiEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -87,6 +94,9 @@ export class ContainsPiiEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ContainsPiiEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ContainsPiiEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ContainsPiiEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ContainsPiiEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ContainsPiiEntitiesCommandOutput> {
     return deserializeAws_json1_1ContainsPiiEntitiesCommand(output, context);
   }

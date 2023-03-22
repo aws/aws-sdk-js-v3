@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link PublishFunctionCommand}.
  */
 export interface PublishFunctionCommandInput extends PublishFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PublishFunctionCommand}.
  */
 export interface PublishFunctionCommandOutput extends PublishFunctionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes a CloudFront function by copying the function code from the
  * 				<code>DEVELOPMENT</code> stage to <code>LIVE</code>. This automatically updates all
  * 			cache behaviors that are using this function to use the newly published copy in the
@@ -55,6 +60,8 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishFunctionCommandInput - {@link PublishFunctionCommandInput}
+ * @returns {@link PublishFunctionCommandOutput}
  * @see {@link PublishFunctionCommandInput} for command's `input` shape.
  * @see {@link PublishFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -94,6 +101,9 @@ export class PublishFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class PublishFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPublishFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishFunctionCommandOutput> {
     return deserializeAws_restXmlPublishFunctionCommand(output, context);
   }

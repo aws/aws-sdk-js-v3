@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInsightsCommand}.
  */
 export interface ListInsightsCommandInput extends ListInsightsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInsightsCommand}.
  */
 export interface ListInsightsCommandOutput extends ListInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
  * 			returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>, or
  * 				<code>ANY</code>). </p>
@@ -48,6 +53,8 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInsightsCommandInput - {@link ListInsightsCommandInput}
+ * @returns {@link ListInsightsCommandOutput}
  * @see {@link ListInsightsCommandInput} for command's `input` shape.
  * @see {@link ListInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInsightsCommandOutput> {
     return deserializeAws_restJson1ListInsightsCommand(output, context);
   }

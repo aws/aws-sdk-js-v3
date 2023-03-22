@@ -10,7 +10,7 @@ import { ServiceQuotasClient } from "../ServiceQuotasClient";
 import { ServiceQuotasPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceQuotasClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListServiceQuotasCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListServiceQuotas(
   config: ServiceQuotasPaginationConfiguration,
   input: ListServiceQuotasCommandInput,

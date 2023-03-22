@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCallAnalyticsCategoryCommand}.
  */
 export interface DeleteCallAnalyticsCategoryCommandInput extends DeleteCallAnalyticsCategoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCallAnalyticsCategoryCommand}.
  */
 export interface DeleteCallAnalyticsCategoryCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Call Analytics category. To use this operation, specify the name of the
  *             category you want to delete using <code>CategoryName</code>. Category names are case
  *             sensitive.</p>
@@ -50,6 +55,8 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCallAnalyticsCategoryCommandInput - {@link DeleteCallAnalyticsCategoryCommandInput}
+ * @returns {@link DeleteCallAnalyticsCategoryCommandOutput}
  * @see {@link DeleteCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link DeleteCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCallAnalyticsCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCallAnalyticsCategoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCallAnalyticsCategoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

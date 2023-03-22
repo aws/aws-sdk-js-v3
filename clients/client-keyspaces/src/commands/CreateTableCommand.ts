@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTableCommand}.
  */
 export interface CreateTableCommandInput extends CreateTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTableCommand}.
  */
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>CreateTable</code> operation adds a new table to the specified keyspace. Within a keyspace, table names
  *          must be unique.</p>
  *          <p>
@@ -53,6 +58,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTableCommandInput - {@link CreateTableCommandInput}
+ * @returns {@link CreateTableCommandOutput}
  * @see {@link CreateTableCommandInput} for command's `input` shape.
  * @see {@link CreateTableCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTableCommandOutput> {
     return deserializeAws_json1_0CreateTableCommand(output, context);
   }

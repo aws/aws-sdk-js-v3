@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDirectConnectGatewayAssociationProposalsCommand}.
  */
 export interface DescribeDirectConnectGatewayAssociationProposalsCommandInput
   extends DescribeDirectConnectGatewayAssociationProposalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDirectConnectGatewayAssociationProposalsCommand}.
  */
 export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectConnectGatewayAssociationProposalsCommandInput - {@link DescribeDirectConnectGatewayAssociationProposalsCommandInput}
+ * @returns {@link DescribeDirectConnectGatewayAssociationProposalsCommandOutput}
  * @see {@link DescribeDirectConnectGatewayAssociationProposalsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewayAssociationProposalsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectConnectGatewayAssociationProposalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
     return serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

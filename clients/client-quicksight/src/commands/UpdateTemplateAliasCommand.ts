@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTemplateAliasCommand}.
  */
 export interface UpdateTemplateAliasCommandInput extends UpdateTemplateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTemplateAliasCommand}.
  */
 export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the template alias of a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTemplateAliasCommandInput - {@link UpdateTemplateAliasCommandInput}
+ * @returns {@link UpdateTemplateAliasCommandOutput}
  * @see {@link UpdateTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateTemplateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTemplateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateTemplateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTemplateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTemplateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateAliasCommandOutput> {
     return deserializeAws_restJson1UpdateTemplateAliasCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPricesCommand}.
  */
 export interface ListPricesCommandInput extends ListPricesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPricesCommand}.
  */
 export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the following prices for either all the TLDs supported by Route 53, or
  * 			the specified TLD:</p>
  *          <ul>
@@ -64,6 +69,8 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPricesCommandInput - {@link ListPricesCommandInput}
+ * @returns {@link ListPricesCommandOutput}
  * @see {@link ListPricesCommandInput} for command's `input` shape.
  * @see {@link ListPricesCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListPricesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPricesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListPricesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPricesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPricesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPricesCommandOutput> {
     return deserializeAws_json1_1ListPricesCommand(output, context);
   }

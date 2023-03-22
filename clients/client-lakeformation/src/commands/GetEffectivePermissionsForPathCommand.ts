@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEffectivePermissionsForPathCommand}.
  */
 export interface GetEffectivePermissionsForPathCommandInput extends GetEffectivePermissionsForPathRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEffectivePermissionsForPathCommand}.
  */
 export interface GetEffectivePermissionsForPathCommandOutput
@@ -37,6 +41,7 @@ export interface GetEffectivePermissionsForPathCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Lake Formation permissions for a specified table or database resource located
  *       at a path in Amazon S3. <code>GetEffectivePermissionsForPath</code> will not return databases and tables if the catalog is encrypted.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEffectivePermissionsForPathCommandInput - {@link GetEffectivePermissionsForPathCommandInput}
+ * @returns {@link GetEffectivePermissionsForPathCommandOutput}
  * @see {@link GetEffectivePermissionsForPathCommandInput} for command's `input` shape.
  * @see {@link GetEffectivePermissionsForPathCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEffectivePermissionsForPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEffectivePermissionsForPathCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     return serializeAws_restJson1GetEffectivePermissionsForPathCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAlertManagerDefinitionCommand}.
  */
 export interface DeleteAlertManagerDefinitionCommandInput extends DeleteAlertManagerDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAlertManagerDefinitionCommand}.
  */
 export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an alert manager definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAlertManagerDefinitionCommandInput - {@link DeleteAlertManagerDefinitionCommandInput}
+ * @returns {@link DeleteAlertManagerDefinitionCommandOutput}
  * @see {@link DeleteAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteAlertManagerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAlertManagerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteAlertManagerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAlertManagerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAlertManagerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

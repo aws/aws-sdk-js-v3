@@ -152,6 +152,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateAdminAccountCommandInput
   | AssociateThirdPartyFirewallCommandInput
@@ -192,6 +195,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateAdminAccountCommandOutput
   | AssociateThirdPartyFirewallCommandOutput
@@ -232,6 +238,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -239,7 +248,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -348,11 +357,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type FMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -363,10 +375,15 @@ type FMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of FMSClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of FMSClient class constructor that set the region, credentials and other options.
  */
 export interface FMSClientConfig extends FMSClientConfigType {}
 
+/**
+ * @public
+ */
 type FMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -377,11 +394,14 @@ type FMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of FMSClient class. This is resolved and normalized from the {@link FMSClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of FMSClient class. This is resolved and normalized from the {@link FMSClientConfig | constructor configuration interface}.
  */
 export interface FMSClientResolvedConfig extends FMSClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>This is the <i>Firewall Manager API Reference</i>. This guide is for
  *       developers who need detailed information about the Firewall Manager API actions, data
  *       types, and errors. For detailed information about Firewall Manager features, see the

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueueQuickConnectsCommand}.
  */
 export interface ListQueueQuickConnectsCommandInput extends ListQueueQuickConnectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueueQuickConnectsCommand}.
  */
 export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConnectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Lists the quick connects associated with a queue.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueueQuickConnectsCommandInput - {@link ListQueueQuickConnectsCommandInput}
+ * @returns {@link ListQueueQuickConnectsCommandOutput}
  * @see {@link ListQueueQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link ListQueueQuickConnectsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListQueueQuickConnectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueueQuickConnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListQueueQuickConnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueueQuickConnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListQueueQuickConnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueueQuickConnectsCommandOutput> {
     return deserializeAws_restJson1ListQueueQuickConnectsCommand(output, context);
   }

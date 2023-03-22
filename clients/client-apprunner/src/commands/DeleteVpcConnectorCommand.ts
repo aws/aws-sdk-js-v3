@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcConnectorCommand}.
  */
 export interface DeleteVpcConnectorCommandInput extends DeleteVpcConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcConnectorCommand}.
  */
 export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an App Runner VPC connector resource. You can't delete a
  *       connector that's used by one or more App Runner services.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcConnectorCommandInput - {@link DeleteVpcConnectorCommandInput}
+ * @returns {@link DeleteVpcConnectorCommandOutput}
  * @see {@link DeleteVpcConnectorCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteVpcConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteVpcConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteVpcConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcConnectorCommandOutput> {
     return deserializeAws_json1_0DeleteVpcConnectorCommand(output, context);
   }

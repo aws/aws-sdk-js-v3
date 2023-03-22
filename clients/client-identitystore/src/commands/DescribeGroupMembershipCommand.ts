@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGroupMembershipCommand}.
  */
 export interface DescribeGroupMembershipCommandInput extends DescribeGroupMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGroupMembershipCommand}.
  */
 export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves membership metadata and attributes from <code>MembershipId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGroupMembershipCommandInput - {@link DescribeGroupMembershipCommandInput}
+ * @returns {@link DescribeGroupMembershipCommandOutput}
  * @see {@link DescribeGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeGroupMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGroupMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeGroupMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeGroupMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupMembershipCommandOutput> {
     return deserializeAws_json1_1DescribeGroupMembershipCommand(output, context);
   }

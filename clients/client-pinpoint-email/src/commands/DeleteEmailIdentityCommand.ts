@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEmailIdentityCommand}.
  */
 export interface DeleteEmailIdentityCommandInput extends DeleteEmailIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEmailIdentityCommand}.
  */
 export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an email identity that you previously verified for use with Amazon Pinpoint. An identity
  *             can be either an email address or a domain name.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEmailIdentityCommandInput - {@link DeleteEmailIdentityCommandInput}
+ * @returns {@link DeleteEmailIdentityCommandOutput}
  * @see {@link DeleteEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteEmailIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEmailIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteEmailIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEmailIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEmailIdentityCommandOutput> {
     return deserializeAws_restJson1DeleteEmailIdentityCommand(output, context);
   }

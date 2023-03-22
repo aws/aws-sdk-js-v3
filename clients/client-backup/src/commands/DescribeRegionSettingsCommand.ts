@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRegionSettingsCommand}.
  */
 export interface DescribeRegionSettingsCommandInput extends DescribeRegionSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRegionSettingsCommand}.
  */
 export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current service opt-in settings for the Region. If service opt-in is enabled
  *          for a service, Backup tries to protect that service's resources in this Region,
  *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
@@ -50,6 +55,8 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRegionSettingsCommandInput - {@link DescribeRegionSettingsCommandInput}
+ * @returns {@link DescribeRegionSettingsCommandOutput}
  * @see {@link DescribeRegionSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeRegionSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeRegionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRegionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeRegionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRegionSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRegionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegionSettingsCommandOutput> {
     return deserializeAws_restJson1DescribeRegionSettingsCommand(output, context);
   }

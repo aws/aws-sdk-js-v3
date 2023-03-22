@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNetworkInsightsAccessScopeAnalysesCommand}.
  */
 export interface DescribeNetworkInsightsAccessScopeAnalysesCommandInput
   extends DescribeNetworkInsightsAccessScopeAnalysesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNetworkInsightsAccessScopeAnalysesCommand}.
  */
 export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Network Access Scope analyses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNetworkInsightsAccessScopeAnalysesCommandInput - {@link DescribeNetworkInsightsAccessScopeAnalysesCommandInput}
+ * @returns {@link DescribeNetworkInsightsAccessScopeAnalysesCommandOutput}
  * @see {@link DescribeNetworkInsightsAccessScopeAnalysesCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInsightsAccessScopeAnalysesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeNetworkInsightsAccessScopeAnalysesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNetworkInsightsAccessScopeAnalysesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeNetworkInsightsAccessScopeAnalysesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeNetworkInsightsAccessScopeAnalysesCommand extends $Command<
     return serializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDetectSentimentCommand}.
  */
 export interface BatchDetectSentimentCommandInput extends BatchDetectSentimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDetectSentimentCommand}.
  */
 export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects a batch of documents and returns an inference of the prevailing sentiment,
  *         <code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>,
  *       in each one.</p>
@@ -48,6 +53,8 @@ export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDetectSentimentCommandInput - {@link BatchDetectSentimentCommandInput}
+ * @returns {@link BatchDetectSentimentCommandOutput}
  * @see {@link BatchDetectSentimentCommandInput} for command's `input` shape.
  * @see {@link BatchDetectSentimentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -91,6 +98,9 @@ export class BatchDetectSentimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDetectSentimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class BatchDetectSentimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDetectSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDetectSentimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectSentimentCommandOutput> {
     return deserializeAws_json1_1BatchDetectSentimentCommand(output, context);
   }

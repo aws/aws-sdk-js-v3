@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTemplatePermissionsCommand}.
  */
 export interface DescribeTemplatePermissionsCommandInput extends DescribeTemplatePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTemplatePermissionsCommand}.
  */
 export interface DescribeTemplatePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTemplatePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes read and write permissions on a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeTemplatePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTemplatePermissionsCommandInput - {@link DescribeTemplatePermissionsCommandInput}
+ * @returns {@link DescribeTemplatePermissionsCommandOutput}
  * @see {@link DescribeTemplatePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplatePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTemplatePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTemplatePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeTemplatePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

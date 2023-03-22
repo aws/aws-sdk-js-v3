@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link InviteMembersCommand}.
  */
 export interface InviteMembersCommandInput extends InviteMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link InviteMembersCommand}.
  */
 export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that
  *          the invitation is sent from.</p>
  *          <p>This operation is only used to invite accounts that do not belong to an organization.
@@ -52,6 +57,8 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param InviteMembersCommandInput - {@link InviteMembersCommandInput}
+ * @returns {@link InviteMembersCommandOutput}
  * @see {@link InviteMembersCommandInput} for command's `input` shape.
  * @see {@link InviteMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -92,6 +99,9 @@ export class InviteMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InviteMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class InviteMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InviteMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InviteMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InviteMembersCommandOutput> {
     return deserializeAws_restJson1InviteMembersCommand(output, context);
   }

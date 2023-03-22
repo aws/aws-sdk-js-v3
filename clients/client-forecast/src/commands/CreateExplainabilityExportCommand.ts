@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExplainabilityExportCommand}.
  */
 export interface CreateExplainabilityExportCommandInput extends CreateExplainabilityExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExplainabilityExportCommand}.
  */
 export interface CreateExplainabilityExportCommandOutput extends CreateExplainabilityExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports an Explainability resource created by the <a>CreateExplainability</a> operation. Exported files are exported to an Amazon Simple Storage Service (Amazon
  *             S3) bucket.</p>
  *          <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
@@ -54,6 +59,8 @@ export interface CreateExplainabilityExportCommandOutput extends CreateExplainab
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExplainabilityExportCommandInput - {@link CreateExplainabilityExportCommandInput}
+ * @returns {@link CreateExplainabilityExportCommandOutput}
  * @see {@link CreateExplainabilityExportCommandInput} for command's `input` shape.
  * @see {@link CreateExplainabilityExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateExplainabilityExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExplainabilityExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateExplainabilityExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExplainabilityExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateExplainabilityExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

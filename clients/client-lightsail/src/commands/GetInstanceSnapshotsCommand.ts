@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceSnapshotsCommand}.
  */
 export interface GetInstanceSnapshotsCommandInput extends GetInstanceSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceSnapshotsCommand}.
  */
 export interface GetInstanceSnapshotsCommandOutput extends GetInstanceSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all instance snapshots for the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetInstanceSnapshotsCommandOutput extends GetInstanceSnapshotsR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceSnapshotsCommandInput - {@link GetInstanceSnapshotsCommandInput}
+ * @returns {@link GetInstanceSnapshotsCommandOutput}
  * @see {@link GetInstanceSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetInstanceSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetInstanceSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class GetInstanceSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstanceSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceSnapshotsCommandOutput> {
     return deserializeAws_json1_1GetInstanceSnapshotsCommand(output, context);
   }

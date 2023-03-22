@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateCustomDomainCommand}.
  */
 export interface DisassociateCustomDomainCommandInput extends DisassociateCustomDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateCustomDomainCommand}.
  */
 export interface DisassociateCustomDomainCommandOutput extends DisassociateCustomDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate a custom domain name from an App Runner service.</p>
  *          <p>Certificates tracking domain validity are associated with a custom domain and are stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide">AWS
  *         Certificate Manager (ACM)</a>. These certificates aren't deleted as part of this action. App Runner delays certificate deletion for
@@ -49,6 +54,8 @@ export interface DisassociateCustomDomainCommandOutput extends DisassociateCusto
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateCustomDomainCommandInput - {@link DisassociateCustomDomainCommandInput}
+ * @returns {@link DisassociateCustomDomainCommandOutput}
  * @see {@link DisassociateCustomDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateCustomDomainCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateCustomDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateCustomDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DisassociateCustomDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateCustomDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DisassociateCustomDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateCustomDomainCommandOutput> {
     return deserializeAws_json1_0DisassociateCustomDomainCommand(output, context);
   }

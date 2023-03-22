@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExtendLicenseConsumptionCommand}.
  */
 export interface ExtendLicenseConsumptionCommandInput extends ExtendLicenseConsumptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExtendLicenseConsumptionCommand}.
  */
 export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseConsumptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Extends the expiration date for license consumption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  * const response = await client.send(command);
  * ```
  *
+ * @param ExtendLicenseConsumptionCommandInput - {@link ExtendLicenseConsumptionCommandInput}
+ * @returns {@link ExtendLicenseConsumptionCommandOutput}
  * @see {@link ExtendLicenseConsumptionCommandInput} for command's `input` shape.
  * @see {@link ExtendLicenseConsumptionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class ExtendLicenseConsumptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExtendLicenseConsumptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ExtendLicenseConsumptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExtendLicenseConsumptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExtendLicenseConsumptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExtendLicenseConsumptionCommandOutput> {
     return deserializeAws_json1_1ExtendLicenseConsumptionCommand(output, context);
   }

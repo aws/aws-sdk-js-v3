@@ -24,15 +24,20 @@ import { deserializeAws_querySendMessageCommand, serializeAws_querySendMessageCo
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendMessageCommand}.
  */
 export interface SendMessageCommandInput extends SendMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendMessageCommand}.
  */
 export interface SendMessageCommandOutput extends SendMessageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delivers a message to the specified queue.</p>
  *          <important>
  *            <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
@@ -51,6 +56,8 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param SendMessageCommandInput - {@link SendMessageCommandInput}
+ * @returns {@link SendMessageCommandOutput}
  * @see {@link SendMessageCommandInput} for command's `input` shape.
  * @see {@link SendMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -80,6 +87,9 @@ export class SendMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class SendMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageCommandOutput> {
     return deserializeAws_querySendMessageCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFirewallCommand}.
  */
 export interface DeleteFirewallCommandInput extends DeleteFirewallRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFirewallCommand}.
  */
 export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>.
  *        This operation requires the firewall's <code>DeleteProtection</code> flag to be
  *             <code>FALSE</code>. You can't revert this operation. </p>
@@ -56,6 +61,8 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallCommandInput - {@link DeleteFirewallCommandInput}
+ * @returns {@link DeleteFirewallCommandOutput}
  * @see {@link DeleteFirewallCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -112,6 +119,9 @@ export class DeleteFirewallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class DeleteFirewallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFirewallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteFirewallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallCommandOutput> {
     return deserializeAws_json1_0DeleteFirewallCommand(output, context);
   }

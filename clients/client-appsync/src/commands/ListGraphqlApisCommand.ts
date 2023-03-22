@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGraphqlApisCommand}.
  */
 export interface ListGraphqlApisCommandInput extends ListGraphqlApisRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGraphqlApisCommand}.
  */
 export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your GraphQL APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGraphqlApisCommandInput - {@link ListGraphqlApisCommandInput}
+ * @returns {@link ListGraphqlApisCommandOutput}
  * @see {@link ListGraphqlApisCommandInput} for command's `input` shape.
  * @see {@link ListGraphqlApisCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListGraphqlApisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGraphqlApisCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListGraphqlApisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGraphqlApisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListGraphqlApisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGraphqlApisCommandOutput> {
     return deserializeAws_restJson1ListGraphqlApisCommand(output, context);
   }

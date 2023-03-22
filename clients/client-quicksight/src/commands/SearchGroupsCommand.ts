@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchGroupsCommand}.
  */
 export interface SearchGroupsCommandInput extends SearchGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchGroupsCommand}.
  */
 export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>SearchGroups</code> operation to search groups in a specified Amazon QuickSight namespace using the supplied filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchGroupsCommandInput - {@link SearchGroupsCommandInput}
+ * @returns {@link SearchGroupsCommandOutput}
  * @see {@link SearchGroupsCommandInput} for command's `input` shape.
  * @see {@link SearchGroupsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +103,9 @@ export class SearchGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class SearchGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchGroupsCommandOutput> {
     return deserializeAws_restJson1SearchGroupsCommand(output, context);
   }

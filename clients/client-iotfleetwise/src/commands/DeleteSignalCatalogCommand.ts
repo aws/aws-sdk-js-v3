@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSignalCatalogCommand}.
  */
 export interface DeleteSignalCatalogCommandInput extends DeleteSignalCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSignalCatalogCommand}.
  */
 export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a signal catalog. </p>
  *         <note>
  *             <p>If the signal catalog is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200
@@ -50,6 +55,8 @@ export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSignalCatalogCommandInput - {@link DeleteSignalCatalogCommandInput}
+ * @returns {@link DeleteSignalCatalogCommandOutput}
  * @see {@link DeleteSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link DeleteSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteSignalCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSignalCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteSignalCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteSignalCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSignalCatalogCommandOutput> {
     return deserializeAws_json1_0DeleteSignalCatalogCommand(output, context);
   }

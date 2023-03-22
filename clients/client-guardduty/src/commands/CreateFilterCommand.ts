@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFilterCommand}.
  */
 export interface CreateFilterCommandInput extends CreateFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFilterCommand}.
  */
 export interface CreateFilterCommandOutput extends CreateFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a filter using the specified finding criteria. The maximum number of saved filters
  *       per Amazon Web Services account per Region is 100. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html">Quotas for GuardDuty</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFilterCommandInput - {@link CreateFilterCommandInput}
+ * @returns {@link CreateFilterCommandOutput}
  * @see {@link CreateFilterCommandInput} for command's `input` shape.
  * @see {@link CreateFilterCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFilterCommandOutput> {
     return deserializeAws_restJson1CreateFilterCommand(output, context);
   }

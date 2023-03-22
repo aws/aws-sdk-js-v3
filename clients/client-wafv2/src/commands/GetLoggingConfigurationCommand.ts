@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoggingConfigurationCommand}.
  */
 export interface GetLoggingConfigurationCommandInput extends GetLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoggingConfigurationCommand}.
  */
 export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoggingConfigurationCommandInput - {@link GetLoggingConfigurationCommandInput}
+ * @returns {@link GetLoggingConfigurationCommandOutput}
  * @see {@link GetLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -103,6 +110,9 @@ export class GetLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class GetLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingConfigurationCommandOutput> {
     return deserializeAws_json1_1GetLoggingConfigurationCommand(output, context);
   }

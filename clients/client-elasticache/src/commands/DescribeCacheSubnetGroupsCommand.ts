@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheSubnetGroupsCommand}.
  */
 export interface DescribeCacheSubnetGroupsCommandInput extends DescribeCacheSubnetGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheSubnetGroupsCommand}.
  */
 export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of cache subnet group
  *             descriptions. If a subnet group name is specified, the list  contains only the
  *             description of that group. This is applicable only when you have ElastiCache in VPC setup. All ElastiCache clusters now launch in VPC by default.
@@ -49,6 +54,8 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheSubnetGroupsCommandInput - {@link DescribeCacheSubnetGroupsCommandInput}
+ * @returns {@link DescribeCacheSubnetGroupsCommandOutput}
  * @see {@link DescribeCacheSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -124,6 +131,9 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

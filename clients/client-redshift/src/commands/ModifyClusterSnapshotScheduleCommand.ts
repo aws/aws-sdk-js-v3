@@ -24,15 +24,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterSnapshotScheduleCommand}.
  */
 export interface ModifyClusterSnapshotScheduleCommandInput extends ModifyClusterSnapshotScheduleMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterSnapshotScheduleCommand}.
  */
 export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a snapshot schedule for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterSnapshotScheduleCommandInput - {@link ModifyClusterSnapshotScheduleCommandInput}
+ * @returns {@link ModifyClusterSnapshotScheduleCommandOutput}
  * @see {@link ModifyClusterSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -77,6 +84,9 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

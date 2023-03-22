@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcEndpointCommand}.
  */
 export interface DeleteVpcEndpointCommandInput extends DeleteVpcEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcEndpointCommand}.
  */
 export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcEndpointCommandInput - {@link DeleteVpcEndpointCommandInput}
+ * @returns {@link DeleteVpcEndpointCommandOutput}
  * @see {@link DeleteVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcEndpointCommandOutput> {
     return deserializeAws_restJson1DeleteVpcEndpointCommand(output, context);
   }

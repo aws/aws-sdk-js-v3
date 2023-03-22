@@ -257,10 +257,12 @@ import {
 import { RoboMakerClient } from "./RoboMakerClient";
 
 /**
+ * @public
  * <p>This section provides documentation for the AWS RoboMaker API operations.</p>
  */
 export class RoboMaker extends RoboMakerClient {
   /**
+   * @public
    * <p>Deletes one or more worlds in a batch operation.</p>
    */
   public batchDeleteWorlds(
@@ -293,6 +295,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more simulation jobs.</p>
    */
   public batchDescribeSimulationJob(
@@ -325,6 +328,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Cancels the specified deployment job.</p>
@@ -362,6 +366,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Cancels the specified simulation job.</p>
    */
   public cancelSimulationJob(
@@ -394,6 +399,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Cancels a simulation job batch. When you cancel a simulation job batch, you are also
    *          cancelling all of the active simulation jobs created as part of the batch. </p>
    */
@@ -427,6 +433,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Cancels the specified export job.</p>
    */
   public cancelWorldExportJob(
@@ -459,6 +466,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Cancels the specified world generator job.</p>
    */
   public cancelWorldGenerationJob(
@@ -491,6 +499,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deploys a specific version of a robot application to robots in a fleet.</p>
@@ -535,6 +544,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Creates a fleet, a logical group of robots running the same robot application.</p>
@@ -566,6 +576,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Creates a robot.</p>
@@ -597,6 +608,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a robot application. </p>
    */
   public createRobotApplication(
@@ -629,6 +641,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a version of a robot application.</p>
    */
   public createRobotApplicationVersion(
@@ -661,6 +674,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a simulation application.</p>
    */
   public createSimulationApplication(
@@ -693,6 +707,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a simulation application with a specific revision id.</p>
    */
   public createSimulationApplicationVersion(
@@ -725,6 +740,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a simulation job.</p>
    *          <note>
    *             <p>After 90 days, simulation jobs expire and will be deleted. They will no longer be
@@ -761,6 +777,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a world export job.</p>
    */
   public createWorldExportJob(
@@ -793,6 +810,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates worlds using the specified template.</p>
    */
   public createWorldGenerationJob(
@@ -825,6 +843,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a world template.</p>
    */
   public createWorldTemplate(
@@ -857,6 +876,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deletes a fleet.</p>
@@ -888,6 +908,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deletes a robot.</p>
@@ -919,6 +940,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a robot application.</p>
    */
   public deleteRobotApplication(
@@ -951,6 +973,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a simulation application.</p>
    */
   public deleteSimulationApplication(
@@ -983,6 +1006,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a world template.</p>
    */
   public deleteWorldTemplate(
@@ -1015,6 +1039,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deregisters a robot.</p>
@@ -1052,6 +1077,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes a deployment job.</p>
@@ -1089,6 +1115,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes a fleet.</p>
@@ -1126,6 +1153,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes a robot.</p>
@@ -1163,6 +1191,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Describes a robot application.</p>
    */
   public describeRobotApplication(
@@ -1195,6 +1224,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Describes a simulation application.</p>
    */
   public describeSimulationApplication(
@@ -1227,6 +1257,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Describes a simulation job.</p>
    */
   public describeSimulationJob(
@@ -1259,6 +1290,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Describes a simulation job batch.</p>
    */
   public describeSimulationJobBatch(
@@ -1291,6 +1323,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Describes a world.</p>
    */
   public describeWorld(
@@ -1323,6 +1356,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Describes a world export job.</p>
    */
   public describeWorldExportJob(
@@ -1355,6 +1389,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Describes a world generation job.</p>
    */
   public describeWorldGenerationJob(
@@ -1387,6 +1422,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Describes a world template.</p>
    */
   public describeWorldTemplate(
@@ -1419,6 +1455,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Gets the world template body.</p>
    */
   public getWorldTemplateBody(
@@ -1451,6 +1488,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve specific deployment jobs.</p>
@@ -1488,6 +1526,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Returns a list of fleets. You can optionally provide filters to retrieve specific fleets.</p>
@@ -1519,6 +1558,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of robot application. You can optionally provide filters to retrieve
    *          specific robot applications.</p>
    */
@@ -1552,6 +1592,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Returns a list of robots. You can optionally provide filters to retrieve specific robots.</p>
@@ -1583,6 +1624,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of simulation applications. You can optionally provide filters to
    *          retrieve specific simulation applications. </p>
    */
@@ -1616,6 +1658,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list simulation job batches. You can optionally provide filters to retrieve
    *          specific simulation batch jobs. </p>
    */
@@ -1649,6 +1692,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
    *          specific simulation jobs. </p>
    */
@@ -1682,6 +1726,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags on a AWS RoboMaker resource.</p>
    */
   public listTagsForResource(
@@ -1714,6 +1759,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists world export jobs.</p>
    */
   public listWorldExportJobs(
@@ -1746,6 +1792,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists world generator jobs.</p>
    */
   public listWorldGenerationJobs(
@@ -1778,6 +1825,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists worlds.</p>
    */
   public listWorlds(args: ListWorldsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorldsCommandOutput>;
@@ -1804,6 +1852,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists world templates.</p>
    */
   public listWorldTemplates(
@@ -1836,6 +1885,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Registers a robot with a fleet.</p>
@@ -1873,6 +1923,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Restarts a running simulation job.</p>
    */
   public restartSimulationJob(
@@ -1905,6 +1956,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Starts a new simulation job batch. The batch is defined using one or more
    *             <code>SimulationJobRequest</code> objects. </p>
    */
@@ -1938,6 +1990,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were added after a deployment.</p>
@@ -1975,6 +2028,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Adds or edits tags for a AWS RoboMaker resource.</p>
    *          <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both
    *          required, but tag values can be empty strings. </p>
@@ -2005,6 +2059,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified AWS RoboMaker resource.</p>
    *          <p>To remove a tag, specify the tag key. To change the tag value of an existing tag key,
    *          use <a href="https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html">
@@ -2041,6 +2096,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Updates a robot application.</p>
    */
   public updateRobotApplication(
@@ -2073,6 +2129,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Updates a simulation application.</p>
    */
   public updateSimulationApplication(
@@ -2105,6 +2162,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @public
    * <p>Updates a world template.</p>
    */
   public updateWorldTemplate(

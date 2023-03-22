@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListContactFlowModulesCommand}.
  */
 export interface ListContactFlowModulesCommandInput extends ListContactFlowModulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContactFlowModulesCommand}.
  */
 export interface ListContactFlowModulesCommandOutput extends ListContactFlowModulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the flow modules for the specified Amazon Connect
  *    instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListContactFlowModulesCommandOutput extends ListContactFlowModu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContactFlowModulesCommandInput - {@link ListContactFlowModulesCommandInput}
+ * @returns {@link ListContactFlowModulesCommandOutput}
  * @see {@link ListContactFlowModulesCommandInput} for command's `input` shape.
  * @see {@link ListContactFlowModulesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListContactFlowModulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactFlowModulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListContactFlowModulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactFlowModulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListContactFlowModulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactFlowModulesCommandOutput> {
     return deserializeAws_restJson1ListContactFlowModulesCommand(output, context);
   }

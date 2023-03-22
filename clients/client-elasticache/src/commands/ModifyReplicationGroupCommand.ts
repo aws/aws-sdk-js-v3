@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReplicationGroupCommand}.
  */
 export interface ModifyReplicationGroupCommandInput extends ModifyReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReplicationGroupCommand}.
  */
 export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a replication group.</p>
  *          <ul>
  *             <li>
@@ -61,6 +66,8 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReplicationGroupCommandInput - {@link ModifyReplicationGroupCommandInput}
+ * @returns {@link ModifyReplicationGroupCommandOutput}
  * @see {@link ModifyReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -207,6 +214,9 @@ export class ModifyReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -246,10 +256,16 @@ export class ModifyReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReplicationGroupCommandOutput> {
     return deserializeAws_queryModifyReplicationGroupCommand(output, context);
   }

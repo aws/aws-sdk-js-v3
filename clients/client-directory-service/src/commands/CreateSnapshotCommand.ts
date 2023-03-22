@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSnapshotCommand}.
  */
 export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSnapshotCommand}.
  */
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of a Simple AD or Microsoft AD directory in the Amazon Web Services cloud.</p>
  *          <note>
  *             <p>You cannot take snapshots of AD Connector directories.</p>
@@ -49,6 +54,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
+ * @returns {@link CreateSnapshotCommandOutput}
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotCommandOutput> {
     return deserializeAws_json1_1CreateSnapshotCommand(output, context);
   }

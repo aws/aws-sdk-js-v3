@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetSampledRequestsCommand}.
  */
 export interface GetSampledRequestsCommandInput extends GetSampledRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSampledRequestsCommand}.
  */
 export interface GetSampledRequestsCommandOutput extends GetSampledRequestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets detailed information about a specified number of requests--a sample--that WAF
  *          randomly selects from among the first 5,000 requests that your Amazon Web Services resource received
  *          during a time range that you choose. You can specify a sample size of up to 500 requests,
@@ -55,6 +60,8 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSampledRequestsCommandInput - {@link GetSampledRequestsCommandInput}
+ * @returns {@link GetSampledRequestsCommandOutput}
  * @see {@link GetSampledRequestsCommandInput} for command's `input` shape.
  * @see {@link GetSampledRequestsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -109,6 +116,9 @@ export class GetSampledRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSampledRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class GetSampledRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSampledRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSampledRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampledRequestsCommandOutput> {
     return deserializeAws_json1_1GetSampledRequestsCommand(output, context);
   }

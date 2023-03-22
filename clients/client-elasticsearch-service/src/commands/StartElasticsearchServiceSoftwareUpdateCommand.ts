@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartElasticsearchServiceSoftwareUpdateCommand}.
  */
 export interface StartElasticsearchServiceSoftwareUpdateCommandInput
   extends StartElasticsearchServiceSoftwareUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartElasticsearchServiceSoftwareUpdateCommand}.
  */
 export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
@@ -42,6 +46,7 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules a service software update for an Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartElasticsearchServiceSoftwareUpdateCommandInput - {@link StartElasticsearchServiceSoftwareUpdateCommandInput}
+ * @returns {@link StartElasticsearchServiceSoftwareUpdateCommandOutput}
  * @see {@link StartElasticsearchServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link StartElasticsearchServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +95,9 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartElasticsearchServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     return serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

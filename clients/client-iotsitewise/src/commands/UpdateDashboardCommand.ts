@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDashboardCommand}.
  */
 export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDashboardCommand}.
  */
 export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an IoT SiteWise Monitor dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDashboardCommandInput - {@link UpdateDashboardCommandInput}
+ * @returns {@link UpdateDashboardCommandOutput}
  * @see {@link UpdateDashboardCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDashboardCommandOutput> {
     return deserializeAws_restJson1UpdateDashboardCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppVersionAppComponentCommand}.
  */
 export interface CreateAppVersionAppComponentCommandInput extends CreateAppVersionAppComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppVersionAppComponentCommand}.
  */
 export interface CreateAppVersionAppComponentCommandOutput
@@ -37,6 +41,7 @@ export interface CreateAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Application Component in the AWS Resilience Hub application.</p>
  *          <note>
  *             <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
@@ -51,6 +56,8 @@ export interface CreateAppVersionAppComponentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppVersionAppComponentCommandInput - {@link CreateAppVersionAppComponentCommandInput}
+ * @returns {@link CreateAppVersionAppComponentCommandOutput}
  * @see {@link CreateAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link CreateAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateAppVersionAppComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppVersionAppComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateAppVersionAppComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppVersionAppComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAppVersionAppComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

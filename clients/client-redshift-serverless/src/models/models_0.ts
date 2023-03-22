@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { RedshiftServerlessServiceException as __BaseException } from "./RedshiftServerlessServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An array of key-value pairs to set for advanced control over Amazon Redshift Serverless.</p>
  */
 export interface ConfigParameter {
@@ -44,6 +46,7 @@ export interface ConfigParameter {
 }
 
 /**
+ * @public
  * <p>The submitted action has conflicts.</p>
  */
 export class ConflictException extends __BaseException {
@@ -63,6 +66,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A map of key-value pairs.</p>
  */
 export interface Tag {
@@ -77,6 +81,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConvertRecoveryPointToSnapshotRequest {
   /**
    * <p>The unique identifier of the recovery point.</p>
@@ -100,6 +107,9 @@ export interface ConvertRecoveryPointToSnapshotRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum SnapshotStatus {
   AVAILABLE = "AVAILABLE",
   CANCELLED = "CANCELLED",
@@ -110,6 +120,7 @@ export enum SnapshotStatus {
 }
 
 /**
+ * @public
  * <p>A snapshot object that contains databases.</p>
  */
 export interface Snapshot {
@@ -215,6 +226,9 @@ export interface Snapshot {
   accountsWithProvisionedRestoreAccess?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ConvertRecoveryPointToSnapshotResponse {
   /**
    * <p>The snapshot converted from the recovery point.</p>
@@ -223,6 +237,7 @@ export interface ConvertRecoveryPointToSnapshotResponse {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or failure.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -243,6 +258,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -268,6 +284,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service limit was exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -287,6 +304,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeded the number of tags allowed for a resource.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -312,6 +330,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -330,6 +349,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateEndpointAccessRequest {
   /**
    * <p>The name of the VPC endpoint. An endpoint name must contain 1-30 characters.
@@ -357,6 +379,7 @@ export interface CreateEndpointAccessRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a network interface
  *          in an Amazon Redshift Serverless managed VPC endpoint.
  *       </p>
@@ -384,6 +407,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>The connection endpoint for connecting to Amazon Redshift Serverless through the proxy.</p>
  */
 export interface VpcEndpoint {
@@ -404,6 +428,7 @@ export interface VpcEndpoint {
 }
 
 /**
+ * @public
  * <p>Describes the members of a VPC security group.</p>
  */
 export interface VpcSecurityGroupMembership {
@@ -419,6 +444,7 @@ export interface VpcSecurityGroupMembership {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon Redshift Serverless VPC endpoint.</p>
  */
 export interface EndpointAccess {
@@ -474,6 +500,9 @@ export interface EndpointAccess {
   endpointArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEndpointAccessResponse {
   /**
    * <p>The created VPC endpoint.</p>
@@ -481,12 +510,18 @@ export interface CreateEndpointAccessResponse {
   endpoint?: EndpointAccess;
 }
 
+/**
+ * @public
+ */
 export enum LogExport {
   CONNECTION_LOG = "connectionlog",
   USER_ACTIVITY_LOG = "useractivitylog",
   USER_LOG = "userlog",
 }
 
+/**
+ * @public
+ */
 export interface CreateNamespaceRequest {
   /**
    * <p>The name of the namespace.</p>
@@ -535,6 +570,9 @@ export interface CreateNamespaceRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum NamespaceStatus {
   AVAILABLE = "AVAILABLE",
   DELETING = "DELETING",
@@ -542,6 +580,7 @@ export enum NamespaceStatus {
 }
 
 /**
+ * @public
  * <p>A collection of database objects and users.</p>
  */
 export interface Namespace {
@@ -604,6 +643,9 @@ export interface Namespace {
   creationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateNamespaceResponse {
   /**
    * <p>The created namespace object.</p>
@@ -611,6 +653,9 @@ export interface CreateNamespaceResponse {
   namespace?: Namespace;
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotRequest {
   /**
    * <p>The namespace to create a snapshot for.</p>
@@ -633,6 +678,9 @@ export interface CreateSnapshotRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotResponse {
   /**
    * <p>The created snapshot object.</p>
@@ -640,23 +688,35 @@ export interface CreateSnapshotResponse {
   snapshot?: Snapshot;
 }
 
+/**
+ * @public
+ */
 export enum UsageLimitBreachAction {
   DEACTIVATE = "deactivate",
   EMIT_METRIC = "emit-metric",
   LOG = "log",
 }
 
+/**
+ * @public
+ */
 export enum UsageLimitPeriod {
   DAILY = "daily",
   MONTHLY = "monthly",
   WEEKLY = "weekly",
 }
 
+/**
+ * @public
+ */
 export enum UsageLimitUsageType {
   CROSS_REGION_DATASHARING = "cross-region-datasharing",
   SERVERLESS_COMPUTE = "serverless-compute",
 }
 
+/**
+ * @public
+ */
 export interface CreateUsageLimitRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.</p>
@@ -686,6 +746,7 @@ export interface CreateUsageLimitRequest {
 }
 
 /**
+ * @public
  * <p>The usage limit object.</p>
  */
 export interface UsageLimit {
@@ -725,6 +786,9 @@ export interface UsageLimit {
   breachAction?: UsageLimitBreachAction | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUsageLimitResponse {
   /**
    * <p>The returned usage limit object.</p>
@@ -732,6 +796,9 @@ export interface CreateUsageLimitResponse {
   usageLimit?: UsageLimit;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkgroupRequest {
   /**
    * <p>The name of the created workgroup.</p>
@@ -790,6 +857,7 @@ export interface CreateWorkgroupRequest {
 }
 
 /**
+ * @public
  * <p>The VPC endpoint object.</p>
  */
 export interface Endpoint {
@@ -809,6 +877,9 @@ export interface Endpoint {
   vpcEndpoints?: VpcEndpoint[];
 }
 
+/**
+ * @public
+ */
 export enum WorkgroupStatus {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -817,6 +888,7 @@ export enum WorkgroupStatus {
 }
 
 /**
+ * @public
  * <p>The collection of computing resources from which an endpoint is created.</p>
  */
 export interface Workgroup {
@@ -896,6 +968,9 @@ export interface Workgroup {
   port?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkgroupResponse {
   /**
    * <p>The created workgroup object.</p>
@@ -904,6 +979,7 @@ export interface CreateWorkgroupResponse {
 }
 
 /**
+ * @public
  * <p>There is an insufficient capacity to perform the action.</p>
  */
 export class InsufficientCapacityException extends __BaseException {
@@ -923,6 +999,9 @@ export class InsufficientCapacityException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointAccessRequest {
   /**
    * <p>The name of the VPC endpoint to delete.</p>
@@ -930,6 +1009,9 @@ export interface DeleteEndpointAccessRequest {
   endpointName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointAccessResponse {
   /**
    * <p>The deleted VPC endpoint.</p>
@@ -937,6 +1019,9 @@ export interface DeleteEndpointAccessResponse {
   endpoint?: EndpointAccess;
 }
 
+/**
+ * @public
+ */
 export interface GetEndpointAccessRequest {
   /**
    * <p>The name of the VPC endpoint to return information for.</p>
@@ -944,6 +1029,9 @@ export interface GetEndpointAccessRequest {
   endpointName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEndpointAccessResponse {
   /**
    * <p>The returned VPC endpoint.</p>
@@ -951,6 +1039,9 @@ export interface GetEndpointAccessResponse {
   endpoint?: EndpointAccess;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointAccessRequest {
   /**
    * <p>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>,
@@ -976,6 +1067,9 @@ export interface ListEndpointAccessRequest {
   vpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointAccessResponse {
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available.
@@ -990,6 +1084,9 @@ export interface ListEndpointAccessResponse {
   endpoints: EndpointAccess[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointAccessRequest {
   /**
    * <p>The name of the VPC endpoint to update.</p>
@@ -1002,6 +1099,9 @@ export interface UpdateEndpointAccessRequest {
   vpcSecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateEndpointAccessResponse {
   /**
    * <p>The updated VPC endpoint.</p>
@@ -1009,6 +1109,9 @@ export interface UpdateEndpointAccessResponse {
   endpoint?: EndpointAccess;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceRequest {
   /**
    * <p>The name of the namespace to delete.</p>
@@ -1026,6 +1129,9 @@ export interface DeleteNamespaceRequest {
   finalSnapshotRetentionPeriod?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceResponse {
   /**
    * <p>The deleted namespace object.</p>
@@ -1033,6 +1139,9 @@ export interface DeleteNamespaceResponse {
   namespace: Namespace | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the policy to delete.</p>
@@ -1040,8 +1149,14 @@ export interface DeleteResourcePolicyRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotRequest {
   /**
    * <p>The name of the snapshot to be deleted.</p>
@@ -1049,6 +1164,9 @@ export interface DeleteSnapshotRequest {
   snapshotName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotResponse {
   /**
    * <p>The deleted snapshot object.</p>
@@ -1056,6 +1174,9 @@ export interface DeleteSnapshotResponse {
   snapshot?: Snapshot;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUsageLimitRequest {
   /**
    * <p>The unique identifier of the usage limit to delete.</p>
@@ -1063,6 +1184,9 @@ export interface DeleteUsageLimitRequest {
   usageLimitId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUsageLimitResponse {
   /**
    * <p>The deleted usage limit object.</p>
@@ -1070,6 +1194,9 @@ export interface DeleteUsageLimitResponse {
   usageLimit?: UsageLimit;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkgroupRequest {
   /**
    * <p>The name of the workgroup to be deleted.</p>
@@ -1077,6 +1204,9 @@ export interface DeleteWorkgroupRequest {
   workgroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkgroupResponse {
   /**
    * <p>The deleted workgroup object.</p>
@@ -1084,6 +1214,9 @@ export interface DeleteWorkgroupResponse {
   workgroup: Workgroup | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCredentialsRequest {
   /**
    * <p>The name of the workgroup associated with the database.</p>
@@ -1122,6 +1255,9 @@ export interface GetCredentialsRequest {
   durationSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetCredentialsResponse {
   /**
    * <p>A database user name that is authorized to log on to the database <code>DbName</code>
@@ -1149,6 +1285,9 @@ export interface GetCredentialsResponse {
   nextRefreshTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetNamespaceRequest {
   /**
    * <p>The name of the namespace to retrieve information for.</p>
@@ -1156,6 +1295,9 @@ export interface GetNamespaceRequest {
   namespaceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNamespaceResponse {
   /**
    * <p>The returned namespace object.</p>
@@ -1163,6 +1305,9 @@ export interface GetNamespaceResponse {
   namespace: Namespace | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRecoveryPointRequest {
   /**
    * <p>The unique identifier of the recovery point to return information for.</p>
@@ -1171,6 +1316,7 @@ export interface GetRecoveryPointRequest {
 }
 
 /**
+ * @public
  * <p>The automatically created recovery point of a namespace.
  *          Recovery points are created every 30 minutes and kept for 24 hours.</p>
  */
@@ -1206,6 +1352,9 @@ export interface RecoveryPoint {
   namespaceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRecoveryPointResponse {
   /**
    * <p>The returned recovery point object.</p>
@@ -1213,6 +1362,9 @@ export interface GetRecoveryPointResponse {
   recoveryPoint?: RecoveryPoint;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to return.</p>
@@ -1221,6 +1373,7 @@ export interface GetResourcePolicyRequest {
 }
 
 /**
+ * @public
  * <p>The resource policy object. Currently, you can use policies to share snapshots across Amazon Web Services accounts.</p>
  */
 export interface ResourcePolicy {
@@ -1235,6 +1388,9 @@ export interface ResourcePolicy {
   policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyResponse {
   /**
    * <p>The returned resource policy.</p>
@@ -1242,6 +1398,9 @@ export interface GetResourcePolicyResponse {
   resourcePolicy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetSnapshotRequest {
   /**
    * <p>The name of the snapshot to return.</p>
@@ -1259,6 +1418,9 @@ export interface GetSnapshotRequest {
   snapshotArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSnapshotResponse {
   /**
    * <p>The returned snapshot object.</p>
@@ -1266,6 +1428,9 @@ export interface GetSnapshotResponse {
   snapshot?: Snapshot;
 }
 
+/**
+ * @public
+ */
 export interface GetTableRestoreStatusRequest {
   /**
    * <p>The ID of the <code>RestoreTableFromSnapshot</code> request to return status for.</p>
@@ -1274,6 +1439,7 @@ export interface GetTableRestoreStatusRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a table restore request.</p>
  */
 export interface TableRestoreStatus {
@@ -1356,6 +1522,9 @@ export interface TableRestoreStatus {
   newTableName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTableRestoreStatusResponse {
   /**
    * <p>The returned <code>TableRestoreStatus</code> object that contains information about
@@ -1364,6 +1533,9 @@ export interface GetTableRestoreStatusResponse {
   tableRestoreStatus?: TableRestoreStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetUsageLimitRequest {
   /**
    * <p>The unique identifier of the usage limit to return information for.</p>
@@ -1371,6 +1543,9 @@ export interface GetUsageLimitRequest {
   usageLimitId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetUsageLimitResponse {
   /**
    * <p>The returned usage limit object.</p>
@@ -1378,6 +1553,9 @@ export interface GetUsageLimitResponse {
   usageLimit?: UsageLimit;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkgroupRequest {
   /**
    * <p>The name of the workgroup to return information for.</p>
@@ -1385,6 +1563,9 @@ export interface GetWorkgroupRequest {
   workgroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkgroupResponse {
   /**
    * <p>The returned workgroup object.</p>
@@ -1393,6 +1574,7 @@ export interface GetWorkgroupResponse {
 }
 
 /**
+ * @public
  * <p>The provided pagination token is invalid.</p>
  */
 export class InvalidPaginationException extends __BaseException {
@@ -1411,6 +1593,9 @@ export class InvalidPaginationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListNamespacesRequest {
   /**
    * <p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>,
@@ -1426,6 +1611,9 @@ export interface ListNamespacesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNamespacesResponse {
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available.
@@ -1440,6 +1628,9 @@ export interface ListNamespacesResponse {
   namespaces: Namespace[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRecoveryPointsRequest {
   /**
    * <p>If your initial <code>ListRecoveryPoints</code> operation returns a <code>nextToken</code>,
@@ -1475,6 +1666,9 @@ export interface ListRecoveryPointsRequest {
   namespaceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecoveryPointsResponse {
   /**
    * <p>The returned recovery point objects.</p>
@@ -1489,6 +1683,9 @@ export interface ListRecoveryPointsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSnapshotsRequest {
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available.
@@ -1529,6 +1726,9 @@ export interface ListSnapshotsRequest {
   endTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSnapshotsResponse {
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available.
@@ -1543,6 +1743,9 @@ export interface ListSnapshotsResponse {
   snapshots?: Snapshot[];
 }
 
+/**
+ * @public
+ */
 export interface ListTableRestoreStatusRequest {
   /**
    * <p>If your initial <code>ListTableRestoreStatus</code> operation returns a nextToken,
@@ -1568,6 +1771,9 @@ export interface ListTableRestoreStatusRequest {
   workgroupName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTableRestoreStatusResponse {
   /**
    * <p>If your initial <code>ListTableRestoreStatus</code> operation returns a <code>nextToken</code>,
@@ -1582,6 +1788,9 @@ export interface ListTableRestoreStatusResponse {
   tableRestoreStatuses?: TableRestoreStatus[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
@@ -1589,6 +1798,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A map of the key-value pairs assigned to the resource.</p>
@@ -1597,6 +1809,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -1618,6 +1831,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListUsageLimitsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource whose usage limits you want to list.</p>
@@ -1644,6 +1860,9 @@ export interface ListUsageLimitsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListUsageLimitsResponse {
   /**
    * <p>An array of returned usage limit objects.</p>
@@ -1658,6 +1877,9 @@ export interface ListUsageLimitsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkgroupsRequest {
   /**
    * <p>If your initial ListWorkgroups operation returns a <code>nextToken</code>,
@@ -1673,6 +1895,9 @@ export interface ListWorkgroupsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkgroupsResponse {
   /**
    * <p>
@@ -1688,6 +1913,9 @@ export interface ListWorkgroupsResponse {
   workgroups: Workgroup[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNamespaceRequest {
   /**
    * <p>The name of the namespace to update. You can't update the name of a namespace once it is created.</p>
@@ -1728,6 +1956,9 @@ export interface UpdateNamespaceRequest {
   logExports?: (LogExport | string)[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateNamespaceResponse {
   /**
    * <p>A list of tag instances.</p>
@@ -1735,6 +1966,9 @@ export interface UpdateNamespaceResponse {
   namespace: Namespace | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the account to create or update a resource policy for.</p>
@@ -1744,15 +1978,18 @@ export interface PutResourcePolicyRequest {
   /**
    * <p>The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.</p>
    *          <p>
-   *             <code>"{\"Version\": \"2012-10-17\", \"Statement\" :
-   *             [{ \"Sid\": \"AllowUserRestoreFromSnapshot\", \"Principal\":{\"AWS\":
-   *             [\"739247239426\"]}, \"Action\": [\"redshift-serverless:RestoreFromSnapshot\"]
-   *             , \"Effect\": \"Allow\" }]}"</code>
+   *             <code>"\{\"Version\": \"2012-10-17\", \"Statement\" :
+   *             [\{ \"Sid\": \"AllowUserRestoreFromSnapshot\", \"Principal\":\{\"AWS\":
+   *             [\"739247239426\"]\}, \"Action\": [\"redshift-serverless:RestoreFromSnapshot\"]
+   *             , \"Effect\": \"Allow\" \}]\}"</code>
    *          </p>
    */
   policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>The policy that was created or updated.</p>
@@ -1760,6 +1997,9 @@ export interface PutResourcePolicyResponse {
   resourcePolicy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface RestoreFromRecoveryPointRequest {
   /**
    * <p>The unique identifier of the recovery point to restore from.</p>
@@ -1777,6 +2017,9 @@ export interface RestoreFromRecoveryPointRequest {
   workgroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreFromRecoveryPointResponse {
   /**
    * <p>The unique identifier of the recovery point used for the restore.</p>
@@ -1789,6 +2032,9 @@ export interface RestoreFromRecoveryPointResponse {
   namespace?: Namespace;
 }
 
+/**
+ * @public
+ */
 export interface RestoreFromSnapshotRequest {
   /**
    * <p>The name of the namespace to restore the snapshot to.</p>
@@ -1818,6 +2064,9 @@ export interface RestoreFromSnapshotRequest {
   ownerAccount?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestoreFromSnapshotResponse {
   /**
    * <p>The name of the snapshot used to restore the namespace.</p>
@@ -1835,6 +2084,9 @@ export interface RestoreFromSnapshotResponse {
   namespace?: Namespace;
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableFromSnapshotRequest {
   /**
    * <p>The namespace of the snapshot to restore from.</p>
@@ -1889,6 +2141,9 @@ export interface RestoreTableFromSnapshotRequest {
   activateCaseSensitiveIdentifier?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableFromSnapshotResponse {
   /**
    * <p>The TableRestoreStatus object that contains the status of the restore operation.</p>
@@ -1896,6 +2151,9 @@ export interface RestoreTableFromSnapshotResponse {
   tableRestoreStatus?: TableRestoreStatus;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSnapshotRequest {
   /**
    * <p>The name of the snapshot.</p>
@@ -1908,6 +2166,9 @@ export interface UpdateSnapshotRequest {
   retentionPeriod?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSnapshotResponse {
   /**
    * <p>The updated snapshot object.</p>
@@ -1915,6 +2176,9 @@ export interface UpdateSnapshotResponse {
   snapshot?: Snapshot;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
@@ -1927,8 +2191,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
@@ -1941,8 +2211,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateUsageLimitRequest {
   /**
    * <p>The identifier of the usage limit to update.</p>
@@ -1962,6 +2238,9 @@ export interface UpdateUsageLimitRequest {
   breachAction?: UsageLimitBreachAction | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUsageLimitResponse {
   /**
    * <p>The updated usage limit object.</p>
@@ -1969,6 +2248,9 @@ export interface UpdateUsageLimitResponse {
   usageLimit?: UsageLimit;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkgroupRequest {
   /**
    * <p>The name of the workgroup to update. You can't update the name of a workgroup once it is created.</p>
@@ -2017,6 +2299,9 @@ export interface UpdateWorkgroupRequest {
   port?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkgroupResponse {
   /**
    * <p>The updated workgroup object.</p>

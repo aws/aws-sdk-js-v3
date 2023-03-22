@@ -26,10 +26,14 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListBucketMetricsConfigurationsCommand}.
  */
 export interface ListBucketMetricsConfigurationsCommandInput extends ListBucketMetricsConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBucketMetricsConfigurationsCommand}.
  */
 export interface ListBucketMetricsConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListBucketMetricsConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the metrics configurations for the bucket. The metrics configurations are only for
  *          the request metrics of the bucket and do not provide information on daily storage metrics.
  *          You can have up to 1,000 configurations per bucket.</p>
@@ -84,6 +89,8 @@ export interface ListBucketMetricsConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBucketMetricsConfigurationsCommandInput - {@link ListBucketMetricsConfigurationsCommandInput}
+ * @returns {@link ListBucketMetricsConfigurationsCommandOutput}
  * @see {@link ListBucketMetricsConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketMetricsConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -113,6 +120,9 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBucketMetricsConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,6 +162,9 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListBucketMetricsConfigurationsCommandInput,
     context: __SerdeContext
@@ -159,6 +172,9 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
     return serializeAws_restXmlListBucketMetricsConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

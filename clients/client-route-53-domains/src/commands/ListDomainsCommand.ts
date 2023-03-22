@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandInput extends ListDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns all the domain names registered with Amazon Route 53 for the
  * 			current Amazon Web Services account if no filtering conditions are used.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
+ * @returns {@link ListDomainsCommandOutput}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsCommandOutput> {
     return deserializeAws_json1_1ListDomainsCommand(output, context);
   }

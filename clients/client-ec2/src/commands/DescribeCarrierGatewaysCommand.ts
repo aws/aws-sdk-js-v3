@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCarrierGatewaysCommand}.
  */
 export interface DescribeCarrierGatewaysCommandInput extends DescribeCarrierGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCarrierGatewaysCommand}.
  */
 export interface DescribeCarrierGatewaysCommandOutput extends DescribeCarrierGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your carrier gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCarrierGatewaysCommandOutput extends DescribeCarrierGat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCarrierGatewaysCommandInput - {@link DescribeCarrierGatewaysCommandInput}
+ * @returns {@link DescribeCarrierGatewaysCommandOutput}
  * @see {@link DescribeCarrierGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeCarrierGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeCarrierGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCarrierGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeCarrierGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCarrierGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeCarrierGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCarrierGatewaysCommandOutput> {
     return deserializeAws_ec2DescribeCarrierGatewaysCommand(output, context);
   }

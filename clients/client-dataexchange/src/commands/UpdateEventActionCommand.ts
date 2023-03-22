@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventActionCommand}.
  */
 export interface UpdateEventActionCommandInput extends UpdateEventActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventActionCommand}.
  */
 export interface UpdateEventActionCommandOutput extends UpdateEventActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation updates the event action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEventActionCommandOutput extends UpdateEventActionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventActionCommandInput - {@link UpdateEventActionCommandInput}
+ * @returns {@link UpdateEventActionCommandOutput}
  * @see {@link UpdateEventActionCommandInput} for command's `input` shape.
  * @see {@link UpdateEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateEventActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateEventActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEventActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventActionCommandOutput> {
     return deserializeAws_restJson1UpdateEventActionCommand(output, context);
   }

@@ -105,11 +105,13 @@ import {
 import { MediaStoreClient } from "./MediaStoreClient";
 
 /**
+ * @public
  * <p>An AWS Elemental MediaStore container is a namespace that holds folders and objects.
  *          You use a container endpoint to create, read, and delete objects. </p>
  */
 export class MediaStore extends MediaStoreClient {
   /**
+   * @public
    * <p>Creates a storage container to hold objects. A container is similar to a bucket in
    *          the Amazon S3 service.</p>
    */
@@ -143,6 +145,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified container. Before you make a <code>DeleteContainer</code>
    *          request, delete any objects in the container or in any folders in the container. You can
    *          delete only empty containers. </p>
@@ -177,6 +180,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Deletes the access policy that is associated with the specified container.</p>
    */
   public deleteContainerPolicy(
@@ -209,6 +213,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Deletes the cross-origin resource sharing (CORS) configuration information that is
    *          set for the container.</p>
    *          <p>To use this operation, you must have permission to perform the
@@ -245,6 +250,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Removes an object lifecycle policy from a container. It takes up to 20 minutes for the change to take effect.</p>
    */
   public deleteLifecyclePolicy(
@@ -277,6 +283,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Deletes the metric policy that is associated with the specified container. If there is no metric policy associated with the container, MediaStore doesn't send metrics to CloudWatch.</p>
    */
   public deleteMetricPolicy(
@@ -309,6 +316,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the properties of the requested container. This request is commonly used to
    *          retrieve the endpoint of a container. An endpoint is a value assigned by the service when a
    *          new container is created. A container's endpoint does not change after it has been
@@ -347,6 +355,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the access policy for the specified container. For information about the
    *          data that is included in an access policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and Access Management User
    *             Guide</a>.</p>
@@ -381,6 +390,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Returns the cross-origin resource sharing (CORS) configuration information that is
    *          set for the container.</p>
    *          <p>To use this operation, you must have permission to perform the
@@ -417,6 +427,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the object lifecycle policy that is assigned to a container.</p>
    */
   public getLifecyclePolicy(
@@ -449,6 +460,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Returns the metric policy for the specified container. </p>
    */
   public getMetricPolicy(
@@ -481,6 +493,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Lists the properties of all containers in AWS Elemental MediaStore. </p>
    *          <p>You can query to receive all the containers in one response. Or you can include the
    *             <code>MaxResults</code> parameter to receive a limited number of containers in each
@@ -521,6 +534,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the tags assigned to the specified container. </p>
    */
   public listTagsForResource(
@@ -553,6 +567,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Creates an access policy for the specified container to restrict the users and
    *          clients that can access it. For information about the data that is included in an access
    *          policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and
@@ -591,6 +606,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Sets the cross-origin resource sharing (CORS) configuration on a container so that
    *          the container can service cross-origin requests. For example, you might want to enable a
    *          request whose origin is http://www.example.com to access your AWS Elemental MediaStore
@@ -633,6 +649,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.</p>
    *          <p>For information about how to construct an object lifecycle policy, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html">Components of an Object Lifecycle Policy</a>.</p>
    */
@@ -666,6 +683,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.</p>
    */
   public putMetricPolicy(
@@ -698,6 +716,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.</p>
    */
   public startAccessLogging(
@@ -730,6 +749,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.</p>
    */
   public stopAccessLogging(
@@ -762,6 +782,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to the specified AWS Elemental MediaStore container. Tags are key:value pairs that you can associate with AWS resources. For example, the
    *             tag key might be "customer" and the tag value might be "companyA." You can specify one or more tags to add to each container. You can add up to 50
    *             tags to each container. For more information about tagging, including naming and usage conventions, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html">Tagging Resources in MediaStore</a>.</p>
@@ -790,6 +811,7 @@ export class MediaStore extends MediaStoreClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from the specified container. You can specify one or more tags to remove. </p>
    */
   public untagResource(

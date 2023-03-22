@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcClassicLinkDnsSupportCommand}.
  */
 export interface DescribeVpcClassicLinkDnsSupportCommandInput extends DescribeVpcClassicLinkDnsSupportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcClassicLinkDnsSupportCommand}.
  */
 export interface DescribeVpcClassicLinkDnsSupportCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -55,6 +60,8 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcClassicLinkDnsSupportCommandInput - {@link DescribeVpcClassicLinkDnsSupportCommandInput}
+ * @returns {@link DescribeVpcClassicLinkDnsSupportCommandOutput}
  * @see {@link DescribeVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcClassicLinkDnsSupportCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     return serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

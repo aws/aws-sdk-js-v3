@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRecipeCommand}.
  */
 export interface UpdateRecipeCommandInput extends UpdateRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRecipeCommand}.
  */
 export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the definition of the <code>LATEST_WORKING</code> version of a DataBrew
  *             recipe.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecipeCommandInput - {@link UpdateRecipeCommandInput}
+ * @returns {@link UpdateRecipeCommandOutput}
  * @see {@link UpdateRecipeCommandInput} for command's `input` shape.
  * @see {@link UpdateRecipeCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class UpdateRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecipeCommandOutput> {
     return deserializeAws_restJson1UpdateRecipeCommand(output, context);
   }

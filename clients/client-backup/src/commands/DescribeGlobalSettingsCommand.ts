@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGlobalSettingsCommand}.
  */
 export interface DescribeGlobalSettingsCommandInput extends DescribeGlobalSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGlobalSettingsCommand}.
  */
 export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes whether the Amazon Web Services account is opted in to cross-account backup.
  *          Returns an error if the account is not a member of an Organizations organization.
  *          Example: <code>describe-global-settings --region us-west-2</code>
@@ -49,6 +54,8 @@ export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSetti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalSettingsCommandInput - {@link DescribeGlobalSettingsCommandInput}
+ * @returns {@link DescribeGlobalSettingsCommandOutput}
  * @see {@link DescribeGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalSettingsCommandOutput> {
     return deserializeAws_restJson1DescribeGlobalSettingsCommand(output, context);
   }

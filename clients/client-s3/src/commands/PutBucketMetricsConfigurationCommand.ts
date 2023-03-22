@@ -24,15 +24,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketMetricsConfigurationCommand}.
  */
 export interface PutBucketMetricsConfigurationCommandInput extends PutBucketMetricsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketMetricsConfigurationCommand}.
  */
 export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
  *          You can have up to 1,000 metrics configurations per bucket. If you're updating an existing
  *          metrics configuration, note that this is a full replacement of the existing metrics
@@ -90,6 +95,8 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketMetricsConfigurationCommandInput - {@link PutBucketMetricsConfigurationCommandInput}
+ * @returns {@link PutBucketMetricsConfigurationCommandOutput}
  * @see {@link PutBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -119,6 +126,9 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketMetricsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketMetricsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketMetricsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

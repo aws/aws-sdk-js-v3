@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddRoleToDBClusterCommand}.
  */
 export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddRoleToDBClusterCommand}.
  */
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Identity and Access Management (IAM) role with an
  *       Neptune DB cluster.</p>
  * @example
@@ -42,6 +47,8 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddRoleToDBClusterCommandInput - {@link AddRoleToDBClusterCommandInput}
+ * @returns {@link AddRoleToDBClusterCommandOutput}
  * @see {@link AddRoleToDBClusterCommandInput} for command's `input` shape.
  * @see {@link AddRoleToDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -78,6 +85,9 @@ export class AddRoleToDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddRoleToDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class AddRoleToDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddRoleToDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddRoleToDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToDBClusterCommandOutput> {
     return deserializeAws_queryAddRoleToDBClusterCommand(output, context);
   }

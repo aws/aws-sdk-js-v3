@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminEnableUserCommand}.
  */
 export interface AdminEnableUserCommandInput extends AdminEnableUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminEnableUserCommand}.
  */
 export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified user as an administrator. Works on any user.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -52,6 +57,8 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminEnableUserCommandInput - {@link AdminEnableUserCommandInput}
+ * @returns {@link AdminEnableUserCommandOutput}
  * @see {@link AdminEnableUserCommandInput} for command's `input` shape.
  * @see {@link AdminEnableUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +103,9 @@ export class AdminEnableUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminEnableUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class AdminEnableUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminEnableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminEnableUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminEnableUserCommandOutput> {
     return deserializeAws_json1_1AdminEnableUserCommand(output, context);
   }

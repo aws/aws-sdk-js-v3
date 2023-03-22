@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFailbackReplicationConfigurationCommand}.
  */
 export interface UpdateFailbackReplicationConfigurationCommandInput
   extends UpdateFailbackReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFailbackReplicationConfigurationCommand}.
  */
 export interface UpdateFailbackReplicationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to update the failback replication configuration of a Recovery Instance by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFailbackReplicationConfigurationCommandInput - {@link UpdateFailbackReplicationConfigurationCommandInput}
+ * @returns {@link UpdateFailbackReplicationConfigurationCommandOutput}
  * @see {@link UpdateFailbackReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFailbackReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateFailbackReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFailbackReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class UpdateFailbackReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFailbackReplicationConfigurationCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class UpdateFailbackReplicationConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateFailbackReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

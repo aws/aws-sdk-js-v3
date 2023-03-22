@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCapacityReservationFleetCommand}.
  */
 export interface CreateCapacityReservationFleetCommandInput extends CreateCapacityReservationFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCapacityReservationFleetCommand}.
  */
 export interface CreateCapacityReservationFleetCommandOutput
@@ -37,6 +41,7 @@ export interface CreateCapacityReservationFleetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a Capacity
  * 			Reservation Fleet</a> in the Amazon EC2 User Guide.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateCapacityReservationFleetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCapacityReservationFleetCommandInput - {@link CreateCapacityReservationFleetCommandInput}
+ * @returns {@link CreateCapacityReservationFleetCommandOutput}
  * @see {@link CreateCapacityReservationFleetCommandInput} for command's `input` shape.
  * @see {@link CreateCapacityReservationFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateCapacityReservationFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCapacityReservationFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class CreateCapacityReservationFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateCapacityReservationFleetCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class CreateCapacityReservationFleetCommand extends $Command<
     return serializeAws_ec2CreateCapacityReservationFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

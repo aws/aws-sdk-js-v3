@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOpsMetadataCommand}.
  */
 export interface DeleteOpsMetadataCommandInput extends DeleteOpsMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOpsMetadataCommand}.
  */
 export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete OpsMetadata related to an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOpsMetadataCommandInput - {@link DeleteOpsMetadataCommandInput}
+ * @returns {@link DeleteOpsMetadataCommandOutput}
  * @see {@link DeleteOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link DeleteOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteOpsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOpsMetadataCommandOutput> {
     return deserializeAws_json1_1DeleteOpsMetadataCommand(output, context);
   }

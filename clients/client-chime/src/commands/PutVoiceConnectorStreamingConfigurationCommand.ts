@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorStreamingConfigurationCommand}.
  */
 export interface PutVoiceConnectorStreamingConfigurationCommandInput
   extends PutVoiceConnectorStreamingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorStreamingConfigurationCommand}.
  */
 export interface PutVoiceConnectorStreamingConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming
  *             configuration specifies whether media streaming is enabled for sending to Kinesis.
  *             It also sets the retention period, in hours, for the Amazon Kinesis data.</p>
@@ -51,6 +56,8 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorStreamingConfigurationCommandInput - {@link PutVoiceConnectorStreamingConfigurationCommandInput}
+ * @returns {@link PutVoiceConnectorStreamingConfigurationCommandOutput}
  * @see {@link PutVoiceConnectorStreamingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorStreamingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -95,6 +102,9 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorStreamingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVoiceConnectorStreamingConfigurationCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
     return serializeAws_restJson1PutVoiceConnectorStreamingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

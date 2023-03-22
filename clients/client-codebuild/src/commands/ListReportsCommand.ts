@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReportsCommand}.
  */
 export interface ListReportsCommandInput extends ListReportsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListReportsCommand}.
  */
 export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns a list of ARNs for the reports in the current Amazon Web Services account.
  *     </p>
@@ -48,6 +53,8 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReportsCommandInput - {@link ListReportsCommandInput}
+ * @returns {@link ListReportsCommandOutput}
  * @see {@link ListReportsCommandInput} for command's `input` shape.
  * @see {@link ListReportsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReportsCommandOutput> {
     return deserializeAws_json1_1ListReportsCommand(output, context);
   }

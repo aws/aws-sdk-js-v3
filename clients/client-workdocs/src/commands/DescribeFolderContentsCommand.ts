@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFolderContentsCommand}.
  */
 export interface DescribeFolderContentsCommandInput extends DescribeFolderContentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFolderContentsCommand}.
  */
 export interface DescribeFolderContentsCommandOutput extends DescribeFolderContentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the contents of the specified folder, including its documents and
  *             subfolders.</p>
  *          <p>By default, Amazon WorkDocs returns the first 100 active document and folder
@@ -51,6 +56,8 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFolderContentsCommandInput - {@link DescribeFolderContentsCommandInput}
+ * @returns {@link DescribeFolderContentsCommandOutput}
  * @see {@link DescribeFolderContentsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderContentsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeFolderContentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFolderContentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeFolderContentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFolderContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFolderContentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFolderContentsCommandOutput> {
     return deserializeAws_restJson1DescribeFolderContentsCommand(output, context);
   }

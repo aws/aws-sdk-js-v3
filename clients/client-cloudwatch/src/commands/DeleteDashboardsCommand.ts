@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDashboardsCommand}.
  */
 export interface DeleteDashboardsCommandInput extends DeleteDashboardsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDashboardsCommand}.
  */
 export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all dashboards that you specify. You
  * 			can specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are
  * 			deleted.</p>
@@ -48,6 +53,8 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDashboardsCommandInput - {@link DeleteDashboardsCommandInput}
+ * @returns {@link DeleteDashboardsCommandOutput}
  * @see {@link DeleteDashboardsCommandInput} for command's `input` shape.
  * @see {@link DeleteDashboardsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteDashboardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDashboardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteDashboardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDashboardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDashboardsCommandOutput> {
     return deserializeAws_queryDeleteDashboardsCommand(output, context);
   }

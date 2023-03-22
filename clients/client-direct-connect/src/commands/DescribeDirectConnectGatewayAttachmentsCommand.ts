@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDirectConnectGatewayAttachmentsCommand}.
  */
 export interface DescribeDirectConnectGatewayAttachmentsCommandInput
   extends DescribeDirectConnectGatewayAttachmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDirectConnectGatewayAttachmentsCommand}.
  */
 export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify
  *       a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains
  *       all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the
@@ -53,6 +58,8 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectConnectGatewayAttachmentsCommandInput - {@link DescribeDirectConnectGatewayAttachmentsCommandInput}
+ * @returns {@link DescribeDirectConnectGatewayAttachmentsCommandOutput}
  * @see {@link DescribeDirectConnectGatewayAttachmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewayAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectConnectGatewayAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDirectConnectGatewayAttachmentsCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     return serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

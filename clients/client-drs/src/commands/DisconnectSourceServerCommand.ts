@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisconnectSourceServerCommand}.
  */
 export interface DisconnectSourceServerCommandInput extends DisconnectSourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisconnectSourceServerCommand}.
  */
 export interface DisconnectSourceServerCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects a specific Source Server from Elastic Disaster Recovery. Data replication is stopped immediately. All AWS resources created by Elastic Disaster Recovery for enabling the replication of the Source Server will be terminated / deleted within 90 minutes. You cannot disconnect a Source Server if it has a Recovery Instance. If the agent on the Source Server has not been prevented from communicating with the Elastic Disaster Recovery service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectSourceServerCommandInput - {@link DisconnectSourceServerCommandInput}
+ * @returns {@link DisconnectSourceServerCommandOutput}
  * @see {@link DisconnectSourceServerCommandInput} for command's `input` shape.
  * @see {@link DisconnectSourceServerCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisconnectSourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectSourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DisconnectSourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectSourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisconnectSourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectSourceServerCommandOutput> {
     return deserializeAws_restJson1DisconnectSourceServerCommand(output, context);
   }

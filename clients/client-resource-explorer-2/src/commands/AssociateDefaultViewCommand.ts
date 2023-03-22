@@ -30,15 +30,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDefaultViewCommand}.
  */
 export interface AssociateDefaultViewCommandInput extends AssociateDefaultViewInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDefaultViewCommand}.
  */
 export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified view as the default for the Amazon Web Services Region in which you call this
  *             operation. When a user performs a <a>Search</a> that doesn't explicitly
  *             specify which view to use, then Amazon Web Services Resource Explorer automatically chooses this default view for
@@ -56,6 +61,8 @@ export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewO
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDefaultViewCommandInput - {@link AssociateDefaultViewCommandInput}
+ * @returns {@link AssociateDefaultViewCommandOutput}
  * @see {@link AssociateDefaultViewCommandInput} for command's `input` shape.
  * @see {@link AssociateDefaultViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -99,6 +106,9 @@ export class AssociateDefaultViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDefaultViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class AssociateDefaultViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDefaultViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateDefaultViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDefaultViewCommandOutput> {
     return deserializeAws_restJson1AssociateDefaultViewCommand(output, context);
   }

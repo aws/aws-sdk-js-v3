@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTypeRegistrationCommand}.
  */
 export interface DescribeTypeRegistrationCommandInput extends DescribeTypeRegistrationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTypeRegistrationCommand}.
  */
 export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegistrationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an extension's registration, including its current status and
  *          type and version identifiers.</p>
  *          <p>When you initiate a registration request using <code>
@@ -56,6 +61,8 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTypeRegistrationCommandInput - {@link DescribeTypeRegistrationCommandInput}
+ * @returns {@link DescribeTypeRegistrationCommandOutput}
  * @see {@link DescribeTypeRegistrationCommandInput} for command's `input` shape.
  * @see {@link DescribeTypeRegistrationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeTypeRegistrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTypeRegistrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeTypeRegistrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTypeRegistrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTypeRegistrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTypeRegistrationCommandOutput> {
     return deserializeAws_queryDescribeTypeRegistrationCommand(output, context);
   }

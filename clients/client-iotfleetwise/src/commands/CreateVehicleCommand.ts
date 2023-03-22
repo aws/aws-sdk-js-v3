@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVehicleCommand}.
  */
 export interface CreateVehicleCommandInput extends CreateVehicleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVehicleCommand}.
  */
 export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles
  *             created from the same vehicle model consist of the same signals inherited from the
  *             vehicle model.</p>
@@ -54,6 +59,8 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVehicleCommandInput - {@link CreateVehicleCommandInput}
+ * @returns {@link CreateVehicleCommandOutput}
  * @see {@link CreateVehicleCommandInput} for command's `input` shape.
  * @see {@link CreateVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateVehicleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVehicleCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateVehicleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateVehicleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVehicleCommandOutput> {
     return deserializeAws_json1_0CreateVehicleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRouteTableCommand}.
  */
 export interface CreateRouteTableCommandInput extends CreateRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRouteTableCommand}.
  */
 export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRouteTableCommandInput - {@link CreateRouteTableCommandInput}
+ * @returns {@link CreateRouteTableCommandOutput}
  * @see {@link CreateRouteTableCommandInput} for command's `input` shape.
  * @see {@link CreateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -100,6 +107,9 @@ export class CreateRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteTableCommandOutput> {
     return deserializeAws_ec2CreateRouteTableCommand(output, context);
   }

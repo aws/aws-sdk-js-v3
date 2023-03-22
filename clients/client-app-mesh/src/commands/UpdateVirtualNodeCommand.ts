@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVirtualNodeCommand}.
  */
 export interface UpdateVirtualNodeCommandInput extends UpdateVirtualNodeInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVirtualNodeCommand}.
  */
 export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing virtual node in a specified service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVirtualNodeCommandInput - {@link UpdateVirtualNodeCommandInput}
+ * @returns {@link UpdateVirtualNodeCommandOutput}
  * @see {@link UpdateVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualNodeCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateVirtualNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVirtualNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateVirtualNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVirtualNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualNodeCommandOutput> {
     return deserializeAws_restJson1UpdateVirtualNodeCommand(output, context);
   }

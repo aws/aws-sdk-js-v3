@@ -21,15 +21,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDiscovererCommand}.
  */
 export interface DeleteDiscovererCommandInput extends DeleteDiscovererRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDiscovererCommand}.
  */
 export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a discoverer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDiscovererCommandInput - {@link DeleteDiscovererCommandInput}
+ * @returns {@link DeleteDiscovererCommandOutput}
  * @see {@link DeleteDiscovererCommandInput} for command's `input` shape.
  * @see {@link DeleteDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteDiscovererCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDiscovererCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteDiscovererCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDiscovererCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDiscovererCommandOutput> {
     return deserializeAws_restJson1DeleteDiscovererCommand(output, context);
   }

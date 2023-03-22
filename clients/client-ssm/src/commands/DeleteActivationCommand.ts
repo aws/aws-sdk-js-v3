@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteActivationCommand}.
  */
 export interface DeleteActivationCommandInput extends DeleteActivationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteActivationCommand}.
  */
 export interface DeleteActivationCommandOutput extends DeleteActivationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an activation. You aren't required to delete an activation. If you delete an
  *    activation, you can no longer use it to register additional managed nodes. Deleting an activation
  *    doesn't de-register managed nodes. You must manually de-register managed nodes.</p>
@@ -48,6 +53,8 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteActivationCommandInput - {@link DeleteActivationCommandInput}
+ * @returns {@link DeleteActivationCommandOutput}
  * @see {@link DeleteActivationCommandInput} for command's `input` shape.
  * @see {@link DeleteActivationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteActivationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteActivationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteActivationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteActivationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteActivationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteActivationCommandOutput> {
     return deserializeAws_json1_1DeleteActivationCommand(output, context);
   }

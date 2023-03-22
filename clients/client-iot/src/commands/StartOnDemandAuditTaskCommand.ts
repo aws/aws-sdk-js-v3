@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartOnDemandAuditTaskCommand}.
  */
 export interface StartOnDemandAuditTaskCommandInput extends StartOnDemandAuditTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartOnDemandAuditTaskCommand}.
  */
 export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an on-demand Device Defender audit.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartOnDemandAuditTask</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  * const response = await client.send(command);
  * ```
  *
+ * @param StartOnDemandAuditTaskCommandInput - {@link StartOnDemandAuditTaskCommandInput}
+ * @returns {@link StartOnDemandAuditTaskCommandOutput}
  * @see {@link StartOnDemandAuditTaskCommandInput} for command's `input` shape.
  * @see {@link StartOnDemandAuditTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartOnDemandAuditTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartOnDemandAuditTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartOnDemandAuditTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartOnDemandAuditTaskCommandOutput> {
     return deserializeAws_restJson1StartOnDemandAuditTaskCommand(output, context);
   }

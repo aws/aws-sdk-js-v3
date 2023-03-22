@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RejectTransitGatewayPeeringAttachmentCommand}.
  */
 export interface RejectTransitGatewayPeeringAttachmentCommandInput
   extends RejectTransitGatewayPeeringAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectTransitGatewayPeeringAttachmentCommand}.
  */
 export interface RejectTransitGatewayPeeringAttachmentCommandOutput
@@ -38,6 +42,7 @@ export interface RejectTransitGatewayPeeringAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a transit gateway peering attachment request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface RejectTransitGatewayPeeringAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectTransitGatewayPeeringAttachmentCommandInput - {@link RejectTransitGatewayPeeringAttachmentCommandInput}
+ * @returns {@link RejectTransitGatewayPeeringAttachmentCommandOutput}
  * @see {@link RejectTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
  * @see {@link RejectTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectTransitGatewayPeeringAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RejectTransitGatewayPeeringAttachmentCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
     return serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

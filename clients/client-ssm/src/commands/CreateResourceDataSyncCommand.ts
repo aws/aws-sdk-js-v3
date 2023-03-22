@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceDataSyncCommand}.
  */
 export interface CreateResourceDataSyncCommandInput extends CreateResourceDataSyncRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceDataSyncCommand}.
  */
 export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataSyncResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A resource data sync helps you view data from multiple sources in a single location.
  *    Amazon Web Services Systems Manager offers two types of resource data sync: <code>SyncToDestination</code> and
  *     <code>SyncFromSource</code>.</p>
@@ -66,6 +71,8 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceDataSyncCommandInput - {@link CreateResourceDataSyncCommandInput}
+ * @returns {@link CreateResourceDataSyncCommandOutput}
  * @see {@link CreateResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link CreateResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateResourceDataSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceDataSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateResourceDataSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateResourceDataSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceDataSyncCommandOutput> {
     return deserializeAws_json1_1CreateResourceDataSyncCommand(output, context);
   }

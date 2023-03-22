@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataflowGraphCommand}.
  */
 export interface GetDataflowGraphCommandInput extends GetDataflowGraphRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataflowGraphCommand}.
  */
 export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transforms a Python script into a directed acyclic graph (DAG). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataflowGraphCommandInput - {@link GetDataflowGraphCommandInput}
+ * @returns {@link GetDataflowGraphCommandOutput}
  * @see {@link GetDataflowGraphCommandInput} for command's `input` shape.
  * @see {@link GetDataflowGraphCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetDataflowGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataflowGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetDataflowGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataflowGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDataflowGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataflowGraphCommandOutput> {
     return deserializeAws_json1_1GetDataflowGraphCommand(output, context);
   }

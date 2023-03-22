@@ -28,15 +28,20 @@ import {
 import { deserializeAws_json1_1GetGroupCommand, serializeAws_json1_1GetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupCommand}.
  */
 export interface GetGroupCommandInput extends GetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupCommand}.
  */
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a group.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupCommandInput - {@link GetGroupCommandInput}
+ * @returns {@link GetGroupCommandOutput}
  * @see {@link GetGroupCommandInput} for command's `input` shape.
  * @see {@link GetGroupCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupCommandOutput> {
     return deserializeAws_json1_1GetGroupCommand(output, context);
   }

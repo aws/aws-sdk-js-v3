@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelCommand}.
  */
 export interface CreateChannelCommandInput extends CreateChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelCommand}.
  */
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a channel to which you can add users and send messages.</p>
  *          <p>
  *             <b>Restriction</b>: You can't change a channel's
@@ -58,6 +63,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
+ * @returns {@link CreateChannelCommandOutput}
  * @see {@link CreateChannelCommandInput} for command's `input` shape.
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelCommandOutput> {
     return deserializeAws_restJson1CreateChannelCommand(output, context);
   }

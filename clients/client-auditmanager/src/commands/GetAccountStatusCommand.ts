@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountStatusCommand}.
  */
 export interface GetAccountStatusCommandInput extends GetAccountStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountStatusCommand}.
  */
 export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the registration status of an account in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountStatusCommandInput - {@link GetAccountStatusCommandInput}
+ * @returns {@link GetAccountStatusCommandOutput}
  * @see {@link GetAccountStatusCommandInput} for command's `input` shape.
  * @see {@link GetAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -73,6 +80,9 @@ export class GetAccountStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetAccountStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAccountStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountStatusCommandOutput> {
     return deserializeAws_restJson1GetAccountStatusCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAdmChannelCommand}.
  */
 export interface DeleteAdmChannelCommandInput extends DeleteAdmChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAdmChannelCommand}.
  */
 export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the ADM channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAdmChannelCommandInput - {@link DeleteAdmChannelCommandInput}
+ * @returns {@link DeleteAdmChannelCommandOutput}
  * @see {@link DeleteAdmChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteAdmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteAdmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAdmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteAdmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAdmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAdmChannelCommandOutput> {
     return deserializeAws_restJson1DeleteAdmChannelCommand(output, context);
   }

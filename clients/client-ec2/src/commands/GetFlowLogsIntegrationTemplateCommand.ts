@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetFlowLogsIntegrationTemplateCommand}.
  */
 export interface GetFlowLogsIntegrationTemplateCommandInput extends GetFlowLogsIntegrationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFlowLogsIntegrationTemplateCommand}.
  */
 export interface GetFlowLogsIntegrationTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs
  *             with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data.
  *             Based on the information that you provide, we configure resources in the template to do the following:</p>
@@ -65,6 +70,8 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFlowLogsIntegrationTemplateCommandInput - {@link GetFlowLogsIntegrationTemplateCommandInput}
+ * @returns {@link GetFlowLogsIntegrationTemplateCommandOutput}
  * @see {@link GetFlowLogsIntegrationTemplateCommandInput} for command's `input` shape.
  * @see {@link GetFlowLogsIntegrationTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -88,6 +95,9 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFlowLogsIntegrationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFlowLogsIntegrationTemplateCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
     return serializeAws_ec2GetFlowLogsIntegrationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

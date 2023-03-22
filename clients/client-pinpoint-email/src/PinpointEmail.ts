@@ -202,6 +202,7 @@ import {
 import { PinpointEmailClient } from "./PinpointEmailClient";
 
 /**
+ * @public
  * <fullname>Amazon Pinpoint Email Service</fullname>
  *         <p>Welcome to the <i>Amazon Pinpoint Email API Reference</i>. This guide provides
  *             information about the Amazon Pinpoint Email API (version 1.0), including supported
@@ -234,6 +235,7 @@ import { PinpointEmailClient } from "./PinpointEmailClient";
  */
 export class PinpointEmail extends PinpointEmailClient {
   /**
+   * @public
    * <p>Create a configuration set. <i>Configuration sets</i> are groups of
    *             rules that you can apply to the emails you send using Amazon Pinpoint. You apply a configuration
    *             set to an email by including a reference to the configuration set in the headers of the
@@ -270,6 +272,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Create an event destination. In Amazon Pinpoint, <i>events</i> include message
    *             sends, deliveries, opens, clicks, bounces, and complaints. <i>Event
    *                 destinations</i> are places that you can send information about these events
@@ -310,6 +313,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
    *             IP addresses that are associated with your Amazon Pinpoint account. You can associate a pool with
    *             a configuration set. When you send an email that uses that configuration set, Amazon Pinpoint
@@ -345,6 +349,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
    *             by various email providers around the world. When you perform a predictive inbox placement test, you provide a
    *             sample message that contains the content that you plan to send to your customers. Amazon Pinpoint
@@ -383,6 +388,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Verifies an email identity for use with Amazon Pinpoint. In Amazon Pinpoint, an identity is an email
    *             address or domain that you use when you send email. Before you can use an identity to
    *             send email with Amazon Pinpoint, you first have to verify it. By verifying an address, you
@@ -428,6 +434,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Delete an existing configuration set.</p>
    *         <p>In Amazon Pinpoint, <i>configuration sets</i> are groups of rules that you can
    *             apply to the emails you send. You apply a configuration set to an email by including a
@@ -465,6 +472,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Delete an event destination.</p>
    *         <p>In Amazon Pinpoint, <i>events</i> include message sends, deliveries, opens,
    *             clicks, bounces, and complaints. <i>Event destinations</i> are places that
@@ -504,6 +512,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Delete a dedicated IP pool.</p>
    */
   public deleteDedicatedIpPool(
@@ -536,6 +545,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an email identity that you previously verified for use with Amazon Pinpoint. An identity
    *             can be either an email address or a domain name.</p>
    */
@@ -569,6 +579,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Obtain information about the email-sending status and capabilities of your Amazon Pinpoint
    *             account in the current AWS Region.</p>
    */
@@ -596,6 +607,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of the blacklists that your dedicated IP addresses appear on.</p>
    */
   public getBlacklistReports(
@@ -628,6 +640,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Get information about an existing configuration set, including the dedicated IP pool
    *             that it's associated with, whether or not it's enabled for sending email, and
    *             more.</p>
@@ -667,6 +680,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of event destinations that are associated with a configuration
    *             set.</p>
    *         <p>In Amazon Pinpoint, <i>events</i> include message sends, deliveries, opens,
@@ -705,6 +719,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Get information about a dedicated IP address, including the name of the dedicated IP
    *             pool that it's associated with, as well information about the automatic warm-up process
    *             for the address.</p>
@@ -739,6 +754,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>List the dedicated IP addresses that are associated with your Amazon Pinpoint
    *             account.</p>
    */
@@ -772,6 +788,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account.
    *             When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and
    *             other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the
@@ -810,6 +827,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Retrieve the results of a predictive inbox placement test.</p>
    */
   public getDeliverabilityTestReport(
@@ -842,6 +860,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Retrieve all the deliverability data for a specific campaign. This data is available
    *             for a campaign only if the campaign sent email by using a domain that the
    *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -877,6 +896,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Retrieve inbox placement and engagement rates for the domains that you use to send
    *             email.</p>
    */
@@ -910,6 +930,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Provides information about a specific identity associated with your Amazon Pinpoint account,
    *             including the identity's verification status, its DKIM authentication status, and its
    *             custom Mail-From settings.</p>
@@ -944,6 +965,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>List all of the configuration sets associated with your Amazon Pinpoint account in the current
    *             region.</p>
    *         <p>In Amazon Pinpoint, <i>configuration sets</i> are groups of rules that you can
@@ -982,6 +1004,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>List all of the dedicated IP pools that exist in your Amazon Pinpoint account in the current
    *             AWS Region.</p>
    */
@@ -1015,6 +1038,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For
    *             predictive inbox placement tests that are complete, you can use the <code>GetDeliverabilityTestReport</code>
    *             operation to view the results.</p>
@@ -1049,6 +1073,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send
    *             email during a specified time range. This data is available for a domain only if you
    *             enabled the Deliverability dashboard (<code>PutDeliverabilityDashboardOption</code> operation)
@@ -1084,6 +1109,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all of the email identities that are associated with your Amazon Pinpoint
    *             account. An identity can be either an email address or a domain. This operation returns
    *             identities that are verified as well as those that aren't.</p>
@@ -1118,6 +1144,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of the tags (keys and values) that are associated with a specified
    *             resource. A <i>tag</i> is a label that you optionally define and associate
    *             with a resource in Amazon Pinpoint. Each tag consists of a required <i>tag
@@ -1155,6 +1182,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>
    */
   public putAccountDedicatedIpWarmupAttributes(
@@ -1189,6 +1217,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Enable or disable the ability of your account to send email.</p>
    */
   public putAccountSendingAttributes(
@@ -1221,6 +1250,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
    *             to create groups of dedicated IP addresses for sending specific types of email.</p>
    */
@@ -1254,6 +1284,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Enable or disable collection of reputation metrics for emails that you send using a
    *             particular configuration set in a specific AWS Region.</p>
    */
@@ -1287,6 +1318,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Enable or disable email sending for messages that use a particular configuration set
    *             in a specific AWS Region.</p>
    */
@@ -1320,6 +1352,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Specify a custom domain to use for open and click tracking elements in email that you
    *             send using Amazon Pinpoint.</p>
    */
@@ -1353,6 +1386,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
    *         <note>
    *             <p>The dedicated IP address that you specify must already exist, and must be
@@ -1394,6 +1428,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p></p>
    */
   public putDedicatedIpWarmupAttributes(
@@ -1426,6 +1461,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the
    *             Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for
    *             the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform
@@ -1464,6 +1500,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Used to enable or disable DKIM authentication for an email identity.</p>
    */
   public putEmailIdentityDkimAttributes(
@@ -1496,6 +1533,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Used to enable or disable feedback forwarding for an identity. This setting determines
    *             what happens when an identity is used to send an email that results in a bounce or
    *             complaint event.</p>
@@ -1538,6 +1576,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Used to enable or disable the custom Mail-From domain configuration for an email
    *             identity.</p>
    */
@@ -1571,6 +1610,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Sends an email message. You can use the Amazon Pinpoint Email API to send two types of
    *             messages:</p>
    *         <ul>
@@ -1614,6 +1654,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Add one or more tags (keys and values) to a specified resource. A
    *                 <i>tag</i> is a label that you optionally define and associate with a
    *             resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different ways,
@@ -1648,6 +1689,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Remove one or more tags (keys and values) from a specified resource.</p>
    */
   public untagResource(
@@ -1680,6 +1722,7 @@ export class PinpointEmail extends PinpointEmailClient {
   }
 
   /**
+   * @public
    * <p>Update the configuration of an event destination for a configuration set.</p>
    *         <p>In Amazon Pinpoint, <i>events</i> include message sends, deliveries, opens,
    *             clicks, bounces, and complaints. <i>Event destinations</i> are places that

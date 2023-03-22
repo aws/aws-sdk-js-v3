@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandInput extends CreateConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a configuration set. <i>Configuration sets</i> are groups of
  *             rules that you can apply to the emails you send using Amazon Pinpoint. You apply a configuration
  *             set to an email by including a reference to the configuration set in the headers of the
@@ -50,6 +55,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
+ * @returns {@link CreateConfigurationSetCommandOutput}
  * @see {@link CreateConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigurationSetCommandOutput> {
     return deserializeAws_restJson1CreateConfigurationSetCommand(output, context);
   }

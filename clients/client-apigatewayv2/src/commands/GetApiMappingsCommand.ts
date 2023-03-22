@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApiMappingsCommand}.
  */
 export interface GetApiMappingsCommandInput extends GetApiMappingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApiMappingsCommand}.
  */
 export interface GetApiMappingsCommandOutput extends GetApiMappingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets API mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetApiMappingsCommandOutput extends GetApiMappingsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApiMappingsCommandInput - {@link GetApiMappingsCommandInput}
+ * @returns {@link GetApiMappingsCommandOutput}
  * @see {@link GetApiMappingsCommandInput} for command's `input` shape.
  * @see {@link GetApiMappingsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -78,6 +85,9 @@ export class GetApiMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApiMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetApiMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApiMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetApiMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiMappingsCommandOutput> {
     return deserializeAws_restJson1GetApiMappingsCommand(output, context);
   }

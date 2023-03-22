@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAgentStatusCommand}.
  */
 export interface CreateAgentStatusCommandInput extends CreateAgentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAgentStatusCommand}.
  */
 export interface CreateAgentStatusCommandOutput extends CreateAgentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Creates an agent status for the specified Amazon Connect instance.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateAgentStatusCommandOutput extends CreateAgentStatusRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAgentStatusCommandInput - {@link CreateAgentStatusCommandInput}
+ * @returns {@link CreateAgentStatusCommandOutput}
  * @see {@link CreateAgentStatusCommandInput} for command's `input` shape.
  * @see {@link CreateAgentStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateAgentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAgentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateAgentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAgentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAgentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAgentStatusCommandOutput> {
     return deserializeAws_restJson1CreateAgentStatusCommand(output, context);
   }

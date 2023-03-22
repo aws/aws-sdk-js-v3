@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCoreDefinitionsCommand}.
  */
 export interface ListCoreDefinitionsCommandInput extends ListCoreDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCoreDefinitionsCommand}.
  */
 export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves a list of core definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCoreDefinitionsCommandInput - {@link ListCoreDefinitionsCommandInput}
+ * @returns {@link ListCoreDefinitionsCommandOutput}
  * @see {@link ListCoreDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListCoreDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListCoreDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCoreDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListCoreDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCoreDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCoreDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoreDefinitionsCommandOutput> {
     return deserializeAws_restJson1ListCoreDefinitionsCommand(output, context);
   }

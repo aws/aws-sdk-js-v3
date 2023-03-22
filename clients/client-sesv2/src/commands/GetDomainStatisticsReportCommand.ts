@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainStatisticsReportCommand}.
  */
 export interface GetDomainStatisticsReportCommandInput extends GetDomainStatisticsReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainStatisticsReportCommand}.
  */
 export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatisticsReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve inbox placement and engagement rates for the domains that you use to send
  *             email.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainStatisticsReportCommandInput - {@link GetDomainStatisticsReportCommandInput}
+ * @returns {@link GetDomainStatisticsReportCommandOutput}
  * @see {@link GetDomainStatisticsReportCommandInput} for command's `input` shape.
  * @see {@link GetDomainStatisticsReportCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +86,9 @@ export class GetDomainStatisticsReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainStatisticsReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetDomainStatisticsReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainStatisticsReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDomainStatisticsReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

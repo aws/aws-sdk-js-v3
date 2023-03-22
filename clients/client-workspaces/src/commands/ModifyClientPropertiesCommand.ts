@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClientPropertiesCommand}.
  */
 export interface ModifyClientPropertiesCommandInput extends ModifyClientPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClientPropertiesCommand}.
  */
 export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClientPropertiesCommandInput - {@link ModifyClientPropertiesCommandInput}
+ * @returns {@link ModifyClientPropertiesCommandOutput}
  * @see {@link ModifyClientPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyClientPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -78,6 +85,9 @@ export class ModifyClientPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClientPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ModifyClientPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClientPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyClientPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClientPropertiesCommandOutput> {
     return deserializeAws_json1_1ModifyClientPropertiesCommand(output, context);
   }

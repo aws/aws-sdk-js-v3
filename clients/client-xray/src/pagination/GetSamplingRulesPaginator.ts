@@ -10,7 +10,7 @@ import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: XRayClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetSamplingRulesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetSamplingRules(
   config: XRayPaginationConfiguration,
   input: GetSamplingRulesCommandInput,

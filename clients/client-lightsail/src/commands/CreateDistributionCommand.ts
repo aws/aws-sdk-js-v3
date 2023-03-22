@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDistributionCommand}.
  */
 export interface CreateDistributionCommandInput extends CreateDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDistributionCommand}.
  */
 export interface CreateDistributionCommandOutput extends CreateDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p>
  *          <p>A distribution is a globally distributed network of caching servers that improve the
  *       performance of your website or web application hosted on a Lightsail instance. For more
@@ -49,6 +54,8 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDistributionCommandInput - {@link CreateDistributionCommandInput}
+ * @returns {@link CreateDistributionCommandOutput}
  * @see {@link CreateDistributionCommandInput} for command's `input` shape.
  * @see {@link CreateDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreateDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDistributionCommandOutput> {
     return deserializeAws_json1_1CreateDistributionCommand(output, context);
   }

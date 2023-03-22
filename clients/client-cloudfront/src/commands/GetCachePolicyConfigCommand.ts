@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetCachePolicyConfigCommand}.
  */
 export interface GetCachePolicyConfigCommandInput extends GetCachePolicyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCachePolicyConfigCommand}.
  */
 export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a cache policy configuration.</p>
  *          <p>To get a cache policy configuration, you must provide the policy's identifier. If the
  * 			cache policy is attached to a distribution's cache behavior, you can get the policy's
@@ -51,6 +56,8 @@ export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCachePolicyConfigCommandInput - {@link GetCachePolicyConfigCommandInput}
+ * @returns {@link GetCachePolicyConfigCommandOutput}
  * @see {@link GetCachePolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetCachePolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetCachePolicyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCachePolicyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetCachePolicyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCachePolicyConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetCachePolicyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCachePolicyConfigCommandOutput> {
     return deserializeAws_restXmlGetCachePolicyConfigCommand(output, context);
   }

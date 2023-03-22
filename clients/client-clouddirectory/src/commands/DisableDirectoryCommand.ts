@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableDirectoryCommand}.
  */
 export interface DisableDirectoryCommandInput extends DisableDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableDirectoryCommand}.
  */
 export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified directory. Disabled directories cannot be read or written to.
  *       Only enabled directories can be disabled. Disabled directories may be reenabled.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableDirectoryCommandInput - {@link DisableDirectoryCommandInput}
+ * @returns {@link DisableDirectoryCommandOutput}
  * @see {@link DisableDirectoryCommandInput} for command's `input` shape.
  * @see {@link DisableDirectoryCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -96,6 +103,9 @@ export class DisableDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DisableDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisableDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableDirectoryCommandOutput> {
     return deserializeAws_restJson1DisableDirectoryCommand(output, context);
   }

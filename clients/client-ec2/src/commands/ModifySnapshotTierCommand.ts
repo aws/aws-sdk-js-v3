@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySnapshotTierCommand}.
  */
 export interface ModifySnapshotTierCommandInput extends ModifySnapshotTierRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifySnapshotTierCommand}.
  */
 export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full
  *       snapshot that includes all of the blocks of data that were written to the volume at the
  *       time the snapshot was created, and moved from the standard tier to the archive
@@ -50,6 +55,8 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySnapshotTierCommandInput - {@link ModifySnapshotTierCommandInput}
+ * @returns {@link ModifySnapshotTierCommandOutput}
  * @see {@link ModifySnapshotTierCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotTierCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class ModifySnapshotTierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySnapshotTierCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ModifySnapshotTierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySnapshotTierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifySnapshotTierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySnapshotTierCommandOutput> {
     return deserializeAws_ec2ModifySnapshotTierCommand(output, context);
   }

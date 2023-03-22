@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRecoveryGroupCommand}.
  */
 export interface UpdateRecoveryGroupCommandInput extends UpdateRecoveryGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRecoveryGroupCommand}.
  */
 export interface UpdateRecoveryGroupCommandOutput extends UpdateRecoveryGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a recovery group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateRecoveryGroupCommandOutput extends UpdateRecoveryGroupRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecoveryGroupCommandInput - {@link UpdateRecoveryGroupCommandInput}
+ * @returns {@link UpdateRecoveryGroupCommandOutput}
  * @see {@link UpdateRecoveryGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRecoveryGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateRecoveryGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecoveryGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateRecoveryGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRecoveryGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRecoveryGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecoveryGroupCommandOutput> {
     return deserializeAws_restJson1UpdateRecoveryGroupCommand(output, context);
   }

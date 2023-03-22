@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopReplicationCommand}.
  */
 export interface StopReplicationCommandInput extends StopReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopReplicationCommand}.
  */
 export interface StopReplicationCommandOutput extends StopReplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops replication for a Source Server. This action would make the Source Server unprotected, delete its existing snapshots and stop billing for it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StopReplicationCommandInput - {@link StopReplicationCommandInput}
+ * @returns {@link StopReplicationCommandOutput}
  * @see {@link StopReplicationCommandInput} for command's `input` shape.
  * @see {@link StopReplicationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -84,6 +91,9 @@ export class StopReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StopReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopReplicationCommandOutput> {
     return deserializeAws_restJson1StopReplicationCommand(output, context);
   }

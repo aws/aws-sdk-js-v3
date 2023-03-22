@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGraphCommand}.
  */
 export interface DeleteGraphCommandInput extends DeleteGraphRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGraphCommand}.
  */
 export interface DeleteGraphCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified behavior graph and queues it to be deleted. This operation
  *          removes the behavior graph from each member account's list of behavior graphs.</p>
  *          <p>
@@ -45,6 +50,8 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGraphCommandInput - {@link DeleteGraphCommandInput}
+ * @returns {@link DeleteGraphCommandOutput}
  * @see {@link DeleteGraphCommandInput} for command's `input` shape.
  * @see {@link DeleteGraphCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGraphCommandOutput> {
     return deserializeAws_restJson1DeleteGraphCommand(output, context);
   }

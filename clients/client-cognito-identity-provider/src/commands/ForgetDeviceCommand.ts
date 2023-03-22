@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ForgetDeviceCommand}.
  */
 export interface ForgetDeviceCommandInput extends ForgetDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ForgetDeviceCommand}.
  */
 export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Forgets the specified device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ForgetDeviceCommandInput - {@link ForgetDeviceCommandInput}
+ * @returns {@link ForgetDeviceCommandOutput}
  * @see {@link ForgetDeviceCommandInput} for command's `input` shape.
  * @see {@link ForgetDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -102,6 +109,9 @@ export class ForgetDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ForgetDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class ForgetDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ForgetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ForgetDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ForgetDeviceCommandOutput> {
     return deserializeAws_json1_1ForgetDeviceCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetTransitGatewayAttachmentPropagationsCommand}.
  */
 export interface GetTransitGatewayAttachmentPropagationsCommandInput
   extends GetTransitGatewayAttachmentPropagationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTransitGatewayAttachmentPropagationsCommand}.
  */
 export interface GetTransitGatewayAttachmentPropagationsCommandOutput
@@ -38,6 +42,7 @@ export interface GetTransitGatewayAttachmentPropagationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the route tables to which the specified resource attachment propagates routes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetTransitGatewayAttachmentPropagationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayAttachmentPropagationsCommandInput - {@link GetTransitGatewayAttachmentPropagationsCommandInput}
+ * @returns {@link GetTransitGatewayAttachmentPropagationsCommandOutput}
  * @see {@link GetTransitGatewayAttachmentPropagationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayAttachmentPropagationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class GetTransitGatewayAttachmentPropagationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayAttachmentPropagationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class GetTransitGatewayAttachmentPropagationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayAttachmentPropagationsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class GetTransitGatewayAttachmentPropagationsCommand extends $Command<
     return serializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

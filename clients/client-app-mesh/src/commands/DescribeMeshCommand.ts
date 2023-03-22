@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMeshCommand}.
  */
 export interface DescribeMeshCommandInput extends DescribeMeshInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMeshCommand}.
  */
 export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMeshCommandInput - {@link DescribeMeshCommandInput}
+ * @returns {@link DescribeMeshCommandOutput}
  * @see {@link DescribeMeshCommandInput} for command's `input` shape.
  * @see {@link DescribeMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeMeshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMeshCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeMeshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMeshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeMeshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMeshCommandOutput> {
     return deserializeAws_restJson1DescribeMeshCommand(output, context);
   }

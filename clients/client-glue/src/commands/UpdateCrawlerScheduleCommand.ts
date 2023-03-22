@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCrawlerScheduleCommand}.
  */
 export interface UpdateCrawlerScheduleCommandInput extends UpdateCrawlerScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCrawlerScheduleCommand}.
  */
 export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCrawlerScheduleCommandInput - {@link UpdateCrawlerScheduleCommandInput}
+ * @returns {@link UpdateCrawlerScheduleCommandOutput}
  * @see {@link UpdateCrawlerScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateCrawlerScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCrawlerScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateCrawlerScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCrawlerScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCrawlerScheduleCommandOutput> {
     return deserializeAws_json1_1UpdateCrawlerScheduleCommand(output, context);
   }

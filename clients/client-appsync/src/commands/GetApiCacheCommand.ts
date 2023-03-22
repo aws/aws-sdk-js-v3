@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApiCacheCommand}.
  */
 export interface GetApiCacheCommandInput extends GetApiCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApiCacheCommand}.
  */
 export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an <code>ApiCache</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApiCacheCommandInput - {@link GetApiCacheCommandInput}
+ * @returns {@link GetApiCacheCommandOutput}
  * @see {@link GetApiCacheCommandInput} for command's `input` shape.
  * @see {@link GetApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetApiCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApiCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetApiCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetApiCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiCacheCommandOutput> {
     return deserializeAws_restJson1GetApiCacheCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { WorkSpacesWebServiceException as __BaseException } from "./WorkSpacesWebServiceException";
 
 /**
+ * @public
  * <p>Access is denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,6 +23,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateBrowserSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -34,6 +38,9 @@ export interface AssociateBrowserSettingsRequest {
   browserSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateBrowserSettingsResponse {
   /**
    * <p>The ARN of the web portal.</p>
@@ -47,6 +54,7 @@ export interface AssociateBrowserSettingsResponse {
 }
 
 /**
+ * @public
  * <p>There is a conflict.</p>
  */
 export class ConflictException extends __BaseException {
@@ -78,6 +86,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is an internal server error.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -103,6 +112,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource cannot be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -134,6 +144,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is a throttling error.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -171,6 +182,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a field passed inside a request that resulted in an exception.</p>
  */
 export interface ValidationExceptionField {
@@ -185,6 +197,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -193,6 +208,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>There is a validation error.</p>
  */
 export class ValidationException extends __BaseException {
@@ -223,6 +239,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateNetworkSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -235,6 +254,9 @@ export interface AssociateNetworkSettingsRequest {
   networkSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateNetworkSettingsResponse {
   /**
    * <p>The ARN of the web portal.</p>
@@ -247,6 +269,9 @@ export interface AssociateNetworkSettingsResponse {
   networkSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrustStoreRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -259,6 +284,9 @@ export interface AssociateTrustStoreRequest {
   trustStoreArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrustStoreResponse {
   /**
    * <p>The ARN of the web portal.</p>
@@ -271,6 +299,9 @@ export interface AssociateTrustStoreResponse {
   trustStoreArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateUserAccessLoggingSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -283,6 +314,9 @@ export interface AssociateUserAccessLoggingSettingsRequest {
   userAccessLoggingSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateUserAccessLoggingSettingsResponse {
   /**
    * <p>The ARN of the web portal.</p>
@@ -295,6 +329,9 @@ export interface AssociateUserAccessLoggingSettingsResponse {
   userAccessLoggingSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateUserSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -307,6 +344,9 @@ export interface AssociateUserSettingsRequest {
   userSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateUserSettingsResponse {
   /**
    * <p>The ARN of the web portal.</p>
@@ -319,12 +359,16 @@ export interface AssociateUserSettingsResponse {
   userSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AuthenticationType {
   IAM_IDENTITY_CENTER = "IAM_Identity_Center",
   STANDARD = "Standard",
 }
 
 /**
+ * @public
  * <p>The tag.</p>
  */
 export interface Tag {
@@ -339,6 +383,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBrowserSettingsRequest {
   /**
    * <p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>
@@ -371,6 +418,9 @@ export interface CreateBrowserSettingsRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBrowserSettingsResponse {
   /**
    * <p>The ARN of the browser settings.</p>
@@ -379,6 +429,7 @@ export interface CreateBrowserSettingsResponse {
 }
 
 /**
+ * @public
  * <p>The service quota has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -421,6 +472,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum IdentityProviderType {
   Facebook = "Facebook",
   Google = "Google",
@@ -430,6 +484,9 @@ export enum IdentityProviderType {
   SignInWithApple = "SignInWithApple",
 }
 
+/**
+ * @public
+ */
 export interface CreateIdentityProviderRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -614,6 +671,9 @@ export interface CreateIdentityProviderRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateIdentityProviderResponse {
   /**
    * <p>The ARN of the identity provider.</p>
@@ -621,6 +681,9 @@ export interface CreateIdentityProviderResponse {
   identityProviderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkSettingsRequest {
   /**
    * <p>The VPC that streaming instances will connect to.</p>
@@ -653,6 +716,9 @@ export interface CreateNetworkSettingsRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkSettingsResponse {
   /**
    * <p>The ARN of the network settings.</p>
@@ -660,6 +726,9 @@ export interface CreateNetworkSettingsResponse {
   networkSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortalRequest {
   /**
    * <p>The name of the web portal. This is not visible to users who log into the web portal.</p>
@@ -709,6 +778,9 @@ export interface CreatePortalRequest {
   authenticationType?: AuthenticationType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortalResponse {
   /**
    * <p>The ARN of the web portal.</p>
@@ -721,6 +793,9 @@ export interface CreatePortalResponse {
   portalEndpoint: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrustStoreRequest {
   /**
    * <p>A list of CA certificates to be added to the trust store.</p>
@@ -743,6 +818,9 @@ export interface CreateTrustStoreRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrustStoreResponse {
   /**
    * <p>The ARN of the trust store.</p>
@@ -750,6 +828,9 @@ export interface CreateTrustStoreResponse {
   trustStoreArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserAccessLoggingSettingsRequest {
   /**
    * <p>The ARN of the Kinesis stream.</p>
@@ -772,6 +853,9 @@ export interface CreateUserAccessLoggingSettingsRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserAccessLoggingSettingsResponse {
   /**
    * <p>The ARN of the user access logging settings.</p>
@@ -779,11 +863,17 @@ export interface CreateUserAccessLoggingSettingsResponse {
   userAccessLoggingSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EnabledType {
   DISABLED = "Disabled",
   ENABLED = "Enabled",
 }
 
+/**
+ * @public
+ */
 export interface CreateUserSettingsRequest {
   /**
    * <p>Specifies whether the user can copy text from the streaming session to the local
@@ -840,6 +930,9 @@ export interface CreateUserSettingsRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserSettingsResponse {
   /**
    * <p>The ARN of the user settings.</p>
@@ -847,6 +940,9 @@ export interface CreateUserSettingsResponse {
   userSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBrowserSettingsRequest {
   /**
    * <p>The ARN of the browser settings.</p>
@@ -854,8 +950,14 @@ export interface DeleteBrowserSettingsRequest {
   browserSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBrowserSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteIdentityProviderRequest {
   /**
    * <p>The ARN of the identity provider.</p>
@@ -863,8 +965,14 @@ export interface DeleteIdentityProviderRequest {
   identityProviderArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIdentityProviderResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteNetworkSettingsRequest {
   /**
    * <p>The ARN of the network settings.</p>
@@ -872,8 +980,14 @@ export interface DeleteNetworkSettingsRequest {
   networkSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface DeletePortalRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -881,8 +995,14 @@ export interface DeletePortalRequest {
   portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePortalResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteTrustStoreRequest {
   /**
    * <p>The ARN of the trust store.</p>
@@ -890,8 +1010,14 @@ export interface DeleteTrustStoreRequest {
   trustStoreArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTrustStoreResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteUserAccessLoggingSettingsRequest {
   /**
    * <p>The ARN of the user access logging settings.</p>
@@ -899,8 +1025,14 @@ export interface DeleteUserAccessLoggingSettingsRequest {
   userAccessLoggingSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserAccessLoggingSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteUserSettingsRequest {
   /**
    * <p>The ARN of the user settings.</p>
@@ -908,8 +1040,14 @@ export interface DeleteUserSettingsRequest {
   userSettingsArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateBrowserSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -917,8 +1055,14 @@ export interface DisassociateBrowserSettingsRequest {
   portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateBrowserSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateNetworkSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -926,8 +1070,14 @@ export interface DisassociateNetworkSettingsRequest {
   portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateNetworkSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateTrustStoreRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -935,8 +1085,14 @@ export interface DisassociateTrustStoreRequest {
   portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTrustStoreResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateUserAccessLoggingSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -944,8 +1100,14 @@ export interface DisassociateUserAccessLoggingSettingsRequest {
   portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateUserAccessLoggingSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateUserSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -953,8 +1115,14 @@ export interface DisassociateUserSettingsRequest {
   portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateUserSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface GetBrowserSettingsRequest {
   /**
    * <p>The ARN of the browser settings.</p>
@@ -963,6 +1131,7 @@ export interface GetBrowserSettingsRequest {
 }
 
 /**
+ * @public
  * <p>The browser settings resource that can be associated with a web portal. Once associated
  *          with a web portal, browser settings control how the browser will behave once a user starts
  *          a streaming session for the web portal. </p>
@@ -985,6 +1154,9 @@ export interface BrowserSettings {
   browserPolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBrowserSettingsResponse {
   /**
    * <p>The browser settings.</p>
@@ -992,6 +1164,9 @@ export interface GetBrowserSettingsResponse {
   browserSettings?: BrowserSettings;
 }
 
+/**
+ * @public
+ */
 export interface GetIdentityProviderRequest {
   /**
    * <p>The ARN of the identity provider.</p>
@@ -1000,6 +1175,7 @@ export interface GetIdentityProviderRequest {
 }
 
 /**
+ * @public
  * <p>The identity provider.</p>
  */
 export interface IdentityProvider {
@@ -1176,6 +1352,9 @@ export interface IdentityProvider {
   identityProviderDetails?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetIdentityProviderResponse {
   /**
    * <p>The identity provider.</p>
@@ -1183,6 +1362,9 @@ export interface GetIdentityProviderResponse {
   identityProvider?: IdentityProvider;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkSettingsRequest {
   /**
    * <p>The ARN of the network settings.</p>
@@ -1191,6 +1373,7 @@ export interface GetNetworkSettingsRequest {
 }
 
 /**
+ * @public
  * <p>A network settings resource that can be associated with a web portal. Once associated
  *          with a web portal, network settings define how streaming instances will connect with your
  *          specified VPC. </p>
@@ -1222,6 +1405,9 @@ export interface NetworkSettings {
   securityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkSettingsResponse {
   /**
    * <p>The network settings.</p>
@@ -1229,6 +1415,9 @@ export interface GetNetworkSettingsResponse {
   networkSettings?: NetworkSettings;
 }
 
+/**
+ * @public
+ */
 export interface GetPortalRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -1236,21 +1425,31 @@ export interface GetPortalRequest {
   portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BrowserType {
   CHROME = "Chrome",
 }
 
+/**
+ * @public
+ */
 export enum PortalStatus {
   ACTIVE = "Active",
   INCOMPLETE = "Incomplete",
   PENDING = "Pending",
 }
 
+/**
+ * @public
+ */
 export enum RendererType {
   APPSTREAM = "AppStream",
 }
 
 /**
+ * @public
  * <p>The web portal.</p>
  */
 export interface Portal {
@@ -1338,6 +1537,9 @@ export interface Portal {
   authenticationType?: AuthenticationType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetPortalResponse {
   /**
    * <p>The web portal.</p>
@@ -1345,6 +1547,9 @@ export interface GetPortalResponse {
   portal?: Portal;
 }
 
+/**
+ * @public
+ */
 export interface GetPortalServiceProviderMetadataRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -1352,6 +1557,9 @@ export interface GetPortalServiceProviderMetadataRequest {
   portalArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPortalServiceProviderMetadataResponse {
   /**
    * <p>The ARN of the web portal.</p>
@@ -1364,6 +1572,9 @@ export interface GetPortalServiceProviderMetadataResponse {
   serviceProviderSamlMetadata?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTrustStoreRequest {
   /**
    * <p>The ARN of the trust store.</p>
@@ -1372,6 +1583,7 @@ export interface GetTrustStoreRequest {
 }
 
 /**
+ * @public
  * <p>A trust store that can be associated with a web portal. A trust store contains
  *          certificate authority (CA) certificates. Once associated with a web portal, the browser in
  *          a streaming session will recognize certificates that have been issued using any of the CAs
@@ -1390,6 +1602,9 @@ export interface TrustStore {
   trustStoreArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTrustStoreResponse {
   /**
    * <p>The trust store.</p>
@@ -1397,6 +1612,9 @@ export interface GetTrustStoreResponse {
   trustStore?: TrustStore;
 }
 
+/**
+ * @public
+ */
 export interface GetTrustStoreCertificateRequest {
   /**
    * <p>The ARN of the trust store certificate.</p>
@@ -1410,6 +1628,7 @@ export interface GetTrustStoreCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The certificate.</p>
  */
 export interface Certificate {
@@ -1444,6 +1663,9 @@ export interface Certificate {
   body?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface GetTrustStoreCertificateResponse {
   /**
    * <p>The ARN of the trust store certificate.</p>
@@ -1456,6 +1678,9 @@ export interface GetTrustStoreCertificateResponse {
   certificate?: Certificate;
 }
 
+/**
+ * @public
+ */
 export interface GetUserAccessLoggingSettingsRequest {
   /**
    * <p>The ARN of the user access logging settings.</p>
@@ -1464,6 +1689,7 @@ export interface GetUserAccessLoggingSettingsRequest {
 }
 
 /**
+ * @public
  * <p>A user access logging settings resource that can be associated with a web portal.</p>
  */
 export interface UserAccessLoggingSettings {
@@ -1483,6 +1709,9 @@ export interface UserAccessLoggingSettings {
   kinesisStreamArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetUserAccessLoggingSettingsResponse {
   /**
    * <p>The user access logging settings.</p>
@@ -1490,6 +1719,9 @@ export interface GetUserAccessLoggingSettingsResponse {
   userAccessLoggingSettings?: UserAccessLoggingSettings;
 }
 
+/**
+ * @public
+ */
 export interface GetUserSettingsRequest {
   /**
    * <p>The ARN of the user settings.</p>
@@ -1498,6 +1730,7 @@ export interface GetUserSettingsRequest {
 }
 
 /**
+ * @public
  * <p>A user settings resource that can be associated with a web portal. Once associated with
  *          a web portal, user settings control how users can transfer data between a streaming session
  *          and the their local devices. </p>
@@ -1553,6 +1786,9 @@ export interface UserSettings {
   idleDisconnectTimeoutInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetUserSettingsResponse {
   /**
    * <p>The user settings.</p>
@@ -1560,6 +1796,9 @@ export interface GetUserSettingsResponse {
   userSettings?: UserSettings;
 }
 
+/**
+ * @public
+ */
 export interface ListBrowserSettingsRequest {
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
@@ -1573,6 +1812,7 @@ export interface ListBrowserSettingsRequest {
 }
 
 /**
+ * @public
  * <p>The summary for browser settings.</p>
  */
 export interface BrowserSettingsSummary {
@@ -1582,6 +1822,9 @@ export interface BrowserSettingsSummary {
   browserSettingsArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBrowserSettingsResponse {
   /**
    * <p>The browser settings.</p>
@@ -1594,6 +1837,9 @@ export interface ListBrowserSettingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIdentityProvidersRequest {
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
@@ -1612,6 +1858,7 @@ export interface ListIdentityProvidersRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the identity provider.</p>
  */
 export interface IdentityProviderSummary {
@@ -1631,6 +1878,9 @@ export interface IdentityProviderSummary {
   identityProviderType?: IdentityProviderType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListIdentityProvidersResponse {
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
@@ -1643,6 +1893,9 @@ export interface ListIdentityProvidersResponse {
   identityProviders?: IdentityProviderSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkSettingsRequest {
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
@@ -1656,6 +1909,7 @@ export interface ListNetworkSettingsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of network settings.</p>
  */
 export interface NetworkSettingsSummary {
@@ -1670,6 +1924,9 @@ export interface NetworkSettingsSummary {
   vpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworkSettingsResponse {
   /**
    * <p>The network settings.</p>
@@ -1682,6 +1939,9 @@ export interface ListNetworkSettingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPortalsRequest {
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
@@ -1695,6 +1955,7 @@ export interface ListPortalsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the portal.</p>
  */
 export interface PortalSummary {
@@ -1777,6 +2038,9 @@ export interface PortalSummary {
   authenticationType?: AuthenticationType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListPortalsResponse {
   /**
    * <p>The portals in the list.</p>
@@ -1789,6 +2053,9 @@ export interface ListPortalsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1796,6 +2063,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags of the resource.</p>
@@ -1803,6 +2073,9 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTrustStoreCertificatesRequest {
   /**
    * <p>The ARN of the trust store</p>
@@ -1821,6 +2094,7 @@ export interface ListTrustStoreCertificatesRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the certificate.</p>
  */
 export interface CertificateSummary {
@@ -1850,6 +2124,9 @@ export interface CertificateSummary {
   notValidAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTrustStoreCertificatesResponse {
   /**
    * <p>The certificate list.</p>
@@ -1867,6 +2144,9 @@ export interface ListTrustStoreCertificatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrustStoresRequest {
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
@@ -1880,6 +2160,7 @@ export interface ListTrustStoresRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the trust store.</p>
  */
 export interface TrustStoreSummary {
@@ -1889,6 +2170,9 @@ export interface TrustStoreSummary {
   trustStoreArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTrustStoresResponse {
   /**
    * <p>The trust stores.</p>
@@ -1901,6 +2185,9 @@ export interface ListTrustStoresResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUserAccessLoggingSettingsRequest {
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
@@ -1914,6 +2201,7 @@ export interface ListUserAccessLoggingSettingsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of user access logging settings.</p>
  */
 export interface UserAccessLoggingSettingsSummary {
@@ -1928,6 +2216,9 @@ export interface UserAccessLoggingSettingsSummary {
   kinesisStreamArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUserAccessLoggingSettingsResponse {
   /**
    * <p>The user access logging settings.</p>
@@ -1940,6 +2231,9 @@ export interface ListUserAccessLoggingSettingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUserSettingsRequest {
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
@@ -1953,6 +2247,7 @@ export interface ListUserSettingsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of user settings.</p>
  */
 export interface UserSettingsSummary {
@@ -2001,6 +2296,9 @@ export interface UserSettingsSummary {
   idleDisconnectTimeoutInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListUserSettingsResponse {
   /**
    * <p>The user settings.</p>
@@ -2013,6 +2311,9 @@ export interface ListUserSettingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -2035,9 +2336,13 @@ export interface TagResourceRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>There are too many tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -2062,6 +2367,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -2074,8 +2382,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateBrowserSettingsRequest {
   /**
    * <p>The ARN of the browser settings.</p>
@@ -2099,6 +2413,9 @@ export interface UpdateBrowserSettingsRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBrowserSettingsResponse {
   /**
    * <p>The browser settings.</p>
@@ -2106,6 +2423,9 @@ export interface UpdateBrowserSettingsResponse {
   browserSettings: BrowserSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderRequest {
   /**
    * <p>The ARN of the identity provider.</p>
@@ -2290,6 +2610,9 @@ export interface UpdateIdentityProviderRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderResponse {
   /**
    * <p>The identity provider.</p>
@@ -2297,6 +2620,9 @@ export interface UpdateIdentityProviderResponse {
   identityProvider: IdentityProvider | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkSettingsRequest {
   /**
    * <p>The ARN of the network settings.</p>
@@ -2329,6 +2655,9 @@ export interface UpdateNetworkSettingsRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkSettingsResponse {
   /**
    * <p>The network settings.</p>
@@ -2336,6 +2665,9 @@ export interface UpdateNetworkSettingsResponse {
   networkSettings: NetworkSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortalRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -2365,6 +2697,9 @@ export interface UpdatePortalRequest {
   authenticationType?: AuthenticationType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortalResponse {
   /**
    * <p>The web portal.</p>
@@ -2372,6 +2707,9 @@ export interface UpdatePortalResponse {
   portal?: Portal;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrustStoreRequest {
   /**
    * <p>The ARN of the trust store.</p>
@@ -2399,6 +2737,9 @@ export interface UpdateTrustStoreRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrustStoreResponse {
   /**
    * <p>The ARN of the trust store.</p>
@@ -2406,6 +2747,9 @@ export interface UpdateTrustStoreResponse {
   trustStoreArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserAccessLoggingSettingsRequest {
   /**
    * <p>The ARN of the user access logging settings.</p>
@@ -2428,6 +2772,9 @@ export interface UpdateUserAccessLoggingSettingsRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserAccessLoggingSettingsResponse {
   /**
    * <p>The user access logging settings.</p>
@@ -2435,6 +2782,9 @@ export interface UpdateUserAccessLoggingSettingsResponse {
   userAccessLoggingSettings: UserAccessLoggingSettings | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserSettingsRequest {
   /**
    * <p>The ARN of the user settings.</p>
@@ -2491,6 +2841,9 @@ export interface UpdateUserSettingsRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserSettingsResponse {
   /**
    * <p>The user settings.</p>

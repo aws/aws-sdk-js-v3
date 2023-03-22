@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFirewallDomainListsCommand}.
  */
 export interface ListFirewallDomainListsCommandInput extends ListFirewallDomainListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFirewallDomainListsCommand}.
  */
 export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomainListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the firewall domain lists that you have defined. For each firewall domain list, you can retrieve the domains that are defined for a list by calling <a>ListFirewallDomains</a>. </p>
  *          <p>A single call to this list operation might return only a partial list of the domain lists. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomain
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallDomainListsCommandInput - {@link ListFirewallDomainListsCommandInput}
+ * @returns {@link ListFirewallDomainListsCommandOutput}
  * @see {@link ListFirewallDomainListsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallDomainListsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListFirewallDomainListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallDomainListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListFirewallDomainListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallDomainListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFirewallDomainListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallDomainListsCommandOutput> {
     return deserializeAws_json1_1ListFirewallDomainListsCommand(output, context);
   }

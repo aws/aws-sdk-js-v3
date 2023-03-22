@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSecurityProfileCommand}.
  */
 export interface DeleteSecurityProfileCommandInput extends DeleteSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSecurityProfileCommand}.
  */
 export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSecurityProfile</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityProfileCommandInput - {@link DeleteSecurityProfileCommandInput}
+ * @returns {@link DeleteSecurityProfileCommandOutput}
  * @see {@link DeleteSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityProfileCommandOutput> {
     return deserializeAws_restJson1DeleteSecurityProfileCommand(output, context);
   }

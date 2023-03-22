@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppInstancesCommand}.
  */
 export interface ListAppInstancesCommandInput extends ListAppInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppInstancesCommand}.
  */
 export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS
  *          account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppInstancesCommandInput - {@link ListAppInstancesCommandInput}
+ * @returns {@link ListAppInstancesCommandOutput}
  * @see {@link ListAppInstancesCommandInput} for command's `input` shape.
  * @see {@link ListAppInstancesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListAppInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListAppInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAppInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInstancesCommandOutput> {
     return deserializeAws_restJson1ListAppInstancesCommand(output, context);
   }

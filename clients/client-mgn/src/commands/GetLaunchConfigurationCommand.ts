@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLaunchConfigurationCommand}.
  */
 export interface GetLaunchConfigurationCommandInput extends GetLaunchConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLaunchConfigurationCommand}.
  */
 export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all LaunchConfigurations available, filtered by Source Server IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLaunchConfigurationCommandInput - {@link GetLaunchConfigurationCommandInput}
+ * @returns {@link GetLaunchConfigurationCommandOutput}
  * @see {@link GetLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLaunchConfigurationCommandOutput> {
     return deserializeAws_restJson1GetLaunchConfigurationCommand(output, context);
   }

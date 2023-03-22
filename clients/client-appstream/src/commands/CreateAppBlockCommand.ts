@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppBlockCommand}.
  */
 export interface CreateAppBlockCommandInput extends CreateAppBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppBlockCommand}.
  */
 export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an app block.</p>
  *          <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
  *             virtual hard disk in an S3 bucket. It also stores the setup script with details about
@@ -52,6 +57,8 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppBlockCommandInput - {@link CreateAppBlockCommandInput}
+ * @returns {@link CreateAppBlockCommandOutput}
  * @see {@link CreateAppBlockCommandInput} for command's `input` shape.
  * @see {@link CreateAppBlockCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateAppBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateAppBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAppBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppBlockCommandOutput> {
     return deserializeAws_json1_1CreateAppBlockCommand(output, context);
   }

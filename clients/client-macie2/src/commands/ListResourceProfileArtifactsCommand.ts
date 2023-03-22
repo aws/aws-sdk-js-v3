@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceProfileArtifactsCommand}.
  */
 export interface ListResourceProfileArtifactsCommandInput extends ListResourceProfileArtifactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceProfileArtifactsCommand}.
  */
 export interface ListResourceProfileArtifactsCommandOutput
@@ -37,6 +41,7 @@ export interface ListResourceProfileArtifactsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListResourceProfileArtifactsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceProfileArtifactsCommandInput - {@link ListResourceProfileArtifactsCommandInput}
+ * @returns {@link ListResourceProfileArtifactsCommandOutput}
  * @see {@link ListResourceProfileArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListResourceProfileArtifactsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -86,6 +93,9 @@ export class ListResourceProfileArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceProfileArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListResourceProfileArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceProfileArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListResourceProfileArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

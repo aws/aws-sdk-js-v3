@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGroupPolicyCommand}.
  */
 export interface DeleteGroupPolicyCommandInput extends DeleteGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGroupPolicyCommand}.
  */
 export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified inline policy that is embedded in the specified IAM
  *             group.</p>
  *          <p>A group can also have managed policies attached to it. To detach a managed policy from
@@ -46,6 +51,8 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGroupPolicyCommandInput - {@link DeleteGroupPolicyCommandInput}
+ * @returns {@link DeleteGroupPolicyCommandOutput}
  * @see {@link DeleteGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupPolicyCommandOutput> {
     return deserializeAws_queryDeleteGroupPolicyCommand(output, context);
   }

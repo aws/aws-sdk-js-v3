@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutoScalingInstancesCommand}.
  */
 export interface DescribeAutoScalingInstancesCommandInput extends DescribeAutoScalingInstancesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutoScalingInstancesCommand}.
  */
 export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingInstancesType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the Auto Scaling instances in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutoScalingInstancesCommandInput - {@link DescribeAutoScalingInstancesCommandInput}
+ * @returns {@link DescribeAutoScalingInstancesCommandOutput}
  * @see {@link DescribeAutoScalingInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -104,6 +111,9 @@ export class DescribeAutoScalingInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoScalingInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DescribeAutoScalingInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAutoScalingInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAutoScalingInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

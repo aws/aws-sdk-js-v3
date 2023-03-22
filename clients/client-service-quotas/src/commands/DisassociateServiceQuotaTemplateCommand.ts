@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateServiceQuotaTemplateCommand}.
  */
 export interface DisassociateServiceQuotaTemplateCommandInput extends DisassociateServiceQuotaTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateServiceQuotaTemplateCommand}.
  */
 export interface DisassociateServiceQuotaTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables your quota request template. After a template is disabled, the quota increase
  *       requests in the template are not applied to new accounts in your organization. Disabling a
  *       quota request template does not apply its quota increase requests.</p>
@@ -50,6 +55,8 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateServiceQuotaTemplateCommandInput - {@link DisassociateServiceQuotaTemplateCommandInput}
+ * @returns {@link DisassociateServiceQuotaTemplateCommandOutput}
  * @see {@link DisassociateServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceQuotaTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -99,6 +106,9 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateServiceQuotaTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateServiceQuotaTemplateCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
     return serializeAws_json1_1DisassociateServiceQuotaTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

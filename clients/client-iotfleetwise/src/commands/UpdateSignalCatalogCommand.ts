@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSignalCatalogCommand}.
  */
 export interface UpdateSignalCatalogCommandInput extends UpdateSignalCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSignalCatalogCommand}.
  */
 export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a signal catalog. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSignalCatalogCommandInput - {@link UpdateSignalCatalogCommandInput}
+ * @returns {@link UpdateSignalCatalogCommandOutput}
  * @see {@link UpdateSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link UpdateSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateSignalCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSignalCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateSignalCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateSignalCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSignalCatalogCommandOutput> {
     return deserializeAws_json1_0UpdateSignalCatalogCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectionsCommand}.
  */
 export interface ListConnectionsCommandInput extends ListConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectionsCommand}.
  */
 export interface ListConnectionsCommandOutput extends ListConnectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of connections from the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
+ * @returns {@link ListConnectionsCommandOutput}
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectionsCommandOutput> {
     return deserializeAws_json1_1ListConnectionsCommand(output, context);
   }

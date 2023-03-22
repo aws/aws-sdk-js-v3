@@ -24,15 +24,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelQualityJobDefinitionCommand}.
  */
 export interface DeleteModelQualityJobDefinitionCommandInput extends DeleteModelQualityJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelQualityJobDefinitionCommand}.
  */
 export interface DeleteModelQualityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the secified model quality monitoring job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteModelQualityJobDefinitionCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelQualityJobDefinitionCommandInput - {@link DeleteModelQualityJobDefinitionCommandInput}
+ * @returns {@link DeleteModelQualityJobDefinitionCommandOutput}
  * @see {@link DeleteModelQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteModelQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteModelQualityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelQualityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,6 +119,9 @@ export class DeleteModelQualityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteModelQualityJobDefinitionCommandInput,
     context: __SerdeContext
@@ -116,6 +129,9 @@ export class DeleteModelQualityJobDefinitionCommand extends $Command<
     return serializeAws_json1_1DeleteModelQualityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

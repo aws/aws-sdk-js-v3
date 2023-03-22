@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetDeploymentTargetsCommand}.
  */
 export interface BatchGetDeploymentTargetsCommandInput extends BatchGetDeploymentTargetsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetDeploymentTargetsCommand}.
  */
 export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns an array of one or more targets associated with a deployment. This method
  *             works with all compute types and should be used instead of the deprecated
  *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
@@ -72,6 +77,8 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDeploymentTargetsCommandInput - {@link BatchGetDeploymentTargetsCommandInput}
+ * @returns {@link BatchGetDeploymentTargetsCommandOutput}
  * @see {@link BatchGetDeploymentTargetsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -126,6 +133,9 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDeploymentTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDeploymentTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDeploymentTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

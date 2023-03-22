@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A  tag is a key-value pair where the key and value are case-sensitive.
  *             You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group.
  *           For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
@@ -57,6 +62,8 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
+ * @returns {@link AddTagsToResourceCommandOutput}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -151,6 +158,9 @@ export class AddTagsToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -190,10 +200,16 @@ export class AddTagsToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddTagsToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToResourceCommandOutput> {
     return deserializeAws_queryAddTagsToResourceCommand(output, context);
   }

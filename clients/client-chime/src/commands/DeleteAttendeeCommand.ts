@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAttendeeCommand}.
  */
 export interface DeleteAttendeeCommandInput extends DeleteAttendeeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAttendeeCommand}.
  */
 export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
  * <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see
  * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -44,6 +49,8 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAttendeeCommandInput - {@link DeleteAttendeeCommandInput}
+ * @returns {@link DeleteAttendeeCommandOutput}
  * @see {@link DeleteAttendeeCommandInput} for command's `input` shape.
  * @see {@link DeleteAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteAttendeeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAttendeeCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteAttendeeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAttendeeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAttendeeCommandOutput> {
     return deserializeAws_restJson1DeleteAttendeeCommand(output, context);
   }

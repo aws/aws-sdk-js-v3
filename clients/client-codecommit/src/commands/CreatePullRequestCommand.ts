@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePullRequestCommand}.
  */
 export interface CreatePullRequestCommandInput extends CreatePullRequestInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePullRequestCommand}.
  */
 export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a pull request in the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePullRequestCommandInput - {@link CreatePullRequestCommandInput}
+ * @returns {@link CreatePullRequestCommandOutput}
  * @see {@link CreatePullRequestCommandInput} for command's `input` shape.
  * @see {@link CreatePullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -161,6 +168,9 @@ export class CreatePullRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePullRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -200,10 +210,16 @@ export class CreatePullRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePullRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePullRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePullRequestCommandOutput> {
     return deserializeAws_json1_1CreatePullRequestCommand(output, context);
   }

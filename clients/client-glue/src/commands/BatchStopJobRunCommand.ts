@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchStopJobRunCommand}.
  */
 export interface BatchStopJobRunCommandInput extends BatchStopJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchStopJobRunCommand}.
  */
 export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops one or more job runs for a specified job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchStopJobRunCommandInput - {@link BatchStopJobRunCommandInput}
+ * @returns {@link BatchStopJobRunCommandOutput}
  * @see {@link BatchStopJobRunCommandInput} for command's `input` shape.
  * @see {@link BatchStopJobRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class BatchStopJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchStopJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class BatchStopJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchStopJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchStopJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStopJobRunCommandOutput> {
     return deserializeAws_json1_1BatchStopJobRunCommand(output, context);
   }

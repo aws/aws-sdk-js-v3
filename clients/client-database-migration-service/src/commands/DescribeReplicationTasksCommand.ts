@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationTasksCommand}.
  */
 export interface DescribeReplicationTasksCommandInput extends DescribeReplicationTasksMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationTasksCommand}.
  */
 export interface DescribeReplicationTasksCommandOutput extends DescribeReplicationTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about replication tasks for your account in the current
  *          region.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationTasksCommandInput - {@link DescribeReplicationTasksCommandInput}
+ * @returns {@link DescribeReplicationTasksCommandOutput}
  * @see {@link DescribeReplicationTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTasksCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -104,6 +111,9 @@ export class DescribeReplicationTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DescribeReplicationTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReplicationTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReplicationTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReplicationTasksCommandOutput> {
     return deserializeAws_json1_1DescribeReplicationTasksCommand(output, context);
   }

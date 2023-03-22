@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceImagePermissionsCommand}.
  */
 export interface DescribeWorkspaceImagePermissionsCommandInput extends DescribeWorkspaceImagePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceImagePermissionsCommand}.
  */
 export interface DescribeWorkspaceImagePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceImagePermissionsCommandInput - {@link DescribeWorkspaceImagePermissionsCommandInput}
+ * @returns {@link DescribeWorkspaceImagePermissionsCommandOutput}
  * @see {@link DescribeWorkspaceImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceImagePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeWorkspaceImagePermissionsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     return serializeAws_json1_1DescribeWorkspaceImagePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

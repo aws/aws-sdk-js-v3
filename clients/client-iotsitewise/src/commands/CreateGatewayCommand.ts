@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGatewayCommand}.
  */
 export interface CreateGatewayCommandInput extends CreateGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGatewayCommand}.
  */
 export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams
  *       from local servers to IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a gateway</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGatewayCommandInput - {@link CreateGatewayCommandInput}
+ * @returns {@link CreateGatewayCommandOutput}
  * @see {@link CreateGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGatewayCommandOutput> {
     return deserializeAws_restJson1CreateGatewayCommand(output, context);
   }

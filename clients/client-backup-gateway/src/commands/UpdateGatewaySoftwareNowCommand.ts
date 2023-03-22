@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewaySoftwareNowCommand}.
  */
 export interface UpdateGatewaySoftwareNowCommandInput extends UpdateGatewaySoftwareNowInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewaySoftwareNowCommand}.
  */
 export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoftwareNowOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the gateway virtual machine (VM) software.
  *       The request immediately triggers the software update.</p>
  *          <note>
@@ -52,6 +57,8 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewaySoftwareNowCommandInput - {@link UpdateGatewaySoftwareNowCommandInput}
+ * @returns {@link UpdateGatewaySoftwareNowCommandOutput}
  * @see {@link UpdateGatewaySoftwareNowCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewaySoftwareNowCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewaySoftwareNowCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewaySoftwareNowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateGatewaySoftwareNowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewaySoftwareNowCommandOutput> {
     return deserializeAws_json1_0UpdateGatewaySoftwareNowCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountSubscriptionCommand}.
  */
 export interface DescribeAccountSubscriptionCommandInput extends DescribeAccountSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountSubscriptionCommand}.
  */
 export interface DescribeAccountSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAccountSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the DescribeAccountSubscription operation to receive a description of an Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAccountSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountSubscriptionCommandInput - {@link DescribeAccountSubscriptionCommandInput}
+ * @returns {@link DescribeAccountSubscriptionCommandOutput}
  * @see {@link DescribeAccountSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeAccountSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeAccountSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAccountSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

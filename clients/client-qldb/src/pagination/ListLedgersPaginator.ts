@@ -6,7 +6,7 @@ import { QLDBClient } from "../QLDBClient";
 import { QLDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: QLDBClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListLedgersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListLedgers(
   config: QLDBPaginationConfiguration,
   input: ListLedgersCommandInput,

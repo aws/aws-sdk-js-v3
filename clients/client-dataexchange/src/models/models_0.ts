@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DataExchangeServiceException as __BaseException } from "./DataExchangeServiceException";
 
 /**
+ * @public
  * <p>Access to the resource is denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,12 +28,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ServerSideEncryptionTypes {
   AES256 = "AES256",
   aws_kms = "aws:kms",
 }
 
 /**
+ * @public
  * <p>Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
  */
 export interface ExportServerSideEncryption {
@@ -48,6 +53,7 @@ export interface ExportServerSideEncryption {
 }
 
 /**
+ * @public
  * <p>A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.</p>
  */
 export interface AutoExportRevisionDestinationEntry {
@@ -63,6 +69,7 @@ export interface AutoExportRevisionDestinationEntry {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface AutoExportRevisionToS3RequestDetails {
@@ -78,6 +85,7 @@ export interface AutoExportRevisionToS3RequestDetails {
 }
 
 /**
+ * @public
  * <p>What occurs after a certain event.</p>
  */
 export interface Action {
@@ -87,11 +95,15 @@ export interface Action {
   ExportRevisionToS3?: AutoExportRevisionToS3RequestDetails;
 }
 
+/**
+ * @public
+ */
 export enum ProtocolType {
   REST = "REST",
 }
 
 /**
+ * @public
  * <p>The API Gateway API that is the asset.</p>
  */
 export interface ApiGatewayApiAsset {
@@ -142,6 +154,7 @@ export interface ApiGatewayApiAsset {
 }
 
 /**
+ * @public
  * <p>The destination for the asset.</p>
  */
 export interface AssetDestinationEntry {
@@ -162,6 +175,7 @@ export interface AssetDestinationEntry {
 }
 
 /**
+ * @public
  * <p>A structure that allows an LF-admin to grant permissions on certain conditions.</p>
  */
 export interface LFTag {
@@ -177,6 +191,7 @@ export interface LFTag {
 }
 
 /**
+ * @public
  * <p>The LF-tag policy for database resources.</p>
  */
 export interface DatabaseLFTagPolicy {
@@ -187,6 +202,7 @@ export interface DatabaseLFTagPolicy {
 }
 
 /**
+ * @public
  * <p>The LF-tag policy for a table resource.</p>
  */
 export interface TableLFTagPolicy {
@@ -197,6 +213,7 @@ export interface TableLFTagPolicy {
 }
 
 /**
+ * @public
  * <p>Details about the AWS Lake Formation resource (Table or Database) included in the AWS Lake Formation data permission.</p>
  */
 export interface LFResourceDetails {
@@ -211,12 +228,16 @@ export interface LFResourceDetails {
   Table?: TableLFTagPolicy;
 }
 
+/**
+ * @public
+ */
 export enum LFResourceType {
   DATABASE = "DATABASE",
   TABLE = "TABLE",
 }
 
 /**
+ * @public
  * <p>Details about the LF-tag policy.</p>
  */
 export interface LFTagPolicyDetails {
@@ -237,6 +258,7 @@ export interface LFTagPolicyDetails {
 }
 
 /**
+ * @public
  * <p>Details about the AWS Lake Formation data permission.</p>
  */
 export interface LakeFormationDataPermissionDetails {
@@ -246,16 +268,23 @@ export interface LakeFormationDataPermissionDetails {
   LFTagPolicy?: LFTagPolicyDetails;
 }
 
+/**
+ * @public
+ */
 export enum LakeFormationDataPermissionType {
   LFTagPolicy = "LFTagPolicy",
 }
 
+/**
+ * @public
+ */
 export enum LFPermission {
   DESCRIBE = "DESCRIBE",
   SELECT = "SELECT",
 }
 
 /**
+ * @public
  * <p>The AWS Lake Formation data permission asset.</p>
  */
 export interface LakeFormationDataPermissionAsset {
@@ -281,6 +310,7 @@ export interface LakeFormationDataPermissionAsset {
 }
 
 /**
+ * @public
  * <p>The Amazon Redshift datashare asset.</p>
  */
 export interface RedshiftDataShareAsset {
@@ -291,6 +321,7 @@ export interface RedshiftDataShareAsset {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the shared S3
  *          objects.</p>
  */
@@ -305,6 +336,7 @@ export interface KmsKeyToGrant {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 data access that is the asset.</p>
  */
 export interface S3DataAccessAsset {
@@ -342,6 +374,7 @@ export interface S3DataAccessAsset {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 object that is the asset.</p>
  */
 export interface S3SnapshotAsset {
@@ -352,6 +385,7 @@ export interface S3SnapshotAsset {
 }
 
 /**
+ * @public
  * <p>Details about the asset.</p>
  */
 export interface AssetDetails {
@@ -381,6 +415,9 @@ export interface AssetDetails {
   LakeFormationDataPermissionAsset?: LakeFormationDataPermissionAsset;
 }
 
+/**
+ * @public
+ */
 export enum AssetType {
   API_GATEWAY_API = "API_GATEWAY_API",
   LAKE_FORMATION_DATA_PERMISSION = "LAKE_FORMATION_DATA_PERMISSION",
@@ -390,6 +427,7 @@ export enum AssetType {
 }
 
 /**
+ * @public
  * <p>An asset in AWS Data Exchange is a piece of data (Amazon S3 object) or a means of
  *          fulfilling data (Amazon Redshift datashare or Amazon API Gateway API, AWS Lake Formation
  *          data permission, or Amazon S3 data access). The asset can be a structured data file, an
@@ -458,6 +496,7 @@ export interface AssetEntry {
 }
 
 /**
+ * @public
  * <p>The source of the assets.</p>
  */
 export interface AssetSourceEntry {
@@ -472,6 +511,9 @@ export interface AssetSourceEntry {
   Key: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRequest {
   /**
    * <p>The unique identifier for a job.</p>
@@ -479,6 +521,9 @@ export interface CancelJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   ASSET = "ASSET",
   DATA_SET = "DATA_SET",
@@ -488,6 +533,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -524,6 +570,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception occurred with the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -548,6 +595,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource couldn't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -584,6 +632,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -607,12 +656,16 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ExceptionCause {
   InsufficientS3BucketPolicy = "InsufficientS3BucketPolicy",
   S3AccessDenied = "S3AccessDenied",
 }
 
 /**
+ * @public
  * <p>The request was invalid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -642,6 +695,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum Code {
   ACCESS_DENIED_EXCEPTION = "ACCESS_DENIED_EXCEPTION",
   INTERNAL_SERVER_EXCEPTION = "INTERNAL_SERVER_EXCEPTION",
@@ -652,6 +708,9 @@ export enum Code {
   VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION",
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSetRequest {
   /**
    * <p>The type of asset that is added to a data set.</p>
@@ -674,12 +733,16 @@ export interface CreateDataSetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum Origin {
   ENTITLED = "ENTITLED",
   OWNED = "OWNED",
 }
 
 /**
+ * @public
  * <p>Details about the origin of the data set.</p>
  */
 export interface OriginDetails {
@@ -689,6 +752,9 @@ export interface OriginDetails {
   ProductId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSetResponse {
   /**
    * <p>The ARN for the data set.</p>
@@ -746,6 +812,9 @@ export interface CreateDataSetResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export enum LimitName {
   AWS_Lake_Formation_data_permission_assets_per_revision = "AWS Lake Formation data permission assets per revision",
   Amazon_API_Gateway_API_assets_per_revision = "Amazon API Gateway API assets per revision",
@@ -778,6 +847,7 @@ export enum LimitName {
 }
 
 /**
+ * @public
  * <p>The request has exceeded the quotas imposed by the service.</p>
  */
 export class ServiceLimitExceededException extends __BaseException {
@@ -814,6 +884,7 @@ export class ServiceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the published revision.</p>
  */
 export interface RevisionPublished {
@@ -824,6 +895,7 @@ export interface RevisionPublished {
 }
 
 /**
+ * @public
  * <p>What occurs to start an action.</p>
  */
 export interface Event {
@@ -833,6 +905,9 @@ export interface Event {
   RevisionPublished?: RevisionPublished;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventActionRequest {
   /**
    * <p>What occurs after a certain event.</p>
@@ -845,6 +920,9 @@ export interface CreateEventActionRequest {
   Event: Event | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEventActionResponse {
   /**
    * <p>What occurs after a certain event.</p>
@@ -878,6 +956,7 @@ export interface CreateEventActionResponse {
 }
 
 /**
+ * @public
  * <p>Source details for an Amazon S3 data access asset.</p>
  */
 export interface S3DataAccessAssetSourceEntry {
@@ -904,6 +983,7 @@ export interface S3DataAccessAssetSourceEntry {
 }
 
 /**
+ * @public
  * <p>Details of the operation to create an Amazon S3 data access from an S3 bucket.</p>
  */
 export interface CreateS3DataAccessFromS3BucketRequestDetails {
@@ -924,6 +1004,7 @@ export interface CreateS3DataAccessFromS3BucketRequestDetails {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ExportAssetsToS3RequestDetails {
@@ -949,6 +1030,7 @@ export interface ExportAssetsToS3RequestDetails {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ExportAssetToSignedUrlRequestDetails {
@@ -969,6 +1051,7 @@ export interface ExportAssetToSignedUrlRequestDetails {
 }
 
 /**
+ * @public
  * <p>The destination where the assets in the revision will be exported.</p>
  */
 export interface RevisionDestinationEntry {
@@ -989,6 +1072,7 @@ export interface RevisionDestinationEntry {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ExportRevisionsToS3RequestDetails {
@@ -1009,6 +1093,7 @@ export interface ExportRevisionsToS3RequestDetails {
 }
 
 /**
+ * @public
  * <p>The request details.</p>
  */
 export interface ImportAssetFromApiGatewayApiRequestDetails {
@@ -1059,6 +1144,7 @@ export interface ImportAssetFromApiGatewayApiRequestDetails {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ImportAssetFromSignedUrlRequestDetails {
@@ -1083,11 +1169,15 @@ export interface ImportAssetFromSignedUrlRequestDetails {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DatabaseLFTagPolicyPermission {
   DESCRIBE = "DESCRIBE",
 }
 
 /**
+ * @public
  * <p>The LF-tag policy and permissions for database resources.</p>
  */
 export interface DatabaseLFTagPolicyAndPermissions {
@@ -1102,12 +1192,16 @@ export interface DatabaseLFTagPolicyAndPermissions {
   Permissions: (DatabaseLFTagPolicyPermission | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TableTagPolicyLFPermission {
   DESCRIBE = "DESCRIBE",
   SELECT = "SELECT",
 }
 
 /**
+ * @public
  * <p>The LF-tag policy and permissions that apply to table resources.</p>
  */
 export interface TableLFTagPolicyAndPermissions {
@@ -1123,6 +1217,7 @@ export interface TableLFTagPolicyAndPermissions {
 }
 
 /**
+ * @public
  * <p>Details about the assets imported from an AWS Lake Formation tag policy request.</p>
  */
 export interface ImportAssetsFromLakeFormationTagPolicyRequestDetails {
@@ -1158,6 +1253,7 @@ export interface ImportAssetsFromLakeFormationTagPolicyRequestDetails {
 }
 
 /**
+ * @public
  * <p>The source of the Amazon Redshift datashare asset.</p>
  */
 export interface RedshiftDataShareAssetSourceEntry {
@@ -1168,6 +1264,7 @@ export interface RedshiftDataShareAssetSourceEntry {
 }
 
 /**
+ * @public
  * <p>Details from an import from Amazon Redshift datashare request.</p>
  */
 export interface ImportAssetsFromRedshiftDataSharesRequestDetails {
@@ -1188,6 +1285,7 @@ export interface ImportAssetsFromRedshiftDataSharesRequestDetails {
 }
 
 /**
+ * @public
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ImportAssetsFromS3RequestDetails {
@@ -1208,6 +1306,7 @@ export interface ImportAssetsFromS3RequestDetails {
 }
 
 /**
+ * @public
  * <p>The details for the request.</p>
  */
 export interface RequestDetails {
@@ -1257,6 +1356,9 @@ export interface RequestDetails {
   ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyRequestDetails;
 }
 
+/**
+ * @public
+ */
 export enum Type {
   CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET = "CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET",
   EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
@@ -1269,6 +1371,9 @@ export enum Type {
   IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL",
 }
 
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * <p>The details for the CreateJob request.</p>
@@ -1282,6 +1387,7 @@ export interface CreateJobRequest {
 }
 
 /**
+ * @public
  * <p>Details about the response of the operation to create an S3 data access from an S3 bucket.</p>
  */
 export interface CreateS3DataAccessFromS3BucketResponseDetails {
@@ -1302,6 +1408,7 @@ export interface CreateS3DataAccessFromS3BucketResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details about the export to Amazon S3 response.</p>
  */
 export interface ExportAssetsToS3ResponseDetails {
@@ -1327,6 +1434,7 @@ export interface ExportAssetsToS3ResponseDetails {
 }
 
 /**
+ * @public
  * <p>The details of the export to signed URL response.</p>
  */
 export interface ExportAssetToSignedUrlResponseDetails {
@@ -1357,6 +1465,7 @@ export interface ExportAssetToSignedUrlResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details about the export revisions to Amazon S3 response.</p>
  */
 export interface ExportRevisionsToS3ResponseDetails {
@@ -1382,6 +1491,7 @@ export interface ExportRevisionsToS3ResponseDetails {
 }
 
 /**
+ * @public
  * <p>The response details.</p>
  */
 export interface ImportAssetFromApiGatewayApiResponseDetails {
@@ -1442,6 +1552,7 @@ export interface ImportAssetFromApiGatewayApiResponseDetails {
 }
 
 /**
+ * @public
  * <p>The details in the response for an import request, including the signed URL and other information.</p>
  */
 export interface ImportAssetFromSignedUrlResponseDetails {
@@ -1477,6 +1588,7 @@ export interface ImportAssetFromSignedUrlResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details from an import AWS Lake Formation tag policy job response.</p>
  */
 export interface ImportAssetsFromLakeFormationTagPolicyResponseDetails {
@@ -1512,6 +1624,7 @@ export interface ImportAssetsFromLakeFormationTagPolicyResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details from an import from Amazon Redshift datashare response.</p>
  */
 export interface ImportAssetsFromRedshiftDataSharesResponseDetails {
@@ -1532,6 +1645,7 @@ export interface ImportAssetsFromRedshiftDataSharesResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details from an import from Amazon S3 response.</p>
  */
 export interface ImportAssetsFromS3ResponseDetails {
@@ -1552,6 +1666,7 @@ export interface ImportAssetsFromS3ResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details for the response.</p>
  */
 export interface ResponseDetails {
@@ -1602,6 +1717,7 @@ export interface ResponseDetails {
 }
 
 /**
+ * @public
  * <p>Details about the job error.</p>
  */
 export interface ImportAssetFromSignedUrlJobErrorDetails {
@@ -1612,6 +1728,7 @@ export interface ImportAssetFromSignedUrlJobErrorDetails {
 }
 
 /**
+ * @public
  * <p>Information about the job error.</p>
  */
 export interface Details {
@@ -1626,6 +1743,9 @@ export interface Details {
   ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[];
 }
 
+/**
+ * @public
+ */
 export enum JobErrorLimitName {
   AWS_Lake_Formation_data_permission_assets_per_revision = "AWS Lake Formation data permission assets per revision",
   Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
@@ -1634,6 +1754,9 @@ export enum JobErrorLimitName {
   Assets_per_revision = "Assets per revision",
 }
 
+/**
+ * @public
+ */
 export enum JobErrorResourceTypes {
   ASSET = "ASSET",
   DATA_SET = "DATA_SET",
@@ -1641,6 +1764,7 @@ export enum JobErrorResourceTypes {
 }
 
 /**
+ * @public
  * <p>An error that occurred with the job request.</p>
  */
 export interface JobError {
@@ -1680,6 +1804,9 @@ export interface JobError {
   ResourceType?: JobErrorResourceTypes | string;
 }
 
+/**
+ * @public
+ */
 export enum State {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
@@ -1689,6 +1816,9 @@ export enum State {
   WAITING = "WAITING",
 }
 
+/**
+ * @public
+ */
 export interface CreateJobResponse {
   /**
    * <p>The ARN for the job.</p>
@@ -1731,6 +1861,9 @@ export interface CreateJobResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateRevisionRequest {
   /**
    * <p>An optional comment about the revision.</p>
@@ -1748,6 +1881,9 @@ export interface CreateRevisionRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRevisionResponse {
   /**
    * <p>The ARN for the revision.</p>
@@ -1810,6 +1946,9 @@ export interface CreateRevisionResponse {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAssetRequest {
   /**
    * <p>The unique identifier for an asset.</p>
@@ -1827,6 +1966,9 @@ export interface DeleteAssetRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSetRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -1834,6 +1976,9 @@ export interface DeleteDataSetRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventActionRequest {
   /**
    * <p>The unique identifier for the event action.</p>
@@ -1841,6 +1986,9 @@ export interface DeleteEventActionRequest {
   EventActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRevisionRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -1853,6 +2001,9 @@ export interface DeleteRevisionRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssetRequest {
   /**
    * <p>The unique identifier for an asset.</p>
@@ -1870,6 +2021,9 @@ export interface GetAssetRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssetResponse {
   /**
    * <p>The ARN for the asset.</p>
@@ -1928,6 +2082,9 @@ export interface GetAssetResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetDataSetRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -1935,6 +2092,9 @@ export interface GetDataSetRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataSetResponse {
   /**
    * <p>The ARN for the data set.</p>
@@ -1992,6 +2152,9 @@ export interface GetDataSetResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetEventActionRequest {
   /**
    * <p>The unique identifier for the event action.</p>
@@ -1999,6 +2162,9 @@ export interface GetEventActionRequest {
   EventActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventActionResponse {
   /**
    * <p>What occurs after a certain event.</p>
@@ -2031,6 +2197,9 @@ export interface GetEventActionResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRequest {
   /**
    * <p>The unique identifier for a job.</p>
@@ -2038,6 +2207,9 @@ export interface GetJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJobResponse {
   /**
    * <p>The ARN for the job.</p>
@@ -2080,6 +2252,9 @@ export interface GetJobResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetRevisionRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2092,6 +2267,9 @@ export interface GetRevisionRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRevisionResponse {
   /**
    * <p>The ARN for the revision.</p>
@@ -2154,6 +2332,9 @@ export interface GetRevisionResponse {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetRevisionsRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2172,6 +2353,7 @@ export interface ListDataSetRevisionsRequest {
 }
 
 /**
+ * @public
  * <p>A revision is a container for one or more assets.</p>
  */
 export interface RevisionEntry {
@@ -2231,6 +2413,9 @@ export interface RevisionEntry {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetRevisionsResponse {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -2243,6 +2428,9 @@ export interface ListDataSetRevisionsResponse {
   Revisions?: RevisionEntry[];
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetsRequest {
   /**
    * <p>The maximum number of results returned by a single call.</p>
@@ -2261,6 +2449,7 @@ export interface ListDataSetsRequest {
 }
 
 /**
+ * @public
  * <p>A data set is an AWS resource with one or more revisions.</p>
  */
 export interface DataSetEntry {
@@ -2315,6 +2504,9 @@ export interface DataSetEntry {
   UpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetsResponse {
   /**
    * <p>The data set objects listed by the request.</p>
@@ -2327,6 +2519,9 @@ export interface ListDataSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventActionsRequest {
   /**
    * <p>The unique identifier for the event source.</p>
@@ -2345,6 +2540,7 @@ export interface ListEventActionsRequest {
 }
 
 /**
+ * @public
  * <p>An event action is an object that defines the relationship between a specific event and an automated action that will be taken on behalf of the customer.</p>
  */
 export interface EventActionEntry {
@@ -2379,6 +2575,9 @@ export interface EventActionEntry {
   UpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEventActionsResponse {
   /**
    * <p>The event action objects listed by the request.</p>
@@ -2391,6 +2590,9 @@ export interface ListEventActionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2414,6 +2616,7 @@ export interface ListJobsRequest {
 }
 
 /**
+ * @public
  * <p>AWS Data Exchange Jobs are asynchronous import or export operations used to create or copy assets. A data set owner can both import and export as they see fit. Someone with an entitlement to a data set can only export. Jobs are deleted 90 days after they are created.</p>
  */
 export interface JobEntry {
@@ -2458,6 +2661,9 @@ export interface JobEntry {
   UpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsResponse {
   /**
    * <p>The jobs listed by the request.</p>
@@ -2470,6 +2676,9 @@ export interface ListJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRevisionAssetsRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2492,6 +2701,9 @@ export interface ListRevisionAssetsRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRevisionAssetsResponse {
   /**
    * <p>The asset objects listed by the request.</p>
@@ -2504,6 +2716,9 @@ export interface ListRevisionAssetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
@@ -2511,6 +2726,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A label that consists of a customer-defined key and an optional value.</p>
@@ -2518,6 +2736,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RevokeRevisionRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2535,6 +2756,9 @@ export interface RevokeRevisionRequest {
   RevocationComment: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeRevisionResponse {
   /**
    * <p>The ARN for the revision.</p>
@@ -2592,6 +2816,9 @@ export interface RevokeRevisionResponse {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface SendApiAssetRequest {
   /**
    * <p>The request body.</p>
@@ -2624,7 +2851,7 @@ export interface SendApiAssetRequest {
   Method?: string;
 
   /**
-   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/{pathValue}.</p>
+   * <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/\{pathValue\}.</p>
    */
   Path?: string;
 
@@ -2634,6 +2861,9 @@ export interface SendApiAssetRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendApiAssetResponse {
   /**
    * <p>The response body from the underlying API tracked by the API asset.</p>
@@ -2646,6 +2876,9 @@ export interface SendApiAssetResponse {
   ResponseHeaders?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRequest {
   /**
    * <p>The unique identifier for a job.</p>
@@ -2653,8 +2886,14 @@ export interface StartJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartJobResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
@@ -2667,6 +2906,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
@@ -2679,6 +2921,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssetRequest {
   /**
    * <p>The unique identifier for an asset.</p>
@@ -2707,6 +2952,9 @@ export interface UpdateAssetRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssetResponse {
   /**
    * <p>The ARN for the asset.</p>
@@ -2765,6 +3013,9 @@ export interface UpdateAssetResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSetRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2782,6 +3033,9 @@ export interface UpdateDataSetRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSetResponse {
   /**
    * <p>The ARN for the data set.</p>
@@ -2834,6 +3088,9 @@ export interface UpdateDataSetResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventActionRequest {
   /**
    * <p>What occurs after a certain event.</p>
@@ -2846,6 +3103,9 @@ export interface UpdateEventActionRequest {
   EventActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventActionResponse {
   /**
    * <p>What occurs after a certain event.</p>
@@ -2878,6 +3138,9 @@ export interface UpdateEventActionResponse {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRevisionRequest {
   /**
    * <p>An optional comment about the revision.</p>
@@ -2900,6 +3163,9 @@ export interface UpdateRevisionRequest {
   RevisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRevisionResponse {
   /**
    * <p>The ARN for the revision.</p>

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobForDevicesCommand}.
  */
 export interface CreateJobForDevicesCommandInput extends CreateJobForDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobForDevicesCommand}.
  */
 export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job to run on a device. A job can update a device's software or reboot it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobForDevicesCommandInput - {@link CreateJobForDevicesCommandInput}
+ * @returns {@link CreateJobForDevicesCommandOutput}
  * @see {@link CreateJobForDevicesCommandInput} for command's `input` shape.
  * @see {@link CreateJobForDevicesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateJobForDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobForDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateJobForDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobForDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateJobForDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobForDevicesCommandOutput> {
     return deserializeAws_restJson1CreateJobForDevicesCommand(output, context);
   }

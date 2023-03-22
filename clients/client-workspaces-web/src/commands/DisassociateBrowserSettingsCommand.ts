@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateBrowserSettingsCommand}.
  */
 export interface DisassociateBrowserSettingsCommandInput extends DisassociateBrowserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateBrowserSettingsCommand}.
  */
 export interface DisassociateBrowserSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateBrowserSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates browser settings from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateBrowserSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateBrowserSettingsCommandInput - {@link DisassociateBrowserSettingsCommandInput}
+ * @returns {@link DisassociateBrowserSettingsCommandOutput}
  * @see {@link DisassociateBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisassociateBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DisassociateBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

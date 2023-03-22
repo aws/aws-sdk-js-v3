@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResponsePlanCommand}.
  */
 export interface UpdateResponsePlanCommandInput extends UpdateResponsePlanInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResponsePlanCommand}.
  */
 export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified response plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResponsePlanCommandInput - {@link UpdateResponsePlanCommandInput}
+ * @returns {@link UpdateResponsePlanCommandOutput}
  * @see {@link UpdateResponsePlanCommandInput} for command's `input` shape.
  * @see {@link UpdateResponsePlanCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateResponsePlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResponsePlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateResponsePlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResponsePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResponsePlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResponsePlanCommandOutput> {
     return deserializeAws_restJson1UpdateResponsePlanCommand(output, context);
   }

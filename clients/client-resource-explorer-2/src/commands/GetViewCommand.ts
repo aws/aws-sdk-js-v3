@@ -30,15 +30,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetViewCommand}.
  */
 export interface GetViewCommandInput extends GetViewInput {}
 /**
+ * @public
+ *
  * The output of {@link GetViewCommand}.
  */
 export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details of the specified view.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetViewCommandInput - {@link GetViewCommandInput}
+ * @returns {@link GetViewCommandOutput}
  * @see {@link GetViewCommandInput} for command's `input` shape.
  * @see {@link GetViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -96,6 +103,9 @@ export class GetViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class GetViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetViewCommandOutput> {
     return deserializeAws_restJson1GetViewCommand(output, context);
   }

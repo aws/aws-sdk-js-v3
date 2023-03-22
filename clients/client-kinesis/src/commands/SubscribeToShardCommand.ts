@@ -27,15 +27,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SubscribeToShardCommand}.
  */
 export interface SubscribeToShardCommandInput extends SubscribeToShardInput {}
 /**
+ * @public
+ *
  * The output of {@link SubscribeToShardCommand}.
  */
 export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation establishes an HTTP/2 connection between the consumer you specify in
  *             the <code>ConsumerARN</code> parameter and the shard you specify in the
  *                 <code>ShardId</code> parameter. After the connection is successfully established,
@@ -69,6 +74,8 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param SubscribeToShardCommandInput - {@link SubscribeToShardCommandInput}
+ * @returns {@link SubscribeToShardCommandOutput}
  * @see {@link SubscribeToShardCommandInput} for command's `input` shape.
  * @see {@link SubscribeToShardCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -114,6 +121,9 @@ export class SubscribeToShardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubscribeToShardCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class SubscribeToShardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubscribeToShardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SubscribeToShardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityGroupsCommand}.
  */
 export interface DescribeSecurityGroupsCommandInput extends DescribeSecurityGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityGroupsCommand}.
  */
 export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified security groups or all of your security groups.</p>
  *          <p>A security group is for use with instances either in the EC2-Classic platform
  * 				or in a specific VPC. For more information, see
@@ -55,6 +60,8 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityGroupsCommandInput - {@link DescribeSecurityGroupsCommandInput}
+ * @returns {@link DescribeSecurityGroupsCommandOutput}
  * @see {@link DescribeSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -109,6 +116,9 @@ export class DescribeSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DescribeSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityGroupsCommandOutput> {
     return deserializeAws_ec2DescribeSecurityGroupsCommand(output, context);
   }

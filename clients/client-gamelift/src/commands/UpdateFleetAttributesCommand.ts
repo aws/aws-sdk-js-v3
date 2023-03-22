@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFleetAttributesCommand}.
  */
 export interface UpdateFleetAttributesCommandInput extends UpdateFleetAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFleetAttributesCommand}.
  */
 export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttributesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a fleet's mutable attributes, including game session protection and resource
  *             creation limits.</p>
  *         <p>To update fleet attributes, specify the fleet ID and the property values that you want
@@ -57,6 +62,8 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetAttributesCommandInput - {@link UpdateFleetAttributesCommandInput}
+ * @returns {@link UpdateFleetAttributesCommandOutput}
  * @see {@link UpdateFleetAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetAttributesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -109,6 +116,9 @@ export class UpdateFleetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class UpdateFleetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFleetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetAttributesCommandOutput> {
     return deserializeAws_json1_1UpdateFleetAttributesCommand(output, context);
   }

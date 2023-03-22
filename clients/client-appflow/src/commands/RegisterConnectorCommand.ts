@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterConnectorCommand}.
  */
 export interface RegisterConnectorCommandInput extends RegisterConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterConnectorCommand}.
  */
 export interface RegisterConnectorCommandOutput extends RegisterConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new custom connector with your Amazon Web Services account. Before you can
  *       register the connector, you must deploy the associated AWS lambda function in your
  *       account.</p>
@@ -48,6 +53,8 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterConnectorCommandInput - {@link RegisterConnectorCommandInput}
+ * @returns {@link RegisterConnectorCommandOutput}
  * @see {@link RegisterConnectorCommandInput} for command's `input` shape.
  * @see {@link RegisterConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -103,6 +110,9 @@ export class RegisterConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class RegisterConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterConnectorCommandOutput> {
     return deserializeAws_restJson1RegisterConnectorCommand(output, context);
   }

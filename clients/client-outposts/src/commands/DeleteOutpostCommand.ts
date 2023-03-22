@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOutpostCommand}.
  */
 export interface DeleteOutpostCommandInput extends DeleteOutpostInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOutpostCommand}.
  */
 export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOutpostCommandInput - {@link DeleteOutpostCommandInput}
+ * @returns {@link DeleteOutpostCommandOutput}
  * @see {@link DeleteOutpostCommandInput} for command's `input` shape.
  * @see {@link DeleteOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteOutpostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOutpostCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteOutpostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOutpostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteOutpostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOutpostCommandOutput> {
     return deserializeAws_restJson1DeleteOutpostCommand(output, context);
   }

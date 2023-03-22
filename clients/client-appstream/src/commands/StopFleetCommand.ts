@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1StopFleetCommand, serializeAws_json1_1StopFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopFleetCommand}.
  */
 export interface StopFleetCommandInput extends StopFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopFleetCommand}.
  */
 export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param StopFleetCommandInput - {@link StopFleetCommandInput}
+ * @returns {@link StopFleetCommandOutput}
  * @see {@link StopFleetCommandInput} for command's `input` shape.
  * @see {@link StopFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -72,6 +79,9 @@ export class StopFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class StopFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFleetCommandOutput> {
     return deserializeAws_json1_1StopFleetCommand(output, context);
   }

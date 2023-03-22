@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledActionsCommand}.
  */
 export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledActionsCommand}.
  */
 export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes properties of scheduled actions.
  *              </p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
+ * @returns {@link DescribeScheduledActionsCommandOutput}
  * @see {@link DescribeScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeScheduledActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeScheduledActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeScheduledActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledActionsCommandOutput> {
     return deserializeAws_queryDescribeScheduledActionsCommand(output, context);
   }

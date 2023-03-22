@@ -3,11 +3,15 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { LexModelsV2ServiceException as __BaseException } from "./LexModelsV2ServiceException";
 
+/**
+ * @public
+ */
 export enum AudioRecognitionStrategy {
   UseSlotValuesAsCustomVocabulary = "UseSlotValuesAsCustomVocabulary",
 }
 
 /**
+ * @public
  * <p>Provides settings that enable advanced recognition settings for slot values.</p>
  */
 export interface AdvancedRecognitionSetting {
@@ -17,16 +21,23 @@ export interface AdvancedRecognitionSetting {
   audioRecognitionStrategy?: AudioRecognitionStrategy | string;
 }
 
+/**
+ * @public
+ */
 export enum AggregatedUtterancesFilterName {
   Utterance = "Utterance",
 }
 
+/**
+ * @public
+ */
 export enum AggregatedUtterancesFilterOperator {
   Contains = "CO",
   Equals = "EQ",
 }
 
 /**
+ * @public
  * <p>Filters responses returned by the
  *             <code>ListAggregatedUtterances</code> operation.</p>
  */
@@ -51,17 +62,24 @@ export interface AggregatedUtterancesFilter {
   operator: AggregatedUtterancesFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AggregatedUtterancesSortAttribute {
   HitCount = "HitCount",
   MissedCount = "MissedCount",
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   Ascending = "Ascending",
   Descending = "Descending",
 }
 
 /**
+ * @public
  * <p>Specifies attributes for sorting a list of utterances.</p>
  */
 export interface AggregatedUtterancesSortBy {
@@ -78,6 +96,7 @@ export interface AggregatedUtterancesSortBy {
 }
 
 /**
+ * @public
  * <p>Provides summary information for aggregated utterances. The
  *             <code>ListAggregatedUtterances</code> operations combines all
  *          instances of the same utterance into a single aggregated
@@ -128,6 +147,7 @@ export interface AggregatedUtterancesSummary {
 }
 
 /**
+ * @public
  * <p>Specifies the allowed input types.</p>
  */
 export interface AllowedInputTypes {
@@ -143,6 +163,7 @@ export interface AllowedInputTypes {
 }
 
 /**
+ * @public
  * <p>The object containing information that associates the recommended
  *          intent/slot type with a conversation.</p>
  */
@@ -155,12 +176,16 @@ export interface AssociatedTranscript {
   transcript?: string;
 }
 
+/**
+ * @public
+ */
 export enum AssociatedTranscriptFilterName {
   IntentId = "IntentId",
   SlotTypeId = "SlotTypeId",
 }
 
 /**
+ * @public
  * <p>Filters to search for the associated transcript.</p>
  */
 export interface AssociatedTranscriptFilter {
@@ -177,6 +202,7 @@ export interface AssociatedTranscriptFilter {
 }
 
 /**
+ * @public
  * <p>Specifies the audio input specifications.</p>
  */
 export interface AudioSpecification {
@@ -194,6 +220,7 @@ export interface AudioSpecification {
 }
 
 /**
+ * @public
  * <p>Specifies the DTMF input specifications.</p>
  */
 export interface DTMFSpecification {
@@ -222,6 +249,7 @@ export interface DTMFSpecification {
 }
 
 /**
+ * @public
  * <p>Specifies the audio and DTMF input specification.</p>
  */
 export interface AudioAndDTMFInputSpecification {
@@ -243,6 +271,7 @@ export interface AudioAndDTMFInputSpecification {
 }
 
 /**
+ * @public
  * <p>Specifies an Amazon S3 bucket for logging audio conversations</p>
  */
 export interface S3BucketLogDestination {
@@ -265,6 +294,7 @@ export interface S3BucketLogDestination {
 }
 
 /**
+ * @public
  * <p>The location of audio log files collected when conversation logging
  *          is enabled for a bot.</p>
  */
@@ -278,6 +308,7 @@ export interface AudioLogDestination {
 }
 
 /**
+ * @public
  * <p>Settings for logging audio of conversations between Amazon Lex and a
  *          user. You specify whether to log audio and the Amazon S3 bucket where
  *          the audio file is stored.</p>
@@ -296,6 +327,7 @@ export interface AudioLogSetting {
 }
 
 /**
+ * @public
  * <p>The new custom vocabulary item from the custom
  *          vocabulary list.</p>
  */
@@ -319,6 +351,9 @@ export interface NewCustomVocabularyItem {
   displayAs?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateCustomVocabularyItemRequest {
   /**
    * <p>The identifier of the bot associated with this custom vocabulary.</p>
@@ -345,6 +380,9 @@ export interface BatchCreateCustomVocabularyItemRequest {
   customVocabularyItemList: NewCustomVocabularyItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   DUPLICATE_INPUT = "DUPLICATE_INPUT",
   INTERNAL_SERVER_FAILURE = "INTERNAL_SERVER_FAILURE",
@@ -353,6 +391,7 @@ export enum ErrorCode {
 }
 
 /**
+ * @public
  * <p>The unique failed custom vocabulary item from the custom
  *          vocabulary list.</p>
  */
@@ -377,6 +416,7 @@ export interface FailedCustomVocabularyItem {
 }
 
 /**
+ * @public
  * <p>The unique custom vocabulary item from the custom
  *          vocabulary list.</p>
  */
@@ -406,6 +446,9 @@ export interface CustomVocabularyItem {
   displayAs?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateCustomVocabularyItemResponse {
   /**
    * <p>The identifier of the bot associated with this custom vocabulary.</p>
@@ -439,6 +482,7 @@ export interface BatchCreateCustomVocabularyItemResponse {
 }
 
 /**
+ * @public
  * <p>The service encountered an unexpected condition. Try your request
  *          again.</p>
  */
@@ -459,6 +503,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You asked to describe a resource that doesn't exist. Check the
  *          resource that you are requesting and try again.</p>
  */
@@ -479,6 +524,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached a quota for your bot. </p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -498,6 +544,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request rate is too high. Reduce the frequency of
  *          requests.</p>
  */
@@ -524,6 +571,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  */
@@ -544,6 +592,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The unique entry identifier for the custom vocabulary
  *          items.</p>
  */
@@ -555,6 +604,9 @@ export interface CustomVocabularyEntryId {
   itemId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteCustomVocabularyItemRequest {
   /**
    * <p>The identifier of the bot associated with this custom vocabulary.</p>
@@ -581,6 +633,9 @@ export interface BatchDeleteCustomVocabularyItemRequest {
   customVocabularyItemList: CustomVocabularyEntryId[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteCustomVocabularyItemResponse {
   /**
    * <p>The identifier of the bot associated with this custom vocabulary.</p>
@@ -614,6 +669,9 @@ export interface BatchDeleteCustomVocabularyItemResponse {
   resources?: CustomVocabularyItem[];
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateCustomVocabularyItemRequest {
   /**
    * <p>The identifier of the bot associated with this custom vocabulary</p>
@@ -640,6 +698,9 @@ export interface BatchUpdateCustomVocabularyItemRequest {
   customVocabularyItemList: CustomVocabularyItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateCustomVocabularyItemResponse {
   /**
    * <p>The identifier of the bot associated with this custom vocabulary.</p>
@@ -673,6 +734,7 @@ export interface BatchUpdateCustomVocabularyItemResponse {
 }
 
 /**
+ * @public
  * <p>Provides a record of an event that affects a bot alias. For example,
  *          when the version of a bot that the alias points to changes.</p>
  */
@@ -694,6 +756,7 @@ export interface BotAliasHistoryEvent {
 }
 
 /**
+ * @public
  * <p>Specifies a Lambda function that verifies requests to a bot or
  *          fulfills the user's request to a bot.</p>
  */
@@ -711,6 +774,7 @@ export interface LambdaCodeHook {
 }
 
 /**
+ * @public
  * <p>Contains information about code hooks that Amazon Lex calls during a
  *          conversation.</p>
  */
@@ -723,6 +787,7 @@ export interface CodeHookSpecification {
 }
 
 /**
+ * @public
  * <p>Specifies settings that are unique to a locale. For example, you can
  *          use different Lambda function depending on the bot's locale.</p>
  */
@@ -740,6 +805,9 @@ export interface BotAliasLocaleSettings {
   codeHookSpecification?: CodeHookSpecification;
 }
 
+/**
+ * @public
+ */
 export enum BotAliasStatus {
   Available = "Available",
   Creating = "Creating",
@@ -748,6 +816,7 @@ export enum BotAliasStatus {
 }
 
 /**
+ * @public
  * <p>Summary information about bot aliases returned from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotAliases.html">ListBotAliases</a> operation.</p>
  */
 export interface BotAliasSummary {
@@ -792,6 +861,7 @@ export interface BotAliasSummary {
 }
 
 /**
+ * @public
  * <p>Provides the identity of a the bot that was exported.</p>
  */
 export interface BotExportSpecification {
@@ -807,11 +877,17 @@ export interface BotExportSpecification {
   botVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BotFilterName {
   BotName = "BotName",
   BotType = "BotType",
 }
 
+/**
+ * @public
+ */
 export enum BotFilterOperator {
   Contains = "CO",
   Equals = "EQ",
@@ -819,6 +895,7 @@ export enum BotFilterOperator {
 }
 
 /**
+ * @public
  * <p>Filters the responses returned by the <code>ListBots</code>
  *          operation.</p>
  */
@@ -844,6 +921,7 @@ export interface BotFilter {
 }
 
 /**
+ * @public
  * <p>By default, data stored by Amazon Lex is encrypted. The
  *             <code>DataPrivacy</code> structure provides settings that determine
  *          how Amazon Lex handles special cases of securing the data for your bot.
@@ -882,6 +960,7 @@ export interface DataPrivacy {
 }
 
 /**
+ * @public
  * <p>Provides the bot parameters required for importing a bot.</p>
  */
 export interface BotImportSpecification {
@@ -933,6 +1012,7 @@ export interface BotImportSpecification {
 }
 
 /**
+ * @public
  * <p>Provides the bot locale parameters required for exporting a bot
  *          locale.</p>
  */
@@ -954,16 +1034,23 @@ export interface BotLocaleExportSpecification {
   localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BotLocaleFilterName {
   BotLocaleName = "BotLocaleName",
 }
 
+/**
+ * @public
+ */
 export enum BotLocaleFilterOperator {
   Contains = "CO",
   Equals = "EQ",
 }
 
 /**
+ * @public
  * <p>Filters responses returned by the <code>ListBotLocales</code>
  *          operation.</p>
  */
@@ -989,6 +1076,7 @@ export interface BotLocaleFilter {
 }
 
 /**
+ * @public
  * <p>Provides information about an event that occurred affecting the bot
  *          locale.</p>
  */
@@ -1004,12 +1092,16 @@ export interface BotLocaleHistoryEvent {
   eventDate: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum VoiceEngine {
   Neural = "neural",
   Standard = "standard",
 }
 
 /**
+ * @public
  * <p>Defines settings for using an Amazon Polly voice to communicate with a
  *          user.</p>
  */
@@ -1032,6 +1124,7 @@ export interface VoiceSettings {
 }
 
 /**
+ * @public
  * <p>Provides the bot locale parameters required for importing a bot
  *          locale.</p>
  */
@@ -1100,11 +1193,15 @@ export interface BotLocaleImportSpecification {
   voiceSettings?: VoiceSettings;
 }
 
+/**
+ * @public
+ */
 export enum BotLocaleSortAttribute {
   BotLocaleName = "BotLocaleName",
 }
 
 /**
+ * @public
  * <p>Specifies attributes for sorting a list of bot locales.</p>
  */
 export interface BotLocaleSortBy {
@@ -1120,6 +1217,9 @@ export interface BotLocaleSortBy {
   order: SortOrder | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BotLocaleStatus {
   Building = "Building",
   Built = "Built",
@@ -1133,6 +1233,7 @@ export enum BotLocaleStatus {
 }
 
 /**
+ * @public
  * <p>Summary information about bot locales returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotLocales.html">ListBotLocales</a> operation.</p>
  */
 export interface BotLocaleSummary {
@@ -1171,6 +1272,7 @@ export interface BotLocaleSummary {
 }
 
 /**
+ * @public
  * <p>A bot that is a member of a network of bots.</p>
  */
 export interface BotMember {
@@ -1201,6 +1303,7 @@ export interface BotMember {
 }
 
 /**
+ * @public
  * <p>The object that contains the statistical summary of recommended
  *          intents associated with the bot recommendation.</p>
  */
@@ -1213,6 +1316,7 @@ export interface IntentStatistics {
 }
 
 /**
+ * @public
  * <p>The object that contains the statistical summary of the recommended
  *          slot type associated with the bot recommendation.</p>
  */
@@ -1225,6 +1329,7 @@ export interface SlotTypeStatistics {
 }
 
 /**
+ * @public
  * <p>A statistical summary of the bot recommendation results.</p>
  */
 export interface BotRecommendationResultStatistics {
@@ -1242,6 +1347,7 @@ export interface BotRecommendationResultStatistics {
 }
 
 /**
+ * @public
  * <p>The object representing the URL of the bot definition, the URL of
  *          the associated transcript, and a statistical summary of the bot
  *          recommendation results.</p>
@@ -1263,6 +1369,9 @@ export interface BotRecommendationResults {
   statistics?: BotRecommendationResultStatistics;
 }
 
+/**
+ * @public
+ */
 export enum BotRecommendationStatus {
   Available = "Available",
   Deleted = "Deleted",
@@ -1276,6 +1385,7 @@ export enum BotRecommendationStatus {
 }
 
 /**
+ * @public
  * <p>A summary of the bot recommendation.</p>
  */
 export interface BotRecommendationSummary {
@@ -1305,11 +1415,15 @@ export interface BotRecommendationSummary {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum BotSortAttribute {
   BotName = "BotName",
 }
 
 /**
+ * @public
  * <p>Specifies attributes for sorting a list of bots.</p>
  */
 export interface BotSortBy {
@@ -1325,6 +1439,9 @@ export interface BotSortBy {
   order: SortOrder | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BotStatus {
   Available = "Available",
   Creating = "Creating",
@@ -1336,12 +1453,16 @@ export enum BotStatus {
   Versioning = "Versioning",
 }
 
+/**
+ * @public
+ */
 export enum BotType {
   Bot = "Bot",
   BotNetwork = "BotNetwork",
 }
 
 /**
+ * @public
  * <p>Summary information about a bot returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBots.html">ListBots</a> operation.</p>
  */
 export interface BotSummary {
@@ -1384,6 +1505,7 @@ export interface BotSummary {
 }
 
 /**
+ * @public
  * <p>The version of a bot used for a bot locale.</p>
  */
 export interface BotVersionLocaleDetails {
@@ -1393,11 +1515,15 @@ export interface BotVersionLocaleDetails {
   sourceBotVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BotVersionSortAttribute {
   BotVersion = "BotVersion",
 }
 
 /**
+ * @public
  * <p>Specifies attributes for sorting a list of bot versions.</p>
  */
 export interface BotVersionSortBy {
@@ -1414,6 +1540,7 @@ export interface BotVersionSortBy {
 }
 
 /**
+ * @public
  * <p>Summary information about a bot version returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotVersions.html">ListBotVersions</a> operation.</p>
  */
 export interface BotVersionSummary {
@@ -1446,6 +1573,9 @@ export interface BotVersionSummary {
   creationDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface BuildBotLocaleRequest {
   /**
    * <p>The identifier of the bot to build. The identifier is returned in
@@ -1468,6 +1598,9 @@ export interface BuildBotLocaleRequest {
   localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BuildBotLocaleResponse {
   /**
    * <p>The identifier of the specified bot.</p>
@@ -1503,6 +1636,7 @@ export interface BuildBotLocaleResponse {
 }
 
 /**
+ * @public
  * <p>The action that you tried to perform couldn't be completed because
  *          the resource is in a conflicting state. For example, deleting a bot
  *          that is in the CREATING state. Try your request again. </p>
@@ -1524,6 +1658,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request couldn't be completed because one or more request
  *          fields aren't valid. Check the fields in your request and try
  *          again.</p>
@@ -1544,11 +1679,15 @@ export class PreconditionFailedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum BuiltInIntentSortAttribute {
   IntentSignature = "IntentSignature",
 }
 
 /**
+ * @public
  * <p>Specifies attributes for sorting a list of built-in intents.</p>
  */
 export interface BuiltInIntentSortBy {
@@ -1565,6 +1704,7 @@ export interface BuiltInIntentSortBy {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a built-in intent for the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBuiltInIntents.html"> ListBuiltInIntents </a> operation.</p>
  */
 export interface BuiltInIntentSummary {
@@ -1580,11 +1720,15 @@ export interface BuiltInIntentSummary {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export enum BuiltInSlotTypeSortAttribute {
   SlotTypeSignature = "SlotTypeSignature",
 }
 
 /**
+ * @public
  * <p>Specifies attributes for sorting a list of built-in slot
  *          types.</p>
  */
@@ -1602,6 +1746,7 @@ export interface BuiltInSlotTypeSortBy {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a built-in slot type for the
  *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBuiltInSlotTypes.html"> ListBuiltInSlotTypes </a>
  *          operation.</p>
@@ -1620,6 +1765,7 @@ export interface BuiltInSlotTypeSummary {
 }
 
 /**
+ * @public
  * <p>Describes a button to use on a response card used to gather slot
  *          values from a user.</p>
  */
@@ -1638,6 +1784,7 @@ export interface Button {
 }
 
 /**
+ * @public
  * <p>The Amazon CloudWatch Logs log group where the text and metadata logs are
  *          delivered. The log group must exist before you enable logging.</p>
  */
@@ -1656,6 +1803,7 @@ export interface CloudWatchLogGroupLogDestination {
 }
 
 /**
+ * @public
  * <p>Subslot type composition.</p>
  */
 export interface SubSlotTypeComposition {
@@ -1672,6 +1820,7 @@ export interface SubSlotTypeComposition {
 }
 
 /**
+ * @public
  * <p>A composite slot is a combination of two or more slots
  *        that capture multiple pieces of information in a single user input.</p>
  */
@@ -1683,6 +1832,7 @@ export interface CompositeSlotTypeSetting {
 }
 
 /**
+ * @public
  * <p>Provides an expression that evaluates to true or false. </p>
  */
 export interface Condition {
@@ -1692,6 +1842,9 @@ export interface Condition {
   expressionString: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DialogActionType {
   CloseIntent = "CloseIntent",
   ConfirmIntent = "ConfirmIntent",
@@ -1705,6 +1858,7 @@ export enum DialogActionType {
 }
 
 /**
+ * @public
  * <p> Defines the action that the bot executes at runtime when the
  *          conversation reaches this step.</p>
  */
@@ -1726,12 +1880,16 @@ export interface DialogAction {
   suppressNextMessage?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum SlotShape {
   List = "List",
   Scalar = "Scalar",
 }
 
 /**
+ * @public
  * <p>The value to set in a slot.</p>
  */
 export interface SlotValue {
@@ -1746,6 +1904,7 @@ export interface SlotValue {
 }
 
 /**
+ * @public
  * <p>A custom response string that Amazon Lex sends to your application. You
  *          define the content and structure the string.</p>
  */
@@ -1757,6 +1916,7 @@ export interface CustomPayload {
 }
 
 /**
+ * @public
  * <p>A card that is shown to the user by a messaging platform. You define
  *          the contents of the card, the card is displayed by the platform. </p>
  *          <p>When you use a response card, the response from the user is
@@ -1792,6 +1952,7 @@ export interface ImageResponseCard {
 }
 
 /**
+ * @public
  * <p>Defines an ASCII text message to send to the user.</p>
  */
 export interface PlainTextMessage {
@@ -1802,6 +1963,7 @@ export interface PlainTextMessage {
 }
 
 /**
+ * @public
  * <p>Defines a Speech Synthesis Markup Language (SSML) prompt.</p>
  */
 export interface SSMLMessage {
@@ -1812,6 +1974,7 @@ export interface SSMLMessage {
 }
 
 /**
+ * @public
  * <p>The object that provides message text and it's type.</p>
  */
 export interface Message {
@@ -1839,6 +2002,7 @@ export interface Message {
 }
 
 /**
+ * @public
  * <p>Provides one or more messages that Amazon Lex should send to the
  *          user.</p>
  */
@@ -1857,6 +2021,7 @@ export interface MessageGroup {
 }
 
 /**
+ * @public
  * <p>Specifies a list of message groups that Amazon Lex uses to respond the
  *          user input.</p>
  */
@@ -1875,6 +2040,7 @@ export interface ResponseSpecification {
 }
 
 /**
+ * @public
  * <p>Defines the Amazon CloudWatch Logs destination log group for
  *          conversation text logs.</p>
  */
@@ -1887,6 +2053,7 @@ export interface TextLogDestination {
 }
 
 /**
+ * @public
  * <p>Defines settings to enable text conversation logs.</p>
  */
 export interface TextLogSetting {
@@ -1904,6 +2071,7 @@ export interface TextLogSetting {
 }
 
 /**
+ * @public
  * <p>Configures conversation logging that saves audio, text, and metadata
  *          for the conversations with your users.</p>
  */
@@ -1919,6 +2087,9 @@ export interface ConversationLogSettings {
   audioLogSettings?: AudioLogSetting[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBotRequest {
   /**
    * <p>The name of the bot. The bot name must be unique in the account that
@@ -1982,6 +2153,9 @@ export interface CreateBotRequest {
   botMembers?: BotMember[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBotResponse {
   /**
    * <p>A unique identifier for a particular bot. You use this to identify
@@ -2050,6 +2224,7 @@ export interface CreateBotResponse {
 }
 
 /**
+ * @public
  * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
  *          user utterances.</p>
  */
@@ -2061,6 +2236,9 @@ export interface SentimentAnalysisSettings {
   detectSentiment: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBotAliasRequest {
   /**
    * <p>The alias to create. The name must be unique for the bot.</p>
@@ -2115,6 +2293,9 @@ export interface CreateBotAliasRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateBotAliasResponse {
   /**
    * <p>The unique identifier of the bot alias.</p>
@@ -2178,6 +2359,9 @@ export interface CreateBotAliasResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateBotLocaleRequest {
   /**
    * <p>The identifier of the bot to create the locale for.</p>
@@ -2240,6 +2424,9 @@ export interface CreateBotLocaleRequest {
   voiceSettings?: VoiceSettings;
 }
 
+/**
+ * @public
+ */
 export interface CreateBotLocaleResponse {
   /**
    * <p>The specified bot identifier.</p>
@@ -2301,6 +2488,9 @@ export interface CreateBotLocaleResponse {
   creationDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateBotVersionRequest {
   /**
    * <p>The identifier of the bot to create the version for.</p>
@@ -2322,6 +2512,9 @@ export interface CreateBotVersionRequest {
   botVersionLocaleSpecification: Record<string, BotVersionLocaleDetails> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBotVersionResponse {
   /**
    * <p>The bot identifier specified in the request.</p>
@@ -2358,12 +2551,16 @@ export interface CreateBotVersionResponse {
   creationDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ImportExportFileFormat {
   LexJson = "LexJson",
   TSV = "TSV",
 }
 
 /**
+ * @public
  * <p>Provides the parameters required for exporting a custom vocabulary.</p>
  */
 export interface CustomVocabularyExportSpecification {
@@ -2384,6 +2581,7 @@ export interface CustomVocabularyExportSpecification {
 }
 
 /**
+ * @public
  * <p>Provides information about the bot or bot locale that you want to
  *          export. You can specify the <code>botExportSpecification</code> or the
  *             <code>botLocaleExportSpecification</code>, but not both.</p>
@@ -2405,6 +2603,9 @@ export interface ExportResourceSpecification {
   customVocabularyExportSpecification?: CustomVocabularyExportSpecification;
 }
 
+/**
+ * @public
+ */
 export interface CreateExportRequest {
   /**
    * <p>Specifies the type of resource to export, either a bot or a bot
@@ -2425,6 +2626,9 @@ export interface CreateExportRequest {
   filePassword?: string;
 }
 
+/**
+ * @public
+ */
 export enum ExportStatus {
   Completed = "Completed",
   Deleting = "Deleting",
@@ -2432,6 +2636,9 @@ export enum ExportStatus {
   InProgress = "InProgress",
 }
 
+/**
+ * @public
+ */
 export interface CreateExportResponse {
   /**
    * <p>An identifier for a specific request to create an export.</p>
@@ -2465,6 +2672,7 @@ export interface CreateExportResponse {
 }
 
 /**
+ * @public
  * <p>Settings that determine the Lambda function that Amazon Lex uses for
  *          processing user responses.</p>
  */
@@ -2477,6 +2685,7 @@ export interface DialogCodeHookSettings {
 }
 
 /**
+ * @public
  * <p>Provides settings for a message that is sent to the user when a
  *          fulfillment Lambda function starts running.</p>
  */
@@ -2502,6 +2711,7 @@ export interface FulfillmentStartResponseSpecification {
 }
 
 /**
+ * @public
  * <p>Provides settings for a message that is sent periodically to the
  *          user while a fulfillment Lambda function is running.</p>
  */
@@ -2528,6 +2738,7 @@ export interface FulfillmentUpdateResponseSpecification {
 }
 
 /**
+ * @public
  * <p>Provides information for updating the user on the progress of
  *          fulfilling an intent.</p>
  */
@@ -2561,6 +2772,7 @@ export interface FulfillmentUpdatesSpecification {
 }
 
 /**
+ * @public
  * <p>The name of a context that must be active for an intent to be
  *          selected by Amazon Lex.</p>
  */
@@ -2572,6 +2784,7 @@ export interface InputContext {
 }
 
 /**
+ * @public
  * <p>Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.</p>
  */
 export interface ElicitationCodeHookInvocationSetting {
@@ -2588,11 +2801,17 @@ export interface ElicitationCodeHookInvocationSetting {
   invocationLabel?: string;
 }
 
+/**
+ * @public
+ */
 export enum MessageSelectionStrategy {
   Ordered = "Ordered",
   Random = "Random",
 }
 
+/**
+ * @public
+ */
 export enum PromptAttempt {
   Initial = "Initial",
   Retry1 = "Retry1",
@@ -2603,6 +2822,7 @@ export enum PromptAttempt {
 }
 
 /**
+ * @public
  * <p>Specifies the text input specifications.</p>
  */
 export interface TextInputSpecification {
@@ -2613,6 +2833,7 @@ export interface TextInputSpecification {
 }
 
 /**
+ * @public
  * <p>Specifies the settings on a prompt attempt.</p>
  */
 export interface PromptAttemptSpecification {
@@ -2638,6 +2859,7 @@ export interface PromptAttemptSpecification {
 }
 
 /**
+ * @public
  * <p>Specifies a list of message groups that Amazon Lex sends to a user to
  *          elicit a response.</p>
  */
@@ -2672,6 +2894,7 @@ export interface PromptSpecification {
 }
 
 /**
+ * @public
  * <p>Provides configuration information for the AMAZON.KendraSearchIntent
  *          intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra
  *          index and returns documents from the index that match the user's
@@ -2701,6 +2924,7 @@ export interface KendraConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes a session context that is activated when an intent is
  *          fulfilled.</p>
  */
@@ -2726,6 +2950,7 @@ export interface OutputContext {
 }
 
 /**
+ * @public
  * <p>A sample utterance that invokes an intent or respond to a slot
  *          elicitation prompt.</p>
  */
@@ -2737,6 +2962,9 @@ export interface SampleUtterance {
   utterance: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -2756,6 +2984,9 @@ export interface CreateResourcePolicyRequest {
   policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourcePolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -2772,12 +3003,16 @@ export interface CreateResourcePolicyResponse {
   revisionId?: string;
 }
 
+/**
+ * @public
+ */
 export enum Effect {
   Allow = "Allow",
   Deny = "Deny",
 }
 
 /**
+ * @public
  * <p>The IAM principal that you allowing or denying access to an Amazon Lex
  *          action. You must provide a <code>service</code> or an <code>arn</code>,
  *          but not both in the same statement. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html"> AWS JSON policy elements: Principal </a>.</p>
@@ -2795,6 +3030,9 @@ export interface Principal {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourcePolicyStatementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -2850,6 +3088,9 @@ export interface CreateResourcePolicyStatementRequest {
   expectedRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateResourcePolicyStatementResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -2867,6 +3108,7 @@ export interface CreateResourcePolicyStatementResponse {
 }
 
 /**
+ * @public
  * <p>Indicates whether a slot can return multiple values.</p>
  */
 export interface MultipleValuesSetting {
@@ -2884,12 +3126,16 @@ export interface MultipleValuesSetting {
   allowMultipleValues?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ObfuscationSettingType {
   DefaultObfuscation = "DefaultObfuscation",
   None = "None",
 }
 
 /**
+ * @public
  * <p>Determines whether Amazon Lex obscures slot values in conversation logs.
  *       </p>
  */
@@ -2902,6 +3148,7 @@ export interface ObfuscationSetting {
 }
 
 /**
+ * @public
  * <p>Specifies the default value to use when a user doesn't provide a
  *          value for a slot.</p>
  */
@@ -2914,6 +3161,7 @@ export interface SlotDefaultValue {
 }
 
 /**
+ * @public
  * <p>Defines a list of values that Amazon Lex should use as the default value
  *          for a slot.</p>
  */
@@ -2926,6 +3174,7 @@ export interface SlotDefaultValueSpecification {
 }
 
 /**
+ * @public
  * <p>Defines the messages that Amazon Lex sends to a user to remind them that
  *          the bot is waiting for a response.</p>
  */
@@ -2956,6 +3205,7 @@ export interface StillWaitingResponseSpecification {
 }
 
 /**
+ * @public
  * <p>Specifies the prompts that Amazon Lex uses while a bot is waiting for
  *          customer input. </p>
  */
@@ -2988,6 +3238,7 @@ export interface WaitAndContinueSpecification {
 }
 
 /**
+ * @public
  * <p>Subslot elicitation settings.</p>
  *          <p>
  *             <code>DefaultValueSpecification</code> is a list of default values for a constituent sub slot in a composite slot. Default values are used when
@@ -3025,6 +3276,7 @@ export interface SubSlotValueElicitationSetting {
 }
 
 /**
+ * @public
  * <p>Subslot specifications.</p>
  */
 export interface Specifications {
@@ -3040,6 +3292,7 @@ export interface Specifications {
 }
 
 /**
+ * @public
  * <p>Specifications for the constituent sub slots and the
  *         expression for the composite slot.</p>
  */
@@ -3055,12 +3308,16 @@ export interface SubSlotSetting {
   slotSpecifications?: Record<string, Specifications>;
 }
 
+/**
+ * @public
+ */
 export enum SlotConstraint {
   Optional = "Optional",
   Required = "Required",
 }
 
 /**
+ * @public
  * <p>Describes the Amazon S3 bucket name and location for the grammar
  *          that is the source for the slot type.</p>
  */
@@ -3083,6 +3340,7 @@ export interface GrammarSlotTypeSource {
 }
 
 /**
+ * @public
  * <p>Settings requried for a slot type based on a grammar that you
  *          provide.</p>
  */
@@ -3094,6 +3352,7 @@ export interface GrammarSlotTypeSetting {
 }
 
 /**
+ * @public
  * <p>Provides information about the external source of the slot type's
  *          definition.</p>
  */
@@ -3106,6 +3365,7 @@ export interface ExternalSourceSetting {
 }
 
 /**
+ * @public
  * <p>Defines one of the values for a slot type.</p>
  */
 export interface SampleValue {
@@ -3116,6 +3376,7 @@ export interface SampleValue {
 }
 
 /**
+ * @public
  * <p>Each slot type can have a set of values. Each
  *             <code>SlotTypeValue</code> represents a value that the slot type can
  *          take.</p>
@@ -3133,6 +3394,7 @@ export interface SlotTypeValue {
 }
 
 /**
+ * @public
  * <p>Provides a regular expression used to validate the value of a
  *          slot.</p>
  */
@@ -3157,7 +3419,7 @@ export interface SlotValueRegexFilter {
    *          <p> The following regular expression operators are not supported: </p>
    *          <ul>
    *             <li>
-   *                <p>Infinite repeaters: *, +, or {x,} with no upper bound.</p>
+   *                <p>Infinite repeaters: *, +, or \{x,\} with no upper bound.</p>
    *             </li>
    *             <li>
    *                <p>Wild card (.)</p>
@@ -3167,6 +3429,9 @@ export interface SlotValueRegexFilter {
   pattern: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SlotValueResolutionStrategy {
   Concatenation = "Concatenation",
   OriginalValue = "OriginalValue",
@@ -3174,6 +3439,7 @@ export enum SlotValueResolutionStrategy {
 }
 
 /**
+ * @public
  * <p>Contains settings used by Amazon Lex to select a slot value.</p>
  */
 export interface SlotValueSelectionSetting {
@@ -3209,6 +3475,9 @@ export interface SlotValueSelectionSetting {
   advancedRecognitionSetting?: AdvancedRecognitionSetting;
 }
 
+/**
+ * @public
+ */
 export interface CreateSlotTypeRequest {
   /**
    * <p>The name for the slot. A slot type name must be unique within the
@@ -3291,6 +3560,9 @@ export interface CreateSlotTypeRequest {
   compositeSlotTypeSetting?: CompositeSlotTypeSetting;
 }
 
+/**
+ * @public
+ */
 export interface CreateSlotTypeResponse {
   /**
    * <p>The unique identifier assigned to the slot type. Use this to
@@ -3359,8 +3631,14 @@ export interface CreateSlotTypeResponse {
   compositeSlotTypeSetting?: CompositeSlotTypeSetting;
 }
 
+/**
+ * @public
+ */
 export interface CreateUploadUrlRequest {}
 
+/**
+ * @public
+ */
 export interface CreateUploadUrlResponse {
   /**
    * <p>An identifier for a unique import job. Use it when you call the
@@ -3376,6 +3654,7 @@ export interface CreateUploadUrlResponse {
 }
 
 /**
+ * @public
  * <p>Provides the parameters required for importing a custom vocabulary.</p>
  */
 export interface CustomVocabularyImportSpecification {
@@ -3396,6 +3675,9 @@ export interface CustomVocabularyImportSpecification {
   localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CustomVocabularyStatus {
   Creating = "Creating",
   Deleting = "Deleting",
@@ -3405,6 +3687,7 @@ export enum CustomVocabularyStatus {
 }
 
 /**
+ * @public
  * <p>The object used for specifying the data range that the customer
  *          wants Amazon Lex to read through in the input transcripts.</p>
  */
@@ -3422,6 +3705,9 @@ export interface DateRangeFilter {
   endDateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotRequest {
   /**
    * <p>The identifier of the bot to delete. </p>
@@ -3439,6 +3725,9 @@ export interface DeleteBotRequest {
   skipResourceInUseCheck?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotResponse {
   /**
    * <p>The unique identifier of the bot that Amazon Lex is deleting.</p>
@@ -3452,6 +3741,9 @@ export interface DeleteBotResponse {
   botStatus?: BotStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotAliasRequest {
   /**
    * <p>The unique identifier of the bot alias to delete.</p>
@@ -3475,6 +3767,9 @@ export interface DeleteBotAliasRequest {
   skipResourceInUseCheck?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotAliasResponse {
   /**
    * <p>The unique identifier of the bot alias to delete.</p>
@@ -3496,6 +3791,9 @@ export interface DeleteBotAliasResponse {
   botAliasStatus?: BotAliasStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotLocaleRequest {
   /**
    * <p>The unique identifier of the bot that contains the locale.</p>
@@ -3515,6 +3813,9 @@ export interface DeleteBotLocaleRequest {
   localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotLocaleResponse {
   /**
    * <p>The identifier of the bot that contained the deleted locale.</p>
@@ -3539,6 +3840,9 @@ export interface DeleteBotLocaleResponse {
   botLocaleStatus?: BotLocaleStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotVersionRequest {
   /**
    * <p>The identifier of the bot that contains the version.</p>
@@ -3561,6 +3865,9 @@ export interface DeleteBotVersionRequest {
   skipResourceInUseCheck?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBotVersionResponse {
   /**
    * <p>The identifier of the bot that is being deleted.</p>
@@ -3578,6 +3885,9 @@ export interface DeleteBotVersionResponse {
   botStatus?: BotStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomVocabularyRequest {
   /**
    * <p>The unique identifier of the bot to remove the custom
@@ -3598,6 +3908,9 @@ export interface DeleteCustomVocabularyRequest {
   localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomVocabularyResponse {
   /**
    * <p>The identifier of the bot that the custom vocabulary
@@ -3623,6 +3936,9 @@ export interface DeleteCustomVocabularyResponse {
   customVocabularyStatus?: CustomVocabularyStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExportRequest {
   /**
    * <p>The unique identifier of the export to delete.</p>
@@ -3630,6 +3946,9 @@ export interface DeleteExportRequest {
   exportId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExportResponse {
   /**
    * <p>The unique identifier of the deleted export.</p>
@@ -3645,6 +3964,9 @@ export interface DeleteExportResponse {
   exportStatus?: ExportStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImportRequest {
   /**
    * <p>The unique identifier of the import to delete.</p>
@@ -3652,6 +3974,9 @@ export interface DeleteImportRequest {
   importId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImportStatus {
   Completed = "Completed",
   Deleting = "Deleting",
@@ -3659,6 +3984,9 @@ export enum ImportStatus {
   InProgress = "InProgress",
 }
 
+/**
+ * @public
+ */
 export interface DeleteImportResponse {
   /**
    * <p>The unique identifier of the deleted import.</p>
@@ -3673,6 +4001,9 @@ export interface DeleteImportResponse {
   importStatus?: ImportStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIntentRequest {
   /**
    * <p>The unique identifier of the intent to delete.</p>
@@ -3697,6 +4028,9 @@ export interface DeleteIntentRequest {
   localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that has the
@@ -3713,6 +4047,9 @@ export interface DeleteResourcePolicyRequest {
   expectedRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -3729,6 +4066,9 @@ export interface DeleteResourcePolicyResponse {
   revisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyStatementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -3751,6 +4091,9 @@ export interface DeleteResourcePolicyStatementRequest {
   expectedRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyStatementResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -3767,6 +4110,9 @@ export interface DeleteResourcePolicyStatementResponse {
   revisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSlotRequest {
   /**
    * <p>The identifier of the slot to delete. </p>
@@ -3796,6 +4142,9 @@ export interface DeleteSlotRequest {
   intentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSlotTypeRequest {
   /**
    * <p>The identifier of the slot type to delete.</p>
@@ -3829,6 +4178,9 @@ export interface DeleteSlotTypeRequest {
   skipResourceInUseCheck?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUtterancesRequest {
   /**
    * <p>The unique identifier of the bot that contains the
@@ -3851,8 +4203,14 @@ export interface DeleteUtterancesRequest {
   sessionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUtterancesResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeBotRequest {
   /**
    * <p>The unique identifier of the bot to describe.</p>
@@ -3860,6 +4218,9 @@ export interface DescribeBotRequest {
   botId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotResponse {
   /**
    * <p>The unique identifier of the bot.</p>
@@ -3929,6 +4290,9 @@ export interface DescribeBotResponse {
   failureReasons?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotAliasRequest {
   /**
    * <p>The identifier of the bot alias to describe.</p>
@@ -3943,6 +4307,7 @@ export interface DescribeBotAliasRequest {
 }
 
 /**
+ * @public
  * <p>A network of bots.</p>
  */
 export interface ParentBotNetwork {
@@ -3957,6 +4322,9 @@ export interface ParentBotNetwork {
   botVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotAliasResponse {
   /**
    * <p>The identifier of the bot alias.</p>
@@ -4030,6 +4398,9 @@ export interface DescribeBotAliasResponse {
   parentBotNetworks?: ParentBotNetwork[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotLocaleRequest {
   /**
    * <p>The identifier of the bot associated with the locale.</p>
@@ -4049,6 +4420,9 @@ export interface DescribeBotLocaleRequest {
   localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotLocaleResponse {
   /**
    * <p>The identifier of the bot associated with the locale.</p>
@@ -4142,6 +4516,9 @@ export interface DescribeBotLocaleResponse {
   recommendedActions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotRecommendationRequest {
   /**
    * <p>The unique identifier of the bot associated with the bot
@@ -4169,6 +4546,7 @@ export interface DescribeBotRecommendationRequest {
 }
 
 /**
+ * @public
  * <p>The object representing the passwords that were used to encrypt the
  *          data related to the bot recommendation, as well as the KMS key ARN used
  *          to encrypt the associated metadata.</p>
@@ -4193,6 +4571,7 @@ export interface EncryptionSetting {
 }
 
 /**
+ * @public
  * <p>The object that contains a path format that will be applied when
  *          Amazon Lex reads the transcript file in the bucket you provide. Specify this
  *          object if you only want Lex to read a subset of files in your Amazon S3
@@ -4208,6 +4587,7 @@ export interface PathFormat {
 }
 
 /**
+ * @public
  * <p>The object that contains transcript filter details that are
  *          associated with a bot recommendation.</p>
  */
@@ -4221,6 +4601,7 @@ export interface LexTranscriptFilter {
 }
 
 /**
+ * @public
  * <p>The object representing the filter that Amazon Lex will use to select the
  *          appropriate transcript.</p>
  */
@@ -4233,11 +4614,15 @@ export interface TranscriptFilter {
   lexTranscriptFilter?: LexTranscriptFilter;
 }
 
+/**
+ * @public
+ */
 export enum TranscriptFormat {
   Lex = "Lex",
 }
 
 /**
+ * @public
  * <p>The object representing the Amazon S3 bucket containing the transcript,
  *          as well as the associated metadata.</p>
  */
@@ -4279,6 +4664,7 @@ export interface S3BucketTranscriptSource {
 }
 
 /**
+ * @public
  * <p>Indicates the setting of the location where the transcript is
  *          stored.</p>
  */
@@ -4290,6 +4676,9 @@ export interface TranscriptSourceSetting {
   s3BucketTranscriptSource?: S3BucketTranscriptSource;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotRecommendationResponse {
   /**
    * <p>The identifier of the bot associated with the bot
@@ -4358,6 +4747,9 @@ export interface DescribeBotRecommendationResponse {
   botRecommendationResults?: BotRecommendationResults;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotVersionRequest {
   /**
    * <p>The identifier of the bot containing the version to return metadata
@@ -4371,6 +4763,9 @@ export interface DescribeBotVersionRequest {
   botVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotVersionResponse {
   /**
    * <p>The identifier of the bot that contains the version.</p>
@@ -4443,6 +4838,9 @@ export interface DescribeBotVersionResponse {
   botMembers?: BotMember[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeCustomVocabularyMetadataRequest {
   /**
    * <p>The unique identifier of the bot that contains the custom vocabulary.</p>
@@ -4461,6 +4859,9 @@ export interface DescribeCustomVocabularyMetadataRequest {
   localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCustomVocabularyMetadataResponse {
   /**
    * <p>The identifier of the bot that contains the custom vocabulary.</p>
@@ -4494,6 +4895,9 @@ export interface DescribeCustomVocabularyMetadataResponse {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportRequest {
   /**
    * <p>The unique identifier of the export to describe.</p>
@@ -4501,6 +4905,9 @@ export interface DescribeExportRequest {
   exportId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportResponse {
   /**
    * <p>The unique identifier of the described export.</p>
@@ -4549,6 +4956,9 @@ export interface DescribeExportResponse {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportRequest {
   /**
    * <p>The unique identifier of the import to describe.</p>
@@ -4556,6 +4966,9 @@ export interface DescribeImportRequest {
   importId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MergeStrategy {
   Append = "Append",
   FailOnConflict = "FailOnConflict",
@@ -4563,6 +4976,7 @@ export enum MergeStrategy {
 }
 
 /**
+ * @public
  * <p>Provides information about the bot or bot locale that you want to
  *          import. You can specify the <code>botImportSpecification</code> or the
  *             <code>botLocaleImportSpecification</code>, but not both.</p>
@@ -4584,6 +4998,9 @@ export interface ImportResourceSpecification {
   customVocabularyImportSpecification?: CustomVocabularyImportSpecification;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportResponse {
   /**
    * <p>The unique identifier of the described import.</p>
@@ -4639,6 +5056,9 @@ export interface DescribeImportResponse {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIntentRequest {
   /**
    * <p>The identifier of the intent to describe.</p>
@@ -4664,6 +5084,7 @@ export interface DescribeIntentRequest {
 }
 
 /**
+ * @public
  * <p>Sets the priority that Amazon Lex should use when eliciting slot values
  *          from a user.</p>
  */
@@ -4679,6 +5100,9 @@ export interface SlotPriority {
   slotId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -4687,6 +5111,9 @@ export interface DescribeResourcePolicyRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -4710,6 +5137,9 @@ export interface DescribeResourcePolicyResponse {
   revisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSlotRequest {
   /**
    * <p>The unique identifier for the slot.</p>
@@ -4739,6 +5169,9 @@ export interface DescribeSlotRequest {
   intentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSlotTypeRequest {
   /**
    * <p>The identifier of the slot type.</p>
@@ -4763,6 +5196,9 @@ export interface DescribeSlotTypeRequest {
   localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSlotTypeResponse {
   /**
    * <p>The unique identifier for the slot type.</p>
@@ -4835,16 +5271,23 @@ export interface DescribeSlotTypeResponse {
   compositeSlotTypeSetting?: CompositeSlotTypeSetting;
 }
 
+/**
+ * @public
+ */
 export enum ExportFilterName {
   ExportResourceType = "ExportResourceType",
 }
 
+/**
+ * @public
+ */
 export enum ExportFilterOperator {
   Contains = "CO",
   Equals = "EQ",
 }
 
 /**
+ * @public
  * <p>Filters the response form the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListExports.html">ListExports</a> operation</p>
  */
 export interface ExportFilter {
@@ -4870,11 +5313,15 @@ export interface ExportFilter {
   operator: ExportFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ExportSortAttribute {
   LastUpdatedDateTime = "LastUpdatedDateTime",
 }
 
 /**
+ * @public
  * <p>Provides information about sorting a list of exports.</p>
  */
 export interface ExportSortBy {
@@ -4890,6 +5337,7 @@ export interface ExportSortBy {
 }
 
 /**
+ * @public
  * <p>Provides summary information about an export in an export list.
  *       </p>
  */
@@ -4926,16 +5374,23 @@ export interface ExportSummary {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ImportFilterName {
   ImportResourceType = "ImportResourceType",
 }
 
+/**
+ * @public
+ */
 export enum ImportFilterOperator {
   Contains = "CO",
   Equals = "EQ",
 }
 
 /**
+ * @public
  * <p>Filters the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation.</p>
  */
 export interface ImportFilter {
@@ -4961,17 +5416,24 @@ export interface ImportFilter {
   operator: ImportFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImportResourceType {
   Bot = "Bot",
   BotLocale = "BotLocale",
   CustomVocabulary = "CustomVocabulary",
 }
 
+/**
+ * @public
+ */
 export enum ImportSortAttribute {
   LastUpdatedDateTime = "LastUpdatedDateTime",
 }
 
 /**
+ * @public
  * <p>Provides information for sorting a list of imports.</p>
  */
 export interface ImportSortBy {
@@ -4987,6 +5449,7 @@ export interface ImportSortBy {
 }
 
 /**
+ * @public
  * <p>Provides summary information about an import in an import
  *          list.</p>
  */
@@ -5035,16 +5498,23 @@ export interface ImportSummary {
   importedResourceType?: ImportResourceType | string;
 }
 
+/**
+ * @public
+ */
 export enum IntentFilterName {
   IntentName = "IntentName",
 }
 
+/**
+ * @public
+ */
 export enum IntentFilterOperator {
   Contains = "CO",
   Equals = "EQ",
 }
 
 /**
+ * @public
  * <p>Filters the response from the <code>ListIntents</code>
  *          operation.</p>
  */
@@ -5069,12 +5539,16 @@ export interface IntentFilter {
   operator: IntentFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum IntentSortAttribute {
   IntentName = "IntentName",
   LastUpdatedDateTime = "LastUpdatedDateTime",
 }
 
 /**
+ * @public
  * <p>Specifies attributes for sorting a list of intents.</p>
  */
 export interface IntentSortBy {
@@ -5091,6 +5565,7 @@ export interface IntentSortBy {
 }
 
 /**
+ * @public
  * <p>Summary information about an intent returned by the
  *             <code>ListIntents</code> operation.</p>
  */
@@ -5137,6 +5612,9 @@ export interface IntentSummary {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum TimeDimension {
   Days = "Days",
   Hours = "Hours",
@@ -5144,6 +5622,7 @@ export enum TimeDimension {
 }
 
 /**
+ * @public
  * <p>Specifies the time window that utterance statistics are returned
  *          for. The time window is always relative to the last time that the that
  *          utterances were aggregated. For example, if the
@@ -5205,6 +5684,7 @@ export interface RelativeAggregationDuration {
 }
 
 /**
+ * @public
  * <p>Provides parameters for setting the time window and duration for
  *          aggregating utterance data.</p>
  */
@@ -5215,6 +5695,9 @@ export interface UtteranceAggregationDuration {
   relativeAggregationDuration: RelativeAggregationDuration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAggregatedUtterancesRequest {
   /**
    * <p>The unique identifier of the bot associated with this
@@ -5280,6 +5763,9 @@ export interface ListAggregatedUtterancesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAggregatedUtterancesResponse {
   /**
    * <p>The identifier of the bot that contains the utterances.</p>
@@ -5363,6 +5849,9 @@ export interface ListAggregatedUtterancesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBotAliasesRequest {
   /**
    * <p>The identifier of the bot to list aliases for.</p>
@@ -5386,6 +5875,9 @@ export interface ListBotAliasesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBotAliasesResponse {
   /**
    * <p>Summary information for the bot aliases that meet the filter
@@ -5411,6 +5903,9 @@ export interface ListBotAliasesResponse {
   botId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBotLocalesRequest {
   /**
    * <p>The identifier of the bot to list locales for.</p>
@@ -5452,6 +5947,9 @@ export interface ListBotLocalesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBotLocalesResponse {
   /**
    * <p>The identifier of the bot to list locales for.</p>
@@ -5482,6 +5980,9 @@ export interface ListBotLocalesResponse {
   botLocaleSummaries?: BotLocaleSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListBotRecommendationsRequest {
   /**
    * <p>The unique identifier of the bot that contains the bot
@@ -5517,6 +6018,9 @@ export interface ListBotRecommendationsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBotRecommendationsResponse {
   /**
    * <p>The unique identifier of the bot that contains the bot
@@ -5555,6 +6059,9 @@ export interface ListBotRecommendationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBotsRequest {
   /**
    * <p>Specifies sorting parameters for the list of bots. You can specify
@@ -5590,6 +6097,9 @@ export interface ListBotsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBotsResponse {
   /**
    * <p>Summary information for the bots that meet the filter criteria
@@ -5610,6 +6120,9 @@ export interface ListBotsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBotVersionsRequest {
   /**
    * <p>The identifier of the bot to list versions for.</p>
@@ -5640,6 +6153,9 @@ export interface ListBotVersionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBotVersionsResponse {
   /**
    * <p>The identifier of the bot to list versions for.</p>
@@ -5665,6 +6181,9 @@ export interface ListBotVersionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuiltInIntentsRequest {
   /**
    * <p>The identifier of the language and locale of the intents to list.
@@ -5697,6 +6216,9 @@ export interface ListBuiltInIntentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuiltInIntentsResponse {
   /**
    * <p>Summary information for the built-in intents that meet the filter
@@ -5722,6 +6244,9 @@ export interface ListBuiltInIntentsResponse {
   localeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuiltInSlotTypesRequest {
   /**
    * <p>The identifier of the language and locale of the slot types to list.
@@ -5755,6 +6280,9 @@ export interface ListBuiltInSlotTypesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuiltInSlotTypesResponse {
   /**
    * <p>Summary information for the built-in slot types that meet the filter
@@ -5781,6 +6309,9 @@ export interface ListBuiltInSlotTypesResponse {
   localeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomVocabularyItemsRequest {
   /**
    * <p>The identifier of the version of the bot associated with this custom
@@ -5814,6 +6345,9 @@ export interface ListCustomVocabularyItemsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomVocabularyItemsResponse {
   /**
    * <p>The identifier of the bot associated with this custom vocabulary.</p>
@@ -5846,6 +6380,9 @@ export interface ListCustomVocabularyItemsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsRequest {
   /**
    * <p>The unique identifier that Amazon Lex assigned to the bot.</p>
@@ -5898,6 +6435,9 @@ export interface ListExportsRequest {
   localeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsResponse {
   /**
    * <p>The unique identifier assigned to the bot by Amazon Lex.</p>
@@ -5933,6 +6473,9 @@ export interface ListExportsResponse {
   localeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsRequest {
   /**
    * <p>The unique identifier that Amazon Lex assigned to the bot.</p>
@@ -5985,6 +6528,9 @@ export interface ListImportsRequest {
   localeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsResponse {
   /**
    * <p>The unique identifier assigned by Amazon Lex to the bot.</p>
@@ -6021,6 +6567,9 @@ export interface ListImportsResponse {
   localeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIntentsRequest {
   /**
    * <p>The unique identifier of the bot that contains the intent.</p>
@@ -6074,6 +6623,9 @@ export interface ListIntentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIntentsResponse {
   /**
    * <p>The identifier of the bot that contains the intent.</p>
@@ -6109,6 +6661,9 @@ export interface ListIntentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecommendedIntentsRequest {
   /**
    * <p>The unique identifier of the bot associated with the recommended
@@ -6150,6 +6705,7 @@ export interface ListRecommendedIntentsRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains a summary of a recommended intent.</p>
  */
 export interface RecommendedIntentSummary {
@@ -6172,6 +6728,9 @@ export interface RecommendedIntentSummary {
   sampleUtterancesCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRecommendedIntentsResponse {
   /**
    * <p>The unique identifier of the bot associated with the recommended
@@ -6216,16 +6775,23 @@ export interface ListRecommendedIntentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SlotFilterName {
   SlotName = "SlotName",
 }
 
+/**
+ * @public
+ */
 export enum SlotFilterOperator {
   Contains = "CO",
   Equals = "EQ",
 }
 
 /**
+ * @public
  * <p>Filters the response from the <code>ListSlots</code>
  *          operation.</p>
  */
@@ -6250,12 +6816,16 @@ export interface SlotFilter {
   operator: SlotFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SlotSortAttribute {
   LastUpdatedDateTime = "LastUpdatedDateTime",
   SlotName = "SlotName",
 }
 
 /**
+ * @public
  * <p>Specifies attributes for sorting a list of bots.</p>
  */
 export interface SlotSortBy {
@@ -6271,6 +6841,9 @@ export interface SlotSortBy {
   order: SortOrder | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSlotsRequest {
   /**
    * <p>The identifier of the bot that contains the slot.</p>
@@ -6327,6 +6900,7 @@ export interface ListSlotsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a slot, a value that the bot elicits from
  *          the user.</p>
  */
@@ -6371,6 +6945,9 @@ export interface SlotSummary {
   lastUpdatedDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSlotsResponse {
   /**
    * <p>The identifier of the bot that contains the slots.</p>
@@ -6411,17 +6988,24 @@ export interface ListSlotsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SlotTypeFilterName {
   ExternalSourceType = "ExternalSourceType",
   SlotTypeName = "SlotTypeName",
 }
 
+/**
+ * @public
+ */
 export enum SlotTypeFilterOperator {
   Contains = "CO",
   Equals = "EQ",
 }
 
 /**
+ * @public
  * <p>Filters the response from the <code>ListSlotTypes</code>
  *          operation.</p>
  */
@@ -6446,12 +7030,16 @@ export interface SlotTypeFilter {
   operator: SlotTypeFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SlotTypeSortAttribute {
   LastUpdatedDateTime = "LastUpdatedDateTime",
   SlotTypeName = "SlotTypeName",
 }
 
 /**
+ * @public
  * <p>Specifies attributes for sorting a list of slot types.</p>
  */
 export interface SlotTypeSortBy {
@@ -6467,6 +7055,9 @@ export interface SlotTypeSortBy {
   order: SortOrder | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSlotTypesRequest {
   /**
    * <p>The unique identifier of the bot that contains the slot
@@ -6518,6 +7109,9 @@ export interface ListSlotTypesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum SlotTypeCategory {
   Composite = "Composite",
   Custom = "Custom",
@@ -6526,6 +7120,7 @@ export enum SlotTypeCategory {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a slot type.</p>
  */
 export interface SlotTypeSummary {
@@ -6581,6 +7176,9 @@ export interface SlotTypeSummary {
   slotTypeCategory?: SlotTypeCategory | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSlotTypesResponse {
   /**
    * <p>The identifier of the bot that contains the slot types.</p>
@@ -6616,6 +7214,9 @@ export interface ListSlotTypesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get a list of tags
@@ -6624,6 +7225,9 @@ export interface ListTagsForResourceRequest {
   resourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with a resource.</p>
@@ -6631,11 +7235,17 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum SearchOrder {
   Ascending = "Ascending",
   Descending = "Descending",
 }
 
+/**
+ * @public
+ */
 export interface SearchAssociatedTranscriptsRequest {
   /**
    * <p>The unique identifier of the bot associated with the transcripts
@@ -6690,6 +7300,9 @@ export interface SearchAssociatedTranscriptsRequest {
   nextIndex?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchAssociatedTranscriptsResponse {
   /**
    * <p>The unique identifier of the bot associated with the transcripts
@@ -6738,6 +7351,9 @@ export interface SearchAssociatedTranscriptsResponse {
   totalResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartBotRecommendationRequest {
   /**
    * <p>The unique identifier of the bot containing the bot
@@ -6772,6 +7388,9 @@ export interface StartBotRecommendationRequest {
   encryptionSetting?: EncryptionSetting;
 }
 
+/**
+ * @public
+ */
 export interface StartBotRecommendationResponse {
   /**
    * <p>The unique identifier of the bot containing the bot
@@ -6825,6 +7444,9 @@ export interface StartBotRecommendationResponse {
   encryptionSetting?: EncryptionSetting;
 }
 
+/**
+ * @public
+ */
 export interface StartImportRequest {
   /**
    * <p>The unique identifier for the import. It is included in the response
@@ -6854,6 +7476,9 @@ export interface StartImportRequest {
   filePassword?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartImportResponse {
   /**
    * <p>A unique identifier for the import.</p>
@@ -6886,6 +7511,9 @@ export interface StartImportResponse {
   creationDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StopBotRecommendationRequest {
   /**
    * <p>The unique identifier of the bot containing the bot
@@ -6913,6 +7541,9 @@ export interface StopBotRecommendationRequest {
   botRecommendationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopBotRecommendationResponse {
   /**
    * <p>The unique identifier of the bot containing the bot recommendation that
@@ -6947,6 +7578,9 @@ export interface StopBotRecommendationResponse {
   botRecommendationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot, bot alias, or bot channel

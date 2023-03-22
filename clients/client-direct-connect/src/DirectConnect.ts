@@ -299,6 +299,7 @@ import {
 import { DirectConnectClient } from "./DirectConnectClient";
 
 /**
+ * @public
  * <p>Direct Connect links your internal network to an Direct Connect location over a standard Ethernet fiber-optic cable.
  *       One end of the cable is connected to your router, the other to an Direct Connect router. With this connection
  *       in place, you can create virtual interfaces directly to the Amazon Web Services Cloud (for example, to Amazon EC2
@@ -308,6 +309,7 @@ import { DirectConnectClient } from "./DirectConnectClient";
  */
 export class DirectConnect extends DirectConnectClient {
   /**
+   * @public
    * <p>Accepts a proposal request to attach a virtual private gateway or transit gateway to a Direct Connect gateway.</p>
    */
   public acceptDirectConnectGatewayAssociationProposal(
@@ -342,6 +344,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
@@ -381,6 +384,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects.</p>
    *          <p>Allocates a VLAN number and a specified amount of capacity (bandwidth) for use by a hosted connection on the specified interconnect or LAG of interconnects.
    *       Amazon Web Services polices the hosted connection for the specified capacity and the Direct Connect Partner must also police the hosted connection for the specified capacity.</p>
@@ -418,6 +422,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Provisions a private virtual interface to be owned by the specified Amazon Web Services account.</p>
    *          <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>.
    *       Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>
@@ -452,6 +457,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Provisions a public virtual interface to be owned by the specified Amazon Web Services account.</p>
    *          <p>The owner of a connection calls this function to provision a public virtual interface to be owned by the specified Amazon Web Services account.</p>
    *          <p>Virtual interfaces created using this function must be confirmed by the owner using <a>ConfirmPublicVirtualInterface</a>.
@@ -489,6 +495,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Provisions a transit virtual interface to be owned by the specified Amazon Web Services account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>
    *          <p>The owner of a connection provisions a transit virtual interface to be owned by the specified Amazon Web Services account.</p>
    *          <p>After you create a transit virtual interface, it must be confirmed by the owner using <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the transit virtual interface is in the <code>requested</code> state and is not available to handle traffic.</p>
@@ -523,6 +530,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Associates an existing connection with a link aggregation group (LAG). The connection
    *       is interrupted and re-established as a member of the LAG (connectivity to Amazon Web Services is
    *       interrupted). The connection must be hosted on the same Direct Connect endpoint as the LAG, and its
@@ -568,6 +576,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Associates a hosted connection and its virtual interfaces with a link aggregation
    *       group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted
    *       connection with a conflicting VLAN number or IP address, the operation fails. This
@@ -607,6 +616,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with an Direct Connect dedicated connection.</p>
    *          <p>You must supply either the <code>secretARN,</code> or the CKN/CAK (<code>ckn</code> and <code>cak</code>) pair in the request.</p>
    *          <p>For information about MAC Security (MACsec) key considerations, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-key-consideration">MACsec pre-shared CKN/CAK key considerations </a> in the <i>Direct Connect User Guide</i>.</p>
@@ -641,6 +651,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Associates a virtual interface with a specified link aggregation group (LAG) or
    *       connection. Connectivity to Amazon Web Services is temporarily interrupted as the virtual interface is
    *       being migrated. If the target connection or LAG has an associated virtual interface with
@@ -682,6 +693,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Confirms the creation of the specified hosted connection on an interconnect.</p>
    *          <p>Upon creation, the hosted connection is initially in the <code>Ordering</code> state, and
    *       remains in this state until the owner confirms creation of the hosted connection.</p>
@@ -716,6 +728,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>
    *       The confirmation of the terms of agreement when creating the connection/link aggregation group (LAG).
    *     </p>
@@ -750,6 +763,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Accepts ownership of a private virtual interface created by another Amazon Web Services account.</p>
    *          <p>After the virtual interface owner makes this call, the virtual interface is
    *       created and attached to the specified virtual private gateway or Direct Connect gateway, and is
@@ -785,6 +799,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Accepts ownership of a public virtual interface created by another Amazon Web Services account.</p>
    *          <p>After the virtual interface owner makes this call, the specified virtual interface is
    *       created and made available to handle traffic.</p>
@@ -819,6 +834,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Accepts ownership of a transit virtual interface created by another Amazon Web Services account.</p>
    *          <p> After the owner of the transit virtual interface makes this call, the specified transit virtual interface is created and made available to handle traffic.</p>
    */
@@ -852,6 +868,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a BGP peer on the specified virtual interface.</p>
    *          <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to
    *       access Amazon Web Services resources that also use that address family.</p>
@@ -899,6 +916,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a connection between a customer network and a specific Direct Connect location.</p>
    *          <p>A connection links your internal network to an Direct Connect location over a standard Ethernet fiber-optic
    *       cable. One end of the cable is connected to your router, the other to an Direct Connect router.</p>
@@ -938,6 +956,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set
    *       of virtual interfaces and virtual private gateways. A Direct Connect gateway is global and visible in any
    *       Amazon Web Services Region after it is created. The virtual interfaces and virtual private gateways that
@@ -975,6 +994,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual
    *       private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.</p>
    */
@@ -1010,6 +1030,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>
    *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any Amazon Web Services account. </p>
    */
@@ -1045,6 +1066,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates an interconnect between an Direct Connect Partner's network and a specific Direct Connect location.</p>
    *          <p>An interconnect is a connection that is capable of hosting other connections. The
    *       Direct Connect Partner can use an interconnect to provide Direct Connect hosted
@@ -1092,6 +1114,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a link aggregation group (LAG) with the specified number of bundled
    *       physical dedicated connections between the customer network and a specific Direct Connect location.
    *       A LAG is a logical interface that uses the Link Aggregation Control Protocol
@@ -1135,6 +1158,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a private virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
    *       A private virtual interface can be connected to either a Direct Connect gateway or a Virtual Private Gateway (VGW).
    *       Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple
@@ -1177,6 +1201,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a public virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
    *       A public virtual interface supports sending traffic to public services of Amazon Web Services such as Amazon S3.</p>
    *          <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code>
@@ -1212,6 +1237,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.</p>
    *          <important>
    *             <p>If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.</p>
@@ -1253,6 +1279,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p>
    *          <p>You cannot delete the last BGP peer from a virtual interface.</p>
    */
@@ -1286,6 +1313,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified connection.</p>
    *          <p>Deleting a connection only stops the Direct Connect port hour and data transfer charges.
    *       If you are partnering with any third parties to connect with the Direct Connect location,
@@ -1321,6 +1349,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are
    *       attached to the Direct Connect gateway and disassociate all virtual private gateways associated
    *       with the Direct Connect gateway.</p>
@@ -1355,6 +1384,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the association between the specified Direct Connect gateway and virtual private gateway.</p>
    *          <p>We recommend that you specify the <code>associationID</code> to delete the association. Alternatively, if you own virtual gateway and a Direct Connect gateway association, you can specify the <code>virtualGatewayId</code> and <code>directConnectGatewayId</code> to delete an association.</p>
    */
@@ -1390,6 +1420,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.</p>
    */
   public deleteDirectConnectGatewayAssociationProposal(
@@ -1424,6 +1455,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified interconnect.</p>
    *          <note>
    *             <p>Intended for use
@@ -1460,6 +1492,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active
    *       virtual interfaces or hosted connections.</p>
    */
@@ -1487,6 +1520,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes a virtual interface.</p>
    */
   public deleteVirtualInterface(
@@ -1519,6 +1553,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
@@ -1558,6 +1593,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Displays the specified connection or all connections in this Region.</p>
    */
   public describeConnections(
@@ -1590,6 +1626,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
@@ -1628,6 +1665,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Get and view a list of customer agreements, along with their signed status and whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner. </p>
    */
   public describeCustomerMetadata(
@@ -1660,6 +1698,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway. </p>
    */
   public describeDirectConnectGatewayAssociationProposals(
@@ -1694,6 +1733,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1750,6 +1790,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify
    *       a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains
    *       all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the
@@ -1788,6 +1829,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.</p>
    */
   public describeDirectConnectGateways(
@@ -1820,6 +1862,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the hosted connections that have been provisioned on the specified
    *       interconnect or link aggregation group (LAG).</p>
    *          <note>
@@ -1856,6 +1899,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
@@ -1894,6 +1938,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the interconnects owned by the Amazon Web Services account or only the specified interconnect.</p>
    */
   public describeInterconnects(
@@ -1926,6 +1971,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes all your link aggregation groups (LAG) or the specified LAG.</p>
    */
   public describeLags(
@@ -1955,6 +2001,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).</p>
    *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing
    *       your cross connect to Amazon Web Services at the colocation facility. For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects at Direct Connect Locations</a>
@@ -1984,6 +2031,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the Direct Connect locations in the current Amazon Web Services Region. These are the locations that can be selected when calling
    *       <a>CreateConnection</a> or <a>CreateInterconnect</a>.</p>
    */
@@ -2017,6 +2065,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>
    *       Details about the router.
    *     </p>
@@ -2051,6 +2100,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes the tags associated with the specified Direct Connect resources.</p>
    */
   public describeTags(
@@ -2080,6 +2130,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the virtual private gateways owned by the Amazon Web Services account.</p>
    *          <p>You can create one or more Direct Connect private virtual interfaces linked to a virtual private gateway.</p>
    */
@@ -2113,6 +2164,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Displays all virtual interfaces for an Amazon Web Services account. Virtual interfaces deleted fewer
    *       than 15 minutes before you make the request are also returned. If you specify a
    *       connection ID, only the virtual interfaces associated with the connection are returned.
@@ -2149,6 +2201,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a connection from a link aggregation group (LAG). The connection is
    *       interrupted and re-established as a standalone connection (the connection is not
    *       deleted; to delete the connection, use the <a>DeleteConnection</a> request).
@@ -2190,6 +2243,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Removes the association between a MAC Security (MACsec) security key and an Direct Connect dedicated connection.</p>
    */
   public disassociateMacSecKey(
@@ -2222,6 +2276,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the virtual interface failover test history.</p>
    */
   public listVirtualInterfaceTestHistory(
@@ -2254,6 +2309,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Starts the virtual interface failover test that verifies your configuration meets your resiliency requirements by placing the BGP peering session in the DOWN state. You can then send traffic to verify that there are no outages.</p>
    *          <p>You can run the test on public, private, transit, and hosted virtual interfaces.</p>
    *          <p>You can use <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.html">ListVirtualInterfaceTestHistory</a> to view the virtual interface test history.</p>
@@ -2289,6 +2345,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Stops the virtual interface failover test.</p>
    */
   public stopBgpFailoverTest(
@@ -2321,6 +2378,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tags to the specified Direct Connect resource. Each resource can have a maximum of 50 tags.</p>
    *          <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>
    */
@@ -2348,6 +2406,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified Direct Connect resource.</p>
    */
   public untagResource(
@@ -2380,6 +2439,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the Direct Connect dedicated connection configuration.</p>
    *          <p>You can update the following parameters for a connection:</p>
    *          <ul>
@@ -2421,6 +2481,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the name of a current Direct Connect gateway.</p>
    */
   public updateDirectConnectGateway(
@@ -2453,6 +2514,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified attributes of the Direct Connect gateway association.</p>
    *          <p>Add or remove prefixes from the association.</p>
    */
@@ -2488,6 +2550,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the attributes of the specified link aggregation group (LAG).</p>
    *          <p>You can update the following LAG attributes:</p>
    *          <ul>
@@ -2536,6 +2599,7 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified attributes of the specified virtual private interface.</p>
    *          <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to
    *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating

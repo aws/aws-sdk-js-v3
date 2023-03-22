@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoadBalancerPolicyTypesCommand}.
  */
 export interface DescribeLoadBalancerPolicyTypesCommandInput extends DescribeLoadBalancerPolicyTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoadBalancerPolicyTypesCommand}.
  */
 export interface DescribeLoadBalancerPolicyTypesCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified load balancer policy types or all load balancer policy types.</p>
  *          <p>The description of each type indicates how it can be used. For example,
  *            some policies can be used only with layer 7 listeners,
@@ -59,6 +64,8 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancerPolicyTypesCommandInput - {@link DescribeLoadBalancerPolicyTypesCommandInput}
+ * @returns {@link DescribeLoadBalancerPolicyTypesCommandOutput}
  * @see {@link DescribeLoadBalancerPolicyTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerPolicyTypesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -115,6 +122,9 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancerPolicyTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,6 +164,9 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLoadBalancerPolicyTypesCommandInput,
     context: __SerdeContext
@@ -161,6 +174,9 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     return serializeAws_queryDescribeLoadBalancerPolicyTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

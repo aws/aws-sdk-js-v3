@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateAwsAccountFromPartnerAccountCommand}.
  */
 export interface DisassociateAwsAccountFromPartnerAccountCommandInput
   extends DisassociateAwsAccountFromPartnerAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateAwsAccountFromPartnerAccountCommand}.
  */
 export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates your AWS account from a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, disassociates your AWS account from all partner accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAwsAccountFromPartnerAccountCommandInput - {@link DisassociateAwsAccountFromPartnerAccountCommandInput}
+ * @returns {@link DisassociateAwsAccountFromPartnerAccountCommandOutput}
  * @see {@link DisassociateAwsAccountFromPartnerAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateAwsAccountFromPartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAwsAccountFromPartnerAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateAwsAccountFromPartnerAccountCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
     return serializeAws_restJson1DisassociateAwsAccountFromPartnerAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

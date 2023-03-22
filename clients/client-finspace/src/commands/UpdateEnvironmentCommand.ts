@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEnvironmentCommand}.
  */
 export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEnvironmentCommand}.
  */
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update your FinSpace environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
+ * @returns {@link UpdateEnvironmentCommandOutput}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
     return deserializeAws_restJson1UpdateEnvironmentCommand(output, context);
   }

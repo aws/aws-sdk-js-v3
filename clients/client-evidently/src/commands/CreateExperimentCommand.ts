@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExperimentCommand}.
  */
 export interface CreateExperimentCommandInput extends CreateExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExperimentCommand}.
  */
 export interface CreateExperimentCommandOutput extends CreateExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Evidently <i>experiment</i>. Before you create an experiment,
  *       you must create the feature to use for the experiment.</p>
  *          <p>An experiment helps you make feature design
@@ -55,6 +60,8 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExperimentCommandInput - {@link CreateExperimentCommandInput}
+ * @returns {@link CreateExperimentCommandOutput}
  * @see {@link CreateExperimentCommandInput} for command's `input` shape.
  * @see {@link CreateExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExperimentCommandOutput> {
     return deserializeAws_restJson1CreateExperimentCommand(output, context);
   }

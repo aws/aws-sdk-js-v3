@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutQueryDefinitionCommand}.
  */
 export interface PutQueryDefinitionCommandInput extends PutQueryDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutQueryDefinitionCommand}.
  */
 export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a query definition for CloudWatch Logs Insights. For
  *       more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html">Analyzing Log Data with CloudWatch Logs Insights</a>.</p>
  *          <p>To update a query definition, specify its <code>queryDefinitionId</code> in your request.
@@ -56,6 +61,8 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param PutQueryDefinitionCommandInput - {@link PutQueryDefinitionCommandInput}
+ * @returns {@link PutQueryDefinitionCommandOutput}
  * @see {@link PutQueryDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutQueryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -91,6 +98,9 @@ export class PutQueryDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutQueryDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class PutQueryDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutQueryDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutQueryDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutQueryDefinitionCommandOutput> {
     return deserializeAws_json1_1PutQueryDefinitionCommand(output, context);
   }

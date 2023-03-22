@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWebhookCommand}.
  */
 export interface UpdateWebhookCommandInput extends UpdateWebhookInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWebhookCommand}.
  */
 export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the webhook associated with an CodeBuild build project. </p>
  *          <note>
  *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.
@@ -50,6 +55,8 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWebhookCommandInput - {@link UpdateWebhookCommandInput}
+ * @returns {@link UpdateWebhookCommandOutput}
  * @see {@link UpdateWebhookCommandInput} for command's `input` shape.
  * @see {@link UpdateWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebhookCommandOutput> {
     return deserializeAws_json1_1UpdateWebhookCommand(output, context);
   }

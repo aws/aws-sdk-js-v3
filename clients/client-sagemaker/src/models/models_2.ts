@@ -177,6 +177,9 @@ import {
   VendorGuidance,
 } from "./models_1";
 
+/**
+ * @public
+ */
 export interface DeleteWorkteamRequest {
   /**
    * <p>The name of the work team to delete.</p>
@@ -184,6 +187,9 @@ export interface DeleteWorkteamRequest {
   WorkteamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkteamResponse {
   /**
    * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
@@ -193,6 +199,7 @@ export interface DeleteWorkteamResponse {
 }
 
 /**
+ * @public
  * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
  *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
  *             of the primary container when you created the model hosted in this
@@ -220,6 +227,9 @@ export interface DeployedImage {
   ResolutionTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum StageStatus {
   Creating = "CREATING",
   Deployed = "DEPLOYED",
@@ -232,6 +242,7 @@ export enum StageStatus {
 }
 
 /**
+ * @public
  * <p>Contains information summarizing the deployment stage results.</p>
  */
 export interface EdgeDeploymentStatus {
@@ -267,6 +278,7 @@ export interface EdgeDeploymentStatus {
 }
 
 /**
+ * @public
  * <p>Contains information summarizing the deployment stage results.</p>
  */
 export interface DeploymentStageStatusSummary {
@@ -291,6 +303,9 @@ export interface DeploymentStageStatusSummary {
   DeploymentStatus: EdgeDeploymentStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterDevicesRequest {
   /**
    * <p>The name of the fleet the devices belong to.</p>
@@ -303,6 +318,9 @@ export interface DeregisterDevicesRequest {
   DeviceNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActionRequest {
   /**
    * <p>The name of the action to describe.</p>
@@ -310,6 +328,9 @@ export interface DescribeActionRequest {
   ActionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActionResponse {
   /**
    * <p>The name of the action.</p>
@@ -379,6 +400,9 @@ export interface DescribeActionResponse {
   LineageGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlgorithmInput {
   /**
    * <p>The name of the algorithm to describe.</p>
@@ -386,6 +410,9 @@ export interface DescribeAlgorithmInput {
   AlgorithmName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlgorithmOutput {
   /**
    * <p>The name of the algorithm being described.</p>
@@ -445,6 +472,9 @@ export interface DescribeAlgorithmOutput {
   CertifyForMarketplace?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppRequest {
   /**
    * <p>The domain ID.</p>
@@ -472,6 +502,9 @@ export interface DescribeAppRequest {
   SpaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the app.</p>
@@ -534,6 +567,9 @@ export interface DescribeAppResponse {
   SpaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppImageConfigRequest {
   /**
    * <p>The name of the AppImageConfig to describe.</p>
@@ -541,6 +577,9 @@ export interface DescribeAppImageConfigRequest {
   AppImageConfigName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppImageConfigResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the AppImageConfig.</p>
@@ -568,6 +607,9 @@ export interface DescribeAppImageConfigResponse {
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeArtifactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the artifact to describe.</p>
@@ -575,6 +617,9 @@ export interface DescribeArtifactRequest {
   ArtifactArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeArtifactResponse {
   /**
    * <p>The name of the artifact.</p>
@@ -634,6 +679,9 @@ export interface DescribeArtifactResponse {
   LineageGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoMLJobRequest {
   /**
    * <p>Requests information about an AutoML job using its unique name.</p>
@@ -642,6 +690,7 @@ export interface DescribeAutoMLJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the endpoint of the model deployment.</p>
  */
 export interface ModelDeployResult {
@@ -655,6 +704,7 @@ export interface ModelDeployResult {
 }
 
 /**
+ * @public
  * <p>The resolved attributes.</p>
  */
 export interface ResolvedAttributes {
@@ -675,6 +725,9 @@ export interface ResolvedAttributes {
   CompletionCriteria?: AutoMLJobCompletionCriteria;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoMLJobResponse {
   /**
    * <p>Returns the name of the AutoML job.</p>
@@ -791,6 +844,9 @@ export interface DescribeAutoMLJobResponse {
   ModelDeployResult?: ModelDeployResult;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCodeRepositoryInput {
   /**
    * <p>The name of the Git repository to describe.</p>
@@ -798,6 +854,9 @@ export interface DescribeCodeRepositoryInput {
   CodeRepositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCodeRepositoryOutput {
   /**
    * <p>The name of the Git repository.</p>
@@ -827,6 +886,9 @@ export interface DescribeCodeRepositoryOutput {
   GitConfig?: GitConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCompilationJobRequest {
   /**
    * <p>The name of the model compilation job that you want information about.</p>
@@ -835,6 +897,7 @@ export interface DescribeCompilationJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the location that is configured for storing model
  *             artifacts. </p>
  *          <p>Model artifacts are the output that results from training a model, and typically
@@ -850,6 +913,7 @@ export interface ModelArtifacts {
 }
 
 /**
+ * @public
  * <p>Provides information to verify the integrity of stored model artifacts. </p>
  */
 export interface ModelDigests {
@@ -860,6 +924,9 @@ export interface ModelDigests {
   ArtifactDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCompilationJobResponse {
   /**
    * <p>The name of the model compilation job.</p>
@@ -967,6 +1034,9 @@ export interface DescribeCompilationJobResponse {
   VpcConfig?: NeoVpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContextRequest {
   /**
    * <p>The name of the context to describe.</p>
@@ -974,6 +1044,9 @@ export interface DescribeContextRequest {
   ContextName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContextResponse {
   /**
    * <p>The name of the context.</p>
@@ -1033,6 +1106,9 @@ export interface DescribeContextResponse {
   LineageGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataQualityJobDefinitionRequest {
   /**
    * <p>The name of the data quality monitoring job definition to describe.</p>
@@ -1040,6 +1116,9 @@ export interface DescribeDataQualityJobDefinitionRequest {
   JobDefinitionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataQualityJobDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data quality monitoring job definition.</p>
@@ -1099,6 +1178,9 @@ export interface DescribeDataQualityJobDefinitionResponse {
   StoppingCondition?: MonitoringStoppingCondition;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceRequest {
   /**
    * <p>Next token of device description.</p>
@@ -1117,6 +1199,7 @@ export interface DescribeDeviceRequest {
 }
 
 /**
+ * @public
  * <p>The model on the edge device.</p>
  */
 export interface EdgeModel {
@@ -1141,6 +1224,9 @@ export interface EdgeModel {
   LatestInference?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
@@ -1198,6 +1284,9 @@ export interface DescribeDeviceResponse {
   AgentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -1205,6 +1294,9 @@ export interface DescribeDeviceFleetRequest {
   DeviceFleetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceFleetResponse {
   /**
    * <p>The name of the fleet.</p>
@@ -1247,6 +1339,9 @@ export interface DescribeDeviceFleetResponse {
   IotRoleAlias?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainRequest {
   /**
    * <p>The domain ID.</p>
@@ -1254,6 +1349,9 @@ export interface DescribeDomainRequest {
   DomainId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DomainStatus {
   Delete_Failed = "Delete_Failed",
   Deleting = "Deleting",
@@ -1264,6 +1362,9 @@ export enum DomainStatus {
   Updating = "Updating",
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainResponse {
   /**
    * <p>The domain's Amazon Resource Name (ARN).</p>
@@ -1393,6 +1494,9 @@ export interface DescribeDomainResponse {
   DefaultSpaceSettings?: DefaultSpaceSettings;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgeDeploymentPlanRequest {
   /**
    * <p>The name of the deployment plan to describe.</p>
@@ -1410,6 +1514,9 @@ export interface DescribeEdgeDeploymentPlanRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgeDeploymentPlanResponse {
   /**
    * <p>The ARN of edge deployment plan.</p>
@@ -1467,6 +1574,9 @@ export interface DescribeEdgeDeploymentPlanResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgePackagingJobRequest {
   /**
    * <p>The name of the edge packaging job.</p>
@@ -1474,6 +1584,9 @@ export interface DescribeEdgePackagingJobRequest {
   EdgePackagingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EdgePackagingJobStatus {
   Completed = "COMPLETED",
   Failed = "FAILED",
@@ -1483,12 +1596,16 @@ export enum EdgePackagingJobStatus {
   Stopping = "STOPPING",
 }
 
+/**
+ * @public
+ */
 export enum EdgePresetDeploymentStatus {
   Completed = "COMPLETED",
   Failed = "FAILED",
 }
 
 /**
+ * @public
  * <p>The output of a SageMaker Edge Manager deployable resource.</p>
  */
 export interface EdgePresetDeploymentOutput {
@@ -1514,6 +1631,9 @@ export interface EdgePresetDeploymentOutput {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgePackagingJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
@@ -1591,6 +1711,9 @@ export interface DescribeEdgePackagingJobResponse {
   PresetDeploymentOutput?: EdgePresetDeploymentOutput;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointInput {
   /**
    * <p>The name of the endpoint.</p>
@@ -1598,6 +1721,9 @@ export interface DescribeEndpointInput {
   EndpointName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EndpointStatus {
   CREATING = "Creating",
   DELETING = "Deleting",
@@ -1609,6 +1735,9 @@ export enum EndpointStatus {
   UPDATING = "Updating",
 }
 
+/**
+ * @public
+ */
 export enum VariantStatus {
   ACTIVATING_TRAFFIC = "ActivatingTraffic",
   BAKING = "Baking",
@@ -1618,6 +1747,7 @@ export enum VariantStatus {
 }
 
 /**
+ * @public
  * <p>Describes the status of the production variant.</p>
  */
 export interface ProductionVariantStatus {
@@ -1665,6 +1795,7 @@ export interface ProductionVariantStatus {
 }
 
 /**
+ * @public
  * <p>The production variant summary for a deployment when an endpoint is creating or
  *             updating with the <code>
  *                <a>CreateEndpoint</a>
@@ -1744,6 +1875,7 @@ export interface PendingProductionVariantSummary {
 }
 
 /**
+ * @public
  * <p>The summary of an in-progress deployment when an endpoint is creating or updating with
  *             a new endpoint configuration.</p>
  */
@@ -1774,6 +1906,7 @@ export interface PendingDeploymentSummary {
 }
 
 /**
+ * @public
  * <p>Describes weight and capacities for a production variant associated with an
  *             endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code>
  *             API and the endpoint status is <code>Updating</code>, you get different desired and
@@ -1830,6 +1963,9 @@ export interface ProductionVariantSummary {
   DesiredServerlessConfig?: ProductionVariantServerlessConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointOutput {
   /**
    * <p>Name of the endpoint.</p>
@@ -1957,6 +2093,9 @@ export interface DescribeEndpointOutput {
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointConfigInput {
   /**
    * <p>The name of the endpoint configuration.</p>
@@ -1964,6 +2103,9 @@ export interface DescribeEndpointConfigInput {
   EndpointConfigName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointConfigOutput {
   /**
    * <p>Name of the SageMaker endpoint configuration.</p>
@@ -2017,6 +2159,9 @@ export interface DescribeEndpointConfigOutput {
   ShadowProductionVariants?: ProductionVariant[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeExperimentRequest {
   /**
    * <p>The name of the experiment to describe.</p>
@@ -2025,6 +2170,7 @@ export interface DescribeExperimentRequest {
 }
 
 /**
+ * @public
  * <p>The source of the experiment.</p>
  */
 export interface ExperimentSource {
@@ -2039,6 +2185,9 @@ export interface ExperimentSource {
   SourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExperimentResponse {
   /**
    * <p>The name of the experiment.</p>
@@ -2087,6 +2236,9 @@ export interface DescribeExperimentResponse {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureGroupRequest {
   /**
    * <p>The name of the <code>FeatureGroup</code> you want described. </p>
@@ -2101,6 +2253,9 @@ export interface DescribeFeatureGroupRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum FeatureGroupStatus {
   CREATED = "Created",
   CREATE_FAILED = "CreateFailed",
@@ -2109,6 +2264,9 @@ export enum FeatureGroupStatus {
   DELETING = "Deleting",
 }
 
+/**
+ * @public
+ */
 export enum LastUpdateStatusValue {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
@@ -2116,6 +2274,7 @@ export enum LastUpdateStatusValue {
 }
 
 /**
+ * @public
  * <p>A value that indicates whether the update was successful.</p>
  */
 export interface LastUpdateStatus {
@@ -2130,6 +2289,9 @@ export interface LastUpdateStatus {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export enum OfflineStoreStatusValue {
   ACTIVE = "Active",
   BLOCKED = "Blocked",
@@ -2137,6 +2299,7 @@ export enum OfflineStoreStatusValue {
 }
 
 /**
+ * @public
  * <p>The status of <code>OfflineStore</code>.</p>
  */
 export interface OfflineStoreStatus {
@@ -2151,6 +2314,9 @@ export interface OfflineStoreStatus {
   BlockedReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureGroupResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>.  </p>
@@ -2277,6 +2443,9 @@ export interface DescribeFeatureGroupResponse {
   OnlineStoreTotalSizeBytes?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureMetadataRequest {
   /**
    * <p>The name of the feature group containing the feature.</p>
@@ -2290,6 +2459,7 @@ export interface DescribeFeatureMetadataRequest {
 }
 
 /**
+ * @public
  * <p>A key-value pair that you specify to describe the feature.</p>
  */
 export interface FeatureParameter {
@@ -2304,6 +2474,9 @@ export interface FeatureParameter {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureMetadataResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
@@ -2346,6 +2519,9 @@ export interface DescribeFeatureMetadataResponse {
   Parameters?: FeatureParameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowDefinitionRequest {
   /**
    * <p>The name of the flow definition.</p>
@@ -2353,6 +2529,9 @@ export interface DescribeFlowDefinitionRequest {
   FlowDefinitionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FlowDefinitionStatus {
   ACTIVE = "Active",
   DELETING = "Deleting",
@@ -2360,6 +2539,9 @@ export enum FlowDefinitionStatus {
   INITIALIZING = "Initializing",
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
@@ -2413,6 +2595,9 @@ export interface DescribeFlowDefinitionResponse {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubRequest {
   /**
    * <p>The name of the hub to describe.</p>
@@ -2420,6 +2605,9 @@ export interface DescribeHubRequest {
   HubName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HubStatus {
   CREATE_FAILED = "CreateFailed",
   CREATING = "Creating",
@@ -2430,6 +2618,9 @@ export enum HubStatus {
   UPDATING = "Updating",
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubResponse {
   /**
    * <p>The name of the hub.</p>
@@ -2482,6 +2673,9 @@ export interface DescribeHubResponse {
   LastModifiedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubContentRequest {
   /**
    * <p>The name of the hub that contains the content to describe.</p>
@@ -2505,6 +2699,7 @@ export interface DescribeHubContentRequest {
 }
 
 /**
+ * @public
  * <p>Any dependencies related to hub content, such as scripts, model artifacts, datasets, or notebooks.</p>
  */
 export interface HubContentDependency {
@@ -2519,6 +2714,9 @@ export interface HubContentDependency {
   DependencyCopyPath?: string;
 }
 
+/**
+ * @public
+ */
 export enum HubContentStatus {
   AVAILABLE = "Available",
   DELETE_FAILED = "DeleteFailed",
@@ -2527,6 +2725,9 @@ export enum HubContentStatus {
   IMPORT_FAILED = "ImportFailed",
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubContentResponse {
   /**
    * <p>The name of the hub content.</p>
@@ -2609,6 +2810,9 @@ export interface DescribeHubContentResponse {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHumanTaskUiRequest {
   /**
    * <p>The name of the human task user interface
@@ -2617,12 +2821,16 @@ export interface DescribeHumanTaskUiRequest {
   HumanTaskUiName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HumanTaskUiStatus {
   ACTIVE = "Active",
   DELETING = "Deleting",
 }
 
 /**
+ * @public
  * <p>Container for user interface template information.</p>
  */
 export interface UiTemplateInfo {
@@ -2637,6 +2845,9 @@ export interface UiTemplateInfo {
   ContentSha256?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHumanTaskUiResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the human task user interface (worker task template).</p>
@@ -2664,6 +2875,9 @@ export interface DescribeHumanTaskUiResponse {
   UiTemplate: UiTemplateInfo | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job.</p>
@@ -2672,6 +2886,7 @@ export interface DescribeHyperParameterTuningJobRequest {
 }
 
 /**
+ * @public
  * <p>Shows the latest objective metric emitted by a training job that was launched by a
  *             hyperparameter tuning job. You define the objective metric in the
  *                 <code>HyperParameterTuningJobObjective</code> parameter of <a>HyperParameterTuningJobConfig</a>.</p>
@@ -2697,6 +2912,9 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
   Value: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TrainingJobStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
@@ -2706,6 +2924,7 @@ export enum TrainingJobStatus {
 }
 
 /**
+ * @public
  * <p>The container for the summary information about a training job.</p>
  */
 export interface HyperParameterTrainingJobSummary {
@@ -2810,6 +3029,7 @@ export interface HyperParameterTrainingJobSummary {
 }
 
 /**
+ * @public
  * <p>The total resources consumed by your hyperparameter tuning job.</p>
  */
 export interface HyperParameterTuningJobConsumedResources {
@@ -2819,6 +3039,9 @@ export interface HyperParameterTuningJobConsumedResources {
   RuntimeInSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export enum HyperParameterTuningJobStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
@@ -2828,6 +3051,7 @@ export enum HyperParameterTuningJobStatus {
 }
 
 /**
+ * @public
  * <p>Specifies the number of training jobs that this hyperparameter tuning job launched,
  *             categorized by the status of their objective metric. The objective metric status shows
  *             whether the
@@ -2857,6 +3081,7 @@ export interface ObjectiveStatusCounters {
 }
 
 /**
+ * @public
  * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by
  *             status.</p>
  */
@@ -2894,6 +3119,7 @@ export interface TrainingJobStatusCounters {
 }
 
 /**
+ * @public
  * <p>A structure that contains runtime information about both current and completed
  *             hyperparameter tuning jobs.</p>
  */
@@ -2912,6 +3138,9 @@ export interface HyperParameterTuningJobCompletionDetails {
   ConvergenceDetectedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHyperParameterTuningJobResponse {
   /**
    * <p>The name of the tuning job.</p>
@@ -3017,6 +3246,9 @@ export interface DescribeHyperParameterTuningJobResponse {
   ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageRequest {
   /**
    * <p>The name of the image to describe.</p>
@@ -3024,6 +3256,9 @@ export interface DescribeImageRequest {
   ImageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImageStatus {
   CREATED = "CREATED",
   CREATE_FAILED = "CREATE_FAILED",
@@ -3034,6 +3269,9 @@ export enum ImageStatus {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageResponse {
   /**
    * <p>When the image was created.</p>
@@ -3081,6 +3319,9 @@ export interface DescribeImageResponse {
   RoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageVersionRequest {
   /**
    * <p>The name of the image.</p>
@@ -3098,6 +3339,9 @@ export interface DescribeImageVersionRequest {
   Alias?: string;
 }
 
+/**
+ * @public
+ */
 export enum ImageVersionStatus {
   CREATED = "CREATED",
   CREATE_FAILED = "CREATE_FAILED",
@@ -3106,6 +3350,9 @@ export enum ImageVersionStatus {
   DELETING = "DELETING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageVersionResponse {
   /**
    * <p>The registry path of the container image on which this image version is based.</p>
@@ -3230,6 +3477,9 @@ export interface DescribeImageVersionResponse {
   ReleaseNotes?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to describe.</p>
@@ -3238,6 +3488,7 @@ export interface DescribeInferenceExperimentRequest {
 }
 
 /**
+ * @public
  * <p>The metadata of the endpoint.</p>
  */
 export interface EndpointMetadata {
@@ -3267,6 +3518,9 @@ export interface EndpointMetadata {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export enum ModelVariantStatus {
   CREATING = "Creating",
   DELETED = "Deleted",
@@ -3276,6 +3530,7 @@ export enum ModelVariantStatus {
 }
 
 /**
+ * @public
  * <p>Summary of the deployment configuration of a model.</p>
  */
 export interface ModelVariantConfigSummary {
@@ -3328,6 +3583,9 @@ export interface ModelVariantConfigSummary {
   Status: ModelVariantStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InferenceExperimentStatus {
   CANCELLED = "Cancelled",
   COMPLETED = "Completed",
@@ -3339,6 +3597,9 @@ export enum InferenceExperimentStatus {
   UPDATING = "Updating",
 }
 
+/**
+ * @public
+ */
 export interface DescribeInferenceExperimentResponse {
   /**
    * <p>The ARN of the inference experiment being described.</p>
@@ -3488,6 +3749,9 @@ export interface DescribeInferenceExperimentResponse {
   KmsKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInferenceRecommendationsJobRequest {
   /**
    * <p>The name of the job. The name must be unique within an
@@ -3497,6 +3761,7 @@ export interface DescribeInferenceRecommendationsJobRequest {
 }
 
 /**
+ * @public
  * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
  */
 export interface InferenceMetrics {
@@ -3512,6 +3777,7 @@ export interface InferenceMetrics {
 }
 
 /**
+ * @public
  * <p>The performance results from running an Inference Recommender job on an existing endpoint.</p>
  */
 export interface EndpointPerformance {
@@ -3527,6 +3793,7 @@ export interface EndpointPerformance {
 }
 
 /**
+ * @public
  * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
  */
 export interface EndpointOutputConfiguration {
@@ -3552,6 +3819,7 @@ export interface EndpointOutputConfiguration {
 }
 
 /**
+ * @public
  * <p>The metrics of recommendations.</p>
  */
 export interface RecommendationMetrics {
@@ -3591,6 +3859,7 @@ export interface RecommendationMetrics {
 }
 
 /**
+ * @public
  * <p>A list of environment parameters suggested by the Amazon SageMaker Inference Recommender.</p>
  */
 export interface EnvironmentParameter {
@@ -3611,6 +3880,7 @@ export interface EnvironmentParameter {
 }
 
 /**
+ * @public
  * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
  */
 export interface ModelConfiguration {
@@ -3631,6 +3901,7 @@ export interface ModelConfiguration {
 }
 
 /**
+ * @public
  * <p>A list of recommendations made by Amazon SageMaker Inference Recommender.</p>
  */
 export interface InferenceRecommendation {
@@ -3655,6 +3926,9 @@ export interface InferenceRecommendation {
   RecommendationId?: string;
 }
 
+/**
+ * @public
+ */
 export enum RecommendationJobStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -3664,6 +3938,9 @@ export enum RecommendationJobStatus {
   STOPPING = "STOPPING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeInferenceRecommendationsJobResponse {
   /**
    * <p>The name of the job. The name must be unique within an
@@ -3739,6 +4016,9 @@ export interface DescribeInferenceRecommendationsJobResponse {
   EndpointPerformances?: EndpointPerformance[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLabelingJobRequest {
   /**
    * <p>The name of the labeling job to return information for.</p>
@@ -3747,6 +4027,7 @@ export interface DescribeLabelingJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides a breakdown of the number of objects labeled.</p>
  */
 export interface LabelCounters {
@@ -3777,6 +4058,7 @@ export interface LabelCounters {
 }
 
 /**
+ * @public
  * <p>Specifies the location of the output produced by the labeling job. </p>
  */
 export interface LabelingJobOutput {
@@ -3792,6 +4074,9 @@ export interface LabelingJobOutput {
   FinalActiveLearningModelArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum LabelingJobStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
@@ -3801,6 +4086,9 @@ export enum LabelingJobStatus {
   STOPPING = "Stopping",
 }
 
+/**
+ * @public
+ */
 export interface DescribeLabelingJobResponse {
   /**
    * <p>The processing status of the labeling job. </p>
@@ -3881,7 +4169,7 @@ export interface DescribeLabelingJobResponse {
    *          </ul>
    *          <p>The file is a JSON structure in the following format:</p>
    *          <p>
-   *             <code>{</code>
+   *             <code>\{</code>
    *          </p>
    *          <p>
    *             <code> "document-version": "2018-11-28"</code>
@@ -3890,40 +4178,40 @@ export interface DescribeLabelingJobResponse {
    *             <code> "labels": [</code>
    *          </p>
    *          <p>
-   *             <code> {</code>
+   *             <code> \{</code>
    *          </p>
    *          <p>
    *             <code> "label": "<i>label 1</i>"</code>
    *          </p>
    *          <p>
-   *             <code> },</code>
+   *             <code> \},</code>
    *          </p>
    *          <p>
-   *             <code> {</code>
+   *             <code> \{</code>
    *          </p>
    *          <p>
    *             <code> "label": "<i>label 2</i>"</code>
    *          </p>
    *          <p>
-   *             <code> },</code>
+   *             <code> \},</code>
    *          </p>
    *          <p>
    *             <code> ...</code>
    *          </p>
    *          <p>
-   *             <code> {</code>
+   *             <code> \{</code>
    *          </p>
    *          <p>
    *             <code> "label": "<i>label n</i>"</code>
    *          </p>
    *          <p>
-   *             <code> }</code>
+   *             <code> \}</code>
    *          </p>
    *          <p>
    *             <code> ]</code>
    *          </p>
    *          <p>
-   *             <code>}</code>
+   *             <code>\}</code>
    *          </p>
    */
   LabelCategoryConfigS3Uri?: string;
@@ -3958,6 +4246,9 @@ export interface DescribeLabelingJobResponse {
   LabelingJobOutput?: LabelingJobOutput;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLineageGroupRequest {
   /**
    * <p>The name of the lineage group.</p>
@@ -3965,6 +4256,9 @@ export interface DescribeLineageGroupRequest {
   LineageGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLineageGroupResponse {
   /**
    * <p>The name of the lineage group.</p>
@@ -4009,6 +4303,9 @@ export interface DescribeLineageGroupResponse {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelInput {
   /**
    * <p>The name of the model.</p>
@@ -4016,6 +4313,9 @@ export interface DescribeModelInput {
   ModelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelOutput {
   /**
    * <p>Name of the SageMaker model.</p>
@@ -4070,6 +4370,9 @@ export interface DescribeModelOutput {
   EnableNetworkIsolation?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelBiasJobDefinitionRequest {
   /**
    * <p>The name of the model bias job definition. The name must be unique within an Amazon Web Services Region
@@ -4078,6 +4381,9 @@ export interface DescribeModelBiasJobDefinitionRequest {
   JobDefinitionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelBiasJobDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
@@ -4138,6 +4444,9 @@ export interface DescribeModelBiasJobDefinitionResponse {
   StoppingCondition?: MonitoringStoppingCondition;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelCardRequest {
   /**
    * <p>The name of the model card to describe.</p>
@@ -4150,6 +4459,9 @@ export interface DescribeModelCardRequest {
   ModelCardVersion?: number;
 }
 
+/**
+ * @public
+ */
 export enum ModelCardProcessingStatus {
   CONTENT_DELETED = "ContentDeleted",
   DELETE_COMPLETED = "DeleteCompleted",
@@ -4159,6 +4471,9 @@ export enum ModelCardProcessingStatus {
   EXPORTJOBS_DELETED = "ExportJobsDeleted",
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelCardResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the model card.</p>
@@ -4263,6 +4578,9 @@ export interface DescribeModelCardResponse {
   ModelCardProcessingStatus?: ModelCardProcessingStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelCardExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the model card export job to describe.</p>
@@ -4271,6 +4589,7 @@ export interface DescribeModelCardExportJobRequest {
 }
 
 /**
+ * @public
  * <p>The artifacts of the model card export job.</p>
  */
 export interface ModelCardExportArtifacts {
@@ -4280,12 +4599,18 @@ export interface ModelCardExportArtifacts {
   S3ExportArtifacts: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ModelCardExportJobStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelCardExportJobResponse {
   /**
    * <p>The name of the model card export job to describe.</p>
@@ -4354,6 +4679,9 @@ export interface DescribeModelCardExportJobResponse {
   ExportArtifacts?: ModelCardExportArtifacts;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelExplainabilityJobDefinitionRequest {
   /**
    * <p>The name of the model explainability job definition. The name must be unique within an
@@ -4362,6 +4690,9 @@ export interface DescribeModelExplainabilityJobDefinitionRequest {
   JobDefinitionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelExplainabilityJobDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
@@ -4423,6 +4754,9 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
   StoppingCondition?: MonitoringStoppingCondition;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelPackageInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
@@ -4432,6 +4766,9 @@ export interface DescribeModelPackageInput {
   ModelPackageName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DetailedModelPackageStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
@@ -4440,6 +4777,7 @@ export enum DetailedModelPackageStatus {
 }
 
 /**
+ * @public
  * <p>Represents the overall status of a model package.</p>
  */
 export interface ModelPackageStatusItem {
@@ -4460,6 +4798,7 @@ export interface ModelPackageStatusItem {
 }
 
 /**
+ * @public
  * <p>Specifies the validation and image scan statuses of the model package.</p>
  */
 export interface ModelPackageStatusDetails {
@@ -4474,6 +4813,9 @@ export interface ModelPackageStatusDetails {
   ImageScanStatuses?: ModelPackageStatusItem[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelPackageOutput {
   /**
    * <p>The name of the model package being described.</p>
@@ -4613,6 +4955,9 @@ export interface DescribeModelPackageOutput {
   AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelPackageGroupInput {
   /**
    * <p>The name of gthe model group to describe.</p>
@@ -4620,6 +4965,9 @@ export interface DescribeModelPackageGroupInput {
   ModelPackageGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ModelPackageGroupStatus {
   COMPLETED = "Completed",
   DELETE_FAILED = "DeleteFailed",
@@ -4629,6 +4977,9 @@ export enum ModelPackageGroupStatus {
   PENDING = "Pending",
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelPackageGroupOutput {
   /**
    * <p>The name of the model group.</p>
@@ -4662,6 +5013,9 @@ export interface DescribeModelPackageGroupOutput {
   ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelQualityJobDefinitionRequest {
   /**
    * <p>The name of the model quality job. The name must be unique within an Amazon Web Services Region in the
@@ -4670,6 +5024,9 @@ export interface DescribeModelQualityJobDefinitionRequest {
   JobDefinitionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelQualityJobDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the model quality job.</p>
@@ -4729,6 +5086,9 @@ export interface DescribeModelQualityJobDefinitionResponse {
   StoppingCondition?: MonitoringStoppingCondition;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMonitoringScheduleRequest {
   /**
    * <p>Name of a previously created monitoring schedule.</p>
@@ -4736,6 +5096,9 @@ export interface DescribeMonitoringScheduleRequest {
   MonitoringScheduleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ExecutionStatus {
   COMPLETED = "Completed",
   COMPLETED_WITH_VIOLATIONS = "CompletedWithViolations",
@@ -4747,6 +5110,7 @@ export enum ExecutionStatus {
 }
 
 /**
+ * @public
  * <p>Summary of information about the last monitoring job to run.</p>
  */
 export interface MonitoringExecutionSummary {
@@ -4801,6 +5165,9 @@ export interface MonitoringExecutionSummary {
   MonitoringType?: MonitoringType | string;
 }
 
+/**
+ * @public
+ */
 export enum ScheduleStatus {
   FAILED = "Failed",
   PENDING = "Pending",
@@ -4808,6 +5175,9 @@ export enum ScheduleStatus {
   STOPPED = "Stopped",
 }
 
+/**
+ * @public
+ */
 export interface DescribeMonitoringScheduleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
@@ -4884,6 +5254,9 @@ export interface DescribeMonitoringScheduleResponse {
   LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotebookInstanceInput {
   /**
    * <p>The name of the notebook instance that you want information about.</p>
@@ -4891,6 +5264,9 @@ export interface DescribeNotebookInstanceInput {
   NotebookInstanceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NotebookInstanceStatus {
   Deleting = "Deleting",
   Failed = "Failed",
@@ -4901,6 +5277,9 @@ export enum NotebookInstanceStatus {
   Updating = "Updating",
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotebookInstanceOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the notebook instance.</p>
@@ -5044,6 +5423,9 @@ export interface DescribeNotebookInstanceOutput {
   InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotebookInstanceLifecycleConfigInput {
   /**
    * <p>The name of the lifecycle configuration to describe.</p>
@@ -5051,6 +5433,9 @@ export interface DescribeNotebookInstanceLifecycleConfigInput {
   NotebookInstanceLifecycleConfigName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotebookInstanceLifecycleConfigOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
@@ -5084,6 +5469,9 @@ export interface DescribeNotebookInstanceLifecycleConfigOutput {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineRequest {
   /**
    * <p>The name of the pipeline to describe.</p>
@@ -5091,10 +5479,16 @@ export interface DescribePipelineRequest {
   PipelineName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PipelineStatus {
   ACTIVE = "Active",
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
@@ -5164,6 +5558,9 @@ export interface DescribePipelineResponse {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineDefinitionForExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -5171,6 +5568,9 @@ export interface DescribePipelineDefinitionForExecutionRequest {
   PipelineExecutionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineDefinitionForExecutionResponse {
   /**
    * <p>The JSON pipeline definition.</p>
@@ -5183,6 +5583,9 @@ export interface DescribePipelineDefinitionForExecutionResponse {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -5190,6 +5593,9 @@ export interface DescribePipelineExecutionRequest {
   PipelineExecutionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PipelineExecutionStatus {
   EXECUTING = "Executing",
   FAILED = "Failed",
@@ -5199,6 +5605,7 @@ export enum PipelineExecutionStatus {
 }
 
 /**
+ * @public
  * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
  */
 export interface PipelineExperimentConfig {
@@ -5213,6 +5620,9 @@ export interface PipelineExperimentConfig {
   TrialName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
@@ -5277,6 +5687,9 @@ export interface DescribePipelineExecutionResponse {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProcessingJobRequest {
   /**
    * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
@@ -5285,6 +5698,9 @@ export interface DescribeProcessingJobRequest {
   ProcessingJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ProcessingJobStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
@@ -5293,6 +5709,9 @@ export enum ProcessingJobStatus {
   STOPPING = "Stopping",
 }
 
+/**
+ * @public
+ */
 export interface DescribeProcessingJobResponse {
   /**
    * <p>The inputs for a processing job.</p>
@@ -5406,6 +5825,9 @@ export interface DescribeProcessingJobResponse {
   TrainingJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectInput {
   /**
    * <p>The name of the project to describe.</p>
@@ -5413,6 +5835,9 @@ export interface DescribeProjectInput {
   ProjectName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ProjectStatus {
   CREATE_COMPLETED = "CreateCompleted",
   CREATE_FAILED = "CreateFailed",
@@ -5427,6 +5852,7 @@ export enum ProjectStatus {
 }
 
 /**
+ * @public
  * <p>Details of a provisioned service catalog product. For information about service catalog,
  *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
  *                 Catalog</a>.</p>
@@ -5465,6 +5891,9 @@ export interface ServiceCatalogProvisionedProductDetails {
   ProvisionedProductStatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the project.</p>
@@ -5525,6 +5954,9 @@ export interface DescribeProjectOutput {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpaceRequest {
   /**
    * <p>The ID of the associated Domain.</p>
@@ -5537,6 +5969,9 @@ export interface DescribeSpaceRequest {
   SpaceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SpaceStatus {
   Delete_Failed = "Delete_Failed",
   Deleting = "Deleting",
@@ -5547,6 +5982,9 @@ export enum SpaceStatus {
   Updating = "Updating",
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpaceResponse {
   /**
    * <p>The ID of the associated Domain.</p>
@@ -5594,6 +6032,9 @@ export interface DescribeSpaceResponse {
   SpaceSettings?: SpaceSettings;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStudioLifecycleConfigRequest {
   /**
    * <p>The name of the Studio Lifecycle Configuration to describe.</p>
@@ -5601,6 +6042,9 @@ export interface DescribeStudioLifecycleConfigRequest {
   StudioLifecycleConfigName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStudioLifecycleConfigResponse {
   /**
    * <p>The ARN of the Lifecycle Configuration to describe.</p>
@@ -5633,6 +6077,9 @@ export interface DescribeStudioLifecycleConfigResponse {
   StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubscribedWorkteamRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
@@ -5641,6 +6088,7 @@ export interface DescribeSubscribedWorkteamRequest {
 }
 
 /**
+ * @public
  * <p>Describes a work team of a vendor that does the a labelling job.</p>
  */
 export interface SubscribedWorkteam {
@@ -5670,6 +6118,9 @@ export interface SubscribedWorkteam {
   ListingId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubscribedWorkteamResponse {
   /**
    * <p>A <code>Workteam</code> instance that contains information about the work team.</p>
@@ -5677,6 +6128,9 @@ export interface DescribeSubscribedWorkteamResponse {
   SubscribedWorkteam: SubscribedWorkteam | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrainingJobRequest {
   /**
    * <p>The name of the training job.</p>
@@ -5685,6 +6139,7 @@ export interface DescribeTrainingJobRequest {
 }
 
 /**
+ * @public
  * <p>The name, value, and date and time of a metric that was emitted to Amazon CloudWatch.</p>
  */
 export interface MetricData {
@@ -5705,6 +6160,7 @@ export interface MetricData {
 }
 
 /**
+ * @public
  * <p>Information about the status of the rule evaluation.</p>
  */
 export interface ProfilerRuleEvaluationStatus {
@@ -5734,11 +6190,17 @@ export interface ProfilerRuleEvaluationStatus {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ProfilingStatus {
   DISABLED = "Disabled",
   ENABLED = "Enabled",
 }
 
+/**
+ * @public
+ */
 export enum SecondaryStatus {
   COMPLETED = "Completed",
   DOWNLOADING = "Downloading",
@@ -5759,6 +6221,7 @@ export enum SecondaryStatus {
 }
 
 /**
+ * @public
  * <p>An array element of <a>DescribeTrainingJobResponse$SecondaryStatusTransitions</a>. It provides
  *             additional details about a status that the training job has transitioned through. A
  *             training job can be in one of several states, for example, starting, downloading,
@@ -5948,6 +6411,9 @@ export interface SecondaryStatusTransition {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum WarmPoolResourceStatus {
   AVAILABLE = "Available",
   INUSE = "InUse",
@@ -5956,6 +6422,7 @@ export enum WarmPoolResourceStatus {
 }
 
 /**
+ * @public
  * <p>Status and billing information about the warm pool.</p>
  */
 export interface WarmPoolStatus {
@@ -6003,6 +6470,9 @@ export interface WarmPoolStatus {
   ReusedByJob?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrainingJobResponse {
   /**
    * <p> Name of the model training job. </p>
@@ -6409,6 +6879,9 @@ export interface DescribeTrainingJobResponse {
   WarmPoolStatus?: WarmPoolStatus;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransformJobRequest {
   /**
    * <p>The name of the transform job that you want to view details of.</p>
@@ -6416,6 +6889,9 @@ export interface DescribeTransformJobRequest {
   TransformJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TransformJobStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
@@ -6424,6 +6900,9 @@ export enum TransformJobStatus {
   STOPPING = "Stopping",
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransformJobResponse {
   /**
    * <p>The name of the transform job.</p>
@@ -6592,6 +7071,9 @@ export interface DescribeTransformJobResponse {
   ExperimentConfig?: ExperimentConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrialRequest {
   /**
    * <p>The name of the trial to describe.</p>
@@ -6600,6 +7082,7 @@ export interface DescribeTrialRequest {
 }
 
 /**
+ * @public
  * <p>The source of the trial.</p>
  */
 export interface TrialSource {
@@ -6614,6 +7097,9 @@ export interface TrialSource {
   SourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrialResponse {
   /**
    * <p>The name of the trial.</p>
@@ -6667,6 +7153,9 @@ export interface DescribeTrialResponse {
   MetadataProperties?: MetadataProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrialComponentRequest {
   /**
    * <p>The name of the trial component to describe.</p>
@@ -6675,6 +7164,7 @@ export interface DescribeTrialComponentRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the metrics of a trial component.</p>
  */
 export interface TrialComponentMetricSummary {
@@ -6725,6 +7215,7 @@ export interface TrialComponentMetricSummary {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
  */
 export interface TrialComponentSource {
@@ -6739,6 +7230,9 @@ export interface TrialComponentSource {
   SourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrialComponentResponse {
   /**
    * <p>The name of the trial component.</p>
@@ -6844,6 +7338,9 @@ export interface DescribeTrialComponentResponse {
   Sources?: TrialComponentSource[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserProfileRequest {
   /**
    * <p>The domain ID.</p>
@@ -6856,6 +7353,9 @@ export interface DescribeUserProfileRequest {
   UserProfileName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum UserProfileStatus {
   Delete_Failed = "Delete_Failed",
   Deleting = "Deleting",
@@ -6866,6 +7366,9 @@ export enum UserProfileStatus {
   Updating = "Updating",
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserProfileResponse {
   /**
    * <p>The ID of the domain that contains the profile.</p>
@@ -6923,6 +7426,9 @@ export interface DescribeUserProfileResponse {
   UserSettings?: UserSettings;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkforceRequest {
   /**
    * <p>The name of the private workforce whose access you want to restrict.
@@ -6933,6 +7439,7 @@ export interface DescribeWorkforceRequest {
 }
 
 /**
+ * @public
  * <p>Your OIDC IdP workforce configuration.</p>
  */
 export interface OidcConfigForResponse {
@@ -6972,6 +7479,9 @@ export interface OidcConfigForResponse {
   JwksUri?: string;
 }
 
+/**
+ * @public
+ */
 export enum WorkforceStatus {
   ACTIVE = "Active",
   DELETING = "Deleting",
@@ -6981,6 +7491,7 @@ export enum WorkforceStatus {
 }
 
 /**
+ * @public
  * <p>A VpcConfig object that specifies the VPC that you want your workforce to connect to.</p>
  */
 export interface WorkforceVpcConfigResponse {
@@ -7006,6 +7517,7 @@ export interface WorkforceVpcConfigResponse {
 }
 
 /**
+ * @public
  * <p>A single private workforce, which is automatically created when you create your first
  *             private work team. You can create one private work force in each Amazon Web Services Region. By default,
  *             any workforce-related API operation used in a specific region will apply to the
@@ -7074,6 +7586,9 @@ export interface Workforce {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkforceResponse {
   /**
    * <p>A single private workforce, which is automatically created when you create your first
@@ -7084,6 +7599,9 @@ export interface DescribeWorkforceResponse {
   Workforce: Workforce | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkteamRequest {
   /**
    * <p>The name of the work team to return a description of.</p>
@@ -7092,6 +7610,7 @@ export interface DescribeWorkteamRequest {
 }
 
 /**
+ * @public
  * <p>Provides details about a labeling work team.</p>
  */
 export interface Workteam {
@@ -7153,6 +7672,9 @@ export interface Workteam {
   NotificationConfiguration?: NotificationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkteamResponse {
   /**
    * <p>A <code>Workteam</code> instance that contains information about the work team.
@@ -7162,6 +7684,7 @@ export interface DescribeWorkteamResponse {
 }
 
 /**
+ * @public
  * <p>Specifies weight and capacity values for a production variant.</p>
  */
 export interface DesiredWeightAndCapacity {
@@ -7182,6 +7705,7 @@ export interface DesiredWeightAndCapacity {
 }
 
 /**
+ * @public
  * <p>Information of a particular device.</p>
  */
 export interface Device {
@@ -7201,6 +7725,9 @@ export interface Device {
   IotThingName?: string;
 }
 
+/**
+ * @public
+ */
 export enum DeviceDeploymentStatus {
   Deployed = "DEPLOYED",
   Failed = "FAILED",
@@ -7211,6 +7738,7 @@ export enum DeviceDeploymentStatus {
 }
 
 /**
+ * @public
  * <p>Contains information summarizing device details and deployment status.</p>
  */
 export interface DeviceDeploymentSummary {
@@ -7271,6 +7799,7 @@ export interface DeviceDeploymentSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the device fleet.</p>
  */
 export interface DeviceFleetSummary {
@@ -7296,6 +7825,7 @@ export interface DeviceFleetSummary {
 }
 
 /**
+ * @public
  * <p>Status of devices.</p>
  */
 export interface DeviceStats {
@@ -7311,6 +7841,7 @@ export interface DeviceStats {
 }
 
 /**
+ * @public
  * <p>Summary of model on edge device.</p>
  */
 export interface EdgeModelSummary {
@@ -7326,6 +7857,7 @@ export interface EdgeModelSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the device.</p>
  */
 export interface DeviceSummary {
@@ -7375,16 +7907,28 @@ export interface DeviceSummary {
   AgentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export enum Direction {
   ASCENDANTS = "Ascendants",
   BOTH = "Both",
   DESCENDANTS = "Descendants",
 }
 
+/**
+ * @public
+ */
 export interface DisableSagemakerServicecatalogPortfolioInput {}
 
+/**
+ * @public
+ */
 export interface DisableSagemakerServicecatalogPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateTrialComponentRequest {
   /**
    * <p>The name of the component to disassociate from the trial.</p>
@@ -7397,6 +7941,9 @@ export interface DisassociateTrialComponentRequest {
   TrialName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTrialComponentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
@@ -7410,6 +7957,7 @@ export interface DisassociateTrialComponentResponse {
 }
 
 /**
+ * @public
  * <p>The domain's details.</p>
  */
 export interface DomainDetails {
@@ -7450,6 +7998,7 @@ export interface DomainDetails {
 }
 
 /**
+ * @public
  * <p>A collection of settings that update the current configuration for the
  *                 <code>RStudioServerPro</code> Domain-level app.</p>
  */
@@ -7477,6 +8026,7 @@ export interface RStudioServerProDomainSettingsForUpdate {
 }
 
 /**
+ * @public
  * <p>A collection of <code>Domain</code> configuration settings to update.</p>
  */
 export interface DomainSettingsForUpdate {
@@ -7501,6 +8051,7 @@ export interface DomainSettingsForUpdate {
 }
 
 /**
+ * @public
  * <p>A directed edge connecting two lineage entities.</p>
  */
 export interface Edge {
@@ -7522,6 +8073,7 @@ export interface Edge {
 }
 
 /**
+ * @public
  * <p>Contains information summarizing an edge deployment plan.</p>
  */
 export interface EdgeDeploymentPlanSummary {
@@ -7567,6 +8119,7 @@ export interface EdgeDeploymentPlanSummary {
 }
 
 /**
+ * @public
  * <p>Status of edge devices with this model.</p>
  */
 export interface EdgeModelStat {
@@ -7602,6 +8155,7 @@ export interface EdgeModelStat {
 }
 
 /**
+ * @public
  * <p>Summary of edge packaging job.</p>
  */
 export interface EdgePackagingJobSummary {
@@ -7647,6 +8201,7 @@ export interface EdgePackagingJobSummary {
 }
 
 /**
+ * @public
  * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
  */
 export interface EMRStepMetadata {
@@ -7672,11 +8227,18 @@ export interface EMRStepMetadata {
   LogFilePath?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableSagemakerServicecatalogPortfolioInput {}
 
+/**
+ * @public
+ */
 export interface EnableSagemakerServicecatalogPortfolioOutput {}
 
 /**
+ * @public
  * <p>A schedule for a model monitoring job. For information about model monitor, see
  *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model
  *                 Monitor</a>.</p>
@@ -7758,6 +8320,7 @@ export interface MonitoringSchedule {
 }
 
 /**
+ * @public
  * <p>A hosted endpoint for real-time inference.</p>
  */
 export interface Endpoint {
@@ -7826,12 +8389,16 @@ export interface Endpoint {
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
 
+/**
+ * @public
+ */
 export enum EndpointConfigSortKey {
   CreationTime = "CreationTime",
   Name = "Name",
 }
 
 /**
+ * @public
  * <p>Provides summary information for an endpoint configuration.</p>
  */
 export interface EndpointConfigSummary {
@@ -7851,6 +8418,9 @@ export interface EndpointConfigSummary {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EndpointSortKey {
   CreationTime = "CreationTime",
   Name = "Name",
@@ -7858,6 +8428,7 @@ export enum EndpointSortKey {
 }
 
 /**
+ * @public
  * <p>Provides summary information for an endpoint.</p>
  */
 export interface EndpointSummary {
@@ -7937,6 +8508,7 @@ export interface EndpointSummary {
 }
 
 /**
+ * @public
  * <p>The properties of an experiment as returned by the <a>Search</a> API.</p>
  */
 export interface Experiment {
@@ -7994,6 +8566,7 @@ export interface Experiment {
 }
 
 /**
+ * @public
  * <p>A summary of the properties of an experiment. To get the complete set of properties, call
  *       the <a>DescribeExperiment</a> API and provide the
  *       <code>ExperimentName</code>.</p>
@@ -8032,6 +8605,7 @@ export interface ExperimentSummary {
 }
 
 /**
+ * @public
  * <p>The container for the metadata for Fail step.</p>
  */
 export interface FailStepMetadata {
@@ -8043,6 +8617,7 @@ export interface FailStepMetadata {
 }
 
 /**
+ * @public
  * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group.
  *          A Feature Group can be visualized as a table which has rows,
  *          with a unique identifier for each row where each column in the table is a feature.
@@ -8157,6 +8732,9 @@ export interface FeatureGroup {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum FeatureGroupSortBy {
   CREATION_TIME = "CreationTime",
   FEATURE_GROUP_STATUS = "FeatureGroupStatus",
@@ -8164,12 +8742,16 @@ export enum FeatureGroupSortBy {
   OFFLINE_STORE_STATUS = "OfflineStoreStatus",
 }
 
+/**
+ * @public
+ */
 export enum FeatureGroupSortOrder {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
 }
 
 /**
+ * @public
  * <p>The name, Arn, <code>CreationTime</code>, <code>FeatureGroup</code> values,
  *             <code>LastUpdatedTime</code> and <code>EnableOnlineStorage</code> status of a
  *             <code>FeatureGroup</code>.</p>
@@ -8205,6 +8787,7 @@ export interface FeatureGroupSummary {
 }
 
 /**
+ * @public
  * <p>The metadata for a feature. It can either be metadata that you specify, or metadata that is updated automatically.</p>
  */
 export interface FeatureMetadata {
@@ -8249,6 +8832,9 @@ export interface FeatureMetadata {
   Parameters?: FeatureParameter[];
 }
 
+/**
+ * @public
+ */
 export enum Operator {
   CONTAINS = "Contains",
   EQUALS = "Equals",
@@ -8263,6 +8849,7 @@ export enum Operator {
 }
 
 /**
+ * @public
  * <p>A conditional statement for a search expression that includes a resource property, a
  *       Boolean operator, and a value. Resources that match the statement are returned in the
  *       results from the <a>Search</a> API.</p>
@@ -8278,7 +8865,7 @@ export enum Operator {
  *             with an <code>"accuracy"</code> metric greater than
  *             <code>"0.9"</code>:</p>
  *                <p>
- *                   <code>{</code>
+ *                   <code>\{</code>
  *                </p>
  *                <p>
  *                   <code>"Name": "Metrics.accuracy",</code>
@@ -8290,7 +8877,7 @@ export enum Operator {
  *                   <code>"Value": "0.9"</code>
  *                </p>
  *                <p>
- *                   <code>}</code>
+ *                   <code>\}</code>
  *                </p>
  *             </dd>
  *             <dt>HyperParameters</dt>
@@ -8304,7 +8891,7 @@ export enum Operator {
  *             training jobs with a <code>"learning_rate"</code> hyperparameter that is
  *             less than <code>"0.5"</code>:</p>
  *                <p>
- *                   <code> {</code>
+ *                   <code> \{</code>
  *                </p>
  *                <p>
  *                   <code> "Name": "HyperParameters.learning_rate",</code>
@@ -8316,7 +8903,7 @@ export enum Operator {
  *                   <code> "Value": "0.5"</code>
  *                </p>
  *                <p>
- *                   <code> }</code>
+ *                   <code> \}</code>
  *                </p>
  *             </dd>
  *             <dt>Tags</dt>
@@ -8463,6 +9050,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>Contains summary information about the flow definition.</p>
  */
 export interface FlowDefinitionSummary {
@@ -8492,6 +9080,9 @@ export interface FlowDefinitionSummary {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceFleetReportRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -8499,6 +9090,9 @@ export interface GetDeviceFleetReportRequest {
   DeviceFleetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceFleetReportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
@@ -8541,6 +9135,9 @@ export interface GetDeviceFleetReportResponse {
   ModelStats?: EdgeModelStat[];
 }
 
+/**
+ * @public
+ */
 export interface GetLineageGroupPolicyRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
@@ -8548,6 +9145,9 @@ export interface GetLineageGroupPolicyRequest {
   LineageGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLineageGroupPolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
@@ -8560,6 +9160,9 @@ export interface GetLineageGroupPolicyResponse {
   ResourcePolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetModelPackageGroupPolicyInput {
   /**
    * <p>The name of the model group for which to get the resource policy.</p>
@@ -8567,6 +9170,9 @@ export interface GetModelPackageGroupPolicyInput {
   ModelPackageGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetModelPackageGroupPolicyOutput {
   /**
    * <p>The resource policy for the model group.</p>
@@ -8574,13 +9180,22 @@ export interface GetModelPackageGroupPolicyOutput {
   ResourcePolicy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSagemakerServicecatalogPortfolioStatusInput {}
 
+/**
+ * @public
+ */
 export enum SagemakerServicecatalogStatus {
   DISABLED = "Disabled",
   ENABLED = "Enabled",
 }
 
+/**
+ * @public
+ */
 export interface GetSagemakerServicecatalogPortfolioStatusOutput {
   /**
    * <p>Whether Service Catalog is enabled or disabled in SageMaker.</p>
@@ -8588,6 +9203,9 @@ export interface GetSagemakerServicecatalogPortfolioStatusOutput {
   Status?: SagemakerServicecatalogStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   ENDPOINT = "Endpoint",
   EXPERIMENT = "Experiment",
@@ -8607,6 +9225,7 @@ export enum ResourceType {
 }
 
 /**
+ * @public
  * <p>Part of the <code>SuggestionQuery</code> type. Specifies a hint for retrieving property
  *       names that begin with the specified text.</p>
  */
@@ -8618,6 +9237,7 @@ export interface PropertyNameQuery {
 }
 
 /**
+ * @public
  * <p>Specified in the <a>GetSearchSuggestions</a> request.
  *       Limits the property names that are included in the response.</p>
  */
@@ -8629,6 +9249,9 @@ export interface SuggestionQuery {
   PropertyNameQuery?: PropertyNameQuery;
 }
 
+/**
+ * @public
+ */
 export interface GetSearchSuggestionsRequest {
   /**
    * <p>The name of the SageMaker resource to search for.</p>
@@ -8642,6 +9265,7 @@ export interface GetSearchSuggestionsRequest {
 }
 
 /**
+ * @public
  * <p>A property name returned from a <code>GetSearchSuggestions</code> call that specifies
  *       a value in the <code>PropertyNameQuery</code> field.</p>
  */
@@ -8653,6 +9277,9 @@ export interface PropertyNameSuggestion {
   PropertyName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSearchSuggestionsResponse {
   /**
    * <p>A list of property names for a <code>Resource</code> that match a
@@ -8662,6 +9289,7 @@ export interface GetSearchSuggestionsResponse {
 }
 
 /**
+ * @public
  * <p>Specifies configuration details for a Git repository when the repository is
  *             updated.</p>
  */
@@ -8671,14 +9299,15 @@ export interface GitConfigForUpdate {
    *             contains the credentials used to access the git repository. The secret must have a
    *             staging label of <code>AWSCURRENT</code> and must be in the following format:</p>
    *          <p>
-   *             <code>{"username": <i>UserName</i>, "password":
-   *                     <i>Password</i>}</code>
+   *             <code>\{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>\}</code>
    *          </p>
    */
   SecretArn?: string;
 }
 
 /**
+ * @public
  * <p>Information about hub content.</p>
  */
 export interface HubContentInfo {
@@ -8733,6 +9362,9 @@ export interface HubContentInfo {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HubContentSortBy {
   CREATION_TIME = "CreationTime",
   HUB_CONTENT_NAME = "HubContentName",
@@ -8740,6 +9372,7 @@ export enum HubContentSortBy {
 }
 
 /**
+ * @public
  * <p>Information about a hub.</p>
  */
 export interface HubInfo {
@@ -8784,6 +9417,9 @@ export interface HubInfo {
   LastModifiedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HubSortBy {
   ACCOUNT_ID_OWNER = "AccountIdOwner",
   CREATION_TIME = "CreationTime",
@@ -8792,6 +9428,7 @@ export enum HubSortBy {
 }
 
 /**
+ * @public
  * <p>Container for human task user interface information.</p>
  */
 export interface HumanTaskUiSummary {
@@ -8812,6 +9449,7 @@ export interface HumanTaskUiSummary {
 }
 
 /**
+ * @public
  * <p>An entity returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a> API
  *             containing the properties of a hyperparameter tuning job.</p>
  */
@@ -8927,6 +9565,9 @@ export interface HyperParameterTuningJobSearchEntity {
   ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
+/**
+ * @public
+ */
 export enum HyperParameterTuningJobSortByOptions {
   CreationTime = "CreationTime",
   Name = "Name",
@@ -8934,6 +9575,7 @@ export enum HyperParameterTuningJobSortByOptions {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a hyperparameter tuning job.</p>
  */
 export interface HyperParameterTuningJobSummary {
@@ -9001,6 +9643,7 @@ export interface HyperParameterTuningJobSummary {
 }
 
 /**
+ * @public
  * <p>A SageMaker image. A SageMaker image represents a set of container images that are derived from
  *         a common base container image. Each of these container images is represented by a SageMaker
  *         <code>ImageVersion</code>.</p>
@@ -9047,18 +9690,25 @@ export interface Image {
   LastModifiedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImageSortBy {
   CREATION_TIME = "CREATION_TIME",
   IMAGE_NAME = "IMAGE_NAME",
   LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
 }
 
+/**
+ * @public
+ */
 export enum ImageSortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
 /**
+ * @public
  * <p>A version of a SageMaker <code>Image</code>. A version represents an existing container
  *         image.</p>
  */
@@ -9099,17 +9749,26 @@ export interface ImageVersion {
   Version: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ImageVersionSortBy {
   CREATION_TIME = "CREATION_TIME",
   LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
   VERSION = "VERSION",
 }
 
+/**
+ * @public
+ */
 export enum ImageVersionSortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface ImportHubContentRequest {
   /**
    * <p>The name of the hub content to import.</p>
@@ -9167,6 +9826,9 @@ export interface ImportHubContentRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportHubContentResponse {
   /**
    * <p>The ARN of the hub that the content was imported into.</p>
@@ -9180,6 +9842,7 @@ export interface ImportHubContentResponse {
 }
 
 /**
+ * @public
  * <p>Lists a summary of properties of an inference experiment.</p>
  */
 export interface InferenceExperimentSummary {
@@ -9238,12 +9901,16 @@ export interface InferenceExperimentSummary {
   RoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum InferenceExperimentStopDesiredState {
   CANCELLED = "Cancelled",
   COMPLETED = "Completed",
 }
 
 /**
+ * @public
  * <p>A structure that contains a list of recommendation jobs.</p>
  */
 export interface InferenceRecommendationsJob {
@@ -9300,6 +9967,7 @@ export interface InferenceRecommendationsJob {
 }
 
 /**
+ * @public
  * <p>The details for a specific benchmark from an Inference Recommender job.</p>
  */
 export interface RecommendationJobInferenceBenchmark {
@@ -9329,11 +9997,15 @@ export interface RecommendationJobInferenceBenchmark {
   EndpointMetrics?: InferenceMetrics;
 }
 
+/**
+ * @public
+ */
 export enum RecommendationStepType {
   BENCHMARK = "BENCHMARK",
 }
 
 /**
+ * @public
  * <p>A returned array object for the <code>Steps</code> response field in the
  *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html">ListInferenceRecommendationsJobSteps</a> API command.</p>
  */
@@ -9362,6 +10034,7 @@ export interface InferenceRecommendationsJobStep {
 }
 
 /**
+ * @public
  * <p>Provides counts for human-labeled tasks in the labeling job.</p>
  */
 export interface LabelCountersForWorkteam {
@@ -9382,6 +10055,7 @@ export interface LabelCountersForWorkteam {
 }
 
 /**
+ * @public
  * <p>Provides summary information for a work team.</p>
  */
 export interface LabelingJobForWorkteamSummary {
@@ -9419,6 +10093,7 @@ export interface LabelingJobForWorkteamSummary {
 }
 
 /**
+ * @public
  * <p>Provides summary information about a labeling job.</p>
  */
 export interface LabelingJobSummary {
@@ -9490,6 +10165,7 @@ export interface LabelingJobSummary {
 }
 
 /**
+ * @public
  * <p>Metadata for a Lambda step.</p>
  */
 export interface LambdaStepMetadata {
@@ -9505,6 +10181,7 @@ export interface LambdaStepMetadata {
 }
 
 /**
+ * @public
  * <p>Lists a summary of the properties of a lineage group. A lineage group provides a group of shareable lineage entity
  *          resources.</p>
  */
@@ -9535,6 +10212,9 @@ export interface LineageGroupSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum LineageType {
   ACTION = "Action",
   ARTIFACT = "Artifact",
@@ -9542,16 +10222,25 @@ export enum LineageType {
   TRIAL_COMPONENT = "TrialComponent",
 }
 
+/**
+ * @public
+ */
 export enum SortActionsBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
 }
 
+/**
+ * @public
+ */
 export interface ListActionsRequest {
   /**
    * <p>A filter that returns only actions with the specified source URI.</p>
@@ -9595,6 +10284,9 @@ export interface ListActionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListActionsResponse {
   /**
    * <p>A list of actions and their properties.</p>
@@ -9607,6 +10299,9 @@ export interface ListActionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAlgorithmsInput {
   /**
    * <p>A filter that returns only algorithms created after the specified time
@@ -9650,6 +10345,9 @@ export interface ListAlgorithmsInput {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAlgorithmsOutput {
   /**
    * <p>>An array of <code>AlgorithmSummary</code> objects, each of which lists an

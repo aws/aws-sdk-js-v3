@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLifecycleHooksCommand}.
  */
 export interface DescribeLifecycleHooksCommandInput extends DescribeLifecycleHooksType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLifecycleHooksCommand}.
  */
 export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHooksAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the lifecycle hooks for the specified Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLifecycleHooksCommandInput - {@link DescribeLifecycleHooksCommandInput}
+ * @returns {@link DescribeLifecycleHooksCommandOutput}
  * @see {@link DescribeLifecycleHooksCommandInput} for command's `input` shape.
  * @see {@link DescribeLifecycleHooksCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -100,6 +107,9 @@ export class DescribeLifecycleHooksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLifecycleHooksCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DescribeLifecycleHooksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLifecycleHooksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLifecycleHooksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLifecycleHooksCommandOutput> {
     return deserializeAws_queryDescribeLifecycleHooksCommand(output, context);
   }

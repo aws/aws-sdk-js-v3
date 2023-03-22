@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSchemaCommand}.
  */
 export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSchemaCommand}.
  */
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new schema in a development state. A schema can exist in three
  *       phases:</p>
  *          <ul>
@@ -66,6 +71,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
+ * @returns {@link CreateSchemaCommandOutput}
  * @see {@link CreateSchemaCommandInput} for command's `input` shape.
  * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -112,6 +119,9 @@ export class CreateSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaCommandOutput> {
     return deserializeAws_restJson1CreateSchemaCommand(output, context);
   }

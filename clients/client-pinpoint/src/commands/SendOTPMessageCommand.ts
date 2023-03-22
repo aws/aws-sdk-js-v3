@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendOTPMessageCommand}.
  */
 export interface SendOTPMessageCommandInput extends SendOTPMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendOTPMessageCommand}.
  */
 export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Send an OTP message</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SendOTPMessageCommandInput - {@link SendOTPMessageCommandInput}
+ * @returns {@link SendOTPMessageCommandOutput}
  * @see {@link SendOTPMessageCommandInput} for command's `input` shape.
  * @see {@link SendOTPMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class SendOTPMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendOTPMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SendOTPMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendOTPMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendOTPMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendOTPMessageCommandOutput> {
     return deserializeAws_restJson1SendOTPMessageCommand(output, context);
   }

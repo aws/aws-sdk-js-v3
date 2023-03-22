@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkteamCommand}.
  */
 export interface DeleteWorkteamCommandInput extends DeleteWorkteamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkteamCommand}.
  */
 export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing work team. This operation can't be undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkteamCommandInput - {@link DeleteWorkteamCommandInput}
+ * @returns {@link DeleteWorkteamCommandOutput}
  * @see {@link DeleteWorkteamCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteWorkteamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkteamCommandOutput> {
     return deserializeAws_json1_1DeleteWorkteamCommand(output, context);
   }

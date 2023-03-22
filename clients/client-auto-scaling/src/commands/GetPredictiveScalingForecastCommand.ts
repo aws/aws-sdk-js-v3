@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetPredictiveScalingForecastCommand}.
  */
 export interface GetPredictiveScalingForecastCommandInput extends GetPredictiveScalingForecastType {}
 /**
+ * @public
+ *
  * The output of {@link GetPredictiveScalingForecastCommand}.
  */
 export interface GetPredictiveScalingForecastCommandOutput
@@ -37,6 +41,7 @@ export interface GetPredictiveScalingForecastCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the forecast data for a predictive scaling policy.</p>
  *          <p>Load forecasts are predictions of the hourly load values using historical load data
  *             from CloudWatch and an analysis of historical trends. Capacity forecasts are represented as
@@ -56,6 +61,8 @@ export interface GetPredictiveScalingForecastCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPredictiveScalingForecastCommandInput - {@link GetPredictiveScalingForecastCommandInput}
+ * @returns {@link GetPredictiveScalingForecastCommandOutput}
  * @see {@link GetPredictiveScalingForecastCommandInput} for command's `input` shape.
  * @see {@link GetPredictiveScalingForecastCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetPredictiveScalingForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPredictiveScalingForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetPredictiveScalingForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPredictiveScalingForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetPredictiveScalingForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSlackChannelConfigurationCommand}.
  */
 export interface UpdateSlackChannelConfigurationCommandInput extends UpdateSlackChannelConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSlackChannelConfigurationCommand}.
  */
 export interface UpdateSlackChannelConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateSlackChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration for a Slack channel, such as case update notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateSlackChannelConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSlackChannelConfigurationCommandInput - {@link UpdateSlackChannelConfigurationCommandInput}
+ * @returns {@link UpdateSlackChannelConfigurationCommandOutput}
  * @see {@link UpdateSlackChannelConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateSlackChannelConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -113,6 +120,9 @@ export class UpdateSlackChannelConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSlackChannelConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,6 +162,9 @@ export class UpdateSlackChannelConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSlackChannelConfigurationCommandInput,
     context: __SerdeContext
@@ -159,6 +172,9 @@ export class UpdateSlackChannelConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateSlackChannelConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

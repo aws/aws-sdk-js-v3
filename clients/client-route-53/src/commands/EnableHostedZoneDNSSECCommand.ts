@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link EnableHostedZoneDNSSECCommand}.
  */
 export interface EnableHostedZoneDNSSECCommandInput extends EnableHostedZoneDNSSECRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableHostedZoneDNSSECCommand}.
  */
 export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables DNSSEC signing in a specific hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,6 +52,8 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableHostedZoneDNSSECCommandInput - {@link EnableHostedZoneDNSSECCommandInput}
+ * @returns {@link EnableHostedZoneDNSSECCommandOutput}
  * @see {@link EnableHostedZoneDNSSECCommandInput} for command's `input` shape.
  * @see {@link EnableHostedZoneDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -101,6 +108,9 @@ export class EnableHostedZoneDNSSECCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableHostedZoneDNSSECCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class EnableHostedZoneDNSSECCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableHostedZoneDNSSECCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlEnableHostedZoneDNSSECCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableHostedZoneDNSSECCommandOutput> {
     return deserializeAws_restXmlEnableHostedZoneDNSSECCommand(output, context);
   }

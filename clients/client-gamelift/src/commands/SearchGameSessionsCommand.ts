@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchGameSessionsCommand}.
  */
 export interface SearchGameSessionsCommandInput extends SearchGameSessionsInput {}
 /**
+ * @public
+ *
  * The output of {@link SearchGameSessionsCommand}.
  */
 export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all active game sessions that match a set of search criteria and sorts them
  *             into a specified order. </p>
  *         <p>This operation is not designed to be continually called to track game session status.
@@ -132,6 +137,8 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchGameSessionsCommandInput - {@link SearchGameSessionsCommandInput}
+ * @returns {@link SearchGameSessionsCommandOutput}
  * @see {@link SearchGameSessionsCommandInput} for command's `input` shape.
  * @see {@link SearchGameSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -178,6 +185,9 @@ export class SearchGameSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchGameSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -217,10 +227,16 @@ export class SearchGameSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchGameSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchGameSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchGameSessionsCommandOutput> {
     return deserializeAws_json1_1SearchGameSessionsCommand(output, context);
   }

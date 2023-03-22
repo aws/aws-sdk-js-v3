@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRescoreExecutionPlanCommand}.
  */
 export interface UpdateRescoreExecutionPlanCommandInput extends UpdateRescoreExecutionPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRescoreExecutionPlanCommand}.
  */
 export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a rescore execution plan. A rescore execution plan
  *             is an Amazon Kendra Intelligent Ranking resource used for
  *             provisioning the <code>Rescore</code> API. You can update the
@@ -49,6 +54,8 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRescoreExecutionPlanCommandInput - {@link UpdateRescoreExecutionPlanCommandInput}
+ * @returns {@link UpdateRescoreExecutionPlanCommandOutput}
  * @see {@link UpdateRescoreExecutionPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
@@ -108,6 +115,9 @@ export class UpdateRescoreExecutionPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRescoreExecutionPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class UpdateRescoreExecutionPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRescoreExecutionPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateRescoreExecutionPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

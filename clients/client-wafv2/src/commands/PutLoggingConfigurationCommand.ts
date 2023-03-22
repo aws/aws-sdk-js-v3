@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutLoggingConfigurationCommand}.
  */
 export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLoggingConfigurationCommand}.
  */
 export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a
  *          web ACL, according to the configuration provided. </p>
  *          <note>
@@ -88,6 +93,8 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLoggingConfigurationCommandInput - {@link PutLoggingConfigurationCommandInput}
+ * @returns {@link PutLoggingConfigurationCommandOutput}
  * @see {@link PutLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -171,6 +178,9 @@ export class PutLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -210,10 +220,16 @@ export class PutLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingConfigurationCommandOutput> {
     return deserializeAws_json1_1PutLoggingConfigurationCommand(output, context);
   }

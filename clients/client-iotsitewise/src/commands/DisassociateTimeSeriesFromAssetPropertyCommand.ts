@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTimeSeriesFromAssetPropertyCommand}.
  */
 export interface DisassociateTimeSeriesFromAssetPropertyCommandInput
   extends DisassociateTimeSeriesFromAssetPropertyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTimeSeriesFromAssetPropertyCommand}.
  */
 export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a time series (data stream) from an asset property.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTimeSeriesFromAssetPropertyCommandInput - {@link DisassociateTimeSeriesFromAssetPropertyCommandInput}
+ * @returns {@link DisassociateTimeSeriesFromAssetPropertyCommandOutput}
  * @see {@link DisassociateTimeSeriesFromAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link DisassociateTimeSeriesFromAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -88,6 +95,9 @@ export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTimeSeriesFromAssetPropertyCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTimeSeriesFromAssetPropertyCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command<
     return serializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

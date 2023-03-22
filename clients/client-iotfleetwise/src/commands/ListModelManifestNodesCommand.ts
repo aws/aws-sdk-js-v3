@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelManifestNodesCommand}.
  */
 export interface ListModelManifestNodesCommandInput extends ListModelManifestNodesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelManifestNodesCommand}.
  */
 export interface ListModelManifestNodesCommandOutput extends ListModelManifestNodesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists information about nodes specified in a vehicle model (model manifest). </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -49,6 +54,8 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelManifestNodesCommandInput - {@link ListModelManifestNodesCommandInput}
+ * @returns {@link ListModelManifestNodesCommandOutput}
  * @see {@link ListModelManifestNodesCommandInput} for command's `input` shape.
  * @see {@link ListModelManifestNodesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListModelManifestNodesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelManifestNodesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListModelManifestNodesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelManifestNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListModelManifestNodesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelManifestNodesCommandOutput> {
     return deserializeAws_json1_0ListModelManifestNodesCommand(output, context);
   }

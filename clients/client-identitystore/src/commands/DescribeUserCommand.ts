@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserCommand}.
  */
 export interface DescribeUserCommandInput extends DescribeUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserCommand}.
  */
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
+ * @returns {@link DescribeUserCommandOutput}
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserCommandOutput> {
     return deserializeAws_json1_1DescribeUserCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnomalyGroupSummariesCommand}.
  */
 export interface ListAnomalyGroupSummariesCommandInput extends ListAnomalyGroupSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnomalyGroupSummariesCommand}.
  */
 export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroupSummariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of anomaly groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroup
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnomalyGroupSummariesCommandInput - {@link ListAnomalyGroupSummariesCommandInput}
+ * @returns {@link ListAnomalyGroupSummariesCommandOutput}
  * @see {@link ListAnomalyGroupSummariesCommandInput} for command's `input` shape.
  * @see {@link ListAnomalyGroupSummariesCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListAnomalyGroupSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnomalyGroupSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListAnomalyGroupSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnomalyGroupSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAnomalyGroupSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

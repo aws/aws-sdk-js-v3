@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSpaceCommand}.
  */
 export interface GetSpaceCommandInput extends GetSpaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSpaceCommand}.
  */
 export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSpaceCommandInput - {@link GetSpaceCommandInput}
+ * @returns {@link GetSpaceCommandOutput}
  * @see {@link GetSpaceCommandInput} for command's `input` shape.
  * @see {@link GetSpaceCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetSpaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSpaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetSpaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSpaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSpaceCommandOutput> {
     return deserializeAws_restJson1GetSpaceCommand(output, context);
   }

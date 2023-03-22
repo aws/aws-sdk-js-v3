@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMatchmakingCommand}.
  */
 export interface StartMatchmakingCommandInput extends StartMatchmakingInput {}
 /**
+ * @public
+ *
  * The output of {@link StartMatchmakingCommand}.
  */
 export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking
  *             rules. With games that use GameLift managed hosting, this operation also triggers GameLift
  *             to find hosting resources and start a new game session for the new match. Each
@@ -75,6 +80,8 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMatchmakingCommandInput - {@link StartMatchmakingCommandInput}
+ * @returns {@link StartMatchmakingCommandOutput}
  * @see {@link StartMatchmakingCommandInput} for command's `input` shape.
  * @see {@link StartMatchmakingCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -112,6 +119,9 @@ export class StartMatchmakingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMatchmakingCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class StartMatchmakingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMatchmakingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartMatchmakingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMatchmakingCommandOutput> {
     return deserializeAws_json1_1StartMatchmakingCommand(output, context);
   }

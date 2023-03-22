@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAuditTaskCommand}.
  */
 export interface DescribeAuditTaskCommandInput extends DescribeAuditTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAuditTaskCommand}.
  */
 export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Device Defender audit.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuditTask</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAuditTaskCommandInput - {@link DescribeAuditTaskCommandInput}
+ * @returns {@link DescribeAuditTaskCommandOutput}
  * @see {@link DescribeAuditTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeAuditTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuditTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeAuditTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAuditTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAuditTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAuditTaskCommandOutput> {
     return deserializeAws_restJson1DescribeAuditTaskCommand(output, context);
   }

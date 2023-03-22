@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminDisableUserCommand}.
  */
 export interface AdminDisableUserCommandInput extends AdminDisableUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminDisableUserCommand}.
  */
 export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deactivates a user and revokes all access tokens for the user. A deactivated user can't sign in,
  *             but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code> API requests.</p>
  *         <p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
@@ -53,6 +58,8 @@ export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminDisableUserCommandInput - {@link AdminDisableUserCommandInput}
+ * @returns {@link AdminDisableUserCommandOutput}
  * @see {@link AdminDisableUserCommandInput} for command's `input` shape.
  * @see {@link AdminDisableUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -97,6 +104,9 @@ export class AdminDisableUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminDisableUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class AdminDisableUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminDisableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminDisableUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminDisableUserCommandOutput> {
     return deserializeAws_json1_1AdminDisableUserCommand(output, context);
   }

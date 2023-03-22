@@ -126,12 +126,14 @@ import {
 import { LookoutMetricsClient } from "./LookoutMetricsClient";
 
 /**
+ * @public
  * <p>This is the <i>Amazon Lookout for Metrics API Reference</i>. For an introduction to the service
  *       with tutorials for getting started, visit <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev">Amazon
  *         Lookout for Metrics Developer Guide</a>.</p>
  */
 export class LookoutMetrics extends LookoutMetricsClient {
   /**
+   * @public
    * <p>Activates an anomaly detector.</p>
    */
   public activateAnomalyDetector(
@@ -164,6 +166,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Runs a backtest for anomaly detection for the specified resource.</p>
    */
   public backTestAnomalyDetector(
@@ -196,6 +199,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Creates an alert for an anomaly detector.</p>
    */
   public createAlert(args: CreateAlertCommandInput, options?: __HttpHandlerOptions): Promise<CreateAlertCommandOutput>;
@@ -222,6 +226,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Creates an anomaly detector.</p>
    */
   public createAnomalyDetector(
@@ -254,6 +259,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Creates a dataset.</p>
    */
   public createMetricSet(
@@ -286,6 +292,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Deactivates an anomaly detector.</p>
    */
   public deactivateAnomalyDetector(
@@ -318,6 +325,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Deletes an alert.</p>
    */
   public deleteAlert(args: DeleteAlertCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAlertCommandOutput>;
@@ -344,6 +352,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a detector. Deleting an anomaly detector will delete all of its corresponding resources including any
    *       configured datasets and alerts.</p>
    */
@@ -377,6 +386,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Describes an alert.</p>
    *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
    *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -411,6 +421,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the status of the specified anomaly detection jobs.</p>
    */
   public describeAnomalyDetectionExecutions(
@@ -443,6 +454,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Describes a detector.</p>
    *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
    *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -477,6 +489,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Describes a dataset.</p>
    *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
    *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -511,6 +524,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Detects an Amazon S3 dataset's file format, interval, and offset.</p>
    */
   public detectMetricSetConfig(
@@ -543,6 +557,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Returns details about a group of anomalous metrics.</p>
    */
   public getAnomalyGroup(
@@ -575,6 +590,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Returns details about the requested data quality metrics.</p>
    */
   public getDataQualityMetrics(
@@ -607,6 +623,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Get feedback for an anomaly group.</p>
    */
   public getFeedback(args: GetFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<GetFeedbackCommandOutput>;
@@ -633,6 +650,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Returns a selection of sample records from an Amazon S3 datasource.</p>
    */
   public getSampleData(
@@ -665,6 +683,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Lists the alerts attached to a detector.</p>
    *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
    *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -693,6 +712,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Lists the detectors in the current AWS Region.</p>
    *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
    *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -727,6 +747,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of measures that are potential causes or effects of an
    *             anomaly group.</p>
    */
@@ -760,6 +781,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of anomaly groups.</p>
    */
   public listAnomalyGroupSummaries(
@@ -792,6 +814,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of anomalous metrics for a measure in an anomaly group.</p>
    */
   public listAnomalyGroupTimeSeries(
@@ -824,6 +847,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Lists the datasets in the current AWS Region.</p>
    *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
    *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -858,6 +882,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> for a detector, dataset, or alert.</p>
    */
   public listTagsForResource(
@@ -890,6 +915,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Add feedback for an anomalous metric.</p>
    */
   public putFeedback(args: PutFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<PutFeedbackCommandOutput>;
@@ -916,6 +942,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Adds <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to a detector, dataset, or alert.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -942,6 +969,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Removes <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> from a detector, dataset, or alert.</p>
    */
   public untagResource(
@@ -974,6 +1002,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Make changes to an existing alert.</p>
    */
   public updateAlert(args: UpdateAlertCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAlertCommandOutput>;
@@ -1000,6 +1029,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Updates a detector. After activation, you can only change a detector's ingestion delay and description.</p>
    */
   public updateAnomalyDetector(
@@ -1032,6 +1062,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
   }
 
   /**
+   * @public
    * <p>Updates a dataset.</p>
    */
   public updateMetricSet(

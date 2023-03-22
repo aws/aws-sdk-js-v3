@@ -460,6 +460,7 @@ import {
 import { ConfigServiceClient } from "./ConfigServiceClient";
 
 /**
+ * @public
  * <fullname>Config</fullname>
  *          <p>Config provides a way to keep track of the configurations
  * 			of all the Amazon Web Services resources associated with your Amazon Web Services account. You can
@@ -484,6 +485,7 @@ import { ConfigServiceClient } from "./ConfigServiceClient";
  */
 export class ConfigService extends ConfigServiceClient {
   /**
+   * @public
    * <p>Returns the current configuration items for resources that are present in your Config aggregator. The operation also returns a list of resources that are not processed in the current request.
    * 			If there are no unprocessed resources, the operation returns an empty <code>unprocessedResourceIdentifiers</code> list. </p>
    *          <note>
@@ -527,6 +529,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the <code>BaseConfigurationItem</code> for one or more requested resources.
    * 			The operation also returns a list of resources that are
    * 			not processed in the current request. If there are no unprocessed
@@ -577,6 +580,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the authorization granted to the specified
    * 			configuration aggregator account in a specified region.</p>
    */
@@ -610,6 +614,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Config rule and all of its evaluation
    * 			results.</p>
    *          <p>Config sets the state of a rule to <code>DELETING</code>
@@ -650,6 +655,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified configuration aggregator and the
    * 			aggregated data associated with the aggregator.</p>
    */
@@ -683,6 +689,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the configuration recorder.</p>
    *          <p>After the configuration recorder is deleted, Config will
    * 			not record resource configuration changes until you create a new
@@ -724,6 +731,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified conformance pack and all the Config rules, remediation actions, and all evaluation results within that
    * 			conformance pack.</p>
    *          <p>Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
@@ -759,6 +767,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the delivery channel.</p>
    *          <p>Before you can delete the delivery channel, you must stop the
    * 			configuration recorder by using the <a>StopConfigurationRecorder</a> action.</p>
@@ -793,6 +802,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the evaluation results for the specified Config
    * 			rule. You can specify one Config rule per request. After you
    * 			delete the evaluation results, you can call the <a>StartConfigRulesEvaluation</a> API to start evaluating
@@ -828,6 +838,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization. </p>
    *          <p>Only a management account and a delegated administrator account can delete an organization Config rule.
    * 		When calling this API with a delegated administrator, you must ensure Organizations
@@ -865,6 +876,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified organization conformance pack and all of the Config rules and remediation actions from
    * 			all member accounts in that organization. </p>
    *          <p> Only a management account or a delegated administrator account can delete an organization conformance pack.
@@ -903,6 +915,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes pending authorization requests for a specified
    * 			aggregator account in a specified region.</p>
    */
@@ -936,6 +949,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the remediation configuration.</p>
    */
   public deleteRemediationConfiguration(
@@ -968,6 +982,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>
    *          <note>
    *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
@@ -1004,6 +1019,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Records the configuration state for a custom resource that has been deleted.  This API records a new ConfigurationItem with a ResourceDeleted status. You can retrieve the ConfigurationItems recorded for this resource in your Config History.
    * 			 </p>
    */
@@ -1037,6 +1053,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the retention configuration.</p>
    */
   public deleteRetentionConfiguration(
@@ -1069,6 +1086,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes the stored query for a single Amazon Web Services account and a single Amazon Web Services Region.</p>
    */
   public deleteStoredQuery(
@@ -1101,6 +1119,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Schedules delivery of a configuration snapshot to the Amazon S3
    * 			bucket in the specified delivery channel. After the delivery has
    * 			started, Config sends the following notifications using an
@@ -1149,6 +1168,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of compliant and noncompliant rules with the
    * 			number of resources for compliant and noncompliant rules. Does not display rules that do not have compliance results.
    * 			</p>
@@ -1190,6 +1210,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each
    * 			conformance pack. Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
    *          <note>
@@ -1228,6 +1249,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of authorizations granted to various aggregator
    * 			accounts and regions.</p>
    */
@@ -1261,6 +1283,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Indicates whether the specified Config rules are compliant.
    * 			If a rule is noncompliant, this action returns the number of Amazon Web Services
    * 			resources that do not comply with the rule.</p>
@@ -1325,6 +1348,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Indicates whether the specified Amazon Web Services resources are compliant. If
    * 			a resource is noncompliant, this action returns the number of Config rules that the resource does not comply with.</p>
    *          <p>A resource is compliant if it complies with all the Config
@@ -1389,6 +1413,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns status information for each of your Config managed rules. The status includes information such as the last time Config invoked the rule, the last time Config failed to invoke
    * 			the rule, and the related error for the last failure.</p>
    */
@@ -1422,6 +1447,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns details about your Config rules.</p>
    */
   public describeConfigRules(
@@ -1454,6 +1480,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of one or more configuration aggregators.
    * 			If the configuration aggregator is not specified, this action
    * 			returns the details for all the configuration aggregators associated
@@ -1489,6 +1516,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns status information for sources within an aggregator.
    * 			The status includes information about the last time Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message. </p>
    */
@@ -1524,6 +1552,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the details for the specified configuration recorders.
    * 			If the configuration recorder is not specified, this action returns
    * 			the details for all configuration recorders associated with the
@@ -1563,6 +1592,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the current status of the specified configuration
    * 			recorder as well as the status of the last recording event for the recorder. If a configuration recorder is not specified, this action
    * 			returns the status of all configuration recorders associated with
@@ -1602,6 +1632,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns compliance details for each rule in that conformance pack.</p>
    *          <note>
    *             <p>You must provide exact rule names.</p>
@@ -1637,6 +1668,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of one or more conformance packs.</p>
    */
   public describeConformancePacks(
@@ -1669,6 +1701,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides one or more conformance packs deployment status.</p>
    *          <note>
    *             <p>If there are no conformance packs then you will see an empty result.</p>
@@ -1704,6 +1737,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns details about the specified delivery channel. If a
    * 			delivery channel is not specified, this action returns the details
    * 			of all delivery channels associated with the account.</p>
@@ -1742,6 +1776,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the current status of the specified delivery channel.
    * 			If a delivery channel is not specified, this action returns the
    * 			current status of all delivery channels associated with the
@@ -1781,6 +1816,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of organization Config rules. </p>
    *          <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response.</p>
@@ -1831,6 +1867,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides organization Config rule deployment status for an organization.</p>
    *          <note>
    *             <p>The status is not considered successful until organization Config rule is successfully deployed in all the member
@@ -1872,6 +1909,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of organization conformance packs. </p>
    *          <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
@@ -1922,6 +1960,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides organization conformance pack deployment status for an organization. </p>
    *          <note>
    *             <p>The status is not considered successful until organization conformance pack is successfully
@@ -1963,6 +2002,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all pending aggregation requests.</p>
    */
   public describePendingAggregationRequests(
@@ -1995,6 +2035,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of one or more remediation configurations.</p>
    */
   public describeRemediationConfigurations(
@@ -2027,6 +2068,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
    * 			When you specify the limit and the next token, you receive a paginated response. </p>
    *          <note>
@@ -2066,6 +2108,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Provides a detailed view of a Remediation Execution for a set of resources including state, timestamps for when steps for the remediation execution occur, and any error messages for steps that have failed.
    * 			When you specify the limit and the next token, you receive a paginated response.</p>
    */
@@ -2099,6 +2142,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of one or more retention configurations. If
    * 			the retention configuration name is not specified, this action
    * 			returns the details for all the retention configurations for that
@@ -2138,6 +2182,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the evaluation results for the specified Config
    * 			rule for a specific resource in a rule. The results indicate which
    * 			Amazon Web Services resources were evaluated by the rule, when each resource was
@@ -2180,6 +2225,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the number of compliant and noncompliant rules for one
    * 			or more accounts and regions in an aggregator.</p>
    *          <note>
@@ -2220,6 +2266,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the count of compliant and noncompliant conformance packs across all Amazon Web Services accounts and Amazon Web Services Regions in an aggregator. You can filter based on Amazon Web Services account ID or Amazon Web Services Region.</p>
    *          <note>
    *             <p>The results can return an empty result page, but if you have a nextToken, the results are displayed on the next page.</p>
@@ -2257,6 +2304,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the resource counts across accounts and regions that are present in your Config aggregator. You can request the resource counts by providing filters and GroupByKey.</p>
    *          <p>For example, if the input contains accountID 12345678910 and region us-east-1 in filters, the API returns the count of resources in account ID 12345678910 and region us-east-1.
    * 			If the input contains ACCOUNT_ID as a GroupByKey, the API returns resource counts for all source accounts that are present in your aggregator.</p>
@@ -2291,6 +2339,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns configuration item that is aggregated for your specific resource in a specific source account and region.</p>
    */
   public getAggregateResourceConfig(
@@ -2323,6 +2372,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the evaluation results for the specified Config
    * 			rule. The results indicate which Amazon Web Services resources were evaluated by the
    * 			rule, when each resource was last evaluated, and whether each
@@ -2358,6 +2408,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the evaluation results for the specified Amazon Web Services resource.
    * 			The results indicate which Config rules were used to evaluate
    * 			the resource, when each rule was last invoked, and whether the resource
@@ -2393,6 +2444,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the number of Config rules that are compliant and
    * 			noncompliant, up to a maximum of 25 for each.</p>
    */
@@ -2426,6 +2478,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the number of resources that are compliant and the
    * 			number that are noncompliant. You can specify one or more resource
    * 			types to get these numbers for each resource type. The maximum
@@ -2461,6 +2514,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns compliance details of a conformance pack for all Amazon Web Services resources that are monitered by conformance pack.</p>
    */
   public getConformancePackComplianceDetails(
@@ -2493,6 +2547,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
    */
   public getConformancePackComplianceSummary(
@@ -2525,6 +2580,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the policy definition containing the logic for your Config Custom Policy rule.</p>
    */
   public getCustomRulePolicy(
@@ -2557,6 +2613,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the resource types, the number of each resource type,
    * 			and the total number of resources that Config is recording in
    * 			this region for your Amazon Web Services account. </p>
@@ -2646,6 +2703,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed status for each member account within an organization for a given organization Config rule.</p>
    */
   public getOrganizationConfigRuleDetailedStatus(
@@ -2680,6 +2738,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>
    */
   public getOrganizationConformancePackDetailedStatus(
@@ -2714,6 +2773,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the policy definition containing the logic for your organization Config Custom Policy rule.</p>
    */
   public getOrganizationCustomRulePolicy(
@@ -2746,6 +2806,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <code>ConfigurationItems</code> for the specified resource.
    * 			The list contains details about each state of the resource
    * 			during the specified time interval. If you specified a retention
@@ -2797,6 +2858,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a summary of resource evaluation for the specified resource evaluation ID from the proactive rules that were run.
    * 			The results indicate which evaluation context was used to evaluate the rules, which resource details were evaluated,
    * 			the evaluation mode that was run, and whether the resource details comply with the configuration of the proactive rules. </p>
@@ -2835,6 +2897,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of a specific stored query.</p>
    */
   public getStoredQuery(
@@ -2867,6 +2930,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions.
    * 			A resource identifier includes the resource type, ID, (if available) the custom resource name, source account, and source region.
    * 			You can narrow the results to include only resources that have specific resource IDs, or a resource name, or source account ID, or source region.</p>
@@ -2902,6 +2966,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of conformance pack compliance scores.
    * 			A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
    * 			This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand
@@ -2940,6 +3005,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Accepts a resource type and returns a list of resource
    * 			identifiers for the resources of that type. A resource identifier
    * 			includes the resource type, ID, and (if available) the custom
@@ -2988,6 +3054,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of proactive resource evaluations.</p>
    */
   public listResourceEvaluations(
@@ -3020,6 +3087,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists the stored queries for a single Amazon Web Services account and a single Amazon Web Services Region. The default is 100. </p>
    */
   public listStoredQueries(
@@ -3052,6 +3120,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>List the tags for Config resource.</p>
    */
   public listTagsForResource(
@@ -3084,6 +3153,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Authorizes the aggregator account and region to collect data
    * 			from the source account and region. </p>
    *          <note>
@@ -3122,6 +3192,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates an Config rule to evaluate if your
    * 			Amazon Web Services resources comply with your desired configurations. For information on how many Config rules you can have per account,
    * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -3196,6 +3267,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates and updates the configuration aggregator with the
    * 			selected source accounts and regions. The source account can be
    * 			individual account(s) or an organization.</p>
@@ -3246,6 +3318,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a new configuration recorder to record the selected
    * 			resource configurations.</p>
    *          <p>You can use this action to change the role <code>roleARN</code>
@@ -3291,6 +3364,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across an organization.
    * 			For information on how many conformance packs you can have per account,
    * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -3332,6 +3406,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a delivery channel object to deliver configuration
    * 			information to an Amazon S3 bucket and Amazon SNS topic.</p>
    *          <p>Before you can create a delivery channel, you must create a
@@ -3378,6 +3453,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Used by an Lambda function to deliver evaluation results to
    * 			Config. This action is required in every Lambda function
    * 			that is invoked by an Config rule.</p>
@@ -3412,6 +3488,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Add or updates the evaluations for process checks.
    * 			This API checks if the rule is a process check when the name of the Config rule is provided.</p>
    */
@@ -3445,6 +3522,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates an Config rule for your entire organization to evaluate if your Amazon Web Services resources comply with your
    * 			desired configurations. For information on how many organization Config rules you can have per account,
    * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -3511,6 +3589,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deploys conformance packs across member accounts in an Amazon Web Services Organization. For information on how many organization conformance packs and how many Config rules you can have per account,
    * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
    *                <b>Service Limits</b>
@@ -3562,6 +3641,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates the remediation configuration with a specific Config rule with the
    * 			selected target or action.
    * 			The API creates the <code>RemediationConfiguration</code> object for the Config rule.
@@ -3608,6 +3688,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>A remediation exception is when a specified resource is no longer considered for auto-remediation.
    * 			This API adds a new exception or updates an existing exception for a specified resource with a specified Config rule. </p>
    *          <note>
@@ -3657,6 +3738,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Records the configuration state for the resource provided in the request.
    *
    * 			The configuration state of a resource is represented in Config as Configuration Items.
@@ -3698,6 +3780,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates and updates the retention configuration with details
    * 			about retention period (number of days) that Config stores your
    * 			historical information. The API creates the
@@ -3740,6 +3823,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single Amazon Web Services account and a single Amazon Web Services Region.
    * 			You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.</p>
    *          <note>
@@ -3778,6 +3862,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions,
    * 			performs the corresponding search, and returns resource configurations matching the properties.</p>
    *          <p>For more information about query components, see the
@@ -3821,6 +3906,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Accepts a structured query language (SQL) <code>SELECT</code> command, performs the corresponding search, and returns resource configurations matching the properties.</p>
    *          <p>For more information about query components, see the
    * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
@@ -3857,6 +3943,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Runs an on-demand evaluation for the specified Config rules
    * 			against the last known configuration state of the resources. Use
    * 				<code>StartConfigRulesEvaluation</code> when you want to test
@@ -3934,6 +4021,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Starts recording configurations of the Amazon Web Services resources you have
    * 			selected to record in your Amazon Web Services account.</p>
    *          <p>You must have created at least one delivery channel to
@@ -3969,6 +4057,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Runs an on-demand remediation for the specified Config rules against the last known remediation configuration. It runs an execution against the current state of your resources. Remediation execution is asynchronous.</p>
    *          <p>You can specify up to 100 resource keys per request. An existing StartRemediationExecution call for the specified resource keys must complete before you can call the API again.</p>
    */
@@ -4002,6 +4091,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Runs an on-demand evaluation for the specified resource to determine whether the resource details will comply with configured Config rules.
    * 			You can also use it for evaluation purposes. Config recommends using an evaluation context. It runs an execution against the resource details with all
    * 			of the Config rules in your account that match with the specified proactive mode and resource type.</p>
@@ -4044,6 +4134,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Stops recording configurations of the Amazon Web Services resources you have selected to record in your Amazon Web Services account.</p>
    */
   public stopConfigurationRecorder(
@@ -4076,6 +4167,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed.
    * 			If existing tags are specified, however, then their values will be updated. When a resource is deleted, the tags associated with that resource are deleted as well.</p>
    */
@@ -4103,6 +4195,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * @public
    * <p>Deletes specified tags from a resource.</p>
    */
   public untagResource(

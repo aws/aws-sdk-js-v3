@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateNodeCommand}.
  */
 export interface DisassociateNodeCommandInput extends DisassociateNodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateNodeCommand}.
  */
 export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Disassociates a node from an AWS OpsWorks CM server, and removes the node from the server's managed nodes. After a node is disassociated,
  *       the node key pair is no longer valid for accessing the configuration manager's API. For more information about how to associate a node, see <a>AssociateNode</a>.
@@ -53,6 +58,8 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateNodeCommandInput - {@link DisassociateNodeCommandInput}
+ * @returns {@link DisassociateNodeCommandOutput}
  * @see {@link DisassociateNodeCommandInput} for command's `input` shape.
  * @see {@link DisassociateNodeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -88,6 +95,9 @@ export class DisassociateNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DisassociateNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateNodeCommandOutput> {
     return deserializeAws_json1_1DisassociateNodeCommand(output, context);
   }

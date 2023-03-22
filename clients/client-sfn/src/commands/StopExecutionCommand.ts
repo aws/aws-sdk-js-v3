@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopExecutionCommand}.
  */
 export interface StopExecutionCommandInput extends StopExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StopExecutionCommand}.
  */
 export interface StopExecutionCommandOutput extends StopExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an execution.</p>
  *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StopExecutionCommandInput - {@link StopExecutionCommandInput}
+ * @returns {@link StopExecutionCommandOutput}
  * @see {@link StopExecutionCommandInput} for command's `input` shape.
  * @see {@link StopExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -79,6 +86,9 @@ export class StopExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class StopExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0StopExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopExecutionCommandOutput> {
     return deserializeAws_json1_0StopExecutionCommand(output, context);
   }

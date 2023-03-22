@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetRolePolicyCommand}.
  */
 export interface GetRolePolicyCommandInput extends GetRolePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRolePolicyCommand}.
  */
 export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified inline policy document that is embedded with the specified
  *             IAM role.</p>
  *          <note>
@@ -62,6 +67,8 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRolePolicyCommandInput - {@link GetRolePolicyCommandInput}
+ * @returns {@link GetRolePolicyCommandOutput}
  * @see {@link GetRolePolicyCommandInput} for command's `input` shape.
  * @see {@link GetRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetRolePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRolePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetRolePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetRolePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRolePolicyCommandOutput> {
     return deserializeAws_queryGetRolePolicyCommand(output, context);
   }

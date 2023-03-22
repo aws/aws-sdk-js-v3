@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEntitiesDetectionJobCommand}.
  */
 export interface DescribeEntitiesDetectionJobCommandInput extends DescribeEntitiesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEntitiesDetectionJobCommand}.
  */
 export interface DescribeEntitiesDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEntitiesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with an entities detection job. Use this operation to get
  *       the status of a detection job.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeEntitiesDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntitiesDetectionJobCommandInput - {@link DescribeEntitiesDetectionJobCommandInput}
+ * @returns {@link DescribeEntitiesDetectionJobCommandOutput}
  * @see {@link DescribeEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeEntitiesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntitiesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeEntitiesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntitiesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEntitiesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

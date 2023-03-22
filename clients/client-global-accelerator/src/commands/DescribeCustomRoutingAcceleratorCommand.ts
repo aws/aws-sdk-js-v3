@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCustomRoutingAcceleratorCommand}.
  */
 export interface DescribeCustomRoutingAcceleratorCommandInput extends DescribeCustomRoutingAcceleratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCustomRoutingAcceleratorCommand}.
  */
 export interface DescribeCustomRoutingAcceleratorCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeCustomRoutingAcceleratorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeCustomRoutingAcceleratorCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomRoutingAcceleratorCommandInput - {@link DescribeCustomRoutingAcceleratorCommandInput}
+ * @returns {@link DescribeCustomRoutingAcceleratorCommandOutput}
  * @see {@link DescribeCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeCustomRoutingAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomRoutingAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeCustomRoutingAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCustomRoutingAcceleratorCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeCustomRoutingAcceleratorCommand extends $Command<
     return serializeAws_json1_1DescribeCustomRoutingAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

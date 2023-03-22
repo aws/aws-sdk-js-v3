@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateNatGatewayAddressCommand}.
  */
 export interface DisassociateNatGatewayAddressCommandInput extends DisassociateNatGatewayAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateNatGatewayAddressCommand}.
  */
 export interface DisassociateNatGatewayAddressCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
  *          <p>An EIP will only be released at the end of MaxDrainDurationSeconds. The EIPs stay
@@ -54,6 +59,8 @@ export interface DisassociateNatGatewayAddressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateNatGatewayAddressCommandInput - {@link DisassociateNatGatewayAddressCommandInput}
+ * @returns {@link DisassociateNatGatewayAddressCommandOutput}
  * @see {@link DisassociateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link DisassociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class DisassociateNatGatewayAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateNatGatewayAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DisassociateNatGatewayAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateNatGatewayAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateNatGatewayAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

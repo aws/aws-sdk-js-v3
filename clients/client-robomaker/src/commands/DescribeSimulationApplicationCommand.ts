@@ -26,10 +26,14 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSimulationApplicationCommand}.
  */
 export interface DescribeSimulationApplicationCommandInput extends DescribeSimulationApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSimulationApplicationCommand}.
  */
 export interface DescribeSimulationApplicationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSimulationApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a simulation application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeSimulationApplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSimulationApplicationCommandInput - {@link DescribeSimulationApplicationCommandInput}
+ * @returns {@link DescribeSimulationApplicationCommandOutput}
  * @see {@link DescribeSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeSimulationApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeSimulationApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSimulationApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeSimulationApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSimulationApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

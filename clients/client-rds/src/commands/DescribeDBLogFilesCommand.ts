@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBLogFilesCommand}.
  */
 export interface DescribeDBLogFilesCommandInput extends DescribeDBLogFilesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBLogFilesCommand}.
  */
 export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of DB log files for the DB instance.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBLogFilesCommandInput - {@link DescribeDBLogFilesCommandInput}
+ * @returns {@link DescribeDBLogFilesCommandOutput}
  * @see {@link DescribeDBLogFilesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBLogFilesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeDBLogFilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBLogFilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeDBLogFilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBLogFilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBLogFilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBLogFilesCommandOutput> {
     return deserializeAws_queryDescribeDBLogFilesCommand(output, context);
   }

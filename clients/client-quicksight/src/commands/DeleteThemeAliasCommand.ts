@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThemeAliasCommand}.
  */
 export interface DeleteThemeAliasCommandInput extends DeleteThemeAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThemeAliasCommand}.
  */
 export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the version of the theme that the specified theme alias points to.
  * 			If you provide a specific alias, you delete the version of the theme
  * 			that the alias points to.</p>
@@ -48,6 +53,8 @@ export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThemeAliasCommandInput - {@link DeleteThemeAliasCommandInput}
+ * @returns {@link DeleteThemeAliasCommandOutput}
  * @see {@link DeleteThemeAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteThemeAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteThemeAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThemeAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteThemeAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThemeAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteThemeAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThemeAliasCommandOutput> {
     return deserializeAws_restJson1DeleteThemeAliasCommand(output, context);
   }

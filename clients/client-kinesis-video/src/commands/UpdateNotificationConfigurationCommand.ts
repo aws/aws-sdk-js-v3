@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNotificationConfigurationCommand}.
  */
 export interface UpdateNotificationConfigurationCommandInput extends UpdateNotificationConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNotificationConfigurationCommand}.
  */
 export interface UpdateNotificationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the notification information for a stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateNotificationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotificationConfigurationCommandInput - {@link UpdateNotificationConfigurationCommandInput}
+ * @returns {@link UpdateNotificationConfigurationCommandOutput}
  * @see {@link UpdateNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -107,6 +114,9 @@ export class UpdateNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class UpdateNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateNotificationConfigurationCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class UpdateNotificationConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

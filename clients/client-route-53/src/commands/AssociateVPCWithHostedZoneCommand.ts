@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateVPCWithHostedZoneCommand}.
  */
 export interface AssociateVPCWithHostedZoneCommandInput extends AssociateVPCWithHostedZoneRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateVPCWithHostedZoneCommand}.
  */
 export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWithHostedZoneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Amazon VPC with a private hosted zone. </p>
  *          <important>
  *             <p>To perform the association, the VPC and the private hosted zone must already
@@ -80,6 +85,8 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateVPCWithHostedZoneCommandInput - {@link AssociateVPCWithHostedZoneCommandInput}
+ * @returns {@link AssociateVPCWithHostedZoneCommandOutput}
  * @see {@link AssociateVPCWithHostedZoneCommandInput} for command's `input` shape.
  * @see {@link AssociateVPCWithHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -186,6 +193,9 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateVPCWithHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -226,10 +236,16 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateVPCWithHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlAssociateVPCWithHostedZoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

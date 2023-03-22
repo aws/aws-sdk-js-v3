@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnabledControlsCommand}.
  */
 export interface ListEnabledControlsCommandInput extends ListEnabledControlsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEnabledControlsCommand}.
  */
 export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the controls enabled by AWS Control Tower on the specified organizational unit and
  *       the accounts it contains.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnabledControlsCommandInput - {@link ListEnabledControlsCommandInput}
+ * @returns {@link ListEnabledControlsCommandOutput}
  * @see {@link ListEnabledControlsCommandInput} for command's `input` shape.
  * @see {@link ListEnabledControlsCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListEnabledControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnabledControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListEnabledControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnabledControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEnabledControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnabledControlsCommandOutput> {
     return deserializeAws_restJson1ListEnabledControlsCommand(output, context);
   }

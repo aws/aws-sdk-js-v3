@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBProxyTargetsCommand}.
  */
 export interface DescribeDBProxyTargetsCommandInput extends DescribeDBProxyTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBProxyTargetsCommand}.
  */
 export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTarg
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBProxyTargetsCommandInput - {@link DescribeDBProxyTargetsCommandInput}
+ * @returns {@link DescribeDBProxyTargetsCommandOutput}
  * @see {@link DescribeDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxyTargetsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeDBProxyTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBProxyTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeDBProxyTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBProxyTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBProxyTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBProxyTargetsCommandOutput> {
     return deserializeAws_queryDescribeDBProxyTargetsCommand(output, context);
   }

@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBatchLoadTaskCommand}.
  */
 export interface DescribeBatchLoadTaskCommandInput extends DescribeBatchLoadTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBatchLoadTaskCommand}.
  */
 export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the batch load task, including configurations, mappings,
  *          progress, and other details. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
  *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-batch-load.html">code
@@ -50,6 +55,8 @@ export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTas
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBatchLoadTaskCommandInput - {@link DescribeBatchLoadTaskCommandInput}
+ * @returns {@link DescribeBatchLoadTaskCommandOutput}
  * @see {@link DescribeBatchLoadTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeBatchLoadTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBatchLoadTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeBatchLoadTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBatchLoadTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeBatchLoadTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBatchLoadTaskCommandOutput> {
     return deserializeAws_json1_0DescribeBatchLoadTaskCommand(output, context);
   }

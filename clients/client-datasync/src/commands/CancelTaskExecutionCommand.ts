@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelTaskExecutionCommand}.
  */
 export interface CancelTaskExecutionCommandInput extends CancelTaskExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelTaskExecutionCommand}.
  */
 export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an DataSync task execution that's in progress. The transfer of some
  *       files are abruptly interrupted. File contents that're transferred to the destination might be
  *       incomplete or inconsistent with the source files.</p>
@@ -52,6 +57,8 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelTaskExecutionCommandInput - {@link CancelTaskExecutionCommandInput}
+ * @returns {@link CancelTaskExecutionCommandOutput}
  * @see {@link CancelTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -81,6 +88,9 @@ export class CancelTaskExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelTaskExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CancelTaskExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelTaskExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTaskExecutionCommandOutput> {
     return deserializeAws_json1_1CancelTaskExecutionCommand(output, context);
   }

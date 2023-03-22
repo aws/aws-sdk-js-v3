@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MqServiceException as __BaseException } from "./MqServiceException";
 
 /**
+ * @public
  * <p>The action required to resolve a broker issue when the broker is in a CRITICAL_ACTION_REQUIRED state.</p>
  */
 export interface ActionRequired {
@@ -19,6 +20,7 @@ export interface ActionRequired {
 }
 
 /**
+ * @public
  * <p>Name of the availability zone.</p>
  */
 export interface AvailabilityZone {
@@ -28,12 +30,16 @@ export interface AvailabilityZone {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export enum EngineType {
   ACTIVEMQ = "ACTIVEMQ",
   RABBITMQ = "RABBITMQ",
 }
 
 /**
+ * @public
  * <p>Id of the engine version.</p>
  */
 export interface EngineVersion {
@@ -44,6 +50,7 @@ export interface EngineVersion {
 }
 
 /**
+ * @public
  * <p>Types of broker engines.</p>
  */
 export interface BrokerEngineType {
@@ -59,6 +66,7 @@ export interface BrokerEngineType {
 }
 
 /**
+ * @public
  * <p>Returns information about all brokers.</p>
  */
 export interface BrokerInstance {
@@ -78,11 +86,17 @@ export interface BrokerInstance {
   IpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export enum BrokerStorageType {
   EBS = "EBS",
   EFS = "EFS",
 }
 
+/**
+ * @public
+ */
 export enum DeploymentMode {
   ACTIVE_STANDBY_MULTI_AZ = "ACTIVE_STANDBY_MULTI_AZ",
   CLUSTER_MULTI_AZ = "CLUSTER_MULTI_AZ",
@@ -90,6 +104,7 @@ export enum DeploymentMode {
 }
 
 /**
+ * @public
  * <p>Option for host instance type.</p>
  */
 export interface BrokerInstanceOption {
@@ -124,6 +139,9 @@ export interface BrokerInstanceOption {
   SupportedEngineVersions?: string[];
 }
 
+/**
+ * @public
+ */
 export enum BrokerState {
   CREATION_FAILED = "CREATION_FAILED",
   CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
@@ -134,6 +152,7 @@ export enum BrokerState {
 }
 
 /**
+ * @public
  * <p>Returns information about all brokers.</p>
  */
 export interface BrokerSummary {
@@ -178,12 +197,16 @@ export interface BrokerSummary {
   HostInstanceType?: string;
 }
 
+/**
+ * @public
+ */
 export enum AuthenticationStrategy {
   LDAP = "LDAP",
   SIMPLE = "SIMPLE",
 }
 
 /**
+ * @public
  * <p>Returns information about the specified configuration revision.</p>
  */
 export interface ConfigurationRevision {
@@ -204,6 +227,7 @@ export interface ConfigurationRevision {
 }
 
 /**
+ * @public
  * <p>Returns information about all configurations.</p>
  */
 export interface Configuration {
@@ -259,6 +283,7 @@ export interface Configuration {
 }
 
 /**
+ * @public
  * <p>A list of information about the configuration.</p> <important><p>Does not apply to RabbitMQ brokers.</p></important>
  */
 export interface ConfigurationId {
@@ -273,6 +298,9 @@ export interface ConfigurationId {
   Revision?: number;
 }
 
+/**
+ * @public
+ */
 export enum SanitizationWarningReason {
   DISALLOWED_ATTRIBUTE_REMOVED = "DISALLOWED_ATTRIBUTE_REMOVED",
   DISALLOWED_ELEMENT_REMOVED = "DISALLOWED_ELEMENT_REMOVED",
@@ -280,6 +308,7 @@ export enum SanitizationWarningReason {
 }
 
 /**
+ * @public
  * <p>Returns information about the XML element or attribute that was sanitized in the configuration.</p>
  */
 export interface SanitizationWarning {
@@ -300,6 +329,7 @@ export interface SanitizationWarning {
 }
 
 /**
+ * @public
  * <p>A user associated with the broker. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p>
  */
 export interface User {
@@ -324,6 +354,9 @@ export interface User {
   Username: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ChangeType {
   CREATE = "CREATE",
   DELETE = "DELETE",
@@ -331,6 +364,7 @@ export enum ChangeType {
 }
 
 /**
+ * @public
  * <p>Returns a list of all broker users. Does not apply to RabbitMQ brokers.</p>
  */
 export interface UserSummary {
@@ -346,6 +380,7 @@ export interface UserSummary {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -376,6 +411,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Broker configuration information</p>
  */
 export interface Configurations {
@@ -396,6 +432,7 @@ export interface Configurations {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class ConflictException extends __BaseException {
@@ -426,6 +463,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <important><p>Does not apply to RabbitMQ brokers.</p></important> <p>Encryption options for the broker.</p>
  */
 export interface EncryptionOptions {
@@ -441,6 +479,7 @@ export interface EncryptionOptions {
 }
 
 /**
+ * @public
  * <p>Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p> <important><p>Does not apply to RabbitMQ brokers.</p></important>
  */
 export interface LdapServerMetadataInput {
@@ -461,7 +500,7 @@ export interface LdapServerMetadataInput {
   RoleName?: string;
 
   /**
-   * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the {0} placeholder in the search filter. The client's username is substituted into the {1} placeholder. For example, if you set this option to (member=uid={1})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
+   * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the \{0\} placeholder in the search filter. The client's username is substituted into the \{1\} placeholder. For example, if you set this option to (member=uid=\{1\})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
    */
   RoleSearchMatching: string | undefined;
 
@@ -494,7 +533,7 @@ export interface LdapServerMetadataInput {
   UserRoleName?: string;
 
   /**
-   * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the {0} placeholder in the search filter. For example, if this option is set to (uid={0}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
+   * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the \{0\} placeholder in the search filter. For example, if this option is set to (uid=\{0\}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
    *                   dc=com.</p>
    */
   UserSearchMatching: string | undefined;
@@ -506,6 +545,7 @@ export interface LdapServerMetadataInput {
 }
 
 /**
+ * @public
  * <p>The list of information about logs to be enabled for the specified broker.</p>
  */
 export interface Logs {
@@ -520,6 +560,9 @@ export interface Logs {
   General?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum DayOfWeek {
   FRIDAY = "FRIDAY",
   MONDAY = "MONDAY",
@@ -531,6 +574,7 @@ export enum DayOfWeek {
 }
 
 /**
+ * @public
  * <p>The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.</p>
  */
 export interface WeeklyStartTime {
@@ -551,6 +595,7 @@ export interface WeeklyStartTime {
 }
 
 /**
+ * @public
  * <p>Creates a broker using the specified properties.</p>
  */
 export interface CreateBrokerRequest {
@@ -650,6 +695,9 @@ export interface CreateBrokerRequest {
   Users: User[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBrokerResponse {
   /**
    * <p>The broker's Amazon Resource Name (ARN).</p>
@@ -663,6 +711,7 @@ export interface CreateBrokerResponse {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -693,6 +742,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -723,6 +773,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -753,6 +804,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).</p>
  */
 export interface CreateConfigurationRequest {
@@ -782,6 +834,9 @@ export interface CreateConfigurationRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfigurationResponse {
   /**
    * <p>Required. The Amazon Resource Name (ARN) of the configuration.</p>
@@ -815,6 +870,7 @@ export interface CreateConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>A map of the key-value pairs for the resource tag.</p>
  */
 export interface CreateTagsRequest {
@@ -830,6 +886,7 @@ export interface CreateTagsRequest {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -860,6 +917,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Creates a new ActiveMQ user.</p>
  */
 export interface CreateUserRequest {
@@ -889,8 +947,14 @@ export interface CreateUserRequest {
   Username: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteBrokerRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -898,6 +962,9 @@ export interface DeleteBrokerRequest {
   BrokerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBrokerResponse {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -905,6 +972,9 @@ export interface DeleteBrokerResponse {
   BrokerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource tag.</p>
@@ -917,6 +987,9 @@ export interface DeleteTagsRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -929,8 +1002,14 @@ export interface DeleteUserRequest {
   Username: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeBrokerRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -939,6 +1018,7 @@ export interface DescribeBrokerRequest {
 }
 
 /**
+ * @public
  * <p>Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p>
  */
 export interface LdapServerMetadataOutput {
@@ -959,7 +1039,7 @@ export interface LdapServerMetadataOutput {
   RoleName?: string;
 
   /**
-   * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the {0} placeholder in the search filter. The client's username is substituted into the {1} placeholder. For example, if you set this option to (member=uid={1})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
+   * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the \{0\} placeholder in the search filter. The client's username is substituted into the \{1\} placeholder. For example, if you set this option to (member=uid=\{1\})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
    */
   RoleSearchMatching: string | undefined;
 
@@ -986,7 +1066,7 @@ export interface LdapServerMetadataOutput {
   UserRoleName?: string;
 
   /**
-   * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the {0} placeholder in the search filter. For example, if this option is set to (uid={0}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
+   * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the \{0\} placeholder in the search filter. For example, if this option is set to (uid=\{0\}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
    *                dc=com.</p>
    */
   UserSearchMatching: string | undefined;
@@ -998,6 +1078,7 @@ export interface LdapServerMetadataOutput {
 }
 
 /**
+ * @public
  * <p>The list of information about logs to be enabled for the specified broker.</p>
  */
 export interface PendingLogs {
@@ -1013,6 +1094,7 @@ export interface PendingLogs {
 }
 
 /**
+ * @public
  * <p>The list of information about logs currently enabled and pending to be deployed for the specified broker.</p>
  */
 export interface LogsSummary {
@@ -1042,6 +1124,9 @@ export interface LogsSummary {
   Pending?: PendingLogs;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerResponse {
   /**
    * <p>A list of actions required for a broker.</p>
@@ -1189,6 +1274,9 @@ export interface DescribeBrokerResponse {
   Users?: UserSummary[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerEngineTypesRequest {
   /**
    * <p>Filter response by engine type.</p>
@@ -1206,6 +1294,9 @@ export interface DescribeBrokerEngineTypesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerEngineTypesResponse {
   /**
    * <p>List of available engine types and versions.</p>
@@ -1223,6 +1314,9 @@ export interface DescribeBrokerEngineTypesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerInstanceOptionsRequest {
   /**
    * <p>Filter response by engine type.</p>
@@ -1250,6 +1344,9 @@ export interface DescribeBrokerInstanceOptionsRequest {
   StorageType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBrokerInstanceOptionsResponse {
   /**
    * <p>List of available broker instance options.</p>
@@ -1267,6 +1364,9 @@ export interface DescribeBrokerInstanceOptionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1274,6 +1374,9 @@ export interface DescribeConfigurationRequest {
   ConfigurationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationResponse {
   /**
    * <p>Required. The ARN of the configuration.</p>
@@ -1326,6 +1429,9 @@ export interface DescribeConfigurationResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationRevisionRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1338,6 +1444,9 @@ export interface DescribeConfigurationRevisionRequest {
   ConfigurationRevision: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationRevisionResponse {
   /**
    * <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1360,6 +1469,9 @@ export interface DescribeConfigurationRevisionResponse {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -1373,6 +1485,7 @@ export interface DescribeUserRequest {
 }
 
 /**
+ * @public
  * <p>Returns information about the status of the changes pending for the ActiveMQ user.</p>
  */
 export interface UserPendingChanges {
@@ -1392,6 +1505,9 @@ export interface UserPendingChanges {
   PendingChange: ChangeType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserResponse {
   /**
    * <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
@@ -1419,6 +1535,9 @@ export interface DescribeUserResponse {
   Username?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBrokersRequest {
   /**
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
@@ -1431,6 +1550,9 @@ export interface ListBrokersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBrokersResponse {
   /**
    * <p>A list of information about all brokers.</p>
@@ -1443,6 +1565,9 @@ export interface ListBrokersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationRevisionsRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1460,6 +1585,9 @@ export interface ListConfigurationRevisionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationRevisionsResponse {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1482,6 +1610,9 @@ export interface ListConfigurationRevisionsResponse {
   Revisions?: ConfigurationRevision[];
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationsRequest {
   /**
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
@@ -1494,6 +1625,9 @@ export interface ListConfigurationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationsResponse {
   /**
    * <p>The list of all revisions for the specified configuration.</p>
@@ -1511,6 +1645,9 @@ export interface ListConfigurationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource tag.</p>
@@ -1518,6 +1655,9 @@ export interface ListTagsRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsResponse {
   /**
    * <p>The key-value pair for the resource tag.</p>
@@ -1525,6 +1665,9 @@ export interface ListTagsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -1542,6 +1685,9 @@ export interface ListUsersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersResponse {
   /**
    * <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
@@ -1564,6 +1710,9 @@ export interface ListUsersResponse {
   Users?: UserSummary[];
 }
 
+/**
+ * @public
+ */
 export interface RebootBrokerRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -1571,9 +1720,13 @@ export interface RebootBrokerRequest {
   BrokerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootBrokerResponse {}
 
 /**
+ * @public
  * <p>Updates the broker using the specified properties.</p>
  */
 export interface UpdateBrokerRequest {
@@ -1628,6 +1781,9 @@ export interface UpdateBrokerRequest {
   SecurityGroups?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateBrokerResponse {
   /**
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
@@ -1681,6 +1837,7 @@ export interface UpdateBrokerResponse {
 }
 
 /**
+ * @public
  * <p>Updates the specified configuration.</p>
  */
 export interface UpdateConfigurationRequest {
@@ -1700,6 +1857,9 @@ export interface UpdateConfigurationRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfigurationResponse {
   /**
    * <p>Required. The Amazon Resource Name (ARN) of the configuration.</p>
@@ -1733,6 +1893,7 @@ export interface UpdateConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Updates the information for an ActiveMQ user.</p>
  */
 export interface UpdateUserRequest {
@@ -1762,6 +1923,9 @@ export interface UpdateUserRequest {
   Username: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserResponse {}
 
 /**

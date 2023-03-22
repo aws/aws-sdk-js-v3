@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOpsItemRelatedItemsCommand}.
  */
 export interface ListOpsItemRelatedItemsCommandInput extends ListOpsItemRelatedItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOpsItemRelatedItemsCommand}.
  */
 export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelatedItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a
  *    capability of Amazon Web Services Systems Manager.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpsItemRelatedItemsCommandInput - {@link ListOpsItemRelatedItemsCommandInput}
+ * @returns {@link ListOpsItemRelatedItemsCommandOutput}
  * @see {@link ListOpsItemRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link ListOpsItemRelatedItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListOpsItemRelatedItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpsItemRelatedItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListOpsItemRelatedItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpsItemRelatedItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListOpsItemRelatedItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOpsItemRelatedItemsCommandOutput> {
     return deserializeAws_json1_1ListOpsItemRelatedItemsCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceSpecificCredentialCommand}.
  */
 export interface DeleteServiceSpecificCredentialCommandInput extends DeleteServiceSpecificCredentialRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceSpecificCredentialCommand}.
  */
 export interface DeleteServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified service-specific credential.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteServiceSpecificCredentialCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceSpecificCredentialCommandInput - {@link DeleteServiceSpecificCredentialCommandInput}
+ * @returns {@link DeleteServiceSpecificCredentialCommandOutput}
  * @see {@link DeleteServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceSpecificCredentialCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteServiceSpecificCredentialCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     return serializeAws_queryDeleteServiceSpecificCredentialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

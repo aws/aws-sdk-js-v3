@@ -23,15 +23,20 @@ import { deserializeAws_json1_1CreateAppCommand, serializeAws_json1_1CreateAppCo
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppCommand}.
  */
 export interface CreateAppCommandInput extends CreateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppCommand}.
  */
 export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a running app for the specified UserProfile. This operation is automatically
  *       invoked by Amazon SageMaker Studio upon access to the associated Domain, and when new kernel
  *       configurations are selected by the user. A user may have multiple Apps active simultaneously.</p>
@@ -45,6 +50,8 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppCommandInput - {@link CreateAppCommandInput}
+ * @returns {@link CreateAppCommandOutput}
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppCommandOutput> {
     return deserializeAws_json1_1CreateAppCommand(output, context);
   }

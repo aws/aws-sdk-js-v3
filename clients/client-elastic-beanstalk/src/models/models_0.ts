@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ElasticBeanstalkServiceException as __BaseException } from "./ElasticBeanstalkServiceException";
 
 /**
+ * @public
  * <p></p>
  */
 export interface AbortEnvironmentUpdateMessage {
@@ -21,6 +22,7 @@ export interface AbortEnvironmentUpdateMessage {
 }
 
 /**
+ * @public
  * <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  */
@@ -40,12 +42,18 @@ export class InsufficientPrivilegesException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ActionHistoryStatus {
   Completed = "Completed",
   Failed = "Failed",
   Unknown = "Unknown",
 }
 
+/**
+ * @public
+ */
 export enum ActionStatus {
   Pending = "Pending",
   Running = "Running",
@@ -53,6 +61,9 @@ export enum ActionStatus {
   Unknown = "Unknown",
 }
 
+/**
+ * @public
+ */
 export enum ActionType {
   InstanceRefresh = "InstanceRefresh",
   PlatformUpdate = "PlatformUpdate",
@@ -60,6 +71,7 @@ export enum ActionType {
 }
 
 /**
+ * @public
  * <p>A lifecycle rule that deletes application versions after the specified number of
  *       days.</p>
  */
@@ -83,6 +95,7 @@ export interface MaxAgeRule {
 }
 
 /**
+ * @public
  * <p>A lifecycle rule that deletes the oldest application version when the maximum count is
  *       exceeded.</p>
  */
@@ -106,6 +119,7 @@ export interface MaxCountRule {
 }
 
 /**
+ * @public
  * <p>The application version lifecycle settings for an application. Defines the rules that
  *       Elastic Beanstalk applies to an application's versions in order to avoid hitting the
  *       per-region limit for application versions.</p>
@@ -128,6 +142,7 @@ export interface ApplicationVersionLifecycleConfig {
 }
 
 /**
+ * @public
  * <p>The resource lifecycle configuration for an application. Defines lifecycle settings for
  *       resources that belong to the application, and the service role that AWS Elastic Beanstalk assumes
  *       in order to apply lifecycle settings. The version lifecycle configuration defines lifecycle
@@ -154,6 +169,7 @@ export interface ApplicationResourceLifecycleConfig {
 }
 
 /**
+ * @public
  * <p>Describes the properties of an application.</p>
  */
 export interface ApplicationDescription {
@@ -199,6 +215,7 @@ export interface ApplicationDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a single description of an application.</p>
  */
 export interface ApplicationDescriptionMessage {
@@ -209,6 +226,7 @@ export interface ApplicationDescriptionMessage {
 }
 
 /**
+ * @public
  * <p>Result message containing a list of application descriptions.</p>
  */
 export interface ApplicationDescriptionsMessage {
@@ -219,6 +237,7 @@ export interface ApplicationDescriptionsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the average latency for the slowest X percent of requests over the last 10
  *       seconds.</p>
  */
@@ -273,6 +292,7 @@ export interface Latency {
 }
 
 /**
+ * @public
  * <p>Represents the percentage of requests over the last 10 seconds that resulted in each
  *       type of status code response. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">Status Code
  *       Definitions</a>.</p>
@@ -304,6 +324,7 @@ export interface StatusCodes {
 }
 
 /**
+ * @public
  * <p>Application request metrics for an AWS Elastic Beanstalk environment.</p>
  */
 export interface ApplicationMetrics {
@@ -333,6 +354,9 @@ export interface ApplicationMetrics {
   Latency?: Latency;
 }
 
+/**
+ * @public
+ */
 export interface ApplicationResourceLifecycleDescriptionMessage {
   /**
    * <p>The name of the application.</p>
@@ -345,17 +369,24 @@ export interface ApplicationResourceLifecycleDescriptionMessage {
   ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
 }
 
+/**
+ * @public
+ */
 export enum SourceRepository {
   CodeCommit = "CodeCommit",
   S3 = "S3",
 }
 
+/**
+ * @public
+ */
 export enum SourceType {
   Git = "Git",
   Zip = "Zip",
 }
 
 /**
+ * @public
  * <p>Location of the source code for an application version.</p>
  */
 export interface SourceBuildInformation {
@@ -415,6 +446,7 @@ export interface SourceBuildInformation {
 }
 
 /**
+ * @public
  * <p>The bucket and key of an item stored in Amazon S3.</p>
  */
 export interface S3Location {
@@ -429,6 +461,9 @@ export interface S3Location {
   S3Key?: string;
 }
 
+/**
+ * @public
+ */
 export enum ApplicationVersionStatus {
   Building = "Building",
   Failed = "Failed",
@@ -438,6 +473,7 @@ export enum ApplicationVersionStatus {
 }
 
 /**
+ * @public
  * <p>Describes the properties of an application version.</p>
  */
 export interface ApplicationVersionDescription {
@@ -523,6 +559,7 @@ export interface ApplicationVersionDescription {
 }
 
 /**
+ * @public
  * <p>Result message wrapping a single description of an application version.</p>
  */
 export interface ApplicationVersionDescriptionMessage {
@@ -534,6 +571,7 @@ export interface ApplicationVersionDescriptionMessage {
 }
 
 /**
+ * @public
  * <p>Result message wrapping a list of application version descriptions.</p>
  */
 export interface ApplicationVersionDescriptionsMessage {
@@ -551,6 +589,7 @@ export interface ApplicationVersionDescriptionsMessage {
 }
 
 /**
+ * @public
  * <p>Request to execute a scheduled managed action immediately.</p>
  */
 export interface ApplyEnvironmentManagedActionRequest {
@@ -571,6 +610,7 @@ export interface ApplyEnvironmentManagedActionRequest {
 }
 
 /**
+ * @public
  * <p>The result message containing information about the managed action.</p>
  */
 export interface ApplyEnvironmentManagedActionResult {
@@ -596,6 +636,7 @@ export interface ApplyEnvironmentManagedActionResult {
 }
 
 /**
+ * @public
  * <p>A generic service exception has occurred.</p>
  */
 export class ElasticBeanstalkServiceException extends __BaseException {
@@ -615,6 +656,7 @@ export class ElasticBeanstalkServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Cannot modify the managed action in its current state.</p>
  */
 export class ManagedActionInvalidStateException extends __BaseException {
@@ -634,6 +676,7 @@ export class ManagedActionInvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to add or change the operations role used by an environment.</p>
  */
 export interface AssociateEnvironmentOperationsRoleMessage {
@@ -650,6 +693,7 @@ export interface AssociateEnvironmentOperationsRoleMessage {
 }
 
 /**
+ * @public
  * <p>Describes an Auto Scaling launch configuration.</p>
  */
 export interface AutoScalingGroup {
@@ -660,6 +704,7 @@ export interface AutoScalingGroup {
 }
 
 /**
+ * @public
  * <p>Describes the solution stack.</p>
  */
 export interface SolutionStackDescription {
@@ -675,6 +720,7 @@ export interface SolutionStackDescription {
 }
 
 /**
+ * @public
  * <p>Results message indicating whether a CNAME is available.</p>
  */
 export interface CheckDNSAvailabilityMessage {
@@ -685,6 +731,7 @@ export interface CheckDNSAvailabilityMessage {
 }
 
 /**
+ * @public
  * <p>Indicates if the specified CNAME is available.</p>
  */
 export interface CheckDNSAvailabilityResultMessage {
@@ -711,6 +758,7 @@ export interface CheckDNSAvailabilityResultMessage {
 }
 
 /**
+ * @public
  * <p>Request to create or update a group of environments.</p>
  */
 export interface ComposeEnvironmentsMessage {
@@ -737,6 +785,7 @@ export interface ComposeEnvironmentsMessage {
 }
 
 /**
+ * @public
  * <p>A link to another environment, defined in the environment's manifest. Links provide
  *       connection information in system properties that can be used to connect to another environment
  *       in the same group. See <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment Manifest
@@ -754,6 +803,9 @@ export interface EnvironmentLink {
   EnvironmentName?: string;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentHealth {
   Green = "Green",
   Grey = "Grey",
@@ -761,6 +813,9 @@ export enum EnvironmentHealth {
   Yellow = "Yellow",
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentHealthStatus {
   Degraded = "Degraded",
   Info = "Info",
@@ -774,6 +829,7 @@ export enum EnvironmentHealthStatus {
 }
 
 /**
+ * @public
  * <p>Describes the properties of a Listener for the LoadBalancer.</p>
  */
 export interface Listener {
@@ -789,6 +845,7 @@ export interface Listener {
 }
 
 /**
+ * @public
  * <p>Describes the details of a LoadBalancer.</p>
  */
 export interface LoadBalancerDescription {
@@ -809,6 +866,7 @@ export interface LoadBalancerDescription {
 }
 
 /**
+ * @public
  * <p>Describes the AWS resources in use by this environment. This data is not live
  *       data.</p>
  */
@@ -819,6 +877,9 @@ export interface EnvironmentResourcesDescription {
   LoadBalancer?: LoadBalancerDescription;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentStatus {
   Aborting = "Aborting",
   Launching = "Launching",
@@ -831,6 +892,7 @@ export enum EnvironmentStatus {
 }
 
 /**
+ * @public
  * <p>Describes the properties of an environment tier</p>
  */
 export interface EnvironmentTier {
@@ -878,6 +940,7 @@ export interface EnvironmentTier {
 }
 
 /**
+ * @public
  * <p>Describes the properties of an environment.</p>
  */
 export interface EnvironmentDescription {
@@ -1047,6 +1110,7 @@ export interface EnvironmentDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a list of environment descriptions.</p>
  */
 export interface EnvironmentDescriptionsMessage {
@@ -1063,6 +1127,7 @@ export interface EnvironmentDescriptionsMessage {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of environments.</p>
  */
 export class TooManyEnvironmentsException extends __BaseException {
@@ -1082,6 +1147,7 @@ export class TooManyEnvironmentsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a tag applied to a resource in an environment.</p>
  */
 export interface Tag {
@@ -1097,6 +1163,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Request to create an application.</p>
  */
 export interface CreateApplicationMessage {
@@ -1125,6 +1192,7 @@ export interface CreateApplicationMessage {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of applications.</p>
  */
 export class TooManyApplicationsException extends __BaseException {
@@ -1144,6 +1212,7 @@ export class TooManyApplicationsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>AWS CodeBuild is not available in the specified region.</p>
  */
 export class CodeBuildNotInServiceRegionException extends __BaseException {
@@ -1162,6 +1231,9 @@ export class CodeBuildNotInServiceRegionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ComputeType {
   BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
   BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
@@ -1169,6 +1241,7 @@ export enum ComputeType {
 }
 
 /**
+ * @public
  * <p>Settings for an AWS CodeBuild build.</p>
  */
 export interface BuildConfiguration {
@@ -1221,6 +1294,7 @@ export interface BuildConfiguration {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateApplicationVersionMessage {
@@ -1300,6 +1374,7 @@ export interface CreateApplicationVersionMessage {
 }
 
 /**
+ * @public
  * <p>The specified S3 bucket does not belong to the S3 region in which the service is
  *       running. The following regions are supported:</p>
  *          <ul>
@@ -1331,6 +1406,7 @@ export class S3LocationNotInServiceRegionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of application versions.</p>
  */
 export class TooManyApplicationVersionsException extends __BaseException {
@@ -1349,6 +1425,9 @@ export class TooManyApplicationVersionsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConfigurationDeploymentStatus {
   deployed = "deployed",
   failed = "failed",
@@ -1356,6 +1435,7 @@ export enum ConfigurationDeploymentStatus {
 }
 
 /**
+ * @public
  * <p>A specification identifying an individual configuration option along with its current
  *       value. For a list of possible namespaces and option values, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html">Option Values</a> in the
  *       <i>AWS Elastic Beanstalk Developer Guide</i>. </p>
@@ -1383,6 +1463,7 @@ export interface ConfigurationOptionSetting {
 }
 
 /**
+ * @public
  * <p>Describes the settings for a configuration set.</p>
  */
 export interface ConfigurationSettingsDescription {
@@ -1465,6 +1546,7 @@ export interface ConfigurationSettingsDescription {
 }
 
 /**
+ * @public
  * <p>A specification for an environment configuration.</p>
  */
 export interface SourceConfiguration {
@@ -1480,6 +1562,7 @@ export interface SourceConfiguration {
 }
 
 /**
+ * @public
  * <p>Request to create a configuration template.</p>
  */
 export interface CreateConfigurationTemplateMessage {
@@ -1564,6 +1647,7 @@ export interface CreateConfigurationTemplateMessage {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  */
 export class TooManyBucketsException extends __BaseException {
@@ -1583,6 +1667,7 @@ export class TooManyBucketsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified account has reached its limit of configuration templates.</p>
  */
 export class TooManyConfigurationTemplatesException extends __BaseException {
@@ -1602,6 +1687,7 @@ export class TooManyConfigurationTemplatesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specification identifying an individual configuration option.</p>
  */
 export interface OptionSpecification {
@@ -1622,6 +1708,7 @@ export interface OptionSpecification {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateEnvironmentMessage {
@@ -1736,6 +1823,7 @@ export interface CreateEnvironmentMessage {
 }
 
 /**
+ * @public
  * <p>Request to create a new platform version.</p>
  */
 export interface CreatePlatformVersionRequest {
@@ -1773,6 +1861,7 @@ export interface CreatePlatformVersionRequest {
 }
 
 /**
+ * @public
  * <p>The builder used to build the custom platform.</p>
  */
 export interface Builder {
@@ -1782,6 +1871,9 @@ export interface Builder {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export enum PlatformStatus {
   Creating = "Creating",
   Deleted = "Deleted",
@@ -1791,6 +1883,7 @@ export enum PlatformStatus {
 }
 
 /**
+ * @public
  * <p>Summary information about a platform version.</p>
  */
 export interface PlatformSummary {
@@ -1862,6 +1955,9 @@ export interface PlatformSummary {
   PlatformBranchLifecycleState?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlatformVersionResult {
   /**
    * <p>Detailed information about the new version of the custom platform.</p>
@@ -1875,6 +1971,7 @@ export interface CreatePlatformVersionResult {
 }
 
 /**
+ * @public
  * <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
  */
 export class TooManyPlatformsException extends __BaseException {
@@ -1894,6 +1991,7 @@ export class TooManyPlatformsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Results of a <a>CreateStorageLocationResult</a> call.</p>
  */
 export interface CreateStorageLocationResultMessage {
@@ -1904,6 +2002,7 @@ export interface CreateStorageLocationResultMessage {
 }
 
 /**
+ * @public
  * <p>The specified account does not have a subscription to Amazon S3.</p>
  */
 export class S3SubscriptionRequiredException extends __BaseException {
@@ -1923,6 +2022,7 @@ export class S3SubscriptionRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to delete an application.</p>
  */
 export interface DeleteApplicationMessage {
@@ -1939,6 +2039,7 @@ export interface DeleteApplicationMessage {
 }
 
 /**
+ * @public
  * <p>Unable to perform the specified operation because another operation that effects an
  *       element in this activity is already in progress.</p>
  */
@@ -1959,6 +2060,7 @@ export class OperationInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to delete an application version.</p>
  */
 export interface DeleteApplicationVersionMessage {
@@ -1981,6 +2083,7 @@ export interface DeleteApplicationVersionMessage {
 }
 
 /**
+ * @public
  * <p>Unable to delete the Amazon S3 source bundle associated with the application version.
  *       The application version was deleted successfully.</p>
  */
@@ -2001,6 +2104,7 @@ export class SourceBundleDeletionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to delete a configuration template.</p>
  */
 export interface DeleteConfigurationTemplateMessage {
@@ -2016,6 +2120,7 @@ export interface DeleteConfigurationTemplateMessage {
 }
 
 /**
+ * @public
  * <p>Request to delete a draft environment configuration.</p>
  */
 export interface DeleteEnvironmentConfigurationMessage {
@@ -2030,6 +2135,9 @@ export interface DeleteEnvironmentConfigurationMessage {
   EnvironmentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlatformVersionRequest {
   /**
    * <p>The ARN of the version of the custom platform.</p>
@@ -2037,6 +2145,9 @@ export interface DeletePlatformVersionRequest {
   PlatformArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlatformVersionResult {
   /**
    * <p>Detailed information about the version of the custom platform.</p>
@@ -2045,6 +2156,7 @@ export interface DeletePlatformVersionResult {
 }
 
 /**
+ * @public
  * <p>You cannot delete the platform version because there are still environments running on it.</p>
  */
 export class PlatformVersionStillReferencedException extends __BaseException {
@@ -2064,6 +2176,7 @@ export class PlatformVersionStillReferencedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The AWS Elastic Beanstalk quota information for a single resource type in an AWS account. It
  *       reflects the resource's limits for this account.</p>
  */
@@ -2076,6 +2189,7 @@ export interface ResourceQuota {
 }
 
 /**
+ * @public
  * <p>A set of per-resource AWS Elastic Beanstalk quotas associated with an AWS account. They reflect
  *       Elastic Beanstalk resource limits for this account.</p>
  */
@@ -2106,6 +2220,9 @@ export interface ResourceQuotas {
   CustomPlatformQuota?: ResourceQuota;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesResult {
   /**
    * <p>The Elastic Beanstalk resource quotas associated with the calling AWS account.</p>
@@ -2114,6 +2231,7 @@ export interface DescribeAccountAttributesResult {
 }
 
 /**
+ * @public
  * <p>Request to describe one or more applications.</p>
  */
 export interface DescribeApplicationsMessage {
@@ -2125,6 +2243,7 @@ export interface DescribeApplicationsMessage {
 }
 
 /**
+ * @public
  * <p>Request to describe application versions.</p>
  */
 export interface DescribeApplicationVersionsMessage {
@@ -2156,6 +2275,7 @@ export interface DescribeApplicationVersionsMessage {
 }
 
 /**
+ * @public
  * <p>A regular expression representing a restriction on a string configuration option
  *       value.</p>
  */
@@ -2172,12 +2292,16 @@ export interface OptionRestrictionRegex {
   Label?: string;
 }
 
+/**
+ * @public
+ */
 export enum ConfigurationOptionValueType {
   List = "List",
   Scalar = "Scalar",
 }
 
 /**
+ * @public
  * <p>Describes the possible values for a configuration option.</p>
  */
 export interface ConfigurationOptionDescription {
@@ -2302,6 +2426,7 @@ export interface ConfigurationOptionDescription {
 }
 
 /**
+ * @public
  * <p>Describes the settings for a specified configuration set.</p>
  */
 export interface ConfigurationOptionsDescription {
@@ -2322,6 +2447,7 @@ export interface ConfigurationOptionsDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a list of application version descriptions.</p>
  */
 export interface DescribeConfigurationOptionsMessage {
@@ -2361,6 +2487,7 @@ export interface DescribeConfigurationOptionsMessage {
 }
 
 /**
+ * @public
  * <p>The results from a request to change the configuration settings of an
  *       environment.</p>
  */
@@ -2372,6 +2499,7 @@ export interface ConfigurationSettingsDescriptions {
 }
 
 /**
+ * @public
  * <p>Result message containing all of the configuration settings for a specified solution
  *       stack or configuration template.</p>
  */
@@ -2400,6 +2528,9 @@ export interface DescribeConfigurationSettingsMessage {
   EnvironmentName?: string;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentHealthAttribute {
   All = "All",
   ApplicationMetrics = "ApplicationMetrics",
@@ -2412,6 +2543,7 @@ export enum EnvironmentHealthAttribute {
 }
 
 /**
+ * @public
  * <p>See the example below to learn how to create a request body.</p>
  */
 export interface DescribeEnvironmentHealthRequest {
@@ -2436,6 +2568,7 @@ export interface DescribeEnvironmentHealthRequest {
 }
 
 /**
+ * @public
  * <p>Represents summary information about the health of an instance. For more information,
  *       see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health Colors and Statuses</a>.</p>
  */
@@ -2497,6 +2630,7 @@ export interface InstanceHealthSummary {
 }
 
 /**
+ * @public
  * <p>Health details for an AWS Elastic Beanstalk environment.</p>
  */
 export interface DescribeEnvironmentHealthResult {
@@ -2546,6 +2680,7 @@ export interface DescribeEnvironmentHealthResult {
 }
 
 /**
+ * @public
  * <p>One or more input parameters is not valid. Please correct the input parameters and try
  *       the operation again.</p>
  */
@@ -2566,6 +2701,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request to list completed and failed managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionHistoryRequest {
@@ -2590,6 +2726,9 @@ export interface DescribeEnvironmentManagedActionHistoryRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export enum FailureType {
   CancellationFailed = "CancellationFailed",
   InternalFailure = "InternalFailure",
@@ -2601,6 +2740,7 @@ export enum FailureType {
 }
 
 /**
+ * @public
  * <p>The record of a completed or failed managed action.</p>
  */
 export interface ManagedActionHistoryItem {
@@ -2646,6 +2786,7 @@ export interface ManagedActionHistoryItem {
 }
 
 /**
+ * @public
  * <p>A result message containing a list of completed and failed managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionHistoryResult {
@@ -2662,6 +2803,7 @@ export interface DescribeEnvironmentManagedActionHistoryResult {
 }
 
 /**
+ * @public
  * <p>Request to list an environment's upcoming and in-progress managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionsRequest {
@@ -2682,6 +2824,7 @@ export interface DescribeEnvironmentManagedActionsRequest {
 }
 
 /**
+ * @public
  * <p>The record of an upcoming or in-progress managed action.</p>
  */
 export interface ManagedAction {
@@ -2714,6 +2857,7 @@ export interface ManagedAction {
 }
 
 /**
+ * @public
  * <p>The result message containing a list of managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionsResult {
@@ -2724,6 +2868,7 @@ export interface DescribeEnvironmentManagedActionsResult {
 }
 
 /**
+ * @public
  * <p>Request to describe the resources in an environment.</p>
  */
 export interface DescribeEnvironmentResourcesMessage {
@@ -2745,6 +2890,7 @@ export interface DescribeEnvironmentResourcesMessage {
 }
 
 /**
+ * @public
  * <p>The description of an Amazon EC2 instance.</p>
  */
 export interface Instance {
@@ -2755,6 +2901,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * <p>Describes an Auto Scaling launch configuration.</p>
  */
 export interface LaunchConfiguration {
@@ -2765,6 +2912,7 @@ export interface LaunchConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon EC2 launch template.</p>
  */
 export interface LaunchTemplate {
@@ -2775,6 +2923,7 @@ export interface LaunchTemplate {
 }
 
 /**
+ * @public
  * <p>Describes a LoadBalancer.</p>
  */
 export interface LoadBalancer {
@@ -2785,6 +2934,7 @@ export interface LoadBalancer {
 }
 
 /**
+ * @public
  * <p>Describes a queue.</p>
  */
 export interface Queue {
@@ -2800,6 +2950,7 @@ export interface Queue {
 }
 
 /**
+ * @public
  * <p>Describes a trigger.</p>
  */
 export interface Trigger {
@@ -2810,6 +2961,7 @@ export interface Trigger {
 }
 
 /**
+ * @public
  * <p>Describes the AWS resources in use by this environment. This data is live.</p>
  */
 export interface EnvironmentResourceDescription {
@@ -2855,6 +3007,7 @@ export interface EnvironmentResourceDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a list of environment resource descriptions.</p>
  */
 export interface EnvironmentResourceDescriptionsMessage {
@@ -2865,6 +3018,7 @@ export interface EnvironmentResourceDescriptionsMessage {
 }
 
 /**
+ * @public
  * <p>Request to describe one or more environments.</p>
  */
 export interface DescribeEnvironmentsMessage {
@@ -2924,6 +3078,9 @@ export interface DescribeEnvironmentsMessage {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum EventSeverity {
   DEBUG = "DEBUG",
   ERROR = "ERROR",
@@ -2934,6 +3091,7 @@ export enum EventSeverity {
 }
 
 /**
+ * @public
  * <p>Request to retrieve a list of events for an environment.</p>
  */
 export interface DescribeEventsMessage {
@@ -3010,6 +3168,7 @@ export interface DescribeEventsMessage {
 }
 
 /**
+ * @public
  * <p>Describes an event.</p>
  */
 export interface EventDescription {
@@ -3060,6 +3219,7 @@ export interface EventDescription {
 }
 
 /**
+ * @public
  * <p>Result message wrapping a list of event descriptions.</p>
  */
 export interface EventDescriptionsMessage {
@@ -3075,6 +3235,9 @@ export interface EventDescriptionsMessage {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum InstancesHealthAttribute {
   All = "All",
   ApplicationMetrics = "ApplicationMetrics",
@@ -3090,6 +3253,7 @@ export enum InstancesHealthAttribute {
 }
 
 /**
+ * @public
  * <p>Parameters for a call to <code>DescribeInstancesHealth</code>.</p>
  */
 export interface DescribeInstancesHealthRequest {
@@ -3117,6 +3281,7 @@ export interface DescribeInstancesHealthRequest {
 }
 
 /**
+ * @public
  * <p>Information about an application version deployment.</p>
  */
 export interface Deployment {
@@ -3158,6 +3323,7 @@ export interface Deployment {
 }
 
 /**
+ * @public
  * <p>CPU utilization metrics for an instance.</p>
  */
 export interface CPUUtilization {
@@ -3217,6 +3383,7 @@ export interface CPUUtilization {
 }
 
 /**
+ * @public
  * <p>CPU utilization and load average metrics for an Amazon EC2 instance.</p>
  */
 export interface SystemStatus {
@@ -3234,6 +3401,7 @@ export interface SystemStatus {
 }
 
 /**
+ * @public
  * <p>Detailed health information about an Amazon EC2 instance in your Elastic Beanstalk
  *       environment.</p>
  */
@@ -3294,6 +3462,7 @@ export interface SingleInstanceHealth {
 }
 
 /**
+ * @public
  * <p>Detailed health information about the Amazon EC2 instances in an AWS Elastic Beanstalk
  *       environment.</p>
  */
@@ -3316,6 +3485,9 @@ export interface DescribeInstancesHealthResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlatformVersionRequest {
   /**
    * <p>The ARN of the platform version.</p>
@@ -3324,6 +3496,7 @@ export interface DescribePlatformVersionRequest {
 }
 
 /**
+ * @public
  * <p>A custom AMI available to platforms.</p>
  */
 export interface CustomAmi {
@@ -3339,6 +3512,7 @@ export interface CustomAmi {
 }
 
 /**
+ * @public
  * <p>A framework supported by the platform.</p>
  */
 export interface PlatformFramework {
@@ -3354,6 +3528,7 @@ export interface PlatformFramework {
 }
 
 /**
+ * @public
  * <p>A programming language supported by the platform.</p>
  */
 export interface PlatformProgrammingLanguage {
@@ -3369,6 +3544,7 @@ export interface PlatformProgrammingLanguage {
 }
 
 /**
+ * @public
  * <p>Detailed information about a platform version.</p>
  */
 export interface PlatformDescription {
@@ -3486,6 +3662,9 @@ export interface PlatformDescription {
   PlatformBranchLifecycleState?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePlatformVersionResult {
   /**
    * <p>Detailed information about the platform version.</p>
@@ -3494,6 +3673,7 @@ export interface DescribePlatformVersionResult {
 }
 
 /**
+ * @public
  * <p>Request to disassociate the operations role from an environment.</p>
  */
 export interface DisassociateEnvironmentOperationsRoleMessage {
@@ -3504,6 +3684,7 @@ export interface DisassociateEnvironmentOperationsRoleMessage {
 }
 
 /**
+ * @public
  * <p>A list of available AWS Elastic Beanstalk solution stacks.</p>
  */
 export interface ListAvailableSolutionStacksResultMessage {
@@ -3519,6 +3700,7 @@ export interface ListAvailableSolutionStacksResultMessage {
 }
 
 /**
+ * @public
  * <p>Describes criteria to restrict a list of results.</p>
  *          <p>For operators that apply a single value to the attribute, the filter is evaluated as
  *       follows: <code>Attribute Operator Values[1]</code>
@@ -3552,6 +3734,9 @@ export interface SearchFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListPlatformBranchesRequest {
   /**
    * <p>Criteria for restricting the resulting list of platform branches. The filter is evaluated
@@ -3642,6 +3827,7 @@ export interface ListPlatformBranchesRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about a platform branch.</p>
  */
 export interface PlatformBranchSummary {
@@ -3681,6 +3867,9 @@ export interface PlatformBranchSummary {
   SupportedTierList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListPlatformBranchesResult {
   /**
    * <p>Summary information about the platform branches.</p>
@@ -3695,6 +3884,7 @@ export interface ListPlatformBranchesResult {
 }
 
 /**
+ * @public
  * <p>Describes criteria to restrict the results when listing platform versions.</p>
  *          <p>The filter is evaluated as follows: <code>Type Operator Values[1]</code>
  *          </p>
@@ -3755,6 +3945,9 @@ export interface PlatformFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListPlatformVersionsRequest {
   /**
    * <p>Criteria for restricting the resulting list of platform versions. The filter is
@@ -3777,6 +3970,9 @@ export interface ListPlatformVersionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPlatformVersionsResult {
   /**
    * <p>Summary information about the platform versions.</p>
@@ -3790,6 +3986,9 @@ export interface ListPlatformVersionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</p>
@@ -3799,6 +3998,7 @@ export interface ListTagsForResourceMessage {
 }
 
 /**
+ * @public
  * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -3817,6 +4017,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ResourceTagsDescriptionMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which a tag list was requested.</p>
@@ -3830,6 +4033,7 @@ export interface ResourceTagsDescriptionMessage {
 }
 
 /**
+ * @public
  * <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
  */
 export class ResourceTypeNotSupportedException extends __BaseException {
@@ -3849,6 +4053,7 @@ export class ResourceTypeNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RebuildEnvironmentMessage {
@@ -3869,12 +4074,16 @@ export interface RebuildEnvironmentMessage {
   EnvironmentName?: string;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentInfoType {
   bundle = "bundle",
   tail = "tail",
 }
 
 /**
+ * @public
  * <p>Request to retrieve logs from an environment and store them in your Elastic Beanstalk
  *       storage bucket.</p>
  */
@@ -3906,6 +4115,7 @@ export interface RequestEnvironmentInfoMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RestartAppServerMessage {
@@ -3927,6 +4137,7 @@ export interface RestartAppServerMessage {
 }
 
 /**
+ * @public
  * <p>Request to download logs retrieved with <a>RequestEnvironmentInfo</a>.</p>
  */
 export interface RetrieveEnvironmentInfoMessage {
@@ -3956,6 +4167,7 @@ export interface RetrieveEnvironmentInfoMessage {
 }
 
 /**
+ * @public
  * <p>The information retrieved from the Amazon EC2 instances.</p>
  */
 export interface EnvironmentInfoDescription {
@@ -3984,6 +4196,7 @@ export interface EnvironmentInfoDescription {
 }
 
 /**
+ * @public
  * <p>Result message containing a description of the requested environment info.</p>
  */
 export interface RetrieveEnvironmentInfoResultMessage {
@@ -3994,6 +4207,7 @@ export interface RetrieveEnvironmentInfoResultMessage {
 }
 
 /**
+ * @public
  * <p>Swaps the CNAMEs of two environments.</p>
  */
 export interface SwapEnvironmentCNAMEsMessage {
@@ -4034,6 +4248,7 @@ export interface SwapEnvironmentCNAMEsMessage {
 }
 
 /**
+ * @public
  * <p>Request to terminate an environment.</p>
  */
 export interface TerminateEnvironmentMessage {
@@ -4085,6 +4300,7 @@ export interface TerminateEnvironmentMessage {
 }
 
 /**
+ * @public
  * <p>Request to update an application.</p>
  */
 export interface UpdateApplicationMessage {
@@ -4103,6 +4319,9 @@ export interface UpdateApplicationMessage {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResourceLifecycleMessage {
   /**
    * <p>The name of the application.</p>
@@ -4116,6 +4335,7 @@ export interface UpdateApplicationResourceLifecycleMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface UpdateApplicationVersionMessage {
@@ -4140,6 +4360,7 @@ export interface UpdateApplicationVersionMessage {
 }
 
 /**
+ * @public
  * <p>The result message containing the options for the specified solution stack.</p>
  */
 export interface UpdateConfigurationTemplateMessage {
@@ -4179,6 +4400,7 @@ export interface UpdateConfigurationTemplateMessage {
 }
 
 /**
+ * @public
  * <p>Request to update an environment.</p>
  */
 export interface UpdateEnvironmentMessage {
@@ -4267,6 +4489,7 @@ export interface UpdateEnvironmentMessage {
 }
 
 /**
+ * @public
  * <p>The number of tags in the resource would exceed the number of tags that each resource
  *       can have.</p>
  *          <p>To calculate this, the operation considers both the number of tags the resource already has
@@ -4288,6 +4511,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateTagsForResourceMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the resouce to be updated.</p>
@@ -4311,12 +4537,16 @@ export interface UpdateTagsForResourceMessage {
   TagsToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ValidationSeverity {
   error = "error",
   warning = "warning",
 }
 
 /**
+ * @public
  * <p>An error or warning for a desired configuration option value.</p>
  */
 export interface ValidationMessage {
@@ -4354,6 +4584,7 @@ export interface ValidationMessage {
 }
 
 /**
+ * @public
  * <p>Provides a list of validation messages.</p>
  */
 export interface ConfigurationSettingsValidationMessages {
@@ -4364,6 +4595,7 @@ export interface ConfigurationSettingsValidationMessages {
 }
 
 /**
+ * @public
  * <p>A list of validation messages for a specified configuration template.</p>
  */
 export interface ValidateConfigurationSettingsMessage {

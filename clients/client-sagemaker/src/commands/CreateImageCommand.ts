@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImageCommand}.
  */
 export interface CreateImageCommandInput extends CreateImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImageCommand}.
  */
 export interface CreateImageCommandOutput extends CreateImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image
  *         version represents a container image stored in Amazon Elastic Container Registry (ECR). For more information, see
  *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
@@ -48,6 +53,8 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImageCommandInput - {@link CreateImageCommandInput}
+ * @returns {@link CreateImageCommandOutput}
  * @see {@link CreateImageCommandInput} for command's `input` shape.
  * @see {@link CreateImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageCommandOutput> {
     return deserializeAws_json1_1CreateImageCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleGroupCommand}.
  */
 export interface UpdateRuleGroupCommandInput extends UpdateRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleGroupCommand}.
  */
 export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the rule settings for the specified rule group. You use a rule group by
  *          reference in one or more firewall policies. When you modify a rule group, you modify all
  *          firewall policies that use the rule group. </p>
@@ -51,6 +56,8 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleGroupCommandInput - {@link UpdateRuleGroupCommandInput}
+ * @returns {@link UpdateRuleGroupCommandOutput}
  * @see {@link UpdateRuleGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UpdateRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleGroupCommandOutput> {
     return deserializeAws_json1_0UpdateRuleGroupCommand(output, context);
   }

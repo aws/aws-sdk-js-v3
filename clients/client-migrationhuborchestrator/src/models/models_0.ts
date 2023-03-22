@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { MigrationHubOrchestratorServiceException as __BaseException } from "./MigrationHubOrchestratorServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -30,6 +34,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags added to a resource.</p>
@@ -38,6 +45,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The resource is not available.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -57,6 +65,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -77,6 +86,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A map of key value pairs that is generated when you create a migration workflow. The
  *             key value pairs will differ based on your selection of the template.</p>
  */
@@ -87,6 +97,9 @@ export type StepInput =
   | StepInput.StringValueMember
   | StepInput.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace StepInput {
   /**
    * <p>The value of the integer.</p>
@@ -157,6 +170,9 @@ export namespace StepInput {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateMigrationWorkflowRequest {
   /**
    * <p>The name of the migration workflow.</p>
@@ -194,6 +210,9 @@ export interface CreateMigrationWorkflowRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum MigrationWorkflowStatusEnum {
   COMPLETED = "COMPLETED",
   CREATING = "CREATING",
@@ -211,6 +230,9 @@ export enum MigrationWorkflowStatusEnum {
   WORKFLOW_FAILED = "WORKFLOW_FAILED",
 }
 
+/**
+ * @public
+ */
 export interface CreateMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -269,6 +291,7 @@ export interface CreateMigrationWorkflowResponse {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -288,6 +311,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -306,6 +330,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow you want to delete.</p>
@@ -313,6 +340,9 @@ export interface DeleteMigrationWorkflowRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -330,6 +360,9 @@ export interface DeleteMigrationWorkflowResponse {
   status?: MigrationWorkflowStatusEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -338,6 +371,7 @@ export interface GetMigrationWorkflowRequest {
 }
 
 /**
+ * @public
  * <p>List of AWS services utilized in a migration workflow.</p>
  */
 export interface Tool {
@@ -352,6 +386,9 @@ export interface Tool {
   url?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -454,6 +491,9 @@ export interface GetMigrationWorkflowResponse {
   workflowBucket?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationWorkflowsRequest {
   /**
    * <p>The maximum number of results that can be returned.</p>
@@ -487,6 +527,7 @@ export interface ListMigrationWorkflowsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of a migration workflow.</p>
  */
 export interface MigrationWorkflowSummary {
@@ -541,6 +582,9 @@ export interface MigrationWorkflowSummary {
   totalSteps?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationWorkflowsResponse {
   /**
    * <p>The pagination token.</p>
@@ -553,6 +597,9 @@ export interface ListMigrationWorkflowsResponse {
   migrationWorkflowSummary: MigrationWorkflowSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -560,6 +607,9 @@ export interface StartMigrationWorkflowRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -587,6 +637,9 @@ export interface StartMigrationWorkflowResponse {
   lastStartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StopMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -594,6 +647,9 @@ export interface StopMigrationWorkflowRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -621,6 +677,9 @@ export interface StopMigrationWorkflowResponse {
   lastStopTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -648,6 +707,9 @@ export interface UpdateMigrationWorkflowRequest {
   stepTargets?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -710,6 +772,9 @@ export interface UpdateMigrationWorkflowResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationWorkflowTemplateRequest {
   /**
    * <p>The ID of the template.</p>
@@ -717,6 +782,9 @@ export interface GetMigrationWorkflowTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DataType {
   INTEGER = "INTEGER",
   STRING = "STRING",
@@ -725,6 +793,7 @@ export enum DataType {
 }
 
 /**
+ * @public
  * <p>The input parameters of a template.</p>
  */
 export interface TemplateInput {
@@ -744,10 +813,16 @@ export interface TemplateInput {
   required?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TemplateStatus {
   CREATED = "CREATED",
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationWorkflowTemplateResponse {
   /**
    * <p>The ID of the template.</p>
@@ -785,6 +860,9 @@ export interface GetMigrationWorkflowTemplateResponse {
   creationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationWorkflowTemplatesRequest {
   /**
    * <p>The maximum number of results that can be returned.</p>
@@ -803,6 +881,7 @@ export interface ListMigrationWorkflowTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the template.</p>
  */
 export interface TemplateSummary {
@@ -827,6 +906,9 @@ export interface TemplateSummary {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationWorkflowTemplatesResponse {
   /**
    * <p>The pagination token.</p>
@@ -839,6 +921,9 @@ export interface ListMigrationWorkflowTemplatesResponse {
   templateSummary: TemplateSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPluginsRequest {
   /**
    * <p>The maximum number of plugins that can be returned.</p>
@@ -851,12 +936,16 @@ export interface ListPluginsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum PluginHealth {
   PLUGIN_HEALTHY = "HEALTHY",
   PLUGIN_UNHEALTHY = "UNHEALTHY",
 }
 
 /**
+ * @public
  * <p>The summary of the Migration Hub Orchestrator plugin.</p>
  */
 export interface PluginSummary {
@@ -891,6 +980,9 @@ export interface PluginSummary {
   registeredTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPluginsResponse {
   /**
    * <p>The pagination token.</p>
@@ -903,6 +995,9 @@ export interface ListPluginsResponse {
   plugins?: PluginSummary[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add tags.</p>
@@ -916,8 +1011,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface GetTemplateStepRequest {
   /**
    * <p>The ID of the step.</p>
@@ -936,6 +1037,7 @@ export interface GetTemplateStepRequest {
 }
 
 /**
+ * @public
  * <p>The output of the step.</p>
  */
 export interface StepOutput {
@@ -955,12 +1057,16 @@ export interface StepOutput {
   required?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum StepActionType {
   AUTOMATED = "AUTOMATED",
   MANUAL = "MANUAL",
 }
 
 /**
+ * @public
  * <p>Command to be run on a particular operating system.</p>
  */
 export interface PlatformCommand {
@@ -975,12 +1081,16 @@ export interface PlatformCommand {
   windows?: string;
 }
 
+/**
+ * @public
+ */
 export enum RunEnvironment {
   AWS = "AWS",
   ONPREMISE = "ONPREMISE",
 }
 
 /**
+ * @public
  * <p>The script location for a particular operating system.</p>
  */
 export interface PlatformScriptKey {
@@ -995,6 +1105,9 @@ export interface PlatformScriptKey {
   windows?: string;
 }
 
+/**
+ * @public
+ */
 export enum TargetType {
   ALL = "ALL",
   NONE = "NONE",
@@ -1002,6 +1115,7 @@ export enum TargetType {
 }
 
 /**
+ * @public
  * <p>The custom script to run tests on source or target environments.</p>
  */
 export interface StepAutomationConfiguration {
@@ -1031,6 +1145,9 @@ export interface StepAutomationConfiguration {
   targetType?: TargetType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateStepResponse {
   /**
    * <p>The ID of the step.</p>
@@ -1089,6 +1206,9 @@ export interface GetTemplateStepResponse {
   stepAutomationConfiguration?: StepAutomationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateStepsRequest {
   /**
    * <p>The maximum number of results that can be returned.</p>
@@ -1111,12 +1231,16 @@ export interface ListTemplateStepsRequest {
   stepGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Owner {
   AWSManaged = "AWS_MANAGED",
   CUSTOM = "CUSTOM",
 }
 
 /**
+ * @public
  * <p>The summary of the step.</p>
  */
 export interface TemplateStepSummary {
@@ -1167,6 +1291,9 @@ export interface TemplateStepSummary {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateStepsResponse {
   /**
    * <p>The pagination token.</p>
@@ -1179,6 +1306,9 @@ export interface ListTemplateStepsResponse {
   templateStepSummaryList?: TemplateStepSummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateStepGroupRequest {
   /**
    * <p>The ID of the template.</p>
@@ -1191,6 +1321,9 @@ export interface GetTemplateStepGroupRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StepGroupStatus {
   AWAITING_DEPENDENCIES = "AWAITING_DEPENDENCIES",
   COMPLETED = "COMPLETED",
@@ -1202,6 +1335,9 @@ export enum StepGroupStatus {
   USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateStepGroupResponse {
   /**
    * <p>The ID of the template.</p>
@@ -1254,6 +1390,9 @@ export interface GetTemplateStepGroupResponse {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateStepGroupsRequest {
   /**
    * <p>The maximum number of results that can be returned.</p>
@@ -1272,6 +1411,7 @@ export interface ListTemplateStepGroupsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the step group in the template.</p>
  */
 export interface TemplateStepGroupSummary {
@@ -1296,6 +1436,9 @@ export interface TemplateStepGroupSummary {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateStepGroupsResponse {
   /**
    * <p>The pagination token.</p>
@@ -1308,6 +1451,9 @@ export interface ListTemplateStepGroupsResponse {
   templateStepGroupSummary: TemplateStepGroupSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove
@@ -1321,9 +1467,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>A structure to hold multiple values of an output.</p>
  */
 export type WorkflowStepOutputUnion =
@@ -1332,6 +1482,9 @@ export type WorkflowStepOutputUnion =
   | WorkflowStepOutputUnion.StringValueMember
   | WorkflowStepOutputUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace WorkflowStepOutputUnion {
   /**
    * <p>The integer value. </p>
@@ -1386,6 +1539,7 @@ export namespace WorkflowStepOutputUnion {
 }
 
 /**
+ * @public
  * <p>The output of a step.</p>
  */
 export interface WorkflowStepOutput {
@@ -1411,6 +1565,7 @@ export interface WorkflowStepOutput {
 }
 
 /**
+ * @public
  * <p>The custom script to run tests on source or target environments.</p>
  */
 export interface WorkflowStepAutomationConfiguration {
@@ -1440,6 +1595,9 @@ export interface WorkflowStepAutomationConfiguration {
   targetType?: TargetType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowStepRequest {
   /**
    * <p>The name of the step.</p>
@@ -1493,6 +1651,9 @@ export interface CreateWorkflowStepRequest {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowStepResponse {
   /**
    * <p>The ID of the step.</p>
@@ -1515,6 +1676,9 @@ export interface CreateWorkflowStepResponse {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowStepRequest {
   /**
    * <p>The ID of the step you want to delete.</p>
@@ -1532,8 +1696,14 @@ export interface DeleteWorkflowStepRequest {
   workflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowStepResponse {}
 
+/**
+ * @public
+ */
 export interface GetWorkflowStepRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -1551,6 +1721,9 @@ export interface GetWorkflowStepRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum StepStatus {
   AWAITING_DEPENDENCIES = "AWAITING_DEPENDENCIES",
   COMPLETED = "COMPLETED",
@@ -1561,6 +1734,9 @@ export enum StepStatus {
   USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowStepResponse {
   /**
    * <p>The name of the step.</p>
@@ -1669,6 +1845,9 @@ export interface GetWorkflowStepResponse {
   totalNoOfSrv?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowStepsRequest {
   /**
    * <p>The pagination token.</p>
@@ -1692,6 +1871,7 @@ export interface ListWorkflowStepsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the step in a migration workflow.</p>
  */
 export interface WorkflowStepSummary {
@@ -1762,6 +1942,9 @@ export interface WorkflowStepSummary {
   scriptLocation?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowStepsResponse {
   /**
    * <p>The pagination token.</p>
@@ -1774,6 +1957,9 @@ export interface ListWorkflowStepsResponse {
   workflowStepsSummary: WorkflowStepSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RetryWorkflowStepRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -1791,6 +1977,9 @@ export interface RetryWorkflowStepRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RetryWorkflowStepResponse {
   /**
    * <p>The ID of the step group.</p>
@@ -1813,6 +2002,9 @@ export interface RetryWorkflowStepResponse {
   status?: StepStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowStepRequest {
   /**
    * <p>The ID of the step.</p>
@@ -1876,6 +2068,9 @@ export interface UpdateWorkflowStepRequest {
   status?: StepStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowStepResponse {
   /**
    * <p>The ID of the step.</p>
@@ -1898,6 +2093,9 @@ export interface UpdateWorkflowStepResponse {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowStepGroupRequest {
   /**
    * <p>The ID of the migration workflow that will contain the step group.</p>
@@ -1925,6 +2123,9 @@ export interface CreateWorkflowStepGroupRequest {
   previous?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowStepGroupResponse {
   /**
    * <p>The ID of the migration workflow that contains the step group.</p>
@@ -1967,6 +2168,9 @@ export interface CreateWorkflowStepGroupResponse {
   creationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowStepGroupRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -1979,8 +2183,14 @@ export interface DeleteWorkflowStepGroupRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowStepGroupResponse {}
 
+/**
+ * @public
+ */
 export interface GetWorkflowStepGroupRequest {
   /**
    * <p>The ID of the step group.</p>
@@ -1993,6 +2203,9 @@ export interface GetWorkflowStepGroupRequest {
   workflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowStepGroupResponse {
   /**
    * <p>The ID of the step group.</p>
@@ -2055,6 +2268,9 @@ export interface GetWorkflowStepGroupResponse {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowStepGroupsRequest {
   /**
    * <p>The pagination token.</p>
@@ -2073,6 +2289,7 @@ export interface ListWorkflowStepGroupsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of a step group in a workflow.</p>
  */
 export interface WorkflowStepGroupSummary {
@@ -2107,6 +2324,9 @@ export interface WorkflowStepGroupSummary {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowStepGroupsResponse {
   /**
    * <p>The pagination token.</p>
@@ -2119,6 +2339,9 @@ export interface ListWorkflowStepGroupsResponse {
   workflowStepGroupsSummary: WorkflowStepGroupSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowStepGroupRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -2151,6 +2374,9 @@ export interface UpdateWorkflowStepGroupRequest {
   previous?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowStepGroupResponse {
   /**
    * <p>The ID of the migration workflow.</p>

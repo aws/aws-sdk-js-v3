@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTestGridSessionsCommand}.
  */
 export interface ListTestGridSessionsCommandInput extends ListTestGridSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTestGridSessionsCommand}.
  */
 export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of sessions for a <a>TestGridProject</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTestGridSessionsCommandInput - {@link ListTestGridSessionsCommandInput}
+ * @returns {@link ListTestGridSessionsCommandOutput}
  * @see {@link ListTestGridSessionsCommandInput} for command's `input` shape.
  * @see {@link ListTestGridSessionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListTestGridSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTestGridSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListTestGridSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTestGridSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTestGridSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTestGridSessionsCommandOutput> {
     return deserializeAws_json1_1ListTestGridSessionsCommand(output, context);
   }

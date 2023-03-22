@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelPackagingJobCommand}.
  */
 export interface DescribeModelPackagingJobCommandInput extends DescribeModelPackagingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelPackagingJobCommand}.
  */
 export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPackagingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Amazon Lookout for Vision model packaging job.
  * </p>
  *          <p>This operation requires permissions to perform the
@@ -52,6 +57,8 @@ export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPac
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelPackagingJobCommandInput - {@link DescribeModelPackagingJobCommandInput}
+ * @returns {@link DescribeModelPackagingJobCommandOutput}
  * @see {@link DescribeModelPackagingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeModelPackagingJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeModelPackagingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelPackagingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeModelPackagingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelPackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeModelPackagingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

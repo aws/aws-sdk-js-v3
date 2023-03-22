@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSchemaAsJsonCommand}.
  */
 export interface GetSchemaAsJsonCommandInput extends GetSchemaAsJsonRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSchemaAsJsonCommand}.
  */
 export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a JSON representation of the schema. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaAsJsonCommandInput - {@link GetSchemaAsJsonCommandInput}
+ * @returns {@link GetSchemaAsJsonCommandOutput}
  * @see {@link GetSchemaAsJsonCommandInput} for command's `input` shape.
  * @see {@link GetSchemaAsJsonCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetSchemaAsJsonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaAsJsonCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetSchemaAsJsonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaAsJsonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSchemaAsJsonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaAsJsonCommandOutput> {
     return deserializeAws_restJson1GetSchemaAsJsonCommand(output, context);
   }

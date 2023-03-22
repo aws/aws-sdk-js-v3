@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectGrantCommand}.
  */
 export interface RejectGrantCommandInput extends RejectGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectGrantCommand}.
  */
 export interface RejectGrantCommandOutput extends RejectGrantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RejectGrantCommandOutput extends RejectGrantResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectGrantCommandInput - {@link RejectGrantCommandInput}
+ * @returns {@link RejectGrantCommandOutput}
  * @see {@link RejectGrantCommandInput} for command's `input` shape.
  * @see {@link RejectGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class RejectGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class RejectGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RejectGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectGrantCommandOutput> {
     return deserializeAws_json1_1RejectGrantCommand(output, context);
   }

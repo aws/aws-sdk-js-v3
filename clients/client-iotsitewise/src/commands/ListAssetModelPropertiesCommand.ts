@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssetModelPropertiesCommand}.
  */
 export interface ListAssetModelPropertiesCommandInput extends ListAssetModelPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssetModelPropertiesCommand}.
  */
 export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPropertiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of properties associated with an asset model.
  *       If you update properties associated with the model before you finish listing all the properties,
  *         you need to start all over again.</p>
@@ -48,6 +53,8 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssetModelPropertiesCommandInput - {@link ListAssetModelPropertiesCommandInput}
+ * @returns {@link ListAssetModelPropertiesCommandOutput}
  * @see {@link ListAssetModelPropertiesCommandInput} for command's `input` shape.
  * @see {@link ListAssetModelPropertiesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListAssetModelPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssetModelPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListAssetModelPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssetModelPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssetModelPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetModelPropertiesCommandOutput> {
     return deserializeAws_restJson1ListAssetModelPropertiesCommand(output, context);
   }

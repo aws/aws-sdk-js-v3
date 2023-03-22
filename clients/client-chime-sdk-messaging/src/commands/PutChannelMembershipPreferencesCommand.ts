@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutChannelMembershipPreferencesCommand}.
  */
 export interface PutChannelMembershipPreferencesCommandInput extends PutChannelMembershipPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutChannelMembershipPreferencesCommand}.
  */
 export interface PutChannelMembershipPreferencesCommandOutput
@@ -41,6 +45,7 @@ export interface PutChannelMembershipPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel.
  *          Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users.
  *          Banned users can't set membership preferences for the channel from which they are banned.</p>
@@ -54,6 +59,8 @@ export interface PutChannelMembershipPreferencesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutChannelMembershipPreferencesCommandInput - {@link PutChannelMembershipPreferencesCommandInput}
+ * @returns {@link PutChannelMembershipPreferencesCommandOutput}
  * @see {@link PutChannelMembershipPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutChannelMembershipPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -99,6 +106,9 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutChannelMembershipPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutChannelMembershipPreferencesCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
     return serializeAws_restJson1PutChannelMembershipPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -107,6 +107,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelClusterCommandInput
   | CancelJobCommandInput
@@ -135,6 +138,9 @@ export type ServiceInputTypes =
   | UpdateJobShipmentStateCommandInput
   | UpdateLongTermPricingCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelClusterCommandOutput
   | CancelJobCommandOutput
@@ -163,6 +169,9 @@ export type ServiceOutputTypes =
   | UpdateJobShipmentStateCommandOutput
   | UpdateLongTermPricingCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -170,7 +179,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -279,11 +288,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SnowballClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -294,10 +306,15 @@ type SnowballClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SnowballClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SnowballClient class constructor that set the region, credentials and other options.
  */
 export interface SnowballClientConfig extends SnowballClientConfigType {}
 
+/**
+ * @public
+ */
 type SnowballClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -308,11 +325,14 @@ type SnowballClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SnowballClient class. This is resolved and normalized from the {@link SnowballClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SnowballClient class. This is resolved and normalized from the {@link SnowballClientConfig | constructor configuration interface}.
  */
 export interface SnowballClientResolvedConfig extends SnowballClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The Amazon Web Services Snow Family provides a petabyte-scale data transport solution that uses
  *       secure devices to transfer large amounts of data between your on-premises data centers and
  *       Amazon Simple Storage Service (Amazon S3). The Snow Family commands described here provide access to the same

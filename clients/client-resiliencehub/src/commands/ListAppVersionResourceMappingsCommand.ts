@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppVersionResourceMappingsCommand}.
  */
 export interface ListAppVersionResourceMappingsCommandInput extends ListAppVersionResourceMappingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppVersionResourceMappingsCommand}.
  */
 export interface ListAppVersionResourceMappingsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAppVersionResourceMappingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists how the resources in an application version are mapped/sourced from. Mappings can be
  *       physical resource identifiers, CloudFormation stacks, resource-groups, or an application registry
  *       app.</p>
@@ -50,6 +55,8 @@ export interface ListAppVersionResourceMappingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppVersionResourceMappingsCommandInput - {@link ListAppVersionResourceMappingsCommandInput}
+ * @returns {@link ListAppVersionResourceMappingsCommandOutput}
  * @see {@link ListAppVersionResourceMappingsCommandInput} for command's `input` shape.
  * @see {@link ListAppVersionResourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListAppVersionResourceMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppVersionResourceMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class ListAppVersionResourceMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAppVersionResourceMappingsCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class ListAppVersionResourceMappingsCommand extends $Command<
     return serializeAws_restJson1ListAppVersionResourceMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

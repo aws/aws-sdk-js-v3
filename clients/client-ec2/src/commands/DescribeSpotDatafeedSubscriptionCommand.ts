@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpotDatafeedSubscriptionCommand}.
  */
 export interface DescribeSpotDatafeedSubscriptionCommandInput extends DescribeSpotDatafeedSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpotDatafeedSubscriptionCommand}.
  */
 export interface DescribeSpotDatafeedSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
  *             Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotDatafeedSubscriptionCommandInput - {@link DescribeSpotDatafeedSubscriptionCommandInput}
+ * @returns {@link DescribeSpotDatafeedSubscriptionCommandOutput}
  * @see {@link DescribeSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotDatafeedSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeSpotDatafeedSubscriptionCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
     return serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

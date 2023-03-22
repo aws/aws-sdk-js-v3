@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLaunchCommand}.
  */
 export interface GetLaunchCommandInput extends GetLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLaunchCommand}.
  */
 export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details about one launch. You must already know the
  *        launch name. To retrieve a list of launches in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html">ListLaunches</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLaunchCommandInput - {@link GetLaunchCommandInput}
+ * @returns {@link GetLaunchCommandOutput}
  * @see {@link GetLaunchCommandInput} for command's `input` shape.
  * @see {@link GetLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLaunchCommandOutput> {
     return deserializeAws_restJson1GetLaunchCommand(output, context);
   }

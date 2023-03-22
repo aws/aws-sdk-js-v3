@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopApplicationCommand}.
  */
 export interface StopApplicationCommandInput extends StopApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopApplicationCommand}.
  */
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -56,6 +61,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
+ * @returns {@link StopApplicationCommandOutput}
  * @see {@link StopApplicationCommandInput} for command's `input` shape.
  * @see {@link StopApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -88,6 +95,9 @@ export class StopApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StopApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopApplicationCommandOutput> {
     return deserializeAws_json1_1StopApplicationCommand(output, context);
   }

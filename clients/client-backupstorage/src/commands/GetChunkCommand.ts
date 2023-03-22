@@ -29,15 +29,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChunkCommand}.
  */
 export interface GetChunkCommandInput extends GetChunkInput {}
 /**
+ * @public
+ *
  * The output of {@link GetChunkCommand}.
  */
 export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutput, "Data">, __MetadataBearer {}
 
 /**
+ * @public
  * Gets the specified object's chunk.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutp
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChunkCommandInput - {@link GetChunkCommandInput}
+ * @returns {@link GetChunkCommandOutput}
  * @see {@link GetChunkCommandInput} for command's `input` shape.
  * @see {@link GetChunkCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetChunkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChunkCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetChunkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChunkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetChunkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

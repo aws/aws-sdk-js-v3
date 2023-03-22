@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceDefinitionsCommand}.
  */
 export interface ListResourceDefinitionsCommandInput extends ListResourceDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceDefinitionsCommand}.
  */
 export interface ListResourceDefinitionsCommandOutput extends ListResourceDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves a list of resource definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResourceDefinitionsCommandOutput extends ListResourceDefini
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceDefinitionsCommandInput - {@link ListResourceDefinitionsCommandInput}
+ * @returns {@link ListResourceDefinitionsCommandOutput}
  * @see {@link ListResourceDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListResourceDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListResourceDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListResourceDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceDefinitionsCommandOutput> {
     return deserializeAws_restJson1ListResourceDefinitionsCommand(output, context);
   }

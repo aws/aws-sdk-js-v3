@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionUrlConfigCommand}.
  */
 export interface DeleteFunctionUrlConfigCommandInput extends DeleteFunctionUrlConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionUrlConfigCommand}.
  */
 export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Lambda function URL. When you delete a function URL, you
  *       can't recover it. Creating a new function URL results in a different URL address.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionUrlConfigCommandInput - {@link DeleteFunctionUrlConfigCommandInput}
+ * @returns {@link DeleteFunctionUrlConfigCommandOutput}
  * @see {@link DeleteFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteFunctionUrlConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionUrlConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteFunctionUrlConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFunctionUrlConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionUrlConfigCommandOutput> {
     return deserializeAws_restJson1DeleteFunctionUrlConfigCommand(output, context);
   }

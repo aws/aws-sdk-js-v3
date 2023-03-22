@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReportPlansCommand}.
  */
 export interface ListReportPlansCommandInput extends ListReportPlansInput {}
 /**
+ * @public
+ *
  * The output of {@link ListReportPlansCommand}.
  */
 export interface ListReportPlansCommandOutput extends ListReportPlansOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of your report plans. For detailed information about a single report
  *          plan, use <code>DescribeReportPlan</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListReportPlansCommandOutput extends ListReportPlansOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReportPlansCommandInput - {@link ListReportPlansCommandInput}
+ * @returns {@link ListReportPlansCommandOutput}
  * @see {@link ListReportPlansCommandInput} for command's `input` shape.
  * @see {@link ListReportPlansCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListReportPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReportPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListReportPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReportPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListReportPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReportPlansCommandOutput> {
     return deserializeAws_restJson1ListReportPlansCommand(output, context);
   }

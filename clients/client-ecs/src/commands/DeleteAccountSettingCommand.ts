@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountSettingCommand}.
  */
 export interface DeleteAccountSettingCommandInput extends DeleteAccountSettingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountSettingCommand}.
  */
 export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables an account setting for a specified  user, role, or the root user for
  * 			an account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountSettingCommandInput - {@link DeleteAccountSettingCommandInput}
+ * @returns {@link DeleteAccountSettingCommandOutput}
  * @see {@link DeleteAccountSettingCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountSettingCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -123,6 +130,9 @@ export class DeleteAccountSettingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountSettingCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class DeleteAccountSettingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAccountSettingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountSettingCommandOutput> {
     return deserializeAws_json1_1DeleteAccountSettingCommand(output, context);
   }

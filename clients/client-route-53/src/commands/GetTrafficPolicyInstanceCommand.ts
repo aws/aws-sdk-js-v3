@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrafficPolicyInstanceCommand}.
  */
 export interface GetTrafficPolicyInstanceCommandInput extends GetTrafficPolicyInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrafficPolicyInstanceCommand}.
  */
 export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified traffic policy instance.</p>
  *          <note>
  *             <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an
@@ -58,6 +63,8 @@ export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyI
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrafficPolicyInstanceCommandInput - {@link GetTrafficPolicyInstanceCommandInput}
+ * @returns {@link GetTrafficPolicyInstanceCommandOutput}
  * @see {@link GetTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link GetTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -87,6 +94,9 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrafficPolicyInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrafficPolicyInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetTrafficPolicyInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrafficPolicyInstanceCommandOutput> {
     return deserializeAws_restXmlGetTrafficPolicyInstanceCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ChannelFlowCallbackCommand}.
  */
 export interface ChannelFlowCallbackCommandInput extends ChannelFlowCallbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChannelFlowCallbackCommand}.
  */
 export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>
  *          <p>You can return one of the following processing responses:</p>
  *          <ul>
@@ -62,6 +67,8 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ChannelFlowCallbackCommandInput - {@link ChannelFlowCallbackCommandInput}
+ * @returns {@link ChannelFlowCallbackCommandOutput}
  * @see {@link ChannelFlowCallbackCommandInput} for command's `input` shape.
  * @see {@link ChannelFlowCallbackCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -107,6 +114,9 @@ export class ChannelFlowCallbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChannelFlowCallbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class ChannelFlowCallbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChannelFlowCallbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ChannelFlowCallbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChannelFlowCallbackCommandOutput> {
     return deserializeAws_restJson1ChannelFlowCallbackCommand(output, context);
   }

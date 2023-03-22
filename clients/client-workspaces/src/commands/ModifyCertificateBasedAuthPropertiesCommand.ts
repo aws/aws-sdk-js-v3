@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCertificateBasedAuthPropertiesCommand}.
  */
 export interface ModifyCertificateBasedAuthPropertiesCommandInput extends ModifyCertificateBasedAuthPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCertificateBasedAuthPropertiesCommand}.
  */
 export interface ModifyCertificateBasedAuthPropertiesCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of the certificate-based authentication you want
  *          to use with your WorkSpaces.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCertificateBasedAuthPropertiesCommandInput - {@link ModifyCertificateBasedAuthPropertiesCommandInput}
+ * @returns {@link ModifyCertificateBasedAuthPropertiesCommandOutput}
  * @see {@link ModifyCertificateBasedAuthPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyCertificateBasedAuthPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -84,6 +91,9 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCertificateBasedAuthPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyCertificateBasedAuthPropertiesCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<
     return serializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

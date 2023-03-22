@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatasetCommand}.
  */
 export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatasetCommand}.
  */
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Amazon Forecast dataset created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a> operation.</p>
  *          <p>In addition to listing the parameters specified in the <code>CreateDataset</code> request,
  *       this operation includes the following dataset properties:</p>
@@ -65,6 +70,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
+ * @returns {@link DescribeDatasetCommandOutput}
  * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DescribeDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetCommandOutput> {
     return deserializeAws_json1_1DescribeDatasetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopSuiteRunCommand}.
  */
 export interface StopSuiteRunCommandInput extends StopSuiteRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopSuiteRunCommand}.
  */
 export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a Device Advisor test suite run that is currently running.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopSuiteRun</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSuiteRunCommandInput - {@link StopSuiteRunCommandInput}
+ * @returns {@link StopSuiteRunCommandOutput}
  * @see {@link StopSuiteRunCommandInput} for command's `input` shape.
  * @see {@link StopSuiteRunCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -79,6 +86,9 @@ export class StopSuiteRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSuiteRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class StopSuiteRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSuiteRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopSuiteRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSuiteRunCommandOutput> {
     return deserializeAws_restJson1StopSuiteRunCommand(output, context);
   }

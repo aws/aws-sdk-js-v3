@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRelationalDatabaseSnapshotCommand}.
  */
 export interface DeleteRelationalDatabaseSnapshotCommandInput extends DeleteRelationalDatabaseSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRelationalDatabaseSnapshotCommand}.
  */
 export interface DeleteRelationalDatabaseSnapshotCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteRelationalDatabaseSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a database snapshot in Amazon Lightsail.</p>
  *          <p>The <code>delete relational database snapshot</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by relationalDatabaseName. For
@@ -51,6 +56,8 @@ export interface DeleteRelationalDatabaseSnapshotCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRelationalDatabaseSnapshotCommandInput - {@link DeleteRelationalDatabaseSnapshotCommandInput}
+ * @returns {@link DeleteRelationalDatabaseSnapshotCommandOutput}
  * @see {@link DeleteRelationalDatabaseSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteRelationalDatabaseSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class DeleteRelationalDatabaseSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRelationalDatabaseSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class DeleteRelationalDatabaseSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteRelationalDatabaseSnapshotCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class DeleteRelationalDatabaseSnapshotCommand extends $Command<
     return serializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -19,15 +19,20 @@ import { DetachVolumeRequest, DetachVolumeRequestFilterSensitiveLog } from "../m
 import { deserializeAws_ec2DetachVolumeCommand, serializeAws_ec2DetachVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DetachVolumeCommand}.
  */
 export interface DetachVolumeCommandInput extends DetachVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachVolumeCommand}.
  */
 export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the
  *       device within your operating system before detaching the volume. Failure to do so can result
  *       in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens,
@@ -49,6 +54,8 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachVolumeCommandInput - {@link DetachVolumeCommandInput}
+ * @returns {@link DetachVolumeCommandOutput}
  * @see {@link DetachVolumeCommandInput} for command's `input` shape.
  * @see {@link DetachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -92,6 +99,9 @@ export class DetachVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DetachVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DetachVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachVolumeCommandOutput> {
     return deserializeAws_ec2DetachVolumeCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessPreviewCommand}.
  */
 export interface CreateAccessPreviewCommandInput extends CreateAccessPreviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessPreviewCommand}.
  */
 export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an access preview that allows you to preview IAM Access Analyzer findings for your
  *          resource before deploying resource permissions.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessPreviewCommandInput - {@link CreateAccessPreviewCommandInput}
+ * @returns {@link CreateAccessPreviewCommandOutput}
  * @see {@link CreateAccessPreviewCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPreviewCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateAccessPreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateAccessPreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAccessPreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPreviewCommandOutput> {
     return deserializeAws_restJson1CreateAccessPreviewCommand(output, context);
   }

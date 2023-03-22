@@ -119,6 +119,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchCheckLayerAvailabilityCommandInput
   | BatchDeleteImageCommandInput
@@ -144,6 +147,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UploadLayerPartCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchCheckLayerAvailabilityCommandOutput
   | BatchDeleteImageCommandOutput
@@ -169,6 +175,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UploadLayerPartCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -176,7 +185,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -285,11 +294,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ECRPUBLICClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -300,10 +312,15 @@ type ECRPUBLICClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ECRPUBLICClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ECRPUBLICClient class constructor that set the region, credentials and other options.
  */
 export interface ECRPUBLICClientConfig extends ECRPUBLICClientConfigType {}
 
+/**
+ * @public
+ */
 type ECRPUBLICClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -314,11 +331,14 @@ type ECRPUBLICClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ECRPUBLICClient class. This is resolved and normalized from the {@link ECRPUBLICClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ECRPUBLICClient class. This is resolved and normalized from the {@link ECRPUBLICClientConfig | constructor configuration interface}.
  */
 export interface ECRPUBLICClientResolvedConfig extends ECRPUBLICClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Elastic Container Registry Public</fullname>
  *          <p>Amazon Elastic Container Registry Public (Amazon ECR Public) is a managed container image registry service. Amazon ECR provides both
  *          public and private registries to host your container images. You can use the Docker CLI or

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupCertificateAuthorityCommand}.
  */
 export interface CreateGroupCertificateAuthorityCommandInput extends CreateGroupCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupCertificateAuthorityCommand}.
  */
 export interface CreateGroupCertificateAuthorityCommandOutput
@@ -37,6 +41,7 @@ export interface CreateGroupCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a CA for the group. If a CA already exists, it will rotate the existing CA.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateGroupCertificateAuthorityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupCertificateAuthorityCommandInput - {@link CreateGroupCertificateAuthorityCommandInput}
+ * @returns {@link CreateGroupCertificateAuthorityCommandOutput}
  * @see {@link CreateGroupCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateGroupCertificateAuthorityCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
     return serializeAws_restJson1CreateGroupCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

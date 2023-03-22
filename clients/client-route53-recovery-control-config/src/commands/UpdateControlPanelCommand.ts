@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateControlPanelCommand}.
  */
 export interface UpdateControlPanelCommandInput extends UpdateControlPanelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateControlPanelCommand}.
  */
 export interface UpdateControlPanelCommandOutput extends UpdateControlPanelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a control panel. The only update you can make to a control panel is to change the name of the control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateControlPanelCommandInput - {@link UpdateControlPanelCommandInput}
+ * @returns {@link UpdateControlPanelCommandOutput}
  * @see {@link UpdateControlPanelCommandInput} for command's `input` shape.
  * @see {@link UpdateControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateControlPanelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateControlPanelCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateControlPanelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateControlPanelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateControlPanelCommandOutput> {
     return deserializeAws_restJson1UpdateControlPanelCommand(output, context);
   }

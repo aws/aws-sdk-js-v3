@@ -3,11 +3,15 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { AthenaServiceException as __BaseException } from "./AthenaServiceException";
 
+/**
+ * @public
+ */
 export enum S3AclOption {
   BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
 }
 
 /**
+ * @public
  * <p>Indicates that an Amazon S3 canned ACL should be set to control ownership of
  *             stored query results. When Athena stores query results in Amazon S3,
  *             the canned ACL is set with the <code>x-amz-acl</code> request header. For more
@@ -27,6 +31,7 @@ export interface AclConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains an array of named query IDs.</p>
  */
 export interface BatchGetNamedQueryInput {
@@ -37,6 +42,7 @@ export interface BatchGetNamedQueryInput {
 }
 
 /**
+ * @public
  * <p>A query, where <code>QueryString</code> contains the SQL statements that make up the
  *             query.</p>
  */
@@ -73,6 +79,7 @@ export interface NamedQuery {
 }
 
 /**
+ * @public
  * <p>Information about a named query ID that could not be processed.</p>
  */
 export interface UnprocessedNamedQueryId {
@@ -94,6 +101,9 @@ export interface UnprocessedNamedQueryId {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetNamedQueryOutput {
   /**
    * <p>Information about the named query IDs submitted.</p>
@@ -107,6 +117,7 @@ export interface BatchGetNamedQueryOutput {
 }
 
 /**
+ * @public
  * <p>Indicates a platform issue, which may be due to a transient condition or
  *             outage.</p>
  */
@@ -129,6 +140,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  */
@@ -157,6 +169,9 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetPreparedStatementInput {
   /**
    * <p>A list of prepared statement names to return.</p>
@@ -170,6 +185,7 @@ export interface BatchGetPreparedStatementInput {
 }
 
 /**
+ * @public
  * <p>A prepared SQL statement for use with Athena.</p>
  */
 export interface PreparedStatement {
@@ -200,6 +216,7 @@ export interface PreparedStatement {
 }
 
 /**
+ * @public
  * <p>The name of a prepared statement that could not be returned.</p>
  */
 export interface UnprocessedPreparedStatementName {
@@ -237,6 +254,9 @@ export interface UnprocessedPreparedStatementName {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetPreparedStatementOutput {
   /**
    * <p>The list of prepared statements returned.</p>
@@ -251,6 +271,7 @@ export interface BatchGetPreparedStatementOutput {
 }
 
 /**
+ * @public
  * <p>Contains an array of query execution IDs.</p>
  */
 export interface BatchGetQueryExecutionInput {
@@ -261,6 +282,7 @@ export interface BatchGetQueryExecutionInput {
 }
 
 /**
+ * @public
  * <p>The Athena engine version for running queries, or the PySpark engine
  *             version for running sessions.</p>
  */
@@ -283,6 +305,7 @@ export interface EngineVersion {
 }
 
 /**
+ * @public
  * <p>The database and data catalog context in which the query execution occurs.</p>
  */
 export interface QueryExecutionContext {
@@ -298,6 +321,9 @@ export interface QueryExecutionContext {
   Catalog?: string;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionOption {
   CSE_KMS = "CSE_KMS",
   SSE_KMS = "SSE_KMS",
@@ -305,6 +331,7 @@ export enum EncryptionOption {
 }
 
 /**
+ * @public
  * <p>If query results are encrypted in Amazon S3, indicates the encryption option
  *             used (for example, <code>SSE_KMS</code> or <code>CSE_KMS</code>) and key
  *             information.</p>
@@ -328,6 +355,7 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * @public
  * <p>The location in Amazon S3 where query results are stored and the encryption
  *             option, if any, used for query results. These are known as "client-side settings". If
  *             workgroup settings override client-side settings, then the query uses the workgroup
@@ -381,6 +409,7 @@ export interface ResultConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies whether previous query results are reused, and if so, their maximum age.</p>
  */
 export interface ResultReuseByAgeConfiguration {
@@ -396,6 +425,7 @@ export interface ResultReuseByAgeConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the query result reuse behavior for the query.</p>
  */
 export interface ResultReuseConfiguration {
@@ -405,6 +435,9 @@ export interface ResultReuseConfiguration {
   ResultReuseByAgeConfiguration?: ResultReuseByAgeConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum StatementType {
   DDL = "DDL",
   DML = "DML",
@@ -412,6 +445,7 @@ export enum StatementType {
 }
 
 /**
+ * @public
  * <p>Contains information about whether the result of a previous query was reused.</p>
  */
 export interface ResultReuseInformation {
@@ -422,6 +456,7 @@ export interface ResultReuseInformation {
 }
 
 /**
+ * @public
  * <p>The amount of data scanned during the query execution and the amount of time that it
  *             took to execute, and the type of statement that was run.</p>
  */
@@ -480,6 +515,7 @@ export interface QueryExecutionStatistics {
 }
 
 /**
+ * @public
  * <p>Provides information about an Athena query error. The
  *                 <code>AthenaError</code> feature provides standardized error information to help you
  *             understand failed queries and take steps after a query failure occurs.
@@ -518,6 +554,9 @@ export interface AthenaError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum QueryExecutionState {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
@@ -527,6 +566,7 @@ export enum QueryExecutionState {
 }
 
 /**
+ * @public
  * <p>The completion date, current state, submission time, and state change reason (if
  *             applicable) for the query execution.</p>
  */
@@ -569,6 +609,7 @@ export interface QueryExecutionStatus {
 }
 
 /**
+ * @public
  * <p>Information about a single instance of a query execution.</p>
  */
 export interface QueryExecution {
@@ -645,6 +686,7 @@ export interface QueryExecution {
 }
 
 /**
+ * @public
  * <p>Describes a query execution that failed to process.</p>
  */
 export interface UnprocessedQueryExecutionId {
@@ -666,6 +708,9 @@ export interface UnprocessedQueryExecutionId {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetQueryExecutionOutput {
   /**
    * <p>Information about a query execution.</p>
@@ -679,6 +724,7 @@ export interface BatchGetQueryExecutionOutput {
 }
 
 /**
+ * @public
  * <p>A label that you assign to a resource. In Athena, a resource can be a
  *             workgroup or data catalog. Each tag consists of a key and an optional value, both of
  *             which you define. For example, you can use tags to categorize Athena
@@ -706,12 +752,18 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export enum DataCatalogType {
   GLUE = "GLUE",
   HIVE = "HIVE",
   LAMBDA = "LAMBDA",
 }
 
+/**
+ * @public
+ */
 export interface CreateDataCatalogInput {
   /**
    * <p>The name of the data catalog to create. The catalog name must be unique for the
@@ -811,8 +863,14 @@ export interface CreateDataCatalogInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDataCatalogOutput {}
 
+/**
+ * @public
+ */
 export interface CreateNamedQueryInput {
   /**
    * <p>The query name.</p>
@@ -854,6 +912,9 @@ export interface CreateNamedQueryInput {
   WorkGroup?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNamedQueryOutput {
   /**
    * <p>The unique ID of the query.</p>
@@ -861,6 +922,9 @@ export interface CreateNamedQueryOutput {
   NamedQueryId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNotebookInput {
   /**
    * <p>The name of the Spark enabled workgroup in which the notebook will be created.</p>
@@ -886,6 +950,9 @@ export interface CreateNotebookInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNotebookOutput {
   /**
    * <p>A unique identifier for the notebook.</p>
@@ -893,11 +960,15 @@ export interface CreateNotebookOutput {
   NotebookId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ThrottleReason {
   CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED",
 }
 
 /**
+ * @public
  * <p>Indicates that the request was throttled.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -924,6 +995,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreatePreparedStatementInput {
   /**
    * <p>The name of the prepared statement.</p>
@@ -946,8 +1020,14 @@ export interface CreatePreparedStatementInput {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePreparedStatementOutput {}
 
+/**
+ * @public
+ */
 export interface CreatePresignedNotebookUrlRequest {
   /**
    * <p>The session ID.</p>
@@ -955,6 +1035,9 @@ export interface CreatePresignedNotebookUrlRequest {
   SessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePresignedNotebookUrlResponse {
   /**
    * <p>The URL of the notebook. The URL includes the authentication token and notebook file
@@ -974,6 +1057,7 @@ export interface CreatePresignedNotebookUrlResponse {
 }
 
 /**
+ * @public
  * <p>A resource, such as a workgroup, was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1000,6 +1084,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the KMS key that is used to encrypt the user's data stores in Athena.</p>
  */
 export interface CustomerContentEncryptionConfiguration {
@@ -1010,6 +1095,7 @@ export interface CustomerContentEncryptionConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of the workgroup, which includes the location in Amazon S3
  *             where query results are stored, the encryption option, if any, used for query results,
  *             whether the Amazon CloudWatch Metrics are enabled for the workgroup and whether
@@ -1081,6 +1167,9 @@ export interface WorkGroupConfiguration {
   CustomerContentEncryptionConfiguration?: CustomerContentEncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkGroupInput {
   /**
    * <p>The workgroup name.</p>
@@ -1108,8 +1197,14 @@ export interface CreateWorkGroupInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkGroupOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteDataCatalogInput {
   /**
    * <p>The name of the data catalog to delete.</p>
@@ -1117,8 +1212,14 @@ export interface DeleteDataCatalogInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataCatalogOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteNamedQueryInput {
   /**
    * <p>The unique ID of the query to delete.</p>
@@ -1126,8 +1227,14 @@ export interface DeleteNamedQueryInput {
   NamedQueryId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamedQueryOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteNotebookInput {
   /**
    * <p>The ID of the notebook to delete.</p>
@@ -1135,8 +1242,14 @@ export interface DeleteNotebookInput {
   NotebookId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNotebookOutput {}
 
+/**
+ * @public
+ */
 export interface DeletePreparedStatementInput {
   /**
    * <p>The name of the prepared statement to delete.</p>
@@ -1149,8 +1262,14 @@ export interface DeletePreparedStatementInput {
   WorkGroup: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePreparedStatementOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteWorkGroupInput {
   /**
    * <p>The unique name of the workgroup to delete.</p>
@@ -1164,8 +1283,14 @@ export interface DeleteWorkGroupInput {
   RecursiveDeleteOption?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkGroupOutput {}
 
+/**
+ * @public
+ */
 export interface ExportNotebookInput {
   /**
    * <p>The ID of the notebook to export.</p>
@@ -1173,11 +1298,15 @@ export interface ExportNotebookInput {
   NotebookId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NotebookType {
   IPYNB = "IPYNB",
 }
 
 /**
+ * @public
  * <p>Contains metadata for notebook, including the notebook name, ID, workgroup, and time
  *             created.</p>
  */
@@ -1213,6 +1342,9 @@ export interface NotebookMetadata {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ExportNotebookOutput {
   /**
    * <p>The notebook metadata, including notebook ID, notebook name, and workgroup
@@ -1226,6 +1358,9 @@ export interface ExportNotebookOutput {
   Payload?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCalculationExecutionRequest {
   /**
    * <p>The calculation execution UUID.</p>
@@ -1234,6 +1369,7 @@ export interface GetCalculationExecutionRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an application-specific calculation result.</p>
  */
 export interface CalculationResult {
@@ -1260,6 +1396,7 @@ export interface CalculationResult {
 }
 
 /**
+ * @public
  * <p>Contains statistics for a notebook calculation.</p>
  */
 export interface CalculationStatistics {
@@ -1274,6 +1411,9 @@ export interface CalculationStatistics {
   Progress?: string;
 }
 
+/**
+ * @public
+ */
 export enum CalculationExecutionState {
   CANCELED = "CANCELED",
   CANCELING = "CANCELING",
@@ -1286,6 +1426,7 @@ export enum CalculationExecutionState {
 }
 
 /**
+ * @public
  * <p>Contains information about the status of a notebook calculation.</p>
  */
 export interface CalculationStatus {
@@ -1329,6 +1470,9 @@ export interface CalculationStatus {
   StateChangeReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCalculationExecutionResponse {
   /**
    * <p>The calculation execution UUID.</p>
@@ -1368,6 +1512,9 @@ export interface GetCalculationExecutionResponse {
   Result?: CalculationResult;
 }
 
+/**
+ * @public
+ */
 export interface GetCalculationExecutionCodeRequest {
   /**
    * <p>The calculation execution UUID.</p>
@@ -1375,6 +1522,9 @@ export interface GetCalculationExecutionCodeRequest {
   CalculationExecutionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCalculationExecutionCodeResponse {
   /**
    * <p>A pre-signed URL to the code that executed the calculation.</p>
@@ -1382,6 +1532,9 @@ export interface GetCalculationExecutionCodeResponse {
   CodeBlock?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCalculationExecutionStatusRequest {
   /**
    * <p>The calculation execution UUID.</p>
@@ -1389,6 +1542,9 @@ export interface GetCalculationExecutionStatusRequest {
   CalculationExecutionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCalculationExecutionStatusResponse {
   /**
    * <p>Contains information about the calculation execution status.</p>
@@ -1401,6 +1557,9 @@ export interface GetCalculationExecutionStatusResponse {
   Statistics?: CalculationStatistics;
 }
 
+/**
+ * @public
+ */
 export interface GetDatabaseInput {
   /**
    * <p>The name of the data catalog that contains the database to return.</p>
@@ -1414,6 +1573,7 @@ export interface GetDatabaseInput {
 }
 
 /**
+ * @public
  * <p>Contains metadata information for a database in a data catalog.</p>
  */
 export interface Database {
@@ -1433,6 +1593,9 @@ export interface Database {
   Parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetDatabaseOutput {
   /**
    * <p>The database returned.</p>
@@ -1441,6 +1604,7 @@ export interface GetDatabaseOutput {
 }
 
 /**
+ * @public
  * <p>An exception that Athena received when it called a custom metastore.
  *             Occurs if the error is not caused by user input (<code>InvalidRequestException</code>)
  *             or from the Athena platform (<code>InternalServerException</code>). For
@@ -1466,6 +1630,9 @@ export class MetadataException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetDataCatalogInput {
   /**
    * <p>The name of the data catalog to return.</p>
@@ -1474,6 +1641,7 @@ export interface GetDataCatalogInput {
 }
 
 /**
+ * @public
  * <p>Contains information about a data catalog in an Amazon Web Services account.</p>
  *          <note>
  *             <p>In the Athena console, data catalogs are listed as "data sources" on the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
@@ -1567,6 +1735,9 @@ export interface DataCatalog {
   Parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetDataCatalogOutput {
   /**
    * <p>The data catalog returned.</p>
@@ -1574,6 +1745,9 @@ export interface GetDataCatalogOutput {
   DataCatalog?: DataCatalog;
 }
 
+/**
+ * @public
+ */
 export interface GetNamedQueryInput {
   /**
    * <p>The unique ID of the query. Use <a>ListNamedQueries</a> to get query
@@ -1582,6 +1756,9 @@ export interface GetNamedQueryInput {
   NamedQueryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNamedQueryOutput {
   /**
    * <p>Information about the query.</p>
@@ -1589,6 +1766,9 @@ export interface GetNamedQueryOutput {
   NamedQuery?: NamedQuery;
 }
 
+/**
+ * @public
+ */
 export interface GetNotebookMetadataInput {
   /**
    * <p>The ID of the notebook whose metadata is to be retrieved.</p>
@@ -1596,6 +1776,9 @@ export interface GetNotebookMetadataInput {
   NotebookId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetNotebookMetadataOutput {
   /**
    * <p>The metadata that is returned for the specified notebook ID.</p>
@@ -1603,6 +1786,9 @@ export interface GetNotebookMetadataOutput {
   NotebookMetadata?: NotebookMetadata;
 }
 
+/**
+ * @public
+ */
 export interface GetPreparedStatementInput {
   /**
    * <p>The name of the prepared statement to retrieve.</p>
@@ -1615,6 +1801,9 @@ export interface GetPreparedStatementInput {
   WorkGroup: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPreparedStatementOutput {
   /**
    * <p>The name of the prepared statement that was retrieved.</p>
@@ -1622,6 +1811,9 @@ export interface GetPreparedStatementOutput {
   PreparedStatement?: PreparedStatement;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryExecutionInput {
   /**
    * <p>The unique ID of the query execution.</p>
@@ -1629,6 +1821,9 @@ export interface GetQueryExecutionInput {
   QueryExecutionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryExecutionOutput {
   /**
    * <p>Information about the query execution.</p>
@@ -1636,6 +1831,9 @@ export interface GetQueryExecutionOutput {
   QueryExecution?: QueryExecution;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryResultsInput {
   /**
    * <p>The unique ID of the query execution.</p>
@@ -1655,6 +1853,9 @@ export interface GetQueryResultsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum ColumnNullable {
   NOT_NULL = "NOT_NULL",
   NULLABLE = "NULLABLE",
@@ -1662,6 +1863,7 @@ export enum ColumnNullable {
 }
 
 /**
+ * @public
  * <p>Information about the columns in a query execution result.</p>
  */
 export interface ColumnInfo {
@@ -1719,6 +1921,7 @@ export interface ColumnInfo {
 }
 
 /**
+ * @public
  * <p>The metadata that describes the column structure and data types of a table of query
  *             results. To return a <code>ResultSetMetadata</code> object, use <a>GetQueryResults</a>.</p>
  */
@@ -1730,6 +1933,7 @@ export interface ResultSetMetadata {
 }
 
 /**
+ * @public
  * <p>A piece of data (a field in the table).</p>
  */
 export interface Datum {
@@ -1740,6 +1944,7 @@ export interface Datum {
 }
 
 /**
+ * @public
  * <p>The rows that make up a query result table.</p>
  */
 export interface Row {
@@ -1750,6 +1955,7 @@ export interface Row {
 }
 
 /**
+ * @public
  * <p>The metadata and rows that make up a query result set. The metadata describes the
  *             column structure and data types. To return a <code>ResultSet</code> object, use <a>GetQueryResults</a>.</p>
  */
@@ -1766,6 +1972,9 @@ export interface ResultSet {
   ResultSetMetadata?: ResultSetMetadata;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryResultsOutput {
   /**
    * <p>The number of rows inserted with a <code>CREATE TABLE AS SELECT</code> statement.
@@ -1786,6 +1995,9 @@ export interface GetQueryResultsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryRuntimeStatisticsInput {
   /**
    * <p>The unique ID of the query execution.</p>
@@ -1794,6 +2006,7 @@ export interface GetQueryRuntimeStatisticsInput {
 }
 
 /**
+ * @public
  * <p>Statistics such as input rows and bytes read by the query, rows and bytes output by
  *             the query, and the number of rows written by the query.</p>
  */
@@ -1820,6 +2033,7 @@ export interface QueryRuntimeStatisticsRows {
 }
 
 /**
+ * @public
  * <p>Timeline statistics such as query queue time, planning time, execution time, service
  *             processing time, and total execution time.</p>
  */
@@ -1856,6 +2070,9 @@ export interface QueryRuntimeStatisticsTimeline {
   TotalExecutionTimeInMillis?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionRequest {
   /**
    * <p>The session ID.</p>
@@ -1864,6 +2081,7 @@ export interface GetSessionRequest {
 }
 
 /**
+ * @public
  * <p>Contains data processing unit (DPU) configuration settings and parameter mappings for
  *             a notebook engine.</p>
  */
@@ -1897,6 +2115,7 @@ export interface EngineConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains session configuration information.</p>
  */
 export interface SessionConfiguration {
@@ -1924,6 +2143,7 @@ export interface SessionConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains statistics for a notebook session.</p>
  */
 export interface SessionStatistics {
@@ -1933,6 +2153,9 @@ export interface SessionStatistics {
   DpuExecutionInMillis?: number;
 }
 
+/**
+ * @public
+ */
 export enum SessionState {
   BUSY = "BUSY",
   CREATED = "CREATED",
@@ -1945,6 +2168,7 @@ export enum SessionState {
 }
 
 /**
+ * @public
  * <p>Contains information about the status of a notebook session.</p>
  */
 export interface SessionStatus {
@@ -2000,6 +2224,9 @@ export interface SessionStatus {
   StateChangeReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionResponse {
   /**
    * <p>The session ID.</p>
@@ -2048,6 +2275,9 @@ export interface GetSessionResponse {
   Statistics?: SessionStatistics;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionStatusRequest {
   /**
    * <p>The session ID.</p>
@@ -2055,6 +2285,9 @@ export interface GetSessionStatusRequest {
   SessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionStatusResponse {
   /**
    * <p>The session ID.</p>
@@ -2067,6 +2300,9 @@ export interface GetSessionStatusResponse {
   Status?: SessionStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetTableMetadataInput {
   /**
    * <p>The name of the data catalog that contains the database and table metadata to
@@ -2086,6 +2322,7 @@ export interface GetTableMetadataInput {
 }
 
 /**
+ * @public
  * <p>Contains metadata for a column in a table.</p>
  */
 export interface Column {
@@ -2106,6 +2343,7 @@ export interface Column {
 }
 
 /**
+ * @public
  * <p>Contains metadata for a table.</p>
  */
 export interface TableMetadata {
@@ -2146,6 +2384,9 @@ export interface TableMetadata {
   Parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetTableMetadataOutput {
   /**
    * <p>An object that contains table metadata.</p>
@@ -2153,6 +2394,9 @@ export interface GetTableMetadataOutput {
   TableMetadata?: TableMetadata;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkGroupInput {
   /**
    * <p>The name of the workgroup.</p>
@@ -2160,12 +2404,16 @@ export interface GetWorkGroupInput {
   WorkGroup: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum WorkGroupState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>A workgroup, which contains a name, description, creation time, state, and other
  *             configuration, listed under <a>WorkGroup$Configuration</a>. Each workgroup
  *             enables you to isolate queries for you or your group of users from other queries in the
@@ -2208,6 +2456,9 @@ export interface WorkGroup {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkGroupOutput {
   /**
    * <p>Information about the workgroup.</p>
@@ -2215,6 +2466,9 @@ export interface GetWorkGroupOutput {
   WorkGroup?: WorkGroup;
 }
 
+/**
+ * @public
+ */
 export interface ImportNotebookInput {
   /**
    * <p>The name of the Spark enabled workgroup to import the notebook to.</p>
@@ -2250,6 +2504,9 @@ export interface ImportNotebookInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportNotebookOutput {
   /**
    * <p>The ID of the notebook to import.</p>
@@ -2257,6 +2514,9 @@ export interface ImportNotebookOutput {
   NotebookId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationDPUSizesInput {
   /**
    * <p>Specifies the maximum number of results to return.</p>
@@ -2271,6 +2531,7 @@ export interface ListApplicationDPUSizesInput {
 }
 
 /**
+ * @public
  * <p>Contains the application runtime IDs and their supported DPU sizes.</p>
  */
 export interface ApplicationDPUSizes {
@@ -2286,6 +2547,9 @@ export interface ApplicationDPUSizes {
   SupportedDPUSizes?: number[];
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationDPUSizesOutput {
   /**
    * <p>A list of the supported DPU sizes that the application runtime supports.</p>
@@ -2300,6 +2564,9 @@ export interface ListApplicationDPUSizesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCalculationExecutionsRequest {
   /**
    * <p>The session ID.</p>
@@ -2344,6 +2611,7 @@ export interface ListCalculationExecutionsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a notebook calculation.</p>
  */
 export interface CalculationSummary {
@@ -2363,6 +2631,9 @@ export interface CalculationSummary {
   Status?: CalculationStatus;
 }
 
+/**
+ * @public
+ */
 export interface ListCalculationExecutionsResponse {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -2377,6 +2648,9 @@ export interface ListCalculationExecutionsResponse {
   Calculations?: CalculationSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListDatabasesInput {
   /**
    * <p>The name of the data catalog that contains the databases to return.</p>
@@ -2396,6 +2670,9 @@ export interface ListDatabasesInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDatabasesOutput {
   /**
    * <p>A list of databases from a data catalog.</p>
@@ -2410,6 +2687,9 @@ export interface ListDatabasesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataCatalogsInput {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -2425,6 +2705,7 @@ export interface ListDataCatalogsInput {
 }
 
 /**
+ * @public
  * <p>The summary information for the data catalog, which includes its name and type.</p>
  */
 export interface DataCatalogSummary {
@@ -2441,6 +2722,9 @@ export interface DataCatalogSummary {
   Type?: DataCatalogType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataCatalogsOutput {
   /**
    * <p>A summary list of data catalogs.</p>
@@ -2455,6 +2739,9 @@ export interface ListDataCatalogsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEngineVersionsInput {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -2469,6 +2756,9 @@ export interface ListEngineVersionsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEngineVersionsOutput {
   /**
    * <p>A list of engine versions that are available to choose from.</p>
@@ -2483,6 +2773,9 @@ export interface ListEngineVersionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ExecutorState {
   CREATED = "CREATED",
   CREATING = "CREATING",
@@ -2492,6 +2785,9 @@ export enum ExecutorState {
   TERMINATING = "TERMINATING",
 }
 
+/**
+ * @public
+ */
 export interface ListExecutorsRequest {
   /**
    * <p>The session ID.</p>
@@ -2529,6 +2825,9 @@ export interface ListExecutorsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ExecutorType {
   COORDINATOR = "COORDINATOR",
   GATEWAY = "GATEWAY",
@@ -2536,6 +2835,7 @@ export enum ExecutorType {
 }
 
 /**
+ * @public
  * <p>Contains summary information about an executor.</p>
  */
 export interface ExecutorsSummary {
@@ -2586,6 +2886,9 @@ export interface ExecutorsSummary {
   ExecutorSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListExecutorsResponse {
   /**
    * <p>The session ID.</p>
@@ -2605,6 +2908,9 @@ export interface ListExecutorsResponse {
   ExecutorsSummary?: ExecutorsSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListNamedQueriesInput {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -2626,6 +2932,9 @@ export interface ListNamedQueriesInput {
   WorkGroup?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNamedQueriesOutput {
   /**
    * <p>The list of unique query IDs.</p>
@@ -2641,6 +2950,7 @@ export interface ListNamedQueriesOutput {
 }
 
 /**
+ * @public
  * <p>A string for searching notebook names.</p>
  */
 export interface FilterDefinition {
@@ -2650,6 +2960,9 @@ export interface FilterDefinition {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookMetadataInput {
   /**
    * <p>Search filter string.</p>
@@ -2673,6 +2986,9 @@ export interface ListNotebookMetadataInput {
   WorkGroup: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookMetadataOutput {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -2687,6 +3003,9 @@ export interface ListNotebookMetadataOutput {
   NotebookMetadataList?: NotebookMetadata[];
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookSessionsRequest {
   /**
    * <p>The ID of the notebook to list sessions for.</p>
@@ -2707,6 +3026,7 @@ export interface ListNotebookSessionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the notebook session ID and notebook session creation time.</p>
  */
 export interface NotebookSessionSummary {
@@ -2721,6 +3041,9 @@ export interface NotebookSessionSummary {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListNotebookSessionsResponse {
   /**
    * <p>A list of the sessions belonging to the notebook.</p>
@@ -2735,6 +3058,9 @@ export interface ListNotebookSessionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPreparedStatementsInput {
   /**
    * <p>The workgroup to list the prepared statements for.</p>
@@ -2755,6 +3081,7 @@ export interface ListPreparedStatementsInput {
 }
 
 /**
+ * @public
  * <p>The name and last modified time of the prepared statement.</p>
  */
 export interface PreparedStatementSummary {
@@ -2769,6 +3096,9 @@ export interface PreparedStatementSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPreparedStatementsOutput {
   /**
    * <p>The list of prepared statements for the workgroup.</p>
@@ -2783,6 +3113,9 @@ export interface ListPreparedStatementsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListQueryExecutionsInput {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -2804,6 +3137,9 @@ export interface ListQueryExecutionsInput {
   WorkGroup?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListQueryExecutionsOutput {
   /**
    * <p>The unique IDs of each query execution as an array of strings.</p>
@@ -2816,6 +3152,9 @@ export interface ListQueryExecutionsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSessionsRequest {
   /**
    * <p>The workgroup to which the session belongs.</p>
@@ -2860,6 +3199,7 @@ export interface ListSessionsRequest {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a notebook session.</p>
  */
 export interface SessionSummary {
@@ -2890,6 +3230,9 @@ export interface SessionSummary {
   Status?: SessionStatus;
 }
 
+/**
+ * @public
+ */
 export interface ListSessionsResponse {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -2904,6 +3247,9 @@ export interface ListSessionsResponse {
   Sessions?: SessionSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListTableMetadataInput {
   /**
    * <p>The name of the data catalog for which table metadata should be returned.</p>
@@ -2934,6 +3280,9 @@ export interface ListTableMetadataInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTableMetadataOutput {
   /**
    * <p>A list of table metadata.</p>
@@ -2948,6 +3297,9 @@ export interface ListTableMetadataOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>Lists the tags for the resource with the specified ARN.</p>
@@ -2968,6 +3320,9 @@ export interface ListTagsForResourceInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags associated with the specified resource.</p>
@@ -2980,6 +3335,9 @@ export interface ListTagsForResourceOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkGroupsInput {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -2995,6 +3353,7 @@ export interface ListWorkGroupsInput {
 }
 
 /**
+ * @public
  * <p>The summary information for the workgroup, which includes its name, state,
  *             description, and the date and time it was created.</p>
  */
@@ -3027,6 +3386,9 @@ export interface WorkGroupSummary {
   EngineVersion?: EngineVersion;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkGroupsOutput {
   /**
    * <p>A list of <a>WorkGroupSummary</a> objects that include the names,
@@ -3043,6 +3405,7 @@ export interface ListWorkGroupsOutput {
 }
 
 /**
+ * @public
  * <p>Contains configuration information for the calculation.</p>
  */
 export interface CalculationConfiguration {
@@ -3052,6 +3415,9 @@ export interface CalculationConfiguration {
   CodeBlock?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartCalculationExecutionRequest {
   /**
    * <p>The session ID.</p>
@@ -3091,6 +3457,9 @@ export interface StartCalculationExecutionRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartCalculationExecutionResponse {
   /**
    * <p>The calculation execution UUID.</p>
@@ -3120,6 +3489,9 @@ export interface StartCalculationExecutionResponse {
   State?: CalculationExecutionState | string;
 }
 
+/**
+ * @public
+ */
 export interface StartQueryExecutionInput {
   /**
    * <p>The SQL query statements to be executed.</p>
@@ -3170,6 +3542,9 @@ export interface StartQueryExecutionInput {
   ResultReuseConfiguration?: ResultReuseConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface StartQueryExecutionOutput {
   /**
    * <p>The unique ID of the query that ran as a result of this request.</p>
@@ -3178,6 +3553,7 @@ export interface StartQueryExecutionOutput {
 }
 
 /**
+ * @public
  * <p>The specified session already exists.</p>
  */
 export class SessionAlreadyExistsException extends __BaseException {
@@ -3198,6 +3574,9 @@ export class SessionAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartSessionRequest {
   /**
    * <p>The session description.</p>
@@ -3242,6 +3621,9 @@ export interface StartSessionRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartSessionResponse {
   /**
    * <p>The session ID.</p>
@@ -3273,6 +3655,9 @@ export interface StartSessionResponse {
   State?: SessionState | string;
 }
 
+/**
+ * @public
+ */
 export interface StopCalculationExecutionRequest {
   /**
    * <p>The calculation execution UUID.</p>
@@ -3280,6 +3665,9 @@ export interface StopCalculationExecutionRequest {
   CalculationExecutionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopCalculationExecutionResponse {
   /**
    * <p>
@@ -3304,6 +3692,9 @@ export interface StopCalculationExecutionResponse {
   State?: CalculationExecutionState | string;
 }
 
+/**
+ * @public
+ */
 export interface StopQueryExecutionInput {
   /**
    * <p>The unique ID of the query execution to stop.</p>
@@ -3311,8 +3702,14 @@ export interface StopQueryExecutionInput {
   QueryExecutionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopQueryExecutionOutput {}
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>Specifies the ARN of the Athena resource (workgroup or data catalog) to
@@ -3326,8 +3723,14 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface TerminateSessionRequest {
   /**
    * <p>The session ID.</p>
@@ -3335,6 +3738,9 @@ export interface TerminateSessionRequest {
   SessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TerminateSessionResponse {
   /**
    * <p>The state of the session. A description of each state follows.</p>
@@ -3361,6 +3767,9 @@ export interface TerminateSessionResponse {
   State?: SessionState | string;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>Specifies the ARN of the resource from which tags are to be removed.</p>
@@ -3374,8 +3783,14 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateDataCatalogInput {
   /**
    * <p>The name of the data catalog to update. The catalog name must be unique for the
@@ -3441,8 +3856,14 @@ export interface UpdateDataCatalogInput {
   Parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataCatalogOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateNamedQueryInput {
   /**
    * <p>The unique identifier (UUID) of the query.</p>
@@ -3465,8 +3886,14 @@ export interface UpdateNamedQueryInput {
   QueryString: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNamedQueryOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateNotebookInput {
   /**
    * <p>The ID of the notebook to update.</p>
@@ -3502,8 +3929,14 @@ export interface UpdateNotebookInput {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotebookOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateNotebookMetadataInput {
   /**
    * <p>The ID of the notebook to update the metadata for.</p>
@@ -3528,8 +3961,14 @@ export interface UpdateNotebookMetadataInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotebookMetadataOutput {}
 
+/**
+ * @public
+ */
 export interface UpdatePreparedStatementInput {
   /**
    * <p>The name of the prepared statement.</p>
@@ -3552,9 +3991,13 @@ export interface UpdatePreparedStatementInput {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePreparedStatementOutput {}
 
 /**
+ * @public
  * <p>The information about the updates in the query results, such as output location and
  *             encryption configuration for the query results.</p>
  */
@@ -3641,6 +4084,7 @@ export interface ResultConfigurationUpdates {
 }
 
 /**
+ * @public
  * <p>The configuration information that will be updated for this workgroup, which includes
  *             the location in Amazon S3 where query results are stored, the encryption option,
  *             if any, used for query results, whether the Amazon CloudWatch Metrics are enabled
@@ -3717,6 +4161,9 @@ export interface WorkGroupConfigurationUpdates {
   CustomerContentEncryptionConfiguration?: CustomerContentEncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkGroupInput {
   /**
    * <p>The specified workgroup that will be updated.</p>
@@ -3739,9 +4186,13 @@ export interface UpdateWorkGroupInput {
   State?: WorkGroupState | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkGroupOutput {}
 
 /**
+ * @public
  * <p>Stage plan information such as name, identifier, sub plans, and remote sources.</p>
  */
 export interface QueryStagePlanNode {
@@ -3769,6 +4220,7 @@ export interface QueryStagePlanNode {
 }
 
 /**
+ * @public
  * <p>Stage statistics such as input and output rows and bytes, execution time and stage
  *             state. This information also includes substages and the query stage plan.</p>
  */
@@ -3820,6 +4272,7 @@ export interface QueryStage {
 }
 
 /**
+ * @public
  * <p>The query execution timeline, statistics on input and output rows and bytes, and the
  *             different query stages that form the query execution plan.</p>
  */
@@ -3843,6 +4296,9 @@ export interface QueryRuntimeStatistics {
   OutputStage?: QueryStage;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryRuntimeStatisticsOutput {
   /**
    * <p>Runtime statistics about the query execution.</p>

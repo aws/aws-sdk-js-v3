@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactFlowMetadataCommand}.
  */
 export interface UpdateContactFlowMetadataCommandInput extends UpdateContactFlowMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactFlowMetadataCommand}.
  */
 export interface UpdateContactFlowMetadataCommandOutput extends UpdateContactFlowMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates metadata about specified flow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateContactFlowMetadataCommandOutput extends UpdateContactFlo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactFlowMetadataCommandInput - {@link UpdateContactFlowMetadataCommandInput}
+ * @returns {@link UpdateContactFlowMetadataCommandOutput}
  * @see {@link UpdateContactFlowMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowMetadataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateContactFlowMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactFlowMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateContactFlowMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactFlowMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateContactFlowMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

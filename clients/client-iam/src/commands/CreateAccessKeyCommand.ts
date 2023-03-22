@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessKeyCommand}.
  */
 export interface CreateAccessKeyCommandInput extends CreateAccessKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessKeyCommand}.
  */
 export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new Amazon Web Services secret access key and corresponding Amazon Web Services access key ID for the
  *             specified user. The default status for new keys is <code>Active</code>.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
@@ -59,6 +64,8 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessKeyCommandInput - {@link CreateAccessKeyCommandInput}
+ * @returns {@link CreateAccessKeyCommandOutput}
  * @see {@link CreateAccessKeyCommandInput} for command's `input` shape.
  * @see {@link CreateAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -116,6 +123,9 @@ export class CreateAccessKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class CreateAccessKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateAccessKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessKeyCommandOutput> {
     return deserializeAws_queryCreateAccessKeyCommand(output, context);
   }

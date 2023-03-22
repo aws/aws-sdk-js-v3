@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEndpointCommand}.
  */
 export interface DescribeEndpointCommandInput extends DescribeEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEndpointCommand}.
  */
 export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a specific endpoint. Use this operation to get the
  *       status of an endpoint.
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEndpointCommandInput - {@link DescribeEndpointCommandInput}
+ * @returns {@link DescribeEndpointCommandOutput}
  * @see {@link DescribeEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointCommandOutput> {
     return deserializeAws_json1_1DescribeEndpointCommand(output, context);
   }

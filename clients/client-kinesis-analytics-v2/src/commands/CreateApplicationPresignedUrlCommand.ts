@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationPresignedUrlCommand}.
  */
 export interface CreateApplicationPresignedUrlCommandInput extends CreateApplicationPresignedUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationPresignedUrlCommand}.
  */
 export interface CreateApplicationPresignedUrlCommandOutput
@@ -41,6 +45,7 @@ export interface CreateApplicationPresignedUrlCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and returns a URL that you can use to connect to
  *             an application's extension.</p>
  *         <p>The IAM role or user used to call this API defines the permissions to access the
@@ -64,6 +69,8 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationPresignedUrlCommandInput - {@link CreateApplicationPresignedUrlCommandInput}
+ * @returns {@link CreateApplicationPresignedUrlCommandOutput}
  * @see {@link CreateApplicationPresignedUrlCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationPresignedUrlCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationPresignedUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationPresignedUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateApplicationPresignedUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBandwidthRateLimitCommand}.
  */
 export interface DeleteBandwidthRateLimitCommandInput extends DeleteBandwidthRateLimitInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBandwidthRateLimitCommand}.
  */
 export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the bandwidth rate limits of a gateway. You can delete either the upload and
  *          download bandwidth rate limit, or you can delete both. If you delete only one of the
  *          limits, the other limit remains unchanged. To specify which gateway to work with, use the
@@ -50,6 +55,8 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBandwidthRateLimitCommandInput - {@link DeleteBandwidthRateLimitCommandInput}
+ * @returns {@link DeleteBandwidthRateLimitCommandOutput}
  * @see {@link DeleteBandwidthRateLimitCommandInput} for command's `input` shape.
  * @see {@link DeleteBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeleteBandwidthRateLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBandwidthRateLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DeleteBandwidthRateLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBandwidthRateLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBandwidthRateLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBandwidthRateLimitCommandOutput> {
     return deserializeAws_json1_1DeleteBandwidthRateLimitCommand(output, context);
   }

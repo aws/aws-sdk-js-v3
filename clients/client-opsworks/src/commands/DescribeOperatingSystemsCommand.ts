@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOperatingSystemsCommand}.
  */
 export interface DescribeOperatingSystemsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOperatingSystemsCommand}.
  */
 export interface DescribeOperatingSystemsCommandOutput extends DescribeOperatingSystemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOperatingSystemsCommandInput - {@link DescribeOperatingSystemsCommandInput}
+ * @returns {@link DescribeOperatingSystemsCommandOutput}
  * @see {@link DescribeOperatingSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeOperatingSystemsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -67,6 +74,9 @@ export class DescribeOperatingSystemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOperatingSystemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class DescribeOperatingSystemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOperatingSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeOperatingSystemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOperatingSystemsCommandOutput> {
     return deserializeAws_json1_1DescribeOperatingSystemsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPriceListsCommand}.
  */
 export interface ListPriceListsCommandInput extends ListPriceListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPriceListsCommand}.
  */
 export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <i>
  *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
@@ -58,6 +63,8 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPriceListsCommandInput - {@link ListPriceListsCommandInput}
+ * @returns {@link ListPriceListsCommandOutput}
  * @see {@link ListPriceListsCommandInput} for command's `input` shape.
  * @see {@link ListPriceListsCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
@@ -99,6 +106,9 @@ export class ListPriceListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPriceListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ListPriceListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPriceListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPriceListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPriceListsCommandOutput> {
     return deserializeAws_json1_1ListPriceListsCommand(output, context);
   }

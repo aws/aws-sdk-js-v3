@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListBrowserSettingsCommand}.
  */
 export interface ListBrowserSettingsCommandInput extends ListBrowserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBrowserSettingsCommand}.
  */
 export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of browser settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBrowserSettingsCommandInput - {@link ListBrowserSettingsCommandInput}
+ * @returns {@link ListBrowserSettingsCommandOutput}
  * @see {@link ListBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link ListBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBrowserSettingsCommandOutput> {
     return deserializeAws_restJson1ListBrowserSettingsCommand(output, context);
   }

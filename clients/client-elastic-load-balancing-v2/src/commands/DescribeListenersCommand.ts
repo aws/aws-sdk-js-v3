@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeListenersCommand}.
  */
 export interface DescribeListenersCommandInput extends DescribeListenersInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeListenersCommand}.
  */
 export interface DescribeListenersCommandOutput extends DescribeListenersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified listeners or the listeners for the specified Application Load
  *       Balancer, Network Load Balancer, or Gateway Load Balancer. You must specify either a load
  *       balancer or one or more listeners.</p>
@@ -52,6 +57,8 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeListenersCommandInput - {@link DescribeListenersCommandInput}
+ * @returns {@link DescribeListenersCommandOutput}
  * @see {@link DescribeListenersCommandInput} for command's `input` shape.
  * @see {@link DescribeListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -115,6 +122,9 @@ export class DescribeListenersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeListenersCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class DescribeListenersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeListenersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeListenersCommandOutput> {
     return deserializeAws_queryDescribeListenersCommand(output, context);
   }

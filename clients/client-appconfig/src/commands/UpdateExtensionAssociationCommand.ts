@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateExtensionAssociationCommand}.
  */
 export interface UpdateExtensionAssociationCommandInput extends UpdateExtensionAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateExtensionAssociationCommand}.
  */
 export interface UpdateExtensionAssociationCommandOutput extends ExtensionAssociation, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an association. For more information about extensions and associations, see
  *             <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -49,6 +54,8 @@ export interface UpdateExtensionAssociationCommandOutput extends ExtensionAssoci
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExtensionAssociationCommandInput - {@link UpdateExtensionAssociationCommandInput}
+ * @returns {@link UpdateExtensionAssociationCommandOutput}
  * @see {@link UpdateExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateExtensionAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExtensionAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateExtensionAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExtensionAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateExtensionAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

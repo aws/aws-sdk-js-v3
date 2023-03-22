@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartClockCommand}.
  */
 export interface StartClockCommandInput extends StartClockInput {}
 /**
+ * @public
+ *
  * The output of {@link StartClockCommand}.
  */
 export interface StartClockCommandOutput extends StartClockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the simulation clock.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartClockCommandOutput extends StartClockOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StartClockCommandInput - {@link StartClockCommandInput}
+ * @returns {@link StartClockCommandOutput}
  * @see {@link StartClockCommandInput} for command's `input` shape.
  * @see {@link StartClockCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartClockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartClockCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StartClockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartClockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartClockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartClockCommandOutput> {
     return deserializeAws_restJson1StartClockCommand(output, context);
   }

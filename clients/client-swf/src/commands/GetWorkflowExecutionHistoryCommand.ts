@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkflowExecutionHistoryCommand}.
  */
 export interface GetWorkflowExecutionHistoryCommandInput extends GetWorkflowExecutionHistoryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkflowExecutionHistoryCommand}.
  */
 export interface GetWorkflowExecutionHistoryCommandOutput extends History, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the history of the specified workflow execution. The results may be split into
  *       multiple pages. To retrieve subsequent pages, make the call again using the
  *         <code>nextPageToken</code> returned by the initial call.</p>
@@ -75,6 +80,8 @@ export interface GetWorkflowExecutionHistoryCommandOutput extends History, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowExecutionHistoryCommandInput - {@link GetWorkflowExecutionHistoryCommandInput}
+ * @returns {@link GetWorkflowExecutionHistoryCommandOutput}
  * @see {@link GetWorkflowExecutionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowExecutionHistoryCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowExecutionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowExecutionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetWorkflowExecutionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

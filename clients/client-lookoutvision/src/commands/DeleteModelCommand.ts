@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandInput extends DeleteModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandOutput extends DeleteModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Lookout for Vision model. You can't delete a running model. To stop a running model,
  *       use the <a>StopModel</a> operation.</p>
  *          <p>It might take a few seconds to delete a model. To determine if a model has been deleted, call
@@ -53,6 +58,8 @@ export interface DeleteModelCommandOutput extends DeleteModelResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
+ * @returns {@link DeleteModelCommandOutput}
  * @see {@link DeleteModelCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCommandOutput> {
     return deserializeAws_restJson1DeleteModelCommand(output, context);
   }

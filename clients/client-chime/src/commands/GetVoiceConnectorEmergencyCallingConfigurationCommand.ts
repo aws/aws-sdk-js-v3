@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface GetVoiceConnectorEmergencyCallingConfigurationCommandInput
   extends GetVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the emergency calling configuration details for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceConnectorEmergencyCallingConfigurationCommandInput - {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput}
+ * @returns {@link GetVoiceConnectorEmergencyCallingConfigurationCommandOutput}
  * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     return serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

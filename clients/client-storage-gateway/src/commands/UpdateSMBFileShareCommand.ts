@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSMBFileShareCommand}.
  */
 export interface UpdateSMBFileShareCommandInput extends UpdateSMBFileShareInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSMBFileShareCommand}.
  */
 export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for S3
  *          File Gateways.</p>
  *
@@ -65,6 +70,8 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSMBFileShareCommandInput - {@link UpdateSMBFileShareCommandInput}
+ * @returns {@link UpdateSMBFileShareCommandOutput}
  * @see {@link UpdateSMBFileShareCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateSMBFileShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSMBFileShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateSMBFileShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSMBFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSMBFileShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSMBFileShareCommandOutput> {
     return deserializeAws_json1_1UpdateSMBFileShareCommand(output, context);
   }

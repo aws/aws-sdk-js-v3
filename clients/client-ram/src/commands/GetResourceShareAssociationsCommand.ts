@@ -26,10 +26,14 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceShareAssociationsCommand}.
  */
 export interface GetResourceShareAssociationsCommandInput extends GetResourceShareAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceShareAssociationsCommand}.
  */
 export interface GetResourceShareAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetResourceShareAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource and principal associations for resource shares that you own.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetResourceShareAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceShareAssociationsCommandInput - {@link GetResourceShareAssociationsCommandInput}
+ * @returns {@link GetResourceShareAssociationsCommandOutput}
  * @see {@link GetResourceShareAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetResourceShareAssociationsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetResourceShareAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceShareAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetResourceShareAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceShareAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourceShareAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

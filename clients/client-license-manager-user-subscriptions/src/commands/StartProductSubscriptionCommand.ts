@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartProductSubscriptionCommand}.
  */
 export interface StartProductSubscriptionCommandInput extends StartProductSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartProductSubscriptionCommand}.
  */
 export interface StartProductSubscriptionCommandOutput extends StartProductSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a product subscription for a user with the specified identity provider.</p>
  *          <note>
  *             <p>Your estimated bill for charges on the number of users and related costs will take 48
@@ -55,6 +60,8 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * const response = await client.send(command);
  * ```
  *
+ * @param StartProductSubscriptionCommandInput - {@link StartProductSubscriptionCommandInput}
+ * @returns {@link StartProductSubscriptionCommandOutput}
  * @see {@link StartProductSubscriptionCommandInput} for command's `input` shape.
  * @see {@link StartProductSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -100,6 +107,9 @@ export class StartProductSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartProductSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class StartProductSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartProductSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartProductSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProductSubscriptionCommandOutput> {
     return deserializeAws_restJson1StartProductSubscriptionCommand(output, context);
   }

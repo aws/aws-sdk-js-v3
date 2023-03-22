@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandInput extends CreateGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a group resource with a name and a filter expression. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
+ * @returns {@link CreateGroupCommandOutput}
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupCommandOutput> {
     return deserializeAws_restJson1CreateGroupCommand(output, context);
   }

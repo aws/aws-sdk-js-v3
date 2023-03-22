@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFolderCommand}.
  */
 export interface UpdateFolderCommandInput extends UpdateFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFolderCommand}.
  */
 export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFolderCommandInput - {@link UpdateFolderCommandInput}
+ * @returns {@link UpdateFolderCommandOutput}
  * @see {@link UpdateFolderCommandInput} for command's `input` shape.
  * @see {@link UpdateFolderCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFolderCommandOutput> {
     return deserializeAws_restJson1UpdateFolderCommand(output, context);
   }

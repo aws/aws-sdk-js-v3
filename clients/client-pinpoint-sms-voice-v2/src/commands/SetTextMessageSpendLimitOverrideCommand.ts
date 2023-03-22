@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SetTextMessageSpendLimitOverrideCommand}.
  */
 export interface SetTextMessageSpendLimitOverrideCommandInput extends SetTextMessageSpendLimitOverrideRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetTextMessageSpendLimitOverrideCommand}.
  */
 export interface SetTextMessageSpendLimitOverrideCommandOutput
@@ -41,6 +45,7 @@ export interface SetTextMessageSpendLimitOverrideCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets an account level monthly spend limit override for sending text messages. The
  *             requested spend limit must be less than or equal to the <code>MaxLimit</code>, which is
  *             set by Amazon Web Services. </p>
@@ -54,6 +59,8 @@ export interface SetTextMessageSpendLimitOverrideCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTextMessageSpendLimitOverrideCommandInput - {@link SetTextMessageSpendLimitOverrideCommandInput}
+ * @returns {@link SetTextMessageSpendLimitOverrideCommandOutput}
  * @see {@link SetTextMessageSpendLimitOverrideCommandInput} for command's `input` shape.
  * @see {@link SetTextMessageSpendLimitOverrideCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -92,6 +99,9 @@ export class SetTextMessageSpendLimitOverrideCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTextMessageSpendLimitOverrideCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class SetTextMessageSpendLimitOverrideCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetTextMessageSpendLimitOverrideCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class SetTextMessageSpendLimitOverrideCommand extends $Command<
     return serializeAws_json1_0SetTextMessageSpendLimitOverrideCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

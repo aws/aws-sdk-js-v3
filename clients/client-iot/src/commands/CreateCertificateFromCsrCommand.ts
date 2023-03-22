@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCertificateFromCsrCommand}.
  */
 export interface CreateCertificateFromCsrCommandInput extends CreateCertificateFromCsrRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCertificateFromCsrCommand}.
  */
 export interface CreateCertificateFromCsrCommandOutput extends CreateCertificateFromCsrResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an X.509 certificate using the specified certificate signing
  *          request.
  *       </p>
@@ -58,8 +63,8 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  *          directory my-csr-directory:</p>
  *          <p>On Linux and OS X, the command is: </p>
  *          <p>
- *             <code>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
- *             --certificate-signing-request file://my-csr-directory/{}</code>
+ *             <code>$ ls my-csr-directory/ | xargs -I \{\} aws iot create-certificate-from-csr
+ *             --certificate-signing-request file://my-csr-directory/\{\}</code>
  *          </p>
  *          <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name
  *          to the <code>aws iot create-certificate-from-csr</code> Amazon Web Services CLI command to create a certificate for
@@ -67,15 +72,15 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  *          <p>You can also run the <code>aws iot create-certificate-from-csr</code> part of the
  *          command in parallel to speed up the certificate creation process:</p>
  *          <p>
- *             <code>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
- *             --certificate-signing-request file://my-csr-directory/{}
+ *             <code>$ ls my-csr-directory/ | xargs -P 10 -I \{\} aws iot create-certificate-from-csr
+ *             --certificate-signing-request file://my-csr-directory/\{\}
  *          </code>
  *          </p>
  *          <p>On Windows PowerShell, the command to create certificates for all CSRs in
  *          my-csr-directory is:</p>
  *          <p>
- *             <code>> ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
- *             --certificate-signing-request file://my-csr-directory/$_}
+ *             <code>> ls -Name my-csr-directory | %\{aws iot create-certificate-from-csr
+ *             --certificate-signing-request file://my-csr-directory/$_\}
  *          </code>
  *          </p>
  *          <p>On a Windows command prompt, the command to create certificates for all CSRs in
@@ -95,6 +100,8 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCertificateFromCsrCommandInput - {@link CreateCertificateFromCsrCommandInput}
+ * @returns {@link CreateCertificateFromCsrCommandOutput}
  * @see {@link CreateCertificateFromCsrCommandInput} for command's `input` shape.
  * @see {@link CreateCertificateFromCsrCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -133,6 +140,9 @@ export class CreateCertificateFromCsrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCertificateFromCsrCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class CreateCertificateFromCsrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCertificateFromCsrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCertificateFromCsrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCertificateFromCsrCommandOutput> {
     return deserializeAws_restJson1CreateCertificateFromCsrCommand(output, context);
   }

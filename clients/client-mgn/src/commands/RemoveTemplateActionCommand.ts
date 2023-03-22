@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTemplateActionCommand}.
  */
 export interface RemoveTemplateActionCommandInput extends RemoveTemplateActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTemplateActionCommand}.
  */
 export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove template post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTemplateActionCommandInput - {@link RemoveTemplateActionCommandInput}
+ * @returns {@link RemoveTemplateActionCommandOutput}
  * @see {@link RemoveTemplateActionCommandInput} for command's `input` shape.
  * @see {@link RemoveTemplateActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class RemoveTemplateActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTemplateActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class RemoveTemplateActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTemplateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveTemplateActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTemplateActionCommandOutput> {
     return deserializeAws_restJson1RemoveTemplateActionCommand(output, context);
   }

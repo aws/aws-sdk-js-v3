@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootInstanceCommand}.
  */
 export interface RebootInstanceCommandInput extends RebootInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebootInstanceCommand}.
  */
 export interface RebootInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reboots a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
  *         Stopping, and Rebooting Instances</a>.</p>
  *          <p>
@@ -47,6 +52,8 @@ export interface RebootInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootInstanceCommandInput - {@link RebootInstanceCommandInput}
+ * @returns {@link RebootInstanceCommandOutput}
  * @see {@link RebootInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -76,6 +83,9 @@ export class RebootInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class RebootInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RebootInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootInstanceCommandOutput> {
     return deserializeAws_json1_1RebootInstanceCommand(output, context);
   }

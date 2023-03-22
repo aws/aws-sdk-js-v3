@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetListsMetadataCommand}.
  */
 export interface GetListsMetadataCommandInput extends GetListsMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetListsMetadataCommand}.
  */
 export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *            Gets the metadata of either all the lists under the account or the specified list.
  *         </p>
@@ -48,6 +53,8 @@ export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetListsMetadataCommandInput - {@link GetListsMetadataCommandInput}
+ * @returns {@link GetListsMetadataCommandOutput}
  * @see {@link GetListsMetadataCommandInput} for command's `input` shape.
  * @see {@link GetListsMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetListsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetListsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetListsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetListsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetListsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetListsMetadataCommandOutput> {
     return deserializeAws_json1_1GetListsMetadataCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelTaskCommand}.
  */
 export interface CancelTaskCommandInput extends CancelTaskInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelTaskCommand}.
  */
 export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a cancel request for a specified task. You can cancel a task only if it's still in a
  *         <code>QUEUED</code> state. Tasks that are already running can't be cancelled.</p>
  *          <note>
@@ -55,6 +60,8 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelTaskCommandInput - {@link CancelTaskCommandInput}
+ * @returns {@link CancelTaskCommandOutput}
  * @see {@link CancelTaskCommandInput} for command's `input` shape.
  * @see {@link CancelTaskCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -93,6 +100,9 @@ export class CancelTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CancelTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTaskCommandOutput> {
     return deserializeAws_restJson1CancelTaskCommand(output, context);
   }

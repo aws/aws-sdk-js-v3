@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRegistrationCodeCommand}.
  */
 export interface DeleteRegistrationCodeCommandInput extends DeleteRegistrationCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRegistrationCodeCommand}.
  */
 export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CA certificate registration code.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRegistrationCode</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRegistrationCodeCommandInput - {@link DeleteRegistrationCodeCommandInput}
+ * @returns {@link DeleteRegistrationCodeCommandOutput}
  * @see {@link DeleteRegistrationCodeCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistrationCodeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteRegistrationCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRegistrationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteRegistrationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRegistrationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRegistrationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistrationCodeCommandOutput> {
     return deserializeAws_restJson1DeleteRegistrationCodeCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBundlesCommand}.
  */
 export interface ListBundlesCommandInput extends ListBundlesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBundlesCommand}.
  */
 export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             List all available bundles.
  *         </p>
@@ -48,6 +53,8 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBundlesCommandInput - {@link ListBundlesCommandInput}
+ * @returns {@link ListBundlesCommandOutput}
  * @see {@link ListBundlesCommandInput} for command's `input` shape.
  * @see {@link ListBundlesCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
@@ -100,6 +107,9 @@ export class ListBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class ListBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBundlesCommandOutput> {
     return deserializeAws_restJson1ListBundlesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceRequestsCommand}.
  */
 export interface ListResourceRequestsCommandInput extends ListResourceRequestsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceRequestsCommand}.
  */
 export interface ListResourceRequestsCommandOutput extends ListResourceRequestsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns existing resource operation requests. This includes requests of all status types.
  *       For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list">Listing active resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
@@ -51,6 +56,8 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceRequestsCommandInput - {@link ListResourceRequestsCommandInput}
+ * @returns {@link ListResourceRequestsCommandOutput}
  * @see {@link ListResourceRequestsCommandInput} for command's `input` shape.
  * @see {@link ListResourceRequestsCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListResourceRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListResourceRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListResourceRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceRequestsCommandOutput> {
     return deserializeAws_json1_0ListResourceRequestsCommand(output, context);
   }

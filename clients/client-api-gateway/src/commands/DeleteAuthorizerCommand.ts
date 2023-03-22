@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAuthorizerCommand}.
  */
 export interface DeleteAuthorizerCommandInput extends DeleteAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAuthorizerCommand}.
  */
 export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Authorizer resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAuthorizerCommandInput - {@link DeleteAuthorizerCommandInput}
+ * @returns {@link DeleteAuthorizerCommandOutput}
  * @see {@link DeleteAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAuthorizerCommandOutput> {
     return deserializeAws_restJson1DeleteAuthorizerCommand(output, context);
   }

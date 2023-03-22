@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportCatalogToGlueCommand}.
  */
 export interface ImportCatalogToGlueCommandInput extends ImportCatalogToGlueRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportCatalogToGlueCommand}.
  */
 export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports an existing Amazon Athena Data Catalog to Glue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportCatalogToGlueCommandInput - {@link ImportCatalogToGlueCommandInput}
+ * @returns {@link ImportCatalogToGlueCommandOutput}
  * @see {@link ImportCatalogToGlueCommandInput} for command's `input` shape.
  * @see {@link ImportCatalogToGlueCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -75,6 +82,9 @@ export class ImportCatalogToGlueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportCatalogToGlueCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ImportCatalogToGlueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportCatalogToGlueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportCatalogToGlueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportCatalogToGlueCommandOutput> {
     return deserializeAws_json1_1ImportCatalogToGlueCommand(output, context);
   }

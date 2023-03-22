@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateMulticastGroupWithFuotaTaskCommand}.
  */
 export interface AssociateMulticastGroupWithFuotaTaskCommandInput extends AssociateMulticastGroupWithFuotaTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateMulticastGroupWithFuotaTaskCommand}.
  */
 export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a multicast group with a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateMulticastGroupWithFuotaTaskCommandInput - {@link AssociateMulticastGroupWithFuotaTaskCommandInput}
+ * @returns {@link AssociateMulticastGroupWithFuotaTaskCommandOutput}
  * @see {@link AssociateMulticastGroupWithFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link AssociateMulticastGroupWithFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +96,9 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMulticastGroupWithFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateMulticastGroupWithFuotaTaskCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command<
     return serializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

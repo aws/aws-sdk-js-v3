@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetSerialConsoleAccessStatusCommand}.
  */
 export interface GetSerialConsoleAccessStatusCommandInput extends GetSerialConsoleAccessStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSerialConsoleAccessStatusCommand}.
  */
 export interface GetSerialConsoleAccessStatusCommandOutput
@@ -37,6 +41,7 @@ export interface GetSerialConsoleAccessStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the access status of your account to the EC2 serial console of all instances. By
  * 			default, access to the EC2 serial console is disabled for your account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
@@ -51,6 +56,8 @@ export interface GetSerialConsoleAccessStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSerialConsoleAccessStatusCommandInput - {@link GetSerialConsoleAccessStatusCommandInput}
+ * @returns {@link GetSerialConsoleAccessStatusCommandOutput}
  * @see {@link GetSerialConsoleAccessStatusCommandInput} for command's `input` shape.
  * @see {@link GetSerialConsoleAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSerialConsoleAccessStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSerialConsoleAccessStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetSerialConsoleAccessStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

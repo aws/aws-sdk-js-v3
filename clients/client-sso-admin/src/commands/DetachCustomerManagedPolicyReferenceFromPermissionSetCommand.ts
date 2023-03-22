@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
  */
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput
   extends DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommand}.
  */
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput
@@ -38,6 +42,7 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches the specified customer managed policy from the specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput - {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput}
+ * @returns {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput}
  * @see {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -95,6 +102,9 @@ export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extend
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extend
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extend
     return serializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

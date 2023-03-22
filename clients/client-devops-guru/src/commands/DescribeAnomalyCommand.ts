@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAnomalyCommand}.
  */
 export interface DescribeAnomalyCommandInput extends DescribeAnomalyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAnomalyCommand}.
  */
 export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns details about an anomaly that you specify using its ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnomalyCommandInput - {@link DescribeAnomalyCommandInput}
+ * @returns {@link DescribeAnomalyCommandOutput}
  * @see {@link DescribeAnomalyCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeAnomalyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnomalyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeAnomalyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnomalyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAnomalyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnomalyCommandOutput> {
     return deserializeAws_restJson1DescribeAnomalyCommand(output, context);
   }

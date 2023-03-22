@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStandardsControlAssociationsCommand}.
  */
 export interface ListStandardsControlAssociationsCommandInput extends ListStandardsControlAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStandardsControlAssociationsCommand}.
  */
 export interface ListStandardsControlAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListStandardsControlAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Specifies whether a control is currently enabled or disabled in each enabled standard in the calling account.
  *       </p>
@@ -50,6 +55,8 @@ export interface ListStandardsControlAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStandardsControlAssociationsCommandInput - {@link ListStandardsControlAssociationsCommandInput}
+ * @returns {@link ListStandardsControlAssociationsCommandOutput}
  * @see {@link ListStandardsControlAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListStandardsControlAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStandardsControlAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class ListStandardsControlAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListStandardsControlAssociationsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class ListStandardsControlAssociationsCommand extends $Command<
     return serializeAws_restJson1ListStandardsControlAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

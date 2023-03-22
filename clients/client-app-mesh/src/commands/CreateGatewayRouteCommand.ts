@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGatewayRouteCommand}.
  */
 export interface CreateGatewayRouteCommandInput extends CreateGatewayRouteInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateGatewayRouteCommand}.
  */
 export interface CreateGatewayRouteCommandOutput extends CreateGatewayRouteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a gateway route.</p>
  *          <p>A gateway route is attached to a virtual gateway and routes traffic to an existing
  *          virtual service. If a route matches a request, it can distribute traffic to a target
@@ -50,6 +55,8 @@ export interface CreateGatewayRouteCommandOutput extends CreateGatewayRouteOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGatewayRouteCommandInput - {@link CreateGatewayRouteCommandInput}
+ * @returns {@link CreateGatewayRouteCommandOutput}
  * @see {@link CreateGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGatewayRouteCommandOutput> {
     return deserializeAws_restJson1CreateGatewayRouteCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBClusterSnapshotCommand}.
  */
 export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBClusterSnapshotCommand}.
  */
 export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
  *         <note>
  *             <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p>
@@ -49,6 +54,8 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBClusterSnapshotCommandInput - {@link DeleteDBClusterSnapshotCommandInput}
+ * @returns {@link DeleteDBClusterSnapshotCommandOutput}
  * @see {@link DeleteDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterSnapshotCommandOutput> {
     return deserializeAws_queryDeleteDBClusterSnapshotCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTapeWithBarcodeCommand}.
  */
 export interface CreateTapeWithBarcodeCommandInput extends CreateTapeWithBarcodeInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTapeWithBarcodeCommand}.
  */
 export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a virtual tape by using your own barcode. You write data to the virtual tape and
  *          then archive the tape. A barcode is unique and cannot be reused if it has already been used
  *          on a tape. This applies to barcodes used on deleted tapes. This operation is only supported
@@ -54,6 +59,8 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTapeWithBarcodeCommandInput - {@link CreateTapeWithBarcodeCommandInput}
+ * @returns {@link CreateTapeWithBarcodeCommandOutput}
  * @see {@link CreateTapeWithBarcodeCommandInput} for command's `input` shape.
  * @see {@link CreateTapeWithBarcodeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateTapeWithBarcodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTapeWithBarcodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateTapeWithBarcodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTapeWithBarcodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTapeWithBarcodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTapeWithBarcodeCommandOutput> {
     return deserializeAws_json1_1CreateTapeWithBarcodeCommand(output, context);
   }

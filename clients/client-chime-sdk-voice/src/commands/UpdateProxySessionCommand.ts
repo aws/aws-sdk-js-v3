@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProxySessionCommand}.
  */
 export interface UpdateProxySessionCommandInput extends UpdateProxySessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProxySessionCommand}.
  */
 export interface UpdateProxySessionCommandOutput extends UpdateProxySessionResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class UpdateProxySessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProxySessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class UpdateProxySessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProxySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProxySessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProxySessionCommandOutput> {
     return deserializeAws_restJson1UpdateProxySessionCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReportDefinitionCommand}.
  */
 export interface DeleteReportDefinitionCommandInput extends DeleteReportDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReportDefinitionCommand}.
  */
 export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReportDefinitionCommandInput - {@link DeleteReportDefinitionCommandInput}
+ * @returns {@link DeleteReportDefinitionCommandOutput}
  * @see {@link DeleteReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteReportDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReportDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteReportDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReportDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportDefinitionCommandOutput> {
     return deserializeAws_json1_1DeleteReportDefinitionCommand(output, context);
   }

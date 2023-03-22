@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBranchCommand}.
  */
 export interface UpdateBranchCommandInput extends UpdateBranchRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBranchCommand}.
  */
 export interface UpdateBranchCommandOutput extends UpdateBranchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a branch for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBranchCommandInput - {@link UpdateBranchCommandInput}
+ * @returns {@link UpdateBranchCommandOutput}
  * @see {@link UpdateBranchCommandInput} for command's `input` shape.
  * @see {@link UpdateBranchCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBranchCommandOutput> {
     return deserializeAws_restJson1UpdateBranchCommand(output, context);
   }

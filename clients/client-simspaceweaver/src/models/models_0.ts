@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SimSpaceWeaverServiceException as __BaseException } from "./SimSpaceWeaverServiceException";
 
 /**
+ * @public
  * <p/>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A collection of TCP/UDP ports for a custom or service app.</p>
  */
 export interface SimulationAppPortMapping {
@@ -44,6 +46,9 @@ export interface SimulationAppPortMapping {
   Actual?: number;
 }
 
+/**
+ * @public
+ */
 export enum ClockStatus {
   STARTED = "STARTED",
   STARTING = "STARTING",
@@ -52,6 +57,9 @@ export enum ClockStatus {
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export enum ClockTargetStatus {
   STARTED = "STARTED",
   STOPPED = "STOPPED",
@@ -59,6 +67,7 @@ export enum ClockTargetStatus {
 }
 
 /**
+ * @public
  * <p>The Amazon CloudWatch Logs log group for the simulation. For more information about log groups, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working with log
  *    groups and log streams</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
  */
@@ -73,6 +82,7 @@ export interface CloudWatchLogsLogGroup {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ConflictException extends __BaseException {
@@ -93,6 +103,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInput {
   /**
    * <p>The name of the simulation of the app.</p>
@@ -110,9 +123,13 @@ export interface DeleteAppInput {
   App: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppOutput {}
 
 /**
+ * @public
  * <p/>
  */
 export class InternalServerException extends __BaseException {
@@ -134,6 +151,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -155,6 +173,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ValidationException extends __BaseException {
@@ -175,6 +194,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSimulationInput {
   /**
    * <p>The name of the simulation.</p>
@@ -182,8 +204,14 @@ export interface DeleteSimulationInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSimulationOutput {}
 
+/**
+ * @public
+ */
 export interface DescribeAppInput {
   /**
    * <p>The name of the simulation of the app.</p>
@@ -202,6 +230,7 @@ export interface DescribeAppInput {
 }
 
 /**
+ * @public
  * <p>Information about the network endpoint that you can use to connect to your custom or
  *          service app.</p>
  */
@@ -220,6 +249,7 @@ export interface SimulationAppEndpointInfo {
 }
 
 /**
+ * @public
  * <p>Options that apply when the app starts. These optiAons override default behavior.</p>
  */
 export interface LaunchOverrides {
@@ -230,6 +260,9 @@ export interface LaunchOverrides {
   LaunchCommands?: string[];
 }
 
+/**
+ * @public
+ */
 export enum SimulationAppStatus {
   ERROR = "ERROR",
   STARTED = "STARTED",
@@ -239,12 +272,18 @@ export enum SimulationAppStatus {
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export enum SimulationAppTargetStatus {
   STARTED = "STARTED",
   STOPPED = "STOPPED",
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppOutput {
   /**
    * <p>The name of the app.</p>
@@ -287,6 +326,9 @@ export interface DescribeAppOutput {
   EndpointInfo?: SimulationAppEndpointInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationInput {
   /**
    * <p>The name of the simulation.</p>
@@ -295,6 +337,7 @@ export interface DescribeSimulationInput {
 }
 
 /**
+ * @public
  * <p>Status information about the simulation clock.</p>
  */
 export interface SimulationClock {
@@ -309,6 +352,9 @@ export interface SimulationClock {
   TargetStatus?: ClockTargetStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum LifecycleManagementStrategy {
   ByRequest = "ByRequest",
   BySpatialSubdivision = "BySpatialSubdivision",
@@ -317,6 +363,7 @@ export enum LifecycleManagementStrategy {
 }
 
 /**
+ * @public
  * <p>A collection of app instances that run the same executable app code and have the same
  *          launch options and commands.</p>
  *          <p>For more information about domains, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html">Key concepts</a>
@@ -358,6 +405,7 @@ export interface Domain {
 }
 
 /**
+ * @public
  * <p>A collection of additional state information, such as
  * domain and clock configuration.</p>
  */
@@ -378,6 +426,7 @@ export interface LiveSimulationState {
 }
 
 /**
+ * @public
  * <p>The location where SimSpace Weaver sends simulation log data.</p>
  */
 export interface LogDestination {
@@ -389,6 +438,7 @@ export interface LogDestination {
 }
 
 /**
+ * @public
  * <p>The logging configuration for a simulation.</p>
  */
 export interface LoggingConfiguration {
@@ -399,6 +449,7 @@ export interface LoggingConfiguration {
 }
 
 /**
+ * @public
  * <p>A location in Amazon Simple Storage Service (Amazon S3) where SimSpace Weaver stores simulation data, such as your app zip
  *          files and schema file. For more information about Amazon S3, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html">
  *                <i>Amazon Simple Storage Service User Guide</i>
@@ -421,6 +472,9 @@ export interface S3Location {
   ObjectKey?: string;
 }
 
+/**
+ * @public
+ */
 export enum SimulationStatus {
   DELETED = "DELETED",
   DELETING = "DELETING",
@@ -432,6 +486,9 @@ export enum SimulationStatus {
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export enum SimulationTargetStatus {
   DELETED = "DELETED",
   STARTED = "STARTED",
@@ -439,6 +496,9 @@ export enum SimulationTargetStatus {
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationOutput {
   /**
    * <p>The name of the simulation.</p>
@@ -519,6 +579,9 @@ export interface DescribeSimulationOutput {
   MaximumDuration?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppsInput {
   /**
    * <p>The name of the simulation that you want to list apps for.</p>
@@ -546,6 +609,7 @@ export interface ListAppsInput {
 }
 
 /**
+ * @public
  * <p>A collection of metadata about an app.</p>
  */
 export interface SimulationAppMetadata {
@@ -576,6 +640,9 @@ export interface SimulationAppMetadata {
   TargetStatus?: SimulationAppTargetStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppsOutput {
   /**
    * <p>The list of apps for the given simulation and domain.</p>
@@ -592,6 +659,9 @@ export interface ListAppsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationsInput {
   /**
    * <p>The maximum number of simulations to list.</p>
@@ -609,6 +679,7 @@ export interface ListSimulationsInput {
 }
 
 /**
+ * @public
  * <p>A collection of data about the simulation.</p>
  */
 export interface SimulationMetadata {
@@ -640,6 +711,9 @@ export interface SimulationMetadata {
   TargetStatus?: SimulationTargetStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationsOutput {
   /**
    * <p>The list of simulations.</p>
@@ -656,6 +730,9 @@ export interface ListSimulationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
@@ -664,6 +741,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags for the resource.</p>
@@ -672,6 +752,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -692,6 +773,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartAppInput {
   /**
    * <p>A value that you provide to ensure that repeated calls to this
@@ -726,6 +810,9 @@ export interface StartAppInput {
   LaunchOverrides?: LaunchOverrides;
 }
 
+/**
+ * @public
+ */
 export interface StartAppOutput {
   /**
    * <p>The name of the app.</p>
@@ -743,6 +830,9 @@ export interface StartAppOutput {
   Simulation?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartClockInput {
   /**
    * <p>The name of the simulation.</p>
@@ -750,8 +840,14 @@ export interface StartClockInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartClockOutput {}
 
+/**
+ * @public
+ */
 export interface StartSimulationInput {
   /**
    * <p>A value that you provide to ensure that repeated calls to this
@@ -801,6 +897,9 @@ export interface StartSimulationInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartSimulationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
@@ -820,6 +919,9 @@ export interface StartSimulationOutput {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StopAppInput {
   /**
    * <p>The name of the simulation of the app.</p>
@@ -837,8 +939,14 @@ export interface StopAppInput {
   App: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopAppOutput {}
 
+/**
+ * @public
+ */
 export interface StopClockInput {
   /**
    * <p>The name of the simulation.</p>
@@ -846,8 +954,14 @@ export interface StopClockInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopClockOutput {}
 
+/**
+ * @public
+ */
 export interface StopSimulationInput {
   /**
    * <p>The name of the simulation.</p>
@@ -855,8 +969,14 @@ export interface StopSimulationInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopSimulationOutput {}
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add tags to.
@@ -871,9 +991,13 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
 /**
+ * @public
  * <p/>
  */
 export class TooManyTagsException extends __BaseException {
@@ -894,6 +1018,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.
@@ -908,6 +1035,9 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**

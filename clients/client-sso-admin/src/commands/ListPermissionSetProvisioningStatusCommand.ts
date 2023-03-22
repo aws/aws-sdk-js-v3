@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionSetProvisioningStatusCommand}.
  */
 export interface ListPermissionSetProvisioningStatusCommandInput extends ListPermissionSetProvisioningStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionSetProvisioningStatusCommand}.
  */
 export interface ListPermissionSetProvisioningStatusCommandOutput
@@ -37,6 +41,7 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the status of the permission set provisioning requests for a specified IAM Identity Center
  *       instance.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionSetProvisioningStatusCommandInput - {@link ListPermissionSetProvisioningStatusCommandInput}
+ * @returns {@link ListPermissionSetProvisioningStatusCommandOutput}
  * @see {@link ListPermissionSetProvisioningStatusCommandInput} for command's `input` shape.
  * @see {@link ListPermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionSetProvisioningStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPermissionSetProvisioningStatusCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     return serializeAws_json1_1ListPermissionSetProvisioningStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

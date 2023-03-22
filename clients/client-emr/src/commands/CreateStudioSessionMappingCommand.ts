@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStudioSessionMappingCommand}.
  */
 export interface CreateStudioSessionMappingCommandInput extends CreateStudioSessionMappingInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStudioSessionMappingCommand}.
  */
 export interface CreateStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Maps a user or group to the Amazon EMR Studio specified by
  *          <code>StudioId</code>, and applies a session policy to refine Studio permissions for that
  *          user or group. Use <code>CreateStudioSessionMapping</code> to assign users to a Studio when
@@ -45,6 +50,8 @@ export interface CreateStudioSessionMappingCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStudioSessionMappingCommandInput - {@link CreateStudioSessionMappingCommandInput}
+ * @returns {@link CreateStudioSessionMappingCommandOutput}
  * @see {@link CreateStudioSessionMappingCommandInput} for command's `input` shape.
  * @see {@link CreateStudioSessionMappingCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateStudioSessionMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStudioSessionMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateStudioSessionMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStudioSessionMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStudioSessionMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

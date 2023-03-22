@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RedactChannelMessageCommand}.
  */
 export interface RedactChannelMessageCommandInput extends RedactChannelMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link RedactChannelMessageCommand}.
  */
 export interface RedactChannelMessageCommandOutput extends RedactChannelMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Redacts message content, but not metadata. The message exists in the back end, but the
  *          action returns null content, and the state shows as redacted.</p>
  *          <note>
@@ -56,6 +61,8 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * const response = await client.send(command);
  * ```
  *
+ * @param RedactChannelMessageCommandInput - {@link RedactChannelMessageCommandInput}
+ * @returns {@link RedactChannelMessageCommandOutput}
  * @see {@link RedactChannelMessageCommandInput} for command's `input` shape.
  * @see {@link RedactChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -101,6 +108,9 @@ export class RedactChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RedactChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class RedactChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RedactChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RedactChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RedactChannelMessageCommandOutput> {
     return deserializeAws_restJson1RedactChannelMessageCommand(output, context);
   }

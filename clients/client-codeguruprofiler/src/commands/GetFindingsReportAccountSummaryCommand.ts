@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingsReportAccountSummaryCommand}.
  */
 export interface GetFindingsReportAccountSummaryCommandInput extends GetFindingsReportAccountSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingsReportAccountSummaryCommand}.
  */
 export interface GetFindingsReportAccountSummaryCommandOutput
@@ -37,6 +41,7 @@ export interface GetFindingsReportAccountSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Returns a list of
  *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_FindingsReportSummary.html">
@@ -54,6 +59,8 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingsReportAccountSummaryCommandInput - {@link GetFindingsReportAccountSummaryCommandInput}
+ * @returns {@link GetFindingsReportAccountSummaryCommandOutput}
  * @see {@link GetFindingsReportAccountSummaryCommandInput} for command's `input` shape.
  * @see {@link GetFindingsReportAccountSummaryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsReportAccountSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFindingsReportAccountSummaryCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
     return serializeAws_restJson1GetFindingsReportAccountSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

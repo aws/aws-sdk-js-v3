@@ -150,6 +150,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateDomainCommandInput
   | AssociateWebsiteAuthorizationProviderCommandInput
@@ -185,6 +188,9 @@ export type ServiceInputTypes =
   | UpdateFleetMetadataCommandInput
   | UpdateIdentityProviderConfigurationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateDomainCommandOutput
   | AssociateWebsiteAuthorizationProviderCommandOutput
@@ -220,6 +226,9 @@ export type ServiceOutputTypes =
   | UpdateFleetMetadataCommandOutput
   | UpdateIdentityProviderConfigurationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -227,7 +236,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -336,11 +345,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type WorkLinkClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -351,10 +363,15 @@ type WorkLinkClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of WorkLinkClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of WorkLinkClient class constructor that set the region, credentials and other options.
  */
 export interface WorkLinkClientConfig extends WorkLinkClientConfigType {}
 
+/**
+ * @public
+ */
 type WorkLinkClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -365,11 +382,14 @@ type WorkLinkClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of WorkLinkClient class. This is resolved and normalized from the {@link WorkLinkClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of WorkLinkClient class. This is resolved and normalized from the {@link WorkLinkClientConfig | constructor configuration interface}.
  */
 export interface WorkLinkClientResolvedConfig extends WorkLinkClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon WorkLink is a cloud-based service that provides secure access
  *             to internal websites and web apps from iOS and Android phones. In a single step, your users, such as
  *             employees, can access internal websites as efficiently as they access any other public website.

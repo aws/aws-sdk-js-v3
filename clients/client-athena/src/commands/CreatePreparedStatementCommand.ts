@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePreparedStatementCommand}.
  */
 export interface CreatePreparedStatementCommandInput extends CreatePreparedStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePreparedStatementCommand}.
  */
 export interface CreatePreparedStatementCommandOutput extends CreatePreparedStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a prepared statement for use with SQL queries in Athena.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePreparedStatementCommandInput - {@link CreatePreparedStatementCommandInput}
+ * @returns {@link CreatePreparedStatementCommandOutput}
  * @see {@link CreatePreparedStatementCommandInput} for command's `input` shape.
  * @see {@link CreatePreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreatePreparedStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreatePreparedStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePreparedStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePreparedStatementCommandOutput> {
     return deserializeAws_json1_1CreatePreparedStatementCommand(output, context);
   }

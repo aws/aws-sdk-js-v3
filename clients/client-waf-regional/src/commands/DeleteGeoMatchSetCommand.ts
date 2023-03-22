@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGeoMatchSetCommand}.
  */
 export interface DeleteGeoMatchSetCommandInput extends DeleteGeoMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGeoMatchSetCommand}.
  */
 export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -69,6 +74,8 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGeoMatchSetCommandInput - {@link DeleteGeoMatchSetCommandInput}
+ * @returns {@link DeleteGeoMatchSetCommandOutput}
  * @see {@link DeleteGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteGeoMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -133,6 +140,9 @@ export class DeleteGeoMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGeoMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class DeleteGeoMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGeoMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGeoMatchSetCommandOutput> {
     return deserializeAws_json1_1DeleteGeoMatchSetCommand(output, context);
   }

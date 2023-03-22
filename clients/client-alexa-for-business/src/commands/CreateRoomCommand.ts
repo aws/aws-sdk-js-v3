@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoomCommand}.
  */
 export interface CreateRoomCommandInput extends CreateRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoomCommand}.
  */
 export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a room with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoomCommandInput - {@link CreateRoomCommandInput}
+ * @returns {@link CreateRoomCommandOutput}
  * @see {@link CreateRoomCommandInput} for command's `input` shape.
  * @see {@link CreateRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class CreateRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoomCommandOutput> {
     return deserializeAws_json1_1CreateRoomCommand(output, context);
   }

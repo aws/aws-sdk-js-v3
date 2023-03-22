@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataQualityRuleRecommendationRunsCommand}.
  */
 export interface ListDataQualityRuleRecommendationRunsCommandInput
   extends ListDataQualityRuleRecommendationRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataQualityRuleRecommendationRunsCommand}.
  */
 export interface ListDataQualityRuleRecommendationRunsCommandOutput
@@ -38,6 +42,7 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the recommendation runs meeting the filter criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataQualityRuleRecommendationRunsCommandInput - {@link ListDataQualityRuleRecommendationRunsCommandInput}
+ * @returns {@link ListDataQualityRuleRecommendationRunsCommandOutput}
  * @see {@link ListDataQualityRuleRecommendationRunsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityRuleRecommendationRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListDataQualityRuleRecommendationRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataQualityRuleRecommendationRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class ListDataQualityRuleRecommendationRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDataQualityRuleRecommendationRunsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class ListDataQualityRuleRecommendationRunsCommand extends $Command<
     return serializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

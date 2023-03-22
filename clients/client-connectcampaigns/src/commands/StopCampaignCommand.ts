@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopCampaignCommand}.
  */
 export interface StopCampaignCommandInput extends StopCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopCampaignCommand}.
  */
 export interface StopCampaignCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Stops a campaign for the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface StopCampaignCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCampaignCommandInput - {@link StopCampaignCommandInput}
+ * @returns {@link StopCampaignCommandOutput}
  * @see {@link StopCampaignCommandInput} for command's `input` shape.
  * @see {@link StopCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -85,6 +92,9 @@ export class StopCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StopCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCampaignCommandOutput> {
     return deserializeAws_restJson1StopCampaignCommand(output, context);
   }

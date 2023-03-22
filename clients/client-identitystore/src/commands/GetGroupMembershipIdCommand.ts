@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupMembershipIdCommand}.
  */
 export interface GetGroupMembershipIdCommandInput extends GetGroupMembershipIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupMembershipIdCommand}.
  */
 export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>MembershipId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupMembershipIdCommandInput - {@link GetGroupMembershipIdCommandInput}
+ * @returns {@link GetGroupMembershipIdCommandOutput}
  * @see {@link GetGroupMembershipIdCommandInput} for command's `input` shape.
  * @see {@link GetGroupMembershipIdCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetGroupMembershipIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupMembershipIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetGroupMembershipIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupMembershipIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetGroupMembershipIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupMembershipIdCommandOutput> {
     return deserializeAws_json1_1GetGroupMembershipIdCommand(output, context);
   }

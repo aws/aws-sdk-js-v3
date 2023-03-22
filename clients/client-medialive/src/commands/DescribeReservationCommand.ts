@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservationCommand}.
  */
 export interface DescribeReservationCommandInput extends DescribeReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservationCommand}.
  */
 export interface DescribeReservationCommandOutput extends DescribeReservationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Get details for a reservation.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservationCommandInput - {@link DescribeReservationCommandInput}
+ * @returns {@link DescribeReservationCommandOutput}
  * @see {@link DescribeReservationCommandInput} for command's `input` shape.
  * @see {@link DescribeReservationCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReservationCommandOutput> {
     return deserializeAws_restJson1DescribeReservationCommand(output, context);
   }

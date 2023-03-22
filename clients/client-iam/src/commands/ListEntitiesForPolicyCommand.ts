@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitiesForPolicyCommand}.
  */
 export interface ListEntitiesForPolicyCommandInput extends ListEntitiesForPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitiesForPolicyCommand}.
  */
 export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all IAM users, groups, and roles that the specified managed policy is attached
  *             to.</p>
  *          <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
@@ -53,6 +58,8 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitiesForPolicyCommandInput - {@link ListEntitiesForPolicyCommandInput}
+ * @returns {@link ListEntitiesForPolicyCommandOutput}
  * @see {@link ListEntitiesForPolicyCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesForPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListEntitiesForPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitiesForPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListEntitiesForPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitiesForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListEntitiesForPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesForPolicyCommandOutput> {
     return deserializeAws_queryListEntitiesForPolicyCommand(output, context);
   }

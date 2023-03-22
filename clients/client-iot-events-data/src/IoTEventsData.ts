@@ -60,6 +60,7 @@ import {
 import { IoTEventsDataClient } from "./IoTEventsDataClient";
 
 /**
+ * @public
  * <p>IoT Events monitors your equipment or device fleets for failures or changes in operation, and
  *       triggers actions when such events occur. You can use IoT Events Data API commands to send inputs to
  *       detectors, list detectors, and view or update a detector's status.</p>
@@ -68,6 +69,7 @@ import { IoTEventsDataClient } from "./IoTEventsDataClient";
  */
 export class IoTEventsData extends IoTEventsDataClient {
   /**
+   * @public
    * <p>Acknowledges one or more alarms. The alarms change to the <code>ACKNOWLEDGED</code> state
    *       after you acknowledge them.</p>
    */
@@ -101,6 +103,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Deletes one or more detectors that were created. When a detector is deleted, its state will be cleared and the detector will be removed from the list of detectors. The deleted detector will no longer appear if referenced in the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html">ListDetectors</a> API call.</p>
    */
   public batchDeleteDetector(
@@ -133,6 +136,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Disables one or more alarms. The alarms change to the <code>DISABLED</code> state after
    *       you disable them.</p>
    */
@@ -166,6 +170,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Enables one or more alarms. The alarms change to the <code>NORMAL</code> state after you
    *       enable them.</p>
    */
@@ -199,6 +204,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Sends a set of messages to the IoT Events system. Each message payload is transformed into
    *       the input you specify (<code>"inputName"</code>) and ingested into any detectors that monitor
    *       that input. If multiple messages are sent, the order in which the messages are processed isn't
@@ -235,6 +241,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Resets one or more alarms. The alarms return to the <code>NORMAL</code> state after you
    *       reset them.</p>
    */
@@ -268,6 +275,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Changes one or more alarms to the snooze mode. The alarms change to the
    *         <code>SNOOZE_DISABLED</code> state after you set them to the snooze mode.</p>
    */
@@ -301,6 +309,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Updates the state, variable values, and timer settings of one or more detectors
    *       (instances) of a specified detector model.</p>
    */
@@ -334,6 +343,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an alarm.</p>
    */
   public describeAlarm(
@@ -366,6 +376,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified detector (instance).</p>
    */
   public describeDetector(
@@ -398,6 +409,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Lists one or more alarms. The operation returns only the metadata associated with each
    *       alarm.</p>
    */
@@ -425,6 +437,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
+   * @public
    * <p>Lists detectors (the instances of a detector model).</p>
    */
   public listDetectors(

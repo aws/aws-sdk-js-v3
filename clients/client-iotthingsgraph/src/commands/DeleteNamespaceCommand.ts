@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNamespaceCommand}.
  */
 export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNamespaceCommand}.
  */
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action. This action takes no
@@ -49,6 +54,8 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
+ * @returns {@link DeleteNamespaceCommandOutput}
  * @see {@link DeleteNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNamespaceCommandOutput> {
     return deserializeAws_json1_1DeleteNamespaceCommand(output, context);
   }

@@ -24,15 +24,20 @@ import { deserializeAws_restXmlGetChangeCommand, serializeAws_restXmlGetChangeCo
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetChangeCommand}.
  */
 export interface GetChangeCommandInput extends GetChangeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChangeCommand}.
  */
 export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current status of a change batch request. The status is one of the
  * 			following values:</p>
  *          <ul>
@@ -58,6 +63,8 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChangeCommandInput - {@link GetChangeCommandInput}
+ * @returns {@link GetChangeCommandOutput}
  * @see {@link GetChangeCommandInput} for command's `input` shape.
  * @see {@link GetChangeCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -87,6 +94,9 @@ export class GetChangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetChangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetChangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeCommandOutput> {
     return deserializeAws_restXmlGetChangeCommand(output, context);
   }

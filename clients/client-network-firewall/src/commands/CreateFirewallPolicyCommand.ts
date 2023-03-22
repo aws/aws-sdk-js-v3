@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFirewallPolicyCommand}.
  */
 export interface CreateFirewallPolicyCommandInput extends CreateFirewallPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFirewallPolicyCommand}.
  */
 export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the firewall policy for the firewall according to the specifications. </p>
  *          <p>An Network Firewall firewall policy defines the behavior of a firewall, in a collection of
  *          stateless and stateful rule groups and other settings. You can use one firewall policy for
@@ -49,6 +54,8 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFirewallPolicyCommandInput - {@link CreateFirewallPolicyCommandInput}
+ * @returns {@link CreateFirewallPolicyCommandOutput}
  * @see {@link CreateFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateFirewallPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFirewallPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateFirewallPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFirewallPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateFirewallPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallPolicyCommandOutput> {
     return deserializeAws_json1_0CreateFirewallPolicyCommand(output, context);
   }

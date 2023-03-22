@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TagProjectCommand}.
  */
 export interface TagProjectCommandInput extends TagProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagProjectCommand}.
  */
 export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param TagProjectCommandInput - {@link TagProjectCommandInput}
+ * @returns {@link TagProjectCommandOutput}
  * @see {@link TagProjectCommandInput} for command's `input` shape.
  * @see {@link TagProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -82,6 +89,9 @@ export class TagProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class TagProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TagProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagProjectCommandOutput> {
     return deserializeAws_json1_1TagProjectCommand(output, context);
   }

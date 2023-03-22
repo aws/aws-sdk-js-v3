@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPagesByEngagementCommand}.
  */
 export interface ListPagesByEngagementCommandInput extends ListPagesByEngagementRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPagesByEngagementCommand}.
  */
 export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the engagements to contact channels that occurred by engaging a contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagemen
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPagesByEngagementCommandInput - {@link ListPagesByEngagementCommandInput}
+ * @returns {@link ListPagesByEngagementCommandOutput}
  * @see {@link ListPagesByEngagementCommandInput} for command's `input` shape.
  * @see {@link ListPagesByEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -110,6 +117,9 @@ export class ListPagesByEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPagesByEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class ListPagesByEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPagesByEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPagesByEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPagesByEngagementCommandOutput> {
     return deserializeAws_json1_1ListPagesByEngagementCommand(output, context);
   }

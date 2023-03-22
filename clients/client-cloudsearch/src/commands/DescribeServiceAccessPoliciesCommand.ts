@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServiceAccessPoliciesCommand}.
  */
 export interface DescribeServiceAccessPoliciesCommandInput extends DescribeServiceAccessPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServiceAccessPoliciesCommand}.
  */
 export interface DescribeServiceAccessPoliciesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeServiceAccessPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeServiceAccessPoliciesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServiceAccessPoliciesCommandInput - {@link DescribeServiceAccessPoliciesCommandInput}
+ * @returns {@link DescribeServiceAccessPoliciesCommandOutput}
  * @see {@link DescribeServiceAccessPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceAccessPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServiceAccessPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServiceAccessPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeServiceAccessPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRoomSkillParameterCommand}.
  */
 export interface PutRoomSkillParameterCommandInput extends PutRoomSkillParameterRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRoomSkillParameterCommand}.
  */
 export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParameterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates room skill parameter details by room, skill, and parameter key ID. Not all
  *          skills have a room skill parameter.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRoomSkillParameterCommandInput - {@link PutRoomSkillParameterCommandInput}
+ * @returns {@link PutRoomSkillParameterCommandOutput}
  * @see {@link PutRoomSkillParameterCommandInput} for command's `input` shape.
  * @see {@link PutRoomSkillParameterCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -73,6 +80,9 @@ export class PutRoomSkillParameterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRoomSkillParameterCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class PutRoomSkillParameterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRoomSkillParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRoomSkillParameterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRoomSkillParameterCommandOutput> {
     return deserializeAws_json1_1PutRoomSkillParameterCommand(output, context);
   }

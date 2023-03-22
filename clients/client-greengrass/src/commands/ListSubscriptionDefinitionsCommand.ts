@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubscriptionDefinitionsCommand}.
  */
 export interface ListSubscriptionDefinitionsCommandInput extends ListSubscriptionDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSubscriptionDefinitionsCommand}.
  */
 export interface ListSubscriptionDefinitionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListSubscriptionDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves a list of subscription definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListSubscriptionDefinitionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscriptionDefinitionsCommandInput - {@link ListSubscriptionDefinitionsCommandInput}
+ * @returns {@link ListSubscriptionDefinitionsCommandOutput}
  * @see {@link ListSubscriptionDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListSubscriptionDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListSubscriptionDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscriptionDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListSubscriptionDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscriptionDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSubscriptionDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

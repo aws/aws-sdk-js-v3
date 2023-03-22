@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotificationRulesCommand}.
  */
 export interface ListNotificationRulesCommandInput extends ListNotificationRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNotificationRulesCommand}.
  */
 export interface ListNotificationRulesCommandOutput extends ListNotificationRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the notification rules for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotificationRulesCommandInput - {@link ListNotificationRulesCommandInput}
+ * @returns {@link ListNotificationRulesCommandOutput}
  * @see {@link ListNotificationRulesCommandInput} for command's `input` shape.
  * @see {@link ListNotificationRulesCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListNotificationRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotificationRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListNotificationRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotificationRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListNotificationRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotificationRulesCommandOutput> {
     return deserializeAws_restJson1ListNotificationRulesCommand(output, context);
   }

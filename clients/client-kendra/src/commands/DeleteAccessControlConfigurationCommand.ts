@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessControlConfigurationCommand}.
  */
 export interface DeleteAccessControlConfigurationCommandInput extends DeleteAccessControlConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessControlConfigurationCommand}.
  */
 export interface DeleteAccessControlConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an access control configuration that you created for your
  *             documents in an index. This includes user and group access information
  *             for your documents. This is useful for user context filtering, where search
@@ -51,6 +56,8 @@ export interface DeleteAccessControlConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessControlConfigurationCommandInput - {@link DeleteAccessControlConfigurationCommandInput}
+ * @returns {@link DeleteAccessControlConfigurationCommandOutput}
  * @see {@link DeleteAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -98,6 +105,9 @@ export class DeleteAccessControlConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessControlConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class DeleteAccessControlConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAccessControlConfigurationCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class DeleteAccessControlConfigurationCommand extends $Command<
     return serializeAws_json1_1DeleteAccessControlConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

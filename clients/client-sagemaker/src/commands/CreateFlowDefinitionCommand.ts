@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFlowDefinitionCommand}.
  */
 export interface CreateFlowDefinitionCommandInput extends CreateFlowDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFlowDefinitionCommand}.
  */
 export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a flow definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFlowDefinitionCommandInput - {@link CreateFlowDefinitionCommandInput}
+ * @returns {@link CreateFlowDefinitionCommandOutput}
  * @see {@link CreateFlowDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateFlowDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateFlowDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFlowDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateFlowDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFlowDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFlowDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowDefinitionCommandOutput> {
     return deserializeAws_json1_1CreateFlowDefinitionCommand(output, context);
   }

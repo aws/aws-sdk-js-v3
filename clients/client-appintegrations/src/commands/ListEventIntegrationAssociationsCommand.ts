@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventIntegrationAssociationsCommand}.
  */
 export interface ListEventIntegrationAssociationsCommandInput extends ListEventIntegrationAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventIntegrationAssociationsCommand}.
  */
 export interface ListEventIntegrationAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListEventIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of event integration associations in the account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListEventIntegrationAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventIntegrationAssociationsCommandInput - {@link ListEventIntegrationAssociationsCommandInput}
+ * @returns {@link ListEventIntegrationAssociationsCommandOutput}
  * @see {@link ListEventIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListEventIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListEventIntegrationAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventIntegrationAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class ListEventIntegrationAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListEventIntegrationAssociationsCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class ListEventIntegrationAssociationsCommand extends $Command<
     return serializeAws_restJson1ListEventIntegrationAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

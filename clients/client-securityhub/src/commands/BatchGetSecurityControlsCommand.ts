@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetSecurityControlsCommand}.
  */
 export interface BatchGetSecurityControlsCommandInput extends BatchGetSecurityControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetSecurityControlsCommand}.
  */
 export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityControlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Provides details about a batch of security controls for the current Amazon Web Services account and Amazon Web Services Region.
  *       </p>
@@ -48,6 +53,8 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetSecurityControlsCommandInput - {@link BatchGetSecurityControlsCommandInput}
+ * @returns {@link BatchGetSecurityControlsCommandOutput}
  * @see {@link BatchGetSecurityControlsCommandInput} for command's `input` shape.
  * @see {@link BatchGetSecurityControlsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -85,6 +92,9 @@ export class BatchGetSecurityControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetSecurityControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class BatchGetSecurityControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetSecurityControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetSecurityControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetSecurityControlsCommandOutput> {
     return deserializeAws_restJson1BatchGetSecurityControlsCommand(output, context);
   }

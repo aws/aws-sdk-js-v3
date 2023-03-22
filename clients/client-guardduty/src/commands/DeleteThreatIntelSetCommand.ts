@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThreatIntelSetCommand}.
  */
 export interface DeleteThreatIntelSetCommandInput extends DeleteThreatIntelSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThreatIntelSetCommand}.
  */
 export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThreatIntelSetCommandInput - {@link DeleteThreatIntelSetCommandInput}
+ * @returns {@link DeleteThreatIntelSetCommandOutput}
  * @see {@link DeleteThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link DeleteThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteThreatIntelSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThreatIntelSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteThreatIntelSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThreatIntelSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteThreatIntelSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThreatIntelSetCommandOutput> {
     return deserializeAws_restJson1DeleteThreatIntelSetCommand(output, context);
   }

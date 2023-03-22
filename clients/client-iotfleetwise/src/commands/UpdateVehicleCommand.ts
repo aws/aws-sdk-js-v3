@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVehicleCommand}.
  */
 export interface UpdateVehicleCommandInput extends UpdateVehicleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVehicleCommand}.
  */
 export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a vehicle. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVehicleCommandInput - {@link UpdateVehicleCommandInput}
+ * @returns {@link UpdateVehicleCommandOutput}
  * @see {@link UpdateVehicleCommandInput} for command's `input` shape.
  * @see {@link UpdateVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateVehicleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVehicleCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateVehicleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateVehicleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVehicleCommandOutput> {
     return deserializeAws_json1_0UpdateVehicleCommand(output, context);
   }

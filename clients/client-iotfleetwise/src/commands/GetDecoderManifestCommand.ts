@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetDecoderManifestCommand}.
  */
 export interface GetDecoderManifestCommandInput extends GetDecoderManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDecoderManifestCommand}.
  */
 export interface GetDecoderManifestCommandOutput extends GetDecoderManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about a created decoder manifest. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDecoderManifestCommandOutput extends GetDecoderManifestRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDecoderManifestCommandInput - {@link GetDecoderManifestCommandInput}
+ * @returns {@link GetDecoderManifestCommandOutput}
  * @see {@link GetDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link GetDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetDecoderManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDecoderManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetDecoderManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDecoderManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetDecoderManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDecoderManifestCommandOutput> {
     return deserializeAws_json1_0GetDecoderManifestCommand(output, context);
   }

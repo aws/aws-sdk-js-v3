@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectionAliasesCommand}.
  */
 export interface DescribeConnectionAliasesCommandInput extends DescribeConnectionAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectionAliasesCommand}.
  */
 export interface DescribeConnectionAliasesCommandOutput extends DescribeConnectionAliasesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the connection aliases used for cross-Region
  *          redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeConnectionAliasesCommandOutput extends DescribeConnecti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionAliasesCommandInput - {@link DescribeConnectionAliasesCommandInput}
+ * @returns {@link DescribeConnectionAliasesCommandOutput}
  * @see {@link DescribeConnectionAliasesCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionAliasesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeConnectionAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeConnectionAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectionAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConnectionAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

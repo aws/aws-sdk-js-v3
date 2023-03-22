@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListVocabularyFiltersCommand}.
  */
 export interface ListVocabularyFiltersCommandInput extends ListVocabularyFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVocabularyFiltersCommand}.
  */
 export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of custom vocabulary filters that match the specified criteria. If no
  *             criteria are specified, all custom vocabularies are returned.</p>
  *          <p>To get detailed information about a specific custom vocabulary filter, use the  operation.</p>
@@ -48,6 +53,8 @@ export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFilter
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVocabularyFiltersCommandInput - {@link ListVocabularyFiltersCommandInput}
+ * @returns {@link ListVocabularyFiltersCommandOutput}
  * @see {@link ListVocabularyFiltersCommandInput} for command's `input` shape.
  * @see {@link ListVocabularyFiltersCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListVocabularyFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVocabularyFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListVocabularyFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVocabularyFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListVocabularyFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVocabularyFiltersCommandOutput> {
     return deserializeAws_json1_1ListVocabularyFiltersCommand(output, context);
   }

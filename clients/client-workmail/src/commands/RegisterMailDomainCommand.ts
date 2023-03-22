@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterMailDomainCommand}.
  */
 export interface RegisterMailDomainCommandInput extends RegisterMailDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterMailDomainCommand}.
  */
 export interface RegisterMailDomainCommandOutput extends RegisterMailDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new domain in WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
  *          permanent permission to use the specified domain for sending your users' emails.</p>
  * @example
@@ -47,6 +52,8 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterMailDomainCommandInput - {@link RegisterMailDomainCommandInput}
+ * @returns {@link RegisterMailDomainCommandOutput}
  * @see {@link RegisterMailDomainCommandInput} for command's `input` shape.
  * @see {@link RegisterMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -87,6 +94,9 @@ export class RegisterMailDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterMailDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class RegisterMailDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterMailDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterMailDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterMailDomainCommandOutput> {
     return deserializeAws_json1_1RegisterMailDomainCommand(output, context);
   }

@@ -3,11 +3,15 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { AppStreamServiceException as __BaseException } from "./AppStreamServiceException";
 
+/**
+ * @public
+ */
 export enum AccessEndpointType {
   STREAMING = "STREAMING",
 }
 
 /**
+ * @public
  * <p>Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.</p>
  */
 export interface AccessEndpoint {
@@ -22,6 +26,9 @@ export interface AccessEndpoint {
   VpceId?: string;
 }
 
+/**
+ * @public
+ */
 export enum Action {
   CLIPBOARD_COPY_FROM_LOCAL_DEVICE = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
   CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
@@ -33,6 +40,7 @@ export enum Action {
 }
 
 /**
+ * @public
  * <p>Describes the S3 location.</p>
  */
 export interface S3Location {
@@ -48,6 +56,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Describes the details of the script.</p>
  */
 export interface ScriptDetails {
@@ -73,6 +82,7 @@ export interface ScriptDetails {
 }
 
 /**
+ * @public
  * <p>Describes an app block.</p>
  *          <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
  *            virtual hard disk in an S3 bucket. It also stores the setup script with details about
@@ -118,6 +128,9 @@ export interface AppBlock {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum PlatformType {
   AMAZON_LINUX2 = "AMAZON_LINUX2",
   WINDOWS = "WINDOWS",
@@ -126,6 +139,7 @@ export enum PlatformType {
 }
 
 /**
+ * @public
  * <p>Describes an application in the application catalog.</p>
  */
 export interface Application {
@@ -205,12 +219,16 @@ export interface Application {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ApplicationAttribute {
   LAUNCH_PARAMETERS = "LAUNCH_PARAMETERS",
   WORKING_DIRECTORY = "WORKING_DIRECTORY",
 }
 
 /**
+ * @public
  * <p>Describes the application fleet association.</p>
  */
 export interface ApplicationFleetAssociation {
@@ -226,6 +244,7 @@ export interface ApplicationFleetAssociation {
 }
 
 /**
+ * @public
  * <p>The persistent application settings for users of a stack.</p>
  */
 export interface ApplicationSettings {
@@ -241,6 +260,7 @@ export interface ApplicationSettings {
 }
 
 /**
+ * @public
  * <p>Describes the persistent application settings for users of a stack.</p>
  */
 export interface ApplicationSettingsResponse {
@@ -261,11 +281,17 @@ export interface ApplicationSettingsResponse {
   S3BucketName?: string;
 }
 
+/**
+ * @public
+ */
 export enum AppVisibility {
   ALL = "ALL",
   ASSOCIATED = "ASSOCIATED",
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -278,6 +304,9 @@ export interface AssociateApplicationFleetRequest {
   ApplicationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationFleetResult {
   /**
    * <p>If fleet name is specified, this returns the list of applications that are associated
@@ -288,6 +317,7 @@ export interface AssociateApplicationFleetResult {
 }
 
 /**
+ * @public
  * <p>An API error occurred. Wait a few minutes and try again.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -312,6 +342,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -336,6 +367,7 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested limit exceeds the permitted limit for an account.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -360,6 +392,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The attempted operation is not permitted.</p>
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -384,6 +417,7 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -407,6 +441,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationToEntitlementRequest {
   /**
    * <p>The name of the stack.</p>
@@ -424,9 +461,13 @@ export interface AssociateApplicationToEntitlementRequest {
   ApplicationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateApplicationToEntitlementResult {}
 
 /**
+ * @public
  * <p>The entitlement can't be found.</p>
  */
 export class EntitlementNotFoundException extends __BaseException {
@@ -450,6 +491,9 @@ export class EntitlementNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateFleetRequest {
   /**
    * <p>The name of the fleet. </p>
@@ -462,9 +506,13 @@ export interface AssociateFleetRequest {
   StackName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateFleetResult {}
 
 /**
+ * @public
  * <p>The image can't be updated because it's not compatible for updates.</p>
  */
 export class IncompatibleImageException extends __BaseException {
@@ -489,6 +537,7 @@ export class IncompatibleImageException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
  */
 export class InvalidAccountStatusException extends __BaseException {
@@ -512,6 +561,9 @@ export class InvalidAccountStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AuthenticationType {
   API = "API",
   AWS_AD = "AWS_AD",
@@ -520,6 +572,7 @@ export enum AuthenticationType {
 }
 
 /**
+ * @public
  * <p>Describes a user in the user pool and the associated stack.</p>
  */
 export interface UserStackAssociation {
@@ -547,6 +600,9 @@ export interface UserStackAssociation {
   SendEmailNotification?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateUserStackRequest {
   /**
    * <p>The list of UserStackAssociation objects.</p>
@@ -554,6 +610,9 @@ export interface BatchAssociateUserStackRequest {
   UserStackAssociations: UserStackAssociation[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum UserStackAssociationErrorCode {
   DIRECTORY_NOT_FOUND = "DIRECTORY_NOT_FOUND",
   INTERNAL_ERROR = "INTERNAL_ERROR",
@@ -562,6 +621,7 @@ export enum UserStackAssociationErrorCode {
 }
 
 /**
+ * @public
  * <p>Describes the error that is returned when a user can’t be associated with or disassociated from a stack. </p>
  */
 export interface UserStackAssociationError {
@@ -581,6 +641,9 @@ export interface UserStackAssociationError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateUserStackResult {
   /**
    * <p>The list of UserStackAssociationError objects.</p>
@@ -588,6 +651,9 @@ export interface BatchAssociateUserStackResult {
   errors?: UserStackAssociationError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateUserStackRequest {
   /**
    * <p>The list of UserStackAssociation objects.</p>
@@ -595,6 +661,9 @@ export interface BatchDisassociateUserStackRequest {
   UserStackAssociations: UserStackAssociation[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateUserStackResult {
   /**
    * <p>The list of UserStackAssociationError objects.</p>
@@ -602,6 +671,9 @@ export interface BatchDisassociateUserStackResult {
   errors?: UserStackAssociationError[];
 }
 
+/**
+ * @public
+ */
 export enum CertificateBasedAuthStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -609,6 +681,7 @@ export enum CertificateBasedAuthStatus {
 }
 
 /**
+ * @public
  * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
  *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
  *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
@@ -630,6 +703,7 @@ export interface CertificateBasedAuthProperties {
 }
 
 /**
+ * @public
  * <p>Describes the capacity for a fleet.</p>
  */
 export interface ComputeCapacity {
@@ -640,6 +714,7 @@ export interface ComputeCapacity {
 }
 
 /**
+ * @public
  * <p>Describes the capacity status for a fleet.</p>
  */
 export interface ComputeCapacityStatus {
@@ -665,6 +740,9 @@ export interface ComputeCapacityStatus {
   Available?: number;
 }
 
+/**
+ * @public
+ */
 export interface CopyImageRequest {
   /**
    * <p>The name of the image to copy.</p>
@@ -687,6 +765,9 @@ export interface CopyImageRequest {
   DestinationImageDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyImageResponse {
   /**
    * <p>The name of the destination image.</p>
@@ -695,6 +776,7 @@ export interface CopyImageResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -719,6 +801,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource exists and is not in use, but isn't available.</p>
  */
 export class ResourceNotAvailableException extends __BaseException {
@@ -742,6 +825,9 @@ export class ResourceNotAvailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAppBlockRequest {
   /**
    * <p>The name of the app block.</p>
@@ -774,6 +860,9 @@ export interface CreateAppBlockRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppBlockResult {
   /**
    * <p>The app block.</p>
@@ -781,6 +870,9 @@ export interface CreateAppBlockResult {
   AppBlock?: AppBlock;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the application. This name is visible to users when display name is not specified.</p>
@@ -838,6 +930,9 @@ export interface CreateApplicationRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationResult {
   /**
    * <p>Describes an application in the application catalog.</p>
@@ -846,6 +941,7 @@ export interface CreateApplicationResult {
 }
 
 /**
+ * @public
  * <p>Describes the credentials for the service account used by the fleet or image builder to connect to the directory.</p>
  */
 export interface ServiceAccountCredentials {
@@ -862,6 +958,9 @@ export interface ServiceAccountCredentials {
   AccountPassword: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectoryConfigRequest {
   /**
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
@@ -891,6 +990,7 @@ export interface CreateDirectoryConfigRequest {
 }
 
 /**
+ * @public
  * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  */
 export interface DirectoryConfig {
@@ -926,6 +1026,9 @@ export interface DirectoryConfig {
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectoryConfigResult {
   /**
    * <p>Information about the directory configuration.</p>
@@ -934,6 +1037,7 @@ export interface CreateDirectoryConfigResult {
 }
 
 /**
+ * @public
  * <p>The specified role is invalid.</p>
  */
 export class InvalidRoleException extends __BaseException {
@@ -958,6 +1062,7 @@ export class InvalidRoleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An attribute associated with an entitlement. Application entitlements work by matching
  *             a supported SAML 2.0 attribute name to a value when a user identity federates to an
  *             Amazon AppStream 2.0 SAML application.</p>
@@ -1002,6 +1107,9 @@ export interface EntitlementAttribute {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEntitlementRequest {
   /**
    * <p>The name of the entitlement.</p>
@@ -1030,6 +1138,7 @@ export interface CreateEntitlementRequest {
 }
 
 /**
+ * @public
  * <p>Specifies an entitlement. Entitlements control access to specific applications within
  *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
  *             identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
@@ -1074,6 +1183,9 @@ export interface Entitlement {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateEntitlementResult {
   /**
    * <p>The entitlement.</p>
@@ -1082,6 +1194,7 @@ export interface CreateEntitlementResult {
 }
 
 /**
+ * @public
  * <p>The entitlement already exists.</p>
  */
 export class EntitlementAlreadyExistsException extends __BaseException {
@@ -1106,6 +1219,7 @@ export class EntitlementAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  */
 export interface DomainJoinInfo {
@@ -1120,18 +1234,25 @@ export interface DomainJoinInfo {
   OrganizationalUnitDistinguishedName?: string;
 }
 
+/**
+ * @public
+ */
 export enum FleetType {
   ALWAYS_ON = "ALWAYS_ON",
   ELASTIC = "ELASTIC",
   ON_DEMAND = "ON_DEMAND",
 }
 
+/**
+ * @public
+ */
 export enum StreamView {
   APP = "APP",
   DESKTOP = "DESKTOP",
 }
 
 /**
+ * @public
  * <p>Describes VPC configuration information for fleets and image builders.</p>
  */
 export interface VpcConfig {
@@ -1146,6 +1267,9 @@ export interface VpcConfig {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetRequest {
   /**
    * <p>A unique name for the fleet.</p>
@@ -1414,6 +1538,9 @@ export interface CreateFleetRequest {
   SessionScriptS3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export enum FleetErrorCode {
   DOMAIN_JOIN_ERROR_ACCESS_DENIED = "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
   DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED = "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
@@ -1448,6 +1575,7 @@ export enum FleetErrorCode {
 }
 
 /**
+ * @public
  * <p>Describes a fleet error.</p>
  */
 export interface FleetError {
@@ -1462,6 +1590,9 @@ export interface FleetError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum FleetState {
   RUNNING = "RUNNING",
   STARTING = "STARTING",
@@ -1470,6 +1601,7 @@ export enum FleetState {
 }
 
 /**
+ * @public
  * <p>Describes a fleet.</p>
  */
 export interface Fleet {
@@ -1725,6 +1857,9 @@ export interface Fleet {
   SessionScriptS3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetResult {
   /**
    * <p>Information about the fleet.</p>
@@ -1733,6 +1868,7 @@ export interface CreateFleetResult {
 }
 
 /**
+ * @public
  * <p>AppStream 2.0 can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
  */
 export class RequestLimitExceededException extends __BaseException {
@@ -1756,6 +1892,9 @@ export class RequestLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateImageBuilderRequest {
   /**
    * <p>A unique name for the image builder.</p>
@@ -1930,6 +2069,7 @@ export interface CreateImageBuilderRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource error.</p>
  */
 export interface ResourceError {
@@ -1950,6 +2090,7 @@ export interface ResourceError {
 }
 
 /**
+ * @public
  * <p>Describes the network details of the fleet or image builder instance.</p>
  */
 export interface NetworkAccessConfiguration {
@@ -1964,6 +2105,9 @@ export interface NetworkAccessConfiguration {
   EniId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ImageBuilderState {
   DELETING = "DELETING",
   FAILED = "FAILED",
@@ -1978,12 +2122,16 @@ export enum ImageBuilderState {
   UPDATING_AGENT = "UPDATING_AGENT",
 }
 
+/**
+ * @public
+ */
 export enum ImageBuilderStateChangeReasonCode {
   IMAGE_UNAVAILABLE = "IMAGE_UNAVAILABLE",
   INTERNAL_ERROR = "INTERNAL_ERROR",
 }
 
 /**
+ * @public
  * <p>Describes the reason why the last image builder state change occurred.</p>
  */
 export interface ImageBuilderStateChangeReason {
@@ -1999,6 +2147,7 @@ export interface ImageBuilderStateChangeReason {
 }
 
 /**
+ * @public
  * <p>Describes a virtual machine that is used to create an image. </p>
  */
 export interface ImageBuilder {
@@ -2195,6 +2344,9 @@ export interface ImageBuilder {
   AccessEndpoints?: AccessEndpoint[];
 }
 
+/**
+ * @public
+ */
 export interface CreateImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
@@ -2202,6 +2354,9 @@ export interface CreateImageBuilderResult {
   ImageBuilder?: ImageBuilder;
 }
 
+/**
+ * @public
+ */
 export interface CreateImageBuilderStreamingURLRequest {
   /**
    * <p>The name of the image builder.</p>
@@ -2215,6 +2370,9 @@ export interface CreateImageBuilderStreamingURLRequest {
   Validity?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateImageBuilderStreamingURLResult {
   /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
@@ -2227,6 +2385,9 @@ export interface CreateImageBuilderStreamingURLResult {
   Expires?: Date;
 }
 
+/**
+ * @public
+ */
 export enum StorageConnectorType {
   GOOGLE_DRIVE = "GOOGLE_DRIVE",
   HOMEFOLDERS = "HOMEFOLDERS",
@@ -2234,6 +2395,7 @@ export enum StorageConnectorType {
 }
 
 /**
+ * @public
  * <p>Describes a connector that enables persistent storage for users.</p>
  */
 export interface StorageConnector {
@@ -2253,12 +2415,16 @@ export interface StorageConnector {
   Domains?: string[];
 }
 
+/**
+ * @public
+ */
 export enum PreferredProtocol {
   TCP = "TCP",
   UDP = "UDP",
 }
 
 /**
+ * @public
  * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
  */
 export interface StreamingExperienceSettings {
@@ -2268,12 +2434,16 @@ export interface StreamingExperienceSettings {
   PreferredProtocol?: PreferredProtocol | string;
 }
 
+/**
+ * @public
+ */
 export enum Permission {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Describes an action and whether the action is enabled or disabled for users during their streaming sessions.</p>
  */
 export interface UserSetting {
@@ -2288,6 +2458,9 @@ export interface UserSetting {
   Permission: Permission | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackRequest {
   /**
    * <p>The name of the stack.</p>
@@ -2354,12 +2527,16 @@ export interface CreateStackRequest {
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
+/**
+ * @public
+ */
 export enum StackErrorCode {
   INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
   STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR",
 }
 
 /**
+ * @public
  * <p>Describes a stack error.</p>
  */
 export interface StackError {
@@ -2375,6 +2552,7 @@ export interface StackError {
 }
 
 /**
+ * @public
  * <p>Describes a stack.</p>
  */
 export interface Stack {
@@ -2449,6 +2627,9 @@ export interface Stack {
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
+/**
+ * @public
+ */
 export interface CreateStackResult {
   /**
    * <p>Information about the stack.</p>
@@ -2456,6 +2637,9 @@ export interface CreateStackResult {
   Stack?: Stack;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingURLRequest {
   /**
    * <p>The name of the stack.</p>
@@ -2490,6 +2674,9 @@ export interface CreateStreamingURLRequest {
   SessionContext?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamingURLResult {
   /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
@@ -2502,6 +2689,9 @@ export interface CreateStreamingURLResult {
   Expires?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateUpdatedImageRequest {
   /**
    * <p>The name of the image to update.</p>
@@ -2539,6 +2729,7 @@ export interface CreateUpdatedImageRequest {
 }
 
 /**
+ * @public
  * <p>Describes the permissions for an image. </p>
  */
 export interface ImagePermissions {
@@ -2553,6 +2744,9 @@ export interface ImagePermissions {
   allowImageBuilder?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ImageState {
   AVAILABLE = "AVAILABLE",
   COPYING = "COPYING",
@@ -2563,6 +2757,9 @@ export enum ImageState {
   PENDING = "PENDING",
 }
 
+/**
+ * @public
+ */
 export enum ImageStateChangeReasonCode {
   IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
   IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
@@ -2570,6 +2767,7 @@ export enum ImageStateChangeReasonCode {
 }
 
 /**
+ * @public
  * <p>Describes the reason why the last image state change occurred.</p>
  */
 export interface ImageStateChangeReason {
@@ -2584,6 +2782,9 @@ export interface ImageStateChangeReason {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum VisibilityType {
   PRIVATE = "PRIVATE",
   PUBLIC = "PUBLIC",
@@ -2591,6 +2792,7 @@ export enum VisibilityType {
 }
 
 /**
+ * @public
  * <p>Describes an image.</p>
  */
 export interface Image {
@@ -2682,6 +2884,9 @@ export interface Image {
   ImageErrors?: ResourceError[];
 }
 
+/**
+ * @public
+ */
 export interface CreateUpdatedImageResult {
   /**
    * <p>Describes an image.</p>
@@ -2694,12 +2899,21 @@ export interface CreateUpdatedImageResult {
   canUpdateImage?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateUsageReportSubscriptionRequest {}
 
+/**
+ * @public
+ */
 export enum UsageReportSchedule {
   DAILY = "DAILY",
 }
 
+/**
+ * @public
+ */
 export interface CreateUsageReportSubscriptionResult {
   /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
@@ -2717,11 +2931,17 @@ export interface CreateUsageReportSubscriptionResult {
   Schedule?: UsageReportSchedule | string;
 }
 
+/**
+ * @public
+ */
 export enum MessageAction {
   RESEND = "RESEND",
   SUPPRESS = "SUPPRESS",
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The email address of the user.</p>
@@ -2755,8 +2975,14 @@ export interface CreateUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResult {}
 
+/**
+ * @public
+ */
 export interface DeleteAppBlockRequest {
   /**
    * <p>The name of the app block.</p>
@@ -2764,9 +2990,13 @@ export interface DeleteAppBlockRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppBlockResult {}
 
 /**
+ * @public
  * <p>The specified resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -2790,6 +3020,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -2797,8 +3030,14 @@ export interface DeleteApplicationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResult {}
 
+/**
+ * @public
+ */
 export interface DeleteDirectoryConfigRequest {
   /**
    * <p>The name of the directory configuration.</p>
@@ -2806,8 +3045,14 @@ export interface DeleteDirectoryConfigRequest {
   DirectoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDirectoryConfigResult {}
 
+/**
+ * @public
+ */
 export interface DeleteEntitlementRequest {
   /**
    * <p>The name of the entitlement.</p>
@@ -2820,8 +3065,14 @@ export interface DeleteEntitlementRequest {
   StackName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEntitlementResult {}
 
+/**
+ * @public
+ */
 export interface DeleteFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -2829,8 +3080,14 @@ export interface DeleteFleetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetResult {}
 
+/**
+ * @public
+ */
 export interface DeleteImageRequest {
   /**
    * <p>The name of the image.</p>
@@ -2838,6 +3095,9 @@ export interface DeleteImageRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageResult {
   /**
    * <p>Information about the image.</p>
@@ -2845,6 +3105,9 @@ export interface DeleteImageResult {
   Image?: Image;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageBuilderRequest {
   /**
    * <p>The name of the image builder.</p>
@@ -2852,6 +3115,9 @@ export interface DeleteImageBuilderRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
@@ -2859,6 +3125,9 @@ export interface DeleteImageBuilderResult {
   ImageBuilder?: ImageBuilder;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImagePermissionsRequest {
   /**
    * <p>The name of the private image.</p>
@@ -2871,8 +3140,14 @@ export interface DeleteImagePermissionsRequest {
   SharedAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteImagePermissionsResult {}
 
+/**
+ * @public
+ */
 export interface DeleteStackRequest {
   /**
    * <p>The name of the stack.</p>
@@ -2880,12 +3155,24 @@ export interface DeleteStackRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStackResult {}
 
+/**
+ * @public
+ */
 export interface DeleteUsageReportSubscriptionRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteUsageReportSubscriptionResult {}
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The email address of the user.</p>
@@ -2901,8 +3188,14 @@ export interface DeleteUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResult {}
 
+/**
+ * @public
+ */
 export interface DescribeAppBlocksRequest {
   /**
    * <p>The ARNs of the app blocks.</p>
@@ -2921,6 +3214,9 @@ export interface DescribeAppBlocksRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppBlocksResult {
   /**
    * <p>The app blocks in the list.</p>
@@ -2934,6 +3230,9 @@ export interface DescribeAppBlocksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationFleetAssociationsRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -2957,6 +3256,9 @@ export interface DescribeApplicationFleetAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationFleetAssociationsResult {
   /**
    * <p>The application fleet associations in the list.</p>
@@ -2970,6 +3272,9 @@ export interface DescribeApplicationFleetAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationsRequest {
   /**
    * <p>The ARNs for the applications.</p>
@@ -2988,6 +3293,9 @@ export interface DescribeApplicationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationsResult {
   /**
    * <p>The applications in the list.</p>
@@ -3001,6 +3309,9 @@ export interface DescribeApplicationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectoryConfigsRequest {
   /**
    * <p>The directory names.</p>
@@ -3018,6 +3329,9 @@ export interface DescribeDirectoryConfigsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectoryConfigsResult {
   /**
    * <p>Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
@@ -3030,6 +3344,9 @@ export interface DescribeDirectoryConfigsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntitlementsRequest {
   /**
    * <p>The name of the entitlement.</p>
@@ -3052,6 +3369,9 @@ export interface DescribeEntitlementsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntitlementsResult {
   /**
    * <p>The entitlements.</p>
@@ -3065,6 +3385,9 @@ export interface DescribeEntitlementsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetsRequest {
   /**
    * <p>The names of the fleets to describe.</p>
@@ -3077,6 +3400,9 @@ export interface DescribeFleetsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetsResult {
   /**
    * <p>Information about the fleets.</p>
@@ -3089,6 +3415,9 @@ export interface DescribeFleetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageBuildersRequest {
   /**
    * <p>The names of the image builders to describe.</p>
@@ -3106,6 +3435,9 @@ export interface DescribeImageBuildersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageBuildersResult {
   /**
    * <p>Information about the image builders.</p>
@@ -3118,6 +3450,9 @@ export interface DescribeImageBuildersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagePermissionsRequest {
   /**
    * <p>The name of the private image for which to describe permissions. The image must be one that you own. </p>
@@ -3141,6 +3476,7 @@ export interface DescribeImagePermissionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the permissions that are available to the specified AWS account for a shared image.</p>
  */
 export interface SharedImagePermissions {
@@ -3155,6 +3491,9 @@ export interface SharedImagePermissions {
   imagePermissions: ImagePermissions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagePermissionsResult {
   /**
    * <p>The name of the private image.</p>
@@ -3172,6 +3511,9 @@ export interface DescribeImagePermissionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagesRequest {
   /**
    * <p>The names of the public or private images to describe.</p>
@@ -3199,6 +3541,9 @@ export interface DescribeImagesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImagesResult {
   /**
    * <p>Information about the images.</p>
@@ -3211,6 +3556,9 @@ export interface DescribeImagesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSessionsRequest {
   /**
    * <p>The name of the stack. This value is case-sensitive.</p>
@@ -3245,11 +3593,17 @@ export interface DescribeSessionsRequest {
   AuthenticationType?: AuthenticationType | string;
 }
 
+/**
+ * @public
+ */
 export enum SessionConnectionState {
   CONNECTED = "CONNECTED",
   NOT_CONNECTED = "NOT_CONNECTED",
 }
 
+/**
+ * @public
+ */
 export enum SessionState {
   ACTIVE = "ACTIVE",
   EXPIRED = "EXPIRED",
@@ -3257,6 +3611,7 @@ export enum SessionState {
 }
 
 /**
+ * @public
  * <p>Describes a streaming session.</p>
  */
 export interface Session {
@@ -3312,6 +3667,9 @@ export interface Session {
   NetworkAccessConfiguration?: NetworkAccessConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSessionsResult {
   /**
    * <p>Information about the streaming sessions.</p>
@@ -3324,6 +3682,9 @@ export interface DescribeSessionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStacksRequest {
   /**
    * <p>The names of the stacks to describe.</p>
@@ -3336,6 +3697,9 @@ export interface DescribeStacksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStacksResult {
   /**
    * <p>Information about the stacks.</p>
@@ -3348,6 +3712,9 @@ export interface DescribeStacksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsageReportSubscriptionsRequest {
   /**
    * <p>The maximum size of each page of results.</p>
@@ -3360,6 +3727,9 @@ export interface DescribeUsageReportSubscriptionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum UsageReportExecutionErrorCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
@@ -3367,6 +3737,7 @@ export enum UsageReportExecutionErrorCode {
 }
 
 /**
+ * @public
  * <p>Describes the error that is returned when a usage report can't be generated.</p>
  */
 export interface LastReportGenerationExecutionError {
@@ -3382,6 +3753,7 @@ export interface LastReportGenerationExecutionError {
 }
 
 /**
+ * @public
  * <p>Describes information about the usage report subscription.</p>
  */
 export interface UsageReportSubscription {
@@ -3411,6 +3783,9 @@ export interface UsageReportSubscription {
   SubscriptionErrors?: LastReportGenerationExecutionError[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsageReportSubscriptionsResult {
   /**
    * <p>Information about the usage report subscription.</p>
@@ -3423,6 +3798,9 @@ export interface DescribeUsageReportSubscriptionsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsersRequest {
   /**
    * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
@@ -3441,6 +3819,7 @@ export interface DescribeUsersRequest {
 }
 
 /**
+ * @public
  * <p>Describes a user in the user pool.</p>
  */
 export interface User {
@@ -3505,6 +3884,9 @@ export interface User {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsersResult {
   /**
    * <p>Information about users in the user pool.</p>
@@ -3517,6 +3899,9 @@ export interface DescribeUsersResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserStackAssociationsRequest {
   /**
    * <p>The name of the stack that is associated with the user.</p>
@@ -3547,6 +3932,9 @@ export interface DescribeUserStackAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserStackAssociationsResult {
   /**
    * <p>The UserStackAssociation objects.</p>
@@ -3559,6 +3947,9 @@ export interface DescribeUserStackAssociationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableUserRequest {
   /**
    * <p>The email address of the user.</p>
@@ -3574,8 +3965,14 @@ export interface DisableUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableUserResult {}
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3588,8 +3985,14 @@ export interface DisassociateApplicationFleetRequest {
   ApplicationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationFleetResult {}
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationFromEntitlementRequest {
   /**
    * <p>The name of the stack with which the entitlement is associated.</p>
@@ -3607,8 +4010,14 @@ export interface DisassociateApplicationFromEntitlementRequest {
   ApplicationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateApplicationFromEntitlementResult {}
 
+/**
+ * @public
+ */
 export interface DisassociateFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3621,8 +4030,14 @@ export interface DisassociateFleetRequest {
   StackName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateFleetResult {}
 
+/**
+ * @public
+ */
 export interface EnableUserRequest {
   /**
    * <p>The email address of the user.</p>
@@ -3638,9 +4053,13 @@ export interface EnableUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableUserResult {}
 
 /**
+ * @public
  * <p>The application associated to an entitlement. Access is controlled based on user attributes.</p>
  */
 export interface EntitledApplication {
@@ -3650,6 +4069,9 @@ export interface EntitledApplication {
   ApplicationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExpireSessionRequest {
   /**
    * <p>The identifier of the streaming session.</p>
@@ -3657,8 +4079,14 @@ export interface ExpireSessionRequest {
   SessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExpireSessionResult {}
 
+/**
+ * @public
+ */
 export enum FleetAttribute {
   DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
   IAM_ROLE_ARN = "IAM_ROLE_ARN",
@@ -3668,6 +4096,9 @@ export enum FleetAttribute {
   VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedFleetsRequest {
   /**
    * <p>The name of the stack.</p>
@@ -3680,6 +4111,9 @@ export interface ListAssociatedFleetsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedFleetsResult {
   /**
    * <p>The name of the fleet.</p>
@@ -3692,6 +4126,9 @@ export interface ListAssociatedFleetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedStacksRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3704,6 +4141,9 @@ export interface ListAssociatedStacksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedStacksResult {
   /**
    * <p>The name of the stack.</p>
@@ -3716,6 +4156,9 @@ export interface ListAssociatedStacksResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitledApplicationsRequest {
   /**
    * <p>The name of the stack with which the entitlement is associated.</p>
@@ -3738,6 +4181,9 @@ export interface ListEntitledApplicationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitledApplicationsResult {
   /**
    * <p>The entitled applications.</p>
@@ -3750,6 +4196,9 @@ export interface ListEntitledApplicationsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3757,6 +4206,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The information about the tags.</p>
@@ -3764,6 +4216,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3771,8 +4226,14 @@ export interface StartFleetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartFleetResult {}
 
+/**
+ * @public
+ */
 export interface StartImageBuilderRequest {
   /**
    * <p>The name of the image builder.</p>
@@ -3785,6 +4246,9 @@ export interface StartImageBuilderRequest {
   AppstreamAgentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
@@ -3792,6 +4256,9 @@ export interface StartImageBuilderResult {
   ImageBuilder?: ImageBuilder;
 }
 
+/**
+ * @public
+ */
 export interface StopFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -3799,8 +4266,14 @@ export interface StopFleetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopFleetResult {}
 
+/**
+ * @public
+ */
 export interface StopImageBuilderRequest {
   /**
    * <p>The name of the image builder.</p>
@@ -3808,6 +4281,9 @@ export interface StopImageBuilderRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
@@ -3815,6 +4291,9 @@ export interface StopImageBuilderResult {
   ImageBuilder?: ImageBuilder;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3830,8 +4309,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3844,8 +4329,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>The name of the application. This name is visible to users when display name is not specified.</p>
@@ -3893,6 +4384,9 @@ export interface UpdateApplicationRequest {
   AttributesToDelete?: (ApplicationAttribute | string)[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResult {
   /**
    * <p>Describes an application in the application catalog.</p>
@@ -3900,6 +4394,9 @@ export interface UpdateApplicationResult {
   Application?: Application;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDirectoryConfigRequest {
   /**
    * <p>The name of the Directory Config object.</p>
@@ -3928,6 +4425,9 @@ export interface UpdateDirectoryConfigRequest {
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDirectoryConfigResult {
   /**
    * <p>Information about the Directory Config object.</p>
@@ -3935,6 +4435,9 @@ export interface UpdateDirectoryConfigResult {
   DirectoryConfig?: DirectoryConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEntitlementRequest {
   /**
    * <p>The name of the entitlement.</p>
@@ -3962,6 +4465,9 @@ export interface UpdateEntitlementRequest {
   Attributes?: EntitlementAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateEntitlementResult {
   /**
    * <p>The entitlement.</p>
@@ -3969,6 +4475,9 @@ export interface UpdateEntitlementResult {
   Entitlement?: Entitlement;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetRequest {
   /**
    * <p>The name of the image used to create the fleet.</p>
@@ -4220,6 +4729,9 @@ export interface UpdateFleetRequest {
   SessionScriptS3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetResult {
   /**
    * <p>Information about the fleet.</p>
@@ -4227,6 +4739,9 @@ export interface UpdateFleetResult {
   Fleet?: Fleet;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImagePermissionsRequest {
   /**
    * <p>The name of the private image.</p>
@@ -4244,8 +4759,14 @@ export interface UpdateImagePermissionsRequest {
   ImagePermissions: ImagePermissions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImagePermissionsResult {}
 
+/**
+ * @public
+ */
 export enum StackAttribute {
   ACCESS_ENDPOINTS = "ACCESS_ENDPOINTS",
   EMBED_HOST_DOMAINS = "EMBED_HOST_DOMAINS",
@@ -4261,6 +4782,9 @@ export enum StackAttribute {
   USER_SETTINGS = "USER_SETTINGS",
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackRequest {
   /**
    * <p>The stack name to display.</p>
@@ -4330,6 +4854,9 @@ export interface UpdateStackRequest {
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStackResult {
   /**
    * <p>Information about the stack.</p>

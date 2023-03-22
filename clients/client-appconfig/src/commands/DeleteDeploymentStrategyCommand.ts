@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeploymentStrategyCommand}.
  */
 export interface DeleteDeploymentStrategyCommandInput extends DeleteDeploymentStrategyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeploymentStrategyCommand}.
  */
 export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a deployment strategy. Deleting a deployment strategy does not delete a
  *          configuration from a host.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeploymentStrategyCommandInput - {@link DeleteDeploymentStrategyCommandInput}
+ * @returns {@link DeleteDeploymentStrategyCommandOutput}
  * @see {@link DeleteDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteDeploymentStrategyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeploymentStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteDeploymentStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDeploymentStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentStrategyCommandOutput> {
     return deserializeAws_restJson1DeleteDeploymentStrategyCommand(output, context);
   }

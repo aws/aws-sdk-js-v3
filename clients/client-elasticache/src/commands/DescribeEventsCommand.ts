@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns events related to clusters, cache
  *             security groups, and cache parameter groups. You can obtain events specific to a
  *             particular cluster, cache security group, or cache parameter group by providing
@@ -51,6 +56,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
+ * @returns {@link DescribeEventsCommandOutput}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -129,6 +136,9 @@ export class DescribeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class DescribeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
     return deserializeAws_queryDescribeEventsCommand(output, context);
   }

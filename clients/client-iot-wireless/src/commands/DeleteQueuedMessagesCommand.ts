@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueuedMessagesCommand}.
  */
 export interface DeleteQueuedMessagesCommandInput extends DeleteQueuedMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueuedMessagesCommand}.
  */
 export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove queued messages from the downlink queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueuedMessagesCommandInput - {@link DeleteQueuedMessagesCommandInput}
+ * @returns {@link DeleteQueuedMessagesCommandOutput}
  * @see {@link DeleteQueuedMessagesCommandInput} for command's `input` shape.
  * @see {@link DeleteQueuedMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteQueuedMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueuedMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteQueuedMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueuedMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteQueuedMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueuedMessagesCommandOutput> {
     return deserializeAws_restJson1DeleteQueuedMessagesCommand(output, context);
   }

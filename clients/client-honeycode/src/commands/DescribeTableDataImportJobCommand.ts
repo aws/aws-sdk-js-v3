@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTableDataImportJobCommand}.
  */
 export interface DescribeTableDataImportJobCommandInput extends DescribeTableDataImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTableDataImportJobCommand}.
  */
 export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDataImportJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The DescribeTableDataImportJob API allows you to retrieve the status and details of a table data import job.
  *         </p>
@@ -48,6 +53,8 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTableDataImportJobCommandInput - {@link DescribeTableDataImportJobCommandInput}
+ * @returns {@link DescribeTableDataImportJobCommandOutput}
  * @see {@link DescribeTableDataImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTableDataImportJobCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeTableDataImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableDataImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeTableDataImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTableDataImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeTableDataImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

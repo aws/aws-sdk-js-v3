@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackendAuthCommand}.
  */
 export interface GetBackendAuthCommandInput extends GetBackendAuthRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBackendAuthCommand}.
  */
 export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a backend auth details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackendAuthCommandInput - {@link GetBackendAuthCommandInput}
+ * @returns {@link GetBackendAuthCommandOutput}
  * @see {@link GetBackendAuthCommandInput} for command's `input` shape.
  * @see {@link GetBackendAuthCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetBackendAuthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackendAuthCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetBackendAuthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackendAuthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackendAuthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendAuthCommandOutput> {
     return deserializeAws_restJson1GetBackendAuthCommand(output, context);
   }

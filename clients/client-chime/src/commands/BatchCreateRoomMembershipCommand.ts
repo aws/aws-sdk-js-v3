@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateRoomMembershipCommand}.
  */
 export interface BatchCreateRoomMembershipCommandInput extends BatchCreateRoomMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateRoomMembershipCommand}.
  */
 export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members can be users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomM
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateRoomMembershipCommandInput - {@link BatchCreateRoomMembershipCommandInput}
+ * @returns {@link BatchCreateRoomMembershipCommandOutput}
  * @see {@link BatchCreateRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link BatchCreateRoomMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class BatchCreateRoomMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateRoomMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class BatchCreateRoomMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCreateRoomMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchCreateRoomMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

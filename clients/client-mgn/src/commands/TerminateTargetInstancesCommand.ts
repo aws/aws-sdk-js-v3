@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateTargetInstancesCommand}.
  */
 export interface TerminateTargetInstancesCommandInput extends TerminateTargetInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateTargetInstancesCommand}.
  */
 export interface TerminateTargetInstancesCommandOutput extends TerminateTargetInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a job that terminates specific launched EC2 Test and Cutover instances. This command will not work for any Source Server with a lifecycle.state of TESTING, CUTTING_OVER, or CUTOVER.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface TerminateTargetInstancesCommandOutput extends TerminateTargetIn
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateTargetInstancesCommandInput - {@link TerminateTargetInstancesCommandInput}
+ * @returns {@link TerminateTargetInstancesCommandOutput}
  * @see {@link TerminateTargetInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateTargetInstancesCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class TerminateTargetInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateTargetInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class TerminateTargetInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateTargetInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TerminateTargetInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateTargetInstancesCommandOutput> {
     return deserializeAws_restJson1TerminateTargetInstancesCommand(output, context);
   }

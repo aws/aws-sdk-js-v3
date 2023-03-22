@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountAssignmentDeletionStatusCommand}.
  */
 export interface DescribeAccountAssignmentDeletionStatusCommandInput
   extends DescribeAccountAssignmentDeletionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountAssignmentDeletionStatusCommand}.
  */
 export interface DescribeAccountAssignmentDeletionStatusCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of the assignment deletion request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountAssignmentDeletionStatusCommandInput - {@link DescribeAccountAssignmentDeletionStatusCommandInput}
+ * @returns {@link DescribeAccountAssignmentDeletionStatusCommandOutput}
  * @see {@link DescribeAccountAssignmentDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAssignmentDeletionStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountAssignmentDeletionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAccountAssignmentDeletionStatusCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<
     return serializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

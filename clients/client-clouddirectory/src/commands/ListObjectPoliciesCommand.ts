@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectPoliciesCommand}.
  */
 export interface ListObjectPoliciesCommandInput extends ListObjectPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectPoliciesCommand}.
  */
 export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns policies attached to an object in pagination fashion.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectPoliciesCommandInput - {@link ListObjectPoliciesCommandInput}
+ * @returns {@link ListObjectPoliciesCommandOutput}
  * @see {@link ListObjectPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListObjectPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListObjectPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ListObjectPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListObjectPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectPoliciesCommandOutput> {
     return deserializeAws_restJson1ListObjectPoliciesCommand(output, context);
   }

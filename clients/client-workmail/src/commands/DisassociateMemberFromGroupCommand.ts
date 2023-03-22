@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMemberFromGroupCommand}.
  */
 export interface DisassociateMemberFromGroupCommandInput extends DisassociateMemberFromGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMemberFromGroupCommand}.
  */
 export interface DisassociateMemberFromGroupCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateMemberFromGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a member from a group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateMemberFromGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMemberFromGroupCommandInput - {@link DisassociateMemberFromGroupCommandInput}
+ * @returns {@link DisassociateMemberFromGroupCommandOutput}
  * @see {@link DisassociateMemberFromGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateMemberFromGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -99,6 +106,9 @@ export class DisassociateMemberFromGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMemberFromGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DisassociateMemberFromGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMemberFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateMemberFromGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

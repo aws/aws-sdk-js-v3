@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSourceRepositoriesCommand}.
  */
 export interface ListSourceRepositoriesCommandInput extends ListSourceRepositoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSourceRepositoriesCommand}.
  */
 export interface ListSourceRepositoriesCommandOutput extends ListSourceRepositoriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of source repositories in a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSourceRepositoriesCommandOutput extends ListSourceRepositor
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSourceRepositoriesCommandInput - {@link ListSourceRepositoriesCommandInput}
+ * @returns {@link ListSourceRepositoriesCommandOutput}
  * @see {@link ListSourceRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListSourceRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListSourceRepositoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSourceRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListSourceRepositoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSourceRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSourceRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSourceRepositoriesCommandOutput> {
     return deserializeAws_restJson1ListSourceRepositoriesCommand(output, context);
   }

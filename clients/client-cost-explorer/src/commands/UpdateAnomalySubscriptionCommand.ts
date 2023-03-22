@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAnomalySubscriptionCommand}.
  */
 export interface UpdateAnomalySubscriptionCommandInput extends UpdateAnomalySubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAnomalySubscriptionCommand}.
  */
 export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing cost anomaly monitor subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAnomalySubscriptionCommandInput - {@link UpdateAnomalySubscriptionCommandInput}
+ * @returns {@link UpdateAnomalySubscriptionCommandOutput}
  * @see {@link UpdateAnomalySubscriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateAnomalySubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateAnomalySubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAnomalySubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateAnomalySubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAnomalySubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAnomalySubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

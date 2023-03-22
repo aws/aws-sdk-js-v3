@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIPSetCommand}.
  */
 export interface DeleteIPSetCommandInput extends DeleteIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIPSetCommand}.
  */
 export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -69,6 +74,8 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIPSetCommandInput - {@link DeleteIPSetCommandInput}
+ * @returns {@link DeleteIPSetCommandOutput}
  * @see {@link DeleteIPSetCommandInput} for command's `input` shape.
  * @see {@link DeleteIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -150,6 +157,9 @@ export class DeleteIPSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,10 +197,16 @@ export class DeleteIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIPSetCommandOutput> {
     return deserializeAws_json1_1DeleteIPSetCommand(output, context);
   }

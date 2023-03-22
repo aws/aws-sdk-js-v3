@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemovePermissionCommand}.
  */
 export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemovePermissionCommand}.
  */
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes function-use permission from an Amazon Web Service or another Amazon Web Services account. You
  *       can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
  * @example
@@ -42,6 +47,8 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
+ * @returns {@link RemovePermissionCommandOutput}
  * @see {@link RemovePermissionCommandInput} for command's `input` shape.
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -81,6 +88,9 @@ export class RemovePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemovePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RemovePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemovePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemovePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemovePermissionCommandOutput> {
     return deserializeAws_restJson1RemovePermissionCommand(output, context);
   }

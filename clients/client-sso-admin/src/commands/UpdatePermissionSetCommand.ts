@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePermissionSetCommand}.
  */
 export interface UpdatePermissionSetCommandInput extends UpdatePermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePermissionSetCommand}.
  */
 export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePermissionSetCommandInput - {@link UpdatePermissionSetCommandInput}
+ * @returns {@link UpdatePermissionSetCommandOutput}
  * @see {@link UpdatePermissionSetCommandInput} for command's `input` shape.
  * @see {@link UpdatePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdatePermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdatePermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePermissionSetCommandOutput> {
     return deserializeAws_json1_1UpdatePermissionSetCommand(output, context);
   }

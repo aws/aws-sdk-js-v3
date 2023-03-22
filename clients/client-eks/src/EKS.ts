@@ -155,6 +155,7 @@ import {
 import { EKSClient } from "./EKSClient";
 
 /**
+ * @public
  * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy
  *             for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain
  *             your own Kubernetes control plane. Kubernetes is an open-source system for automating
@@ -168,6 +169,7 @@ import { EKSClient } from "./EKSClient";
  */
 export class EKS extends EKSClient {
   /**
+   * @public
    * <p>Associate encryption configuration to an existing cluster.</p>
    *          <p>You can use this API to enable encryption on existing clusters which do not have
    *             encryption already enabled. This allows you to implement a defense-in-depth security
@@ -203,6 +205,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Associate an identity provider configuration to a cluster.</p>
    *          <p>If you want to authenticate identities using an identity provider, you can create an
    *             identity provider configuration and associate it to your cluster. After configuring
@@ -242,6 +245,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon EKS add-on.</p>
    *          <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management
    *             of common operational software for Amazon EKS clusters. For more information,
@@ -271,6 +275,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon EKS control plane. </p>
    *          <p>The Amazon EKS control plane consists of control plane instances that run the
    *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane
@@ -323,6 +328,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Creates an Fargate profile for your Amazon EKS cluster. You
    *             must have at least one Fargate profile in a cluster to be able to run
    *             pods on Fargate.</p>
@@ -382,6 +388,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Creates a managed node group for an Amazon EKS cluster. You can only create a
    *             node group for your cluster that is equal to the current Kubernetes version for the
    *             cluster. All node groups are created with the latest AMI release version for the
@@ -427,6 +434,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Delete an Amazon EKS add-on.</p>
    *          <p>When you remove the add-on, it will also be deleted from the cluster. You can always
    *             manually start an add-on on the cluster using the Kubernetes API.</p>
@@ -455,6 +463,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the Amazon EKS cluster control plane.</p>
    *          <p>If you have active services in your cluster that are associated with a load balancer,
    *             you must delete those services before deleting the cluster so that the load balancers
@@ -494,6 +503,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Fargate profile.</p>
    *          <p>When you delete a Fargate profile, any pods running on Fargate that were created with the profile are deleted. If those pods match
    *             another Fargate profile, then they are scheduled on Fargate with that profile. If they no longer match any Fargate profiles, then
@@ -534,6 +544,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon EKS node group for a cluster.</p>
    */
   public deleteNodegroup(
@@ -566,6 +577,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Deregisters a connected cluster to remove it from the Amazon EKS control
    *             plane.</p>
    */
@@ -599,6 +611,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Describes an Amazon EKS add-on.</p>
    */
   public describeAddon(
@@ -631,6 +644,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Returns configuration options.</p>
    */
   public describeAddonConfiguration(
@@ -663,6 +677,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Describes the versions for an add-on. Information such as the Kubernetes versions that you
    *             can use the add-on with, the <code>owner</code>, <code>publisher</code>, and the
    *                 <code>type</code> of the add-on are returned. </p>
@@ -697,6 +712,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Returns descriptive information about an Amazon EKS cluster.</p>
    *          <p>The API server endpoint and certificate authority data returned by this operation are
    *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
@@ -737,6 +753,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Returns descriptive information about an Fargate profile.</p>
    */
   public describeFargateProfile(
@@ -769,6 +786,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Returns descriptive information about an identity provider configuration.</p>
    */
   public describeIdentityProviderConfig(
@@ -801,6 +819,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Returns descriptive information about an Amazon EKS node group.</p>
    */
   public describeNodegroup(
@@ -833,6 +852,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Returns descriptive information about an update against your Amazon EKS
    *             cluster or associated managed node group or Amazon EKS add-on.</p>
    *          <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
@@ -869,6 +889,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Disassociates an identity provider configuration from a cluster. If you disassociate
    *             an identity provider from your cluster, users included in the provider can no longer
    *             access the cluster. However, you can still access the cluster with Amazon Web Services
@@ -904,6 +925,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Lists the available add-ons.</p>
    */
   public listAddons(args: ListAddonsCommandInput, options?: __HttpHandlerOptions): Promise<ListAddonsCommandOutput>;
@@ -930,6 +952,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Lists the Amazon EKS clusters in your Amazon Web Services account in the
    *             specified Region.</p>
    */
@@ -960,6 +983,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Lists the Fargate profiles associated with the specified cluster in
    *             your Amazon Web Services account in the specified Region.</p>
    */
@@ -993,6 +1017,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>A list of identity provider configurations.</p>
    */
   public listIdentityProviderConfigs(
@@ -1025,6 +1050,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Lists the Amazon EKS managed node groups associated with the specified cluster
    *             in your Amazon Web Services account in the specified Region. Self-managed node groups are
    *             not listed.</p>
@@ -1059,6 +1085,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>List the tags for an Amazon EKS resource.</p>
    */
   public listTagsForResource(
@@ -1091,6 +1118,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Lists the updates associated with an Amazon EKS cluster or managed node group
    *             in your Amazon Web Services account, in the specified Region.</p>
    */
@@ -1118,6 +1146,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Connects a Kubernetes cluster to the Amazon EKS control plane. </p>
    *          <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to
    *             view current information about the cluster and its nodes. </p>
@@ -1162,6 +1191,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified tags to a resource with the specified
    *                 <code>resourceArn</code>. If existing tags on a resource are not specified in the
    *             request parameters, they are not changed. When a resource is deleted, the tags
@@ -1193,6 +1223,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Deletes specified tags from a resource.</p>
    */
   public untagResource(
@@ -1225,6 +1256,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Updates an Amazon EKS add-on.</p>
    */
   public updateAddon(args: UpdateAddonCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAddonCommandOutput>;
@@ -1251,6 +1283,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to
    *             function during the update. The response output includes an update ID that you can use
    *             to track the status of your cluster update with the <a>DescribeUpdate</a> API
@@ -1310,6 +1343,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your
    *             cluster continues to function during the update. The response output includes an update
    *             ID that you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
@@ -1351,6 +1385,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Updates an Amazon EKS managed node group configuration. Your node group
    *             continues to function during the update. The response output includes an update ID that
    *             you can use to track the status of your node group update with the <a>DescribeUpdate</a> API operation. Currently you can update the Kubernetes
@@ -1386,6 +1421,7 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * @public
    * <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node
    *             group.</p>
    *          <p>You can update a node group using a launch template only if the node group was

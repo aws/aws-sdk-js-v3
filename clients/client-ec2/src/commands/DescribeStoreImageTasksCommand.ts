@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStoreImageTasksCommand}.
  */
 export interface DescribeStoreImageTasksCommandInput extends DescribeStoreImageTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStoreImageTasksCommand}.
  */
 export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImageTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the progress of the AMI store tasks. You can describe the store tasks for
  *       specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from
  *       the last 31 days.</p>
@@ -57,6 +62,8 @@ export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImage
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStoreImageTasksCommandInput - {@link DescribeStoreImageTasksCommandInput}
+ * @returns {@link DescribeStoreImageTasksCommandOutput}
  * @see {@link DescribeStoreImageTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeStoreImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeStoreImageTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStoreImageTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeStoreImageTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStoreImageTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeStoreImageTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStoreImageTasksCommandOutput> {
     return deserializeAws_ec2DescribeStoreImageTasksCommand(output, context);
   }

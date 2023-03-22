@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMacieSessionCommand}.
  */
 export interface GetMacieSessionCommandInput extends GetMacieSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMacieSessionCommand}.
  */
 export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status and configuration settings for an Amazon Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMacieSessionCommandInput - {@link GetMacieSessionCommandInput}
+ * @returns {@link GetMacieSessionCommandOutput}
  * @see {@link GetMacieSessionCommandInput} for command's `input` shape.
  * @see {@link GetMacieSessionCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class GetMacieSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMacieSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetMacieSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMacieSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMacieSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMacieSessionCommandOutput> {
     return deserializeAws_restJson1GetMacieSessionCommand(output, context);
   }

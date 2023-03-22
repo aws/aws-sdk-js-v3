@@ -26,15 +26,20 @@ import {
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListScheduleGroupsCommand}.
  */
 export interface ListScheduleGroupsCommandInput extends ListScheduleGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListScheduleGroupsCommand}.
  */
 export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of your schedule groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScheduleGroupsCommandInput - {@link ListScheduleGroupsCommandInput}
+ * @returns {@link ListScheduleGroupsCommandOutput}
  * @see {@link ListScheduleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListScheduleGroupsCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListScheduleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScheduleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListScheduleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScheduleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListScheduleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduleGroupsCommandOutput> {
     return deserializeAws_restJson1ListScheduleGroupsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContainerServiceCommand}.
  */
 export interface DeleteContainerServiceCommandInput extends DeleteContainerServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContainerServiceCommand}.
  */
 export interface DeleteContainerServiceCommandOutput extends DeleteContainerServiceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes your Amazon Lightsail container service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContainerServiceCommandInput - {@link DeleteContainerServiceCommandInput}
+ * @returns {@link DeleteContainerServiceCommandOutput}
  * @see {@link DeleteContainerServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerServiceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteContainerServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContainerServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteContainerServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContainerServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteContainerServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContainerServiceCommandOutput> {
     return deserializeAws_json1_1DeleteContainerServiceCommand(output, context);
   }

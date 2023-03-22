@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSuiteRunCommand}.
  */
 export interface GetSuiteRunCommandInput extends GetSuiteRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSuiteRunCommand}.
  */
 export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Device Advisor test suite run.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRun</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSuiteRunCommandInput - {@link GetSuiteRunCommandInput}
+ * @returns {@link GetSuiteRunCommandOutput}
  * @see {@link GetSuiteRunCommandInput} for command's `input` shape.
  * @see {@link GetSuiteRunCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetSuiteRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSuiteRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetSuiteRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSuiteRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSuiteRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSuiteRunCommandOutput> {
     return deserializeAws_restJson1GetSuiteRunCommand(output, context);
   }

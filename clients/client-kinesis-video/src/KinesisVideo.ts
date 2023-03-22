@@ -128,10 +128,12 @@ import {
 import { KinesisVideoClient } from "./KinesisVideoClient";
 
 /**
+ * @public
  * <p></p>
  */
 export class KinesisVideo extends KinesisVideoClient {
   /**
+   * @public
    * <p>Creates a signaling channel. </p>
    *          <p>
    *             <code>CreateSignalingChannel</code> is an asynchronous operation.</p>
@@ -166,6 +168,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Kinesis video stream. </p>
    *          <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
    *             When you change the stream's metadata, Kinesis Video Streams updates the version. </p>
@@ -202,6 +205,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an
    *             asynchronous operation. If you don't specify the channel's current version, the most
    *             recent version is deleted.</p>
@@ -236,6 +240,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Kinesis video stream and the data contained in the stream. </p>
    *          <p>This method marks the stream for deletion, and makes the data in the stream
    *             inaccessible immediately.</p>
@@ -274,6 +279,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API.
    *              Use this API to get the status of the configuration if the configuration is in sync with the
    *             Edge Agent.</p>
@@ -308,6 +314,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>
    */
   public describeImageGenerationConfiguration(
@@ -340,6 +347,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p>
    *          <p>Returns the most current information about the stream. The <code>streamName</code>
    *             or <code>streamARN</code> should be provided in the input.</p>
@@ -374,6 +382,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Returns the most current information about the channel. Specify the <code>ChannelName</code>
    *             or <code>ChannelARN</code> in the input.</p>
    */
@@ -407,6 +416,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>
    */
   public describeNotificationConfiguration(
@@ -439,6 +449,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Returns the most current information about the signaling channel. You must specify
    *             either the name or the Amazon Resource Name (ARN) of the channel that you want to
    *             describe.</p>
@@ -473,6 +484,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Returns the most current information about the specified stream. You must specify
    *             either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
    */
@@ -506,6 +518,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Gets an endpoint for a specified stream for either reading or writing. Use this
    *             endpoint in your application to read from the specified stream (using the
    *                 <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write
@@ -548,6 +561,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Provides an endpoint for the specified signaling channel to send and receive messages.
    *             This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter,
    *             which consists of the <code>Protocols</code> and <code>Role</code> properties.</p>
@@ -593,6 +607,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
    *             signaling channel. To retrieve only those channels that satisfy a specific condition,
    *             you can specify a <code>ChannelNameCondition</code>.</p>
@@ -627,6 +642,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of <code>StreamInfo</code> objects. Each object describes a
    *             stream. To retrieve only streams that satisfy a specific condition, you can specify a
    *                 <code>StreamNameCondition</code>. </p>
@@ -655,6 +671,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags associated with the specified signaling channel.</p>
    */
   public listTagsForResource(
@@ -687,6 +704,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags associated with the specified stream.</p>
    *          <p>In the request, you must specify either the <code>StreamName</code> or the
    *                 <code>StreamARN</code>. </p>
@@ -721,6 +739,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>An asynchronous API that updates a stream’s existing edge configuration.
    *             The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
    *             component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary
@@ -764,6 +783,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a
    *             key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources.
    *             If you specify a tag that already exists, the tag value is replaced with the value that
@@ -795,6 +815,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair
    *             (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify
    *             a tag that already exists, the tag value is replaced with the value that you specify in
@@ -830,6 +851,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a signaling channel. In the request, specify only a tag
    *             key or keys; don't specify the value. If you specify a tag key that does not exist, it's
    *             ignored.</p>
@@ -864,6 +886,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from a stream. In the request, specify only a tag key or
    *             keys; don't specify the value. If you specify a tag key that does not exist, it's
    *             ignored.</p>
@@ -894,6 +917,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p> Increases or decreases the stream's data retention period by the value that you
    *             specify. To indicate whether you want to increase or decrease the data retention period,
    *             specify the <code>Operation</code> parameter in the request body. In the request, you
@@ -950,6 +974,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>
    */
   public updateImageGenerationConfiguration(
@@ -982,6 +1007,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that
    *             can specified :</p>
    *          <ul>
@@ -1025,6 +1051,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Updates the notification information for a stream.</p>
    */
   public updateNotificationConfiguration(
@@ -1057,6 +1084,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Updates the existing signaling channel. This is an asynchronous operation and takes
    *             time to complete. </p>
    *          <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
@@ -1094,6 +1122,7 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
+   * @public
    * <p>Updates stream metadata, such as the device name and media type.</p>
    *          <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
    *             stream.</p>

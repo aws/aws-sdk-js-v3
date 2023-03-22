@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserCommand}.
  */
 export interface DescribeUserCommandInput extends DescribeUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserCommand}.
  */
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified user account. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the
  *    user IDs. Instead, list the users and note the IDs provided in the output.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
+ * @returns {@link DescribeUserCommandOutput}
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserCommandOutput> {
     return deserializeAws_restJson1DescribeUserCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOpenIDConnectProviderCommand}.
  */
 export interface CreateOpenIDConnectProviderCommandInput extends CreateOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOpenIDConnectProviderCommand}.
  */
 export interface CreateOpenIDConnectProviderCommandOutput
@@ -37,6 +41,7 @@ export interface CreateOpenIDConnectProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
  *          <p>The OIDC provider that you create with this operation can be used as a principal in a
  *             role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and
@@ -89,6 +94,8 @@ export interface CreateOpenIDConnectProviderCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOpenIDConnectProviderCommandInput - {@link CreateOpenIDConnectProviderCommandInput}
+ * @returns {@link CreateOpenIDConnectProviderCommandOutput}
  * @see {@link CreateOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link CreateOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -154,6 +161,9 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,10 +203,16 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

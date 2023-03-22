@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetSuppressedDestinationCommand}.
  */
 export interface GetSuppressedDestinationCommandInput extends GetSuppressedDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSuppressedDestinationCommand}.
  */
 export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a specific email address that's on the suppression list
  *             for your account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSuppressedDestinationCommandInput - {@link GetSuppressedDestinationCommandInput}
+ * @returns {@link GetSuppressedDestinationCommandOutput}
  * @see {@link GetSuppressedDestinationCommandInput} for command's `input` shape.
  * @see {@link GetSuppressedDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +86,9 @@ export class GetSuppressedDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSuppressedDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetSuppressedDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSuppressedDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSuppressedDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSuppressedDestinationCommandOutput> {
     return deserializeAws_restJson1GetSuppressedDestinationCommand(output, context);
   }

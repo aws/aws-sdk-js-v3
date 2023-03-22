@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGameCommand}.
  */
 export interface CreateGameCommandInput extends CreateGameRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGameCommand}.
  */
 export interface CreateGameCommandOutput extends CreateGameResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a new game with an empty configuration.
  *       After creating your game, you can update the configuration using <code>UpdateGameConfiguration</code> or <code>ImportGameConfiguration</code>.
@@ -49,6 +54,8 @@ export interface CreateGameCommandOutput extends CreateGameResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGameCommandInput - {@link CreateGameCommandInput}
+ * @returns {@link CreateGameCommandOutput}
  * @see {@link CreateGameCommandInput} for command's `input` shape.
  * @see {@link CreateGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateGameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGameCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateGameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateGameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGameCommandOutput> {
     return deserializeAws_restJson1CreateGameCommand(output, context);
   }

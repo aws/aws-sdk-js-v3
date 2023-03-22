@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserProfileCommand}.
  */
 export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserProfileCommand}.
  */
 export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified user profile.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -45,6 +50,8 @@ export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
+ * @returns {@link UpdateUserProfileCommandOutput}
  * @see {@link UpdateUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -74,6 +81,9 @@ export class UpdateUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class UpdateUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserProfileCommandOutput> {
     return deserializeAws_json1_1UpdateUserProfileCommand(output, context);
   }

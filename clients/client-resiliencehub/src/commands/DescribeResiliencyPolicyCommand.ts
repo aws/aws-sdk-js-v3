@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResiliencyPolicyCommand}.
  */
 export interface DescribeResiliencyPolicyCommandInput extends DescribeResiliencyPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResiliencyPolicyCommand}.
  */
 export interface DescribeResiliencyPolicyCommandOutput extends DescribeResiliencyPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a specified resiliency policy for an AWS Resilience Hub application. The returned
  *       policy object includes creation time, data location constraints, the Amazon Resource Name
  *       (ARN) for the policy, tags, tier, and more.</p>
@@ -48,6 +53,8 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResiliencyPolicyCommandInput - {@link DescribeResiliencyPolicyCommandInput}
+ * @returns {@link DescribeResiliencyPolicyCommandOutput}
  * @see {@link DescribeResiliencyPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeResiliencyPolicyCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeResiliencyPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResiliencyPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeResiliencyPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResiliencyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeResiliencyPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResiliencyPolicyCommandOutput> {
     return deserializeAws_restJson1DescribeResiliencyPolicyCommand(output, context);
   }

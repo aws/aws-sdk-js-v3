@@ -26,15 +26,20 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelJournalKinesisStreamCommand}.
  */
 export interface CancelJournalKinesisStreamCommandInput extends CancelJournalKinesisStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelJournalKinesisStreamCommand}.
  */
 export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKinesisStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its current
  *          status must be <code>ACTIVE</code>.</p>
  *          <p>You can't restart a stream after you cancel it. Canceled QLDB stream resources are
@@ -50,6 +55,8 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJournalKinesisStreamCommandInput - {@link CancelJournalKinesisStreamCommandInput}
+ * @returns {@link CancelJournalKinesisStreamCommandOutput}
  * @see {@link CancelJournalKinesisStreamCommandInput} for command's `input` shape.
  * @see {@link CancelJournalKinesisStreamCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -82,6 +89,9 @@ export class CancelJournalKinesisStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJournalKinesisStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CancelJournalKinesisStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJournalKinesisStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelJournalKinesisStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

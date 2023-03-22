@@ -204,6 +204,7 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { WorkDocsClient } from "./WorkDocsClient";
 
 /**
+ * @public
  * <p>The Amazon WorkDocs API is designed for the following use cases:</p>
  *          <ul>
  *             <li>
@@ -266,6 +267,7 @@ import { WorkDocsClient } from "./WorkDocsClient";
  */
 export class WorkDocs extends WorkDocsClient {
   /**
+   * @public
    * <p>Aborts the upload of the specified document version that was previously initiated
    *             by <a>InitiateDocumentVersionUpload</a>. The client should make this call
    *             only when it no longer intends to upload the document version, or fails to do
@@ -301,6 +303,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Activates the specified user. Only active users can access Amazon
    *             WorkDocs.</p>
    */
@@ -331,6 +334,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Creates a set of permissions for the specified folder or document. The resource
    *             permissions are overwritten if the principals already have different
    *             permissions.</p>
@@ -365,6 +369,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Adds a new comment to the specified document version.</p>
    */
   public createComment(
@@ -397,6 +402,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more custom properties to the specified resource (a folder, document,
    *             or version).</p>
    */
@@ -430,6 +436,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Creates a folder with the specified name and parent folder.</p>
    */
   public createFolder(
@@ -459,6 +466,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified list of labels to the given resource (a document or
    *             folder)</p>
    */
@@ -489,6 +497,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
    *             confirmation message, and must confirm the subscription.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer
@@ -524,6 +533,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly
    *             created user is "ACTIVE". New users can access Amazon WorkDocs.</p>
    */
@@ -551,6 +561,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Deactivates the specified user, which revokes the user's access to Amazon
    *             WorkDocs.</p>
    */
@@ -584,6 +595,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified comment from the document version.</p>
    */
   public deleteComment(
@@ -616,6 +628,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Deletes custom metadata from the specified resource.</p>
    */
   public deleteCustomMetadata(
@@ -648,6 +661,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Permanently deletes the specified document and its associated metadata.</p>
    */
   public deleteDocument(
@@ -680,6 +694,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specific version of a document.</p>
    */
   public deleteDocumentVersion(
@@ -712,6 +727,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Permanently deletes the specified folder and its contents.</p>
    */
   public deleteFolder(
@@ -741,6 +757,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the contents of the specified folder.</p>
    */
   public deleteFolderContents(
@@ -773,6 +790,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified list of labels from a resource.</p>
    */
   public deleteLabels(
@@ -802,6 +820,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified subscription from the specified organization.</p>
    */
   public deleteNotificationSubscription(
@@ -834,6 +853,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>
    *          <important>
    *             <p>Deleting a user immediately and permanently deletes all content in that user's folder structure. Site retention policies do NOT apply to this type of deletion.</p>
@@ -863,6 +883,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Describes the user activities in a specified time period.</p>
    */
   public describeActivities(
@@ -895,6 +916,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>List all the comments for the specified document version.</p>
    */
   public describeComments(
@@ -927,6 +949,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the document versions for the specified document.</p>
    *          <p>By default, only active versions are returned.</p>
    */
@@ -960,6 +983,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Describes the contents of the specified folder, including its documents and
    *             subfolders.</p>
    *          <p>By default, Amazon WorkDocs returns the first 100 active document and folder
@@ -997,6 +1021,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Describes the groups specified by the query. Groups are defined by the underlying
    *             Active Directory.</p>
    */
@@ -1030,6 +1055,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Lists the specified notification subscriptions.</p>
    */
   public describeNotificationSubscriptions(
@@ -1062,6 +1088,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Describes the permissions of a specified resource.</p>
    */
   public describeResourcePermissions(
@@ -1094,6 +1121,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Describes the current user's special folders; the <code>RootFolder</code> and the
    *                 <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and
    *             folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid
@@ -1134,6 +1162,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified users. You can describe all users or filter the results
    *             (for example, by status or organization).</p>
    *          <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
@@ -1170,6 +1199,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details of the current user for whom the authentication token was
    *             generated. This is not a valid action for SigV4 (administrative API) clients.</p>
    *          <p>This action requires an authentication token. To get an authentication token,
@@ -1208,6 +1238,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details of a document.</p>
    */
   public getDocument(args: GetDocumentCommandInput, options?: __HttpHandlerOptions): Promise<GetDocumentCommandOutput>;
@@ -1234,6 +1265,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the path information (the hierarchy from the root folder) for the
    *             requested document.</p>
    *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
@@ -1271,6 +1303,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves version metadata for the specified document.</p>
    */
   public getDocumentVersion(
@@ -1303,6 +1336,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the metadata of the specified folder.</p>
    */
   public getFolder(args: GetFolderCommandInput, options?: __HttpHandlerOptions): Promise<GetFolderCommandOutput>;
@@ -1329,6 +1363,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the path information (the hierarchy from the root folder) for the
    *             specified folder.</p>
    *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
@@ -1366,6 +1401,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a collection of resources, including folders and documents. The only
    *             <code>CollectionType</code> supported is <code>SHARED_WITH_ME</code>.</p>
    */
@@ -1396,6 +1432,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Creates a new document object and version object.</p>
    *          <p>The client specifies the parent folder ID and name of the document to upload. The
    *             ID is optionally specified when creating a new version of an existing document. This is
@@ -1433,6 +1470,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Removes all the permissions from the specified resource.</p>
    */
   public removeAllResourcePermissions(
@@ -1465,6 +1503,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Removes the permission for the specified principal from the specified
    *             resource.</p>
    */
@@ -1498,6 +1537,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Recovers a deleted version of an Amazon WorkDocs document.</p>
    */
   public restoreDocumentVersions(
@@ -1530,6 +1570,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Searches metadata and the content of folders, documents, document versions, and comments.</p>
    */
   public searchResources(
@@ -1562,6 +1603,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified attributes of a document. The user must have access to both
    *             the document and its parent folder, if applicable.</p>
    */
@@ -1595,6 +1637,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Changes the status of the document version to ACTIVE. </p>
    *          <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step
    *             in a document upload, after the client uploads the document to an S3-presigned URL
@@ -1630,6 +1673,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified attributes of the specified folder. The user must have access
    *             to both the folder and its parent folder, if applicable.</p>
    */
@@ -1660,6 +1704,7 @@ export class WorkDocs extends WorkDocsClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified attributes of the specified user, and grants or revokes
    *             administrative privileges to the Amazon WorkDocs site.</p>
    */

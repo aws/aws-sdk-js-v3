@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopRemoteAccessSessionCommand}.
  */
 export interface StopRemoteAccessSessionCommandInput extends StopRemoteAccessSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopRemoteAccessSessionCommand}.
  */
 export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ends a specified remote access session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * const response = await client.send(command);
  * ```
  *
+ * @param StopRemoteAccessSessionCommandInput - {@link StopRemoteAccessSessionCommandInput}
+ * @returns {@link StopRemoteAccessSessionCommandOutput}
  * @see {@link StopRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link StopRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +88,9 @@ export class StopRemoteAccessSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopRemoteAccessSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class StopRemoteAccessSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopRemoteAccessSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRemoteAccessSessionCommandOutput> {
     return deserializeAws_json1_1StopRemoteAccessSessionCommand(output, context);
   }

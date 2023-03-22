@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationJobCommand}.
  */
 export interface CreateReplicationJobCommandInput extends CreateReplicationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationJobCommand}.
  */
 export interface CreateReplicationJobCommandOutput extends CreateReplicationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a replication job. The replication job schedules periodic replication runs
  *             to replicate your server to Amazon Web Services. Each replication run creates an Amazon Machine Image
  *             (AMI).</p>
@@ -48,6 +53,8 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationJobCommandInput - {@link CreateReplicationJobCommandInput}
+ * @returns {@link CreateReplicationJobCommandOutput}
  * @see {@link CreateReplicationJobCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateReplicationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateReplicationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateReplicationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationJobCommandOutput> {
     return deserializeAws_json1_1CreateReplicationJobCommand(output, context);
   }

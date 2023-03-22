@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminSetUserMFAPreferenceCommand}.
  */
 export interface AdminSetUserMFAPreferenceCommandInput extends AdminSetUserMFAPreferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminSetUserMFAPreferenceCommand}.
  */
 export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The user's multi-factor authentication (MFA) preference, including which MFA options
  *             are activated, and if any are preferred. Only one factor can be set as preferred. The
  *             preferred MFA factor will be used to authenticate a user if multiple factors are
@@ -55,6 +60,8 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminSetUserMFAPreferenceCommandInput - {@link AdminSetUserMFAPreferenceCommandInput}
+ * @returns {@link AdminSetUserMFAPreferenceCommandOutput}
  * @see {@link AdminSetUserMFAPreferenceCommandInput} for command's `input` shape.
  * @see {@link AdminSetUserMFAPreferenceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -101,6 +108,9 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminSetUserMFAPreferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminSetUserMFAPreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminSetUserMFAPreferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

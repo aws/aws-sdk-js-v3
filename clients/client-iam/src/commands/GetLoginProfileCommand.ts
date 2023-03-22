@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoginProfileCommand}.
  */
 export interface GetLoginProfileCommandInput extends GetLoginProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoginProfileCommand}.
  */
 export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the user name for the specified IAM user. A login profile is created when
  *             you create a password for the user to access the Amazon Web Services Management Console. If the user does not exist
  *             or does not have a password, the operation returns a 404 (<code>NoSuchEntity</code>)
@@ -55,6 +60,8 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoginProfileCommandInput - {@link GetLoginProfileCommandInput}
+ * @returns {@link GetLoginProfileCommandOutput}
  * @see {@link GetLoginProfileCommandInput} for command's `input` shape.
  * @see {@link GetLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -105,6 +112,9 @@ export class GetLoginProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoginProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class GetLoginProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoginProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetLoginProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoginProfileCommandOutput> {
     return deserializeAws_queryGetLoginProfileCommand(output, context);
   }

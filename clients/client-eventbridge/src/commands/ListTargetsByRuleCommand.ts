@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetsByRuleCommand}.
  */
 export interface ListTargetsByRuleCommandInput extends ListTargetsByRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetsByRuleCommand}.
  */
 export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the targets assigned to the specified rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsByRuleCommandInput - {@link ListTargetsByRuleCommandInput}
+ * @returns {@link ListTargetsByRuleCommandOutput}
  * @see {@link ListTargetsByRuleCommandInput} for command's `input` shape.
  * @see {@link ListTargetsByRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListTargetsByRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsByRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListTargetsByRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsByRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTargetsByRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsByRuleCommandOutput> {
     return deserializeAws_json1_1ListTargetsByRuleCommand(output, context);
   }

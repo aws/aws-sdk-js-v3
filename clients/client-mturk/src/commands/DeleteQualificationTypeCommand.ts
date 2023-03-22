@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQualificationTypeCommand}.
  */
 export interface DeleteQualificationTypeCommandInput extends DeleteQualificationTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQualificationTypeCommand}.
  */
 export interface DeleteQualificationTypeCommandOutput extends DeleteQualificationTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>DeleteQualificationType</code>
@@ -64,6 +69,8 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQualificationTypeCommandInput - {@link DeleteQualificationTypeCommandInput}
+ * @returns {@link DeleteQualificationTypeCommandOutput}
  * @see {@link DeleteQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQualificationTypeCommandOutput> {
     return deserializeAws_json1_1DeleteQualificationTypeCommand(output, context);
   }

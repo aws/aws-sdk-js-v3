@@ -105,6 +105,7 @@ import {
 import { DataExchangeClient } from "./DataExchangeClient";
 
 /**
+ * @public
  * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p>
  *          <p>As a subscriber, you can view and access the data sets that you have an entitlement to through
  *          a subscription. You can use the APIs to download or copy your entitled data sets to Amazon
@@ -124,6 +125,7 @@ import { DataExchangeClient } from "./DataExchangeClient";
  */
 export class DataExchange extends DataExchangeClient {
   /**
+   * @public
    * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING state.</p>
    */
   public cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
@@ -150,6 +152,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation creates a data set.</p>
    */
   public createDataSet(
@@ -182,6 +185,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation creates an event action.</p>
    */
   public createEventAction(
@@ -214,6 +218,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation creates a job.</p>
    */
   public createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
@@ -240,6 +245,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation creates a revision for a data set.</p>
    */
   public createRevision(
@@ -272,6 +278,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation deletes an asset.</p>
    */
   public deleteAsset(args: DeleteAssetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAssetCommandOutput>;
@@ -298,6 +305,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation deletes a data set.</p>
    */
   public deleteDataSet(
@@ -330,6 +338,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation deletes the event action.</p>
    */
   public deleteEventAction(
@@ -362,6 +371,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation deletes a revision.</p>
    */
   public deleteRevision(
@@ -394,6 +404,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation returns information about an asset.</p>
    */
   public getAsset(args: GetAssetCommandInput, options?: __HttpHandlerOptions): Promise<GetAssetCommandOutput>;
@@ -420,6 +431,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation returns information about a data set.</p>
    */
   public getDataSet(args: GetDataSetCommandInput, options?: __HttpHandlerOptions): Promise<GetDataSetCommandOutput>;
@@ -446,6 +458,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation retrieves information about an event action.</p>
    */
   public getEventAction(
@@ -478,6 +491,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation returns information about a job.</p>
    */
   public getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
@@ -504,6 +518,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation returns information about a revision.</p>
    */
   public getRevision(args: GetRevisionCommandInput, options?: __HttpHandlerOptions): Promise<GetRevisionCommandOutput>;
@@ -530,6 +545,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation lists a data set's revisions sorted by CreatedAt in descending order.</p>
    */
   public listDataSetRevisions(
@@ -562,6 +578,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation lists your data sets. When listing by origin OWNED, results are sorted by CreatedAt in descending order. When listing by origin ENTITLED, there is no order and the maxResults parameter is ignored.</p>
    */
   public listDataSets(
@@ -591,6 +608,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation lists your event actions.</p>
    */
   public listEventActions(
@@ -623,6 +641,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation lists your jobs sorted by CreatedAt in descending order.</p>
    */
   public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
@@ -649,6 +668,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
    */
   public listRevisionAssets(
@@ -681,6 +701,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation lists the tags on the resource.</p>
    */
   public listTagsForResource(
@@ -713,6 +734,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation revokes subscribers' access to a revision.</p>
    */
   public revokeRevision(
@@ -745,6 +767,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation invokes an API Gateway API asset. The request is proxied to the provider’s API Gateway API.</p>
    */
   public sendApiAsset(
@@ -774,6 +797,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation starts a job.</p>
    */
   public startJob(args: StartJobCommandInput, options?: __HttpHandlerOptions): Promise<StartJobCommandOutput>;
@@ -800,6 +824,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation tags a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -826,6 +851,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation removes one or more tags from a resource.</p>
    */
   public untagResource(
@@ -858,6 +884,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation updates an asset.</p>
    */
   public updateAsset(args: UpdateAssetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAssetCommandOutput>;
@@ -884,6 +911,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation updates a data set.</p>
    */
   public updateDataSet(
@@ -916,6 +944,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation updates the event action.</p>
    */
   public updateEventAction(
@@ -948,6 +977,7 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * @public
    * <p>This operation updates a revision.</p>
    */
   public updateRevision(

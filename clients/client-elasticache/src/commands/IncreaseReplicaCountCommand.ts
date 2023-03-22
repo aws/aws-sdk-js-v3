@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link IncreaseReplicaCountCommand}.
  */
 export interface IncreaseReplicaCountCommandInput extends IncreaseReplicaCountMessage {}
 /**
+ * @public
+ *
  * The output of {@link IncreaseReplicaCountCommand}.
  */
 export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Dynamically increases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
  *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
  *             is performed with no cluster down time.</p>
@@ -48,6 +53,8 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  * const response = await client.send(command);
  * ```
  *
+ * @param IncreaseReplicaCountCommandInput - {@link IncreaseReplicaCountCommandInput}
+ * @returns {@link IncreaseReplicaCountCommandOutput}
  * @see {@link IncreaseReplicaCountCommandInput} for command's `input` shape.
  * @see {@link IncreaseReplicaCountCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -109,6 +116,9 @@ export class IncreaseReplicaCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IncreaseReplicaCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class IncreaseReplicaCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IncreaseReplicaCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryIncreaseReplicaCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IncreaseReplicaCountCommandOutput> {
     return deserializeAws_queryIncreaseReplicaCountCommand(output, context);
   }

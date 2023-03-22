@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link StartVirtualMachinesMetadataSyncCommand}.
  */
 export interface StartVirtualMachinesMetadataSyncCommandInput extends StartVirtualMachinesMetadataSyncInput {}
 /**
+ * @public
+ *
  * The output of {@link StartVirtualMachinesMetadataSyncCommand}.
  */
 export interface StartVirtualMachinesMetadataSyncCommandOutput
@@ -37,6 +41,7 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action sends a request to sync metadata across the specified virtual machines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartVirtualMachinesMetadataSyncCommandInput - {@link StartVirtualMachinesMetadataSyncCommandInput}
+ * @returns {@link StartVirtualMachinesMetadataSyncCommandOutput}
  * @see {@link StartVirtualMachinesMetadataSyncCommandInput} for command's `input` shape.
  * @see {@link StartVirtualMachinesMetadataSyncCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartVirtualMachinesMetadataSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartVirtualMachinesMetadataSyncCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
     return serializeAws_json1_0StartVirtualMachinesMetadataSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

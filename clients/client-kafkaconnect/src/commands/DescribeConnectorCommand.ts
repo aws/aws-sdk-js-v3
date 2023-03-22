@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectorCommand}.
  */
 export interface DescribeConnectorCommandInput extends DescribeConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectorCommand}.
  */
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about the connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectorCommandInput - {@link DescribeConnectorCommandInput}
+ * @returns {@link DescribeConnectorCommandOutput}
  * @see {@link DescribeConnectorCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DescribeConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorCommandOutput> {
     return deserializeAws_restJson1DescribeConnectorCommand(output, context);
   }

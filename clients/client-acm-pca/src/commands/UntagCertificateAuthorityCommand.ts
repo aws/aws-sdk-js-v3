@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagCertificateAuthorityCommand}.
  */
 export interface UntagCertificateAuthorityCommandInput extends UntagCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagCertificateAuthorityCommand}.
  */
 export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove one or more tags from your private CA. A tag consists of a key-value pair. If
  * 			you do not specify the value portion of the tag when calling this action, the tag will
  * 			be removed regardless of value. If you specify a value, the tag is removed only if it is
@@ -48,6 +53,8 @@ export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagCertificateAuthorityCommandInput - {@link UntagCertificateAuthorityCommandInput}
+ * @returns {@link UntagCertificateAuthorityCommandOutput}
  * @see {@link UntagCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link UntagCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -86,6 +93,9 @@ export class UntagCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UntagCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UntagCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

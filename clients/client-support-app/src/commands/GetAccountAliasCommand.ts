@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountAliasCommand}.
  */
 export interface GetAccountAliasCommandInput extends GetAccountAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountAliasCommand}.
  */
 export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the alias from an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of
  *       the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountAliasCommandInput - {@link GetAccountAliasCommandInput}
+ * @returns {@link GetAccountAliasCommandOutput}
  * @see {@link GetAccountAliasCommandInput} for command's `input` shape.
  * @see {@link GetAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -73,6 +80,9 @@ export class GetAccountAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetAccountAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAccountAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountAliasCommandOutput> {
     return deserializeAws_restJson1GetAccountAliasCommand(output, context);
   }

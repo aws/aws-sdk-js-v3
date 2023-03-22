@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainCommand}.
  */
 export interface DescribeDomainCommandInput extends DescribeDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainCommand}.
  */
 export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
+ * @returns {@link DescribeDomainCommandOutput}
  * @see {@link DescribeDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainCommandOutput> {
     return deserializeAws_json1_0DescribeDomainCommand(output, context);
   }

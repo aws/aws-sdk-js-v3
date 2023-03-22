@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBulkDeploymentsCommand}.
  */
 export interface ListBulkDeploymentsCommandInput extends ListBulkDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBulkDeploymentsCommand}.
  */
 export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Returns a list of bulk deployments.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBulkDeploymentsCommandInput - {@link ListBulkDeploymentsCommandInput}
+ * @returns {@link ListBulkDeploymentsCommandOutput}
  * @see {@link ListBulkDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListBulkDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListBulkDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBulkDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListBulkDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBulkDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBulkDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBulkDeploymentsCommandOutput> {
     return deserializeAws_restJson1ListBulkDeploymentsCommand(output, context);
   }

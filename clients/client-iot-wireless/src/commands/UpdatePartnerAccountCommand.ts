@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePartnerAccountCommand}.
  */
 export interface UpdatePartnerAccountCommandInput extends UpdatePartnerAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePartnerAccountCommand}.
  */
 export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties of a partner account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePartnerAccountCommandInput - {@link UpdatePartnerAccountCommandInput}
+ * @returns {@link UpdatePartnerAccountCommandOutput}
  * @see {@link UpdatePartnerAccountCommandInput} for command's `input` shape.
  * @see {@link UpdatePartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdatePartnerAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePartnerAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdatePartnerAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePartnerAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePartnerAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePartnerAccountCommandOutput> {
     return deserializeAws_restJson1UpdatePartnerAccountCommand(output, context);
   }

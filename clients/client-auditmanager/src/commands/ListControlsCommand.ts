@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListControlsCommand}.
  */
 export interface ListControlsCommandInput extends ListControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListControlsCommand}.
  */
 export interface ListControlsCommandOutput extends ListControlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of controls from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlsCommandInput - {@link ListControlsCommandInput}
+ * @returns {@link ListControlsCommandOutput}
  * @see {@link ListControlsCommandInput} for command's `input` shape.
  * @see {@link ListControlsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListControlsCommandOutput> {
     return deserializeAws_restJson1ListControlsCommand(output, context);
   }

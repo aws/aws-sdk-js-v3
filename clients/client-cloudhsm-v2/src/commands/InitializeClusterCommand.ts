@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InitializeClusterCommand}.
  */
 export interface InitializeClusterCommandInput extends InitializeClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link InitializeClusterCommand}.
  */
 export interface InitializeClusterCommandOutput extends InitializeClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your
  *       issuing certificate authority (CA) and the CA's root certificate. Before you can claim a
  *       cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA.
@@ -49,6 +54,8 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param InitializeClusterCommandInput - {@link InitializeClusterCommandInput}
+ * @returns {@link InitializeClusterCommandOutput}
  * @see {@link InitializeClusterCommandInput} for command's `input` shape.
  * @see {@link InitializeClusterCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -90,6 +97,9 @@ export class InitializeClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitializeClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class InitializeClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitializeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1InitializeClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitializeClusterCommandOutput> {
     return deserializeAws_json1_1InitializeClusterCommand(output, context);
   }

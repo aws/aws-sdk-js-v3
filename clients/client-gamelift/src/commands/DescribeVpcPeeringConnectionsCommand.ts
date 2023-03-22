@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcPeeringConnectionsCommand}.
  */
 export interface DescribeVpcPeeringConnectionsCommandInput extends DescribeVpcPeeringConnectionsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcPeeringConnectionsCommand}.
  */
 export interface DescribeVpcPeeringConnectionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information on VPC peering connections. Use this operation to get peering
  *             information for all fleets or for one specific fleet ID. </p>
  *         <p>To retrieve connection information, call this operation from the Amazon Web Services account that is
@@ -60,6 +65,8 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcPeeringConnectionsCommandInput - {@link DescribeVpcPeeringConnectionsCommandInput}
+ * @returns {@link DescribeVpcPeeringConnectionsCommandOutput}
  * @see {@link DescribeVpcPeeringConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcPeeringConnectionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcPeeringConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcPeeringConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeVpcPeeringConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

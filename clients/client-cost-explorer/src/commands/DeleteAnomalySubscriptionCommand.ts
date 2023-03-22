@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAnomalySubscriptionCommand}.
  */
 export interface DeleteAnomalySubscriptionCommandInput extends DeleteAnomalySubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAnomalySubscriptionCommand}.
  */
 export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cost anomaly subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnomalySubscriptionCommandInput - {@link DeleteAnomalySubscriptionCommandInput}
+ * @returns {@link DeleteAnomalySubscriptionCommandOutput}
  * @see {@link DeleteAnomalySubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalySubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnomalySubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnomalySubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAnomalySubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

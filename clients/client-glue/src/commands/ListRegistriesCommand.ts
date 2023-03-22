@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRegistriesCommand}.
  */
 export interface ListRegistriesCommandInput extends ListRegistriesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRegistriesCommand}.
  */
 export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of registries that you have created, with minimal registry information. Registries in the <code>Deleting</code> status will not be included in the results. Empty results will be returned if there are no registries available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRegistriesCommandInput - {@link ListRegistriesCommandInput}
+ * @returns {@link ListRegistriesCommandOutput}
  * @see {@link ListRegistriesCommandInput} for command's `input` shape.
  * @see {@link ListRegistriesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListRegistriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRegistriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListRegistriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRegistriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRegistriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegistriesCommandOutput> {
     return deserializeAws_json1_1ListRegistriesCommand(output, context);
   }

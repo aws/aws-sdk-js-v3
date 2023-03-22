@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBotAliasCommand}.
  */
 export interface CreateBotAliasCommandInput extends CreateBotAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBotAliasCommand}.
  */
 export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an alias for the specified version of a bot. Use an alias to
  *          enable you to change the version of a bot without updating applications
  *          that use the bot.</p>
@@ -50,6 +55,8 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBotAliasCommandInput - {@link CreateBotAliasCommandInput}
+ * @returns {@link CreateBotAliasCommandOutput}
  * @see {@link CreateBotAliasCommandInput} for command's `input` shape.
  * @see {@link CreateBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -98,6 +105,9 @@ export class CreateBotAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBotAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreateBotAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBotAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotAliasCommandOutput> {
     return deserializeAws_restJson1CreateBotAliasCommand(output, context);
   }

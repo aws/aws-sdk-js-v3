@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOrganizationalUnitCommand}.
  */
 export interface CreateOrganizationalUnitCommandInput extends CreateOrganizationalUnitRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOrganizationalUnitCommand}.
  */
 export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an organizational unit (OU) within a root or parent OU. An OU is a container
  *             for accounts that enables you to organize your accounts to apply policies according to
  *             your business requirements. The number of levels deep that you can nest OUs is dependent
@@ -56,6 +61,8 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOrganizationalUnitCommandInput - {@link CreateOrganizationalUnitCommandInput}
+ * @returns {@link CreateOrganizationalUnitCommandOutput}
  * @see {@link CreateOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link CreateOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -435,6 +442,9 @@ export class CreateOrganizationalUnitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOrganizationalUnitCommandInput) {
     // Start section: command_constructor
     super();
@@ -474,10 +484,16 @@ export class CreateOrganizationalUnitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateOrganizationalUnitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrganizationalUnitCommandOutput> {
     return deserializeAws_json1_1CreateOrganizationalUnitCommand(output, context);
   }

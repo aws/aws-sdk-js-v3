@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventSourcesCommand}.
  */
 export interface ListEventSourcesCommandInput extends ListEventSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventSourcesCommand}.
  */
 export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use this to see all the partner event sources that have been shared with your Amazon Web Services
  *       account. For more information about partner event sources, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html">CreateEventBus</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventSourcesCommandInput - {@link ListEventSourcesCommandInput}
+ * @returns {@link ListEventSourcesCommandOutput}
  * @see {@link ListEventSourcesCommandInput} for command's `input` shape.
  * @see {@link ListEventSourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListEventSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListEventSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEventSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventSourcesCommandOutput> {
     return deserializeAws_json1_1ListEventSourcesCommand(output, context);
   }

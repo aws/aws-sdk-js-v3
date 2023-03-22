@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRoomSkillParameterCommand}.
  */
 export interface DeleteRoomSkillParameterCommandInput extends DeleteRoomSkillParameterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRoomSkillParameterCommand}.
  */
 export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillParameterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes room skill parameter details by room, skill, and parameter key ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRoomSkillParameterCommandInput - {@link DeleteRoomSkillParameterCommandInput}
+ * @returns {@link DeleteRoomSkillParameterCommandOutput}
  * @see {@link DeleteRoomSkillParameterCommandInput} for command's `input` shape.
  * @see {@link DeleteRoomSkillParameterCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteRoomSkillParameterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRoomSkillParameterCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteRoomSkillParameterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRoomSkillParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRoomSkillParameterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoomSkillParameterCommandOutput> {
     return deserializeAws_json1_1DeleteRoomSkillParameterCommand(output, context);
   }

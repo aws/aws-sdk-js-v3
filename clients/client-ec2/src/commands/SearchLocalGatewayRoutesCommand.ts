@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link SearchLocalGatewayRoutesCommand}.
  */
 export interface SearchLocalGatewayRoutesCommandInput extends SearchLocalGatewayRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchLocalGatewayRoutesCommand}.
  */
 export interface SearchLocalGatewayRoutesCommandOutput extends SearchLocalGatewayRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for routes in the specified local gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SearchLocalGatewayRoutesCommandOutput extends SearchLocalGatewa
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchLocalGatewayRoutesCommandInput - {@link SearchLocalGatewayRoutesCommandInput}
+ * @returns {@link SearchLocalGatewayRoutesCommandOutput}
  * @see {@link SearchLocalGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link SearchLocalGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchLocalGatewayRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchLocalGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2SearchLocalGatewayRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchLocalGatewayRoutesCommandOutput> {
     return deserializeAws_ec2SearchLocalGatewayRoutesCommand(output, context);
   }

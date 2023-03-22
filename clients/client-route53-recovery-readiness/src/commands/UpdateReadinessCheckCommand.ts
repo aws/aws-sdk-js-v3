@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReadinessCheckCommand}.
  */
 export interface UpdateReadinessCheckCommandInput extends UpdateReadinessCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReadinessCheckCommand}.
  */
 export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReadinessCheckCommandInput - {@link UpdateReadinessCheckCommandInput}
+ * @returns {@link UpdateReadinessCheckCommandOutput}
  * @see {@link UpdateReadinessCheckCommandInput} for command's `input` shape.
  * @see {@link UpdateReadinessCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateReadinessCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReadinessCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateReadinessCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReadinessCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateReadinessCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReadinessCheckCommandOutput> {
     return deserializeAws_restJson1UpdateReadinessCheckCommand(output, context);
   }

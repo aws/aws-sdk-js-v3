@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSourceFromS3Command}.
  */
 export interface CreateDataSourceFromS3CommandInput extends CreateDataSourceFromS3Input {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSourceFromS3Command}.
  */
 export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFromS3Output, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>DataSource</code> object. A <code>DataSource</code> references data that
  *           can be used to perform  <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or
  *           <code>CreateBatchPrediction</code> operations.</p>
@@ -76,6 +81,8 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSourceFromS3CommandInput - {@link CreateDataSourceFromS3CommandInput}
+ * @returns {@link CreateDataSourceFromS3CommandOutput}
  * @see {@link CreateDataSourceFromS3CommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromS3CommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -108,6 +115,9 @@ export class CreateDataSourceFromS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSourceFromS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class CreateDataSourceFromS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSourceFromS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDataSourceFromS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSourceFromS3CommandOutput> {
     return deserializeAws_json1_1CreateDataSourceFromS3Command(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChannelCommand}.
  */
 export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChannelCommand}.
  */
 export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a channel's attributes.</p>
  *          <p>
  *             <b>Restriction</b>: You can't change a channel's privacy. </p>
@@ -53,6 +58,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
+ * @returns {@link UpdateChannelCommandOutput}
  * @see {@link UpdateChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelCommandOutput> {
     return deserializeAws_restJson1UpdateChannelCommand(output, context);
   }

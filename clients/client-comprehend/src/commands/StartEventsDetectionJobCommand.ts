@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartEventsDetectionJobCommand}.
  */
 export interface StartEventsDetectionJobCommandInput extends StartEventsDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartEventsDetectionJobCommand}.
  */
 export interface StartEventsDetectionJobCommandOutput extends StartEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous event detection job for a collection of documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  * const response = await client.send(command);
  * ```
  *
+ * @param StartEventsDetectionJobCommandInput - {@link StartEventsDetectionJobCommandInput}
+ * @returns {@link StartEventsDetectionJobCommandOutput}
  * @see {@link StartEventsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartEventsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartEventsDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartEventsDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartEventsDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartEventsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartEventsDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartEventsDetectionJobCommandOutput> {
     return deserializeAws_json1_1StartEventsDetectionJobCommand(output, context);
   }

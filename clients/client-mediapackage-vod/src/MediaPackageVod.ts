@@ -73,10 +73,12 @@ import {
 import { MediaPackageVodClient } from "./MediaPackageVodClient";
 
 /**
+ * @public
  * AWS Elemental MediaPackage VOD
  */
 export class MediaPackageVod extends MediaPackageVodClient {
   /**
+   * @public
    * Changes the packaging group's properities to configure log subscription
    */
   public configureLogs(
@@ -109,6 +111,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Creates a new MediaPackage VOD Asset resource.
    */
   public createAsset(args: CreateAssetCommandInput, options?: __HttpHandlerOptions): Promise<CreateAssetCommandOutput>;
@@ -135,6 +138,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Creates a new MediaPackage VOD PackagingConfiguration resource.
    */
   public createPackagingConfiguration(
@@ -167,6 +171,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Creates a new MediaPackage VOD PackagingGroup resource.
    */
   public createPackagingGroup(
@@ -199,6 +204,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Deletes an existing MediaPackage VOD Asset resource.
    */
   public deleteAsset(args: DeleteAssetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAssetCommandOutput>;
@@ -225,6 +231,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Deletes a MediaPackage VOD PackagingConfiguration resource.
    */
   public deletePackagingConfiguration(
@@ -257,6 +264,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Deletes a MediaPackage VOD PackagingGroup resource.
    */
   public deletePackagingGroup(
@@ -289,6 +297,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Returns a description of a MediaPackage VOD Asset resource.
    */
   public describeAsset(
@@ -321,6 +330,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Returns a description of a MediaPackage VOD PackagingConfiguration resource.
    */
   public describePackagingConfiguration(
@@ -353,6 +363,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Returns a description of a MediaPackage VOD PackagingGroup resource.
    */
   public describePackagingGroup(
@@ -385,6 +396,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Returns a collection of MediaPackage VOD Asset resources.
    */
   public listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
@@ -411,6 +423,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Returns a collection of MediaPackage VOD PackagingConfiguration resources.
    */
   public listPackagingConfigurations(
@@ -443,6 +456,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Returns a collection of MediaPackage VOD PackagingGroup resources.
    */
   public listPackagingGroups(
@@ -475,6 +489,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Returns a list of the tags assigned to the specified resource.
    */
   public listTagsForResource(
@@ -507,6 +522,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Adds tags to the specified resource. You can specify one or more tags to add.
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -533,6 +549,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Removes tags from the specified resource. You can specify one or more tags to remove.
    */
   public untagResource(
@@ -565,6 +582,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
+   * @public
    * Updates a specific packaging group. You can't change the id attribute or any other system-generated attributes.
    */
   public updatePackagingGroup(

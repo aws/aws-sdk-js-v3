@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountAssignmentCreationStatusCommand}.
  */
 export interface ListAccountAssignmentCreationStatusCommandInput extends ListAccountAssignmentCreationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountAssignmentCreationStatusCommand}.
  */
 export interface ListAccountAssignmentCreationStatusCommandOutput
@@ -37,6 +41,7 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the status of the AWS account assignment creation requests for a specified IAM Identity Center
  *       instance.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountAssignmentCreationStatusCommandInput - {@link ListAccountAssignmentCreationStatusCommandInput}
+ * @returns {@link ListAccountAssignmentCreationStatusCommandOutput}
  * @see {@link ListAccountAssignmentCreationStatusCommandInput} for command's `input` shape.
  * @see {@link ListAccountAssignmentCreationStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountAssignmentCreationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAccountAssignmentCreationStatusCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
     return serializeAws_json1_1ListAccountAssignmentCreationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

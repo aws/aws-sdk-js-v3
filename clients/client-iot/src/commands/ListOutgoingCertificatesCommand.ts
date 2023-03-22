@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOutgoingCertificatesCommand}.
  */
 export interface ListOutgoingCertificatesCommandInput extends ListOutgoingCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOutgoingCertificatesCommand}.
  */
 export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists certificates that are being transferred but not yet accepted.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOutgoingCertificates</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOutgoingCertificatesCommandInput - {@link ListOutgoingCertificatesCommandInput}
+ * @returns {@link ListOutgoingCertificatesCommandOutput}
  * @see {@link ListOutgoingCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListOutgoingCertificatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListOutgoingCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOutgoingCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListOutgoingCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOutgoingCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListOutgoingCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutgoingCertificatesCommandOutput> {
     return deserializeAws_restJson1ListOutgoingCertificatesCommand(output, context);
   }

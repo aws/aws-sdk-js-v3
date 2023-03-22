@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CountPendingDecisionTasksCommand}.
  */
 export interface CountPendingDecisionTasksCommandInput extends CountPendingDecisionTasksInput {}
 /**
+ * @public
+ *
  * The output of {@link CountPendingDecisionTasksCommand}.
  */
 export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the estimated number of decision tasks in the specified task list. The count
  *       returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
  *       no decision task was ever scheduled in then <code>0</code> is returned.</p>
@@ -73,6 +78,8 @@ export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount
  * const response = await client.send(command);
  * ```
  *
+ * @param CountPendingDecisionTasksCommandInput - {@link CountPendingDecisionTasksCommandInput}
+ * @returns {@link CountPendingDecisionTasksCommandOutput}
  * @see {@link CountPendingDecisionTasksCommandInput} for command's `input` shape.
  * @see {@link CountPendingDecisionTasksCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -102,6 +109,9 @@ export class CountPendingDecisionTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CountPendingDecisionTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CountPendingDecisionTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CountPendingDecisionTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CountPendingDecisionTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

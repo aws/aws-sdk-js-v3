@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEndpointCommand}.
  */
 export interface CreateEndpointCommandInput extends CreateEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEndpointCommand}.
  */
 export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint using the endpoint configuration specified in the request. SageMaker
  *             uses the endpoint to provision resources and deploy models. You create the endpoint
  *             configuration with the <a>CreateEndpointConfig</a> API. </p>
@@ -123,6 +128,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
+ * @returns {@link CreateEndpointCommandOutput}
  * @see {@link CreateEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -150,6 +157,9 @@ export class CreateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,10 +199,16 @@ export class CreateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointCommandOutput> {
     return deserializeAws_json1_1CreateEndpointCommand(output, context);
   }

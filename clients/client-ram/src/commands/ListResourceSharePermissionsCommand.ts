@@ -26,10 +26,14 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceSharePermissionsCommand}.
  */
 export interface ListResourceSharePermissionsCommandInput extends ListResourceSharePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceSharePermissionsCommand}.
  */
 export interface ListResourceSharePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListResourceSharePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the RAM permissions that are associated with a resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListResourceSharePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceSharePermissionsCommandInput - {@link ListResourceSharePermissionsCommandInput}
+ * @returns {@link ListResourceSharePermissionsCommandOutput}
  * @see {@link ListResourceSharePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceSharePermissionsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListResourceSharePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceSharePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListResourceSharePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceSharePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListResourceSharePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

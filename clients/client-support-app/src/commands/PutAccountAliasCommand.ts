@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountAliasCommand}.
  */
 export interface PutAccountAliasCommandInput extends PutAccountAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountAliasCommand}.
  */
 export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an individual alias for each Amazon Web Services account ID. The alias appears in the
  *       Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the
  *       Amazon Web Services Support App.</p>
@@ -48,6 +53,8 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountAliasCommandInput - {@link PutAccountAliasCommandInput}
+ * @returns {@link PutAccountAliasCommandOutput}
  * @see {@link PutAccountAliasCommandInput} for command's `input` shape.
  * @see {@link PutAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -80,6 +87,9 @@ export class PutAccountAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class PutAccountAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutAccountAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountAliasCommandOutput> {
     return deserializeAws_restJson1PutAccountAliasCommand(output, context);
   }

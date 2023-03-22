@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDirectoryCommand}.
  */
 export interface CreateDirectoryCommandInput extends CreateDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDirectoryCommand}.
  */
 export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a>Directory</a> by copying the published schema into the
  *       directory. A directory cannot be created without a schema.</p>
  *          <p>You can also quickly create a directory using a managed schema, called the
@@ -49,6 +54,8 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectoryCommandInput - {@link CreateDirectoryCommandInput}
+ * @returns {@link CreateDirectoryCommandOutput}
  * @see {@link CreateDirectoryCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreateDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDirectoryCommandOutput> {
     return deserializeAws_restJson1CreateDirectoryCommand(output, context);
   }

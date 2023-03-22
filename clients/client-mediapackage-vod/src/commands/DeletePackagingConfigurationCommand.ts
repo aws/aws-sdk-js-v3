@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePackagingConfigurationCommand}.
  */
 export interface DeletePackagingConfigurationCommandInput extends DeletePackagingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePackagingConfigurationCommand}.
  */
 export interface DeletePackagingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeletePackagingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a MediaPackage VOD PackagingConfiguration resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeletePackagingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePackagingConfigurationCommandInput - {@link DeletePackagingConfigurationCommandInput}
+ * @returns {@link DeletePackagingConfigurationCommandOutput}
  * @see {@link DeletePackagingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeletePackagingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeletePackagingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePackagingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeletePackagingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePackagingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePackagingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDevicePoolCompatibilityCommand}.
  */
 export interface GetDevicePoolCompatibilityCommandInput extends GetDevicePoolCompatibilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDevicePoolCompatibilityCommand}.
  */
 export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCompatibilityResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about compatibility with a device pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevicePoolCompatibilityCommandInput - {@link GetDevicePoolCompatibilityCommandInput}
+ * @returns {@link GetDevicePoolCompatibilityCommandOutput}
  * @see {@link GetDevicePoolCompatibilityCommandInput} for command's `input` shape.
  * @see {@link GetDevicePoolCompatibilityCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetDevicePoolCompatibilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevicePoolCompatibilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetDevicePoolCompatibilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevicePoolCompatibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDevicePoolCompatibilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

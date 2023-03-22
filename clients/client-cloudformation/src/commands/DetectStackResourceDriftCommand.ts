@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetectStackResourceDriftCommand}.
  */
 export interface DetectStackResourceDriftCommandInput extends DetectStackResourceDriftInput {}
 /**
+ * @public
+ *
  * The output of {@link DetectStackResourceDriftCommand}.
  */
 export interface DetectStackResourceDriftCommandOutput extends DetectStackResourceDriftOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about whether a resource's actual configuration differs, or has
  *             <i>drifted</i>, from it's expected configuration, as defined in the stack
  *          template and any values specified as template parameters. This information includes actual
@@ -57,6 +62,8 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectStackResourceDriftCommandInput - {@link DetectStackResourceDriftCommandInput}
+ * @returns {@link DetectStackResourceDriftCommandOutput}
  * @see {@link DetectStackResourceDriftCommandInput} for command's `input` shape.
  * @see {@link DetectStackResourceDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -80,6 +87,9 @@ export class DetectStackResourceDriftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectStackResourceDriftCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DetectStackResourceDriftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectStackResourceDriftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetectStackResourceDriftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectStackResourceDriftCommandOutput> {
     return deserializeAws_queryDetectStackResourceDriftCommand(output, context);
   }

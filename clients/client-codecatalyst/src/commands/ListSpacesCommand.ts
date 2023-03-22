@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSpacesCommand}.
  */
 export interface ListSpacesCommandInput extends ListSpacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSpacesCommand}.
  */
 export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of spaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSpacesCommandInput - {@link ListSpacesCommandInput}
+ * @returns {@link ListSpacesCommandOutput}
  * @see {@link ListSpacesCommandInput} for command's `input` shape.
  * @see {@link ListSpacesCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListSpacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSpacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListSpacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSpacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSpacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSpacesCommandOutput> {
     return deserializeAws_restJson1ListSpacesCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTranscriptCommand}.
  */
 export interface GetTranscriptCommandInput extends GetTranscriptRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTranscriptCommand}.
  */
 export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a transcript of the session, including details about any attachments. For
  *             information about accessing past chat contact transcripts for a persistent chat, see
  *             <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.
@@ -60,6 +65,8 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTranscriptCommandInput - {@link GetTranscriptCommandInput}
+ * @returns {@link GetTranscriptCommandOutput}
  * @see {@link GetTranscriptCommandInput} for command's `input` shape.
  * @see {@link GetTranscriptCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetTranscriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTranscriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetTranscriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTranscriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTranscriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTranscriptCommandOutput> {
     return deserializeAws_restJson1GetTranscriptCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAliasCommand}.
  */
 export interface AssociateAliasCommandInput extends AssociateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAliasCommand}.
  */
 export interface AssociateAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an alias (also known as a CNAME or an alternate domain name) with a CloudFront
  * 			distribution.</p>
  *          <p>With this operation you can move an alias that's already in use on a CloudFront distribution
@@ -51,6 +56,8 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAliasCommandInput - {@link AssociateAliasCommandInput}
+ * @returns {@link AssociateAliasCommandOutput}
  * @see {@link AssociateAliasCommandInput} for command's `input` shape.
  * @see {@link AssociateAliasCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -89,6 +96,9 @@ export class AssociateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class AssociateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlAssociateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAliasCommandOutput> {
     return deserializeAws_restXmlAssociateAliasCommand(output, context);
   }

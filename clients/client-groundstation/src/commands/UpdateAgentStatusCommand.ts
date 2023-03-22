@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAgentStatusCommand}.
  */
 export interface UpdateAgentStatusCommandInput extends UpdateAgentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAgentStatusCommand}.
  */
 export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the status of the agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAgentStatusCommandInput - {@link UpdateAgentStatusCommandInput}
+ * @returns {@link UpdateAgentStatusCommandOutput}
  * @see {@link UpdateAgentStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAgentStatusCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateAgentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAgentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateAgentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAgentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAgentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAgentStatusCommandOutput> {
     return deserializeAws_restJson1UpdateAgentStatusCommand(output, context);
   }

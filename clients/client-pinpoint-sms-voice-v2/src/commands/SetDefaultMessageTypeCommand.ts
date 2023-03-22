@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SetDefaultMessageTypeCommand}.
  */
 export interface SetDefaultMessageTypeCommandInput extends SetDefaultMessageTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetDefaultMessageTypeCommand}.
  */
 export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the default message type on a configuration set.</p>
  *         <p>Choose the category of SMS messages that you plan to send from this account. If you
  *             send account-related messages or time-sensitive messages such as one-time passcodes,
@@ -55,6 +60,8 @@ export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTyp
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDefaultMessageTypeCommandInput - {@link SetDefaultMessageTypeCommandInput}
+ * @returns {@link SetDefaultMessageTypeCommandOutput}
  * @see {@link SetDefaultMessageTypeCommandInput} for command's `input` shape.
  * @see {@link SetDefaultMessageTypeCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class SetDefaultMessageTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDefaultMessageTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class SetDefaultMessageTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDefaultMessageTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SetDefaultMessageTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultMessageTypeCommandOutput> {
     return deserializeAws_json1_0SetDefaultMessageTypeCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHandshakesForAccountCommand}.
  */
 export interface ListHandshakesForAccountCommandInput extends ListHandshakesForAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHandshakesForAccountCommand}.
  */
 export interface ListHandshakesForAccountCommandOutput extends ListHandshakesForAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the current handshakes that are associated with the account of the requesting
  *             user.</p>
  *          <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>,
@@ -60,6 +65,8 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHandshakesForAccountCommandInput - {@link ListHandshakesForAccountCommandInput}
+ * @returns {@link ListHandshakesForAccountCommandOutput}
  * @see {@link ListHandshakesForAccountCommandInput} for command's `input` shape.
  * @see {@link ListHandshakesForAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -266,6 +273,9 @@ export class ListHandshakesForAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHandshakesForAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -305,10 +315,16 @@ export class ListHandshakesForAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHandshakesForAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHandshakesForAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHandshakesForAccountCommandOutput> {
     return deserializeAws_json1_1ListHandshakesForAccountCommand(output, context);
   }

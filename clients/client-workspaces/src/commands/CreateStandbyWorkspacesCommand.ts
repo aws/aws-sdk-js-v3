@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStandbyWorkspacesCommand}.
  */
 export interface CreateStandbyWorkspacesCommandInput extends CreateStandbyWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStandbyWorkspacesCommand}.
  */
 export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a standby WorkSpace in a secondary Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStandbyWorkspacesCommandInput - {@link CreateStandbyWorkspacesCommandInput}
+ * @returns {@link CreateStandbyWorkspacesCommandOutput}
  * @see {@link CreateStandbyWorkspacesCommandInput} for command's `input` shape.
  * @see {@link CreateStandbyWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateStandbyWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStandbyWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateStandbyWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStandbyWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStandbyWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStandbyWorkspacesCommandOutput> {
     return deserializeAws_json1_1CreateStandbyWorkspacesCommand(output, context);
   }

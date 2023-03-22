@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMulticastGroupSessionCommand}.
  */
 export interface StartMulticastGroupSessionCommandInput extends StartMulticastGroupSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMulticastGroupSessionCommand}.
  */
 export interface StartMulticastGroupSessionCommandOutput extends StartMulticastGroupSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a multicast group session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartMulticastGroupSessionCommandOutput extends StartMulticastG
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMulticastGroupSessionCommandInput - {@link StartMulticastGroupSessionCommandInput}
+ * @returns {@link StartMulticastGroupSessionCommandOutput}
  * @see {@link StartMulticastGroupSessionCommandInput} for command's `input` shape.
  * @see {@link StartMulticastGroupSessionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartMulticastGroupSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMulticastGroupSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartMulticastGroupSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMulticastGroupSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartMulticastGroupSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

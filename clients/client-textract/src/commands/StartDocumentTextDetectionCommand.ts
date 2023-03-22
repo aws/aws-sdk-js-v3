@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartDocumentTextDetectionCommand}.
  */
 export interface StartDocumentTextDetectionCommandInput extends StartDocumentTextDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDocumentTextDetectionCommand}.
  */
 export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTextDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
  *          text and the words that make up a line of text.</p>
  *          <p>
@@ -62,6 +67,8 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDocumentTextDetectionCommandInput - {@link StartDocumentTextDetectionCommandInput}
+ * @returns {@link StartDocumentTextDetectionCommandOutput}
  * @see {@link StartDocumentTextDetectionCommandInput} for command's `input` shape.
  * @see {@link StartDocumentTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -141,6 +148,9 @@ export class StartDocumentTextDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDocumentTextDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class StartDocumentTextDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDocumentTextDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDocumentTextDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1CreateFaqCommand, serializeAws_json1_1CreateFaqCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFaqCommand}.
  */
 export interface CreateFaqCommandInput extends CreateFaqRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFaqCommand}.
  */
 export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
  *          <p>Adding FAQs to an index is an asynchronous operation.</p>
  *          <p>For an example of adding an FAQ to an index using Python and Java SDKs,
@@ -47,6 +52,8 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFaqCommandInput - {@link CreateFaqCommandInput}
+ * @returns {@link CreateFaqCommandOutput}
  * @see {@link CreateFaqCommandInput} for command's `input` shape.
  * @see {@link CreateFaqCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateFaqCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFaqCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateFaqCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFaqCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFaqCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFaqCommandOutput> {
     return deserializeAws_json1_1CreateFaqCommand(output, context);
   }

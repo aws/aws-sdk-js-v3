@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandInput extends UpdateProjectInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a machine learning (ML) project that is created from a template that
  *             sets up an ML pipeline from training to deploying an approved model.</p>
  *          <note>
@@ -53,6 +58,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
+ * @returns {@link UpdateProjectCommandOutput}
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class UpdateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
     return deserializeAws_json1_1UpdateProjectCommand(output, context);
   }

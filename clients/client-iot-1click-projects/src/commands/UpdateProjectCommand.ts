@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a project associated with your AWS account and region. With the exception of
  *       device template names, you can pass just the values that need to be updated because the update
  *       request will change only the values that are provided. To clear a value, pass the empty string
@@ -53,6 +58,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
+ * @returns {@link UpdateProjectCommandOutput}
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
     return deserializeAws_restJson1UpdateProjectCommand(output, context);
   }

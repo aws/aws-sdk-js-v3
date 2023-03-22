@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityGroupRuleDescriptionsEgressCommand}.
  */
 export interface UpdateSecurityGroupRuleDescriptionsEgressCommandInput
   extends UpdateSecurityGroupRuleDescriptionsEgressRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityGroupRuleDescriptionsEgressCommand}.
  */
 export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>[VPC only] Updates the description of an egress (outbound) security group rule. You
  * 			can replace an existing description, or add a description to a rule that did not have one
  * 			previously. You can remove a description for a security group rule by omitting the
@@ -52,6 +57,8 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityGroupRuleDescriptionsEgressCommandInput - {@link UpdateSecurityGroupRuleDescriptionsEgressCommandInput}
+ * @returns {@link UpdateSecurityGroupRuleDescriptionsEgressCommandOutput}
  * @see {@link UpdateSecurityGroupRuleDescriptionsEgressCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityGroupRuleDescriptionsEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
     return serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -40,6 +40,7 @@ import {
 import { UpdateHostCommand, UpdateHostCommandInput, UpdateHostCommandOutput } from "./commands/UpdateHostCommand";
 
 /**
+ * @public
  * <fullname>AWS CodeStar Connections</fullname>
  *          <p>This AWS CodeStar Connections API Reference provides descriptions and usage examples of
  *       the operations and data types for the AWS CodeStar Connections API. You can use the
@@ -123,6 +124,7 @@ import { UpdateHostCommand, UpdateHostCommandInput, UpdateHostCommandOutput } fr
  */
 export class CodeStarConnections extends CodeStarConnectionsClient {
   /**
+   * @public
    * <p>Creates a connection that can then be given to other AWS services like CodePipeline so
    *       that it can access third-party code repositories. The connection is in pending status until
    *       the third-party connection handshake is completed from the console.</p>
@@ -157,6 +159,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>Creates a resource that represents the infrastructure where a third-party provider is
    *       installed. The host is used when you create connections to an installed third-party provider
    *       type, such as GitHub Enterprise Server. You create one host for all connections to that
@@ -190,6 +193,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>The connection to be deleted.</p>
    */
   public deleteConnection(
@@ -222,6 +226,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.</p>
    *          <note>
    *             <p>A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.</p>
@@ -251,6 +256,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>Returns the connection ARN and details such as status, owner, and provider type.</p>
    */
   public getConnection(
@@ -283,6 +289,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>Returns the host ARN and details such as status, provider type, endpoint, and, if
    *       applicable, the VPC configuration.</p>
    */
@@ -310,6 +317,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>Lists the connections associated with your account.</p>
    */
   public listConnections(
@@ -342,6 +350,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>Lists the hosts associated with your account.</p>
    */
   public listHosts(args: ListHostsCommandInput, options?: __HttpHandlerOptions): Promise<ListHostsCommandOutput>;
@@ -368,6 +377,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>Gets the set of key-value pairs (metadata) that are used to manage the resource.</p>
    */
   public listTagsForResource(
@@ -400,6 +410,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
    *       to manage a resource.</p>
    */
@@ -427,6 +438,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from an AWS resource.</p>
    */
   public untagResource(
@@ -459,6 +471,7 @@ export class CodeStarConnections extends CodeStarConnectionsClient {
   }
 
   /**
+   * @public
    * <p>Updates a specified host with the provided configurations.</p>
    */
   public updateHost(args: UpdateHostCommandInput, options?: __HttpHandlerOptions): Promise<UpdateHostCommandOutput>;

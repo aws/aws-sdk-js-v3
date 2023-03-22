@@ -26,11 +26,15 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelDomainTransferToAnotherAwsAccountCommand}.
  */
 export interface CancelDomainTransferToAnotherAwsAccountCommandInput
   extends CancelDomainTransferToAnotherAwsAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelDomainTransferToAnotherAwsAccountCommand}.
  */
 export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
@@ -38,6 +42,7 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the transfer of a domain from the current Amazon Web Services account to
  * 			another Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>. </p>
  *          <important>
@@ -56,6 +61,8 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDomainTransferToAnotherAwsAccountCommandInput - {@link CancelDomainTransferToAnotherAwsAccountCommandInput}
+ * @returns {@link CancelDomainTransferToAnotherAwsAccountCommandOutput}
  * @see {@link CancelDomainTransferToAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link CancelDomainTransferToAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -92,6 +99,9 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDomainTransferToAnotherAwsAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelDomainTransferToAnotherAwsAccountCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
     return serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

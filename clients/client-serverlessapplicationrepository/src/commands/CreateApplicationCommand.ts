@@ -30,15 +30,20 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
+ * @returns {@link CreateApplicationCommandOutput}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
     return deserializeAws_restJson1CreateApplicationCommand(output, context);
   }

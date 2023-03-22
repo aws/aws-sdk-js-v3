@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFieldLevelEncryptionConfigCommand}.
  */
 export interface DeleteFieldLevelEncryptionConfigCommandInput extends DeleteFieldLevelEncryptionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFieldLevelEncryptionConfigCommand}.
  */
 export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a field-level encryption configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFieldLevelEncryptionConfigCommandInput - {@link DeleteFieldLevelEncryptionConfigCommandInput}
+ * @returns {@link DeleteFieldLevelEncryptionConfigCommandOutput}
  * @see {@link DeleteFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFieldLevelEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteFieldLevelEncryptionConfigCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     return serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

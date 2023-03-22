@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetInstancesCommand}.
  */
 export interface DescribeFleetInstancesCommandInput extends DescribeFleetInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetInstancesCommand}.
  */
 export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the running instances for the specified EC2 Fleet.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetInstancesCommandInput - {@link DescribeFleetInstancesCommandInput}
+ * @returns {@link DescribeFleetInstancesCommandOutput}
  * @see {@link DescribeFleetInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeFleetInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeFleetInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeFleetInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetInstancesCommandOutput> {
     return deserializeAws_ec2DescribeFleetInstancesCommand(output, context);
   }

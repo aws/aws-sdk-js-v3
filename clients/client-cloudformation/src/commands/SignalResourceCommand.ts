@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SignalResourceCommand}.
  */
 export interface SignalResourceCommandInput extends SignalResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link SignalResourceCommand}.
  */
 export interface SignalResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a signal to the specified resource with a success or failure status. You can use
  *          the <code>SignalResource</code> operation in conjunction with a creation policy or update
  *          policy. CloudFormation doesn't proceed with a stack creation or update until
@@ -46,6 +51,8 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SignalResourceCommandInput - {@link SignalResourceCommandInput}
+ * @returns {@link SignalResourceCommandOutput}
  * @see {@link SignalResourceCommandInput} for command's `input` shape.
  * @see {@link SignalResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -69,6 +76,9 @@ export class SignalResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SignalResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class SignalResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SignalResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySignalResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignalResourceCommandOutput> {
     return deserializeAws_querySignalResourceCommand(output, context);
   }

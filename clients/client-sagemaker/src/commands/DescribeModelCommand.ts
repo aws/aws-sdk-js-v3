@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelCommand}.
  */
 export interface DescribeModelCommandInput extends DescribeModelInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelCommand}.
  */
 export interface DescribeModelCommandOutput extends DescribeModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a model that you created using the <code>CreateModel</code>
  *             API.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
+ * @returns {@link DescribeModelCommandOutput}
  * @see {@link DescribeModelCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class DescribeModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class DescribeModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
     return deserializeAws_json1_1DescribeModelCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1SignCommand, serializeAws_json1_1SignCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SignCommand}.
  */
 export interface SignCommandInput extends SignRequest {}
 /**
+ * @public
+ *
  * The output of {@link SignCommand}.
  */
 export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital
  *         signature</a> for a message or message digest by using the private key in an asymmetric
  *       signing KMS key. To verify the signature, use the <a>Verify</a> operation, or use
@@ -94,6 +99,8 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SignCommandInput - {@link SignCommandInput}
+ * @returns {@link SignCommandOutput}
  * @see {@link SignCommandInput} for command's `input` shape.
  * @see {@link SignCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -216,6 +223,9 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SignCommandInput) {
     // Start section: command_constructor
     super();
@@ -253,10 +263,16 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignCommandOutput> {
     return deserializeAws_json1_1SignCommand(output, context);
   }

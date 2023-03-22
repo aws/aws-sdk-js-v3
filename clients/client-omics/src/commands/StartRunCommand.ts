@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRunCommand}.
  */
 export interface StartRunCommandInput extends StartRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRunCommand}.
  */
 export interface StartRunCommandOutput extends StartRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRunCommandInput - {@link StartRunCommandInput}
+ * @returns {@link StartRunCommandOutput}
  * @see {@link StartRunCommandInput} for command's `input` shape.
  * @see {@link StartRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -89,6 +96,9 @@ export class StartRunCommand extends $Command<StartRunCommandInput, StartRunComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartRunCommand extends $Command<StartRunCommandInput, StartRunComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRunCommandOutput> {
     return deserializeAws_restJson1StartRunCommand(output, context);
   }

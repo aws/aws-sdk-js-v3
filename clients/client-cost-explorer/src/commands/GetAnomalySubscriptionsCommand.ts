@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnomalySubscriptionsCommand}.
  */
 export interface GetAnomalySubscriptionsCommandInput extends GetAnomalySubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAnomalySubscriptionsCommand}.
  */
 export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the cost anomaly subscription objects for your account. You can filter using a
  *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscrip
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnomalySubscriptionsCommandInput - {@link GetAnomalySubscriptionsCommandInput}
+ * @returns {@link GetAnomalySubscriptionsCommandOutput}
  * @see {@link GetAnomalySubscriptionsCommandInput} for command's `input` shape.
  * @see {@link GetAnomalySubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetAnomalySubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnomalySubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetAnomalySubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnomalySubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAnomalySubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomalySubscriptionsCommandOutput> {
     return deserializeAws_json1_1GetAnomalySubscriptionsCommand(output, context);
   }

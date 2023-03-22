@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ScheduleKeyDeletionCommand}.
  */
 export interface ScheduleKeyDeletionCommandInput extends ScheduleKeyDeletionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ScheduleKeyDeletionCommand}.
  */
 export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
  *       days, but you can specify a waiting period of 7-30 days. When this operation is successful,
  *       the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used
@@ -101,6 +106,8 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ScheduleKeyDeletionCommandInput - {@link ScheduleKeyDeletionCommandInput}
+ * @returns {@link ScheduleKeyDeletionCommandOutput}
  * @see {@link ScheduleKeyDeletionCommandInput} for command's `input` shape.
  * @see {@link ScheduleKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -176,6 +183,9 @@ export class ScheduleKeyDeletionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ScheduleKeyDeletionCommandInput) {
     // Start section: command_constructor
     super();
@@ -215,10 +225,16 @@ export class ScheduleKeyDeletionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ScheduleKeyDeletionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ScheduleKeyDeletionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScheduleKeyDeletionCommandOutput> {
     return deserializeAws_json1_1ScheduleKeyDeletionCommand(output, context);
   }

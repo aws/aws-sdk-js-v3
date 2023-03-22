@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFirewallRuleGroupPolicyCommand}.
  */
 export interface GetFirewallRuleGroupPolicyCommandInput extends GetFirewallRuleGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFirewallRuleGroupPolicyCommand}.
  */
 export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRuleGroupPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Identity and Access Management (Amazon Web Services IAM) policy for sharing the
  *        	specified rule group. You can use the policy to share the rule group using Resource Access Manager (RAM). </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRule
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFirewallRuleGroupPolicyCommandInput - {@link GetFirewallRuleGroupPolicyCommandInput}
+ * @returns {@link GetFirewallRuleGroupPolicyCommandOutput}
  * @see {@link GetFirewallRuleGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetFirewallRuleGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetFirewallRuleGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFirewallRuleGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetFirewallRuleGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFirewallRuleGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFirewallRuleGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

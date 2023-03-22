@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailabilityConfigurationsCommand}.
  */
 export interface ListAvailabilityConfigurationsCommandInput extends ListAvailabilityConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailabilityConfigurationsCommand}.
  */
 export interface ListAvailabilityConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAvailabilityConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListAvailabilityConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailabilityConfigurationsCommandInput - {@link ListAvailabilityConfigurationsCommandInput}
+ * @returns {@link ListAvailabilityConfigurationsCommandOutput}
  * @see {@link ListAvailabilityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListAvailabilityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailabilityConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailabilityConfigurationsCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
     return serializeAws_json1_1ListAvailabilityConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

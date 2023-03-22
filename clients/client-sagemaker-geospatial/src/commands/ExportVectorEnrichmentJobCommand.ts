@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExportVectorEnrichmentJobCommand}.
  */
 export interface ExportVectorEnrichmentJobCommandInput extends ExportVectorEnrichmentJobInput {}
 /**
+ * @public
+ *
  * The output of {@link ExportVectorEnrichmentJobCommand}.
  */
 export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to copy results of a Vector Enrichment job to an S3 location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnri
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportVectorEnrichmentJobCommandInput - {@link ExportVectorEnrichmentJobCommandInput}
+ * @returns {@link ExportVectorEnrichmentJobCommandOutput}
  * @see {@link ExportVectorEnrichmentJobCommandInput} for command's `input` shape.
  * @see {@link ExportVectorEnrichmentJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -94,6 +101,9 @@ export class ExportVectorEnrichmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportVectorEnrichmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ExportVectorEnrichmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportVectorEnrichmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportVectorEnrichmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

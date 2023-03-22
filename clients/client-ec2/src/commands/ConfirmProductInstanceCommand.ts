@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmProductInstanceCommand}.
  */
 export interface ConfirmProductInstanceCommandInput extends ConfirmProductInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmProductInstanceCommand}.
  */
 export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Determines whether a product code is associated with an instance. This action can only
  *             be used by the owner of the product code. It is useful when a product code owner must
  *             verify whether another user's instance is eligible for support.</p>
@@ -48,6 +53,8 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmProductInstanceCommandInput - {@link ConfirmProductInstanceCommandInput}
+ * @returns {@link ConfirmProductInstanceCommandOutput}
  * @see {@link ConfirmProductInstanceCommandInput} for command's `input` shape.
  * @see {@link ConfirmProductInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -88,6 +95,9 @@ export class ConfirmProductInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmProductInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ConfirmProductInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmProductInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ConfirmProductInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmProductInstanceCommandOutput> {
     return deserializeAws_ec2ConfirmProductInstanceCommand(output, context);
   }

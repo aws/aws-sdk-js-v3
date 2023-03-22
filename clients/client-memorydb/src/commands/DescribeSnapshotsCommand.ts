@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about cluster snapshots. By default, DescribeSnapshots lists all of your snapshots; it can optionally describe a single snapshot,
  *          or just the snapshots associated with a particular cluster.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
+ * @returns {@link DescribeSnapshotsCommandOutput}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
     return deserializeAws_json1_1DescribeSnapshotsCommand(output, context);
   }

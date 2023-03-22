@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceProfileDetectionsCommand}.
  */
 export interface UpdateResourceProfileDetectionsCommandInput extends UpdateResourceProfileDetectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceProfileDetectionsCommand}.
  */
 export interface UpdateResourceProfileDetectionsCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateResourceProfileDetectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the sensitivity scoring settings for an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateResourceProfileDetectionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceProfileDetectionsCommandInput - {@link UpdateResourceProfileDetectionsCommandInput}
+ * @returns {@link UpdateResourceProfileDetectionsCommandOutput}
  * @see {@link UpdateResourceProfileDetectionsCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceProfileDetectionsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateResourceProfileDetectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceProfileDetectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class UpdateResourceProfileDetectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateResourceProfileDetectionsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class UpdateResourceProfileDetectionsCommand extends $Command<
     return serializeAws_restJson1UpdateResourceProfileDetectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelAnnotationImportJobCommand}.
  */
 export interface CancelAnnotationImportJobCommandInput extends CancelAnnotationImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelAnnotationImportJobCommand}.
  */
 export interface CancelAnnotationImportJobCommandOutput extends CancelAnnotationImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an annotation import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelAnnotationImportJobCommandOutput extends CancelAnnotation
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelAnnotationImportJobCommandInput - {@link CancelAnnotationImportJobCommandInput}
+ * @returns {@link CancelAnnotationImportJobCommandOutput}
  * @see {@link CancelAnnotationImportJobCommandInput} for command's `input` shape.
  * @see {@link CancelAnnotationImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +91,9 @@ export class CancelAnnotationImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelAnnotationImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CancelAnnotationImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelAnnotationImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelAnnotationImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

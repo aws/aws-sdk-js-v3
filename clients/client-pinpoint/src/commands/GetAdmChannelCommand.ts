@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAdmChannelCommand}.
  */
 export interface GetAdmChannelCommandInput extends GetAdmChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAdmChannelCommand}.
  */
 export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the ADM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAdmChannelCommandInput - {@link GetAdmChannelCommandInput}
+ * @returns {@link GetAdmChannelCommandOutput}
  * @see {@link GetAdmChannelCommandInput} for command's `input` shape.
  * @see {@link GetAdmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetAdmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAdmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetAdmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAdmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdmChannelCommandOutput> {
     return deserializeAws_restJson1GetAdmChannelCommand(output, context);
   }

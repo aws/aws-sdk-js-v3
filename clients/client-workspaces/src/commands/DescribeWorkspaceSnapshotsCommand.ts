@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceSnapshotsCommand}.
  */
 export interface DescribeWorkspaceSnapshotsCommandInput extends DescribeWorkspaceSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceSnapshotsCommand}.
  */
 export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspaceSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the snapshots for the specified WorkSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceSnapshotsCommandInput - {@link DescribeWorkspaceSnapshotsCommandInput}
+ * @returns {@link DescribeWorkspaceSnapshotsCommandOutput}
  * @see {@link DescribeWorkspaceSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeWorkspaceSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

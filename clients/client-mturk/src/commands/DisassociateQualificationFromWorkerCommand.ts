@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateQualificationFromWorkerCommand}.
  */
 export interface DisassociateQualificationFromWorkerCommandInput extends DisassociateQualificationFromWorkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateQualificationFromWorkerCommand}.
  */
 export interface DisassociateQualificationFromWorkerCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateQualificationFromWorkerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The 	<code>DisassociateQualificationFromWorker</code>
  *             revokes a previously granted Qualification from a user.
@@ -55,6 +60,8 @@ export interface DisassociateQualificationFromWorkerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateQualificationFromWorkerCommandInput - {@link DisassociateQualificationFromWorkerCommandInput}
+ * @returns {@link DisassociateQualificationFromWorkerCommandOutput}
  * @see {@link DisassociateQualificationFromWorkerCommandInput} for command's `input` shape.
  * @see {@link DisassociateQualificationFromWorkerCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateQualificationFromWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateQualificationFromWorkerCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     return serializeAws_json1_1DisassociateQualificationFromWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

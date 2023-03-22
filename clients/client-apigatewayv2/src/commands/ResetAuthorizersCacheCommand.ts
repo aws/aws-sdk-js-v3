@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetAuthorizersCacheCommand}.
  */
 export interface ResetAuthorizersCacheCommandInput extends ResetAuthorizersCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetAuthorizersCacheCommand}.
  */
 export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetAuthorizersCacheCommandInput - {@link ResetAuthorizersCacheCommandInput}
+ * @returns {@link ResetAuthorizersCacheCommandOutput}
  * @see {@link ResetAuthorizersCacheCommandInput} for command's `input` shape.
  * @see {@link ResetAuthorizersCacheCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -70,6 +77,9 @@ export class ResetAuthorizersCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetAuthorizersCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ResetAuthorizersCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetAuthorizersCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ResetAuthorizersCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetAuthorizersCacheCommandOutput> {
     return deserializeAws_restJson1ResetAuthorizersCacheCommand(output, context);
   }

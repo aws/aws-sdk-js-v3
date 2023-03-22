@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSourceServerActionCommand}.
  */
 export interface PutSourceServerActionCommandInput extends PutSourceServerActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSourceServerActionCommand}.
  */
 export interface PutSourceServerActionCommandOutput extends SourceServerActionDocument, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Put source server post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutSourceServerActionCommandOutput extends SourceServerActionDo
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSourceServerActionCommandInput - {@link PutSourceServerActionCommandInput}
+ * @returns {@link PutSourceServerActionCommandOutput}
  * @see {@link PutSourceServerActionCommandInput} for command's `input` shape.
  * @see {@link PutSourceServerActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutSourceServerActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSourceServerActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutSourceServerActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSourceServerActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutSourceServerActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSourceServerActionCommandOutput> {
     return deserializeAws_restJson1PutSourceServerActionCommand(output, context);
   }

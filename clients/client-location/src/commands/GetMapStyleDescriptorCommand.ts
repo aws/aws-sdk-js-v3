@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMapStyleDescriptorCommand}.
  */
 export interface GetMapStyleDescriptorCommandInput extends GetMapStyleDescriptorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMapStyleDescriptorCommand}.
  */
 export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescriptorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the map style descriptor from a map resource. </p>
  *          <p>The style descriptor contains speciﬁcations on how features render on a map. For
  *             example, what data to display, what order to display the data in, and the style for the
@@ -49,6 +54,8 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMapStyleDescriptorCommandInput - {@link GetMapStyleDescriptorCommandInput}
+ * @returns {@link GetMapStyleDescriptorCommandOutput}
  * @see {@link GetMapStyleDescriptorCommandInput} for command's `input` shape.
  * @see {@link GetMapStyleDescriptorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetMapStyleDescriptorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMapStyleDescriptorCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetMapStyleDescriptorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMapStyleDescriptorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMapStyleDescriptorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMapStyleDescriptorCommandOutput> {
     return deserializeAws_restJson1GetMapStyleDescriptorCommand(output, context);
   }

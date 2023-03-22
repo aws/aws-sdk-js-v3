@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGrantCommand}.
  */
 export interface CreateGrantCommandInput extends CreateGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGrantCommand}.
  */
 export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific Amazon Web Services accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGrantCommandInput - {@link CreateGrantCommandInput}
+ * @returns {@link CreateGrantCommandOutput}
  * @see {@link CreateGrantCommandInput} for command's `input` shape.
  * @see {@link CreateGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGrantCommandOutput> {
     return deserializeAws_json1_1CreateGrantCommand(output, context);
   }

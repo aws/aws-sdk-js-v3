@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationSetEventDestinationCommand}.
  */
 export interface CreateConfigurationSetEventDestinationCommandInput
   extends CreateConfigurationSetEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationSetEventDestinationCommand}.
  */
 export interface CreateConfigurationSetEventDestinationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Create a new event destination in a configuration set.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationSetEventDestinationCommandInput - {@link CreateConfigurationSetEventDestinationCommandInput}
+ * @returns {@link CreateConfigurationSetEventDestinationCommandOutput}
  * @see {@link CreateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     return serializeAws_restJson1CreateConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

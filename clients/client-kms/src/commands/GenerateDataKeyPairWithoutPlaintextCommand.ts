@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateDataKeyPairWithoutPlaintextCommand}.
  */
 export interface GenerateDataKeyPairWithoutPlaintextCommandInput extends GenerateDataKeyPairWithoutPlaintextRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateDataKeyPairWithoutPlaintextCommand}.
  */
 export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
@@ -37,6 +41,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  *       a plaintext public key and a copy of the private key that is encrypted under the symmetric
  *       encryption KMS key you specify. Unlike <a>GenerateDataKeyPair</a>, this operation
@@ -110,6 +115,8 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateDataKeyPairWithoutPlaintextCommandInput - {@link GenerateDataKeyPairWithoutPlaintextCommandInput}
+ * @returns {@link GenerateDataKeyPairWithoutPlaintextCommandOutput}
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -218,6 +225,9 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateDataKeyPairWithoutPlaintextCommandInput) {
     // Start section: command_constructor
     super();
@@ -257,6 +267,9 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateDataKeyPairWithoutPlaintextCommandInput,
     context: __SerdeContext
@@ -264,6 +277,9 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     return serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

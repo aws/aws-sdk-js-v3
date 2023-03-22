@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDistributionBundleCommand}.
  */
 export interface UpdateDistributionBundleCommandInput extends UpdateDistributionBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDistributionBundleCommand}.
  */
 export interface UpdateDistributionBundleCommandOutput extends UpdateDistributionBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the bundle of your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
@@ -54,6 +59,8 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDistributionBundleCommandInput - {@link UpdateDistributionBundleCommandInput}
+ * @returns {@link UpdateDistributionBundleCommandOutput}
  * @see {@link UpdateDistributionBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionBundleCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateDistributionBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDistributionBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UpdateDistributionBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDistributionBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDistributionBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDistributionBundleCommandOutput> {
     return deserializeAws_json1_1UpdateDistributionBundleCommand(output, context);
   }

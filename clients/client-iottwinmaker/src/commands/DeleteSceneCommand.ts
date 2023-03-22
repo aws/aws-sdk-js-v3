@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSceneCommand}.
  */
 export interface DeleteSceneCommandInput extends DeleteSceneRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSceneCommand}.
  */
 export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a scene.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSceneCommandInput - {@link DeleteSceneCommandInput}
+ * @returns {@link DeleteSceneCommandOutput}
  * @see {@link DeleteSceneCommandInput} for command's `input` shape.
  * @see {@link DeleteSceneCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteSceneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSceneCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteSceneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSceneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSceneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSceneCommandOutput> {
     return deserializeAws_restJson1DeleteSceneCommand(output, context);
   }

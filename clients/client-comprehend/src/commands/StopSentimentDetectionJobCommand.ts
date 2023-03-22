@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopSentimentDetectionJobCommand}.
  */
 export interface StopSentimentDetectionJobCommandInput extends StopSentimentDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopSentimentDetectionJobCommand}.
  */
 export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a sentiment detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -55,6 +60,8 @@ export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDet
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSentimentDetectionJobCommandInput - {@link StopSentimentDetectionJobCommandInput}
+ * @returns {@link StopSentimentDetectionJobCommandOutput}
  * @see {@link StopSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -87,6 +94,9 @@ export class StopSentimentDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSentimentDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StopSentimentDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSentimentDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopSentimentDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

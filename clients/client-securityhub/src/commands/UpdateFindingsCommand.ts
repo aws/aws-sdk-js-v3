@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFindingsCommand}.
  */
 export interface UpdateFindingsCommandInput extends UpdateFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFindingsCommand}.
  */
 export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>UpdateFindings</code> is deprecated. Instead of <code>UpdateFindings</code>, use
  *             <code>BatchUpdateFindings</code>.</p>
@@ -51,6 +56,8 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFindingsCommandInput - {@link UpdateFindingsCommandInput}
+ * @returns {@link UpdateFindingsCommandOutput}
  * @see {@link UpdateFindingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingsCommandOutput> {
     return deserializeAws_restJson1UpdateFindingsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopKeyPhrasesDetectionJobCommand}.
  */
 export interface StopKeyPhrasesDetectionJobCommandInput extends StopKeyPhrasesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopKeyPhrasesDetectionJobCommand}.
  */
 export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a key phrases detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -55,6 +60,8 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  * const response = await client.send(command);
  * ```
  *
+ * @param StopKeyPhrasesDetectionJobCommandInput - {@link StopKeyPhrasesDetectionJobCommandInput}
+ * @returns {@link StopKeyPhrasesDetectionJobCommandOutput}
  * @see {@link StopKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -87,6 +94,9 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopKeyPhrasesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopKeyPhrasesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopKeyPhrasesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

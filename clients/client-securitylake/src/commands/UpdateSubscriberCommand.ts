@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubscriberCommand}.
  */
 export interface UpdateSubscriberCommandInput extends UpdateSubscriberRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubscriberCommand}.
  */
 export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update
  *          a subscriber by changing the sources that the subscriber consumes data from. </p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubscriberCommandInput - {@link UpdateSubscriberCommandInput}
+ * @returns {@link UpdateSubscriberCommandOutput}
  * @see {@link UpdateSubscriberCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriberCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateSubscriberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubscriberCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateSubscriberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSubscriberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubscriberCommandOutput> {
     return deserializeAws_restJson1UpdateSubscriberCommand(output, context);
   }

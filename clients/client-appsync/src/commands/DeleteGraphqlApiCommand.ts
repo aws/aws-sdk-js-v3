@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGraphqlApiCommand}.
  */
 export interface DeleteGraphqlApiCommandInput extends DeleteGraphqlApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGraphqlApiCommand}.
  */
 export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>GraphqlApi</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGraphqlApiCommandInput - {@link DeleteGraphqlApiCommandInput}
+ * @returns {@link DeleteGraphqlApiCommandOutput}
  * @see {@link DeleteGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link DeleteGraphqlApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteGraphqlApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGraphqlApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteGraphqlApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGraphqlApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGraphqlApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGraphqlApiCommandOutput> {
     return deserializeAws_restJson1DeleteGraphqlApiCommand(output, context);
   }

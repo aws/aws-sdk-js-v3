@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLinuxSubscriptionInstancesCommand}.
  */
 export interface ListLinuxSubscriptionInstancesCommandInput extends ListLinuxSubscriptionInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLinuxSubscriptionInstancesCommand}.
  */
 export interface ListLinuxSubscriptionInstancesCommandOutput
@@ -41,6 +45,7 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the running Amazon EC2 instances that were discovered with commercial Linux
  *       subscriptions.</p>
  * @example
@@ -53,6 +58,8 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLinuxSubscriptionInstancesCommandInput - {@link ListLinuxSubscriptionInstancesCommandInput}
+ * @returns {@link ListLinuxSubscriptionInstancesCommandOutput}
  * @see {@link ListLinuxSubscriptionInstancesCommandInput} for command's `input` shape.
  * @see {@link ListLinuxSubscriptionInstancesCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerLinuxSubscriptionsClientResolvedConfig | config} for LicenseManagerLinuxSubscriptionsClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLinuxSubscriptionInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListLinuxSubscriptionInstancesCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class ListLinuxSubscriptionInstancesCommand extends $Command<
     return serializeAws_restJson1ListLinuxSubscriptionInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

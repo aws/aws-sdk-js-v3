@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopMonitoringMembersCommand}.
  */
 export interface StopMonitoringMembersCommandInput extends StopMonitoringMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopMonitoringMembersCommand}.
  */
 export interface StopMonitoringMembersCommandOutput extends StopMonitoringMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops GuardDuty monitoring for the specified member accounts. Use the
  *         <code>StartMonitoringMembers</code> operation to restart monitoring for those
  *       accounts.</p>
@@ -48,6 +53,8 @@ export interface StopMonitoringMembersCommandOutput extends StopMonitoringMember
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMonitoringMembersCommandInput - {@link StopMonitoringMembersCommandInput}
+ * @returns {@link StopMonitoringMembersCommandOutput}
  * @see {@link StopMonitoringMembersCommandInput} for command's `input` shape.
  * @see {@link StopMonitoringMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +84,9 @@ export class StopMonitoringMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMonitoringMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class StopMonitoringMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMonitoringMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopMonitoringMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMonitoringMembersCommandOutput> {
     return deserializeAws_restJson1StopMonitoringMembersCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorGroupCommand}.
  */
 export interface GetVoiceConnectorGroupCommandInput extends GetVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorGroupCommand}.
  */
 export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated <code>VoiceConnectorItems</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceConnectorGroupCommandInput - {@link GetVoiceConnectorGroupCommandInput}
+ * @returns {@link GetVoiceConnectorGroupCommandOutput}
  * @see {@link GetVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceConnectorGroupCommandOutput> {
     return deserializeAws_restJson1GetVoiceConnectorGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectorProfilesCommand}.
  */
 export interface DescribeConnectorProfilesCommandInput extends DescribeConnectorProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectorProfilesCommand}.
  */
 export interface DescribeConnectorProfilesCommandOutput extends DescribeConnectorProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of <code>connector-profile</code> details matching the provided
  *         <code>connector-profile</code> names and <code>connector-types</code>. Both input lists are
  *       optional, and you can use them to filter the result. </p>
@@ -50,6 +55,8 @@ export interface DescribeConnectorProfilesCommandOutput extends DescribeConnecto
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectorProfilesCommandInput - {@link DescribeConnectorProfilesCommandInput}
+ * @returns {@link DescribeConnectorProfilesCommandOutput}
  * @see {@link DescribeConnectorProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorProfilesCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeConnectorProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectorProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeConnectorProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectorProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeConnectorProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

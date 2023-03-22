@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStudioCommand}.
  */
 export interface CreateStudioCommandInput extends CreateStudioRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStudioCommand}.
  */
 export interface CreateStudioCommandOutput extends CreateStudioResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new studio.</p>
  *         <p>When creating a studio, two IAM roles must be provided: the admin role
  *             and the user role. These roles are assumed by your users when they log in to the Nimble Studio portal.</p>
@@ -65,6 +70,8 @@ export interface CreateStudioCommandOutput extends CreateStudioResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStudioCommandInput - {@link CreateStudioCommandInput}
+ * @returns {@link CreateStudioCommandOutput}
  * @see {@link CreateStudioCommandInput} for command's `input` shape.
  * @see {@link CreateStudioCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -112,6 +119,9 @@ export class CreateStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStudioCommandOutput> {
     return deserializeAws_restJson1CreateStudioCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeviceCommand}.
  */
 export interface CreateDeviceCommandInput extends CreateDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeviceCommand}.
  */
 export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new device in a global network. If you specify both a site ID and a
  *             location, the location of the site is used for visualization in the Network Manager console.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeviceCommandInput - {@link CreateDeviceCommandInput}
+ * @returns {@link CreateDeviceCommandOutput}
  * @see {@link CreateDeviceCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceCommandOutput> {
     return deserializeAws_restJson1CreateDeviceCommand(output, context);
   }

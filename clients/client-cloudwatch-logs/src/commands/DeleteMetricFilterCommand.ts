@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMetricFilterCommand}.
  */
 export interface DeleteMetricFilterCommandInput extends DeleteMetricFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMetricFilterCommand}.
  */
 export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified metric filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMetricFilterCommandInput - {@link DeleteMetricFilterCommandInput}
+ * @returns {@link DeleteMetricFilterCommandOutput}
  * @see {@link DeleteMetricFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteMetricFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMetricFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteMetricFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMetricFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMetricFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricFilterCommandOutput> {
     return deserializeAws_json1_1DeleteMetricFilterCommand(output, context);
   }

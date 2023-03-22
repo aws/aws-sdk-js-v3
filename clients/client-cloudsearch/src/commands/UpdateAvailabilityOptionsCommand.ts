@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAvailabilityOptionsCommand}.
  */
 export interface UpdateAvailabilityOptionsCommandInput extends UpdateAvailabilityOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAvailabilityOptionsCommand}.
  */
 export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabilityOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures the availability options for a domain. Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an additional Availability Zone in the same Region to increase fault tolerance in the event of a service disruption. Changes to the Multi-AZ option can take about half an hour to become active. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html" target="_blank">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAvailabilityOptionsCommandInput - {@link UpdateAvailabilityOptionsCommandInput}
+ * @returns {@link UpdateAvailabilityOptionsCommandOutput}
  * @see {@link UpdateAvailabilityOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateAvailabilityOptionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAvailabilityOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAvailabilityOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAvailabilityOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

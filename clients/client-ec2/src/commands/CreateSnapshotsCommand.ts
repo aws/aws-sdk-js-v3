@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateSnapshotsCommand, serializeAws_ec2CreateSnapshotsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSnapshotsCommand}.
  */
 export interface CreateSnapshotsCommandInput extends CreateSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSnapshotsCommand}.
  */
 export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates crash-consistent snapshots of multiple EBS volumes and stores the data in S3.
  *     Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot
  *     each that is crash-consistent across the instance.</p>
@@ -52,6 +57,8 @@ export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotsCommandInput - {@link CreateSnapshotsCommandInput}
+ * @returns {@link CreateSnapshotsCommandOutput}
  * @see {@link CreateSnapshotsCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class CreateSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotsCommandOutput> {
     return deserializeAws_ec2CreateSnapshotsCommand(output, context);
   }

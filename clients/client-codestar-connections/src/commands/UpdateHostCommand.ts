@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateHostCommand}.
  */
 export interface UpdateHostCommandInput extends UpdateHostInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateHostCommand}.
  */
 export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified host with the provided configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHostCommandInput - {@link UpdateHostCommandInput}
+ * @returns {@link UpdateHostCommandOutput}
  * @see {@link UpdateHostCommandInput} for command's `input` shape.
  * @see {@link UpdateHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateHostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHostCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateHostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateHostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHostCommandOutput> {
     return deserializeAws_json1_0UpdateHostCommand(output, context);
   }

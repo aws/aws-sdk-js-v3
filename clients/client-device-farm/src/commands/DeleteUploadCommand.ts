@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUploadCommand}.
  */
 export interface DeleteUploadCommandInput extends DeleteUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUploadCommand}.
  */
 export interface DeleteUploadCommandOutput extends DeleteUploadResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an upload given the upload ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUploadCommandInput - {@link DeleteUploadCommandInput}
+ * @returns {@link DeleteUploadCommandOutput}
  * @see {@link DeleteUploadCommandInput} for command's `input` shape.
  * @see {@link DeleteUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUploadCommandOutput> {
     return deserializeAws_json1_1DeleteUploadCommand(output, context);
   }

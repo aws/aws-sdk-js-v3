@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestartSimulationJobCommand}.
  */
 export interface RestartSimulationJobCommandInput extends RestartSimulationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestartSimulationJobCommand}.
  */
 export interface RestartSimulationJobCommandOutput extends RestartSimulationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts a running simulation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RestartSimulationJobCommandOutput extends RestartSimulationJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param RestartSimulationJobCommandInput - {@link RestartSimulationJobCommandInput}
+ * @returns {@link RestartSimulationJobCommandOutput}
  * @see {@link RestartSimulationJobCommandInput} for command's `input` shape.
  * @see {@link RestartSimulationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -86,6 +93,9 @@ export class RestartSimulationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestartSimulationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class RestartSimulationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestartSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RestartSimulationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestartSimulationJobCommandOutput> {
     return deserializeAws_restJson1RestartSimulationJobCommand(output, context);
   }

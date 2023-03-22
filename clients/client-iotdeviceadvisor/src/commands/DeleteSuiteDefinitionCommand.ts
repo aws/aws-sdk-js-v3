@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSuiteDefinitionCommand}.
  */
 export interface DeleteSuiteDefinitionCommandInput extends DeleteSuiteDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSuiteDefinitionCommand}.
  */
 export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Device Advisor test suite.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSuiteDefinition</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSuiteDefinitionCommandInput - {@link DeleteSuiteDefinitionCommandInput}
+ * @returns {@link DeleteSuiteDefinitionCommandOutput}
  * @see {@link DeleteSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteSuiteDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteSuiteDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSuiteDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteSuiteDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSuiteDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSuiteDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSuiteDefinitionCommandOutput> {
     return deserializeAws_restJson1DeleteSuiteDefinitionCommand(output, context);
   }

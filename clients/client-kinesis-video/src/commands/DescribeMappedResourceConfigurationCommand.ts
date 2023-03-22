@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMappedResourceConfigurationCommand}.
  */
 export interface DescribeMappedResourceConfigurationCommandInput extends DescribeMappedResourceConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMappedResourceConfigurationCommand}.
  */
 export interface DescribeMappedResourceConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeMappedResourceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p>
  *          <p>Returns the most current information about the stream. The <code>streamName</code>
  *             or <code>streamARN</code> should be provided in the input.</p>
@@ -50,6 +55,8 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMappedResourceConfigurationCommandInput - {@link DescribeMappedResourceConfigurationCommandInput}
+ * @returns {@link DescribeMappedResourceConfigurationCommandOutput}
  * @see {@link DescribeMappedResourceConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeMappedResourceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMappedResourceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMappedResourceConfigurationCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeMappedResourceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

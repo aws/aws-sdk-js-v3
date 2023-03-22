@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMeetingTranscriptionCommand}.
  */
 export interface StartMeetingTranscriptionCommandInput extends StartMeetingTranscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMeetingTranscriptionCommand}.
  */
 export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts transcription for the specified <code>meetingId</code>. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
  *             Using Amazon Chime SDK live transcription
  *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMeetingTranscriptionCommandInput - {@link StartMeetingTranscriptionCommandInput}
+ * @returns {@link StartMeetingTranscriptionCommandOutput}
  * @see {@link StartMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartMeetingTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -100,6 +107,9 @@ export class StartMeetingTranscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMeetingTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class StartMeetingTranscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMeetingTranscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartMeetingTranscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

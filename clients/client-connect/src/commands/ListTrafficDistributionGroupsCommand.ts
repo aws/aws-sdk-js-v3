@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrafficDistributionGroupsCommand}.
  */
 export interface ListTrafficDistributionGroupsCommandInput extends ListTrafficDistributionGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrafficDistributionGroupsCommand}.
  */
 export interface ListTrafficDistributionGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface ListTrafficDistributionGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists traffic distribution groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListTrafficDistributionGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrafficDistributionGroupsCommandInput - {@link ListTrafficDistributionGroupsCommandInput}
+ * @returns {@link ListTrafficDistributionGroupsCommandOutput}
  * @see {@link ListTrafficDistributionGroupsCommandInput} for command's `input` shape.
  * @see {@link ListTrafficDistributionGroupsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListTrafficDistributionGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrafficDistributionGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListTrafficDistributionGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrafficDistributionGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTrafficDistributionGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

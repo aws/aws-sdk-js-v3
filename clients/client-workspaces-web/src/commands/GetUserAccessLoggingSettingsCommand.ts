@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserAccessLoggingSettingsCommand}.
  */
 export interface GetUserAccessLoggingSettingsCommandInput extends GetUserAccessLoggingSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserAccessLoggingSettingsCommand}.
  */
 export interface GetUserAccessLoggingSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface GetUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets user access logging settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetUserAccessLoggingSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserAccessLoggingSettingsCommandInput - {@link GetUserAccessLoggingSettingsCommandInput}
+ * @returns {@link GetUserAccessLoggingSettingsCommandOutput}
  * @see {@link GetUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link GetUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetUserAccessLoggingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetUserAccessLoggingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserAccessLoggingSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUserAccessLoggingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

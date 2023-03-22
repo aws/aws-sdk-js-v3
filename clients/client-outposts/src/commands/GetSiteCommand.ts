@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSiteCommand}.
  */
 export interface GetSiteCommandInput extends GetSiteInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSiteCommand}.
  */
 export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified Outpost site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSiteCommandInput - {@link GetSiteCommandInput}
+ * @returns {@link GetSiteCommandOutput}
  * @see {@link GetSiteCommandInput} for command's `input` shape.
  * @see {@link GetSiteCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSiteCommandOutput> {
     return deserializeAws_restJson1GetSiteCommand(output, context);
   }

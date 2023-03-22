@@ -86,6 +86,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateProfileCommandInput
   | CreateTrustAnchorCommandInput
@@ -114,6 +117,9 @@ export type ServiceInputTypes =
   | UpdateProfileCommandInput
   | UpdateTrustAnchorCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateProfileCommandOutput
   | CreateTrustAnchorCommandOutput
@@ -142,6 +148,9 @@ export type ServiceOutputTypes =
   | UpdateProfileCommandOutput
   | UpdateTrustAnchorCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -149,7 +158,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -258,11 +267,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type RolesAnywhereClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -273,10 +285,15 @@ type RolesAnywhereClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of RolesAnywhereClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of RolesAnywhereClient class constructor that set the region, credentials and other options.
  */
 export interface RolesAnywhereClientConfig extends RolesAnywhereClientConfigType {}
 
+/**
+ * @public
+ */
 type RolesAnywhereClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -287,11 +304,14 @@ type RolesAnywhereClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of RolesAnywhereClient class. This is resolved and normalized from the {@link RolesAnywhereClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of RolesAnywhereClient class. This is resolved and normalized from the {@link RolesAnywhereClientConfig | constructor configuration interface}.
  */
 export interface RolesAnywhereClientResolvedConfig extends RolesAnywhereClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>AWS Identity and Access Management Roles Anywhere provides a secure way for your workloads such as servers, containers, and applications running outside of AWS to obtain Temporary AWS credentials. Your workloads can use the same IAM policies and roles that you have configured with native AWS applications to access AWS resources. Using IAM Roles Anywhere will eliminate the need to manage long term credentials for workloads running outside of AWS.</p>
  *          <p>To use IAM Roles Anywhere customer workloads will need to use X.509 certificates issued by their Certificate Authority (CA) . The Certificate Authority (CA) needs to be registered with IAM Roles Anywhere as a trust anchor to establish trust between customer PKI and IAM Roles Anywhere. Customers who do not manage their own PKI system can use AWS Certificate Manager Private Certificate Authority (ACM PCA) to create a Certificate Authority and use that to establish trust with IAM Roles Anywhere</p>
  *          <p>This guide describes the IAM rolesanywhere operations that you can call programmatically. For general information about IAM Roles Anywhere see <a href="https://docs.aws.amazon.com/">https://docs.aws.amazon.com/</a>

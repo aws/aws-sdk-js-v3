@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeApplicationVersionCommand}.
  */
 export interface DescribeApplicationVersionCommandInput extends DescribeApplicationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeApplicationVersionCommand}.
  */
 export interface DescribeApplicationVersionCommandOutput extends DescribeApplicationVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a detailed description of a specified version of the application. To see a list of all the versions of an application, invoke the <a>ListApplicationVersions</a> operation.</p>
  *          <note>
  *             <p>This operation is supported only for Amazon Kinesis Data Analytics for Apache Flink.</p>
@@ -53,6 +58,8 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationVersionCommandInput - {@link DescribeApplicationVersionCommandInput}
+ * @returns {@link DescribeApplicationVersionCommandOutput}
  * @see {@link DescribeApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

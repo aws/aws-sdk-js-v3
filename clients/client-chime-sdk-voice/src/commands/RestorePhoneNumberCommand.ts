@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RestorePhoneNumberCommand}.
  */
 export interface RestorePhoneNumberCommandInput extends RestorePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestorePhoneNumberCommand}.
  */
 export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class RestorePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestorePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class RestorePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestorePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RestorePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestorePhoneNumberCommandOutput> {
     return deserializeAws_restJson1RestorePhoneNumberCommand(output, context);
   }

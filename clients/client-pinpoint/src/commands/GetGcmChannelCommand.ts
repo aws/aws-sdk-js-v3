@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGcmChannelCommand}.
  */
 export interface GetGcmChannelCommandInput extends GetGcmChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGcmChannelCommand}.
  */
 export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the GCM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGcmChannelCommandInput - {@link GetGcmChannelCommandInput}
+ * @returns {@link GetGcmChannelCommandOutput}
  * @see {@link GetGcmChannelCommandInput} for command's `input` shape.
  * @see {@link GetGcmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetGcmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGcmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetGcmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGcmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGcmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGcmChannelCommandOutput> {
     return deserializeAws_restJson1GetGcmChannelCommand(output, context);
   }

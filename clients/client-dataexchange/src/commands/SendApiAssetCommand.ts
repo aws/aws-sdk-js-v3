@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendApiAssetCommand}.
  */
 export interface SendApiAssetCommandInput extends SendApiAssetRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendApiAssetCommand}.
  */
 export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation invokes an API Gateway API asset. The request is proxied to the provider’s API Gateway API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param SendApiAssetCommandInput - {@link SendApiAssetCommandInput}
+ * @returns {@link SendApiAssetCommandOutput}
  * @see {@link SendApiAssetCommandInput} for command's `input` shape.
  * @see {@link SendApiAssetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -84,6 +91,9 @@ export class SendApiAssetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendApiAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class SendApiAssetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendApiAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendApiAssetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendApiAssetCommandOutput> {
     return deserializeAws_restJson1SendApiAssetCommand(output, context);
   }

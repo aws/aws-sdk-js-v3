@@ -26,11 +26,15 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotebookInstanceLifecycleConfigCommand}.
  */
 export interface DescribeNotebookInstanceLifecycleConfigCommandInput
   extends DescribeNotebookInstanceLifecycleConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotebookInstanceLifecycleConfigCommand}.
  */
 export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of a notebook instance lifecycle configuration.</p>
  *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
  *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
@@ -51,6 +56,8 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotebookInstanceLifecycleConfigCommandInput - {@link DescribeNotebookInstanceLifecycleConfigCommandInput}
+ * @returns {@link DescribeNotebookInstanceLifecycleConfigCommandOutput}
  * @see {@link DescribeNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotebookInstanceLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
     return serializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

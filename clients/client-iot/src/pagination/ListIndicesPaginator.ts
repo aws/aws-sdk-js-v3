@@ -6,7 +6,7 @@ import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListIndicesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListIndices(
   config: IoTPaginationConfiguration,
   input: ListIndicesCommandInput,

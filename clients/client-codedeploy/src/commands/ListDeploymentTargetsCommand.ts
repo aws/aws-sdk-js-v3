@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentTargetsCommand}.
  */
 export interface ListDeploymentTargetsCommandInput extends ListDeploymentTargetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentTargetsCommand}.
  */
 export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns an array of target IDs that are associated a deployment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentTargetsCommandInput - {@link ListDeploymentTargetsCommandInput}
+ * @returns {@link ListDeploymentTargetsCommandOutput}
  * @see {@link ListDeploymentTargetsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListDeploymentTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ListDeploymentTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDeploymentTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentTargetsCommandOutput> {
     return deserializeAws_json1_1ListDeploymentTargetsCommand(output, context);
   }

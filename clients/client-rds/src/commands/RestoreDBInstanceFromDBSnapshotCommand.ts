@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBInstanceFromDBSnapshotCommand}.
  */
 export interface RestoreDBInstanceFromDBSnapshotCommandInput extends RestoreDBInstanceFromDBSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBInstanceFromDBSnapshotCommand}.
  */
 export interface RestoreDBInstanceFromDBSnapshotCommandOutput
@@ -37,6 +41,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most
  *             of the source's original configuration, including the default security group and DB parameter group. By default, the new DB
  *             instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group
@@ -61,6 +66,8 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBInstanceFromDBSnapshotCommandInput - {@link RestoreDBInstanceFromDBSnapshotCommandInput}
+ * @returns {@link RestoreDBInstanceFromDBSnapshotCommandOutput}
  * @see {@link RestoreDBInstanceFromDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBInstanceFromDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -257,6 +264,9 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBInstanceFromDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -296,6 +306,9 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RestoreDBInstanceFromDBSnapshotCommandInput,
     context: __SerdeContext
@@ -303,6 +316,9 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     return serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

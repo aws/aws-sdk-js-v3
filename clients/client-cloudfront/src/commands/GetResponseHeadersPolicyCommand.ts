@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetResponseHeadersPolicyCommand}.
  */
 export interface GetResponseHeadersPolicyCommandInput extends GetResponseHeadersPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResponseHeadersPolicyCommand}.
  */
 export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a response headers policy, including metadata (the policy's identifier and the
  * 			date and time when the policy was last modified).</p>
  *          <p>To get a response headers policy, you must provide the policy's identifier. If the
@@ -53,6 +58,8 @@ export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeader
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResponseHeadersPolicyCommandInput - {@link GetResponseHeadersPolicyCommandInput}
+ * @returns {@link GetResponseHeadersPolicyCommandOutput}
  * @see {@link GetResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link GetResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetResponseHeadersPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResponseHeadersPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetResponseHeadersPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResponseHeadersPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetResponseHeadersPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResponseHeadersPolicyCommandOutput> {
     return deserializeAws_restXmlGetResponseHeadersPolicyCommand(output, context);
   }

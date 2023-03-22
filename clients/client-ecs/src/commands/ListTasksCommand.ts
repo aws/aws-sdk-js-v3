@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1ListTasksCommand, serializeAws_json1_1ListTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTasksCommand}.
  */
 export interface ListTasksCommandInput extends ListTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTasksCommand}.
  */
 export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tasks. You can filter the results by cluster, task definition
  * 			family, container instance, launch type, what IAM principal started the task, or by the
  * 			desired status of the task.</p>
@@ -47,6 +52,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTasksCommandInput - {@link ListTasksCommandInput}
+ * @returns {@link ListTasksCommandOutput}
  * @see {@link ListTasksCommandInput} for command's `input` shape.
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -123,6 +130,9 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTasksCommandOutput> {
     return deserializeAws_json1_1ListTasksCommand(output, context);
   }

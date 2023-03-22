@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateUserSettingsCommand}.
  */
 export interface AssociateUserSettingsCommandInput extends AssociateUserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateUserSettingsCommand}.
  */
 export interface AssociateUserSettingsCommandOutput extends AssociateUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a user settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateUserSettingsCommandOutput extends AssociateUserSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateUserSettingsCommandInput - {@link AssociateUserSettingsCommandInput}
+ * @returns {@link AssociateUserSettingsCommandOutput}
  * @see {@link AssociateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssociateUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateUserSettingsCommandOutput> {
     return deserializeAws_restJson1AssociateUserSettingsCommand(output, context);
   }

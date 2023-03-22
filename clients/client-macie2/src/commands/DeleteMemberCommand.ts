@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandInput extends DeleteMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMemberCommand}.
  */
 export interface DeleteMemberCommandOutput extends DeleteMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association between an Amazon Macie administrator account and an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMemberCommandOutput extends DeleteMemberResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMemberCommandInput - {@link DeleteMemberCommandInput}
+ * @returns {@link DeleteMemberCommandOutput}
  * @see {@link DeleteMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteMemberCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMemberCommandOutput> {
     return deserializeAws_restJson1DeleteMemberCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNetworksCommand}.
  */
 export interface ListNetworksCommandInput extends ListNetworksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNetworksCommand}.
  */
 export interface ListNetworksCommandOutput extends ListNetworksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the networks in which the current Amazon Web Services account participates.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListNetworksCommandOutput extends ListNetworksOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNetworksCommandInput - {@link ListNetworksCommandInput}
+ * @returns {@link ListNetworksCommandOutput}
  * @see {@link ListNetworksCommandInput} for command's `input` shape.
  * @see {@link ListNetworksCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListNetworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNetworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListNetworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListNetworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworksCommandOutput> {
     return deserializeAws_restJson1ListNetworksCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AddListenerCertificatesCommand}.
  */
 export interface AddListenerCertificatesCommandInput extends AddListenerCertificatesInput {}
 /**
+ * @public
+ *
  * The output of {@link AddListenerCertificatesCommand}.
  */
 export interface AddListenerCertificatesCommandOutput extends AddListenerCertificatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS
  *       or TLS listener.</p>
  *          <p>If the certificate in already in the certificate list, the call is successful but the
@@ -56,6 +61,8 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * const response = await client.send(command);
  * ```
  *
+ * @param AddListenerCertificatesCommandInput - {@link AddListenerCertificatesCommandInput}
+ * @returns {@link AddListenerCertificatesCommandOutput}
  * @see {@link AddListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link AddListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -88,6 +95,9 @@ export class AddListenerCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddListenerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class AddListenerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddListenerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddListenerCertificatesCommandOutput> {
     return deserializeAws_queryAddListenerCertificatesCommand(output, context);
   }

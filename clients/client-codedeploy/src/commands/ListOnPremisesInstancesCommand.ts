@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOnPremisesInstancesCommand}.
  */
 export interface ListOnPremisesInstancesCommandInput extends ListOnPremisesInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListOnPremisesInstancesCommand}.
  */
 export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of names for one or more on-premises instances.</p>
  *         <p>Unless otherwise specified, both registered and deregistered on-premises instance
  *             names are listed. To list only registered or deregistered on-premises instance names,
@@ -49,6 +54,8 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOnPremisesInstancesCommandInput - {@link ListOnPremisesInstancesCommandInput}
+ * @returns {@link ListOnPremisesInstancesCommandOutput}
  * @see {@link ListOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link ListOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListOnPremisesInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOnPremisesInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListOnPremisesInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListOnPremisesInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOnPremisesInstancesCommandOutput> {
     return deserializeAws_json1_1ListOnPremisesInstancesCommand(output, context);
   }

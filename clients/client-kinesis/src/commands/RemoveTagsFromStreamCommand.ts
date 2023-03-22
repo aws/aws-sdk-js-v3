@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTagsFromStreamCommand}.
  */
 export interface RemoveTagsFromStreamCommandInput extends RemoveTagsFromStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTagsFromStreamCommand}.
  */
 export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and
  *             cannot be recovered after this operation successfully completes.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsFromStreamCommandInput - {@link RemoveTagsFromStreamCommandInput}
+ * @returns {@link RemoveTagsFromStreamCommandOutput}
  * @see {@link RemoveTagsFromStreamCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -95,6 +102,9 @@ export class RemoveTagsFromStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsFromStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class RemoveTagsFromStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsFromStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveTagsFromStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromStreamCommandOutput> {
     return deserializeAws_json1_1RemoveTagsFromStreamCommand(output, context);
   }

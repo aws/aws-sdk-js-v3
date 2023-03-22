@@ -6,7 +6,7 @@ import { RoboMakerClient } from "../RoboMakerClient";
 import { RoboMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RoboMakerClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFleetsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFleets(
   config: RoboMakerPaginationConfiguration,
   input: ListFleetsCommandInput,

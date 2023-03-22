@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAgreementsCommand}.
  */
 export interface ListAgreementsCommandInput extends ListAgreementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAgreementsCommand}.
  */
 export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the agreements for the server that's identified by the
  *         <code>ServerId</code> that you supply. If you want to limit the results to a certain number,
  *       supply a value for the <code>MaxResults</code> parameter. If you ran the command previously
@@ -50,6 +55,8 @@ export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAgreementsCommandInput - {@link ListAgreementsCommandInput}
+ * @returns {@link ListAgreementsCommandOutput}
  * @see {@link ListAgreementsCommandInput} for command's `input` shape.
  * @see {@link ListAgreementsCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListAgreementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAgreementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListAgreementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAgreementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAgreementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAgreementsCommandOutput> {
     return deserializeAws_json1_1ListAgreementsCommand(output, context);
   }

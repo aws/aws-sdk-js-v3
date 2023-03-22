@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataSourcePermissionsCommand}.
  */
 export interface UpdateDataSourcePermissionsCommandInput extends UpdateDataSourcePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataSourcePermissionsCommand}.
  */
 export interface UpdateDataSourcePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDataSourcePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the permissions to a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateDataSourcePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSourcePermissionsCommandInput - {@link UpdateDataSourcePermissionsCommandInput}
+ * @returns {@link UpdateDataSourcePermissionsCommandOutput}
  * @see {@link UpdateDataSourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSourcePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDataSourcePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

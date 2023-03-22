@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClientVpnEndpointCommand}.
  */
 export interface CreateClientVpnEndpointCommandInput extends CreateClientVpnEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateClientVpnEndpointCommand}.
  */
 export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEndpointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Client VPN endpoint. A Client VPN endpoint is the resource you create and configure to
  * 			enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions
  * 			are terminated.</p>
@@ -48,6 +53,8 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClientVpnEndpointCommandInput - {@link CreateClientVpnEndpointCommandInput}
+ * @returns {@link CreateClientVpnEndpointCommandOutput}
  * @see {@link CreateClientVpnEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateClientVpnEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class CreateClientVpnEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClientVpnEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class CreateClientVpnEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClientVpnEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateClientVpnEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClientVpnEndpointCommandOutput> {
     return deserializeAws_ec2CreateClientVpnEndpointCommand(output, context);
   }

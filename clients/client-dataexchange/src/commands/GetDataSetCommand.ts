@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataSetCommand}.
  */
 export interface GetDataSetCommandInput extends GetDataSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataSetCommand}.
  */
 export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns information about a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataSetCommandInput - {@link GetDataSetCommandInput}
+ * @returns {@link GetDataSetCommandOutput}
  * @see {@link GetDataSetCommandInput} for command's `input` shape.
  * @see {@link GetDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSetCommandOutput> {
     return deserializeAws_restJson1GetDataSetCommand(output, context);
   }

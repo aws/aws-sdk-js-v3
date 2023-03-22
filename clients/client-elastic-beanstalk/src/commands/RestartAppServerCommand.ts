@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RestartAppServerCommand}.
  */
 export interface RestartAppServerCommandInput extends RestartAppServerMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestartAppServerCommand}.
  */
 export interface RestartAppServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Causes the environment to restart the application container server running on each
  *       Amazon EC2 instance.</p>
  * @example
@@ -42,6 +47,8 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RestartAppServerCommandInput - {@link RestartAppServerCommandInput}
+ * @returns {@link RestartAppServerCommandOutput}
  * @see {@link RestartAppServerCommandInput} for command's `input` shape.
  * @see {@link RestartAppServerCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -76,6 +83,9 @@ export class RestartAppServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestartAppServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class RestartAppServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestartAppServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRestartAppServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestartAppServerCommandOutput> {
     return deserializeAws_queryRestartAppServerCommand(output, context);
   }

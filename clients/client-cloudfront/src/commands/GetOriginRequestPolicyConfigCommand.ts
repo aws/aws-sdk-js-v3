@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetOriginRequestPolicyConfigCommand}.
  */
 export interface GetOriginRequestPolicyConfigCommandInput extends GetOriginRequestPolicyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOriginRequestPolicyConfigCommand}.
  */
 export interface GetOriginRequestPolicyConfigCommandOutput
@@ -37,6 +41,7 @@ export interface GetOriginRequestPolicyConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an origin request policy configuration.</p>
  *          <p>To get an origin request policy configuration, you must provide the policy's
  * 			identifier. If the origin request policy is attached to a distribution's cache behavior,
@@ -54,6 +59,8 @@ export interface GetOriginRequestPolicyConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOriginRequestPolicyConfigCommandInput - {@link GetOriginRequestPolicyConfigCommandInput}
+ * @returns {@link GetOriginRequestPolicyConfigCommandOutput}
  * @see {@link GetOriginRequestPolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetOriginRequestPolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetOriginRequestPolicyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOriginRequestPolicyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetOriginRequestPolicyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOriginRequestPolicyConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetOriginRequestPolicyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

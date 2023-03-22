@@ -22,15 +22,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBParametersCommand}.
  */
 export interface DescribeDBParametersCommandInput extends DescribeDBParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBParametersCommand}.
  */
 export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +47,8 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBParametersCommandInput - {@link DescribeDBParametersCommandInput}
+ * @returns {@link DescribeDBParametersCommandOutput}
  * @see {@link DescribeDBParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeDBParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeDBParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBParametersCommandOutput> {
     return deserializeAws_queryDescribeDBParametersCommand(output, context);
   }

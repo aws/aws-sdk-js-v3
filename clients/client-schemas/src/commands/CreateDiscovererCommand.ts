@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDiscovererCommand}.
  */
 export interface CreateDiscovererCommandInput extends CreateDiscovererRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDiscovererCommand}.
  */
 export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a discoverer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDiscovererCommandInput - {@link CreateDiscovererCommandInput}
+ * @returns {@link CreateDiscovererCommandOutput}
  * @see {@link CreateDiscovererCommandInput} for command's `input` shape.
  * @see {@link CreateDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateDiscovererCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDiscovererCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateDiscovererCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDiscovererCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDiscovererCommandOutput> {
     return deserializeAws_restJson1CreateDiscovererCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a policy of a specified type that you can attach to a root, an organizational
  *             unit (OU), or an individual Amazon Web Services account.</p>
  *          <p>For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
@@ -52,6 +57,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePolicyCommandInput - {@link CreatePolicyCommandInput}
+ * @returns {@link CreatePolicyCommandOutput}
  * @see {@link CreatePolicyCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -451,6 +458,9 @@ export class CreatePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -488,10 +498,16 @@ export class CreatePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyCommandOutput> {
     return deserializeAws_json1_1CreatePolicyCommand(output, context);
   }

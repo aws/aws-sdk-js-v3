@@ -10,7 +10,7 @@ import {
 import { ACMPCAPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ACMPCAClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPermissionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPermissions(
   config: ACMPCAPaginationConfiguration,
   input: ListPermissionsCommandInput,

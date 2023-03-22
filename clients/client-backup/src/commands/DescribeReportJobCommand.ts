@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReportJobCommand}.
  */
 export interface DescribeReportJobCommandInput extends DescribeReportJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReportJobCommand}.
  */
 export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details associated with creating a report as specified by its
  *             <code>ReportJobId</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReportJobCommandInput - {@link DescribeReportJobCommandInput}
+ * @returns {@link DescribeReportJobCommandOutput}
  * @see {@link DescribeReportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeReportJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeReportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeReportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeReportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReportJobCommandOutput> {
     return deserializeAws_restJson1DescribeReportJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConnectDirectoryCommand}.
  */
 export interface ConnectDirectoryCommandInput extends ConnectDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConnectDirectoryCommand}.
  */
 export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AD Connector to connect to a self-managed directory.</p>
  *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
@@ -50,6 +55,8 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ConnectDirectoryCommandInput - {@link ConnectDirectoryCommandInput}
+ * @returns {@link ConnectDirectoryCommandOutput}
  * @see {@link ConnectDirectoryCommandInput} for command's `input` shape.
  * @see {@link ConnectDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +94,9 @@ export class ConnectDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConnectDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ConnectDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConnectDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ConnectDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConnectDirectoryCommandOutput> {
     return deserializeAws_json1_1ConnectDirectoryCommand(output, context);
   }

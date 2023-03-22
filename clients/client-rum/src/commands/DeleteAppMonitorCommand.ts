@@ -26,15 +26,20 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppMonitorCommand}.
  */
 export interface DeleteAppMonitorCommandInput extends DeleteAppMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppMonitorCommand}.
  */
 export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing app monitor. This immediately stops the collection of data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppMonitorCommandInput - {@link DeleteAppMonitorCommandInput}
+ * @returns {@link DeleteAppMonitorCommandOutput}
  * @see {@link DeleteAppMonitorCommandInput} for command's `input` shape.
  * @see {@link DeleteAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteAppMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteAppMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAppMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppMonitorCommandOutput> {
     return deserializeAws_restJson1DeleteAppMonitorCommand(output, context);
   }

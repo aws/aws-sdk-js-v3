@@ -26,10 +26,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetHealthCheckLastFailureReasonCommand}.
  */
 export interface GetHealthCheckLastFailureReasonCommandInput extends GetHealthCheckLastFailureReasonRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHealthCheckLastFailureReasonCommand}.
  */
 export interface GetHealthCheckLastFailureReasonCommandOutput
@@ -37,6 +41,7 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the reason that a specified health check failed most recently.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHealthCheckLastFailureReasonCommandInput - {@link GetHealthCheckLastFailureReasonCommandInput}
+ * @returns {@link GetHealthCheckLastFailureReasonCommandOutput}
  * @see {@link GetHealthCheckLastFailureReasonCommandInput} for command's `input` shape.
  * @see {@link GetHealthCheckLastFailureReasonCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -77,6 +84,9 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHealthCheckLastFailureReasonCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetHealthCheckLastFailureReasonCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     return serializeAws_restXmlGetHealthCheckLastFailureReasonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

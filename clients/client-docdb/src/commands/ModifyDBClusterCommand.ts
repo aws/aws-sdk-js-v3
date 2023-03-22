@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterCommand}.
  */
 export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterCommand}.
  */
 export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database
  *             configuration parameters by specifying these parameters and the new values in the
  *             request. </p>
@@ -48,6 +53,8 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterCommandInput - {@link ModifyDBClusterCommandInput}
+ * @returns {@link ModifyDBClusterCommandOutput}
  * @see {@link ModifyDBClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -111,6 +118,9 @@ export class ModifyDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class ModifyDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterCommandOutput> {
     return deserializeAws_queryModifyDBClusterCommand(output, context);
   }

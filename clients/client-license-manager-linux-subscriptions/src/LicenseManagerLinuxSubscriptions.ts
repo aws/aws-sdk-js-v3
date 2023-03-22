@@ -24,11 +24,13 @@ import {
 import { LicenseManagerLinuxSubscriptionsClient } from "./LicenseManagerLinuxSubscriptionsClient";
 
 /**
+ * @public
  * <p>With License Manager, you can discover and track your commercial Linux subscriptions on running
  *       Amazon EC2 instances.</p>
  */
 export class LicenseManagerLinuxSubscriptions extends LicenseManagerLinuxSubscriptionsClient {
   /**
+   * @public
    * <p>Lists the Linux subscriptions service settings.</p>
    */
   public getServiceSettings(
@@ -61,6 +63,7 @@ export class LicenseManagerLinuxSubscriptions extends LicenseManagerLinuxSubscri
   }
 
   /**
+   * @public
    * <p>Lists the running Amazon EC2 instances that were discovered with commercial Linux
    *       subscriptions.</p>
    */
@@ -94,6 +97,7 @@ export class LicenseManagerLinuxSubscriptions extends LicenseManagerLinuxSubscri
   }
 
   /**
+   * @public
    * <p>Lists the Linux subscriptions that have been discovered. If you have linked your
    *       organization, the returned results will include data aggregated across your accounts in
    *       Organizations.</p>
@@ -128,6 +132,7 @@ export class LicenseManagerLinuxSubscriptions extends LicenseManagerLinuxSubscri
   }
 
   /**
+   * @public
    * <p>Updates the service settings for Linux subscriptions.</p>
    */
   public updateServiceSettings(

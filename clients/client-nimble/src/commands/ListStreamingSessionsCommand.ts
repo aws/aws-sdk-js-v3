@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamingSessionsCommand}.
  */
 export interface ListStreamingSessionsCommandInput extends ListStreamingSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamingSessionsCommand}.
  */
 export interface ListStreamingSessionsCommandOutput extends ListStreamingSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the streaming sessions in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStreamingSessionsCommandOutput extends ListStreamingSession
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamingSessionsCommandInput - {@link ListStreamingSessionsCommandInput}
+ * @returns {@link ListStreamingSessionsCommandOutput}
  * @see {@link ListStreamingSessionsCommandInput} for command's `input` shape.
  * @see {@link ListStreamingSessionsCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListStreamingSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamingSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListStreamingSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamingSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStreamingSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamingSessionsCommandOutput> {
     return deserializeAws_restJson1ListStreamingSessionsCommand(output, context);
   }

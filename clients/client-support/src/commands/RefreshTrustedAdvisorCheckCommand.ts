@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link RefreshTrustedAdvisorCheckCommand}.
  */
 export interface RefreshTrustedAdvisorCheckCommandInput extends RefreshTrustedAdvisorCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link RefreshTrustedAdvisorCheckCommand}.
  */
 export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedAdvisorCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Refreshes the Trusted Advisor check that you specify using the check ID. You can get the
  *             check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
  *             operation.</p>
@@ -71,6 +76,8 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  * const response = await client.send(command);
  * ```
  *
+ * @param RefreshTrustedAdvisorCheckCommandInput - {@link RefreshTrustedAdvisorCheckCommandInput}
+ * @returns {@link RefreshTrustedAdvisorCheckCommandOutput}
  * @see {@link RefreshTrustedAdvisorCheckCommandInput} for command's `input` shape.
  * @see {@link RefreshTrustedAdvisorCheckCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -97,6 +104,9 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RefreshTrustedAdvisorCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RefreshTrustedAdvisorCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RefreshTrustedAdvisorCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

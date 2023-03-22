@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppLaunchConfigurationCommand}.
  */
 export interface GetAppLaunchConfigurationCommandInput extends GetAppLaunchConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppLaunchConfigurationCommand}.
  */
 export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the application launch configuration associated with the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConf
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppLaunchConfigurationCommandInput - {@link GetAppLaunchConfigurationCommandInput}
+ * @returns {@link GetAppLaunchConfigurationCommandOutput}
  * @see {@link GetAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAppLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetAppLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetAppLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAppLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

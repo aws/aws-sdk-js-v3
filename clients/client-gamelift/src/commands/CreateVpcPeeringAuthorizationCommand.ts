@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcPeeringAuthorizationCommand}.
  */
 export interface CreateVpcPeeringAuthorizationCommandInput extends CreateVpcPeeringAuthorizationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcPeeringAuthorizationCommand}.
  */
 export interface CreateVpcPeeringAuthorizationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests authorization to create or delete a peer connection between the VPC for your
  *             Amazon GameLift fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game servers on
  *             your fleet to communicate directly with other Amazon Web Services resources. After you've received
@@ -74,6 +79,8 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcPeeringAuthorizationCommandInput - {@link CreateVpcPeeringAuthorizationCommandInput}
+ * @returns {@link CreateVpcPeeringAuthorizationCommandOutput}
  * @see {@link CreateVpcPeeringAuthorizationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcPeeringAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -111,6 +118,9 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcPeeringAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcPeeringAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateVpcPeeringAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResourceCommand}.
  */
 export interface DisassociateResourceCommandInput extends DisassociateResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResourceCommand}.
  */
 export interface DisassociateResourceCommandOutput extends DisassociateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a canary from a group. You must run this operation in the Region where the canary exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResourceCommandInput - {@link DisassociateResourceCommandInput}
+ * @returns {@link DisassociateResourceCommandOutput}
  * @see {@link DisassociateResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -81,6 +88,9 @@ export class DisassociateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DisassociateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateResourceCommandOutput> {
     return deserializeAws_restJson1DisassociateResourceCommand(output, context);
   }

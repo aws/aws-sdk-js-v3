@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetThingRuntimeConfigurationCommand}.
  */
 export interface GetThingRuntimeConfigurationCommandInput extends GetThingRuntimeConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetThingRuntimeConfigurationCommand}.
  */
 export interface GetThingRuntimeConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetThingRuntimeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Get the runtime configuration of a thing.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetThingRuntimeConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetThingRuntimeConfigurationCommandInput - {@link GetThingRuntimeConfigurationCommandInput}
+ * @returns {@link GetThingRuntimeConfigurationCommandOutput}
  * @see {@link GetThingRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetThingRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetThingRuntimeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetThingRuntimeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetThingRuntimeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReferenceMetadataCommand}.
  */
 export interface GetReferenceMetadataCommandInput extends GetReferenceMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReferenceMetadataCommand}.
  */
 export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a genome reference's metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReferenceMetadataCommandInput - {@link GetReferenceMetadataCommandInput}
+ * @returns {@link GetReferenceMetadataCommandOutput}
  * @see {@link GetReferenceMetadataCommandInput} for command's `input` shape.
  * @see {@link GetReferenceMetadataCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetReferenceMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReferenceMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetReferenceMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReferenceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetReferenceMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReferenceMetadataCommandOutput> {
     return deserializeAws_restJson1GetReferenceMetadataCommand(output, context);
   }

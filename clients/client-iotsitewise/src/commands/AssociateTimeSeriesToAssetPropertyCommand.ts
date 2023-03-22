@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTimeSeriesToAssetPropertyCommand}.
  */
 export interface AssociateTimeSeriesToAssetPropertyCommandInput extends AssociateTimeSeriesToAssetPropertyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTimeSeriesToAssetPropertyCommand}.
  */
 export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a time series (data stream) with an asset property.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTimeSeriesToAssetPropertyCommandInput - {@link AssociateTimeSeriesToAssetPropertyCommandInput}
+ * @returns {@link AssociateTimeSeriesToAssetPropertyCommandOutput}
  * @see {@link AssociateTimeSeriesToAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link AssociateTimeSeriesToAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateTimeSeriesToAssetPropertyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTimeSeriesToAssetPropertyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class AssociateTimeSeriesToAssetPropertyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateTimeSeriesToAssetPropertyCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class AssociateTimeSeriesToAssetPropertyCommand extends $Command<
     return serializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

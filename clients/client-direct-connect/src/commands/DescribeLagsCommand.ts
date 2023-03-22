@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLagsCommand}.
  */
 export interface DescribeLagsCommandInput extends DescribeLagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLagsCommand}.
  */
 export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes all your link aggregation groups (LAG) or the specified LAG.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLagsCommandInput - {@link DescribeLagsCommandInput}
+ * @returns {@link DescribeLagsCommandOutput}
  * @see {@link DescribeLagsCommandInput} for command's `input` shape.
  * @see {@link DescribeLagsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeLagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeLagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLagsCommandOutput> {
     return deserializeAws_json1_1DescribeLagsCommand(output, context);
   }

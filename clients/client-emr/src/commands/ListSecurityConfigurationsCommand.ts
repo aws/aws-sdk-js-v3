@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityConfigurationsCommand}.
  */
 export interface ListSecurityConfigurationsCommandInput extends ListSecurityConfigurationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityConfigurationsCommand}.
  */
 export interface ListSecurityConfigurationsCommandOutput extends ListSecurityConfigurationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the security configurations visible to this account, providing their creation
  *          dates and times, and their names. This call returns a maximum of 50 clusters per call, but
  *          returns a marker to track the paging of the cluster list across multiple
@@ -49,6 +54,8 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityConfigurationsCommandInput - {@link ListSecurityConfigurationsCommandInput}
+ * @returns {@link ListSecurityConfigurationsCommandOutput}
  * @see {@link ListSecurityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListSecurityConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListSecurityConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSecurityConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

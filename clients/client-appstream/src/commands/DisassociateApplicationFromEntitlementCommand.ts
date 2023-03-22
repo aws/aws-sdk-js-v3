@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateApplicationFromEntitlementCommand}.
  */
 export interface DisassociateApplicationFromEntitlementCommandInput
   extends DisassociateApplicationFromEntitlementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateApplicationFromEntitlementCommand}.
  */
 export interface DisassociateApplicationFromEntitlementCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateApplicationFromEntitlementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified application from the specified entitlement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateApplicationFromEntitlementCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateApplicationFromEntitlementCommandInput - {@link DisassociateApplicationFromEntitlementCommandInput}
+ * @returns {@link DisassociateApplicationFromEntitlementCommandOutput}
  * @see {@link DisassociateApplicationFromEntitlementCommandInput} for command's `input` shape.
  * @see {@link DisassociateApplicationFromEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -81,6 +88,9 @@ export class DisassociateApplicationFromEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateApplicationFromEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DisassociateApplicationFromEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateApplicationFromEntitlementCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DisassociateApplicationFromEntitlementCommand extends $Command<
     return serializeAws_json1_1DisassociateApplicationFromEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
 export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandInput
   extends IncreaseNodeGroupsInGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
 export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
@@ -38,6 +42,7 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Increase the number of node groups in the Global datastore</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param IncreaseNodeGroupsInGlobalReplicationGroupCommandInput - {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandInput}
+ * @returns {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput}
  * @see {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -81,6 +88,9 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     return serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessPolicyCommand}.
  */
 export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessPolicyCommand}.
  */
 export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data access policy for OpenSearch Serverless. Access policies limit access to collections
  *             and the resources within them, and allow a user to access that data irrespective of the
  *             access mechanism or network source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access
@@ -53,6 +58,8 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessPolicyCommandInput - {@link CreateAccessPolicyCommandInput}
+ * @returns {@link CreateAccessPolicyCommandOutput}
  * @see {@link CreateAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPolicyCommandOutput> {
     return deserializeAws_json1_0CreateAccessPolicyCommand(output, context);
   }

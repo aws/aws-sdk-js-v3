@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProgramCommand}.
  */
 export interface CreateProgramCommandInput extends CreateProgramRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProgramCommand}.
  */
 export interface CreateProgramCommandOutput extends CreateProgramResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProgramCommandInput - {@link CreateProgramCommandInput}
+ * @returns {@link CreateProgramCommandOutput}
  * @see {@link CreateProgramCommandInput} for command's `input` shape.
  * @see {@link CreateProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class CreateProgramCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProgramCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class CreateProgramCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateProgramCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProgramCommandOutput> {
     return deserializeAws_restJson1CreateProgramCommand(output, context);
   }

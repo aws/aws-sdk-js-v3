@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTopicRuleDestinationCommand}.
  */
 export interface CreateTopicRuleDestinationCommandInput extends CreateTopicRuleDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTopicRuleDestinationCommand}.
  */
 export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRuleDestination</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTopicRuleDestinationCommandInput - {@link CreateTopicRuleDestinationCommandInput}
+ * @returns {@link CreateTopicRuleDestinationCommandOutput}
  * @see {@link CreateTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

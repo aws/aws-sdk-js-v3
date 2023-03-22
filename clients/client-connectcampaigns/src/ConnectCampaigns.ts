@@ -110,10 +110,12 @@ import {
 import { ConnectCampaignsClient } from "./ConnectCampaignsClient";
 
 /**
+ * @public
  * Provide APIs to create and manage Amazon Connect Campaigns.
  */
 export class ConnectCampaigns extends ConnectCampaignsClient {
   /**
+   * @public
    * Creates a campaign for the specified Amazon Connect account. This API is idempotent.
    */
   public createCampaign(
@@ -146,6 +148,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Deletes a campaign from the specified Amazon Connect account.
    */
   public deleteCampaign(
@@ -178,6 +181,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Deletes a connect instance config from the specified AWS account.
    */
   public deleteConnectInstanceConfig(
@@ -210,6 +214,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Delete the Connect Campaigns onboarding job for the specified Amazon Connect instance.
    */
   public deleteInstanceOnboardingJob(
@@ -242,6 +247,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Describes the specific campaign.
    */
   public describeCampaign(
@@ -274,6 +280,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Get state of a campaign for the specified Amazon Connect account.
    */
   public getCampaignState(
@@ -306,6 +313,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Get state of campaigns for the specified Amazon Connect account.
    */
   public getCampaignStateBatch(
@@ -338,6 +346,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Get the specific Connect instance config.
    */
   public getConnectInstanceConfig(
@@ -370,6 +379,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Get the specific instance onboarding job status.
    */
   public getInstanceOnboardingJobStatus(
@@ -402,6 +412,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Provides summary information about the campaigns under the specified Amazon Connect account.
    */
   public listCampaigns(
@@ -434,6 +445,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * List tags for a resource.
    */
   public listTagsForResource(
@@ -466,6 +478,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Pauses a campaign for the specified Amazon Connect account.
    */
   public pauseCampaign(
@@ -498,6 +511,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Creates dials requests for the specified campaign Amazon Connect account. This API is idempotent.
    */
   public putDialRequestBatch(
@@ -530,6 +544,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Stops a campaign for the specified Amazon Connect account.
    */
   public resumeCampaign(
@@ -562,6 +577,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Starts a campaign for the specified Amazon Connect account.
    */
   public startCampaign(
@@ -594,6 +610,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Onboard the specific Amazon Connect instance to Connect Campaigns.
    */
   public startInstanceOnboardingJob(
@@ -626,6 +643,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Stops a campaign for the specified Amazon Connect account.
    */
   public stopCampaign(
@@ -655,6 +673,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Tag a resource.
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -681,6 +700,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Untag a resource.
    */
   public untagResource(
@@ -713,6 +733,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Updates the dialer config of a campaign. This API is idempotent.
    */
   public updateCampaignDialerConfig(
@@ -745,6 +766,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Updates the name of a campaign. This API is idempotent.
    */
   public updateCampaignName(
@@ -777,6 +799,7 @@ export class ConnectCampaigns extends ConnectCampaignsClient {
   }
 
   /**
+   * @public
    * Updates the outbound call config of a campaign. This API is idempotent.
    */
   public updateCampaignOutboundCallConfig(

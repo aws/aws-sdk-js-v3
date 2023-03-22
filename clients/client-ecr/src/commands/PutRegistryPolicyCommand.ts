@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRegistryPolicyCommand}.
  */
 export interface PutRegistryPolicyCommandInput extends PutRegistryPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRegistryPolicyCommand}.
  */
 export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the permissions policy for your registry.</p>
  *         <p>A registry policy is used to specify permissions for another Amazon Web Services account and is used
  *             when configuring cross-account replication. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html">Registry permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRegistryPolicyCommandInput - {@link PutRegistryPolicyCommandInput}
+ * @returns {@link PutRegistryPolicyCommandOutput}
  * @see {@link PutRegistryPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRegistryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutRegistryPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRegistryPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutRegistryPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRegistryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRegistryPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRegistryPolicyCommandOutput> {
     return deserializeAws_json1_1PutRegistryPolicyCommand(output, context);
   }

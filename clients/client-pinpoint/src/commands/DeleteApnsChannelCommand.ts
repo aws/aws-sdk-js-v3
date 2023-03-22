@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApnsChannelCommand}.
  */
 export interface DeleteApnsChannelCommandInput extends DeleteApnsChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApnsChannelCommand}.
  */
 export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the APNs channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApnsChannelCommandInput - {@link DeleteApnsChannelCommandInput}
+ * @returns {@link DeleteApnsChannelCommandOutput}
  * @see {@link DeleteApnsChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteApnsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteApnsChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApnsChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteApnsChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApnsChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteApnsChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApnsChannelCommandOutput> {
     return deserializeAws_restJson1DeleteApnsChannelCommand(output, context);
   }

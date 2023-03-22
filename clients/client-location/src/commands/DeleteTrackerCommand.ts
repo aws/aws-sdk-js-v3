@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrackerCommand}.
  */
 export interface DeleteTrackerCommandInput extends DeleteTrackerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrackerCommand}.
  */
 export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a tracker resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the tracker resource is in use, you may
@@ -51,6 +56,8 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrackerCommandInput - {@link DeleteTrackerCommandInput}
+ * @returns {@link DeleteTrackerCommandOutput}
  * @see {@link DeleteTrackerCommandInput} for command's `input` shape.
  * @see {@link DeleteTrackerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrackerCommandOutput> {
     return deserializeAws_restJson1DeleteTrackerCommand(output, context);
   }

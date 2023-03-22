@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetIdentityNotificationTopicCommand}.
  */
 export interface SetIdentityNotificationTopicCommandInput extends SetIdentityNotificationTopicRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetIdentityNotificationTopicCommand}.
  */
 export interface SetIdentityNotificationTopicCommandOutput
@@ -37,6 +41,7 @@ export interface SetIdentityNotificationTopicCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use
  *             this operation, you specify a verified identity, such as an email address or domain.
  *             When you send an email that uses the chosen identity in the Source field, Amazon SES sends
@@ -56,6 +61,8 @@ export interface SetIdentityNotificationTopicCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIdentityNotificationTopicCommandInput - {@link SetIdentityNotificationTopicCommandInput}
+ * @returns {@link SetIdentityNotificationTopicCommandOutput}
  * @see {@link SetIdentityNotificationTopicCommandInput} for command's `input` shape.
  * @see {@link SetIdentityNotificationTopicCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -92,6 +99,9 @@ export class SetIdentityNotificationTopicCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIdentityNotificationTopicCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class SetIdentityNotificationTopicCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetIdentityNotificationTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetIdentityNotificationTopicCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelWorldGenerationJobCommand}.
  */
 export interface CancelWorldGenerationJobCommandInput extends CancelWorldGenerationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelWorldGenerationJobCommand}.
  */
 export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified world generator job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenera
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelWorldGenerationJobCommandInput - {@link CancelWorldGenerationJobCommandInput}
+ * @returns {@link CancelWorldGenerationJobCommandOutput}
  * @see {@link CancelWorldGenerationJobCommandInput} for command's `input` shape.
  * @see {@link CancelWorldGenerationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +89,9 @@ export class CancelWorldGenerationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelWorldGenerationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CancelWorldGenerationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelWorldGenerationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelWorldGenerationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelWorldGenerationJobCommandOutput> {
     return deserializeAws_restJson1CancelWorldGenerationJobCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallDeleteProtectionCommand}.
  */
 export interface UpdateFirewallDeleteProtectionCommandInput extends UpdateFirewallDeleteProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallDeleteProtectionCommand}.
  */
 export interface UpdateFirewallDeleteProtectionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the flag, <code>DeleteProtection</code>, which indicates whether it is possible
  *          to delete the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
  *          against deletion. This setting helps protect against accidentally deleting a firewall
@@ -51,6 +56,8 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallDeleteProtectionCommandInput - {@link UpdateFirewallDeleteProtectionCommandInput}
+ * @returns {@link UpdateFirewallDeleteProtectionCommandOutput}
  * @see {@link UpdateFirewallDeleteProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDeleteProtectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -106,6 +113,9 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallDeleteProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFirewallDeleteProtectionCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
     return serializeAws_json1_0UpdateFirewallDeleteProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

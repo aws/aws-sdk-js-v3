@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTopicAttributesCommand}.
  */
 export interface GetTopicAttributesCommandInput extends GetTopicAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTopicAttributesCommand}.
  */
 export interface GetTopicAttributesCommandOutput extends GetTopicAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all of the properties of a topic. Topic properties returned might differ based
  *             on the authorization of the user.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTopicAttributesCommandInput - {@link GetTopicAttributesCommandInput}
+ * @returns {@link GetTopicAttributesCommandOutput}
  * @see {@link GetTopicAttributesCommandInput} for command's `input` shape.
  * @see {@link GetTopicAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetTopicAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTopicAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetTopicAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTopicAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetTopicAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTopicAttributesCommandOutput> {
     return deserializeAws_queryGetTopicAttributesCommand(output, context);
   }

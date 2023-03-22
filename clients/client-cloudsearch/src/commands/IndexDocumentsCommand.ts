@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link IndexDocumentsCommand}.
  */
 export interface IndexDocumentsCommandInput extends IndexDocumentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link IndexDocumentsCommand}.
  */
 export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose <a>OptionStatus</a> is  <code>RequiresIndexDocuments</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param IndexDocumentsCommandInput - {@link IndexDocumentsCommandInput}
+ * @returns {@link IndexDocumentsCommandOutput}
  * @see {@link IndexDocumentsCommandInput} for command's `input` shape.
  * @see {@link IndexDocumentsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -82,6 +89,9 @@ export class IndexDocumentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IndexDocumentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class IndexDocumentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IndexDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryIndexDocumentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IndexDocumentsCommandOutput> {
     return deserializeAws_queryIndexDocumentsCommand(output, context);
   }

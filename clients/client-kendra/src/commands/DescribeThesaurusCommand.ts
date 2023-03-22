@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThesaurusCommand}.
  */
 export interface DescribeThesaurusCommandInput extends DescribeThesaurusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThesaurusCommand}.
  */
 export interface DescribeThesaurusCommandOutput extends DescribeThesaurusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an existing Amazon Kendra thesaurus.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeThesaurusCommandOutput extends DescribeThesaurusRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThesaurusCommandInput - {@link DescribeThesaurusCommandInput}
+ * @returns {@link DescribeThesaurusCommandOutput}
  * @see {@link DescribeThesaurusCommandInput} for command's `input` shape.
  * @see {@link DescribeThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeThesaurusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThesaurusCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeThesaurusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThesaurusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeThesaurusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThesaurusCommandOutput> {
     return deserializeAws_json1_1DescribeThesaurusCommand(output, context);
   }

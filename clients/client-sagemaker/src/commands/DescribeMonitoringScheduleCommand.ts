@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMonitoringScheduleCommand}.
  */
 export interface DescribeMonitoringScheduleCommandInput extends DescribeMonitoringScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMonitoringScheduleCommand}.
  */
 export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the schedule for a monitoring job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitor
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMonitoringScheduleCommandInput - {@link DescribeMonitoringScheduleCommandInput}
+ * @returns {@link DescribeMonitoringScheduleCommandOutput}
  * @see {@link DescribeMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

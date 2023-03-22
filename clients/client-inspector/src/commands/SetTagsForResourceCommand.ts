@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetTagsForResourceCommand}.
  */
 export interface SetTagsForResourceCommandInput extends SetTagsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetTagsForResourceCommand}.
  */
 export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets tags (key and value pairs) to the assessment template that is specified by the
  *          ARN of the assessment template.</p>
  * @example
@@ -42,6 +47,8 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTagsForResourceCommandInput - {@link SetTagsForResourceCommandInput}
+ * @returns {@link SetTagsForResourceCommandOutput}
  * @see {@link SetTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link SetTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -99,6 +106,9 @@ export class SetTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class SetTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTagsForResourceCommandOutput> {
     return deserializeAws_json1_1SetTagsForResourceCommand(output, context);
   }

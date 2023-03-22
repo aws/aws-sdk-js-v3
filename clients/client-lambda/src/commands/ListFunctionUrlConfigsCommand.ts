@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionUrlConfigsCommand}.
  */
 export interface ListFunctionUrlConfigsCommandInput extends ListFunctionUrlConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionUrlConfigsCommand}.
  */
 export interface ListFunctionUrlConfigsCommandOutput extends ListFunctionUrlConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Lambda function URLs for the specified function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFunctionUrlConfigsCommandOutput extends ListFunctionUrlConf
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionUrlConfigsCommandInput - {@link ListFunctionUrlConfigsCommandInput}
+ * @returns {@link ListFunctionUrlConfigsCommandOutput}
  * @see {@link ListFunctionUrlConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionUrlConfigsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListFunctionUrlConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionUrlConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListFunctionUrlConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFunctionUrlConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFunctionUrlConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionUrlConfigsCommandOutput> {
     return deserializeAws_restJson1ListFunctionUrlConfigsCommand(output, context);
   }

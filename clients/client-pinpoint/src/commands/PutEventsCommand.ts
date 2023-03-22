@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEventsCommand}.
  */
 export interface PutEventsCommandInput extends PutEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEventsCommand}.
  */
 export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventsCommandInput - {@link PutEventsCommandInput}
+ * @returns {@link PutEventsCommandOutput}
  * @see {@link PutEventsCommandInput} for command's `input` shape.
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class PutEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsCommandOutput> {
     return deserializeAws_restJson1PutEventsCommand(output, context);
   }

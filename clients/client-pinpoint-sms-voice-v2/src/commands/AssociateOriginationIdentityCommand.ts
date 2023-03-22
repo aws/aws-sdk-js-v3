@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateOriginationIdentityCommand}.
  */
 export interface AssociateOriginationIdentityCommandInput extends AssociateOriginationIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateOriginationIdentityCommand}.
  */
 export interface AssociateOriginationIdentityCommandOutput
@@ -41,6 +45,7 @@ export interface AssociateOriginationIdentityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified origination identity with a pool.</p>
  *         <p>If the origination identity is a phone number and is already associated with another
  *             pool, an Error is returned. A sender ID can be associated with multiple pools.</p>
@@ -56,6 +61,8 @@ export interface AssociateOriginationIdentityCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateOriginationIdentityCommandInput - {@link AssociateOriginationIdentityCommandInput}
+ * @returns {@link AssociateOriginationIdentityCommandOutput}
  * @see {@link AssociateOriginationIdentityCommandInput} for command's `input` shape.
  * @see {@link AssociateOriginationIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -106,6 +113,9 @@ export class AssociateOriginationIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateOriginationIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class AssociateOriginationIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateOriginationIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0AssociateOriginationIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

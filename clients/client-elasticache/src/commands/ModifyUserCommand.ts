@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryModifyUserCommand, serializeAws_queryModifyUserCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyUserCommand}.
  */
 export interface ModifyUserCommandInput extends ModifyUserMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyUserCommand}.
  */
 export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes user password(s) and/or access string.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyUserCommandInput - {@link ModifyUserCommandInput}
+ * @returns {@link ModifyUserCommandOutput}
  * @see {@link ModifyUserCommandInput} for command's `input` shape.
  * @see {@link ModifyUserCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -81,6 +88,9 @@ export class ModifyUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ModifyUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyUserCommandOutput> {
     return deserializeAws_queryModifyUserCommand(output, context);
   }

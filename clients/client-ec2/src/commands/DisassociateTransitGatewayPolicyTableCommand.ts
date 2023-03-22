@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTransitGatewayPolicyTableCommand}.
  */
 export interface DisassociateTransitGatewayPolicyTableCommandInput
   extends DisassociateTransitGatewayPolicyTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTransitGatewayPolicyTableCommand}.
  */
 export interface DisassociateTransitGatewayPolicyTableCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateTransitGatewayPolicyTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between an an attachment and a policy table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateTransitGatewayPolicyTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTransitGatewayPolicyTableCommandInput - {@link DisassociateTransitGatewayPolicyTableCommandInput}
+ * @returns {@link DisassociateTransitGatewayPolicyTableCommandOutput}
  * @see {@link DisassociateTransitGatewayPolicyTableCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTransitGatewayPolicyTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTransitGatewayPolicyTableCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command<
     return serializeAws_ec2DisassociateTransitGatewayPolicyTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

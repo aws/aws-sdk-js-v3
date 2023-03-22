@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNamespaceDeletionStatusCommand}.
  */
 export interface GetNamespaceDeletionStatusCommandInput extends GetNamespaceDeletionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNamespaceDeletionStatusCommand}.
  */
 export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDeletionStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets the status of a namespace deletion task.</p>
@@ -48,6 +53,8 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNamespaceDeletionStatusCommandInput - {@link GetNamespaceDeletionStatusCommandInput}
+ * @returns {@link GetNamespaceDeletionStatusCommandOutput}
  * @see {@link GetNamespaceDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link GetNamespaceDeletionStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNamespaceDeletionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNamespaceDeletionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNamespaceDeletionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

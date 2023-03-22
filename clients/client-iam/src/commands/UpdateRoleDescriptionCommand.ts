@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoleDescriptionCommand}.
  */
 export interface UpdateRoleDescriptionCommandInput extends UpdateRoleDescriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoleDescriptionCommand}.
  */
 export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use <a>UpdateRole</a> instead.</p>
  *          <p>Modifies only the description of a role. This operation performs the same function as
  *             the <code>Description</code> parameter in the <code>UpdateRole</code> operation.</p>
@@ -48,6 +53,8 @@ export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoleDescriptionCommandInput - {@link UpdateRoleDescriptionCommandInput}
+ * @returns {@link UpdateRoleDescriptionCommandOutput}
  * @see {@link UpdateRoleDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateRoleDescriptionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateRoleDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoleDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateRoleDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoleDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateRoleDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoleDescriptionCommandOutput> {
     return deserializeAws_queryUpdateRoleDescriptionCommand(output, context);
   }

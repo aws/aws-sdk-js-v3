@@ -27,11 +27,15 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrafficPolicyInstancesByHostedZoneCommand}.
  */
 export interface ListTrafficPolicyInstancesByHostedZoneCommandInput
   extends ListTrafficPolicyInstancesByHostedZoneRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrafficPolicyInstancesByHostedZoneCommand}.
  */
 export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
@@ -39,6 +43,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the traffic policy instances that you created in a specified
  * 			hosted zone.</p>
  *          <note>
@@ -61,6 +66,8 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrafficPolicyInstancesByHostedZoneCommandInput - {@link ListTrafficPolicyInstancesByHostedZoneCommandInput}
+ * @returns {@link ListTrafficPolicyInstancesByHostedZoneCommandOutput}
  * @see {@link ListTrafficPolicyInstancesByHostedZoneCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyInstancesByHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -93,6 +100,9 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrafficPolicyInstancesByHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     return serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

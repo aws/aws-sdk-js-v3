@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllocateConnectionOnInterconnectCommand}.
  */
 export interface AllocateConnectionOnInterconnectCommandInput extends AllocateConnectionOnInterconnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocateConnectionOnInterconnectCommand}.
  */
 export interface AllocateConnectionOnInterconnectCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
@@ -53,6 +58,8 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateConnectionOnInterconnectCommandInput - {@link AllocateConnectionOnInterconnectCommandInput}
+ * @returns {@link AllocateConnectionOnInterconnectCommandOutput}
  * @see {@link AllocateConnectionOnInterconnectCommandInput} for command's `input` shape.
  * @see {@link AllocateConnectionOnInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -82,6 +89,9 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateConnectionOnInterconnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AllocateConnectionOnInterconnectCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     return serializeAws_json1_1AllocateConnectionOnInterconnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

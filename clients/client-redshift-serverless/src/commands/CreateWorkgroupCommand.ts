@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkgroupCommand}.
  */
 export interface CreateWorkgroupCommandInput extends CreateWorkgroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkgroupCommand}.
  */
 export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an workgroup in Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkgroupCommandInput - {@link CreateWorkgroupCommandInput}
+ * @returns {@link CreateWorkgroupCommandOutput}
  * @see {@link CreateWorkgroupCommandInput} for command's `input` shape.
  * @see {@link CreateWorkgroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateWorkgroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkgroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateWorkgroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkgroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWorkgroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkgroupCommandOutput> {
     return deserializeAws_json1_1CreateWorkgroupCommand(output, context);
   }

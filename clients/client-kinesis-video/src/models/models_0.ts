@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { KinesisVideoServiceException as __BaseException } from "./KinesisVideoServiceException";
 
 /**
+ * @public
  * <p>You do not have required permissions to perform this operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum limit of active signaling channels for this Amazon Web Services account
  *             in this region.</p>
  */
@@ -47,6 +49,7 @@ export class AccountChannelLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of streams created for the account is too high.</p>
  */
 export class AccountStreamLimitExceededException extends __BaseException {
@@ -67,6 +70,9 @@ export class AccountStreamLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum APIName {
   GET_CLIP = "GET_CLIP",
   GET_DASH_STREAMING_SESSION_URL = "GET_DASH_STREAMING_SESSION_URL",
@@ -78,6 +84,9 @@ export enum APIName {
   PUT_MEDIA = "PUT_MEDIA",
 }
 
+/**
+ * @public
+ */
 export enum Status {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -85,12 +94,16 @@ export enum Status {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export enum ChannelType {
   FULL_MESH = "FULL_MESH",
   SINGLE_MASTER = "SINGLE_MASTER",
 }
 
 /**
+ * @public
  * <p>A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel
  *             type.</p>
  */
@@ -103,6 +116,7 @@ export interface SingleMasterConfiguration {
 }
 
 /**
+ * @public
  * <p>A structure that encapsulates a signaling channel's metadata and properties.</p>
  */
 export interface ChannelInfo {
@@ -143,11 +157,15 @@ export interface ChannelInfo {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   BEGINS_WITH = "BEGINS_WITH",
 }
 
 /**
+ * @public
  * <p>An optional input parameter for the <code>ListSignalingChannels</code> API. When this
  *             parameter is specified while invoking <code>ListSignalingChannels</code>, the API
  *             returns only the channels that satisfy a condition specified in
@@ -166,18 +184,25 @@ export interface ChannelNameCondition {
   ComparisonValue?: string;
 }
 
+/**
+ * @public
+ */
 export enum ChannelProtocol {
   HTTPS = "HTTPS",
   WEBRTC = "WEBRTC",
   WSS = "WSS",
 }
 
+/**
+ * @public
+ */
 export enum ChannelRole {
   MASTER = "MASTER",
   VIEWER = "VIEWER",
 }
 
 /**
+ * @public
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *             allowed client calls. Try making the call later.</p>
  */
@@ -199,12 +224,16 @@ export class ClientLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConfigurationStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>A key and value pair that is associated with the specified signaling channel.</p>
  */
 export interface Tag {
@@ -219,6 +248,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSignalingChannelInput {
   /**
    * <p>A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.</p>
@@ -243,6 +275,9 @@ export interface CreateSignalingChannelInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSignalingChannelOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the created channel.</p>
@@ -251,6 +286,7 @@ export interface CreateSignalingChannelOutput {
 }
 
 /**
+ * @public
  * <p>The value for this input parameter is invalid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -272,6 +308,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
  *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
  *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
@@ -310,6 +347,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the limit of tags that you can associate with the resource.
  *             A Kinesis video stream can support up to 50 tags. </p>
  */
@@ -331,6 +369,9 @@ export class TagsPerResourceExceededLimitException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamInput {
   /**
    * <p>The name of the device that is writing to the stream. </p>
@@ -385,6 +426,9 @@ export interface CreateStreamInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateStreamOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
@@ -393,6 +437,7 @@ export interface CreateStreamOutput {
 }
 
 /**
+ * @public
  * <p>Not implemented.
  *             </p>
  */
@@ -415,6 +460,7 @@ export class DeviceStreamLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Not implemented.</p>
  */
 export class InvalidDeviceException extends __BaseException {
@@ -435,6 +481,9 @@ export class InvalidDeviceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSignalingChannelInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
@@ -450,9 +499,13 @@ export interface DeleteSignalingChannelInput {
   CurrentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSignalingChannelOutput {}
 
 /**
+ * @public
  * <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -474,6 +527,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The stream version that you specified is not the latest version. To get the latest
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
@@ -496,6 +550,9 @@ export class VersionMismatchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the stream that you want to delete. </p>
@@ -512,9 +569,13 @@ export interface DeleteStreamInput {
   CurrentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStreamOutput {}
 
 /**
+ * @public
  * <p>The caller is not authorized to perform this operation.</p>
  */
 export class NotAuthorizedException extends __BaseException {
@@ -535,12 +596,16 @@ export class NotAuthorizedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum StrategyOnFullSize {
   DELETE_OLDEST_MEDIA = "DELETE_OLDEST_MEDIA",
   DENY_NEW_MEDIA = "DENY_NEW_MEDIA",
 }
 
 /**
+ * @public
  * <p>The configuration details that include the maximum size of the media
  *             (<code>MaxLocalMediaSizeInMB</code>) that you want to
  *             store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's
@@ -559,6 +624,7 @@ export interface LocalSizeConfig {
 }
 
 /**
+ * @public
  * <p>The configuration details required to delete the connection of the stream from the Edge Agent.</p>
  */
 export interface DeletionConfig {
@@ -585,6 +651,9 @@ export interface DeletionConfig {
   DeleteAfterUpload?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgeConfigurationInput {
   /**
    * <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or
@@ -599,12 +668,16 @@ export interface DescribeEdgeConfigurationInput {
   StreamARN?: string;
 }
 
+/**
+ * @public
+ */
 export enum MediaUriType {
   FILE_URI = "FILE_URI",
   RTSP_URI = "RTSP_URI",
 }
 
 /**
+ * @public
  * <p>The configuration details that consist of the credentials required
  *             (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are
  *             streamed to the camera.</p>
@@ -626,6 +699,7 @@ export interface MediaSourceConfig {
 }
 
 /**
+ * @public
  * <p>This API enables you to specify the duration that the camera,
  *             or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the
  *             <code>DurationInMinutes</code> attributes. </p>
@@ -652,6 +726,7 @@ export interface ScheduleConfig {
 }
 
 /**
+ * @public
  * <p>The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as
  *             credentials to accesss the local media files streamed on the camera. </p>
  */
@@ -674,6 +749,7 @@ export interface RecorderConfig {
 }
 
 /**
+ * @public
  * <p>The configuration that consists of the <code>ScheduleExpression</code>
  *             and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera,
  *             or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code>
@@ -691,6 +767,7 @@ export interface UploaderConfig {
 }
 
 /**
+ * @public
  * <p>A description of the stream's edge configuration that will be used to sync
  *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
  *             on an IoT Hub Device setup at your premise.</p>
@@ -720,6 +797,9 @@ export interface EdgeConfig {
   DeletionConfig?: DeletionConfig;
 }
 
+/**
+ * @public
+ */
 export enum SyncStatus {
   ACKNOWLEDGED = "ACKNOWLEDGED",
   DELETE_FAILED = "DELETE_FAILED",
@@ -729,6 +809,9 @@ export enum SyncStatus {
   SYNC_FAILED = "SYNC_FAILED",
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgeConfigurationOutput {
   /**
    * <p>The name of the stream from which the edge configuration was updated.</p>
@@ -769,6 +852,7 @@ export interface DescribeEdgeConfigurationOutput {
 }
 
 /**
+ * @public
  * <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration
  *          that you specified. </p>
  */
@@ -790,6 +874,9 @@ export class StreamEdgeConfigurationNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageGenerationConfigurationInput {
   /**
    * <p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.  </p>
@@ -803,6 +890,7 @@ export interface DescribeImageGenerationConfigurationInput {
 }
 
 /**
+ * @public
  * <p>The structure that contains the information required to deliver images to a customer.</p>
  */
 export interface ImageGenerationDestinationConfig {
@@ -817,21 +905,31 @@ export interface ImageGenerationDestinationConfig {
   DestinationRegion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Format {
   JPEG = "JPEG",
   PNG = "PNG",
 }
 
+/**
+ * @public
+ */
 export enum FormatConfigKey {
   JPEGQuality = "JPEGQuality",
 }
 
+/**
+ * @public
+ */
 export enum ImageSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
   SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
 /**
+ * @public
  * <p>The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.</p>
  */
 export interface ImageGenerationConfiguration {
@@ -887,6 +985,9 @@ export interface ImageGenerationConfiguration {
   HeightPixels?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageGenerationConfigurationOutput {
   /**
    * <p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>
@@ -894,6 +995,9 @@ export interface DescribeImageGenerationConfigurationOutput {
   ImageGenerationConfiguration?: ImageGenerationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMappedResourceConfigurationInput {
   /**
    * <p>The name of the stream.</p>
@@ -917,6 +1021,7 @@ export interface DescribeMappedResourceConfigurationInput {
 }
 
 /**
+ * @public
  * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
  */
 export interface MappedResourceConfigurationListItem {
@@ -931,6 +1036,9 @@ export interface MappedResourceConfigurationListItem {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMappedResourceConfigurationOutput {
   /**
    * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
@@ -943,6 +1051,9 @@ export interface DescribeMappedResourceConfigurationOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMediaStorageConfigurationInput {
   /**
    * <p>The name of the channel.</p>
@@ -955,12 +1066,16 @@ export interface DescribeMediaStorageConfigurationInput {
   ChannelARN?: string;
 }
 
+/**
+ * @public
+ */
 export enum MediaStorageConfigurationStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
  */
 export interface MediaStorageConfiguration {
@@ -975,6 +1090,9 @@ export interface MediaStorageConfiguration {
   Status: MediaStorageConfigurationStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMediaStorageConfigurationOutput {
   /**
    * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
@@ -982,6 +1100,9 @@ export interface DescribeMediaStorageConfigurationOutput {
   MediaStorageConfiguration?: MediaStorageConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotificationConfigurationInput {
   /**
    * <p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -995,6 +1116,7 @@ export interface DescribeNotificationConfigurationInput {
 }
 
 /**
+ * @public
  * <p>The structure that contains the information required to deliver a notification to a customer.</p>
  */
 export interface NotificationDestinationConfig {
@@ -1005,6 +1127,7 @@ export interface NotificationDestinationConfig {
 }
 
 /**
+ * @public
  * <p>The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.</p>
  */
 export interface NotificationConfiguration {
@@ -1019,6 +1142,9 @@ export interface NotificationConfiguration {
   DestinationConfig: NotificationDestinationConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotificationConfigurationOutput {
   /**
    * <p>The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
@@ -1026,6 +1152,9 @@ export interface DescribeNotificationConfigurationOutput {
   NotificationConfiguration?: NotificationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSignalingChannelInput {
   /**
    * <p>The name of the signaling channel that you want to describe.</p>
@@ -1038,6 +1167,9 @@ export interface DescribeSignalingChannelInput {
   ChannelARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSignalingChannelOutput {
   /**
    * <p>A structure that encapsulates the specified signaling channel's metadata and
@@ -1046,6 +1178,9 @@ export interface DescribeSignalingChannelOutput {
   ChannelInfo?: ChannelInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamInput {
   /**
    * <p>The name of the stream.</p>
@@ -1059,6 +1194,7 @@ export interface DescribeStreamInput {
 }
 
 /**
+ * @public
  * <p>An object describing a Kinesis video stream.</p>
  */
 export interface StreamInfo {
@@ -1109,6 +1245,9 @@ export interface StreamInfo {
   DataRetentionInHours?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStreamOutput {
   /**
    * <p>An object that describes the stream.</p>
@@ -1116,6 +1255,9 @@ export interface DescribeStreamOutput {
   StreamInfo?: StreamInfo;
 }
 
+/**
+ * @public
+ */
 export interface GetDataEndpointInput {
   /**
    * <p>The name of the stream that you want to get the endpoint for. You must specify
@@ -1136,6 +1278,9 @@ export interface GetDataEndpointInput {
   APIName: APIName | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataEndpointOutput {
   /**
    * <p>The endpoint value. To read data from the stream or to write data to it, specify
@@ -1145,6 +1290,7 @@ export interface GetDataEndpointOutput {
 }
 
 /**
+ * @public
  * <p>An object that contains the endpoint configuration for the <code>SINGLE_MASTER</code>
  *             channel type. </p>
  */
@@ -1168,6 +1314,9 @@ export interface SingleMasterChannelEndpointConfiguration {
   Role?: ChannelRole | string;
 }
 
+/**
+ * @public
+ */
 export interface GetSignalingChannelEndpointInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an
@@ -1183,6 +1332,7 @@ export interface GetSignalingChannelEndpointInput {
 }
 
 /**
+ * @public
  * <p>An object that describes the endpoint of the signaling channel returned by the
  *                 <code>GetSignalingChannelEndpoint</code> API.</p>
  */
@@ -1200,6 +1350,9 @@ export interface ResourceEndpointListItem {
   ResourceEndpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSignalingChannelEndpointOutput {
   /**
    * <p>A list of endpoints for the specified signaling channel.</p>
@@ -1208,6 +1361,7 @@ export interface GetSignalingChannelEndpointOutput {
 }
 
 /**
+ * @public
  * <p>The format of the <code>StreamARN</code> is invalid.</p>
  */
 export class InvalidResourceFormatException extends __BaseException {
@@ -1228,6 +1382,9 @@ export class InvalidResourceFormatException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListSignalingChannelsInput {
   /**
    * <p>The maximum number of channels to return in the response. The default is 500.</p>
@@ -1247,6 +1404,9 @@ export interface ListSignalingChannelsInput {
   ChannelNameCondition?: ChannelNameCondition;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalingChannelsOutput {
   /**
    * <p>An array of <code>ChannelInfo</code> objects.</p>
@@ -1261,6 +1421,7 @@ export interface ListSignalingChannelsOutput {
 }
 
 /**
+ * @public
  * <p>Specifies the condition that streams must satisfy to be returned when you list
  *             streams (see the <code>ListStreams</code> API). A condition has a comparison operation
  *             and a value. Currently, you can specify only the <code>BEGINS_WITH</code> operator,
@@ -1279,6 +1440,9 @@ export interface StreamNameCondition {
   ComparisonValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamsInput {
   /**
    * <p>The maximum number of streams to return in the response. The default is
@@ -1300,6 +1464,9 @@ export interface ListStreamsInput {
   StreamNameCondition?: StreamNameCondition;
 }
 
+/**
+ * @public
+ */
 export interface ListStreamsOutput {
   /**
    * <p>An array of <code>StreamInfo</code> objects.</p>
@@ -1313,6 +1480,9 @@ export interface ListStreamsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTagsForResource</code>
@@ -1328,6 +1498,9 @@ export interface ListTagsForResourceInput {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTagsForResource</code>
@@ -1342,6 +1515,9 @@ export interface ListTagsForResourceOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForStreamInput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTagsForStream</code>
@@ -1362,6 +1538,9 @@ export interface ListTagsForStreamInput {
   StreamName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForStreamOutput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTags</code> call is
@@ -1377,6 +1556,7 @@ export interface ListTagsForStreamOutput {
 }
 
 /**
+ * @public
  * <p>The Stream data retention in hours is equal to zero.</p>
  */
 export class NoDataRetentionException extends __BaseException {
@@ -1397,6 +1577,9 @@ export class NoDataRetentionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartEdgeConfigurationUpdateInput {
   /**
    * <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code>
@@ -1416,6 +1599,9 @@ export interface StartEdgeConfigurationUpdateInput {
   EdgeConfig: EdgeConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartEdgeConfigurationUpdateOutput {
   /**
    * <p>The name of the stream from which the edge configuration was updated.</p>
@@ -1457,6 +1643,9 @@ export interface StartEdgeConfigurationUpdateOutput {
   EdgeConfig?: EdgeConfig;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add
@@ -1471,8 +1660,14 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface TagStreamInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags
@@ -1492,8 +1687,14 @@ export interface TagStreamInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagStreamOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove
@@ -1507,8 +1708,14 @@ export interface UntagResourceInput {
   TagKeyList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagStreamInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the stream that you want to remove tags
@@ -1527,13 +1734,22 @@ export interface UntagStreamInput {
   TagKeyList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagStreamOutput {}
 
+/**
+ * @public
+ */
 export enum UpdateDataRetentionOperation {
   DECREASE_DATA_RETENTION = "DECREASE_DATA_RETENTION",
   INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION",
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataRetentionInput {
   /**
    * <p>The name of the stream whose retention period you want to change.</p>
@@ -1565,8 +1781,14 @@ export interface UpdateDataRetentionInput {
   DataRetentionChangeInHours: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataRetentionOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateImageGenerationConfigurationInput {
   /**
    * <p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -1585,8 +1807,14 @@ export interface UpdateImageGenerationConfigurationInput {
   ImageGenerationConfiguration?: ImageGenerationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageGenerationConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateMediaStorageConfigurationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the channel.</p>
@@ -1599,8 +1827,14 @@ export interface UpdateMediaStorageConfigurationInput {
   MediaStorageConfiguration: MediaStorageConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMediaStorageConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateNotificationConfigurationInput {
   /**
    * <p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -1618,8 +1852,14 @@ export interface UpdateNotificationConfigurationInput {
   NotificationConfiguration?: NotificationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotificationConfigurationOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateSignalingChannelInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
@@ -1639,8 +1879,14 @@ export interface UpdateSignalingChannelInput {
   SingleMasterConfiguration?: SingleMasterConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSignalingChannelOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateStreamInput {
   /**
    * <p>The name of the stream whose metadata you want to update.</p>
@@ -1681,6 +1927,9 @@ export interface UpdateStreamInput {
   MediaType?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStreamOutput {}
 
 /**

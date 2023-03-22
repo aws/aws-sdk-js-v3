@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AttachTrafficSourcesCommand}.
  */
 export interface AttachTrafficSourcesCommandInput extends AttachTrafficSourcesType {}
 /**
+ * @public
+ *
  * The output of {@link AttachTrafficSourcesCommand}.
  */
 export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
  *             Do not use this API for production workloads. This API is also subject to change.</b>
@@ -54,6 +59,8 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachTrafficSourcesCommandInput - {@link AttachTrafficSourcesCommandInput}
+ * @returns {@link AttachTrafficSourcesCommandOutput}
  * @see {@link AttachTrafficSourcesCommandInput} for command's `input` shape.
  * @see {@link AttachTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -84,6 +91,9 @@ export class AttachTrafficSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachTrafficSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class AttachTrafficSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAttachTrafficSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachTrafficSourcesCommandOutput> {
     return deserializeAws_queryAttachTrafficSourcesCommand(output, context);
   }

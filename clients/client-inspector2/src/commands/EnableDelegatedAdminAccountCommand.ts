@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableDelegatedAdminAccountCommand}.
  */
 export interface EnableDelegatedAdminAccountCommandInput extends EnableDelegatedAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableDelegatedAdminAccountCommand}.
  */
 export interface EnableDelegatedAdminAccountCommandOutput
@@ -37,6 +41,7 @@ export interface EnableDelegatedAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the Amazon Inspector delegated administrator for your Organizations organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface EnableDelegatedAdminAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableDelegatedAdminAccountCommandInput - {@link EnableDelegatedAdminAccountCommandInput}
+ * @returns {@link EnableDelegatedAdminAccountCommandOutput}
  * @see {@link EnableDelegatedAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableDelegatedAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -90,6 +97,9 @@ export class EnableDelegatedAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableDelegatedAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class EnableDelegatedAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableDelegatedAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableDelegatedAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointCommand}.
  */
 export interface UpdateEndpointCommandInput extends UpdateEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointCommand}.
  */
 export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deploys the new <code>EndpointConfig</code> specified in the request, switches to
  *             using newly created endpoint, and then deletes resources provisioned for the endpoint
  *             using the previous <code>EndpointConfig</code> (there is no availability loss). </p>
@@ -62,6 +67,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
+ * @returns {@link UpdateEndpointCommandOutput}
  * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointCommandOutput> {
     return deserializeAws_json1_1UpdateEndpointCommand(output, context);
   }

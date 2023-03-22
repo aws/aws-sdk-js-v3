@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandInput extends UntagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a tag that is assigned to a GameLift resource. Resource tags are used to
  *             organize Amazon Web Services resources for a range of purposes. This operation handles the permissions
  *             necessary to manage tags for the following GameLift resource types:</p>
@@ -92,6 +97,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -131,6 +138,9 @@ export class UntagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UntagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
     return deserializeAws_json1_1UntagResourceCommand(output, context);
   }

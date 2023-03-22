@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DeleteCoipPoolCommand, serializeAws_ec2DeleteCoipPoolCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCoipPoolCommand}.
  */
 export interface DeleteCoipPoolCommandInput extends DeleteCoipPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCoipPoolCommand}.
  */
 export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCoipPoolCommandInput - {@link DeleteCoipPoolCommandInput}
+ * @returns {@link DeleteCoipPoolCommandOutput}
  * @see {@link DeleteCoipPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteCoipPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -66,6 +73,9 @@ export class DeleteCoipPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCoipPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class DeleteCoipPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCoipPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteCoipPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoipPoolCommandOutput> {
     return deserializeAws_ec2DeleteCoipPoolCommand(output, context);
   }

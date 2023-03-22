@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetVocabularyFilterCommand}.
  */
 export interface GetVocabularyFilterCommandInput extends GetVocabularyFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVocabularyFilterCommand}.
  */
 export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified custom vocabulary filter.</p>
  *          <p>To get a list of your custom vocabulary filters, use the  operation.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVocabularyFilterCommandInput - {@link GetVocabularyFilterCommandInput}
+ * @returns {@link GetVocabularyFilterCommandOutput}
  * @see {@link GetVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link GetVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetVocabularyFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetVocabularyFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetVocabularyFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVocabularyFilterCommandOutput> {
     return deserializeAws_json1_1GetVocabularyFilterCommand(output, context);
   }

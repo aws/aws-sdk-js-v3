@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipelineCommand}.
  */
 export interface UpdatePipelineCommandInput extends UpdatePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipelineCommand}.
  */
 export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Use the <code>UpdatePipeline</code> operation to update settings for a pipeline.</p>
  *         <important>
  *             <p>When you change pipeline settings, your changes take effect immediately.
@@ -55,6 +60,8 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
+ * @returns {@link UpdatePipelineCommandOutput}
  * @see {@link UpdatePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineCommandOutput> {
     return deserializeAws_restJson1UpdatePipelineCommand(output, context);
   }

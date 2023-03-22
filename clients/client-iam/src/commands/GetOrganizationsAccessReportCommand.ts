@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrganizationsAccessReportCommand}.
  */
 export interface GetOrganizationsAccessReportCommandInput extends GetOrganizationsAccessReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOrganizationsAccessReportCommand}.
  */
 export interface GetOrganizationsAccessReportCommandOutput
@@ -37,6 +41,7 @@ export interface GetOrganizationsAccessReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the service last accessed data report for Organizations that was previously
  *             generated using the <code>
  *                <a>GenerateOrganizationsAccessReport</a>
@@ -66,6 +71,8 @@ export interface GetOrganizationsAccessReportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrganizationsAccessReportCommandInput - {@link GetOrganizationsAccessReportCommandInput}
+ * @returns {@link GetOrganizationsAccessReportCommandOutput}
  * @see {@link GetOrganizationsAccessReportCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationsAccessReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -137,6 +144,9 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrganizationsAccessReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOrganizationsAccessReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetOrganizationsAccessReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

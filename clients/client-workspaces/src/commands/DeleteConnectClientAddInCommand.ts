@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectClientAddInCommand}.
  */
 export interface DeleteConnectClientAddInCommandInput extends DeleteConnectClientAddInRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectClientAddInCommand}.
  */
 export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClientAddInResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a client-add-in for Amazon Connect that is configured within a
  *          directory.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectClientAddInCommandInput - {@link DeleteConnectClientAddInCommandInput}
+ * @returns {@link DeleteConnectClientAddInCommandOutput}
  * @see {@link DeleteConnectClientAddInCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectClientAddInCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteConnectClientAddInCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectClientAddInCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteConnectClientAddInCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectClientAddInCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConnectClientAddInCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectClientAddInCommandOutput> {
     return deserializeAws_json1_1DeleteConnectClientAddInCommand(output, context);
   }

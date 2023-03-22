@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachPolicyCommand}.
  */
 export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachPolicyCommand}.
  */
 export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a policy object to a regular object. An object can have a limited number of attached
  *       policies.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
+ * @returns {@link AttachPolicyCommandOutput}
  * @see {@link AttachPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +105,9 @@ export class AttachPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class AttachPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AttachPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachPolicyCommandOutput> {
     return deserializeAws_restJson1AttachPolicyCommand(output, context);
   }

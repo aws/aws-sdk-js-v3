@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataCellsFilterCommand}.
  */
 export interface ListDataCellsFilterCommandInput extends ListDataCellsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataCellsFilterCommand}.
  */
 export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the data cell filters on a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataCellsFilterCommandInput - {@link ListDataCellsFilterCommandInput}
+ * @returns {@link ListDataCellsFilterCommandOutput}
  * @see {@link ListDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link ListDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListDataCellsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListDataCellsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDataCellsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataCellsFilterCommandOutput> {
     return deserializeAws_restJson1ListDataCellsFilterCommand(output, context);
   }

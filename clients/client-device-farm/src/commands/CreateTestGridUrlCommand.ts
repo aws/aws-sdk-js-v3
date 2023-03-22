@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTestGridUrlCommand}.
  */
 export interface CreateTestGridUrlCommandInput extends CreateTestGridUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTestGridUrlCommand}.
  */
 export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>
  *          constructor.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTestGridUrlCommandInput - {@link CreateTestGridUrlCommandInput}
+ * @returns {@link CreateTestGridUrlCommandOutput}
  * @see {@link CreateTestGridUrlCommandInput} for command's `input` shape.
  * @see {@link CreateTestGridUrlCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateTestGridUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTestGridUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateTestGridUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTestGridUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTestGridUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTestGridUrlCommandOutput> {
     return deserializeAws_json1_1CreateTestGridUrlCommand(output, context);
   }

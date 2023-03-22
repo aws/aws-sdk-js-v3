@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApnsVoipChannelCommand}.
  */
 export interface GetApnsVoipChannelCommandInput extends GetApnsVoipChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApnsVoipChannelCommand}.
  */
 export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApnsVoipChannelCommandInput - {@link GetApnsVoipChannelCommandInput}
+ * @returns {@link GetApnsVoipChannelCommandOutput}
  * @see {@link GetApnsVoipChannelCommandInput} for command's `input` shape.
  * @see {@link GetApnsVoipChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetApnsVoipChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApnsVoipChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetApnsVoipChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApnsVoipChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetApnsVoipChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApnsVoipChannelCommandOutput> {
     return deserializeAws_restJson1GetApnsVoipChannelCommand(output, context);
   }

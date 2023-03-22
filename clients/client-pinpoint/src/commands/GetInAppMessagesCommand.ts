@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInAppMessagesCommand}.
  */
 export interface GetInAppMessagesCommandInput extends GetInAppMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInAppMessagesCommand}.
  */
 export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the in-app messages targeted for the provided endpoint ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInAppMessagesCommandInput - {@link GetInAppMessagesCommandInput}
+ * @returns {@link GetInAppMessagesCommandOutput}
  * @see {@link GetInAppMessagesCommandInput} for command's `input` shape.
  * @see {@link GetInAppMessagesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetInAppMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInAppMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetInAppMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInAppMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetInAppMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInAppMessagesCommandOutput> {
     return deserializeAws_restJson1GetInAppMessagesCommand(output, context);
   }

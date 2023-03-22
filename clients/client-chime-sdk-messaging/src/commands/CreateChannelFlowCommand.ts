@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelFlowCommand}.
  */
 export interface CreateChannelFlowCommandInput extends CreateChannelFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelFlowCommand}.
  */
 export interface CreateChannelFlowCommandOutput extends CreateChannelFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions
  *          that perform actions on chat messages, such as stripping out profanity. You can associate
  *          channel flows with channels, and the processors in the channel flow then take action on all
@@ -69,6 +74,8 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelFlowCommandInput - {@link CreateChannelFlowCommandInput}
+ * @returns {@link CreateChannelFlowCommandOutput}
  * @see {@link CreateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link CreateChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -117,6 +124,9 @@ export class CreateChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class CreateChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelFlowCommandOutput> {
     return deserializeAws_restJson1CreateChannelFlowCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CodeCommitServiceException as __BaseException } from "./CodeCommitServiceException";
 
 /**
+ * @public
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
 export class ActorDoesNotExistException extends __BaseException {
@@ -22,12 +23,16 @@ export class ActorDoesNotExistException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ApprovalState {
   APPROVE = "APPROVE",
   REVOKE = "REVOKE",
 }
 
 /**
+ * @public
  * <p>Returns information about a specific approval on a pull request.</p>
  */
 export interface Approval {
@@ -43,6 +48,7 @@ export interface Approval {
 }
 
 /**
+ * @public
  * <p>Returns information about the template that created the approval rule for a pull request.</p>
  */
 export interface OriginApprovalRuleTemplate {
@@ -58,6 +64,7 @@ export interface OriginApprovalRuleTemplate {
 }
 
 /**
+ * @public
  * <p>Returns information about an approval rule.</p>
  */
 export interface ApprovalRule {
@@ -103,6 +110,7 @@ export interface ApprovalRule {
 }
 
 /**
+ * @public
  * <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
  */
 export class ApprovalRuleContentRequiredException extends __BaseException {
@@ -122,6 +130,7 @@ export class ApprovalRuleContentRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified approval rule does not exist.</p>
  */
 export class ApprovalRuleDoesNotExistException extends __BaseException {
@@ -141,6 +150,7 @@ export class ApprovalRuleDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an event for an approval rule.</p>
  */
 export interface ApprovalRuleEventMetadata {
@@ -161,6 +171,7 @@ export interface ApprovalRuleEventMetadata {
 }
 
 /**
+ * @public
  * <p>An approval rule with that name already exists. Approval rule names must be unique
  *             within the scope of a pull request.</p>
  */
@@ -181,6 +192,7 @@ export class ApprovalRuleNameAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An approval rule name is required, but was not specified.</p>
  */
 export class ApprovalRuleNameRequiredException extends __BaseException {
@@ -199,12 +211,16 @@ export class ApprovalRuleNameRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum OverrideStatus {
   OVERRIDE = "OVERRIDE",
   REVOKE = "REVOKE",
 }
 
 /**
+ * @public
  * <p>Returns information about an override event for approval rules for a pull request.</p>
  */
 export interface ApprovalRuleOverriddenEventMetadata {
@@ -220,6 +236,7 @@ export interface ApprovalRuleOverriddenEventMetadata {
 }
 
 /**
+ * @public
  * <p>Returns information about an approval rule template.</p>
  */
 export interface ApprovalRuleTemplate {
@@ -265,6 +282,7 @@ export interface ApprovalRuleTemplate {
 }
 
 /**
+ * @public
  * <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
  */
 export class ApprovalRuleTemplateContentRequiredException extends __BaseException {
@@ -284,6 +302,7 @@ export class ApprovalRuleTemplateContentRequiredException extends __BaseExceptio
 }
 
 /**
+ * @public
  * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
  *         was created, and then try again.</p>
  */
@@ -304,6 +323,7 @@ export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
  *         all associations, and then try again.</p>
  */
@@ -324,6 +344,7 @@ export class ApprovalRuleTemplateInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You cannot create an approval rule template with that name because a template with
  *             that name already exists in this AWS Region for your AWS account. Approval rule template
  *             names must be unique.</p>
@@ -345,6 +366,7 @@ export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseExcept
 }
 
 /**
+ * @public
  * <p>An approval rule template name is required, but was not specified.</p>
  */
 export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
@@ -364,6 +386,7 @@ export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about a change in the approval state for a pull request.</p>
  */
 export interface ApprovalStateChangedEventMetadata {
@@ -379,6 +402,7 @@ export interface ApprovalStateChangedEventMetadata {
 }
 
 /**
+ * @public
  * <p>An approval state is required, but was not specified.</p>
  */
 export class ApprovalStateRequiredException extends __BaseException {
@@ -397,6 +421,9 @@ export class ApprovalStateRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateApprovalRuleTemplateWithRepositoryInput {
   /**
    * <p>The name for the approval rule template. </p>
@@ -410,6 +437,7 @@ export interface AssociateApprovalRuleTemplateWithRepositoryInput {
 }
 
 /**
+ * @public
  * <p>An encryption integrity check failed.</p>
  */
 export class EncryptionIntegrityChecksFailedException extends __BaseException {
@@ -429,6 +457,7 @@ export class EncryptionIntegrityChecksFailedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An encryption key could not be accessed.</p>
  */
 export class EncryptionKeyAccessDeniedException extends __BaseException {
@@ -448,6 +477,7 @@ export class EncryptionKeyAccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The encryption key is disabled.</p>
  */
 export class EncryptionKeyDisabledException extends __BaseException {
@@ -467,6 +497,7 @@ export class EncryptionKeyDisabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No encryption key was found.</p>
  */
 export class EncryptionKeyNotFoundException extends __BaseException {
@@ -486,6 +517,7 @@ export class EncryptionKeyNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The encryption key is not available.</p>
  */
 export class EncryptionKeyUnavailableException extends __BaseException {
@@ -505,6 +537,7 @@ export class EncryptionKeyUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The name of the approval rule template is not valid. Template names must be between 1
  *             and 100 valid characters in length. For more information about limits in AWS CodeCommit,
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
@@ -527,6 +560,7 @@ export class InvalidApprovalRuleTemplateNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified repository name is not valid.</p>
  *
  *         <note>
@@ -552,6 +586,7 @@ export class InvalidRepositoryNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25
  *         approval rule templates with a repository.</p>
  */
@@ -573,6 +608,7 @@ export class MaximumRuleTemplatesAssociatedWithRepositoryException extends __Bas
 }
 
 /**
+ * @public
  * <p>The specified repository does not exist.</p>
  */
 export class RepositoryDoesNotExistException extends __BaseException {
@@ -592,6 +628,7 @@ export class RepositoryDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A repository name is required, but was not specified.</p>
  */
 export class RepositoryNameRequiredException extends __BaseException {
@@ -611,6 +648,7 @@ export class RepositoryNameRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
 export class AuthorDoesNotExistException extends __BaseException {
@@ -629,6 +667,9 @@ export class AuthorDoesNotExistException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
   /**
    * <p>The name of the template you want to associate with one or more repositories.</p>
@@ -645,6 +686,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
 }
 
 /**
+ * @public
  * <p>Returns information about errors in a BatchAssociateApprovalRuleTemplateWithRepositories operation.</p>
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
@@ -664,6 +706,9 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
   /**
    * <p>A list of names of the repositories that have been associated with the template.</p>
@@ -677,6 +722,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
 }
 
 /**
+ * @public
  * <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
  */
 export class MaximumRepositoryNamesExceededException extends __BaseException {
@@ -696,6 +742,7 @@ export class MaximumRepositoryNamesExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>At least one repository name object is required, but was not specified.</p>
  */
 export class RepositoryNamesRequiredException extends __BaseException {
@@ -714,11 +761,17 @@ export class RepositoryNamesRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConflictDetailLevelTypeEnum {
   FILE_LEVEL = "FILE_LEVEL",
   LINE_LEVEL = "LINE_LEVEL",
 }
 
+/**
+ * @public
+ */
 export enum ConflictResolutionStrategyTypeEnum {
   ACCEPT_DESTINATION = "ACCEPT_DESTINATION",
   ACCEPT_SOURCE = "ACCEPT_SOURCE",
@@ -726,12 +779,18 @@ export enum ConflictResolutionStrategyTypeEnum {
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum MergeOptionTypeEnum {
   FAST_FORWARD_MERGE = "FAST_FORWARD_MERGE",
   SQUASH_MERGE = "SQUASH_MERGE",
   THREE_WAY_MERGE = "THREE_WAY_MERGE",
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeMergeConflictsInput {
   /**
    * <p>The name of the repository that contains the merge conflicts you want to review.</p>
@@ -792,6 +851,9 @@ export interface BatchDescribeMergeConflictsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum FileModeTypeEnum {
   EXECUTABLE = "EXECUTABLE",
   NORMAL = "NORMAL",
@@ -799,6 +861,7 @@ export enum FileModeTypeEnum {
 }
 
 /**
+ * @public
  * <p>Information about file modes in a merge or pull request.</p>
  */
 export interface FileModes {
@@ -819,6 +882,7 @@ export interface FileModes {
 }
 
 /**
+ * @public
  * <p>Information about the size of files in a merge or pull request.</p>
  */
 export interface FileSizes {
@@ -839,6 +903,7 @@ export interface FileSizes {
 }
 
 /**
+ * @public
  * <p>Information about whether a file is binary or textual in a merge or pull request operation.</p>
  */
 export interface IsBinaryFile {
@@ -858,6 +923,9 @@ export interface IsBinaryFile {
   base?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum ChangeTypeEnum {
   ADDED = "A",
   DELETED = "D",
@@ -865,6 +933,7 @@ export enum ChangeTypeEnum {
 }
 
 /**
+ * @public
  * <p>Information about the file operation conflicts in a merge operation.</p>
  */
 export interface MergeOperations {
@@ -880,6 +949,9 @@ export interface MergeOperations {
   destination?: ChangeTypeEnum | string;
 }
 
+/**
+ * @public
+ */
 export enum ObjectTypeEnum {
   DIRECTORY = "DIRECTORY",
   FILE = "FILE",
@@ -888,6 +960,7 @@ export enum ObjectTypeEnum {
 }
 
 /**
+ * @public
  * <p>Information about the type of an object in a merge operation.</p>
  */
 export interface ObjectTypes {
@@ -908,6 +981,7 @@ export interface ObjectTypes {
 }
 
 /**
+ * @public
  * <p>Information about the metadata for a conflict in a merge operation.</p>
  */
 export interface ConflictMetadata {
@@ -963,6 +1037,7 @@ export interface ConflictMetadata {
 }
 
 /**
+ * @public
  * <p>Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.</p>
  */
 export interface MergeHunkDetail {
@@ -984,6 +1059,7 @@ export interface MergeHunkDetail {
 }
 
 /**
+ * @public
  * <p>Information about merge hunks in a merge or pull request operation.</p>
  */
 export interface MergeHunk {
@@ -1013,6 +1089,7 @@ export interface MergeHunk {
 }
 
 /**
+ * @public
  * <p>Information about conflicts in a merge operation.</p>
  */
 export interface Conflict {
@@ -1028,6 +1105,7 @@ export interface Conflict {
 }
 
 /**
+ * @public
  * <p>Returns information about errors in a BatchDescribeMergeConflicts operation.</p>
  */
 export interface BatchDescribeMergeConflictsError {
@@ -1047,6 +1125,9 @@ export interface BatchDescribeMergeConflictsError {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeMergeConflictsOutput {
   /**
    * <p>A list of conflicts for each file, including the conflict metadata and the hunks of the differences between the files.</p>
@@ -1080,6 +1161,7 @@ export interface BatchDescribeMergeConflictsOutput {
 }
 
 /**
+ * @public
  * <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
  */
 export class CommitDoesNotExistException extends __BaseException {
@@ -1099,6 +1181,7 @@ export class CommitDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A commit was not specified.</p>
  */
 export class CommitRequiredException extends __BaseException {
@@ -1118,6 +1201,7 @@ export class CommitRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified commit is not valid.</p>
  */
 export class InvalidCommitException extends __BaseException {
@@ -1137,6 +1221,7 @@ export class InvalidCommitException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified conflict detail level is not valid.</p>
  */
 export class InvalidConflictDetailLevelException extends __BaseException {
@@ -1156,6 +1241,7 @@ export class InvalidConflictDetailLevelException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified conflict resolution strategy is not valid.</p>
  */
 export class InvalidConflictResolutionStrategyException extends __BaseException {
@@ -1175,6 +1261,7 @@ export class InvalidConflictResolutionStrategyException extends __BaseException 
 }
 
 /**
+ * @public
  * <p>The specified continuation token is not valid.</p>
  */
 export class InvalidContinuationTokenException extends __BaseException {
@@ -1194,6 +1281,7 @@ export class InvalidContinuationTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified value for the number of conflict files to return is not valid.</p>
  */
 export class InvalidMaxConflictFilesException extends __BaseException {
@@ -1213,6 +1301,7 @@ export class InvalidMaxConflictFilesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified value for the number of merge hunks to return is not valid.</p>
  */
 export class InvalidMaxMergeHunksException extends __BaseException {
@@ -1232,6 +1321,7 @@ export class InvalidMaxMergeHunksException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
  */
 export class InvalidMergeOptionException extends __BaseException {
@@ -1251,6 +1341,7 @@ export class InvalidMergeOptionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of files to load exceeds the allowed limit.</p>
  */
 export class MaximumFileContentToLoadExceededException extends __BaseException {
@@ -1270,6 +1361,7 @@ export class MaximumFileContentToLoadExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
  */
 export class MaximumItemsToCompareExceededException extends __BaseException {
@@ -1289,6 +1381,7 @@ export class MaximumItemsToCompareExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A merge option or stategy is required, and none was provided.</p>
  */
 export class MergeOptionRequiredException extends __BaseException {
@@ -1308,6 +1401,7 @@ export class MergeOptionRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  */
@@ -1327,6 +1421,9 @@ export class TipsDivergenceExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
   /**
    * <p>The name of the template that you want to disassociate from one or more repositories.</p>
@@ -1344,6 +1441,7 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
 }
 
 /**
+ * @public
  * <p>Returns information about errors in a BatchDisassociateApprovalRuleTemplateFromRepositories operation.</p>
  */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
@@ -1364,6 +1462,9 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   /**
    * <p>A list of repository names that have had their association with the template
@@ -1377,6 +1478,9 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   errors: BatchDisassociateApprovalRuleTemplateFromRepositoriesError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCommitsInput {
   /**
    * <p>The full commit IDs of the commits to get information about.</p>
@@ -1394,6 +1498,7 @@ export interface BatchGetCommitsInput {
 }
 
 /**
+ * @public
  * <p>Information about the user who made a specified commit.</p>
  */
 export interface UserInfo {
@@ -1414,6 +1519,7 @@ export interface UserInfo {
 }
 
 /**
+ * @public
  * <p>Returns information about a specific commit.</p>
  */
 export interface Commit {
@@ -1461,6 +1567,7 @@ export interface Commit {
 }
 
 /**
+ * @public
  * <p>Returns information about errors in a BatchGetCommits operation.</p>
  */
 export interface BatchGetCommitsError {
@@ -1480,6 +1587,9 @@ export interface BatchGetCommitsError {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetCommitsOutput {
   /**
    * <p>An array of commit data type objects, each of which contains information about a specified commit.</p>
@@ -1495,6 +1605,7 @@ export interface BatchGetCommitsOutput {
 }
 
 /**
+ * @public
  * <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
  */
 export class CommitIdsLimitExceededException extends __BaseException {
@@ -1514,6 +1625,7 @@ export class CommitIdsLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
  */
 export class CommitIdsListRequiredException extends __BaseException {
@@ -1533,6 +1645,7 @@ export class CommitIdsListRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a batch get repositories operation.</p>
  */
 export interface BatchGetRepositoriesInput {
@@ -1546,6 +1659,7 @@ export interface BatchGetRepositoriesInput {
 }
 
 /**
+ * @public
  * <p>Information about a repository.</p>
  */
 export interface RepositoryMetadata {
@@ -1601,6 +1715,7 @@ export interface RepositoryMetadata {
 }
 
 /**
+ * @public
  * <p>Represents the output of a batch get repositories operation.</p>
  */
 export interface BatchGetRepositoriesOutput {
@@ -1616,6 +1731,7 @@ export interface BatchGetRepositoriesOutput {
 }
 
 /**
+ * @public
  * <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
  */
 export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseException {
@@ -1635,6 +1751,7 @@ export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseExcept
 }
 
 /**
+ * @public
  * <p>The specified blob does not exist.</p>
  */
 export class BlobIdDoesNotExistException extends __BaseException {
@@ -1654,6 +1771,7 @@ export class BlobIdDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A blob ID is required, but was not specified.</p>
  */
 export class BlobIdRequiredException extends __BaseException {
@@ -1673,6 +1791,7 @@ export class BlobIdRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about a specific Git blob object.</p>
  */
 export interface BlobMetadata {
@@ -1711,6 +1830,7 @@ export interface BlobMetadata {
 }
 
 /**
+ * @public
  * <p>The specified branch does not exist.</p>
  */
 export class BranchDoesNotExistException extends __BaseException {
@@ -1730,6 +1850,7 @@ export class BranchDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about a branch.</p>
  */
 export interface BranchInfo {
@@ -1745,6 +1866,7 @@ export interface BranchInfo {
 }
 
 /**
+ * @public
  * <p>Cannot create the branch with the specified name because the commit conflicts with an existing branch with the same name.
  *             Branch names must be unique.</p>
  */
@@ -1765,6 +1887,7 @@ export class BranchNameExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified branch name is not valid because it is a tag name. Enter the name of a
  *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
  */
@@ -1785,6 +1908,7 @@ export class BranchNameIsTagNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A branch name is required, but was not specified.</p>
  */
 export class BranchNameRequiredException extends __BaseException {
@@ -1804,6 +1928,7 @@ export class BranchNameRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The approval rule cannot be deleted from the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
  */
@@ -1824,6 +1949,7 @@ export class CannotDeleteApprovalRuleFromTemplateException extends __BaseExcepti
 }
 
 /**
+ * @public
  * <p>The approval rule cannot be modified for the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
  */
@@ -1844,6 +1970,7 @@ export class CannotModifyApprovalRuleFromTemplateException extends __BaseExcepti
 }
 
 /**
+ * @public
  * <p>A client request token is required. A client request token is an unique,
  *             client-generated idempotency token that, when provided in a request, ensures the request
  *             cannot be repeated with a changed parameter. If a request is received with the same
@@ -1866,6 +1993,9 @@ export class ClientRequestTokenRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateApprovalRuleTemplateInput {
   /**
    * <p>The name of the approval rule template. Provide descriptive names, because this name
@@ -1930,6 +2060,9 @@ export interface CreateApprovalRuleTemplateInput {
   approvalRuleTemplateDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApprovalRuleTemplateOutput {
   /**
    * <p>The content and structure of the created approval rule template.</p>
@@ -1938,6 +2071,7 @@ export interface CreateApprovalRuleTemplateOutput {
 }
 
 /**
+ * @public
  * <p>The content of the approval rule template is not valid.</p>
  */
 export class InvalidApprovalRuleTemplateContentException extends __BaseException {
@@ -1957,6 +2091,7 @@ export class InvalidApprovalRuleTemplateContentException extends __BaseException
 }
 
 /**
+ * @public
  * <p>The description for the approval rule template is not valid because it exceeds the
  *             maximum characters allowed for a description. For more information about limits in AWS
  *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User
@@ -1979,6 +2114,7 @@ export class InvalidApprovalRuleTemplateDescriptionException extends __BaseExcep
 }
 
 /**
+ * @public
  * <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
  */
 export class NumberOfRuleTemplatesExceededException extends __BaseException {
@@ -1998,6 +2134,7 @@ export class NumberOfRuleTemplatesExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A commit ID was not specified.</p>
  */
 export class CommitIdRequiredException extends __BaseException {
@@ -2017,6 +2154,7 @@ export class CommitIdRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a create branch operation.</p>
  */
 export interface CreateBranchInput {
@@ -2037,6 +2175,7 @@ export interface CreateBranchInput {
 }
 
 /**
+ * @public
  * <p>The specified reference name is not valid.</p>
  */
 export class InvalidBranchNameException extends __BaseException {
@@ -2056,6 +2195,7 @@ export class InvalidBranchNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified commit ID is not valid.</p>
  */
 export class InvalidCommitIdException extends __BaseException {
@@ -2075,6 +2215,7 @@ export class InvalidCommitIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The commit message is too long. Provide a shorter string. </p>
  */
 export class CommitMessageLengthExceededException extends __BaseException {
@@ -2094,6 +2235,7 @@ export class CommitMessageLengthExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A file that is deleted as part of a commit.</p>
  */
 export interface DeleteFileEntry {
@@ -2104,6 +2246,7 @@ export interface DeleteFileEntry {
 }
 
 /**
+ * @public
  * <p>Information about a source file that is part of changes made in a commit.</p>
  */
 export interface SourceFileSpecifier {
@@ -2119,6 +2262,7 @@ export interface SourceFileSpecifier {
 }
 
 /**
+ * @public
  * <p>Information about a file added or updated as part of a commit.</p>
  */
 export interface PutFileEntry {
@@ -2145,6 +2289,7 @@ export interface PutFileEntry {
 }
 
 /**
+ * @public
  * <p>Information about the file mode changes.</p>
  */
 export interface SetFileModeEntry {
@@ -2159,6 +2304,9 @@ export interface SetFileModeEntry {
   fileMode: FileModeTypeEnum | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCommitInput {
   /**
    * <p>The name of the repository where you create the commit.</p>
@@ -2217,6 +2365,7 @@ export interface CreateCommitInput {
 }
 
 /**
+ * @public
  * <p>A file to be added, updated, or deleted as part of a commit.</p>
  */
 export interface FileMetadata {
@@ -2237,6 +2386,9 @@ export interface FileMetadata {
   fileMode?: FileModeTypeEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCommitOutput {
   /**
    * <p>The full commit ID of the commit that contains your committed file changes.</p>
@@ -2265,6 +2417,7 @@ export interface CreateCommitOutput {
 }
 
 /**
+ * @public
  * <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository.
  *         Either provide a different name for the file, or specify a different path for the file.</p>
  */
@@ -2285,6 +2438,7 @@ export class DirectoryNameConflictsWithFileNameException extends __BaseException
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because both a source file and file content have been
  *             specified for the same file. You cannot provide both. Either specify a source file or
  *             provide the file content directly.</p>
@@ -2306,6 +2460,7 @@ export class FileContentAndSourceFileSpecifiedException extends __BaseException 
 }
 
 /**
+ * @public
  * <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and
  *             the combined file content change size is 7 MB. Consider making these changes using a Git
  *             client.</p>
@@ -2327,6 +2482,7 @@ export class FileContentSizeLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified file does not exist. Verify that you have used the correct file name,
  *             full path, and extension.</p>
  */
@@ -2347,6 +2503,7 @@ export class FileDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
  */
 export class FileEntryRequiredException extends __BaseException {
@@ -2366,6 +2523,7 @@ export class FileEntryRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because no file mode has been specified. A file mode is
  *             required to update mode permissions for a file.</p>
  */
@@ -2386,6 +2544,7 @@ export class FileModeRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
  *         another name for the file, or add the file in a directory that does not match the file name.</p>
  */
@@ -2406,6 +2565,7 @@ export class FileNameConflictsWithDirectoryNameException extends __BaseException
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
  *         have valid file paths that do not point to a submodule.</p>
  */
@@ -2426,6 +2586,7 @@ export class FilePathConflictsWithSubmodulePathException extends __BaseException
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because at least one of the overall changes in the commit results in a
  *             folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes,
  *         or split the changes across multiple folders.</p>
@@ -2447,6 +2608,7 @@ export class FolderContentSizeLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified deletion parameter is not valid.</p>
  */
 export class InvalidDeletionParameterException extends __BaseException {
@@ -2466,6 +2628,7 @@ export class InvalidDeletionParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
  *         allowed for an email address.</p>
  */
@@ -2486,6 +2649,7 @@ export class InvalidEmailException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
  */
 export class InvalidFileModeException extends __BaseException {
@@ -2505,6 +2669,7 @@ export class InvalidFileModeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
  *         want to add or update a file.</p>
  */
@@ -2525,6 +2690,7 @@ export class InvalidParentCommitIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified path is not valid.</p>
  */
 export class InvalidPathException extends __BaseException {
@@ -2544,6 +2710,7 @@ export class InvalidPathException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of specified files to change as part of this commit exceeds the maximum number of files
  *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
  */
@@ -2564,6 +2731,7 @@ export class MaximumFileEntriesExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user name is not valid because it has exceeded the character limit for author names. </p>
  */
 export class NameLengthExceededException extends __BaseException {
@@ -2583,6 +2751,7 @@ export class NameLengthExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
  */
 export class NoChangeException extends __BaseException {
@@ -2602,6 +2771,7 @@ export class NoChangeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
  */
 export class ParentCommitDoesNotExistException extends __BaseException {
@@ -2621,6 +2791,7 @@ export class ParentCommitDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
  *         of the branch, use <a>GetBranch</a>.</p>
  */
@@ -2641,6 +2812,7 @@ export class ParentCommitIdOutdatedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
  *         (for example, git pull or git log).</p>
  */
@@ -2661,6 +2833,7 @@ export class ParentCommitIdRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The folderPath for a location cannot be null.</p>
  */
 export class PathRequiredException extends __BaseException {
@@ -2680,6 +2853,7 @@ export class PathRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
  */
 export class PutFileEntryConflictException extends __BaseException {
@@ -2699,6 +2873,7 @@ export class PutFileEntryConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
  */
 export class RestrictedSourceFileException extends __BaseException {
@@ -2718,6 +2893,7 @@ export class RestrictedSourceFileException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example,
  *         you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same
  *         file as part of the same commit.</p>
@@ -2739,6 +2915,7 @@ export class SamePathRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
  */
 export class SourceFileOrContentRequiredException extends __BaseException {
@@ -2758,6 +2935,7 @@ export class SourceFileOrContentRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about a target for a pull request.</p>
  */
 export interface Target {
@@ -2778,6 +2956,9 @@ export interface Target {
   destinationReference?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePullRequestInput {
   /**
    * <p>The title of the pull request. This title is used to identify the pull request to
@@ -2810,12 +2991,16 @@ export interface CreatePullRequestInput {
   clientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum PullRequestStatusEnum {
   CLOSED = "CLOSED",
   OPEN = "OPEN",
 }
 
 /**
+ * @public
  * <p>Returns information about a merge or potential merge between a source reference and a destination reference in a pull request.</p>
  */
 export interface MergeMetadata {
@@ -2841,6 +3026,7 @@ export interface MergeMetadata {
 }
 
 /**
+ * @public
  * <p>Returns information about a pull request target.</p>
  */
 export interface PullRequestTarget {
@@ -2884,6 +3070,7 @@ export interface PullRequestTarget {
 }
 
 /**
+ * @public
  * <p>Returns information about a pull request.</p>
  */
 export interface PullRequest {
@@ -2947,6 +3134,9 @@ export interface PullRequest {
   approvalRules?: ApprovalRule[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePullRequestOutput {
   /**
    * <p>Information about the newly created pull request.</p>
@@ -2955,6 +3145,7 @@ export interface CreatePullRequestOutput {
 }
 
 /**
+ * @public
  * <p>The client request token is not valid. Either the token is not in a valid format, or
  *             the token has been used in a previous request and cannot be reused.</p>
  */
@@ -2975,6 +3166,7 @@ export class IdempotencyParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client request token is not valid.</p>
  */
 export class InvalidClientRequestTokenException extends __BaseException {
@@ -2994,6 +3186,7 @@ export class InvalidClientRequestTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pull request description is not valid. Descriptions cannot be more than 1,000
  *             characters.</p>
  */
@@ -3014,6 +3207,7 @@ export class InvalidDescriptionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified reference name format is not valid. Reference names must conform to the
  *             Git references format (for example, refs/heads/master). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
  *                 Git References</a> or consult your Git documentation.</p>
@@ -3035,6 +3229,7 @@ export class InvalidReferenceNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
 export class InvalidTargetException extends __BaseException {
@@ -3054,6 +3249,7 @@ export class InvalidTargetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for
  *             the repository name, source branch, and destination branch for a pull request.</p>
  */
@@ -3074,6 +3270,7 @@ export class InvalidTargetsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
  */
 export class InvalidTitleException extends __BaseException {
@@ -3093,6 +3290,7 @@ export class InvalidTitleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You cannot create the pull request because the repository has too many open pull requests.
  *             The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.</p>
  */
@@ -3113,6 +3311,7 @@ export class MaximumOpenPullRequestsExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
  */
 export class MultipleRepositoriesInPullRequestException extends __BaseException {
@@ -3132,6 +3331,7 @@ export class MultipleRepositoriesInPullRequestException extends __BaseException 
 }
 
 /**
+ * @public
  * <p>The specified reference does not exist. You must provide a full commit ID.</p>
  */
 export class ReferenceDoesNotExistException extends __BaseException {
@@ -3151,6 +3351,7 @@ export class ReferenceDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A reference name is required, but none was provided.</p>
  */
 export class ReferenceNameRequiredException extends __BaseException {
@@ -3170,6 +3371,7 @@ export class ReferenceNameRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified reference is not a supported type. </p>
  */
 export class ReferenceTypeNotSupportedException extends __BaseException {
@@ -3189,6 +3391,7 @@ export class ReferenceTypeNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The source branch and destination branch for the pull request are the same. You must
  *             specify different branches for the source and destination.</p>
  */
@@ -3209,6 +3412,7 @@ export class SourceAndDestinationAreSameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
 export class TargetRequiredException extends __BaseException {
@@ -3228,6 +3432,7 @@ export class TargetRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An array of target objects is required. It cannot be empty or null.</p>
  */
 export class TargetsRequiredException extends __BaseException {
@@ -3247,6 +3452,7 @@ export class TargetsRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A pull request title is required. It cannot be empty or null.</p>
  */
 export class TitleRequiredException extends __BaseException {
@@ -3265,6 +3471,9 @@ export class TitleRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreatePullRequestApprovalRuleInput {
   /**
    * <p>The system-generated ID of the pull request for which you want to create the approval rule.</p>
@@ -3324,6 +3533,9 @@ export interface CreatePullRequestApprovalRuleInput {
   approvalRuleContent: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePullRequestApprovalRuleOutput {
   /**
    * <p>Information about the created approval rule.</p>
@@ -3332,6 +3544,7 @@ export interface CreatePullRequestApprovalRuleOutput {
 }
 
 /**
+ * @public
  * <p>The content for the approval rule is not valid.</p>
  */
 export class InvalidApprovalRuleContentException extends __BaseException {
@@ -3351,6 +3564,7 @@ export class InvalidApprovalRuleContentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The name for the approval rule is not valid.</p>
  */
 export class InvalidApprovalRuleNameException extends __BaseException {
@@ -3370,6 +3584,7 @@ export class InvalidApprovalRuleNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
  */
 export class InvalidPullRequestIdException extends __BaseException {
@@ -3389,6 +3604,7 @@ export class InvalidPullRequestIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
  */
 export class NumberOfRulesExceededException extends __BaseException {
@@ -3408,6 +3624,7 @@ export class NumberOfRulesExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pull request status cannot be updated because it is already closed.</p>
  */
 export class PullRequestAlreadyClosedException extends __BaseException {
@@ -3427,6 +3644,7 @@ export class PullRequestAlreadyClosedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
  */
 export class PullRequestDoesNotExistException extends __BaseException {
@@ -3446,6 +3664,7 @@ export class PullRequestDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A pull request ID is required, but none was provided.</p>
  */
 export class PullRequestIdRequiredException extends __BaseException {
@@ -3465,6 +3684,7 @@ export class PullRequestIdRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a create repository operation.</p>
  */
 export interface CreateRepositoryInput {
@@ -3499,6 +3719,7 @@ export interface CreateRepositoryInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a create repository operation.</p>
  */
 export interface CreateRepositoryOutput {
@@ -3509,6 +3730,7 @@ export interface CreateRepositoryOutput {
 }
 
 /**
+ * @public
  * <p>The specified repository description is not valid.</p>
  */
 export class InvalidRepositoryDescriptionException extends __BaseException {
@@ -3528,6 +3750,7 @@ export class InvalidRepositoryDescriptionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
  */
 export class InvalidSystemTagUsageException extends __BaseException {
@@ -3547,6 +3770,7 @@ export class InvalidSystemTagUsageException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The map of tags is not valid.</p>
  */
 export class InvalidTagsMapException extends __BaseException {
@@ -3566,6 +3790,7 @@ export class InvalidTagsMapException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A repository resource limit was exceeded.</p>
  */
 export class RepositoryLimitExceededException extends __BaseException {
@@ -3585,6 +3810,7 @@ export class RepositoryLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified repository name already exists.</p>
  */
 export class RepositoryNameExistsException extends __BaseException {
@@ -3604,6 +3830,7 @@ export class RepositoryNameExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The tag policy is not valid.</p>
  */
 export class TagPolicyException extends __BaseException {
@@ -3623,6 +3850,7 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -3642,6 +3870,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
  */
 export class ConcurrentReferenceUpdateException extends __BaseException {
@@ -3660,6 +3889,9 @@ export class ConcurrentReferenceUpdateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ReplacementTypeEnum {
   KEEP_BASE = "KEEP_BASE",
   KEEP_DESTINATION = "KEEP_DESTINATION",
@@ -3668,6 +3900,7 @@ export enum ReplacementTypeEnum {
 }
 
 /**
+ * @public
  * <p>Information about a replacement content entry in the conflict of a merge or pull request operation.</p>
  */
 export interface ReplaceContentEntry {
@@ -3693,6 +3926,7 @@ export interface ReplaceContentEntry {
 }
 
 /**
+ * @public
  * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
  *             resolving conflicts during a merge.</p>
  */
@@ -3713,6 +3947,9 @@ export interface ConflictResolution {
   setFileModes?: SetFileModeEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CreateUnreferencedMergeCommitInput {
   /**
    * <p>The name of the repository where you want to create the unreferenced merge commit.</p>
@@ -3781,6 +4018,9 @@ export interface CreateUnreferencedMergeCommitInput {
   conflictResolution?: ConflictResolution;
 }
 
+/**
+ * @public
+ */
 export interface CreateUnreferencedMergeCommitOutput {
   /**
    * <p>The full commit ID of the commit that contains your merge results.</p>
@@ -3794,6 +4034,7 @@ export interface CreateUnreferencedMergeCommitOutput {
 }
 
 /**
+ * @public
  * <p>The specified conflict resolution list is not valid.</p>
  */
 export class InvalidConflictResolutionException extends __BaseException {
@@ -3813,6 +4054,7 @@ export class InvalidConflictResolutionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
  */
 export class InvalidReplacementContentException extends __BaseException {
@@ -3832,6 +4074,7 @@ export class InvalidReplacementContentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
  */
 export class InvalidReplacementTypeException extends __BaseException {
@@ -3851,6 +4094,7 @@ export class InvalidReplacementTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
  */
 export class ManualMergeRequiredException extends __BaseException {
@@ -3870,6 +4114,7 @@ export class ManualMergeRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of allowed conflict resolution entries was exceeded.</p>
  */
 export class MaximumConflictResolutionEntriesExceededException extends __BaseException {
@@ -3890,6 +4135,7 @@ export class MaximumConflictResolutionEntriesExceededException extends __BaseExc
 }
 
 /**
+ * @public
  * <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
  */
 export class MultipleConflictResolutionEntriesException extends __BaseException {
@@ -3909,6 +4155,7 @@ export class MultipleConflictResolutionEntriesException extends __BaseException 
 }
 
 /**
+ * @public
  * <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
  */
 export class ReplacementContentRequiredException extends __BaseException {
@@ -3928,6 +4175,7 @@ export class ReplacementContentRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A replacement type is required.</p>
  */
 export class ReplacementTypeRequiredException extends __BaseException {
@@ -3946,6 +4194,9 @@ export class ReplacementTypeRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteApprovalRuleTemplateInput {
   /**
    * <p>The name of the approval rule template to delete.</p>
@@ -3953,6 +4204,9 @@ export interface DeleteApprovalRuleTemplateInput {
   approvalRuleTemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApprovalRuleTemplateOutput {
   /**
    * <p>The system-generated ID of the deleted approval rule template. If the template has
@@ -3962,6 +4216,7 @@ export interface DeleteApprovalRuleTemplateOutput {
 }
 
 /**
+ * @public
  * <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
  */
 export class DefaultBranchCannotBeDeletedException extends __BaseException {
@@ -3981,6 +4236,7 @@ export class DefaultBranchCannotBeDeletedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a delete branch operation.</p>
  */
 export interface DeleteBranchInput {
@@ -3996,6 +4252,7 @@ export interface DeleteBranchInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a delete branch operation.</p>
  */
 export interface DeleteBranchOutput {
@@ -4006,6 +4263,7 @@ export interface DeleteBranchOutput {
 }
 
 /**
+ * @public
  * <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
  */
 export class CommentDeletedException extends __BaseException {
@@ -4025,6 +4283,7 @@ export class CommentDeletedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
  *             then try again.</p>
  */
@@ -4045,6 +4304,7 @@ export class CommentDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The comment ID is missing or null. A comment ID is required.</p>
  */
 export class CommentIdRequiredException extends __BaseException {
@@ -4063,6 +4323,9 @@ export class CommentIdRequiredException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCommentContentInput {
   /**
    * <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
@@ -4072,6 +4335,7 @@ export interface DeleteCommentContentInput {
 }
 
 /**
+ * @public
  * <p>Returns information about a specific comment.</p>
  */
 export interface Comment {
@@ -4129,6 +4393,9 @@ export interface Comment {
   reactionCounts?: Record<string, number>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCommentContentOutput {
   /**
    * <p>Information about the comment you just deleted.</p>
@@ -4137,6 +4404,7 @@ export interface DeleteCommentContentOutput {
 }
 
 /**
+ * @public
  * <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  */
 export class InvalidCommentIdException extends __BaseException {
@@ -4155,6 +4423,9 @@ export class InvalidCommentIdException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFileInput {
   /**
    * <p>The name of the repository that contains the file to delete.</p>
@@ -4208,6 +4479,9 @@ export interface DeleteFileInput {
   email?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFileOutput {
   /**
    * <p>The full commit ID of the commit that contains the change that deletes the file.</p>
@@ -4231,6 +4505,9 @@ export interface DeleteFileOutput {
   filePath: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePullRequestApprovalRuleInput {
   /**
    * <p>The system-generated ID of the pull request that contains the approval rule you want to delete.</p>
@@ -4243,6 +4520,9 @@ export interface DeletePullRequestApprovalRuleInput {
   approvalRuleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePullRequestApprovalRuleOutput {
   /**
    * <p>The ID of the deleted approval rule. </p>
@@ -4255,6 +4535,7 @@ export interface DeletePullRequestApprovalRuleOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a delete repository operation.</p>
  */
 export interface DeleteRepositoryInput {
@@ -4265,6 +4546,7 @@ export interface DeleteRepositoryInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a delete repository operation.</p>
  */
 export interface DeleteRepositoryOutput {
@@ -4274,6 +4556,9 @@ export interface DeleteRepositoryOutput {
   repositoryId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMergeConflictsInput {
   /**
    * <p>The name of the repository where you want to get information about a merge conflict.</p>
@@ -4329,6 +4614,9 @@ export interface DescribeMergeConflictsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMergeConflictsOutput {
   /**
    * <p>Contains metadata about the conflicts found in the merge.</p>
@@ -4361,6 +4649,9 @@ export interface DescribeMergeConflictsOutput {
   baseCommitId?: string;
 }
 
+/**
+ * @public
+ */
 export enum PullRequestEventType {
   PULL_REQUEST_APPROVAL_RULE_CREATED = "PULL_REQUEST_APPROVAL_RULE_CREATED",
   PULL_REQUEST_APPROVAL_RULE_DELETED = "PULL_REQUEST_APPROVAL_RULE_DELETED",
@@ -4373,6 +4664,9 @@ export enum PullRequestEventType {
   PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED",
 }
 
+/**
+ * @public
+ */
 export interface DescribePullRequestEventsInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -4405,6 +4699,7 @@ export interface DescribePullRequestEventsInput {
 }
 
 /**
+ * @public
  * <p>Metadata about the pull request that is used when comparing the pull request source with its destination.</p>
  */
 export interface PullRequestCreatedEventMetadata {
@@ -4430,6 +4725,7 @@ export interface PullRequestCreatedEventMetadata {
 }
 
 /**
+ * @public
  * <p>Returns information about the change in the merge state for a pull request event. </p>
  */
 export interface PullRequestMergedStateChangedEventMetadata {
@@ -4450,6 +4746,7 @@ export interface PullRequestMergedStateChangedEventMetadata {
 }
 
 /**
+ * @public
  * <p>Information about an update to the source branch of a pull request.</p>
  */
 export interface PullRequestSourceReferenceUpdatedEventMetadata {
@@ -4475,6 +4772,7 @@ export interface PullRequestSourceReferenceUpdatedEventMetadata {
 }
 
 /**
+ * @public
  * <p>Information about a change to the status of a pull request.</p>
  */
 export interface PullRequestStatusChangedEventMetadata {
@@ -4485,6 +4783,7 @@ export interface PullRequestStatusChangedEventMetadata {
 }
 
 /**
+ * @public
  * <p>Returns information about a pull request event.</p>
  */
 export interface PullRequestEvent {
@@ -4548,6 +4847,9 @@ export interface PullRequestEvent {
   approvalRuleOverriddenEventMetadata?: ApprovalRuleOverriddenEventMetadata;
 }
 
+/**
+ * @public
+ */
 export interface DescribePullRequestEventsOutput {
   /**
    * <p>Information about the pull request events.</p>
@@ -4561,6 +4863,7 @@ export interface DescribePullRequestEventsOutput {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request,
  *             and then try again.</p>
  */
@@ -4581,6 +4884,7 @@ export class InvalidActorArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified number of maximum results is not valid.</p>
  */
 export class InvalidMaxResultsException extends __BaseException {
@@ -4600,6 +4904,7 @@ export class InvalidMaxResultsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pull request event type is not valid. </p>
  */
 export class InvalidPullRequestEventTypeException extends __BaseException {
@@ -4618,6 +4923,9 @@ export class InvalidPullRequestEventTypeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
   /**
    * <p>The name of the approval rule template to disassociate from a specified repository.</p>
@@ -4630,6 +4938,9 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
   repositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EvaluatePullRequestApprovalRulesInput {
   /**
    * <p>The system-generated ID of the pull request you want to evaluate.</p>
@@ -4645,6 +4956,7 @@ export interface EvaluatePullRequestApprovalRulesInput {
 }
 
 /**
+ * @public
  * <p>Returns information about the approval rules applied to a pull request and whether conditions have been met.</p>
  */
 export interface Evaluation {
@@ -4669,6 +4981,9 @@ export interface Evaluation {
   approvalRulesNotSatisfied?: string[];
 }
 
+/**
+ * @public
+ */
 export interface EvaluatePullRequestApprovalRulesOutput {
   /**
    * <p>The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have
@@ -4678,6 +4993,7 @@ export interface EvaluatePullRequestApprovalRulesOutput {
 }
 
 /**
+ * @public
  * <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
  */
 export class InvalidRevisionIdException extends __BaseException {
@@ -4697,6 +5013,7 @@ export class InvalidRevisionIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A revision ID is required, but was not provided.</p>
  */
 export class RevisionIdRequiredException extends __BaseException {
@@ -4716,6 +5033,7 @@ export class RevisionIdRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  */
 export class RevisionNotCurrentException extends __BaseException {
@@ -4734,6 +5052,9 @@ export class RevisionNotCurrentException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetApprovalRuleTemplateInput {
   /**
    * <p>The name of the approval rule template for which you want to get information.</p>
@@ -4741,6 +5062,9 @@ export interface GetApprovalRuleTemplateInput {
   approvalRuleTemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApprovalRuleTemplateOutput {
   /**
    * <p>The content and structure of the approval rule template.</p>
@@ -4749,6 +5073,7 @@ export interface GetApprovalRuleTemplateOutput {
 }
 
 /**
+ * @public
  * <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
  */
@@ -4769,6 +5094,7 @@ export class FileTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a get blob operation.</p>
  */
 export interface GetBlobInput {
@@ -4784,6 +5110,7 @@ export interface GetBlobInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a get blob operation.</p>
  */
 export interface GetBlobOutput {
@@ -4794,6 +5121,7 @@ export interface GetBlobOutput {
 }
 
 /**
+ * @public
  * <p>The specified blob is not valid.</p>
  */
 export class InvalidBlobIdException extends __BaseException {
@@ -4813,6 +5141,7 @@ export class InvalidBlobIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a get branch operation.</p>
  */
 export interface GetBranchInput {
@@ -4828,6 +5157,7 @@ export interface GetBranchInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a get branch operation.</p>
  */
 export interface GetBranchOutput {
@@ -4837,6 +5167,9 @@ export interface GetBranchOutput {
   branch?: BranchInfo;
 }
 
+/**
+ * @public
+ */
 export interface GetCommentInput {
   /**
    * <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
@@ -4845,6 +5178,9 @@ export interface GetCommentInput {
   commentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCommentOutput {
   /**
    * <p>The contents of the comment.</p>
@@ -4852,6 +5188,9 @@ export interface GetCommentOutput {
   comment?: Comment;
 }
 
+/**
+ * @public
+ */
 export interface GetCommentReactionsInput {
   /**
    * <p>The ID of the comment for which you want to get reactions information.</p>
@@ -4875,6 +5214,7 @@ export interface GetCommentReactionsInput {
 }
 
 /**
+ * @public
  * <p>Information about the values for reactions to a comment. AWS CodeCommit supports a limited set of reactions.</p>
  */
 export interface ReactionValueFormats {
@@ -4895,6 +5235,7 @@ export interface ReactionValueFormats {
 }
 
 /**
+ * @public
  * <p>Information about the reaction values provided by users on a comment.</p>
  */
 export interface ReactionForComment {
@@ -4915,6 +5256,9 @@ export interface ReactionForComment {
   reactionsFromDeletedUsersCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetCommentReactionsOutput {
   /**
    * <p>An array of reactions to the specified comment.</p>
@@ -4928,6 +5272,7 @@ export interface GetCommentReactionsOutput {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) of the user or identity is not valid.</p>
  */
 export class InvalidReactionUserArnException extends __BaseException {
@@ -4946,6 +5291,9 @@ export class InvalidReactionUserArnException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetCommentsForComparedCommitInput {
   /**
    * <p>The name of the repository where you want to compare commits.</p>
@@ -4976,12 +5324,16 @@ export interface GetCommentsForComparedCommitInput {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum RelativeFileVersionEnum {
   AFTER = "AFTER",
   BEFORE = "BEFORE",
 }
 
 /**
+ * @public
  * <p>Returns information about the location of a change or comment in the comparison between two commits or a pull request.</p>
  */
 export interface Location {
@@ -5003,6 +5355,7 @@ export interface Location {
 }
 
 /**
+ * @public
  * <p>Returns information about comments on the comparison between two commits.</p>
  */
 export interface CommentsForComparedCommit {
@@ -5046,6 +5399,9 @@ export interface CommentsForComparedCommit {
   comments?: Comment[];
 }
 
+/**
+ * @public
+ */
 export interface GetCommentsForComparedCommitOutput {
   /**
    * <p>A list of comment objects on the compared commit.</p>
@@ -5058,6 +5414,9 @@ export interface GetCommentsForComparedCommitOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCommentsForPullRequestInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -5093,6 +5452,7 @@ export interface GetCommentsForPullRequestInput {
 }
 
 /**
+ * @public
  * <p>Returns information about comments on a pull request.</p>
  */
 export interface CommentsForPullRequest {
@@ -5142,6 +5502,9 @@ export interface CommentsForPullRequest {
   comments?: Comment[];
 }
 
+/**
+ * @public
+ */
 export interface GetCommentsForPullRequestOutput {
   /**
    * <p>An array of comment objects on the pull request.</p>
@@ -5155,6 +5518,7 @@ export interface GetCommentsForPullRequestOutput {
 }
 
 /**
+ * @public
  * <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
  */
 export class RepositoryNotAssociatedWithPullRequestException extends __BaseException {
@@ -5174,6 +5538,7 @@ export class RepositoryNotAssociatedWithPullRequestException extends __BaseExcep
 }
 
 /**
+ * @public
  * <p>The specified commit ID does not exist.</p>
  */
 export class CommitIdDoesNotExistException extends __BaseException {
@@ -5193,6 +5558,7 @@ export class CommitIdDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a get commit operation.</p>
  */
 export interface GetCommitInput {
@@ -5208,6 +5574,7 @@ export interface GetCommitInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a get commit operation.</p>
  */
 export interface GetCommitOutput {
@@ -5217,6 +5584,9 @@ export interface GetCommitOutput {
   commit: Commit | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDifferencesInput {
   /**
    * <p>The name of the repository where you want to get differences.</p>
@@ -5265,6 +5635,7 @@ export interface GetDifferencesInput {
 }
 
 /**
+ * @public
  * <p>Returns information about a set of differences for a commit specifier.</p>
  */
 export interface Difference {
@@ -5286,6 +5657,9 @@ export interface Difference {
   changeType?: ChangeTypeEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface GetDifferencesOutput {
   /**
    * <p>A data type object that contains information about the differences, including whether
@@ -5300,6 +5674,7 @@ export interface GetDifferencesOutput {
 }
 
 /**
+ * @public
  * <p>The specified path does not exist.</p>
  */
 export class PathDoesNotExistException extends __BaseException {
@@ -5318,6 +5693,9 @@ export class PathDoesNotExistException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetFileInput {
   /**
    * <p>The name of the repository that contains the file.</p>
@@ -5339,6 +5717,9 @@ export interface GetFileInput {
   filePath: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFileOutput {
   /**
    * <p>The full commit ID of the commit that contains the content returned by GetFile.</p>
@@ -5378,6 +5759,7 @@ export interface GetFileOutput {
 }
 
 /**
+ * @public
  * <p>The specified folder does not exist. Either the folder name is not correct, or you did
  *             not enter the full path to the folder.</p>
  */
@@ -5397,6 +5779,9 @@ export class FolderDoesNotExistException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetFolderInput {
   /**
    * <p>The name of the repository.</p>
@@ -5420,6 +5805,7 @@ export interface GetFolderInput {
 }
 
 /**
+ * @public
  * <p>Returns information about a file in a repository.</p>
  */
 export interface File {
@@ -5445,6 +5831,7 @@ export interface File {
 }
 
 /**
+ * @public
  * <p>Returns information about a folder in a repository.</p>
  */
 export interface Folder {
@@ -5465,6 +5852,7 @@ export interface Folder {
 }
 
 /**
+ * @public
  * <p>Returns information about a submodule reference in a repository folder.</p>
  */
 export interface SubModule {
@@ -5485,6 +5873,7 @@ export interface SubModule {
 }
 
 /**
+ * @public
  * <p>Returns information about a symbolic link in a repository folder.</p>
  */
 export interface SymbolicLink {
@@ -5509,6 +5898,9 @@ export interface SymbolicLink {
   fileMode?: FileModeTypeEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface GetFolderOutput {
   /**
    * <p>The full commit ID used as a reference for the returned version of the folder
@@ -5548,6 +5940,9 @@ export interface GetFolderOutput {
   subModules?: SubModule[];
 }
 
+/**
+ * @public
+ */
 export interface GetMergeCommitInput {
   /**
    * <p>The name of the repository that contains the merge commit about which you want to get information.</p>
@@ -5582,6 +5977,9 @@ export interface GetMergeCommitInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface GetMergeCommitOutput {
   /**
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
@@ -5606,6 +6004,9 @@ export interface GetMergeCommitOutput {
   mergedCommitId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMergeConflictsInput {
   /**
    * <p>The name of the repository where the pull request was created.</p>
@@ -5656,6 +6057,9 @@ export interface GetMergeConflictsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMergeConflictsOutput {
   /**
    * <p>A Boolean value that indicates whether the code is mergeable by the specified merge option.</p>
@@ -5690,6 +6094,7 @@ export interface GetMergeConflictsOutput {
 }
 
 /**
+ * @public
  * <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
  */
 export class InvalidDestinationCommitSpecifierException extends __BaseException {
@@ -5709,6 +6114,7 @@ export class InvalidDestinationCommitSpecifierException extends __BaseException 
 }
 
 /**
+ * @public
  * <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
  */
 export class InvalidSourceCommitSpecifierException extends __BaseException {
@@ -5727,6 +6133,9 @@ export class InvalidSourceCommitSpecifierException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetMergeOptionsInput {
   /**
    * <p>The name of the repository that contains the commits about which you want to get merge options.</p>
@@ -5761,6 +6170,9 @@ export interface GetMergeOptionsInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface GetMergeOptionsOutput {
   /**
    * <p>The merge option or strategy used to merge the code.</p>
@@ -5783,6 +6195,9 @@ export interface GetMergeOptionsOutput {
   baseCommitId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPullRequestInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -5790,6 +6205,9 @@ export interface GetPullRequestInput {
   pullRequestId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPullRequestOutput {
   /**
    * <p>Information about the specified pull request.</p>
@@ -5797,6 +6215,9 @@ export interface GetPullRequestOutput {
   pullRequest: PullRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPullRequestApprovalStatesInput {
   /**
    * <p>The system-generated ID for the pull request.</p>
@@ -5809,6 +6230,9 @@ export interface GetPullRequestApprovalStatesInput {
   revisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPullRequestApprovalStatesOutput {
   /**
    * <p>Information about users who have approved the pull request.</p>
@@ -5816,6 +6240,9 @@ export interface GetPullRequestApprovalStatesOutput {
   approvals?: Approval[];
 }
 
+/**
+ * @public
+ */
 export interface GetPullRequestOverrideStateInput {
   /**
    * <p>The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).</p>
@@ -5830,6 +6257,9 @@ export interface GetPullRequestOverrideStateInput {
   revisionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPullRequestOverrideStateOutput {
   /**
    * <p>A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).</p>
@@ -5843,6 +6273,7 @@ export interface GetPullRequestOverrideStateOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a get repository operation.</p>
  */
 export interface GetRepositoryInput {
@@ -5853,6 +6284,7 @@ export interface GetRepositoryInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a get repository operation.</p>
  */
 export interface GetRepositoryOutput {
@@ -5863,6 +6295,7 @@ export interface GetRepositoryOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a get repository triggers operation.</p>
  */
 export interface GetRepositoryTriggersInput {
@@ -5872,6 +6305,9 @@ export interface GetRepositoryTriggersInput {
   repositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RepositoryTriggerEventEnum {
   ALL = "all",
   CREATE_REFERENCE = "createReference",
@@ -5880,6 +6316,7 @@ export enum RepositoryTriggerEventEnum {
 }
 
 /**
+ * @public
  * <p>Information about a trigger for a repository.</p>
  */
 export interface RepositoryTrigger {
@@ -5922,6 +6359,7 @@ export interface RepositoryTrigger {
 }
 
 /**
+ * @public
  * <p>Represents the output of a get repository triggers operation.</p>
  */
 export interface GetRepositoryTriggersOutput {
@@ -5936,6 +6374,9 @@ export interface GetRepositoryTriggersOutput {
   triggers?: RepositoryTrigger[];
 }
 
+/**
+ * @public
+ */
 export interface ListApprovalRuleTemplatesInput {
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
@@ -5949,6 +6390,9 @@ export interface ListApprovalRuleTemplatesInput {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApprovalRuleTemplatesOutput {
   /**
    * <p>The names of all the approval rule templates found in the AWS Region for your AWS account.</p>
@@ -5961,6 +6405,9 @@ export interface ListApprovalRuleTemplatesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
   /**
    * <p>The name of the repository for which you want to list all associated approval rule templates.</p>
@@ -5979,6 +6426,9 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
   /**
    * <p>The names of all approval rule templates associated with the repository.</p>
@@ -5992,6 +6442,7 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a list branches operation.</p>
  */
 export interface ListBranchesInput {
@@ -6007,6 +6458,7 @@ export interface ListBranchesInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a list branches operation.</p>
  */
 export interface ListBranchesOutput {
@@ -6022,6 +6474,7 @@ export interface ListBranchesOutput {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
  */
 export class InvalidAuthorArnException extends __BaseException {
@@ -6041,6 +6494,7 @@ export class InvalidAuthorArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
  */
 export class InvalidPullRequestStatusException extends __BaseException {
@@ -6059,6 +6513,9 @@ export class InvalidPullRequestStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListPullRequestsInput {
   /**
    * <p>The name of the repository for which you want to list pull requests.</p>
@@ -6088,6 +6545,9 @@ export interface ListPullRequestsInput {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPullRequestsOutput {
   /**
    * <p>The system-generated IDs of the pull requests.</p>
@@ -6101,6 +6561,7 @@ export interface ListPullRequestsOutput {
 }
 
 /**
+ * @public
  * <p>The specified sort order is not valid.</p>
  */
 export class InvalidOrderException extends __BaseException {
@@ -6120,6 +6581,7 @@ export class InvalidOrderException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified sort by value is not valid.</p>
  */
 export class InvalidSortByException extends __BaseException {

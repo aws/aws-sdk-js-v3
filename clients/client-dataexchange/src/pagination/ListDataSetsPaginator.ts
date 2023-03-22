@@ -10,7 +10,7 @@ import { DataExchangeClient } from "../DataExchangeClient";
 import { DataExchangePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataExchangeClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDataSetsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDataSets(
   config: DataExchangePaginationConfiguration,
   input: ListDataSetsCommandInput,

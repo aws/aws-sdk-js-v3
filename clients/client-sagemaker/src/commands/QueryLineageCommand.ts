@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link QueryLineageCommand}.
  */
 export interface QueryLineageCommandInput extends QueryLineageRequest {}
 /**
+ * @public
+ *
  * The output of {@link QueryLineageCommand}.
  */
 export interface QueryLineageCommandOutput extends QueryLineageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this action to inspect your lineage and discover relationships between entities.
  *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html">
  *             Querying Lineage Entities</a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryLineageCommandInput - {@link QueryLineageCommandInput}
+ * @returns {@link QueryLineageCommandOutput}
  * @see {@link QueryLineageCommandInput} for command's `input` shape.
  * @see {@link QueryLineageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class QueryLineageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryLineageCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class QueryLineageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryLineageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1QueryLineageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryLineageCommandOutput> {
     return deserializeAws_json1_1QueryLineageCommand(output, context);
   }

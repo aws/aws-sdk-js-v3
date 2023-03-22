@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIdentityPolicyCommand}.
  */
 export interface DeleteIdentityPolicyCommandInput extends DeleteIdentityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIdentityPolicyCommand}.
  */
 export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified sending authorization policy for the given identity (an email
  *             address or a domain). This API returns successfully even if a policy with the specified
  *             name does not exist.</p>
@@ -57,6 +62,8 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentityPolicyCommandInput - {@link DeleteIdentityPolicyCommandInput}
+ * @returns {@link DeleteIdentityPolicyCommandOutput}
  * @see {@link DeleteIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteIdentityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityPolicyCommandOutput> {
     return deserializeAws_queryDeleteIdentityPolicyCommand(output, context);
   }

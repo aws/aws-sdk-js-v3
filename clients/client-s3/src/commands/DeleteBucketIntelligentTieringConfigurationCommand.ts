@@ -24,16 +24,21 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketIntelligentTieringConfigurationCommand}.
  */
 export interface DeleteBucketIntelligentTieringConfigurationCommandInput
   extends DeleteBucketIntelligentTieringConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketIntelligentTieringConfigurationCommand}.
  */
 export interface DeleteBucketIntelligentTieringConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the S3 Intelligent-Tiering configuration from the specified bucket.</p>
  *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
  *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
@@ -67,6 +72,8 @@ export interface DeleteBucketIntelligentTieringConfigurationCommandOutput extend
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketIntelligentTieringConfigurationCommandInput - {@link DeleteBucketIntelligentTieringConfigurationCommandInput}
+ * @returns {@link DeleteBucketIntelligentTieringConfigurationCommandOutput}
  * @see {@link DeleteBucketIntelligentTieringConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketIntelligentTieringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketIntelligentTieringConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBucketIntelligentTieringConfigurationCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
     return serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

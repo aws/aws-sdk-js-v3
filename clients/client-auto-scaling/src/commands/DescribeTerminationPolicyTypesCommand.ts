@@ -24,10 +24,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTerminationPolicyTypesCommand}.
  */
 export interface DescribeTerminationPolicyTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTerminationPolicyTypesCommand}.
  */
 export interface DescribeTerminationPolicyTypesCommandOutput
@@ -35,6 +39,7 @@ export interface DescribeTerminationPolicyTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with
  *                 Amazon EC2 Auto Scaling termination policies</a> in the
@@ -49,6 +54,8 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTerminationPolicyTypesCommandInput - {@link DescribeTerminationPolicyTypesCommandInput}
+ * @returns {@link DescribeTerminationPolicyTypesCommandOutput}
  * @see {@link DescribeTerminationPolicyTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeTerminationPolicyTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTerminationPolicyTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTerminationPolicyTypesCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     return serializeAws_queryDescribeTerminationPolicyTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

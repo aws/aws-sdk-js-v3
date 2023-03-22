@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProtectedResourceCommand}.
  */
 export interface DescribeProtectedResourceCommandInput extends DescribeProtectedResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProtectedResourceCommand}.
  */
 export interface DescribeProtectedResourceCommandOutput extends DescribeProtectedResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a saved resource, including the last time it was backed up,
  *          its Amazon Resource Name (ARN), and the Amazon Web Services service type of the saved
  *          resource.</p>
@@ -48,6 +53,8 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProtectedResourceCommandInput - {@link DescribeProtectedResourceCommandInput}
+ * @returns {@link DescribeProtectedResourceCommandOutput}
  * @see {@link DescribeProtectedResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeProtectedResourceCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeProtectedResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProtectedResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeProtectedResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProtectedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeProtectedResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

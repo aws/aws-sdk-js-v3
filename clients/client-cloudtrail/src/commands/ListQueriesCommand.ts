@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueriesCommand}.
  */
 export interface ListQueriesCommandInput extends ListQueriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueriesCommand}.
  */
 export interface ListQueriesCommandOutput extends ListQueriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of queries and query statuses for the past seven days. You must specify
  *          an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
  *          you can specify a time range, formatted as timestamps, by adding <code>StartTime</code> and
@@ -52,6 +57,8 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueriesCommandInput - {@link ListQueriesCommandInput}
+ * @returns {@link ListQueriesCommandOutput}
  * @see {@link ListQueriesCommandInput} for command's `input` shape.
  * @see {@link ListQueriesCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -113,6 +120,9 @@ export class ListQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class ListQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueriesCommandOutput> {
     return deserializeAws_json1_1ListQueriesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFindingsReportCommand}.
  */
 export interface CreateFindingsReportCommandInput extends CreateFindingsReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFindingsReportCommand}.
  */
 export interface CreateFindingsReportCommandOutput extends CreateFindingsReportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a finding report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFindingsReportCommandInput - {@link CreateFindingsReportCommandInput}
+ * @returns {@link CreateFindingsReportCommandOutput}
  * @see {@link CreateFindingsReportCommandInput} for command's `input` shape.
  * @see {@link CreateFindingsReportCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -85,6 +92,9 @@ export class CreateFindingsReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFindingsReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateFindingsReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFindingsReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFindingsReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFindingsReportCommandOutput> {
     return deserializeAws_restJson1CreateFindingsReportCommand(output, context);
   }

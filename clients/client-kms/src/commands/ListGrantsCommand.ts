@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGrantsCommand}.
  */
 export interface ListGrantsCommandInput extends ListGrantsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGrantsCommand}.
  */
 export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all grants for the specified KMS key. </p>
  *          <p>You must specify the KMS key in all requests. You can filter the grant list by grant ID or
  *       grantee principal.</p>
@@ -90,6 +95,8 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGrantsCommandInput - {@link ListGrantsCommandInput}
+ * @returns {@link ListGrantsCommandOutput}
  * @see {@link ListGrantsCommandInput} for command's `input` shape.
  * @see {@link ListGrantsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -223,6 +230,9 @@ export class ListGrantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -260,10 +270,16 @@ export class ListGrantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGrantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGrantsCommandOutput> {
     return deserializeAws_json1_1ListGrantsCommand(output, context);
   }

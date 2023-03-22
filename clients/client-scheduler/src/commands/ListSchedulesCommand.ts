@@ -26,15 +26,20 @@ import {
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchedulesCommand}.
  */
 export interface ListSchedulesCommandInput extends ListSchedulesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSchedulesCommand}.
  */
 export interface ListSchedulesCommandOutput extends ListSchedulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of your EventBridge Scheduler schedules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSchedulesCommandOutput extends ListSchedulesOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchedulesCommandInput - {@link ListSchedulesCommandInput}
+ * @returns {@link ListSchedulesCommandOutput}
  * @see {@link ListSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListSchedulesCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchedulesCommandOutput> {
     return deserializeAws_restJson1ListSchedulesCommand(output, context);
   }

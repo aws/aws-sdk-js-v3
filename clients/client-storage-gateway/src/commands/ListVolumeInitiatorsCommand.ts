@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListVolumeInitiatorsCommand}.
  */
 export interface ListVolumeInitiatorsCommandInput extends ListVolumeInitiatorsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListVolumeInitiatorsCommand}.
  */
 export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists iSCSI initiators that are connected to a volume. You can use this operation to
  *          determine whether a volume is being used or not. This operation is only supported in the
  *          cached volume and stored volume gateway types.</p>
@@ -48,6 +53,8 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVolumeInitiatorsCommandInput - {@link ListVolumeInitiatorsCommandInput}
+ * @returns {@link ListVolumeInitiatorsCommandOutput}
  * @see {@link ListVolumeInitiatorsCommandInput} for command's `input` shape.
  * @see {@link ListVolumeInitiatorsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListVolumeInitiatorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVolumeInitiatorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListVolumeInitiatorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVolumeInitiatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListVolumeInitiatorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVolumeInitiatorsCommandOutput> {
     return deserializeAws_json1_1ListVolumeInitiatorsCommand(output, context);
   }

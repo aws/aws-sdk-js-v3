@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteJobExecutionCommand}.
  */
 export interface DeleteJobExecutionCommandInput extends DeleteJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteJobExecutionCommand}.
  */
 export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a job execution.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJobExecution</a> action.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobExecutionCommandInput - {@link DeleteJobExecutionCommandInput}
+ * @returns {@link DeleteJobExecutionCommandOutput}
  * @see {@link DeleteJobExecutionCommandInput} for command's `input` shape.
  * @see {@link DeleteJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobExecutionCommandOutput> {
     return deserializeAws_restJson1DeleteJobExecutionCommand(output, context);
   }

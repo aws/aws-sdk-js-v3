@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateConnectPeerCommand}.
  */
 export interface AssociateConnectPeerCommandInput extends AssociateConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateConnectPeerCommand}.
  */
 export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a core network Connect peer with a device and optionally, with a link. </p>
  *          <p>If you specify a link, it must be associated with the specified device. You can only
  *          associate core network Connect peers that have been created on a core network Connect
@@ -49,6 +54,8 @@ export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerR
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateConnectPeerCommandInput - {@link AssociateConnectPeerCommandInput}
+ * @returns {@link AssociateConnectPeerCommandOutput}
  * @see {@link AssociateConnectPeerCommandInput} for command's `input` shape.
  * @see {@link AssociateConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -94,6 +101,9 @@ export class AssociateConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class AssociateConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateConnectPeerCommandOutput> {
     return deserializeAws_restJson1AssociateConnectPeerCommand(output, context);
   }

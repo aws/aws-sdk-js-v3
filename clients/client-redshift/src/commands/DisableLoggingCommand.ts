@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableLoggingCommand}.
  */
 export interface DisableLoggingCommandInput extends DisableLoggingMessage {}
 /**
+ * @public
+ *
  * The output of {@link DisableLoggingCommand}.
  */
 export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops logging information, such as queries and connection attempts, for the
  *             specified Amazon Redshift cluster.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableLoggingCommandInput - {@link DisableLoggingCommandInput}
+ * @returns {@link DisableLoggingCommandOutput}
  * @see {@link DisableLoggingCommandInput} for command's `input` shape.
  * @see {@link DisableLoggingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -77,6 +84,9 @@ export class DisableLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DisableLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDisableLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableLoggingCommandOutput> {
     return deserializeAws_queryDisableLoggingCommand(output, context);
   }

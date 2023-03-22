@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReviewableHITsCommand}.
  */
 export interface ListReviewableHITsCommandInput extends ListReviewableHITsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReviewableHITsCommand}.
  */
 export interface ListReviewableHITsCommandOutput extends ListReviewableHITsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ListReviewableHITs</code> operation retrieves the HITs with Status equal to
  *             Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
@@ -49,6 +54,8 @@ export interface ListReviewableHITsCommandOutput extends ListReviewableHITsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReviewableHITsCommandInput - {@link ListReviewableHITsCommandInput}
+ * @returns {@link ListReviewableHITsCommandOutput}
  * @see {@link ListReviewableHITsCommandInput} for command's `input` shape.
  * @see {@link ListReviewableHITsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListReviewableHITsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReviewableHITsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListReviewableHITsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReviewableHITsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReviewableHITsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReviewableHITsCommandOutput> {
     return deserializeAws_json1_1ListReviewableHITsCommand(output, context);
   }

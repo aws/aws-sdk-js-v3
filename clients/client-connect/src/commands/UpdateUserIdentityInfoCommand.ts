@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserIdentityInfoCommand}.
  */
 export interface UpdateUserIdentityInfoCommandInput extends UpdateUserIdentityInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserIdentityInfoCommand}.
  */
 export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the identity information for the specified user.</p>
  *          <important>
  *             <p>We strongly recommend limiting who has the ability to invoke
@@ -50,6 +55,8 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserIdentityInfoCommandInput - {@link UpdateUserIdentityInfoCommandInput}
+ * @returns {@link UpdateUserIdentityInfoCommandOutput}
  * @see {@link UpdateUserIdentityInfoCommandInput} for command's `input` shape.
  * @see {@link UpdateUserIdentityInfoCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserIdentityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserIdentityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateUserIdentityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserIdentityInfoCommandOutput> {
     return deserializeAws_restJson1UpdateUserIdentityInfoCommand(output, context);
   }

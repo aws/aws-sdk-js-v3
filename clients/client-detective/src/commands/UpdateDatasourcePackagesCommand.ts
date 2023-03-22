@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatasourcePackagesCommand}.
  */
 export interface UpdateDatasourcePackagesCommandInput extends UpdateDatasourcePackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatasourcePackagesCommand}.
  */
 export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a data source packages for the behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatasourcePackagesCommandInput - {@link UpdateDatasourcePackagesCommandInput}
+ * @returns {@link UpdateDatasourcePackagesCommandOutput}
  * @see {@link UpdateDatasourcePackagesCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasourcePackagesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateDatasourcePackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatasourcePackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateDatasourcePackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatasourcePackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDatasourcePackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasourcePackagesCommandOutput> {
     return deserializeAws_restJson1UpdateDatasourcePackagesCommand(output, context);
   }

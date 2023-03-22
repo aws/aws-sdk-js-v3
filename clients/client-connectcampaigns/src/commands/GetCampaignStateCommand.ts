@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCampaignStateCommand}.
  */
 export interface GetCampaignStateCommandInput extends GetCampaignStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCampaignStateCommand}.
  */
 export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Get state of a campaign for the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignStateCommandInput - {@link GetCampaignStateCommandInput}
+ * @returns {@link GetCampaignStateCommandOutput}
  * @see {@link GetCampaignStateCommandInput} for command's `input` shape.
  * @see {@link GetCampaignStateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetCampaignStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetCampaignStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCampaignStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignStateCommandOutput> {
     return deserializeAws_restJson1GetCampaignStateCommand(output, context);
   }

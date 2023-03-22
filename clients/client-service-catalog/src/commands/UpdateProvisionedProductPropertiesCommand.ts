@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProvisionedProductPropertiesCommand}.
  */
 export interface UpdateProvisionedProductPropertiesCommandInput extends UpdateProvisionedProductPropertiesInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProvisionedProductPropertiesCommand}.
  */
 export interface UpdateProvisionedProductPropertiesCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests updates to the properties of the specified provisioned product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProvisionedProductPropertiesCommandInput - {@link UpdateProvisionedProductPropertiesCommandInput}
+ * @returns {@link UpdateProvisionedProductPropertiesCommandOutput}
  * @see {@link UpdateProvisionedProductPropertiesCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisionedProductPropertiesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProvisionedProductPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateProvisionedProductPropertiesCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     return serializeAws_json1_1UpdateProvisionedProductPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

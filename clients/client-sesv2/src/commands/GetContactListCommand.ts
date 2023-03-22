@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactListCommand}.
  */
 export interface GetContactListCommandInput extends GetContactListRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactListCommand}.
  */
 export interface GetContactListCommandOutput extends GetContactListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns contact list metadata. It does not return any information about the contacts
  *             present in the list.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactListCommandInput - {@link GetContactListCommandInput}
+ * @returns {@link GetContactListCommandOutput}
  * @see {@link GetContactListCommandInput} for command's `input` shape.
  * @see {@link GetContactListCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +86,9 @@ export class GetContactListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactListCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetContactListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetContactListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactListCommandOutput> {
     return deserializeAws_restJson1GetContactListCommand(output, context);
   }

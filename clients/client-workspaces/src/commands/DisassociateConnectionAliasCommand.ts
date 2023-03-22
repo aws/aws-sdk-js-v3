@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateConnectionAliasCommand}.
  */
 export interface DisassociateConnectionAliasCommandInput extends DisassociateConnectionAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateConnectionAliasCommand}.
  */
 export interface DisassociateConnectionAliasCommandOutput extends DisassociateConnectionAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a connection alias from a directory. Disassociating a connection alias
  *          disables cross-Region redirection between two directories in different Regions. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
@@ -54,6 +59,8 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConnectionAliasCommandInput - {@link DisassociateConnectionAliasCommandInput}
+ * @returns {@link DisassociateConnectionAliasCommandOutput}
  * @see {@link DisassociateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -92,6 +99,9 @@ export class DisassociateConnectionAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConnectionAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DisassociateConnectionAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateConnectionAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

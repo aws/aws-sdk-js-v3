@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link OpenInstancePublicPortsCommand}.
  */
 export interface OpenInstancePublicPortsCommandInput extends OpenInstancePublicPortsRequest {}
 /**
+ * @public
+ *
  * The output of {@link OpenInstancePublicPortsCommand}.
  */
 export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublicPortsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
  *       allowed to connect to the instance through the ports, and the protocol.</p>
  *          <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via
@@ -50,6 +55,8 @@ export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublic
  * const response = await client.send(command);
  * ```
  *
+ * @param OpenInstancePublicPortsCommandInput - {@link OpenInstancePublicPortsCommandInput}
+ * @returns {@link OpenInstancePublicPortsCommandOutput}
  * @see {@link OpenInstancePublicPortsCommandInput} for command's `input` shape.
  * @see {@link OpenInstancePublicPortsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +110,9 @@ export class OpenInstancePublicPortsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: OpenInstancePublicPortsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class OpenInstancePublicPortsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: OpenInstancePublicPortsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1OpenInstancePublicPortsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OpenInstancePublicPortsCommandOutput> {
     return deserializeAws_json1_1OpenInstancePublicPortsCommand(output, context);
   }

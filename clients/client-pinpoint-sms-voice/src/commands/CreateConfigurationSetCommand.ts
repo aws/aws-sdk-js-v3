@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandInput extends CreateConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
+ * @returns {@link CreateConfigurationSetCommandOutput}
  * @see {@link CreateConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigurationSetCommandOutput> {
     return deserializeAws_restJson1CreateConfigurationSetCommand(output, context);
   }

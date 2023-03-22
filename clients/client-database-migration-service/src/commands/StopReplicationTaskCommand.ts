@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopReplicationTaskCommand}.
  */
 export interface StopReplicationTaskCommandInput extends StopReplicationTaskMessage {}
 /**
+ * @public
+ *
  * The output of {@link StopReplicationTaskCommand}.
  */
 export interface StopReplicationTaskCommandOutput extends StopReplicationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the replication task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StopReplicationTaskCommandOutput extends StopReplicationTaskRes
  * const response = await client.send(command);
  * ```
  *
+ * @param StopReplicationTaskCommandInput - {@link StopReplicationTaskCommandInput}
+ * @returns {@link StopReplicationTaskCommandOutput}
  * @see {@link StopReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link StopReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -106,6 +113,9 @@ export class StopReplicationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopReplicationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class StopReplicationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopReplicationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopReplicationTaskCommandOutput> {
     return deserializeAws_json1_1StopReplicationTaskCommand(output, context);
   }

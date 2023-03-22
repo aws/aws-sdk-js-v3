@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkspaceBundleCommand}.
  */
 export interface DeleteWorkspaceBundleCommandInput extends DeleteWorkspaceBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkspaceBundleCommand}.
  */
 export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html">
  *             Delete a Custom WorkSpaces Bundle or Image</a>.</p>
@@ -48,6 +53,8 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkspaceBundleCommandInput - {@link DeleteWorkspaceBundleCommandInput}
+ * @returns {@link DeleteWorkspaceBundleCommandOutput}
  * @see {@link DeleteWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceBundleCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteWorkspaceBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkspaceBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteWorkspaceBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkspaceBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWorkspaceBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceBundleCommandOutput> {
     return deserializeAws_json1_1DeleteWorkspaceBundleCommand(output, context);
   }

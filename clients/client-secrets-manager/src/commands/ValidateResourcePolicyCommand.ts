@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateResourcePolicyCommand}.
  */
 export interface ValidateResourcePolicyCommandInput extends ValidateResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidateResourcePolicyCommand}.
  */
 export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates that a resource policy does not grant a wide range of principals access to
  *       your secret. A resource-based policy is optional for secrets.</p>
  *          <p>The API performs three checks when validating the policy:</p>
@@ -67,6 +72,8 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateResourcePolicyCommandInput - {@link ValidateResourcePolicyCommandInput}
+ * @returns {@link ValidateResourcePolicyCommandOutput}
  * @see {@link ValidateResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link ValidateResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -138,6 +145,9 @@ export class ValidateResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,10 +187,16 @@ export class ValidateResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ValidateResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateResourcePolicyCommandOutput> {
     return deserializeAws_json1_1ValidateResourcePolicyCommand(output, context);
   }

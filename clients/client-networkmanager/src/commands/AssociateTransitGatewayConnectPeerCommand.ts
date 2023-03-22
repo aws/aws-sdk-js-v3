@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTransitGatewayConnectPeerCommand}.
  */
 export interface AssociateTransitGatewayConnectPeerCommandInput extends AssociateTransitGatewayConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTransitGatewayConnectPeerCommand}.
  */
 export interface AssociateTransitGatewayConnectPeerCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
  *             specify a link, it must be associated with the specified device. </p>
  *          <p>You can only associate transit gateway Connect peers that have been created on a
@@ -52,6 +57,8 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTransitGatewayConnectPeerCommandInput - {@link AssociateTransitGatewayConnectPeerCommandInput}
+ * @returns {@link AssociateTransitGatewayConnectPeerCommandOutput}
  * @see {@link AssociateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -97,6 +104,9 @@ export class AssociateTransitGatewayConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTransitGatewayConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class AssociateTransitGatewayConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateTransitGatewayConnectPeerCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class AssociateTransitGatewayConnectPeerCommand extends $Command<
     return serializeAws_restJson1AssociateTransitGatewayConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNodesCommand}.
  */
 export interface ListNodesCommandInput extends ListNodesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNodesCommand}.
  */
 export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the nodes within a network.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNodesCommandInput - {@link ListNodesCommandInput}
+ * @returns {@link ListNodesCommandOutput}
  * @see {@link ListNodesCommandInput} for command's `input` shape.
  * @see {@link ListNodesCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListNodesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNodesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListNodesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListNodesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNodesCommandOutput> {
     return deserializeAws_restJson1ListNodesCommand(output, context);
   }

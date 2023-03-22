@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIdentityProviderConfigurationCommand}.
  */
 export interface UpdateIdentityProviderConfigurationCommandInput extends UpdateIdentityProviderConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIdentityProviderConfigurationCommand}.
  */
 export interface UpdateIdentityProviderConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateIdentityProviderConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the identity provider configuration for the fleet.</p>
@@ -50,6 +55,8 @@ export interface UpdateIdentityProviderConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIdentityProviderConfigurationCommandInput - {@link UpdateIdentityProviderConfigurationCommandInput}
+ * @returns {@link UpdateIdentityProviderConfigurationCommandOutput}
  * @see {@link UpdateIdentityProviderConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityProviderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIdentityProviderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateIdentityProviderConfigurationCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateIdentityProviderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListUserProfilesCommand}.
  */
 export interface ListUserProfilesCommandInput extends ListUserProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUserProfilesCommand}.
  */
 export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists user profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserProfilesCommandInput - {@link ListUserProfilesCommandInput}
+ * @returns {@link ListUserProfilesCommandOutput}
  * @see {@link ListUserProfilesCommandInput} for command's `input` shape.
  * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +76,9 @@ export class ListUserProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListUserProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUserProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserProfilesCommandOutput> {
     return deserializeAws_json1_1ListUserProfilesCommand(output, context);
   }

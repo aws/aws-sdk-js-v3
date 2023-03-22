@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssessmentTargetCommand}.
  */
 export interface CreateAssessmentTargetCommandInput extends CreateAssessmentTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssessmentTargetCommand}.
  */
 export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new assessment target using the ARN of the resource group that is generated
  *          by <a>CreateResourceGroup</a>. If resourceGroupArn is not specified, all EC2
  *          instances in the current AWS account and region are included in the assessment target. If
@@ -53,6 +58,8 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssessmentTargetCommandInput - {@link CreateAssessmentTargetCommandInput}
+ * @returns {@link CreateAssessmentTargetCommandOutput}
  * @see {@link CreateAssessmentTargetCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -118,6 +125,9 @@ export class CreateAssessmentTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssessmentTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class CreateAssessmentTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssessmentTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAssessmentTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssessmentTargetCommandOutput> {
     return deserializeAws_json1_1CreateAssessmentTargetCommand(output, context);
   }

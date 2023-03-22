@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMLTransformsCommand}.
  */
 export interface GetMLTransformsCommandInput extends GetMLTransformsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMLTransformsCommand}.
  */
 export interface GetMLTransformsCommandOutput extends GetMLTransformsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a sortable, filterable list of existing Glue machine learning transforms. Machine
  *       learning transforms are a special type of transform that use machine learning to learn the
  *       details of the transformation to be performed by learning from examples provided by humans.
@@ -50,6 +55,8 @@ export interface GetMLTransformsCommandOutput extends GetMLTransformsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMLTransformsCommandInput - {@link GetMLTransformsCommandInput}
+ * @returns {@link GetMLTransformsCommandOutput}
  * @see {@link GetMLTransformsCommandInput} for command's `input` shape.
  * @see {@link GetMLTransformsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetMLTransformsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMLTransformsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetMLTransformsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMLTransformsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMLTransformsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMLTransformsCommandOutput> {
     return deserializeAws_json1_1GetMLTransformsCommand(output, context);
   }

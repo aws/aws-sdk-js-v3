@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEgressOnlyInternetGatewayCommand}.
  */
 export interface DeleteEgressOnlyInternetGatewayCommandInput extends DeleteEgressOnlyInternetGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEgressOnlyInternetGatewayCommand}.
  */
 export interface DeleteEgressOnlyInternetGatewayCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an egress-only internet gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEgressOnlyInternetGatewayCommandInput - {@link DeleteEgressOnlyInternetGatewayCommandInput}
+ * @returns {@link DeleteEgressOnlyInternetGatewayCommandOutput}
  * @see {@link DeleteEgressOnlyInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteEgressOnlyInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEgressOnlyInternetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEgressOnlyInternetGatewayCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     return serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

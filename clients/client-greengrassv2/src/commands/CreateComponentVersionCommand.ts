@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateComponentVersionCommand}.
  */
 export interface CreateComponentVersionCommandInput extends CreateComponentVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateComponentVersionCommand}.
  */
 export interface CreateComponentVersionCommandOutput extends CreateComponentVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a component. Components are software that run on Greengrass core devices. After you
  *       develop and test a component on your core device, you can use this operation to upload your
  *       component to IoT Greengrass. Then, you can deploy the component to other core devices.</p>
@@ -114,6 +119,8 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComponentVersionCommandInput - {@link CreateComponentVersionCommandInput}
+ * @returns {@link CreateComponentVersionCommandOutput}
  * @see {@link CreateComponentVersionCommandInput} for command's `input` shape.
  * @see {@link CreateComponentVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -164,6 +171,9 @@ export class CreateComponentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComponentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -203,10 +213,16 @@ export class CreateComponentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComponentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateComponentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentVersionCommandOutput> {
     return deserializeAws_restJson1CreateComponentVersionCommand(output, context);
   }

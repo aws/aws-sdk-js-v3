@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartServiceSoftwareUpdateCommand}.
  */
 export interface StartServiceSoftwareUpdateCommandInput extends StartServiceSoftwareUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartServiceSoftwareUpdateCommand}.
  */
 export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules a service software update for an Amazon OpenSearch Service domain. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in
  *     Amazon OpenSearch Service</a>.</p>
@@ -48,6 +53,8 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  * const response = await client.send(command);
  * ```
  *
+ * @param StartServiceSoftwareUpdateCommandInput - {@link StartServiceSoftwareUpdateCommandInput}
+ * @returns {@link StartServiceSoftwareUpdateCommandOutput}
  * @see {@link StartServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link StartServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -83,6 +90,9 @@ export class StartServiceSoftwareUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StartServiceSoftwareUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartServiceSoftwareUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartServiceSoftwareUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

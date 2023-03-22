@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFirewallRuleCommand}.
  */
 export interface CreateFirewallRuleCommandInput extends CreateFirewallRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFirewallRuleCommand}.
  */
 export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFirewallRuleCommandInput - {@link CreateFirewallRuleCommandInput}
+ * @returns {@link CreateFirewallRuleCommandOutput}
  * @see {@link CreateFirewallRuleCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateFirewallRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFirewallRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateFirewallRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFirewallRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFirewallRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallRuleCommandOutput> {
     return deserializeAws_json1_1CreateFirewallRuleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEnrollmentStatusCommand}.
  */
 export interface UpdateEnrollmentStatusCommandInput extends UpdateEnrollmentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEnrollmentStatusCommand}.
  */
 export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the enrollment (opt in and opt out) status of an account to the Compute Optimizer service.</p>
  *          <p>If the account is a management account of an organization, this action can also be
  *             used to enroll member accounts of the organization.</p>
@@ -53,6 +58,8 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnrollmentStatusCommandInput - {@link UpdateEnrollmentStatusCommandInput}
+ * @returns {@link UpdateEnrollmentStatusCommandOutput}
  * @see {@link UpdateEnrollmentStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateEnrollmentStatusCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateEnrollmentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnrollmentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateEnrollmentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnrollmentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateEnrollmentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnrollmentStatusCommandOutput> {
     return deserializeAws_json1_0UpdateEnrollmentStatusCommand(output, context);
   }

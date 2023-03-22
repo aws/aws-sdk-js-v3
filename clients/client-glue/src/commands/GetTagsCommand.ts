@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetTagsCommand, serializeAws_json1_1GetTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTagsCommand}.
  */
 export interface GetTagsCommandInput extends GetTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTagsCommand}.
  */
 export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of tags associated with a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTagsCommandInput - {@link GetTagsCommandInput}
+ * @returns {@link GetTagsCommandOutput}
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -74,6 +81,9 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagsCommandOutput> {
     return deserializeAws_json1_1GetTagsCommand(output, context);
   }

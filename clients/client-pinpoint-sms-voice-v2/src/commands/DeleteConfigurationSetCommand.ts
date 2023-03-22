@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationSetCommand}.
  */
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing configuration set.</p>
  *         <p>A configuration set is a set of rules that you apply to voice and SMS messages that
  *             you send. In a configuration set, you can specify a destination for specific types of
@@ -53,6 +58,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
+ * @returns {@link DeleteConfigurationSetCommandOutput}
  * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationSetCommandOutput> {
     return deserializeAws_json1_0DeleteConfigurationSetCommand(output, context);
   }

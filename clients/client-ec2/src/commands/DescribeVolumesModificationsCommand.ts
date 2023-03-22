@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVolumesModificationsCommand}.
  */
 export interface DescribeVolumesModificationsCommandInput extends DescribeVolumesModificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVolumesModificationsCommand}.
  */
 export interface DescribeVolumesModificationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeVolumesModificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the most recent volume modification request for the specified EBS volumes.</p>
  *          <p>If a volume has never been modified, some information in the output will be null.
  *       If a volume has been modified more than once, the output includes only the most
@@ -54,6 +59,8 @@ export interface DescribeVolumesModificationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumesModificationsCommandInput - {@link DescribeVolumesModificationsCommandInput}
+ * @returns {@link DescribeVolumesModificationsCommandOutput}
  * @see {@link DescribeVolumesModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesModificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeVolumesModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumesModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeVolumesModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumesModificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVolumesModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

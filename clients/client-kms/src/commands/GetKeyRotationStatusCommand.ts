@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetKeyRotationStatusCommand}.
  */
 export interface GetKeyRotationStatusCommandInput extends GetKeyRotationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetKeyRotationStatusCommand}.
  */
 export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is
  *       enabled for the specified KMS key.</p>
  *          <p>When you enable automatic rotation for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS keys</a>, KMS
@@ -98,6 +103,8 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKeyRotationStatusCommandInput - {@link GetKeyRotationStatusCommandInput}
+ * @returns {@link GetKeyRotationStatusCommandOutput}
  * @see {@link GetKeyRotationStatusCommandInput} for command's `input` shape.
  * @see {@link GetKeyRotationStatusCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -175,6 +182,9 @@ export class GetKeyRotationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKeyRotationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -214,10 +224,16 @@ export class GetKeyRotationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKeyRotationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetKeyRotationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyRotationStatusCommandOutput> {
     return deserializeAws_json1_1GetKeyRotationStatusCommand(output, context);
   }

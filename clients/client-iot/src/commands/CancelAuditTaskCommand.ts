@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelAuditTaskCommand}.
  */
 export interface CancelAuditTaskCommandInput extends CancelAuditTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelAuditTaskCommand}.
  */
 export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditTask</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelAuditTaskCommandInput - {@link CancelAuditTaskCommandInput}
+ * @returns {@link CancelAuditTaskCommandOutput}
  * @see {@link CancelAuditTaskCommandInput} for command's `input` shape.
  * @see {@link CancelAuditTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class CancelAuditTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelAuditTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CancelAuditTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelAuditTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelAuditTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelAuditTaskCommandOutput> {
     return deserializeAws_restJson1CancelAuditTaskCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataSourceCommand}.
  */
 export interface UpdateDataSourceCommandInput extends UpdateDataSourceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataSourceCommand}.
  */
 export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>
  *         <p>You can use the <code>GetDataSource</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSourceCommandInput - {@link UpdateDataSourceCommandInput}
+ * @returns {@link UpdateDataSourceCommandOutput}
  * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSourceCommandOutput> {
     return deserializeAws_json1_1UpdateDataSourceCommand(output, context);
   }

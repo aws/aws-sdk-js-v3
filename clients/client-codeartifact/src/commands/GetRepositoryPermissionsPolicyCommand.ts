@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositoryPermissionsPolicyCommand}.
  */
 export interface GetRepositoryPermissionsPolicyCommandInput extends GetRepositoryPermissionsPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositoryPermissionsPolicyCommand}.
  */
 export interface GetRepositoryPermissionsPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface GetRepositoryPermissionsPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns the resource policy that is set on a repository.
  *       </p>
@@ -50,6 +55,8 @@ export interface GetRepositoryPermissionsPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryPermissionsPolicyCommandInput - {@link GetRepositoryPermissionsPolicyCommandInput}
+ * @returns {@link GetRepositoryPermissionsPolicyCommandOutput}
  * @see {@link GetRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRepositoryPermissionsPolicyCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
     return serializeAws_restJson1GetRepositoryPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

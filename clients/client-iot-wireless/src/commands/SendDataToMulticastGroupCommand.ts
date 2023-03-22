@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendDataToMulticastGroupCommand}.
  */
 export interface SendDataToMulticastGroupCommandInput extends SendDataToMulticastGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendDataToMulticastGroupCommand}.
  */
 export interface SendDataToMulticastGroupCommandOutput extends SendDataToMulticastGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends the specified data to a multicast group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  * const response = await client.send(command);
  * ```
  *
+ * @param SendDataToMulticastGroupCommandInput - {@link SendDataToMulticastGroupCommandInput}
+ * @returns {@link SendDataToMulticastGroupCommandOutput}
  * @see {@link SendDataToMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link SendDataToMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class SendDataToMulticastGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendDataToMulticastGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class SendDataToMulticastGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendDataToMulticastGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendDataToMulticastGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendDataToMulticastGroupCommandOutput> {
     return deserializeAws_restJson1SendDataToMulticastGroupCommand(output, context);
   }

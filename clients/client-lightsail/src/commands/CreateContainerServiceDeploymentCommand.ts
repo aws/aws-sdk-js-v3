@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContainerServiceDeploymentCommand}.
  */
 export interface CreateContainerServiceDeploymentCommandInput extends CreateContainerServiceDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContainerServiceDeploymentCommand}.
  */
 export interface CreateContainerServiceDeploymentCommandOutput
@@ -37,6 +41,7 @@ export interface CreateContainerServiceDeploymentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a deployment for your Amazon Lightsail container service.</p>
  *          <p>A deployment specifies the containers that will be launched on the container service and
  *       their settings, such as the ports to open, the environment variables to apply, and the launch
@@ -57,6 +62,8 @@ export interface CreateContainerServiceDeploymentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContainerServiceDeploymentCommandInput - {@link CreateContainerServiceDeploymentCommandInput}
+ * @returns {@link CreateContainerServiceDeploymentCommandOutput}
  * @see {@link CreateContainerServiceDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateContainerServiceDeploymentCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateContainerServiceDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContainerServiceDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class CreateContainerServiceDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateContainerServiceDeploymentCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class CreateContainerServiceDeploymentCommand extends $Command<
     return serializeAws_json1_1CreateContainerServiceDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

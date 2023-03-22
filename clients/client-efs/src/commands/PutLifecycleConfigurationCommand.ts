@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLifecycleConfigurationCommand}.
  */
 export interface PutLifecycleConfigurationCommandInput extends PutLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLifecycleConfigurationCommand}.
  */
 export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigurationDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this action to manage EFS lifecycle management and EFS Intelligent-Tiering. A
  *         <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
  *       objects that define the following:</p>
@@ -92,6 +97,8 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecycleConfigurationCommandInput - {@link PutLifecycleConfigurationCommandInput}
+ * @returns {@link PutLifecycleConfigurationCommandOutput}
  * @see {@link PutLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -154,6 +161,9 @@ export class PutLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,10 +203,16 @@ export class PutLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLifecycleConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

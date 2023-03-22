@@ -27,15 +27,20 @@ import {
 import { deserializeAws_json1_1SignUpCommand, serializeAws_json1_1SignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SignUpCommand}.
  */
 export interface SignUpCommandInput extends SignUpRequest {}
 /**
+ * @public
+ *
  * The output of {@link SignUpCommand}.
  */
 export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the user in the specified user pool and creates a user name, password, and
  *             user attributes.</p>
  *
@@ -66,6 +71,8 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SignUpCommandInput - {@link SignUpCommandInput}
+ * @returns {@link SignUpCommandOutput}
  * @see {@link SignUpCommandInput} for command's `input` shape.
  * @see {@link SignUpCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -146,6 +153,9 @@ export class SignUpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SignUpCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,10 +193,16 @@ export class SignUpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SignUpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignUpCommandOutput> {
     return deserializeAws_json1_1SignUpCommand(output, context);
   }

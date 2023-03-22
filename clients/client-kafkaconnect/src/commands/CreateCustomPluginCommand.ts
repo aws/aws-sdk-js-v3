@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomPluginCommand}.
  */
 export interface CreateCustomPluginCommandInput extends CreateCustomPluginRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomPluginCommand}.
  */
 export interface CreateCustomPluginCommandOutput extends CreateCustomPluginResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom plugin using the specified properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomPluginCommandInput - {@link CreateCustomPluginCommandInput}
+ * @returns {@link CreateCustomPluginCommandOutput}
  * @see {@link CreateCustomPluginCommandInput} for command's `input` shape.
  * @see {@link CreateCustomPluginCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
@@ -100,6 +107,9 @@ export class CreateCustomPluginCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomPluginCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateCustomPluginCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomPluginCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCustomPluginCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomPluginCommandOutput> {
     return deserializeAws_restJson1CreateCustomPluginCommand(output, context);
   }

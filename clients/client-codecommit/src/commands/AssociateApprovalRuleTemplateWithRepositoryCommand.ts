@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateApprovalRuleTemplateWithRepositoryCommand}.
  */
 export interface AssociateApprovalRuleTemplateWithRepositoryCommandInput
   extends AssociateApprovalRuleTemplateWithRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateApprovalRuleTemplateWithRepositoryCommand}.
  */
 export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between an approval rule template and a specified repository.
  *             Then, the next time a pull request is created in the repository where the destination
  *             reference (if specified) matches the destination reference (branch) for the pull
@@ -51,6 +56,8 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateApprovalRuleTemplateWithRepositoryCommandInput - {@link AssociateApprovalRuleTemplateWithRepositoryCommandInput}
+ * @returns {@link AssociateApprovalRuleTemplateWithRepositoryCommandOutput}
  * @see {@link AssociateApprovalRuleTemplateWithRepositoryCommandInput} for command's `input` shape.
  * @see {@link AssociateApprovalRuleTemplateWithRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -121,6 +128,9 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateApprovalRuleTemplateWithRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,6 +176,9 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
     context: __SerdeContext
@@ -173,6 +186,9 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     return serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

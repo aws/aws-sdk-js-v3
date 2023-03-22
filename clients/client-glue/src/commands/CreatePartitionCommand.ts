@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePartitionCommand}.
  */
 export interface CreatePartitionCommandInput extends CreatePartitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePartitionCommand}.
  */
 export interface CreatePartitionCommandOutput extends CreatePartitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePartitionCommandOutput extends CreatePartitionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePartitionCommandInput - {@link CreatePartitionCommandInput}
+ * @returns {@link CreatePartitionCommandOutput}
  * @see {@link CreatePartitionCommandInput} for command's `input` shape.
  * @see {@link CreatePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreatePartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreatePartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartitionCommandOutput> {
     return deserializeAws_json1_1CreatePartitionCommand(output, context);
   }

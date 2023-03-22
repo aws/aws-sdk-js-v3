@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyWorkspaceStateCommand}.
  */
 export interface ModifyWorkspaceStateCommandInput extends ModifyWorkspaceStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyWorkspaceStateCommand}.
  */
 export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the state of the specified WorkSpace.</p>
  *          <p>To maintain a WorkSpace without being interrupted, set the WorkSpace state to
  *             <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to requests to
@@ -51,6 +56,8 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyWorkspaceStateCommandInput - {@link ModifyWorkspaceStateCommandInput}
+ * @returns {@link ModifyWorkspaceStateCommandOutput}
  * @see {@link ModifyWorkspaceStateCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceStateCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -86,6 +93,9 @@ export class ModifyWorkspaceStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyWorkspaceStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ModifyWorkspaceStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyWorkspaceStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyWorkspaceStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyWorkspaceStateCommandOutput> {
     return deserializeAws_json1_1ModifyWorkspaceStateCommand(output, context);
   }

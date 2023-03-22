@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceMessageSpendLimitOverrideCommand}.
  */
 export interface DeleteVoiceMessageSpendLimitOverrideCommandInput extends DeleteVoiceMessageSpendLimitOverrideRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceMessageSpendLimitOverrideCommand}.
  */
 export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
@@ -41,6 +45,7 @@ export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an account level monthly spend limit override for sending voice messages.
  *             Deleting a spend limit override sets the <code>EnforcedLimit</code> equal to the
  *                 <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more
@@ -56,6 +61,8 @@ export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceMessageSpendLimitOverrideCommandInput - {@link DeleteVoiceMessageSpendLimitOverrideCommandInput}
+ * @returns {@link DeleteVoiceMessageSpendLimitOverrideCommandOutput}
  * @see {@link DeleteVoiceMessageSpendLimitOverrideCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceMessageSpendLimitOverrideCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteVoiceMessageSpendLimitOverrideCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceMessageSpendLimitOverrideCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DeleteVoiceMessageSpendLimitOverrideCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVoiceMessageSpendLimitOverrideCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DeleteVoiceMessageSpendLimitOverrideCommand extends $Command<
     return serializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

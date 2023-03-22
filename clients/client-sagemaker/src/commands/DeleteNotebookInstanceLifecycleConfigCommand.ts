@@ -24,15 +24,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotebookInstanceLifecycleConfigCommand}.
  */
 export interface DeleteNotebookInstanceLifecycleConfigCommandInput extends DeleteNotebookInstanceLifecycleConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotebookInstanceLifecycleConfigCommand}.
  */
 export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a notebook instance lifecycle configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotebookInstanceLifecycleConfigCommandInput - {@link DeleteNotebookInstanceLifecycleConfigCommandInput}
+ * @returns {@link DeleteNotebookInstanceLifecycleConfigCommandOutput}
  * @see {@link DeleteNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotebookInstanceLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,6 +116,9 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
@@ -113,6 +126,9 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     return serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

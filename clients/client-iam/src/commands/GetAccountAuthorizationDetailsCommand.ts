@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountAuthorizationDetailsCommand}.
  */
 export interface GetAccountAuthorizationDetailsCommandInput extends GetAccountAuthorizationDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountAuthorizationDetailsCommand}.
  */
 export interface GetAccountAuthorizationDetailsCommandOutput
@@ -37,6 +41,7 @@ export interface GetAccountAuthorizationDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all IAM users, groups, roles, and policies in your Amazon Web Services
  *             account, including their relationships to one another. Use this operation to obtain a
  *             snapshot of the configuration of IAM permissions (users, groups, roles, and policies)
@@ -61,6 +66,8 @@ export interface GetAccountAuthorizationDetailsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountAuthorizationDetailsCommandInput - {@link GetAccountAuthorizationDetailsCommandInput}
+ * @returns {@link GetAccountAuthorizationDetailsCommandOutput}
  * @see {@link GetAccountAuthorizationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetAccountAuthorizationDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountAuthorizationDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAccountAuthorizationDetailsCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     return serializeAws_queryGetAccountAuthorizationDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

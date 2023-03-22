@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionsCommand}.
  */
 export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionsCommand}.
  */
 export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
  *       functions per call.</p>
  *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
@@ -54,6 +59,8 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
+ * @returns {@link ListFunctionsCommandOutput}
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListFunctionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListFunctionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFunctionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionsCommandOutput> {
     return deserializeAws_restJson1ListFunctionsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedNodeOfferingCommand}.
  */
 export interface PurchaseReservedNodeOfferingCommandInput extends PurchaseReservedNodeOfferingMessage {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedNodeOfferingCommand}.
  */
 export interface PurchaseReservedNodeOfferingCommandOutput
@@ -37,6 +41,7 @@ export interface PurchaseReservedNodeOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of
  *             reserved node offerings. You can purchase one or more of the offerings. You can call the
  *                 <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved
@@ -56,6 +61,8 @@ export interface PurchaseReservedNodeOfferingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedNodeOfferingCommandInput - {@link PurchaseReservedNodeOfferingCommandInput}
+ * @returns {@link PurchaseReservedNodeOfferingCommandOutput}
  * @see {@link PurchaseReservedNodeOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedNodeOfferingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -94,6 +101,9 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedNodeOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseReservedNodeOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPurchaseReservedNodeOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

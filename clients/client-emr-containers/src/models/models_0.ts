@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { EMRContainersServiceException as __BaseException } from "./EMRContainersServiceException";
 
+/**
+ * @public
+ */
 export interface CancelJobRunRequest {
   /**
    * <p>The ID of the job run to cancel.</p>
@@ -15,6 +18,9 @@ export interface CancelJobRunRequest {
   virtualClusterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRunResponse {
   /**
    * <p>The output contains the ID of the cancelled job run.</p>
@@ -28,6 +34,7 @@ export interface CancelJobRunResponse {
 }
 
 /**
+ * @public
  * <p>This is an internal server exception.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -47,6 +54,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There are invalid parameters in the client request.</p>
  */
 export class ValidationException extends __BaseException {
@@ -66,6 +74,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> A configuration for CloudWatch monitoring. You can configure your jobs to send log
  *          information to CloudWatch Logs. This data type allows job template parameters to be
  *          specified within.</p>
@@ -83,6 +92,7 @@ export interface ParametricCloudWatchMonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p> Amazon S3 configuration for monitoring log publishing. You can configure your jobs to
  *          send log information to Amazon S3. This data type allows job template parameters to be
  *          specified within.</p>
@@ -95,6 +105,7 @@ export interface ParametricS3MonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p> Configuration setting for monitoring. This data type allows job template parameters to
  *          be specified within.</p>
  */
@@ -116,6 +127,7 @@ export interface ParametricMonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>The job driver for job type.</p>
  */
 export interface SparkSqlJobDriver {
@@ -131,6 +143,7 @@ export interface SparkSqlJobDriver {
 }
 
 /**
+ * @public
  * <p>The information about job driver for Spark submit.</p>
  */
 export interface SparkSubmitJobDriver {
@@ -151,6 +164,7 @@ export interface SparkSubmitJobDriver {
 }
 
 /**
+ * @public
  * <p>Specify the driver that the job runs on. Exactly one of the two available job drivers is
  *          required, either sparkSqlJobDriver or sparkSubmitJobDriver.</p>
  */
@@ -166,12 +180,16 @@ export interface JobDriver {
   sparkSqlJobDriver?: SparkSqlJobDriver;
 }
 
+/**
+ * @public
+ */
 export enum TemplateParameterDataType {
   NUMBER = "NUMBER",
   STRING = "STRING",
 }
 
 /**
+ * @public
  * <p>The configuration of a job template parameter.</p>
  */
 export interface TemplateParameterConfiguration {
@@ -186,6 +204,9 @@ export interface TemplateParameterConfiguration {
   defaultValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateResponse {
   /**
    * <p>This output display the created job template ID.</p>
@@ -209,6 +230,7 @@ export interface CreateJobTemplateResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -228,6 +250,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A configuration for CloudWatch monitoring. You can configure your jobs to send log
  *          information to CloudWatch Logs.</p>
  */
@@ -243,12 +266,16 @@ export interface CloudWatchMonitoringConfiguration {
   logStreamNamePrefix?: string;
 }
 
+/**
+ * @public
+ */
 export enum PersistentAppUI {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p> Amazon S3 configuration for monitoring log publishing. You can configure your jobs to
  *          send log information to Amazon S3.</p>
  */
@@ -260,6 +287,7 @@ export interface S3MonitoringConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration setting for monitoring.</p>
  */
 export interface MonitoringConfiguration {
@@ -279,6 +307,9 @@ export interface MonitoringConfiguration {
   s3MonitoringConfiguration?: S3MonitoringConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateManagedEndpointResponse {
   /**
    * <p>The output contains the ID of the managed endpoint.</p>
@@ -302,6 +333,7 @@ export interface CreateManagedEndpointResponse {
 }
 
 /**
+ * @public
  * <p>The information about the Amazon EKS cluster.</p>
  */
 export interface EksInfo {
@@ -312,10 +344,14 @@ export interface EksInfo {
 }
 
 /**
+ * @public
  * <p>The information about the container used for a job run or a managed endpoint.</p>
  */
 export type ContainerInfo = ContainerInfo.EksInfoMember | ContainerInfo.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ContainerInfo {
   /**
    * <p>The information about the Amazon EKS cluster.</p>
@@ -341,11 +377,15 @@ export namespace ContainerInfo {
   };
 }
 
+/**
+ * @public
+ */
 export enum ContainerProviderType {
   EKS = "EKS",
 }
 
 /**
+ * @public
  * <p>The information about the container provider.</p>
  */
 export interface ContainerProvider {
@@ -365,6 +405,9 @@ export interface ContainerProvider {
   info?: ContainerInfo;
 }
 
+/**
+ * @public
+ */
 export interface CreateVirtualClusterRequest {
   /**
    * <p>The specified name of the virtual cluster.</p>
@@ -387,6 +430,9 @@ export interface CreateVirtualClusterRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateVirtualClusterResponse {
   /**
    * <p>This output contains the virtual cluster ID.</p>
@@ -404,6 +450,9 @@ export interface CreateVirtualClusterResponse {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTemplateRequest {
   /**
    * <p>The ID of the job template that will be deleted.</p>
@@ -411,6 +460,9 @@ export interface DeleteJobTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTemplateResponse {
   /**
    * <p>This output contains the ID of the job template that was deleted.</p>
@@ -418,6 +470,9 @@ export interface DeleteJobTemplateResponse {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteManagedEndpointRequest {
   /**
    * <p>The ID of the managed endpoint.</p>
@@ -430,6 +485,9 @@ export interface DeleteManagedEndpointRequest {
   virtualClusterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteManagedEndpointResponse {
   /**
    * <p>The output displays the ID of the managed endpoint.</p>
@@ -442,6 +500,9 @@ export interface DeleteManagedEndpointResponse {
   virtualClusterId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVirtualClusterRequest {
   /**
    * <p>The ID of the virtual cluster that will be deleted.</p>
@@ -449,6 +510,9 @@ export interface DeleteVirtualClusterRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVirtualClusterResponse {
   /**
    * <p>This output contains the ID of the virtual cluster that will be deleted. </p>
@@ -456,6 +520,9 @@ export interface DeleteVirtualClusterResponse {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobRunRequest {
   /**
    * <p>The ID of the job run request. </p>
@@ -468,6 +535,9 @@ export interface DescribeJobRunRequest {
   virtualClusterId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FailureReason {
   CLUSTER_UNAVAILABLE = "CLUSTER_UNAVAILABLE",
   INTERNAL_ERROR = "INTERNAL_ERROR",
@@ -476,6 +546,7 @@ export enum FailureReason {
 }
 
 /**
+ * @public
  * <p>The configuration of the retry policy that the job runs on.</p>
  */
 export interface RetryPolicyConfiguration {
@@ -486,6 +557,7 @@ export interface RetryPolicyConfiguration {
 }
 
 /**
+ * @public
  * <p>The current status of the retry policy executed on the job.</p>
  */
 export interface RetryPolicyExecution {
@@ -495,6 +567,9 @@ export interface RetryPolicyExecution {
   currentAttemptCount: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum JobRunState {
   CANCELLED = "CANCELLED",
   CANCEL_PENDING = "CANCEL_PENDING",
@@ -505,6 +580,9 @@ export enum JobRunState {
   SUBMITTED = "SUBMITTED",
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobTemplateRequest {
   /**
    * <p>The ID of the job template that will be described.</p>
@@ -512,6 +590,9 @@ export interface DescribeJobTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeManagedEndpointRequest {
   /**
    * <p>This output displays ID of the managed endpoint.</p>
@@ -525,6 +606,7 @@ export interface DescribeManagedEndpointRequest {
 }
 
 /**
+ * @public
  * <p>The entity representing certificate data generated for managed endpoint.</p>
  */
 export interface Certificate {
@@ -539,6 +621,9 @@ export interface Certificate {
   certificateData?: string;
 }
 
+/**
+ * @public
+ */
 export enum EndpointState {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -547,6 +632,9 @@ export enum EndpointState {
   TERMINATING = "TERMINATING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeVirtualClusterRequest {
   /**
    * <p>The ID of the virtual cluster that will be described.</p>
@@ -554,6 +642,9 @@ export interface DescribeVirtualClusterRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum VirtualClusterState {
   ARRESTED = "ARRESTED",
   RUNNING = "RUNNING",
@@ -562,6 +653,7 @@ export enum VirtualClusterState {
 }
 
 /**
+ * @public
  * <p>This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace
  *          that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run jobs and host
  *          endpoints. Multiple virtual clusters can be backed by the same physical cluster. However,
@@ -606,6 +698,9 @@ export interface VirtualCluster {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVirtualClusterResponse {
   /**
    * <p>This output displays information about the specified virtual cluster.</p>
@@ -613,6 +708,9 @@ export interface DescribeVirtualClusterResponse {
   virtualCluster?: VirtualCluster;
 }
 
+/**
+ * @public
+ */
 export interface ListJobRunsRequest {
   /**
    * <p>The ID of the virtual cluster for which to list the job run. </p>
@@ -650,6 +748,9 @@ export interface ListJobRunsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobTemplatesRequest {
   /**
    * <p>The date and time after which the job templates were created.</p>
@@ -672,6 +773,9 @@ export interface ListJobTemplatesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedEndpointsRequest {
   /**
    * <p>The ID of the virtual cluster.</p>
@@ -709,6 +813,9 @@ export interface ListManagedEndpointsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of tagged resources.</p>
@@ -716,6 +823,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags assigned to resources.</p>
@@ -723,6 +833,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualClustersRequest {
   /**
    * <p>The container provider ID of the virtual cluster.</p>
@@ -761,6 +874,9 @@ export interface ListVirtualClustersRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualClustersResponse {
   /**
    * <p>This output lists the specified virtual clusters.</p>
@@ -773,6 +889,9 @@ export interface ListVirtualClustersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunResponse {
   /**
    * <p>This output displays the started job run ID.</p>
@@ -795,6 +914,9 @@ export interface StartJobRunResponse {
   virtualClusterId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of resources.</p>
@@ -807,8 +929,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of resources.</p>
@@ -821,9 +949,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>A configuration specification to be used when provisioning virtual clusters, which can
  *          include configurations for applications and software bundled with Amazon EMR on EKS. A
  *          configuration consists of a classification, properties, and optional nested configurations.
@@ -848,6 +980,7 @@ export interface Configuration {
 }
 
 /**
+ * @public
  * <p>A configuration specification to be used to override existing configurations.</p>
  */
 export interface ConfigurationOverrides {
@@ -863,6 +996,7 @@ export interface ConfigurationOverrides {
 }
 
 /**
+ * @public
  * <p> A configuration specification to be used to override existing configurations. This data
  *          type allows job template parameters to be specified within.</p>
  */
@@ -878,6 +1012,9 @@ export interface ParametricConfigurationOverrides {
   monitoringConfiguration?: ParametricMonitoringConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateManagedEndpointRequest {
   /**
    * <p>The name of the managed endpoint.</p>
@@ -929,6 +1066,7 @@ export interface CreateManagedEndpointRequest {
 }
 
 /**
+ * @public
  * <p>This entity represents the endpoint that is managed by Amazon EMR on EKS.</p>
  */
 export interface Endpoint {
@@ -1029,6 +1167,7 @@ export interface Endpoint {
 }
 
 /**
+ * @public
  * <p>This entity describes a job run. A job run is a unit of work, such as a Spark jar,
  *          PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS. </p>
  */
@@ -1125,6 +1264,7 @@ export interface JobRun {
 }
 
 /**
+ * @public
  * <p>The values of StartJobRun API requests used in job runs started using the job
  *          template.</p>
  */
@@ -1161,6 +1301,9 @@ export interface JobTemplateData {
   jobTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunRequest {
   /**
    * <p>The name of the job run.</p>
@@ -1218,6 +1361,9 @@ export interface StartJobRunRequest {
   retryPolicyConfiguration?: RetryPolicyConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobTemplateRequest {
   /**
    * <p>The specified name of the job template.</p>
@@ -1245,6 +1391,9 @@ export interface CreateJobTemplateRequest {
   kmsKeyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobRunResponse {
   /**
    * <p>The output displays information about a job run.</p>
@@ -1252,6 +1401,9 @@ export interface DescribeJobRunResponse {
   jobRun?: JobRun;
 }
 
+/**
+ * @public
+ */
 export interface DescribeManagedEndpointResponse {
   /**
    * <p>This output displays information about a managed endpoint.</p>
@@ -1260,6 +1412,7 @@ export interface DescribeManagedEndpointResponse {
 }
 
 /**
+ * @public
  * <p>This entity describes a job template. Job template stores values of StartJobRun API
  *          request in a template and can be used to start a job run. Job template allows two use
  *          cases: avoid repeating recurring StartJobRun API request values, enforcing certain values
@@ -1312,6 +1465,9 @@ export interface JobTemplate {
   decryptionError?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobTemplateResponse {
   /**
    * <p>This output displays information about the specified job template.</p>
@@ -1319,6 +1475,9 @@ export interface DescribeJobTemplateResponse {
   jobTemplate?: JobTemplate;
 }
 
+/**
+ * @public
+ */
 export interface ListJobRunsResponse {
   /**
    * <p>This output lists information about the specified job runs.</p>
@@ -1331,6 +1490,9 @@ export interface ListJobRunsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListManagedEndpointsResponse {
   /**
    * <p>The managed endpoints to be listed.</p>
@@ -1343,6 +1505,9 @@ export interface ListManagedEndpointsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobTemplatesResponse {
   /**
    * <p>This output lists information about the specified job templates.</p>

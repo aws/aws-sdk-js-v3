@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocalGatewayRouteTableCommand}.
  */
 export interface CreateLocalGatewayRouteTableCommandInput extends CreateLocalGatewayRouteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocalGatewayRouteTableCommand}.
  */
 export interface CreateLocalGatewayRouteTableCommandOutput
@@ -37,6 +41,7 @@ export interface CreateLocalGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a local gateway route table.
  *       </p>
@@ -50,6 +55,8 @@ export interface CreateLocalGatewayRouteTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocalGatewayRouteTableCommandInput - {@link CreateLocalGatewayRouteTableCommandInput}
+ * @returns {@link CreateLocalGatewayRouteTableCommandOutput}
  * @see {@link CreateLocalGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link CreateLocalGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class CreateLocalGatewayRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocalGatewayRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateLocalGatewayRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocalGatewayRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateLocalGatewayRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

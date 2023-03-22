@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLocationObjectStorageCommand}.
  */
 export interface UpdateLocationObjectStorageCommandInput extends UpdateLocationObjectStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLocationObjectStorageCommand}.
  */
 export interface UpdateLocationObjectStorageCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates some parameters of an existing object storage location that DataSync
  *       accesses for a transfer. For information about creating a self-managed object storage
  *       location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object
@@ -51,6 +56,8 @@ export interface UpdateLocationObjectStorageCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLocationObjectStorageCommandInput - {@link UpdateLocationObjectStorageCommandInput}
+ * @returns {@link UpdateLocationObjectStorageCommandOutput}
  * @see {@link UpdateLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationObjectStorageCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateLocationObjectStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLocationObjectStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateLocationObjectStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLocationObjectStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateLocationObjectStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

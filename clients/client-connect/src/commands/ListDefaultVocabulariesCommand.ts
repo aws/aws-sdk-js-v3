@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDefaultVocabulariesCommand}.
  */
 export interface ListDefaultVocabulariesCommandInput extends ListDefaultVocabulariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDefaultVocabulariesCommand}.
  */
 export interface ListDefaultVocabulariesCommandOutput extends ListDefaultVocabulariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the default vocabularies for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDefaultVocabulariesCommandOutput extends ListDefaultVocabul
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDefaultVocabulariesCommandInput - {@link ListDefaultVocabulariesCommandInput}
+ * @returns {@link ListDefaultVocabulariesCommandOutput}
  * @see {@link ListDefaultVocabulariesCommandInput} for command's `input` shape.
  * @see {@link ListDefaultVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListDefaultVocabulariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDefaultVocabulariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListDefaultVocabulariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDefaultVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDefaultVocabulariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDefaultVocabulariesCommandOutput> {
     return deserializeAws_restJson1ListDefaultVocabulariesCommand(output, context);
   }

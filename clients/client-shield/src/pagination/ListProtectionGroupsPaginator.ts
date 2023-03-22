@@ -10,7 +10,7 @@ import { ShieldClient } from "../ShieldClient";
 import { ShieldPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ShieldClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListProtectionGroupsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListProtectionGroups(
   config: ShieldPaginationConfiguration,
   input: ListProtectionGroupsCommandInput,

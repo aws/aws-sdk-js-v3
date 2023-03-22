@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourcePolicyCommand}.
  */
 export interface DescribeResourcePolicyCommandInput extends DescribeResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourcePolicyCommand}.
  */
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the resource policy and policy revision for a bot or bot
  *          alias.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
+ * @returns {@link DescribeResourcePolicyCommandOutput}
  * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePolicyCommandOutput> {
     return deserializeAws_restJson1DescribeResourcePolicyCommand(output, context);
   }

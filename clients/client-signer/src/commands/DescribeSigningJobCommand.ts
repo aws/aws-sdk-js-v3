@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSigningJobCommand}.
  */
 export interface DescribeSigningJobCommandInput extends DescribeSigningJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSigningJobCommand}.
  */
 export interface DescribeSigningJobCommandOutput extends DescribeSigningJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific code signing job. You specify the job by using
  * 			the <code>jobId</code> value that is returned by the <a>StartSigningJob</a>
  * 			operation. </p>
@@ -48,6 +53,8 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSigningJobCommandInput - {@link DescribeSigningJobCommandInput}
+ * @returns {@link DescribeSigningJobCommandOutput}
  * @see {@link DescribeSigningJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSigningJobCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeSigningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSigningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeSigningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSigningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSigningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSigningJobCommandOutput> {
     return deserializeAws_restJson1DescribeSigningJobCommand(output, context);
   }

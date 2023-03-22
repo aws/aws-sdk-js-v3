@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupVersionsCommand}.
  */
 export interface ListGroupVersionsCommandInput extends ListGroupVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupVersionsCommand}.
  */
 export interface ListGroupVersionsCommandOutput extends ListGroupVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListGroupVersionsCommandOutput extends ListGroupVersionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupVersionsCommandInput - {@link ListGroupVersionsCommandInput}
+ * @returns {@link ListGroupVersionsCommandOutput}
  * @see {@link ListGroupVersionsCommandInput} for command's `input` shape.
  * @see {@link ListGroupVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListGroupVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListGroupVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListGroupVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupVersionsCommandOutput> {
     return deserializeAws_restJson1ListGroupVersionsCommand(output, context);
   }

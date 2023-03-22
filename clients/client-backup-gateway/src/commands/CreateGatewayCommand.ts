@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGatewayCommand}.
  */
 export interface CreateGatewayCommandInput extends CreateGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateGatewayCommand}.
  */
 export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backup gateway. After you create a gateway, you can associate it with a server
  *       using the <code>AssociateGatewayToServer</code> operation.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGatewayCommandInput - {@link CreateGatewayCommandInput}
+ * @returns {@link CreateGatewayCommandOutput}
  * @see {@link CreateGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CreateGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGatewayCommandOutput> {
     return deserializeAws_json1_0CreateGatewayCommand(output, context);
   }

@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserPoolClientCommand}.
  */
 export interface DescribeUserPoolClientCommandInput extends DescribeUserPoolClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserPoolClientCommand}.
  */
 export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Client method for returning the configuration information and metadata of the
  *             specified user pool app client.</p>
  * @example
@@ -52,6 +57,8 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserPoolClientCommandInput - {@link DescribeUserPoolClientCommandInput}
+ * @returns {@link DescribeUserPoolClientCommandOutput}
  * @see {@link DescribeUserPoolClientCommandInput} for command's `input` shape.
  * @see {@link DescribeUserPoolClientCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -93,6 +100,9 @@ export class DescribeUserPoolClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserPoolClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeUserPoolClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserPoolClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserPoolClientCommandOutput> {
     return deserializeAws_json1_1DescribeUserPoolClientCommand(output, context);
   }

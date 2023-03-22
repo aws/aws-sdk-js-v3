@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationTemplateCommand}.
  */
 export interface CreateConfigurationTemplateCommandInput extends CreateConfigurationTemplateMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationTemplateCommand}.
  */
 export interface CreateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AWS Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk
  *       application. You define application configuration settings in a configuration template. You
  *       can then use the configuration template to deploy different versions of the application with
@@ -69,6 +74,8 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationTemplateCommandInput - {@link CreateConfigurationTemplateCommandInput}
+ * @returns {@link CreateConfigurationTemplateCommandOutput}
  * @see {@link CreateConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -124,6 +131,9 @@ export class CreateConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class CreateConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGlobalReplicationGroupCommand}.
  */
 export interface DeleteGlobalReplicationGroupCommandInput extends DeleteGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGlobalReplicationGroupCommand}.
  */
 export interface DeleteGlobalReplicationGroupCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deleting a Global datastore is a two-step process: </p>
  *          <ul>
  *             <li>
@@ -61,6 +66,8 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGlobalReplicationGroupCommandInput - {@link DeleteGlobalReplicationGroupCommandInput}
+ * @returns {@link DeleteGlobalReplicationGroupCommandOutput}
  * @see {@link DeleteGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGlobalReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

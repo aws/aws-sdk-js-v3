@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListShareInvitationsCommand}.
  */
 export interface ListShareInvitationsCommandInput extends ListShareInvitationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListShareInvitationsCommand}.
  */
 export interface ListShareInvitationsCommandOutput extends ListShareInvitationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List  the workload invitations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListShareInvitationsCommandInput - {@link ListShareInvitationsCommandInput}
+ * @returns {@link ListShareInvitationsCommandOutput}
  * @see {@link ListShareInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListShareInvitationsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListShareInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListShareInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListShareInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListShareInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListShareInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListShareInvitationsCommandOutput> {
     return deserializeAws_restJson1ListShareInvitationsCommand(output, context);
   }

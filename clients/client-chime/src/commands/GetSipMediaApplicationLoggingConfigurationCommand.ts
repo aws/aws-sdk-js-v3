@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSipMediaApplicationLoggingConfigurationCommand}.
  */
 export interface GetSipMediaApplicationLoggingConfigurationCommandInput
   extends GetSipMediaApplicationLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSipMediaApplicationLoggingConfigurationCommand}.
  */
 export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the logging configuration for the specified SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSipMediaApplicationLoggingConfigurationCommandInput - {@link GetSipMediaApplicationLoggingConfigurationCommandInput}
+ * @returns {@link GetSipMediaApplicationLoggingConfigurationCommandOutput}
  * @see {@link GetSipMediaApplicationLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetSipMediaApplicationLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSipMediaApplicationLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSipMediaApplicationLoggingConfigurationCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<
     return serializeAws_restJson1GetSipMediaApplicationLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

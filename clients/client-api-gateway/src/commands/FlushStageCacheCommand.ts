@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link FlushStageCacheCommand}.
  */
 export interface FlushStageCacheCommandInput extends FlushStageCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link FlushStageCacheCommand}.
  */
 export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Flushes a stage's cache.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param FlushStageCacheCommandInput - {@link FlushStageCacheCommandInput}
+ * @returns {@link FlushStageCacheCommandOutput}
  * @see {@link FlushStageCacheCommandInput} for command's `input` shape.
  * @see {@link FlushStageCacheCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -82,6 +89,9 @@ export class FlushStageCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FlushStageCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class FlushStageCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FlushStageCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1FlushStageCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FlushStageCacheCommandOutput> {
     return deserializeAws_restJson1FlushStageCacheCommand(output, context);
   }

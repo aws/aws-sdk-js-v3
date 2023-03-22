@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the list of all policies in an organization of a specified type.</p>
  *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
@@ -56,6 +61,8 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPoliciesCommandInput - {@link ListPoliciesCommandInput}
+ * @returns {@link ListPoliciesCommandOutput}
  * @see {@link ListPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -249,6 +256,9 @@ export class ListPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -286,10 +296,16 @@ export class ListPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPoliciesCommandOutput> {
     return deserializeAws_json1_1ListPoliciesCommand(output, context);
   }

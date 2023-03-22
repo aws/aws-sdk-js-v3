@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentConfigsCommand}.
  */
 export interface ListDeploymentConfigsCommandInput extends ListDeploymentConfigsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentConfigsCommand}.
  */
 export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfigsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the deployment configurations with the IAM user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfig
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentConfigsCommandInput - {@link ListDeploymentConfigsCommandInput}
+ * @returns {@link ListDeploymentConfigsCommandOutput}
  * @see {@link ListDeploymentConfigsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentConfigsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListDeploymentConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListDeploymentConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDeploymentConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentConfigsCommandOutput> {
     return deserializeAws_json1_1ListDeploymentConfigsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemovePermissionCommand}.
  */
 export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemovePermissionCommand}.
  */
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes the permission of another Amazon Web Services account to be able to put events to the specified
  *       event bus. Specify the account to revoke by the <code>StatementId</code> value that you
  *       associated with the account when you granted it permission with <code>PutPermission</code>.
@@ -44,6 +49,8 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
+ * @returns {@link RemovePermissionCommandOutput}
  * @see {@link RemovePermissionCommandInput} for command's `input` shape.
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -79,6 +86,9 @@ export class RemovePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemovePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class RemovePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemovePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemovePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemovePermissionCommandOutput> {
     return deserializeAws_json1_1RemovePermissionCommand(output, context);
   }

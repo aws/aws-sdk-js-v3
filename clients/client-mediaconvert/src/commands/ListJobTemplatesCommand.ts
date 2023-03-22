@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobTemplatesCommand}.
  */
 export interface ListJobTemplatesCommandInput extends ListJobTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobTemplatesCommand}.
  */
 export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobTemplatesCommandInput - {@link ListJobTemplatesCommandInput}
+ * @returns {@link ListJobTemplatesCommandOutput}
  * @see {@link ListJobTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListJobTemplatesCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListJobTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListJobTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListJobTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobTemplatesCommandOutput> {
     return deserializeAws_restJson1ListJobTemplatesCommand(output, context);
   }

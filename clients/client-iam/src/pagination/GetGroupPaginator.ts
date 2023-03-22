@@ -6,7 +6,7 @@ import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IAMClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetGroupCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetGroup(
   config: IAMPaginationConfiguration,
   input: GetGroupCommandInput,

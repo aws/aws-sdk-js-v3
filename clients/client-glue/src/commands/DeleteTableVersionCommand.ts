@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTableVersionCommand}.
  */
 export interface DeleteTableVersionCommandInput extends DeleteTableVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTableVersionCommand}.
  */
 export interface DeleteTableVersionCommandOutput extends DeleteTableVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified version of a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTableVersionCommandOutput extends DeleteTableVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTableVersionCommandInput - {@link DeleteTableVersionCommandInput}
+ * @returns {@link DeleteTableVersionCommandOutput}
  * @see {@link DeleteTableVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteTableVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteTableVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTableVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteTableVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTableVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTableVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTableVersionCommandOutput> {
     return deserializeAws_json1_1DeleteTableVersionCommand(output, context);
   }

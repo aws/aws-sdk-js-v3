@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBotCommand}.
  */
 export interface CreateBotCommandInput extends CreateBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBotCommand}.
  */
 export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Lex conversational bot. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBotCommandInput - {@link CreateBotCommandInput}
+ * @returns {@link CreateBotCommandOutput}
  * @see {@link CreateBotCommandInput} for command's `input` shape.
  * @see {@link CreateBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class CreateBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotCommandOutput> {
     return deserializeAws_restJson1CreateBotCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSnapshotCopyGrantCommand}.
  */
 export interface CreateSnapshotCopyGrantCommandInput extends CreateSnapshotCopyGrantMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateSnapshotCopyGrantCommand}.
  */
 export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopyGrantResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted symmetric key
  *             from Key Management Service (KMS) to encrypt copied snapshots in a
  *             destination region.</p>
@@ -53,6 +58,8 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotCopyGrantCommandInput - {@link CreateSnapshotCopyGrantCommandInput}
+ * @returns {@link CreateSnapshotCopyGrantCommandOutput}
  * @see {@link CreateSnapshotCopyGrantCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCopyGrantCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateSnapshotCopyGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotCopyGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateSnapshotCopyGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSnapshotCopyGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateSnapshotCopyGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotCopyGrantCommandOutput> {
     return deserializeAws_queryCreateSnapshotCopyGrantCommand(output, context);
   }

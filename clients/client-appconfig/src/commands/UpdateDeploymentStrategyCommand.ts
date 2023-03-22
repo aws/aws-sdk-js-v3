@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeploymentStrategyCommand}.
  */
 export interface UpdateDeploymentStrategyCommandInput extends UpdateDeploymentStrategyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeploymentStrategyCommand}.
  */
 export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a deployment strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeploymentStrategyCommandInput - {@link UpdateDeploymentStrategyCommandInput}
+ * @returns {@link UpdateDeploymentStrategyCommandOutput}
  * @see {@link UpdateDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link UpdateDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdateDeploymentStrategyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeploymentStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdateDeploymentStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDeploymentStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeploymentStrategyCommandOutput> {
     return deserializeAws_restJson1UpdateDeploymentStrategyCommand(output, context);
   }

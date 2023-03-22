@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AutoScalingServiceException as __BaseException } from "./AutoScalingServiceException";
 
 /**
+ * @public
  * <p>Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when
  *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
  */
@@ -19,6 +20,9 @@ export interface AcceleratorCountRequest {
   Max?: number;
 }
 
+/**
+ * @public
+ */
 export enum AcceleratorManufacturer {
   AMAZON_WEB_SERVICES = "amazon-web-services",
   AMD = "amd",
@@ -26,6 +30,9 @@ export enum AcceleratorManufacturer {
   XILINX = "xilinx",
 }
 
+/**
+ * @public
+ */
 export enum AcceleratorName {
   A100 = "a100",
   K80 = "k80",
@@ -37,6 +44,7 @@ export enum AcceleratorName {
 }
 
 /**
+ * @public
  * <p>Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code>
  *             object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
  */
@@ -52,6 +60,9 @@ export interface AcceleratorTotalMemoryMiBRequest {
   Max?: number;
 }
 
+/**
+ * @public
+ */
 export enum AcceleratorType {
   FPGA = "fpga",
   GPU = "gpu",
@@ -59,6 +70,7 @@ export enum AcceleratorType {
 }
 
 /**
+ * @public
  * <p>The request failed because an active instance refresh or rollback for the specified
  *             Auto Scaling group was not found.</p>
  */
@@ -78,6 +90,9 @@ export class ActiveInstanceRefreshNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ScalingActivityStatusCode {
   Cancelled = "Cancelled",
   Failed = "Failed",
@@ -94,6 +109,7 @@ export enum ScalingActivityStatusCode {
 }
 
 /**
+ * @public
  * <p>Describes scaling activity, which is a long-running process that represents a change
  *             to your Auto Scaling group, such as changing its size or replacing an instance.</p>
  */
@@ -160,6 +176,9 @@ export interface Activity {
   AutoScalingGroupARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface ActivitiesType {
   /**
    * <p>The scaling activities. Activities are sorted by start time. Activities still in
@@ -176,6 +195,9 @@ export interface ActivitiesType {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ActivityType {
   /**
    * <p>A scaling activity.</p>
@@ -184,6 +206,7 @@ export interface ActivityType {
 }
 
 /**
+ * @public
  * <p>Describes a policy adjustment type.</p>
  */
 export interface AdjustmentType {
@@ -195,6 +218,7 @@ export interface AdjustmentType {
 }
 
 /**
+ * @public
  * <p>Describes an alarm.</p>
  */
 export interface Alarm {
@@ -210,6 +234,7 @@ export interface Alarm {
 }
 
 /**
+ * @public
  * <p>You already have an Auto Scaling group or launch configuration with this name.</p>
  */
 export class AlreadyExistsFault extends __BaseException {
@@ -228,6 +253,9 @@ export class AlreadyExistsFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AttachInstancesQuery {
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
@@ -241,6 +269,7 @@ export interface AttachInstancesQuery {
 }
 
 /**
+ * @public
  * <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  */
@@ -261,6 +290,7 @@ export class ResourceContentionFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service-linked role is not yet ready for use.</p>
  */
 export class ServiceLinkedRoleFailure extends __BaseException {
@@ -279,8 +309,14 @@ export class ServiceLinkedRoleFailure extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AttachLoadBalancersResultType {}
 
+/**
+ * @public
+ */
 export interface AttachLoadBalancersType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -293,8 +329,14 @@ export interface AttachLoadBalancersType {
   LoadBalancerNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachLoadBalancerTargetGroupsResultType {}
 
+/**
+ * @public
+ */
 export interface AttachLoadBalancerTargetGroupsType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -308,9 +350,13 @@ export interface AttachLoadBalancerTargetGroupsType {
   TargetGroupARNs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachTrafficSourcesResultType {}
 
 /**
+ * @public
  * <p>Describes the identifier of a traffic source.</p>
  *          <p>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice
  *             target group.</p>
@@ -322,6 +368,9 @@ export interface TrafficSourceIdentifier {
   Identifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface AttachTrafficSourcesType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -340,6 +389,7 @@ export interface AttachTrafficSourcesType {
 }
 
 /**
+ * @public
  * <p>Describes a scheduled action that could not be created, updated, or deleted.</p>
  */
 export interface FailedScheduledUpdateGroupActionRequest {
@@ -359,6 +409,9 @@ export interface FailedScheduledUpdateGroupActionRequest {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteScheduledActionAnswer {
   /**
    * <p>The names of the scheduled actions that could not be deleted, including an error
@@ -367,6 +420,9 @@ export interface BatchDeleteScheduledActionAnswer {
   FailedScheduledActions?: FailedScheduledUpdateGroupActionRequest[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteScheduledActionType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -380,6 +436,9 @@ export interface BatchDeleteScheduledActionType {
   ScheduledActionNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutScheduledUpdateGroupActionAnswer {
   /**
    * <p>The names of the scheduled actions that could not be created or updated, including an
@@ -389,6 +448,7 @@ export interface BatchPutScheduledUpdateGroupActionAnswer {
 }
 
 /**
+ * @public
  * <p>Describes information used for one or more scheduled scaling action updates in a <a>BatchPutScheduledUpdateGroupAction</a> operation.</p>
  */
 export interface ScheduledUpdateGroupActionRequest {
@@ -451,6 +511,9 @@ export interface ScheduledUpdateGroupActionRequest {
   TimeZone?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchPutScheduledUpdateGroupActionType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -464,6 +527,7 @@ export interface BatchPutScheduledUpdateGroupActionType {
 }
 
 /**
+ * @public
  * <p>You have already reached a limit for your Amazon EC2 Auto Scaling
  *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
  *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
@@ -485,6 +549,9 @@ export class LimitExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelInstanceRefreshAnswer {
   /**
    * <p>The instance refresh ID associated with the request. This is the unique ID assigned to
@@ -493,6 +560,9 @@ export interface CancelInstanceRefreshAnswer {
   InstanceRefreshId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelInstanceRefreshType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -500,8 +570,14 @@ export interface CancelInstanceRefreshType {
   AutoScalingGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CompleteLifecycleActionAnswer {}
 
+/**
+ * @public
+ */
 export interface CompleteLifecycleActionType {
   /**
    * <p>The name of the lifecycle hook.</p>
@@ -533,6 +609,7 @@ export interface CompleteLifecycleActionType {
 }
 
 /**
+ * @public
  * <p>Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling
  *             uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch
  *                 templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -566,6 +643,7 @@ export interface LaunchTemplateSpecification {
 }
 
 /**
+ * @public
  * <p>Describes information used to specify a lifecycle hook for an Auto Scaling
  *             group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
@@ -631,6 +709,7 @@ export interface LifecycleHookSpecification {
 }
 
 /**
+ * @public
  * <p>Use this structure to specify the distribution of On-Demand Instances and Spot
  *             Instances and the allocation strategies used to fulfill On-Demand and Spot capacities
  *             for a mixed instances policy.</p>
@@ -752,6 +831,9 @@ export interface InstancesDistribution {
   SpotMaxPrice?: string;
 }
 
+/**
+ * @public
+ */
 export enum BareMetal {
   EXCLUDED = "excluded",
   INCLUDED = "included",
@@ -759,6 +841,7 @@ export enum BareMetal {
 }
 
 /**
+ * @public
  * <p>Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object
  *             when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
  */
@@ -774,35 +857,51 @@ export interface BaselineEbsBandwidthMbpsRequest {
   Max?: number;
 }
 
+/**
+ * @public
+ */
 export enum BurstablePerformance {
   EXCLUDED = "excluded",
   INCLUDED = "included",
   REQUIRED = "required",
 }
 
+/**
+ * @public
+ */
 export enum CpuManufacturer {
   AMAZON_WEB_SERVICES = "amazon-web-services",
   AMD = "amd",
   INTEL = "intel",
 }
 
+/**
+ * @public
+ */
 export enum InstanceGeneration {
   CURRENT = "current",
   PREVIOUS = "previous",
 }
 
+/**
+ * @public
+ */
 export enum LocalStorage {
   EXCLUDED = "excluded",
   INCLUDED = "included",
   REQUIRED = "required",
 }
 
+/**
+ * @public
+ */
 export enum LocalStorageType {
   HDD = "hdd",
   SSD = "ssd",
 }
 
 /**
+ * @public
  * <p>Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when
  *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
  */
@@ -819,6 +918,7 @@ export interface MemoryGiBPerVCpuRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you
  *             specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
  */
@@ -835,6 +935,7 @@ export interface MemoryMiBRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object
  *             when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
  *          <note>
@@ -858,6 +959,7 @@ export interface NetworkBandwidthGbpsRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the minimum and maximum for the <code>NetworkInterfaceCount</code> object
  *             when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
  */
@@ -874,6 +976,7 @@ export interface NetworkInterfaceCountRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when
  *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
  */
@@ -890,6 +993,7 @@ export interface TotalLocalStorageGBRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the minimum and maximum for the <code>VCpuCount</code> object when you
  *             specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
  */
@@ -906,6 +1010,7 @@ export interface VCpuCountRequest {
 }
 
 /**
+ * @public
  * <p>The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your
  *             specified requirements to identify instance types. Then, it uses your On-Demand and Spot
  *             allocation strategies to launch instances from these instance types.</p>
@@ -1230,6 +1335,7 @@ export interface InstanceRequirements {
 }
 
 /**
+ * @public
  * <p>Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed
  *             instances policy:</p>
  *          <ul>
@@ -1313,6 +1419,7 @@ export interface LaunchTemplateOverrides {
 }
 
 /**
+ * @public
  * <p>Use this structure to specify the launch templates and instance types (overrides) for
  *             a mixed instances policy.</p>
  */
@@ -1330,6 +1437,7 @@ export interface LaunchTemplate {
 }
 
 /**
+ * @public
  * <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot
  *             Instances within a single Auto Scaling group.</p>
  *          <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch
@@ -1351,6 +1459,7 @@ export interface MixedInstancesPolicy {
 }
 
 /**
+ * @public
  * <p>Describes a tag for an Auto Scaling group.</p>
  */
 export interface Tag {
@@ -1382,6 +1491,9 @@ export interface Tag {
   PropagateAtLaunch?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateAutoScalingGroupType {
   /**
    * <p>The name of the Auto Scaling group. This name must be unique per Region per account.</p>
@@ -1658,6 +1770,7 @@ export interface CreateAutoScalingGroupType {
 }
 
 /**
+ * @public
  * <p>Describes information used to set up an Amazon EBS volume specified in a block device
  *             mapping.</p>
  */
@@ -1762,6 +1875,7 @@ export interface Ebs {
 }
 
 /**
+ * @public
  * <p>Describes a block device mapping.</p>
  */
 export interface BlockDeviceMapping {
@@ -1801,6 +1915,7 @@ export interface BlockDeviceMapping {
 }
 
 /**
+ * @public
  * <p>Describes whether detailed monitoring is enabled for the Auto Scaling instances.</p>
  */
 export interface InstanceMonitoring {
@@ -1811,17 +1926,24 @@ export interface InstanceMonitoring {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum InstanceMetadataEndpointState {
   Disabled = "disabled",
   Enabled = "enabled",
 }
 
+/**
+ * @public
+ */
 export enum InstanceMetadataHttpTokensState {
   Optional = "optional",
   Required = "required",
 }
 
 /**
+ * @public
  * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
@@ -1859,6 +1981,9 @@ export interface InstanceMetadataOptions {
   HttpEndpoint?: InstanceMetadataEndpointState | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchConfigurationType {
   /**
    * <p>The name of the launch configuration. This name must be unique per Region per
@@ -2046,6 +2171,9 @@ export interface CreateLaunchConfigurationType {
   MetadataOptions?: InstanceMetadataOptions;
 }
 
+/**
+ * @public
+ */
 export interface CreateOrUpdateTagsType {
   /**
    * <p>One or more tags.</p>
@@ -2054,6 +2182,7 @@ export interface CreateOrUpdateTagsType {
 }
 
 /**
+ * @public
  * <p>The operation can't be performed because the resource is in use.</p>
  */
 export class ResourceInUseFault extends __BaseException {
@@ -2072,6 +2201,9 @@ export class ResourceInUseFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAutoScalingGroupType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -2087,6 +2219,7 @@ export interface DeleteAutoScalingGroupType {
 }
 
 /**
+ * @public
  * <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  */
@@ -2106,6 +2239,9 @@ export class ScalingActivityInProgressFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface LaunchConfigurationNameType {
   /**
    * <p>The name of the launch configuration.</p>
@@ -2113,8 +2249,14 @@ export interface LaunchConfigurationNameType {
   LaunchConfigurationName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLifecycleHookAnswer {}
 
+/**
+ * @public
+ */
 export interface DeleteLifecycleHookType {
   /**
    * <p>The name of the lifecycle hook.</p>
@@ -2127,6 +2269,9 @@ export interface DeleteLifecycleHookType {
   AutoScalingGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNotificationConfigurationType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -2139,6 +2284,9 @@ export interface DeleteNotificationConfigurationType {
   TopicARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePolicyType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -2151,6 +2299,9 @@ export interface DeletePolicyType {
   PolicyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduledActionType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -2163,6 +2314,9 @@ export interface DeleteScheduledActionType {
   ScheduledActionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagsType {
   /**
    * <p>One or more tags.</p>
@@ -2170,8 +2324,14 @@ export interface DeleteTagsType {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWarmPoolAnswer {}
 
+/**
+ * @public
+ */
 export interface DeleteWarmPoolType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -2187,6 +2347,9 @@ export interface DeleteWarmPoolType {
   ForceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountLimitsAnswer {
   /**
    * <p>The maximum number of groups allowed for your account. The default is 200 groups per
@@ -2211,6 +2374,9 @@ export interface DescribeAccountLimitsAnswer {
   NumberOfLaunchConfigurations?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAdjustmentTypesAnswer {
   /**
    * <p>The policy adjustment types.</p>
@@ -2219,6 +2385,7 @@ export interface DescribeAdjustmentTypesAnswer {
 }
 
 /**
+ * @public
  * <p>Describes a filter that is used to return a more specific list of results from a
  *             describe operation.</p>
  *          <p>If you specify multiple filters, the filters are automatically logically joined with
@@ -2297,6 +2464,9 @@ export interface Filter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface AutoScalingGroupNamesType {
   /**
    * <p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can
@@ -2325,6 +2495,7 @@ export interface AutoScalingGroupNamesType {
 }
 
 /**
+ * @public
  * <p>Describes an enabled Auto Scaling group metric.</p>
  */
 export interface EnabledMetric {
@@ -2442,6 +2613,9 @@ export interface EnabledMetric {
   Granularity?: string;
 }
 
+/**
+ * @public
+ */
 export enum LifecycleState {
   DETACHED = "Detached",
   DETACHING = "Detaching",
@@ -2469,6 +2643,7 @@ export enum LifecycleState {
 }
 
 /**
+ * @public
  * <p>Describes an EC2 instance.</p>
  */
 export interface Instance {
@@ -2526,6 +2701,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * <p>Describes an auto scaling process that has been suspended.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
@@ -2542,6 +2718,7 @@ export interface SuspendedProcess {
 }
 
 /**
+ * @public
  * <p>Describes a tag for an Auto Scaling group.</p>
  */
 export interface TagDescription {
@@ -2574,6 +2751,7 @@ export interface TagDescription {
 }
 
 /**
+ * @public
  * <p>Describes an instance reuse policy for a warm pool. </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -2586,17 +2764,24 @@ export interface InstanceReusePolicy {
   ReuseOnScaleIn?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum WarmPoolState {
   Hibernated = "Hibernated",
   Running = "Running",
   Stopped = "Stopped",
 }
 
+/**
+ * @public
+ */
 export enum WarmPoolStatus {
   PendingDelete = "PendingDelete",
 }
 
 /**
+ * @public
  * <p>Describes a warm pool configuration. </p>
  */
 export interface WarmPoolConfiguration {
@@ -2628,6 +2813,7 @@ export interface WarmPoolConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes an Auto Scaling group.</p>
  */
 export interface AutoScalingGroup {
@@ -2816,6 +3002,9 @@ export interface AutoScalingGroup {
   TrafficSources?: TrafficSourceIdentifier[];
 }
 
+/**
+ * @public
+ */
 export interface AutoScalingGroupsType {
   /**
    * <p>The groups.</p>
@@ -2832,6 +3021,7 @@ export interface AutoScalingGroupsType {
 }
 
 /**
+ * @public
  * <p>The <code>NextToken</code> value is not valid.</p>
  */
 export class InvalidNextToken extends __BaseException {
@@ -2851,6 +3041,7 @@ export class InvalidNextToken extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes an EC2 instance associated with an Auto Scaling group.</p>
  */
 export interface AutoScalingInstanceDetails {
@@ -2924,6 +3115,9 @@ export interface AutoScalingInstanceDetails {
   WeightedCapacity?: string;
 }
 
+/**
+ * @public
+ */
 export interface AutoScalingInstancesType {
   /**
    * <p>The instances.</p>
@@ -2939,6 +3133,9 @@ export interface AutoScalingInstancesType {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoScalingInstancesType {
   /**
    * <p>The IDs of the instances. If you omit this property, all Auto Scaling instances are described.
@@ -2960,6 +3157,9 @@ export interface DescribeAutoScalingInstancesType {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoScalingNotificationTypesAnswer {
   /**
    * <p>The notification types.</p>
@@ -2968,6 +3168,7 @@ export interface DescribeAutoScalingNotificationTypesAnswer {
 }
 
 /**
+ * @public
  * <p>Describes the desired configuration for an instance refresh. </p>
  *          <p>If you specify a desired configuration, you must specify either a
  *                 <code>LaunchTemplate</code> or a <code>MixedInstancesPolicy</code>. </p>
@@ -2991,12 +3192,18 @@ export interface DesiredConfiguration {
   MixedInstancesPolicy?: MixedInstancesPolicy;
 }
 
+/**
+ * @public
+ */
 export enum ScaleInProtectedInstances {
   Ignore = "Ignore",
   Refresh = "Refresh",
   Wait = "Wait",
 }
 
+/**
+ * @public
+ */
 export enum StandbyInstances {
   Ignore = "Ignore",
   Terminate = "Terminate",
@@ -3004,6 +3211,7 @@ export enum StandbyInstances {
 }
 
 /**
+ * @public
  * <p>Describes the preferences for an instance refresh.</p>
  */
 export interface RefreshPreferences {
@@ -3132,6 +3340,7 @@ export interface RefreshPreferences {
 }
 
 /**
+ * @public
  * <p>Reports progress on replacing instances that are in the Auto Scaling group.</p>
  */
 export interface InstanceRefreshLivePoolProgress {
@@ -3151,6 +3360,7 @@ export interface InstanceRefreshLivePoolProgress {
 }
 
 /**
+ * @public
  * <p>Reports progress on replacing instances that are in the warm pool.</p>
  */
 export interface InstanceRefreshWarmPoolProgress {
@@ -3170,6 +3380,7 @@ export interface InstanceRefreshWarmPoolProgress {
 }
 
 /**
+ * @public
  * <p>Reports progress on replacing instances in an Auto Scaling group that has a warm pool. This
  *             includes separate details for instances in the warm pool and instances in the Auto Scaling group
  *             (the live pool).</p>
@@ -3187,6 +3398,7 @@ export interface InstanceRefreshProgressDetails {
 }
 
 /**
+ * @public
  * <p>Details about an instance refresh rollback.</p>
  */
 export interface RollbackDetails {
@@ -3221,6 +3433,9 @@ export interface RollbackDetails {
   ProgressDetailsOnRollback?: InstanceRefreshProgressDetails;
 }
 
+/**
+ * @public
+ */
 export enum InstanceRefreshStatus {
   Cancelled = "Cancelled",
   Cancelling = "Cancelling",
@@ -3234,6 +3449,7 @@ export enum InstanceRefreshStatus {
 }
 
 /**
+ * @public
  * <p>Describes an instance refresh for an Auto Scaling group. </p>
  */
 export interface InstanceRefresh {
@@ -3356,6 +3572,9 @@ export interface InstanceRefresh {
   RollbackDetails?: RollbackDetails;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceRefreshesAnswer {
   /**
    * <p>The instance refreshes for the specified group, sorted by creation timestamp in
@@ -3372,6 +3591,9 @@ export interface DescribeInstanceRefreshesAnswer {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInstanceRefreshesType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -3396,6 +3618,9 @@ export interface DescribeInstanceRefreshesType {
   MaxRecords?: number;
 }
 
+/**
+ * @public
+ */
 export interface LaunchConfigurationNamesType {
   /**
    * <p>The launch configuration names. If you omit this property, all launch configurations
@@ -3418,6 +3643,7 @@ export interface LaunchConfigurationNamesType {
 }
 
 /**
+ * @public
  * <p>Describes a launch configuration.</p>
  */
 export interface LaunchConfiguration {
@@ -3562,6 +3788,9 @@ export interface LaunchConfiguration {
   MetadataOptions?: InstanceMetadataOptions;
 }
 
+/**
+ * @public
+ */
 export interface LaunchConfigurationsType {
   /**
    * <p>The launch configurations.</p>
@@ -3578,6 +3807,7 @@ export interface LaunchConfigurationsType {
 }
 
 /**
+ * @public
  * <p>Describes a lifecycle hook. A lifecycle hook lets you create solutions that are aware
  *             of events in the Auto Scaling instance lifecycle, and then perform a custom action on instances
  *             when the corresponding lifecycle event
@@ -3643,6 +3873,9 @@ export interface LifecycleHook {
   DefaultResult?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLifecycleHooksAnswer {
   /**
    * <p>The lifecycle hooks for the specified group.</p>
@@ -3650,6 +3883,9 @@ export interface DescribeLifecycleHooksAnswer {
   LifecycleHooks?: LifecycleHook[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLifecycleHooksType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -3663,6 +3899,9 @@ export interface DescribeLifecycleHooksType {
   LifecycleHookNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLifecycleHookTypesAnswer {
   /**
    * <p>The lifecycle hook types.</p>
@@ -3670,6 +3909,9 @@ export interface DescribeLifecycleHookTypesAnswer {
   LifecycleHookTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoadBalancersRequest {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -3690,6 +3932,7 @@ export interface DescribeLoadBalancersRequest {
 }
 
 /**
+ * @public
  * <p>Describes the state of a Classic Load Balancer.</p>
  */
 export interface LoadBalancerState {
@@ -3732,6 +3975,9 @@ export interface LoadBalancerState {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoadBalancersResponse {
   /**
    * <p>The load balancers.</p>
@@ -3747,6 +3993,9 @@ export interface DescribeLoadBalancersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoadBalancerTargetGroupsRequest {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -3767,6 +4016,7 @@ export interface DescribeLoadBalancerTargetGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the state of a target group.</p>
  */
 export interface LoadBalancerTargetGroupState {
@@ -3809,6 +4059,9 @@ export interface LoadBalancerTargetGroupState {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoadBalancerTargetGroupsResponse {
   /**
    * <p>Information about the target groups.</p>
@@ -3825,6 +4078,7 @@ export interface DescribeLoadBalancerTargetGroupsResponse {
 }
 
 /**
+ * @public
  * <p>Describes a granularity of a metric.</p>
  */
 export interface MetricGranularityType {
@@ -3835,6 +4089,7 @@ export interface MetricGranularityType {
 }
 
 /**
+ * @public
  * <p>Describes a metric.</p>
  */
 export interface MetricCollectionType {
@@ -3946,6 +4201,9 @@ export interface MetricCollectionType {
   Metric?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMetricCollectionTypesAnswer {
   /**
    * <p>The metrics.</p>
@@ -3959,6 +4217,7 @@ export interface DescribeMetricCollectionTypesAnswer {
 }
 
 /**
+ * @public
  * <p>Describes a notification.</p>
  */
 export interface NotificationConfiguration {
@@ -4005,6 +4264,9 @@ export interface NotificationConfiguration {
   NotificationType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotificationConfigurationsAnswer {
   /**
    * <p>The notification configurations.</p>
@@ -4020,6 +4282,9 @@ export interface DescribeNotificationConfigurationsAnswer {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotificationConfigurationsType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -4039,6 +4304,9 @@ export interface DescribeNotificationConfigurationsType {
   MaxRecords?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribePoliciesType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -4073,12 +4341,16 @@ export interface DescribePoliciesType {
   MaxRecords?: number;
 }
 
+/**
+ * @public
+ */
 export enum PredictiveScalingMaxCapacityBreachBehavior {
   HonorMaxCapacity = "HonorMaxCapacity",
   IncreaseMaxCapacity = "IncreaseMaxCapacity",
 }
 
 /**
+ * @public
  * <p>Describes the dimension of a metric.</p>
  */
 export interface MetricDimension {
@@ -4094,6 +4366,7 @@ export interface MetricDimension {
 }
 
 /**
+ * @public
  * <p>Represents a specific metric. </p>
  */
 export interface Metric {
@@ -4121,6 +4394,7 @@ export interface Metric {
 }
 
 /**
+ * @public
  * <p>This structure defines the CloudWatch metric to return, along with the statistic, period,
  *             and unit.</p>
  *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
@@ -4150,6 +4424,7 @@ export interface MetricStat {
 }
 
 /**
+ * @public
  * <p>The metric data to return. Also defines whether this call is returning data for one
  *             metric only, or whether it is performing a math expression on the values of returned
  *             metric statistics to create a new time series. A time series is a series of data points,
@@ -4205,6 +4480,7 @@ export interface MetricDataQuery {
 }
 
 /**
+ * @public
  * <p>Describes a customized capacity metric for a predictive scaling policy.</p>
  */
 export interface PredictiveScalingCustomizedCapacityMetric {
@@ -4217,6 +4493,7 @@ export interface PredictiveScalingCustomizedCapacityMetric {
 }
 
 /**
+ * @public
  * <p>Describes a custom load metric for a predictive scaling policy.</p>
  */
 export interface PredictiveScalingCustomizedLoadMetric {
@@ -4229,6 +4506,7 @@ export interface PredictiveScalingCustomizedLoadMetric {
 }
 
 /**
+ * @public
  * <p>Describes a custom scaling metric for a predictive scaling policy.</p>
  */
 export interface PredictiveScalingCustomizedScalingMetric {
@@ -4240,6 +4518,9 @@ export interface PredictiveScalingCustomizedScalingMetric {
   MetricDataQueries: MetricDataQuery[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PredefinedLoadMetricType {
   ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
   ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
@@ -4248,6 +4529,7 @@ export enum PredefinedLoadMetricType {
 }
 
 /**
+ * @public
  * <p>Describes a load metric for a predictive scaling policy.</p>
  *          <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
  *             predictive scaling policy uses individually specified load and scaling metrics instead
@@ -4285,6 +4567,9 @@ export interface PredictiveScalingPredefinedLoadMetric {
   ResourceLabel?: string;
 }
 
+/**
+ * @public
+ */
 export enum PredefinedMetricPairType {
   ALBRequestCount = "ALBRequestCount",
   ASGCPUUtilization = "ASGCPUUtilization",
@@ -4293,6 +4578,7 @@ export enum PredefinedMetricPairType {
 }
 
 /**
+ * @public
  * <p>Represents a metric pair for a predictive scaling policy. </p>
  */
 export interface PredictiveScalingPredefinedMetricPair {
@@ -4330,6 +4616,9 @@ export interface PredictiveScalingPredefinedMetricPair {
   ResourceLabel?: string;
 }
 
+/**
+ * @public
+ */
 export enum PredefinedScalingMetricType {
   ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
   ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
@@ -4338,6 +4627,7 @@ export enum PredefinedScalingMetricType {
 }
 
 /**
+ * @public
  * <p>Describes a scaling metric for a predictive scaling policy.</p>
  *          <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
  *             predictive scaling policy uses individually specified load and scaling metrics instead
@@ -4376,6 +4666,7 @@ export interface PredictiveScalingPredefinedScalingMetric {
 }
 
 /**
+ * @public
  * <p>This structure specifies the metrics and target utilization settings for a predictive
  *             scaling policy. </p>
  *          <p>You must specify either a metric pair, or a load metric and a scaling metric
@@ -4466,12 +4757,16 @@ export interface PredictiveScalingMetricSpecification {
   CustomizedCapacityMetricSpecification?: PredictiveScalingCustomizedCapacityMetric;
 }
 
+/**
+ * @public
+ */
 export enum PredictiveScalingMode {
   ForecastAndScale = "ForecastAndScale",
   ForecastOnly = "ForecastOnly",
 }
 
 /**
+ * @public
  * <p>Represents a predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.</p>
  */
 export interface PredictiveScalingConfiguration {
@@ -4539,6 +4834,7 @@ export interface PredictiveScalingConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes information used to create a step adjustment for a step scaling
  *             policy.</p>
  *          <p>For the following examples, suppose that you have an alarm with a breach threshold of
@@ -4608,6 +4904,7 @@ export interface StepAdjustment {
 }
 
 /**
+ * @public
  * <p>This structure defines the CloudWatch metric to return, along with the statistic, period,
  *             and unit.</p>
  *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
@@ -4636,6 +4933,7 @@ export interface TargetTrackingMetricStat {
 }
 
 /**
+ * @public
  * <p>The metric data to return. Also defines whether this call is returning data for one
  *             metric only, or whether it is performing a math expression on the values of returned
  *             metric statistics to create a new time series. A time series is a series of data points,
@@ -4688,6 +4986,9 @@ export interface TargetTrackingMetricDataQuery {
   ReturnData?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum MetricStatistic {
   Average = "Average",
   Maximum = "Maximum",
@@ -4697,6 +4998,7 @@ export enum MetricStatistic {
 }
 
 /**
+ * @public
  * <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use
  *             with Amazon EC2 Auto Scaling.</p>
  *          <p>To create your customized metric specification:</p>
@@ -4762,6 +5064,9 @@ export interface CustomizedMetricSpecification {
   Metrics?: TargetTrackingMetricDataQuery[];
 }
 
+/**
+ * @public
+ */
 export enum MetricType {
   ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
   ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
@@ -4770,6 +5075,7 @@ export enum MetricType {
 }
 
 /**
+ * @public
  * <p>Represents a predefined metric for a target tracking scaling policy to use with
  *             Amazon EC2 Auto Scaling.</p>
  */
@@ -4828,6 +5134,7 @@ export interface PredefinedMetricSpecification {
 }
 
 /**
+ * @public
  * <p>Represents a target tracking scaling policy configuration to use with Amazon EC2 Auto Scaling.</p>
  */
 export interface TargetTrackingConfiguration {
@@ -4865,6 +5172,7 @@ export interface TargetTrackingConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes a scaling policy.</p>
  */
 export interface ScalingPolicy {
@@ -4985,6 +5293,9 @@ export interface ScalingPolicy {
   PredictiveScalingConfiguration?: PredictiveScalingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PoliciesType {
   /**
    * <p>The scaling policies.</p>
@@ -5000,6 +5311,9 @@ export interface PoliciesType {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingActivitiesType {
   /**
    * <p>The activity IDs of the desired scaling activities. If you omit this property, all
@@ -5034,6 +5348,7 @@ export interface DescribeScalingActivitiesType {
 }
 
 /**
+ * @public
  * <p>Describes a process type.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
@@ -5091,6 +5406,9 @@ export interface ProcessType {
   ProcessName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ProcessesType {
   /**
    * <p>The names of the process types.</p>
@@ -5098,6 +5416,9 @@ export interface ProcessesType {
   Processes?: ProcessType[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeScheduledActionsType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5138,6 +5459,7 @@ export interface DescribeScheduledActionsType {
 }
 
 /**
+ * @public
  * <p>Describes a scheduled scaling
  *             action.</p>
  */
@@ -5204,6 +5526,9 @@ export interface ScheduledUpdateGroupAction {
   TimeZone?: string;
 }
 
+/**
+ * @public
+ */
 export interface ScheduledActionsType {
   /**
    * <p>The scheduled actions.</p>
@@ -5219,6 +5544,9 @@ export interface ScheduledActionsType {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsType {
   /**
    * <p>One or more filters to scope the tags to return. The maximum number of filters per
@@ -5239,6 +5567,9 @@ export interface DescribeTagsType {
   MaxRecords?: number;
 }
 
+/**
+ * @public
+ */
 export interface TagsType {
   /**
    * <p>One or more tags.</p>
@@ -5254,6 +5585,9 @@ export interface TagsType {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTerminationPolicyTypesAnswer {
   /**
    * <p>The termination policies supported by Amazon EC2 Auto Scaling: <code>OldestInstance</code>,
@@ -5264,6 +5598,9 @@ export interface DescribeTerminationPolicyTypesAnswer {
   TerminationPolicyTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficSourcesRequest {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5290,6 +5627,7 @@ export interface DescribeTrafficSourcesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the state of a traffic source.</p>
  */
 export interface TrafficSourceState {
@@ -5333,6 +5671,9 @@ export interface TrafficSourceState {
   State?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrafficSourcesResponse {
   /**
    * <p>Information about the traffic sources.</p>
@@ -5348,6 +5689,9 @@ export interface DescribeTrafficSourcesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWarmPoolAnswer {
   /**
    * <p>The warm pool configuration details. </p>
@@ -5368,6 +5712,9 @@ export interface DescribeWarmPoolAnswer {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWarmPoolType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5387,6 +5734,9 @@ export interface DescribeWarmPoolType {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DetachInstancesAnswer {
   /**
    * <p>The activities related to detaching the instances from the Auto Scaling group.</p>
@@ -5394,6 +5744,9 @@ export interface DetachInstancesAnswer {
   Activities?: Activity[];
 }
 
+/**
+ * @public
+ */
 export interface DetachInstancesQuery {
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
@@ -5412,8 +5765,14 @@ export interface DetachInstancesQuery {
   ShouldDecrementDesiredCapacity: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachLoadBalancersResultType {}
 
+/**
+ * @public
+ */
 export interface DetachLoadBalancersType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5426,8 +5785,14 @@ export interface DetachLoadBalancersType {
   LoadBalancerNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachLoadBalancerTargetGroupsResultType {}
 
+/**
+ * @public
+ */
 export interface DetachLoadBalancerTargetGroupsType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5441,8 +5806,14 @@ export interface DetachLoadBalancerTargetGroupsType {
   TargetGroupARNs: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetachTrafficSourcesResultType {}
 
+/**
+ * @public
+ */
 export interface DetachTrafficSourcesType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5460,6 +5831,9 @@ export interface DetachTrafficSourcesType {
   TrafficSources: TrafficSourceIdentifier[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableMetricsCollectionQuery {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5577,6 +5951,9 @@ export interface DisableMetricsCollectionQuery {
   Metrics?: string[];
 }
 
+/**
+ * @public
+ */
 export interface EnableMetricsCollectionQuery {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5701,6 +6078,9 @@ export interface EnableMetricsCollectionQuery {
   Granularity: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnterStandbyAnswer {
   /**
    * <p>The activities related to moving instances into <code>Standby</code> mode.</p>
@@ -5708,6 +6088,9 @@ export interface EnterStandbyAnswer {
   Activities?: Activity[];
 }
 
+/**
+ * @public
+ */
 export interface EnterStandbyQuery {
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
@@ -5726,6 +6109,9 @@ export interface EnterStandbyQuery {
   ShouldDecrementDesiredCapacity: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExecutePolicyType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5767,6 +6153,9 @@ export interface ExecutePolicyType {
   BreachThreshold?: number;
 }
 
+/**
+ * @public
+ */
 export interface ExitStandbyAnswer {
   /**
    * <p>The activities related to moving instances out of <code>Standby</code> mode.</p>
@@ -5774,6 +6163,9 @@ export interface ExitStandbyAnswer {
   Activities?: Activity[];
 }
 
+/**
+ * @public
+ */
 export interface ExitStandbyQuery {
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
@@ -5787,6 +6179,7 @@ export interface ExitStandbyQuery {
 }
 
 /**
+ * @public
  * <p>A <code>GetPredictiveScalingForecast</code> call returns the capacity forecast for a
  *             predictive scaling policy. This structure includes the data points for that capacity
  *             forecast, along with the timestamps of those data points. </p>
@@ -5804,6 +6197,7 @@ export interface CapacityForecast {
 }
 
 /**
+ * @public
  * <p>A <code>GetPredictiveScalingForecast</code> call returns the load forecast for a
  *             predictive scaling policy. This structure includes the data points for that load
  *             forecast, along with the timestamps of those data points and the metric specification.
@@ -5826,6 +6220,9 @@ export interface LoadForecast {
   MetricSpecification: PredictiveScalingMetricSpecification | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPredictiveScalingForecastAnswer {
   /**
    * <p>The load forecast.</p>
@@ -5843,6 +6240,9 @@ export interface GetPredictiveScalingForecastAnswer {
   UpdateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPredictiveScalingForecastType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5870,8 +6270,14 @@ export interface GetPredictiveScalingForecastType {
   EndTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLifecycleHookAnswer {}
 
+/**
+ * @public
+ */
 export interface PutLifecycleHookType {
   /**
    * <p>The name of the lifecycle hook.</p>
@@ -5943,6 +6349,9 @@ export interface PutLifecycleHookType {
   DefaultResult?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutNotificationConfigurationType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -5962,6 +6371,7 @@ export interface PutNotificationConfigurationType {
 }
 
 /**
+ * @public
  * <p>Contains the output of PutScalingPolicy.</p>
  */
 export interface PolicyARNType {
@@ -5976,6 +6386,9 @@ export interface PolicyARNType {
   Alarms?: Alarm[];
 }
 
+/**
+ * @public
+ */
 export interface PutScalingPolicyType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -6158,6 +6571,9 @@ export interface PutScalingPolicyType {
   PredictiveScalingConfiguration?: PredictiveScalingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutScheduledUpdateGroupActionType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -6232,8 +6648,14 @@ export interface PutScheduledUpdateGroupActionType {
   TimeZone?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutWarmPoolAnswer {}
 
+/**
+ * @public
+ */
 export interface PutWarmPoolType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -6283,8 +6705,14 @@ export interface PutWarmPoolType {
   InstanceReusePolicy?: InstanceReusePolicy;
 }
 
+/**
+ * @public
+ */
 export interface RecordLifecycleActionHeartbeatAnswer {}
 
+/**
+ * @public
+ */
 export interface RecordLifecycleActionHeartbeatType {
   /**
    * <p>The name of the lifecycle hook.</p>
@@ -6309,6 +6737,9 @@ export interface RecordLifecycleActionHeartbeatType {
   InstanceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ScalingProcessQuery {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -6370,6 +6801,7 @@ export interface ScalingProcessQuery {
 }
 
 /**
+ * @public
  * <p>The request failed because a desired configuration was not found or an incompatible
  *             launch template (uses a Systems Manager parameter instead of an AMI ID) or launch
  *             template version (<code>$Latest</code> or <code>$Default</code>) is present on the Auto Scaling
@@ -6391,6 +6823,9 @@ export class IrreversibleInstanceRefreshFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RollbackInstanceRefreshAnswer {
   /**
    * <p>The instance refresh ID associated with the request. This is the unique ID assigned to
@@ -6399,6 +6834,9 @@ export interface RollbackInstanceRefreshAnswer {
   InstanceRefreshId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RollbackInstanceRefreshType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -6406,6 +6844,9 @@ export interface RollbackInstanceRefreshType {
   AutoScalingGroupName?: string;
 }
 
+/**
+ * @public
+ */
 export interface SetDesiredCapacityType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -6426,6 +6867,9 @@ export interface SetDesiredCapacityType {
   HonorCooldown?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface SetInstanceHealthQuery {
   /**
    * <p>The ID of the instance.</p>
@@ -6451,8 +6895,14 @@ export interface SetInstanceHealthQuery {
   ShouldRespectGracePeriod?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface SetInstanceProtectionAnswer {}
 
+/**
+ * @public
+ */
 export interface SetInstanceProtectionQuery {
   /**
    * <p>One or more instance IDs. You can specify up to 50 instances.</p>
@@ -6472,6 +6922,7 @@ export interface SetInstanceProtectionQuery {
 }
 
 /**
+ * @public
  * <p>The request failed because an active instance refresh already exists for the specified
  *             Auto Scaling group.</p>
  */
@@ -6491,6 +6942,9 @@ export class InstanceRefreshInProgressFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartInstanceRefreshAnswer {
   /**
    * <p>A unique ID for tracking the progress of the instance refresh.</p>
@@ -6498,10 +6952,16 @@ export interface StartInstanceRefreshAnswer {
   InstanceRefreshId?: string;
 }
 
+/**
+ * @public
+ */
 export enum RefreshStrategy {
   Rolling = "Rolling",
 }
 
+/**
+ * @public
+ */
 export interface StartInstanceRefreshType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -6551,6 +7011,9 @@ export interface StartInstanceRefreshType {
   Preferences?: RefreshPreferences;
 }
 
+/**
+ * @public
+ */
 export interface TerminateInstanceInAutoScalingGroupType {
   /**
    * <p>The ID of the instance.</p>
@@ -6564,6 +7027,9 @@ export interface TerminateInstanceInAutoScalingGroupType {
   ShouldDecrementDesiredCapacity: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAutoScalingGroupType {
   /**
    * <p>The name of the Auto Scaling group.</p>

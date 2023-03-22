@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticIpsCommand}.
  */
 export interface DescribeElasticIpsCommandInput extends DescribeElasticIpsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticIpsCommand}.
  */
 export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP addresses</a>.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -54,6 +59,8 @@ export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticIpsCommandInput - {@link DescribeElasticIpsCommandInput}
+ * @returns {@link DescribeElasticIpsCommandOutput}
  * @see {@link DescribeElasticIpsCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticIpsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeElasticIpsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticIpsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeElasticIpsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeElasticIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeElasticIpsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeElasticIpsCommandOutput> {
     return deserializeAws_json1_1DescribeElasticIpsCommand(output, context);
   }

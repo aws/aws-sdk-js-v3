@@ -25,15 +25,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketLifecycleConfigurationCommand}.
  */
 export interface DeleteBucketLifecycleConfigurationCommandInput extends DeleteBucketLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketLifecycleConfigurationCommand}.
  */
 export interface DeleteBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action deletes an Amazon S3 on Outposts bucket's lifecycle configuration. To delete
  *             an S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -73,6 +78,8 @@ export interface DeleteBucketLifecycleConfigurationCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketLifecycleConfigurationCommandInput - {@link DeleteBucketLifecycleConfigurationCommandInput}
+ * @returns {@link DeleteBucketLifecycleConfigurationCommandOutput}
  * @see {@link DeleteBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command<
     return serializeAws_restXmlDeleteBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

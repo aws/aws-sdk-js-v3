@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ExportClientVpnClientConfigurationCommand}.
  */
 export interface ExportClientVpnClientConfigurationCommandInput extends ExportClientVpnClientConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportClientVpnClientConfigurationCommand}.
  */
 export interface ExportClientVpnClientConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface ExportClientVpnClientConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration
  * 			file includes the Client VPN endpoint and certificate information clients need to establish a connection
  * 			with the Client VPN endpoint.</p>
@@ -50,6 +55,8 @@ export interface ExportClientVpnClientConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportClientVpnClientConfigurationCommandInput - {@link ExportClientVpnClientConfigurationCommandInput}
+ * @returns {@link ExportClientVpnClientConfigurationCommandOutput}
  * @see {@link ExportClientVpnClientConfigurationCommandInput} for command's `input` shape.
  * @see {@link ExportClientVpnClientConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportClientVpnClientConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,6 +122,9 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportClientVpnClientConfigurationCommandInput,
     context: __SerdeContext
@@ -119,6 +132,9 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     return serializeAws_ec2ExportClientVpnClientConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

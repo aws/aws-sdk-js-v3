@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCollectionCommand}.
  */
 export interface UpdateCollectionCommandInput extends UpdateCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCollectionCommand}.
  */
 export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an OpenSearch Serverless collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCollectionCommandInput - {@link UpdateCollectionCommandInput}
+ * @returns {@link UpdateCollectionCommandOutput}
  * @see {@link UpdateCollectionCommandInput} for command's `input` shape.
  * @see {@link UpdateCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCollectionCommandOutput> {
     return deserializeAws_json1_0UpdateCollectionCommand(output, context);
   }

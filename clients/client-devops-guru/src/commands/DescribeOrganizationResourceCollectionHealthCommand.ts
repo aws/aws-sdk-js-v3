@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationResourceCollectionHealthCommand}.
  */
 export interface DescribeOrganizationResourceCollectionHealthCommandInput
   extends DescribeOrganizationResourceCollectionHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationResourceCollectionHealthCommand}.
  */
 export interface DescribeOrganizationResourceCollectionHealthCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides an overview of your system's health. If additional member accounts are part
  * 			of your organization, you can filter those accounts using the <code>AccountIds</code>
  * 			field.</p>
@@ -51,6 +56,8 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationResourceCollectionHealthCommandInput - {@link DescribeOrganizationResourceCollectionHealthCommandInput}
+ * @returns {@link DescribeOrganizationResourceCollectionHealthCommandOutput}
  * @see {@link DescribeOrganizationResourceCollectionHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationResourceCollectionHealthCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeOrganizationResourceCollectionHealthCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationResourceCollectionHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class DescribeOrganizationResourceCollectionHealthCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationResourceCollectionHealthCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class DescribeOrganizationResourceCollectionHealthCommand extends $Comman
     return serializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteTableVersionCommand}.
  */
 export interface BatchDeleteTableVersionCommandInput extends BatchDeleteTableVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteTableVersionCommand}.
  */
 export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified batch of versions of a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteTableVersionCommandInput - {@link BatchDeleteTableVersionCommandInput}
+ * @returns {@link BatchDeleteTableVersionCommandOutput}
  * @see {@link BatchDeleteTableVersionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteTableVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class BatchDeleteTableVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteTableVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class BatchDeleteTableVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteTableVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteTableVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteTableVersionCommandOutput> {
     return deserializeAws_json1_1BatchDeleteTableVersionCommand(output, context);
   }

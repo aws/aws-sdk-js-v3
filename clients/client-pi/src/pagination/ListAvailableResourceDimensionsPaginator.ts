@@ -10,7 +10,7 @@ import { PIClient } from "../PIClient";
 import { PIPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PIClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAvailableResourceDimensionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAvailableResourceDimensions(
   config: PIPaginationConfiguration,
   input: ListAvailableResourceDimensionsCommandInput,

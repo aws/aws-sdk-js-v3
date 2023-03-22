@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link SignOutUserCommand}.
  */
 export interface SignOutUserCommandInput extends SignOutUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link SignOutUserCommand}.
  */
 export interface SignOutUserCommandOutput extends SignOutUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Signs the user out from all of their devices. The user can sign in again if they have
@@ -49,6 +54,8 @@ export interface SignOutUserCommandOutput extends SignOutUserResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param SignOutUserCommandInput - {@link SignOutUserCommandInput}
+ * @returns {@link SignOutUserCommandOutput}
  * @see {@link SignOutUserCommandInput} for command's `input` shape.
  * @see {@link SignOutUserCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -87,6 +94,9 @@ export class SignOutUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SignOutUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class SignOutUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SignOutUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SignOutUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignOutUserCommandOutput> {
     return deserializeAws_restJson1SignOutUserCommand(output, context);
   }

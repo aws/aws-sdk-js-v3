@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkAclEntryCommand}.
  */
 export interface DeleteNetworkAclEntryCommandInput extends DeleteNetworkAclEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkAclEntryCommand}.
  */
 export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified ingress or egress entry (rule) from the specified network ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkAclEntryCommandInput - {@link DeleteNetworkAclEntryCommandInput}
+ * @returns {@link DeleteNetworkAclEntryCommandOutput}
  * @see {@link DeleteNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteNetworkAclEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkAclEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteNetworkAclEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkAclEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNetworkAclEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkAclEntryCommandOutput> {
     return deserializeAws_ec2DeleteNetworkAclEntryCommand(output, context);
   }

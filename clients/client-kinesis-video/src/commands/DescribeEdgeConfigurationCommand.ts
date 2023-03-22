@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEdgeConfigurationCommand}.
  */
 export interface DescribeEdgeConfigurationCommandInput extends DescribeEdgeConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEdgeConfigurationCommand}.
  */
 export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API.
  *              Use this API to get the status of the configuration if the configuration is in sync with the
  *             Edge Agent.</p>
@@ -48,6 +53,8 @@ export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConf
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEdgeConfigurationCommandInput - {@link DescribeEdgeConfigurationCommandInput}
+ * @returns {@link DescribeEdgeConfigurationCommandOutput}
  * @see {@link DescribeEdgeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeEdgeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeEdgeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEdgeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeEdgeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEdgeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeEdgeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

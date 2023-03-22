@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableSerialConsoleAccessCommand}.
  */
 export interface DisableSerialConsoleAccessCommandInput extends DisableSerialConsoleAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableSerialConsoleAccessCommand}.
  */
 export interface DisableSerialConsoleAccessCommandOutput extends DisableSerialConsoleAccessResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables access to the EC2 serial console of all instances for your account. By default,
  * 			access to the EC2 serial console is disabled for your account. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
@@ -49,6 +54,8 @@ export interface DisableSerialConsoleAccessCommandOutput extends DisableSerialCo
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableSerialConsoleAccessCommandInput - {@link DisableSerialConsoleAccessCommandInput}
+ * @returns {@link DisableSerialConsoleAccessCommandOutput}
  * @see {@link DisableSerialConsoleAccessCommandInput} for command's `input` shape.
  * @see {@link DisableSerialConsoleAccessCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DisableSerialConsoleAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableSerialConsoleAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DisableSerialConsoleAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableSerialConsoleAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisableSerialConsoleAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

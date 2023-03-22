@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateS3ResourcesCommand}.
  */
 export interface AssociateS3ResourcesCommandInput extends AssociateS3ResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateS3ResourcesCommand}.
  */
 export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Associates specified S3 resources with Amazon Macie Classic for
  *       monitoring and data classification. If <code>memberAccountId</code> isn't specified, the action associates
  *       specified S3 resources with Macie Classic for the current Macie Classic administrator account.
@@ -50,6 +55,8 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateS3ResourcesCommandInput - {@link AssociateS3ResourcesCommandInput}
+ * @returns {@link AssociateS3ResourcesCommandOutput}
  * @see {@link AssociateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link AssociateS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateS3ResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateS3ResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssociateS3ResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateS3ResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateS3ResourcesCommandOutput> {
     return deserializeAws_json1_1AssociateS3ResourcesCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateConfigurationSettingsCommand}.
  */
 export interface ValidateConfigurationSettingsCommandInput extends ValidateConfigurationSettingsMessage {}
 /**
+ * @public
+ *
  * The output of {@link ValidateConfigurationSettingsCommand}.
  */
 export interface ValidateConfigurationSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface ValidateConfigurationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Takes a set of configuration settings and either a configuration template or
  *       environment, and determines whether those values are valid.</p>
  *          <p>This action returns a list of messages indicating any errors or warnings associated
@@ -51,6 +56,8 @@ export interface ValidateConfigurationSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateConfigurationSettingsCommandInput - {@link ValidateConfigurationSettingsCommandInput}
+ * @returns {@link ValidateConfigurationSettingsCommandOutput}
  * @see {@link ValidateConfigurationSettingsCommandInput} for command's `input` shape.
  * @see {@link ValidateConfigurationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -105,6 +112,9 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateConfigurationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateConfigurationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryValidateConfigurationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

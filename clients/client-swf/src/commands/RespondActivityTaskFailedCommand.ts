@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RespondActivityTaskFailedCommand}.
  */
 export interface RespondActivityTaskFailedCommandInput extends RespondActivityTaskFailedInput {}
 /**
+ * @public
+ *
  * The output of {@link RespondActivityTaskFailedCommand}.
  */
 export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> has failed with <code>reason</code> (if specified). The
  *         <code>reason</code> and <code>details</code> appear in the <code>ActivityTaskFailed</code>
@@ -73,6 +78,8 @@ export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param RespondActivityTaskFailedCommandInput - {@link RespondActivityTaskFailedCommandInput}
+ * @returns {@link RespondActivityTaskFailedCommandOutput}
  * @see {@link RespondActivityTaskFailedCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskFailedCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -102,6 +109,9 @@ export class RespondActivityTaskFailedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RespondActivityTaskFailedCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class RespondActivityTaskFailedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondActivityTaskFailedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RespondActivityTaskFailedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

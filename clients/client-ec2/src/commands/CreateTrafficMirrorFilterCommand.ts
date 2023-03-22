@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficMirrorFilterCommand}.
  */
 export interface CreateTrafficMirrorFilterCommandInput extends CreateTrafficMirrorFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficMirrorFilterCommand}.
  */
 export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMirrorFilterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Traffic Mirror filter.</p>
  *          <p>A Traffic Mirror filter is a set of rules that defines the traffic to mirror.</p>
  *          <p>By default, no traffic is mirrored. To mirror traffic, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm">CreateTrafficMirrorFilterRule</a> to add Traffic Mirror rules to the filter. The rules you
@@ -49,6 +54,8 @@ export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMir
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficMirrorFilterCommandInput - {@link CreateTrafficMirrorFilterCommandInput}
+ * @returns {@link CreateTrafficMirrorFilterCommandOutput}
  * @see {@link CreateTrafficMirrorFilterCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficMirrorFilterCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateTrafficMirrorFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficMirrorFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateTrafficMirrorFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficMirrorFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateTrafficMirrorFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

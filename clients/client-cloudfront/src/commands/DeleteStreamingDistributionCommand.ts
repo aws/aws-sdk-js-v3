@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStreamingDistributionCommand}.
  */
 export interface DeleteStreamingDistributionCommandInput extends DeleteStreamingDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStreamingDistributionCommand}.
  */
 export interface DeleteStreamingDistributionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API,
  * 			perform the following steps.</p>
  *          <p>
@@ -92,6 +97,8 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamingDistributionCommandInput - {@link DeleteStreamingDistributionCommandInput}
+ * @returns {@link DeleteStreamingDistributionCommandOutput}
  * @see {@link DeleteStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -132,6 +139,9 @@ export class DeleteStreamingDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class DeleteStreamingDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteStreamingDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

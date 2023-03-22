@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFunctionCommand}.
  */
 export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFunctionCommand}.
  */
 export interface CreateFunctionCommandOutput extends CreateFunctionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a CloudFront function.</p>
  *          <p>To create a function, you provide the function code and some configuration information
  * 			about the function. The response contains an Amazon Resource Name (ARN) that uniquely
@@ -56,6 +61,8 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionCommandInput - {@link CreateFunctionCommandInput}
+ * @returns {@link CreateFunctionCommandOutput}
  * @see {@link CreateFunctionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionCommandOutput> {
     return deserializeAws_restXmlCreateFunctionCommand(output, context);
   }

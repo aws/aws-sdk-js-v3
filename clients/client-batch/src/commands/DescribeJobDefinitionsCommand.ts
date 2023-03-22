@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobDefinitionsCommand}.
  */
 export interface DescribeJobDefinitionsCommandInput extends DescribeJobDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobDefinitionsCommand}.
  */
 export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to only
  *    return job definitions that match that status.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobDefinitionsCommandInput - {@link DescribeJobDefinitionsCommandInput}
+ * @returns {@link DescribeJobDefinitionsCommandOutput}
  * @see {@link DescribeJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -123,6 +130,9 @@ export class DescribeJobDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class DescribeJobDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobDefinitionsCommandOutput> {
     return deserializeAws_restJson1DescribeJobDefinitionsCommand(output, context);
   }

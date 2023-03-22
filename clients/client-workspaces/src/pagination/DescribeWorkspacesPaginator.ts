@@ -10,7 +10,7 @@ import { WorkSpacesClient } from "../WorkSpacesClient";
 import { WorkSpacesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkSpacesClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeWorkspacesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeWorkspaces(
   config: WorkSpacesPaginationConfiguration,
   input: DescribeWorkspacesCommandInput,

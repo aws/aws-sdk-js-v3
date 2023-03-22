@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetCommitsCommand}.
  */
 export interface BatchGetCommitsCommandInput extends BatchGetCommitsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetCommitsCommand}.
  */
 export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the contents of one or more commits in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetCommitsCommandInput - {@link BatchGetCommitsCommandInput}
+ * @returns {@link BatchGetCommitsCommandOutput}
  * @see {@link BatchGetCommitsCommandInput} for command's `input` shape.
  * @see {@link BatchGetCommitsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -105,6 +112,9 @@ export class BatchGetCommitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetCommitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class BatchGetCommitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetCommitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetCommitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetCommitsCommandOutput> {
     return deserializeAws_json1_1BatchGetCommitsCommand(output, context);
   }

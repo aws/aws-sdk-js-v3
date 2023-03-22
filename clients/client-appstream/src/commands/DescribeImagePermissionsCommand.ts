@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImagePermissionsCommand}.
  */
 export interface DescribeImagePermissionsCommandInput extends DescribeImagePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImagePermissionsCommand}.
  */
 export interface DescribeImagePermissionsCommandOutput extends DescribeImagePermissionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImagePermissionsCommandInput - {@link DescribeImagePermissionsCommandInput}
+ * @returns {@link DescribeImagePermissionsCommandOutput}
  * @see {@link DescribeImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeImagePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImagePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeImagePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImagePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeImagePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagePermissionsCommandOutput> {
     return deserializeAws_json1_1DescribeImagePermissionsCommand(output, context);
   }

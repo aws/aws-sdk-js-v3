@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCrawlerMetricsCommand}.
  */
 export interface GetCrawlerMetricsCommandInput extends GetCrawlerMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCrawlerMetricsCommand}.
  */
 export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves metrics about specified crawlers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCrawlerMetricsCommandInput - {@link GetCrawlerMetricsCommandInput}
+ * @returns {@link GetCrawlerMetricsCommandOutput}
  * @see {@link GetCrawlerMetricsCommandInput} for command's `input` shape.
  * @see {@link GetCrawlerMetricsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetCrawlerMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCrawlerMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetCrawlerMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCrawlerMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCrawlerMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrawlerMetricsCommandOutput> {
     return deserializeAws_json1_1GetCrawlerMetricsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfiguredTablesCommand}.
  */
 export interface ListConfiguredTablesCommandInput extends ListConfiguredTablesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListConfiguredTablesCommand}.
  */
 export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists configured tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfiguredTablesCommandInput - {@link ListConfiguredTablesCommandInput}
+ * @returns {@link ListConfiguredTablesCommandOutput}
  * @see {@link ListConfiguredTablesCommandInput} for command's `input` shape.
  * @see {@link ListConfiguredTablesCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListConfiguredTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfiguredTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListConfiguredTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfiguredTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListConfiguredTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfiguredTablesCommandOutput> {
     return deserializeAws_restJson1ListConfiguredTablesCommand(output, context);
   }

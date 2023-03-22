@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVodSourceCommand}.
  */
 export interface DescribeVodSourceCommandInput extends DescribeVodSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVodSourceCommand}.
  */
 export interface DescribeVodSourceCommandOutput extends DescribeVodSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about a specific video on demand (VOD) source in a specific source location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVodSourceCommandInput - {@link DescribeVodSourceCommandInput}
+ * @returns {@link DescribeVodSourceCommandOutput}
  * @see {@link DescribeVodSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeVodSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVodSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeVodSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVodSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVodSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVodSourceCommandOutput> {
     return deserializeAws_restJson1DescribeVodSourceCommand(output, context);
   }

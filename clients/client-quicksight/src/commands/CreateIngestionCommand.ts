@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIngestionCommand}.
  */
 export interface CreateIngestionCommandInput extends CreateIngestionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIngestionCommand}.
  */
 export interface CreateIngestionCommandOutput extends CreateIngestionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and starts a new SPICE ingestion for a dataset. You can manually refresh datasets in
  * 			an Enterprise edition account 32 times in a 24-hour period. You can manually refresh
  * 			datasets in a Standard edition account 8 times in a 24-hour period. Each 24-hour period
@@ -52,6 +57,8 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIngestionCommandInput - {@link CreateIngestionCommandInput}
+ * @returns {@link CreateIngestionCommandOutput}
  * @see {@link CreateIngestionCommandInput} for command's `input` shape.
  * @see {@link CreateIngestionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateIngestionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIngestionCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateIngestionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIngestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateIngestionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIngestionCommandOutput> {
     return deserializeAws_restJson1CreateIngestionCommand(output, context);
   }

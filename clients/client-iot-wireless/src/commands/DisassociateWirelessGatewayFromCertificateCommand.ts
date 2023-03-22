@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWirelessGatewayFromCertificateCommand}.
  */
 export interface DisassociateWirelessGatewayFromCertificateCommandInput
   extends DisassociateWirelessGatewayFromCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWirelessGatewayFromCertificateCommand}.
  */
 export interface DisassociateWirelessGatewayFromCertificateCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a wireless gateway from its currently associated certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWirelessGatewayFromCertificateCommandInput - {@link DisassociateWirelessGatewayFromCertificateCommandInput}
+ * @returns {@link DisassociateWirelessGatewayFromCertificateCommandOutput}
  * @see {@link DisassociateWirelessGatewayFromCertificateCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessGatewayFromCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWirelessGatewayFromCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWirelessGatewayFromCertificateCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
     return serializeAws_restJson1DisassociateWirelessGatewayFromCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

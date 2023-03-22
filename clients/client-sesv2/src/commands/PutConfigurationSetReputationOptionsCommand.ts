@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationSetReputationOptionsCommand}.
  */
 export interface PutConfigurationSetReputationOptionsCommandInput extends PutConfigurationSetReputationOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationSetReputationOptionsCommand}.
  */
 export interface PutConfigurationSetReputationOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable collection of reputation metrics for emails that you send using a
  *             particular configuration set in a specific Amazon Web Services Region.</p>
  * @example
@@ -49,6 +54,8 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetReputationOptionsCommandInput - {@link PutConfigurationSetReputationOptionsCommandInput}
+ * @returns {@link PutConfigurationSetReputationOptionsCommandOutput}
  * @see {@link PutConfigurationSetReputationOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetReputationOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +88,9 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetReputationOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutConfigurationSetReputationOptionsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     return serializeAws_restJson1PutConfigurationSetReputationOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

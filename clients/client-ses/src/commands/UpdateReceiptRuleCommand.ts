@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReceiptRuleCommand}.
  */
 export interface UpdateReceiptRuleCommandInput extends UpdateReceiptRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReceiptRuleCommand}.
  */
 export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a receipt rule.</p>
  *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -49,6 +54,8 @@ export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReceiptRuleCommandInput - {@link UpdateReceiptRuleCommandInput}
+ * @returns {@link UpdateReceiptRuleCommandOutput}
  * @see {@link UpdateReceiptRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -126,6 +133,9 @@ export class UpdateReceiptRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReceiptRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class UpdateReceiptRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReceiptRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateReceiptRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReceiptRuleCommandOutput> {
     return deserializeAws_queryUpdateReceiptRuleCommand(output, context);
   }

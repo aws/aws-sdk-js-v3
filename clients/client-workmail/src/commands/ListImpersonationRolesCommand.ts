@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListImpersonationRolesCommand}.
  */
 export interface ListImpersonationRolesCommandInput extends ListImpersonationRolesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImpersonationRolesCommand}.
  */
 export interface ListImpersonationRolesCommandOutput extends ListImpersonationRolesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the impersonation roles for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListImpersonationRolesCommandOutput extends ListImpersonationRo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImpersonationRolesCommandInput - {@link ListImpersonationRolesCommandInput}
+ * @returns {@link ListImpersonationRolesCommandOutput}
  * @see {@link ListImpersonationRolesCommandInput} for command's `input` shape.
  * @see {@link ListImpersonationRolesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListImpersonationRolesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImpersonationRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListImpersonationRolesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImpersonationRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListImpersonationRolesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImpersonationRolesCommandOutput> {
     return deserializeAws_json1_1ListImpersonationRolesCommand(output, context);
   }

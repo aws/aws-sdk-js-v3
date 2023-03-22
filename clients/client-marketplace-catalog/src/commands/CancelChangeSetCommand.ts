@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelChangeSetCommand}.
  */
 export interface CancelChangeSetCommandInput extends CancelChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelChangeSetCommand}.
  */
 export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to cancel an open change request. Must be sent before the status of the request
  *             changes to <code>APPLYING</code>, the final stage of completing your change request. You
  *             can describe a change during the 60-day request history retention period for API
@@ -53,6 +58,8 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelChangeSetCommandInput - {@link CancelChangeSetCommandInput}
+ * @returns {@link CancelChangeSetCommandOutput}
  * @see {@link CancelChangeSetCommandInput} for command's `input` shape.
  * @see {@link CancelChangeSetCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
@@ -94,6 +101,9 @@ export class CancelChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CancelChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelChangeSetCommandOutput> {
     return deserializeAws_restJson1CancelChangeSetCommand(output, context);
   }

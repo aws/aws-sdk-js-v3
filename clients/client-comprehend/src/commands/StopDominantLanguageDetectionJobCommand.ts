@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopDominantLanguageDetectionJobCommand}.
  */
 export interface StopDominantLanguageDetectionJobCommandInput extends StopDominantLanguageDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopDominantLanguageDetectionJobCommand}.
  */
 export interface StopDominantLanguageDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface StopDominantLanguageDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a dominant language detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -57,6 +62,8 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDominantLanguageDetectionJobCommandInput - {@link StopDominantLanguageDetectionJobCommandInput}
+ * @returns {@link StopDominantLanguageDetectionJobCommandOutput}
  * @see {@link StopDominantLanguageDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -89,6 +96,9 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDominantLanguageDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StopDominantLanguageDetectionJobCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     return serializeAws_json1_1StopDominantLanguageDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

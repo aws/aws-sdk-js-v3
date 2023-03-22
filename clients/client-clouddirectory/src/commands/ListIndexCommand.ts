@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIndexCommand}.
  */
 export interface ListIndexCommandInput extends ListIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIndexCommand}.
  */
 export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists objects attached to the specified index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIndexCommandInput - {@link ListIndexCommandInput}
+ * @returns {@link ListIndexCommandOutput}
  * @see {@link ListIndexCommandInput} for command's `input` shape.
  * @see {@link ListIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -104,6 +111,9 @@ export class ListIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ListIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIndexCommandOutput> {
     return deserializeAws_restJson1ListIndexCommand(output, context);
   }

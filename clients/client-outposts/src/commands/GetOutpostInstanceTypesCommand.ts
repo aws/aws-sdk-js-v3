@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOutpostInstanceTypesCommand}.
  */
 export interface GetOutpostInstanceTypesCommandInput extends GetOutpostInstanceTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOutpostInstanceTypesCommand}.
  */
 export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstanceTypesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the instance types for the specified Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOutpostInstanceTypesCommandInput - {@link GetOutpostInstanceTypesCommandInput}
+ * @returns {@link GetOutpostInstanceTypesCommandOutput}
  * @see {@link GetOutpostInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link GetOutpostInstanceTypesCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetOutpostInstanceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOutpostInstanceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetOutpostInstanceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOutpostInstanceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetOutpostInstanceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOutpostInstanceTypesCommandOutput> {
     return deserializeAws_restJson1GetOutpostInstanceTypesCommand(output, context);
   }

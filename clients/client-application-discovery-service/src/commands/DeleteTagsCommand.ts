@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTagsCommand}.
  */
 export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTagsCommand}.
  */
 export interface DeleteTagsCommandOutput extends DeleteTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association between configuration items and one or more tags. This API
  *       accepts a list of multiple configuration items.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
+ * @returns {@link DeleteTagsCommandOutput}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
     return deserializeAws_json1_1DeleteTagsCommand(output, context);
   }

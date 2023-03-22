@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetVehicleStatusCommand}.
  */
 export interface GetVehicleStatusCommandInput extends GetVehicleStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVehicleStatusCommand}.
  */
 export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about the status of a vehicle with any associated campaigns.
  *         </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVehicleStatusCommandInput - {@link GetVehicleStatusCommandInput}
+ * @returns {@link GetVehicleStatusCommandOutput}
  * @see {@link GetVehicleStatusCommandInput} for command's `input` shape.
  * @see {@link GetVehicleStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetVehicleStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVehicleStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetVehicleStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVehicleStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetVehicleStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVehicleStatusCommandOutput> {
     return deserializeAws_json1_0GetVehicleStatusCommand(output, context);
   }

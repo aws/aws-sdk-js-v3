@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAutoTerminationPolicyCommand}.
  */
 export interface PutAutoTerminationPolicyCommandInput extends PutAutoTerminationPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutAutoTerminationPolicyCommand}.
  */
 export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminationPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>Auto-termination is supported in Amazon EMR versions 5.30.0 and 6.1.0 and
  *             later. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html">Using an
@@ -54,6 +59,8 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAutoTerminationPolicyCommandInput - {@link PutAutoTerminationPolicyCommandInput}
+ * @returns {@link PutAutoTerminationPolicyCommandOutput}
  * @see {@link PutAutoTerminationPolicyCommandInput} for command's `input` shape.
  * @see {@link PutAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -77,6 +84,9 @@ export class PutAutoTerminationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAutoTerminationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class PutAutoTerminationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAutoTerminationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAutoTerminationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAutoTerminationPolicyCommandOutput> {
     return deserializeAws_json1_1PutAutoTerminationPolicyCommand(output, context);
   }

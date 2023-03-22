@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppVersionResourceCommand}.
  */
 export interface CreateAppVersionResourceCommandInput extends CreateAppVersionResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppVersionResourceCommand}.
  */
 export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a resource to the AWS Resilience Hub applicationand assigns it to the specified
  *       Application Components. If you specify a new Application Component, AWS Resilience Hub will automatically
  *       create the Application Component.</p>
@@ -64,6 +69,8 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppVersionResourceCommandInput - {@link CreateAppVersionResourceCommandInput}
+ * @returns {@link CreateAppVersionResourceCommandOutput}
  * @see {@link CreateAppVersionResourceCommandInput} for command's `input` shape.
  * @see {@link CreateAppVersionResourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -115,6 +122,9 @@ export class CreateAppVersionResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppVersionResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class CreateAppVersionResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppVersionResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAppVersionResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppVersionResourceCommandOutput> {
     return deserializeAws_restJson1CreateAppVersionResourceCommand(output, context);
   }

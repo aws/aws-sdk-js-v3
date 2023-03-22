@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePolicyVersionCommand}.
  */
 export interface DeletePolicyVersionCommandInput extends DeletePolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePolicyVersionCommand}.
  */
 export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified version of the specified policy. You cannot delete the default
  *          version of a policy using this action. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default
  *          version, use ListPolicyVersions.</p>
@@ -44,6 +49,8 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePolicyVersionCommandInput - {@link DeletePolicyVersionCommandInput}
+ * @returns {@link DeletePolicyVersionCommandOutput}
  * @see {@link DeletePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeletePolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeletePolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyVersionCommandOutput> {
     return deserializeAws_restJson1DeletePolicyVersionCommand(output, context);
   }

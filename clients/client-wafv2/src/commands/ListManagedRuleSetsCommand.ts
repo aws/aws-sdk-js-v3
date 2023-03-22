@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListManagedRuleSetsCommand}.
  */
 export interface ListManagedRuleSetsCommandInput extends ListManagedRuleSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListManagedRuleSetsCommand}.
  */
 export interface ListManagedRuleSetsCommandOutput extends ListManagedRuleSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the managed rule sets that you own. </p>
  *          <note>
  *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers. </p>
@@ -50,6 +55,8 @@ export interface ListManagedRuleSetsCommandOutput extends ListManagedRuleSetsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedRuleSetsCommandInput - {@link ListManagedRuleSetsCommandInput}
+ * @returns {@link ListManagedRuleSetsCommandOutput}
  * @see {@link ListManagedRuleSetsCommandInput} for command's `input` shape.
  * @see {@link ListManagedRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -101,6 +108,9 @@ export class ListManagedRuleSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedRuleSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class ListManagedRuleSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListManagedRuleSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListManagedRuleSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedRuleSetsCommandOutput> {
     return deserializeAws_json1_1ListManagedRuleSetsCommand(output, context);
   }

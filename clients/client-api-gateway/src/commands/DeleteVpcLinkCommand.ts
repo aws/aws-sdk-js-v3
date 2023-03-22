@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcLinkCommand}.
  */
 export interface DeleteVpcLinkCommandInput extends DeleteVpcLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcLinkCommand}.
  */
 export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing VpcLink of a specified identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcLinkCommandInput - {@link DeleteVpcLinkCommandInput}
+ * @returns {@link DeleteVpcLinkCommandOutput}
  * @see {@link DeleteVpcLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteVpcLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteVpcLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVpcLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcLinkCommandOutput> {
     return deserializeAws_restJson1DeleteVpcLinkCommand(output, context);
   }

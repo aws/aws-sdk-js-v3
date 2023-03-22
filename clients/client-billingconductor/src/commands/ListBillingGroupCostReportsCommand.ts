@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBillingGroupCostReportsCommand}.
  */
 export interface ListBillingGroupCostReportsCommandInput extends ListBillingGroupCostReportsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBillingGroupCostReportsCommand}.
  */
 export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGroupCostReportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A paginated call to retrieve a summary report of actual Amazon Web Services charges and the calculated
  *       Amazon Web Services charges based on the associated pricing plan of a billing group.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGro
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBillingGroupCostReportsCommandInput - {@link ListBillingGroupCostReportsCommandInput}
+ * @returns {@link ListBillingGroupCostReportsCommandOutput}
  * @see {@link ListBillingGroupCostReportsCommandInput} for command's `input` shape.
  * @see {@link ListBillingGroupCostReportsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListBillingGroupCostReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBillingGroupCostReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListBillingGroupCostReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBillingGroupCostReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBillingGroupCostReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

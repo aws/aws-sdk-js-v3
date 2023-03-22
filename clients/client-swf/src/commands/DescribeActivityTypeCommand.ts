@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeActivityTypeCommand}.
  */
 export interface DescribeActivityTypeCommandInput extends DescribeActivityTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeActivityTypeCommand}.
  */
 export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified activity type. This includes configuration
  *       settings provided when the type was registered and other general information about the
  *       type.</p>
@@ -84,6 +89,8 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeActivityTypeCommandInput - {@link DescribeActivityTypeCommandInput}
+ * @returns {@link DescribeActivityTypeCommandOutput}
  * @see {@link DescribeActivityTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -113,6 +120,9 @@ export class DescribeActivityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActivityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DescribeActivityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeActivityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivityTypeCommandOutput> {
     return deserializeAws_json1_0DescribeActivityTypeCommand(output, context);
   }

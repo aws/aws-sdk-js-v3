@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationSubnetGroupsCommand}.
  */
 export interface DescribeReplicationSubnetGroupsCommandInput extends DescribeReplicationSubnetGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationSubnetGroupsCommand}.
  */
 export interface DescribeReplicationSubnetGroupsCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the replication subnet groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationSubnetGroupsCommandInput - {@link DescribeReplicationSubnetGroupsCommandInput}
+ * @returns {@link DescribeReplicationSubnetGroupsCommandOutput}
  * @see {@link DescribeReplicationSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -105,6 +112,9 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationSubnetGroupsCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command<
     return serializeAws_json1_1DescribeReplicationSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

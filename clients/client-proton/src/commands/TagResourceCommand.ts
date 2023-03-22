@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourceCommand}.
  */
 export interface TagResourceCommandInput extends TagResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link TagResourceCommand}.
  */
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
  *     resources and tagging</a> in the <i>Proton User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -89,6 +96,9 @@ export class TagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
     return deserializeAws_json1_0TagResourceCommand(output, context);
   }

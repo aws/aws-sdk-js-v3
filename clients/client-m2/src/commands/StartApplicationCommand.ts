@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartApplicationCommand}.
  */
 export interface StartApplicationCommandInput extends StartApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartApplicationCommand}.
  */
 export interface StartApplicationCommandOutput extends StartApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an application that is currently stopped.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
+ * @returns {@link StartApplicationCommandOutput}
  * @see {@link StartApplicationCommandInput} for command's `input` shape.
  * @see {@link StartApplicationCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -87,6 +94,9 @@ export class StartApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartApplicationCommandOutput> {
     return deserializeAws_restJson1StartApplicationCommand(output, context);
   }

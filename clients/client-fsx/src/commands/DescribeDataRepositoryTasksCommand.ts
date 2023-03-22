@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataRepositoryTasksCommand}.
  */
 export interface DescribeDataRepositoryTasksCommandInput extends DescribeDataRepositoryTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataRepositoryTasksCommand}.
  */
 export interface DescribeDataRepositoryTasksCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDataRepositoryTasksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository tasks, if
  *             one or more <code>TaskIds</code> values are provided in the request, or if filters are used in the request.
  *             You can use filters to narrow the response to include just tasks for specific file systems or caches,
@@ -57,6 +62,8 @@ export interface DescribeDataRepositoryTasksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataRepositoryTasksCommandInput - {@link DescribeDataRepositoryTasksCommandInput}
+ * @returns {@link DescribeDataRepositoryTasksCommandOutput}
  * @see {@link DescribeDataRepositoryTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeDataRepositoryTasksCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataRepositoryTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataRepositoryTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDataRepositoryTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

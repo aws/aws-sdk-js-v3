@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelReservedInstancesListingCommand}.
  */
 export interface CancelReservedInstancesListingCommandInput extends CancelReservedInstancesListingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelReservedInstancesListingCommand}.
  */
 export interface CancelReservedInstancesListingCommandOutput
@@ -37,6 +41,7 @@ export interface CancelReservedInstancesListingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>
  *          <p>For more information, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
@@ -51,6 +56,8 @@ export interface CancelReservedInstancesListingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelReservedInstancesListingCommandInput - {@link CancelReservedInstancesListingCommandInput}
+ * @returns {@link CancelReservedInstancesListingCommandOutput}
  * @see {@link CancelReservedInstancesListingCommandInput} for command's `input` shape.
  * @see {@link CancelReservedInstancesListingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CancelReservedInstancesListingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelReservedInstancesListingCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CancelReservedInstancesListingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelReservedInstancesListingCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CancelReservedInstancesListingCommand extends $Command<
     return serializeAws_ec2CancelReservedInstancesListingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

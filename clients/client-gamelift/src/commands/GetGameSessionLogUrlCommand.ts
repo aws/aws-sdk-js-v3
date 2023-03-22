@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGameSessionLogUrlCommand}.
  */
 export interface GetGameSessionLogUrlCommandInput extends GetGameSessionLogUrlInput {}
 /**
+ * @public
+ *
  * The output of {@link GetGameSessionLogUrlCommand}.
  */
 export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the location of stored game session logs for a specified game session. When
  *             a game session is terminated, GameLift automatically stores the logs in Amazon S3 and
  *             retains them for 14 days. Use this URL to download the logs.</p>
@@ -56,6 +61,8 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGameSessionLogUrlCommandInput - {@link GetGameSessionLogUrlCommandInput}
+ * @returns {@link GetGameSessionLogUrlCommandOutput}
  * @see {@link GetGameSessionLogUrlCommandInput} for command's `input` shape.
  * @see {@link GetGameSessionLogUrlCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetGameSessionLogUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGameSessionLogUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetGameSessionLogUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGameSessionLogUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetGameSessionLogUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGameSessionLogUrlCommandOutput> {
     return deserializeAws_json1_1GetGameSessionLogUrlCommand(output, context);
   }

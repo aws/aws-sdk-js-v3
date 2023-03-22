@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTableStorageOptimizerCommand}.
  */
 export interface UpdateTableStorageOptimizerCommandInput extends UpdateTableStorageOptimizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTableStorageOptimizerCommand}.
  */
 export interface UpdateTableStorageOptimizerCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateTableStorageOptimizerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of the storage optimizers for a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTableStorageOptimizerCommandInput - {@link UpdateTableStorageOptimizerCommandInput}
+ * @returns {@link UpdateTableStorageOptimizerCommandOutput}
  * @see {@link UpdateTableStorageOptimizerCommandInput} for command's `input` shape.
  * @see {@link UpdateTableStorageOptimizerCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableStorageOptimizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableStorageOptimizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTableStorageOptimizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

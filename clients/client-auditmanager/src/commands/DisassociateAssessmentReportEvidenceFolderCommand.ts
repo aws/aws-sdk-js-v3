@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateAssessmentReportEvidenceFolderCommand}.
  */
 export interface DisassociateAssessmentReportEvidenceFolderCommandInput
   extends DisassociateAssessmentReportEvidenceFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateAssessmentReportEvidenceFolderCommand}.
  */
 export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Disassociates an evidence folder from the specified assessment report in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAssessmentReportEvidenceFolderCommandInput - {@link DisassociateAssessmentReportEvidenceFolderCommandInput}
+ * @returns {@link DisassociateAssessmentReportEvidenceFolderCommandOutput}
  * @see {@link DisassociateAssessmentReportEvidenceFolderCommandInput} for command's `input` shape.
  * @see {@link DisassociateAssessmentReportEvidenceFolderCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAssessmentReportEvidenceFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateAssessmentReportEvidenceFolderCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command<
     return serializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

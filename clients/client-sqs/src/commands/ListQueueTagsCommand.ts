@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueueTagsCommand}.
  */
 export interface ListQueueTagsCommandInput extends ListQueueTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueueTagsCommand}.
  */
 export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
  * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *         <note>
@@ -52,6 +57,8 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueueTagsCommandInput - {@link ListQueueTagsCommandInput}
+ * @returns {@link ListQueueTagsCommandOutput}
  * @see {@link ListQueueTagsCommandInput} for command's `input` shape.
  * @see {@link ListQueueTagsCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListQueueTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueueTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListQueueTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueueTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListQueueTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueueTagsCommandOutput> {
     return deserializeAws_queryListQueueTagsCommand(output, context);
   }

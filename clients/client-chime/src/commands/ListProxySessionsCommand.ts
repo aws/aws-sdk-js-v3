@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProxySessionsCommand}.
  */
 export interface ListProxySessionsCommandInput extends ListProxySessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProxySessionsCommand}.
  */
 export interface ListProxySessionsCommandOutput extends ListProxySessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the proxy sessions for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListProxySessionsCommandOutput extends ListProxySessionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProxySessionsCommandInput - {@link ListProxySessionsCommandInput}
+ * @returns {@link ListProxySessionsCommandOutput}
  * @see {@link ListProxySessionsCommandInput} for command's `input` shape.
  * @see {@link ListProxySessionsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListProxySessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProxySessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListProxySessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProxySessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProxySessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProxySessionsCommandOutput> {
     return deserializeAws_restJson1ListProxySessionsCommand(output, context);
   }

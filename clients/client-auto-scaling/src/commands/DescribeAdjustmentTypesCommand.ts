@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAdjustmentTypesCommand}.
  */
 export interface DescribeAdjustmentTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAdjustmentTypesCommand}.
  */
 export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustmentTypesAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available adjustment types for step scaling and simple scaling
  *             policies.</p>
  *          <p>The following adjustment types are supported:</p>
@@ -60,6 +65,8 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAdjustmentTypesCommandInput - {@link DescribeAdjustmentTypesCommandInput}
+ * @returns {@link DescribeAdjustmentTypesCommandOutput}
  * @see {@link DescribeAdjustmentTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeAdjustmentTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -111,6 +118,9 @@ export class DescribeAdjustmentTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAdjustmentTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DescribeAdjustmentTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAdjustmentTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAdjustmentTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAdjustmentTypesCommandOutput> {
     return deserializeAws_queryDescribeAdjustmentTypesCommand(output, context);
   }

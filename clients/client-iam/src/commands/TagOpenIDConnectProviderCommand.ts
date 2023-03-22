@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagOpenIDConnectProviderCommand}.
  */
 export interface TagOpenIDConnectProviderCommandInput extends TagOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagOpenIDConnectProviderCommand}.
  */
 export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an OpenID Connect (OIDC)-compatible identity provider. For
  *       more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>. If
  *       a tag with the same key name already exists, then that tag is overwritten with the new
@@ -78,6 +83,8 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param TagOpenIDConnectProviderCommandInput - {@link TagOpenIDConnectProviderCommandInput}
+ * @returns {@link TagOpenIDConnectProviderCommandOutput}
  * @see {@link TagOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link TagOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -121,6 +128,9 @@ export class TagOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class TagOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagOpenIDConnectProviderCommandOutput> {
     return deserializeAws_queryTagOpenIDConnectProviderCommand(output, context);
   }

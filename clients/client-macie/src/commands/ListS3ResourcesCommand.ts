@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListS3ResourcesCommand}.
  */
 export interface ListS3ResourcesCommandInput extends ListS3ResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListS3ResourcesCommand}.
  */
 export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Lists all the S3 resources associated with Amazon Macie Classic. If
  *       <code>memberAccountId</code> isn't specified, the action lists the S3 resources associated with Macie
  *       Classic for the current Macie Classic administrator account. If <code>memberAccountId</code> is specified,
@@ -50,6 +55,8 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListS3ResourcesCommandInput - {@link ListS3ResourcesCommandInput}
+ * @returns {@link ListS3ResourcesCommandOutput}
  * @see {@link ListS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link ListS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListS3ResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListS3ResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListS3ResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListS3ResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListS3ResourcesCommandOutput> {
     return deserializeAws_json1_1ListS3ResourcesCommand(output, context);
   }

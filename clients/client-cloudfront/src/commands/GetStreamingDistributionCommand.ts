@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamingDistributionCommand}.
  */
 export interface GetStreamingDistributionCommandInput extends GetStreamingDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamingDistributionCommand}.
  */
 export interface GetStreamingDistributionCommandOutput extends GetStreamingDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified RTMP distribution, including the distribution
  * 			configuration.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetStreamingDistributionCommandOutput extends GetStreamingDistr
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamingDistributionCommandInput - {@link GetStreamingDistributionCommandInput}
+ * @returns {@link GetStreamingDistributionCommandOutput}
  * @see {@link GetStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link GetStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetStreamingDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetStreamingDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetStreamingDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamingDistributionCommandOutput> {
     return deserializeAws_restXmlGetStreamingDistributionCommand(output, context);
   }

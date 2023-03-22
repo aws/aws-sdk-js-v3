@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExportTasksCommand}.
  */
 export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExportTasksCommand}.
  */
 export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve status of one or more export tasks. You can retrieve the status of up to 100
  *       export tasks.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
+ * @returns {@link DescribeExportTasksCommandOutput}
  * @see {@link DescribeExportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeExportTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExportTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeExportTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExportTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeExportTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExportTasksCommandOutput> {
     return deserializeAws_json1_1DescribeExportTasksCommand(output, context);
   }

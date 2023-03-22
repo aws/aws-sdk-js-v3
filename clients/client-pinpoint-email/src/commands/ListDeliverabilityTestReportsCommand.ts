@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeliverabilityTestReportsCommand}.
  */
 export interface ListDeliverabilityTestReportsCommandInput extends ListDeliverabilityTestReportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeliverabilityTestReportsCommand}.
  */
 export interface ListDeliverabilityTestReportsCommandOutput
@@ -37,6 +41,7 @@ export interface ListDeliverabilityTestReportsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For
  *             predictive inbox placement tests that are complete, you can use the <code>GetDeliverabilityTestReport</code>
  *             operation to view the results.</p>
@@ -50,6 +55,8 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeliverabilityTestReportsCommandInput - {@link ListDeliverabilityTestReportsCommandInput}
+ * @returns {@link ListDeliverabilityTestReportsCommandOutput}
  * @see {@link ListDeliverabilityTestReportsCommandInput} for command's `input` shape.
  * @see {@link ListDeliverabilityTestReportsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeliverabilityTestReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeliverabilityTestReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDeliverabilityTestReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

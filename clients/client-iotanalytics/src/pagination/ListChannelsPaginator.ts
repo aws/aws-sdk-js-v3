@@ -10,7 +10,7 @@ import { IoTAnalyticsClient } from "../IoTAnalyticsClient";
 import { IoTAnalyticsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTAnalyticsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListChannelsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListChannels(
   config: IoTAnalyticsPaginationConfiguration,
   input: ListChannelsCommandInput,

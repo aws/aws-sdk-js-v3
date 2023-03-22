@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHoursOfOperationCommand}.
  */
 export interface CreateHoursOfOperationCommandInput extends CreateHoursOfOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHoursOfOperationCommand}.
  */
 export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Creates hours of operation. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHoursOfOperationCommandInput - {@link CreateHoursOfOperationCommandInput}
+ * @returns {@link CreateHoursOfOperationCommandOutput}
  * @see {@link CreateHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link CreateHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateHoursOfOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHoursOfOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateHoursOfOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHoursOfOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateHoursOfOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHoursOfOperationCommandOutput> {
     return deserializeAws_restJson1CreateHoursOfOperationCommand(output, context);
   }

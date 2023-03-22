@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOpsMetadataCommand}.
  */
 export interface CreateOpsMetadataCommandInput extends CreateOpsMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOpsMetadataCommand}.
  */
 export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If you create a new application in Application Manager, Amazon Web Services Systems Manager calls this API operation to specify
  *    information about the new application, including the application type.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOpsMetadataCommandInput - {@link CreateOpsMetadataCommandInput}
+ * @returns {@link CreateOpsMetadataCommandOutput}
  * @see {@link CreateOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link CreateOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateOpsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOpsMetadataCommandOutput> {
     return deserializeAws_json1_1CreateOpsMetadataCommand(output, context);
   }

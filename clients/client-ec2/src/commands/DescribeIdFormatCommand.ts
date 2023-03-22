@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIdFormatCommand}.
  */
 export interface DescribeIdFormatCommandInput extends DescribeIdFormatRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIdFormatCommand}.
  */
 export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p>
  *          <p>The following resource types support longer IDs: <code>bundle</code> |
  *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
@@ -65,6 +70,8 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdFormatCommandInput - {@link DescribeIdFormatCommandInput}
+ * @returns {@link DescribeIdFormatCommandOutput}
  * @see {@link DescribeIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribeIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeIdFormatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeIdFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeIdFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdFormatCommandOutput> {
     return deserializeAws_ec2DescribeIdFormatCommand(output, context);
   }

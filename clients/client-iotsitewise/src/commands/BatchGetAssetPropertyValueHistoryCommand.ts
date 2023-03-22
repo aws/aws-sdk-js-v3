@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetAssetPropertyValueHistoryCommand}.
  */
 export interface BatchGetAssetPropertyValueHistoryCommandInput extends BatchGetAssetPropertyValueHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetAssetPropertyValueHistoryCommand}.
  */
 export interface BatchGetAssetPropertyValueHistoryCommandOutput
@@ -37,6 +41,7 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the historical values for one or more asset properties. For more information, see
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetAssetPropertyValueHistoryCommandInput - {@link BatchGetAssetPropertyValueHistoryCommandInput}
+ * @returns {@link BatchGetAssetPropertyValueHistoryCommandOutput}
  * @see {@link BatchGetAssetPropertyValueHistoryCommandInput} for command's `input` shape.
  * @see {@link BatchGetAssetPropertyValueHistoryCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -88,6 +95,9 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetAssetPropertyValueHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchGetAssetPropertyValueHistoryCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command<
     return serializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

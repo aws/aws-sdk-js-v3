@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDataSourceSyncJobCommand}.
  */
 export interface StartDataSourceSyncJobCommandInput extends StartDataSourceSyncJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDataSourceSyncJobCommand}.
  */
 export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSyncJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a synchronization job for a data source connector. If a synchronization job is
  *       already in progress, Amazon Kendra returns a <code>ResourceInUseException</code>
  *       exception.</p>
@@ -48,6 +53,8 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDataSourceSyncJobCommandInput - {@link StartDataSourceSyncJobCommandInput}
+ * @returns {@link StartDataSourceSyncJobCommandOutput}
  * @see {@link StartDataSourceSyncJobCommandInput} for command's `input` shape.
  * @see {@link StartDataSourceSyncJobCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -99,6 +106,9 @@ export class StartDataSourceSyncJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDataSourceSyncJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class StartDataSourceSyncJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDataSourceSyncJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDataSourceSyncJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDataSourceSyncJobCommandOutput> {
     return deserializeAws_json1_1StartDataSourceSyncJobCommand(output, context);
   }

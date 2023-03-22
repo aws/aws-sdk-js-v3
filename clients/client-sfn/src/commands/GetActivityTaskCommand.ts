@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetActivityTaskCommand}.
  */
 export interface GetActivityTaskCommandInput extends GetActivityTaskInput {}
 /**
+ * @public
+ *
  * The output of {@link GetActivityTaskCommand}.
  */
 export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to retrieve a task (with the specified activity ARN) which has been
  *       scheduled for execution by a running state machine. This initiates a long poll, where the
  *       service holds the HTTP connection open and responds as soon as a task becomes available (i.e.
@@ -63,6 +68,8 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetActivityTaskCommandInput - {@link GetActivityTaskCommandInput}
+ * @returns {@link GetActivityTaskCommandOutput}
  * @see {@link GetActivityTaskCommandInput} for command's `input` shape.
  * @see {@link GetActivityTaskCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetActivityTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetActivityTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class GetActivityTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetActivityTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetActivityTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActivityTaskCommandOutput> {
     return deserializeAws_json1_0GetActivityTaskCommand(output, context);
   }

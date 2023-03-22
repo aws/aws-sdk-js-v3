@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigRulesCommand}.
  */
 export interface DescribeConfigRulesCommandInput extends DescribeConfigRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigRulesCommand}.
  */
 export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about your Config rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigRulesCommandInput - {@link DescribeConfigRulesCommandInput}
+ * @returns {@link DescribeConfigRulesCommandOutput}
  * @see {@link DescribeConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigRulesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeConfigRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeConfigRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConfigRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigRulesCommandOutput> {
     return deserializeAws_json1_1DescribeConfigRulesCommand(output, context);
   }

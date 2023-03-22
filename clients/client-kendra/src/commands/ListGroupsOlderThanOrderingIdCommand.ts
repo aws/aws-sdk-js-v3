@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupsOlderThanOrderingIdCommand}.
  */
 export interface ListGroupsOlderThanOrderingIdCommandInput extends ListGroupsOlderThanOrderingIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupsOlderThanOrderingIdCommand}.
  */
 export interface ListGroupsOlderThanOrderingIdCommandOutput
@@ -37,6 +41,7 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of groups that are mapped to users before a
  *             given ordering or timestamp identifier.</p>
  *          <p>
@@ -52,6 +57,8 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupsOlderThanOrderingIdCommandInput - {@link ListGroupsOlderThanOrderingIdCommandInput}
+ * @returns {@link ListGroupsOlderThanOrderingIdCommandOutput}
  * @see {@link ListGroupsOlderThanOrderingIdCommandInput} for command's `input` shape.
  * @see {@link ListGroupsOlderThanOrderingIdCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -99,6 +106,9 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupsOlderThanOrderingIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupsOlderThanOrderingIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGroupsOlderThanOrderingIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

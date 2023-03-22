@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDimensionCommand}.
  */
 export interface DescribeDimensionCommandInput extends DescribeDimensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDimensionCommand}.
  */
 export interface DescribeDimensionCommandOutput extends DescribeDimensionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about a dimension that is defined in your Amazon Web Services accounts.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDimension</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDimensionCommandOutput extends DescribeDimensionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDimensionCommandInput - {@link DescribeDimensionCommandInput}
+ * @returns {@link DescribeDimensionCommandOutput}
  * @see {@link DescribeDimensionCommandInput} for command's `input` shape.
  * @see {@link DescribeDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeDimensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDimensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeDimensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDimensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDimensionCommandOutput> {
     return deserializeAws_restJson1DescribeDimensionCommand(output, context);
   }

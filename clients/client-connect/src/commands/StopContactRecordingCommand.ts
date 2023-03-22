@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopContactRecordingCommand}.
  */
 export interface StopContactRecordingCommandInput extends StopContactRecordingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopContactRecordingCommand}.
  */
 export interface StopContactRecordingCommandOutput extends StopContactRecordingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time
  *    action. If you use StopContactRecording to stop recording an ongoing call, you can't use
  *    StartContactRecording to restart it. For scenarios where the recording has started and you want
@@ -51,6 +56,8 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * const response = await client.send(command);
  * ```
  *
+ * @param StopContactRecordingCommandInput - {@link StopContactRecordingCommandInput}
+ * @returns {@link StopContactRecordingCommandOutput}
  * @see {@link StopContactRecordingCommandInput} for command's `input` shape.
  * @see {@link StopContactRecordingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class StopContactRecordingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopContactRecordingCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StopContactRecordingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopContactRecordingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopContactRecordingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContactRecordingCommandOutput> {
     return deserializeAws_restJson1StopContactRecordingCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupMembersCommand}.
  */
 export interface ListGroupMembersCommandInput extends ListGroupMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupMembersCommand}.
  */
 export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an overview of the members of a group. Users and groups can be members of a
  *          group.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupMembersCommandInput - {@link ListGroupMembersCommandInput}
+ * @returns {@link ListGroupMembersCommandOutput}
  * @see {@link ListGroupMembersCommandInput} for command's `input` shape.
  * @see {@link ListGroupMembersCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListGroupMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListGroupMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGroupMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupMembersCommandOutput> {
     return deserializeAws_json1_1ListGroupMembersCommand(output, context);
   }

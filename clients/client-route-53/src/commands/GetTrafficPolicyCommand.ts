@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrafficPolicyCommand}.
  */
 export interface GetTrafficPolicyCommandInput extends GetTrafficPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrafficPolicyCommand}.
  */
 export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specific traffic policy version.</p>
  *          <p>For information about how of deleting a traffic policy affects the response from
  * 				<code>GetTrafficPolicy</code>, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>. </p>
@@ -49,6 +54,8 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrafficPolicyCommandInput - {@link GetTrafficPolicyCommandInput}
+ * @returns {@link GetTrafficPolicyCommandOutput}
  * @see {@link GetTrafficPolicyCommandInput} for command's `input` shape.
  * @see {@link GetTrafficPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -78,6 +85,9 @@ export class GetTrafficPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrafficPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetTrafficPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrafficPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetTrafficPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrafficPolicyCommandOutput> {
     return deserializeAws_restXmlGetTrafficPolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListS3BucketsCommand}.
  */
 export interface ListS3BucketsCommandInput extends ListS3BucketsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListS3BucketsCommand}.
  */
 export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The list of S3 buckets in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListS3BucketsCommandInput - {@link ListS3BucketsCommandInput}
+ * @returns {@link ListS3BucketsCommandOutput}
  * @see {@link ListS3BucketsCommandInput} for command's `input` shape.
  * @see {@link ListS3BucketsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListS3BucketsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListS3BucketsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListS3BucketsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListS3BucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListS3BucketsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListS3BucketsCommandOutput> {
     return deserializeAws_restJson1ListS3BucketsCommand(output, context);
   }

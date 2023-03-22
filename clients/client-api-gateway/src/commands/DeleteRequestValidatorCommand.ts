@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRequestValidatorCommand}.
  */
 export interface DeleteRequestValidatorCommandInput extends DeleteRequestValidatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRequestValidatorCommand}.
  */
 export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a RequestValidator of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRequestValidatorCommandInput - {@link DeleteRequestValidatorCommandInput}
+ * @returns {@link DeleteRequestValidatorCommandOutput}
  * @see {@link DeleteRequestValidatorCommandInput} for command's `input` shape.
  * @see {@link DeleteRequestValidatorCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteRequestValidatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRequestValidatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteRequestValidatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRequestValidatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRequestValidatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRequestValidatorCommandOutput> {
     return deserializeAws_restJson1DeleteRequestValidatorCommand(output, context);
   }

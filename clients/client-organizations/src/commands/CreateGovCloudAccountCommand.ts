@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGovCloudAccountCommand}.
  */
 export interface CreateGovCloudAccountCommandInput extends CreateGovCloudAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGovCloudAccountCommand}.
  */
 export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action is available if all of the following are true:</p>
  *          <ul>
  *             <li>
@@ -176,6 +181,8 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGovCloudAccountCommandInput - {@link CreateGovCloudAccountCommandInput}
+ * @returns {@link CreateGovCloudAccountCommandOutput}
  * @see {@link CreateGovCloudAccountCommandInput} for command's `input` shape.
  * @see {@link CreateGovCloudAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -534,6 +541,9 @@ export class CreateGovCloudAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGovCloudAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -573,10 +583,16 @@ export class CreateGovCloudAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGovCloudAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGovCloudAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGovCloudAccountCommandOutput> {
     return deserializeAws_json1_1CreateGovCloudAccountCommand(output, context);
   }

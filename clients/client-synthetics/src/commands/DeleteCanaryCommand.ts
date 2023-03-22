@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCanaryCommand}.
  */
 export interface DeleteCanaryCommandInput extends DeleteCanaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCanaryCommand}.
  */
 export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the specified canary.</p>
  *          <p>If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics also deletes
  *          the Lambda functions and layers that are used by the canary.</p>
@@ -78,6 +83,8 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCanaryCommandInput - {@link DeleteCanaryCommandInput}
+ * @returns {@link DeleteCanaryCommandOutput}
  * @see {@link DeleteCanaryCommandInput} for command's `input` shape.
  * @see {@link DeleteCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -113,6 +120,9 @@ export class DeleteCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DeleteCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCanaryCommandOutput> {
     return deserializeAws_restJson1DeleteCanaryCommand(output, context);
   }

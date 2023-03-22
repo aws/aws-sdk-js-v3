@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateMacSecKeyCommand}.
  */
 export interface AssociateMacSecKeyCommandInput extends AssociateMacSecKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateMacSecKeyCommand}.
  */
 export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with an Direct Connect dedicated connection.</p>
  *          <p>You must supply either the <code>secretARN,</code> or the CKN/CAK (<code>ckn</code> and <code>cak</code>) pair in the request.</p>
  *          <p>For information about MAC Security (MACsec) key considerations, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-key-consideration">MACsec pre-shared CKN/CAK key considerations </a> in the <i>Direct Connect User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateMacSecKeyCommandInput - {@link AssociateMacSecKeyCommandInput}
+ * @returns {@link AssociateMacSecKeyCommandOutput}
  * @see {@link AssociateMacSecKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateMacSecKeyCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -77,6 +84,9 @@ export class AssociateMacSecKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMacSecKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class AssociateMacSecKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateMacSecKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateMacSecKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMacSecKeyCommandOutput> {
     return deserializeAws_json1_1AssociateMacSecKeyCommand(output, context);
   }

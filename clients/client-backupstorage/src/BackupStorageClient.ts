@@ -70,6 +70,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DeleteObjectCommandInput
   | GetChunkCommandInput
@@ -81,6 +84,9 @@ export type ServiceInputTypes =
   | PutObjectCommandInput
   | StartObjectCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DeleteObjectCommandOutput
   | GetChunkCommandOutput
@@ -92,6 +98,9 @@ export type ServiceOutputTypes =
   | PutObjectCommandOutput
   | StartObjectCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -99,7 +108,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -208,7 +217,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
@@ -219,6 +228,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
+/**
+ * @public
+ */
 type BackupStorageClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -229,10 +241,15 @@ type BackupStorageClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of BackupStorageClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of BackupStorageClient class constructor that set the region, credentials and other options.
  */
 export interface BackupStorageClientConfig extends BackupStorageClientConfigType {}
 
+/**
+ * @public
+ */
 type BackupStorageClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -243,11 +260,14 @@ type BackupStorageClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of BackupStorageClient class. This is resolved and normalized from the {@link BackupStorageClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of BackupStorageClient class. This is resolved and normalized from the {@link BackupStorageClientConfig | constructor configuration interface}.
  */
 export interface BackupStorageClientResolvedConfig extends BackupStorageClientResolvedConfigType {}
 
 /**
+ * @public
  * The frontend service for Cryo Storage.
  */
 export class BackupStorageClient extends __Client<

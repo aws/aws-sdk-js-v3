@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResolverRuleCommand}.
  */
 export interface DeleteResolverRuleCommandInput extends DeleteResolverRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResolverRuleCommand}.
  */
 export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate it from all the VPCs that you
  * 			associated the Resolver rule with. For more information, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html">DisassociateResolverRule</a>.</p>
@@ -48,6 +53,8 @@ export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResolverRuleCommandInput - {@link DeleteResolverRuleCommandInput}
+ * @returns {@link DeleteResolverRuleCommandOutput}
  * @see {@link DeleteResolverRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResolverRuleCommandOutput> {
     return deserializeAws_json1_1DeleteResolverRuleCommand(output, context);
   }

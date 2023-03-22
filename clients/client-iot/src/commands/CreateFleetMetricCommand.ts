@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFleetMetricCommand}.
  */
 export interface CreateFleetMetricCommandInput extends CreateFleetMetricRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFleetMetricCommand}.
  */
 export interface CreateFleetMetricCommandOutput extends CreateFleetMetricResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a fleet metric.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateFleetMetric</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateFleetMetricCommandOutput extends CreateFleetMetricRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFleetMetricCommandInput - {@link CreateFleetMetricCommandInput}
+ * @returns {@link CreateFleetMetricCommandOutput}
  * @see {@link CreateFleetMetricCommandInput} for command's `input` shape.
  * @see {@link CreateFleetMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateFleetMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFleetMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateFleetMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFleetMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFleetMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetMetricCommandOutput> {
     return deserializeAws_restJson1CreateFleetMetricCommand(output, context);
   }

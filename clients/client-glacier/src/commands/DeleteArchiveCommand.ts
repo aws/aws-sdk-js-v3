@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteArchiveCommand}.
  */
 export interface DeleteArchiveCommandInput extends DeleteArchiveInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteArchiveCommand}.
  */
 export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes an archive from a vault. Subsequent requests to initiate a
  *          retrieval of this archive will fail. Archive retrievals that are in progress for this
  *          archive ID may or may not succeed according to the following scenarios:</p>
@@ -67,6 +72,8 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteArchiveCommandInput - {@link DeleteArchiveCommandInput}
+ * @returns {@link DeleteArchiveCommandOutput}
  * @see {@link DeleteArchiveCommandInput} for command's `input` shape.
  * @see {@link DeleteArchiveCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -116,6 +123,9 @@ export class DeleteArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class DeleteArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteArchiveCommandOutput> {
     return deserializeAws_restJson1DeleteArchiveCommand(output, context);
   }

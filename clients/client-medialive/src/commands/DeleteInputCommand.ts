@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInputCommand}.
  */
 export interface DeleteInputCommandInput extends DeleteInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInputCommand}.
  */
 export interface DeleteInputCommandOutput extends DeleteInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes the input end point
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
+ * @returns {@link DeleteInputCommandOutput}
  * @see {@link DeleteInputCommandInput} for command's `input` shape.
  * @see {@link DeleteInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInputCommandOutput> {
     return deserializeAws_restJson1DeleteInputCommand(output, context);
   }

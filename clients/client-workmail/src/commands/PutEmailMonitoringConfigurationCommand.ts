@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutEmailMonitoringConfigurationCommand}.
  */
 export interface PutEmailMonitoringConfigurationCommandInput extends PutEmailMonitoringConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEmailMonitoringConfigurationCommand}.
  */
 export interface PutEmailMonitoringConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutEmailMonitoringConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the email monitoring configuration for a specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEmailMonitoringConfigurationCommandInput - {@link PutEmailMonitoringConfigurationCommandInput}
+ * @returns {@link PutEmailMonitoringConfigurationCommandOutput}
  * @see {@link PutEmailMonitoringConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutEmailMonitoringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutEmailMonitoringConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEmailMonitoringConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class PutEmailMonitoringConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutEmailMonitoringConfigurationCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class PutEmailMonitoringConfigurationCommand extends $Command<
     return serializeAws_json1_1PutEmailMonitoringConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

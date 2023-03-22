@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentTemplatesCommand}.
  */
 export interface ListAssessmentTemplatesCommandInput extends ListAssessmentTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentTemplatesCommand}.
  */
 export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the assessment templates that correspond to the assessment targets that are
  *          specified by the ARNs of the assessment targets.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentTemplatesCommandInput - {@link ListAssessmentTemplatesCommandInput}
+ * @returns {@link ListAssessmentTemplatesCommandOutput}
  * @see {@link ListAssessmentTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -107,6 +114,9 @@ export class ListAssessmentTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class ListAssessmentTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssessmentTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentTemplatesCommandOutput> {
     return deserializeAws_json1_1ListAssessmentTemplatesCommand(output, context);
   }

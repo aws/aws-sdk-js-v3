@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLabelGroupCommand}.
  */
 export interface DescribeLabelGroupCommandInput extends DescribeLabelGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLabelGroupCommand}.
  */
 export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Returns information about the label group.
  * </p>
@@ -48,6 +53,8 @@ export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLabelGroupCommandInput - {@link DescribeLabelGroupCommandInput}
+ * @returns {@link DescribeLabelGroupCommandOutput}
  * @see {@link DescribeLabelGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeLabelGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLabelGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeLabelGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeLabelGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLabelGroupCommandOutput> {
     return deserializeAws_json1_0DescribeLabelGroupCommand(output, context);
   }

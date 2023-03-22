@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImportTaskCommand}.
  */
 export interface StartImportTaskCommandInput extends StartImportTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImportTaskCommand}.
  */
 export interface StartImportTaskCommandOutput extends StartImportTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an import task, which allows you to import details of your on-premises environment
  *       directly into Amazon Web Services Migration Hub without having to use the Application Discovery Service (ADS)
  *       tools such as the Discovery Connector or Discovery Agent. This gives you the option to perform
@@ -81,6 +86,8 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportTaskCommandInput - {@link StartImportTaskCommandInput}
+ * @returns {@link StartImportTaskCommandOutput}
  * @see {@link StartImportTaskCommandInput} for command's `input` shape.
  * @see {@link StartImportTaskCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -128,6 +135,9 @@ export class StartImportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,10 +177,16 @@ export class StartImportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartImportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportTaskCommandOutput> {
     return deserializeAws_json1_1StartImportTaskCommand(output, context);
   }

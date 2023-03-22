@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutTargetsCommand}.
  */
 export interface PutTargetsCommandInput extends PutTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutTargetsCommand}.
  */
 export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified targets to the specified rule, or updates the targets if they are
  *       already associated with the rule.</p>
  *          <p>Targets are the resources that are invoked when a rule is triggered.</p>
@@ -223,6 +228,8 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param PutTargetsCommandInput - {@link PutTargetsCommandInput}
+ * @returns {@link PutTargetsCommandOutput}
  * @see {@link PutTargetsCommandInput} for command's `input` shape.
  * @see {@link PutTargetsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -267,6 +274,9 @@ export class PutTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -304,10 +314,16 @@ export class PutTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTargetsCommandOutput> {
     return deserializeAws_json1_1PutTargetsCommand(output, context);
   }

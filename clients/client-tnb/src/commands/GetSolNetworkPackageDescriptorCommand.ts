@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSolNetworkPackageDescriptorCommand}.
  */
 export interface GetSolNetworkPackageDescriptorCommandInput extends GetSolNetworkPackageDescriptorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSolNetworkPackageDescriptorCommand}.
  */
 export interface GetSolNetworkPackageDescriptorCommandOutput
@@ -37,6 +41,7 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the content of the network service descriptor.</p>
  *          <p>A network service descriptor is a .yaml file in a network package that uses the TOSCA standard to describe the network functions you want to deploy and the Amazon Web Services infrastructure you want to deploy the network functions on.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSolNetworkPackageDescriptorCommandInput - {@link GetSolNetworkPackageDescriptorCommandInput}
+ * @returns {@link GetSolNetworkPackageDescriptorCommandOutput}
  * @see {@link GetSolNetworkPackageDescriptorCommandInput} for command's `input` shape.
  * @see {@link GetSolNetworkPackageDescriptorCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetSolNetworkPackageDescriptorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSolNetworkPackageDescriptorCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetSolNetworkPackageDescriptorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSolNetworkPackageDescriptorCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetSolNetworkPackageDescriptorCommand extends $Command<
     return serializeAws_restJson1GetSolNetworkPackageDescriptorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

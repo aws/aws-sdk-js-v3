@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSimulationJobsCommand}.
  */
 export interface ListSimulationJobsCommandInput extends ListSimulationJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSimulationJobsCommand}.
  */
 export interface ListSimulationJobsCommandOutput extends ListSimulationJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
  *          specific simulation jobs. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSimulationJobsCommandInput - {@link ListSimulationJobsCommandInput}
+ * @returns {@link ListSimulationJobsCommandOutput}
  * @see {@link ListSimulationJobsCommandInput} for command's `input` shape.
  * @see {@link ListSimulationJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListSimulationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSimulationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListSimulationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSimulationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSimulationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSimulationJobsCommandOutput> {
     return deserializeAws_restJson1ListSimulationJobsCommand(output, context);
   }

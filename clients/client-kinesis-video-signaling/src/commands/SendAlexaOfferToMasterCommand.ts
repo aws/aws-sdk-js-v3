@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendAlexaOfferToMasterCommand}.
  */
 export interface SendAlexaOfferToMasterCommandInput extends SendAlexaOfferToMasterRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendAlexaOfferToMasterCommand}.
  */
 export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMasterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API allows you to connect WebRTC-enabled devices with Alexa display devices. When
  *             invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer.
  *             The offer is delivered as soon as the master is connected to the specified signaling
@@ -55,6 +60,8 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * const response = await client.send(command);
  * ```
  *
+ * @param SendAlexaOfferToMasterCommandInput - {@link SendAlexaOfferToMasterCommandInput}
+ * @returns {@link SendAlexaOfferToMasterCommandOutput}
  * @see {@link SendAlexaOfferToMasterCommandInput} for command's `input` shape.
  * @see {@link SendAlexaOfferToMasterCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for KinesisVideoSignalingClient's `config` shape.
@@ -91,6 +98,9 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendAlexaOfferToMasterCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendAlexaOfferToMasterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendAlexaOfferToMasterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAlexaOfferToMasterCommandOutput> {
     return deserializeAws_restJson1SendAlexaOfferToMasterCommand(output, context);
   }

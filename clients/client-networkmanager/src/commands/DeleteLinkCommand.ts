@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLinkCommand}.
  */
 export interface DeleteLinkCommandInput extends DeleteLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLinkCommand}.
  */
 export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing link. You must first disassociate the link from any devices and
  *             customer gateways.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLinkCommandInput - {@link DeleteLinkCommandInput}
+ * @returns {@link DeleteLinkCommandOutput}
  * @see {@link DeleteLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLinkCommandOutput> {
     return deserializeAws_restJson1DeleteLinkCommand(output, context);
   }

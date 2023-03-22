@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCompatibleElasticsearchVersionsCommand}.
  */
 export interface GetCompatibleElasticsearchVersionsCommandInput extends GetCompatibleElasticsearchVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCompatibleElasticsearchVersionsCommand}.
  */
 export interface GetCompatibleElasticsearchVersionsCommandOutput
@@ -41,6 +45,7 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns a list of upgrade compatible Elastisearch versions.
  *         You can optionally pass a
@@ -59,6 +64,8 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCompatibleElasticsearchVersionsCommandInput - {@link GetCompatibleElasticsearchVersionsCommandInput}
+ * @returns {@link GetCompatibleElasticsearchVersionsCommandOutput}
  * @see {@link GetCompatibleElasticsearchVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleElasticsearchVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -97,6 +104,9 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCompatibleElasticsearchVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCompatibleElasticsearchVersionsCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     return serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

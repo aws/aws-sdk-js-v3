@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserAttributesCommand}.
  */
 export interface UpdateUserAttributesCommandInput extends UpdateUserAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserAttributesCommand}.
  */
 export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a user to update a specific attribute (one at a time).</p>
  *
  *          <note>
@@ -68,6 +73,8 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserAttributesCommandInput - {@link UpdateUserAttributesCommandInput}
+ * @returns {@link UpdateUserAttributesCommandOutput}
  * @see {@link UpdateUserAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateUserAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -164,6 +171,9 @@ export class UpdateUserAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -203,10 +213,16 @@ export class UpdateUserAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserAttributesCommandOutput> {
     return deserializeAws_json1_1UpdateUserAttributesCommand(output, context);
   }

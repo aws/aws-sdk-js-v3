@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RetryBuildCommand}.
  */
 export interface RetryBuildCommandInput extends RetryBuildInput {}
 /**
+ * @public
+ *
  * The output of {@link RetryBuildCommand}.
  */
 export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts a build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param RetryBuildCommandInput - {@link RetryBuildCommandInput}
+ * @returns {@link RetryBuildCommandOutput}
  * @see {@link RetryBuildCommandInput} for command's `input` shape.
  * @see {@link RetryBuildCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -78,6 +85,9 @@ export class RetryBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetryBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class RetryBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetryBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RetryBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryBuildCommandOutput> {
     return deserializeAws_json1_1RetryBuildCommand(output, context);
   }

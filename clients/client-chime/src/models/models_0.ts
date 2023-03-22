@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ChimeServiceException as __BaseException } from "./ChimeServiceException";
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   AccessDenied = "AccessDenied",
   BadRequest = "BadRequest",
@@ -22,6 +25,7 @@ export enum ErrorCode {
 }
 
 /**
+ * @public
  * <p>You don't have permissions to perform the requested operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -44,11 +48,17 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AccountStatus {
   Active = "Active",
   Suspended = "Suspended",
 }
 
+/**
+ * @public
+ */
 export enum AccountType {
   EnterpriseDirectory = "EnterpriseDirectory",
   EnterpriseLWA = "EnterpriseLWA",
@@ -56,6 +66,9 @@ export enum AccountType {
   Team = "Team",
 }
 
+/**
+ * @public
+ */
 export enum License {
   Basic = "Basic",
   Plus = "Plus",
@@ -64,6 +77,7 @@ export enum License {
 }
 
 /**
+ * @public
  * <p>An Active Directory (AD) group whose members are granted permission to act as delegates.</p>
  */
 export interface SigninDelegateGroup {
@@ -74,6 +88,7 @@ export interface SigninDelegateGroup {
 }
 
 /**
+ * @public
  * <p>The Amazon Chime account details. An AWS account can have multiple Amazon Chime accounts.</p>
  */
 export interface Account {
@@ -126,6 +141,7 @@ export interface Account {
 }
 
 /**
+ * @public
  * <p>Settings related to the Amazon Chime account. This includes settings that start or stop
  *             remote control of shared screens, or start or stop the dial-out option in the Amazon Chime web application. For more information about these settings, see
  *     <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.</p>
@@ -144,6 +160,7 @@ export interface AccountSettings {
 }
 
 /**
+ * @public
  * <p>A validated address.</p>
  */
 export interface Address {
@@ -199,6 +216,7 @@ export interface Address {
 }
 
 /**
+ * @public
  * <p>The Alexa for Business metadata associated with an Amazon Chime user, used to integrate Alexa for Business with a device.</p>
  */
 export interface AlexaForBusinessMetadata {
@@ -214,6 +232,7 @@ export interface AlexaForBusinessMetadata {
 }
 
 /**
+ * @public
  * <p>The details of an <code>AppInstance</code>, an instance of an Amazon Chime SDK messaging application.</p>
  */
 export interface AppInstance {
@@ -244,6 +263,7 @@ export interface AppInstance {
 }
 
 /**
+ * @public
  * <p>The details of a user.</p>
  */
 export interface Identity {
@@ -259,6 +279,7 @@ export interface Identity {
 }
 
 /**
+ * @public
  * <p>The details of an <code>AppInstanceAdmin</code>.</p>
  */
 export interface AppInstanceAdmin {
@@ -279,6 +300,7 @@ export interface AppInstanceAdmin {
 }
 
 /**
+ * @public
  * <p>Summary of the details of an <code>AppInstanceAdmin</code>.</p>
  */
 export interface AppInstanceAdminSummary {
@@ -288,12 +310,16 @@ export interface AppInstanceAdminSummary {
   Admin?: Identity;
 }
 
+/**
+ * @public
+ */
 export enum AppInstanceDataType {
   Channel = "Channel",
   ChannelMessage = "ChannelMessage",
 }
 
 /**
+ * @public
  * <p>Summary of the data for an <code>AppInstance</code>.</p>
  */
 export interface AppInstanceSummary {
@@ -314,6 +340,7 @@ export interface AppInstanceSummary {
 }
 
 /**
+ * @public
  * <p>The details of the retention settings for a channel.</p>
  */
 export interface ChannelRetentionSettings {
@@ -324,6 +351,7 @@ export interface ChannelRetentionSettings {
 }
 
 /**
+ * @public
  * <p>The details of the data-retention settings for an <code>AppInstance</code>.</p>
  */
 export interface AppInstanceRetentionSettings {
@@ -334,6 +362,7 @@ export interface AppInstanceRetentionSettings {
 }
 
 /**
+ * @public
  * <p>The details of the streaming configuration of an <code>AppInstance</code>.</p>
  */
 export interface AppInstanceStreamingConfiguration {
@@ -349,6 +378,7 @@ export interface AppInstanceStreamingConfiguration {
 }
 
 /**
+ * @public
  * <p>The details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUser {
@@ -379,6 +409,7 @@ export interface AppInstanceUser {
 }
 
 /**
+ * @public
  * <p>Summary of the details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUserSummary {
@@ -398,12 +429,16 @@ export interface AppInstanceUserSummary {
   Metadata?: string;
 }
 
+/**
+ * @public
+ */
 export enum ChannelMembershipType {
   DEFAULT = "DEFAULT",
   HIDDEN = "HIDDEN",
 }
 
 /**
+ * @public
  * <p>Summary of the membership details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUserMembershipSummary {
@@ -418,12 +453,16 @@ export interface AppInstanceUserMembershipSummary {
   ReadMarkerTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export enum AudioMuxType {
   AudioOnly = "AudioOnly",
   AudioWithActiveSpeakerVideo = "AudioWithActiveSpeakerVideo",
 }
 
 /**
+ * @public
  * <p>The audio artifact configuration object.</p>
  */
 export interface AudioArtifactsConfiguration {
@@ -433,16 +472,23 @@ export interface AudioArtifactsConfiguration {
   MuxType: AudioMuxType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ContentMuxType {
   ContentOnly = "ContentOnly",
 }
 
+/**
+ * @public
+ */
 export enum ArtifactsState {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>The content artifact object.</p>
  */
 export interface ContentArtifactsConfiguration {
@@ -457,11 +503,15 @@ export interface ContentArtifactsConfiguration {
   MuxType?: ContentMuxType | string;
 }
 
+/**
+ * @public
+ */
 export enum VideoMuxType {
   VideoOnly = "VideoOnly",
 }
 
 /**
+ * @public
  * <p>The video artifact configuration object.</p>
  */
 export interface VideoArtifactsConfiguration {
@@ -477,6 +527,7 @@ export interface VideoArtifactsConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for the artifacts.</p>
  */
 export interface ArtifactsConfiguration {
@@ -496,6 +547,9 @@ export interface ArtifactsConfiguration {
   Content: ContentArtifactsConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -514,6 +568,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
 }
 
 /**
+ * @public
  * <p>If the phone number action fails for one or more of the phone numbers in the request, a list of
  *             the phone numbers is returned, along with error codes and error messages.</p>
  */
@@ -534,6 +589,9 @@ export interface PhoneNumberError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and
@@ -543,6 +601,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
 }
 
 /**
+ * @public
  * <p>The input parameters don't match the service's restrictions.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -566,6 +625,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is permanently forbidden from making the request.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -589,6 +649,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the resources in the request does not exist in the system.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -612,6 +673,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service encountered an unexpected error.</p>
  */
 export class ServiceFailureException extends __BaseException {
@@ -635,6 +697,7 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -658,6 +721,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client exceeded its request rate limit.</p>
  */
 export class ThrottledClientException extends __BaseException {
@@ -681,6 +745,7 @@ export class ThrottledClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is not currently authorized to make the request.</p>
  */
 export class UnauthorizedClientException extends __BaseException {
@@ -703,6 +768,9 @@ export class UnauthorizedClientException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
@@ -720,6 +788,9 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   ForceAssociate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -727,6 +798,9 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumberWithUserRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -744,8 +818,14 @@ export interface AssociatePhoneNumberWithUserRequest {
   E164PhoneNumber: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumberWithUserResponse {}
 
+/**
+ * @public
+ */
 export interface AssociateSigninDelegateGroupsWithAccountRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -758,9 +838,13 @@ export interface AssociateSigninDelegateGroupsWithAccountRequest {
   SigninDelegateGroups: SigninDelegateGroup[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSigninDelegateGroupsWithAccountResponse {}
 
 /**
+ * @public
  * <p>
  * An Amazon Chime SDK meeting attendee. Includes a unique
  * <code>AttendeeId</code>
@@ -797,6 +881,7 @@ export interface Attendee {
 }
 
 /**
+ * @public
  * <p>Describes a tag applied to a resource.</p>
  */
 export interface Tag {
@@ -812,6 +897,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>The membership information, including member ARNs, the channel ARN, and membership
  *          types.</p>
  */
@@ -838,6 +924,7 @@ export interface BatchChannelMemberships {
 }
 
 /**
+ * @public
  * <p>The Amazon Chime SDK attendee fields to create, used with the BatchCreateAttendee action.</p>
  */
 export interface CreateAttendeeRequestItem {
@@ -852,6 +939,9 @@ export interface CreateAttendeeRequestItem {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -865,6 +955,7 @@ export interface BatchCreateAttendeeRequest {
 }
 
 /**
+ * @public
  * <p>The list of errors returned when errors are encountered during the BatchCreateAttendee and CreateAttendee actions. This includes external user IDs, error codes, and error messages.</p>
  */
 export interface CreateAttendeeError {
@@ -884,6 +975,9 @@ export interface CreateAttendeeError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateAttendeeResponse {
   /**
    * <p>The attendee information, including attendees IDs and join tokens.</p>
@@ -897,6 +991,7 @@ export interface BatchCreateAttendeeResponse {
 }
 
 /**
+ * @public
  * <p>The request exceeds the resource limit.</p>
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -919,6 +1014,9 @@ export class ResourceLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateChannelMembershipRequest {
   /**
    * <p>The ARN of the channel to which you're adding users.</p>
@@ -946,6 +1044,7 @@ export interface BatchCreateChannelMembershipRequest {
 }
 
 /**
+ * @public
  * <p>A list of failed member ARNs, error codes, and error messages.</p>
  */
 export interface BatchCreateChannelMembershipError {
@@ -965,6 +1064,9 @@ export interface BatchCreateChannelMembershipError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateChannelMembershipResponse {
   /**
    * <p>The list of channel memberships in the response.</p>
@@ -978,12 +1080,16 @@ export interface BatchCreateChannelMembershipResponse {
   Errors?: BatchCreateChannelMembershipError[];
 }
 
+/**
+ * @public
+ */
 export enum RoomMembershipRole {
   Administrator = "Administrator",
   Member = "Member",
 }
 
 /**
+ * @public
  * <p>Membership details, such as member ID and member role.</p>
  */
 export interface MembershipItem {
@@ -998,6 +1104,9 @@ export interface MembershipItem {
   Role?: RoomMembershipRole | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateRoomMembershipRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -1016,6 +1125,7 @@ export interface BatchCreateRoomMembershipRequest {
 }
 
 /**
+ * @public
  * <p>The list of errors returned when a member action results in an error.</p>
  */
 export interface MemberError {
@@ -1035,6 +1145,9 @@ export interface MemberError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateRoomMembershipResponse {
   /**
    * <p>If the action fails for one or more of the member IDs in the request, a list of the member IDs is returned, along with error codes and error messages.</p>
@@ -1042,6 +1155,9 @@ export interface BatchCreateRoomMembershipResponse {
   Errors?: MemberError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDeletePhoneNumberRequest {
   /**
    * <p>List of phone number IDs.</p>
@@ -1049,6 +1165,9 @@ export interface BatchDeletePhoneNumberRequest {
   PhoneNumberIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeletePhoneNumberResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -1056,6 +1175,9 @@ export interface BatchDeletePhoneNumberResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchSuspendUserRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -1069,6 +1191,7 @@ export interface BatchSuspendUserRequest {
 }
 
 /**
+ * @public
  * <p>The list of errors returned when errors are encountered during the <a>BatchSuspendUser</a>, <a>BatchUnsuspendUser</a>, or
  *     <a>BatchUpdateUser</a> actions. This includes user IDs, error codes, and error messages.</p>
  */
@@ -1089,6 +1212,9 @@ export interface UserError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchSuspendUserResponse {
   /**
    * <p>If the <a>BatchSuspendUser</a> action fails for one or more of the user IDs in the
@@ -1097,6 +1223,9 @@ export interface BatchSuspendUserResponse {
   UserErrors?: UserError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchUnsuspendUserRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -1109,6 +1238,9 @@ export interface BatchUnsuspendUserRequest {
   UserIdList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUnsuspendUserResponse {
   /**
    * <p>If the <a>BatchUnsuspendUser</a> action fails for one or more of the user IDs in the
@@ -1117,6 +1249,9 @@ export interface BatchUnsuspendUserResponse {
   UserErrors?: UserError[];
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberProductType {
   BusinessCalling = "BusinessCalling",
   SipMediaApplicationDialIn = "SipMediaApplicationDialIn",
@@ -1124,6 +1259,7 @@ export enum PhoneNumberProductType {
 }
 
 /**
+ * @public
  * <p>The phone number ID, product type, or calling name fields to update, used with the
  * <a>BatchUpdatePhoneNumber</a> and <a>UpdatePhoneNumber</a> actions.</p>
  */
@@ -1144,6 +1280,9 @@ export interface UpdatePhoneNumberRequestItem {
   CallingName?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdatePhoneNumberRequest {
   /**
    * <p>The request containing the phone number IDs and product types or calling names to update.</p>
@@ -1151,6 +1290,9 @@ export interface BatchUpdatePhoneNumberRequest {
   UpdatePhoneNumberRequestItems: UpdatePhoneNumberRequestItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdatePhoneNumberResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -1158,12 +1300,16 @@ export interface BatchUpdatePhoneNumberResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export enum UserType {
   PrivateUser = "PrivateUser",
   SharedDevice = "SharedDevice",
 }
 
 /**
+ * @public
  * <p>The user ID and user fields to update, used with the
  * <a>BatchUpdateUser</a> action.</p>
  */
@@ -1189,6 +1335,9 @@ export interface UpdateUserRequestItem {
   AlexaForBusinessMetadata?: AlexaForBusinessMetadata;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateUserRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -1201,6 +1350,9 @@ export interface BatchUpdateUserRequest {
   UpdateUserRequestItems: UpdateUserRequestItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateUserResponse {
   /**
    * <p>If the <a>BatchUpdateUser</a> action fails for one or more of the user IDs in the
@@ -1209,11 +1361,15 @@ export interface BatchUpdateUserResponse {
   UserErrors?: UserError[];
 }
 
+/**
+ * @public
+ */
 export enum BotType {
   ChatBot = "ChatBot",
 }
 
 /**
+ * @public
  * <p>A resource that allows Enterprise account administrators to configure an interface to receive events from Amazon Chime.</p>
  */
 export interface Bot {
@@ -1264,6 +1420,7 @@ export interface Bot {
 }
 
 /**
+ * @public
  * <p>The Amazon Chime Business Calling settings for the administrator's AWS account. Includes any
  *             Amazon S3 buckets designated for storing call detail records.</p>
  */
@@ -1274,6 +1431,9 @@ export interface BusinessCallingSettings {
   CdrBucket?: string;
 }
 
+/**
+ * @public
+ */
 export enum CallingNameStatus {
   Unassigned = "Unassigned",
   UpdateFailed = "UpdateFailed",
@@ -1282,6 +1442,7 @@ export enum CallingNameStatus {
 }
 
 /**
+ * @public
  * <p>A suggested address.</p>
  */
 export interface CandidateAddress {
@@ -1321,22 +1482,32 @@ export interface CandidateAddress {
   country?: string;
 }
 
+/**
+ * @public
+ */
 export enum Capability {
   SMS = "SMS",
   Voice = "Voice",
 }
 
+/**
+ * @public
+ */
 export enum ChannelMode {
   RESTRICTED = "RESTRICTED",
   UNRESTRICTED = "UNRESTRICTED",
 }
 
+/**
+ * @public
+ */
 export enum ChannelPrivacy {
   PRIVATE = "PRIVATE",
   PUBLIC = "PUBLIC",
 }
 
 /**
+ * @public
  * <p>The details of a channel.</p>
  */
 export interface Channel {
@@ -1387,6 +1558,7 @@ export interface Channel {
 }
 
 /**
+ * @public
  * <p>The details of a channel ban.</p>
  */
 export interface ChannelBan {
@@ -1412,6 +1584,7 @@ export interface ChannelBan {
 }
 
 /**
+ * @public
  * <p>Summary of the details of a <code>ChannelBan</code>.</p>
  */
 export interface ChannelBanSummary {
@@ -1422,6 +1595,7 @@ export interface ChannelBanSummary {
 }
 
 /**
+ * @public
  * <p>The details of a channel member.</p>
  */
 export interface ChannelMembership {
@@ -1457,6 +1631,7 @@ export interface ChannelMembership {
 }
 
 /**
+ * @public
  * <p>Summary of the details of a <code>Channel</code>.</p>
  */
 export interface ChannelSummary {
@@ -1492,6 +1667,7 @@ export interface ChannelSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the channel membership details of an <code>AppInstanceUser</code>.</p>
  */
 export interface ChannelMembershipForAppInstanceUserSummary {
@@ -1507,6 +1683,7 @@ export interface ChannelMembershipForAppInstanceUserSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the details of a <code>ChannelMembership</code>.</p>
  */
 export interface ChannelMembershipSummary {
@@ -1516,17 +1693,24 @@ export interface ChannelMembershipSummary {
   Member?: Identity;
 }
 
+/**
+ * @public
+ */
 export enum ChannelMessagePersistenceType {
   NON_PERSISTENT = "NON_PERSISTENT",
   PERSISTENT = "PERSISTENT",
 }
 
+/**
+ * @public
+ */
 export enum ChannelMessageType {
   CONTROL = "CONTROL",
   STANDARD = "STANDARD",
 }
 
 /**
+ * @public
  * <p>The details of a message in a channel.</p>
  */
 export interface ChannelMessage {
@@ -1587,6 +1771,7 @@ export interface ChannelMessage {
 }
 
 /**
+ * @public
  * <p>Summary of the messages in a <code>Channel</code>.</p>
  */
 export interface ChannelMessageSummary {
@@ -1637,6 +1822,7 @@ export interface ChannelMessageSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the details of a moderated channel.</p>
  */
 export interface ChannelModeratedByAppInstanceUserSummary {
@@ -1647,6 +1833,7 @@ export interface ChannelModeratedByAppInstanceUserSummary {
 }
 
 /**
+ * @public
  * <p>The details of a channel moderator.</p>
  */
 export interface ChannelModerator {
@@ -1672,6 +1859,7 @@ export interface ChannelModerator {
 }
 
 /**
+ * @public
  * <p>Summary of the details of a <code>ChannelModerator</code>.</p>
  */
 export interface ChannelModeratorSummary {
@@ -1682,6 +1870,7 @@ export interface ChannelModeratorSummary {
 }
 
 /**
+ * @public
  * <p>The video streams to capture for a specified media capture pipeline. The total number of video streams can't exceed 25.</p>
  */
 export interface SelectedVideoStreams {
@@ -1697,6 +1886,7 @@ export interface SelectedVideoStreams {
 }
 
 /**
+ * @public
  * <p>Source configuration for a specified media capture pipeline.</p>
  */
 export interface SourceConfiguration {
@@ -1707,6 +1897,7 @@ export interface SourceConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration object of the Amazon Chime SDK meeting for a specified media capture pipeline. <code>SourceType</code> must be <code>ChimeSdkMeeting</code>.</p>
  */
 export interface ChimeSdkMeetingConfiguration {
@@ -1722,6 +1913,7 @@ export interface ChimeSdkMeetingConfiguration {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
@@ -1746,6 +1938,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The retention settings that determine how long to retain conversation messages for an Amazon Chime Enterprise account.</p>
  */
 export interface ConversationRetentionSettings {
@@ -1755,6 +1948,9 @@ export interface ConversationRetentionSettings {
   RetentionDays?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountRequest {
   /**
    * <p>The name of the Amazon Chime account.</p>
@@ -1762,6 +1958,9 @@ export interface CreateAccountRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountResponse {
   /**
    * <p>The Amazon Chime account details.</p>
@@ -1769,6 +1968,9 @@ export interface CreateAccountResponse {
   Account?: Account;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceRequest {
   /**
    * <p>The name of the <code>AppInstance</code>.</p>
@@ -1791,6 +1993,9 @@ export interface CreateAppInstanceRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the <code>AppInstance</code>.</p>
@@ -1798,6 +2003,9 @@ export interface CreateAppInstanceResponse {
   AppInstanceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceAdminRequest {
   /**
    * <p>The ARN of the administrator of the current <code>AppInstance</code>.</p>
@@ -1810,6 +2018,9 @@ export interface CreateAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceAdminResponse {
   /**
    * <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
@@ -1822,6 +2033,9 @@ export interface CreateAppInstanceAdminResponse {
   AppInstanceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceUserRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code> request.</p>
@@ -1854,6 +2068,9 @@ export interface CreateAppInstanceUserRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAppInstanceUserResponse {
   /**
    * <p>The user's ARN.</p>
@@ -1861,6 +2078,9 @@ export interface CreateAppInstanceUserResponse {
   AppInstanceUserArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -1878,6 +2098,9 @@ export interface CreateAttendeeRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAttendeeResponse {
   /**
    * <p>The attendee information, including attendee ID and join token.</p>
@@ -1885,6 +2108,9 @@ export interface CreateAttendeeResponse {
   Attendee?: Attendee;
 }
 
+/**
+ * @public
+ */
 export interface CreateBotRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -1902,6 +2128,9 @@ export interface CreateBotRequest {
   Domain?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBotResponse {
   /**
    * <p>The bot details.</p>
@@ -1909,6 +2138,9 @@ export interface CreateBotResponse {
   Bot?: Bot;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelRequest {
   /**
    * <p>The ARN of the channel request.</p>
@@ -1955,6 +2187,9 @@ export interface CreateChannelRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1962,6 +2197,9 @@ export interface CreateChannelResponse {
   ChannelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelBanRequest {
   /**
    * <p>The ARN of the ban request.</p>
@@ -1979,6 +2217,9 @@ export interface CreateChannelBanRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelBanResponse {
   /**
    * <p>The ARN of the response to the ban request.</p>
@@ -1992,6 +2233,9 @@ export interface CreateChannelBanResponse {
   Member?: Identity;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelMembershipRequest {
   /**
    * <p>The ARN of the channel to which you're adding users.</p>
@@ -2018,6 +2262,9 @@ export interface CreateChannelMembershipRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelMembershipResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2030,6 +2277,9 @@ export interface CreateChannelMembershipResponse {
   Member?: Identity;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelModeratorRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2047,6 +2297,9 @@ export interface CreateChannelModeratorRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateChannelModeratorResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2059,14 +2312,23 @@ export interface CreateChannelModeratorResponse {
   ChannelModerator?: Identity;
 }
 
+/**
+ * @public
+ */
 export enum MediaPipelineSinkType {
   S3Bucket = "S3Bucket",
 }
 
+/**
+ * @public
+ */
 export enum MediaPipelineSourceType {
   ChimeSdkMeeting = "ChimeSdkMeeting",
 }
 
+/**
+ * @public
+ */
 export interface CreateMediaCapturePipelineRequest {
   /**
    * <p>Source type from which the media artifacts will be captured. A Chime SDK Meeting
@@ -2100,6 +2362,9 @@ export interface CreateMediaCapturePipelineRequest {
   ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum MediaPipelineStatus {
   Failed = "Failed",
   InProgress = "InProgress",
@@ -2109,6 +2374,7 @@ export enum MediaPipelineStatus {
 }
 
 /**
+ * @public
  * <p>A media capture pipeline object consisting of an ID, source type, source ARN, a sink type, a sink ARN, and a configuration object.</p>
  */
 export interface MediaCapturePipeline {
@@ -2158,6 +2424,9 @@ export interface MediaCapturePipeline {
   ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateMediaCapturePipelineResponse {
   /**
    * <p>A media capture pipeline object, the ID, source type, source ARN, sink type, and  sink ARN of a media capture pipeline object.</p>
@@ -2166,6 +2435,7 @@ export interface CreateMediaCapturePipelineResponse {
 }
 
 /**
+ * @public
  * <p> The resource target configurations for receiving Amazon Chime SDK meeting and attendee event
  *             notifications. The Amazon Chime SDK supports resource targets located in the US East (N.
  *             Virginia) AWS Region (<code>us-east-1</code>). </p>
@@ -2182,6 +2452,9 @@ export interface MeetingNotificationConfiguration {
   SqsQueueArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingRequest {
   /**
    * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
@@ -2257,6 +2530,7 @@ export interface CreateMeetingRequest {
 }
 
 /**
+ * @public
  * <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
  */
 export interface MediaPlacement {
@@ -2302,6 +2576,7 @@ export interface MediaPlacement {
 }
 
 /**
+ * @public
  * <p>A meeting created using the Amazon Chime SDK.</p>
  */
 export interface Meeting {
@@ -2331,6 +2606,9 @@ export interface Meeting {
   MediaRegion?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingResponse {
   /**
    * <p>
@@ -2342,6 +2620,9 @@ export interface CreateMeetingResponse {
   Meeting?: Meeting;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingDialOutRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -2364,6 +2645,9 @@ export interface CreateMeetingDialOutRequest {
   JoinToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingDialOutResponse {
   /**
    * <p>Unique ID that tracks API calls.</p>
@@ -2371,6 +2655,9 @@ export interface CreateMeetingDialOutResponse {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingWithAttendeesRequest {
   /**
    * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
@@ -2453,6 +2740,9 @@ export interface CreateMeetingWithAttendeesRequest {
   Attendees?: CreateAttendeeRequestItem[];
 }
 
+/**
+ * @public
+ */
 export interface CreateMeetingWithAttendeesResponse {
   /**
    * <p>A meeting created using the Amazon Chime SDK.</p>
@@ -2470,6 +2760,9 @@ export interface CreateMeetingWithAttendeesResponse {
   Errors?: CreateAttendeeError[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePhoneNumberOrderRequest {
   /**
    * <p>The phone number product type.</p>
@@ -2482,6 +2775,9 @@ export interface CreatePhoneNumberOrderRequest {
   E164PhoneNumbers: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OrderedPhoneNumberStatus {
   Acquired = "Acquired",
   Failed = "Failed",
@@ -2489,6 +2785,7 @@ export enum OrderedPhoneNumberStatus {
 }
 
 /**
+ * @public
  * <p>A phone number for which an order has been placed.</p>
  */
 export interface OrderedPhoneNumber {
@@ -2503,6 +2800,9 @@ export interface OrderedPhoneNumber {
   Status?: OrderedPhoneNumberStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberOrderStatus {
   Failed = "Failed",
   Partial = "Partial",
@@ -2511,6 +2811,7 @@ export enum PhoneNumberOrderStatus {
 }
 
 /**
+ * @public
  * <p>The details of a phone number order created for Amazon Chime.</p>
  */
 export interface PhoneNumberOrder {
@@ -2546,6 +2847,9 @@ export interface PhoneNumberOrder {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreatePhoneNumberOrderResponse {
   /**
    * <p>The phone number order details.</p>
@@ -2553,12 +2857,16 @@ export interface CreatePhoneNumberOrderResponse {
   PhoneNumberOrder?: PhoneNumberOrder;
 }
 
+/**
+ * @public
+ */
 export enum GeoMatchLevel {
   AreaCode = "AreaCode",
   Country = "Country",
 }
 
 /**
+ * @public
  * <p>The country and area code for a proxy phone number in a proxy phone session.</p>
  */
 export interface GeoMatchParams {
@@ -2573,11 +2881,17 @@ export interface GeoMatchParams {
   AreaCode: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NumberSelectionBehavior {
   AvoidSticky = "AvoidSticky",
   PreferSticky = "PreferSticky",
 }
 
+/**
+ * @public
+ */
 export interface CreateProxySessionRequest {
   /**
    * <p>The Amazon Chime voice connector ID.</p>
@@ -2621,6 +2935,7 @@ export interface CreateProxySessionRequest {
 }
 
 /**
+ * @public
  * <p>The phone number and proxy phone number for a participant in an Amazon Chime Voice Connector proxy session.</p>
  */
 export interface Participant {
@@ -2635,6 +2950,9 @@ export interface Participant {
   ProxyPhoneNumber?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProxySessionStatus {
   Closed = "Closed",
   InProgress = "InProgress",
@@ -2642,6 +2960,7 @@ export enum ProxySessionStatus {
 }
 
 /**
+ * @public
  * <p>The proxy session for an Amazon Chime Voice Connector.</p>
  */
 export interface ProxySession {
@@ -2711,6 +3030,9 @@ export interface ProxySession {
   GeoMatchParams?: GeoMatchParams;
 }
 
+/**
+ * @public
+ */
 export interface CreateProxySessionResponse {
   /**
    * <p>The proxy session details.</p>
@@ -2718,6 +3040,9 @@ export interface CreateProxySessionResponse {
   ProxySession?: ProxySession;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoomRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -2736,6 +3061,7 @@ export interface CreateRoomRequest {
 }
 
 /**
+ * @public
  * <p>The Amazon Chime chat room details.</p>
  */
 export interface Room {
@@ -2770,6 +3096,9 @@ export interface Room {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoomResponse {
   /**
    * <p>The room details.</p>
@@ -2777,6 +3106,9 @@ export interface CreateRoomResponse {
   Room?: Room;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoomMembershipRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -2799,6 +3131,9 @@ export interface CreateRoomMembershipRequest {
   Role?: RoomMembershipRole | string;
 }
 
+/**
+ * @public
+ */
 export enum MemberType {
   Bot = "Bot",
   User = "User",
@@ -2806,6 +3141,7 @@ export enum MemberType {
 }
 
 /**
+ * @public
  * <p>The member details, such as email address, name, member ID, and member type.</p>
  */
 export interface Member {
@@ -2836,6 +3172,7 @@ export interface Member {
 }
 
 /**
+ * @public
  * <p>The room membership details.</p>
  */
 export interface RoomMembership {
@@ -2865,6 +3202,9 @@ export interface RoomMembership {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateRoomMembershipResponse {
   /**
    * <p>The room membership details.</p>
@@ -2873,6 +3213,7 @@ export interface CreateRoomMembershipResponse {
 }
 
 /**
+ * @public
  * <p>The endpoint assigned to the SIP media application.</p>
  */
 export interface SipMediaApplicationEndpoint {
@@ -2882,6 +3223,9 @@ export interface SipMediaApplicationEndpoint {
   LambdaArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipMediaApplicationRequest {
   /**
    * <p>The AWS Region assigned to the SIP media application.</p>
@@ -2900,6 +3244,7 @@ export interface CreateSipMediaApplicationRequest {
 }
 
 /**
+ * @public
  * <p>The details of the SIP media application, including name and endpoints. An AWS account can have multiple SIP media applications.</p>
  */
 export interface SipMediaApplication {
@@ -2934,6 +3279,9 @@ export interface SipMediaApplication {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipMediaApplicationResponse {
   /**
    * <p>The SIP media application details.</p>
@@ -2941,6 +3289,9 @@ export interface CreateSipMediaApplicationResponse {
   SipMediaApplication?: SipMediaApplication;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipMediaApplicationCallRequest {
   /**
    * <p>The phone number that a user calls from. This is a phone number in your Amazon Chime phone number inventory.</p>
@@ -2964,6 +3315,7 @@ export interface CreateSipMediaApplicationCallRequest {
 }
 
 /**
+ * @public
  * <p>A <code>Call</code> instance for a SIP media application.</p>
  */
 export interface SipMediaApplicationCall {
@@ -2973,6 +3325,9 @@ export interface SipMediaApplicationCall {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipMediaApplicationCallResponse {
   /**
    * <p>The actual call.</p>
@@ -2981,6 +3336,7 @@ export interface CreateSipMediaApplicationCallResponse {
 }
 
 /**
+ * @public
  * <p>Target SIP media application and other details, such as priority and AWS Region, to be
  *             specified in the SIP rule. Only one SIP rule per AWS Region can be provided.</p>
  */
@@ -3001,11 +3357,17 @@ export interface SipRuleTargetApplication {
   AwsRegion?: string;
 }
 
+/**
+ * @public
+ */
 export enum SipRuleTriggerType {
   RequestUriHostname = "RequestUriHostname",
   ToPhoneNumber = "ToPhoneNumber",
 }
 
+/**
+ * @public
+ */
 export interface CreateSipRuleRequest {
   /**
    * <p>The name of the SIP rule.</p>
@@ -3039,6 +3401,7 @@ export interface CreateSipRuleRequest {
 }
 
 /**
+ * @public
  * <p>The SIP rule details, including name, triggers, and target applications. An AWS account can have multiple SIP rules.</p>
  */
 export interface SipRule {
@@ -3089,6 +3452,9 @@ export interface SipRule {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipRuleResponse {
   /**
    * <p>Returns the SIP rule information, including the rule ID, triggers, and target applications.</p>
@@ -3096,6 +3462,9 @@ export interface CreateSipRuleResponse {
   SipRule?: SipRule;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -3118,12 +3487,18 @@ export interface CreateUserRequest {
   UserType?: UserType | string;
 }
 
+/**
+ * @public
+ */
 export enum InviteStatus {
   Accepted = "Accepted",
   Failed = "Failed",
   Pending = "Pending",
 }
 
+/**
+ * @public
+ */
 export enum RegistrationStatus {
   Registered = "Registered",
   Suspended = "Suspended",
@@ -3131,6 +3506,7 @@ export enum RegistrationStatus {
 }
 
 /**
+ * @public
  * <p>The user on the Amazon Chime account.</p>
  */
 export interface User {
@@ -3200,6 +3576,9 @@ export interface User {
   PersonalPIN?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {
   /**
    * <p>The user on the Amazon Chime account.</p>
@@ -3207,11 +3586,17 @@ export interface CreateUserResponse {
   User?: User;
 }
 
+/**
+ * @public
+ */
 export enum VoiceConnectorAwsRegion {
   US_EAST_1 = "us-east-1",
   US_WEST_2 = "us-west-2",
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceConnectorRequest {
   /**
    * <p>The name of the Amazon Chime Voice Connector.</p>
@@ -3234,6 +3619,7 @@ export interface CreateVoiceConnectorRequest {
 }
 
 /**
+ * @public
  * <p>The Amazon Chime Voice Connector configuration, including outbound host name and encryption
  *             settings.</p>
  */
@@ -3282,6 +3668,9 @@ export interface VoiceConnector {
   VoiceConnectorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceConnectorResponse {
   /**
    * <p>The Amazon Chime Voice Connector details.</p>
@@ -3290,6 +3679,7 @@ export interface CreateVoiceConnectorResponse {
 }
 
 /**
+ * @public
  * <p>For Amazon Chime Voice Connector groups, the Amazon Chime Voice Connectors to which to route inbound calls. Includes priority configuration settings. Limit: 3
  * <code>VoiceConnectorItems</code>
  * per Amazon Chime Voice Connector group.</p>
@@ -3306,6 +3696,9 @@ export interface VoiceConnectorItem {
   Priority: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceConnectorGroupRequest {
   /**
    * <p>The name of the Amazon Chime Voice Connector group.</p>
@@ -3319,6 +3712,7 @@ export interface CreateVoiceConnectorGroupRequest {
 }
 
 /**
+ * @public
  * <p>The Amazon Chime Voice Connector group configuration, including associated Amazon Chime Voice
  *             Connectors. You can include Amazon Chime Voice Connectors from different AWS Regions in
  *             your group. This creates a fault tolerant mechanism for fallback in case of availability
@@ -3356,6 +3750,9 @@ export interface VoiceConnectorGroup {
   VoiceConnectorGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceConnectorGroupResponse {
   /**
    * <p>The Amazon Chime Voice Connector group details.</p>
@@ -3364,6 +3761,7 @@ export interface CreateVoiceConnectorGroupResponse {
 }
 
 /**
+ * @public
  * <p>The SIP credentials used to authenticate requests to your Amazon Chime Voice Connector.</p>
  */
 export interface Credential {
@@ -3379,6 +3777,9 @@ export interface Credential {
   Password?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -3386,9 +3787,13 @@ export interface DeleteAccountRequest {
   AccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountResponse {}
 
 /**
+ * @public
  * <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  */
 export class UnprocessableEntityException extends __BaseException {
@@ -3411,6 +3816,9 @@ export class UnprocessableEntityException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -3418,6 +3826,9 @@ export interface DeleteAppInstanceRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInstanceAdminRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>'s administrator.</p>
@@ -3430,6 +3841,9 @@ export interface DeleteAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInstanceStreamingConfigurationsRequest {
   /**
    * <p>The ARN of the streaming configurations being deleted.</p>
@@ -3437,6 +3851,9 @@ export interface DeleteAppInstanceStreamingConfigurationsRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppInstanceUserRequest {
   /**
    * <p>The ARN of the user request being deleted.</p>
@@ -3444,6 +3861,9 @@ export interface DeleteAppInstanceUserRequest {
   AppInstanceUserArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -3456,6 +3876,9 @@ export interface DeleteAttendeeRequest {
   AttendeeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelRequest {
   /**
    * <p>The ARN of the channel being deleted.</p>
@@ -3468,6 +3891,9 @@ export interface DeleteChannelRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelBanRequest {
   /**
    * <p>The ARN of the channel from which the <code>AppInstanceUser</code> was banned.</p>
@@ -3485,6 +3911,9 @@ export interface DeleteChannelBanRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelMembershipRequest {
   /**
    * <p>The ARN of the channel from which you want to remove the user.</p>
@@ -3502,6 +3931,9 @@ export interface DeleteChannelMembershipRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -3519,6 +3951,9 @@ export interface DeleteChannelMessageRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteChannelModeratorRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -3536,6 +3971,9 @@ export interface DeleteChannelModeratorRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventsConfigurationRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -3548,6 +3986,9 @@ export interface DeleteEventsConfigurationRequest {
   BotId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMediaCapturePipelineRequest {
   /**
    * <p>The ID of the media capture pipeline being deleted. </p>
@@ -3555,6 +3996,9 @@ export interface DeleteMediaCapturePipelineRequest {
   MediaPipelineId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMeetingRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -3562,6 +4006,9 @@ export interface DeleteMeetingRequest {
   MeetingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePhoneNumberRequest {
   /**
    * <p>The phone number ID.</p>
@@ -3569,6 +4016,9 @@ export interface DeletePhoneNumberRequest {
   PhoneNumberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProxySessionRequest {
   /**
    * <p>The Amazon Chime voice connector ID.</p>
@@ -3581,6 +4031,9 @@ export interface DeleteProxySessionRequest {
   ProxySessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRoomRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -3593,6 +4046,9 @@ export interface DeleteRoomRequest {
   RoomId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRoomMembershipRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -3610,6 +4066,9 @@ export interface DeleteRoomMembershipRequest {
   MemberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSipMediaApplicationRequest {
   /**
    * <p>The SIP media application ID.</p>
@@ -3617,6 +4076,9 @@ export interface DeleteSipMediaApplicationRequest {
   SipMediaApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSipRuleRequest {
   /**
    * <p>The SIP rule ID.</p>
@@ -3624,6 +4086,9 @@ export interface DeleteSipRuleRequest {
   SipRuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -3631,6 +4096,9 @@ export interface DeleteVoiceConnectorRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -3638,6 +4106,9 @@ export interface DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorGroupRequest {
   /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
@@ -3645,6 +4116,9 @@ export interface DeleteVoiceConnectorGroupRequest {
   VoiceConnectorGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorOriginationRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -3652,6 +4126,9 @@ export interface DeleteVoiceConnectorOriginationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorProxyRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -3659,6 +4136,9 @@ export interface DeleteVoiceConnectorProxyRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorStreamingConfigurationRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -3666,6 +4146,9 @@ export interface DeleteVoiceConnectorStreamingConfigurationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorTerminationRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -3673,6 +4156,9 @@ export interface DeleteVoiceConnectorTerminationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorTerminationCredentialsRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -3685,6 +4171,9 @@ export interface DeleteVoiceConnectorTerminationCredentialsRequest {
   Usernames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -3692,6 +4181,9 @@ export interface DescribeAppInstanceRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceResponse {
   /**
    * <p>The ARN, metadata, created and last-updated timestamps, and the name of the <code>AppInstance</code>. All
@@ -3700,6 +4192,9 @@ export interface DescribeAppInstanceResponse {
   AppInstance?: AppInstance;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceAdminRequest {
   /**
    * <p>The ARN of the <code>AppInstanceAdmin</code>.</p>
@@ -3712,6 +4207,9 @@ export interface DescribeAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceAdminResponse {
   /**
    * <p>The ARN and name of the <code>AppInstanceUser</code>, the ARN of the <code>AppInstance</code>, and the created and
@@ -3720,6 +4218,9 @@ export interface DescribeAppInstanceAdminResponse {
   AppInstanceAdmin?: AppInstanceAdmin;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -3727,6 +4228,9 @@ export interface DescribeAppInstanceUserRequest {
   AppInstanceUserArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppInstanceUserResponse {
   /**
    * <p>The name of the <code>AppInstanceUser</code>.</p>
@@ -3734,6 +4238,9 @@ export interface DescribeAppInstanceUserResponse {
   AppInstanceUser?: AppInstanceUser;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -3746,6 +4253,9 @@ export interface DescribeChannelRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelResponse {
   /**
    * <p>The channel details.</p>
@@ -3753,6 +4263,9 @@ export interface DescribeChannelResponse {
   Channel?: Channel;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelBanRequest {
   /**
    * <p>The ARN of the channel from which the user is banned.</p>
@@ -3770,6 +4283,9 @@ export interface DescribeChannelBanRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelBanResponse {
   /**
    * <p>The details of the ban.</p>
@@ -3777,6 +4293,9 @@ export interface DescribeChannelBanResponse {
   ChannelBan?: ChannelBan;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelMembershipRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -3794,6 +4313,9 @@ export interface DescribeChannelMembershipRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelMembershipResponse {
   /**
    * <p>The details of the membership.</p>
@@ -3801,6 +4323,9 @@ export interface DescribeChannelMembershipResponse {
   ChannelMembership?: ChannelMembership;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelMembershipForAppInstanceUserRequest {
   /**
    * <p>The ARN of the channel to which the user belongs.</p>
@@ -3818,6 +4343,9 @@ export interface DescribeChannelMembershipForAppInstanceUserRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelMembershipForAppInstanceUserResponse {
   /**
    * <p>The channel to which a user belongs.</p>
@@ -3825,6 +4353,9 @@ export interface DescribeChannelMembershipForAppInstanceUserResponse {
   ChannelMembership?: ChannelMembershipForAppInstanceUserSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelModeratedByAppInstanceUserRequest {
   /**
    * <p>The ARN of the moderated channel.</p>
@@ -3842,6 +4373,9 @@ export interface DescribeChannelModeratedByAppInstanceUserRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelModeratedByAppInstanceUserResponse {
   /**
    * <p>The moderated channel.</p>
@@ -3849,6 +4383,9 @@ export interface DescribeChannelModeratedByAppInstanceUserResponse {
   Channel?: ChannelModeratedByAppInstanceUserSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelModeratorRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -3866,6 +4403,9 @@ export interface DescribeChannelModeratorRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeChannelModeratorResponse {
   /**
    * <p>The details of the channel moderator.</p>
@@ -3873,6 +4413,9 @@ export interface DescribeChannelModeratorResponse {
   ChannelModerator?: ChannelModerator;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumberFromUserRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -3885,8 +4428,14 @@ export interface DisassociatePhoneNumberFromUserRequest {
   UserId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumberFromUserResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -3899,6 +4448,9 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorRequest {
   E164PhoneNumbers: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -3906,6 +4458,9 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
@@ -3918,6 +4473,9 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   E164PhoneNumbers: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
@@ -3925,6 +4483,9 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSigninDelegateGroupsFromAccountRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -3937,9 +4498,13 @@ export interface DisassociateSigninDelegateGroupsFromAccountRequest {
   GroupNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateSigninDelegateGroupsFromAccountResponse {}
 
 /**
+ * @public
  * <p>The Dialed Number Identification Service (DNIS) emergency calling configuration details associated with an Amazon Chime Voice Connector's emergency calling configuration.</p>
  */
 export interface DNISEmergencyCallingConfiguration {
@@ -3959,6 +4524,9 @@ export interface DNISEmergencyCallingConfiguration {
   CallingCountry: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EmailStatus {
   Failed = "Failed",
   NotSent = "NotSent",
@@ -3966,6 +4534,7 @@ export enum EmailStatus {
 }
 
 /**
+ * @public
  * <p>The emergency calling configuration details associated with an Amazon Chime Voice Connector.</p>
  */
 export interface EmergencyCallingConfiguration {
@@ -3975,14 +4544,23 @@ export interface EmergencyCallingConfiguration {
   DNIS?: DNISEmergencyCallingConfiguration[];
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalContentIdentificationType {
   PHI = "PHI",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalLanguageCode {
   EN_US = "en-US",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalRegion {
   AP_SOUTHEAST_2 = "ap-southeast-2",
   AUTO = "auto",
@@ -3993,6 +4571,9 @@ export enum TranscribeMedicalRegion {
   US_WEST_2 = "us-west-2",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalSpecialty {
   Cardiology = "CARDIOLOGY",
   Neurology = "NEUROLOGY",
@@ -4002,12 +4583,16 @@ export enum TranscribeMedicalSpecialty {
   Urology = "UROLOGY",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeMedicalType {
   Conversation = "CONVERSATION",
   Dictation = "DICTATION",
 }
 
 /**
+ * @public
  * <p>Settings specific to the Amazon Transcribe Medical engine.</p>
  */
 export interface EngineTranscribeMedicalSettings {
@@ -4042,14 +4627,23 @@ export interface EngineTranscribeMedicalSettings {
   ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
 }
 
+/**
+ * @public
+ */
 export enum TranscribeContentIdentificationType {
   PII = "PII",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeContentRedactionType {
   PII = "PII",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeLanguageCode {
   DE_DE = "de-DE",
   EN_AU = "en-AU",
@@ -4065,12 +4659,18 @@ export enum TranscribeLanguageCode {
   ZH_CN = "zh-CN",
 }
 
+/**
+ * @public
+ */
 export enum TranscribePartialResultsStability {
   HIGH = "high",
   LOW = "low",
   MEDIUM = "medium",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeRegion {
   AP_NORTHEAST_1 = "ap-northeast-1",
   AP_NORTHEAST_2 = "ap-northeast-2",
@@ -4086,6 +4686,9 @@ export enum TranscribeRegion {
   US_WEST_2 = "us-west-2",
 }
 
+/**
+ * @public
+ */
 export enum TranscribeVocabularyFilterMethod {
   Mask = "mask",
   Remove = "remove",
@@ -4093,6 +4696,7 @@ export enum TranscribeVocabularyFilterMethod {
 }
 
 /**
+ * @public
  * <p>Settings specific to the Amazon Transcribe engine.</p>
  */
 export interface EngineTranscribeSettings {
@@ -4160,6 +4764,7 @@ export interface EngineTranscribeSettings {
 }
 
 /**
+ * @public
  * <p>The configuration that allows a bot to receive outgoing events. Can be either an HTTPS endpoint or a Lambda function ARN.</p>
  */
 export interface EventsConfiguration {
@@ -4179,6 +4784,9 @@ export interface EventsConfiguration {
   LambdaFunctionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -4186,6 +4794,9 @@ export interface GetAccountRequest {
   AccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountResponse {
   /**
    * <p>The Amazon Chime account details.</p>
@@ -4193,6 +4804,9 @@ export interface GetAccountResponse {
   Account?: Account;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -4200,6 +4814,9 @@ export interface GetAccountSettingsRequest {
   AccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountSettingsResponse {
   /**
    * <p>The Amazon Chime account settings.</p>
@@ -4207,6 +4824,9 @@ export interface GetAccountSettingsResponse {
   AccountSettings?: AccountSettings;
 }
 
+/**
+ * @public
+ */
 export interface GetAppInstanceRetentionSettingsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -4214,6 +4834,9 @@ export interface GetAppInstanceRetentionSettingsRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppInstanceRetentionSettingsResponse {
   /**
    * <p>The retention settings for the <code>AppInstance</code>.</p>
@@ -4226,6 +4849,9 @@ export interface GetAppInstanceRetentionSettingsResponse {
   InitiateDeletionTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetAppInstanceStreamingConfigurationsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -4233,6 +4859,9 @@ export interface GetAppInstanceStreamingConfigurationsRequest {
   AppInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppInstanceStreamingConfigurationsResponse {
   /**
    * <p>The streaming settings.</p>
@@ -4240,6 +4869,9 @@ export interface GetAppInstanceStreamingConfigurationsResponse {
   AppInstanceStreamingConfigurations?: AppInstanceStreamingConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -4252,6 +4884,9 @@ export interface GetAttendeeRequest {
   AttendeeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAttendeeResponse {
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
@@ -4259,6 +4894,9 @@ export interface GetAttendeeResponse {
   Attendee?: Attendee;
 }
 
+/**
+ * @public
+ */
 export interface GetBotRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -4271,6 +4909,9 @@ export interface GetBotRequest {
   BotId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBotResponse {
   /**
    * <p>The chat bot details.</p>
@@ -4278,6 +4919,9 @@ export interface GetBotResponse {
   Bot?: Bot;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -4295,6 +4939,9 @@ export interface GetChannelMessageRequest {
   ChimeBearer?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetChannelMessageResponse {
   /**
    * <p>The details of and content in the message.</p>
@@ -4302,6 +4949,9 @@ export interface GetChannelMessageResponse {
   ChannelMessage?: ChannelMessage;
 }
 
+/**
+ * @public
+ */
 export interface GetEventsConfigurationRequest {
   /**
    * <p>The Amazon Chime account ID.</p>
@@ -4314,6 +4964,9 @@ export interface GetEventsConfigurationRequest {
   BotId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEventsConfigurationResponse {
   /**
    * <p>The events configuration details.</p>
@@ -4322,6 +4975,7 @@ export interface GetEventsConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>The Amazon Chime Voice Connector settings. Includes any Amazon S3 buckets designated for
  *             storing call detail records.</p>
  */
@@ -4332,6 +4986,9 @@ export interface VoiceConnectorSettings {
   CdrBucket?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGlobalSettingsResponse {
   /**
    * <p>The Amazon Chime Business Calling settings.</p>
@@ -4344,6 +5001,9 @@ export interface GetGlobalSettingsResponse {
   VoiceConnector?: VoiceConnectorSettings;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaCapturePipelineRequest {
   /**
    * <p>The ID of the pipeline that you want to get.</p>
@@ -4351,6 +5011,9 @@ export interface GetMediaCapturePipelineRequest {
   MediaPipelineId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMediaCapturePipelineResponse {
   /**
    * <p>The media capture pipeline object.</p>
@@ -4358,6 +5021,9 @@ export interface GetMediaCapturePipelineResponse {
   MediaCapturePipeline?: MediaCapturePipeline;
 }
 
+/**
+ * @public
+ */
 export interface GetMeetingRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -4365,6 +5031,9 @@ export interface GetMeetingRequest {
   MeetingId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMeetingResponse {
   /**
    * <p>The Amazon Chime SDK meeting information.</p>
@@ -4372,9 +5041,13 @@ export interface GetMeetingResponse {
   Meeting?: Meeting;
 }
 
+/**
+ * @public
+ */
 export interface GetMessagingSessionEndpointRequest {}
 
 /**
+ * @public
  * <p>The websocket endpoint used to connect to Amazon Chime SDK messaging.</p>
  */
 export interface MessagingSessionEndpoint {
@@ -4384,6 +5057,9 @@ export interface MessagingSessionEndpoint {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMessagingSessionEndpointResponse {
   /**
    * <p>The endpoint returned in the response.</p>
@@ -4391,6 +5067,9 @@ export interface GetMessagingSessionEndpointResponse {
   Endpoint?: MessagingSessionEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberRequest {
   /**
    * <p>The phone number ID.</p>
@@ -4398,6 +5077,9 @@ export interface GetPhoneNumberRequest {
   PhoneNumberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberAssociationName {
   AccountId = "AccountId",
   SipRuleId = "SipRuleId",
@@ -4407,6 +5089,7 @@ export enum PhoneNumberAssociationName {
 }
 
 /**
+ * @public
  * <p>The phone number associations, such as Amazon Chime account ID, Amazon Chime user ID, Amazon
  *             Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.</p>
  */
@@ -4429,6 +5112,7 @@ export interface PhoneNumberAssociation {
 }
 
 /**
+ * @public
  * <p>The phone number capabilities for Amazon Chime Business Calling phone numbers, such as enabled
  *             inbound and outbound calling and text messaging.</p>
  */
@@ -4464,6 +5148,9 @@ export interface PhoneNumberCapabilities {
   OutboundMMS?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberStatus {
   AcquireFailed = "AcquireFailed",
   AcquireInProgress = "AcquireInProgress",
@@ -4475,12 +5162,16 @@ export enum PhoneNumberStatus {
   Unassigned = "Unassigned",
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberType {
   Local = "Local",
   TollFree = "TollFree",
 }
 
 /**
+ * @public
  * <p>A phone number used for Amazon Chime Business Calling or an Amazon Chime Voice
  *             Connector.</p>
  */
@@ -4551,6 +5242,9 @@ export interface PhoneNumber {
   DeletionTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberResponse {
   /**
    * <p>The phone number details.</p>
@@ -4558,6 +5252,9 @@ export interface GetPhoneNumberResponse {
   PhoneNumber?: PhoneNumber;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberOrderRequest {
   /**
    * <p>The ID for the phone number order.</p>
@@ -4565,6 +5262,9 @@ export interface GetPhoneNumberOrderRequest {
   PhoneNumberOrderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberOrderResponse {
   /**
    * <p>The phone number order details.</p>
@@ -4572,6 +5272,9 @@ export interface GetPhoneNumberOrderResponse {
   PhoneNumberOrder?: PhoneNumberOrder;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberSettingsResponse {
   /**
    * <p>The default outbound calling name for the account.</p>
@@ -4584,6 +5287,9 @@ export interface GetPhoneNumberSettingsResponse {
   CallingNameUpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetProxySessionRequest {
   /**
    * <p>The Amazon Chime voice connector ID.</p>
@@ -4596,6 +5302,9 @@ export interface GetProxySessionRequest {
   ProxySessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProxySessionResponse {
   /**
    * <p>The proxy session details.</p>
@@ -4603,6 +5312,9 @@ export interface GetProxySessionResponse {
   ProxySession?: ProxySession;
 }
 
+/**
+ * @public
+ */
 export interface GetRetentionSettingsRequest {
   /**
    * <p>The Amazon Chime account ID.</p>

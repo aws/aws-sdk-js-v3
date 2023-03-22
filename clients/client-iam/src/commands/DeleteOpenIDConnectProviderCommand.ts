@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOpenIDConnectProviderCommand}.
  */
 export interface DeleteOpenIDConnectProviderCommandInput extends DeleteOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOpenIDConnectProviderCommand}.
  */
 export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
  *          <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
  *             provider as a principal in their trust policies. Any attempt to assume a role that
@@ -49,6 +54,8 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOpenIDConnectProviderCommandInput - {@link DeleteOpenIDConnectProviderCommandInput}
+ * @returns {@link DeleteOpenIDConnectProviderCommandOutput}
  * @see {@link DeleteOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

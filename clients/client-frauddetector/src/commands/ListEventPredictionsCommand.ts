@@ -26,22 +26,27 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventPredictionsCommand}.
  */
 export interface ListEventPredictionsCommandInput extends ListEventPredictionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventPredictionsCommand}.
  */
 export interface ListEventPredictionsCommandOutput extends ListEventPredictionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period.
  *     If filter is not specified, the most recent prediction is returned.</p>
  *          <p>For example, the following filter lists all past predictions for <code>xyz</code> event type -
- *     <code>{
- *         "eventType":{
- *         "value": "xyz" }”
- *         }  </code>
+ *     <code>\{
+ *         "eventType":\{
+ *         "value": "xyz" \}”
+ *         \}  </code>
  *          </p>
  *          <p>This is a paginated API. If you provide a null <code>maxResults</code>, this action will retrieve a maximum of 10 records per page.
  *   If you provide a <code>maxResults</code>, the value must be between 50 and 100. To get the next page results, provide
@@ -57,6 +62,8 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventPredictionsCommandInput - {@link ListEventPredictionsCommandInput}
+ * @returns {@link ListEventPredictionsCommandOutput}
  * @see {@link ListEventPredictionsCommandInput} for command's `input` shape.
  * @see {@link ListEventPredictionsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListEventPredictionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventPredictionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListEventPredictionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventPredictionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEventPredictionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventPredictionsCommandOutput> {
     return deserializeAws_json1_1ListEventPredictionsCommand(output, context);
   }

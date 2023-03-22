@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListArchiveRulesCommand}.
  */
 export interface ListArchiveRulesCommandInput extends ListArchiveRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListArchiveRulesCommand}.
  */
 export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of archive rules created for the specified analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListArchiveRulesCommandInput - {@link ListArchiveRulesCommandInput}
+ * @returns {@link ListArchiveRulesCommandOutput}
  * @see {@link ListArchiveRulesCommandInput} for command's `input` shape.
  * @see {@link ListArchiveRulesCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListArchiveRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListArchiveRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListArchiveRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListArchiveRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListArchiveRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArchiveRulesCommandOutput> {
     return deserializeAws_restJson1ListArchiveRulesCommand(output, context);
   }

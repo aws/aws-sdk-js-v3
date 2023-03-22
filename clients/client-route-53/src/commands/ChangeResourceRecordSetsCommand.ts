@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ChangeResourceRecordSetsCommand}.
  */
 export interface ChangeResourceRecordSetsCommandInput extends ChangeResourceRecordSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangeResourceRecordSetsCommand}.
  */
 export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRecordSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates, changes, or deletes a resource record set, which contains authoritative DNS
  * 			information for a specified domain name or subdomain name. For example, you can use
  * 				<code>ChangeResourceRecordSets</code> to create a resource record set that routes
@@ -136,6 +141,8 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangeResourceRecordSetsCommandInput - {@link ChangeResourceRecordSetsCommandInput}
+ * @returns {@link ChangeResourceRecordSetsCommandOutput}
  * @see {@link ChangeResourceRecordSetsCommandInput} for command's `input` shape.
  * @see {@link ChangeResourceRecordSetsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -776,6 +783,9 @@ export class ChangeResourceRecordSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangeResourceRecordSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -817,10 +827,16 @@ export class ChangeResourceRecordSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangeResourceRecordSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlChangeResourceRecordSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeResourceRecordSetsCommandOutput> {
     return deserializeAws_restXmlChangeResourceRecordSetsCommand(output, context);
   }

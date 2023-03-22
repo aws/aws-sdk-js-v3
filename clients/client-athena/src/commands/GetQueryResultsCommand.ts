@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueryResultsCommand}.
  */
 export interface GetQueryResultsCommandInput extends GetQueryResultsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetQueryResultsCommand}.
  */
 export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Streams the results of a single query execution specified by
  *                 <code>QueryExecutionId</code> from the Athena query results location in
  *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query
@@ -60,6 +65,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryResultsCommandInput - {@link GetQueryResultsCommandInput}
+ * @returns {@link GetQueryResultsCommandOutput}
  * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
  * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetQueryResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class GetQueryResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetQueryResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryResultsCommandOutput> {
     return deserializeAws_json1_1GetQueryResultsCommand(output, context);
   }

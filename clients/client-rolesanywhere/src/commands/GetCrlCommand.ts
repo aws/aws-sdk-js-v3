@@ -23,15 +23,20 @@ import { deserializeAws_restJson1GetCrlCommand, serializeAws_restJson1GetCrlComm
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCrlCommand}.
  */
 export interface GetCrlCommandInput extends ScalarCrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCrlCommand}.
  */
 export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a certificate revocation list (CRL).</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -47,6 +52,8 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCrlCommandInput - {@link GetCrlCommandInput}
+ * @returns {@link GetCrlCommandOutput}
  * @see {@link GetCrlCommandInput} for command's `input` shape.
  * @see {@link GetCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -73,6 +80,9 @@ export class GetCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class GetCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrlCommandOutput> {
     return deserializeAws_restJson1GetCrlCommand(output, context);
   }

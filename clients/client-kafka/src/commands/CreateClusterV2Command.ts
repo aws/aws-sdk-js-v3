@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterV2Command}.
  */
 export interface CreateClusterV2CommandInput extends CreateClusterV2Request {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterV2Command}.
  */
 export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterV2CommandInput - {@link CreateClusterV2CommandInput}
+ * @returns {@link CreateClusterV2CommandOutput}
  * @see {@link CreateClusterV2CommandInput} for command's `input` shape.
  * @see {@link CreateClusterV2CommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateClusterV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateClusterV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateClusterV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterV2CommandOutput> {
     return deserializeAws_restJson1CreateClusterV2Command(output, context);
   }

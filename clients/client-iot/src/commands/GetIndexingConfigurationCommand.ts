@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIndexingConfigurationCommand}.
  */
 export interface GetIndexingConfigurationCommandInput extends GetIndexingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIndexingConfigurationCommand}.
  */
 export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the indexing configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIndexingConfigurationCommandInput - {@link GetIndexingConfigurationCommandInput}
+ * @returns {@link GetIndexingConfigurationCommandOutput}
  * @see {@link GetIndexingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetIndexingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetIndexingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIndexingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetIndexingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIndexingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIndexingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIndexingConfigurationCommandOutput> {
     return deserializeAws_restJson1GetIndexingConfigurationCommand(output, context);
   }

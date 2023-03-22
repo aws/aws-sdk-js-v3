@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationFsxOntapCommand}.
  */
 export interface DescribeLocationFsxOntapCommandInput extends DescribeLocationFsxOntapRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationFsxOntapCommand}.
  */
 export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationFsxOntapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
  *          <note>
  *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
@@ -50,6 +55,8 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationFsxOntapCommandInput - {@link DescribeLocationFsxOntapCommandInput}
+ * @returns {@link DescribeLocationFsxOntapCommandOutput}
  * @see {@link DescribeLocationFsxOntapCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationFsxOntapCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeLocationFsxOntapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationFsxOntapCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeLocationFsxOntapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationFsxOntapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationFsxOntapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationFsxOntapCommandOutput> {
     return deserializeAws_json1_1DescribeLocationFsxOntapCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstancesHealthStatusCommand}.
  */
 export interface GetInstancesHealthStatusCommandInput extends GetInstancesHealthStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstancesHealthStatusCommand}.
  */
 export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealthStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or
  *     <code>Unknown</code>) of one or more instances that are associated with a specified
  *    service.</p>
@@ -52,6 +57,8 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstancesHealthStatusCommandInput - {@link GetInstancesHealthStatusCommandInput}
+ * @returns {@link GetInstancesHealthStatusCommandOutput}
  * @see {@link GetInstancesHealthStatusCommandInput} for command's `input` shape.
  * @see {@link GetInstancesHealthStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -111,6 +118,9 @@ export class GetInstancesHealthStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstancesHealthStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class GetInstancesHealthStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstancesHealthStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstancesHealthStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstancesHealthStatusCommandOutput> {
     return deserializeAws_json1_1GetInstancesHealthStatusCommand(output, context);
   }

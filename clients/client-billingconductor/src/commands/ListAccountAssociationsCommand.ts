@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountAssociationsCommand}.
  */
 export interface ListAccountAssociationsCommandInput extends ListAccountAssociationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountAssociationsCommand}.
  */
 export interface ListAccountAssociationsCommandOutput extends ListAccountAssociationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> This is a paginated call to list linked accounts that are linked to the payer account for
  *       the specified time period. If no information is provided, the current billing period is used.
  *       The response will optionally include the billing group that's associated with the linked
@@ -49,6 +54,8 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountAssociationsCommandInput - {@link ListAccountAssociationsCommandInput}
+ * @returns {@link ListAccountAssociationsCommandOutput}
  * @see {@link ListAccountAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAccountAssociationsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListAccountAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListAccountAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAccountAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountAssociationsCommandOutput> {
     return deserializeAws_restJson1ListAccountAssociationsCommand(output, context);
   }

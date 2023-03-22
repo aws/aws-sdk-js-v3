@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportKeyPairCommand}.
  */
 export interface ImportKeyPairCommandInput extends ImportKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportKeyPairCommand}.
  */
 export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a public SSH key from a specific key pair.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportKeyPairCommandInput - {@link ImportKeyPairCommandInput}
+ * @returns {@link ImportKeyPairCommandOutput}
  * @see {@link ImportKeyPairCommandInput} for command's `input` shape.
  * @see {@link ImportKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class ImportKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ImportKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportKeyPairCommandOutput> {
     return deserializeAws_json1_1ImportKeyPairCommand(output, context);
   }

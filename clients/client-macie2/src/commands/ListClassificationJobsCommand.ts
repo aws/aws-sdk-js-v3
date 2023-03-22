@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClassificationJobsCommand}.
  */
 export interface ListClassificationJobsCommandInput extends ListClassificationJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListClassificationJobsCommand}.
  */
 export interface ListClassificationJobsCommandOutput extends ListClassificationJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a subset of information about one or more classification jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListClassificationJobsCommandOutput extends ListClassificationJ
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClassificationJobsCommandInput - {@link ListClassificationJobsCommandInput}
+ * @returns {@link ListClassificationJobsCommandOutput}
  * @see {@link ListClassificationJobsCommandInput} for command's `input` shape.
  * @see {@link ListClassificationJobsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class ListClassificationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClassificationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListClassificationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClassificationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListClassificationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClassificationJobsCommandOutput> {
     return deserializeAws_restJson1ListClassificationJobsCommand(output, context);
   }

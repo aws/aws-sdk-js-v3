@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandInput extends ListOperationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandOutput extends ListOperationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the operations performed by AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
+ * @returns {@link ListOperationsCommandOutput}
  * @see {@link ListOperationsCommandInput} for command's `input` shape.
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOperationsCommandOutput> {
     return deserializeAws_restJson1ListOperationsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRepositoriesCommand}.
  */
 export interface DescribeRepositoriesCommandInput extends DescribeRepositoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRepositoriesCommand}.
  */
 export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes image repositories in a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRepositoriesCommandInput - {@link DescribeRepositoriesCommandInput}
+ * @returns {@link DescribeRepositoriesCommandOutput}
  * @see {@link DescribeRepositoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -105,6 +112,9 @@ export class DescribeRepositoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DescribeRepositoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRepositoriesCommandOutput> {
     return deserializeAws_json1_1DescribeRepositoriesCommand(output, context);
   }

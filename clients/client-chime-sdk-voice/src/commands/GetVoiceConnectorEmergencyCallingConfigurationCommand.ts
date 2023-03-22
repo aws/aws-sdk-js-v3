@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface GetVoiceConnectorEmergencyCallingConfigurationCommandInput
   extends GetVoiceConnectorEmergencyCallingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}.
  */
 export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
@@ -54,6 +58,9 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,6 +106,9 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
     context: __SerdeContext
@@ -106,6 +116,9 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     return serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

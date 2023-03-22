@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportCrlCommand}.
  */
 export interface ImportCrlCommandInput extends ImportCrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportCrlCommand}.
  */
 export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports the certificate revocation list (CRL). CRl is a list of certificates that have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates against the crl list before issuing credentials. </p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportCrlCommandInput - {@link ImportCrlCommandInput}
+ * @returns {@link ImportCrlCommandOutput}
  * @see {@link ImportCrlCommandInput} for command's `input` shape.
  * @see {@link ImportCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class ImportCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ImportCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ImportCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportCrlCommandOutput> {
     return deserializeAws_restJson1ImportCrlCommand(output, context);
   }

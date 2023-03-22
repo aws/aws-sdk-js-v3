@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFileSystemCommand}.
  */
 export interface CreateFileSystemCommandInput extends CreateFileSystemRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFileSystemCommand}.
  */
 export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new, empty Amazon FSx file system. You can create the following supported
  *         Amazon FSx file systems using the <code>CreateFileSystem</code> API operation:</p>
  *          <ul>
@@ -91,6 +96,8 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFileSystemCommandInput - {@link CreateFileSystemCommandInput}
+ * @returns {@link CreateFileSystemCommandOutput}
  * @see {@link CreateFileSystemCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -222,6 +229,9 @@ export class CreateFileSystemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFileSystemCommandInput) {
     // Start section: command_constructor
     super();
@@ -261,10 +271,16 @@ export class CreateFileSystemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFileSystemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFileSystemCommandOutput> {
     return deserializeAws_json1_1CreateFileSystemCommand(output, context);
   }

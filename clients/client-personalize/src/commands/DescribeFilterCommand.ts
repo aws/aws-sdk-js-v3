@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFilterCommand}.
  */
 export interface DescribeFilterCommandInput extends DescribeFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFilterCommand}.
  */
 export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a filter's properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFilterCommandInput - {@link DescribeFilterCommandInput}
+ * @returns {@link DescribeFilterCommandOutput}
  * @see {@link DescribeFilterCommandInput} for command's `input` shape.
  * @see {@link DescribeFilterCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFilterCommandOutput> {
     return deserializeAws_json1_1DescribeFilterCommand(output, context);
   }

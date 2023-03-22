@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RequestSpotInstancesCommand}.
  */
 export interface RequestSpotInstancesCommandInput extends RequestSpotInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RequestSpotInstancesCommand}.
  */
 export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Spot Instance request.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in
  *             the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
@@ -58,6 +63,8 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestSpotInstancesCommandInput - {@link RequestSpotInstancesCommandInput}
+ * @returns {@link RequestSpotInstancesCommandOutput}
  * @see {@link RequestSpotInstancesCommandInput} for command's `input` shape.
  * @see {@link RequestSpotInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -132,6 +139,9 @@ export class RequestSpotInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestSpotInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class RequestSpotInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestSpotInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RequestSpotInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestSpotInstancesCommandOutput> {
     return deserializeAws_ec2RequestSpotInstancesCommand(output, context);
   }

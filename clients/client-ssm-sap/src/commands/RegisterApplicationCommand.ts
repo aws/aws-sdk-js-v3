@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterApplicationCommand}.
  */
 export interface RegisterApplicationCommandInput extends RegisterApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterApplicationCommand}.
  */
 export interface RegisterApplicationCommandOutput extends RegisterApplicationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Register an SAP application with AWS Systems Manager for SAP. You must meet the
  *          following requirements before registering. </p>
  *          <p>The SAP application you want to register with AWS Systems Manager for SAP is running
@@ -53,6 +58,8 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterApplicationCommandInput - {@link RegisterApplicationCommandInput}
+ * @returns {@link RegisterApplicationCommandOutput}
  * @see {@link RegisterApplicationCommandInput} for command's `input` shape.
  * @see {@link RegisterApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -85,6 +92,9 @@ export class RegisterApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class RegisterApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterApplicationCommandOutput> {
     return deserializeAws_restJson1RegisterApplicationCommand(output, context);
   }

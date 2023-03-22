@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserProfileCommand}.
  */
 export interface DescribeUserProfileCommandInput extends DescribeUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserProfileCommand}.
  */
 export interface DescribeUserProfileCommandOutput extends DescribeUserProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a user profile. For more information, see <code>CreateUserProfile</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserProfileCommandInput - {@link DescribeUserProfileCommandInput}
+ * @returns {@link DescribeUserProfileCommandOutput}
  * @see {@link DescribeUserProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserProfileCommandOutput> {
     return deserializeAws_json1_1DescribeUserProfileCommand(output, context);
   }

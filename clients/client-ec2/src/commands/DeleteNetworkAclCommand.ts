@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkAclCommand}.
  */
 export interface DeleteNetworkAclCommandInput extends DeleteNetworkAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkAclCommand}.
  */
 export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkAclCommandInput - {@link DeleteNetworkAclCommandInput}
+ * @returns {@link DeleteNetworkAclCommandOutput}
  * @see {@link DeleteNetworkAclCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkAclCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteNetworkAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteNetworkAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNetworkAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkAclCommandOutput> {
     return deserializeAws_ec2DeleteNetworkAclCommand(output, context);
   }

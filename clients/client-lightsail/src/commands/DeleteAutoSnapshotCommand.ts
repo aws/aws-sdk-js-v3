@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAutoSnapshotCommand}.
  */
 export interface DeleteAutoSnapshotCommandInput extends DeleteAutoSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAutoSnapshotCommand}.
  */
 export interface DeleteAutoSnapshotCommandOutput extends DeleteAutoSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an automatic snapshot of an instance or disk. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteAutoSnapshotCommandOutput extends DeleteAutoSnapshotResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAutoSnapshotCommandInput - {@link DeleteAutoSnapshotCommandInput}
+ * @returns {@link DeleteAutoSnapshotCommandOutput}
  * @see {@link DeleteAutoSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteAutoSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAutoSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteAutoSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAutoSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAutoSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAutoSnapshotCommandOutput> {
     return deserializeAws_json1_1DeleteAutoSnapshotCommand(output, context);
   }

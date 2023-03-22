@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountAuditConfigurationCommand}.
  */
 export interface DescribeAccountAuditConfigurationCommandInput extends DescribeAccountAuditConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountAuditConfigurationCommand}.
  */
 export interface DescribeAccountAuditConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAccountAuditConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the Device Defender audit settings for this account.
  *           Settings include how audit notifications are sent and which audit checks are
  *           enabled or disabled.</p>
@@ -51,6 +56,8 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountAuditConfigurationCommandInput - {@link DescribeAccountAuditConfigurationCommandInput}
+ * @returns {@link DescribeAccountAuditConfigurationCommandOutput}
  * @see {@link DescribeAccountAuditConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAuditConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeAccountAuditConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountAuditConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeAccountAuditConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAccountAuditConfigurationCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeAccountAuditConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeAccountAuditConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

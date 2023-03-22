@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCertificatesCommand}.
  */
 export interface GetCertificatesCommandInput extends GetCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCertificatesCommand}.
  */
 export interface GetCertificatesCommandOutput extends GetCertificatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more Amazon Lightsail SSL/TLS certificates.</p>
  *          <note>
  *             <p>To get a summary of a certificate, ommit <code>includeCertificateDetails</code> from
@@ -51,6 +56,8 @@ export interface GetCertificatesCommandOutput extends GetCertificatesResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCertificatesCommandInput - {@link GetCertificatesCommandInput}
+ * @returns {@link GetCertificatesCommandOutput}
  * @see {@link GetCertificatesCommandInput} for command's `input` shape.
  * @see {@link GetCertificatesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -97,6 +104,9 @@ export class GetCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCertificatesCommandOutput> {
     return deserializeAws_json1_1GetCertificatesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetVpnConnectionDeviceTypesCommand}.
  */
 export interface GetVpnConnectionDeviceTypesCommandInput extends GetVpnConnectionDeviceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVpnConnectionDeviceTypesCommand}.
  */
 export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnectionDeviceTypesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtain a list of customer gateway devices for which sample configuration
  *             files can be provided. The request has no additional parameters. You can also see the
  *             list of device types with sample configuration files available under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer gateway
@@ -49,6 +54,8 @@ export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnecti
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVpnConnectionDeviceTypesCommandInput - {@link GetVpnConnectionDeviceTypesCommandInput}
+ * @returns {@link GetVpnConnectionDeviceTypesCommandOutput}
  * @see {@link GetVpnConnectionDeviceTypesCommandInput} for command's `input` shape.
  * @see {@link GetVpnConnectionDeviceTypesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpnConnectionDeviceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVpnConnectionDeviceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetVpnConnectionDeviceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

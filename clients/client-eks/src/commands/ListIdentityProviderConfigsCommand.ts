@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIdentityProviderConfigsCommand}.
  */
 export interface ListIdentityProviderConfigsCommandInput extends ListIdentityProviderConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIdentityProviderConfigsCommand}.
  */
 export interface ListIdentityProviderConfigsCommandOutput
@@ -37,6 +41,7 @@ export interface ListIdentityProviderConfigsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of identity provider configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListIdentityProviderConfigsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentityProviderConfigsCommandInput - {@link ListIdentityProviderConfigsCommandInput}
+ * @returns {@link ListIdentityProviderConfigsCommandOutput}
  * @see {@link ListIdentityProviderConfigsCommandInput} for command's `input` shape.
  * @see {@link ListIdentityProviderConfigsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListIdentityProviderConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentityProviderConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListIdentityProviderConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentityProviderConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIdentityProviderConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectivityCommand}.
  */
 export interface UpdateConnectivityCommandInput extends UpdateConnectivityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectivityCommand}.
  */
 export interface UpdateConnectivityCommandOutput extends UpdateConnectivityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the cluster's connectivity configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectivityCommandInput - {@link UpdateConnectivityCommandInput}
+ * @returns {@link UpdateConnectivityCommandOutput}
  * @see {@link UpdateConnectivityCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectivityCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateConnectivityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectivityCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateConnectivityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConnectivityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectivityCommandOutput> {
     return deserializeAws_restJson1UpdateConnectivityCommand(output, context);
   }

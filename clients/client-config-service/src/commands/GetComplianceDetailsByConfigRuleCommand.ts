@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComplianceDetailsByConfigRuleCommand}.
  */
 export interface GetComplianceDetailsByConfigRuleCommandInput extends GetComplianceDetailsByConfigRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetComplianceDetailsByConfigRuleCommand}.
  */
 export interface GetComplianceDetailsByConfigRuleCommandOutput
@@ -37,6 +41,7 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the evaluation results for the specified Config
  * 			rule. The results indicate which Amazon Web Services resources were evaluated by the
  * 			rule, when each resource was last evaluated, and whether each
@@ -51,6 +56,8 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceDetailsByConfigRuleCommandInput - {@link GetComplianceDetailsByConfigRuleCommandInput}
+ * @returns {@link GetComplianceDetailsByConfigRuleCommandOutput}
  * @see {@link GetComplianceDetailsByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailsByConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetComplianceDetailsByConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceDetailsByConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetComplianceDetailsByConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetComplianceDetailsByConfigRuleCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetComplianceDetailsByConfigRuleCommand extends $Command<
     return serializeAws_json1_1GetComplianceDetailsByConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

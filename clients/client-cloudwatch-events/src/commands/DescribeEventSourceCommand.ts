@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventSourceCommand}.
  */
 export interface DescribeEventSourceCommandInput extends DescribeEventSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventSourceCommand}.
  */
 export interface DescribeEventSourceCommandOutput extends DescribeEventSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists details about a partner event source that is shared with your
  *       account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventSourceCommandInput - {@link DescribeEventSourceCommandInput}
+ * @returns {@link DescribeEventSourceCommandOutput}
  * @see {@link DescribeEventSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSourceCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeEventSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventSourceCommandOutput> {
     return deserializeAws_json1_1DescribeEventSourceCommand(output, context);
   }

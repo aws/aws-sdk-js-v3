@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketsAggregationCommand}.
  */
 export interface GetBucketsAggregationCommandInput extends GetBucketsAggregationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketsAggregationCommand}.
  */
 export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Aggregates on indexed data with search queries pertaining to particular fields. </p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBucketsAggregation</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregatio
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketsAggregationCommandInput - {@link GetBucketsAggregationCommandInput}
+ * @returns {@link GetBucketsAggregationCommandOutput}
  * @see {@link GetBucketsAggregationCommandInput} for command's `input` shape.
  * @see {@link GetBucketsAggregationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -97,6 +104,9 @@ export class GetBucketsAggregationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketsAggregationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class GetBucketsAggregationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketsAggregationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBucketsAggregationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketsAggregationCommandOutput> {
     return deserializeAws_restJson1GetBucketsAggregationCommand(output, context);
   }

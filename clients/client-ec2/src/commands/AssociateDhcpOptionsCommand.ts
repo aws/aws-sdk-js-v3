@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDhcpOptionsCommand}.
  */
 export interface AssociateDhcpOptionsCommandInput extends AssociateDhcpOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDhcpOptionsCommand}.
  */
 export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p>
  *          <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a>
@@ -44,6 +49,8 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDhcpOptionsCommandInput - {@link AssociateDhcpOptionsCommandInput}
+ * @returns {@link AssociateDhcpOptionsCommandOutput}
  * @see {@link AssociateDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link AssociateDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +98,9 @@ export class AssociateDhcpOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDhcpOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class AssociateDhcpOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDhcpOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateDhcpOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDhcpOptionsCommandOutput> {
     return deserializeAws_ec2AssociateDhcpOptionsCommand(output, context);
   }

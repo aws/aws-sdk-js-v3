@@ -63,6 +63,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DeleteObjectCommandInput
   | DescribeObjectCommandInput
@@ -70,6 +73,9 @@ export type ServiceInputTypes =
   | ListItemsCommandInput
   | PutObjectCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DeleteObjectCommandOutput
   | DescribeObjectCommandOutput
@@ -77,6 +83,9 @@ export type ServiceOutputTypes =
   | ListItemsCommandOutput
   | PutObjectCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -84,7 +93,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -193,7 +202,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
@@ -204,6 +213,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
+/**
+ * @public
+ */
 type MediaStoreDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -214,10 +226,15 @@ type MediaStoreDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandle
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of MediaStoreDataClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of MediaStoreDataClient class constructor that set the region, credentials and other options.
  */
 export interface MediaStoreDataClientConfig extends MediaStoreDataClientConfigType {}
 
+/**
+ * @public
+ */
 type MediaStoreDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -228,11 +245,14 @@ type MediaStoreDataClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of MediaStoreDataClient class. This is resolved and normalized from the {@link MediaStoreDataClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of MediaStoreDataClient class. This is resolved and normalized from the {@link MediaStoreDataClientConfig | constructor configuration interface}.
  */
 export interface MediaStoreDataClientResolvedConfig extends MediaStoreDataClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3
  *          service. Objects are the fundamental entities that are stored in AWS Elemental
  *          MediaStore.</p>

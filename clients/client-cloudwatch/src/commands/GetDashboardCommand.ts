@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryGetDashboardCommand, serializeAws_queryGetDashboardCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetDashboardCommand}.
  */
 export interface GetDashboardCommandInput extends GetDashboardInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDashboardCommand}.
  */
 export interface GetDashboardCommandOutput extends GetDashboardOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the details of the dashboard that you specify.</p>
  *          <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
  * 			within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create
@@ -46,6 +51,8 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDashboardCommandInput - {@link GetDashboardCommandInput}
+ * @returns {@link GetDashboardCommandOutput}
  * @see {@link GetDashboardCommandInput} for command's `input` shape.
  * @see {@link GetDashboardCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDashboardCommandOutput> {
     return deserializeAws_queryGetDashboardCommand(output, context);
   }

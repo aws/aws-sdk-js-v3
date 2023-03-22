@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIndexFieldCommand}.
  */
 export interface DeleteIndexFieldCommandInput extends DeleteIndexFieldRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIndexFieldCommand}.
  */
 export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an <code><a>IndexField</a></code> from the search domain. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIndexFieldCommandInput - {@link DeleteIndexFieldCommandInput}
+ * @returns {@link DeleteIndexFieldCommandOutput}
  * @see {@link DeleteIndexFieldCommandInput} for command's `input` shape.
  * @see {@link DeleteIndexFieldCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteIndexFieldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIndexFieldCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteIndexFieldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIndexFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteIndexFieldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIndexFieldCommandOutput> {
     return deserializeAws_queryDeleteIndexFieldCommand(output, context);
   }

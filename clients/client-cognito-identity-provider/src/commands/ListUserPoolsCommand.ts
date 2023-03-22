@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUserPoolsCommand}.
  */
 export interface ListUserPoolsCommandInput extends ListUserPoolsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUserPoolsCommand}.
  */
 export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the user pools associated with an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserPoolsCommandInput - {@link ListUserPoolsCommandInput}
+ * @returns {@link ListUserPoolsCommandOutput}
  * @see {@link ListUserPoolsCommandInput} for command's `input` shape.
  * @see {@link ListUserPoolsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListUserPoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserPoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListUserPoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserPoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUserPoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserPoolsCommandOutput> {
     return deserializeAws_json1_1ListUserPoolsCommand(output, context);
   }

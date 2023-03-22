@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableVgwRoutePropagationCommand}.
  */
 export interface EnableVgwRoutePropagationCommandInput extends EnableVgwRoutePropagationRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableVgwRoutePropagationCommand}.
  */
 export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables a virtual private gateway (VGW) to propagate routes to the specified route
  *             table of a VPC.</p>
  * @example
@@ -45,6 +50,8 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableVgwRoutePropagationCommandInput - {@link EnableVgwRoutePropagationCommandInput}
+ * @returns {@link EnableVgwRoutePropagationCommandOutput}
  * @see {@link EnableVgwRoutePropagationCommandInput} for command's `input` shape.
  * @see {@link EnableVgwRoutePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -80,6 +87,9 @@ export class EnableVgwRoutePropagationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableVgwRoutePropagationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class EnableVgwRoutePropagationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableVgwRoutePropagationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2EnableVgwRoutePropagationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

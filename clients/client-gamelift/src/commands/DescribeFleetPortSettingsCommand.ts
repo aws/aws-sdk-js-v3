@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetPortSettingsCommand}.
  */
 export interface DescribeFleetPortSettingsCommandInput extends DescribeFleetPortSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetPortSettingsCommand}.
  */
 export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify the
  *             range of IP addresses and port settings that incoming traffic can use to access server
  *             processes in the fleet. Game sessions that are running on instances in the fleet must
@@ -71,6 +76,8 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetPortSettingsCommandInput - {@link DescribeFleetPortSettingsCommandInput}
+ * @returns {@link DescribeFleetPortSettingsCommandOutput}
  * @see {@link DescribeFleetPortSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetPortSettingsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -111,6 +118,9 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetPortSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetPortSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetPortSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

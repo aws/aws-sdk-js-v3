@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRetentionConfigurationsCommand}.
  */
 export interface DescribeRetentionConfigurationsCommandInput extends DescribeRetentionConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRetentionConfigurationsCommand}.
  */
 export interface DescribeRetentionConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRetentionConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of one or more retention configurations. If
  * 			the retention configuration name is not specified, this action
  * 			returns the details for all the retention configurations for that
@@ -55,6 +60,8 @@ export interface DescribeRetentionConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRetentionConfigurationsCommandInput - {@link DescribeRetentionConfigurationsCommandInput}
+ * @returns {@link DescribeRetentionConfigurationsCommandOutput}
  * @see {@link DescribeRetentionConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRetentionConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRetentionConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeRetentionConfigurationsCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     return serializeAws_json1_1DescribeRetentionConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

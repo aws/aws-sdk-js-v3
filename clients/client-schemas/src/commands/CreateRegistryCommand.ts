@@ -26,15 +26,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRegistryCommand}.
  */
 export interface CreateRegistryCommandInput extends CreateRegistryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRegistryCommand}.
  */
 export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRegistryCommandInput - {@link CreateRegistryCommandInput}
+ * @returns {@link CreateRegistryCommandOutput}
  * @see {@link CreateRegistryCommandInput} for command's `input` shape.
  * @see {@link CreateRegistryCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRegistryCommandOutput> {
     return deserializeAws_restJson1CreateRegistryCommand(output, context);
   }

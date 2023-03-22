@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateClientCertificateCommand}.
  */
 export interface GenerateClientCertificateCommandInput extends GenerateClientCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateClientCertificateCommand}.
  */
 export interface GenerateClientCertificateCommandOutput extends ClientCertificate, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a ClientCertificate resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GenerateClientCertificateCommandOutput extends ClientCertificat
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateClientCertificateCommandInput - {@link GenerateClientCertificateCommandInput}
+ * @returns {@link GenerateClientCertificateCommandOutput}
  * @see {@link GenerateClientCertificateCommandInput} for command's `input` shape.
  * @see {@link GenerateClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -84,6 +91,9 @@ export class GenerateClientCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateClientCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GenerateClientCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GenerateClientCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

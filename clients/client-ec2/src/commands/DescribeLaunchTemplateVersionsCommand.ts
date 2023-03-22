@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLaunchTemplateVersionsCommand}.
  */
 export interface DescribeLaunchTemplateVersionsCommandInput extends DescribeLaunchTemplateVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLaunchTemplateVersionsCommand}.
  */
 export interface DescribeLaunchTemplateVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more versions of a specified launch template. You can describe all
  *             versions, individual versions, or a range of versions. You can also describe all the
  *             latest versions or all the default versions of all the launch templates in your
@@ -51,6 +56,8 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLaunchTemplateVersionsCommandInput - {@link DescribeLaunchTemplateVersionsCommandInput}
+ * @returns {@link DescribeLaunchTemplateVersionsCommandOutput}
  * @see {@link DescribeLaunchTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -138,6 +145,9 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLaunchTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,6 +187,9 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLaunchTemplateVersionsCommandInput,
     context: __SerdeContext
@@ -184,6 +197,9 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
     return serializeAws_ec2DescribeLaunchTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

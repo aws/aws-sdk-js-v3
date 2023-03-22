@@ -30,11 +30,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
  */
 export interface DescribeFleetAdvisorSchemaObjectSummaryCommandInput
   extends DescribeFleetAdvisorSchemaObjectSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
  */
 export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
@@ -42,6 +46,7 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides descriptions of the schemas discovered by your Fleet Advisor
  *             collectors.</p>
  * @example
@@ -54,6 +59,8 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAdvisorSchemaObjectSummaryCommandInput - {@link DescribeFleetAdvisorSchemaObjectSummaryCommandInput}
+ * @returns {@link DescribeFleetAdvisorSchemaObjectSummaryCommandOutput}
  * @see {@link DescribeFleetAdvisorSchemaObjectSummaryCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorSchemaObjectSummaryCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAdvisorSchemaObjectSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
     return serializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

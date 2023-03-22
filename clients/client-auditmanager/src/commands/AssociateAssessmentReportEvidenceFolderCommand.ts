@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAssessmentReportEvidenceFolderCommand}.
  */
 export interface AssociateAssessmentReportEvidenceFolderCommandInput
   extends AssociateAssessmentReportEvidenceFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAssessmentReportEvidenceFolderCommand}.
  */
 export interface AssociateAssessmentReportEvidenceFolderCommandOutput
@@ -38,6 +42,7 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Associates an evidence folder to an assessment report in an Audit Manager
  *          assessment. </p>
  * @example
@@ -50,6 +55,8 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAssessmentReportEvidenceFolderCommandInput - {@link AssociateAssessmentReportEvidenceFolderCommandInput}
+ * @returns {@link AssociateAssessmentReportEvidenceFolderCommandOutput}
  * @see {@link AssociateAssessmentReportEvidenceFolderCommandInput} for command's `input` shape.
  * @see {@link AssociateAssessmentReportEvidenceFolderCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateAssessmentReportEvidenceFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAssessmentReportEvidenceFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class AssociateAssessmentReportEvidenceFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateAssessmentReportEvidenceFolderCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class AssociateAssessmentReportEvidenceFolderCommand extends $Command<
     return serializeAws_restJson1AssociateAssessmentReportEvidenceFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

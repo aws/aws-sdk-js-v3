@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTaskFromMaintenanceWindowCommand}.
  */
 export interface DeregisterTaskFromMaintenanceWindowCommandInput extends DeregisterTaskFromMaintenanceWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTaskFromMaintenanceWindowCommand}.
  */
 export interface DeregisterTaskFromMaintenanceWindowCommandOutput
@@ -37,6 +41,7 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a task from a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTaskFromMaintenanceWindowCommandInput - {@link DeregisterTaskFromMaintenanceWindowCommandInput}
+ * @returns {@link DeregisterTaskFromMaintenanceWindowCommandOutput}
  * @see {@link DeregisterTaskFromMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link DeregisterTaskFromMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTaskFromMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterTaskFromMaintenanceWindowCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
     return serializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

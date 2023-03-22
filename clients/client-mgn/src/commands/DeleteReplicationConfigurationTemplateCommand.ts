@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationConfigurationTemplateCommand}.
  */
 export interface DeleteReplicationConfigurationTemplateCommandInput
   extends DeleteReplicationConfigurationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationConfigurationTemplateCommand}.
  */
 export interface DeleteReplicationConfigurationTemplateCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a single Replication Configuration Template by ID</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationConfigurationTemplateCommandInput - {@link DeleteReplicationConfigurationTemplateCommandInput}
+ * @returns {@link DeleteReplicationConfigurationTemplateCommandOutput}
  * @see {@link DeleteReplicationConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteReplicationConfigurationTemplateCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command<
     return serializeAws_restJson1DeleteReplicationConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

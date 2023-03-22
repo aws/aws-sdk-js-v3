@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAcknowledgeAlarmCommand}.
  */
 export interface BatchAcknowledgeAlarmCommandInput extends BatchAcknowledgeAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchAcknowledgeAlarmCommand}.
  */
 export interface BatchAcknowledgeAlarmCommandOutput extends BatchAcknowledgeAlarmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Acknowledges one or more alarms. The alarms change to the <code>ACKNOWLEDGED</code> state
  *       after you acknowledge them.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchAcknowledgeAlarmCommandOutput extends BatchAcknowledgeAlar
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAcknowledgeAlarmCommandInput - {@link BatchAcknowledgeAlarmCommandInput}
+ * @returns {@link BatchAcknowledgeAlarmCommandOutput}
  * @see {@link BatchAcknowledgeAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchAcknowledgeAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -82,6 +89,9 @@ export class BatchAcknowledgeAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAcknowledgeAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchAcknowledgeAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchAcknowledgeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchAcknowledgeAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchAcknowledgeAlarmCommandOutput> {
     return deserializeAws_restJson1BatchAcknowledgeAlarmCommand(output, context);
   }

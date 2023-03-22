@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSinkPolicyCommand}.
  */
 export interface GetSinkPolicyCommandInput extends GetSinkPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSinkPolicyCommand}.
  */
 export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current sink policy attached to this sink. The sink policy specifies what
  *             accounts can attach to this sink as source accounts, and what types of data they can share.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSinkPolicyCommandInput - {@link GetSinkPolicyCommandInput}
+ * @returns {@link GetSinkPolicyCommandOutput}
  * @see {@link GetSinkPolicyCommandInput} for command's `input` shape.
  * @see {@link GetSinkPolicyCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetSinkPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSinkPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetSinkPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSinkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSinkPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSinkPolicyCommandOutput> {
     return deserializeAws_restJson1GetSinkPolicyCommand(output, context);
   }

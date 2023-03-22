@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs deployment or stack commands. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html">Deploying
  *         Apps</a> and <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html">Run Stack Commands</a>.</p>
  *          <p>
@@ -52,6 +57,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
+ * @returns {@link CreateDeploymentCommandOutput}
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentCommandOutput> {
     return deserializeAws_json1_1CreateDeploymentCommand(output, context);
   }

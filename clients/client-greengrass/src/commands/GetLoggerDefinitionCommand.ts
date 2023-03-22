@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoggerDefinitionCommand}.
  */
 export interface GetLoggerDefinitionCommandInput extends GetLoggerDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoggerDefinitionCommand}.
  */
 export interface GetLoggerDefinitionCommandOutput extends GetLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a logger definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLoggerDefinitionCommandOutput extends GetLoggerDefinitionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoggerDefinitionCommandInput - {@link GetLoggerDefinitionCommandInput}
+ * @returns {@link GetLoggerDefinitionCommandOutput}
  * @see {@link GetLoggerDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetLoggerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetLoggerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoggerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetLoggerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoggerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLoggerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggerDefinitionCommandOutput> {
     return deserializeAws_restJson1GetLoggerDefinitionCommand(output, context);
   }

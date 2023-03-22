@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAuthenticationProfilesCommand}.
  */
 export interface DescribeAuthenticationProfilesCommandInput extends DescribeAuthenticationProfilesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAuthenticationProfilesCommand}.
  */
 export interface DescribeAuthenticationProfilesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAuthenticationProfilesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an authentication profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAuthenticationProfilesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAuthenticationProfilesCommandInput - {@link DescribeAuthenticationProfilesCommandInput}
+ * @returns {@link DescribeAuthenticationProfilesCommandOutput}
  * @see {@link DescribeAuthenticationProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeAuthenticationProfilesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuthenticationProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAuthenticationProfilesCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
     return serializeAws_queryDescribeAuthenticationProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

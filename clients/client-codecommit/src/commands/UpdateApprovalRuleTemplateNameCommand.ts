@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApprovalRuleTemplateNameCommand}.
  */
 export interface UpdateApprovalRuleTemplateNameCommandInput extends UpdateApprovalRuleTemplateNameInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApprovalRuleTemplateNameCommand}.
  */
 export interface UpdateApprovalRuleTemplateNameCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateApprovalRuleTemplateNameCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of a specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateApprovalRuleTemplateNameCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApprovalRuleTemplateNameCommandInput - {@link UpdateApprovalRuleTemplateNameCommandInput}
+ * @returns {@link UpdateApprovalRuleTemplateNameCommandOutput}
  * @see {@link UpdateApprovalRuleTemplateNameCommandInput} for command's `input` shape.
  * @see {@link UpdateApprovalRuleTemplateNameCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApprovalRuleTemplateNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApprovalRuleTemplateNameCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
     return serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

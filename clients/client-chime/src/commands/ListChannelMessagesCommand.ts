@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelMessagesCommand}.
  */
 export interface ListChannelMessagesCommandInput extends ListChannelMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelMessagesCommand}.
  */
 export interface ListChannelMessagesCommandOutput extends ListChannelMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all the messages in a channel. Returns a paginated list of
  *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending
  *          order.</p>
@@ -56,6 +61,8 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelMessagesCommandInput - {@link ListChannelMessagesCommandInput}
+ * @returns {@link ListChannelMessagesCommandOutput}
  * @see {@link ListChannelMessagesCommandInput} for command's `input` shape.
  * @see {@link ListChannelMessagesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListChannelMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ListChannelMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListChannelMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelMessagesCommandOutput> {
     return deserializeAws_restJson1ListChannelMessagesCommand(output, context);
   }

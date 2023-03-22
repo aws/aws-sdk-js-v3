@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableMacieCommand}.
  */
 export interface DisableMacieCommandInput extends DisableMacieRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableMacieCommand}.
  */
 export interface DisableMacieCommandOutput extends DisableMacieResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Amazon Macie and deletes all settings and resources for a Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisableMacieCommandOutput extends DisableMacieResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableMacieCommandInput - {@link DisableMacieCommandInput}
+ * @returns {@link DisableMacieCommandOutput}
  * @see {@link DisableMacieCommandInput} for command's `input` shape.
  * @see {@link DisableMacieCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class DisableMacieCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableMacieCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DisableMacieCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableMacieCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisableMacieCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableMacieCommandOutput> {
     return deserializeAws_restJson1DisableMacieCommand(output, context);
   }

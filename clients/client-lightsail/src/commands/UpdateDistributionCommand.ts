@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDistributionCommand}.
  */
 export interface UpdateDistributionCommandInput extends UpdateDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDistributionCommand}.
  */
 export interface UpdateDistributionCommandOutput extends UpdateDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p>
  *          <p>Use this action to update the configuration of your existing distribution.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDistributionCommandInput - {@link UpdateDistributionCommandInput}
+ * @returns {@link UpdateDistributionCommandOutput}
  * @see {@link UpdateDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDistributionCommandOutput> {
     return deserializeAws_json1_1UpdateDistributionCommand(output, context);
   }

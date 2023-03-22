@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterTracksCommand}.
  */
 export interface DescribeClusterTracksCommandInput extends DescribeClusterTracksMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterTracksCommand}.
  */
 export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the available maintenance tracks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterTracksCommandInput - {@link DescribeClusterTracksCommandInput}
+ * @returns {@link DescribeClusterTracksCommandOutput}
  * @see {@link DescribeClusterTracksCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterTracksCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeClusterTracksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterTracksCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeClusterTracksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterTracksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterTracksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterTracksCommandOutput> {
     return deserializeAws_queryDescribeClusterTracksCommand(output, context);
   }

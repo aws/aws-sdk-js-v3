@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMembersCommand}.
  */
 export interface ListMembersCommandInput extends ListMembersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListMembersCommand}.
  */
 export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the members in a network and properties of their configurations.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMembersCommandInput - {@link ListMembersCommandInput}
+ * @returns {@link ListMembersCommandOutput}
  * @see {@link ListMembersCommandInput} for command's `input` shape.
  * @see {@link ListMembersCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
     return deserializeAws_restJson1ListMembersCommand(output, context);
   }

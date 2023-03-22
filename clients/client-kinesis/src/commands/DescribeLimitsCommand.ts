@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLimitsCommand}.
  */
 export interface DescribeLimitsCommandInput extends DescribeLimitsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLimitsCommand}.
  */
 export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the shard limits and usage for the account.</p>
  *          <p>If you update your account limits, the old limits might be returned for a few
  *             minutes.</p>
@@ -49,6 +54,8 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLimitsCommandInput - {@link DescribeLimitsCommandInput}
+ * @returns {@link DescribeLimitsCommandOutput}
  * @see {@link DescribeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeLimitsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLimitsCommandOutput> {
     return deserializeAws_json1_1DescribeLimitsCommand(output, context);
   }

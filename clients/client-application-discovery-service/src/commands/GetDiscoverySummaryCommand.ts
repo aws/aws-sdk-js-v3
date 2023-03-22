@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDiscoverySummaryCommand}.
  */
 export interface GetDiscoverySummaryCommandInput extends GetDiscoverySummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDiscoverySummaryCommand}.
  */
 export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a short summary of discovered assets.</p>
  *          <p>This API operation takes no request parameters and is called as is at the command
  *       prompt as shown in the example.</p>
@@ -52,6 +57,8 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDiscoverySummaryCommandInput - {@link GetDiscoverySummaryCommandInput}
+ * @returns {@link GetDiscoverySummaryCommandOutput}
  * @see {@link GetDiscoverySummaryCommandInput} for command's `input` shape.
  * @see {@link GetDiscoverySummaryCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetDiscoverySummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDiscoverySummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetDiscoverySummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDiscoverySummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDiscoverySummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiscoverySummaryCommandOutput> {
     return deserializeAws_json1_1GetDiscoverySummaryCommand(output, context);
   }

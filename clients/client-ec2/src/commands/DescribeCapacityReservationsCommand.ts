@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCapacityReservationsCommand}.
  */
 export interface DescribeCapacityReservationsCommandInput extends DescribeCapacityReservationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCapacityReservationsCommand}.
  */
 export interface DescribeCapacityReservationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeCapacityReservationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the
  * 		    	Amazon Web Services Region that you're currently using.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeCapacityReservationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCapacityReservationsCommandInput - {@link DescribeCapacityReservationsCommandInput}
+ * @returns {@link DescribeCapacityReservationsCommandOutput}
  * @see {@link DescribeCapacityReservationsCommandInput} for command's `input` shape.
  * @see {@link DescribeCapacityReservationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeCapacityReservationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCapacityReservationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeCapacityReservationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCapacityReservationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeCapacityReservationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

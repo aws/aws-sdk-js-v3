@@ -247,6 +247,7 @@ import {
 import { WorkSpacesWebClient } from "./WorkSpacesWebClient";
 
 /**
+ * @public
  * <p>WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to facilitate
  *          secure, web-based workloads. WorkSpaces Web makes it easy for customers to safely provide
  *          their employees with access to internal websites and SaaS web applications without the
@@ -256,6 +257,7 @@ import { WorkSpacesWebClient } from "./WorkSpacesWebClient";
  */
 export class WorkSpacesWeb extends WorkSpacesWebClient {
   /**
+   * @public
    * <p>Associates a browser settings resource with a web portal.</p>
    */
   public associateBrowserSettings(
@@ -288,6 +290,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Associates a network settings resource with a web portal.</p>
    */
   public associateNetworkSettings(
@@ -320,6 +323,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Associates a trust store with a web portal.</p>
    */
   public associateTrustStore(
@@ -352,6 +356,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Associates a user access logging settings resource with a web portal.</p>
    */
   public associateUserAccessLoggingSettings(
@@ -384,6 +389,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Associates a user settings resource with a web portal.</p>
    */
   public associateUserSettings(
@@ -416,6 +422,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Creates a browser settings resource that can be associated with a web portal. Once
    *          associated with a web portal, browser settings control how the browser will behave once a
    *          user starts a streaming session for the web portal. </p>
@@ -450,6 +457,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Creates an identity provider resource that is then associated with a web portal.</p>
    */
   public createIdentityProvider(
@@ -482,6 +490,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Creates a network settings resource that can be associated with a web portal. Once
    *          associated with a web portal, network settings define how streaming instances will connect
    *          with your specified VPC. </p>
@@ -516,6 +525,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Creates a web portal.</p>
    */
   public createPortal(
@@ -545,6 +555,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Creates a trust store that can be associated with a web portal. A trust store contains
    *          certificate authority (CA) certificates. Once associated with a web portal, the browser in
    *          a streaming session will recognize certificates that have been issued using any of the CAs
@@ -581,6 +592,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Creates a user access logging settings resource that can be associated with a web portal.</p>
    */
   public createUserAccessLoggingSettings(
@@ -613,6 +625,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Creates a user settings resource that can be associated with a web portal. Once
    *          associated with a web portal, user settings control how users can transfer data between a
    *          streaming session and the their local devices. </p>
@@ -647,6 +660,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Deletes browser settings.</p>
    */
   public deleteBrowserSettings(
@@ -679,6 +693,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Deletes the identity provider.</p>
    */
   public deleteIdentityProvider(
@@ -711,6 +726,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Deletes network settings.</p>
    */
   public deleteNetworkSettings(
@@ -743,6 +759,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Deletes a web portal.</p>
    */
   public deletePortal(
@@ -772,6 +789,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Deletes the trust store.</p>
    */
   public deleteTrustStore(
@@ -804,6 +822,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Deletes user access logging settings.</p>
    */
   public deleteUserAccessLoggingSettings(
@@ -836,6 +855,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Deletes user settings.</p>
    */
   public deleteUserSettings(
@@ -868,6 +888,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Disassociates browser settings from a web portal.</p>
    */
   public disassociateBrowserSettings(
@@ -900,6 +921,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Disassociates network settings from a web portal.</p>
    */
   public disassociateNetworkSettings(
@@ -932,6 +954,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a trust store from a web portal.</p>
    */
   public disassociateTrustStore(
@@ -964,6 +987,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Disassociates user access logging settings from a web portal.</p>
    */
   public disassociateUserAccessLoggingSettings(
@@ -998,6 +1022,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Disassociates user settings from a web portal.</p>
    */
   public disassociateUserSettings(
@@ -1030,6 +1055,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Gets browser settings.</p>
    */
   public getBrowserSettings(
@@ -1062,6 +1088,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Gets the identity provider.</p>
    */
   public getIdentityProvider(
@@ -1094,6 +1121,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Gets the network settings.</p>
    */
   public getNetworkSettings(
@@ -1126,6 +1154,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Gets the web portal.</p>
    */
   public getPortal(args: GetPortalCommandInput, options?: __HttpHandlerOptions): Promise<GetPortalCommandOutput>;
@@ -1152,6 +1181,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Gets the service provider metadata.</p>
    */
   public getPortalServiceProviderMetadata(
@@ -1184,6 +1214,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Gets the trust store.</p>
    */
   public getTrustStore(
@@ -1216,6 +1247,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Gets the trust store certificate.</p>
    */
   public getTrustStoreCertificate(
@@ -1248,6 +1280,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Gets user access logging settings.</p>
    */
   public getUserAccessLoggingSettings(
@@ -1280,6 +1313,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Gets user settings.</p>
    */
   public getUserSettings(
@@ -1312,6 +1346,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of browser settings.</p>
    */
   public listBrowserSettings(
@@ -1344,6 +1379,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of identity providers for a specific web portal.</p>
    */
   public listIdentityProviders(
@@ -1376,6 +1412,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of network settings.</p>
    */
   public listNetworkSettings(
@@ -1408,6 +1445,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list or web portals.</p>
    */
   public listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
@@ -1434,6 +1472,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of tags for a resource.</p>
    */
   public listTagsForResource(
@@ -1466,6 +1505,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of trust store certificates.</p>
    */
   public listTrustStoreCertificates(
@@ -1498,6 +1538,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of trust stores.</p>
    */
   public listTrustStores(
@@ -1530,6 +1571,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of user access logging settings.</p>
    */
   public listUserAccessLoggingSettings(
@@ -1562,6 +1604,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of user settings.</p>
    */
   public listUserSettings(
@@ -1594,6 +1637,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Adds or overwrites one or more tags for the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1620,6 +1664,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(
@@ -1652,6 +1697,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Updates browser settings.</p>
    */
   public updateBrowserSettings(
@@ -1684,6 +1730,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Updates the identity provider. </p>
    */
   public updateIdentityProvider(
@@ -1716,6 +1763,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Updates network settings.</p>
    */
   public updateNetworkSettings(
@@ -1748,6 +1796,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Updates a web portal.</p>
    */
   public updatePortal(
@@ -1777,6 +1826,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Updates the trust store.</p>
    */
   public updateTrustStore(
@@ -1809,6 +1859,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Updates the user access logging settings.</p>
    */
   public updateUserAccessLoggingSettings(
@@ -1841,6 +1892,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
+   * @public
    * <p>Updates the user settings.</p>
    */
   public updateUserSettings(

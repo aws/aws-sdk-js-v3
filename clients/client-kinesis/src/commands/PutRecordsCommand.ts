@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRecordsCommand}.
  */
 export interface PutRecordsCommandInput extends PutRecordsInput {}
 /**
+ * @public
+ *
  * The output of {@link PutRecordsCommand}.
  */
 export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes multiple data records into a Kinesis data stream in a single call (also
  *             referred to as a <code>PutRecords</code> request). Use this operation to send data into
  *             the stream for data ingestion and processing. </p>
@@ -105,6 +110,8 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecordsCommandInput - {@link PutRecordsCommandInput}
+ * @returns {@link PutRecordsCommandOutput}
  * @see {@link PutRecordsCommandInput} for command's `input` shape.
  * @see {@link PutRecordsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -176,6 +183,9 @@ export class PutRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -213,10 +223,16 @@ export class PutRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordsCommandOutput> {
     return deserializeAws_json1_1PutRecordsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSystemInstanceCommand}.
  */
 export interface GetSystemInstanceCommandInput extends GetSystemInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSystemInstanceCommand}.
  */
 export interface GetSystemInstanceCommandOutput extends GetSystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets a system instance.</p>
@@ -48,6 +53,8 @@ export interface GetSystemInstanceCommandOutput extends GetSystemInstanceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSystemInstanceCommandInput - {@link GetSystemInstanceCommandInput}
+ * @returns {@link GetSystemInstanceCommandOutput}
  * @see {@link GetSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link GetSystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetSystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetSystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSystemInstanceCommandOutput> {
     return deserializeAws_json1_1GetSystemInstanceCommand(output, context);
   }

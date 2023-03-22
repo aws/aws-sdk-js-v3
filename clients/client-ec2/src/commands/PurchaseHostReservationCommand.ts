@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseHostReservationCommand}.
  */
 export interface PurchaseHostReservationCommandInput extends PurchaseHostReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseHostReservationCommand}.
  */
 export interface PurchaseHostReservationCommandOutput extends PurchaseHostReservationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Purchase a reservation with configurations that match those of your Dedicated Host.
  *             You must have active Dedicated Hosts in your account before you purchase a reservation.
  *             This action results in the specified reservation being purchased and charged to your
@@ -49,6 +54,8 @@ export interface PurchaseHostReservationCommandOutput extends PurchaseHostReserv
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseHostReservationCommandInput - {@link PurchaseHostReservationCommandInput}
+ * @returns {@link PurchaseHostReservationCommandOutput}
  * @see {@link PurchaseHostReservationCommandInput} for command's `input` shape.
  * @see {@link PurchaseHostReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class PurchaseHostReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseHostReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class PurchaseHostReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseHostReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2PurchaseHostReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PurchaseHostReservationCommandOutput> {
     return deserializeAws_ec2PurchaseHostReservationCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCacheSecurityGroupCommand}.
  */
 export interface DeleteCacheSecurityGroupCommandInput extends DeleteCacheSecurityGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCacheSecurityGroupCommand}.
  */
 export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cache security group.</p>
  *          <note>
  *             <p>You cannot delete a cache security group if it is associated with any clusters.</p>
@@ -44,6 +49,8 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCacheSecurityGroupCommandInput - {@link DeleteCacheSecurityGroupCommandInput}
+ * @returns {@link DeleteCacheSecurityGroupCommandOutput}
  * @see {@link DeleteCacheSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteCacheSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCacheSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteCacheSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCacheSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteCacheSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCacheSecurityGroupCommandOutput> {
     return deserializeAws_queryDeleteCacheSecurityGroupCommand(output, context);
   }

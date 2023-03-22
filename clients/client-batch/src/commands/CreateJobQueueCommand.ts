@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobQueueCommand}.
  */
 export interface CreateJobQueueCommandInput extends CreateJobQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobQueueCommand}.
  */
 export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Batch job queue. When you create a job queue, you associate one or more compute environments to the
  *    queue and assign an order of preference for the compute environments.</p>
  *          <p>You also set a priority to the job queue that determines the order that the Batch scheduler places jobs onto
@@ -51,6 +56,8 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobQueueCommandInput - {@link CreateJobQueueCommandInput}
+ * @returns {@link CreateJobQueueCommandOutput}
  * @see {@link CreateJobQueueCommandInput} for command's `input` shape.
  * @see {@link CreateJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -136,6 +143,9 @@ export class CreateJobQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,10 +185,16 @@ export class CreateJobQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateJobQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobQueueCommandOutput> {
     return deserializeAws_restJson1CreateJobQueueCommand(output, context);
   }

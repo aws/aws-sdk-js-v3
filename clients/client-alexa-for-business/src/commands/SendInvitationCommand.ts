@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SendInvitationCommand}.
  */
 export interface SendInvitationCommandInput extends SendInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendInvitationCommand}.
  */
 export interface SendInvitationCommandOutput extends SendInvitationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30
  *          days or until you call this operation again, whichever comes first. </p>
  * @example
@@ -47,6 +52,8 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SendInvitationCommandInput - {@link SendInvitationCommandInput}
+ * @returns {@link SendInvitationCommandOutput}
  * @see {@link SendInvitationCommandInput} for command's `input` shape.
  * @see {@link SendInvitationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -79,6 +86,9 @@ export class SendInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class SendInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendInvitationCommandOutput> {
     return deserializeAws_json1_1SendInvitationCommand(output, context);
   }

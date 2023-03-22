@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFlowsCommand}.
  */
 export interface ListFlowsCommandInput extends ListFlowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFlowsCommand}.
  */
 export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Displays a list of flows that are associated with this account. This request returns a paginated result.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFlowsCommandInput - {@link ListFlowsCommandInput}
+ * @returns {@link ListFlowsCommandOutput}
  * @see {@link ListFlowsCommandInput} for command's `input` shape.
  * @see {@link ListFlowsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListFlowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFlowsCommandOutput> {
     return deserializeAws_restJson1ListFlowsCommand(output, context);
   }

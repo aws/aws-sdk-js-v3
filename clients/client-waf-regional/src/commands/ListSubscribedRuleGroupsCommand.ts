@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubscribedRuleGroupsCommand}.
  */
 export interface ListSubscribedRuleGroupsCommandInput extends ListSubscribedRuleGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSubscribedRuleGroupsCommand}.
  */
 export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRuleGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscribedRuleGroupsCommandInput - {@link ListSubscribedRuleGroupsCommandInput}
+ * @returns {@link ListSubscribedRuleGroupsCommandOutput}
  * @see {@link ListSubscribedRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListSubscribedRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscribedRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscribedRuleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSubscribedRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscribedRuleGroupsCommandOutput> {
     return deserializeAws_json1_1ListSubscribedRuleGroupsCommand(output, context);
   }

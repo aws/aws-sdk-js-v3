@@ -10,7 +10,7 @@ import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ProtonClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEnvironmentProvisionedResourcesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEnvironmentProvisionedResources(
   config: ProtonPaginationConfiguration,
   input: ListEnvironmentProvisionedResourcesCommandInput,

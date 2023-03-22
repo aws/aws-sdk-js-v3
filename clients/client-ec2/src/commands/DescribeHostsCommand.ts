@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DescribeHostsCommand, serializeAws_ec2DescribeHostsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHostsCommand}.
  */
 export interface DescribeHostsCommandInput extends DescribeHostsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHostsCommand}.
  */
 export interface DescribeHostsCommandOutput extends DescribeHostsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p>
  *          <p>The results describe only the Dedicated Hosts in the Region you're currently using.
  *             All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have
@@ -46,6 +51,8 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHostsCommandInput - {@link DescribeHostsCommandInput}
+ * @returns {@link DescribeHostsCommandOutput}
  * @see {@link DescribeHostsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeHostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class DescribeHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHostsCommandOutput> {
     return deserializeAws_ec2DescribeHostsCommand(output, context);
   }

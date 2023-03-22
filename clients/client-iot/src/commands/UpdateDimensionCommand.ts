@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDimensionCommand}.
  */
 export interface UpdateDimensionCommandInput extends UpdateDimensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDimensionCommand}.
  */
 export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the definition for a dimension. You
  *       cannot
  *       change the type of a dimension after
@@ -52,6 +57,8 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDimensionCommandInput - {@link UpdateDimensionCommandInput}
+ * @returns {@link UpdateDimensionCommandOutput}
  * @see {@link UpdateDimensionCommandInput} for command's `input` shape.
  * @see {@link UpdateDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateDimensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDimensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateDimensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDimensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDimensionCommandOutput> {
     return deserializeAws_restJson1UpdateDimensionCommand(output, context);
   }

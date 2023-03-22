@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRoomMembershipCommand}.
  */
 export interface DeleteRoomMembershipCommandInput extends DeleteRoomMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRoomMembershipCommand}.
  */
 export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a member from a chat room in an Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRoomMembershipCommandInput - {@link DeleteRoomMembershipCommandInput}
+ * @returns {@link DeleteRoomMembershipCommandOutput}
  * @see {@link DeleteRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteRoomMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteRoomMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRoomMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteRoomMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRoomMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRoomMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoomMembershipCommandOutput> {
     return deserializeAws_restJson1DeleteRoomMembershipCommand(output, context);
   }

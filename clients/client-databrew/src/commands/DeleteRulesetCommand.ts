@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRulesetCommand}.
  */
 export interface DeleteRulesetCommandInput extends DeleteRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRulesetCommand}.
  */
 export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRulesetCommandInput - {@link DeleteRulesetCommandInput}
+ * @returns {@link DeleteRulesetCommandOutput}
  * @see {@link DeleteRulesetCommandInput} for command's `input` shape.
  * @see {@link DeleteRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRulesetCommandOutput> {
     return deserializeAws_restJson1DeleteRulesetCommand(output, context);
   }

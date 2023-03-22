@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportLensCommand}.
  */
 export interface ImportLensCommandInput extends ImportLensInput {}
 /**
+ * @public
+ *
  * The output of {@link ImportLensCommand}.
  */
 export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Import a new lens.</p>
  *         <p>The lens cannot be applied to workloads or shared with other Amazon Web Services accounts
  *             until it's published with <a>CreateLensVersion</a>
@@ -64,6 +69,8 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportLensCommandInput - {@link ImportLensCommandInput}
+ * @returns {@link ImportLensCommandOutput}
  * @see {@link ImportLensCommandInput} for command's `input` shape.
  * @see {@link ImportLensCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -108,6 +115,9 @@ export class ImportLensCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportLensCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class ImportLensCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportLensCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ImportLensCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportLensCommandOutput> {
     return deserializeAws_restJson1ImportLensCommand(output, context);
   }

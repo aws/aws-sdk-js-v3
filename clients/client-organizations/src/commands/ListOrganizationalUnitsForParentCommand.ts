@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationalUnitsForParentCommand}.
  */
 export interface ListOrganizationalUnitsForParentCommandInput extends ListOrganizationalUnitsForParentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationalUnitsForParentCommand}.
  */
 export interface ListOrganizationalUnitsForParentCommandOutput
@@ -37,6 +41,7 @@ export interface ListOrganizationalUnitsForParentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the organizational units (OUs) in a parent organizational unit or root.</p>
  *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
@@ -58,6 +63,8 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationalUnitsForParentCommandInput - {@link ListOrganizationalUnitsForParentCommandInput}
+ * @returns {@link ListOrganizationalUnitsForParentCommandOutput}
  * @see {@link ListOrganizationalUnitsForParentCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationalUnitsForParentCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -237,6 +244,9 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationalUnitsForParentCommandInput) {
     // Start section: command_constructor
     super();
@@ -276,6 +286,9 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListOrganizationalUnitsForParentCommandInput,
     context: __SerdeContext
@@ -283,6 +296,9 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
     return serializeAws_json1_1ListOrganizationalUnitsForParentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

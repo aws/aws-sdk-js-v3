@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkingLocationCommand}.
  */
 export interface GetWorkingLocationCommandInput extends GetWorkingLocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkingLocationCommand}.
  */
 export interface GetWorkingLocationCommandOutput extends GetWorkingLocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A temporary Amazon S3 location, where you can copy your files from a source location to stage or use
  *       as a scratch space in FinSpace notebook.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkingLocationCommandInput - {@link GetWorkingLocationCommandInput}
+ * @returns {@link GetWorkingLocationCommandOutput}
  * @see {@link GetWorkingLocationCommandInput} for command's `input` shape.
  * @see {@link GetWorkingLocationCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetWorkingLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkingLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetWorkingLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkingLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWorkingLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkingLocationCommandOutput> {
     return deserializeAws_restJson1GetWorkingLocationCommand(output, context);
   }

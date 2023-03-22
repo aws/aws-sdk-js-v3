@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link RefreshCacheCommand}.
  */
 export interface RefreshCacheCommandInput extends RefreshCacheInput {}
 /**
+ * @public
+ *
  * The output of {@link RefreshCacheCommand}.
  */
 export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Refreshes the cached inventory of objects for the specified file share. This operation
  *          finds objects in the Amazon S3 bucket that were added, removed, or replaced since
  *          the gateway last listed the bucket's contents and cached the results. This operation
@@ -95,6 +100,8 @@ export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param RefreshCacheCommandInput - {@link RefreshCacheCommandInput}
+ * @returns {@link RefreshCacheCommandOutput}
  * @see {@link RefreshCacheCommandInput} for command's `input` shape.
  * @see {@link RefreshCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -126,6 +133,9 @@ export class RefreshCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RefreshCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class RefreshCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RefreshCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RefreshCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshCacheCommandOutput> {
     return deserializeAws_json1_1RefreshCacheCommand(output, context);
   }

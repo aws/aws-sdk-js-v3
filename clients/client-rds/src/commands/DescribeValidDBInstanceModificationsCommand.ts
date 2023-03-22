@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeValidDBInstanceModificationsCommand}.
  */
 export interface DescribeValidDBInstanceModificationsCommandInput extends DescribeValidDBInstanceModificationsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeValidDBInstanceModificationsCommand}.
  */
 export interface DescribeValidDBInstanceModificationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to
  *             your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
@@ -50,6 +55,8 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeValidDBInstanceModificationsCommandInput - {@link DescribeValidDBInstanceModificationsCommandInput}
+ * @returns {@link DescribeValidDBInstanceModificationsCommandOutput}
  * @see {@link DescribeValidDBInstanceModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeValidDBInstanceModificationsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeValidDBInstanceModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeValidDBInstanceModificationsCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     return serializeAws_queryDescribeValidDBInstanceModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

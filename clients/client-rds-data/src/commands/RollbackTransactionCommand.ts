@@ -26,15 +26,20 @@ import {
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link RollbackTransactionCommand}.
  */
 export interface RollbackTransactionCommandInput extends RollbackTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RollbackTransactionCommand}.
  */
 export interface RollbackTransactionCommandOutput extends RollbackTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs a rollback of a transaction. Rolling back a transaction cancels its changes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param RollbackTransactionCommandInput - {@link RollbackTransactionCommandInput}
+ * @returns {@link RollbackTransactionCommandOutput}
  * @see {@link RollbackTransactionCommandInput} for command's `input` shape.
  * @see {@link RollbackTransactionCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
@@ -91,6 +98,9 @@ export class RollbackTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RollbackTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class RollbackTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RollbackTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RollbackTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RollbackTransactionCommandOutput> {
     return deserializeAws_restJson1RollbackTransactionCommand(output, context);
   }

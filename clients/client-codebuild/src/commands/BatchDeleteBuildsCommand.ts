@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteBuildsCommand}.
  */
 export interface BatchDeleteBuildsCommandInput extends BatchDeleteBuildsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteBuildsCommand}.
  */
 export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more builds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteBuildsCommandInput - {@link BatchDeleteBuildsCommandInput}
+ * @returns {@link BatchDeleteBuildsCommandOutput}
  * @see {@link BatchDeleteBuildsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteBuildsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +79,9 @@ export class BatchDeleteBuildsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteBuildsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class BatchDeleteBuildsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteBuildsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteBuildsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteBuildsCommandOutput> {
     return deserializeAws_json1_1BatchDeleteBuildsCommand(output, context);
   }

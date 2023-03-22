@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationCommand}.
  */
 export interface DescribeOrganizationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationCommand}.
  */
 export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the organization that the user's account belongs
  *             to.</p>
  *          <p>This operation can be called from any account in the organization.</p>
@@ -48,6 +53,8 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationCommandInput - {@link DescribeOrganizationCommandInput}
+ * @returns {@link DescribeOrganizationCommandOutput}
  * @see {@link DescribeOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -123,6 +130,9 @@ export class DescribeOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class DescribeOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOrganizationCommandOutput> {
     return deserializeAws_json1_1DescribeOrganizationCommand(output, context);
   }

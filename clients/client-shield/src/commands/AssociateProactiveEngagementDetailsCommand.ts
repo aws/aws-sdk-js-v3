@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateProactiveEngagementDetailsCommand}.
  */
 export interface AssociateProactiveEngagementDetailsCommandInput extends AssociateProactiveEngagementDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateProactiveEngagementDetailsCommand}.
  */
 export interface AssociateProactiveEngagementDetailsCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initializes proactive engagement and sets the list of contacts for the Shield Response Team (SRT) to use. You must provide at least one phone number in the emergency contact list. </p>
  *          <p>After you have initialized proactive engagement using this call, to disable or enable proactive engagement, use the calls <code>DisableProactiveEngagement</code> and <code>EnableProactiveEngagement</code>.  </p>
  *          <note>
@@ -53,6 +58,8 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateProactiveEngagementDetailsCommandInput - {@link AssociateProactiveEngagementDetailsCommandInput}
+ * @returns {@link AssociateProactiveEngagementDetailsCommandOutput}
  * @see {@link AssociateProactiveEngagementDetailsCommandInput} for command's `input` shape.
  * @see {@link AssociateProactiveEngagementDetailsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -92,6 +99,9 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateProactiveEngagementDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateProactiveEngagementDetailsCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
     return serializeAws_json1_1AssociateProactiveEngagementDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOrUpdateTagsCommand}.
  */
 export interface CreateOrUpdateTagsCommandInput extends CreateOrUpdateTagsType {}
 /**
+ * @public
+ *
  * The output of {@link CreateOrUpdateTagsCommand}.
  */
 export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates tags for the specified Auto Scaling group.</p>
  *          <p>When you specify a tag with a key that already exists, the operation overwrites the
  *             previous tag definition, and you do not get an error message.</p>
@@ -45,6 +50,8 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOrUpdateTagsCommandInput - {@link CreateOrUpdateTagsCommandInput}
+ * @returns {@link CreateOrUpdateTagsCommandOutput}
  * @see {@link CreateOrUpdateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateOrUpdateTagsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -110,6 +117,9 @@ export class CreateOrUpdateTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOrUpdateTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateOrUpdateTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOrUpdateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateOrUpdateTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrUpdateTagsCommandOutput> {
     return deserializeAws_queryCreateOrUpdateTagsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateUserCommand}.
  */
 export interface ActivateUserCommandInput extends ActivateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link ActivateUserCommand}.
  */
 export interface ActivateUserCommandOutput extends ActivateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates the specified user. Only active users can access Amazon
  *             WorkDocs.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ActivateUserCommandOutput extends ActivateUserResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateUserCommandInput - {@link ActivateUserCommandInput}
+ * @returns {@link ActivateUserCommandOutput}
  * @see {@link ActivateUserCommandInput} for command's `input` shape.
  * @see {@link ActivateUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -87,6 +94,9 @@ export class ActivateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ActivateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ActivateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateUserCommandOutput> {
     return deserializeAws_restJson1ActivateUserCommand(output, context);
   }

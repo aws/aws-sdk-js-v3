@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSlotCommand}.
  */
 export interface UpdateSlotCommandInput extends UpdateSlotRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSlotCommand}.
  */
 export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings for a slot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSlotCommandInput - {@link UpdateSlotCommandInput}
+ * @returns {@link UpdateSlotCommandOutput}
  * @see {@link UpdateSlotCommandInput} for command's `input` shape.
  * @see {@link UpdateSlotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateSlotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSlotCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateSlotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSlotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSlotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSlotCommandOutput> {
     return deserializeAws_restJson1UpdateSlotCommand(output, context);
   }

@@ -24,15 +24,20 @@ import { deserializeAws_restXmlGetBucketCommand, serializeAws_restXmlGetBucketCo
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketCommand}.
  */
 export interface GetBucketCommandInput extends GetBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketCommand}.
  */
 export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html"> Using Amazon S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the
@@ -72,6 +77,8 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketCommandInput - {@link GetBucketCommandInput}
+ * @returns {@link GetBucketCommandOutput}
  * @see {@link GetBucketCommandInput} for command's `input` shape.
  * @see {@link GetBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -99,6 +106,9 @@ export class GetBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketCommandOutput> {
     return deserializeAws_restXmlGetBucketCommand(output, context);
   }

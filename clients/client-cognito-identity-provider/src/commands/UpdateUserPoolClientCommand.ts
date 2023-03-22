@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserPoolClientCommand}.
  */
 export interface UpdateUserPoolClientCommandInput extends UpdateUserPoolClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserPoolClientCommand}.
  */
 export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified user pool app client with the specified attributes. You can get
  *             a list of the current user pool app client settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>.</p>
  *         <important>
@@ -58,6 +63,8 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserPoolClientCommandInput - {@link UpdateUserPoolClientCommandInput}
+ * @returns {@link UpdateUserPoolClientCommandOutput}
  * @see {@link UpdateUserPoolClientCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPoolClientCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -109,6 +116,9 @@ export class UpdateUserPoolClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserPoolClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class UpdateUserPoolClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserPoolClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserPoolClientCommandOutput> {
     return deserializeAws_json1_1UpdateUserPoolClientCommand(output, context);
   }

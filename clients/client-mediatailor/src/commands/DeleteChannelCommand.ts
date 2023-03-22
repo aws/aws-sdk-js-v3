@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
+ * @returns {@link DeleteChannelCommandOutput}
  * @see {@link DeleteChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class DeleteChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelCommandOutput> {
     return deserializeAws_restJson1DeleteChannelCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentJobsCommand}.
  */
 export interface ListDeploymentJobsCommandInput extends ListDeploymentJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentJobsCommand}.
  */
 export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve specific deployment jobs.</p>
@@ -51,6 +56,8 @@ export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentJobsCommandInput - {@link ListDeploymentJobsCommandInput}
+ * @returns {@link ListDeploymentJobsCommandOutput}
  * @see {@link ListDeploymentJobsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListDeploymentJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListDeploymentJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDeploymentJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentJobsCommandOutput> {
     return deserializeAws_restJson1ListDeploymentJobsCommand(output, context);
   }

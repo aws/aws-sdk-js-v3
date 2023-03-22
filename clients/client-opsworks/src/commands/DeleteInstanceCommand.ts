@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceCommand}.
  */
 export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceCommand}.
  */
 export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified instance, which terminates the associated Amazon EC2 instance. You must stop an instance before you can delete it.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html">Deleting
  *         Instances</a>.</p>
@@ -48,6 +53,8 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceCommandInput - {@link DeleteInstanceCommandInput}
+ * @returns {@link DeleteInstanceCommandOutput}
  * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceCommandOutput> {
     return deserializeAws_json1_1DeleteInstanceCommand(output, context);
   }

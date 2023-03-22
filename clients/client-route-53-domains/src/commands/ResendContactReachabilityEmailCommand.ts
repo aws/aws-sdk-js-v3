@@ -26,10 +26,14 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResendContactReachabilityEmailCommand}.
  */
 export interface ResendContactReachabilityEmailCommandInput extends ResendContactReachabilityEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResendContactReachabilityEmailCommand}.
  */
 export interface ResendContactReachabilityEmailCommandOutput
@@ -37,6 +41,7 @@ export interface ResendContactReachabilityEmailCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>For operations that require confirmation that the email address for the registrant
  * 			contact is valid, such as registering a new domain, this operation resends the
  * 			confirmation email to the current email address for the registrant contact.</p>
@@ -50,6 +55,8 @@ export interface ResendContactReachabilityEmailCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ResendContactReachabilityEmailCommandInput - {@link ResendContactReachabilityEmailCommandInput}
+ * @returns {@link ResendContactReachabilityEmailCommandOutput}
  * @see {@link ResendContactReachabilityEmailCommandInput} for command's `input` shape.
  * @see {@link ResendContactReachabilityEmailCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -86,6 +93,9 @@ export class ResendContactReachabilityEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResendContactReachabilityEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class ResendContactReachabilityEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ResendContactReachabilityEmailCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class ResendContactReachabilityEmailCommand extends $Command<
     return serializeAws_json1_1ResendContactReachabilityEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

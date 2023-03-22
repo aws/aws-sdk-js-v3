@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
+ * @public
  * <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
  * 			account is authorized to use the Amazon QuickSight service, that your policies have the
@@ -33,6 +34,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon QuickSight customizations associated with your Amazon Web Services account or a QuickSight namespace in a specific Amazon Web Services Region.</p>
  */
 export interface AccountCustomization {
@@ -47,6 +49,9 @@ export interface AccountCustomization {
   DefaultEmailCustomizationTemplate?: string;
 }
 
+/**
+ * @public
+ */
 export enum Edition {
   ENTERPRISE = "ENTERPRISE",
   ENTERPRISE_AND_Q = "ENTERPRISE_AND_Q",
@@ -54,6 +59,7 @@ export enum Edition {
 }
 
 /**
+ * @public
  * <p>A structure that contains the following account information
  *             elements:</p>
  *          <ul>
@@ -105,6 +111,7 @@ export interface AccountInfo {
 }
 
 /**
+ * @public
  * <p>The Amazon QuickSight settings associated with your Amazon Web Services account.</p>
  */
 export interface AccountSettings {
@@ -143,6 +150,7 @@ export interface AccountSettings {
 }
 
 /**
+ * @public
  * <p>The active Identity and Access Management (IAM) policy assignment.</p>
  */
 export interface ActiveIAMPolicyAssignment {
@@ -157,12 +165,16 @@ export interface ActiveIAMPolicyAssignment {
   PolicyArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum DashboardBehavior {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>An ad hoc (one-time) filtering option.</p>
  */
 export interface AdHocFilteringOption {
@@ -172,11 +184,17 @@ export interface AdHocFilteringOption {
   AvailabilityStatus?: DashboardBehavior | string;
 }
 
+/**
+ * @public
+ */
 export enum CategoricalAggregationFunction {
   COUNT = "COUNT",
   DISTINCT_COUNT = "DISTINCT_COUNT",
 }
 
+/**
+ * @public
+ */
 export enum DateAggregationFunction {
   COUNT = "COUNT",
   DISTINCT_COUNT = "DISTINCT_COUNT",
@@ -185,6 +203,7 @@ export enum DateAggregationFunction {
 }
 
 /**
+ * @public
  * <p>An aggregation based on the percentile of values in a dimension or measure.</p>
  */
 export interface PercentileAggregation {
@@ -194,6 +213,9 @@ export interface PercentileAggregation {
   PercentileValue?: number;
 }
 
+/**
+ * @public
+ */
 export enum SimpleNumericalAggregationFunction {
   AVERAGE = "AVERAGE",
   COUNT = "COUNT",
@@ -209,6 +231,7 @@ export enum SimpleNumericalAggregationFunction {
 }
 
 /**
+ * @public
  * <p>Aggregation for numerical values.</p>
  */
 export interface NumericalAggregationFunction {
@@ -270,6 +293,7 @@ export interface NumericalAggregationFunction {
 }
 
 /**
+ * @public
  * <p>An aggregation function aggregates values from a dimension or measure.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -319,6 +343,7 @@ export interface AggregationFunction {
 }
 
 /**
+ * @public
  * <p>A column of a data set.</p>
  */
 export interface ColumnIdentifier {
@@ -333,12 +358,16 @@ export interface ColumnIdentifier {
   ColumnName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SortDirection {
   ASC = "ASC",
   DESC = "DESC",
 }
 
 /**
+ * @public
  * <p>The configuration options to sort aggregated values.</p>
  */
 export interface AggregationSortConfiguration {
@@ -369,6 +398,7 @@ export interface AggregationSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The parameters for OpenSearch.</p>
  */
 export interface AmazonElasticsearchParameters {
@@ -379,6 +409,7 @@ export interface AmazonElasticsearchParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for OpenSearch.</p>
  */
 export interface AmazonOpenSearchParameters {
@@ -388,6 +419,9 @@ export interface AmazonOpenSearchParameters {
   Domain: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AnalysisErrorType {
   ACCESS_DENIED = "ACCESS_DENIED",
   COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
@@ -402,6 +436,7 @@ export enum AnalysisErrorType {
 }
 
 /**
+ * @public
  * <p>An object, structure, or sub-structure of an analysis, template, or dashboard.</p>
  */
 export interface Entity {
@@ -412,6 +447,7 @@ export interface Entity {
 }
 
 /**
+ * @public
  * <p>Analysis error.</p>
  */
 export interface AnalysisError {
@@ -432,6 +468,7 @@ export interface AnalysisError {
 }
 
 /**
+ * @public
  * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
  *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
  *             contains at least one sheet. Each sheet contains at least one visualization widget, for
@@ -451,6 +488,9 @@ export interface Sheet {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export enum ResourceStatus {
   CREATION_FAILED = "CREATION_FAILED",
   CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
@@ -462,6 +502,7 @@ export enum ResourceStatus {
 }
 
 /**
+ * @public
  * <p>Metadata structure for an analysis in Amazon QuickSight</p>
  */
 export interface Analysis {
@@ -517,6 +558,7 @@ export interface Analysis {
 }
 
 /**
+ * @public
  * <p>The options that determine the sizing of the canvas used in a free-form layout.</p>
  */
 export interface FreeFormLayoutScreenCanvasSizeOptions {
@@ -527,6 +569,7 @@ export interface FreeFormLayoutScreenCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>Configuration options for the canvas of a free-form layout.</p>
  */
 export interface FreeFormLayoutCanvasSizeOptions {
@@ -537,6 +580,7 @@ export interface FreeFormLayoutCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings of a free-form layout configuration.</p>
  */
 export interface DefaultFreeFormLayoutConfiguration {
@@ -546,12 +590,16 @@ export interface DefaultFreeFormLayoutConfiguration {
   CanvasSizeOptions: FreeFormLayoutCanvasSizeOptions | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ResizeOption {
   FIXED = "FIXED",
   RESPONSIVE = "RESPONSIVE",
 }
 
 /**
+ * @public
  * <p>The options that determine the sizing of the canvas used in a grid layout.</p>
  */
 export interface GridLayoutScreenCanvasSizeOptions {
@@ -579,6 +627,7 @@ export interface GridLayoutScreenCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>Configuration options for the canvas of a grid layout.</p>
  */
 export interface GridLayoutCanvasSizeOptions {
@@ -589,6 +638,7 @@ export interface GridLayoutCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings for a grid layout configuration.</p>
  */
 export interface DefaultGridLayoutConfiguration {
@@ -599,6 +649,7 @@ export interface DefaultGridLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings for interactive layout configuration.</p>
  */
 export interface DefaultInteractiveLayoutConfiguration {
@@ -614,6 +665,7 @@ export interface DefaultInteractiveLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of spacing (often a margin or padding).</p>
  */
 export interface Spacing {
@@ -638,11 +690,17 @@ export interface Spacing {
   Right?: string;
 }
 
+/**
+ * @public
+ */
 export enum PaperOrientation {
   LANDSCAPE = "LANDSCAPE",
   PORTRAIT = "PORTRAIT",
 }
 
+/**
+ * @public
+ */
 export enum PaperSize {
   A0 = "A0",
   A1 = "A1",
@@ -658,6 +716,7 @@ export enum PaperSize {
 }
 
 /**
+ * @public
  * <p>The options for a paper canvas of a section-based layout.</p>
  */
 export interface SectionBasedLayoutPaperCanvasSizeOptions {
@@ -688,6 +747,7 @@ export interface SectionBasedLayoutPaperCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>The options for the canvas of a section-based layout.</p>
  */
 export interface SectionBasedLayoutCanvasSizeOptions {
@@ -698,6 +758,7 @@ export interface SectionBasedLayoutCanvasSizeOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings for a section-based layout configuration.</p>
  */
 export interface DefaultSectionBasedLayoutConfiguration {
@@ -708,6 +769,7 @@ export interface DefaultSectionBasedLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the default settings for a paginated layout configuration.</p>
  */
 export interface DefaultPaginatedLayoutConfiguration {
@@ -717,12 +779,16 @@ export interface DefaultPaginatedLayoutConfiguration {
   SectionBased?: DefaultSectionBasedLayoutConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum SheetContentType {
   INTERACTIVE = "INTERACTIVE",
   PAGINATED = "PAGINATED",
 }
 
 /**
+ * @public
  * <p>The configuration for default new sheet settings.</p>
  */
 export interface DefaultNewSheetConfiguration {
@@ -743,6 +809,7 @@ export interface DefaultNewSheetConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for default analysis settings.</p>
  */
 export interface AnalysisDefaults {
@@ -753,6 +820,7 @@ export interface AnalysisDefaults {
 }
 
 /**
+ * @public
  * <p>The calculated field of an analysis.</p>
  */
 export interface CalculatedField {
@@ -773,6 +841,7 @@ export interface CalculatedField {
 }
 
 /**
+ * @public
  * <p>The options that determine the null value format configuration.</p>
  */
 export interface NullValueFormatConfiguration {
@@ -783,6 +852,7 @@ export interface NullValueFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The option that determines the decimal places configuration.</p>
  */
 export interface DecimalPlacesConfiguration {
@@ -792,12 +862,16 @@ export interface DecimalPlacesConfiguration {
   DecimalPlaces: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NegativeValueDisplayMode {
   NEGATIVE = "NEGATIVE",
   POSITIVE = "POSITIVE",
 }
 
 /**
+ * @public
  * <p>The options that determine the negative value configuration.</p>
  */
 export interface NegativeValueConfiguration {
@@ -807,6 +881,9 @@ export interface NegativeValueConfiguration {
   DisplayMode: NegativeValueDisplayMode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NumberScale {
   AUTO = "AUTO",
   BILLIONS = "BILLIONS",
@@ -816,18 +893,25 @@ export enum NumberScale {
   TRILLIONS = "TRILLIONS",
 }
 
+/**
+ * @public
+ */
 export enum NumericSeparatorSymbol {
   COMMA = "COMMA",
   DOT = "DOT",
   SPACE = "SPACE",
 }
 
+/**
+ * @public
+ */
 export enum Visibility {
   HIDDEN = "HIDDEN",
   VISIBLE = "VISIBLE",
 }
 
 /**
+ * @public
  * <p>The options that determine the thousands separator configuration.</p>
  */
 export interface ThousandSeparatorOptions {
@@ -843,6 +927,7 @@ export interface ThousandSeparatorOptions {
 }
 
 /**
+ * @public
  * <p>The options that determine the numeric separator configuration.</p>
  */
 export interface NumericSeparatorConfiguration {
@@ -858,6 +943,7 @@ export interface NumericSeparatorConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the currency display format configuration.</p>
  */
 export interface CurrencyDisplayFormatConfiguration {
@@ -903,6 +989,7 @@ export interface CurrencyDisplayFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the number display format configuration.</p>
  */
 export interface NumberDisplayFormatConfiguration {
@@ -943,6 +1030,7 @@ export interface NumberDisplayFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the percentage display format configuration.</p>
  */
 export interface PercentageDisplayFormatConfiguration {
@@ -978,6 +1066,7 @@ export interface PercentageDisplayFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that determine the numeric format configuration.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -999,6 +1088,7 @@ export interface NumericFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for <code>DateTime</code> fields.</p>
  */
 export interface DateTimeFormatConfiguration {
@@ -1019,6 +1109,7 @@ export interface DateTimeFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for number fields.</p>
  */
 export interface NumberFormatConfiguration {
@@ -1029,6 +1120,7 @@ export interface NumberFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>Formatting configuration for string fields.</p>
  */
 export interface StringFormatConfiguration {
@@ -1044,6 +1136,7 @@ export interface StringFormatConfiguration {
 }
 
 /**
+ * @public
  * <p>The formatting configuration for all types of field.</p>
  */
 export interface FormatConfiguration {
@@ -1063,12 +1156,16 @@ export interface FormatConfiguration {
   DateTimeFormatConfiguration?: DateTimeFormatConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ColumnRole {
   DIMENSION = "DIMENSION",
   MEASURE = "MEASURE",
 }
 
 /**
+ * @public
  * <p>The general configuration of a column.</p>
  */
 export interface ColumnConfiguration {
@@ -1089,6 +1186,7 @@ export interface ColumnConfiguration {
 }
 
 /**
+ * @public
  * <p>A data set.</p>
  */
 export interface DataSetIdentifierDeclaration {
@@ -1103,11 +1201,17 @@ export interface DataSetIdentifierDeclaration {
   DataSetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CrossDatasetTypes {
   ALL_DATASETS = "ALL_DATASETS",
   SINGLE_DATASET = "SINGLE_DATASET",
 }
 
+/**
+ * @public
+ */
 export enum CategoryFilterMatchOperator {
   CONTAINS = "CONTAINS",
   DOES_NOT_CONTAIN = "DOES_NOT_CONTAIN",
@@ -1117,17 +1221,24 @@ export enum CategoryFilterMatchOperator {
   STARTS_WITH = "STARTS_WITH",
 }
 
+/**
+ * @public
+ */
 export enum FilterNullOption {
   ALL_VALUES = "ALL_VALUES",
   NON_NULLS_ONLY = "NON_NULLS_ONLY",
   NULLS_ONLY = "NULLS_ONLY",
 }
 
+/**
+ * @public
+ */
 export enum CategoryFilterSelectAllOptions {
   FILTER_ALL_VALUES = "FILTER_ALL_VALUES",
 }
 
 /**
+ * @public
  * <p>A custom filter that filters based on a single value. This filter can be partially matched.</p>
  */
 export interface CustomFilterConfiguration {
@@ -1181,6 +1292,7 @@ export interface CustomFilterConfiguration {
 }
 
 /**
+ * @public
  * <p>A list of custom filter values.</p>
  */
 export interface CustomFilterListConfiguration {
@@ -1227,6 +1339,7 @@ export interface CustomFilterListConfiguration {
 }
 
 /**
+ * @public
  * <p>A list of filter configurations.</p>
  */
 export interface FilterListConfiguration {
@@ -1254,6 +1367,7 @@ export interface FilterListConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a <code>CategoryFilter</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1275,6 +1389,7 @@ export interface CategoryFilterConfiguration {
 }
 
 /**
+ * @public
  * <p>A <code>CategoryFilter</code> filters text values.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1295,16 +1410,23 @@ export interface CategoryFilter {
   Configuration: CategoryFilterConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NumericEqualityMatchOperator {
   DOES_NOT_EQUAL = "DOES_NOT_EQUAL",
   EQUALS = "EQUALS",
 }
 
+/**
+ * @public
+ */
 export enum NumericFilterSelectAllOptions {
   FILTER_ALL_VALUES = "FILTER_ALL_VALUES",
 }
 
 /**
+ * @public
  * <p>A <code>NumericEqualityFilter</code> filters values that are equal to the specified value.</p>
  */
 export interface NumericEqualityFilter {
@@ -1371,6 +1493,7 @@ export interface NumericEqualityFilter {
 }
 
 /**
+ * @public
  * <p>The value input pf the numeric range filter.</p>
  */
 export interface NumericRangeFilterValue {
@@ -1386,6 +1509,7 @@ export interface NumericRangeFilterValue {
 }
 
 /**
+ * @public
  * <p>A <code>NumericRangeFilter</code> filters values that are within the value range.</p>
  */
 export interface NumericRangeFilter {
@@ -1456,11 +1580,15 @@ export interface NumericRangeFilter {
   NullOption: FilterNullOption | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AnchorOption {
   NOW = "NOW",
 }
 
 /**
+ * @public
  * <p>The date configuration of the filter.</p>
  */
 export interface AnchorDateConfiguration {
@@ -1482,6 +1610,9 @@ export interface AnchorDateConfiguration {
   ParameterName?: string;
 }
 
+/**
+ * @public
+ */
 export enum TimeGranularity {
   DAY = "DAY",
   HOUR = "HOUR",
@@ -1494,12 +1625,16 @@ export enum TimeGranularity {
   YEAR = "YEAR",
 }
 
+/**
+ * @public
+ */
 export enum WidgetStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>The exclude period of <code>TimeRangeFilter</code> or <code>RelativeDatesFilter</code>.</p>
  */
 export interface ExcludePeriodConfiguration {
@@ -1531,6 +1666,9 @@ export interface ExcludePeriodConfiguration {
   Status?: WidgetStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum RelativeDateType {
   LAST = "LAST",
   NEXT = "NEXT",
@@ -1540,6 +1678,7 @@ export enum RelativeDateType {
 }
 
 /**
+ * @public
  * <p>A <code>RelativeDatesFilter</code> filters relative dates values.</p>
  */
 export interface RelativeDatesFilter {
@@ -1636,6 +1775,7 @@ export interface RelativeDatesFilter {
 }
 
 /**
+ * @public
  * <p>A <code>TimeEqualityFilter</code> filters values that are equal to a given value.</p>
  */
 export interface TimeEqualityFilter {
@@ -1668,6 +1808,7 @@ export interface TimeEqualityFilter {
 }
 
 /**
+ * @public
  * <p>The rolling date configuration of a date time filter.</p>
  */
 export interface RollingDateConfiguration {
@@ -1683,6 +1824,7 @@ export interface RollingDateConfiguration {
 }
 
 /**
+ * @public
  * <p>The value of a time range filter.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1704,6 +1846,7 @@ export interface TimeRangeFilterValue {
 }
 
 /**
+ * @public
  * <p>A <code>TimeRangeFilter</code> filters values that are between two specified values.</p>
  */
 export interface TimeRangeFilter {
@@ -1768,6 +1911,7 @@ export interface TimeRangeFilter {
 }
 
 /**
+ * @public
  * <p>A <code>TopBottomFilter</code> filters values that are at the top or the bottom.</p>
  */
 export interface TopBottomFilter {
@@ -1803,6 +1947,7 @@ export interface TopBottomFilter {
 }
 
 /**
+ * @public
  * <p>With a <code>Filter</code>, you can remove portions of data from a particular visual or view.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1845,12 +1990,16 @@ export interface Filter {
   TopBottomFilter?: TopBottomFilter;
 }
 
+/**
+ * @public
+ */
 export enum FilterVisualScope {
   ALL_VISUALS = "ALL_VISUALS",
   SELECTED_VISUALS = "SELECTED_VISUALS",
 }
 
 /**
+ * @public
  * <p>The filter that is applied to the options.</p>
  */
 export interface SheetVisualScopingConfiguration {
@@ -1883,6 +2032,7 @@ export interface SheetVisualScopingConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for applying a filter to specific sheets or visuals. You can apply this filter to multiple visuals that are on one sheet or to all visuals on a sheet.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1894,6 +2044,7 @@ export interface SelectedSheetsFilterScopeConfiguration {
 }
 
 /**
+ * @public
  * <p>The scope configuration for a <code>FilterGroup</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -1905,6 +2056,7 @@ export interface FilterScopeConfiguration {
 }
 
 /**
+ * @public
  * <p>A grouping of individual filters. Filter groups are applied to the same group of visuals.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html">Adding filter conditions (group filters) with AND and OR operators</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -1949,6 +2101,7 @@ export interface FilterGroup {
 }
 
 /**
+ * @public
  * <p>Defines different defaults to the users or groups based on mapping.</p>
  */
 export interface DynamicDefaultValue {
@@ -1969,6 +2122,7 @@ export interface DynamicDefaultValue {
 }
 
 /**
+ * @public
  * <p>The default values of the <code>DateTimeParameterDeclaration</code>.</p>
  */
 export interface DateTimeDefaultValues {
@@ -1988,12 +2142,16 @@ export interface DateTimeDefaultValues {
   RollingDate?: RollingDateConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ValueWhenUnsetOption {
   NULL = "NULL",
   RECOMMENDED_VALUE = "RECOMMENDED_VALUE",
 }
 
 /**
+ * @public
  * <p>The configuration that defines the default value of a <code>DateTime</code> parameter when a value has not been set.</p>
  */
 export interface DateTimeValueWhenUnsetConfiguration {
@@ -2019,6 +2177,7 @@ export interface DateTimeValueWhenUnsetConfiguration {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>DateTime</code> data type.</p>
  */
 export interface DateTimeParameterDeclaration {
@@ -2044,6 +2203,7 @@ export interface DateTimeParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>The default values of the <code>DecimalParameterDeclaration</code>.</p>
  */
 export interface DecimalDefaultValues {
@@ -2058,12 +2218,16 @@ export interface DecimalDefaultValues {
   StaticValues?: number[];
 }
 
+/**
+ * @public
+ */
 export enum ParameterValueType {
   MULTI_VALUED = "MULTI_VALUED",
   SINGLE_VALUED = "SINGLE_VALUED",
 }
 
 /**
+ * @public
  * <p>The configuration that defines the default value of a <code>Decimal</code> parameter when a value has not been set.</p>
  */
 export interface DecimalValueWhenUnsetConfiguration {
@@ -2089,6 +2253,7 @@ export interface DecimalValueWhenUnsetConfiguration {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>Decimal</code> data type.</p>
  */
 export interface DecimalParameterDeclaration {
@@ -2114,6 +2279,7 @@ export interface DecimalParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>The default values of the <code>IntegerParameterDeclaration</code>.</p>
  */
 export interface IntegerDefaultValues {
@@ -2129,6 +2295,7 @@ export interface IntegerDefaultValues {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>Integer</code> data type.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -2155,6 +2322,7 @@ export interface IntegerValueWhenUnsetConfiguration {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>Integer</code> data type.</p>
  */
 export interface IntegerParameterDeclaration {
@@ -2180,6 +2348,7 @@ export interface IntegerParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>The default values of the <code>StringParameterDeclaration</code>.</p>
  */
 export interface StringDefaultValues {
@@ -2195,6 +2364,7 @@ export interface StringDefaultValues {
 }
 
 /**
+ * @public
  * <p>The configuration that defines the default value of a <code>String</code> parameter when a value has not been set.</p>
  */
 export interface StringValueWhenUnsetConfiguration {
@@ -2220,6 +2390,7 @@ export interface StringValueWhenUnsetConfiguration {
 }
 
 /**
+ * @public
  * <p>A parameter declaration for the <code>String</code> data type.</p>
  */
 export interface StringParameterDeclaration {
@@ -2245,6 +2416,7 @@ export interface StringParameterDeclaration {
 }
 
 /**
+ * @public
  * <p>The declaration definition of a parameter.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
@@ -2271,11 +2443,17 @@ export interface ParameterDeclaration {
   DateTimeParameterDeclaration?: DateTimeParameterDeclaration;
 }
 
+/**
+ * @public
+ */
 export enum FontDecoration {
   NONE = "NONE",
   UNDERLINE = "UNDERLINE",
 }
 
+/**
+ * @public
+ */
 export enum RelativeFontSize {
   EXTRA_LARGE = "EXTRA_LARGE",
   EXTRA_SMALL = "EXTRA_SMALL",
@@ -2285,6 +2463,7 @@ export enum RelativeFontSize {
 }
 
 /**
+ * @public
  * <p>The option that determines the text display size.</p>
  */
 export interface FontSize {
@@ -2294,17 +2473,24 @@ export interface FontSize {
   Relative?: RelativeFontSize | string;
 }
 
+/**
+ * @public
+ */
 export enum FontStyle {
   ITALIC = "ITALIC",
   NORMAL = "NORMAL",
 }
 
+/**
+ * @public
+ */
 export enum FontWeightName {
   BOLD = "BOLD",
   NORMAL = "NORMAL",
 }
 
 /**
+ * @public
  * <p>The option that determines the text display weight, or boldness.</p>
  */
 export interface FontWeight {
@@ -2315,6 +2501,7 @@ export interface FontWeight {
 }
 
 /**
+ * @public
  * <p>Configures the display properties of the given text.</p>
  */
 export interface FontConfiguration {
@@ -2345,6 +2532,7 @@ export interface FontConfiguration {
 }
 
 /**
+ * @public
  * <p>The share label options for the labels.</p>
  */
 export interface LabelOptions {
@@ -2365,6 +2553,7 @@ export interface LabelOptions {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface DateTimePickerControlDisplayOptions {
@@ -2379,12 +2568,16 @@ export interface DateTimePickerControlDisplayOptions {
   DateTimeFormat?: string;
 }
 
+/**
+ * @public
+ */
 export enum SheetControlDateTimePickerType {
   DATE_RANGE = "DATE_RANGE",
   SINGLE_VALUED = "SINGLE_VALUED",
 }
 
 /**
+ * @public
  * <p>A control from a date filter that is used to specify date and time.</p>
  */
 export interface FilterDateTimePickerControl {
@@ -2425,6 +2618,7 @@ export interface FilterDateTimePickerControl {
 }
 
 /**
+ * @public
  * <p>The source controls that are used in a <code>CascadingControlConfiguration</code>.</p>
  */
 export interface CascadingControlSource {
@@ -2440,6 +2634,7 @@ export interface CascadingControlSource {
 }
 
 /**
+ * @public
  * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
  */
 export interface CascadingControlConfiguration {
@@ -2450,6 +2645,7 @@ export interface CascadingControlConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of the <code>Select all</code> options in a list control.</p>
  */
 export interface ListControlSelectAllOptions {
@@ -2460,6 +2656,7 @@ export interface ListControlSelectAllOptions {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface DropDownControlDisplayOptions {
@@ -2476,6 +2673,7 @@ export interface DropDownControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A list of selectable values that are used in a control.</p>
  */
 export interface FilterSelectableValues {
@@ -2485,12 +2683,16 @@ export interface FilterSelectableValues {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export enum SheetControlListType {
   MULTI_SELECT = "MULTI_SELECT",
   SINGLE_SELECT = "SINGLE_SELECT",
 }
 
 /**
+ * @public
  * <p>A control to display a dropdown list with buttons that are used to select a single value.</p>
  */
 export interface FilterDropDownControl {
@@ -2541,6 +2743,7 @@ export interface FilterDropDownControl {
 }
 
 /**
+ * @public
  * <p>The configuration of the search options in a list control.</p>
  */
 export interface ListControlSearchOptions {
@@ -2551,6 +2754,7 @@ export interface ListControlSearchOptions {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface ListControlDisplayOptions {
@@ -2571,6 +2775,7 @@ export interface ListControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.</p>
  */
 export interface FilterListControl {
@@ -2621,6 +2826,7 @@ export interface FilterListControl {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface RelativeDateTimeControlDisplayOptions {
@@ -2636,6 +2842,7 @@ export interface RelativeDateTimeControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A control from a date filter that is used to specify the relative date.</p>
  */
 export interface FilterRelativeDateTimeControl {
@@ -2661,6 +2868,7 @@ export interface FilterRelativeDateTimeControl {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface SliderControlDisplayOptions {
@@ -2670,12 +2878,16 @@ export interface SliderControlDisplayOptions {
   TitleOptions?: LabelOptions;
 }
 
+/**
+ * @public
+ */
 export enum SheetControlSliderType {
   RANGE = "RANGE",
   SINGLE_POINT = "SINGLE_POINT",
 }
 
 /**
+ * @public
  * <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
  */
 export interface FilterSliderControl {
@@ -2731,6 +2943,7 @@ export interface FilterSliderControl {
 }
 
 /**
+ * @public
  * <p>The configuration of the placeholder options in a text control.</p>
  */
 export interface TextControlPlaceholderOptions {
@@ -2741,6 +2954,7 @@ export interface TextControlPlaceholderOptions {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface TextAreaControlDisplayOptions {
@@ -2756,6 +2970,7 @@ export interface TextAreaControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A control to display a text box that is used to enter multiple entries.</p>
  */
 export interface FilterTextAreaControl {
@@ -2786,6 +3001,7 @@ export interface FilterTextAreaControl {
 }
 
 /**
+ * @public
  * <p>The display options of a control.</p>
  */
 export interface TextFieldControlDisplayOptions {
@@ -2801,6 +3017,7 @@ export interface TextFieldControlDisplayOptions {
 }
 
 /**
+ * @public
  * <p>A control to display a text box that is used to enter a single entry.</p>
  */
 export interface FilterTextFieldControl {
@@ -2826,6 +3043,7 @@ export interface FilterTextFieldControl {
 }
 
 /**
+ * @public
  * <p>The control of a filter that is used to interact with a dashboard or an analysis.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -2867,6 +3085,7 @@ export interface FilterControl {
 }
 
 /**
+ * @public
  * <p>The background style configuration of a free-form layout element.</p>
  */
 export interface FreeFormLayoutElementBackgroundStyle {
@@ -2882,6 +3101,7 @@ export interface FreeFormLayoutElementBackgroundStyle {
 }
 
 /**
+ * @public
  * <p>The background style configuration of a free-form layout element.</p>
  */
 export interface FreeFormLayoutElementBorderStyle {
@@ -2896,6 +3116,9 @@ export interface FreeFormLayoutElementBorderStyle {
   Color?: string;
 }
 
+/**
+ * @public
+ */
 export enum LayoutElementType {
   FILTER_CONTROL = "FILTER_CONTROL",
   PARAMETER_CONTROL = "PARAMETER_CONTROL",
@@ -2904,6 +3127,7 @@ export enum LayoutElementType {
 }
 
 /**
+ * @public
  * <p>The configuration of loading animation in free-form layout. </p>
  */
 export interface LoadingAnimation {
@@ -2914,6 +3138,7 @@ export interface LoadingAnimation {
 }
 
 /**
+ * @public
  * <p>The override configuration of the rendering rules of a sheet.</p>
  */
 export interface SheetElementConfigurationOverrides {
@@ -2936,6 +3161,7 @@ export interface SheetElementConfigurationOverrides {
 }
 
 /**
+ * @public
  * <p>The rendering rules of a sheet that uses a free-form layout.</p>
  */
 export interface SheetElementRenderingRule {
@@ -2951,6 +3177,7 @@ export interface SheetElementRenderingRule {
 }
 
 /**
+ * @public
  * <p>An element within a free-form layout.</p>
  */
 export interface FreeFormLayoutElement {
@@ -3016,6 +3243,7 @@ export interface FreeFormLayoutElement {
 }
 
 /**
+ * @public
  * <p>The configuration of a free-form layout.</p>
  */
 export interface FreeFormLayoutConfiguration {
@@ -3031,6 +3259,7 @@ export interface FreeFormLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>An element within a grid layout.</p>
  */
 export interface GridLayoutElement {
@@ -3066,6 +3295,7 @@ export interface GridLayoutElement {
 }
 
 /**
+ * @public
  * <p>The configuration for a grid layout. Also called a tiled layout.</p>
  *          <p>Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.</p>
  */
@@ -3082,6 +3312,7 @@ export interface GridLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The free-form layout configuration of a section.</p>
  */
 export interface FreeFormSectionLayoutConfiguration {
@@ -3092,6 +3323,7 @@ export interface FreeFormSectionLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The layout configuration of a section.</p>
  */
 export interface SectionLayoutConfiguration {
@@ -3102,6 +3334,7 @@ export interface SectionLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of content in a body section.</p>
  */
 export interface BodySectionContent {
@@ -3111,12 +3344,16 @@ export interface BodySectionContent {
   Layout?: SectionLayoutConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum SectionPageBreakStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>The configuration of a page break after a section.</p>
  */
 export interface SectionAfterPageBreak {
@@ -3127,6 +3364,7 @@ export interface SectionAfterPageBreak {
 }
 
 /**
+ * @public
  * <p>The configuration of a page break for a section.</p>
  */
 export interface SectionPageBreakConfiguration {
@@ -3137,6 +3375,7 @@ export interface SectionPageBreakConfiguration {
 }
 
 /**
+ * @public
  * <p>The options that style a section.</p>
  */
 export interface SectionStyle {
@@ -3154,6 +3393,7 @@ export interface SectionStyle {
 }
 
 /**
+ * @public
  * <p>The configuration of a body section.</p>
  */
 export interface BodySectionConfiguration {
@@ -3179,6 +3419,7 @@ export interface BodySectionConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a header or footer section.</p>
  */
 export interface HeaderFooterSectionConfiguration {
@@ -3199,6 +3440,7 @@ export interface HeaderFooterSectionConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a
  *             section-based layout.</p>
  */
@@ -3225,6 +3467,7 @@ export interface SectionBasedLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration that determines what the type of layout will be used on a sheet.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3246,6 +3489,7 @@ export interface LayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>A <code>Layout</code> defines the placement of elements within a sheet.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
@@ -3258,6 +3502,7 @@ export interface Layout {
 }
 
 /**
+ * @public
  * <p>A control from a date parameter that specifies date and time.</p>
  */
 export interface ParameterDateTimePickerControl {
@@ -3283,6 +3528,7 @@ export interface ParameterDateTimePickerControl {
 }
 
 /**
+ * @public
  * <p>A list of selectable values that are used in a control.</p>
  */
 export interface ParameterSelectableValues {
@@ -3298,6 +3544,7 @@ export interface ParameterSelectableValues {
 }
 
 /**
+ * @public
  * <p>A control to display a dropdown list with buttons that are used to select a single value.</p>
  */
 export interface ParameterDropDownControl {
@@ -3338,6 +3585,7 @@ export interface ParameterDropDownControl {
 }
 
 /**
+ * @public
  * <p>A control to display a list with buttons or boxes that are used to select either a single value or multiple values.</p>
  */
 export interface ParameterListControl {
@@ -3378,6 +3626,7 @@ export interface ParameterListControl {
 }
 
 /**
+ * @public
  * <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
  */
 export interface ParameterSliderControl {
@@ -3418,6 +3667,7 @@ export interface ParameterSliderControl {
 }
 
 /**
+ * @public
  * <p>A control to display a text box that is used to enter multiple entries.</p>
  */
 export interface ParameterTextAreaControl {
@@ -3448,6 +3698,7 @@ export interface ParameterTextAreaControl {
 }
 
 /**
+ * @public
  * <p>A control to display a text box that is used to enter a single entry.</p>
  */
 export interface ParameterTextFieldControl {
@@ -3473,6 +3724,7 @@ export interface ParameterTextFieldControl {
 }
 
 /**
+ * @public
  * <p>The control of a parameter that users can interact with in a dashboard or an analysis.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3509,6 +3761,7 @@ export interface ParameterControl {
 }
 
 /**
+ * @public
  * <p>The configuration that determines the elements and canvas size options of sheet control.</p>
  */
 export interface SheetControlLayoutConfiguration {
@@ -3519,6 +3772,7 @@ export interface SheetControlLayoutConfiguration {
 }
 
 /**
+ * @public
  * <p>A grid layout to define the placement of sheet control.</p>
  */
 export interface SheetControlLayout {
@@ -3529,6 +3783,7 @@ export interface SheetControlLayout {
 }
 
 /**
+ * @public
  * <p>A text box.</p>
  */
 export interface SheetTextBox {
@@ -3543,11 +3798,15 @@ export interface SheetTextBox {
   Content?: string;
 }
 
+/**
+ * @public
+ */
 export enum SelectedFieldOptions {
   ALL_FIELDS = "ALL_FIELDS",
 }
 
 /**
+ * @public
  * <p>The configuration of selected fields in the<code>CustomActionFilterOperation</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3570,11 +3829,15 @@ export interface FilterOperationSelectedFieldsConfiguration {
   SelectedFieldOptions?: SelectedFieldOptions | string;
 }
 
+/**
+ * @public
+ */
 export enum TargetVisualOptions {
   ALL_VISUALS = "ALL_VISUALS",
 }
 
 /**
+ * @public
  * <p>The configuration of the same-sheet target visuals that you want to be filtered.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3598,6 +3861,7 @@ export interface SameSheetTargetVisualConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of target visuals that you want to be filtered.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3609,6 +3873,7 @@ export interface FilterOperationTargetVisualsConfiguration {
 }
 
 /**
+ * @public
  * <p>The filter operation that filters data included in a visual or in an entire sheet.</p>
  */
 export interface CustomActionFilterOperation {
@@ -3624,6 +3889,7 @@ export interface CustomActionFilterOperation {
 }
 
 /**
+ * @public
  * <p>The navigation configuration for <code>CustomActionNavigationOperation</code>.</p>
  */
 export interface LocalNavigationConfiguration {
@@ -3634,6 +3900,7 @@ export interface LocalNavigationConfiguration {
 }
 
 /**
+ * @public
  * <p>The navigation operation that navigates between different sheets in the same analysis.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3645,6 +3912,7 @@ export interface CustomActionNavigationOperation {
 }
 
 /**
+ * @public
  * <p>The customized parameter values.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3671,6 +3939,7 @@ export interface CustomParameterValues {
 }
 
 /**
+ * @public
  * <p>The configuration of custom values for the destination parameter in <code>DestinationParameterValueConfiguration</code>.</p>
  */
 export interface CustomValuesConfiguration {
@@ -3686,11 +3955,15 @@ export interface CustomValuesConfiguration {
   CustomValues: CustomParameterValues | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SelectAllValueOptions {
   ALL_VALUES = "ALL_VALUES",
 }
 
 /**
+ * @public
  * <p>The configuration of destination parameter values.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3717,6 +3990,7 @@ export interface DestinationParameterValueConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of adding parameters in action.</p>
  */
 export interface SetParameterValueConfiguration {
@@ -3733,6 +4007,7 @@ export interface SetParameterValueConfiguration {
 }
 
 /**
+ * @public
  * <p>The set parameter operation that sets parameters in custom action.</p>
  */
 export interface CustomActionSetParametersOperation {
@@ -3742,6 +4017,9 @@ export interface CustomActionSetParametersOperation {
   ParameterValueConfigurations: SetParameterValueConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum URLTargetConfiguration {
   NEW_TAB = "NEW_TAB",
   NEW_WINDOW = "NEW_WINDOW",
@@ -3749,6 +4027,7 @@ export enum URLTargetConfiguration {
 }
 
 /**
+ * @public
  * <p>The URL operation that opens a link to another webpage.</p>
  */
 export interface CustomActionURLOperation {
@@ -3779,6 +4058,7 @@ export interface CustomActionURLOperation {
 }
 
 /**
+ * @public
  * <p>The operation that is defined by the custom action.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3804,12 +4084,16 @@ export interface VisualCustomActionOperation {
   SetParametersOperation?: CustomActionSetParametersOperation;
 }
 
+/**
+ * @public
+ */
 export enum VisualCustomActionTrigger {
   DATA_POINT_CLICK = "DATA_POINT_CLICK",
   DATA_POINT_MENU = "DATA_POINT_MENU",
 }
 
 /**
+ * @public
  * <p>A custom action defined on a visual.</p>
  */
 export interface VisualCustomAction {
@@ -3851,6 +4135,9 @@ export interface VisualCustomAction {
   ActionOperations: VisualCustomActionOperation[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BarsArrangement {
   CLUSTERED = "CLUSTERED",
   STACKED = "STACKED",
@@ -3858,6 +4145,7 @@ export enum BarsArrangement {
 }
 
 /**
+ * @public
  * <p>The options that determine how a date axis is displayed.</p>
  */
 export interface DateAxisOptions {
@@ -3868,11 +4156,13 @@ export interface DateAxisOptions {
 }
 
 /**
+ * @public
  * <p>The options that are saved for future extension.</p>
  */
 export interface AxisDisplayDataDrivenRange {}
 
 /**
+ * @public
  * <p>The minimum and maximum setup for an axis display range.</p>
  */
 export interface AxisDisplayMinMaxRange {
@@ -3888,6 +4178,7 @@ export interface AxisDisplayMinMaxRange {
 }
 
 /**
+ * @public
  * <p>The range setup of a numeric axis display range.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3904,6 +4195,7 @@ export interface AxisDisplayRange {
 }
 
 /**
+ * @public
  * <p>The liner axis scale setup.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3920,6 +4212,7 @@ export interface AxisLinearScale {
 }
 
 /**
+ * @public
  * <p>The logarithmic axis scale setup.</p>
  */
 export interface AxisLogarithmicScale {
@@ -3930,6 +4223,7 @@ export interface AxisLogarithmicScale {
 }
 
 /**
+ * @public
  * <p>The scale setup
  *             options for a numeric axis display.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
@@ -3947,6 +4241,7 @@ export interface AxisScale {
 }
 
 /**
+ * @public
  * <p>The options for an axis with a numeric field.</p>
  */
 export interface NumericAxisOptions {
@@ -3962,6 +4257,7 @@ export interface NumericAxisOptions {
 }
 
 /**
+ * @public
  * <p>The data options for an axis.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -3978,6 +4274,7 @@ export interface AxisDataOptions {
 }
 
 /**
+ * @public
  * <p>The percent range in the visible range.</p>
  */
 export interface PercentVisibleRange {
@@ -3993,6 +4290,7 @@ export interface PercentVisibleRange {
 }
 
 /**
+ * @public
  * <p>The range options for the data zoom scroll bar.</p>
  */
 export interface VisibleRangeOptions {
@@ -4003,6 +4301,7 @@ export interface VisibleRangeOptions {
 }
 
 /**
+ * @public
  * <p>The visual display options for a data zoom scroll bar.</p>
  */
 export interface ScrollBarOptions {
@@ -4018,6 +4317,7 @@ export interface ScrollBarOptions {
 }
 
 /**
+ * @public
  * <p>The tick label options of an axis.</p>
  */
 export interface AxisTickLabelOptions {
@@ -4033,6 +4333,7 @@ export interface AxisTickLabelOptions {
 }
 
 /**
+ * @public
  * <p>The display options for the axis label.</p>
  */
 export interface AxisDisplayOptions {
@@ -4068,6 +4369,7 @@ export interface AxisDisplayOptions {
 }
 
 /**
+ * @public
  * <p>The reference that specifies where the axis label is applied to.</p>
  */
 export interface AxisLabelReferenceOptions {
@@ -4083,6 +4385,7 @@ export interface AxisLabelReferenceOptions {
 }
 
 /**
+ * @public
  * <p>The label options for a chart axis. You must specify the field that the label is targeted to.</p>
  */
 export interface AxisLabelOptions {
@@ -4103,6 +4406,7 @@ export interface AxisLabelOptions {
 }
 
 /**
+ * @public
  * <p>The label options for an axis on a chart.</p>
  */
 export interface ChartAxisLabelOptions {
@@ -4133,6 +4437,7 @@ export interface ChartAxisLabelOptions {
 }
 
 /**
+ * @public
  * <p>The contribution analysis visual display for a line, pie, or bar chart.</p>
  */
 export interface ContributionAnalysisDefault {
@@ -4149,6 +4454,7 @@ export interface ContributionAnalysisDefault {
 }
 
 /**
+ * @public
  * <p>The option that specifies individual data values for labels.</p>
  */
 export interface DataPathLabelType {
@@ -4169,6 +4475,7 @@ export interface DataPathLabelType {
 }
 
 /**
+ * @public
  * <p>The field label type.</p>
  */
 export interface FieldLabelType {
@@ -4185,6 +4492,7 @@ export interface FieldLabelType {
 }
 
 /**
+ * @public
  * <p>The maximum label of a data path label.</p>
  */
 export interface MaximumLabelType {
@@ -4195,6 +4503,7 @@ export interface MaximumLabelType {
 }
 
 /**
+ * @public
  * <p>The minimum label of a data path label.</p>
  */
 export interface MinimumLabelType {
@@ -4205,6 +4514,7 @@ export interface MinimumLabelType {
 }
 
 /**
+ * @public
  * <p>The range ends label type of a data path label.</p>
  */
 export interface RangeEndsLabelType {
@@ -4215,6 +4525,7 @@ export interface RangeEndsLabelType {
 }
 
 /**
+ * @public
  * <p>The option that determines the data label type.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4245,17 +4556,26 @@ export interface DataLabelType {
   MaximumLabelType?: MaximumLabelType;
 }
 
+/**
+ * @public
+ */
 export enum DataLabelContent {
   PERCENT = "PERCENT",
   VALUE = "VALUE",
   VALUE_AND_PERCENT = "VALUE_AND_PERCENT",
 }
 
+/**
+ * @public
+ */
 export enum DataLabelOverlap {
   DISABLE_OVERLAP = "DISABLE_OVERLAP",
   ENABLE_OVERLAP = "ENABLE_OVERLAP",
 }
 
+/**
+ * @public
+ */
 export enum DataLabelPosition {
   BOTTOM = "BOTTOM",
   INSIDE = "INSIDE",
@@ -4266,6 +4586,7 @@ export enum DataLabelPosition {
 }
 
 /**
+ * @public
  * <p>The options that determine the presentation of the data labels.</p>
  */
 export interface DataLabelOptions {
@@ -4316,6 +4637,7 @@ export interface DataLabelOptions {
 }
 
 /**
+ * @public
  * <p>The dimension type field with categorical type columns..</p>
  */
 export interface CategoricalDimensionField {
@@ -4341,6 +4663,7 @@ export interface CategoricalDimensionField {
 }
 
 /**
+ * @public
  * <p>The dimension type field with date type columns.</p>
  */
 export interface DateDimensionField {
@@ -4418,6 +4741,7 @@ export interface DateDimensionField {
 }
 
 /**
+ * @public
  * <p>The dimension type field with numerical type columns.</p>
  */
 export interface NumericalDimensionField {
@@ -4443,6 +4767,7 @@ export interface NumericalDimensionField {
 }
 
 /**
+ * @public
  * <p>The dimension type field.</p>
  */
 export interface DimensionField {
@@ -4463,6 +4788,7 @@ export interface DimensionField {
 }
 
 /**
+ * @public
  * <p>The table calculation measure field for pivot tables.</p>
  */
 export interface CalculatedMeasureField {
@@ -4478,6 +4804,7 @@ export interface CalculatedMeasureField {
 }
 
 /**
+ * @public
  * <p>The measure type field with categorical type columns.</p>
  */
 export interface CategoricalMeasureField {
@@ -4503,6 +4830,7 @@ export interface CategoricalMeasureField {
 }
 
 /**
+ * @public
  * <p>The measure type field with date type columns.</p>
  */
 export interface DateMeasureField {
@@ -4528,6 +4856,7 @@ export interface DateMeasureField {
 }
 
 /**
+ * @public
  * <p>The measure type field with numerical type columns.</p>
  */
 export interface NumericalMeasureField {
@@ -4553,6 +4882,7 @@ export interface NumericalMeasureField {
 }
 
 /**
+ * @public
  * <p>The measure (metric) type field.</p>
  */
 export interface MeasureField {
@@ -4578,6 +4908,7 @@ export interface MeasureField {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells of a bar chart.</p>
  */
 export interface BarChartAggregatedFieldWells {
@@ -4604,6 +4935,7 @@ export interface BarChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a <code>BarChartVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -4614,6 +4946,9 @@ export interface BarChartFieldWells {
   BarChartAggregatedFieldWells?: BarChartAggregatedFieldWells;
 }
 
+/**
+ * @public
+ */
 export enum LegendPosition {
   AUTO = "AUTO",
   BOTTOM = "BOTTOM",
@@ -4622,6 +4957,7 @@ export enum LegendPosition {
 }
 
 /**
+ * @public
  * <p>The options for the legend setup of a visual.</p>
  */
 export interface LegendOptions {
@@ -4675,17 +5011,24 @@ export interface LegendOptions {
   Height?: string;
 }
 
+/**
+ * @public
+ */
 export enum BarChartOrientation {
   HORIZONTAL = "HORIZONTAL",
   VERTICAL = "VERTICAL",
 }
 
+/**
+ * @public
+ */
 export enum AxisBinding {
   PRIMARY_YAXIS = "PRIMARY_YAXIS",
   SECONDARY_YAXIS = "SECONDARY_YAXIS",
 }
 
 /**
+ * @public
  * <p>The dynamic configuration of the reference line data configuration.</p>
  */
 export interface ReferenceLineDynamicDataConfiguration {
@@ -4706,6 +5049,7 @@ export interface ReferenceLineDynamicDataConfiguration {
 }
 
 /**
+ * @public
  * <p>The static data configuration of the reference line data configuration.</p>
  */
 export interface ReferenceLineStaticDataConfiguration {
@@ -4716,6 +5060,7 @@ export interface ReferenceLineStaticDataConfiguration {
 }
 
 /**
+ * @public
  * <p>The data configuration of the reference line.</p>
  */
 export interface ReferenceLineDataConfiguration {
@@ -4745,6 +5090,7 @@ export interface ReferenceLineDataConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration for a custom label on a <code>ReferenceLine</code>.</p>
  */
 export interface ReferenceLineCustomLabelConfiguration {
@@ -4754,18 +5100,25 @@ export interface ReferenceLineCustomLabelConfiguration {
   CustomLabel: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReferenceLineLabelHorizontalPosition {
   CENTER = "CENTER",
   LEFT = "LEFT",
   RIGHT = "RIGHT",
 }
 
+/**
+ * @public
+ */
 export enum ReferenceLineValueLabelRelativePosition {
   AFTER_CUSTOM_LABEL = "AFTER_CUSTOM_LABEL",
   BEFORE_CUSTOM_LABEL = "BEFORE_CUSTOM_LABEL",
 }
 
 /**
+ * @public
  * <p>The value label configuration of the label in a reference line.</p>
  */
 export interface ReferenceLineValueLabelConfiguration {
@@ -4792,12 +5145,16 @@ export interface ReferenceLineValueLabelConfiguration {
   FormatConfiguration?: NumericFormatConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ReferenceLineLabelVerticalPosition {
   ABOVE = "ABOVE",
   BELOW = "BELOW",
 }
 
 /**
+ * @public
  * <p>The label configuration of a reference line.</p>
  */
 export interface ReferenceLineLabelConfiguration {
@@ -4862,6 +5219,9 @@ export interface ReferenceLineLabelConfiguration {
   VerticalPosition?: ReferenceLineLabelVerticalPosition | string;
 }
 
+/**
+ * @public
+ */
 export enum ReferenceLinePatternType {
   DASHED = "DASHED",
   DOTTED = "DOTTED",
@@ -4869,6 +5229,7 @@ export enum ReferenceLinePatternType {
 }
 
 /**
+ * @public
  * <p>The style configuration of the reference
  *             line.</p>
  */
@@ -4902,6 +5263,7 @@ export interface ReferenceLineStyleConfiguration {
 }
 
 /**
+ * @public
  * <p>The reference line visual display options.</p>
  */
 export interface ReferenceLine {
@@ -4938,12 +5300,18 @@ export interface ReferenceLine {
   LabelConfiguration?: ReferenceLineLabelConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum PanelBorderStyle {
   DASHED = "DASHED",
   DOTTED = "DOTTED",
   SOLID = "SOLID",
 }
 
+/**
+ * @public
+ */
 export enum HorizontalTextAlignment {
   AUTO = "AUTO",
   CENTER = "CENTER",
@@ -4952,6 +5320,7 @@ export enum HorizontalTextAlignment {
 }
 
 /**
+ * @public
  * <p>The options that determine the title styles for each small multiples
  *             panel.</p>
  */
@@ -4973,6 +5342,7 @@ export interface PanelTitleOptions {
 }
 
 /**
+ * @public
  * <p>A collection of options that configure how each panel displays in a small multiples chart.</p>
  */
 export interface PanelConfiguration {
@@ -5023,6 +5393,7 @@ export interface PanelConfiguration {
 }
 
 /**
+ * @public
  * <p>Options that determine the layout and display options of a chart's small multiples.</p>
  */
 export interface SmallMultiplesOptions {
@@ -5046,12 +5417,16 @@ export interface SmallMultiplesOptions {
   PanelConfiguration?: PanelConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum OtherCategories {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
 
 /**
+ * @public
  * <p>The limit configuration of the visual display for an axis.</p>
  */
 export interface ItemsLimitConfiguration {
@@ -5081,6 +5456,7 @@ export interface ItemsLimitConfiguration {
 }
 
 /**
+ * @public
  * <p>The sort configuration for a column that is not used in a field well.</p>
  */
 export interface ColumnSort {
@@ -5101,6 +5477,7 @@ export interface ColumnSort {
 }
 
 /**
+ * @public
  * <p>The sort configuration for a field in a
  *             field well.</p>
  */
@@ -5128,6 +5505,7 @@ export interface FieldSort {
 }
 
 /**
+ * @public
  * <p>The field sort options in a chart configuration.</p>
  */
 export interface FieldSortOptions {
@@ -5143,6 +5521,7 @@ export interface FieldSortOptions {
 }
 
 /**
+ * @public
  * <p>sort-configuration-description</p>
  */
 export interface BarChartSortConfiguration {
@@ -5178,6 +5557,7 @@ export interface BarChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The tooltip item for the columns that are not part of a field well.</p>
  */
 export interface ColumnTooltipItem {
@@ -5203,6 +5583,7 @@ export interface ColumnTooltipItem {
 }
 
 /**
+ * @public
  * <p>The tooltip item for the fields.</p>
  */
 export interface FieldTooltipItem {
@@ -5223,6 +5604,7 @@ export interface FieldTooltipItem {
 }
 
 /**
+ * @public
  * <p>The tooltip.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5238,12 +5620,16 @@ export interface TooltipItem {
   ColumnTooltipItem?: ColumnTooltipItem;
 }
 
+/**
+ * @public
+ */
 export enum TooltipTitleType {
   NONE = "NONE",
   PRIMARY_VALUE = "PRIMARY_VALUE",
 }
 
 /**
+ * @public
  * <p>The setup for the detailed tooltip.</p>
  */
 export interface FieldBasedTooltip {
@@ -5274,12 +5660,16 @@ export interface FieldBasedTooltip {
   TooltipFields?: TooltipItem[];
 }
 
+/**
+ * @public
+ */
 export enum SelectedTooltipType {
   BASIC = "BASIC",
   DETAILED = "DETAILED",
 }
 
 /**
+ * @public
  * <p>The display options for the visual tooltip.</p>
  */
 export interface TooltipOptions {
@@ -5310,6 +5700,7 @@ export interface TooltipOptions {
 }
 
 /**
+ * @public
  * <p>The data path that needs to be sorted.</p>
  */
 export interface DataPathValue {
@@ -5325,6 +5716,7 @@ export interface DataPathValue {
 }
 
 /**
+ * @public
  * <p>The color map that determines the color options for a particular element.</p>
  */
 export interface DataPathColor {
@@ -5345,6 +5737,7 @@ export interface DataPathColor {
 }
 
 /**
+ * @public
  * <p>The visual display options for the visual palette.</p>
  */
 export interface VisualPalette {
@@ -5360,6 +5753,7 @@ export interface VisualPalette {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>BarChartVisual</code>.</p>
  */
 export interface BarChartConfiguration {
@@ -5455,6 +5849,7 @@ export interface BarChartConfiguration {
 }
 
 /**
+ * @public
  * <p>The numeric equality type drill down filter.</p>
  */
 export interface CategoryDrillDownFilter {
@@ -5470,6 +5865,7 @@ export interface CategoryDrillDownFilter {
 }
 
 /**
+ * @public
  * <p>The category drill down filter.</p>
  */
 export interface NumericEqualityDrillDownFilter {
@@ -5485,6 +5881,7 @@ export interface NumericEqualityDrillDownFilter {
 }
 
 /**
+ * @public
  * <p>The time range drill down filter.</p>
  */
 export interface TimeRangeDrillDownFilter {
@@ -5510,6 +5907,7 @@ export interface TimeRangeDrillDownFilter {
 }
 
 /**
+ * @public
  * <p>The drill down filter for the column hierarchies.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5531,6 +5929,7 @@ export interface DrillDownFilter {
 }
 
 /**
+ * @public
  * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
  */
 export interface DateTimeHierarchy {
@@ -5547,6 +5946,7 @@ export interface DateTimeHierarchy {
 }
 
 /**
+ * @public
  * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
  */
 export interface ExplicitHierarchy {
@@ -5567,6 +5967,7 @@ export interface ExplicitHierarchy {
 }
 
 /**
+ * @public
  * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
  */
 export interface PredefinedHierarchy {
@@ -5587,6 +5988,7 @@ export interface PredefinedHierarchy {
 }
 
 /**
+ * @public
  * <p>The option that determines the hierarchy of the fields for a visual element.</p>
  */
 export interface ColumnHierarchy {
@@ -5607,6 +6009,7 @@ export interface ColumnHierarchy {
 }
 
 /**
+ * @public
  * <p>The text format for a subtitle.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5623,6 +6026,7 @@ export interface LongFormatText {
 }
 
 /**
+ * @public
  * <p>The subtitle label options for a visual.</p>
  */
 export interface VisualSubtitleLabelOptions {
@@ -5638,6 +6042,7 @@ export interface VisualSubtitleLabelOptions {
 }
 
 /**
+ * @public
  * <p>The text format for the title.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5654,6 +6059,7 @@ export interface ShortFormatText {
 }
 
 /**
+ * @public
  * <p>The title label options for a visual.</p>
  */
 export interface VisualTitleLabelOptions {
@@ -5669,6 +6075,7 @@ export interface VisualTitleLabelOptions {
 }
 
 /**
+ * @public
  * <p>A bar chart.</p>
  *          <p>The <code>BarChartVisual</code> structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:</p>
  *          <ul>
@@ -5725,12 +6132,16 @@ export interface BarChartVisual {
   ColumnHierarchies?: ColumnHierarchy[];
 }
 
+/**
+ * @public
+ */
 export enum BoxPlotFillStyle {
   SOLID = "SOLID",
   TRANSPARENT = "TRANSPARENT",
 }
 
 /**
+ * @public
  * <p>The style options of the box plot.</p>
  */
 export interface BoxPlotStyleOptions {
@@ -5741,6 +6152,7 @@ export interface BoxPlotStyleOptions {
 }
 
 /**
+ * @public
  * <p>The options of a box plot visual.</p>
  */
 export interface BoxPlotOptions {
@@ -5761,6 +6173,7 @@ export interface BoxPlotOptions {
 }
 
 /**
+ * @public
  * <p>The aggregated field well for a box plot.</p>
  */
 export interface BoxPlotAggregatedFieldWells {
@@ -5776,6 +6189,7 @@ export interface BoxPlotAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of a <code>BoxPlotVisual</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5787,6 +6201,7 @@ export interface BoxPlotFieldWells {
 }
 
 /**
+ * @public
  * <p>The pagination configuration for a table visual or boxplot.</p>
  */
 export interface PaginationConfiguration {
@@ -5802,6 +6217,7 @@ export interface PaginationConfiguration {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a <code>BoxPlotVisual</code>.</p>
  */
 export interface BoxPlotSortConfiguration {
@@ -5817,6 +6233,7 @@ export interface BoxPlotSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>BoxPlotVisual</code>.</p>
  */
 export interface BoxPlotChartConfiguration {
@@ -5877,6 +6294,7 @@ export interface BoxPlotChartConfiguration {
 }
 
 /**
+ * @public
  * <p>A box plot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  */
@@ -5913,6 +6331,7 @@ export interface BoxPlotVisual {
 }
 
 /**
+ * @public
  * <p>The aggregated field wells of a combo chart.</p>
  */
 export interface ComboChartAggregatedFieldWells {
@@ -5938,6 +6357,7 @@ export interface ComboChartAggregatedFieldWells {
 }
 
 /**
+ * @public
  * <p>The field wells of the visual.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  */
@@ -5949,6 +6369,7 @@ export interface ComboChartFieldWells {
 }
 
 /**
+ * @public
  * <p>The sort configuration of a <code>ComboChartVisual</code>.</p>
  */
 export interface ComboChartSortConfiguration {
@@ -5974,6 +6395,7 @@ export interface ComboChartSortConfiguration {
 }
 
 /**
+ * @public
  * <p>The configuration of a <code>ComboChartVisual</code>.</p>
  */
 export interface ComboChartConfiguration {

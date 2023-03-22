@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RenewCertificateCommand}.
  */
 export interface RenewCertificateCommandInput extends RenewCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RenewCertificateCommand}.
  */
 export interface RenewCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can
  *       be renewed with this operation. In order to renew your Amazon Web Services Private CA certificates with ACM, you
  *       must first <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html">grant the ACM
@@ -45,6 +50,8 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RenewCertificateCommandInput - {@link RenewCertificateCommandInput}
+ * @returns {@link RenewCertificateCommandOutput}
  * @see {@link RenewCertificateCommandInput} for command's `input` shape.
  * @see {@link RenewCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -75,6 +82,9 @@ export class RenewCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RenewCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class RenewCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RenewCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RenewCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenewCertificateCommandOutput> {
     return deserializeAws_json1_1RenewCertificateCommand(output, context);
   }

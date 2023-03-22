@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePublicSharingSettingsCommand}.
  */
 export interface UpdatePublicSharingSettingsCommandInput extends UpdatePublicSharingSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePublicSharingSettingsCommand}.
  */
 export interface UpdatePublicSharingSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface UpdatePublicSharingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
  *             public sharing settings of an Amazon QuickSight dashboard.</p>
  *          <p>To use this operation, turn on session capacity pricing for your Amazon QuickSight
@@ -56,6 +61,8 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePublicSharingSettingsCommandInput - {@link UpdatePublicSharingSettingsCommandInput}
+ * @returns {@link UpdatePublicSharingSettingsCommandOutput}
  * @see {@link UpdatePublicSharingSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdatePublicSharingSettingsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -108,6 +115,9 @@ export class UpdatePublicSharingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePublicSharingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class UpdatePublicSharingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePublicSharingSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePublicSharingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

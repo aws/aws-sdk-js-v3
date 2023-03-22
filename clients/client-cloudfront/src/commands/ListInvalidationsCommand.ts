@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListInvalidationsCommand}.
  */
 export interface ListInvalidationsCommandInput extends ListInvalidationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInvalidationsCommand}.
  */
 export interface ListInvalidationsCommandOutput extends ListInvalidationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists invalidation batches.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInvalidationsCommandInput - {@link ListInvalidationsCommandInput}
+ * @returns {@link ListInvalidationsCommandOutput}
  * @see {@link ListInvalidationsCommandInput} for command's `input` shape.
  * @see {@link ListInvalidationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListInvalidationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInvalidationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListInvalidationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInvalidationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListInvalidationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInvalidationsCommandOutput> {
     return deserializeAws_restXmlListInvalidationsCommand(output, context);
   }

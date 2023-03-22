@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeSecurityGroupEgressCommand}.
  */
 export interface AuthorizeSecurityGroupEgressCommandInput extends AuthorizeSecurityGroupEgressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeSecurityGroupEgressCommand}.
  */
 export interface AuthorizeSecurityGroupEgressCommandOutput
@@ -37,6 +41,7 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p>
  *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
  *             address ranges, or to the instances that are associated with the specified source
@@ -58,6 +63,8 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeSecurityGroupEgressCommandInput - {@link AuthorizeSecurityGroupEgressCommandInput}
+ * @returns {@link AuthorizeSecurityGroupEgressCommandOutput}
  * @see {@link AuthorizeSecurityGroupEgressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeSecurityGroupEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -127,6 +134,9 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeSecurityGroupEgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeSecurityGroupEgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AuthorizeSecurityGroupEgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

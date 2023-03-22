@@ -30,15 +30,20 @@ import {
 } from "../SageMakerA2IRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartHumanLoopCommand}.
  */
 export interface StartHumanLoopCommandInput extends StartHumanLoopRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartHumanLoopCommand}.
  */
 export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a human loop, provided that at least one activation condition is met.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartHumanLoopCommandInput - {@link StartHumanLoopCommandInput}
+ * @returns {@link StartHumanLoopCommandOutput}
  * @see {@link StartHumanLoopCommandInput} for command's `input` shape.
  * @see {@link StartHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
@@ -98,6 +105,9 @@ export class StartHumanLoopCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartHumanLoopCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class StartHumanLoopCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartHumanLoopCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartHumanLoopCommandOutput> {
     return deserializeAws_restJson1StartHumanLoopCommand(output, context);
   }

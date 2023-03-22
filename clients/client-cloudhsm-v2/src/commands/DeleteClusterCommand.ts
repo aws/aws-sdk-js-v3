@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must
  *       delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
+ * @returns {@link DeleteClusterCommandOutput}
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
     return deserializeAws_json1_1DeleteClusterCommand(output, context);
   }

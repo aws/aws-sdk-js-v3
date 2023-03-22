@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DescribeIpamsCommand, serializeAws_ec2DescribeIpamsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIpamsCommand}.
  */
 export interface DescribeIpamsCommandInput extends DescribeIpamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIpamsCommand}.
  */
 export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about your IPAM pools.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -45,6 +50,8 @@ export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIpamsCommandInput - {@link DescribeIpamsCommandInput}
+ * @returns {@link DescribeIpamsCommandOutput}
  * @see {@link DescribeIpamsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class DescribeIpamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIpamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class DescribeIpamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIpamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeIpamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpamsCommandOutput> {
     return deserializeAws_ec2DescribeIpamsCommand(output, context);
   }

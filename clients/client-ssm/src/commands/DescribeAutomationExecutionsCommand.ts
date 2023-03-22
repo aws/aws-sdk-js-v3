@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutomationExecutionsCommand}.
  */
 export interface DescribeAutomationExecutionsCommandInput extends DescribeAutomationExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutomationExecutionsCommand}.
  */
 export interface DescribeAutomationExecutionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAutomationExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about all active and terminated Automation executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAutomationExecutionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutomationExecutionsCommandInput - {@link DescribeAutomationExecutionsCommandInput}
+ * @returns {@link DescribeAutomationExecutionsCommandOutput}
  * @see {@link DescribeAutomationExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutomationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeAutomationExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutomationExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeAutomationExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAutomationExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAutomationExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

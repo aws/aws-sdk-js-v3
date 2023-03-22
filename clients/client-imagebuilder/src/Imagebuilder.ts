@@ -234,6 +234,7 @@ import {
 import { ImagebuilderClient } from "./ImagebuilderClient";
 
 /**
+ * @public
  * <p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the
  *       creation, management, and deployment of customized, secure, and up-to-date "golden" server
  *       images that are pre-installed and pre-configured with software and settings to meet specific
@@ -241,6 +242,7 @@ import { ImagebuilderClient } from "./ImagebuilderClient";
  */
 export class Imagebuilder extends ImagebuilderClient {
   /**
+   * @public
    * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on
    * 			images in a non-terminal state.</p>
    */
@@ -274,6 +276,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Creates a new component that can be used to build, validate, test, and assess your
    * 			image. The component is based on a YAML document that you specify using exactly one
    * 			of the following methods:</p>
@@ -317,6 +320,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.</p>
    */
   public createContainerRecipe(
@@ -349,6 +353,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Creates a new distribution configuration. Distribution configurations define and configure
    * 			the outputs of your pipeline.</p>
    */
@@ -382,6 +387,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Creates a new image. This request will create a new image along with all of the
    * 			configured output resources defined in the distribution configuration. You must specify
    * 			exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.</p>
@@ -410,6 +416,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
    * 			distribution of images.</p>
    */
@@ -443,6 +450,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
    * 			assessed.</p>
    */
@@ -476,6 +484,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the
    * 			environment in which your image will be built and tested.</p>
    */
@@ -509,6 +518,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Deletes a component build version.</p>
    */
   public deleteComponent(
@@ -541,6 +551,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Deletes a container recipe.</p>
    */
   public deleteContainerRecipe(
@@ -573,6 +584,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Deletes a distribution configuration.</p>
    */
   public deleteDistributionConfiguration(
@@ -605,6 +617,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images
    * 			that are created during the image build process. You must clean those up separately,
    * 			using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p>
@@ -651,6 +664,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Deletes an image pipeline.</p>
    */
   public deleteImagePipeline(
@@ -683,6 +697,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Deletes an image recipe.</p>
    */
   public deleteImageRecipe(
@@ -715,6 +730,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Deletes an infrastructure configuration.</p>
    */
   public deleteInfrastructureConfiguration(
@@ -747,6 +763,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Gets a component object.</p>
    */
   public getComponent(
@@ -776,6 +793,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Gets a component policy.</p>
    */
   public getComponentPolicy(
@@ -808,6 +826,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a container recipe.</p>
    */
   public getContainerRecipe(
@@ -840,6 +859,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the policy for a container recipe.</p>
    */
   public getContainerRecipePolicy(
@@ -872,6 +892,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Gets a distribution configuration.</p>
    */
   public getDistributionConfiguration(
@@ -904,6 +925,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Gets an image.</p>
    */
   public getImage(args: GetImageCommandInput, options?: __HttpHandlerOptions): Promise<GetImageCommandOutput>;
@@ -930,6 +952,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Gets an image pipeline.</p>
    */
   public getImagePipeline(
@@ -962,6 +985,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Gets an image policy.</p>
    */
   public getImagePolicy(
@@ -994,6 +1018,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Gets an image recipe.</p>
    */
   public getImageRecipe(
@@ -1026,6 +1051,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Gets an image recipe policy.</p>
    */
   public getImageRecipePolicy(
@@ -1058,6 +1084,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Gets an infrastructure configuration.</p>
    */
   public getInfrastructureConfiguration(
@@ -1090,6 +1117,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Imports a component and transforms its data into a component document.</p>
    */
   public importComponent(
@@ -1122,6 +1150,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>When you export your virtual machine (VM) from its virtualization environment,
    * 			that process creates a set of one or more disk container files that act as
    * 			snapshots of your VM’s environment, settings, and data. The Amazon EC2 API
@@ -1162,6 +1191,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Returns the list of component build versions for the specified semantic version.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
@@ -1203,6 +1233,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of components that can be filtered by name, or by using
    * 			the listed <code>filters</code> to streamline results. Newly created components
    * 			can take up to two minutes to appear in the ListComponents API Results.</p>
@@ -1246,6 +1277,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of container recipes.</p>
    */
   public listContainerRecipes(
@@ -1278,6 +1310,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of distribution configurations.</p>
    */
   public listDistributionConfigurations(
@@ -1310,6 +1343,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of image build versions.</p>
    */
   public listImageBuildVersions(
@@ -1342,6 +1376,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>List the Packages that are associated with an Image Build Version, as determined by Amazon Web Services Systems Manager Inventory at build time.</p>
    */
   public listImagePackages(
@@ -1374,6 +1409,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of images created by the specified pipeline.</p>
    */
   public listImagePipelineImages(
@@ -1406,6 +1442,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of image pipelines.</p>
    */
   public listImagePipelines(
@@ -1438,6 +1475,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of image recipes.</p>
    */
   public listImageRecipes(
@@ -1470,6 +1508,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of images that you have access to. Newly created images
    * 			can take up to two minutes to appear in the ListImages API Results.</p>
    */
@@ -1497,6 +1536,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of infrastructure configurations.</p>
    */
   public listInfrastructureConfigurations(
@@ -1529,6 +1569,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Returns the list of tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -1561,6 +1602,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
    * 			<code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
    * 			all principals with whom the resource is shared.</p>
@@ -1595,6 +1637,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Applies a policy to a container image. We recommend that you call the RAM API CreateResourceShare (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API <code>PutContainerImagePolicy</code>, you must also call the RAM API PromoteResourceShareCreatedFromPolicy (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html) in order for the resource to be visible to all principals with whom the resource is shared.</p>
    */
   public putContainerRecipePolicy(
@@ -1627,6 +1670,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
    * 			<code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
    * 			all principals with whom the resource is shared.</p>
@@ -1661,6 +1705,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
    * 			<code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
    * 			all principals with whom the resource is shared.</p>
@@ -1695,6 +1740,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Manually triggers a pipeline to create an image.</p>
    */
   public startImagePipelineExecution(
@@ -1727,6 +1773,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Adds a tag to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1753,6 +1800,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Removes a tag from a resource.</p>
    */
   public untagResource(
@@ -1785,6 +1833,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Updates a new distribution configuration. Distribution configurations define and
    * 			configure the outputs of your pipeline.</p>
    */
@@ -1818,6 +1867,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Updates an image pipeline. Image pipelines enable you to automate the creation and
    * 			distribution of images.</p>
    *          <note>
@@ -1856,6 +1906,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
+   * @public
    * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
    * 			environment in which your image will be built and tested.</p>
    */

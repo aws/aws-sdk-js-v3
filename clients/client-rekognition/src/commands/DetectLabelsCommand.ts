@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectLabelsCommand}.
  */
 export interface DetectLabelsCommandInput extends DetectLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectLabelsCommand}.
  */
 export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects instances of real-world entities within an image (JPEG or PNG) provided as
  *       input. This includes objects like flower, tree, and table; events like wedding, graduation,
  *       and birthday party; and concepts like landscape, evening, and nature. </p>
@@ -118,25 +123,25 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *       a lighthouse, the sea, and a rock. The response includes all three labels, one for each
  *       object, as well as the confidence in the label:</p>
  *          <p>
- *             <code>{Name: lighthouse, Confidence: 98.4629}</code>
+ *             <code>\{Name: lighthouse, Confidence: 98.4629\}</code>
  *          </p>
  *          <p>
- *             <code>{Name: rock,Confidence: 79.2097}</code>
+ *             <code>\{Name: rock,Confidence: 79.2097\}</code>
  *          </p>
  *          <p>
- *             <code> {Name: sea,Confidence: 75.061}</code>
+ *             <code> \{Name: sea,Confidence: 75.061\}</code>
  *          </p>
  *          <p>The list of labels can include multiple labels for the same object. For example, if the
  *       input image shows a flower (for example, a tulip), the operation might return the following
  *       three labels. </p>
  *          <p>
- *             <code>{Name: flower,Confidence: 99.0562}</code>
+ *             <code>\{Name: flower,Confidence: 99.0562\}</code>
  *          </p>
  *          <p>
- *             <code>{Name: plant,Confidence: 99.0562}</code>
+ *             <code>\{Name: plant,Confidence: 99.0562\}</code>
  *          </p>
  *          <p>
- *             <code>{Name: tulip,Confidence: 99.0562}</code>
+ *             <code>\{Name: tulip,Confidence: 99.0562\}</code>
  *          </p>
  *          <p>In this example, the detection algorithm more precisely identifies the flower as a
  *       tulip.</p>
@@ -158,6 +163,8 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectLabelsCommandInput - {@link DetectLabelsCommandInput}
+ * @returns {@link DetectLabelsCommandOutput}
  * @see {@link DetectLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -242,6 +249,9 @@ export class DetectLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -279,10 +289,16 @@ export class DetectLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectLabelsCommandOutput> {
     return deserializeAws_json1_1DetectLabelsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComponentPolicyCommand}.
  */
 export interface GetComponentPolicyCommandInput extends GetComponentPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetComponentPolicyCommand}.
  */
 export interface GetComponentPolicyCommandOutput extends GetComponentPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets a component policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComponentPolicyCommandInput - {@link GetComponentPolicyCommandInput}
+ * @returns {@link GetComponentPolicyCommandOutput}
  * @see {@link GetComponentPolicyCommandInput} for command's `input` shape.
  * @see {@link GetComponentPolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetComponentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComponentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetComponentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComponentPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetComponentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComponentPolicyCommandOutput> {
     return deserializeAws_restJson1GetComponentPolicyCommand(output, context);
   }

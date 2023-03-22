@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSchemaCommand}.
  */
 export interface UpdateSchemaCommandInput extends UpdateSchemaInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSchemaCommand}.
  */
 export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description, compatibility setting, or version checkpoint for a schema set.</p>
  *          <p>For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for <code>Compatibility</code> is provided, the <code>VersionNumber</code> (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.</p>
  *          <p>If the value for the <code>VersionNumber</code> (checkpoint) is provided, <code>Compatibility</code> is optional and this can be used to set/reset a checkpoint for the schema.</p>
@@ -49,6 +54,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
+ * @returns {@link UpdateSchemaCommandOutput}
  * @see {@link UpdateSchemaCommandInput} for command's `input` shape.
  * @see {@link UpdateSchemaCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSchemaCommandOutput> {
     return deserializeAws_json1_1UpdateSchemaCommand(output, context);
   }

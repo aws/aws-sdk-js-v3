@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListImportsCommand}.
  */
 export interface ListImportsCommandInput extends ListImportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImportsCommand}.
  */
 export interface ListImportsCommandOutput extends ListImportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List imports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImportsCommandInput - {@link ListImportsCommandInput}
+ * @returns {@link ListImportsCommandOutput}
  * @see {@link ListImportsCommandInput} for command's `input` shape.
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListImportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListImportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListImportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportsCommandOutput> {
     return deserializeAws_restJson1ListImportsCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CustomerProfilesServiceException as __BaseException } from "./CustomerProfilesServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list that is
  *          used in conjunction with the
  *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html#customerprofiles-SearchProfiles-request-KeyName">KeyName</a>
@@ -44,6 +46,9 @@ export interface AdditionalSearchKey {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddProfileKeyRequest {
   /**
    * <p>The unique identifier of a customer profile.</p>
@@ -71,6 +76,9 @@ export interface AddProfileKeyRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddProfileKeyResponse {
   /**
    * <p>A searchable identifier of a customer profile.</p>
@@ -84,6 +92,7 @@ export interface AddProfileKeyResponse {
 }
 
 /**
+ * @public
  * <p>The input you provided is invalid.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -105,6 +114,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal service error occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -126,6 +136,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource does not exist, or access was denied.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -147,6 +158,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You exceeded the maximum number of requests.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -168,6 +180,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A generic address associated with the customer that is not mailing, shipping, or
  *          billing.</p>
  */
@@ -224,6 +237,7 @@ export interface Address {
 }
 
 /**
+ * @public
  * <p>Batch defines the boundaries for ingestion for each step in <code>APPFLOW_INTEGRATION</code> workflow. <code>APPFLOW_INTEGRATION</code> workflow splits ingestion based on these boundaries.</p>
  */
 export interface Batch {
@@ -238,6 +252,9 @@ export interface Batch {
   EndTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SourceConnectorType {
   MARKETO = "Marketo",
   S3 = "S3",
@@ -247,6 +264,7 @@ export enum SourceConnectorType {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration used when importing incremental records from the
  *          source.</p>
  */
@@ -259,6 +277,7 @@ export interface IncrementalPullConfig {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when Marketo is being used as a source.</p>
  */
 export interface MarketoSourceProperties {
@@ -269,6 +288,7 @@ export interface MarketoSourceProperties {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when Amazon S3 is being used as the flow source.</p>
  */
 export interface S3SourceProperties {
@@ -284,6 +304,7 @@ export interface S3SourceProperties {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when Salesforce is being used as a source.</p>
  */
 export interface SalesforceSourceProperties {
@@ -305,6 +326,7 @@ export interface SalesforceSourceProperties {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when ServiceNow is being used as a source.</p>
  */
 export interface ServiceNowSourceProperties {
@@ -315,6 +337,7 @@ export interface ServiceNowSourceProperties {
 }
 
 /**
+ * @public
  * <p>The properties that are applied when using Zendesk as a flow source.</p>
  */
 export interface ZendeskSourceProperties {
@@ -325,6 +348,7 @@ export interface ZendeskSourceProperties {
 }
 
 /**
+ * @public
  * <p>Specifies the information that is required to query a particular Amazon AppFlow connector.
  *          Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.</p>
  */
@@ -356,6 +380,7 @@ export interface SourceConnectorProperties {
 }
 
 /**
+ * @public
  * <p>Contains information about the configuration of the source connector used in the
  *          flow.</p>
  */
@@ -385,6 +410,9 @@ export interface SourceFlowConfig {
   SourceConnectorProperties: SourceConnectorProperties | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MarketoConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -404,6 +432,9 @@ export enum MarketoConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum S3ConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -427,6 +458,9 @@ export enum S3ConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum SalesforceConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -451,6 +485,9 @@ export enum SalesforceConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum ServiceNowConnectorOperator {
   ADDITION = "ADDITION",
   BETWEEN = "BETWEEN",
@@ -475,6 +512,9 @@ export enum ServiceNowConnectorOperator {
   VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
 }
 
+/**
+ * @public
+ */
 export enum ZendeskConnectorOperator {
   ADDITION = "ADDITION",
   DIVISION = "DIVISION",
@@ -493,6 +533,7 @@ export enum ZendeskConnectorOperator {
 }
 
 /**
+ * @public
  * <p>The operation to be performed on the provided source fields.</p>
  */
 export interface ConnectorOperator {
@@ -522,6 +563,9 @@ export interface ConnectorOperator {
   Zendesk?: ZendeskConnectorOperator | string;
 }
 
+/**
+ * @public
+ */
 export enum OperatorPropertiesKeys {
   CONCAT_FORMAT = "CONCAT_FORMAT",
   DATA_TYPE = "DATA_TYPE",
@@ -539,6 +583,9 @@ export enum OperatorPropertiesKeys {
   VALUES = "VALUES",
 }
 
+/**
+ * @public
+ */
 export enum TaskType {
   ARITHMETIC = "Arithmetic",
   FILTER = "Filter",
@@ -550,6 +597,7 @@ export enum TaskType {
 }
 
 /**
+ * @public
  * <p>A class for modeling different type of tasks. Task implementation varies based on the
  *          TaskType.</p>
  */
@@ -582,12 +630,16 @@ export interface Task {
   TaskType: TaskType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DataPullMode {
   COMPLETE = "Complete",
   INCREMENTAL = "Incremental",
 }
 
 /**
+ * @public
  * <p>Specifies the configuration details of a scheduled-trigger flow that you define.
  *          Currently, these settings only apply to the scheduled-trigger type.</p>
  */
@@ -634,6 +686,7 @@ export interface ScheduledTriggerProperties {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration details that control the trigger for a flow. Currently,
  *          these settings only apply to the Scheduled trigger type.</p>
  */
@@ -644,6 +697,9 @@ export interface TriggerProperties {
   Scheduled?: ScheduledTriggerProperties;
 }
 
+/**
+ * @public
+ */
 export enum TriggerType {
   EVENT = "Event",
   ONDEMAND = "OnDemand",
@@ -651,6 +707,7 @@ export enum TriggerType {
 }
 
 /**
+ * @public
  * <p>The trigger settings that determine how and when Amazon AppFlow runs the specified
  *          flow.</p>
  */
@@ -668,6 +725,7 @@ export interface TriggerConfig {
 }
 
 /**
+ * @public
  * <p>The configurations that control how Customer Profiles retrieves data from the source,
  *          Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of
  *          customers.</p>
@@ -708,6 +766,7 @@ export interface FlowDefinition {
 }
 
 /**
+ * @public
  * <p>Details for workflow of type <code>APPFLOW_INTEGRATION</code>.</p>
  */
 export interface AppflowIntegration {
@@ -725,6 +784,7 @@ export interface AppflowIntegration {
 }
 
 /**
+ * @public
  * <p>Structure holding all <code>APPFLOW_INTEGRATION</code> specific workflow attributes.</p>
  */
 export interface AppflowIntegrationWorkflowAttributes {
@@ -745,6 +805,7 @@ export interface AppflowIntegrationWorkflowAttributes {
 }
 
 /**
+ * @public
  * <p>Workflow specific execution metrics for <code>APPFLOW_INTEGRATION</code> workflow.</p>
  */
 export interface AppflowIntegrationWorkflowMetrics {
@@ -764,6 +825,9 @@ export interface AppflowIntegrationWorkflowMetrics {
   TotalSteps: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   CANCELLED = "CANCELLED",
   COMPLETE = "COMPLETE",
@@ -775,6 +839,7 @@ export enum Status {
 }
 
 /**
+ * @public
  * <p>Workflow step details for <code>APPFLOW_INTEGRATION</code> workflow.</p>
  */
 export interface AppflowIntegrationWorkflowStep {
@@ -819,12 +884,16 @@ export interface AppflowIntegrationWorkflowStep {
   LastUpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConflictResolvingModel {
   RECENCY = "RECENCY",
   SOURCE = "SOURCE",
 }
 
 /**
+ * @public
  * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
  */
 export interface ConflictResolution {
@@ -854,6 +923,7 @@ export interface ConflictResolution {
 }
 
 /**
+ * @public
  * <p>The matching criteria to be used during the auto-merging process. </p>
  */
 export interface Consolidation {
@@ -864,6 +934,7 @@ export interface Consolidation {
 }
 
 /**
+ * @public
  * <p>Configuration settings for how to perform the auto-merging of profiles.</p>
  */
 export interface AutoMerging {
@@ -895,6 +966,7 @@ export interface AutoMerging {
 }
 
 /**
+ * @public
  * <p>Configuration information about the S3 bucket where Identity Resolution Jobs write result files.</p>
  */
 export interface S3ExportingConfig {
@@ -910,6 +982,7 @@ export interface S3ExportingConfig {
 }
 
 /**
+ * @public
  * <p>Configuration information about the S3 bucket where Identity Resolution Jobs writes result files. </p>
  *          <note>
  *             <p>You need to give Customer Profiles service principal write permission to your S3 bucket.
@@ -924,6 +997,9 @@ export interface ExportingConfig {
   S3Exporting?: S3ExportingConfig;
 }
 
+/**
+ * @public
+ */
 export enum JobScheduleDayOfTheWeek {
   FRIDAY = "FRIDAY",
   MONDAY = "MONDAY",
@@ -935,6 +1011,7 @@ export enum JobScheduleDayOfTheWeek {
 }
 
 /**
+ * @public
  * <p>The day and time when do you want to start the Identity Resolution Job every week.</p>
  */
 export interface JobSchedule {
@@ -950,6 +1027,7 @@ export interface JobSchedule {
 }
 
 /**
+ * @public
  * <p>The flag that enables the matching process of duplicate profiles.</p>
  */
 export interface MatchingRequest {
@@ -975,6 +1053,9 @@ export interface MatchingRequest {
   ExportingConfig?: ExportingConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1019,6 +1100,7 @@ export interface CreateDomainRequest {
 }
 
 /**
+ * @public
  * <p>The flag that enables the matching process of duplicate profiles.</p>
  */
 export interface MatchingResponse {
@@ -1044,6 +1126,9 @@ export interface MatchingResponse {
   ExportingConfig?: ExportingConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainResponse {
   /**
    * <p>The unique name of the domain.</p>
@@ -1096,6 +1181,7 @@ export interface CreateDomainResponse {
 }
 
 /**
+ * @public
  * <p>Configuration data for integration workflow.</p>
  */
 export interface IntegrationConfig {
@@ -1105,10 +1191,16 @@ export interface IntegrationConfig {
   AppflowIntegration?: AppflowIntegration;
 }
 
+/**
+ * @public
+ */
 export enum WorkflowType {
   APPFLOW_INTEGRATION = "APPFLOW_INTEGRATION",
 }
 
+/**
+ * @public
+ */
 export interface CreateIntegrationWorkflowRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1141,6 +1233,9 @@ export interface CreateIntegrationWorkflowRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateIntegrationWorkflowResponse {
   /**
    * <p>Unique identifier for the workflow.</p>
@@ -1153,18 +1248,27 @@ export interface CreateIntegrationWorkflowResponse {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Gender {
   FEMALE = "FEMALE",
   MALE = "MALE",
   UNSPECIFIED = "UNSPECIFIED",
 }
 
+/**
+ * @public
+ */
 export enum PartyType {
   BUSINESS = "BUSINESS",
   INDIVIDUAL = "INDIVIDUAL",
   OTHER = "OTHER",
 }
 
+/**
+ * @public
+ */
 export interface CreateProfileRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1294,6 +1398,9 @@ export interface CreateProfileRequest {
   GenderString?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProfileResponse {
   /**
    * <p>The unique identifier of a customer profile.</p>
@@ -1301,6 +1408,9 @@ export interface CreateProfileResponse {
   ProfileId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1308,6 +1418,9 @@ export interface DeleteDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
@@ -1315,6 +1428,9 @@ export interface DeleteDomainResponse {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIntegrationRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1327,6 +1443,9 @@ export interface DeleteIntegrationRequest {
   Uri: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIntegrationResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
@@ -1334,6 +1453,9 @@ export interface DeleteIntegrationResponse {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileRequest {
   /**
    * <p>The unique identifier of a customer profile.</p>
@@ -1346,6 +1468,9 @@ export interface DeleteProfileRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
@@ -1353,6 +1478,9 @@ export interface DeleteProfileResponse {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileKeyRequest {
   /**
    * <p>The unique identifier of a customer profile.</p>
@@ -1375,6 +1503,9 @@ export interface DeleteProfileKeyRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileKeyResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
@@ -1382,6 +1513,9 @@ export interface DeleteProfileKeyResponse {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileObjectRequest {
   /**
    * <p>The unique identifier of a customer profile.</p>
@@ -1404,6 +1538,9 @@ export interface DeleteProfileObjectRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileObjectResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
@@ -1411,6 +1548,9 @@ export interface DeleteProfileObjectResponse {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileObjectTypeRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1423,6 +1563,9 @@ export interface DeleteProfileObjectTypeRequest {
   ObjectTypeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProfileObjectTypeResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
@@ -1430,6 +1573,9 @@ export interface DeleteProfileObjectTypeResponse {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1442,8 +1588,14 @@ export interface DeleteWorkflowRequest {
   WorkflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowResponse {}
 
+/**
+ * @public
+ */
 export interface GetAutoMergingPreviewRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1466,6 +1618,9 @@ export interface GetAutoMergingPreviewRequest {
   MinAllowedConfidenceScoreForMerging?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAutoMergingPreviewResponse {
   /**
    * <p>The unique name of the domain.</p>
@@ -1489,6 +1644,9 @@ export interface GetAutoMergingPreviewResponse {
   NumberOfProfilesWillBeMerged?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1497,6 +1655,7 @@ export interface GetDomainRequest {
 }
 
 /**
+ * @public
  * <p>Usage-specific statistics about the domain.</p>
  */
 export interface DomainStats {
@@ -1523,6 +1682,9 @@ export interface DomainStats {
   TotalSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainResponse {
   /**
    * <p>The unique name of the domain.</p>
@@ -1579,6 +1741,9 @@ export interface GetDomainResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetIdentityResolutionJobRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1592,6 +1757,7 @@ export interface GetIdentityResolutionJobRequest {
 }
 
 /**
+ * @public
  * <p>The S3 location where Identity Resolution Jobs write result files.</p>
  */
 export interface S3ExportingLocation {
@@ -1607,6 +1773,7 @@ export interface S3ExportingLocation {
 }
 
 /**
+ * @public
  * <p>The S3 location where Identity Resolution Jobs write result files.</p>
  */
 export interface ExportingLocation {
@@ -1617,6 +1784,7 @@ export interface ExportingLocation {
 }
 
 /**
+ * @public
  * <p>Statistics about the Identity Resolution Job.</p>
  */
 export interface JobStats {
@@ -1636,6 +1804,9 @@ export interface JobStats {
   NumberOfMergesDone?: number;
 }
 
+/**
+ * @public
+ */
 export enum IdentityResolutionJobStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -1646,6 +1817,9 @@ export enum IdentityResolutionJobStatus {
   PREPROCESSING = "PREPROCESSING",
 }
 
+/**
+ * @public
+ */
 export interface GetIdentityResolutionJobResponse {
   /**
    * <p>The unique name of the domain.</p>
@@ -1738,6 +1912,9 @@ export interface GetIdentityResolutionJobResponse {
   JobStats?: JobStats;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1750,6 +1927,9 @@ export interface GetIntegrationRequest {
   Uri: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetIntegrationResponse {
   /**
    * <p>The unique name of the domain.</p>
@@ -1800,6 +1980,9 @@ export interface GetIntegrationResponse {
   IsUnstructured?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetMatchesRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -1819,6 +2002,7 @@ export interface GetMatchesRequest {
 }
 
 /**
+ * @public
  * <p>The Match group object.</p>
  */
 export interface MatchItem {
@@ -1844,6 +2028,9 @@ export interface MatchItem {
   ConfidenceScore?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetMatchesResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1866,6 +2053,9 @@ export interface GetMatchesResponse {
   Matches?: MatchItem[];
 }
 
+/**
+ * @public
+ */
 export interface GetProfileObjectTypeRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1878,6 +2068,9 @@ export interface GetProfileObjectTypeRequest {
   ObjectTypeName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FieldContentType {
   EMAIL_ADDRESS = "EMAIL_ADDRESS",
   NAME = "NAME",
@@ -1887,6 +2080,7 @@ export enum FieldContentType {
 }
 
 /**
+ * @public
  * <p>Represents a field in a ProfileObjectType.</p>
  */
 export interface ObjectTypeField {
@@ -1908,6 +2102,9 @@ export interface ObjectTypeField {
   ContentType?: FieldContentType | string;
 }
 
+/**
+ * @public
+ */
 export enum StandardIdentifier {
   ASSET = "ASSET",
   CASE = "CASE",
@@ -1920,6 +2117,7 @@ export enum StandardIdentifier {
 }
 
 /**
+ * @public
  * <p>An object that defines the Key element of a ProfileObject. A Key is a special element
  *          that can be used to search for a customer profile.</p>
  */
@@ -1942,6 +2140,9 @@ export interface ObjectTypeKey {
   FieldNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetProfileObjectTypeResponse {
   /**
    * <p>The name of the profile object type.</p>
@@ -2010,6 +2211,9 @@ export interface GetProfileObjectTypeResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetProfileObjectTypeTemplateRequest {
   /**
    * <p>A unique identifier for the object template.</p>
@@ -2017,6 +2221,9 @@ export interface GetProfileObjectTypeTemplateRequest {
   TemplateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProfileObjectTypeTemplateResponse {
   /**
    * <p>A unique identifier for the object template.</p>
@@ -2059,6 +2266,9 @@ export interface GetProfileObjectTypeTemplateResponse {
   Keys?: Record<string, ObjectTypeKey[]>;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2072,6 +2282,7 @@ export interface GetWorkflowRequest {
 }
 
 /**
+ * @public
  * <p>Structure to hold workflow attributes.</p>
  */
 export interface WorkflowAttributes {
@@ -2082,6 +2293,7 @@ export interface WorkflowAttributes {
 }
 
 /**
+ * @public
  * <p>Generic object containing workflow execution metrics.</p>
  */
 export interface WorkflowMetrics {
@@ -2091,6 +2303,9 @@ export interface WorkflowMetrics {
   AppflowIntegration?: AppflowIntegrationWorkflowMetrics;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowResponse {
   /**
    * <p>Unique identifier for the workflow.</p>
@@ -2133,6 +2348,9 @@ export interface GetWorkflowResponse {
   Metrics?: WorkflowMetrics;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowStepsRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2157,6 +2375,7 @@ export interface GetWorkflowStepsRequest {
 }
 
 /**
+ * @public
  * <p>List containing steps in workflow.</p>
  */
 export interface WorkflowStepItem {
@@ -2166,6 +2385,9 @@ export interface WorkflowStepItem {
   AppflowIntegration?: AppflowIntegrationWorkflowStep;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowStepsResponse {
   /**
    * <p>Unique identifier for the workflow.</p>
@@ -2188,6 +2410,9 @@ export interface GetWorkflowStepsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountIntegrationsRequest {
   /**
    * <p>The URI of the S3 bucket or any other type of data source.</p>
@@ -2211,6 +2436,7 @@ export interface ListAccountIntegrationsRequest {
 }
 
 /**
+ * @public
  * <p>An integration in list of integrations.</p>
  */
 export interface ListIntegrationItem {
@@ -2263,6 +2489,9 @@ export interface ListIntegrationItem {
   IsUnstructured?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountIntegrationsResponse {
   /**
    * <p>The list of ListAccountIntegration instances.</p>
@@ -2275,6 +2504,9 @@ export interface ListAccountIntegrationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>The pagination token from the previous ListDomain API call.</p>
@@ -2288,6 +2520,7 @@ export interface ListDomainsRequest {
 }
 
 /**
+ * @public
  * <p>An object in a list that represents a domain.</p>
  */
 export interface ListDomainItem {
@@ -2312,6 +2545,9 @@ export interface ListDomainItem {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListDomainsResponse {
   /**
    * <p>The list of ListDomains instances.</p>
@@ -2324,6 +2560,9 @@ export interface ListDomainsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIdentityResolutionJobsRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2343,6 +2582,7 @@ export interface ListIdentityResolutionJobsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the Identity Resolution Job.</p>
  */
 export interface IdentityResolutionJob {
@@ -2422,6 +2662,9 @@ export interface IdentityResolutionJob {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIdentityResolutionJobsResponse {
   /**
    * <p>A list of Identity Resolution Jobs.</p>
@@ -2434,6 +2677,9 @@ export interface ListIdentityResolutionJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIntegrationsRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2456,6 +2702,9 @@ export interface ListIntegrationsRequest {
   IncludeHidden?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListIntegrationsResponse {
   /**
    * <p>The list of ListIntegrations instances.</p>
@@ -2469,6 +2718,7 @@ export interface ListIntegrationsResponse {
 }
 
 /**
+ * @public
  * <p>The filter applied to ListProfileObjects response to include profile objects with the
  *          specified index values. This filter is only supported for ObjectTypeName _asset, _case and
  *          _order.</p>
@@ -2488,6 +2738,9 @@ export interface ObjectFilter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProfileObjectsRequest {
   /**
    * <p>The pagination token from the previous call to ListProfileObjects.</p>
@@ -2522,6 +2775,7 @@ export interface ListProfileObjectsRequest {
 }
 
 /**
+ * @public
  * <p>A ProfileObject in a list of ProfileObjects.</p>
  */
 export interface ListProfileObjectsItem {
@@ -2542,6 +2796,9 @@ export interface ListProfileObjectsItem {
   Object?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProfileObjectsResponse {
   /**
    * <p>The list of ListProfileObject instances.</p>
@@ -2554,6 +2811,9 @@ export interface ListProfileObjectsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProfileObjectTypesRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2572,6 +2832,7 @@ export interface ListProfileObjectTypesRequest {
 }
 
 /**
+ * @public
  * <p>A ProfileObjectType instance.</p>
  */
 export interface ListProfileObjectTypeItem {
@@ -2601,6 +2862,9 @@ export interface ListProfileObjectTypeItem {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListProfileObjectTypesResponse {
   /**
    * <p>The list of ListProfileObjectTypes instances.</p>
@@ -2613,6 +2877,9 @@ export interface ListProfileObjectTypesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProfileObjectTypeTemplatesRequest {
   /**
    * <p>The pagination token from the previous ListObjectTypeTemplates API call.</p>
@@ -2626,6 +2893,7 @@ export interface ListProfileObjectTypeTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>A ProfileObjectTypeTemplate in a list of ProfileObjectTypeTemplates.</p>
  */
 export interface ListProfileObjectTypeTemplateItem {
@@ -2645,6 +2913,9 @@ export interface ListProfileObjectTypeTemplateItem {
   SourceObject?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProfileObjectTypeTemplatesResponse {
   /**
    * <p>The list of ListProfileObjectType template instances.</p>
@@ -2657,6 +2928,9 @@ export interface ListProfileObjectTypeTemplatesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource for which you want to view tags.</p>
@@ -2664,6 +2938,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -2671,6 +2948,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2710,6 +2990,7 @@ export interface ListWorkflowsRequest {
 }
 
 /**
+ * @public
  * <p>A workflow in list of workflows.</p>
  */
 export interface ListWorkflowsItem {
@@ -2744,6 +3025,9 @@ export interface ListWorkflowsItem {
   LastUpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowsResponse {
   /**
    * <p>List containing workflow details.</p>
@@ -2757,6 +3041,7 @@ export interface ListWorkflowsResponse {
 }
 
 /**
+ * @public
  * <p>A duplicate customer profile that is to be merged into a main profile. </p>
  */
 export interface FieldSourceProfileIds {
@@ -2866,6 +3151,9 @@ export interface FieldSourceProfileIds {
   Attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface MergeProfilesRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2890,6 +3178,9 @@ export interface MergeProfilesRequest {
   FieldSourceProfileIds?: FieldSourceProfileIds;
 }
 
+/**
+ * @public
+ */
 export interface MergeProfilesResponse {
   /**
    * <p>A message that indicates the merge request is complete.</p>
@@ -2897,6 +3188,9 @@ export interface MergeProfilesResponse {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutIntegrationRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2932,6 +3226,9 @@ export interface PutIntegrationRequest {
   ObjectTypeNames?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutIntegrationResponse {
   /**
    * <p>The unique name of the domain.</p>
@@ -2982,6 +3279,9 @@ export interface PutIntegrationResponse {
   IsUnstructured?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutProfileObjectRequest {
   /**
    * <p>The name of the profile object type.</p>
@@ -2999,6 +3299,9 @@ export interface PutProfileObjectRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutProfileObjectResponse {
   /**
    * <p>The unique identifier of the profile object generated by the service.</p>
@@ -3006,6 +3309,9 @@ export interface PutProfileObjectResponse {
   ProfileObjectUniqueKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutProfileObjectTypeRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -3074,6 +3380,9 @@ export interface PutProfileObjectTypeRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutProfileObjectTypeResponse {
   /**
    * <p>The name of the profile object type.</p>
@@ -3143,11 +3452,17 @@ export interface PutProfileObjectTypeResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum LogicalOperator {
   AND = "AND",
   OR = "OR",
 }
 
+/**
+ * @public
+ */
 export interface SearchProfilesRequest {
   /**
    * <p>The pagination token from the previous SearchProfiles API call.</p>
@@ -3211,6 +3526,7 @@ export interface SearchProfilesRequest {
 }
 
 /**
+ * @public
  * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list that were used
  *          to find a profile returned in response to a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request. </p>
  */
@@ -3227,6 +3543,7 @@ export interface FoundByKeyValue {
 }
 
 /**
+ * @public
  * <p>The standard profile of a customer.</p>
  */
 export interface Profile {
@@ -3383,6 +3700,9 @@ export interface Profile {
   GenderString?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchProfilesResponse {
   /**
    * <p>The list of Profiles matching the search criteria.</p>
@@ -3395,6 +3715,9 @@ export interface SearchProfilesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource that you're adding tags to.</p>
@@ -3407,8 +3730,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource from which you are removing tags.</p>
@@ -3421,8 +3750,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDomainRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -3468,6 +3803,9 @@ export interface UpdateDomainRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDomainResponse {
   /**
    * <p>The unique name of the domain.</p>
@@ -3520,6 +3858,7 @@ export interface UpdateDomainResponse {
 }
 
 /**
+ * @public
  * <p>Updates associated with the address properties of a customer profile.</p>
  */
 export interface UpdateAddress {
@@ -3574,6 +3913,9 @@ export interface UpdateAddress {
   PostalCode?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProfileRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -3708,6 +4050,9 @@ export interface UpdateProfileRequest {
   GenderString?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProfileResponse {
   /**
    * <p>The unique identifier of a customer profile.</p>

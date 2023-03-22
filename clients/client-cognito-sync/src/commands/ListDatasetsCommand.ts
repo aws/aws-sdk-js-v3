@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetsCommand}.
  */
 export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetsCommand}.
  */
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to
  *          its own data. Thus, the credentials used to make this API call need to have access to the
  *          identity data.</p>
@@ -54,16 +59,16 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * X-AMZ-DATE: 20141111T215640Z
  * AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>, SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid, Signature=<signature>
  *
- * {
+ * \{
  *     "Operation": "com.amazonaws.cognito.sync.model#ListDatasets",
  *     "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
  *     "Input":
- *     {
+ *     \{
  *         "IdentityPoolId": "IDENTITY_POOL_ID",
  *         "IdentityId": "IDENTITY_ID",
  *         "MaxResults": "3"
- *     }
- * }
+ *     \}
+ * \}
  *                </request>
  *             <response>
  * 1.1 200 OK
@@ -72,13 +77,13 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * content-length: 355
  * date: Tue, 11 Nov 2014 21:56:40 GMT
  *
- * {
+ * \{
  *     "Output":
- *     {
+ *     \{
  *         "__type": "com.amazonaws.cognito.sync.model#ListDatasetsResponse",
  *         "Count": 1,
  *         "Datasets": [
- *         {
+ *         \{
  *             "CreationDate": 1.412974057151E9,
  *             "DataStorage": 16,
  *             "DatasetName": "my_list",
@@ -86,11 +91,11 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *             "LastModifiedBy": "123456789012",
  *             "LastModifiedDate": 1.412974057244E9,
  *             "NumRecords": 1
- *         }],
+ *         \}],
  *         "NextToken": null
- *     },
+ *     \},
  *     "Version": "1.0"
- * }
+ * \}
  *                </response>
  *          </example>
  *       </examples>
@@ -104,6 +109,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
+ * @returns {@link ListDatasetsCommandOutput}
  * @see {@link ListDatasetsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -143,6 +150,9 @@ export class ListDatasetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class ListDatasetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDatasetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetsCommandOutput> {
     return deserializeAws_restJson1ListDatasetsCommand(output, context);
   }

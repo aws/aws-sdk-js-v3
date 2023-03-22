@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoginProfileCommand}.
  */
 export interface DeleteLoginProfileCommandInput extends DeleteLoginProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoginProfileCommand}.
  */
 export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the password for the specified IAM user, For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
  *                 passwords for IAM users</a>.</p>
  *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
@@ -53,6 +58,8 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoginProfileCommandInput - {@link DeleteLoginProfileCommandInput}
+ * @returns {@link DeleteLoginProfileCommandOutput}
  * @see {@link DeleteLoginProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -105,6 +112,9 @@ export class DeleteLoginProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoginProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DeleteLoginProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoginProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteLoginProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoginProfileCommandOutput> {
     return deserializeAws_queryDeleteLoginProfileCommand(output, context);
   }

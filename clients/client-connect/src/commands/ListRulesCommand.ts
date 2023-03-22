@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRulesCommand}.
  */
 export interface ListRulesCommandInput extends ListRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRulesCommand}.
  */
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all rules for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRulesCommandInput - {@link ListRulesCommandInput}
+ * @returns {@link ListRulesCommandOutput}
  * @see {@link ListRulesCommandInput} for command's `input` shape.
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesCommandOutput> {
     return deserializeAws_restJson1ListRulesCommand(output, context);
   }

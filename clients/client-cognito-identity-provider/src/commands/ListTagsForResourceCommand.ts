@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are assigned to an Amazon Cognito user pool.</p>
  *         <p>A tag is a label that you can apply to user pools to categorize and manage them in
  *             different ways, such as by purpose, owner, environment, or other criteria.</p>
@@ -54,6 +59,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
     return deserializeAws_json1_1ListTagsForResourceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDomainsForPackageCommand}.
  */
 export interface ListDomainsForPackageCommandInput extends ListDomainsForPackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDomainsForPackageCommand}.
  */
 export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Amazon OpenSearch Service domains associated with a given package. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
  *     OpenSearch Service</a>.</p>
@@ -48,6 +53,8 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainsForPackageCommandInput - {@link ListDomainsForPackageCommandInput}
+ * @returns {@link ListDomainsForPackageCommandOutput}
  * @see {@link ListDomainsForPackageCommandInput} for command's `input` shape.
  * @see {@link ListDomainsForPackageCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListDomainsForPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainsForPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListDomainsForPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainsForPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDomainsForPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsForPackageCommandOutput> {
     return deserializeAws_restJson1ListDomainsForPackageCommand(output, context);
   }

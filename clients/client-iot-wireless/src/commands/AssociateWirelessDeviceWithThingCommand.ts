@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWirelessDeviceWithThingCommand}.
  */
 export interface AssociateWirelessDeviceWithThingCommandInput extends AssociateWirelessDeviceWithThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWirelessDeviceWithThingCommand}.
  */
 export interface AssociateWirelessDeviceWithThingCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateWirelessDeviceWithThingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a wireless device with a thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateWirelessDeviceWithThingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWirelessDeviceWithThingCommandInput - {@link AssociateWirelessDeviceWithThingCommandInput}
+ * @returns {@link AssociateWirelessDeviceWithThingCommandOutput}
  * @see {@link AssociateWirelessDeviceWithThingCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessDeviceWithThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +96,9 @@ export class AssociateWirelessDeviceWithThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWirelessDeviceWithThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class AssociateWirelessDeviceWithThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWirelessDeviceWithThingCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class AssociateWirelessDeviceWithThingCommand extends $Command<
     return serializeAws_restJson1AssociateWirelessDeviceWithThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

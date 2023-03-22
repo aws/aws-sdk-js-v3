@@ -10,7 +10,7 @@ import { MigrationHubStrategyClient } from "../MigrationHubStrategyClient";
 import { MigrationHubStrategyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MigrationHubStrategyClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCollectorsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCollectors(
   config: MigrationHubStrategyPaginationConfiguration,
   input: ListCollectorsCommandInput,

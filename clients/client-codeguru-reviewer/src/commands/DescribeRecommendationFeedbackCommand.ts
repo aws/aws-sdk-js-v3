@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecommendationFeedbackCommand}.
  */
 export interface DescribeRecommendationFeedbackCommandInput extends DescribeRecommendationFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecommendationFeedbackCommand}.
  */
 export interface DescribeRecommendationFeedbackCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRecommendationFeedbackCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the customer feedback for a CodeGuru Reviewer recommendation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeRecommendationFeedbackCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommendationFeedbackCommandInput - {@link DescribeRecommendationFeedbackCommandInput}
+ * @returns {@link DescribeRecommendationFeedbackCommandOutput}
  * @see {@link DescribeRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeRecommendationFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommendationFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeRecommendationFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeRecommendationFeedbackCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeRecommendationFeedbackCommand extends $Command<
     return serializeAws_restJson1DescribeRecommendationFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

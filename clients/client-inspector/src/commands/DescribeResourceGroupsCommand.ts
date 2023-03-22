@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourceGroupsCommand}.
  */
 export interface DescribeResourceGroupsCommandInput extends DescribeResourceGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourceGroupsCommand}.
  */
 export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the resource groups that are specified by the ARNs of the resource
  *          groups.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourceGroupsCommandInput - {@link DescribeResourceGroupsCommandInput}
+ * @returns {@link DescribeResourceGroupsCommandOutput}
  * @see {@link DescribeResourceGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceGroupsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -107,6 +114,9 @@ export class DescribeResourceGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourceGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class DescribeResourceGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourceGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeResourceGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourceGroupsCommandOutput> {
     return deserializeAws_json1_1DescribeResourceGroupsCommand(output, context);
   }

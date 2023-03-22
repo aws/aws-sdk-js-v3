@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetLoadBalancerListenerSSLCertificateCommand}.
  */
 export interface SetLoadBalancerListenerSSLCertificateCommandInput extends SetLoadBalancerListenerSSLCertificateInput {}
 /**
+ * @public
+ *
  * The output of {@link SetLoadBalancerListenerSSLCertificateCommand}.
  */
 export interface SetLoadBalancerListenerSSLCertificateCommandOutput
@@ -41,6 +45,7 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.</p>
  *
  *         <p>For more information about updating your SSL certificate, see
@@ -56,6 +61,8 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SetLoadBalancerListenerSSLCertificateCommandInput - {@link SetLoadBalancerListenerSSLCertificateCommandInput}
+ * @returns {@link SetLoadBalancerListenerSSLCertificateCommandOutput}
  * @see {@link SetLoadBalancerListenerSSLCertificateCommandInput} for command's `input` shape.
  * @see {@link SetLoadBalancerListenerSSLCertificateCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -109,6 +116,9 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetLoadBalancerListenerSSLCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,6 +158,9 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetLoadBalancerListenerSSLCertificateCommandInput,
     context: __SerdeContext
@@ -155,6 +168,9 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
     return serializeAws_querySetLoadBalancerListenerSSLCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

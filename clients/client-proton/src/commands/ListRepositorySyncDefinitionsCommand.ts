@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRepositorySyncDefinitionsCommand}.
  */
 export interface ListRepositorySyncDefinitionsCommandInput extends ListRepositorySyncDefinitionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRepositorySyncDefinitionsCommand}.
  */
 export interface ListRepositorySyncDefinitionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListRepositorySyncDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List repository sync definitions with detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRepositorySyncDefinitionsCommandInput - {@link ListRepositorySyncDefinitionsCommandInput}
+ * @returns {@link ListRepositorySyncDefinitionsCommandOutput}
  * @see {@link ListRepositorySyncDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListRepositorySyncDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListRepositorySyncDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRepositorySyncDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListRepositorySyncDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRepositorySyncDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListRepositorySyncDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

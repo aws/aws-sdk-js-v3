@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDestinationCommand}.
  */
 export interface PutDestinationCommandInput extends PutDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDestinationCommand}.
  */
 export interface PutDestinationCommandOutput extends PutDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p>
  *          <p>A destination encapsulates a physical resource (such as an Amazon Kinesis stream). With
  *       a destination, you can subscribe to a real-time stream of log events for a different account,
@@ -55,6 +60,8 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDestinationCommandInput - {@link PutDestinationCommandInput}
+ * @returns {@link PutDestinationCommandOutput}
  * @see {@link PutDestinationCommandInput} for command's `input` shape.
  * @see {@link PutDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDestinationCommandOutput> {
     return deserializeAws_json1_1PutDestinationCommand(output, context);
   }

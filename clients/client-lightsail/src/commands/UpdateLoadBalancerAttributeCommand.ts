@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLoadBalancerAttributeCommand}.
  */
 export interface UpdateLoadBalancerAttributeCommandInput extends UpdateLoadBalancerAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLoadBalancerAttributeCommand}.
  */
 export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBalancerAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified attribute for a load balancer. You can only update one attribute at
  *       a time.</p>
  *          <p>The <code>update load balancer attribute</code> operation supports tag-based access
@@ -50,6 +55,8 @@ export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBala
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLoadBalancerAttributeCommandInput - {@link UpdateLoadBalancerAttributeCommandInput}
+ * @returns {@link UpdateLoadBalancerAttributeCommandOutput}
  * @see {@link UpdateLoadBalancerAttributeCommandInput} for command's `input` shape.
  * @see {@link UpdateLoadBalancerAttributeCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +110,9 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLoadBalancerAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLoadBalancerAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateLoadBalancerAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

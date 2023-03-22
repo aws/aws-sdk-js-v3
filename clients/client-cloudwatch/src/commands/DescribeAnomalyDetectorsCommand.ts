@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAnomalyDetectorsCommand}.
  */
 export interface DescribeAnomalyDetectorsCommandInput extends DescribeAnomalyDetectorsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAnomalyDetectorsCommand}.
  */
 export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDetectorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the anomaly detection models that you have created in your account.
  * 			For single metric anomaly detectors,
  * 			you can list all of the models in your account or filter the results
@@ -52,6 +57,8 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnomalyDetectorsCommandInput - {@link DescribeAnomalyDetectorsCommandInput}
+ * @returns {@link DescribeAnomalyDetectorsCommandOutput}
  * @see {@link DescribeAnomalyDetectorsCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyDetectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnomalyDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnomalyDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAnomalyDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnomalyDetectorsCommandOutput> {
     return deserializeAws_queryDescribeAnomalyDetectorsCommand(output, context);
   }

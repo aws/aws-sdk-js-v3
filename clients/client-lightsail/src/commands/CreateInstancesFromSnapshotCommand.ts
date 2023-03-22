@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstancesFromSnapshotCommand}.
  */
 export interface CreateInstancesFromSnapshotCommandInput extends CreateInstancesFromSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstancesFromSnapshotCommand}.
  */
 export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstancesFromSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more new instances from a manual or automatic snapshot of an
  *       instance.</p>
  *          <p>The <code>create instances from snapshot</code> operation supports tag-based access
@@ -50,6 +55,8 @@ export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstance
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstancesFromSnapshotCommandInput - {@link CreateInstancesFromSnapshotCommandInput}
+ * @returns {@link CreateInstancesFromSnapshotCommandOutput}
  * @see {@link CreateInstancesFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateInstancesFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +110,9 @@ export class CreateInstancesFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstancesFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class CreateInstancesFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstancesFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateInstancesFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

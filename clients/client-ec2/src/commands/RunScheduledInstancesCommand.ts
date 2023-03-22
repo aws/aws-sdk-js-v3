@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RunScheduledInstancesCommand}.
  */
 export interface RunScheduledInstancesCommandInput extends RunScheduledInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RunScheduledInstancesCommand}.
  */
 export interface RunScheduledInstancesCommandOutput extends RunScheduledInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches the specified Scheduled Instances.</p>
  *          <p>Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using <a>PurchaseScheduledInstances</a>.</p>
  *          <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance,
@@ -51,6 +56,8 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * const response = await client.send(command);
  * ```
  *
+ * @param RunScheduledInstancesCommandInput - {@link RunScheduledInstancesCommandInput}
+ * @returns {@link RunScheduledInstancesCommandOutput}
  * @see {@link RunScheduledInstancesCommandInput} for command's `input` shape.
  * @see {@link RunScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -144,6 +151,9 @@ export class RunScheduledInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunScheduledInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,10 +193,16 @@ export class RunScheduledInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunScheduledInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RunScheduledInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunScheduledInstancesCommandOutput> {
     return deserializeAws_ec2RunScheduledInstancesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataflowEndpointGroupCommand}.
  */
 export interface CreateDataflowEndpointGroupCommandInput extends CreateDataflowEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataflowEndpointGroupCommand}.
  */
 export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpointGroupIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code>DataflowEndpoint</code> objects.</p>
  *          <p>The <code>name</code> field in each endpoint is used in your mission profile <code>DataflowEndpointConfig</code>
  *          to specify which endpoints to use during a contact.</p>
@@ -50,6 +55,8 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataflowEndpointGroupCommandInput - {@link CreateDataflowEndpointGroupCommandInput}
+ * @returns {@link CreateDataflowEndpointGroupCommandOutput}
  * @see {@link CreateDataflowEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDataflowEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateDataflowEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataflowEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreateDataflowEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataflowEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDataflowEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

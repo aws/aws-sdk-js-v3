@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUnfilteredPartitionMetadataCommand}.
  */
 export interface GetUnfilteredPartitionMetadataCommandInput extends GetUnfilteredPartitionMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUnfilteredPartitionMetadataCommand}.
  */
 export interface GetUnfilteredPartitionMetadataCommandOutput
@@ -37,6 +41,7 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
  *           metadata.</p>
  *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartition</code>.</p>
@@ -50,6 +55,8 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUnfilteredPartitionMetadataCommandInput - {@link GetUnfilteredPartitionMetadataCommandInput}
+ * @returns {@link GetUnfilteredPartitionMetadataCommandOutput}
  * @see {@link GetUnfilteredPartitionMetadataCommandInput} for command's `input` shape.
  * @see {@link GetUnfilteredPartitionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUnfilteredPartitionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetUnfilteredPartitionMetadataCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command<
     return serializeAws_json1_1GetUnfilteredPartitionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

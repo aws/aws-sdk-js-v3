@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDefaultPatchBaselineCommand}.
  */
 export interface GetDefaultPatchBaselineCommandInput extends GetDefaultPatchBaselineRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDefaultPatchBaselineCommand}.
  */
 export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
  *    baselines. For example, you can create a default patch baseline for each operating system.</p>
  *          <p>If you don't specify an operating system value, the default patch baseline for Windows is
@@ -49,6 +54,8 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDefaultPatchBaselineCommandInput - {@link GetDefaultPatchBaselineCommandInput}
+ * @returns {@link GetDefaultPatchBaselineCommandOutput}
  * @see {@link GetDefaultPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link GetDefaultPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetDefaultPatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDefaultPatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetDefaultPatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDefaultPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDefaultPatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDefaultPatchBaselineCommandOutput> {
     return deserializeAws_json1_1GetDefaultPatchBaselineCommand(output, context);
   }

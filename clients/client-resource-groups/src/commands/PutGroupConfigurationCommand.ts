@@ -26,15 +26,20 @@ import {
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutGroupConfigurationCommand}.
  */
 export interface PutGroupConfigurationCommandInput extends PutGroupConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link PutGroupConfigurationCommand}.
  */
 export interface PutGroupConfigurationCommandOutput extends PutGroupConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a service configuration to the specified group. This occurs asynchronously,
  *             and can take time to complete. You can use <a>GetGroupConfiguration</a> to
  *             check the status of the update.</p>
@@ -59,6 +64,8 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * const response = await client.send(command);
  * ```
  *
+ * @param PutGroupConfigurationCommandInput - {@link PutGroupConfigurationCommandInput}
+ * @returns {@link PutGroupConfigurationCommandOutput}
  * @see {@link PutGroupConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutGroupConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -101,6 +108,9 @@ export class PutGroupConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutGroupConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class PutGroupConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutGroupConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutGroupConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutGroupConfigurationCommandOutput> {
     return deserializeAws_restJson1PutGroupConfigurationCommand(output, context);
   }

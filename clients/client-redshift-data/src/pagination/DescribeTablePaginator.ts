@@ -10,7 +10,7 @@ import { RedshiftDataClient } from "../RedshiftDataClient";
 import { RedshiftDataPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftDataClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeTableCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeTable(
   config: RedshiftDataPaginationConfiguration,
   input: DescribeTableCommandInput,

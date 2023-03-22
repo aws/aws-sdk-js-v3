@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainAssociationCommand}.
  */
 export interface GetDomainAssociationCommandInput extends GetDomainAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainAssociationCommand}.
  */
 export interface GetDomainAssociationCommandOutput extends GetDomainAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the domain information for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDomainAssociationCommandOutput extends GetDomainAssociationR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainAssociationCommandInput - {@link GetDomainAssociationCommandInput}
+ * @returns {@link GetDomainAssociationCommandOutput}
  * @see {@link GetDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link GetDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetDomainAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetDomainAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDomainAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainAssociationCommandOutput> {
     return deserializeAws_restJson1GetDomainAssociationCommand(output, context);
   }

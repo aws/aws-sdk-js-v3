@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTextDetectionCommand}.
  */
 export interface GetTextDetectionCommandInput extends GetTextDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTextDetectionCommand}.
  */
 export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the text detection results of a Amazon Rekognition Video analysis started by <a>StartTextDetection</a>.</p>
  *          <p>Text detection with Amazon Rekognition Video is an asynchronous operation. You start text detection by
  *      calling <a>StartTextDetection</a> which returns a job identifier (<code>JobId</code>)
@@ -64,6 +69,8 @@ export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTextDetectionCommandInput - {@link GetTextDetectionCommandInput}
+ * @returns {@link GetTextDetectionCommandOutput}
  * @see {@link GetTextDetectionCommandInput} for command's `input` shape.
  * @see {@link GetTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -110,6 +117,9 @@ export class GetTextDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTextDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class GetTextDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTextDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTextDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTextDetectionCommandOutput> {
     return deserializeAws_json1_1GetTextDetectionCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelCardCommand}.
  */
 export interface DeleteModelCardCommandInput extends DeleteModelCardRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelCardCommand}.
  */
 export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelCardCommandInput - {@link DeleteModelCardCommandInput}
+ * @returns {@link DeleteModelCardCommandOutput}
  * @see {@link DeleteModelCardCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCardCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteModelCardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelCardCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteModelCardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelCardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteModelCardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCardCommandOutput> {
     return deserializeAws_json1_1DeleteModelCardCommand(output, context);
   }

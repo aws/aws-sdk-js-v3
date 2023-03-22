@@ -126,11 +126,13 @@ import {
 import { XRayClient } from "./XRayClient";
 
 /**
+ * @public
  * <p>Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving service maps
  *       and other data created by processing those traces.</p>
  */
 export class XRay extends XRayClient {
   /**
+   * @public
    * <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
    *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
    *       list of trace IDs.</p>
@@ -165,6 +167,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Creates a group resource with a name and a filter expression. </p>
    */
   public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
@@ -191,6 +194,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Creates a rule to control sampling behavior for instrumented applications. Services
    *          retrieve rules with <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a>, and evaluate each rule in ascending
    *          order of <i>priority</i> for each request. If a rule matches, the service
@@ -229,6 +233,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Deletes a group resource.</p>
    */
   public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
@@ -255,6 +260,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Deletes a resource policy from the target Amazon Web Services account.</p>
    */
   public deleteResourcePolicy(
@@ -287,6 +293,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Deletes a sampling rule.</p>
    */
   public deleteSamplingRule(
@@ -319,6 +326,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the current encryption configuration for X-Ray data.</p>
    */
   public getEncryptionConfig(
@@ -351,6 +359,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves group resource details.</p>
    */
   public getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
@@ -377,6 +386,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all active group details.</p>
    */
   public getGroups(args: GetGroupsCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupsCommandOutput>;
@@ -403,6 +413,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the summary information of an insight. This includes impact to clients and
    *          root cause services, the top anomalous services, the category, the state of the insight,
    *          and the start and end time of the insight.</p>
@@ -431,6 +442,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an
    *          event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray
    *          console.</p>
@@ -465,6 +477,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a service graph structure filtered by the specified insight. The service graph is limited to only
    *          structural information. For a complete service graph, use this API with the GetServiceGraph API.</p>
    */
@@ -498,6 +511,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the summaries of all insights in the specified group matching the provided filter values.</p>
    */
   public getInsightSummaries(
@@ -530,6 +544,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves all sampling rules.</p>
    */
   public getSamplingRules(
@@ -562,6 +577,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about recent sampling results for all sampling rules.</p>
    */
   public getSamplingStatisticSummaries(
@@ -594,6 +610,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Requests a sampling quota for rules that the service is using to sample requests.
    *       </p>
    */
@@ -627,6 +644,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a document that describes services that process incoming requests, and
    *       downstream services that they call as a result. Root services process incoming requests and
    *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">Amazon Web Services X-Ray SDK</a>.
@@ -663,6 +681,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Get an aggregation of service statistics defined by a specific time
    *             range.</p>
    */
@@ -696,6 +715,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a service graph for one or more specific trace IDs.</p>
    */
   public getTraceGraph(
@@ -728,6 +748,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves IDs and annotations for traces available for a specified time frame using an
    *       optional filter. To get the full traces, pass the trace IDs to
    *       <code>BatchGetTraces</code>.</p>
@@ -776,6 +797,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of resource policies in the target Amazon Web Services account.</p>
    */
   public listResourcePolicies(
@@ -808,6 +830,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of tags that are applied to the specified Amazon Web Services X-Ray group or sampling rule.</p>
    */
   public listTagsForResource(
@@ -840,6 +863,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Updates the encryption configuration for X-Ray data.</p>
    */
   public putEncryptionConfig(
@@ -872,6 +896,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>
    *             Sets the resource policy to grant one or more Amazon Web Services services and accounts permissions to
    *             access X-Ray. Each resource policy will be associated with a specific Amazon Web Services account.
@@ -909,6 +934,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Used by the Amazon Web Services X-Ray daemon to upload telemetry.</p>
    */
   public putTelemetryRecords(
@@ -941,6 +967,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Uploads segment documents to Amazon Web Services X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
    *       batches. A segment document can be a completed segment, an in-progress segment, or an array of
    *       subsegments.</p>
@@ -1035,6 +1062,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Applies tags to an existing Amazon Web Services X-Ray group or sampling rule.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1061,6 +1089,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from an Amazon Web Services X-Ray group or sampling rule. You cannot edit or delete system
    *       tags (those with an <code>aws:</code> prefix).</p>
    */
@@ -1094,6 +1123,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Updates a group resource.</p>
    */
   public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
@@ -1120,6 +1150,7 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * @public
    * <p>Modifies a sampling rule's configuration.</p>
    */
   public updateSamplingRule(

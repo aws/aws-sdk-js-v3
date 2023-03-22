@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountOverviewCommand}.
  */
 export interface DescribeAccountOverviewCommandInput extends DescribeAccountOverviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountOverviewCommand}.
  */
 export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOverviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> For the time range passed in, returns the number of open reactive insight that were
  * 			created, the number of open proactive insights that were created, and the Mean Time to Recover (MTTR) for all
  * 			closed reactive insights. </p>
@@ -48,6 +53,8 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountOverviewCommandInput - {@link DescribeAccountOverviewCommandInput}
+ * @returns {@link DescribeAccountOverviewCommandOutput}
  * @see {@link DescribeAccountOverviewCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountOverviewCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeAccountOverviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountOverviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeAccountOverviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountOverviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAccountOverviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountOverviewCommandOutput> {
     return deserializeAws_restJson1DescribeAccountOverviewCommand(output, context);
   }

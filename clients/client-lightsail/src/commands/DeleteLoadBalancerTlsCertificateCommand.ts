@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoadBalancerTlsCertificateCommand}.
  */
 export interface DeleteLoadBalancerTlsCertificateCommandInput extends DeleteLoadBalancerTlsCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoadBalancerTlsCertificateCommand}.
  */
 export interface DeleteLoadBalancerTlsCertificateCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteLoadBalancerTlsCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p>
  *          <p>The <code>DeleteLoadBalancerTlsCertificate</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by <code>load balancer
@@ -51,6 +56,8 @@ export interface DeleteLoadBalancerTlsCertificateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoadBalancerTlsCertificateCommandInput - {@link DeleteLoadBalancerTlsCertificateCommandInput}
+ * @returns {@link DeleteLoadBalancerTlsCertificateCommandOutput}
  * @see {@link DeleteLoadBalancerTlsCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerTlsCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoadBalancerTlsCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteLoadBalancerTlsCertificateCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
     return serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

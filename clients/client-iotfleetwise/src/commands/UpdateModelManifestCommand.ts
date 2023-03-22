@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelManifestCommand}.
  */
 export interface UpdateModelManifestCommandInput extends UpdateModelManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelManifestCommand}.
  */
 export interface UpdateModelManifestCommandOutput extends UpdateModelManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a vehicle model (model manifest). If created vehicles are associated with a
  *             vehicle model, it can't be updated.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelManifestCommandInput - {@link UpdateModelManifestCommandInput}
+ * @returns {@link UpdateModelManifestCommandOutput}
  * @see {@link UpdateModelManifestCommandInput} for command's `input` shape.
  * @see {@link UpdateModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateModelManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateModelManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateModelManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelManifestCommandOutput> {
     return deserializeAws_json1_0UpdateModelManifestCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePricingPlanCommand}.
  */
 export interface UpdatePricingPlanCommandInput extends UpdatePricingPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePricingPlanCommand}.
  */
 export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This updates an existing pricing plan.
  *     </p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePricingPlanCommandInput - {@link UpdatePricingPlanCommandInput}
+ * @returns {@link UpdatePricingPlanCommandOutput}
  * @see {@link UpdatePricingPlanCommandInput} for command's `input` shape.
  * @see {@link UpdatePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdatePricingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePricingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdatePricingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePricingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePricingPlanCommandOutput> {
     return deserializeAws_restJson1UpdatePricingPlanCommand(output, context);
   }

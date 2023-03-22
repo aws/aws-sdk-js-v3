@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamSessionCommand}.
  */
 export interface GetStreamSessionCommandInput extends GetStreamSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamSessionCommand}.
  */
 export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets metadata on a specified stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamSessionCommandInput - {@link GetStreamSessionCommandInput}
+ * @returns {@link GetStreamSessionCommandOutput}
  * @see {@link GetStreamSessionCommandInput} for command's `input` shape.
  * @see {@link GetStreamSessionCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetStreamSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetStreamSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetStreamSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamSessionCommandOutput> {
     return deserializeAws_restJson1GetStreamSessionCommand(output, context);
   }

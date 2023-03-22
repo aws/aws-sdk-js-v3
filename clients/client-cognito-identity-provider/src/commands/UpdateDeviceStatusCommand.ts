@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeviceStatusCommand}.
  */
 export interface UpdateDeviceStatusCommandInput extends UpdateDeviceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeviceStatusCommand}.
  */
 export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the device status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceStatusCommandInput - {@link UpdateDeviceStatusCommandInput}
+ * @returns {@link UpdateDeviceStatusCommandOutput}
  * @see {@link UpdateDeviceStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceStatusCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -107,6 +114,9 @@ export class UpdateDeviceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class UpdateDeviceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDeviceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceStatusCommandOutput> {
     return deserializeAws_json1_1UpdateDeviceStatusCommand(output, context);
   }

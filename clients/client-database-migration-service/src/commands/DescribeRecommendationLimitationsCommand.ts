@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecommendationLimitationsCommand}.
  */
 export interface DescribeRecommendationLimitationsCommandInput extends DescribeRecommendationLimitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecommendationLimitationsCommand}.
  */
 export interface DescribeRecommendationLimitationsCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeRecommendationLimitationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of limitations for recommendations of target Amazon Web Services
  *             engines.</p>
  * @example
@@ -53,6 +58,8 @@ export interface DescribeRecommendationLimitationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommendationLimitationsCommandInput - {@link DescribeRecommendationLimitationsCommandInput}
+ * @returns {@link DescribeRecommendationLimitationsCommandOutput}
  * @see {@link DescribeRecommendationLimitationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationLimitationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeRecommendationLimitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommendationLimitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DescribeRecommendationLimitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeRecommendationLimitationsCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DescribeRecommendationLimitationsCommand extends $Command<
     return serializeAws_json1_1DescribeRecommendationLimitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

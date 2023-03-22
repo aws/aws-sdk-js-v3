@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetIpamAddressHistoryCommand}.
  */
 export interface GetIpamAddressHistoryCommandInput extends GetIpamAddressHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIpamAddressHistoryCommand}.
  */
 export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistor
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIpamAddressHistoryCommandInput - {@link GetIpamAddressHistoryCommandInput}
+ * @returns {@link GetIpamAddressHistoryCommandOutput}
  * @see {@link GetIpamAddressHistoryCommandInput} for command's `input` shape.
  * @see {@link GetIpamAddressHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class GetIpamAddressHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIpamAddressHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetIpamAddressHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIpamAddressHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetIpamAddressHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIpamAddressHistoryCommandOutput> {
     return deserializeAws_ec2GetIpamAddressHistoryCommand(output, context);
   }

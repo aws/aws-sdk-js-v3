@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartICD10CMInferenceJobCommand}.
  */
 export interface StartICD10CMInferenceJobCommandInput extends StartICD10CMInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartICD10CMInferenceJobCommand}.
  */
 export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM
  *       ontology. Use the <code>DescribeICD10CMInferenceJob</code> operation to track the status of a
  *       job.</p>
@@ -52,6 +57,8 @@ export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInfer
  * const response = await client.send(command);
  * ```
  *
+ * @param StartICD10CMInferenceJobCommandInput - {@link StartICD10CMInferenceJobCommandInput}
+ * @returns {@link StartICD10CMInferenceJobCommandOutput}
  * @see {@link StartICD10CMInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StartICD10CMInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -91,6 +98,9 @@ export class StartICD10CMInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartICD10CMInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StartICD10CMInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartICD10CMInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartICD10CMInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartICD10CMInferenceJobCommandOutput> {
     return deserializeAws_json1_1StartICD10CMInferenceJobCommand(output, context);
   }

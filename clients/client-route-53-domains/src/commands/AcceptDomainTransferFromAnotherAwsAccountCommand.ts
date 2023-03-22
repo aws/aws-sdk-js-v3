@@ -26,11 +26,15 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
  */
 export interface AcceptDomainTransferFromAnotherAwsAccountCommandInput
   extends AcceptDomainTransferFromAnotherAwsAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
  */
 export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
@@ -38,6 +42,7 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts the transfer of a domain from another Amazon Web Services account to the
  * 				currentAmazon Web Services account. You initiate a transfer between Amazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.</p>
  *          <p>If you use the CLI command at <a href="https://docs.aws.amazon.com/cli/latest/reference/route53domains/accept-domain-transfer-from-another-aws-account.html">accept-domain-transfer-from-another-aws-account</a>, use JSON format as input
@@ -55,6 +60,8 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptDomainTransferFromAnotherAwsAccountCommandInput - {@link AcceptDomainTransferFromAnotherAwsAccountCommandInput}
+ * @returns {@link AcceptDomainTransferFromAnotherAwsAccountCommandOutput}
  * @see {@link AcceptDomainTransferFromAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link AcceptDomainTransferFromAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -94,6 +101,9 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptDomainTransferFromAnotherAwsAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
     return serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

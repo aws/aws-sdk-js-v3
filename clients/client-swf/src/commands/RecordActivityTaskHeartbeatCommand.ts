@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RecordActivityTaskHeartbeatCommand}.
  */
 export interface RecordActivityTaskHeartbeatCommandInput extends RecordActivityTaskHeartbeatInput {}
 /**
+ * @public
+ *
  * The output of {@link RecordActivityTaskHeartbeatCommand}.
  */
 export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskStatus, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by activity workers to report to the service that the <a>ActivityTask</a> represented by the specified <code>taskToken</code> is still making progress. The worker
  *       can also specify details of the progress, for example percent complete, using the
  *         <code>details</code> parameter. This action can also be used by the worker as a mechanism to
@@ -93,6 +98,8 @@ export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskSt
  * const response = await client.send(command);
  * ```
  *
+ * @param RecordActivityTaskHeartbeatCommandInput - {@link RecordActivityTaskHeartbeatCommandInput}
+ * @returns {@link RecordActivityTaskHeartbeatCommandOutput}
  * @see {@link RecordActivityTaskHeartbeatCommandInput} for command's `input` shape.
  * @see {@link RecordActivityTaskHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -122,6 +129,9 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecordActivityTaskHeartbeatCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecordActivityTaskHeartbeatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RecordActivityTaskHeartbeatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

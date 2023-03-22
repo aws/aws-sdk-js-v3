@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationsCommand}.
  */
 export interface DeleteApplicationsCommandInput extends DeleteApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationsCommand}.
  */
 export interface DeleteApplicationsCommandOutput extends DeleteApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a list of applications and their associations with configuration
  *       items.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationsCommandInput - {@link DeleteApplicationsCommandInput}
+ * @returns {@link DeleteApplicationsCommandOutput}
  * @see {@link DeleteApplicationsCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationsCommandOutput> {
     return deserializeAws_json1_1DeleteApplicationsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSetPermissionsCommand}.
  */
 export interface DescribeDataSetPermissionsCommandInput extends DescribeDataSetPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSetPermissionsCommand}.
  */
 export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSetPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions on a dataset.</p>
  *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSetPermissionsCommandInput - {@link DescribeDataSetPermissionsCommandInput}
+ * @returns {@link DescribeDataSetPermissionsCommandOutput}
  * @see {@link DescribeDataSetPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSetPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSetPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSetPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDataSetPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

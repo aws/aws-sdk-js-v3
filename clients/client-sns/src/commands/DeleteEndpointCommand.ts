@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointCommand}.
  */
 export interface DeleteEndpointCommandInput extends DeleteEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointCommand}.
  */
 export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
  *             idempotent. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
  *             Notifications</a>. </p>
@@ -45,6 +50,8 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
+ * @returns {@link DeleteEndpointCommandOutput}
  * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointCommandOutput> {
     return deserializeAws_queryDeleteEndpointCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChangeLogsCommand}.
  */
 export interface GetChangeLogsCommandInput extends GetChangeLogsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChangeLogsCommand}.
  */
 export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of changelogs from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChangeLogsCommandInput - {@link GetChangeLogsCommandInput}
+ * @returns {@link GetChangeLogsCommandOutput}
  * @see {@link GetChangeLogsCommandInput} for command's `input` shape.
  * @see {@link GetChangeLogsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetChangeLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChangeLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetChangeLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChangeLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetChangeLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeLogsCommandOutput> {
     return deserializeAws_restJson1GetChangeLogsCommand(output, context);
   }

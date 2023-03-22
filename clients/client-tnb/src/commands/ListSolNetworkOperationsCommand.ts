@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolNetworkOperationsCommand}.
  */
 export interface ListSolNetworkOperationsCommandInput extends ListSolNetworkOperationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSolNetworkOperationsCommand}.
  */
 export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOperationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists details for a network operation, including when the operation started and the status of the operation.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolNetworkOperationsCommandInput - {@link ListSolNetworkOperationsCommandInput}
+ * @returns {@link ListSolNetworkOperationsCommandOutput}
  * @see {@link ListSolNetworkOperationsCommandInput} for command's `input` shape.
  * @see {@link ListSolNetworkOperationsCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListSolNetworkOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolNetworkOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListSolNetworkOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolNetworkOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSolNetworkOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolNetworkOperationsCommandOutput> {
     return deserializeAws_restJson1ListSolNetworkOperationsCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
  */
 export interface RegisterTransitGatewayMulticastGroupSourcesCommandInput
   extends RegisterTransitGatewayMulticastGroupSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
  */
 export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
@@ -38,6 +42,7 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>
  *          <p>A multicast source is a network interface attached to a supported instance that sends
  *             multicast traffic. For information about supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
@@ -54,6 +59,8 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTransitGatewayMulticastGroupSourcesCommandInput - {@link RegisterTransitGatewayMulticastGroupSourcesCommandInput}
+ * @returns {@link RegisterTransitGatewayMulticastGroupSourcesCommandOutput}
  * @see {@link RegisterTransitGatewayMulticastGroupSourcesCommandInput} for command's `input` shape.
  * @see {@link RegisterTransitGatewayMulticastGroupSourcesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTransitGatewayMulticastGroupSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
     return serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetLaunchTemplateDataCommand}.
  */
 export interface GetLaunchTemplateDataCommandInput extends GetLaunchTemplateDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLaunchTemplateDataCommand}.
  */
 export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration data of the specified instance. You can use this data to
  *             create a launch template. </p>
  *          <p>This action calls on other describe actions to get instance information. Depending on
@@ -53,6 +58,8 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLaunchTemplateDataCommandInput - {@link GetLaunchTemplateDataCommandInput}
+ * @returns {@link GetLaunchTemplateDataCommandOutput}
  * @see {@link GetLaunchTemplateDataCommandInput} for command's `input` shape.
  * @see {@link GetLaunchTemplateDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -139,6 +146,9 @@ export class GetLaunchTemplateDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLaunchTemplateDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,10 +188,16 @@ export class GetLaunchTemplateDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLaunchTemplateDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetLaunchTemplateDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLaunchTemplateDataCommandOutput> {
     return deserializeAws_ec2GetLaunchTemplateDataCommand(output, context);
   }

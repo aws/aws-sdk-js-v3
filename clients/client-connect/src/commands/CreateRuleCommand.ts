@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandInput extends CreateRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a rule for the specified Amazon Connect instance.</p>
  *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
  *    code conditions for the rule. </p>
@@ -48,6 +53,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
+ * @returns {@link CreateRuleCommandOutput}
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
     return deserializeAws_restJson1CreateRuleCommand(output, context);
   }

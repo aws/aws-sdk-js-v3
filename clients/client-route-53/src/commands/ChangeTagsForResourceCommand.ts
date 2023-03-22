@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ChangeTagsForResourceCommand}.
  */
 export interface ChangeTagsForResourceCommandInput extends ChangeTagsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangeTagsForResourceCommand}.
  */
 export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
  *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangeTagsForResourceCommandInput - {@link ChangeTagsForResourceCommandInput}
+ * @returns {@link ChangeTagsForResourceCommandOutput}
  * @see {@link ChangeTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ChangeTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -115,6 +122,9 @@ export class ChangeTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangeTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class ChangeTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangeTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlChangeTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeTagsForResourceCommandOutput> {
     return deserializeAws_restXmlChangeTagsForResourceCommand(output, context);
   }

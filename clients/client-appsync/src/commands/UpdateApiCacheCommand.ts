@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApiCacheCommand}.
  */
 export interface UpdateApiCacheCommandInput extends UpdateApiCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApiCacheCommand}.
  */
 export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the cache for the GraphQL API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApiCacheCommandInput - {@link UpdateApiCacheCommandInput}
+ * @returns {@link UpdateApiCacheCommandOutput}
  * @see {@link UpdateApiCacheCommandInput} for command's `input` shape.
  * @see {@link UpdateApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateApiCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApiCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateApiCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApiCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiCacheCommandOutput> {
     return deserializeAws_restJson1UpdateApiCacheCommand(output, context);
   }

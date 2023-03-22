@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteManagedPrefixListCommand}.
  */
 export interface DeleteManagedPrefixListCommandInput extends DeleteManagedPrefixListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteManagedPrefixListCommand}.
  */
 export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefixListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified managed prefix list. You must first remove all references to the prefix list in your resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefi
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteManagedPrefixListCommandInput - {@link DeleteManagedPrefixListCommandInput}
+ * @returns {@link DeleteManagedPrefixListCommandOutput}
  * @see {@link DeleteManagedPrefixListCommandInput} for command's `input` shape.
  * @see {@link DeleteManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteManagedPrefixListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteManagedPrefixListCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteManagedPrefixListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteManagedPrefixListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteManagedPrefixListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteManagedPrefixListCommandOutput> {
     return deserializeAws_ec2DeleteManagedPrefixListCommand(output, context);
   }

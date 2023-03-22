@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrganizationAdminAccountCommand}.
  */
 export interface GetOrganizationAdminAccountCommandInput extends GetOrganizationAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOrganizationAdminAccountCommand}.
  */
 export interface GetOrganizationAdminAccountCommandOutput
@@ -37,6 +41,7 @@ export interface GetOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the name of the delegated Amazon Web Services administrator account for the
  *          organization. </p>
  * @example
@@ -49,6 +54,8 @@ export interface GetOrganizationAdminAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrganizationAdminAccountCommandInput - {@link GetOrganizationAdminAccountCommandInput}
+ * @returns {@link GetOrganizationAdminAccountCommandOutput}
  * @see {@link GetOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOrganizationAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

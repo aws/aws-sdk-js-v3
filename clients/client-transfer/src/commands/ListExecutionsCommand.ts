@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListExecutionsCommand}.
  */
 export interface ListExecutionsCommandInput extends ListExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExecutionsCommand}.
  */
 export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all executions for the specified workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
+ * @returns {@link ListExecutionsCommandOutput}
  * @see {@link ListExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExecutionsCommandOutput> {
     return deserializeAws_json1_1ListExecutionsCommand(output, context);
   }

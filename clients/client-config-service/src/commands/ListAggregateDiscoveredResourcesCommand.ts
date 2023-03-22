@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAggregateDiscoveredResourcesCommand}.
  */
 export interface ListAggregateDiscoveredResourcesCommandInput extends ListAggregateDiscoveredResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAggregateDiscoveredResourcesCommand}.
  */
 export interface ListAggregateDiscoveredResourcesCommandOutput
@@ -37,6 +41,7 @@ export interface ListAggregateDiscoveredResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions.
  * 			A resource identifier includes the resource type, ID, (if available) the custom resource name, source account, and source region.
  * 			You can narrow the results to include only resources that have specific resource IDs, or a resource name, or source account ID, or source region.</p>
@@ -51,6 +56,8 @@ export interface ListAggregateDiscoveredResourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAggregateDiscoveredResourcesCommandInput - {@link ListAggregateDiscoveredResourcesCommandInput}
+ * @returns {@link ListAggregateDiscoveredResourcesCommandOutput}
  * @see {@link ListAggregateDiscoveredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAggregateDiscoveredResourcesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAggregateDiscoveredResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAggregateDiscoveredResourcesCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
     return serializeAws_json1_1ListAggregateDiscoveredResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

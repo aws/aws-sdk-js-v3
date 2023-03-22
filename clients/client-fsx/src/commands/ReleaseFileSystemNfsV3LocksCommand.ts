@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ReleaseFileSystemNfsV3LocksCommand}.
  */
 export interface ReleaseFileSystemNfsV3LocksCommandInput extends ReleaseFileSystemNfsV3LocksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReleaseFileSystemNfsV3LocksCommand}.
  */
 export interface ReleaseFileSystemNfsV3LocksCommandOutput
@@ -37,6 +41,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases the file system lock from an Amazon FSx for OpenZFS file
  *             system.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleaseFileSystemNfsV3LocksCommandInput - {@link ReleaseFileSystemNfsV3LocksCommandInput}
+ * @returns {@link ReleaseFileSystemNfsV3LocksCommandOutput}
  * @see {@link ReleaseFileSystemNfsV3LocksCommandInput} for command's `input` shape.
  * @see {@link ReleaseFileSystemNfsV3LocksCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -90,6 +97,9 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleaseFileSystemNfsV3LocksCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleaseFileSystemNfsV3LocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

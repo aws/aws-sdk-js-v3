@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateManagedPrefixListCommand}.
  */
 export interface CreateManagedPrefixListCommandInput extends CreateManagedPrefixListRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateManagedPrefixListCommand}.
  */
 export interface CreateManagedPrefixListCommandOutput extends CreateManagedPrefixListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a managed prefix list. You can specify one or more entries for the prefix list.
  *             Each entry consists of a CIDR block and an optional description.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateManagedPrefixListCommandOutput extends CreateManagedPrefi
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateManagedPrefixListCommandInput - {@link CreateManagedPrefixListCommandInput}
+ * @returns {@link CreateManagedPrefixListCommandOutput}
  * @see {@link CreateManagedPrefixListCommandInput} for command's `input` shape.
  * @see {@link CreateManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class CreateManagedPrefixListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateManagedPrefixListCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class CreateManagedPrefixListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateManagedPrefixListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateManagedPrefixListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateManagedPrefixListCommandOutput> {
     return deserializeAws_ec2CreateManagedPrefixListCommand(output, context);
   }

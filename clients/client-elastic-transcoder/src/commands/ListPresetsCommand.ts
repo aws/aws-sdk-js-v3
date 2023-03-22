@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPresetsCommand}.
  */
 export interface ListPresetsCommandInput extends ListPresetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPresetsCommand}.
  */
 export interface ListPresetsCommandOutput extends ListPresetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that
  *             you've added in an AWS region.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPresetsCommandInput - {@link ListPresetsCommandInput}
+ * @returns {@link ListPresetsCommandOutput}
  * @see {@link ListPresetsCommandInput} for command's `input` shape.
  * @see {@link ListPresetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListPresetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPresetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListPresetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPresetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPresetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPresetsCommandOutput> {
     return deserializeAws_restJson1ListPresetsCommand(output, context);
   }

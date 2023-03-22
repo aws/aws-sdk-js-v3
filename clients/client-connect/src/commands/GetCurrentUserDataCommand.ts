@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCurrentUserDataCommand}.
  */
 export interface GetCurrentUserDataCommandInput extends GetCurrentUserDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCurrentUserDataCommand}.
  */
 export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the real-time active user data from the specified Amazon Connect instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCurrentUserDataCommandInput - {@link GetCurrentUserDataCommandInput}
+ * @returns {@link GetCurrentUserDataCommandOutput}
  * @see {@link GetCurrentUserDataCommandInput} for command's `input` shape.
  * @see {@link GetCurrentUserDataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetCurrentUserDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCurrentUserDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetCurrentUserDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCurrentUserDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCurrentUserDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCurrentUserDataCommandOutput> {
     return deserializeAws_restJson1GetCurrentUserDataCommand(output, context);
   }

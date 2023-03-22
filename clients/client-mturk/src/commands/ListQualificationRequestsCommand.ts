@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListQualificationRequestsCommand}.
  */
 export interface ListQualificationRequestsCommandInput extends ListQualificationRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQualificationRequestsCommand}.
  */
 export interface ListQualificationRequestsCommandOutput extends ListQualificationRequestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>ListQualificationRequests</code>
@@ -53,6 +58,8 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQualificationRequestsCommandInput - {@link ListQualificationRequestsCommandInput}
+ * @returns {@link ListQualificationRequestsCommandOutput}
  * @see {@link ListQualificationRequestsCommandInput} for command's `input` shape.
  * @see {@link ListQualificationRequestsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListQualificationRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQualificationRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListQualificationRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQualificationRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListQualificationRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

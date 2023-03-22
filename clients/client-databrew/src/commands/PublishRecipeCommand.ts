@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishRecipeCommand}.
  */
 export interface PublishRecipeCommandInput extends PublishRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link PublishRecipeCommand}.
  */
 export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes a new version of a DataBrew recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishRecipeCommandInput - {@link PublishRecipeCommandInput}
+ * @returns {@link PublishRecipeCommandOutput}
  * @see {@link PublishRecipeCommandInput} for command's `input` shape.
  * @see {@link PublishRecipeCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -78,6 +85,9 @@ export class PublishRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class PublishRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PublishRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishRecipeCommandOutput> {
     return deserializeAws_restJson1PublishRecipeCommand(output, context);
   }

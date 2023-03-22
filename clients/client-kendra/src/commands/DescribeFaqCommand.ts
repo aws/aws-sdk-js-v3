@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFaqCommand}.
  */
 export interface DescribeFaqCommandInput extends DescribeFaqRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFaqCommand}.
  */
 export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an FAQ list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFaqCommandInput - {@link DescribeFaqCommandInput}
+ * @returns {@link DescribeFaqCommandOutput}
  * @see {@link DescribeFaqCommandInput} for command's `input` shape.
  * @see {@link DescribeFaqCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeFaqCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFaqCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeFaqCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFaqCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFaqCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFaqCommandOutput> {
     return deserializeAws_json1_1DescribeFaqCommand(output, context);
   }

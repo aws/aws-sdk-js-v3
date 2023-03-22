@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExperimentsCommand}.
  */
 export interface ListExperimentsCommandInput extends ListExperimentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExperimentsCommand}.
  */
 export interface ListExperimentsCommandOutput extends ListExperimentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration details about all the experiments in the specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExperimentsCommandInput - {@link ListExperimentsCommandInput}
+ * @returns {@link ListExperimentsCommandOutput}
  * @see {@link ListExperimentsCommandInput} for command's `input` shape.
  * @see {@link ListExperimentsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListExperimentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExperimentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListExperimentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExperimentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListExperimentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExperimentsCommandOutput> {
     return deserializeAws_restJson1ListExperimentsCommand(output, context);
   }

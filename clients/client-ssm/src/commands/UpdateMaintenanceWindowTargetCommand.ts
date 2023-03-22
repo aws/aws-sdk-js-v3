@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMaintenanceWindowTargetCommand}.
  */
 export interface UpdateMaintenanceWindowTargetCommandInput extends UpdateMaintenanceWindowTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMaintenanceWindowTargetCommand}.
  */
 export interface UpdateMaintenanceWindowTargetCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the target of an existing maintenance window. You
  *    can change the following:</p>
  *          <ul>
@@ -73,6 +78,8 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMaintenanceWindowTargetCommandInput - {@link UpdateMaintenanceWindowTargetCommandInput}
+ * @returns {@link UpdateMaintenanceWindowTargetCommandOutput}
  * @see {@link UpdateMaintenanceWindowTargetCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceWindowTargetCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -105,6 +112,9 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMaintenanceWindowTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMaintenanceWindowTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMaintenanceWindowTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -10,7 +10,7 @@ import { PrivateNetworksClient } from "../PrivateNetworksClient";
 import { PrivateNetworksPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PrivateNetworksClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNetworksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListNetworks(
   config: PrivateNetworksPaginationConfiguration,
   input: ListNetworksCommandInput,

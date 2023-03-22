@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpsertTableRowsCommand}.
  */
 export interface BatchUpsertTableRowsCommandInput extends BatchUpsertTableRowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpsertTableRowsCommand}.
  */
 export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The BatchUpsertTableRows API allows you to upsert one or more rows in a table. The upsert
  *             operation takes a filter expression as input and evaluates it to find matching rows on the destination
@@ -58,6 +63,8 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpsertTableRowsCommandInput - {@link BatchUpsertTableRowsCommandInput}
+ * @returns {@link BatchUpsertTableRowsCommandOutput}
  * @see {@link BatchUpsertTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchUpsertTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -112,6 +119,9 @@ export class BatchUpsertTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpsertTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class BatchUpsertTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpsertTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchUpsertTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpsertTableRowsCommandOutput> {
     return deserializeAws_restJson1BatchUpsertTableRowsCommand(output, context);
   }

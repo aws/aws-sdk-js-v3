@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopLaunchCommand}.
  */
 export interface StopLaunchCommandInput extends StopLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopLaunchCommand}.
  */
 export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a launch that is currently running. After you stop a launch, you will not be able to resume it or restart it.
  *        Also, it
  *        will not be evaluated as a rule for traffic allocation, and the traffic that was allocated to the launch
@@ -50,6 +55,8 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param StopLaunchCommandInput - {@link StopLaunchCommandInput}
+ * @returns {@link StopLaunchCommandOutput}
  * @see {@link StopLaunchCommandInput} for command's `input` shape.
  * @see {@link StopLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -85,6 +92,9 @@ export class StopLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StopLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopLaunchCommandOutput> {
     return deserializeAws_restJson1StopLaunchCommand(output, context);
   }

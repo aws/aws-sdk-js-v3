@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResiliencyPolicyCommand}.
  */
 export interface CreateResiliencyPolicyCommandInput extends CreateResiliencyPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResiliencyPolicyCommand}.
  */
 export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resiliency policy for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPol
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResiliencyPolicyCommandInput - {@link CreateResiliencyPolicyCommandInput}
+ * @returns {@link CreateResiliencyPolicyCommandOutput}
  * @see {@link CreateResiliencyPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateResiliencyPolicyCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateResiliencyPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResiliencyPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateResiliencyPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResiliencyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateResiliencyPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResiliencyPolicyCommandOutput> {
     return deserializeAws_restJson1CreateResiliencyPolicyCommand(output, context);
   }

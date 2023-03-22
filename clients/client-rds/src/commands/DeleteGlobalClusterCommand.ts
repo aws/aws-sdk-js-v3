@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGlobalClusterCommand}.
  */
 export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGlobalClusterCommand}.
  */
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a global database cluster. The primary and secondary clusters must already be detached or
  *         destroyed first.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGlobalClusterCommandInput - {@link DeleteGlobalClusterCommandInput}
+ * @returns {@link DeleteGlobalClusterCommandOutput}
  * @see {@link DeleteGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGlobalClusterCommandOutput> {
     return deserializeAws_queryDeleteGlobalClusterCommand(output, context);
   }

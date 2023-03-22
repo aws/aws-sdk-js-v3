@@ -281,6 +281,7 @@ import {
 import { GuardDutyClient } from "./GuardDutyClient";
 
 /**
+ * @public
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
  *       the following data sources: VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event
  *       logs, EKS audit logs, DNS logs, and Amazon EBS volume data.
@@ -304,6 +305,7 @@ import { GuardDutyClient } from "./GuardDutyClient";
  */
 export class GuardDuty extends GuardDutyClient {
   /**
+   * @public
    * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty administrator account that sent the invitation.</p>
    */
   public acceptAdministratorInvitation(
@@ -336,6 +338,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
@@ -370,6 +373,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>
    *          <note>
    *             <p>Only the administrator account can archive findings. Member accounts don't have permission to
@@ -406,6 +410,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Creates a single Amazon GuardDuty detector. A detector is a resource that represents the
    *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
    *       you enable the service. You can have only one detector per account per Region. All data
@@ -444,6 +449,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Creates a filter using the specified finding criteria. The maximum number of saved filters
    *       per Amazon Web Services account per Region is 100. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html">Quotas for GuardDuty</a>.</p>
    */
@@ -474,6 +480,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An
    *       IPSet is a list of IP addresses that are trusted for secure communication with Amazon Web Services
    *       infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are
@@ -503,6 +510,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account
    *       IDs. This step is a prerequisite for managing the associated member accounts either by
    *       invitation or through an organization.</p>
@@ -543,6 +551,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Creates a publishing destination to export findings to. The resource to export findings to
    *       must exist before you use this operation.</p>
    */
@@ -576,6 +585,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Generates sample findings of types specified by the list of finding types. If 'NULL' is
    *       specified for <code>findingTypes</code>, the API generates sample findings of all supported
    *       finding types.</p>
@@ -610,6 +620,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
    *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can
    *       use this operation.</p>
@@ -644,6 +655,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by their
    *       account IDs.</p>
    */
@@ -677,6 +689,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>
    */
   public deleteDetector(
@@ -709,6 +722,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Deletes the filter specified by the filter name.</p>
    */
   public deleteFilter(
@@ -738,6 +752,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Deletes invitations sent to the current member account by Amazon Web Services accounts specified by their
    *       account IDs.</p>
    */
@@ -771,6 +786,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP
    *       lists in the console user interface.</p>
    */
@@ -798,6 +814,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by
    *       the account IDs.</p>
    */
@@ -831,6 +848,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
    */
   public deletePublishingDestination(
@@ -863,6 +881,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
    */
   public deleteThreatIntelSet(
@@ -895,6 +914,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of malware scans. Each member account can view the malware scans for their
    *       own accounts. An administrator can view the malware scans for all the member accounts.</p>
    *          <p>There might be regional differences because some data sources might not be
@@ -931,6 +951,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the account selected as the delegated administrator for
    *       GuardDuty.</p>
    *          <p>There might be regional differences because some data sources might not be
@@ -967,6 +988,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the publishing destination specified by the provided
    *         <code>destinationId</code>.</p>
    */
@@ -1000,6 +1022,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Disables an Amazon Web Services account within the Organization as the GuardDuty delegated
    *       administrator.</p>
    */
@@ -1033,6 +1056,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
    */
   public disassociateFromAdministratorAccount(
@@ -1065,6 +1089,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
@@ -1099,6 +1124,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Disassociates GuardDuty member accounts (to the current administrator account) specified by the account IDs.</p>
    */
   public disassociateMembers(
@@ -1131,6 +1157,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Enables an Amazon Web Services account within the organization as the GuardDuty delegated
    *       administrator.</p>
    */
@@ -1164,6 +1191,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Provides the details for the GuardDuty administrator account associated with the current
    *       GuardDuty member account.</p>
    */
@@ -1197,6 +1225,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1226,6 +1255,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of the filter specified by the filter name.</p>
    */
   public getFilter(args: GetFilterCommandInput, options?: __HttpHandlerOptions): Promise<GetFilterCommandOutput>;
@@ -1252,6 +1282,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Describes Amazon GuardDuty findings specified by finding IDs.</p>
    */
   public getFindings(args: GetFindingsCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsCommandOutput>;
@@ -1278,6 +1309,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists Amazon GuardDuty findings statistics for the specified detector ID.</p>
    */
   public getFindingsStatistics(
@@ -1310,6 +1342,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Returns the count of all GuardDuty membership invitations that were sent to the current
    *       member account except the currently accepted invitation.</p>
    */
@@ -1343,6 +1376,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
    */
   public getIPSet(args: GetIPSetCommandInput, options?: __HttpHandlerOptions): Promise<GetIPSetCommandOutput>;
@@ -1369,6 +1403,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Returns the details of the malware scan settings.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1404,6 +1439,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Provides the details for the GuardDuty administrator account associated with the current
@@ -1439,6 +1475,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Describes which data sources are enabled for the member account's detector.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1474,6 +1511,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by
    *       the account IDs.</p>
    */
@@ -1501,6 +1539,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Provides the number of days left for each data source used in the free trial period.</p>
    */
   public getRemainingFreeTrialDays(
@@ -1533,6 +1572,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
    */
   public getThreatIntelSet(
@@ -1565,6 +1605,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector
    *       ID. For newly enabled detectors or data sources, the cost returned will include only the usage
    *       so far under 30 days. This may differ from the cost metrics in the console, which project
@@ -1600,6 +1641,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Invites other Amazon Web Services accounts (created as members of the current Amazon Web Services account by
    *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage these
    *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
@@ -1634,6 +1676,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists detectorIds of all the existing Amazon GuardDuty detector resources.</p>
    */
   public listDetectors(
@@ -1666,6 +1709,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of the current filters.</p>
    */
   public listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
@@ -1692,6 +1736,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists Amazon GuardDuty findings for the specified detector ID.</p>
    */
   public listFindings(
@@ -1721,6 +1766,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists all GuardDuty membership invitations that were sent to the current Amazon Web Services
    *       account.</p>
    */
@@ -1754,6 +1800,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this
    *       operation from a member account, the IPSets returned are the IPSets from the associated administrator
    *       account.</p>
@@ -1782,6 +1829,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists details about all member accounts for the current GuardDuty administrator account.</p>
    */
   public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
@@ -1808,6 +1856,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists the accounts configured as GuardDuty delegated administrators.</p>
    */
   public listOrganizationAdminAccounts(
@@ -1840,6 +1889,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of publishing destinations associated with the specified
    *         <code>detectorId</code>.</p>
    */
@@ -1873,6 +1923,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
    *       IP sets, and threat intel sets, with a limit of 50 tags per resource. When invoked, this
    *       operation returns all assigned tags for a given resource.</p>
@@ -1907,6 +1958,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
    *       use this operation from a member account, the ThreatIntelSets associated with the administrator
    *       account are returned.</p>
@@ -1941,6 +1993,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to
    *       restart monitoring of accounts that you stopped monitoring with the
    *         <code>StopMonitoringMembers</code> operation.</p>
@@ -1975,6 +2028,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Stops GuardDuty monitoring for the specified member accounts. Use the
    *         <code>StartMonitoringMembers</code> operation to restart monitoring for those
    *       accounts.</p>
@@ -2009,6 +2063,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2035,6 +2090,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
    */
   public unarchiveFindings(
@@ -2067,6 +2123,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a resource.</p>
    */
   public untagResource(
@@ -2099,6 +2156,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Updates the Amazon GuardDuty detector specified by the detectorId.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -2134,6 +2192,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Updates the filter specified by the filter name.</p>
    */
   public updateFilter(
@@ -2163,6 +2222,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Marks the specified GuardDuty findings as useful or not useful.</p>
    */
   public updateFindingsFeedback(
@@ -2195,6 +2255,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Updates the IPSet specified by the IPSet ID.</p>
    */
   public updateIPSet(args: UpdateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIPSetCommandOutput>;
@@ -2221,6 +2282,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Updates the malware scan settings.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -2256,6 +2318,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Contains information on member accounts to be updated.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -2291,6 +2354,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Updates the delegated administrator account with the values provided.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -2326,6 +2390,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Updates information about the publishing destination specified by the
    *         <code>destinationId</code>.</p>
    */
@@ -2359,6 +2424,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * @public
    * <p>Updates the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
    */
   public updateThreatIntelSet(

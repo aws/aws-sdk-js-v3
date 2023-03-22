@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImportSnapshotTasksCommand}.
  */
 export interface DescribeImportSnapshotTasksCommandInput extends DescribeImportSnapshotTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImportSnapshotTasksCommand}.
  */
 export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImportSnapshotTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your import snapshot tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImport
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImportSnapshotTasksCommandInput - {@link DescribeImportSnapshotTasksCommandInput}
+ * @returns {@link DescribeImportSnapshotTasksCommandOutput}
  * @see {@link DescribeImportSnapshotTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeImportSnapshotTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImportSnapshotTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImportSnapshotTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeImportSnapshotTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

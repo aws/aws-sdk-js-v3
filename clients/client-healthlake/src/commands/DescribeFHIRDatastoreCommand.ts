@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFHIRDatastoreCommand}.
  */
 export interface DescribeFHIRDatastoreCommandInput extends DescribeFHIRDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFHIRDatastoreCommand}.
  */
 export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with the FHIR Data Store, including the Data Store ID,
  *          Data Store ARN, Data Store name, Data Store status, created at, Data Store type version, and
  *          Data Store endpoint.</p>
@@ -48,6 +53,8 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFHIRDatastoreCommandInput - {@link DescribeFHIRDatastoreCommandInput}
+ * @returns {@link DescribeFHIRDatastoreCommandOutput}
  * @see {@link DescribeFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link DescribeFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeFHIRDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFHIRDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeFHIRDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFHIRDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeFHIRDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFHIRDatastoreCommandOutput> {
     return deserializeAws_json1_0DescribeFHIRDatastoreCommand(output, context);
   }

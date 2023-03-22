@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMigrationTasksCommand}.
  */
 export interface ListMigrationTasksCommandInput extends ListMigrationTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMigrationTasksCommand}.
  */
 export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all, or filtered by resource name, migration tasks associated with the user
  *          account making this call. This API has the following traits:</p>
  *          <ul>
@@ -59,6 +64,8 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMigrationTasksCommandInput - {@link ListMigrationTasksCommandInput}
+ * @returns {@link ListMigrationTasksCommandOutput}
  * @see {@link ListMigrationTasksCommandInput} for command's `input` shape.
  * @see {@link ListMigrationTasksCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -113,6 +120,9 @@ export class ListMigrationTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMigrationTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class ListMigrationTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMigrationTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMigrationTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMigrationTasksCommandOutput> {
     return deserializeAws_json1_1ListMigrationTasksCommand(output, context);
   }

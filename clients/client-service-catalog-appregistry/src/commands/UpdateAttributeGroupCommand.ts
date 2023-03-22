@@ -30,15 +30,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAttributeGroupCommand}.
  */
 export interface UpdateAttributeGroupCommandInput extends UpdateAttributeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAttributeGroupCommand}.
  */
 export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing attribute group with new details. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAttributeGroupCommandInput - {@link UpdateAttributeGroupCommandInput}
+ * @returns {@link UpdateAttributeGroupCommandOutput}
  * @see {@link UpdateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateAttributeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAttributeGroupCommandOutput> {
     return deserializeAws_restJson1UpdateAttributeGroupCommand(output, context);
   }

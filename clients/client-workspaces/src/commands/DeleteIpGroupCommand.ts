@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIpGroupCommand}.
  */
 export interface DeleteIpGroupCommandInput extends DeleteIpGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIpGroupCommand}.
  */
 export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified IP access control group.</p>
  *          <p>You cannot delete an IP access control group that is associated with a directory.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIpGroupCommandInput - {@link DeleteIpGroupCommandInput}
+ * @returns {@link DeleteIpGroupCommandOutput}
  * @see {@link DeleteIpGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteIpGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteIpGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIpGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteIpGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIpGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteIpGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIpGroupCommandOutput> {
     return deserializeAws_json1_1DeleteIpGroupCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterDbRevisionCommand}.
  */
 export interface ModifyClusterDbRevisionCommandInput extends ModifyClusterDbRevisionMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterDbRevisionCommand}.
  */
 export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRevisionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the database revision of a cluster. The database revision is a unique
  *             revision of the database running in a cluster.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRev
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterDbRevisionCommandInput - {@link ModifyClusterDbRevisionCommandInput}
+ * @returns {@link ModifyClusterDbRevisionCommandOutput}
  * @see {@link ModifyClusterDbRevisionCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterDbRevisionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -80,6 +87,9 @@ export class ModifyClusterDbRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterDbRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ModifyClusterDbRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterDbRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterDbRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterDbRevisionCommandOutput> {
     return deserializeAws_queryModifyClusterDbRevisionCommand(output, context);
   }

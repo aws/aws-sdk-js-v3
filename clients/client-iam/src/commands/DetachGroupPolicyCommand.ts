@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetachGroupPolicyCommand}.
  */
 export interface DetachGroupPolicyCommandInput extends DetachGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachGroupPolicyCommand}.
  */
 export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified managed policy from the specified IAM group.</p>
  *          <p>A group can also have inline policies embedded with it. To delete an inline policy,
  *             use <a>DeleteGroupPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
@@ -45,6 +50,8 @@ export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachGroupPolicyCommandInput - {@link DetachGroupPolicyCommandInput}
+ * @returns {@link DetachGroupPolicyCommandOutput}
  * @see {@link DetachGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link DetachGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class DetachGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DetachGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetachGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachGroupPolicyCommandOutput> {
     return deserializeAws_queryDetachGroupPolicyCommand(output, context);
   }

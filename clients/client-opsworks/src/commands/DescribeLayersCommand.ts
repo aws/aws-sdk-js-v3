@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLayersCommand}.
  */
 export interface DescribeLayersCommandInput extends DescribeLayersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLayersCommand}.
  */
 export interface DescribeLayersCommandOutput extends DescribeLayersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a description of one or more layers in a specified stack.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -54,6 +59,8 @@ export interface DescribeLayersCommandOutput extends DescribeLayersResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLayersCommandInput - {@link DescribeLayersCommandInput}
+ * @returns {@link DescribeLayersCommandOutput}
  * @see {@link DescribeLayersCommandInput} for command's `input` shape.
  * @see {@link DescribeLayersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeLayersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLayersCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeLayersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLayersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLayersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLayersCommandOutput> {
     return deserializeAws_json1_1DescribeLayersCommand(output, context);
   }

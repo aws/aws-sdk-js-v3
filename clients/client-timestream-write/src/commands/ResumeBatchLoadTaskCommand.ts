@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeBatchLoadTaskCommand}.
  */
 export interface ResumeBatchLoadTaskCommandInput extends ResumeBatchLoadTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResumeBatchLoadTaskCommand}.
  */
 export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       </p>
  * @example
@@ -48,6 +53,8 @@ export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeBatchLoadTaskCommandInput - {@link ResumeBatchLoadTaskCommandInput}
+ * @returns {@link ResumeBatchLoadTaskCommandOutput}
  * @see {@link ResumeBatchLoadTaskCommandInput} for command's `input` shape.
  * @see {@link ResumeBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -93,6 +100,9 @@ export class ResumeBatchLoadTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeBatchLoadTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ResumeBatchLoadTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeBatchLoadTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ResumeBatchLoadTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeBatchLoadTaskCommandOutput> {
     return deserializeAws_json1_0ResumeBatchLoadTaskCommand(output, context);
   }

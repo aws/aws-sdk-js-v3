@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatasetGroupCommand}.
  */
 export interface DeleteDatasetGroupCommandInput extends DeleteDatasetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatasetGroupCommand}.
  */
 export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a dataset group created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a> operation.
  *       You can only delete dataset groups that have a status of <code>ACTIVE</code>,
  *         <code>CREATE_FAILED</code>, or <code>UPDATE_FAILED</code>. To get the status, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a> operation.</p>
@@ -44,6 +49,8 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetGroupCommandInput - {@link DeleteDatasetGroupCommandInput}
+ * @returns {@link DeleteDatasetGroupCommandOutput}
  * @see {@link DeleteDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteDatasetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetGroupCommandOutput> {
     return deserializeAws_json1_1DeleteDatasetGroupCommand(output, context);
   }

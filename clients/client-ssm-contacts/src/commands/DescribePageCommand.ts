@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePageCommand}.
  */
 export interface DescribePageCommandInput extends DescribePageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePageCommand}.
  */
 export interface DescribePageCommandOutput extends DescribePageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists details of the engagement to a contact channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePageCommandInput - {@link DescribePageCommandInput}
+ * @returns {@link DescribePageCommandOutput}
  * @see {@link DescribePageCommandInput} for command's `input` shape.
  * @see {@link DescribePageCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -115,6 +122,9 @@ export class DescribePageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePageCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DescribePageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePageCommandOutput> {
     return deserializeAws_json1_1DescribePageCommand(output, context);
   }

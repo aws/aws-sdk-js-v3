@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRoleAliasCommand}.
  */
 export interface DeleteRoleAliasCommandInput extends DeleteRoleAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRoleAliasCommand}.
  */
 export interface DeleteRoleAliasCommandOutput extends DeleteRoleAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a role alias</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRoleAlias</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteRoleAliasCommandOutput extends DeleteRoleAliasResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRoleAliasCommandInput - {@link DeleteRoleAliasCommandInput}
+ * @returns {@link DeleteRoleAliasCommandOutput}
  * @see {@link DeleteRoleAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteRoleAliasCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteRoleAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRoleAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteRoleAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRoleAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRoleAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoleAliasCommandOutput> {
     return deserializeAws_restJson1DeleteRoleAliasCommand(output, context);
   }

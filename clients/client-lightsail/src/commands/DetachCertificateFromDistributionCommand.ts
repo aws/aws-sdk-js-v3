@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachCertificateFromDistributionCommand}.
  */
 export interface DetachCertificateFromDistributionCommandInput extends DetachCertificateFromDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachCertificateFromDistributionCommand}.
  */
 export interface DetachCertificateFromDistributionCommandOutput
@@ -37,6 +41,7 @@ export interface DetachCertificateFromDistributionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>After the certificate is detached, your distribution stops accepting traffic for all of
@@ -51,6 +56,8 @@ export interface DetachCertificateFromDistributionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachCertificateFromDistributionCommandInput - {@link DetachCertificateFromDistributionCommandInput}
+ * @returns {@link DetachCertificateFromDistributionCommandOutput}
  * @see {@link DetachCertificateFromDistributionCommandInput} for command's `input` shape.
  * @see {@link DetachCertificateFromDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -100,6 +107,9 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachCertificateFromDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DetachCertificateFromDistributionCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     return serializeAws_json1_1DetachCertificateFromDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link OptOutSpeakerCommand}.
  */
 export interface OptOutSpeakerCommandInput extends OptOutSpeakerRequest {}
 /**
+ * @public
+ *
  * The output of {@link OptOutSpeakerCommand}.
  */
 export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Opts out a speaker from Voice ID. A speaker can be opted out regardless of whether or
  *             not they already exist in Voice ID. If they don't yet exist, a new speaker is created
  *             in an opted out state. If they already exist, their existing status is overridden and
@@ -51,6 +56,8 @@ export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param OptOutSpeakerCommandInput - {@link OptOutSpeakerCommandInput}
+ * @returns {@link OptOutSpeakerCommandOutput}
  * @see {@link OptOutSpeakerCommandInput} for command's `input` shape.
  * @see {@link OptOutSpeakerCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -102,6 +109,9 @@ export class OptOutSpeakerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: OptOutSpeakerCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class OptOutSpeakerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: OptOutSpeakerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0OptOutSpeakerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OptOutSpeakerCommandOutput> {
     return deserializeAws_json1_0OptOutSpeakerCommand(output, context);
   }

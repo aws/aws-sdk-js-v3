@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link InstantiateSolNetworkInstanceCommand}.
  */
 export interface InstantiateSolNetworkInstanceCommandInput extends InstantiateSolNetworkInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link InstantiateSolNetworkInstanceCommand}.
  */
 export interface InstantiateSolNetworkInstanceCommandOutput
@@ -37,6 +41,7 @@ export interface InstantiateSolNetworkInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Instantiates a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  *          <p>Before you can instantiate a network instance, you have to create a network instance. For more information, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html">CreateSolNetworkInstance</a>.</p>
@@ -50,6 +55,8 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param InstantiateSolNetworkInstanceCommandInput - {@link InstantiateSolNetworkInstanceCommandInput}
+ * @returns {@link InstantiateSolNetworkInstanceCommandOutput}
  * @see {@link InstantiateSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link InstantiateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -91,6 +98,9 @@ export class InstantiateSolNetworkInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InstantiateSolNetworkInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class InstantiateSolNetworkInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InstantiateSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InstantiateSolNetworkInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseProvisionedCapacityCommand}.
  */
 export interface PurchaseProvisionedCapacityCommandInput extends PurchaseProvisionedCapacityInput {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseProvisionedCapacityCommand}.
  */
 export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvisionedCapacityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation purchases a provisioned capacity unit for an AWS account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseProvisionedCapacityCommandInput - {@link PurchaseProvisionedCapacityCommandInput}
+ * @returns {@link PurchaseProvisionedCapacityCommandOutput}
  * @see {@link PurchaseProvisionedCapacityCommandInput} for command's `input` shape.
  * @see {@link PurchaseProvisionedCapacityCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -97,6 +104,9 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseProvisionedCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseProvisionedCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PurchaseProvisionedCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

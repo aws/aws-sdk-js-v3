@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToCertificateCommand}.
  */
 export interface AddTagsToCertificateCommandInput extends AddTagsToCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToCertificateCommand}.
  */
 export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an ACM certificate. Tags are labels that you can use to
  *       identify and organize your Amazon Web Services resources. Each tag consists of a <code>key</code> and an
  *       optional <code>value</code>. You specify the certificate on input by its Amazon Resource Name
@@ -54,6 +59,8 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToCertificateCommandInput - {@link AddTagsToCertificateCommandInput}
+ * @returns {@link AddTagsToCertificateCommandOutput}
  * @see {@link AddTagsToCertificateCommandInput} for command's `input` shape.
  * @see {@link AddTagsToCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -100,6 +107,9 @@ export class AddTagsToCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class AddTagsToCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddTagsToCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToCertificateCommandOutput> {
     return deserializeAws_json1_1AddTagsToCertificateCommand(output, context);
   }

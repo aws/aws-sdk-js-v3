@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1StopBuildCommand, serializeAws_json1_1StopBuildCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopBuildCommand}.
  */
 export interface StopBuildCommandInput extends StopBuildInput {}
 /**
+ * @public
+ *
  * The output of {@link StopBuildCommand}.
  */
 export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to stop running a build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBuildCommandInput - {@link StopBuildCommandInput}
+ * @returns {@link StopBuildCommandOutput}
  * @see {@link StopBuildCommandInput} for command's `input` shape.
  * @see {@link StopBuildCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +79,9 @@ export class StopBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class StopBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBuildCommandOutput> {
     return deserializeAws_json1_1StopBuildCommand(output, context);
   }

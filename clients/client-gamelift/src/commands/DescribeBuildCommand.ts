@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBuildCommand}.
  */
 export interface DescribeBuildCommandInput extends DescribeBuildInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBuildCommand}.
  */
 export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves properties for a custom game build. To request a build resource, specify a
  *             build ID. If successful, an object containing the build properties is returned.</p>
  *         <p>
@@ -57,6 +62,8 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBuildCommandInput - {@link DescribeBuildCommandInput}
+ * @returns {@link DescribeBuildCommandOutput}
  * @see {@link DescribeBuildCommandInput} for command's `input` shape.
  * @see {@link DescribeBuildCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBuildCommandOutput> {
     return deserializeAws_json1_1DescribeBuildCommand(output, context);
   }

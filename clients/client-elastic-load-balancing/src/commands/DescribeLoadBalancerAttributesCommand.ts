@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoadBalancerAttributesCommand}.
  */
 export interface DescribeLoadBalancerAttributesCommandInput extends DescribeLoadBalancerAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoadBalancerAttributesCommand}.
  */
 export interface DescribeLoadBalancerAttributesCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeLoadBalancerAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the attributes for the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancerAttributesCommandInput - {@link DescribeLoadBalancerAttributesCommandInput}
+ * @returns {@link DescribeLoadBalancerAttributesCommandOutput}
  * @see {@link DescribeLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -111,6 +118,9 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancerAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLoadBalancerAttributesCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     return serializeAws_queryDescribeLoadBalancerAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStoredQueriesCommand}.
  */
 export interface ListStoredQueriesCommandInput extends ListStoredQueriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStoredQueriesCommand}.
  */
 export interface ListStoredQueriesCommandOutput extends ListStoredQueriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the stored queries for a single Amazon Web Services account and a single Amazon Web Services Region. The default is 100. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListStoredQueriesCommandOutput extends ListStoredQueriesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStoredQueriesCommandInput - {@link ListStoredQueriesCommandInput}
+ * @returns {@link ListStoredQueriesCommandOutput}
  * @see {@link ListStoredQueriesCommandInput} for command's `input` shape.
  * @see {@link ListStoredQueriesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListStoredQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStoredQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListStoredQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStoredQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStoredQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStoredQueriesCommandOutput> {
     return deserializeAws_json1_1ListStoredQueriesCommand(output, context);
   }

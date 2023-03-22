@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetTransitGatewayRouteTableAssociationsCommand}.
  */
 export interface GetTransitGatewayRouteTableAssociationsCommandInput
   extends GetTransitGatewayRouteTableAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTransitGatewayRouteTableAssociationsCommand}.
  */
 export interface GetTransitGatewayRouteTableAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface GetTransitGatewayRouteTableAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the associations for the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetTransitGatewayRouteTableAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayRouteTableAssociationsCommandInput - {@link GetTransitGatewayRouteTableAssociationsCommandInput}
+ * @returns {@link GetTransitGatewayRouteTableAssociationsCommandOutput}
  * @see {@link GetTransitGatewayRouteTableAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRouteTableAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayRouteTableAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayRouteTableAssociationsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
     return serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

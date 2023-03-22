@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterAppInstanceUserEndpointCommand}.
  */
 export interface RegisterAppInstanceUserEndpointCommandInput extends RegisterAppInstanceUserEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterAppInstanceUserEndpointCommand}.
  */
 export interface RegisterAppInstanceUserEndpointCommandOutput
@@ -37,6 +41,7 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterAppInstanceUserEndpointCommandInput - {@link RegisterAppInstanceUserEndpointCommandInput}
+ * @returns {@link RegisterAppInstanceUserEndpointCommandOutput}
  * @see {@link RegisterAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link RegisterAppInstanceUserEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -96,6 +103,9 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterAppInstanceUserEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterAppInstanceUserEndpointCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
     return serializeAws_restJson1RegisterAppInstanceUserEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDiskSnapshotsCommand}.
  */
 export interface GetDiskSnapshotsCommandInput extends GetDiskSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDiskSnapshotsCommand}.
  */
 export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all block storage disk snapshots in your AWS account and
  *       region.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDiskSnapshotsCommandInput - {@link GetDiskSnapshotsCommandInput}
+ * @returns {@link GetDiskSnapshotsCommandOutput}
  * @see {@link GetDiskSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetDiskSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetDiskSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDiskSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetDiskSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDiskSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDiskSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiskSnapshotsCommandOutput> {
     return deserializeAws_json1_1GetDiskSnapshotsCommand(output, context);
   }

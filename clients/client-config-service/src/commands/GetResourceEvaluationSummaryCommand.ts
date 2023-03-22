@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceEvaluationSummaryCommand}.
  */
 export interface GetResourceEvaluationSummaryCommandInput extends GetResourceEvaluationSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceEvaluationSummaryCommand}.
  */
 export interface GetResourceEvaluationSummaryCommandOutput
@@ -37,6 +41,7 @@ export interface GetResourceEvaluationSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a summary of resource evaluation for the specified resource evaluation ID from the proactive rules that were run.
  * 			The results indicate which evaluation context was used to evaluate the rules, which resource details were evaluated,
  * 			the evaluation mode that was run, and whether the resource details comply with the configuration of the proactive rules. </p>
@@ -54,6 +59,8 @@ export interface GetResourceEvaluationSummaryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceEvaluationSummaryCommandInput - {@link GetResourceEvaluationSummaryCommandInput}
+ * @returns {@link GetResourceEvaluationSummaryCommandOutput}
  * @see {@link GetResourceEvaluationSummaryCommandInput} for command's `input` shape.
  * @see {@link GetResourceEvaluationSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetResourceEvaluationSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceEvaluationSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetResourceEvaluationSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceEvaluationSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResourceEvaluationSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

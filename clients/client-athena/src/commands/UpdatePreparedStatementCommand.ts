@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePreparedStatementCommand}.
  */
 export interface UpdatePreparedStatementCommandInput extends UpdatePreparedStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePreparedStatementCommand}.
  */
 export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a prepared statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePreparedStatementCommandInput - {@link UpdatePreparedStatementCommandInput}
+ * @returns {@link UpdatePreparedStatementCommandOutput}
  * @see {@link UpdatePreparedStatementCommandInput} for command's `input` shape.
  * @see {@link UpdatePreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdatePreparedStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdatePreparedStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePreparedStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePreparedStatementCommandOutput> {
     return deserializeAws_json1_1UpdatePreparedStatementCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSourceFromRedshiftCommand}.
  */
 export interface CreateDataSourceFromRedshiftCommandInput extends CreateDataSourceFromRedshiftInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSourceFromRedshiftCommand}.
  */
 export interface CreateDataSourceFromRedshiftCommandOutput
@@ -37,6 +41,7 @@ export interface CreateDataSourceFromRedshiftCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A
  * 		<code>DataSource</code> references data that can be used to perform either <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code>
  * 		operations.</p>
@@ -80,6 +85,8 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSourceFromRedshiftCommandInput - {@link CreateDataSourceFromRedshiftCommandInput}
+ * @returns {@link CreateDataSourceFromRedshiftCommandOutput}
  * @see {@link CreateDataSourceFromRedshiftCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromRedshiftCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -112,6 +119,9 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSourceFromRedshiftCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSourceFromRedshiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDataSourceFromRedshiftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

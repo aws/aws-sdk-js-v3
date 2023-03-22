@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
 export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
   extends CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
 export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a local gateway route table virtual interface group association.
  *       </p>
@@ -51,6 +56,8 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput - {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput}
+ * @returns {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput}
  * @see {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     return serializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

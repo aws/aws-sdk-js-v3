@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterClusterCommand}.
  */
 export interface DeregisterClusterCommandInput extends DeregisterClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterClusterCommand}.
  */
 export interface DeregisterClusterCommandOutput extends DeregisterClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters a connected cluster to remove it from the Amazon EKS control
  *             plane.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterClusterCommandInput - {@link DeregisterClusterCommandInput}
+ * @returns {@link DeregisterClusterCommandOutput}
  * @see {@link DeregisterClusterCommandInput} for command's `input` shape.
  * @see {@link DeregisterClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeregisterClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DeregisterClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeregisterClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterClusterCommandOutput> {
     return deserializeAws_restJson1DeregisterClusterCommand(output, context);
   }

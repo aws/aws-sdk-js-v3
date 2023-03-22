@@ -91,6 +91,7 @@ import {
 import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 
 /**
+ * @public
  * <p>Welcome to the Amazon AppFlow API reference. This guide is for developers who need
  *       detailed information about the Amazon AppFlow API operations, data types, and errors. </p>
  *          <p>Amazon AppFlow is a fully managed integration service that enables you to securely
@@ -129,6 +130,7 @@ import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } fr
  */
 export class Appflow extends AppflowClient {
   /**
+   * @public
    * <p> Creates a new connector profile associated with your Amazon Web Services account. There is
    *       a soft quota of 100 connector profiles per Amazon Web Services account. If you need more
    *       connector profiles than this quota allows, you can submit a request to the Amazon AppFlow
@@ -165,6 +167,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Enables your application to create a new flow using Amazon AppFlow. You must create
    *       a connector profile before calling this API. Please note that the Request Syntax below shows
    *       syntax for multiple destinations, however, you can only transfer data to one item in this list
@@ -195,6 +198,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Enables you to delete an existing connector profile. </p>
    */
   public deleteConnectorProfile(
@@ -227,6 +231,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can
    *       delete flows one at a time. </p>
    */
@@ -254,6 +259,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p>Describes the given custom connector registered in your Amazon Web Services account. This
    *       API can be used for custom connectors that are registered in your account and also for Amazon
    *       authored connectors.</p>
@@ -288,6 +294,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Provides details regarding the entity used with the connector, with a description of the
    *       data model for each field in that entity. </p>
    */
@@ -321,6 +328,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of <code>connector-profile</code> details matching the provided
    *         <code>connector-profile</code> names and <code>connector-types</code>. Both input lists are
    *       optional, and you can use them to filter the result. </p>
@@ -357,6 +365,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Describes the connectors vended by Amazon AppFlow for specified connector types. If
    *       you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow. If there are more connectors than can be returned in one page, the response
    *       contains a <code>nextToken</code> object, which can be be passed in to the next call to the
@@ -392,6 +401,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Provides a description of the specified flow. </p>
    */
   public describeFlow(
@@ -421,6 +431,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Fetches the execution history of the flow. </p>
    */
   public describeFlowExecutionRecords(
@@ -453,6 +464,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Returns the list of available connector entities supported by Amazon AppFlow. For
    *       example, you can query Salesforce for <i>Account</i> and
    *         <i>Opportunity</i> entities, or query ServiceNow for the
@@ -488,6 +500,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of all registered custom connectors in your Amazon Web Services account.
    *       This API lists only custom connectors registered in this account, not the Amazon Web Services
    *       authored connectors. </p>
@@ -522,6 +535,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Lists all of the flows associated with your account. </p>
    */
   public listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
@@ -548,6 +562,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Retrieves the tags that are associated with a specified flow. </p>
    */
   public listTagsForResource(
@@ -580,6 +595,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p>Registers a new custom connector with your Amazon Web Services account. Before you can
    *       register the connector, you must deploy the associated AWS lambda function in your
    *       account.</p>
@@ -614,6 +630,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Activates an existing flow. For on-demand flows, this operation runs the flow
    *       immediately. For schedule and event-triggered flows, this operation activates the flow. </p>
    */
@@ -641,6 +658,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Deactivates the existing flow. For on-demand flows, this operation returns an
    *         <code>unsupportedOperationException</code> error message. For schedule and event-triggered
    *       flows, this operation deactivates the flow. </p>
@@ -669,6 +687,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Applies a tag to the specified flow. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -695,6 +714,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p>Unregisters the custom connector registered in your account that matches the connector
    *       label provided in the request.</p>
    */
@@ -728,6 +748,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Removes a tag from the specified flow. </p>
    */
   public untagResource(
@@ -760,6 +781,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Updates a given connector profile associated with your account. </p>
    */
   public updateConnectorProfile(
@@ -792,6 +814,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p>Updates a custom connector that you've previously registered. This operation updates the
    *       connector with one of the following:</p>
    *          <ul>
@@ -833,6 +856,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * @public
    * <p> Updates an existing flow. </p>
    */
   public updateFlow(args: UpdateFlowCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFlowCommandOutput>;

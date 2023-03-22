@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePublicIpv4PoolCommand}.
  */
 export interface CreatePublicIpv4PoolCommandInput extends CreatePublicIpv4PoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePublicIpv4PoolCommand}.
  */
 export interface CreatePublicIpv4PoolCommandOutput extends CreatePublicIpv4PoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a public IPv4 address pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only. To monitor the status of pool creation, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html">DescribePublicIpv4Pools</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePublicIpv4PoolCommandOutput extends CreatePublicIpv4PoolR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePublicIpv4PoolCommandInput - {@link CreatePublicIpv4PoolCommandInput}
+ * @returns {@link CreatePublicIpv4PoolCommandOutput}
  * @see {@link CreatePublicIpv4PoolCommandInput} for command's `input` shape.
  * @see {@link CreatePublicIpv4PoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class CreatePublicIpv4PoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePublicIpv4PoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CreatePublicIpv4PoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePublicIpv4PoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreatePublicIpv4PoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePublicIpv4PoolCommandOutput> {
     return deserializeAws_ec2CreatePublicIpv4PoolCommand(output, context);
   }

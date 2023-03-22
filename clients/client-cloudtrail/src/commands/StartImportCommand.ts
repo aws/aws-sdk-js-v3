@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImportCommand}.
  */
 export interface StartImportCommandInput extends StartImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImportCommand}.
  */
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts an import of logged trail events from a source S3 bucket to a destination event
  *          data store. By default, CloudTrail only imports events contained in the S3 bucket's
  *                <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services
@@ -62,6 +67,8 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportCommandInput - {@link StartImportCommandInput}
+ * @returns {@link StartImportCommandOutput}
  * @see {@link StartImportCommandInput} for command's `input` shape.
  * @see {@link StartImportCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -126,6 +133,9 @@ export class StartImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class StartImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportCommandOutput> {
     return deserializeAws_json1_1StartImportCommand(output, context);
   }

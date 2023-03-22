@@ -3,11 +3,17 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SMSServiceException as __BaseException } from "./SMSServiceException";
 
+/**
+ * @public
+ */
 export enum AppLaunchConfigurationStatus {
   Configured = "CONFIGURED",
   NotConfigured = "NOT_CONFIGURED",
 }
 
+/**
+ * @public
+ */
 export enum AppLaunchStatus {
   ConfigurationInProgress = "CONFIGURATION_IN_PROGRESS",
   ConfigurationInvalid = "CONFIGURATION_INVALID",
@@ -26,11 +32,17 @@ export enum AppLaunchStatus {
   ValidationInProgress = "VALIDATION_IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export enum AppReplicationConfigurationStatus {
   Configured = "CONFIGURED",
   NotConfigured = "NOT_CONFIGURED",
 }
 
+/**
+ * @public
+ */
 export enum AppReplicationStatus {
   ConfigurationInProgress = "CONFIGURATION_IN_PROGRESS",
   ConfigurationInvalid = "CONFIGURATION_INVALID",
@@ -51,6 +63,7 @@ export enum AppReplicationStatus {
 }
 
 /**
+ * @public
  * <p>Details about the latest launch of an application.</p>
  */
 export interface LaunchDetails {
@@ -70,6 +83,9 @@ export interface LaunchDetails {
   stackId?: string;
 }
 
+/**
+ * @public
+ */
 export enum AppStatus {
   Active = "ACTIVE",
   Creating = "CREATING",
@@ -80,6 +96,7 @@ export enum AppStatus {
 }
 
 /**
+ * @public
  * <p>Information about the application.</p>
  */
 export interface AppSummary {
@@ -179,16 +196,23 @@ export interface AppSummary {
   totalServers?: number;
 }
 
+/**
+ * @public
+ */
 export enum AppValidationStrategy {
   SSM = "SSM",
 }
 
+/**
+ * @public
+ */
 export enum ScriptType {
   POWERSHELL_SCRIPT = "POWERSHELL_SCRIPT",
   SHELL_SCRIPT = "SHELL_SCRIPT",
 }
 
 /**
+ * @public
  * <p>Location of an Amazon S3 object.</p>
  */
 export interface S3Location {
@@ -204,6 +228,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Contains the location of a validation script.</p>
  */
 export interface Source {
@@ -214,6 +239,7 @@ export interface Source {
 }
 
 /**
+ * @public
  * <p>Contains validation parameters.</p>
  */
 export interface SSMValidationParameters {
@@ -249,6 +275,7 @@ export interface SSMValidationParameters {
 }
 
 /**
+ * @public
  * <p>Configuration for validating an application.</p>
  */
 export interface AppValidationConfiguration {
@@ -274,6 +301,7 @@ export interface AppValidationConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains the location of validation output.</p>
  */
 export interface SSMOutput {
@@ -284,6 +312,7 @@ export interface SSMOutput {
 }
 
 /**
+ * @public
  * <p>Output from validating an application.</p>
  */
 export interface AppValidationOutput {
@@ -293,10 +322,16 @@ export interface AppValidationOutput {
   ssmOutput?: SSMOutput;
 }
 
+/**
+ * @public
+ */
 export enum ServerType {
   VirtualMachine = "VIRTUAL_MACHINE",
 }
 
+/**
+ * @public
+ */
 export enum VmManagerType {
   hyperVManager = "HYPERV-MANAGER",
   scvmm = "SCVMM",
@@ -304,6 +339,7 @@ export enum VmManagerType {
 }
 
 /**
+ * @public
  * <p>Represents a VM server location.</p>
  */
 export interface VmServerAddress {
@@ -319,6 +355,7 @@ export interface VmServerAddress {
 }
 
 /**
+ * @public
  * <p>Represents a VM server.</p>
  */
 export interface VmServer {
@@ -349,6 +386,7 @@ export interface VmServer {
 }
 
 /**
+ * @public
  * <p>Represents a server.</p>
  */
 export interface Server {
@@ -379,6 +417,7 @@ export interface Server {
 }
 
 /**
+ * @public
  * <p>Logical grouping of servers.</p>
  */
 export interface ServerGroup {
@@ -399,6 +438,7 @@ export interface ServerGroup {
 }
 
 /**
+ * @public
  * <p>Key/value pair that can be assigned to an application.</p>
  */
 export interface Tag {
@@ -413,6 +453,9 @@ export interface Tag {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppRequest {
   /**
    * <p>The name of the new application.</p>
@@ -446,6 +489,9 @@ export interface CreateAppRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAppResponse {
   /**
    * <p>A summary description of the application.</p>
@@ -464,6 +510,7 @@ export interface CreateAppResponse {
 }
 
 /**
+ * @public
  * <p>An internal error occurred.</p>
  */
 export class InternalError extends __BaseException {
@@ -483,6 +530,7 @@ export class InternalError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified parameter is not valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -502,6 +550,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A required parameter is missing.</p>
  */
 export class MissingRequiredParameterException extends __BaseException {
@@ -521,6 +570,7 @@ export class MissingRequiredParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation is not allowed.</p>
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -540,6 +590,7 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  */
@@ -559,11 +610,17 @@ export class UnauthorizedOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum LicenseType {
   AWS = "AWS",
   BYOL = "BYOL",
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationJobRequest {
   /**
    * <p>The ID of the server.</p>
@@ -635,6 +692,9 @@ export interface CreateReplicationJobRequest {
   kmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationJobResponse {
   /**
    * <p>The unique identifier of the replication job.</p>
@@ -643,6 +703,7 @@ export interface CreateReplicationJobResponse {
 }
 
 /**
+ * @public
  * <p>There are no connectors available.</p>
  */
 export class NoConnectorsAvailableException extends __BaseException {
@@ -662,6 +723,7 @@ export class NoConnectorsAvailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified replication job already exists.</p>
  */
 export class ReplicationJobAlreadyExistsException extends __BaseException {
@@ -681,6 +743,7 @@ export class ReplicationJobAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified server cannot be replicated.</p>
  */
 export class ServerCannotBeReplicatedException extends __BaseException {
@@ -700,6 +763,7 @@ export class ServerCannotBeReplicatedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class TemporarilyUnavailableException extends __BaseException {
@@ -718,6 +782,9 @@ export class TemporarilyUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -737,8 +804,14 @@ export interface DeleteAppRequest {
   forceTerminateApp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAppLaunchConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -746,8 +819,14 @@ export interface DeleteAppLaunchConfigurationRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppLaunchConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAppReplicationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -755,8 +834,14 @@ export interface DeleteAppReplicationConfigurationRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppReplicationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAppValidationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -764,8 +849,14 @@ export interface DeleteAppValidationConfigurationRequest {
   appId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppValidationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteReplicationJobRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -773,9 +864,13 @@ export interface DeleteReplicationJobRequest {
   replicationJobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationJobResponse {}
 
 /**
+ * @public
  * <p>The specified replication job does not exist.</p>
  */
 export class ReplicationJobNotFoundException extends __BaseException {
@@ -794,10 +889,19 @@ export class ReplicationJobNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteServerCatalogRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteServerCatalogResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateConnectorRequest {
   /**
    * <p>The ID of the connector.</p>
@@ -805,13 +909,22 @@ export interface DisassociateConnectorRequest {
   connectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateConnectorResponse {}
 
+/**
+ * @public
+ */
 export enum OutputFormat {
   JSON = "JSON",
   YAML = "YAML",
 }
 
+/**
+ * @public
+ */
 export interface GenerateChangeSetRequest {
   /**
    * <p>The ID of the application associated with the change set.</p>
@@ -824,6 +937,9 @@ export interface GenerateChangeSetRequest {
   changesetFormat?: OutputFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateChangeSetResponse {
   /**
    * <p>The location of the Amazon S3 object.</p>
@@ -831,6 +947,9 @@ export interface GenerateChangeSetResponse {
   s3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface GenerateTemplateRequest {
   /**
    * <p>The ID of the application associated with the CloudFormation template.</p>
@@ -843,6 +962,9 @@ export interface GenerateTemplateRequest {
   templateFormat?: OutputFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateTemplateResponse {
   /**
    * <p>The location of the Amazon S3 object.</p>
@@ -850,6 +972,9 @@ export interface GenerateTemplateResponse {
   s3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface GetAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -857,6 +982,9 @@ export interface GetAppRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAppResponse {
   /**
    * <p>Information about the application.</p>
@@ -874,6 +1002,9 @@ export interface GetAppResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppLaunchConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -882,6 +1013,7 @@ export interface GetAppLaunchConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>A script that runs on first launch of an Amazon EC2 instance. Used for configuring the
  *             server during launch.</p>
  */
@@ -893,6 +1025,7 @@ export interface UserData {
 }
 
 /**
+ * @public
  * <p>Launch configuration for a server.</p>
  */
 export interface ServerLaunchConfiguration {
@@ -958,6 +1091,7 @@ export interface ServerLaunchConfiguration {
 }
 
 /**
+ * @public
  * <p>Launch configuration for a server group.</p>
  */
 export interface ServerGroupLaunchConfiguration {
@@ -978,6 +1112,9 @@ export interface ServerGroupLaunchConfiguration {
   serverLaunchConfigurations?: ServerLaunchConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppLaunchConfigurationResponse {
   /**
    * <p>The ID of the application.</p>
@@ -1001,6 +1138,9 @@ export interface GetAppLaunchConfigurationResponse {
   serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppReplicationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1009,6 +1149,7 @@ export interface GetAppReplicationConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>The replication parameters for replicating a server.</p>
  */
 export interface ServerReplicationParameters {
@@ -1066,6 +1207,7 @@ export interface ServerReplicationParameters {
 }
 
 /**
+ * @public
  * <p>Replication configuration of a server.</p>
  */
 export interface ServerReplicationConfiguration {
@@ -1082,6 +1224,7 @@ export interface ServerReplicationConfiguration {
 }
 
 /**
+ * @public
  * <p>Replication configuration for a server group.</p>
  */
 export interface ServerGroupReplicationConfiguration {
@@ -1097,6 +1240,9 @@ export interface ServerGroupReplicationConfiguration {
   serverReplicationConfigurations?: ServerReplicationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppReplicationConfigurationResponse {
   /**
    * <p>The replication configurations associated with server groups in this application.</p>
@@ -1104,6 +1250,9 @@ export interface GetAppReplicationConfigurationResponse {
   serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppValidationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1111,11 +1260,15 @@ export interface GetAppValidationConfigurationRequest {
   appId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ServerValidationStrategy {
   USERDATA = "USERDATA",
 }
 
 /**
+ * @public
  * <p>Contains validation parameters.</p>
  */
 export interface UserDataValidationParameters {
@@ -1131,6 +1284,7 @@ export interface UserDataValidationParameters {
 }
 
 /**
+ * @public
  * <p>Configuration for validating an instance.</p>
  */
 export interface ServerValidationConfiguration {
@@ -1161,6 +1315,7 @@ export interface ServerValidationConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration for validating an instance.</p>
  */
 export interface ServerGroupValidationConfiguration {
@@ -1175,6 +1330,9 @@ export interface ServerGroupValidationConfiguration {
   serverValidationConfigurations?: ServerValidationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppValidationConfigurationResponse {
   /**
    * <p>The configuration for application validation.</p>
@@ -1187,6 +1345,9 @@ export interface GetAppValidationConfigurationResponse {
   serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppValidationOutputRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1195,6 +1356,7 @@ export interface GetAppValidationOutputRequest {
 }
 
 /**
+ * @public
  * <p>Contains output from validating an instance.</p>
  */
 export interface ServerValidationOutput {
@@ -1204,6 +1366,9 @@ export interface ServerValidationOutput {
   server?: Server;
 }
 
+/**
+ * @public
+ */
 export enum ValidationStatus {
   Failed = "FAILED",
   InProgress = "IN_PROGRESS",
@@ -1213,6 +1378,7 @@ export enum ValidationStatus {
 }
 
 /**
+ * @public
  * <p>Contains validation output.</p>
  */
 export interface ValidationOutput {
@@ -1252,6 +1418,9 @@ export interface ValidationOutput {
   serverValidationOutput?: ServerValidationOutput;
 }
 
+/**
+ * @public
+ */
 export interface GetAppValidationOutputResponse {
   /**
    * <p>The validation output.</p>
@@ -1259,6 +1428,9 @@ export interface GetAppValidationOutputResponse {
   validationOutputList?: ValidationOutput[];
 }
 
+/**
+ * @public
+ */
 export interface GetConnectorsRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -1273,6 +1445,9 @@ export interface GetConnectorsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum ConnectorCapability {
   hyperVManager = "HYPERV-MANAGER",
   scvmm = "SCVMM",
@@ -1281,12 +1456,16 @@ export enum ConnectorCapability {
   vSphere = "VSPHERE",
 }
 
+/**
+ * @public
+ */
 export enum ConnectorStatus {
   Healthy = "HEALTHY",
   Unhealthy = "UNHEALTHY",
 }
 
 /**
+ * @public
  * <p>Represents a connector.</p>
  */
 export interface Connector {
@@ -1341,6 +1520,9 @@ export interface Connector {
   associatedOn?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectorsResponse {
   /**
    * <p>Information about the registered connectors.</p>
@@ -1354,6 +1536,9 @@ export interface GetConnectorsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationJobsRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -1374,6 +1559,7 @@ export interface GetReplicationJobsRequest {
 }
 
 /**
+ * @public
  * <p>Details of the current stage of a replication run.</p>
  */
 export interface ReplicationRunStageDetails {
@@ -1388,6 +1574,9 @@ export interface ReplicationRunStageDetails {
   stageProgress?: string;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationRunState {
   Active = "ACTIVE",
   Completed = "COMPLETED",
@@ -1398,12 +1587,16 @@ export enum ReplicationRunState {
   Pending = "PENDING",
 }
 
+/**
+ * @public
+ */
 export enum ReplicationRunType {
   Automatic = "AUTOMATIC",
   OnDemand = "ON_DEMAND",
 }
 
 /**
+ * @public
  * <p>Represents a replication run.</p>
  */
 export interface ReplicationRun {
@@ -1481,6 +1674,9 @@ export interface ReplicationRun {
   kmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationJobState {
   Active = "ACTIVE",
   Completed = "COMPLETED",
@@ -1493,6 +1689,7 @@ export enum ReplicationJobState {
 }
 
 /**
+ * @public
  * <p>Represents a replication job.</p>
  */
 export interface ReplicationJob {
@@ -1606,6 +1803,9 @@ export interface ReplicationJob {
   replicationRunList?: ReplicationRun[];
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationJobsResponse {
   /**
    * <p>Information about the replication jobs.</p>
@@ -1619,6 +1819,9 @@ export interface GetReplicationJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationRunsRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -1638,6 +1841,9 @@ export interface GetReplicationRunsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationRunsResponse {
   /**
    * <p>Information about the replication job.</p>
@@ -1656,6 +1862,9 @@ export interface GetReplicationRunsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetServersRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -1675,6 +1884,9 @@ export interface GetServersRequest {
   vmServerAddressList?: VmServerAddress[];
 }
 
+/**
+ * @public
+ */
 export enum ServerCatalogStatus {
   Available = "AVAILABLE",
   Deleted = "DELETED",
@@ -1683,6 +1895,9 @@ export enum ServerCatalogStatus {
   NotImported = "NOT_IMPORTED",
 }
 
+/**
+ * @public
+ */
 export interface GetServersResponse {
   /**
    * <p>The time when the server was last modified.</p>
@@ -1706,6 +1921,9 @@ export interface GetServersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportAppCatalogRequest {
   /**
    * <p>The name of the service role. If you omit this parameter, we create a service-linked role
@@ -1715,12 +1933,24 @@ export interface ImportAppCatalogRequest {
   roleName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportAppCatalogResponse {}
 
+/**
+ * @public
+ */
 export interface ImportServerCatalogRequest {}
 
+/**
+ * @public
+ */
 export interface ImportServerCatalogResponse {}
 
+/**
+ * @public
+ */
 export interface LaunchAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1728,8 +1958,14 @@ export interface LaunchAppRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface LaunchAppResponse {}
 
+/**
+ * @public
+ */
 export interface ListAppsRequest {
   /**
    * <p>The unique application IDs.</p>
@@ -1749,6 +1985,9 @@ export interface ListAppsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAppsResponse {
   /**
    * <p>The application summaries.</p>
@@ -1763,6 +2002,7 @@ export interface ListAppsResponse {
 }
 
 /**
+ * @public
  * <p>Contains the status of validating an application.</p>
  */
 export interface NotificationContext {
@@ -1782,6 +2022,9 @@ export interface NotificationContext {
   statusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyAppValidationOutputRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1794,8 +2037,14 @@ export interface NotifyAppValidationOutputRequest {
   notificationContext?: NotificationContext;
 }
 
+/**
+ * @public
+ */
 export interface NotifyAppValidationOutputResponse {}
 
+/**
+ * @public
+ */
 export interface PutAppLaunchConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1819,8 +2068,14 @@ export interface PutAppLaunchConfigurationRequest {
   serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface PutAppLaunchConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface PutAppReplicationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1833,8 +2088,14 @@ export interface PutAppReplicationConfigurationRequest {
   serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface PutAppReplicationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface PutAppValidationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1852,8 +2113,14 @@ export interface PutAppValidationConfigurationRequest {
   serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface PutAppValidationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface StartAppReplicationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1861,8 +2128,14 @@ export interface StartAppReplicationRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAppReplicationResponse {}
 
+/**
+ * @public
+ */
 export interface StartOnDemandAppReplicationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1875,9 +2148,13 @@ export interface StartOnDemandAppReplicationRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandAppReplicationResponse {}
 
 /**
+ * @public
  * <p>The user has the required permissions, so the request would have succeeded,
  *             but a dry run was performed.</p>
  */
@@ -1898,6 +2175,7 @@ export class DryRunOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the number of on-demand replication runs you can request in a
  *             24-hour period.</p>
  */
@@ -1917,6 +2195,9 @@ export class ReplicationRunLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandReplicationRunRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -1929,6 +2210,9 @@ export interface StartOnDemandReplicationRunRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandReplicationRunResponse {
   /**
    * <p>The ID of the replication run.</p>
@@ -1936,6 +2220,9 @@ export interface StartOnDemandReplicationRunResponse {
   replicationRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopAppReplicationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1943,8 +2230,14 @@ export interface StopAppReplicationRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopAppReplicationResponse {}
 
+/**
+ * @public
+ */
 export interface TerminateAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1952,8 +2245,14 @@ export interface TerminateAppRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TerminateAppResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1986,6 +2285,9 @@ export interface UpdateAppRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppResponse {
   /**
    * <p>A summary description of the application.</p>
@@ -2003,6 +2305,9 @@ export interface UpdateAppResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationJobRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -2070,6 +2375,9 @@ export interface UpdateReplicationJobRequest {
   kmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationJobResponse {}
 
 /**

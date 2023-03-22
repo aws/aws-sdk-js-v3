@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobExecutionCommand}.
  */
 export interface DescribeJobExecutionCommandInput extends DescribeJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobExecutionCommand}.
  */
 export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a job execution.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJobExecution</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobExecutionCommandInput - {@link DescribeJobExecutionCommandInput}
+ * @returns {@link DescribeJobExecutionCommandOutput}
  * @see {@link DescribeJobExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobExecutionCommandOutput> {
     return deserializeAws_restJson1DescribeJobExecutionCommand(output, context);
   }

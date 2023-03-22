@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBusinessReportScheduleCommand}.
  */
 export interface DeleteBusinessReportScheduleCommandInput extends DeleteBusinessReportScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBusinessReportScheduleCommand}.
  */
 export interface DeleteBusinessReportScheduleCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteBusinessReportScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the recurring report delivery schedule with the specified schedule
  *          ARN.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteBusinessReportScheduleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBusinessReportScheduleCommandInput - {@link DeleteBusinessReportScheduleCommandInput}
+ * @returns {@link DeleteBusinessReportScheduleCommandOutput}
  * @see {@link DeleteBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBusinessReportScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBusinessReportScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBusinessReportScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

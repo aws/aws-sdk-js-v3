@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesForWebACLCommand}.
  */
 export interface ListResourcesForWebACLCommandInput extends ListResourcesForWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesForWebACLCommand}.
  */
 export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic Regional</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesForWebACLCommandInput - {@link ListResourcesForWebACLCommandInput}
+ * @returns {@link ListResourcesForWebACLCommandOutput}
  * @see {@link ListResourcesForWebACLCommandInput} for command's `input` shape.
  * @see {@link ListResourcesForWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -126,6 +133,9 @@ export class ListResourcesForWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesForWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class ListResourcesForWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesForWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourcesForWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesForWebACLCommandOutput> {
     return deserializeAws_json1_1ListResourcesForWebACLCommand(output, context);
   }

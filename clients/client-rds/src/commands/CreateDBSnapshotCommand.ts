@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBSnapshotCommand}.
  */
 export interface CreateDBSnapshotCommandInput extends CreateDBSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBSnapshotCommand}.
  */
 export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or
  *                 <code>storage-optimization</code> state.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBSnapshotCommandInput - {@link CreateDBSnapshotCommandInput}
+ * @returns {@link CreateDBSnapshotCommandOutput}
  * @see {@link CreateDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateDBSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateDBSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSnapshotCommandOutput> {
     return deserializeAws_queryCreateDBSnapshotCommand(output, context);
   }

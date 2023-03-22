@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeviceIdentifiersCommand}.
  */
 export interface ListDeviceIdentifiersCommandInput extends ListDeviceIdentifiersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeviceIdentifiersCommand}.
  */
 export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifiersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists device identifiers. Add filters to your request to return a more
  *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of an order,
  *             the status of device identifiers, or the ARN of the traffic group.</p>
@@ -50,6 +55,8 @@ export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifier
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceIdentifiersCommandInput - {@link ListDeviceIdentifiersCommandInput}
+ * @returns {@link ListDeviceIdentifiersCommandOutput}
  * @see {@link ListDeviceIdentifiersCommandInput} for command's `input` shape.
  * @see {@link ListDeviceIdentifiersCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDeviceIdentifiersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceIdentifiersCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDeviceIdentifiersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceIdentifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDeviceIdentifiersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceIdentifiersCommandOutput> {
     return deserializeAws_restJson1ListDeviceIdentifiersCommand(output, context);
   }

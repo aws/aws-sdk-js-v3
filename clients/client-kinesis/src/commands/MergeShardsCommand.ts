@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergeShardsCommand}.
  */
 export interface MergeShardsCommandInput extends MergeShardsInput {}
 /**
+ * @public
+ *
  * The output of {@link MergeShardsCommand}.
  */
 export interface MergeShardsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single
  *             shard to reduce the stream's capacity to ingest and transport data. This API is only
  *             supported for the data streams with the provisioned capacity mode. Two shards are
@@ -81,6 +86,8 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeShardsCommandInput - {@link MergeShardsCommandInput}
+ * @returns {@link MergeShardsCommandOutput}
  * @see {@link MergeShardsCommandInput} for command's `input` shape.
  * @see {@link MergeShardsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -131,6 +138,9 @@ export class MergeShardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeShardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,10 +178,16 @@ export class MergeShardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeShardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MergeShardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeShardsCommandOutput> {
     return deserializeAws_json1_1MergeShardsCommand(output, context);
   }

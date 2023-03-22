@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEmailIdentityPolicyCommand}.
  */
 export interface CreateEmailIdentityPolicyCommandInput extends CreateEmailIdentityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEmailIdentityPolicyCommand}.
  */
 export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified sending authorization policy for the given identity (an email
  *         address or a domain).</p>
  *          <note>
@@ -56,6 +61,8 @@ export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdent
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEmailIdentityPolicyCommandInput - {@link CreateEmailIdentityPolicyCommandInput}
+ * @returns {@link CreateEmailIdentityPolicyCommandOutput}
  * @see {@link CreateEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateEmailIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -94,6 +101,9 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEmailIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEmailIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateEmailIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

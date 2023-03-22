@@ -26,15 +26,20 @@ import {
 import { SageMakerMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerMetricsClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchPutMetricsCommand}.
  */
 export interface BatchPutMetricsCommandInput extends BatchPutMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchPutMetricsCommand}.
  */
 export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio and
  *          retrieved with the <code>GetMetrics</code> API.
  *       </p>
@@ -48,6 +53,8 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutMetricsCommandInput - {@link BatchPutMetricsCommandInput}
+ * @returns {@link BatchPutMetricsCommandOutput}
  * @see {@link BatchPutMetricsCommandInput} for command's `input` shape.
  * @see {@link BatchPutMetricsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerMetricsClientResolvedConfig | config} for SageMakerMetricsClient's `config` shape.
@@ -71,6 +78,9 @@ export class BatchPutMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class BatchPutMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchPutMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutMetricsCommandOutput> {
     return deserializeAws_restJson1BatchPutMetricsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPromptsCommand}.
  */
 export interface ListPromptsCommandInput extends ListPromptsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPromptsCommand}.
  */
 export interface ListPromptsCommandOutput extends ListPromptsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the prompts for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPromptsCommandInput - {@link ListPromptsCommandInput}
+ * @returns {@link ListPromptsCommandOutput}
  * @see {@link ListPromptsCommandInput} for command's `input` shape.
  * @see {@link ListPromptsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListPromptsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPromptsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListPromptsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPromptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPromptsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPromptsCommandOutput> {
     return deserializeAws_restJson1ListPromptsCommand(output, context);
   }

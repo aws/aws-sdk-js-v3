@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHumanTaskUiCommand}.
  */
 export interface DescribeHumanTaskUiCommandInput extends DescribeHumanTaskUiRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHumanTaskUiCommand}.
  */
 export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the requested human task user interface (worker task template).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHumanTaskUiCommandInput - {@link DescribeHumanTaskUiCommandInput}
+ * @returns {@link DescribeHumanTaskUiCommandOutput}
  * @see {@link DescribeHumanTaskUiCommandInput} for command's `input` shape.
  * @see {@link DescribeHumanTaskUiCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeHumanTaskUiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHumanTaskUiCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeHumanTaskUiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHumanTaskUiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeHumanTaskUiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHumanTaskUiCommandOutput> {
     return deserializeAws_json1_1DescribeHumanTaskUiCommand(output, context);
   }

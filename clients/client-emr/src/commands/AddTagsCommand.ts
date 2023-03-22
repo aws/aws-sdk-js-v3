@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsCommand}.
  */
 export interface AddTagsCommandInput extends AddTagsInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsCommand}.
  */
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR
  *          Studio. Tags make it easier to associate resources in various ways, such as grouping
  *          clusters to track your Amazon EMR resource allocation costs. For more information,
@@ -47,6 +52,8 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsCommandInput - {@link AddTagsCommandInput}
+ * @returns {@link AddTagsCommandOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -73,6 +80,9 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
     return deserializeAws_json1_1AddTagsCommand(output, context);
   }

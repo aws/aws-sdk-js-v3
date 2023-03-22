@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataSourceCommand}.
  */
 export interface GetDataSourceCommandInput extends GetDataSourceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDataSourceCommand}.
  */
 export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a <code>DataSource</code> that includes metadata and data file information, as well as the current status of the <code>DataSource</code>.</p>
  *         <p>
  *             <code>GetDataSource</code> provides results in normal or verbose format. The verbose format
@@ -49,6 +54,8 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataSourceCommandInput - {@link GetDataSourceCommandInput}
+ * @returns {@link GetDataSourceCommandOutput}
  * @see {@link GetDataSourceCommandInput} for command's `input` shape.
  * @see {@link GetDataSourceCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSourceCommandOutput> {
     return deserializeAws_json1_1GetDataSourceCommand(output, context);
   }

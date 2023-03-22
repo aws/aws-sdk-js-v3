@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocationSmbCommand}.
  */
 export interface DescribeLocationSmbCommandInput extends DescribeLocationSmbRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocationSmbCommand}.
  */
 export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata, such as the path and user information about an SMB location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationSmbCommandInput - {@link DescribeLocationSmbCommandInput}
+ * @returns {@link DescribeLocationSmbCommandOutput}
  * @see {@link DescribeLocationSmbCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationSmbCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeLocationSmbCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationSmbCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeLocationSmbCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationSmbCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationSmbCommandOutput> {
     return deserializeAws_json1_1DescribeLocationSmbCommand(output, context);
   }

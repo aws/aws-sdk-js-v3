@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link TranslateTextCommand}.
  */
 export interface TranslateTextCommandInput extends TranslateTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link TranslateTextCommand}.
  */
 export interface TranslateTextCommandOutput extends TranslateTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Translates input text from the source language to the target language. For a list of
  *       available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param TranslateTextCommandInput - {@link TranslateTextCommandInput}
+ * @returns {@link TranslateTextCommandOutput}
  * @see {@link TranslateTextCommandInput} for command's `input` shape.
  * @see {@link TranslateTextCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -104,6 +111,9 @@ export class TranslateTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TranslateTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class TranslateTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TranslateTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TranslateTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TranslateTextCommandOutput> {
     return deserializeAws_json1_1TranslateTextCommand(output, context);
   }

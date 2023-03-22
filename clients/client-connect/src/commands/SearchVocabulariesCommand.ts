@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchVocabulariesCommand}.
  */
 export interface SearchVocabulariesCommandInput extends SearchVocabulariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchVocabulariesCommand}.
  */
 export interface SearchVocabulariesCommandOutput extends SearchVocabulariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for vocabularies within a specific Amazon Connect instance using
  *     <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchVocabulariesCommandOutput extends SearchVocabulariesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchVocabulariesCommandInput - {@link SearchVocabulariesCommandInput}
+ * @returns {@link SearchVocabulariesCommandOutput}
  * @see {@link SearchVocabulariesCommandInput} for command's `input` shape.
  * @see {@link SearchVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -82,6 +89,9 @@ export class SearchVocabulariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchVocabulariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class SearchVocabulariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchVocabulariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchVocabulariesCommandOutput> {
     return deserializeAws_restJson1SearchVocabulariesCommand(output, context);
   }

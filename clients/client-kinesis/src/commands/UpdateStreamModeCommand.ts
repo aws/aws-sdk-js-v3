@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStreamModeCommand}.
  */
 export interface UpdateStreamModeCommandInput extends UpdateStreamModeInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStreamModeCommand}.
  */
 export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you
  *             can choose between an <b>on-demand</b> capacity mode and a
  *                 <b>provisioned</b> capacity mode for your data stream.
@@ -44,6 +49,8 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStreamModeCommandInput - {@link UpdateStreamModeCommandInput}
+ * @returns {@link UpdateStreamModeCommandOutput}
  * @see {@link UpdateStreamModeCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamModeCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateStreamModeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStreamModeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateStreamModeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStreamModeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateStreamModeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamModeCommandOutput> {
     return deserializeAws_json1_1UpdateStreamModeCommand(output, context);
   }

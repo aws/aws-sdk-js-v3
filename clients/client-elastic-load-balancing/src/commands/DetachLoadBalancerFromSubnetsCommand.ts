@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetachLoadBalancerFromSubnetsCommand}.
  */
 export interface DetachLoadBalancerFromSubnetsCommandInput extends DetachLoadBalancerFromSubnetsInput {}
 /**
+ * @public
+ *
  * The output of {@link DetachLoadBalancerFromSubnetsCommand}.
  */
 export interface DetachLoadBalancerFromSubnetsCommandOutput
@@ -41,6 +45,7 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p>
  *         <p>After a subnet is removed, all EC2 instances registered with the load balancer
  *             in the removed subnet go into the <code>OutOfService</code> state. Then,
@@ -55,6 +60,8 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachLoadBalancerFromSubnetsCommandInput - {@link DetachLoadBalancerFromSubnetsCommandInput}
+ * @returns {@link DetachLoadBalancerFromSubnetsCommandOutput}
  * @see {@link DetachLoadBalancerFromSubnetsCommandInput} for command's `input` shape.
  * @see {@link DetachLoadBalancerFromSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -105,6 +112,9 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachLoadBalancerFromSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachLoadBalancerFromSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetachLoadBalancerFromSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

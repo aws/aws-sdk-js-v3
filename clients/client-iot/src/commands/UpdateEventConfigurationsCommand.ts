@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventConfigurationsCommand}.
  */
 export interface UpdateEventConfigurationsCommandInput extends UpdateEventConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventConfigurationsCommand}.
  */
 export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the event configurations.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateEventConfigurations</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventConfigurationsCommandInput - {@link UpdateEventConfigurationsCommandInput}
+ * @returns {@link UpdateEventConfigurationsCommandOutput}
  * @see {@link UpdateEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link UpdateEventConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateEventConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateEventConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateEventConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

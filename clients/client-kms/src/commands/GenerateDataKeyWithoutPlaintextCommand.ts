@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateDataKeyWithoutPlaintextCommand}.
  */
 export interface GenerateDataKeyWithoutPlaintextCommandInput extends GenerateDataKeyWithoutPlaintextRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateDataKeyWithoutPlaintextCommand}.
  */
 export interface GenerateDataKeyWithoutPlaintextCommandOutput
@@ -37,6 +41,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
  *       data key that is encrypted under a symmetric encryption KMS key that you specify. The bytes in
  *       the key are random; they are not related to the caller or to the KMS key.</p>
@@ -119,6 +124,8 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateDataKeyWithoutPlaintextCommandInput - {@link GenerateDataKeyWithoutPlaintextCommandInput}
+ * @returns {@link GenerateDataKeyWithoutPlaintextCommandOutput}
  * @see {@link GenerateDataKeyWithoutPlaintextCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -221,6 +228,9 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateDataKeyWithoutPlaintextCommandInput) {
     // Start section: command_constructor
     super();
@@ -260,6 +270,9 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateDataKeyWithoutPlaintextCommandInput,
     context: __SerdeContext
@@ -267,6 +280,9 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
     return serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -209,6 +209,7 @@ import {
 } from "./commands/UpdateWebhookCommand";
 
 /**
+ * @public
  * <fullname>CodeBuild</fullname>
  *         <p>CodeBuild is a fully managed build service in the cloud. CodeBuild compiles your source code,
  *             runs unit tests, and produces artifacts that are ready to deploy. CodeBuild eliminates the
@@ -223,6 +224,7 @@ import {
  */
 export class CodeBuild extends CodeBuildClient {
   /**
+   * @public
    * <p>Deletes one or more builds.</p>
    */
   public batchDeleteBuilds(
@@ -255,6 +257,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about one or more batch builds.</p>
    */
   public batchGetBuildBatches(
@@ -287,6 +290,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more builds.</p>
    */
   public batchGetBuilds(
@@ -319,6 +323,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Gets information about one or more build projects.</p>
    */
   public batchGetProjects(
@@ -351,6 +356,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>
    *       Returns an array of report groups.
    *     </p>
@@ -385,6 +391,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>
    *       Returns an array of reports.
    *     </p>
@@ -419,6 +426,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Creates a build project.</p>
    */
   public createProject(
@@ -451,6 +459,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>
    *       Creates a report group. A report group contains a collection of reports.
    *     </p>
@@ -485,6 +494,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
    *       Bitbucket repository, enables CodeBuild to start rebuilding the source code every time a
    *       code change is pushed to the repository.</p>
@@ -527,6 +537,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Deletes a batch build.</p>
    */
   public deleteBuildBatch(
@@ -559,6 +570,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Deletes a build project. When you delete a project, its builds are not deleted.
    *         </p>
    */
@@ -592,6 +604,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>
    *       Deletes a report.
    *     </p>
@@ -623,6 +636,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Deletes a report group. Before you delete a report group, you must delete its reports. </p>
    */
   public deleteReportGroup(
@@ -655,6 +669,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Deletes a resource policy that is identified by its resource ARN. </p>
    */
   public deleteResourcePolicy(
@@ -687,6 +702,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials. </p>
    */
   public deleteSourceCredentials(
@@ -719,6 +735,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
    *             Bitbucket repository, stops CodeBuild from rebuilding the source code every time a code
    *             change is pushed to the repository.</p>
@@ -753,6 +770,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Retrieves one or more code coverage reports.</p>
    */
   public describeCodeCoverages(
@@ -785,6 +803,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>
    *       Returns a list of details about test cases for a report.
    *     </p>
@@ -819,6 +838,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Analyzes and accumulates test report values for the specified test reports.</p>
    */
   public getReportGroupTrend(
@@ -851,6 +871,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Gets a resource policy that is identified by its resource ARN. </p>
    */
   public getResourcePolicy(
@@ -883,6 +904,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Imports the source repository credentials for an CodeBuild project that has its
    *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
    */
@@ -916,6 +938,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Resets the cache for a project.</p>
    */
   public invalidateProjectCache(
@@ -948,6 +971,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the identifiers of your build batches in the current region.</p>
    */
   public listBuildBatches(
@@ -980,6 +1004,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the identifiers of the build batches for a specific project.</p>
    */
   public listBuildBatchesForProject(
@@ -1012,6 +1037,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of build IDs, with each build ID representing a single build.</p>
    */
   public listBuilds(args: ListBuildsCommandInput, options?: __HttpHandlerOptions): Promise<ListBuildsCommandOutput>;
@@ -1038,6 +1064,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of build identifiers for the specified build project, with each build
    *             identifier representing a single build.</p>
    */
@@ -1071,6 +1098,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Gets information about Docker images that are managed by CodeBuild.</p>
    */
   public listCuratedEnvironmentImages(
@@ -1103,6 +1131,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of build project names, with each build project name representing a single
    *             build project.</p>
    */
@@ -1133,6 +1162,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>
    *       Gets a list ARNs for the report groups in the current Amazon Web Services account.
    *     </p>
@@ -1167,6 +1197,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>
    *       Returns a list of ARNs for the reports in the current Amazon Web Services account.
    *     </p>
@@ -1195,6 +1226,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>
    *       Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
    *     </p>
@@ -1229,6 +1261,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Gets a list of projects that are shared with other Amazon Web Services accounts or users. </p>
    */
   public listSharedProjects(
@@ -1261,6 +1294,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Gets a list of report groups that are shared with other Amazon Web Services accounts or users.
    *         </p>
    */
@@ -1294,6 +1328,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of <code>SourceCredentialsInfo</code> objects. </p>
    */
   public listSourceCredentials(
@@ -1326,6 +1361,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Stores a resource policy for the ARN of a <code>Project</code> or
    *                 <code>ReportGroup</code> object. </p>
    */
@@ -1359,6 +1395,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Restarts a build.</p>
    */
   public retryBuild(args: RetryBuildCommandInput, options?: __HttpHandlerOptions): Promise<RetryBuildCommandOutput>;
@@ -1385,6 +1422,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Restarts a failed batch build. Only batch builds that have failed can be retried.</p>
    */
   public retryBuildBatch(
@@ -1417,6 +1455,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Starts running a build.</p>
    */
   public startBuild(args: StartBuildCommandInput, options?: __HttpHandlerOptions): Promise<StartBuildCommandOutput>;
@@ -1443,6 +1482,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Starts a batch build for a project.</p>
    */
   public startBuildBatch(
@@ -1475,6 +1515,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Attempts to stop running a build.</p>
    */
   public stopBuild(args: StopBuildCommandInput, options?: __HttpHandlerOptions): Promise<StopBuildCommandOutput>;
@@ -1501,6 +1542,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Stops a running batch build.</p>
    */
   public stopBuildBatch(
@@ -1533,6 +1575,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Changes the settings of a build project.</p>
    */
   public updateProject(
@@ -1565,6 +1608,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>Changes the public visibility for a project. The project's build results, logs, and
    *       artifacts are available to the general public.  For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html">Public build
    *         projects</a> in the <i>CodeBuild User Guide</i>.</p>
@@ -1634,6 +1678,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p>
    *       Updates a report group.
    *     </p>
@@ -1668,6 +1713,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
+   * @public
    * <p> Updates the webhook associated with an CodeBuild build project. </p>
    *          <note>
    *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.

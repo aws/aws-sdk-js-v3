@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetNamedQueryCommand}.
  */
 export interface BatchGetNamedQueryCommandInput extends BatchGetNamedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetNamedQueryCommand}.
  */
 export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of a single named query or a list of up to 50 queries, which you
  *             provide as an array of query ID strings. Requires you to have access to the workgroup in
  *             which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the
@@ -54,6 +59,8 @@ export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetNamedQueryCommandInput - {@link BatchGetNamedQueryCommandInput}
+ * @returns {@link BatchGetNamedQueryCommandOutput}
  * @see {@link BatchGetNamedQueryCommandInput} for command's `input` shape.
  * @see {@link BatchGetNamedQueryCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -85,6 +92,9 @@ export class BatchGetNamedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetNamedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class BatchGetNamedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetNamedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetNamedQueryCommandOutput> {
     return deserializeAws_json1_1BatchGetNamedQueryCommand(output, context);
   }

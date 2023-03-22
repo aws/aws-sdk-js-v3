@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupMembershipsCommand}.
  */
 export interface ListGroupMembershipsCommandInput extends ListGroupMembershipsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupMembershipsCommand}.
  */
 export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For the specified group in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupMembershipsCommandInput - {@link ListGroupMembershipsCommandInput}
+ * @returns {@link ListGroupMembershipsCommandOutput}
  * @see {@link ListGroupMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListGroupMembershipsCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListGroupMembershipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupMembershipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListGroupMembershipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGroupMembershipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupMembershipsCommandOutput> {
     return deserializeAws_json1_1ListGroupMembershipsCommand(output, context);
   }

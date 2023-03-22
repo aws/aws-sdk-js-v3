@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFindingAggregatorCommand}.
  */
 export interface DeleteFindingAggregatorCommandInput extends DeleteFindingAggregatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFindingAggregatorCommand}.
  */
 export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggregatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a finding aggregator. When you delete the finding aggregator, you stop finding aggregation.</p>
  *          <p>When you stop finding aggregation, findings that were already aggregated to the aggregation Region are still visible from the aggregation Region. New findings and finding updates are not aggregated.
  *       </p>
@@ -48,6 +53,8 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFindingAggregatorCommandInput - {@link DeleteFindingAggregatorCommandInput}
+ * @returns {@link DeleteFindingAggregatorCommandOutput}
  * @see {@link DeleteFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link DeleteFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteFindingAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFindingAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteFindingAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFindingAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFindingAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFindingAggregatorCommandOutput> {
     return deserializeAws_restJson1DeleteFindingAggregatorCommand(output, context);
   }

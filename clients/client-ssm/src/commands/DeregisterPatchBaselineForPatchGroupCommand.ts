@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterPatchBaselineForPatchGroupCommand}.
  */
 export interface DeregisterPatchBaselineForPatchGroupCommandInput extends DeregisterPatchBaselineForPatchGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterPatchBaselineForPatchGroupCommand}.
  */
 export interface DeregisterPatchBaselineForPatchGroupCommandOutput
@@ -37,6 +41,7 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a patch group from a patch baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterPatchBaselineForPatchGroupCommandInput - {@link DeregisterPatchBaselineForPatchGroupCommandInput}
+ * @returns {@link DeregisterPatchBaselineForPatchGroupCommandOutput}
  * @see {@link DeregisterPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link DeregisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterPatchBaselineForPatchGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterPatchBaselineForPatchGroupCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     return serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

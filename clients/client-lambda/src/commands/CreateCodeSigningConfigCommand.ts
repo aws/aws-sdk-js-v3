@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCodeSigningConfigCommand}.
  */
 export interface CreateCodeSigningConfigCommandInput extends CreateCodeSigningConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCodeSigningConfigCommand}.
  */
 export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">code signing configuration</a> defines a list of
  *       allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment
  *       validation checks fail). </p>
@@ -48,6 +53,8 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCodeSigningConfigCommandInput - {@link CreateCodeSigningConfigCommandInput}
+ * @returns {@link CreateCodeSigningConfigCommandOutput}
  * @see {@link CreateCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link CreateCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCodeSigningConfigCommandOutput> {
     return deserializeAws_restJson1CreateCodeSigningConfigCommand(output, context);
   }

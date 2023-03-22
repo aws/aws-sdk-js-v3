@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterInstanceCommand}.
  */
 export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterInstanceCommand}.
  */
 export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.</p>
  *          <note>
  *             <p>We do not recommend using this action to register instances. The complete registration
@@ -64,6 +69,8 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterInstanceCommandInput - {@link RegisterInstanceCommandInput}
+ * @returns {@link RegisterInstanceCommandOutput}
  * @see {@link RegisterInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -93,6 +100,9 @@ export class RegisterInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class RegisterInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterInstanceCommandOutput> {
     return deserializeAws_json1_1RegisterInstanceCommand(output, context);
   }

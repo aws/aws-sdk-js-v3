@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
+ * @returns {@link DeleteFleetCommandOutput}
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetCommandOutput> {
     return deserializeAws_json1_1DeleteFleetCommand(output, context);
   }

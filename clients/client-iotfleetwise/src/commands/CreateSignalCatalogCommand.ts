@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSignalCatalogCommand}.
  */
 export interface CreateSignalCatalogCommandInput extends CreateSignalCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSignalCatalogCommand}.
  */
 export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a collection of standardized signals that can be reused to create vehicle
  *             models.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSignalCatalogCommandInput - {@link CreateSignalCatalogCommandInput}
+ * @returns {@link CreateSignalCatalogCommandOutput}
  * @see {@link CreateSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link CreateSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateSignalCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSignalCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateSignalCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateSignalCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSignalCatalogCommandOutput> {
     return deserializeAws_json1_0CreateSignalCatalogCommand(output, context);
   }

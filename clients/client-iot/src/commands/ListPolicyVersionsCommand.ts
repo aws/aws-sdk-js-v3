@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPolicyVersionsCommand}.
  */
 export interface ListPolicyVersionsCommandInput extends ListPolicyVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPolicyVersionsCommand}.
  */
 export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the versions of the specified policy and identifies the default
  *          version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyVersions</a> action.</p>
@@ -48,6 +53,8 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPolicyVersionsCommandInput - {@link ListPolicyVersionsCommandInput}
+ * @returns {@link ListPolicyVersionsCommandOutput}
  * @see {@link ListPolicyVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyVersionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListPolicyVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPolicyVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListPolicyVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPolicyVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPolicyVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyVersionsCommandOutput> {
     return deserializeAws_restJson1ListPolicyVersionsCommand(output, context);
   }

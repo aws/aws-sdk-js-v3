@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { Cloud9ServiceException as __BaseException } from "./Cloud9ServiceException";
 
 /**
+ * @public
  * <p>The target request is invalid.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -27,6 +28,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A conflict occurred.</p>
  */
 export class ConflictException extends __BaseException {
@@ -49,12 +51,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConnectionType {
   CONNECT_SSH = "CONNECT_SSH",
   CONNECT_SSM = "CONNECT_SSM",
 }
 
 /**
+ * @public
  * <p>Metadata that is associated with Amazon Web Services resources. In particular, a name-value pair that
  *       can be associated with an Cloud9 development environment. There are two types of tags:
  *         <i>user tags</i> and <i>system tags</i>. A user tag is created
@@ -73,6 +79,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentEC2Request {
   /**
    * <p>The name of the environment to create.</p>
@@ -193,6 +202,9 @@ export interface CreateEnvironmentEC2Request {
   dryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentEC2Result {
   /**
    * <p>The ID of the environment that was created.</p>
@@ -201,6 +213,7 @@ export interface CreateEnvironmentEC2Result {
 }
 
 /**
+ * @public
  * <p>An access permissions issue occurred.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -224,6 +237,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal server error occurred.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -247,6 +261,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A service limit was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -270,6 +285,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The target resource cannot be found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -293,6 +309,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Too many service requests were made over the given time period.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -315,11 +332,17 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum MemberPermissions {
   READ_ONLY = "read-only",
   READ_WRITE = "read-write",
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentMembershipRequest {
   /**
    * <p>The ID of the environment that contains the environment member you want to add.</p>
@@ -348,6 +371,9 @@ export interface CreateEnvironmentMembershipRequest {
   permissions: MemberPermissions | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Permissions {
   OWNER = "owner",
   READ_ONLY = "read-only",
@@ -355,6 +381,7 @@ export enum Permissions {
 }
 
 /**
+ * @public
  * <p>Information about an environment member for an Cloud9 development environment.</p>
  */
 export interface EnvironmentMember {
@@ -400,6 +427,9 @@ export interface EnvironmentMember {
   lastAccess?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentMembershipResult {
   /**
    * <p>Information about the environment member that was added.</p>
@@ -407,6 +437,9 @@ export interface CreateEnvironmentMembershipResult {
   membership: EnvironmentMember | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentRequest {
   /**
    * <p>The ID of the environment to delete.</p>
@@ -414,8 +447,14 @@ export interface DeleteEnvironmentRequest {
   environmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentResult {}
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentMembershipRequest {
   /**
    * <p>The ID of the environment to delete the environment member from.</p>
@@ -429,8 +468,14 @@ export interface DeleteEnvironmentMembershipRequest {
   userArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentMembershipResult {}
 
+/**
+ * @public
+ */
 export interface DescribeEnvironmentMembershipsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of an individual environment member to get information
@@ -480,6 +525,9 @@ export interface DescribeEnvironmentMembershipsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEnvironmentMembershipsResult {
   /**
    * <p>Information about the environment members for the environment.</p>
@@ -494,6 +542,9 @@ export interface DescribeEnvironmentMembershipsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEnvironmentsRequest {
   /**
    * <p>The IDs of individual environments to get information about.</p>
@@ -501,6 +552,9 @@ export interface DescribeEnvironmentsRequest {
   environmentIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentLifecycleStatus {
   CREATED = "CREATED",
   CREATE_FAILED = "CREATE_FAILED",
@@ -510,6 +564,7 @@ export enum EnvironmentLifecycleStatus {
 }
 
 /**
+ * @public
  * <p>Information about the current creation or deletion lifecycle state of an Cloud9 development
  *       environment.</p>
  */
@@ -553,6 +608,9 @@ export interface EnvironmentLifecycle {
   failureResource?: string;
 }
 
+/**
+ * @public
+ */
 export enum ManagedCredentialsStatus {
   DISABLED_BY_COLLABORATOR = "DISABLED_BY_COLLABORATOR",
   DISABLED_BY_DEFAULT = "DISABLED_BY_DEFAULT",
@@ -567,12 +625,16 @@ export enum ManagedCredentialsStatus {
   PENDING_START_REMOVAL_BY_OWNER = "PENDING_START_REMOVAL_BY_OWNER",
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentType {
   EC2 = "ec2",
   SSH = "ssh",
 }
 
 /**
+ * @public
  * <p>Information about an Cloud9 development environment.</p>
  */
 export interface Environment {
@@ -686,6 +748,9 @@ export interface Environment {
   managedCredentialsStatus?: ManagedCredentialsStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEnvironmentsResult {
   /**
    * <p>Information about the environments that are returned.</p>
@@ -693,6 +758,9 @@ export interface DescribeEnvironmentsResult {
   environments?: Environment[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEnvironmentStatusRequest {
   /**
    * <p>The ID of the environment to get status information about.</p>
@@ -700,6 +768,9 @@ export interface DescribeEnvironmentStatusRequest {
   environmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentStatus {
   CONNECTING = "connecting",
   CREATING = "creating",
@@ -710,6 +781,9 @@ export enum EnvironmentStatus {
   STOPPING = "stopping",
 }
 
+/**
+ * @public
+ */
 export interface DescribeEnvironmentStatusResult {
   /**
    * <p>The status of the environment. Available values include:</p>
@@ -752,6 +826,9 @@ export interface DescribeEnvironmentStatusResult {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsRequest {
   /**
    * <p>During a previous call, if there are more than 25 items in the list, only the first 25
@@ -768,6 +845,9 @@ export interface ListEnvironmentsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsResult {
   /**
    * <p>If there are more than 25 items in the list, only the first 25 items are returned, along
@@ -782,6 +862,9 @@ export interface ListEnvironmentsResult {
   environmentIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to get the tags
@@ -790,6 +873,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags associated with the Cloud9 development environment.</p>
@@ -798,6 +884,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>A concurrent access issue occurred.</p>
  */
 export class ConcurrentAccessException extends __BaseException {
@@ -820,6 +907,9 @@ export class ConcurrentAccessException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to add tags
@@ -833,8 +923,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to remove tags
@@ -849,13 +945,22 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export enum ManagedCredentialsAction {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentRequest {
   /**
    * <p>The ID of the environment to change settings.</p>
@@ -895,8 +1000,14 @@ export interface UpdateEnvironmentRequest {
   managedCredentialsAction?: ManagedCredentialsAction | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentResult {}
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentMembershipRequest {
   /**
    * <p>The ID of the environment for the environment member whose settings you want to
@@ -927,6 +1038,9 @@ export interface UpdateEnvironmentMembershipRequest {
   permissions: MemberPermissions | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentMembershipResult {
   /**
    * <p>Information about the environment member whose settings were changed.</p>

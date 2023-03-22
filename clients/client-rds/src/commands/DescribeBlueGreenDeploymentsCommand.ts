@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBlueGreenDeploymentsCommand}.
  */
 export interface DescribeBlueGreenDeploymentsCommandInput extends DescribeBlueGreenDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBlueGreenDeploymentsCommand}.
  */
 export interface DescribeBlueGreenDeploymentsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about blue/green deployments.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
  *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
@@ -53,6 +58,8 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBlueGreenDeploymentsCommandInput - {@link DescribeBlueGreenDeploymentsCommandInput}
+ * @returns {@link DescribeBlueGreenDeploymentsCommandOutput}
  * @see {@link DescribeBlueGreenDeploymentsCommandInput} for command's `input` shape.
  * @see {@link DescribeBlueGreenDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeBlueGreenDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBlueGreenDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeBlueGreenDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBlueGreenDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeBlueGreenDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

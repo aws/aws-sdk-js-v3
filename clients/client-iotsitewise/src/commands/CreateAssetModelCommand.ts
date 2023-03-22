@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssetModelCommand}.
  */
 export interface CreateAssetModelCommandInput extends CreateAssetModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssetModelCommand}.
  */
 export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an asset model from specified property and hierarchy definitions. You create
  *       assets from asset models. With asset models, you can easily create assets of the same type
  *       that have standardized definitions. Each asset created from a model inherits the asset model's
@@ -50,6 +55,8 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssetModelCommandInput - {@link CreateAssetModelCommandInput}
+ * @returns {@link CreateAssetModelCommandOutput}
  * @see {@link CreateAssetModelCommandInput} for command's `input` shape.
  * @see {@link CreateAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateAssetModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssetModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateAssetModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAssetModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssetModelCommandOutput> {
     return deserializeAws_restJson1CreateAssetModelCommand(output, context);
   }

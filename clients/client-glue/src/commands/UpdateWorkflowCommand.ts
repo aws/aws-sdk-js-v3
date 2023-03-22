@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkflowCommand}.
  */
 export interface UpdateWorkflowCommandInput extends UpdateWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkflowCommand}.
  */
 export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkflowCommandInput - {@link UpdateWorkflowCommandInput}
+ * @returns {@link UpdateWorkflowCommandOutput}
  * @see {@link UpdateWorkflowCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkflowCommandOutput> {
     return deserializeAws_json1_1UpdateWorkflowCommand(output, context);
   }

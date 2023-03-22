@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigurationSetEventDestinationsCommand}.
  */
 export interface GetConfigurationSetEventDestinationsCommandInput extends GetConfigurationSetEventDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigurationSetEventDestinationsCommand}.
  */
 export interface GetConfigurationSetEventDestinationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve a list of event destinations that are associated with a configuration
  *             set.</p>
  *          <p>
@@ -55,6 +60,8 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationSetEventDestinationsCommandInput - {@link GetConfigurationSetEventDestinationsCommandInput}
+ * @returns {@link GetConfigurationSetEventDestinationsCommandOutput}
  * @see {@link GetConfigurationSetEventDestinationsCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationSetEventDestinationsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -87,6 +94,9 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationSetEventDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetConfigurationSetEventDestinationsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     return serializeAws_restJson1GetConfigurationSetEventDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

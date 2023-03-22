@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePrivateDnsNamespaceCommand}.
  */
 export interface UpdatePrivateDnsNamespaceCommandInput extends UpdatePrivateDnsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePrivateDnsNamespaceCommand}.
  */
 export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDnsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a private DNS
  *    namespace.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePrivateDnsNamespaceCommandInput - {@link UpdatePrivateDnsNamespaceCommandInput}
+ * @returns {@link UpdatePrivateDnsNamespaceCommandOutput}
  * @see {@link UpdatePrivateDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePrivateDnsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePrivateDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePrivateDnsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

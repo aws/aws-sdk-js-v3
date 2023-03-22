@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateUserStackCommand}.
  */
 export interface BatchAssociateUserStackCommandInput extends BatchAssociateUserStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateUserStackCommand}.
  */
 export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUserStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUser
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateUserStackCommandInput - {@link BatchAssociateUserStackCommandInput}
+ * @returns {@link BatchAssociateUserStackCommandOutput}
  * @see {@link BatchAssociateUserStackCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateUserStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchAssociateUserStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateUserStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class BatchAssociateUserStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchAssociateUserStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchAssociateUserStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchAssociateUserStackCommandOutput> {
     return deserializeAws_json1_1BatchAssociateUserStackCommand(output, context);
   }

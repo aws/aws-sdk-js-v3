@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateE911AddressCommand}.
  */
 export interface ValidateE911AddressCommandInput extends ValidateE911AddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidateE911AddressCommand}.
  */
 export interface ValidateE911AddressCommandOutput extends ValidateE911AddressResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class ValidateE911AddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateE911AddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class ValidateE911AddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateE911AddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ValidateE911AddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateE911AddressCommandOutput> {
     return deserializeAws_restJson1ValidateE911AddressCommand(output, context);
   }

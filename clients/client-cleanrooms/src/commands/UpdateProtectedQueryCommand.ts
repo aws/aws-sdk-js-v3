@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProtectedQueryCommand}.
  */
 export interface UpdateProtectedQueryCommandInput extends UpdateProtectedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProtectedQueryCommand}.
  */
 export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the processing of a currently running query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProtectedQueryCommandInput - {@link UpdateProtectedQueryCommandInput}
+ * @returns {@link UpdateProtectedQueryCommandOutput}
  * @see {@link UpdateProtectedQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateProtectedQueryCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateProtectedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProtectedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateProtectedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProtectedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateProtectedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProtectedQueryCommandOutput> {
     return deserializeAws_restJson1UpdateProtectedQueryCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackResourceCommand}.
  */
 export interface DescribeStackResourceCommandInput extends DescribeStackResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackResourceCommand}.
  */
 export interface DescribeStackResourceCommandOutput extends DescribeStackResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the specified resource in the specified stack.</p>
  *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90 days
  *          after the stack has been deleted.</p>
@@ -48,6 +53,8 @@ export interface DescribeStackResourceCommandOutput extends DescribeStackResourc
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackResourceCommandInput - {@link DescribeStackResourceCommandInput}
+ * @returns {@link DescribeStackResourceCommandOutput}
  * @see {@link DescribeStackResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeStackResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeStackResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeStackResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeStackResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackResourceCommandOutput> {
     return deserializeAws_queryDescribeStackResourceCommand(output, context);
   }

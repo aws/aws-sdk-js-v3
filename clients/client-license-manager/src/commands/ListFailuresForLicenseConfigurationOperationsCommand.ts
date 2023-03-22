@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFailuresForLicenseConfigurationOperationsCommand}.
  */
 export interface ListFailuresForLicenseConfigurationOperationsCommandInput
   extends ListFailuresForLicenseConfigurationOperationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFailuresForLicenseConfigurationOperationsCommand}.
  */
 export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
@@ -38,6 +42,7 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the license configuration operations that failed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFailuresForLicenseConfigurationOperationsCommandInput - {@link ListFailuresForLicenseConfigurationOperationsCommandInput}
+ * @returns {@link ListFailuresForLicenseConfigurationOperationsCommandOutput}
  * @see {@link ListFailuresForLicenseConfigurationOperationsCommandInput} for command's `input` shape.
  * @see {@link ListFailuresForLicenseConfigurationOperationsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFailuresForLicenseConfigurationOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFailuresForLicenseConfigurationOperationsCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

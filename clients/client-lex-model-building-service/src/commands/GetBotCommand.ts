@@ -27,15 +27,20 @@ import {
 import { deserializeAws_restJson1GetBotCommand, serializeAws_restJson1GetBotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotCommand}.
  */
 export interface GetBotCommandInput extends GetBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotCommand}.
  */
 export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata information for a specific bot. You must provide
  *       the bot name and the bot version or alias. </p>
  *          <p> This operation requires permissions for the
@@ -50,6 +55,8 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotCommandInput - {@link GetBotCommandInput}
+ * @returns {@link GetBotCommandOutput}
  * @see {@link GetBotCommandInput} for command's `input` shape.
  * @see {@link GetBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -145,6 +152,9 @@ export class GetBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class GetBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotCommandOutput> {
     return deserializeAws_restJson1GetBotCommand(output, context);
   }

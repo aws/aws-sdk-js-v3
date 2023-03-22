@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssumeRoleWithSAMLCommand}.
  */
 export interface AssumeRoleWithSAMLCommandInput extends AssumeRoleWithSAMLRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssumeRoleWithSAMLCommand}.
  */
 export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials for users who have been authenticated
  *          via a SAML authentication response. This operation provides a mechanism for tying an
  *          enterprise identity store or directory to role-based Amazon Web Services access without user-specific
@@ -174,6 +179,8 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeRoleWithSAMLCommandInput - {@link AssumeRoleWithSAMLCommandInput}
+ * @returns {@link AssumeRoleWithSAMLCommandOutput}
  * @see {@link AssumeRoleWithSAMLCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleWithSAMLCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -268,6 +275,9 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeRoleWithSAMLCommandInput) {
     // Start section: command_constructor
     super();
@@ -307,10 +317,16 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeRoleWithSAMLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAssumeRoleWithSAMLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleWithSAMLCommandOutput> {
     return deserializeAws_queryAssumeRoleWithSAMLCommand(output, context);
   }

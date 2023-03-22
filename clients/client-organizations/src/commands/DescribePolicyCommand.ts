@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePolicyCommand}.
  */
 export interface DescribePolicyCommandInput extends DescribePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePolicyCommand}.
  */
 export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a policy.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -48,6 +53,8 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePolicyCommandInput - {@link DescribePolicyCommandInput}
+ * @returns {@link DescribePolicyCommandOutput}
  * @see {@link DescribePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -229,6 +236,9 @@ export class DescribePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -268,10 +278,16 @@ export class DescribePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePolicyCommandOutput> {
     return deserializeAws_json1_1DescribePolicyCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelDetectMitigationActionsTaskCommand}.
  */
 export interface CancelDetectMitigationActionsTaskCommandInput extends CancelDetectMitigationActionsTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelDetectMitigationActionsTaskCommand}.
  */
 export interface CancelDetectMitigationActionsTaskCommandOutput
@@ -37,6 +41,7 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Cancels a Device Defender ML Detect mitigation action.
  *       </p>
@@ -51,6 +56,8 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDetectMitigationActionsTaskCommandInput - {@link CancelDetectMitigationActionsTaskCommandInput}
+ * @returns {@link CancelDetectMitigationActionsTaskCommandOutput}
  * @see {@link CancelDetectMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link CancelDetectMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDetectMitigationActionsTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelDetectMitigationActionsTaskCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
     return serializeAws_restJson1CancelDetectMitigationActionsTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

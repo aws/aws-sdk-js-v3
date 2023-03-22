@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTimeSeriesCommand}.
  */
 export interface ListTimeSeriesCommandInput extends ListTimeSeriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTimeSeriesCommand}.
  */
 export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of time series (data streams).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTimeSeriesCommandInput - {@link ListTimeSeriesCommandInput}
+ * @returns {@link ListTimeSeriesCommandOutput}
  * @see {@link ListTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link ListTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListTimeSeriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTimeSeriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListTimeSeriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTimeSeriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTimeSeriesCommandOutput> {
     return deserializeAws_restJson1ListTimeSeriesCommand(output, context);
   }

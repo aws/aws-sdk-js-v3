@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInvitationsCountCommand}.
  */
 export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInvitationsCountCommand}.
  */
 export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the count of all Security Hub membership invitations that were sent to the
  *          current member account, not including the currently accepted invitation. </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInvitationsCountCommandInput - {@link GetInvitationsCountCommandInput}
+ * @returns {@link GetInvitationsCountCommandOutput}
  * @see {@link GetInvitationsCountCommandInput} for command's `input` shape.
  * @see {@link GetInvitationsCountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetInvitationsCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInvitationsCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetInvitationsCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInvitationsCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetInvitationsCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInvitationsCountCommandOutput> {
     return deserializeAws_restJson1GetInvitationsCountCommand(output, context);
   }

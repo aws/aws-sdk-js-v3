@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackupPlanCommand}.
  */
 export interface CreateBackupPlanCommandInput extends CreateBackupPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackupPlanCommand}.
  */
 export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
  *          document that contains information that Backup uses to schedule tasks that
  *          create recovery points for resources.</p>
@@ -50,6 +55,8 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupPlanCommandInput - {@link CreateBackupPlanCommandInput}
+ * @returns {@link CreateBackupPlanCommandOutput}
  * @see {@link CreateBackupPlanCommandInput} for command's `input` shape.
  * @see {@link CreateBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateBackupPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateBackupPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBackupPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupPlanCommandOutput> {
     return deserializeAws_restJson1CreateBackupPlanCommand(output, context);
   }

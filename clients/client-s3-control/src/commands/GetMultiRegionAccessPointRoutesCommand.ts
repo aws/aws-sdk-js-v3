@@ -28,10 +28,14 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMultiRegionAccessPointRoutesCommand}.
  */
 export interface GetMultiRegionAccessPointRoutesCommandInput extends GetMultiRegionAccessPointRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMultiRegionAccessPointRoutesCommand}.
  */
 export interface GetMultiRegionAccessPointRoutesCommandOutput
@@ -39,6 +43,7 @@ export interface GetMultiRegionAccessPointRoutesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the routing configuration for a Multi-Region Access Point, indicating which Regions are active or
  *          passive.</p>
  *          <p>To obtain routing control changes and failover requests, use the Amazon S3 failover control
@@ -83,6 +88,8 @@ export interface GetMultiRegionAccessPointRoutesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMultiRegionAccessPointRoutesCommandInput - {@link GetMultiRegionAccessPointRoutesCommandInput}
+ * @returns {@link GetMultiRegionAccessPointRoutesCommandOutput}
  * @see {@link GetMultiRegionAccessPointRoutesCommandInput} for command's `input` shape.
  * @see {@link GetMultiRegionAccessPointRoutesCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -109,6 +116,9 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMultiRegionAccessPointRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,6 +160,9 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetMultiRegionAccessPointRoutesCommandInput,
     context: __SerdeContext
@@ -157,6 +170,9 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command<
     return serializeAws_restXmlGetMultiRegionAccessPointRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

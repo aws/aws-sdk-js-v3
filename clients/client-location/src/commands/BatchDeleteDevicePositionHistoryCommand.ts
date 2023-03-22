@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteDevicePositionHistoryCommand}.
  */
 export interface BatchDeleteDevicePositionHistoryCommandInput extends BatchDeleteDevicePositionHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteDevicePositionHistoryCommand}.
  */
 export interface BatchDeleteDevicePositionHistoryCommandOutput
@@ -37,6 +41,7 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the position history of one or more devices from a tracker resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteDevicePositionHistoryCommandInput - {@link BatchDeleteDevicePositionHistoryCommandInput}
+ * @returns {@link BatchDeleteDevicePositionHistoryCommandOutput}
  * @see {@link BatchDeleteDevicePositionHistoryCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDevicePositionHistoryCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -87,6 +94,9 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteDevicePositionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDeleteDevicePositionHistoryCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command<
     return serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

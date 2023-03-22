@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEmergencyContactSettingsCommand}.
  */
 export interface DescribeEmergencyContactSettingsCommandInput extends DescribeEmergencyContactSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEmergencyContactSettingsCommand}.
  */
 export interface DescribeEmergencyContactSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEmergencyContactSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeEmergencyContactSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEmergencyContactSettingsCommandInput - {@link DescribeEmergencyContactSettingsCommandInput}
+ * @returns {@link DescribeEmergencyContactSettingsCommandOutput}
  * @see {@link DescribeEmergencyContactSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeEmergencyContactSettingsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeEmergencyContactSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEmergencyContactSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class DescribeEmergencyContactSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEmergencyContactSettingsCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class DescribeEmergencyContactSettingsCommand extends $Command<
     return serializeAws_json1_1DescribeEmergencyContactSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

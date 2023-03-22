@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetMobileSdkReleaseCommand}.
  */
 export interface GetMobileSdkReleaseCommandInput extends GetMobileSdkReleaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMobileSdkReleaseCommand}.
  */
 export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information for the specified mobile SDK release, including release notes and
  *          tags.</p>
  *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
@@ -49,6 +54,8 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMobileSdkReleaseCommandInput - {@link GetMobileSdkReleaseCommandInput}
+ * @returns {@link GetMobileSdkReleaseCommandOutput}
  * @see {@link GetMobileSdkReleaseCommandInput} for command's `input` shape.
  * @see {@link GetMobileSdkReleaseCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -106,6 +113,9 @@ export class GetMobileSdkReleaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMobileSdkReleaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class GetMobileSdkReleaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMobileSdkReleaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMobileSdkReleaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMobileSdkReleaseCommandOutput> {
     return deserializeAws_json1_1GetMobileSdkReleaseCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAnalysisPermissionsCommand}.
  */
 export interface DescribeAnalysisPermissionsCommandInput extends DescribeAnalysisPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAnalysisPermissionsCommand}.
  */
 export interface DescribeAnalysisPermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeAnalysisPermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the read and write permissions for an analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeAnalysisPermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnalysisPermissionsCommandInput - {@link DescribeAnalysisPermissionsCommandInput}
+ * @returns {@link DescribeAnalysisPermissionsCommandOutput}
  * @see {@link DescribeAnalysisPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAnalysisPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeAnalysisPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnalysisPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeAnalysisPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnalysisPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAnalysisPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

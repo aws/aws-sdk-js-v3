@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointCommand}.
  */
 export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointCommand}.
  */
 export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an existing endpoint. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
+ * @returns {@link UpdateEndpointCommandOutput}
  * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointCommandOutput> {
     return deserializeAws_json1_1UpdateEndpointCommand(output, context);
   }

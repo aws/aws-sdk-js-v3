@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCommunicationsCommand}.
  */
 export interface DescribeCommunicationsCommandInput extends DescribeCommunicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCommunicationsCommand}.
  */
 export interface DescribeCommunicationsCommandOutput extends DescribeCommunicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns communications and attachments for one or more support cases. Use the
  *                 <code>afterTime</code> and <code>beforeTime</code> parameters to filter by date. You
  *             can use the <code>caseId</code> parameter to restrict the results to a specific
@@ -69,6 +74,8 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCommunicationsCommandInput - {@link DescribeCommunicationsCommandInput}
+ * @returns {@link DescribeCommunicationsCommandOutput}
  * @see {@link DescribeCommunicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommunicationsCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeCommunicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCommunicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DescribeCommunicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCommunicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCommunicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCommunicationsCommandOutput> {
     return deserializeAws_json1_1DescribeCommunicationsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceTypeLimitsCommand}.
  */
 export interface DescribeInstanceTypeLimitsCommandInput extends DescribeInstanceTypeLimitsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceTypeLimitsCommand}.
  */
 export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanceTypeLimitsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the instance count, storage, and master node limits for a given OpenSearch or
  *    Elasticsearch version and instance type.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanc
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceTypeLimitsCommandInput - {@link DescribeInstanceTypeLimitsCommandInput}
+ * @returns {@link DescribeInstanceTypeLimitsCommandOutput}
  * @see {@link DescribeInstanceTypeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceTypeLimitsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeInstanceTypeLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceTypeLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeInstanceTypeLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceTypeLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeInstanceTypeLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

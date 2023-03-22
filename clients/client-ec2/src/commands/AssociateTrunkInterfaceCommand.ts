@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTrunkInterfaceCommand}.
  */
 export interface AssociateTrunkInterfaceCommandInput extends AssociateTrunkInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTrunkInterfaceCommand}.
  */
 export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInterfaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This API action is currently in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
@@ -52,6 +57,8 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTrunkInterfaceCommandInput - {@link AssociateTrunkInterfaceCommandInput}
+ * @returns {@link AssociateTrunkInterfaceCommandOutput}
  * @see {@link AssociateTrunkInterfaceCommandInput} for command's `input` shape.
  * @see {@link AssociateTrunkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class AssociateTrunkInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTrunkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class AssociateTrunkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTrunkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateTrunkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrunkInterfaceCommandOutput> {
     return deserializeAws_ec2AssociateTrunkInterfaceCommand(output, context);
   }

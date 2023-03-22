@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetApplicationRevisionsCommand}.
  */
 export interface BatchGetApplicationRevisionsCommandInput extends BatchGetApplicationRevisionsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetApplicationRevisionsCommand}.
  */
 export interface BatchGetApplicationRevisionsCommandOutput
@@ -37,6 +41,7 @@ export interface BatchGetApplicationRevisionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more application revisions. The maximum number of
  *             application revisions that can be returned is 25.</p>
  * @example
@@ -49,6 +54,8 @@ export interface BatchGetApplicationRevisionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetApplicationRevisionsCommandInput - {@link BatchGetApplicationRevisionsCommandInput}
+ * @returns {@link BatchGetApplicationRevisionsCommandOutput}
  * @see {@link BatchGetApplicationRevisionsCommandInput} for command's `input` shape.
  * @see {@link BatchGetApplicationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -90,6 +97,9 @@ export class BatchGetApplicationRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetApplicationRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class BatchGetApplicationRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetApplicationRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetApplicationRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

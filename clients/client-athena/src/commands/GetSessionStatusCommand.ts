@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSessionStatusCommand}.
  */
 export interface GetSessionStatusCommandInput extends GetSessionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSessionStatusCommand}.
  */
 export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current status of a session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionStatusCommandInput - {@link GetSessionStatusCommandInput}
+ * @returns {@link GetSessionStatusCommandOutput}
  * @see {@link GetSessionStatusCommandInput} for command's `input` shape.
  * @see {@link GetSessionStatusCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetSessionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetSessionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSessionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionStatusCommandOutput> {
     return deserializeAws_json1_1GetSessionStatusCommand(output, context);
   }

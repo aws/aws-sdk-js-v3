@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteTransactionCommand}.
  */
 export interface ExecuteTransactionCommandInput extends ExecuteTransactionInput {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteTransactionCommand}.
  */
 export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation allows you to perform transactional reads or writes on data stored in
  *             DynamoDB, using PartiQL.</p>
  *          <note>
@@ -53,6 +58,8 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteTransactionCommandInput - {@link ExecuteTransactionCommandInput}
+ * @returns {@link ExecuteTransactionCommandOutput}
  * @see {@link ExecuteTransactionCommandInput} for command's `input` shape.
  * @see {@link ExecuteTransactionCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -396,6 +403,9 @@ export class ExecuteTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -435,10 +445,16 @@ export class ExecuteTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ExecuteTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteTransactionCommandOutput> {
     return deserializeAws_json1_0ExecuteTransactionCommand(output, context);
   }

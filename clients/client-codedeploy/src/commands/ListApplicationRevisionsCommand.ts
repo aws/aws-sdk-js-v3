@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationRevisionsCommand}.
  */
 export interface ListApplicationRevisionsCommandInput extends ListApplicationRevisionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationRevisionsCommand}.
  */
 export interface ListApplicationRevisionsCommandOutput extends ListApplicationRevisionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about revisions for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationRevisionsCommandInput - {@link ListApplicationRevisionsCommandInput}
+ * @returns {@link ListApplicationRevisionsCommandOutput}
  * @see {@link ListApplicationRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -100,6 +107,9 @@ export class ListApplicationRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ListApplicationRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApplicationRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationRevisionsCommandOutput> {
     return deserializeAws_json1_1ListApplicationRevisionsCommand(output, context);
   }

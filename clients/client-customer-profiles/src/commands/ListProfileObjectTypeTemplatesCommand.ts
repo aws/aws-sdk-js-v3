@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProfileObjectTypeTemplatesCommand}.
  */
 export interface ListProfileObjectTypeTemplatesCommandInput extends ListProfileObjectTypeTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProfileObjectTypeTemplatesCommand}.
  */
 export interface ListProfileObjectTypeTemplatesCommandOutput
@@ -37,6 +41,7 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the template information for object types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfileObjectTypeTemplatesCommandInput - {@link ListProfileObjectTypeTemplatesCommandInput}
+ * @returns {@link ListProfileObjectTypeTemplatesCommandOutput}
  * @see {@link ListProfileObjectTypeTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListProfileObjectTypeTemplatesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfileObjectTypeTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListProfileObjectTypeTemplatesCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command<
     return serializeAws_restJson1ListProfileObjectTypeTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

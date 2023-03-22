@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScheduledAuditCommand}.
  */
 export interface CreateScheduledAuditCommandInput extends CreateScheduledAuditRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateScheduledAuditCommand}.
  */
 export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a scheduled audit that is run at a specified
  *           time interval.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateScheduledAudit</a> action.</p>
@@ -48,6 +53,8 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScheduledAuditCommandInput - {@link CreateScheduledAuditCommandInput}
+ * @returns {@link CreateScheduledAuditCommandOutput}
  * @see {@link CreateScheduledAuditCommandInput} for command's `input` shape.
  * @see {@link CreateScheduledAuditCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateScheduledAuditCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScheduledAuditCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateScheduledAuditCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScheduledAuditCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateScheduledAuditCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduledAuditCommandOutput> {
     return deserializeAws_restJson1CreateScheduledAuditCommand(output, context);
   }

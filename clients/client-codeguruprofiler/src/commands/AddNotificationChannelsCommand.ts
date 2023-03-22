@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddNotificationChannelsCommand}.
  */
 export interface AddNotificationChannelsCommandInput extends AddNotificationChannelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddNotificationChannelsCommand}.
  */
 export interface AddNotificationChannelsCommandOutput extends AddNotificationChannelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add up to 2 anomaly notifications channels for a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * const response = await client.send(command);
  * ```
  *
+ * @param AddNotificationChannelsCommandInput - {@link AddNotificationChannelsCommandInput}
+ * @returns {@link AddNotificationChannelsCommandOutput}
  * @see {@link AddNotificationChannelsCommandInput} for command's `input` shape.
  * @see {@link AddNotificationChannelsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -93,6 +100,9 @@ export class AddNotificationChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddNotificationChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class AddNotificationChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddNotificationChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddNotificationChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddNotificationChannelsCommandOutput> {
     return deserializeAws_restJson1AddNotificationChannelsCommand(output, context);
   }

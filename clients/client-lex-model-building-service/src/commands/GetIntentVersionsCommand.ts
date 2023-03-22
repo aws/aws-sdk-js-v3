@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIntentVersionsCommand}.
  */
 export interface GetIntentVersionsCommandInput extends GetIntentVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIntentVersionsCommand}.
  */
 export interface GetIntentVersionsCommandOutput extends GetIntentVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about all of the versions of an intent.</p>
  *          <p>The <code>GetIntentVersions</code> operation returns an
  *         <code>IntentMetadata</code> object for each version of an intent. For
@@ -60,6 +65,8 @@ export interface GetIntentVersionsCommandOutput extends GetIntentVersionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntentVersionsCommandInput - {@link GetIntentVersionsCommandInput}
+ * @returns {@link GetIntentVersionsCommandOutput}
  * @see {@link GetIntentVersionsCommandInput} for command's `input` shape.
  * @see {@link GetIntentVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetIntentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class GetIntentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIntentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentVersionsCommandOutput> {
     return deserializeAws_restJson1GetIntentVersionsCommand(output, context);
   }

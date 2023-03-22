@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApiKeysCommand}.
  */
 export interface ListApiKeysCommandInput extends ListApiKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApiKeysCommand}.
  */
 export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the API keys for a given API.</p>
  *          <note>
  *             <p>API keys are deleted automatically 60 days after they expire. However, they may still be included in the
@@ -51,6 +56,8 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApiKeysCommandInput - {@link ListApiKeysCommandInput}
+ * @returns {@link ListApiKeysCommandOutput}
  * @see {@link ListApiKeysCommandInput} for command's `input` shape.
  * @see {@link ListApiKeysCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListApiKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApiKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListApiKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApiKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListApiKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApiKeysCommandOutput> {
     return deserializeAws_restJson1ListApiKeysCommand(output, context);
   }

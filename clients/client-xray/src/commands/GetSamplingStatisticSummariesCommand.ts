@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSamplingStatisticSummariesCommand}.
  */
 export interface GetSamplingStatisticSummariesCommandInput extends GetSamplingStatisticSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSamplingStatisticSummariesCommand}.
  */
 export interface GetSamplingStatisticSummariesCommandOutput
@@ -37,6 +41,7 @@ export interface GetSamplingStatisticSummariesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about recent sampling results for all sampling rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSamplingStatisticSummariesCommandInput - {@link GetSamplingStatisticSummariesCommandInput}
+ * @returns {@link GetSamplingStatisticSummariesCommandOutput}
  * @see {@link GetSamplingStatisticSummariesCommandInput} for command's `input` shape.
  * @see {@link GetSamplingStatisticSummariesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSamplingStatisticSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSamplingStatisticSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSamplingStatisticSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

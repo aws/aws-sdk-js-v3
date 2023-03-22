@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResolveCustomerCommand}.
  */
 export interface ResolveCustomerCommandInput extends ResolveCustomerRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResolveCustomerCommand}.
  */
 export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>ResolveCustomer</code> is called by a SaaS application during the registration
  *             process. When a buyer visits your website during the registration process, the buyer
@@ -63,6 +68,8 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveCustomerCommandInput - {@link ResolveCustomerCommandInput}
+ * @returns {@link ResolveCustomerCommandOutput}
  * @see {@link ResolveCustomerCommandInput} for command's `input` shape.
  * @see {@link ResolveCustomerCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
@@ -106,6 +113,9 @@ export class ResolveCustomerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveCustomerCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class ResolveCustomerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveCustomerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResolveCustomerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveCustomerCommandOutput> {
     return deserializeAws_json1_1ResolveCustomerCommand(output, context);
   }

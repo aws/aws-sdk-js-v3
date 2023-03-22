@@ -26,10 +26,14 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketAccelerateConfigurationCommand}.
  */
 export interface GetBucketAccelerateConfigurationCommandInput extends GetBucketAccelerateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketAccelerateConfigurationCommand}.
  */
 export interface GetBucketAccelerateConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetBucketAccelerateConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the GET action uses the <code>accelerate</code> subresource to
  *          return the Transfer Acceleration state of a bucket, which is either <code>Enabled</code> or
  *             <code>Suspended</code>. Amazon S3 Transfer Acceleration is a bucket-level feature that
@@ -73,6 +78,8 @@ export interface GetBucketAccelerateConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketAccelerateConfigurationCommandInput - {@link GetBucketAccelerateConfigurationCommandInput}
+ * @returns {@link GetBucketAccelerateConfigurationCommandOutput}
  * @see {@link GetBucketAccelerateConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketAccelerateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -102,6 +109,9 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketAccelerateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     return serializeAws_restXmlGetBucketAccelerateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

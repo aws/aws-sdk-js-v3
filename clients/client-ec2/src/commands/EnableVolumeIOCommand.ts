@@ -18,15 +18,20 @@ import { EnableVolumeIORequest, EnableVolumeIORequestFilterSensitiveLog } from "
 import { deserializeAws_ec2EnableVolumeIOCommand, serializeAws_ec2EnableVolumeIOCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableVolumeIOCommand}.
  */
 export interface EnableVolumeIOCommandInput extends EnableVolumeIORequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableVolumeIOCommand}.
  */
 export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables I/O operations for a volume that had I/O operations disabled because the data on
  *       the volume was potentially inconsistent.</p>
  * @example
@@ -39,6 +44,8 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableVolumeIOCommandInput - {@link EnableVolumeIOCommandInput}
+ * @returns {@link EnableVolumeIOCommandOutput}
  * @see {@link EnableVolumeIOCommandInput} for command's `input` shape.
  * @see {@link EnableVolumeIOCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class EnableVolumeIOCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableVolumeIOCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class EnableVolumeIOCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableVolumeIOCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2EnableVolumeIOCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableVolumeIOCommandOutput> {
     return deserializeAws_ec2EnableVolumeIOCommand(output, context);
   }

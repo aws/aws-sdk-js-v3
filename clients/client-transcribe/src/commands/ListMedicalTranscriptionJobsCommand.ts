@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMedicalTranscriptionJobsCommand}.
  */
 export interface ListMedicalTranscriptionJobsCommandInput extends ListMedicalTranscriptionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMedicalTranscriptionJobsCommand}.
  */
 export interface ListMedicalTranscriptionJobsCommandOutput
@@ -37,6 +41,7 @@ export interface ListMedicalTranscriptionJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of medical transcription jobs that match the specified criteria. If no
  *             criteria are specified, all medical transcription jobs are returned.</p>
  *          <p>To get detailed information about a specific medical transcription job, use the  operation.</p>
@@ -50,6 +55,8 @@ export interface ListMedicalTranscriptionJobsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMedicalTranscriptionJobsCommandInput - {@link ListMedicalTranscriptionJobsCommandInput}
+ * @returns {@link ListMedicalTranscriptionJobsCommandOutput}
  * @see {@link ListMedicalTranscriptionJobsCommandInput} for command's `input` shape.
  * @see {@link ListMedicalTranscriptionJobsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMedicalTranscriptionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMedicalTranscriptionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMedicalTranscriptionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

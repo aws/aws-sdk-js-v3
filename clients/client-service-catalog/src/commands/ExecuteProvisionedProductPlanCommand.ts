@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteProvisionedProductPlanCommand}.
  */
 export interface ExecuteProvisionedProductPlanCommandInput extends ExecuteProvisionedProductPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteProvisionedProductPlanCommand}.
  */
 export interface ExecuteProvisionedProductPlanCommandOutput
@@ -37,6 +41,7 @@ export interface ExecuteProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions or modifies a product based on the resource changes for the specified plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ExecuteProvisionedProductPlanCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteProvisionedProductPlanCommandInput - {@link ExecuteProvisionedProductPlanCommandInput}
+ * @returns {@link ExecuteProvisionedProductPlanCommandOutput}
  * @see {@link ExecuteProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link ExecuteProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +88,9 @@ export class ExecuteProvisionedProductPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteProvisionedProductPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ExecuteProvisionedProductPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteProvisionedProductPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExecuteProvisionedProductPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

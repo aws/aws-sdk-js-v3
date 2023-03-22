@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPolicyAttachmentsCommand}.
  */
 export interface ListPolicyAttachmentsCommandInput extends ListPolicyAttachmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPolicyAttachmentsCommand}.
  */
 export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachmentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachment
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPolicyAttachmentsCommandInput - {@link ListPolicyAttachmentsCommandInput}
+ * @returns {@link ListPolicyAttachmentsCommandOutput}
  * @see {@link ListPolicyAttachmentsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -100,6 +107,9 @@ export class ListPolicyAttachmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPolicyAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ListPolicyAttachmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPolicyAttachmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPolicyAttachmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyAttachmentsCommandOutput> {
     return deserializeAws_restJson1ListPolicyAttachmentsCommand(output, context);
   }

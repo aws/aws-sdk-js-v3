@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProgrammaticAccessCredentialsCommand}.
  */
 export interface GetProgrammaticAccessCredentialsCommandInput extends GetProgrammaticAccessCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProgrammaticAccessCredentialsCommand}.
  */
 export interface GetProgrammaticAccessCredentialsCommandOutput
@@ -37,6 +41,7 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Request programmatic credentials to use with FinSpace SDK.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProgrammaticAccessCredentialsCommandInput - {@link GetProgrammaticAccessCredentialsCommandInput}
+ * @returns {@link GetProgrammaticAccessCredentialsCommandOutput}
  * @see {@link GetProgrammaticAccessCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetProgrammaticAccessCredentialsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProgrammaticAccessCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetProgrammaticAccessCredentialsCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
     return serializeAws_restJson1GetProgrammaticAccessCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

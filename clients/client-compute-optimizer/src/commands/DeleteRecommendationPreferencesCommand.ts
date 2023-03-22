@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecommendationPreferencesCommand}.
  */
 export interface DeleteRecommendationPreferencesCommandInput extends DeleteRecommendationPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecommendationPreferencesCommand}.
  */
 export interface DeleteRecommendationPreferencesCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a recommendation preference, such as enhanced infrastructure metrics.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
  *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
@@ -51,6 +56,8 @@ export interface DeleteRecommendationPreferencesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecommendationPreferencesCommandInput - {@link DeleteRecommendationPreferencesCommandInput}
+ * @returns {@link DeleteRecommendationPreferencesCommandOutput}
  * @see {@link DeleteRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link DeleteRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteRecommendationPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class DeleteRecommendationPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteRecommendationPreferencesCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class DeleteRecommendationPreferencesCommand extends $Command<
     return serializeAws_json1_0DeleteRecommendationPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

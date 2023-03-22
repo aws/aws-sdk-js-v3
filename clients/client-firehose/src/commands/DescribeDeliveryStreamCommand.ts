@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeliveryStreamCommand}.
  */
 export interface DescribeDeliveryStreamCommandInput extends DescribeDeliveryStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeliveryStreamCommand}.
  */
 export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified delivery stream and its status. For example, after your
  *          delivery stream is created, call <code>DescribeDeliveryStream</code> to see whether the
  *          delivery stream is <code>ACTIVE</code> and therefore ready for data to be sent to it. </p>
@@ -52,6 +57,8 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeliveryStreamCommandInput - {@link DescribeDeliveryStreamCommandInput}
+ * @returns {@link DescribeDeliveryStreamCommandOutput}
  * @see {@link DescribeDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeliveryStreamCommandOutput> {
     return deserializeAws_json1_1DescribeDeliveryStreamCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataSourceCommand}.
  */
 export interface UpdateDataSourceCommandInput extends UpdateDataSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataSourceCommand}.
  */
 export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Amazon Kendra data source connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSourceCommandInput - {@link UpdateDataSourceCommandInput}
+ * @returns {@link UpdateDataSourceCommandOutput}
  * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSourceCommandOutput> {
     return deserializeAws_json1_1UpdateDataSourceCommand(output, context);
   }

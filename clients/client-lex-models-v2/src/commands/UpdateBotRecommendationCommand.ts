@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBotRecommendationCommand}.
  */
 export interface UpdateBotRecommendationCommandInput extends UpdateBotRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBotRecommendationCommand}.
  */
 export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommendationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing bot recommendation request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommend
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBotRecommendationCommandInput - {@link UpdateBotRecommendationCommandInput}
+ * @returns {@link UpdateBotRecommendationCommandOutput}
  * @see {@link UpdateBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link UpdateBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateBotRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBotRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateBotRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBotRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBotRecommendationCommandOutput> {
     return deserializeAws_restJson1UpdateBotRecommendationCommand(output, context);
   }

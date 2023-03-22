@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCampaignsCommand}.
  */
 export interface GetCampaignsCommandInput extends GetCampaignsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCampaignsCommand}.
  */
 export interface GetCampaignsCommandOutput extends GetCampaignsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCampaignsCommandOutput extends GetCampaignsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignsCommandInput - {@link GetCampaignsCommandInput}
+ * @returns {@link GetCampaignsCommandOutput}
  * @see {@link GetCampaignsCommandInput} for command's `input` shape.
  * @see {@link GetCampaignsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetCampaignsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetCampaignsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCampaignsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignsCommandOutput> {
     return deserializeAws_restJson1GetCampaignsCommand(output, context);
   }

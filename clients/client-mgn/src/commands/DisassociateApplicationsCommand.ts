@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateApplicationsCommand}.
  */
 export interface DisassociateApplicationsCommandInput extends DisassociateApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateApplicationsCommand}.
  */
 export interface DisassociateApplicationsCommandOutput extends DisassociateApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate applications from wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateApplicationsCommandInput - {@link DisassociateApplicationsCommandInput}
+ * @returns {@link DisassociateApplicationsCommandOutput}
  * @see {@link DisassociateApplicationsCommandInput} for command's `input` shape.
  * @see {@link DisassociateApplicationsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class DisassociateApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DisassociateApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateApplicationsCommandOutput> {
     return deserializeAws_restJson1DisassociateApplicationsCommand(output, context);
   }

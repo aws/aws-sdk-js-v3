@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetLambdaFunctionRecommendationsCommand}.
  */
 export interface GetLambdaFunctionRecommendationsCommandInput extends GetLambdaFunctionRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLambdaFunctionRecommendationsCommand}.
  */
 export interface GetLambdaFunctionRecommendationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Lambda function recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for functions that meet a specific set
  *             of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
@@ -52,6 +57,8 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLambdaFunctionRecommendationsCommandInput - {@link GetLambdaFunctionRecommendationsCommandInput}
+ * @returns {@link GetLambdaFunctionRecommendationsCommandOutput}
  * @see {@link GetLambdaFunctionRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetLambdaFunctionRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLambdaFunctionRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetLambdaFunctionRecommendationsCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command<
     return serializeAws_json1_0GetLambdaFunctionRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSpeechSynthesisTaskCommand}.
  */
 export interface StartSpeechSynthesisTaskCommandInput extends StartSpeechSynthesisTaskInput {}
 /**
+ * @public
+ *
  * The output of {@link StartSpeechSynthesisTaskCommand}.
  */
 export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the creation of an asynchronous synthesis task, by starting a
  *       new <code>SpeechSynthesisTask</code>. This operation requires all the
  *       standard information needed for speech synthesis, plus the name of an
@@ -55,6 +60,8 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSpeechSynthesisTaskCommandInput - {@link StartSpeechSynthesisTaskCommandInput}
+ * @returns {@link StartSpeechSynthesisTaskCommandOutput}
  * @see {@link StartSpeechSynthesisTaskCommandInput} for command's `input` shape.
  * @see {@link StartSpeechSynthesisTaskCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -134,6 +141,9 @@ export class StartSpeechSynthesisTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSpeechSynthesisTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class StartSpeechSynthesisTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSpeechSynthesisTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartSpeechSynthesisTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSpeechSynthesisTaskCommandOutput> {
     return deserializeAws_restJson1StartSpeechSynthesisTaskCommand(output, context);
   }

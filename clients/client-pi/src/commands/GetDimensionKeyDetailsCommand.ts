@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDimensionKeyDetailsCommand}.
  */
 export interface GetDimensionKeyDetailsCommandInput extends GetDimensionKeyDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDimensionKeyDetailsCommand}.
  */
 export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a SQL ID,
  *                 <code>GetDimensionKeyDetails</code> retrieves the full text of the dimension <code>db.sql.statement</code> associated with this ID.
  *             This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code> don't support retrieval of large
@@ -49,6 +54,8 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDimensionKeyDetailsCommandInput - {@link GetDimensionKeyDetailsCommandInput}
+ * @returns {@link GetDimensionKeyDetailsCommandOutput}
  * @see {@link GetDimensionKeyDetailsCommandInput} for command's `input` shape.
  * @see {@link GetDimensionKeyDetailsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetDimensionKeyDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDimensionKeyDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetDimensionKeyDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDimensionKeyDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDimensionKeyDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDimensionKeyDetailsCommandOutput> {
     return deserializeAws_json1_1GetDimensionKeyDetailsCommand(output, context);
   }

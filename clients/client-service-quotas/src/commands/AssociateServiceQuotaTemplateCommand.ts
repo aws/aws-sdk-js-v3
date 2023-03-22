@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateServiceQuotaTemplateCommand}.
  */
 export interface AssociateServiceQuotaTemplateCommandInput extends AssociateServiceQuotaTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateServiceQuotaTemplateCommand}.
  */
 export interface AssociateServiceQuotaTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateServiceQuotaTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates your quota request template with your organization. When a new account is
  *       created in your organization, the quota increase requests in the template are automatically
  *       applied to the account. You can add a quota increase request for any adjustable quota to your
@@ -51,6 +56,8 @@ export interface AssociateServiceQuotaTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateServiceQuotaTemplateCommandInput - {@link AssociateServiceQuotaTemplateCommandInput}
+ * @returns {@link AssociateServiceQuotaTemplateCommandOutput}
  * @see {@link AssociateServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceQuotaTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -100,6 +107,9 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateServiceQuotaTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateServiceQuotaTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateServiceQuotaTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

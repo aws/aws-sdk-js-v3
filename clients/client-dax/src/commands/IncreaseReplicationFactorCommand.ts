@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link IncreaseReplicationFactorCommand}.
  */
 export interface IncreaseReplicationFactorCommandInput extends IncreaseReplicationFactorRequest {}
 /**
+ * @public
+ *
  * The output of {@link IncreaseReplicationFactorCommand}.
  */
 export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more nodes to a DAX cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  * const response = await client.send(command);
  * ```
  *
+ * @param IncreaseReplicationFactorCommandInput - {@link IncreaseReplicationFactorCommandInput}
+ * @returns {@link IncreaseReplicationFactorCommandOutput}
  * @see {@link IncreaseReplicationFactorCommandInput} for command's `input` shape.
  * @see {@link IncreaseReplicationFactorCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -100,6 +107,9 @@ export class IncreaseReplicationFactorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IncreaseReplicationFactorCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class IncreaseReplicationFactorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IncreaseReplicationFactorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1IncreaseReplicationFactorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an IAM policy for your rule group or firewall policy. Use this to share rule groups and firewall policies between accounts. This operation works in conjunction with the Amazon Web Services Resource Access Manager (RAM) service
  *            to manage resource sharing for Network Firewall. </p>
  *          <p>Use this operation to create or update a resource policy for your rule group or firewall policy. In the policy, you specify the accounts that you want to share the resource with and the operations that you want the accounts to be able to perform. </p>
@@ -60,6 +65,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -112,6 +119,9 @@ export class PutResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class PutResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0PutResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
     return deserializeAws_json1_0PutResourcePolicyCommand(output, context);
   }

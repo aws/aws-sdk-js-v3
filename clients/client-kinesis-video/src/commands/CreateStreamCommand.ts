@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandInput extends CreateStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandOutput extends CreateStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Kinesis video stream. </p>
  *          <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
  *             When you change the stream's metadata, Kinesis Video Streams updates the version. </p>
@@ -53,6 +58,8 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
+ * @returns {@link CreateStreamCommandOutput}
  * @see {@link CreateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -117,6 +124,9 @@ export class CreateStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class CreateStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamCommandOutput> {
     return deserializeAws_restJson1CreateStreamCommand(output, context);
   }

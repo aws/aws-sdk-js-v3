@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionDefinitionVersionsCommand}.
  */
 export interface ListFunctionDefinitionVersionsCommandInput extends ListFunctionDefinitionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionDefinitionVersionsCommand}.
  */
 export interface ListFunctionDefinitionVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListFunctionDefinitionVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a Lambda function definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListFunctionDefinitionVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionDefinitionVersionsCommandInput - {@link ListFunctionDefinitionVersionsCommandInput}
+ * @returns {@link ListFunctionDefinitionVersionsCommandOutput}
  * @see {@link ListFunctionDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListFunctionDefinitionVersionsCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
     return serializeAws_restJson1ListFunctionDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

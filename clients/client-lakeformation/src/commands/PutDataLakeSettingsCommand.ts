@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDataLakeSettingsCommand}.
  */
 export interface PutDataLakeSettingsCommandInput extends PutDataLakeSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDataLakeSettingsCommand}.
  */
 export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the list of data lake administrators who have admin privileges on all resources managed by Lake Formation. For more information on admin privileges, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/lake-formation-permissions.html">Granting Lake Formation Permissions</a>.</p>
  *          <p>This API replaces the current list of data lake admins with the new list being passed. To add an admin, fetch the current list and add the new admin to that list and pass that list in this API.</p>
  * @example
@@ -47,6 +52,8 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDataLakeSettingsCommandInput - {@link PutDataLakeSettingsCommandInput}
+ * @returns {@link PutDataLakeSettingsCommandOutput}
  * @see {@link PutDataLakeSettingsCommandInput} for command's `input` shape.
  * @see {@link PutDataLakeSettingsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -76,6 +83,9 @@ export class PutDataLakeSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDataLakeSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class PutDataLakeSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDataLakeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutDataLakeSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataLakeSettingsCommandOutput> {
     return deserializeAws_restJson1PutDataLakeSettingsCommand(output, context);
   }

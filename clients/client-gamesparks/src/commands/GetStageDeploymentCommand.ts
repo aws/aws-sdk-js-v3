@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStageDeploymentCommand}.
  */
 export interface GetStageDeploymentCommandInput extends GetStageDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStageDeploymentCommand}.
  */
 export interface GetStageDeploymentCommandOutput extends GetStageDeploymentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a stage deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetStageDeploymentCommandOutput extends GetStageDeploymentResul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStageDeploymentCommandInput - {@link GetStageDeploymentCommandInput}
+ * @returns {@link GetStageDeploymentCommandOutput}
  * @see {@link GetStageDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetStageDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetStageDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStageDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetStageDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStageDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetStageDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStageDeploymentCommandOutput> {
     return deserializeAws_restJson1GetStageDeploymentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnalyzedResourceCommand}.
  */
 export interface GetAnalyzedResourceCommandInput extends GetAnalyzedResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAnalyzedResourceCommand}.
  */
 export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a resource that was analyzed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnalyzedResourceCommandInput - {@link GetAnalyzedResourceCommandInput}
+ * @returns {@link GetAnalyzedResourceCommandOutput}
  * @see {@link GetAnalyzedResourceCommandInput} for command's `input` shape.
  * @see {@link GetAnalyzedResourceCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetAnalyzedResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnalyzedResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetAnalyzedResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnalyzedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAnalyzedResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnalyzedResourceCommandOutput> {
     return deserializeAws_restJson1GetAnalyzedResourceCommand(output, context);
   }

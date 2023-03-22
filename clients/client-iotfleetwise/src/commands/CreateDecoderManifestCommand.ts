@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDecoderManifestCommand}.
  */
 export interface CreateDecoderManifestCommandInput extends CreateDecoderManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDecoderManifestCommand}.
  */
 export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the decoder manifest associated with a model manifest. To create a decoder
  *             manifest, the following must be true:</p>
  *         <ul>
@@ -61,6 +66,8 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDecoderManifestCommandInput - {@link CreateDecoderManifestCommandInput}
+ * @returns {@link CreateDecoderManifestCommandOutput}
  * @see {@link CreateDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link CreateDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -109,6 +116,9 @@ export class CreateDecoderManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDecoderManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class CreateDecoderManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDecoderManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateDecoderManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDecoderManifestCommandOutput> {
     return deserializeAws_json1_0CreateDecoderManifestCommand(output, context);
   }

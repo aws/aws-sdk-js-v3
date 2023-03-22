@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BackTestAnomalyDetectorCommand}.
  */
 export interface BackTestAnomalyDetectorCommandInput extends BackTestAnomalyDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link BackTestAnomalyDetectorCommand}.
  */
 export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs a backtest for anomaly detection for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  * const response = await client.send(command);
  * ```
  *
+ * @param BackTestAnomalyDetectorCommandInput - {@link BackTestAnomalyDetectorCommandInput}
+ * @returns {@link BackTestAnomalyDetectorCommandOutput}
  * @see {@link BackTestAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link BackTestAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +92,9 @@ export class BackTestAnomalyDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BackTestAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class BackTestAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BackTestAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BackTestAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BackTestAnomalyDetectorCommandOutput> {
     return deserializeAws_restJson1BackTestAnomalyDetectorCommand(output, context);
   }

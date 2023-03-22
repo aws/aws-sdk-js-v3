@@ -346,6 +346,7 @@ import {
 import { Route53Client } from "./Route53Client";
 
 /**
+ * @public
  * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web
  * 			service.</p>
  *          <p>You can use Route 53 to:</p>
@@ -366,6 +367,7 @@ import { Route53Client } from "./Route53Client";
  */
 export class Route53 extends Route53Client {
   /**
+   * @public
    * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This
    * 			operation changes the KSK status to <code>ACTIVE</code>.</p>
    */
@@ -399,6 +401,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Associates an Amazon VPC with a private hosted zone. </p>
    *          <important>
    *             <p>To perform the association, the VPC and the private hosted zone must already
@@ -464,6 +467,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative
    * 			IP information mapping blocks to one or multiple locations.</p>
    *          <p>A change request can update multiple locations in a collection at a time, which is
@@ -520,6 +524,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates, changes, or deletes a resource record set, which contains authoritative DNS
    * 			information for a specified domain name or subdomain name. For example, you can use
    * 				<code>ChangeResourceRecordSets</code> to create a resource record set that routes
@@ -641,6 +646,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
    *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
    * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -675,6 +681,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates a CIDR collection in the current Amazon Web Services account.</p>
    */
   public createCidrCollection(
@@ -707,6 +714,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates a new health check.</p>
    *          <p>For information about adding health checks to resource record sets, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId">HealthCheckId</a> in <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>. </p>
    *          <p>
@@ -773,6 +781,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates a new public or private hosted zone. You create records in a public hosted
    * 			zone to define how you want to route traffic on the internet for a domain, such as
    * 			example.com, and its subdomains (apex.example.com, acme.example.com). You create records
@@ -867,6 +876,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates a new key-signing key (KSK) associated with a hosted zone. You can only have
    * 			two KSKs per hosted zone.</p>
    */
@@ -900,6 +910,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates a configuration for DNS query logging. After you create a query logging
    * 			configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs
    * 			log group.</p>
@@ -1099,6 +1110,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple
    * 			hosted zones that were created by the same Amazon Web Services account. </p>
    *          <p>You can also create a reusable delegation set that uses the four name servers that are
@@ -1188,6 +1200,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets
    * 			for one domain name (such as example.com) or one subdomain name (such as
    * 			www.example.com).</p>
@@ -1222,6 +1235,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates resource record sets in a specified hosted zone based on the settings in a
    * 			specified traffic policy version. In addition, <code>CreateTrafficPolicyInstance</code>
    * 			associates the resource record sets with a specified domain name (such as example.com)
@@ -1259,6 +1273,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Creates a new version of an existing traffic policy. When you create a new version of
    * 			a traffic policy, you specify the ID of the traffic policy that you want to update and a
    * 			JSON-formatted document that describes the new version. You use traffic policies to
@@ -1297,6 +1312,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Authorizes the Amazon Web Services account that created a specified VPC to submit an
    * 				<code>AssociateVPCWithHostedZone</code> request to associate the VPC with a
    * 			specified hosted zone that was created by a different account. To submit a
@@ -1339,6 +1355,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC.
    * 			This operation changes the KSK status to <code>INACTIVE</code>.</p>
    */
@@ -1372,6 +1389,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Deletes a CIDR collection in the current Amazon Web Services account. The collection
    * 			must be empty before it can be deleted.</p>
    */
@@ -1405,6 +1423,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Deletes a health check.</p>
    *          <important>
    *             <p>Amazon Route 53 does not prevent you from deleting a health check even if the
@@ -1451,6 +1470,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Deletes a hosted zone.</p>
    *          <p>If the hosted zone was created by another service, such as Cloud Map, see
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting Public Hosted Zones That Were Created by Another Service</a> in the
@@ -1524,6 +1544,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it.
    * 			The KSK must be deactivated before you can delete it regardless of whether the hosted
    * 			zone is enabled for DNSSEC signing.</p>
@@ -1561,6 +1582,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon
    * 			Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete any logs
    * 			that are already in CloudWatch Logs.</p>
@@ -1596,6 +1618,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Deletes a reusable delegation set.</p>
    *          <important>
    *             <p>You can delete a reusable delegation set only if it isn't associated with any
@@ -1635,6 +1658,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Deletes a traffic policy.</p>
    *          <p>When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that
    * 			it has been deleted. However, Route 53 never fully deletes the traffic policy. Note the
@@ -1682,6 +1706,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon
    * 			Route 53 created when you created the instance.</p>
    *          <note>
@@ -1719,6 +1744,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request to
    * 			associate a specified VPC with a hosted zone that was created by a different account.
    * 			You must use the account that created the hosted zone to submit a
@@ -1762,6 +1788,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any
    * 			key-signing keys (KSKs) that are active in the hosted zone.</p>
    */
@@ -1795,6 +1822,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53
    * 			private hosted zone. Note the following:</p>
    *          <ul>
@@ -1875,6 +1903,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Enables DNSSEC signing in a specific hosted zone.</p>
    */
   public enableHostedZoneDNSSEC(
@@ -1907,6 +1936,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets the specified limit for the current account, for example, the maximum number of
    * 			health checks that you can create using the account.</p>
    *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -1947,6 +1977,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Returns the current status of a change batch request. The status is one of the
    * 			following values:</p>
    *          <ul>
@@ -1987,6 +2018,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Route 53 does not perform authorization for this API because it retrieves information
    * 			that is already available to the public.</p>
    *          <important>
@@ -2028,6 +2060,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Returns information about DNSSEC for a specific hosted zone, including the key-signing
    * 			keys (KSKs) in the hosted zone.</p>
    */
@@ -2055,6 +2088,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about whether a specified geographic location is supported for Amazon
    * 			Route 53 geolocation resource record sets.</p>
    *          <p>Route 53 does not perform authorization for this API because it retrieves information
@@ -2112,6 +2146,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified health check.</p>
    */
   public getHealthCheck(
@@ -2144,6 +2179,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the number of health checks that are associated with the current Amazon Web Services account.</p>
    */
   public getHealthCheckCount(
@@ -2176,6 +2212,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets the reason that a specified health check failed most recently.</p>
    */
   public getHealthCheckLastFailureReason(
@@ -2208,6 +2245,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets status of a specified health check. </p>
    *          <important>
    *             <p>This API is intended for use during development to diagnose behavior. It doesn’t
@@ -2245,6 +2283,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified hosted zone including the four name servers
    * 			assigned to the hosted zone.</p>
    */
@@ -2278,6 +2317,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the number of hosted zones that are associated with the current Amazon Web Services account.</p>
    */
   public getHostedZoneCount(
@@ -2310,6 +2350,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets the specified limit for a specified hosted zone, for example, the maximum number
    * 			of records that you can create in the hosted zone. </p>
    *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -2346,6 +2387,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified configuration for DNS query logging.</p>
    *          <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a> and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS
    * 			Queries</a>.</p>
@@ -2380,6 +2422,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a specified reusable delegation set, including the four
    * 			name servers that are assigned to the delegation set.</p>
    */
@@ -2413,6 +2456,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets the maximum number of hosted zones that you can associate with the specified
    * 			reusable delegation set.</p>
    *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -2449,6 +2493,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about a specific traffic policy version.</p>
    *          <p>For information about how of deleting a traffic policy affects the response from
    * 				<code>GetTrafficPolicy</code>, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>. </p>
@@ -2483,6 +2528,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified traffic policy instance.</p>
    *          <note>
    *             <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an
@@ -2526,6 +2572,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets the number of traffic policy instances that are associated with the current
    * 				Amazon Web Services account.</p>
    */
@@ -2559,6 +2606,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of location objects and their CIDR blocks.</p>
    */
   public listCidrBlocks(
@@ -2591,6 +2639,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of CIDR collections in the Amazon Web Services account
    * 			(metadata only).</p>
    */
@@ -2624,6 +2673,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of CIDR locations for the given collection (metadata only,
    * 			does not include CIDR blocks).</p>
    */
@@ -2657,6 +2707,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of supported geographic locations.</p>
    *          <p>Countries are listed first, and continents are listed last. If Amazon Route 53
    * 			supports subdivisions for a country (for example, states or provinces), the subdivisions
@@ -2697,6 +2748,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of the health checks that are associated with the current Amazon Web Services account. </p>
    */
   public listHealthChecks(
@@ -2729,6 +2781,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of the public and private hosted zones that are associated with the
    * 			current Amazon Web Services account. The response includes a <code>HostedZones</code>
    * 			child element for each hosted zone.</p>
@@ -2766,6 +2819,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of your hosted zones in lexicographic order. The response includes a
    * 				<code>HostedZones</code> child element for each hosted zone created by the current
    * 				Amazon Web Services account. </p>
@@ -2853,6 +2907,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless
    * 			of which Amazon Web Services account or Amazon Web Services service owns the hosted zones.
    * 			The <code>HostedZoneOwner</code> structure in the response contains one of the following
@@ -2924,6 +2979,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Lists the configurations for DNS query logging that are associated with the current
    * 				Amazon Web Services account or the configuration that is associated with a specified
    * 			hosted zone.</p>
@@ -2961,6 +3017,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Lists the resource record sets in a specified hosted zone.</p>
    *          <p>
    *             <code>ListResourceRecordSets</code> returns up to 300 resource record sets at a time
@@ -3063,6 +3120,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of the reusable delegation sets that are associated with the current
    * 				Amazon Web Services account.</p>
    */
@@ -3096,6 +3154,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Lists tags for one health check or hosted zone. </p>
    *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
    * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -3130,6 +3189,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Lists tags for up to 10 health checks or hosted zones.</p>
    *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
    * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -3164,6 +3224,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the latest version for every traffic policy that is associated
    * 			with the current Amazon Web Services account. Policies are listed in the order that they
    * 			were created in. </p>
@@ -3200,6 +3261,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the traffic policy instances that you created by using the
    * 			current Amazon Web Services account.</p>
    *          <note>
@@ -3242,6 +3304,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the traffic policy instances that you created in a specified
    * 			hosted zone.</p>
    *          <note>
@@ -3287,6 +3350,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about the traffic policy instances that you created by using a
    * 			specify traffic policy version.</p>
    *          <note>
@@ -3330,6 +3394,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets information about all of the versions for a specified traffic policy.</p>
    *          <p>Traffic policy versions are listed in numerical order by
    * 			<code>VersionNumber</code>.</p>
@@ -3364,6 +3429,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets a list of the VPCs that were created by other accounts and that can be associated
    * 			with a specified hosted zone because you've submitted one or more
    * 				<code>CreateVPCAssociationAuthorization</code> requests. </p>
@@ -3400,6 +3466,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a
    * 			specified record name and type. You can optionally specify the IP address of a DNS
    * 			resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
@@ -3435,6 +3502,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Updates an existing health check. Note that some values can't be updated. </p>
    *          <p>For more information about updating health checks, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating,
    * 				Updating, and Deleting Health Checks</a> in the <i>Amazon Route 53
@@ -3470,6 +3538,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Updates the comment for a specified hosted zone.</p>
    */
   public updateHostedZoneComment(
@@ -3502,6 +3571,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Updates the comment for a specified traffic policy version.</p>
    */
   public updateTrafficPolicyComment(
@@ -3534,6 +3604,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * @public
    * <p>Updates the resource record sets in a specified hosted zone that were created based on
    * 			the settings in a specified traffic policy version.</p>
    *          <p>When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS

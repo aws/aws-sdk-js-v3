@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCertificateAuthorityCertificateCommand}.
  */
 export interface GetCertificateAuthorityCertificateCommandInput extends GetCertificateAuthorityCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCertificateAuthorityCertificateCommand}.
  */
 export interface GetCertificateAuthorityCertificateCommandOutput
@@ -37,6 +41,7 @@ export interface GetCertificateAuthorityCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the certificate and certificate chain for your private certificate authority
  * 			(CA) or one that has been shared with you. Both the certificate and the chain are base64
  * 			PEM-encoded. The chain does not include the CA certificate. Each certificate in the
@@ -51,6 +56,8 @@ export interface GetCertificateAuthorityCertificateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCertificateAuthorityCertificateCommandInput - {@link GetCertificateAuthorityCertificateCommandInput}
+ * @returns {@link GetCertificateAuthorityCertificateCommandOutput}
  * @see {@link GetCertificateAuthorityCertificateCommandInput} for command's `input` shape.
  * @see {@link GetCertificateAuthorityCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetCertificateAuthorityCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCertificateAuthorityCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class GetCertificateAuthorityCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCertificateAuthorityCertificateCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class GetCertificateAuthorityCertificateCommand extends $Command<
     return serializeAws_json1_1GetCertificateAuthorityCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

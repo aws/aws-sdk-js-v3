@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTaskExecutionsCommand}.
  */
 export interface ListTaskExecutionsCommandInput extends ListTaskExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTaskExecutionsCommand}.
  */
 export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of executed tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTaskExecutionsCommandInput - {@link ListTaskExecutionsCommandInput}
+ * @returns {@link ListTaskExecutionsCommandOutput}
  * @see {@link ListTaskExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListTaskExecutionsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListTaskExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTaskExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListTaskExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTaskExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTaskExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTaskExecutionsCommandOutput> {
     return deserializeAws_json1_1ListTaskExecutionsCommand(output, context);
   }

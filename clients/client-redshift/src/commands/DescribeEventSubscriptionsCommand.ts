@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventSubscriptionsCommand}.
  */
 export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSubscriptionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventSubscriptionsCommand}.
  */
 export interface DescribeEventSubscriptionsCommandOutput extends EventSubscriptionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists descriptions of all the Amazon Redshift event notification subscriptions for a
  *             customer account. If you specify a subscription name, lists the description for that
  *             subscription.</p>
@@ -56,6 +61,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
+ * @returns {@link DescribeEventSubscriptionsCommandOutput}
  * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEventSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

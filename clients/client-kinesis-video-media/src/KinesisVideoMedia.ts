@@ -5,10 +5,12 @@ import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./
 import { KinesisVideoMediaClient } from "./KinesisVideoMediaClient";
 
 /**
+ * @public
  * <p></p>
  */
 export class KinesisVideoMedia extends KinesisVideoMediaClient {
   /**
+   * @public
    * <p> Use this API to retrieve media content from a Kinesis video stream. In the request,
    *       you identify the stream name or stream Amazon Resource Name (ARN), and the starting chunk.
    *       Kinesis Video Streams then returns a stream of chunks in order by fragment number.</p>

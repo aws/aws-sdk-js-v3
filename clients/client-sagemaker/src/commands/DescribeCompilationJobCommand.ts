@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCompilationJobCommand}.
  */
 export interface DescribeCompilationJobCommandInput extends DescribeCompilationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCompilationJobCommand}.
  */
 export interface DescribeCompilationJobCommandOutput extends DescribeCompilationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a model compilation job.</p>
  *          <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
  *             information about multiple model compilation jobs, use <a>ListCompilationJobs</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeCompilationJobCommandOutput extends DescribeCompilation
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCompilationJobCommandInput - {@link DescribeCompilationJobCommandInput}
+ * @returns {@link DescribeCompilationJobCommandOutput}
  * @see {@link DescribeCompilationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeCompilationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCompilationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeCompilationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCompilationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCompilationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCompilationJobCommandOutput> {
     return deserializeAws_json1_1DescribeCompilationJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPreparedStatementsCommand}.
  */
 export interface ListPreparedStatementsCommandInput extends ListPreparedStatementsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPreparedStatementsCommand}.
  */
 export interface ListPreparedStatementsCommandOutput extends ListPreparedStatementsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the prepared statements in the specified workgroup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPreparedStatementsCommandOutput extends ListPreparedStateme
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPreparedStatementsCommandInput - {@link ListPreparedStatementsCommandInput}
+ * @returns {@link ListPreparedStatementsCommandOutput}
  * @see {@link ListPreparedStatementsCommandInput} for command's `input` shape.
  * @see {@link ListPreparedStatementsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListPreparedStatementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPreparedStatementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListPreparedStatementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPreparedStatementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPreparedStatementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPreparedStatementsCommandOutput> {
     return deserializeAws_json1_1ListPreparedStatementsCommand(output, context);
   }

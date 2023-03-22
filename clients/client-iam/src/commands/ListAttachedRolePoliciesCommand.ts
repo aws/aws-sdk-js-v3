@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttachedRolePoliciesCommand}.
  */
 export interface ListAttachedRolePoliciesCommandInput extends ListAttachedRolePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttachedRolePoliciesCommand}.
  */
 export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRolePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all managed policies that are attached to the specified IAM role.</p>
  *          <p>An IAM role can also have inline policies embedded with it. To list the inline
  *             policies for a role, use <a>ListRolePolicies</a>. For information about
@@ -55,6 +60,8 @@ export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRoleP
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttachedRolePoliciesCommandInput - {@link ListAttachedRolePoliciesCommandInput}
+ * @returns {@link ListAttachedRolePoliciesCommandOutput}
  * @see {@link ListAttachedRolePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedRolePoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListAttachedRolePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttachedRolePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListAttachedRolePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttachedRolePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListAttachedRolePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachedRolePoliciesCommandOutput> {
     return deserializeAws_queryListAttachedRolePoliciesCommand(output, context);
   }

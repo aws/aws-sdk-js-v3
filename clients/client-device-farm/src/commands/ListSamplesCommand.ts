@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSamplesCommand}.
  */
 export interface ListSamplesCommandInput extends ListSamplesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSamplesCommand}.
  */
 export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSamplesCommandInput - {@link ListSamplesCommandInput}
+ * @returns {@link ListSamplesCommandOutput}
  * @see {@link ListSamplesCommandInput} for command's `input` shape.
  * @see {@link ListSamplesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -98,6 +105,9 @@ export class ListSamplesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSamplesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class ListSamplesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSamplesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSamplesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSamplesCommandOutput> {
     return deserializeAws_json1_1ListSamplesCommand(output, context);
   }

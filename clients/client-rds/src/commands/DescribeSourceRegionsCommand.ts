@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSourceRegionsCommand}.
  */
 export interface DescribeSourceRegionsCommandInput extends DescribeSourceRegionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSourceRegionsCommand}.
  */
 export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the source Amazon Web Services Regions where the current Amazon Web Services Region can create a read replica,
  *          copy a DB snapshot from, or replicate automated backups from.</p>
  *          <p>Use this operation to determine whether cross-Region features are supported between other Regions
@@ -53,6 +58,8 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSourceRegionsCommandInput - {@link DescribeSourceRegionsCommandInput}
+ * @returns {@link DescribeSourceRegionsCommandOutput}
  * @see {@link DescribeSourceRegionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSourceRegionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -141,6 +148,9 @@ export class DescribeSourceRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSourceRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class DescribeSourceRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSourceRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeSourceRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSourceRegionsCommandOutput> {
     return deserializeAws_queryDescribeSourceRegionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLicenseConfigurationCommand}.
  */
 export interface CreateLicenseConfigurationCommandInput extends CreateLicenseConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLicenseConfigurationCommand}.
  */
 export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a license configuration.</p>
  *          <p>A license configuration is an abstraction of a customer license agreement that can be
  *          consumed and enforced by License Manager. Components include specifications for the license
@@ -51,6 +56,8 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLicenseConfigurationCommandInput - {@link CreateLicenseConfigurationCommandInput}
+ * @returns {@link CreateLicenseConfigurationCommandOutput}
  * @see {@link CreateLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

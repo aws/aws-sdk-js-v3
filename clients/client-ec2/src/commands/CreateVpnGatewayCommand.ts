@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpnGatewayCommand}.
  */
 export interface CreateVpnGatewayCommandInput extends CreateVpnGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpnGatewayCommand}.
  */
 export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the
  *             VPC side of your VPN connection. You can create a virtual private gateway before
  *             creating the VPC itself.</p>
@@ -50,6 +55,8 @@ export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpnGatewayCommandInput - {@link CreateVpnGatewayCommandInput}
+ * @returns {@link CreateVpnGatewayCommandOutput}
  * @see {@link CreateVpnGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class CreateVpnGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpnGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateVpnGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpnGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVpnGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpnGatewayCommandOutput> {
     return deserializeAws_ec2CreateVpnGatewayCommand(output, context);
   }

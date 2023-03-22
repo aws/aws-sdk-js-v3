@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVirtualGatewaysCommand}.
  */
 export interface DescribeVirtualGatewaysCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVirtualGatewaysCommand}.
  */
 export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the virtual private gateways owned by the Amazon Web Services account.</p>
  *          <p>You can create one or more Direct Connect private virtual interfaces linked to a virtual private gateway.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualGatewaysCommandInput - {@link DescribeVirtualGatewaysCommandInput}
+ * @returns {@link DescribeVirtualGatewaysCommandOutput}
  * @see {@link DescribeVirtualGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualGatewaysCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeVirtualGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeVirtualGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeVirtualGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualGatewaysCommandOutput> {
     return deserializeAws_json1_1DescribeVirtualGatewaysCommand(output, context);
   }

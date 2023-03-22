@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchExecuteStatementCommand}.
  */
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs one or more SQL statements, which can be data manipulation language (DML) or data definition
  *       language (DDL).
  *       Depending on the authorization
@@ -63,6 +68,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchExecuteStatementCommandInput - {@link BatchExecuteStatementCommandInput}
+ * @returns {@link BatchExecuteStatementCommandOutput}
  * @see {@link BatchExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -95,6 +102,9 @@ export class BatchExecuteStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class BatchExecuteStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchExecuteStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchExecuteStatementCommandOutput> {
     return deserializeAws_json1_1BatchExecuteStatementCommand(output, context);
   }

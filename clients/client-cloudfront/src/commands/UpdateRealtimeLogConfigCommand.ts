@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRealtimeLogConfigCommand}.
  */
 export interface UpdateRealtimeLogConfigCommandInput extends UpdateRealtimeLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRealtimeLogConfigCommand}.
  */
 export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a real-time log configuration.</p>
  *          <p>When you update a real-time log configuration, all the parameters are updated with the
  * 			values provided in the request. You cannot update some parameters independent of others.
@@ -66,6 +71,8 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRealtimeLogConfigCommandInput - {@link UpdateRealtimeLogConfigCommandInput}
+ * @returns {@link UpdateRealtimeLogConfigCommandOutput}
  * @see {@link UpdateRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateRealtimeLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRealtimeLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateRealtimeLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRealtimeLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateRealtimeLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRealtimeLogConfigCommandOutput> {
     return deserializeAws_restXmlUpdateRealtimeLogConfigCommand(output, context);
   }

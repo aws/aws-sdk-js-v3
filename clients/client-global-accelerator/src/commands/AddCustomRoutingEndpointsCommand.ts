@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddCustomRoutingEndpointsCommand}.
  */
 export interface AddCustomRoutingEndpointsCommandInput extends AddCustomRoutingEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddCustomRoutingEndpointsCommand}.
  */
 export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRoutingEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a virtual private cloud (VPC) subnet endpoint with your custom routing accelerator.</p>
  * 	        <p>The listener port range must be large enough to support the number of IP addresses that can be
  * 		specified in your subnet. The number of ports required is: subnet size times the number
@@ -60,6 +65,8 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * const response = await client.send(command);
  * ```
  *
+ * @param AddCustomRoutingEndpointsCommandInput - {@link AddCustomRoutingEndpointsCommandInput}
+ * @returns {@link AddCustomRoutingEndpointsCommandOutput}
  * @see {@link AddCustomRoutingEndpointsCommandInput} for command's `input` shape.
  * @see {@link AddCustomRoutingEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -104,6 +111,9 @@ export class AddCustomRoutingEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddCustomRoutingEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class AddCustomRoutingEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddCustomRoutingEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddCustomRoutingEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

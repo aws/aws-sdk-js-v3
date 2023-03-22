@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMountTargetsCommand}.
  */
 export interface DescribeMountTargetsCommandInput extends DescribeMountTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMountTargetsCommand}.
  */
 export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
  *       for a file system. When requesting all of the current mount targets, the order of mount
  *       targets returned in the response is unspecified.</p>
@@ -52,6 +57,8 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMountTargetsCommandInput - {@link DescribeMountTargetsCommandInput}
+ * @returns {@link DescribeMountTargetsCommandOutput}
  * @see {@link DescribeMountTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeMountTargetsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -120,6 +127,9 @@ export class DescribeMountTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMountTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class DescribeMountTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMountTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeMountTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMountTargetsCommandOutput> {
     return deserializeAws_restJson1DescribeMountTargetsCommand(output, context);
   }

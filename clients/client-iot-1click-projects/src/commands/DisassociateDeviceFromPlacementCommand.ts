@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDeviceFromPlacementCommand}.
  */
 export interface DisassociateDeviceFromPlacementCommandInput extends DisassociateDeviceFromPlacementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDeviceFromPlacementCommand}.
  */
 export interface DisassociateDeviceFromPlacementCommandOutput
@@ -41,6 +45,7 @@ export interface DisassociateDeviceFromPlacementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a physical device from a placement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDeviceFromPlacementCommandInput - {@link DisassociateDeviceFromPlacementCommandInput}
+ * @returns {@link DisassociateDeviceFromPlacementCommandOutput}
  * @see {@link DisassociateDeviceFromPlacementCommandInput} for command's `input` shape.
  * @see {@link DisassociateDeviceFromPlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDeviceFromPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateDeviceFromPlacementCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
     return serializeAws_restJson1DisassociateDeviceFromPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

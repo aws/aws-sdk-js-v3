@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterFromWorkMailCommand}.
  */
 export interface DeregisterFromWorkMailCommandInput extends DeregisterFromWorkMailRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterFromWorkMailCommand}.
  */
 export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkMailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Mark a user, group, or resource as no longer used in WorkMail. This action
  *          disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days
  *          before they are permanently removed. The functionality in the console is
@@ -49,6 +54,8 @@ export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkM
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterFromWorkMailCommandInput - {@link DeregisterFromWorkMailCommandInput}
+ * @returns {@link DeregisterFromWorkMailCommandOutput}
  * @see {@link DeregisterFromWorkMailCommandInput} for command's `input` shape.
  * @see {@link DeregisterFromWorkMailCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeregisterFromWorkMailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterFromWorkMailCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeregisterFromWorkMailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterFromWorkMailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterFromWorkMailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterFromWorkMailCommandOutput> {
     return deserializeAws_json1_1DeregisterFromWorkMailCommand(output, context);
   }

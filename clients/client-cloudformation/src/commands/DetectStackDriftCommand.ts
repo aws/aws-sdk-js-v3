@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetectStackDriftCommand}.
  */
 export interface DetectStackDriftCommandInput extends DetectStackDriftInput {}
 /**
+ * @public
+ *
  * The output of {@link DetectStackDriftCommand}.
  */
 export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects whether a stack's actual configuration differs, or has
  *             <i>drifted</i>, from it's expected configuration, as defined in the stack
  *          template and any values specified as template parameters. For each resource in the stack
@@ -66,6 +71,8 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectStackDriftCommandInput - {@link DetectStackDriftCommandInput}
+ * @returns {@link DetectStackDriftCommandOutput}
  * @see {@link DetectStackDriftCommandInput} for command's `input` shape.
  * @see {@link DetectStackDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -89,6 +96,9 @@ export class DetectStackDriftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectStackDriftCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DetectStackDriftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectStackDriftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetectStackDriftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectStackDriftCommandOutput> {
     return deserializeAws_queryDetectStackDriftCommand(output, context);
   }

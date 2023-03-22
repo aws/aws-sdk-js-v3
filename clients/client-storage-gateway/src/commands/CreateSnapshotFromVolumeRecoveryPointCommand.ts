@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSnapshotFromVolumeRecoveryPointCommand}.
  */
 export interface CreateSnapshotFromVolumeRecoveryPointCommandInput extends CreateSnapshotFromVolumeRecoveryPointInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSnapshotFromVolumeRecoveryPointCommand}.
  */
 export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a snapshot of a gateway from a volume recovery point. This operation is only
  *          supported in the cached volume gateway type.</p>
  *
@@ -68,6 +73,8 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotFromVolumeRecoveryPointCommandInput - {@link CreateSnapshotFromVolumeRecoveryPointCommandInput}
+ * @returns {@link CreateSnapshotFromVolumeRecoveryPointCommandOutput}
  * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -122,6 +129,9 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotFromVolumeRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,6 +171,9 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSnapshotFromVolumeRecoveryPointCommandInput,
     context: __SerdeContext
@@ -168,6 +181,9 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     return serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

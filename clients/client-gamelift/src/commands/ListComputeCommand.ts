@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListComputeCommand}.
  */
 export interface ListComputeCommandInput extends ListComputeInput {}
 /**
+ * @public
+ *
  * The output of {@link ListComputeCommand}.
  */
 export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all compute resources registered to a fleet in your Amazon Web Services account. You can filter the result set by location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComputeCommandInput - {@link ListComputeCommandInput}
+ * @returns {@link ListComputeCommandOutput}
  * @see {@link ListComputeCommandInput} for command's `input` shape.
  * @see {@link ListComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListComputeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComputeCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListComputeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListComputeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComputeCommandOutput> {
     return deserializeAws_json1_1ListComputeCommand(output, context);
   }

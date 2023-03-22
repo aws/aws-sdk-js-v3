@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListForecastsCommand}.
  */
 export interface ListForecastsCommandInput extends ListForecastsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListForecastsCommand}.
  */
 export interface ListForecastsCommandOutput extends ListForecastsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of forecasts created using the <a>CreateForecast</a> operation.
  *       For each forecast, this operation returns a summary of its properties, including its Amazon
  *       Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the
@@ -50,6 +55,8 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListForecastsCommandInput - {@link ListForecastsCommandInput}
+ * @returns {@link ListForecastsCommandOutput}
  * @see {@link ListForecastsCommandInput} for command's `input` shape.
  * @see {@link ListForecastsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListForecastsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListForecastsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListForecastsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListForecastsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListForecastsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListForecastsCommandOutput> {
     return deserializeAws_json1_1ListForecastsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstanceGroupsCommand}.
  */
 export interface ModifyInstanceGroupsCommandInput extends ModifyInstanceGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstanceGroupsCommand}.
  */
 export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an
  *          instance group. The input parameters include the new target instance count for the group
  *          and the instance group ID. The call will either succeed or fail atomically.</p>
@@ -43,6 +48,8 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceGroupsCommandInput - {@link ModifyInstanceGroupsCommandInput}
+ * @returns {@link ModifyInstanceGroupsCommandOutput}
  * @see {@link ModifyInstanceGroupsCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceGroupsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -70,6 +77,9 @@ export class ModifyInstanceGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ModifyInstanceGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyInstanceGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyInstanceGroupsCommandOutput> {
     return deserializeAws_json1_1ModifyInstanceGroupsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainCommand}.
  */
 export interface UpdateDomainCommandInput extends UpdateDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainCommand}.
  */
 export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of a domain, including creating or selecting a dead letter queue
  *          or an encryption key.</p>
  *          <p>After a domain is created, the name can’t be changed.</p>
@@ -54,6 +59,8 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainCommandInput - {@link UpdateDomainCommandInput}
+ * @returns {@link UpdateDomainCommandOutput}
  * @see {@link UpdateDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainCommandOutput> {
     return deserializeAws_restJson1UpdateDomainCommand(output, context);
   }

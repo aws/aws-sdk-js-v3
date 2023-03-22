@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainsCommand}.
  */
 export interface DescribeDomainsCommandInput extends DescribeDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainsCommand}.
  */
 export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the search domains owned by this account. Can be limited to specific domains. Shows
  *       all domains by default. To get the number of searchable documents in a domain, use the console or submit a <code>matchall</code> request to your domain's search endpoint: <code>q=matchall&amp;q.parser=structured&amp;size=0</code>. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html" target="_blank">Getting Information about a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainsCommandInput - {@link DescribeDomainsCommandInput}
+ * @returns {@link DescribeDomainsCommandOutput}
  * @see {@link DescribeDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainsCommandOutput> {
     return deserializeAws_queryDescribeDomainsCommand(output, context);
   }

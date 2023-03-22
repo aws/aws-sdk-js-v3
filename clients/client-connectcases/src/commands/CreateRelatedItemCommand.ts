@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRelatedItemCommand}.
  */
 export interface CreateRelatedItemCommandInput extends CreateRelatedItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRelatedItemCommand}.
  */
 export interface CreateRelatedItemCommandOutput extends CreateRelatedItemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a related item (comments, tasks, and contacts) and associates it with a
  *       case.</p>
  *          <note>
@@ -54,6 +59,8 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRelatedItemCommandInput - {@link CreateRelatedItemCommandInput}
+ * @returns {@link CreateRelatedItemCommandOutput}
  * @see {@link CreateRelatedItemCommandInput} for command's `input` shape.
  * @see {@link CreateRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateRelatedItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRelatedItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreateRelatedItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRelatedItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRelatedItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRelatedItemCommandOutput> {
     return deserializeAws_restJson1CreateRelatedItemCommand(output, context);
   }

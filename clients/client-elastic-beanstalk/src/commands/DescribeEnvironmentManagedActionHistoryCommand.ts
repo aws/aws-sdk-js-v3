@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentManagedActionHistoryCommand}.
  */
 export interface DescribeEnvironmentManagedActionHistoryCommandInput
   extends DescribeEnvironmentManagedActionHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentManagedActionHistoryCommand}.
  */
 export interface DescribeEnvironmentManagedActionHistoryCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists an environment's completed and failed managed actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentManagedActionHistoryCommandInput - {@link DescribeEnvironmentManagedActionHistoryCommandInput}
+ * @returns {@link DescribeEnvironmentManagedActionHistoryCommandOutput}
  * @see {@link DescribeEnvironmentManagedActionHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentManagedActionHistoryCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentManagedActionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEnvironmentManagedActionHistoryCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     return serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

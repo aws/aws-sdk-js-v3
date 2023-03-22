@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCampaignCommand}.
  */
 export interface StartCampaignCommandInput extends StartCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCampaignCommand}.
  */
 export interface StartCampaignCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Starts a campaign for the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface StartCampaignCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCampaignCommandInput - {@link StartCampaignCommandInput}
+ * @returns {@link StartCampaignCommandOutput}
  * @see {@link StartCampaignCommandInput} for command's `input` shape.
  * @see {@link StartCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -85,6 +92,9 @@ export class StartCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class StartCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCampaignCommandOutput> {
     return deserializeAws_restJson1StartCampaignCommand(output, context);
   }

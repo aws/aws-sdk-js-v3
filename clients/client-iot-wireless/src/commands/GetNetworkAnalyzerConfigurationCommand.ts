@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkAnalyzerConfigurationCommand}.
  */
 export interface GetNetworkAnalyzerConfigurationCommandInput extends GetNetworkAnalyzerConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkAnalyzerConfigurationCommand}.
  */
 export interface GetNetworkAnalyzerConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get network analyzer configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkAnalyzerConfigurationCommandInput - {@link GetNetworkAnalyzerConfigurationCommandInput}
+ * @returns {@link GetNetworkAnalyzerConfigurationCommandOutput}
  * @see {@link GetNetworkAnalyzerConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetNetworkAnalyzerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetNetworkAnalyzerConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkAnalyzerConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetNetworkAnalyzerConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetNetworkAnalyzerConfigurationCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetNetworkAnalyzerConfigurationCommand extends $Command<
     return serializeAws_restJson1GetNetworkAnalyzerConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

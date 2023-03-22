@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTypedLinkFacetCommand}.
  */
 export interface DeleteTypedLinkFacetCommandInput extends DeleteTypedLinkFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTypedLinkFacetCommand}.
  */
 export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTypedLinkFacetCommandInput - {@link DeleteTypedLinkFacetCommandInput}
+ * @returns {@link DeleteTypedLinkFacetCommandOutput}
  * @see {@link DeleteTypedLinkFacetCommandInput} for command's `input` shape.
  * @see {@link DeleteTypedLinkFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteTypedLinkFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTypedLinkFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteTypedLinkFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTypedLinkFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTypedLinkFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTypedLinkFacetCommandOutput> {
     return deserializeAws_restJson1DeleteTypedLinkFacetCommand(output, context);
   }

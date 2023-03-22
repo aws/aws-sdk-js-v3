@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectClientAddInCommand}.
  */
 export interface CreateConnectClientAddInCommandInput extends CreateConnectClientAddInRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectClientAddInCommand}.
  */
 export interface CreateConnectClientAddInCommandOutput extends CreateConnectClientAddInResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a client-add-in for Amazon Connect within a directory. You can create only
  *          one Amazon Connect client add-in within a directory.</p>
  *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.</p>
@@ -48,6 +53,8 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectClientAddInCommandInput - {@link CreateConnectClientAddInCommandInput}
+ * @returns {@link CreateConnectClientAddInCommandOutput}
  * @see {@link CreateConnectClientAddInCommandInput} for command's `input` shape.
  * @see {@link CreateConnectClientAddInCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateConnectClientAddInCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectClientAddInCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateConnectClientAddInCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectClientAddInCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateConnectClientAddInCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectClientAddInCommandOutput> {
     return deserializeAws_json1_1CreateConnectClientAddInCommand(output, context);
   }

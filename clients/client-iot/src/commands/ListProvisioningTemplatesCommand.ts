@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProvisioningTemplatesCommand}.
  */
 export interface ListProvisioningTemplatesCommandInput extends ListProvisioningTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProvisioningTemplatesCommand}.
  */
 export interface ListProvisioningTemplatesCommandOutput extends ListProvisioningTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the provisioning templates in your Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisioningTemplatesCommandInput - {@link ListProvisioningTemplatesCommandInput}
+ * @returns {@link ListProvisioningTemplatesCommandOutput}
  * @see {@link ListProvisioningTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListProvisioningTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisioningTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListProvisioningTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProvisioningTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProvisioningTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

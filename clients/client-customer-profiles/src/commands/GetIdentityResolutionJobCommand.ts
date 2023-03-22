@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityResolutionJobCommand}.
  */
 export interface GetIdentityResolutionJobCommandInput extends GetIdentityResolutionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityResolutionJobCommand}.
  */
 export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolutionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an Identity Resolution Job in a specific domain. </p>
  *          <p>Identity Resolution Jobs are set up using the Amazon Connect admin console. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html">Use
  *             Identity Resolution to consolidate similar profiles</a>.</p>
@@ -48,6 +53,8 @@ export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityResolutionJobCommandInput - {@link GetIdentityResolutionJobCommandInput}
+ * @returns {@link GetIdentityResolutionJobCommandOutput}
  * @see {@link GetIdentityResolutionJobCommandInput} for command's `input` shape.
  * @see {@link GetIdentityResolutionJobCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetIdentityResolutionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityResolutionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetIdentityResolutionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdentityResolutionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIdentityResolutionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityResolutionJobCommandOutput> {
     return deserializeAws_restJson1GetIdentityResolutionJobCommand(output, context);
   }

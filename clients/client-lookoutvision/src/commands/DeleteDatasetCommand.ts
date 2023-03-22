@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Amazon Lookout for Vision <code>dataset</code>. </p>
  *          <p>If your the project has a single
  *       dataset, you must create a new dataset before you can create a model.</p>
@@ -60,6 +65,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
+ * @returns {@link DeleteDatasetCommandOutput}
  * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -102,6 +109,9 @@ export class DeleteDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DeleteDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetCommandOutput> {
     return deserializeAws_restJson1DeleteDatasetCommand(output, context);
   }

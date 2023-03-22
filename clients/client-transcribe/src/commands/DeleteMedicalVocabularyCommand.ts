@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMedicalVocabularyCommand}.
  */
 export interface DeleteMedicalVocabularyCommandInput extends DeleteMedicalVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMedicalVocabularyCommand}.
  */
 export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom medical vocabulary. To use this operation, specify the name of the
  *             custom vocabulary you want to delete using <code>VocabularyName</code>. Custom
  *             vocabulary names are case sensitive.</p>
@@ -43,6 +48,8 @@ export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMedicalVocabularyCommandInput - {@link DeleteMedicalVocabularyCommandInput}
+ * @returns {@link DeleteMedicalVocabularyCommandOutput}
  * @see {@link DeleteMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteMedicalVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMedicalVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteMedicalVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMedicalVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMedicalVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMedicalVocabularyCommandOutput> {
     return deserializeAws_json1_1DeleteMedicalVocabularyCommand(output, context);
   }

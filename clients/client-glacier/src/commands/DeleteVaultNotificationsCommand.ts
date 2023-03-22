@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVaultNotificationsCommand}.
  */
 export interface DeleteVaultNotificationsCommandInput extends DeleteVaultNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVaultNotificationsCommand}.
  */
 export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation deletes the notification configuration set for a vault. The operation
  *          is eventually consistent; that is, it might take some time for Amazon S3 Glacier to completely
  *          disable the notifications and you might still receive some notifications for a short time
@@ -53,6 +58,8 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVaultNotificationsCommandInput - {@link DeleteVaultNotificationsCommandInput}
+ * @returns {@link DeleteVaultNotificationsCommandOutput}
  * @see {@link DeleteVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -101,6 +108,9 @@ export class DeleteVaultNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVaultNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DeleteVaultNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVaultNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVaultNotificationsCommandOutput> {
     return deserializeAws_restJson1DeleteVaultNotificationsCommand(output, context);
   }

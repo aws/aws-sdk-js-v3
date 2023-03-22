@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchEntitiesCommand}.
  */
 export interface SearchEntitiesCommandInput extends SearchEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchEntitiesCommand}.
  */
 export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
@@ -48,6 +53,8 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchEntitiesCommandInput - {@link SearchEntitiesCommandInput}
+ * @returns {@link SearchEntitiesCommandOutput}
  * @see {@link SearchEntitiesCommandInput} for command's `input` shape.
  * @see {@link SearchEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -80,6 +87,9 @@ export class SearchEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class SearchEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchEntitiesCommandOutput> {
     return deserializeAws_json1_1SearchEntitiesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceIntegrationCommand}.
  */
 export interface UpdateServiceIntegrationCommandInput extends UpdateServiceIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceIntegrationCommand}.
  */
 export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Enables or disables integration with a service that can be integrated with DevOps Guru. The
  * 			one service that can be integrated with DevOps Guru is Amazon Web Services Systems Manager, which can be used to create
  * 			an OpsItem for each generated insight. </p>
@@ -48,6 +53,8 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceIntegrationCommandInput - {@link UpdateServiceIntegrationCommandInput}
+ * @returns {@link UpdateServiceIntegrationCommandOutput}
  * @see {@link UpdateServiceIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceIntegrationCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateServiceIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateServiceIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateServiceIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceIntegrationCommandOutput> {
     return deserializeAws_restJson1UpdateServiceIntegrationCommand(output, context);
   }

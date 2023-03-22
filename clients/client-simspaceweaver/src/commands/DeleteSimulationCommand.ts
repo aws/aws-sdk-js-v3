@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSimulationCommand}.
  */
 export interface DeleteSimulationCommandInput extends DeleteSimulationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSimulationCommand}.
  */
 export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all SimSpace Weaver resources assigned to the given simulation.</p>
  *          <note>
  *             <p>Your simulation uses resources in other Amazon Web Services services. This API operation doesn't delete
@@ -50,6 +55,8 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSimulationCommandInput - {@link DeleteSimulationCommandInput}
+ * @returns {@link DeleteSimulationCommandOutput}
  * @see {@link DeleteSimulationCommandInput} for command's `input` shape.
  * @see {@link DeleteSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteSimulationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSimulationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteSimulationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSimulationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSimulationCommandOutput> {
     return deserializeAws_restJson1DeleteSimulationCommand(output, context);
   }

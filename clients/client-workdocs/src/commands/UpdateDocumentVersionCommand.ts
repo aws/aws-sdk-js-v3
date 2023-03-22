@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentVersionCommand}.
  */
 export interface UpdateDocumentVersionCommandInput extends UpdateDocumentVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentVersionCommand}.
  */
 export interface UpdateDocumentVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the status of the document version to ACTIVE. </p>
  *          <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step
  *             in a document upload, after the client uploads the document to an S3-presigned URL
@@ -44,6 +49,8 @@ export interface UpdateDocumentVersionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentVersionCommandInput - {@link UpdateDocumentVersionCommandInput}
+ * @returns {@link UpdateDocumentVersionCommandOutput}
  * @see {@link UpdateDocumentVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentVersionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateDocumentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateDocumentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDocumentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentVersionCommandOutput> {
     return deserializeAws_restJson1UpdateDocumentVersionCommand(output, context);
   }

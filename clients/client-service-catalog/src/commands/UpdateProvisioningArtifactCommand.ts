@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProvisioningArtifactCommand}.
  */
 export interface UpdateProvisioningArtifactCommandInput extends UpdateProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProvisioningArtifactCommand}.
  */
 export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified provisioning artifact (also known as a version) for the specified product.</p>
  *          <p>You cannot update a provisioning artifact for a product that was shared with you.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProvisioningArtifactCommandInput - {@link UpdateProvisioningArtifactCommandInput}
+ * @returns {@link UpdateProvisioningArtifactCommandOutput}
  * @see {@link UpdateProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateProvisioningArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateProvisioningArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

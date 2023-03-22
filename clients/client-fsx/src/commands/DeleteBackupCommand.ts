@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
  *             its data is gone.</p>
  *          <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
@@ -53,6 +58,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
+ * @returns {@link DeleteBackupCommandOutput}
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -118,6 +125,9 @@ export class DeleteBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class DeleteBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupCommandOutput> {
     return deserializeAws_json1_1DeleteBackupCommand(output, context);
   }

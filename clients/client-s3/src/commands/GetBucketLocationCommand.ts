@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketLocationCommand}.
  */
 export interface GetBucketLocationCommandInput extends GetBucketLocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketLocationCommand}.
  */
 export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Region the bucket resides in. You set the bucket's Region using the
  *             <code>LocationConstraint</code> request parameter in a <code>CreateBucket</code>
  *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>.</p>
@@ -63,6 +68,8 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketLocationCommandInput - {@link GetBucketLocationCommandInput}
+ * @returns {@link GetBucketLocationCommandOutput}
  * @see {@link GetBucketLocationCommandInput} for command's `input` shape.
  * @see {@link GetBucketLocationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -108,6 +115,9 @@ export class GetBucketLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class GetBucketLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketLocationCommandOutput> {
     return deserializeAws_restXmlGetBucketLocationCommand(output, context);
   }

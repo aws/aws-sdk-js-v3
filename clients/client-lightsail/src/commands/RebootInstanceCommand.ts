@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootInstanceCommand}.
  */
 export interface RebootInstanceCommandInput extends RebootInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebootInstanceCommand}.
  */
 export interface RebootInstanceCommandOutput extends RebootInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts a specific instance.</p>
  *          <p>The <code>reboot instance</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>instance name</code>. For more information,
@@ -49,6 +54,8 @@ export interface RebootInstanceCommandOutput extends RebootInstanceResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootInstanceCommandInput - {@link RebootInstanceCommandInput}
+ * @returns {@link RebootInstanceCommandOutput}
  * @see {@link RebootInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class RebootInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class RebootInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RebootInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootInstanceCommandOutput> {
     return deserializeAws_json1_1RebootInstanceCommand(output, context);
   }

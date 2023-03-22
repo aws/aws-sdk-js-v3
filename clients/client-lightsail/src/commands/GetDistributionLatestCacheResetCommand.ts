@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDistributionLatestCacheResetCommand}.
  */
 export interface GetDistributionLatestCacheResetCommandInput extends GetDistributionLatestCacheResetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDistributionLatestCacheResetCommand}.
  */
 export interface GetDistributionLatestCacheResetCommandOutput
@@ -37,6 +41,7 @@ export interface GetDistributionLatestCacheResetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail
  *       content delivery network (CDN) distribution.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetDistributionLatestCacheResetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDistributionLatestCacheResetCommandInput - {@link GetDistributionLatestCacheResetCommandInput}
+ * @returns {@link GetDistributionLatestCacheResetCommandOutput}
  * @see {@link GetDistributionLatestCacheResetCommandInput} for command's `input` shape.
  * @see {@link GetDistributionLatestCacheResetCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDistributionLatestCacheResetCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDistributionLatestCacheResetCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     return serializeAws_json1_1GetDistributionLatestCacheResetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

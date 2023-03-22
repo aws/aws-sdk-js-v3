@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFlowCommand}.
  */
 export interface CreateFlowCommandInput extends CreateFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFlowCommand}.
  */
 export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFlowCommandInput - {@link CreateFlowCommandInput}
+ * @returns {@link CreateFlowCommandOutput}
  * @see {@link CreateFlowCommandInput} for command's `input` shape.
  * @see {@link CreateFlowCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowCommandOutput> {
     return deserializeAws_restJson1CreateFlowCommand(output, context);
   }

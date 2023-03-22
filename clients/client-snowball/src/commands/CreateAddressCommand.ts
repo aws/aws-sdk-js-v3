@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAddressCommand}.
  */
 export interface CreateAddressCommandInput extends CreateAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAddressCommand}.
  */
 export interface CreateAddressCommandOutput extends CreateAddressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an address for a Snow device to be shipped to. In most regions,
  *       addresses are validated at the time of creation. The address you provide must be located
  *       within the serviceable area of your region. If the address is invalid or unsupported, then an
@@ -49,6 +54,8 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAddressCommandInput - {@link CreateAddressCommandInput}
+ * @returns {@link CreateAddressCommandOutput}
  * @see {@link CreateAddressCommandInput} for command's `input` shape.
  * @see {@link CreateAddressCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAddressCommandOutput> {
     return deserializeAws_json1_1CreateAddressCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteConnectionCommand}.
  */
 export interface BatchDeleteConnectionCommandInput extends BatchDeleteConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteConnectionCommand}.
  */
 export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a list of connection definitions from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteConnectionCommandInput - {@link BatchDeleteConnectionCommandInput}
+ * @returns {@link BatchDeleteConnectionCommandOutput}
  * @see {@link BatchDeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchDeleteConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class BatchDeleteConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteConnectionCommandOutput> {
     return deserializeAws_json1_1BatchDeleteConnectionCommand(output, context);
   }

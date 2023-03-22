@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRuleNamesByTargetCommand}.
  */
 export interface ListRuleNamesByTargetCommandInput extends ListRuleNamesByTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRuleNamesByTargetCommand}.
  */
 export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
  *       EventBridge can invoke a specific target in your account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRuleNamesByTargetCommandInput - {@link ListRuleNamesByTargetCommandInput}
+ * @returns {@link ListRuleNamesByTargetCommandOutput}
  * @see {@link ListRuleNamesByTargetCommandInput} for command's `input` shape.
  * @see {@link ListRuleNamesByTargetCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListRuleNamesByTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRuleNamesByTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListRuleNamesByTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRuleNamesByTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRuleNamesByTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRuleNamesByTargetCommandOutput> {
     return deserializeAws_json1_1ListRuleNamesByTargetCommand(output, context);
   }

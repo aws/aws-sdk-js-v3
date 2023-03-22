@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateComponentTypeCommand}.
  */
 export interface UpdateComponentTypeCommandInput extends UpdateComponentTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateComponentTypeCommand}.
  */
 export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information in a component type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateComponentTypeCommandInput - {@link UpdateComponentTypeCommandInput}
+ * @returns {@link UpdateComponentTypeCommandOutput}
  * @see {@link UpdateComponentTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateComponentTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateComponentTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateComponentTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateComponentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateComponentTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComponentTypeCommandOutput> {
     return deserializeAws_restJson1UpdateComponentTypeCommand(output, context);
   }

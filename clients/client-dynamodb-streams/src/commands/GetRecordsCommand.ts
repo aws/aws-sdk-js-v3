@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecordsCommand}.
  */
 export interface GetRecordsCommandInput extends GetRecordsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRecordsCommand}.
  */
 export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the stream records from a given shard.</p>
  *          <p>Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard iterator
  *       specifies the position in the shard from which you want to start reading stream records
@@ -56,6 +61,8 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecordsCommandInput - {@link GetRecordsCommandInput}
+ * @returns {@link GetRecordsCommandOutput}
  * @see {@link GetRecordsCommandInput} for command's `input` shape.
  * @see {@link GetRecordsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
@@ -200,6 +207,9 @@ export class GetRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -237,10 +247,16 @@ export class GetRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordsCommandOutput> {
     return deserializeAws_json1_0GetRecordsCommand(output, context);
   }

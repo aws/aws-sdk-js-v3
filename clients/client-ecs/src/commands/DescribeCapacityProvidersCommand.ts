@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCapacityProvidersCommand}.
  */
 export interface DescribeCapacityProvidersCommandInput extends DescribeCapacityProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCapacityProvidersCommand}.
  */
 export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacityProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your capacity providers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCapacityProvidersCommandInput - {@link DescribeCapacityProvidersCommandInput}
+ * @returns {@link DescribeCapacityProvidersCommandOutput}
  * @see {@link DescribeCapacityProvidersCommandInput} for command's `input` shape.
  * @see {@link DescribeCapacityProvidersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeCapacityProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCapacityProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeCapacityProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCapacityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCapacityProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

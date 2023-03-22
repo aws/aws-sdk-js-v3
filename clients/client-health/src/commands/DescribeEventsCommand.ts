@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandInput extends DescribeEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about events that meet the specified filter criteria. Events are
  *          returned in a summary form and do not include the detailed description, any additional
  *          metadata that depends on the event type, or any affected resources. To retrieve that
@@ -68,6 +73,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
+ * @returns {@link DescribeEventsCommandOutput}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
     return deserializeAws_json1_1DescribeEventsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBillingGroupsCommand}.
  */
 export interface ListBillingGroupsCommandInput extends ListBillingGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBillingGroupsCommand}.
  */
 export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A paginated call to retrieve a list of billing groups for the given billing period. If you don't provide a billing group, the current billing period is used.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBillingGroupsCommandInput - {@link ListBillingGroupsCommandInput}
+ * @returns {@link ListBillingGroupsCommandOutput}
  * @see {@link ListBillingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListBillingGroupsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListBillingGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBillingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListBillingGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBillingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBillingGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBillingGroupsCommandOutput> {
     return deserializeAws_restJson1ListBillingGroupsCommand(output, context);
   }

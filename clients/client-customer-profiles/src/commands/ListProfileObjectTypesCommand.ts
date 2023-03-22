@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProfileObjectTypesCommand}.
  */
 export interface ListProfileObjectTypesCommandInput extends ListProfileObjectTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProfileObjectTypesCommand}.
  */
 export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the templates available within the service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfileObjectTypesCommandInput - {@link ListProfileObjectTypesCommandInput}
+ * @returns {@link ListProfileObjectTypesCommandOutput}
  * @see {@link ListProfileObjectTypesCommandInput} for command's `input` shape.
  * @see {@link ListProfileObjectTypesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListProfileObjectTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfileObjectTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListProfileObjectTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfileObjectTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProfileObjectTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfileObjectTypesCommandOutput> {
     return deserializeAws_restJson1ListProfileObjectTypesCommand(output, context);
   }

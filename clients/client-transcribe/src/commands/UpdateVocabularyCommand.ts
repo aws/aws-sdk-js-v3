@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVocabularyCommand}.
  */
 export interface UpdateVocabularyCommandInput extends UpdateVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVocabularyCommand}.
  */
 export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing custom vocabulary with new values. This operation overwrites all
  *             existing information with your new values; you cannot append new terms onto an existing
  *             custom vocabulary.</p>
@@ -48,6 +53,8 @@ export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVocabularyCommandInput - {@link UpdateVocabularyCommandInput}
+ * @returns {@link UpdateVocabularyCommandOutput}
  * @see {@link UpdateVocabularyCommandInput} for command's `input` shape.
  * @see {@link UpdateVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVocabularyCommandOutput> {
     return deserializeAws_json1_1UpdateVocabularyCommand(output, context);
   }

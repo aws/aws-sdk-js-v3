@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGlobalTableCommand}.
  */
 export interface CreateGlobalTableCommandInput extends CreateGlobalTableInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateGlobalTableCommand}.
  */
 export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a global table from an existing table. A global table creates a replication
  *             relationship between two or more DynamoDB tables with the same table name in the
  *             provided Regions. </p>
@@ -108,6 +113,8 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalTableCommandInput - {@link CreateGlobalTableCommandInput}
+ * @returns {@link CreateGlobalTableCommandOutput}
  * @see {@link CreateGlobalTableCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -156,6 +163,9 @@ export class CreateGlobalTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -195,10 +205,16 @@ export class CreateGlobalTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateGlobalTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalTableCommandOutput> {
     return deserializeAws_json1_0CreateGlobalTableCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateHITTypeOfHITCommand}.
  */
 export interface UpdateHITTypeOfHITCommandInput extends UpdateHITTypeOfHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateHITTypeOfHITCommand}.
  */
 export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>UpdateHITTypeOfHIT</code>
@@ -53,6 +58,8 @@ export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHITTypeOfHITCommandInput - {@link UpdateHITTypeOfHITCommandInput}
+ * @returns {@link UpdateHITTypeOfHITCommandOutput}
  * @see {@link UpdateHITTypeOfHITCommandInput} for command's `input` shape.
  * @see {@link UpdateHITTypeOfHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateHITTypeOfHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHITTypeOfHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateHITTypeOfHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHITTypeOfHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateHITTypeOfHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHITTypeOfHITCommandOutput> {
     return deserializeAws_json1_1UpdateHITTypeOfHITCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSimulationCommand}.
  */
 export interface DescribeSimulationCommandInput extends DescribeSimulationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSimulationCommand}.
  */
 export interface DescribeSimulationCommandOutput extends DescribeSimulationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current state of the given simulation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSimulationCommandOutput extends DescribeSimulationOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSimulationCommandInput - {@link DescribeSimulationCommandInput}
+ * @returns {@link DescribeSimulationCommandOutput}
  * @see {@link DescribeSimulationCommandInput} for command's `input` shape.
  * @see {@link DescribeSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeSimulationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSimulationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeSimulationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSimulationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSimulationCommandOutput> {
     return deserializeAws_restJson1DescribeSimulationCommand(output, context);
   }

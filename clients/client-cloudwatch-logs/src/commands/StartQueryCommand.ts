@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartQueryCommand}.
  */
 export interface StartQueryCommandInput extends StartQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartQueryCommand}.
  */
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group
  *       and time range to query and the query string to use.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
@@ -57,6 +62,8 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param StartQueryCommandInput - {@link StartQueryCommandInput}
+ * @returns {@link StartQueryCommandOutput}
  * @see {@link StartQueryCommandInput} for command's `input` shape.
  * @see {@link StartQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -99,6 +106,9 @@ export class StartQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class StartQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryCommandOutput> {
     return deserializeAws_json1_1StartQueryCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportThemesCommand}.
  */
 export interface ExportThemesCommandInput extends ExportThemesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportThemesCommand}.
  */
 export interface ExportThemesCommandOutput extends ExportThemesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports theme configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportThemesCommandInput - {@link ExportThemesCommandInput}
+ * @returns {@link ExportThemesCommandOutput}
  * @see {@link ExportThemesCommandInput} for command's `input` shape.
  * @see {@link ExportThemesCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -75,6 +82,9 @@ export class ExportThemesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportThemesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ExportThemesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportThemesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportThemesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportThemesCommandOutput> {
     return deserializeAws_restJson1ExportThemesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableDomainTransferLockCommand}.
  */
 export interface EnableDomainTransferLockCommandInput extends EnableDomainTransferLockRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableDomainTransferLockCommand}.
  */
 export interface EnableDomainTransferLockCommandOutput extends EnableDomainTransferLockResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation sets the transfer lock on the domain (specifically the
  * 				<code>clientTransferProhibited</code> status) to prevent domain transfers.
  * 			Successful submission returns an operation ID that you can use to track the progress and
@@ -50,6 +55,8 @@ export interface EnableDomainTransferLockCommandOutput extends EnableDomainTrans
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableDomainTransferLockCommandInput - {@link EnableDomainTransferLockCommandInput}
+ * @returns {@link EnableDomainTransferLockCommandOutput}
  * @see {@link EnableDomainTransferLockCommandInput} for command's `input` shape.
  * @see {@link EnableDomainTransferLockCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -92,6 +99,9 @@ export class EnableDomainTransferLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableDomainTransferLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class EnableDomainTransferLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableDomainTransferLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableDomainTransferLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableDomainTransferLockCommandOutput> {
     return deserializeAws_json1_1EnableDomainTransferLockCommand(output, context);
   }

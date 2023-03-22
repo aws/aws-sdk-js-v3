@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceDirectoriesCommand}.
  */
 export interface DescribeWorkspaceDirectoriesCommandInput extends DescribeWorkspaceDirectoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceDirectoriesCommand}.
  */
 export interface DescribeWorkspaceDirectoriesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available directories that are registered with Amazon WorkSpaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceDirectoriesCommandInput - {@link DescribeWorkspaceDirectoriesCommandInput}
+ * @returns {@link DescribeWorkspaceDirectoriesCommandOutput}
  * @see {@link DescribeWorkspaceDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceDirectoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeWorkspaceDirectoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

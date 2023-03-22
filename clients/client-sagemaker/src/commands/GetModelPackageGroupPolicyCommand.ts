@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetModelPackageGroupPolicyCommand}.
  */
 export interface GetModelPackageGroupPolicyCommandInput extends GetModelPackageGroupPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetModelPackageGroupPolicyCommand}.
  */
 export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackageGroupPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a resource policy that manages access for a model group. For information about
  *             resource policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
  *                 policies and resource-based policies</a> in the <i>Amazon Web Services Identity and
@@ -49,6 +54,8 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelPackageGroupPolicyCommandInput - {@link GetModelPackageGroupPolicyCommandInput}
+ * @returns {@link GetModelPackageGroupPolicyCommandOutput}
  * @see {@link GetModelPackageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetModelPackageGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelPackageGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetModelPackageGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelPackageGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetModelPackageGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

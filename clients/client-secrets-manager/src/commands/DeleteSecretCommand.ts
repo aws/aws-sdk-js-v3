@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSecretCommand}.
  */
 export interface DeleteSecretCommandInput extends DeleteSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSecretCommand}.
  */
 export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a secret and all of its versions. You can specify a recovery
  *       window during which you can restore the secret. The minimum recovery window is 7 days.
  *       The default recovery window is 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
@@ -74,6 +79,8 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecretCommandInput - {@link DeleteSecretCommandInput}
+ * @returns {@link DeleteSecretCommandOutput}
  * @see {@link DeleteSecretCommandInput} for command's `input` shape.
  * @see {@link DeleteSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -143,6 +150,9 @@ export class DeleteSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class DeleteSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecretCommandOutput> {
     return deserializeAws_json1_1DeleteSecretCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRulesCommand}.
  */
 export interface DescribeRulesCommandInput extends DescribeRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRulesCommand}.
  */
 export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified rules or the rules for the specified listener. You must specify
  *       either a listener or one or more rules.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRulesCommandInput - {@link DescribeRulesCommandInput}
+ * @returns {@link DescribeRulesCommandOutput}
  * @see {@link DescribeRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -121,6 +128,9 @@ export class DescribeRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class DescribeRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRulesCommandOutput> {
     return deserializeAws_queryDescribeRulesCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisableVgwRoutePropagationCommand}.
  */
 export interface DisableVgwRoutePropagationCommandInput extends DisableVgwRoutePropagationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableVgwRoutePropagationCommand}.
  */
 export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route
  *             table of a VPC.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableVgwRoutePropagationCommandInput - {@link DisableVgwRoutePropagationCommandInput}
+ * @returns {@link DisableVgwRoutePropagationCommandOutput}
  * @see {@link DisableVgwRoutePropagationCommandInput} for command's `input` shape.
  * @see {@link DisableVgwRoutePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -80,6 +87,9 @@ export class DisableVgwRoutePropagationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableVgwRoutePropagationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DisableVgwRoutePropagationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableVgwRoutePropagationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisableVgwRoutePropagationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

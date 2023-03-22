@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRegionsCommand}.
  */
 export interface ListRegionsCommandInput extends ListRegionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRegionsCommand}.
  */
 export interface ListRegionsCommandOutput extends ListRegionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the Regions for a given account and their respective opt-in statuses.
  *             Optionally, this list can be filtered by the <code>region-opt-status-contains</code>
  *             parameter. </p>
@@ -48,6 +53,8 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRegionsCommandInput - {@link ListRegionsCommandInput}
+ * @returns {@link ListRegionsCommandOutput}
  * @see {@link ListRegionsCommandInput} for command's `input` shape.
  * @see {@link ListRegionsCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegionsCommandOutput> {
     return deserializeAws_restJson1ListRegionsCommand(output, context);
   }

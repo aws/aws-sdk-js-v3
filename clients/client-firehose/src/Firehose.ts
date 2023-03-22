@@ -60,6 +60,7 @@ import {
 import { FirehoseClient } from "./FirehoseClient";
 
 /**
+ * @public
  * <fullname>Amazon Kinesis Data Firehose API Reference</fullname>
  *          <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time
  *          streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon
@@ -68,6 +69,7 @@ import { FirehoseClient } from "./FirehoseClient";
  */
 export class Firehose extends FirehoseClient {
   /**
+   * @public
    * <p>Creates a Kinesis Data Firehose delivery stream.</p>
    *
    *          <p>By default, you can create up to 50 delivery streams per Amazon Web Services
@@ -169,6 +171,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Deletes a delivery stream and its data.</p>
    *          <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>. You can delete a delivery stream only if it is in one of the following states:
    *             <code>ACTIVE</code>, <code>DELETING</code>, <code>CREATING_FAILED</code>, or
@@ -210,6 +213,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified delivery stream and its status. For example, after your
    *          delivery stream is created, call <code>DescribeDeliveryStream</code> to see whether the
    *          delivery stream is <code>ACTIVE</code> and therefore ready for data to be sent to it. </p>
@@ -248,6 +252,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Lists your delivery streams in alphabetical order of their names.</p>
    *          <p>The number of delivery streams might be too large to return using a single call to
    *             <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
@@ -287,6 +292,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified delivery stream. This operation has a limit of five
    *          transactions per second per account. </p>
    */
@@ -320,6 +326,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To
    *          write multiple data records into a delivery stream, use <a>PutRecordBatch</a>.
    *          Applications using these operations are referred to as producers.</p>
@@ -377,6 +384,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Writes multiple data records into a delivery stream in a single call, which can
    *          achieve higher throughput per producer than when writing single records. To write single
    *          data records into a delivery stream, use <a>PutRecord</a>. Applications using
@@ -459,6 +467,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Enables server-side encryption (SSE) for the delivery stream. </p>
    *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data
    *          Firehose first sets the encryption status of the stream to <code>ENABLING</code>, and then
@@ -526,6 +535,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Disables server-side encryption (SSE) for the delivery stream. </p>
    *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data
    *          Firehose first sets the encryption status of the stream to <code>DISABLING</code>, and then
@@ -577,6 +587,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair
    *          that you can define and assign to Amazon Web Services resources. If you specify a tag that
    *          already exists, the tag value is replaced with the value that you specify in the request.
@@ -618,6 +629,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you
    *          can't recover them after this operation successfully completes.</p>
    *          <p>If you specify a tag that doesn't exist, the operation ignores it.</p>
@@ -653,6 +665,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified destination of the specified delivery stream.</p>
    *
    *          <p>Use this operation to change the destination type (for example, to replace the Amazon

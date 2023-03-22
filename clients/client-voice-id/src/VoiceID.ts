@@ -101,11 +101,13 @@ import {
 import { VoiceIDClient } from "./VoiceIDClient";
 
 /**
+ * @public
  * <p>Amazon Connect Voice ID provides real-time caller authentication and fraud screening. This guide
  *             describes the APIs used for this service. </p>
  */
 export class VoiceID extends VoiceIDClient {
   /**
+   * @public
    * <p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters,
    *             customer audio, and voiceprints. </p>
    */
@@ -136,6 +138,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified domain from Voice ID.</p>
    */
   public deleteDomain(
@@ -165,6 +168,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified fraudster from Voice ID.</p>
    */
   public deleteFraudster(
@@ -197,6 +201,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified speaker from Voice ID.</p>
    */
   public deleteSpeaker(
@@ -229,6 +234,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified domain.</p>
    */
   public describeDomain(
@@ -261,6 +267,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified fraudster.</p>
    */
   public describeFraudster(
@@ -293,6 +300,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified fraudster registration job.</p>
    */
   public describeFraudsterRegistrationJob(
@@ -325,6 +333,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified speaker.</p>
    */
   public describeSpeaker(
@@ -357,6 +366,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified speaker enrollment job.</p>
    */
   public describeSpeakerEnrollmentJob(
@@ -389,6 +399,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Evaluates a specified session based on audio data accumulated during a streaming
    *             Amazon Connect Voice ID call.</p>
    */
@@ -422,6 +433,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Lists all the domains in the Amazon Web Services account. </p>
    */
   public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
@@ -448,6 +460,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Lists all the fraudster registration jobs in the domain with the given
    *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
    *             fraudster registration jobs in the given domain. </p>
@@ -482,6 +495,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Lists all the speaker enrollment jobs in the domain with the specified
    *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
    *             jobs with all possible speaker enrollment job statuses.</p>
@@ -516,6 +530,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Lists all speakers in a specified domain.</p>
    */
   public listSpeakers(
@@ -545,6 +560,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags associated with a specified Voice ID resource.</p>
    */
   public listTagsForResource(
@@ -577,6 +593,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Opts out a speaker from Voice ID. A speaker can be opted out regardless of whether or
    *             not they already exist in Voice ID. If they don't yet exist, a new speaker is created
    *             in an opted out state. If they already exist, their existing status is overridden and
@@ -614,6 +631,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Starts a new batch fraudster registration job using provided details.</p>
    */
   public startFraudsterRegistrationJob(
@@ -646,6 +664,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Starts a new batch speaker enrollment job using specified details.</p>
    */
   public startSpeakerEnrollmentJob(
@@ -678,6 +697,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Tags a Voice ID resource with the provided list of tags.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -704,6 +724,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Removes specified tags from a specified Amazon Connect Voice ID resource.</p>
    */
   public untagResource(
@@ -736,6 +757,7 @@ export class VoiceID extends VoiceIDClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified domain. This API has clobber behavior, and clears and replaces
    *             all attributes. If an optional field, such as 'Description' is not provided, it is
    *             removed from the domain.</p>

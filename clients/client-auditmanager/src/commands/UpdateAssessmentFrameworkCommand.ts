@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAssessmentFrameworkCommand}.
  */
 export interface UpdateAssessmentFrameworkCommandInput extends UpdateAssessmentFrameworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAssessmentFrameworkCommand}.
  */
 export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessment
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAssessmentFrameworkCommandInput - {@link UpdateAssessmentFrameworkCommandInput}
+ * @returns {@link UpdateAssessmentFrameworkCommandOutput}
  * @see {@link UpdateAssessmentFrameworkCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentFrameworkCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateAssessmentFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAssessmentFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateAssessmentFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAssessmentFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAssessmentFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RollbackStackCommand}.
  */
 export interface RollbackStackCommandInput extends RollbackStackInput {}
 /**
+ * @public
+ *
  * The output of {@link RollbackStackCommand}.
  */
 export interface RollbackStackCommandOutput extends RollbackStackOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When specifying <code>RollbackStack</code>, you preserve the state of previously
  *          provisioned resources when an operation fails. You can check the status of the stack
  *          through the <a>DescribeStacks</a> operation.</p>
@@ -80,6 +85,8 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param RollbackStackCommandInput - {@link RollbackStackCommandInput}
+ * @returns {@link RollbackStackCommandOutput}
  * @see {@link RollbackStackCommandInput} for command's `input` shape.
  * @see {@link RollbackStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -106,6 +113,9 @@ export class RollbackStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RollbackStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class RollbackStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RollbackStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRollbackStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RollbackStackCommandOutput> {
     return deserializeAws_queryRollbackStackCommand(output, context);
   }

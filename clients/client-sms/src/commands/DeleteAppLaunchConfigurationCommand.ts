@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppLaunchConfigurationCommand}.
  */
 export interface DeleteAppLaunchConfigurationCommandInput extends DeleteAppLaunchConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppLaunchConfigurationCommand}.
  */
 export interface DeleteAppLaunchConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteAppLaunchConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the launch configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteAppLaunchConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppLaunchConfigurationCommandInput - {@link DeleteAppLaunchConfigurationCommandInput}
+ * @returns {@link DeleteAppLaunchConfigurationCommandOutput}
  * @see {@link DeleteAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteAppLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteAppLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAppLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcConnectorCommand}.
  */
 export interface CreateVpcConnectorCommandInput extends CreateVpcConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcConnectorCommand}.
  */
 export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an App Runner VPC connector resource. App Runner requires this resource when you want to associate your App Runner service to a custom Amazon Virtual Private Cloud
  *         (Amazon VPC).</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcConnectorCommandInput - {@link CreateVpcConnectorCommandInput}
+ * @returns {@link CreateVpcConnectorCommandOutput}
  * @see {@link CreateVpcConnectorCommandInput} for command's `input` shape.
  * @see {@link CreateVpcConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateVpcConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateVpcConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateVpcConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcConnectorCommandOutput> {
     return deserializeAws_json1_0CreateVpcConnectorCommand(output, context);
   }

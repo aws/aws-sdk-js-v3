@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSigningProfilesCommand}.
  */
 export interface ListSigningProfilesCommandInput extends ListSigningProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSigningProfilesCommand}.
  */
 export interface ListSigningProfilesCommandOutput extends ListSigningProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available signing profiles in your AWS account. Returns only profiles with
  * 			an <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is
  * 			set to <code>true</code>. If additional jobs remain to be listed, code signing returns a
@@ -53,6 +58,8 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSigningProfilesCommandInput - {@link ListSigningProfilesCommandInput}
+ * @returns {@link ListSigningProfilesCommandOutput}
  * @see {@link ListSigningProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSigningProfilesCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListSigningProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSigningProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListSigningProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSigningProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSigningProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningProfilesCommandOutput> {
     return deserializeAws_restJson1ListSigningProfilesCommand(output, context);
   }

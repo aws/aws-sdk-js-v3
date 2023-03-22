@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandInput extends ListOperationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all of the operations that return an operation ID and that
  * 			have ever been performed on domains that were registered by the current account. </p>
  *          <p>This command runs only in the us-east-1 Region.</p>
@@ -48,6 +53,8 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
+ * @returns {@link ListOperationsCommandOutput}
  * @see {@link ListOperationsCommandInput} for command's `input` shape.
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOperationsCommandOutput> {
     return deserializeAws_json1_1ListOperationsCommand(output, context);
   }

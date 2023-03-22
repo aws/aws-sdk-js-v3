@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateLicenseCommand}.
  */
 export interface DisassociateLicenseCommandInput extends DisassociateLicenseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateLicenseCommand}.
  */
 export interface DisassociateLicenseCommandOutput extends DisassociateLicenseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the Grafana Enterprise license from a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateLicenseCommandInput - {@link DisassociateLicenseCommandInput}
+ * @returns {@link DisassociateLicenseCommandOutput}
  * @see {@link DisassociateLicenseCommandInput} for command's `input` shape.
  * @see {@link DisassociateLicenseCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateLicenseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateLicenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DisassociateLicenseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateLicenseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLicenseCommandOutput> {
     return deserializeAws_restJson1DisassociateLicenseCommand(output, context);
   }

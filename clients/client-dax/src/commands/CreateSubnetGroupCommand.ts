@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubnetGroupCommand}.
  */
 export interface CreateSubnetGroupCommandInput extends CreateSubnetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubnetGroupCommand}.
  */
 export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubnetGroupCommandInput - {@link CreateSubnetGroupCommandInput}
+ * @returns {@link CreateSubnetGroupCommandOutput}
  * @see {@link CreateSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubnetGroupCommandOutput> {
     return deserializeAws_json1_1CreateSubnetGroupCommand(output, context);
   }

@@ -22,15 +22,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScheduledQueryCommand}.
  */
 export interface DeleteScheduledQueryCommandInput extends DeleteScheduledQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScheduledQueryCommand}.
  */
 export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a given scheduled query. This is an irreversible operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +47,8 @@ export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScheduledQueryCommandInput - {@link DeleteScheduledQueryCommandInput}
+ * @returns {@link DeleteScheduledQueryCommandOutput}
  * @see {@link DeleteScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteScheduledQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduledQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteScheduledQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteScheduledQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledQueryCommandOutput> {
     return deserializeAws_json1_0DeleteScheduledQueryCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitGatewayRouteTableAnnouncementCommand}.
  */
 export interface CreateTransitGatewayRouteTableAnnouncementCommandInput
   extends CreateTransitGatewayRouteTableAnnouncementRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitGatewayRouteTableAnnouncementCommand}.
  */
 export interface CreateTransitGatewayRouteTableAnnouncementCommandOutput
@@ -38,6 +42,7 @@ export interface CreateTransitGatewayRouteTableAnnouncementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Advertises a new transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface CreateTransitGatewayRouteTableAnnouncementCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitGatewayRouteTableAnnouncementCommandInput - {@link CreateTransitGatewayRouteTableAnnouncementCommandInput}
+ * @returns {@link CreateTransitGatewayRouteTableAnnouncementCommandOutput}
  * @see {@link CreateTransitGatewayRouteTableAnnouncementCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayRouteTableAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateTransitGatewayRouteTableAnnouncementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitGatewayRouteTableAnnouncementCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class CreateTransitGatewayRouteTableAnnouncementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateTransitGatewayRouteTableAnnouncementCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class CreateTransitGatewayRouteTableAnnouncementCommand extends $Command<
     return serializeAws_ec2CreateTransitGatewayRouteTableAnnouncementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOutpostCommand}.
  */
 export interface GetOutpostCommandInput extends GetOutpostInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOutpostCommand}.
  */
 export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOutpostCommandInput - {@link GetOutpostCommandInput}
+ * @returns {@link GetOutpostCommandOutput}
  * @see {@link GetOutpostCommandInput} for command's `input` shape.
  * @see {@link GetOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetOutpostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOutpostCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetOutpostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOutpostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetOutpostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOutpostCommandOutput> {
     return deserializeAws_restJson1GetOutpostCommand(output, context);
   }

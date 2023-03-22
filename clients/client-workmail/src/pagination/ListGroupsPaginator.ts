@@ -6,7 +6,7 @@ import { WorkMailClient } from "../WorkMailClient";
 import { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkMailClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListGroupsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListGroups(
   config: WorkMailPaginationConfiguration,
   input: ListGroupsCommandInput,

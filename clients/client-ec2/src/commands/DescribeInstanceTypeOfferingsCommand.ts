@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceTypeOfferingsCommand}.
  */
 export interface DescribeInstanceTypeOfferingsCommandInput extends DescribeInstanceTypeOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceTypeOfferingsCommand}.
  */
 export interface DescribeInstanceTypeOfferingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeInstanceTypeOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all instance types offered. The results can be filtered by location (Region or Availability
  *    Zone). If no location is specified, the instance types offered in the current Region are returned.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeInstanceTypeOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceTypeOfferingsCommandInput - {@link DescribeInstanceTypeOfferingsCommandInput}
+ * @returns {@link DescribeInstanceTypeOfferingsCommandOutput}
  * @see {@link DescribeInstanceTypeOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceTypeOfferingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceTypeOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceTypeOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeInstanceTypeOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

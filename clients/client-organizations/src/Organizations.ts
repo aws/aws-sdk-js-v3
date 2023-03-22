@@ -263,6 +263,7 @@ import {
 import { OrganizationsClient } from "./OrganizationsClient";
 
 /**
+ * @public
  * <p>Organizations is a web service that enables you to consolidate your multiple
  *             Amazon Web Services accounts into an <i>organization</i> and centrally manage your
  *             accounts and their resources.</p>
@@ -338,6 +339,7 @@ import { OrganizationsClient } from "./OrganizationsClient";
  */
 export class Organizations extends OrganizationsClient {
   /**
+   * @public
    * <p>Sends a response to the originator of a handshake agreeing to the action proposed by
    *             the handshake request.</p>
    *          <p>You can only call this operation by the following principals when they also have the
@@ -400,6 +402,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Attaches a policy to a root, an organizational unit (OU), or an individual account.
    *             How the policy affects accounts depends on the type of policy. Refer to the
    *                 <i>Organizations User Guide</i> for information about each policy type:</p>
@@ -454,6 +457,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Cancels a handshake. Canceling a handshake sets the handshake state to
    *                 <code>CANCELED</code>.</p>
    *          <p>This operation can be called only from the account that originated the handshake. The recipient of the handshake can't cancel it, but can use <a>DeclineHandshake</a> instead. After a handshake is canceled, the recipient
@@ -491,6 +495,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Closes an Amazon Web Services member account within an organization. You can close an account when
    *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
    *                 features are enabled </a>. You can't close the management account with this API.
@@ -570,6 +575,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Web Services account that is automatically a member of the organization whose
    *             credentials made the request. This is an asynchronous request that Amazon Web Services performs in the
    *             background. Because <code>CreateAccount</code> operates asynchronously, it can return a
@@ -676,6 +682,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>This action is available if all of the following are true:</p>
    *          <ul>
    *             <li>
@@ -838,6 +845,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Web Services organization. The account whose user is calling the
    *                 <code>CreateOrganization</code> operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">management account</a> of the new organization.</p>
    *          <p>This operation must be called using credentials from the account that is to become the
@@ -880,6 +888,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Creates an organizational unit (OU) within a root or parent OU. An OU is a container
    *             for accounts that enables you to organize your accounts to apply policies according to
    *             your business requirements. The number of levels deep that you can nest OUs is dependent
@@ -922,6 +931,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Creates a policy of a specified type that you can attach to a root, an organizational
    *             unit (OU), or an individual Amazon Web Services account.</p>
    *          <p>For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
@@ -957,6 +967,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Declines a handshake request. This sets the handshake state to <code>DECLINED</code>
    *             and effectively deactivates the request.</p>
    *          <p>This operation can be called only from the account that received the handshake. The originator of the handshake can use <a>CancelHandshake</a>
@@ -995,6 +1006,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the organization. You can delete an organization only by using credentials
    *             from the management account. The organization must be empty of member accounts.</p>
    */
@@ -1028,6 +1040,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Deletes an organizational unit (OU) from a root or another OU. You must first remove
    *             all accounts and child OUs from the OU that you want to delete.</p>
    *          <p>This operation can be called only from the organization's management account.</p>
@@ -1062,6 +1075,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified policy from your organization. Before you perform this
    *             operation, you must first detach the policy from all organizational units (OUs), roots,
    *             and accounts.</p>
@@ -1094,6 +1108,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the resource policy from your organization.</p>
    *          <p>You can only call this operation from the organization's management account.</p>
    */
@@ -1127,6 +1142,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified member Amazon Web Services account as a delegated administrator for the
    *             specified Amazon Web Services service.</p>
    *          <important>
@@ -1172,6 +1188,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves Organizations-related information about the specified account.</p>
    *          <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -1206,6 +1223,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the current status of an asynchronous request to create an account.</p>
    *          <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -1240,6 +1258,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Returns the contents of the effective policy for specified policy type and account.
    *             The effective policy is the aggregation of any policies of the specified type that the
    *             account inherits, plus any policy of that type that is directly attached to the
@@ -1281,6 +1300,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a previously requested handshake. The handshake ID comes
    *             from the response to the original <a>InviteAccountToOrganization</a>
    *             operation that generated the handshake.</p>
@@ -1319,6 +1339,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the organization that the user's account belongs
    *             to.</p>
    *          <p>This operation can be called from any account in the organization.</p>
@@ -1358,6 +1379,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an organizational unit (OU).</p>
    *          <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -1392,6 +1414,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a policy.</p>
    *          <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -1426,6 +1449,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a resource policy.</p>
    *          <p>You can only call this operation from the organization's management account or by a
    *             member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -1460,6 +1484,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Detaches a policy from a target root, organizational unit (OU), or account.</p>
    *          <important>
    *             <p>If the policy being detached is a service control policy (SCP), the changes to
@@ -1503,6 +1528,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Disables the integration of an Amazon Web Services service (the service that is specified by
    *                 <code>ServicePrincipal</code>) with Organizations. When you disable integration, the
    *             specified service no longer can create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
@@ -1590,6 +1616,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Disables an organizational policy type in a root. A policy of a certain type can be
    *             attached to entities in a root only if that type is enabled in the root. After you
    *             perform this operation, you no longer can attach policies of the specified type to that
@@ -1632,6 +1659,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Enables all features in an organization. This enables the use of organization policies
    *             that can restrict the services and actions that can be called in each account. Until you
    *             enable all features, you have access only to consolidated billing, and you can't use any
@@ -1689,6 +1717,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Enables the integration of an Amazon Web Services service (the service that is specified by
    *                 <code>ServicePrincipal</code>) with Organizations. When you enable integration, you allow
    *             the specified service to create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
@@ -1740,6 +1769,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Enables a policy type in a root. After you enable a policy type in a root, you can
    *             attach policies of that type to the root, any organizational unit (OU), or account in
    *             that root. You can undo this by using the <a>DisablePolicyType</a>
@@ -1782,6 +1812,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Sends an invitation to another account to join your organization as a member account.
    *             Organizations sends email on your behalf to the email address that is associated with the
    *             other account's owner. The invitation is implemented as a <a>Handshake</a>
@@ -1839,6 +1870,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Removes a member account from its parent organization. This version of the operation
    *             is performed by the account that wants to leave. To remove a member account as a user in
    *             the management account, use <a>RemoveAccountFromOrganization</a>
@@ -1935,6 +1967,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists all the accounts in the organization. To request only the accounts in a
    *             specified root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation instead.</p>
    *          <note>
@@ -1975,6 +2008,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the accounts in an organization that are contained by the specified target root
    *             or organizational unit (OU). If you specify the root, you get a list of all the accounts
    *             that aren't in any OU. If you specify an OU, you get a list of all the accounts in only
@@ -2021,6 +2055,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the Amazon Web Services services that you enabled to integrate with your
    *             organization. After a service on this list creates the resources that it requires for
    *             the integration, it can perform operations on your organization and its accounts.</p>
@@ -2061,6 +2096,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the organizational units (OUs) or accounts that are contained in the
    *             specified parent OU or root. This operation, along with <a>ListParents</a>
    *             enables you to traverse the tree structure that makes up this root.</p>
@@ -2102,6 +2138,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the account creation requests that match the specified status that is currently
    *             being tracked for the organization.</p>
    *          <note>
@@ -2145,6 +2182,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the Amazon Web Services accounts that are designated as delegated administrators in this
    *             organization.</p>
    *          <p>This operation can be called only from the organization's
@@ -2180,6 +2218,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>List the Amazon Web Services services for which the specified account is a delegated
    *             administrator.</p>
    *          <p>This operation can be called only from the organization's
@@ -2215,6 +2254,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the current handshakes that are associated with the account of the requesting
    *             user.</p>
    *          <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>,
@@ -2261,6 +2301,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the handshakes that are associated with the organization that the requesting
    *             user is part of. The <code>ListHandshakesForOrganization</code> operation returns a list
    *             of handshake structures. Each structure contains details and status about a
@@ -2310,6 +2351,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the organizational units (OUs) in a parent organizational unit or root.</p>
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
@@ -2352,6 +2394,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the root or organizational units (OUs) that serve as the immediate parent of the
    *             specified child OU or account. This operation, along with <a>ListChildren</a>
    *             enables you to traverse the tree structure that makes up this root.</p>
@@ -2393,6 +2436,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the list of all policies in an organization of a specified type.</p>
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
@@ -2432,6 +2476,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the policies that are directly attached to the specified target root,
    *             organizational unit (OU), or account. You must specify the policy type that you want
    *             included in the returned list.</p>
@@ -2476,6 +2521,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the roots that are defined in the current organization.</p>
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
@@ -2519,6 +2565,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists tags that are attached to the specified resource.</p>
    *          <p>You can attach tags to the following resources in Organizations.</p>
    *          <ul>
@@ -2568,6 +2615,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Lists all the roots, organizational units (OUs), and accounts that the specified
    *             policy is attached to.</p>
    *          <note>
@@ -2611,6 +2659,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Moves an account from its current source parent root or organizational unit (OU) to
    *             the specified destination parent root or OU.</p>
    *          <p>This operation can be called only from the organization's management account.</p>
@@ -2639,6 +2688,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a resource policy.</p>
    *          <p>You can only call this operation from the organization's management account.</p>
    */
@@ -2672,6 +2722,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Enables the specified member account to administer the Organizations features of the specified
    *             Amazon Web Services service. It grants read-only access to Organizations service data. The account still
    *             requires IAM permissions to access and administer the Amazon Web Services service.</p>
@@ -2712,6 +2763,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified account from the organization.</p>
    *          <p>The removed account becomes a standalone account that isn't a member of any
    *             organization. It's no longer subject to any policies and is responsible for its own bill
@@ -2781,6 +2833,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to the specified resource.</p>
    *          <p>Currently, you can attach tags to the following resources in Organizations.</p>
    *          <ul>
@@ -2823,6 +2876,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Removes any tags with the specified keys from the specified resource.</p>
    *          <p>You can attach tags to the following resources in Organizations.</p>
    *          <ul>
@@ -2871,6 +2925,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Renames the specified organizational unit (OU). The ID and ARN don't change. The child
    *             OUs and accounts remain in place, and any attached policies of the OU remain
    *             attached.</p>
@@ -2906,6 +2961,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing policy with a new name, description, or content. If you don't
    *             supply any parameter, that value remains unchanged. You can't change a policy's
    *             type.</p>

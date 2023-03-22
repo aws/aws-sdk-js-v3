@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListVocabulariesCommand}.
  */
 export interface ListVocabulariesCommandInput extends ListVocabulariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVocabulariesCommand}.
  */
 export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of custom vocabularies that match the specified criteria. If no
  *             criteria are specified, all custom vocabularies are returned.</p>
  *          <p>To get detailed information about a specific custom vocabulary, use the  operation.</p>
@@ -48,6 +53,8 @@ export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVocabulariesCommandInput - {@link ListVocabulariesCommandInput}
+ * @returns {@link ListVocabulariesCommandOutput}
  * @see {@link ListVocabulariesCommandInput} for command's `input` shape.
  * @see {@link ListVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListVocabulariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVocabulariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListVocabulariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListVocabulariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVocabulariesCommandOutput> {
     return deserializeAws_json1_1ListVocabulariesCommand(output, context);
   }

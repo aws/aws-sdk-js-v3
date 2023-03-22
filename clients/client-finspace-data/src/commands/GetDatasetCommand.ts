@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatasetCommand}.
  */
 export interface GetDatasetCommandInput extends GetDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatasetCommand}.
  */
 export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatasetCommandInput - {@link GetDatasetCommandInput}
+ * @returns {@link GetDatasetCommandOutput}
  * @see {@link GetDatasetCommandInput} for command's `input` shape.
  * @see {@link GetDatasetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatasetCommandOutput> {
     return deserializeAws_restJson1GetDatasetCommand(output, context);
   }

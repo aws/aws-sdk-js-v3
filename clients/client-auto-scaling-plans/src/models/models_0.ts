@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AutoScalingPlansServiceException as __BaseException } from "./AutoScalingPlansServiceException";
 
 /**
+ * @public
  * <p>Concurrent updates caused an exception, for example, if you request an update to a
  *          scaling plan that already has a pending update.</p>
  */
@@ -26,6 +27,7 @@ export class ConcurrentUpdateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a tag.</p>
  */
 export interface TagFilter {
@@ -41,6 +43,7 @@ export interface TagFilter {
 }
 
 /**
+ * @public
  * <p>Represents an application source.</p>
  */
 export interface ApplicationSource {
@@ -56,6 +59,7 @@ export interface ApplicationSource {
 }
 
 /**
+ * @public
  * <p>Represents a dimension for a customized metric.</p>
  */
 export interface MetricDimension {
@@ -70,6 +74,9 @@ export interface MetricDimension {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MetricStatistic {
   Average = "Average",
   Maximum = "Maximum",
@@ -79,6 +86,7 @@ export enum MetricStatistic {
 }
 
 /**
+ * @public
  * <p>Represents a CloudWatch metric of your choosing that can be used for predictive scaling. </p>
  *          <p>For predictive scaling to work with a customized load metric specification, AWS Auto Scaling
  *          needs access to the <code>Sum</code> and <code>Average</code> statistics that CloudWatch computes
@@ -133,6 +141,9 @@ export interface CustomizedLoadMetricSpecification {
   Unit?: string;
 }
 
+/**
+ * @public
+ */
 export enum LoadMetricType {
   ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
   ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
@@ -141,6 +152,7 @@ export enum LoadMetricType {
 }
 
 /**
+ * @public
  * <p>Represents a predefined metric that can be used for predictive scaling.</p>
  *          <p>After creating your scaling plan, you can use the AWS Auto Scaling console to visualize
  *          forecasts for the specified metric. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/gs-create-scaling-plan.html#gs-view-resource">View
@@ -180,17 +192,26 @@ export interface PredefinedLoadMetricSpecification {
   ResourceLabel?: string;
 }
 
+/**
+ * @public
+ */
 export enum PredictiveScalingMaxCapacityBehavior {
   SetForecastCapacityToMaxCapacity = "SetForecastCapacityToMaxCapacity",
   SetMaxCapacityAboveForecastCapacity = "SetMaxCapacityAboveForecastCapacity",
   SetMaxCapacityToForecastCapacity = "SetMaxCapacityToForecastCapacity",
 }
 
+/**
+ * @public
+ */
 export enum PredictiveScalingMode {
   ForecastAndScale = "ForecastAndScale",
   ForecastOnly = "ForecastOnly",
 }
 
+/**
+ * @public
+ */
 export enum ScalableDimension {
   AutoScalingGroupDesiredCapacity = "autoscaling:autoScalingGroup:DesiredCapacity",
   DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
@@ -202,11 +223,17 @@ export enum ScalableDimension {
   RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
 }
 
+/**
+ * @public
+ */
 export enum ScalingPolicyUpdateBehavior {
   KeepExternalPolicies = "KeepExternalPolicies",
   ReplaceExternalPolicies = "ReplaceExternalPolicies",
 }
 
+/**
+ * @public
+ */
 export enum ServiceNamespace {
   AUTOSCALING = "autoscaling",
   DYNAMODB = "dynamodb",
@@ -216,6 +243,7 @@ export enum ServiceNamespace {
 }
 
 /**
+ * @public
  * <p>Represents a CloudWatch metric of your choosing that can be used for dynamic scaling as part
  *          of a target tracking scaling policy. </p>
  *          <p>To create your customized scaling metric specification:</p>
@@ -265,6 +293,9 @@ export interface CustomizedScalingMetricSpecification {
   Unit?: string;
 }
 
+/**
+ * @public
+ */
 export enum ScalingMetricType {
   ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
   ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
@@ -282,6 +313,7 @@ export enum ScalingMetricType {
 }
 
 /**
+ * @public
  * <p>Represents a predefined metric that can be used for dynamic scaling as part of a target
  *          tracking scaling policy.</p>
  */
@@ -321,6 +353,7 @@ export interface PredefinedScalingMetricSpecification {
 }
 
 /**
+ * @public
  * <p>Describes a target tracking configuration to use with AWS Auto Scaling. Used with <a>ScalingInstruction</a> and <a>ScalingPolicy</a>.</p>
  */
 export interface TargetTrackingConfiguration {
@@ -384,6 +417,7 @@ export interface TargetTrackingConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes a scaling instruction for a scalable resource in a scaling plan. Each scaling
  *          instruction applies to one resource.</p>
  *          <p>AWS Auto Scaling creates target tracking scaling policies based on the scaling instructions.
@@ -593,6 +627,9 @@ export interface ScalingInstruction {
   DisableDynamicScaling?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateScalingPlanRequest {
   /**
    * <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward
@@ -614,6 +651,9 @@ export interface CreateScalingPlanRequest {
   ScalingInstructions: ScalingInstruction[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateScalingPlanResponse {
   /**
    * <p>The version number of the scaling plan. This value is always <code>1</code>. Currently,
@@ -623,6 +663,7 @@ export interface CreateScalingPlanResponse {
 }
 
 /**
+ * @public
  * <p>The service encountered an internal error.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -644,6 +685,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your account exceeded a limit. This exception is thrown when a per-account resource
  *          limit is exceeded.</p>
  */
@@ -666,6 +708,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  */
 export class ValidationException extends __BaseException {
@@ -686,6 +729,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteScalingPlanRequest {
   /**
    * <p>The name of the scaling plan.</p>
@@ -699,9 +745,13 @@ export interface DeleteScalingPlanRequest {
   ScalingPlanVersion: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScalingPlanResponse {}
 
 /**
+ * @public
  * <p>The specified object could not be found.</p>
  */
 export class ObjectNotFoundException extends __BaseException {
@@ -722,6 +772,9 @@ export class ObjectNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPlanResourcesRequest {
   /**
    * <p>The name of the scaling plan.</p>
@@ -746,11 +799,15 @@ export interface DescribeScalingPlanResourcesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum PolicyType {
   TargetTrackingScaling = "TargetTrackingScaling",
 }
 
 /**
+ * @public
  * <p>Represents a scaling policy.</p>
  */
 export interface ScalingPolicy {
@@ -771,6 +828,9 @@ export interface ScalingPolicy {
   TargetTrackingConfiguration?: TargetTrackingConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum ScalingStatusCode {
   Active = "Active",
   Inactive = "Inactive",
@@ -778,6 +838,7 @@ export enum ScalingStatusCode {
 }
 
 /**
+ * @public
  * <p>Represents a scalable resource.</p>
  */
 export interface ScalingPlanResource {
@@ -901,6 +962,9 @@ export interface ScalingPlanResource {
   ScalingStatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPlanResourcesResponse {
   /**
    * <p>Information about the scalable resources.</p>
@@ -915,6 +979,7 @@ export interface DescribeScalingPlanResourcesResponse {
 }
 
 /**
+ * @public
  * <p>The token provided is not valid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -935,6 +1000,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPlansRequest {
   /**
    * <p>The names of the scaling plans (up to 10). If you specify application sources, you
@@ -970,6 +1038,9 @@ export interface DescribeScalingPlansRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ScalingPlanStatusCode {
   Active = "Active",
   ActiveWithProblems = "ActiveWithProblems",
@@ -982,6 +1053,7 @@ export enum ScalingPlanStatusCode {
 }
 
 /**
+ * @public
  * <p>Represents a scaling plan.</p>
  */
 export interface ScalingPlan {
@@ -1062,6 +1134,9 @@ export interface ScalingPlan {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPlansResponse {
   /**
    * <p>Information about the scaling plans.</p>
@@ -1075,6 +1150,9 @@ export interface DescribeScalingPlansResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ForecastDataType {
   CapacityForecast = "CapacityForecast",
   LoadForecast = "LoadForecast",
@@ -1082,6 +1160,9 @@ export enum ForecastDataType {
   ScheduledActionMinCapacity = "ScheduledActionMinCapacity",
 }
 
+/**
+ * @public
+ */
 export interface GetScalingPlanResourceForecastDataRequest {
   /**
    * <p>The name of the scaling plan.</p>
@@ -1157,6 +1238,7 @@ export interface GetScalingPlanResourceForecastDataRequest {
 }
 
 /**
+ * @public
  * <p>Represents a single value in the forecast data used for predictive scaling.</p>
  */
 export interface Datapoint {
@@ -1171,6 +1253,9 @@ export interface Datapoint {
   Value?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetScalingPlanResourceForecastDataResponse {
   /**
    * <p>The data points to return.</p>
@@ -1178,6 +1263,9 @@ export interface GetScalingPlanResourceForecastDataResponse {
   Datapoints: Datapoint[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScalingPlanRequest {
   /**
    * <p>The name of the scaling plan.</p>
@@ -1203,6 +1291,9 @@ export interface UpdateScalingPlanRequest {
   ScalingInstructions?: ScalingInstruction[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateScalingPlanResponse {}
 
 /**

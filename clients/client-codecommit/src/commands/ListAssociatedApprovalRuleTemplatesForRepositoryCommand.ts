@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
  */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput
   extends ListAssociatedApprovalRuleTemplatesForRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}.
  */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
@@ -38,6 +42,7 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all approval rule templates that are associated with a specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput - {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput}
+ * @returns {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput}
  * @see {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -108,6 +115,9 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,6 +163,9 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
     context: __SerdeContext
@@ -160,6 +173,9 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
     return serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

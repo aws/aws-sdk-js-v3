@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ReplicateKeyCommand}.
  */
 export interface ReplicateKeyCommandInput extends ReplicateKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplicateKeyCommand}.
  */
 export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replicates a multi-Region key into the specified Region. This operation creates a
  *       multi-Region replica key based on a multi-Region primary key in a different Region of the same
  *       Amazon Web Services partition. You can create multiple replicas of a primary key, but each must be in a
@@ -128,6 +133,8 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplicateKeyCommandInput - {@link ReplicateKeyCommandInput}
+ * @returns {@link ReplicateKeyCommandOutput}
  * @see {@link ReplicateKeyCommandInput} for command's `input` shape.
  * @see {@link ReplicateKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -251,6 +258,9 @@ export class ReplicateKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplicateKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -288,10 +298,16 @@ export class ReplicateKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplicateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ReplicateKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateKeyCommandOutput> {
     return deserializeAws_json1_1ReplicateKeyCommand(output, context);
   }

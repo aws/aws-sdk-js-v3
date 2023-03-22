@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { OrganizationsServiceException as __BaseException } from "./OrganizationsServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptHandshakeRequest {
   /**
    * <p>The unique identifier (ID) of the handshake that you want to accept.</p>
@@ -12,6 +15,9 @@ export interface AcceptHandshakeRequest {
   HandshakeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ActionType {
   ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE = "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
   APPROVE_ALL_FEATURES = "APPROVE_ALL_FEATURES",
@@ -19,6 +25,9 @@ export enum ActionType {
   INVITE_ACCOUNT_TO_ORGANIZATION = "INVITE",
 }
 
+/**
+ * @public
+ */
 export enum HandshakePartyType {
   ACCOUNT = "ACCOUNT",
   EMAIL = "EMAIL",
@@ -26,6 +35,7 @@ export enum HandshakePartyType {
 }
 
 /**
+ * @public
  * <p>Identifies a participant in a handshake.</p>
  */
 export interface HandshakeParty {
@@ -42,6 +52,9 @@ export interface HandshakeParty {
   Type: HandshakePartyType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HandshakeResourceType {
   ACCOUNT = "ACCOUNT",
   EMAIL = "EMAIL",
@@ -53,6 +66,9 @@ export enum HandshakeResourceType {
   PARENT_HANDSHAKE = "PARENT_HANDSHAKE",
 }
 
+/**
+ * @public
+ */
 export enum HandshakeState {
   ACCEPTED = "ACCEPTED",
   CANCELED = "CANCELED",
@@ -63,6 +79,7 @@ export enum HandshakeState {
 }
 
 /**
+ * @public
  * <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
@@ -87,11 +104,15 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AccessDeniedForDependencyExceptionReason {
   ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE = "ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE",
 }
 
 /**
+ * @public
  * <p>The operation that you attempted requires you to have the
  *                 <code>iam:CreateServiceLinkedRole</code> for
  *                 <code>organizations.amazonaws.com</code> permission so that Organizations can create the
@@ -118,6 +139,7 @@ export class AccessDeniedForDependencyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your account isn't a member of an organization. To make this request, you must use the
  *             credentials of an account that belongs to an organization.</p>
  */
@@ -140,6 +162,7 @@ export class AWSOrganizationsNotInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The target of the operation is currently being modified by a different request. Try
  *             again later.</p>
  */
@@ -162,6 +185,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified handshake is already in the requested state. For example, you can't
  *             accept a handshake that was already accepted.</p>
  */
@@ -183,6 +207,9 @@ export class HandshakeAlreadyInStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum HandshakeConstraintViolationExceptionReason {
   ACCOUNT_NUMBER_LIMIT_EXCEEDED = "ACCOUNT_NUMBER_LIMIT_EXCEEDED",
   ALREADY_IN_AN_ORGANIZATION = "ALREADY_IN_AN_ORGANIZATION",
@@ -197,6 +224,7 @@ export enum HandshakeConstraintViolationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The requested operation would violate the constraint identified in the reason
  *             code.</p>
  *          <note>
@@ -276,6 +304,7 @@ export class HandshakeConstraintViolationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We can't find a handshake with the <code>HandshakeId</code> that you specified.</p>
  */
 export class HandshakeNotFoundException extends __BaseException {
@@ -297,6 +326,7 @@ export class HandshakeNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can't perform the operation on the handshake in its current state. For example,
  *             you can't cancel a handshake that was already accepted or accept a handshake that was
  *             already declined.</p>
@@ -319,6 +349,9 @@ export class InvalidHandshakeTransitionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum InvalidInputExceptionReason {
   DUPLICATE_TAG_KEY = "DUPLICATE_TAG_KEY",
   IMMUTABLE_POLICY = "IMMUTABLE_POLICY",
@@ -351,6 +384,7 @@ export enum InvalidInputExceptionReason {
 }
 
 /**
+ * @public
  * <p>The requested operation failed because you provided invalid values for one or more of
  *             the request parameters. This exception includes a reason that contains additional
  *             information about the violated limit:</p>
@@ -475,6 +509,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Organizations can't complete your request because of an internal service error. Try again
  *             later.</p>
  */
@@ -497,6 +532,7 @@ export class ServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
  *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
@@ -523,11 +559,17 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AccountJoinedMethod {
   CREATED = "CREATED",
   INVITED = "INVITED",
 }
 
+/**
+ * @public
+ */
 export enum AccountStatus {
   ACTIVE = "ACTIVE",
   PENDING_CLOSURE = "PENDING_CLOSURE",
@@ -535,6 +577,7 @@ export enum AccountStatus {
 }
 
 /**
+ * @public
  * <p>Contains information about an Amazon Web Services account that is a member of an
  *             organization.</p>
  */
@@ -585,6 +628,7 @@ export interface Account {
 }
 
 /**
+ * @public
  * <p>You attempted to close an account that is already closed.</p>
  */
 export class AccountAlreadyClosedException extends __BaseException {
@@ -606,6 +650,7 @@ export class AccountAlreadyClosedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified account is already a delegated administrator for this Amazon Web Services
  *             service.</p>
  */
@@ -628,6 +673,7 @@ export class AccountAlreadyRegisteredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> We can't find an Amazon Web Services account with the <code>AccountId</code> that you specified, or
  *             the account whose credentials you used to make this request isn't a member of an
  *             organization.</p>
@@ -651,6 +697,7 @@ export class AccountNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified account is not a delegated administrator for this Amazon Web Services service. </p>
  */
 export class AccountNotRegisteredException extends __BaseException {
@@ -672,6 +719,7 @@ export class AccountNotRegisteredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can't invite an existing account to your organization until you verify that you
  *             own the email address associated with the management account. For more information, see
  *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email Address
@@ -697,6 +745,7 @@ export class AccountOwnerNotVerifiedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This account is already a member of an organization. An account can belong to only one
  *             organization at a time.</p>
  */
@@ -718,6 +767,9 @@ export class AlreadyInOrganizationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AttachPolicyRequest {
   /**
    * <p>The unique identifier (ID) of the policy that you want to attach to the target. You
@@ -755,6 +807,9 @@ export interface AttachPolicyRequest {
   TargetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConstraintViolationExceptionReason {
   ACCOUNT_CANNOT_LEAVE_ORGANIZATION = "ACCOUNT_CANNOT_LEAVE_ORGANIZATION",
   ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA = "ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA",
@@ -793,6 +848,7 @@ export enum ConstraintViolationExceptionReason {
 }
 
 /**
+ * @public
  * <p>Performing this operation violates a minimum or maximum value limit. For example,
  *             attempting to remove the last service control policy (SCP) from an OU or root, inviting
  *             or creating too many accounts to the organization, or attaching too many policies to an
@@ -1010,6 +1066,7 @@ export class ConstraintViolationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The selected policy is already attached to the specified target.</p>
  */
 export class DuplicatePolicyAttachmentException extends __BaseException {
@@ -1031,6 +1088,7 @@ export class DuplicatePolicyAttachmentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Changes to the effective policy are in progress, and its contents can't be returned.
  *             Try the operation again later. </p>
  */
@@ -1053,6 +1111,7 @@ export class PolicyChangesInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We can't find a policy with the <code>PolicyId</code> that you specified.</p>
  */
 export class PolicyNotFoundException extends __BaseException {
@@ -1074,6 +1133,7 @@ export class PolicyNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified policy type isn't currently enabled in this root. You can't attach
  *             policies of the specified type to entities in a root until you enable that type in the
  *             root. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features
@@ -1099,6 +1159,7 @@ export class PolicyTypeNotEnabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We can't find a root, OU, account, or policy with the <code>TargetId</code> that you
  *             specified.</p>
  */
@@ -1121,6 +1182,7 @@ export class TargetNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This action isn't available in the current Amazon Web Services Region.</p>
  */
 export class UnsupportedAPIEndpointException extends __BaseException {
@@ -1141,6 +1203,9 @@ export class UnsupportedAPIEndpointException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelHandshakeRequest {
   /**
    * <p>The unique identifier (ID) of the handshake that you want to cancel. You can get the
@@ -1151,6 +1216,9 @@ export interface CancelHandshakeRequest {
   HandshakeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CloseAccountRequest {
   /**
    * <p>Retrieves the Amazon Web Services account Id for the current <code>CloseAccount</code> API request.
@@ -1160,6 +1228,7 @@ export interface CloseAccountRequest {
 }
 
 /**
+ * @public
  * <p>The request failed because it conflicts with the current state of the specified
  *             resource.</p>
  */
@@ -1181,12 +1250,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum IAMUserAccessToBilling {
   ALLOW = "ALLOW",
   DENY = "DENY",
 }
 
 /**
+ * @public
  * <p>A custom key-value pair associated with a resource within your organization.</p>
  *          <p>You can attach tags to any of the following organization resources.</p>
  *          <ul>
@@ -1217,6 +1290,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountRequest {
   /**
    * <p>The email address of the owner to assign to the new member account. This email address
@@ -1319,6 +1395,9 @@ export interface CreateAccountRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum CreateAccountFailureReason {
   ACCOUNT_LIMIT_EXCEEDED = "ACCOUNT_LIMIT_EXCEEDED",
   CONCURRENT_ACCOUNT_MODIFICATION = "CONCURRENT_ACCOUNT_MODIFICATION",
@@ -1337,6 +1416,9 @@ export enum CreateAccountFailureReason {
   UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED = "UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED",
 }
 
+/**
+ * @public
+ */
 export enum CreateAccountState {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1344,6 +1426,7 @@ export enum CreateAccountState {
 }
 
 /**
+ * @public
  * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an Amazon Web Services account or an Amazon Web Services
  *             GovCloud (US) account in an organization.</p>
  */
@@ -1461,6 +1544,9 @@ export interface CreateAccountStatus {
   FailureReason?: CreateAccountFailureReason | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccountResponse {
   /**
    * <p>A structure that contains details about the request to create an account. This
@@ -1476,6 +1562,7 @@ export interface CreateAccountResponse {
 }
 
 /**
+ * @public
  * <p>Organizations couldn't perform the operation because your organization hasn't finished
  *             initializing. This can take up to an hour. Try again later. If after one hour you
  *             continue to receive this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
@@ -1498,6 +1585,9 @@ export class FinalizingOrganizationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateGovCloudAccountRequest {
   /**
    * <p>Specifies the email address of the owner to assign to the new member account in the
@@ -1600,6 +1690,9 @@ export interface CreateGovCloudAccountRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateGovCloudAccountResponse {
   /**
    * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an Amazon Web Services account or an Amazon Web Services
@@ -1608,11 +1701,17 @@ export interface CreateGovCloudAccountResponse {
   CreateAccountStatus?: CreateAccountStatus;
 }
 
+/**
+ * @public
+ */
 export enum OrganizationFeatureSet {
   ALL = "ALL",
   CONSOLIDATED_BILLING = "CONSOLIDATED_BILLING",
 }
 
+/**
+ * @public
+ */
 export interface CreateOrganizationRequest {
   /**
    * <p>Specifies the feature set supported by the new organization. Each feature set supports
@@ -1642,12 +1741,18 @@ export interface CreateOrganizationRequest {
   FeatureSet?: OrganizationFeatureSet | string;
 }
 
+/**
+ * @public
+ */
 export enum PolicyTypeStatus {
   ENABLED = "ENABLED",
   PENDING_DISABLE = "PENDING_DISABLE",
   PENDING_ENABLE = "PENDING_ENABLE",
 }
 
+/**
+ * @public
+ */
 export enum PolicyType {
   AISERVICES_OPT_OUT_POLICY = "AISERVICES_OPT_OUT_POLICY",
   BACKUP_POLICY = "BACKUP_POLICY",
@@ -1656,6 +1761,7 @@ export enum PolicyType {
 }
 
 /**
+ * @public
  * <p>Contains information about a policy type and its status in the associated root.</p>
  */
 export interface PolicyTypeSummary {
@@ -1673,6 +1779,7 @@ export interface PolicyTypeSummary {
 }
 
 /**
+ * @public
  * <p>Contains details about an organization. An organization is a collection of accounts
  *             that are centrally managed together using consolidated billing, organized hierarchically
  *             with organizational units (OUs), and controlled with policies .</p>
@@ -1733,6 +1840,9 @@ export interface Organization {
   AvailablePolicyTypes?: PolicyTypeSummary[];
 }
 
+/**
+ * @public
+ */
 export interface CreateOrganizationResponse {
   /**
    * <p>A structure that contains details about the newly created organization.</p>
@@ -1740,6 +1850,9 @@ export interface CreateOrganizationResponse {
   Organization?: Organization;
 }
 
+/**
+ * @public
+ */
 export interface CreateOrganizationalUnitRequest {
   /**
    * <p>The unique identifier (ID) of the parent root or OU that you want to create the new OU
@@ -1782,6 +1895,7 @@ export interface CreateOrganizationalUnitRequest {
 }
 
 /**
+ * @public
  * <p>Contains details about an organizational unit (OU). An OU is a container of Amazon Web Services
  *             accounts within a root of an organization. Policies that are attached to an OU apply to
  *             all accounts contained in that OU and in any child OUs.</p>
@@ -1812,6 +1926,9 @@ export interface OrganizationalUnit {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateOrganizationalUnitResponse {
   /**
    * <p>A structure that contains details about the newly created OU.</p>
@@ -1820,6 +1937,7 @@ export interface CreateOrganizationalUnitResponse {
 }
 
 /**
+ * @public
  * <p>An OU with the same name already exists.</p>
  */
 export class DuplicateOrganizationalUnitException extends __BaseException {
@@ -1841,6 +1959,7 @@ export class DuplicateOrganizationalUnitException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We can't find a root or OU with the <code>ParentId</code> that you specified.</p>
  */
 export class ParentNotFoundException extends __BaseException {
@@ -1861,6 +1980,9 @@ export class ParentNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreatePolicyRequest {
   /**
    * <p>The policy text content to add to the new policy. The text that you supply must adhere
@@ -1923,6 +2045,7 @@ export interface CreatePolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a policy, but does not include the content. To see the
  *             content of a policy, see <a>DescribePolicy</a>.</p>
  */
@@ -1968,6 +2091,7 @@ export interface PolicySummary {
 }
 
 /**
+ * @public
  * <p>Contains rules to be applied to the affected accounts. Policies can be attached
  *             directly to accounts, or to roots and OUs to affect all accounts in those
  *             hierarchies.</p>
@@ -1984,6 +2108,9 @@ export interface Policy {
   Content?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePolicyResponse {
   /**
    * <p>A structure that contains details about the newly created policy.</p>
@@ -1992,6 +2119,7 @@ export interface CreatePolicyResponse {
 }
 
 /**
+ * @public
  * <p>A policy with the same name already exists.</p>
  */
 export class DuplicatePolicyException extends __BaseException {
@@ -2013,6 +2141,7 @@ export class DuplicatePolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided policy document doesn't meet the requirements of the specified policy
  *             type. For example, the syntax might be incorrect. For details about service control
  *             policy syntax, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service Control Policy
@@ -2038,6 +2167,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can't use the specified policy type with the feature set currently enabled for
  *             this organization. For example, you can enable SCPs only after you enable all features
  *             in the organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root">Managing
@@ -2062,6 +2192,9 @@ export class PolicyTypeNotAvailableForOrganizationException extends __BaseExcept
   }
 }
 
+/**
+ * @public
+ */
 export interface DeclineHandshakeRequest {
   /**
    * <p>The unique identifier (ID) of the handshake that you want to decline. You can get the
@@ -2073,6 +2206,7 @@ export interface DeclineHandshakeRequest {
 }
 
 /**
+ * @public
  * <p>The organization isn't empty. To delete an organization, you must first remove all
  *             accounts except the management account, delete all OUs, and delete all policies.</p>
  */
@@ -2094,6 +2228,9 @@ export class OrganizationNotEmptyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteOrganizationalUnitRequest {
   /**
    * <p>The unique identifier (ID) of the organizational unit that you want to delete. You can
@@ -2107,6 +2244,7 @@ export interface DeleteOrganizationalUnitRequest {
 }
 
 /**
+ * @public
  * <p>The specified OU is not empty. Move all accounts to another root or to other OUs,
  *             remove all child OUs, and try the operation again.</p>
  */
@@ -2129,6 +2267,7 @@ export class OrganizationalUnitNotEmptyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We can't find an OU with the <code>OrganizationalUnitId</code> that you
  *             specified.</p>
  */
@@ -2150,6 +2289,9 @@ export class OrganizationalUnitNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeletePolicyRequest {
   /**
    * <p>The unique identifier (ID) of the policy that you want to delete. You can get the ID
@@ -2162,6 +2304,7 @@ export interface DeletePolicyRequest {
 }
 
 /**
+ * @public
  * <p>The policy is attached to one or more entities. You must detach it from all roots,
  *             OUs, and accounts before performing this operation.</p>
  */
@@ -2184,6 +2327,7 @@ export class PolicyInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We can't find a resource policy request with the parameter that you specified.</p>
  */
 export class ResourcePolicyNotFoundException extends __BaseException {
@@ -2204,6 +2348,9 @@ export class ResourcePolicyNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeregisterDelegatedAdministratorRequest {
   /**
    * <p>The account ID number of the member account in the organization that you want to
@@ -2222,6 +2369,9 @@ export interface DeregisterDelegatedAdministratorRequest {
   ServicePrincipal: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountRequest {
   /**
    * <p>The unique identifier (ID) of the Amazon Web Services account that you want information about. You
@@ -2232,6 +2382,9 @@ export interface DescribeAccountRequest {
   AccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountResponse {
   /**
    * <p>A structure that contains information about the requested account.</p>
@@ -2240,6 +2393,7 @@ export interface DescribeAccountResponse {
 }
 
 /**
+ * @public
  * <p>We can't find an create account request with the <code>CreateAccountRequestId</code>
  *             that you specified.</p>
  */
@@ -2261,6 +2415,9 @@ export class CreateAccountStatusNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeCreateAccountStatusRequest {
   /**
    * <p>Specifies the <code>Id</code> value that uniquely identifies the
@@ -2272,6 +2429,9 @@ export interface DescribeCreateAccountStatusRequest {
   CreateAccountRequestId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCreateAccountStatusResponse {
   /**
    * <p>A structure that contains the current status of an account creation request.</p>
@@ -2279,12 +2439,18 @@ export interface DescribeCreateAccountStatusResponse {
   CreateAccountStatus?: CreateAccountStatus;
 }
 
+/**
+ * @public
+ */
 export enum EffectivePolicyType {
   AISERVICES_OPT_OUT_POLICY = "AISERVICES_OPT_OUT_POLICY",
   BACKUP_POLICY = "BACKUP_POLICY",
   TAG_POLICY = "TAG_POLICY",
 }
 
+/**
+ * @public
+ */
 export interface DescribeEffectivePolicyRequest {
   /**
    * <p>The type of policy that you want information about. You can specify one of the
@@ -2318,6 +2484,7 @@ export interface DescribeEffectivePolicyRequest {
 }
 
 /**
+ * @public
  * <p>Contains rules to be applied to the affected accounts. The effective policy is the
  *             aggregation of any policies the account inherits, plus any policy directly attached to
  *             the account.</p>
@@ -2344,6 +2511,9 @@ export interface EffectivePolicy {
   PolicyType?: EffectivePolicyType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEffectivePolicyResponse {
   /**
    * <p>The contents of the effective policy.</p>
@@ -2352,6 +2522,7 @@ export interface DescribeEffectivePolicyResponse {
 }
 
 /**
+ * @public
  * <p>If you ran this action on the management account, this policy type is not enabled. If
  *             you ran the action on a member account, the account doesn't have an effective policy of
  *             this type. Contact the administrator of your organization about attaching a policy of
@@ -2375,6 +2546,9 @@ export class EffectivePolicyNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeHandshakeRequest {
   /**
    * <p>The unique identifier (ID) of the handshake that you want information about. You can
@@ -2386,6 +2560,9 @@ export interface DescribeHandshakeRequest {
   HandshakeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationResponse {
   /**
    * <p>A structure that contains information about the organization.</p>
@@ -2401,6 +2578,9 @@ export interface DescribeOrganizationResponse {
   Organization?: Organization;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationalUnitRequest {
   /**
    * <p>The unique identifier (ID) of the organizational unit that you want details about. You
@@ -2414,6 +2594,9 @@ export interface DescribeOrganizationalUnitRequest {
   OrganizationalUnitId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationalUnitResponse {
   /**
    * <p>A structure that contains details about the specified OU.</p>
@@ -2421,6 +2604,9 @@ export interface DescribeOrganizationalUnitResponse {
   OrganizationalUnit?: OrganizationalUnit;
 }
 
+/**
+ * @public
+ */
 export interface DescribePolicyRequest {
   /**
    * <p>The unique identifier (ID) of the policy that you want details about. You can get the
@@ -2432,6 +2618,9 @@ export interface DescribePolicyRequest {
   PolicyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePolicyResponse {
   /**
    * <p>A structure that contains details about the specified policy.</p>
@@ -2440,6 +2629,7 @@ export interface DescribePolicyResponse {
 }
 
 /**
+ * @public
  * <p>A structure that contains resource policy ID and Amazon Resource Name (ARN).</p>
  */
 export interface ResourcePolicySummary {
@@ -2455,6 +2645,7 @@ export interface ResourcePolicySummary {
 }
 
 /**
+ * @public
  * <p>A structure that contains details about a resource policy.</p>
  */
 export interface ResourcePolicy {
@@ -2469,6 +2660,9 @@ export interface ResourcePolicy {
   Content?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePolicyResponse {
   /**
    * <p>A structure that contains details about the resource policy.</p>
@@ -2476,6 +2670,9 @@ export interface DescribeResourcePolicyResponse {
   ResourcePolicy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface DetachPolicyRequest {
   /**
    * <p>The unique identifier (ID) of the policy you want to detach. You can get the ID from
@@ -2514,6 +2711,7 @@ export interface DetachPolicyRequest {
 }
 
 /**
+ * @public
  * <p>The policy isn't attached to the specified target in the specified root.</p>
  */
 export class PolicyNotAttachedException extends __BaseException {
@@ -2534,6 +2732,9 @@ export class PolicyNotAttachedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisableAWSServiceAccessRequest {
   /**
    * <p>The service principal name of the Amazon Web Services service for which you want to disable
@@ -2544,6 +2745,9 @@ export interface DisableAWSServiceAccessRequest {
   ServicePrincipal: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisablePolicyTypeRequest {
   /**
    * <p>The unique identifier (ID) of the root in which you want to disable a policy type. You
@@ -2583,6 +2787,7 @@ export interface DisablePolicyTypeRequest {
 }
 
 /**
+ * @public
  * <p>Contains details about a root. A root is a top-level parent node in the hierarchy of
  *             an organization that can contain organizational units (OUs) and accounts.
  *             The root contains every Amazon Web Services account in the
@@ -2623,6 +2828,9 @@ export interface Root {
   PolicyTypes?: PolicyTypeSummary[];
 }
 
+/**
+ * @public
+ */
 export interface DisablePolicyTypeResponse {
   /**
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
@@ -2631,6 +2839,7 @@ export interface DisablePolicyTypeResponse {
 }
 
 /**
+ * @public
  * <p>We can't find a root with the <code>RootId</code> that you specified.</p>
  */
 export class RootNotFoundException extends __BaseException {
@@ -2651,8 +2860,14 @@ export class RootNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface EnableAllFeaturesRequest {}
 
+/**
+ * @public
+ */
 export interface EnableAWSServiceAccessRequest {
   /**
    * <p>The service principal name of the Amazon Web Services service for which you want to enable
@@ -2663,6 +2878,9 @@ export interface EnableAWSServiceAccessRequest {
   ServicePrincipal: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnablePolicyTypeRequest {
   /**
    * <p>The unique identifier (ID) of the root in which you want to enable a policy type. You
@@ -2701,6 +2919,9 @@ export interface EnablePolicyTypeRequest {
   PolicyType: PolicyType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnablePolicyTypeResponse {
   /**
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
@@ -2709,6 +2930,7 @@ export interface EnablePolicyTypeResponse {
 }
 
 /**
+ * @public
  * <p>The specified policy type is already enabled in the specified root.</p>
  */
 export class PolicyTypeAlreadyEnabledException extends __BaseException {
@@ -2730,6 +2952,7 @@ export class PolicyTypeAlreadyEnabledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A handshake with the same action and target already exists. For example, if you
  *             invited an account to join your organization, the invited account might already have a
  *             pending invitation from this organization. If you intend to resend an invitation to an
@@ -2754,15 +2977,18 @@ export class DuplicateHandshakeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface InviteAccountToOrganizationRequest {
   /**
    * <p>The identifier (ID) of the Amazon Web Services account that you want to invite to join your
    *             organization. This is a JSON object that contains the following elements:</p>
    *          <p>
-   *             <code>{ "Type": "ACCOUNT", "Id": "<<i>
+   *             <code>\{ "Type": "ACCOUNT", "Id": "<<i>
    *                   <b>account id
    *                         number</b>
-   *                </i>>" }</code>
+   *                </i>>" \}</code>
    *          </p>
    *          <p>If you use the CLI, you can submit this as a single string, similar to the following
    *             example:</p>
@@ -2810,6 +3036,7 @@ export interface InviteAccountToOrganizationRequest {
 }
 
 /**
+ * @public
  * <p>You can't remove a management account from an organization. If you want the management
  *             account to become a member account in another organization, you must first delete the
  *             current organization of the management account.</p>
@@ -2832,6 +3059,9 @@ export class MasterCannotLeaveOrganizationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListAccountsRequest {
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -2855,6 +3085,9 @@ export interface ListAccountsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountsResponse {
   /**
    * <p>A list of objects in the organization.</p>
@@ -2870,6 +3103,9 @@ export interface ListAccountsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountsForParentRequest {
   /**
    * <p>The unique identifier (ID) for the parent root or organization unit (OU) whose
@@ -2899,6 +3135,9 @@ export interface ListAccountsForParentRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountsForParentResponse {
   /**
    * <p>A list of the accounts in the specified root or OU.</p>
@@ -2914,6 +3153,9 @@ export interface ListAccountsForParentResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAWSServiceAccessForOrganizationRequest {
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -2938,6 +3180,7 @@ export interface ListAWSServiceAccessForOrganizationRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains details of a service principal that represents an Amazon Web Services
  *             service that is enabled to integrate with Organizations.</p>
  */
@@ -2955,6 +3198,9 @@ export interface EnabledServicePrincipal {
   DateEnabled?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListAWSServiceAccessForOrganizationResponse {
   /**
    * <p>A list of the service principals for the services that are enabled to integrate with
@@ -2972,11 +3218,17 @@ export interface ListAWSServiceAccessForOrganizationResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ChildType {
   ACCOUNT = "ACCOUNT",
   ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
 }
 
+/**
+ * @public
+ */
 export interface ListChildrenRequest {
   /**
    * <p>The unique identifier (ID) for the parent root or OU whose children you want to
@@ -3027,6 +3279,7 @@ export interface ListChildrenRequest {
 }
 
 /**
+ * @public
  * <p>Contains a list of child entities, either OUs or accounts.</p>
  */
 export interface Child {
@@ -3056,6 +3309,9 @@ export interface Child {
   Type?: ChildType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListChildrenResponse {
   /**
    * <p>The list of children of the specified parent container.</p>
@@ -3071,6 +3327,9 @@ export interface ListChildrenResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCreateAccountStatusRequest {
   /**
    * <p>A list of one or more states that you want included in the response. If this parameter
@@ -3100,6 +3359,9 @@ export interface ListCreateAccountStatusRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCreateAccountStatusResponse {
   /**
    * <p>A list of objects with details about the requests. Certain elements, such as the
@@ -3117,6 +3379,9 @@ export interface ListCreateAccountStatusResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDelegatedAdministratorsRequest {
   /**
    * <p>Specifies a service principal name. If specified, then the operation lists the
@@ -3149,6 +3414,7 @@ export interface ListDelegatedAdministratorsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the delegated administrator.</p>
  */
 export interface DelegatedAdministrator {
@@ -3196,6 +3462,9 @@ export interface DelegatedAdministrator {
   DelegationEnabledDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDelegatedAdministratorsResponse {
   /**
    * <p>The list of delegated administrators in your organization.</p>
@@ -3211,6 +3480,9 @@ export interface ListDelegatedAdministratorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDelegatedServicesForAccountRequest {
   /**
    * <p>The account ID number of a delegated administrator account in the organization.</p>
@@ -3240,6 +3512,7 @@ export interface ListDelegatedServicesForAccountRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the Amazon Web Services service for which the account is a delegated
  *             administrator.</p>
  */
@@ -3258,6 +3531,9 @@ export interface DelegatedService {
   DelegationEnabledDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDelegatedServicesForAccountResponse {
   /**
    * <p>The services for which the account is a delegated administrator.</p>
@@ -3274,6 +3550,7 @@ export interface ListDelegatedServicesForAccountResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the criteria that are used to select the handshakes for the
  *             operation.</p>
  */
@@ -3296,6 +3573,9 @@ export interface HandshakeFilter {
   ParentHandshakeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHandshakesForAccountRequest {
   /**
    * <p>Filters the handshakes that you want included in the response. The default is all
@@ -3330,6 +3610,9 @@ export interface ListHandshakesForAccountRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListHandshakesForOrganizationRequest {
   /**
    * <p>A filter of the handshakes that you want included in the response. The default is all
@@ -3364,6 +3647,9 @@ export interface ListHandshakesForOrganizationRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationalUnitsForParentRequest {
   /**
    * <p>The unique identifier (ID) of the root or OU whose child OUs you want to list.</p>
@@ -3407,6 +3693,9 @@ export interface ListOrganizationalUnitsForParentRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationalUnitsForParentResponse {
   /**
    * <p>A list of the OUs in the specified root or parent OU.</p>
@@ -3423,6 +3712,7 @@ export interface ListOrganizationalUnitsForParentResponse {
 }
 
 /**
+ * @public
  * <p>We can't find an organizational unit (OU) or Amazon Web Services account with the
  *                 <code>ChildId</code> that you specified.</p>
  */
@@ -3444,6 +3734,9 @@ export class ChildNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListParentsRequest {
   /**
    * <p>The unique identifier (ID) of the OU or account whose parent containers you want to
@@ -3488,12 +3781,16 @@ export interface ListParentsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum ParentType {
   ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
   ROOT = "ROOT",
 }
 
 /**
+ * @public
  * <p>Contains information about either a root or an organizational unit (OU) that can
  *             contain OUs or accounts in an organization.</p>
  */
@@ -3524,6 +3821,9 @@ export interface Parent {
   Type?: ParentType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListParentsResponse {
   /**
    * <p>A list of parents for the specified child account or OU.</p>
@@ -3539,6 +3839,9 @@ export interface ListParentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPoliciesRequest {
   /**
    * <p>Specifies the type of policy that you want to include in the response. You must
@@ -3590,6 +3893,9 @@ export interface ListPoliciesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPoliciesResponse {
   /**
    * <p>A list of policies that match the filter criteria in the request. The output list
@@ -3606,6 +3912,9 @@ export interface ListPoliciesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPoliciesForTargetRequest {
   /**
    * <p>The unique identifier (ID) of the root, organizational unit, or account whose policies
@@ -3682,6 +3991,9 @@ export interface ListPoliciesForTargetRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPoliciesForTargetResponse {
   /**
    * <p>The list of policies that match the criteria in the request.</p>
@@ -3697,6 +4009,9 @@ export interface ListPoliciesForTargetResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRootsRequest {
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -3720,6 +4035,9 @@ export interface ListRootsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListRootsResponse {
   /**
    * <p>A list of roots that are defined in an organization.</p>
@@ -3735,6 +4053,9 @@ export interface ListRootsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ID of the resource with the tags to list.</p>
@@ -3775,6 +4096,9 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the resource.</p>
@@ -3790,6 +4114,9 @@ export interface ListTagsForResourceResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForPolicyRequest {
   /**
    * <p>The unique identifier (ID) of the policy whose attachments you want to know.</p>
@@ -3820,6 +4147,9 @@ export interface ListTargetsForPolicyRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum TargetType {
   ACCOUNT = "ACCOUNT",
   ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
@@ -3827,6 +4157,7 @@ export enum TargetType {
 }
 
 /**
+ * @public
  * <p>Contains information about a root, OU, or account that a policy is attached to.</p>
  */
 export interface PolicyTargetSummary {
@@ -3875,6 +4206,9 @@ export interface PolicyTargetSummary {
   Type?: TargetType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsForPolicyResponse {
   /**
    * <p>A list of structures, each of which contains details about one of the entities to
@@ -3892,6 +4226,7 @@ export interface ListTargetsForPolicyResponse {
 }
 
 /**
+ * @public
  * <p>We can't find the destination container (a root or OU) with the <code>ParentId</code>
  *             that you specified.</p>
  */
@@ -3914,6 +4249,7 @@ export class DestinationParentNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>That account is already present in the specified destination.</p>
  */
 export class DuplicateAccountException extends __BaseException {
@@ -3934,6 +4270,9 @@ export class DuplicateAccountException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface MoveAccountRequest {
   /**
    * <p>The unique identifier (ID) of the account that you want to move.</p>
@@ -3986,6 +4325,7 @@ export interface MoveAccountRequest {
 }
 
 /**
+ * @public
  * <p>We can't find a source root or OU with the <code>ParentId</code> that you
  *             specified.</p>
  */
@@ -4007,6 +4347,9 @@ export class SourceParentNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>If provided, the new content for the resource policy. The text must be correctly
@@ -4033,6 +4376,9 @@ export interface PutResourcePolicyRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>A structure that contains details about the resource policy.</p>
@@ -4040,6 +4386,9 @@ export interface PutResourcePolicyResponse {
   ResourcePolicy?: ResourcePolicy;
 }
 
+/**
+ * @public
+ */
 export interface RegisterDelegatedAdministratorRequest {
   /**
    * <p>The account ID number of the member account in the organization to register as a
@@ -4054,6 +4403,9 @@ export interface RegisterDelegatedAdministratorRequest {
   ServicePrincipal: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveAccountFromOrganizationRequest {
   /**
    * <p>The unique identifier (ID) of the member account that you want to remove from the
@@ -4064,6 +4416,9 @@ export interface RemoveAccountFromOrganizationRequest {
   AccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ID of the resource to add a tag to.</p>
@@ -4106,6 +4461,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ID of the resource to remove a tag from.</p>
@@ -4142,6 +4500,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationalUnitRequest {
   /**
    * <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from
@@ -4162,6 +4523,9 @@ export interface UpdateOrganizationalUnitRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationalUnitResponse {
   /**
    * <p>A structure that contains the details about the specified OU, including its new
@@ -4170,6 +4534,9 @@ export interface UpdateOrganizationalUnitResponse {
   OrganizationalUnit?: OrganizationalUnit;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePolicyRequest {
   /**
    * <p>The unique identifier (ID) of the policy that you want to update.</p>
@@ -4200,6 +4567,9 @@ export interface UpdatePolicyRequest {
   Content?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePolicyResponse {
   /**
    * <p>A structure that contains details about the updated policy, showing the requested
@@ -4209,6 +4579,7 @@ export interface UpdatePolicyResponse {
 }
 
 /**
+ * @public
  * <p>Contains additional data that is needed to process a handshake.</p>
  */
 export interface HandshakeResource {
@@ -4262,6 +4633,7 @@ export interface HandshakeResource {
 }
 
 /**
+ * @public
  * <p>Contains information that must be exchanged to securely establish a relationship
  *             between two accounts (an <i>originator</i> and a
  *                 <i>recipient</i>). For example, when a management account (the
@@ -4385,6 +4757,9 @@ export interface Handshake {
   Resources?: HandshakeResource[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptHandshakeResponse {
   /**
    * <p>A structure that contains details about the accepted handshake.</p>
@@ -4392,6 +4767,9 @@ export interface AcceptHandshakeResponse {
   Handshake?: Handshake;
 }
 
+/**
+ * @public
+ */
 export interface CancelHandshakeResponse {
   /**
    * <p>A structure that contains details about the handshake that you canceled.</p>
@@ -4399,6 +4777,9 @@ export interface CancelHandshakeResponse {
   Handshake?: Handshake;
 }
 
+/**
+ * @public
+ */
 export interface DeclineHandshakeResponse {
   /**
    * <p>A structure that contains details about the declined handshake. The state is updated
@@ -4407,6 +4788,9 @@ export interface DeclineHandshakeResponse {
   Handshake?: Handshake;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHandshakeResponse {
   /**
    * <p>A structure that contains information about the specified handshake.</p>
@@ -4414,6 +4798,9 @@ export interface DescribeHandshakeResponse {
   Handshake?: Handshake;
 }
 
+/**
+ * @public
+ */
 export interface EnableAllFeaturesResponse {
   /**
    * <p>A structure that contains details about the handshake created to support this request
@@ -4422,6 +4809,9 @@ export interface EnableAllFeaturesResponse {
   Handshake?: Handshake;
 }
 
+/**
+ * @public
+ */
 export interface InviteAccountToOrganizationResponse {
   /**
    * <p>A structure that contains details about the handshake that is created to support this
@@ -4430,6 +4820,9 @@ export interface InviteAccountToOrganizationResponse {
   Handshake?: Handshake;
 }
 
+/**
+ * @public
+ */
 export interface ListHandshakesForAccountResponse {
   /**
    * <p>A list of <a>Handshake</a> objects with details about each of the
@@ -4446,6 +4839,9 @@ export interface ListHandshakesForAccountResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHandshakesForOrganizationResponse {
   /**
    * <p>A list of <a>Handshake</a> objects with details about each of the

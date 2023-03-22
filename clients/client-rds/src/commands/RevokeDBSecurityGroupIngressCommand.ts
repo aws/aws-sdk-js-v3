@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeDBSecurityGroupIngressCommand}.
  */
 export interface RevokeDBSecurityGroupIngressCommandInput extends RevokeDBSecurityGroupIngressMessage {}
 /**
+ * @public
+ *
  * The output of {@link RevokeDBSecurityGroupIngressCommand}.
  */
 export interface RevokeDBSecurityGroupIngressCommandOutput
@@ -37,6 +41,7 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC security groups. Required
  *             parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either
  *             EC2SecurityGroupName or EC2SecurityGroupId).</p>
@@ -57,6 +62,8 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeDBSecurityGroupIngressCommandInput - {@link RevokeDBSecurityGroupIngressCommandInput}
+ * @returns {@link RevokeDBSecurityGroupIngressCommandOutput}
  * @see {@link RevokeDBSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -110,6 +117,9 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeDBSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeDBSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRevokeDBSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVerifiedAccessTrustProviderCommand}.
  */
 export interface CreateVerifiedAccessTrustProviderCommandInput extends CreateVerifiedAccessTrustProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVerifiedAccessTrustProviderCommand}.
  */
 export interface CreateVerifiedAccessTrustProviderCommandOutput
@@ -37,6 +41,7 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
  *          information for users and devices. When an application request is made, the identity
  *          information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or
@@ -51,6 +56,8 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVerifiedAccessTrustProviderCommandInput - {@link CreateVerifiedAccessTrustProviderCommandInput}
+ * @returns {@link CreateVerifiedAccessTrustProviderCommandOutput}
  * @see {@link CreateVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +81,9 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVerifiedAccessTrustProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command<
     return serializeAws_ec2CreateVerifiedAccessTrustProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

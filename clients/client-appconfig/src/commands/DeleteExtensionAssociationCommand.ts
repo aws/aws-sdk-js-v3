@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExtensionAssociationCommand}.
  */
 export interface DeleteExtensionAssociationCommandInput extends DeleteExtensionAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExtensionAssociationCommand}.
  */
 export interface DeleteExtensionAssociationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an extension association. This action doesn't delete extensions defined in the
  *          association.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExtensionAssociationCommandInput - {@link DeleteExtensionAssociationCommandInput}
+ * @returns {@link DeleteExtensionAssociationCommandOutput}
  * @see {@link DeleteExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteExtensionAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExtensionAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteExtensionAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExtensionAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteExtensionAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSavingsPlansPurchaseRecommendationCommand}.
  */
 export interface GetSavingsPlansPurchaseRecommendationCommandInput
   extends GetSavingsPlansPurchaseRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSavingsPlansPurchaseRecommendationCommand}.
  */
 export interface GetSavingsPlansPurchaseRecommendationCommandOutput
@@ -38,6 +42,7 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the Savings Plans recommendations for your account. First use
  *         <code>StartSavingsPlansPurchaseRecommendationGeneration</code> to generate a new set of
  *       recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code> to retrieve
@@ -52,6 +57,8 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSavingsPlansPurchaseRecommendationCommandInput - {@link GetSavingsPlansPurchaseRecommendationCommandInput}
+ * @returns {@link GetSavingsPlansPurchaseRecommendationCommandOutput}
  * @see {@link GetSavingsPlansPurchaseRecommendationCommandInput} for command's `input` shape.
  * @see {@link GetSavingsPlansPurchaseRecommendationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSavingsPlansPurchaseRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSavingsPlansPurchaseRecommendationCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
     return serializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

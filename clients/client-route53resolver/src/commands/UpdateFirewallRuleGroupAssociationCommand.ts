@@ -26,10 +26,14 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallRuleGroupAssociationCommand}.
  */
 export interface UpdateFirewallRuleGroupAssociationCommandInput extends UpdateFirewallRuleGroupAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallRuleGroupAssociationCommand}.
  */
 export interface UpdateFirewallRuleGroupAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallRuleGroupAssociationCommandInput - {@link UpdateFirewallRuleGroupAssociationCommandInput}
+ * @returns {@link UpdateFirewallRuleGroupAssociationCommandOutput}
  * @see {@link UpdateFirewallRuleGroupAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallRuleGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateFirewallRuleGroupAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallRuleGroupAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class UpdateFirewallRuleGroupAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFirewallRuleGroupAssociationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class UpdateFirewallRuleGroupAssociationCommand extends $Command<
     return serializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

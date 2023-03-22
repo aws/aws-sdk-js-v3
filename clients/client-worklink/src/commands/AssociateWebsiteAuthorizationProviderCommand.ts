@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWebsiteAuthorizationProviderCommand}.
  */
 export interface AssociateWebsiteAuthorizationProviderCommandInput
   extends AssociateWebsiteAuthorizationProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWebsiteAuthorizationProviderCommand}.
  */
 export interface AssociateWebsiteAuthorizationProviderCommandOutput
@@ -38,6 +42,7 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>
@@ -51,6 +56,8 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWebsiteAuthorizationProviderCommandInput - {@link AssociateWebsiteAuthorizationProviderCommandInput}
+ * @returns {@link AssociateWebsiteAuthorizationProviderCommandOutput}
  * @see {@link AssociateWebsiteAuthorizationProviderCommandInput} for command's `input` shape.
  * @see {@link AssociateWebsiteAuthorizationProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -92,6 +99,9 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWebsiteAuthorizationProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWebsiteAuthorizationProviderCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     return serializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

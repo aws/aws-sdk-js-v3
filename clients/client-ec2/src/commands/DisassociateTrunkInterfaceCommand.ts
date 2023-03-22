@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTrunkInterfaceCommand}.
  */
 export interface DisassociateTrunkInterfaceCommandInput extends DisassociateTrunkInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTrunkInterfaceCommand}.
  */
 export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTrunkInterfaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This API action is currently in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
@@ -50,6 +55,8 @@ export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTru
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTrunkInterfaceCommandInput - {@link DisassociateTrunkInterfaceCommandInput}
+ * @returns {@link DisassociateTrunkInterfaceCommandOutput}
  * @see {@link DisassociateTrunkInterfaceCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrunkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTrunkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateTrunkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateTrunkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLayersCommand}.
  */
 export interface ListLayersCommandInput extends ListLayersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLayersCommand}.
  */
 export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html">Lambda
  *         layers</a> and shows information about the latest version of each. Specify a
  *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
@@ -51,6 +56,8 @@ export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLayersCommandInput - {@link ListLayersCommandInput}
+ * @returns {@link ListLayersCommandOutput}
  * @see {@link ListLayersCommandInput} for command's `input` shape.
  * @see {@link ListLayersCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListLayersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLayersCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListLayersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLayersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListLayersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLayersCommandOutput> {
     return deserializeAws_restJson1ListLayersCommand(output, context);
   }

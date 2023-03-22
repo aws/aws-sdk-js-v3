@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePendingMaintenanceActionsCommand}.
  */
 export interface DescribePendingMaintenanceActionsCommandInput extends DescribePendingMaintenanceActionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribePendingMaintenanceActionsCommand}.
  */
 export interface DescribePendingMaintenanceActionsCommandOutput
@@ -41,6 +45,7 @@ export interface DescribePendingMaintenanceActionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>For internal use only</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePendingMaintenanceActionsCommandInput - {@link DescribePendingMaintenanceActionsCommandInput}
+ * @returns {@link DescribePendingMaintenanceActionsCommandOutput}
  * @see {@link DescribePendingMaintenanceActionsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingMaintenanceActionsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePendingMaintenanceActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePendingMaintenanceActionsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     return serializeAws_json1_1DescribePendingMaintenanceActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

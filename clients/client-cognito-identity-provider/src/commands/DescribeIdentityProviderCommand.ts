@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIdentityProviderCommand}.
  */
 export interface DescribeIdentityProviderCommandInput extends DescribeIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIdentityProviderCommand}.
  */
 export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specific IdP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityP
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdentityProviderCommandInput - {@link DescribeIdentityProviderCommandInput}
+ * @returns {@link DescribeIdentityProviderCommandOutput}
  * @see {@link DescribeIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DescribeIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityProviderCommandOutput> {
     return deserializeAws_json1_1DescribeIdentityProviderCommand(output, context);
   }

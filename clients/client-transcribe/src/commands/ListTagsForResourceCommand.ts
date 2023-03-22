@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourceCommand}.
  */
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all tags associated with the specified transcription job, vocabulary, model, or
  *             resource.</p>
  *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
@@ -49,6 +54,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
     return deserializeAws_json1_1ListTagsForResourceCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWirelessDeviceFromFuotaTaskCommand}.
  */
 export interface DisassociateWirelessDeviceFromFuotaTaskCommandInput
   extends DisassociateWirelessDeviceFromFuotaTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWirelessDeviceFromFuotaTaskCommand}.
  */
 export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a wireless device from a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWirelessDeviceFromFuotaTaskCommandInput - {@link DisassociateWirelessDeviceFromFuotaTaskCommandInput}
+ * @returns {@link DisassociateWirelessDeviceFromFuotaTaskCommandOutput}
  * @see {@link DisassociateWirelessDeviceFromFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -90,6 +97,9 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWirelessDeviceFromFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWirelessDeviceFromFuotaTaskCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command<
     return serializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
 
 /**
+ * @public
  * <p>The container for abort incomplete multipart upload</p>
  */
 export interface AbortIncompleteMultipartUpload {
@@ -14,11 +15,15 @@ export interface AbortIncompleteMultipartUpload {
   DaysAfterInitiation?: number;
 }
 
+/**
+ * @public
+ */
 export enum OwnerOverride {
   Destination = "Destination",
 }
 
 /**
+ * @public
  * <p>A container for information about access control for replicas.</p>
  *          <note>
  *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
@@ -31,12 +36,16 @@ export interface AccessControlTranslation {
   Owner: OwnerOverride | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NetworkOrigin {
   Internet = "Internet",
   VPC = "VPC",
 }
 
 /**
+ * @public
  * <p>The virtual private cloud (VPC) configuration for an access point.</p>
  */
 export interface VpcConfiguration {
@@ -48,6 +57,7 @@ export interface VpcConfiguration {
 }
 
 /**
+ * @public
  * <p>An access point used to access a bucket.</p>
  */
 export interface AccessPoint {
@@ -97,6 +107,7 @@ export interface AccessPoint {
 }
 
 /**
+ * @public
  * <p>The container element for Amazon S3 Storage Lens activity metrics. Activity metrics show details
  *          about how your storage is requested, such as requests (for example, All requests, Get
  *          requests, Put requests), bytes uploaded or downloaded, and errors.</p>
@@ -110,6 +121,7 @@ export interface ActivityMetrics {
 }
 
 /**
+ * @public
  * <p>The container element for Amazon S3 Storage Lens advanced cost-optimization metrics. Advanced
  *          cost-optimization metrics provide insights that you can use to manage and optimize your
  *          storage costs, for example, lifecycle rule counts for transitions, expirations, and
@@ -125,6 +137,7 @@ export interface AdvancedCostOptimizationMetrics {
 }
 
 /**
+ * @public
  * <p>The container element for Amazon S3 Storage Lens advanced data-protection metrics. Advanced
  *          data-protection metrics provide insights that you can use to perform audits and protect
  *          your data, for example replication rule counts within and across Regions.</p>
@@ -138,6 +151,7 @@ export interface AdvancedDataProtectionMetrics {
 }
 
 /**
+ * @public
  * <p>The container element for Amazon S3 Storage Lens detailed status code metrics. Detailed status
  *          code metrics generate metrics for HTTP status codes, such as <code>200 OK</code>, <code>403
  *             Forbidden</code>, <code>503 Service Unavailable</code> and others. </p>
@@ -151,6 +165,7 @@ export interface DetailedStatusCodesMetrics {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface SelectionCriteria {
@@ -174,6 +189,7 @@ export interface SelectionCriteria {
 }
 
 /**
+ * @public
  * <p>A container for the prefix-level storage metrics for S3 Storage Lens.</p>
  */
 export interface PrefixLevelStorageMetrics {
@@ -189,6 +205,7 @@ export interface PrefixLevelStorageMetrics {
 }
 
 /**
+ * @public
  * <p>A container for the prefix-level configuration.</p>
  */
 export interface PrefixLevel {
@@ -199,6 +216,7 @@ export interface PrefixLevel {
 }
 
 /**
+ * @public
  * <p>A container for the bucket-level configuration for Amazon S3 Storage Lens.</p>
  *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
@@ -230,6 +248,7 @@ export interface BucketLevel {
 }
 
 /**
+ * @public
  * <p>A container for the account-level Amazon S3 Storage Lens configuration.</p>
  *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
@@ -261,6 +280,7 @@ export interface AccountLevel {
 }
 
 /**
+ * @public
  * <p>Error details for the failed asynchronous operation.</p>
  */
 export interface AsyncErrorDetails {
@@ -285,6 +305,9 @@ export interface AsyncErrorDetails {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export enum AsyncOperationName {
   CreateMultiRegionAccessPoint = "CreateMultiRegionAccessPoint",
   DeleteMultiRegionAccessPoint = "DeleteMultiRegionAccessPoint",
@@ -292,6 +315,7 @@ export enum AsyncOperationName {
 }
 
 /**
+ * @public
  * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
  *          account. You can enable the configuration options in any combination. For more information
  *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -353,6 +377,7 @@ export interface PublicAccessBlockConfiguration {
 }
 
 /**
+ * @public
  * <p>A Region that supports a Multi-Region Access Point as well as the associated bucket for the Region.</p>
  */
 export interface Region {
@@ -369,6 +394,7 @@ export interface Region {
 }
 
 /**
+ * @public
  * <p>A container for the information associated with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html">CreateMultiRegionAccessPoint</a> request. </p>
  */
 export interface CreateMultiRegionAccessPointInput {
@@ -392,6 +418,7 @@ export interface CreateMultiRegionAccessPointInput {
 }
 
 /**
+ * @public
  * <p>A container for the information associated with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html">DeleteMultiRegionAccessPoint</a> request.</p>
  */
 export interface DeleteMultiRegionAccessPointInput {
@@ -402,6 +429,7 @@ export interface DeleteMultiRegionAccessPointInput {
 }
 
 /**
+ * @public
  * <p>A container for the information associated with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPoint.html">PutMultiRegionAccessPoint</a> request.</p>
  */
 export interface PutMultiRegionAccessPointPolicyInput {
@@ -417,6 +445,7 @@ export interface PutMultiRegionAccessPointPolicyInput {
 }
 
 /**
+ * @public
  * <p>A container for the request parameters associated with an asynchronous request.</p>
  */
 export interface AsyncRequestParameters {
@@ -437,6 +466,7 @@ export interface AsyncRequestParameters {
 }
 
 /**
+ * @public
  * <p>Status information for a single Multi-Region Access Point Region.</p>
  */
 export interface MultiRegionAccessPointRegionalResponse {
@@ -452,6 +482,7 @@ export interface MultiRegionAccessPointRegionalResponse {
 }
 
 /**
+ * @public
  * <p>The Multi-Region Access Point details that are returned when querying about an asynchronous request.</p>
  */
 export interface MultiRegionAccessPointsAsyncResponse {
@@ -463,6 +494,7 @@ export interface MultiRegionAccessPointsAsyncResponse {
 }
 
 /**
+ * @public
  * <p>A container for the response details that are returned when querying about an
  *          asynchronous request.</p>
  */
@@ -479,6 +511,7 @@ export interface AsyncResponseDetails {
 }
 
 /**
+ * @public
  * <p>A container for the information about an asynchronous operation.</p>
  */
 export interface AsyncOperation {
@@ -514,6 +547,7 @@ export interface AsyncOperation {
 }
 
 /**
+ * @public
  * <p>Lambda function used to transform objects through an Object Lambda Access Point.</p>
  */
 export interface AwsLambdaTransformation {
@@ -529,6 +563,9 @@ export interface AwsLambdaTransformation {
   FunctionPayload?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPointRequest {
   /**
    * <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
@@ -568,6 +605,9 @@ export interface CreateAccessPointRequest {
   BucketAccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPointResult {
   /**
    * <p>The ARN of the access point.</p>
@@ -583,6 +623,9 @@ export interface CreateAccessPointResult {
   Alias?: string;
 }
 
+/**
+ * @public
+ */
 export enum ObjectLambdaAllowedFeature {
   GetObjectPartNumber = "GetObject-PartNumber",
   GetObjectRange = "GetObject-Range",
@@ -590,6 +633,9 @@ export enum ObjectLambdaAllowedFeature {
   HeadObjectRange = "HeadObject-Range",
 }
 
+/**
+ * @public
+ */
 export enum ObjectLambdaTransformationConfigurationAction {
   GetObject = "GetObject",
   HeadObject = "HeadObject",
@@ -598,12 +644,16 @@ export enum ObjectLambdaTransformationConfigurationAction {
 }
 
 /**
+ * @public
  * <p>A container for AwsLambdaTransformation.</p>
  */
 export type ObjectLambdaContentTransformation =
   | ObjectLambdaContentTransformation.AwsLambdaMember
   | ObjectLambdaContentTransformation.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ObjectLambdaContentTransformation {
   /**
    * <p>A container for an Lambda function.</p>
@@ -630,6 +680,7 @@ export namespace ObjectLambdaContentTransformation {
 }
 
 /**
+ * @public
  * <p>A configuration used when creating an Object Lambda Access Point transformation.</p>
  */
 export interface ObjectLambdaTransformationConfiguration {
@@ -647,6 +698,7 @@ export interface ObjectLambdaTransformationConfiguration {
 }
 
 /**
+ * @public
  * <p>A configuration used when creating an Object Lambda Access Point.</p>
  */
 export interface ObjectLambdaConfiguration {
@@ -673,6 +725,9 @@ export interface ObjectLambdaConfiguration {
   TransformationConfigurations: ObjectLambdaTransformationConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPointForObjectLambdaRequest {
   /**
    * <p>The Amazon Web Services account ID for owner of the specified Object Lambda Access Point.</p>
@@ -690,12 +745,16 @@ export interface CreateAccessPointForObjectLambdaRequest {
   Configuration: ObjectLambdaConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ObjectLambdaAccessPointAliasStatus {
   PROVISIONING = "PROVISIONING",
   READY = "READY",
 }
 
 /**
+ * @public
  * <p>The alias of an Object Lambda Access Point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias">How to use a bucket-style alias for your S3 bucket
  *          Object Lambda Access Point</a>.</p>
  */
@@ -712,6 +771,9 @@ export interface ObjectLambdaAccessPointAlias {
   Status?: ObjectLambdaAccessPointAliasStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessPointForObjectLambdaResult {
   /**
    * <p>Specifies the ARN for the Object Lambda Access Point.</p>
@@ -725,6 +787,7 @@ export interface CreateAccessPointForObjectLambdaResult {
 }
 
 /**
+ * @public
  * <p>The requested Outposts bucket name is not available. The bucket namespace is shared by
  *          all users of the Outposts in this Region. Select a different name and try
  *          again.</p>
@@ -746,6 +809,7 @@ export class BucketAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Outposts bucket you tried to create already exists, and you own it. </p>
  */
 export class BucketAlreadyOwnedByYou extends __BaseException {
@@ -764,6 +828,9 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum BucketCannedACL {
   authenticated_read = "authenticated-read",
   private = "private",
@@ -771,6 +838,9 @@ export enum BucketCannedACL {
   public_read_write = "public-read-write",
 }
 
+/**
+ * @public
+ */
 export enum BucketLocationConstraint {
   EU = "EU",
   ap_northeast_1 = "ap-northeast-1",
@@ -786,6 +856,7 @@ export enum BucketLocationConstraint {
 }
 
 /**
+ * @public
  * <p>The container for the bucket configuration.</p>
  *          <note>
  *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
@@ -802,6 +873,9 @@ export interface CreateBucketConfiguration {
   LocationConstraint?: BucketLocationConstraint | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBucketRequest {
   /**
    * <p>The canned ACL to apply to the bucket.</p>
@@ -882,6 +956,9 @@ export interface CreateBucketRequest {
   OutpostId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBucketResult {
   /**
    * <p>The location of the bucket.</p>
@@ -897,6 +974,7 @@ export interface CreateBucketResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class BadRequestException extends __BaseException {
@@ -918,6 +996,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the information required to locate a manifest object.</p>
  */
 export interface JobManifestLocation {
@@ -943,6 +1022,9 @@ export interface JobManifestLocation {
   ETag: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum JobManifestFieldName {
   Bucket = "Bucket",
   Ignore = "Ignore",
@@ -950,12 +1032,16 @@ export enum JobManifestFieldName {
   VersionId = "VersionId",
 }
 
+/**
+ * @public
+ */
 export enum JobManifestFormat {
   S3BatchOperations_CSV_20180820 = "S3BatchOperations_CSV_20180820",
   S3InventoryReport_CSV_20161130 = "S3InventoryReport_CSV_20161130",
 }
 
 /**
+ * @public
  * <p>Describes the format of a manifest. If the manifest is in CSV format, also describes the
  *          columns contained within the manifest.</p>
  */
@@ -973,6 +1059,7 @@ export interface JobManifestSpec {
 }
 
 /**
+ * @public
  * <p>Contains the configuration information for a job's manifest.</p>
  */
 export interface JobManifest {
@@ -988,6 +1075,9 @@ export interface JobManifest {
   Location: JobManifestLocation | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -996,6 +1086,7 @@ export enum ReplicationStatus {
 }
 
 /**
+ * @public
  * <p>The filter used to describe a set of objects for the job's manifest.</p>
  */
 export interface JobManifestGeneratorFilter {
@@ -1025,6 +1116,7 @@ export interface JobManifestGeneratorFilter {
 }
 
 /**
+ * @public
  * <p>Configuration for the use of SSE-KMS to encrypt generated manifest objects.</p>
  */
 export interface SSEKMSEncryption {
@@ -1036,11 +1128,13 @@ export interface SSEKMSEncryption {
 }
 
 /**
+ * @public
  * <p>Configuration for the use of SSE-S3 to encrypt generated manifest objects.</p>
  */
 export interface SSES3Encryption {}
 
 /**
+ * @public
  * <p>The encryption configuration to use when storing the generated manifest.</p>
  */
 export interface GeneratedManifestEncryption {
@@ -1056,11 +1150,15 @@ export interface GeneratedManifestEncryption {
   SSEKMS?: SSEKMSEncryption;
 }
 
+/**
+ * @public
+ */
 export enum GeneratedManifestFormat {
   S3InventoryReport_CSV_20211130 = "S3InventoryReport_CSV_20211130",
 }
 
 /**
+ * @public
  * <p>Location details for where the generated manifest should be written.</p>
  */
 export interface S3ManifestOutputLocation {
@@ -1092,6 +1190,7 @@ export interface S3ManifestOutputLocation {
 }
 
 /**
+ * @public
  * <p>The container for the service that will create the S3 manifest.</p>
  */
 export interface S3JobManifestGenerator {
@@ -1125,12 +1224,16 @@ export interface S3JobManifestGenerator {
 }
 
 /**
+ * @public
  * <p>Configures the type of the job's ManifestGenerator.</p>
  */
 export type JobManifestGenerator =
   | JobManifestGenerator.S3JobManifestGeneratorMember
   | JobManifestGenerator.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace JobManifestGenerator {
   /**
    * <p>The S3 job ManifestGenerator's configuration details.</p>
@@ -1157,6 +1260,7 @@ export namespace JobManifestGenerator {
 }
 
 /**
+ * @public
  * <p>Contains the configuration parameters for a <code>Lambda Invoke</code> operation.</p>
  */
 export interface LambdaInvokeOperation {
@@ -1168,6 +1272,7 @@ export interface LambdaInvokeOperation {
 }
 
 /**
+ * @public
  * <p>Contains no configuration parameters because the DELETE Object tagging
  *             (<code>DeleteObjectTagging</code>)
  *          API
@@ -1179,12 +1284,16 @@ export interface LambdaInvokeOperation {
  */
 export interface S3DeleteObjectTaggingOperation {}
 
+/**
+ * @public
+ */
 export enum S3GlacierJobTier {
   BULK = "BULK",
   STANDARD = "STANDARD",
 }
 
 /**
+ * @public
  * <p>Contains the configuration parameters for
  *          a
  *          POST Object restore job. S3 Batch Operations passes every object to the
@@ -1218,6 +1327,9 @@ export interface S3InitiateRestoreObjectOperation {
   GlacierJobTier?: S3GlacierJobTier | string;
 }
 
+/**
+ * @public
+ */
 export enum S3GranteeTypeIdentifier {
   CANONICAL = "id",
   EMAIL_ADDRESS = "emailAddress",
@@ -1225,6 +1337,7 @@ export enum S3GranteeTypeIdentifier {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface S3Grantee {
@@ -1244,6 +1357,9 @@ export interface S3Grantee {
   DisplayName?: string;
 }
 
+/**
+ * @public
+ */
 export enum S3Permission {
   FULL_CONTROL = "FULL_CONTROL",
   READ = "READ",
@@ -1253,6 +1369,7 @@ export enum S3Permission {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface S3Grant {
@@ -1268,6 +1385,7 @@ export interface S3Grant {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface S3ObjectOwner {
@@ -1283,6 +1401,7 @@ export interface S3ObjectOwner {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface S3AccessControlList {
@@ -1297,6 +1416,9 @@ export interface S3AccessControlList {
   Grants?: S3Grant[];
 }
 
+/**
+ * @public
+ */
 export enum S3CannedAccessControlList {
   AUTHENTICATED_READ = "authenticated-read",
   AWS_EXEC_READ = "aws-exec-read",
@@ -1308,6 +1430,7 @@ export enum S3CannedAccessControlList {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface S3AccessControlPolicy {
@@ -1323,6 +1446,7 @@ export interface S3AccessControlPolicy {
 }
 
 /**
+ * @public
  * <p>Contains the configuration parameters for a
  *          PUT
  *          Object ACL operation. S3 Batch Operations passes every object to the underlying
@@ -1338,6 +1462,9 @@ export interface S3SetObjectAclOperation {
   AccessControlPolicy?: S3AccessControlPolicy;
 }
 
+/**
+ * @public
+ */
 export enum S3ChecksumAlgorithm {
   CRC32 = "CRC32",
   CRC32C = "CRC32C",
@@ -1345,17 +1472,24 @@ export enum S3ChecksumAlgorithm {
   SHA256 = "SHA256",
 }
 
+/**
+ * @public
+ */
 export enum S3MetadataDirective {
   COPY = "COPY",
   REPLACE = "REPLACE",
 }
 
+/**
+ * @public
+ */
 export enum S3SSEAlgorithm {
   AES256 = "AES256",
   KMS = "KMS",
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface S3ObjectMetadata {
@@ -1416,6 +1550,7 @@ export interface S3ObjectMetadata {
 }
 
 /**
+ * @public
  * <p>A container for a key-value name pair.</p>
  */
 export interface S3Tag {
@@ -1430,16 +1565,25 @@ export interface S3Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum S3ObjectLockLegalHoldStatus {
   OFF = "OFF",
   ON = "ON",
 }
 
+/**
+ * @public
+ */
 export enum S3ObjectLockMode {
   COMPLIANCE = "COMPLIANCE",
   GOVERNANCE = "GOVERNANCE",
 }
 
+/**
+ * @public
+ */
 export enum S3StorageClass {
   DEEP_ARCHIVE = "DEEP_ARCHIVE",
   GLACIER = "GLACIER",
@@ -1451,6 +1595,7 @@ export enum S3StorageClass {
 }
 
 /**
+ * @public
  * <p>Contains
  *          the configuration parameters for a PUT Copy object operation. S3 Batch Operations passes every
  *          object to the underlying
@@ -1580,6 +1725,7 @@ export interface S3CopyObjectOperation {
 }
 
 /**
+ * @public
  * <p>Whether S3 Object Lock legal hold will be applied to objects in an S3 Batch Operations
  *          job.</p>
  */
@@ -1592,6 +1738,7 @@ export interface S3ObjectLockLegalHold {
 }
 
 /**
+ * @public
  * <p>Contains the configuration for an S3 Object Lock legal hold operation that an
  *          S3 Batch Operations job passes
  *          to
@@ -1609,12 +1756,16 @@ export interface S3SetObjectLegalHoldOperation {
   LegalHold: S3ObjectLockLegalHold | undefined;
 }
 
+/**
+ * @public
+ */
 export enum S3ObjectLockRetentionMode {
   COMPLIANCE = "COMPLIANCE",
   GOVERNANCE = "GOVERNANCE",
 }
 
 /**
+ * @public
  * <p>Contains the S3 Object Lock retention mode to be applied to all objects in the
  *          S3 Batch Operations job. If you don't provide <code>Mode</code> and <code>RetainUntilDate</code>
  *          data types in your operation, you will remove the retention from your objects. For more
@@ -1636,6 +1787,7 @@ export interface S3Retention {
 }
 
 /**
+ * @public
  * <p>Contains the configuration parameters for the Object Lock retention action for an
  *          S3 Batch Operations job. Batch Operations passes every object to the underlying
  *             <code>PutObjectRetention</code>
@@ -1659,6 +1811,7 @@ export interface S3SetObjectRetentionOperation {
 }
 
 /**
+ * @public
  * <p>Contains the configuration parameters for a
  *          PUT
  *          Object Tagging operation. S3 Batch Operations passes every object to the underlying
@@ -1675,12 +1828,14 @@ export interface S3SetObjectTaggingOperation {
 }
 
 /**
+ * @public
  * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the
  *          job's manifest.</p>
  */
 export interface S3ReplicateObjectOperation {}
 
 /**
+ * @public
  * <p>The operation that you want this job to perform on every object listed in the manifest.
  *          For more information about the available operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html">Operations</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -1751,16 +1906,23 @@ export interface JobOperation {
   S3ReplicateObject?: S3ReplicateObjectOperation;
 }
 
+/**
+ * @public
+ */
 export enum JobReportFormat {
   Report_CSV_20180820 = "Report_CSV_20180820",
 }
 
+/**
+ * @public
+ */
 export enum JobReportScope {
   AllTasks = "AllTasks",
   FailedTasksOnly = "FailedTasksOnly",
 }
 
 /**
+ * @public
  * <p>Contains the configuration parameters for a job-completion report.</p>
  */
 export interface JobReport {
@@ -1794,6 +1956,9 @@ export interface JobReport {
   ReportScope?: JobReportScope | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * <p>The Amazon Web Services account ID that creates the job.</p>
@@ -1859,6 +2024,9 @@ export interface CreateJobRequest {
   ManifestGenerator?: JobManifestGenerator;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobResult {
   /**
    * <p>The ID for this job. Amazon S3 generates this ID automatically and returns it after a
@@ -1868,6 +2036,7 @@ export interface CreateJobResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class IdempotencyException extends __BaseException {
@@ -1889,6 +2058,7 @@ export class IdempotencyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InternalServiceException extends __BaseException {
@@ -1910,6 +2080,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -1930,6 +2101,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateMultiRegionAccessPointRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point. The owner of the Multi-Region Access Point also must own
@@ -1949,6 +2123,9 @@ export interface CreateMultiRegionAccessPointRequest {
   Details: CreateMultiRegionAccessPointInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMultiRegionAccessPointResult {
   /**
    * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
@@ -1957,6 +2134,9 @@ export interface CreateMultiRegionAccessPointResult {
   RequestTokenARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessPointRequest {
   /**
    * <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
@@ -1971,6 +2151,9 @@ export interface DeleteAccessPointRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessPointForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -1983,6 +2166,9 @@ export interface DeleteAccessPointForObjectLambdaRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessPointPolicyRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
@@ -1997,6 +2183,9 @@ export interface DeleteAccessPointPolicyRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessPointPolicyForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -2009,6 +2198,9 @@ export interface DeleteAccessPointPolicyForObjectLambdaRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketRequest {
   /**
    * <p>The account ID that owns the Outposts bucket.</p>
@@ -2023,6 +2215,9 @@ export interface DeleteBucketRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketLifecycleConfigurationRequest {
   /**
    * <p>The account ID of the lifecycle configuration to delete.</p>
@@ -2037,6 +2232,9 @@ export interface DeleteBucketLifecycleConfigurationRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketPolicyRequest {
   /**
    * <p>The account ID of the Outposts bucket.</p>
@@ -2051,6 +2249,9 @@ export interface DeleteBucketPolicyRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketReplicationRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket to delete the replication configuration
@@ -2066,6 +2267,9 @@ export interface DeleteBucketReplicationRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBucketTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket tag set to be removed.</p>
@@ -2080,6 +2284,9 @@ export interface DeleteBucketTaggingRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -2092,9 +2299,13 @@ export interface DeleteJobTaggingRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobTaggingResult {}
 
 /**
+ * @public
  * <p></p>
  */
 export class NotFoundException extends __BaseException {
@@ -2115,6 +2326,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMultiRegionAccessPointRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -2133,6 +2347,9 @@ export interface DeleteMultiRegionAccessPointRequest {
   Details: DeleteMultiRegionAccessPointInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMultiRegionAccessPointResult {
   /**
    * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
@@ -2141,6 +2358,9 @@ export interface DeleteMultiRegionAccessPointResult {
   RequestTokenARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePublicAccessBlockRequest {
   /**
    * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
@@ -2149,6 +2369,9 @@ export interface DeletePublicAccessBlockRequest {
   AccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStorageLensConfigurationRequest {
   /**
    * <p>The ID of the S3 Storage Lens configuration.</p>
@@ -2161,6 +2384,9 @@ export interface DeleteStorageLensConfigurationRequest {
   AccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStorageLensConfigurationTaggingRequest {
   /**
    * <p>The ID of the S3 Storage Lens configuration.</p>
@@ -2173,8 +2399,14 @@ export interface DeleteStorageLensConfigurationTaggingRequest {
   AccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteStorageLensConfigurationTaggingResult {}
 
+/**
+ * @public
+ */
 export interface DescribeJobRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -2188,6 +2420,7 @@ export interface DescribeJobRequest {
 }
 
 /**
+ * @public
  * <p>If this job failed, this element indicates why the job failed.</p>
  */
 export interface JobFailure {
@@ -2203,6 +2436,7 @@ export interface JobFailure {
 }
 
 /**
+ * @public
  * <p>Describes the specified job's generated manifest. Batch Operations jobs created with a
  *          ManifestGenerator populate details of this descriptor after execution of the
  *          ManifestGenerator.</p>
@@ -2220,6 +2454,7 @@ export interface S3GeneratedManifestDescriptor {
 }
 
 /**
+ * @public
  * <p>Provides timing details for the job.</p>
  */
 export interface JobTimers {
@@ -2230,6 +2465,7 @@ export interface JobTimers {
 }
 
 /**
+ * @public
  * <p>Describes the total number of tasks that the specified job has started, the number of
  *          tasks that succeeded, and the number of tasks that failed.</p>
  */
@@ -2255,6 +2491,9 @@ export interface JobProgressSummary {
   Timers?: JobTimers;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   Active = "Active",
   Cancelled = "Cancelled",
@@ -2272,6 +2511,7 @@ export enum JobStatus {
 }
 
 /**
+ * @public
  * <p>A container element for the job configuration and status information returned by a
  *             <code>Describe Job</code> request.</p>
  */
@@ -2384,6 +2624,9 @@ export interface JobDescriptor {
   GeneratedManifestDescriptor?: S3GeneratedManifestDescriptor;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobResult {
   /**
    * <p>Contains the configuration parameters and status for the job specified in the
@@ -2392,6 +2635,9 @@ export interface DescribeJobResult {
   Job?: JobDescriptor;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMultiRegionAccessPointOperationRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -2406,6 +2652,9 @@ export interface DescribeMultiRegionAccessPointOperationRequest {
   RequestTokenARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMultiRegionAccessPointOperationResult {
   /**
    * <p>A container element containing the details of the asynchronous operation.</p>
@@ -2413,6 +2662,9 @@ export interface DescribeMultiRegionAccessPointOperationResult {
   AsyncOperation?: AsyncOperation;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointRequest {
   /**
    * <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
@@ -2427,6 +2679,9 @@ export interface GetAccessPointRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointResult {
   /**
    * <p>The name of the specified access point.</p>
@@ -2492,6 +2747,9 @@ export interface GetAccessPointResult {
   BucketAccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointConfigurationForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -2504,6 +2762,9 @@ export interface GetAccessPointConfigurationForObjectLambdaRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointConfigurationForObjectLambdaResult {
   /**
    * <p>Object Lambda Access Point configuration document.</p>
@@ -2511,6 +2772,9 @@ export interface GetAccessPointConfigurationForObjectLambdaResult {
   Configuration?: ObjectLambdaConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -2523,6 +2787,9 @@ export interface GetAccessPointForObjectLambdaRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointForObjectLambdaResult {
   /**
    * <p>The name of the Object Lambda Access Point.</p>
@@ -2546,6 +2813,9 @@ export interface GetAccessPointForObjectLambdaResult {
   Alias?: ObjectLambdaAccessPointAlias;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointPolicyRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
@@ -2560,6 +2830,9 @@ export interface GetAccessPointPolicyRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointPolicyResult {
   /**
    * <p>The access point policy associated with the specified access point.</p>
@@ -2567,6 +2840,9 @@ export interface GetAccessPointPolicyResult {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointPolicyForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -2579,6 +2855,9 @@ export interface GetAccessPointPolicyForObjectLambdaRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointPolicyForObjectLambdaResult {
   /**
    * <p>Object Lambda Access Point resource policy document.</p>
@@ -2586,6 +2865,9 @@ export interface GetAccessPointPolicyForObjectLambdaResult {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointPolicyStatusRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
@@ -2599,6 +2881,7 @@ export interface GetAccessPointPolicyStatusRequest {
 }
 
 /**
+ * @public
  * <p>Indicates whether this access point policy is public. For more information about how Amazon S3
  *          evaluates policies to determine whether they are public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
  */
@@ -2609,6 +2892,9 @@ export interface PolicyStatus {
   IsPublic?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointPolicyStatusResult {
   /**
    * <p>Indicates the current policy status of the specified access point.</p>
@@ -2616,6 +2902,9 @@ export interface GetAccessPointPolicyStatusResult {
   PolicyStatus?: PolicyStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointPolicyStatusForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -2628,6 +2917,9 @@ export interface GetAccessPointPolicyStatusForObjectLambdaRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessPointPolicyStatusForObjectLambdaResult {
   /**
    * <p>Indicates whether this access point policy is public. For more information about how Amazon S3
@@ -2636,6 +2928,9 @@ export interface GetAccessPointPolicyStatusForObjectLambdaResult {
   PolicyStatus?: PolicyStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -2650,6 +2945,9 @@ export interface GetBucketRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketResult {
   /**
    * <p>The Outposts bucket requested.</p>
@@ -2667,6 +2965,9 @@ export interface GetBucketResult {
   CreationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketLifecycleConfigurationRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -2682,6 +2983,7 @@ export interface GetBucketLifecycleConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>The container of the Outposts bucket lifecycle expiration.</p>
  */
 export interface LifecycleExpiration {
@@ -2706,6 +3008,7 @@ export interface LifecycleExpiration {
 }
 
 /**
+ * @public
  * <p>The container for the Outposts bucket lifecycle rule and operator.</p>
  */
 export interface LifecycleRuleAndOperator {
@@ -2732,6 +3035,7 @@ export interface LifecycleRuleAndOperator {
 }
 
 /**
+ * @public
  * <p>The container for the filter of the lifecycle rule.</p>
  */
 export interface LifecycleRuleFilter {
@@ -2768,6 +3072,7 @@ export interface LifecycleRuleFilter {
 }
 
 /**
+ * @public
  * <p>The container of the noncurrent version expiration.</p>
  */
 export interface NoncurrentVersionExpiration {
@@ -2788,6 +3093,9 @@ export interface NoncurrentVersionExpiration {
   NewerNoncurrentVersions?: number;
 }
 
+/**
+ * @public
+ */
 export enum TransitionStorageClass {
   DEEP_ARCHIVE = "DEEP_ARCHIVE",
   GLACIER = "GLACIER",
@@ -2797,6 +3105,7 @@ export enum TransitionStorageClass {
 }
 
 /**
+ * @public
  * <p>The container for the noncurrent version transition.</p>
  */
 export interface NoncurrentVersionTransition {
@@ -2814,12 +3123,16 @@ export interface NoncurrentVersionTransition {
   StorageClass?: TransitionStorageClass | string;
 }
 
+/**
+ * @public
+ */
 export enum ExpirationStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>Specifies when an object transitions to a specified storage class. For more information
  *          about Amazon S3 Lifecycle configuration rules, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html">
  *             Transitioning objects using Amazon S3 Lifecycle</a> in the
@@ -2845,6 +3158,7 @@ export interface Transition {
 }
 
 /**
+ * @public
  * <p>The container for the Outposts bucket lifecycle rule.</p>
  */
 export interface LifecycleRule {
@@ -2904,6 +3218,9 @@ export interface LifecycleRule {
   AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketLifecycleConfigurationResult {
   /**
    * <p>Container for the lifecycle rule of the Outposts bucket.</p>
@@ -2911,6 +3228,9 @@ export interface GetBucketLifecycleConfigurationResult {
   Rules?: LifecycleRule[];
 }
 
+/**
+ * @public
+ */
 export interface GetBucketPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -2925,6 +3245,9 @@ export interface GetBucketPolicyRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketPolicyResult {
   /**
    * <p>The policy of the Outposts bucket.</p>
@@ -2932,6 +3255,9 @@ export interface GetBucketPolicyResult {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketReplicationRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -2946,12 +3272,16 @@ export interface GetBucketReplicationRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeleteMarkerReplicationStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>Specifies whether S3 on Outposts replicates delete markers. If you specify a
  *             <code>Filter</code> element in your replication configuration, you must also include a
  *             <code>DeleteMarkerReplication</code> element. If your <code>Filter</code> includes a
@@ -2968,6 +3298,7 @@ export interface DeleteMarkerReplication {
 }
 
 /**
+ * @public
  * <p>Specifies encryption-related information for an Amazon S3 bucket that is a destination for
  *          replicated objects.</p>
  *          <note>
@@ -2988,6 +3319,7 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * @public
  * <p>A container that specifies the time value for S3 Replication Time Control (S3 RTC). This value is also used for
  *          the replication metrics <code>EventThreshold</code> element. </p>
  *          <note>
@@ -3002,12 +3334,16 @@ export interface ReplicationTimeValue {
   Minutes?: number;
 }
 
+/**
+ * @public
+ */
 export enum MetricsStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>A container that specifies replication metrics-related settings.</p>
  */
 export interface Metrics {
@@ -3026,12 +3362,16 @@ export interface Metrics {
   EventThreshold?: ReplicationTimeValue;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationTimeStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>A container that specifies S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC
  *          is enabled and the time when all objects and operations on objects must be
  *          replicated.</p>
@@ -3052,6 +3392,9 @@ export interface ReplicationTime {
   Time: ReplicationTimeValue | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationStorageClass {
   DEEP_ARCHIVE = "DEEP_ARCHIVE",
   GLACIER = "GLACIER",
@@ -3065,6 +3408,7 @@ export enum ReplicationStorageClass {
 }
 
 /**
+ * @public
  * <p>Specifies information about the replication destination bucket and its settings for an
  *          S3 on Outposts replication configuration.</p>
  */
@@ -3127,12 +3471,16 @@ export interface Destination {
   StorageClass?: ReplicationStorageClass | string;
 }
 
+/**
+ * @public
+ */
 export enum ExistingObjectReplicationStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>An optional configuration to replicate existing source bucket objects. </p>
  *          <note>
  *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
@@ -3146,6 +3494,7 @@ export interface ExistingObjectReplication {
 }
 
 /**
+ * @public
  * <p>A container for specifying rule filters. The filters determine the subset of objects to
  *          which the rule applies. This element is required only if you specify more than one filter. </p>
  *          <p>For example:</p>
@@ -3174,6 +3523,7 @@ export interface ReplicationRuleAndOperator {
 }
 
 /**
+ * @public
  * <p>A filter that identifies the subset of objects to which the replication rule applies. A
  *             <code>Filter</code> element must specify exactly one <code>Prefix</code>,
  *             <code>Tag</code>, or <code>And</code> child element.</p>
@@ -3214,12 +3564,16 @@ export interface ReplicationRuleFilter {
   And?: ReplicationRuleAndOperator;
 }
 
+/**
+ * @public
+ */
 export enum ReplicaModificationsStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>A filter that you can use to specify whether replica modification sync is enabled.
  *          S3 on Outposts replica modification sync can help you keep object metadata synchronized
  *          between replicas and source objects. By default, S3 on Outposts replicates metadata from the
@@ -3241,12 +3595,16 @@ export interface ReplicaModifications {
   Status: ReplicaModificationsStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SseKmsEncryptedObjectsStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>A container for filter information that you can use to select S3 objects that are
  *          encrypted with Key Management Service (KMS).</p>
  *          <note>
@@ -3262,6 +3620,7 @@ export interface SseKmsEncryptedObjects {
 }
 
 /**
+ * @public
  * <p>A container that describes additional filters for identifying the source objects that
  *          you want to replicate. You can choose to enable or disable the replication of these
  *          objects.</p>
@@ -3295,12 +3654,16 @@ export interface SourceSelectionCriteria {
   ReplicaModifications?: ReplicaModifications;
 }
 
+/**
+ * @public
+ */
 export enum ReplicationRuleStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>Specifies which S3 on Outposts objects to replicate and where to store the replicas.</p>
  */
 export interface ReplicationRule {
@@ -3386,6 +3749,7 @@ export interface ReplicationRule {
 }
 
 /**
+ * @public
  * <p>A container for one or more replication rules. A replication configuration must have at least one rule and you can add up to 100 rules. The maximum size of a
  *          replication configuration is 128 KB.</p>
  */
@@ -3405,6 +3769,9 @@ export interface ReplicationConfiguration {
   Rules: ReplicationRule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketReplicationResult {
   /**
    * <p>A container for one or more replication rules. A replication configuration must have at least one rule and you can add up to 100 rules. The maximum size of a
@@ -3413,6 +3780,9 @@ export interface GetBucketReplicationResult {
   ReplicationConfiguration?: ReplicationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -3427,6 +3797,9 @@ export interface GetBucketTaggingRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketTaggingResult {
   /**
    * <p>The tags set of the Outposts bucket.</p>
@@ -3434,6 +3807,9 @@ export interface GetBucketTaggingResult {
   TagSet: S3Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBucketVersioningRequest {
   /**
    * <p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>
@@ -3446,16 +3822,25 @@ export interface GetBucketVersioningRequest {
   Bucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MFADeleteStatus {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
+/**
+ * @public
+ */
 export enum BucketVersioningStatus {
   Enabled = "Enabled",
   Suspended = "Suspended",
 }
 
+/**
+ * @public
+ */
 export interface GetBucketVersioningResult {
   /**
    * <p>The versioning state of the S3 on Outposts bucket.</p>
@@ -3470,6 +3855,9 @@ export interface GetBucketVersioningResult {
   MFADelete?: MFADeleteStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetJobTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -3482,6 +3870,9 @@ export interface GetJobTaggingRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJobTaggingResult {
   /**
    * <p>The set of tags associated with the S3 Batch Operations job.</p>
@@ -3489,6 +3880,9 @@ export interface GetJobTaggingResult {
   Tags?: S3Tag[];
 }
 
+/**
+ * @public
+ */
 export interface GetMultiRegionAccessPointRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -3505,6 +3899,7 @@ export interface GetMultiRegionAccessPointRequest {
 }
 
 /**
+ * @public
  * <p>A combination of a bucket and Region that's part of a Multi-Region Access Point.</p>
  */
 export interface RegionReport {
@@ -3525,6 +3920,9 @@ export interface RegionReport {
   BucketAccountId?: string;
 }
 
+/**
+ * @public
+ */
 export enum MultiRegionAccessPointStatus {
   CREATING = "CREATING",
   DELETING = "DELETING",
@@ -3535,6 +3933,7 @@ export enum MultiRegionAccessPointStatus {
 }
 
 /**
+ * @public
  * <p>A collection of statuses for a Multi-Region Access Point in the various Regions it supports.</p>
  */
 export interface MultiRegionAccessPointReport {
@@ -3579,6 +3978,9 @@ export interface MultiRegionAccessPointReport {
   Regions?: RegionReport[];
 }
 
+/**
+ * @public
+ */
 export interface GetMultiRegionAccessPointResult {
   /**
    * <p>A container element containing the details of the requested Multi-Region Access Point.</p>
@@ -3586,6 +3988,9 @@ export interface GetMultiRegionAccessPointResult {
   AccessPoint?: MultiRegionAccessPointReport;
 }
 
+/**
+ * @public
+ */
 export interface GetMultiRegionAccessPointPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -3601,6 +4006,7 @@ export interface GetMultiRegionAccessPointPolicyRequest {
 }
 
 /**
+ * @public
  * <p>The last established access control policy for a Multi-Region Access Point.</p>
  *          <p>When you update the policy, the update is first listed as the proposed policy. After the
  *          update is finished and all Regions have been updated, the proposed policy is listed as the
@@ -3615,6 +4021,7 @@ export interface EstablishedMultiRegionAccessPointPolicy {
 }
 
 /**
+ * @public
  * <p>The proposed access control policy for the Multi-Region Access Point.</p>
  *          <p>When you update the policy, the update is first listed as the proposed policy. After the
  *          update is finished and all Regions have been updated, the proposed policy is listed as the
@@ -3629,6 +4036,7 @@ export interface ProposedMultiRegionAccessPointPolicy {
 }
 
 /**
+ * @public
  * <p>The Multi-Region Access Point access control policy.</p>
  *          <p>When you update the policy, the update is first listed as the proposed policy. After the
  *          update is finished and all Regions have been updated, the proposed policy is listed as the
@@ -3647,6 +4055,9 @@ export interface MultiRegionAccessPointPolicyDocument {
   Proposed?: ProposedMultiRegionAccessPointPolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetMultiRegionAccessPointPolicyResult {
   /**
    * <p>The policy associated with the specified Multi-Region Access Point.</p>
@@ -3654,6 +4065,9 @@ export interface GetMultiRegionAccessPointPolicyResult {
   Policy?: MultiRegionAccessPointPolicyDocument;
 }
 
+/**
+ * @public
+ */
 export interface GetMultiRegionAccessPointPolicyStatusRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -3668,6 +4082,9 @@ export interface GetMultiRegionAccessPointPolicyStatusRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMultiRegionAccessPointPolicyStatusResult {
   /**
    * <p>Indicates whether this access point policy is public. For more information about how Amazon S3
@@ -3676,6 +4093,9 @@ export interface GetMultiRegionAccessPointPolicyStatusResult {
   Established?: PolicyStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetMultiRegionAccessPointRoutesRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -3689,6 +4109,7 @@ export interface GetMultiRegionAccessPointRoutesRequest {
 }
 
 /**
+ * @public
  * <p>A structure for a Multi-Region Access Point that indicates where Amazon S3 traffic can be routed. Routes can be
  *          either active or passive. Active routes can process Amazon S3 requests through the Multi-Region Access Point, but
  *          passive routes are not eligible to process Amazon S3 requests. </p>
@@ -3727,6 +4148,9 @@ export interface MultiRegionAccessPointRoute {
   TrafficDialPercentage: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMultiRegionAccessPointRoutesResult {
   /**
    * <p>The Multi-Region Access Point ARN.</p>
@@ -3740,6 +4164,9 @@ export interface GetMultiRegionAccessPointRoutesResult {
   Routes?: MultiRegionAccessPointRoute[];
 }
 
+/**
+ * @public
+ */
 export interface GetPublicAccessBlockOutput {
   /**
    * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this
@@ -3748,6 +4175,9 @@ export interface GetPublicAccessBlockOutput {
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetPublicAccessBlockRequest {
   /**
    * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
@@ -3757,6 +4187,7 @@ export interface GetPublicAccessBlockRequest {
 }
 
 /**
+ * @public
  * <p>Amazon S3 throws this exception if you make a <code>GetPublicAccessBlock</code> request
  *          against an account that doesn't have a <code>PublicAccessBlockConfiguration</code>
  *          set.</p>
@@ -3779,6 +4210,9 @@ export class NoSuchPublicAccessBlockConfiguration extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetStorageLensConfigurationRequest {
   /**
    * <p>The ID of the Amazon S3 Storage Lens configuration.</p>
@@ -3792,6 +4226,7 @@ export interface GetStorageLensConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>The Amazon Web Services organization for your S3 Storage Lens.</p>
  */
 export interface StorageLensAwsOrg {
@@ -3806,6 +4241,7 @@ export interface StorageLensAwsOrg {
 }
 
 /**
+ * @public
  * <p>A container for enabling Amazon CloudWatch publishing for S3 Storage Lens metrics.</p>
  *          <p>For more information about publishing S3 Storage Lens metrics to CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html">Monitor
  *             S3 Storage Lens metrics in CloudWatch</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -3820,6 +4256,7 @@ export interface CloudWatchMetrics {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface SSEKMS {
@@ -3834,11 +4271,13 @@ export interface SSEKMS {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface SSES3 {}
 
 /**
+ * @public
  * <p>A container for the encryption of the S3 Storage Lens metrics exports.</p>
  */
 export interface StorageLensDataExportEncryption {
@@ -3853,16 +4292,23 @@ export interface StorageLensDataExportEncryption {
   SSEKMS?: SSEKMS;
 }
 
+/**
+ * @public
+ */
 export enum Format {
   CSV = "CSV",
   Parquet = "Parquet",
 }
 
+/**
+ * @public
+ */
 export enum OutputSchemaVersion {
   V_1 = "V_1",
 }
 
 /**
+ * @public
  * <p>A container for the bucket where the Amazon S3 Storage Lens metrics export files are
  *          located.</p>
  */
@@ -3903,6 +4349,7 @@ export interface S3BucketDestination {
 }
 
 /**
+ * @public
  * <p>A container to specify the properties of your S3 Storage Lens metrics export, including the
  *          destination, schema, and format.</p>
  */
@@ -3923,6 +4370,7 @@ export interface StorageLensDataExport {
 }
 
 /**
+ * @public
  * <p>A container for what Amazon S3 Storage Lens will exclude.</p>
  */
 export interface _Exclude {
@@ -3938,6 +4386,7 @@ export interface _Exclude {
 }
 
 /**
+ * @public
  * <p>A container for what Amazon S3 Storage Lens configuration includes.</p>
  */
 export interface Include {
@@ -3953,6 +4402,7 @@ export interface Include {
 }
 
 /**
+ * @public
  * <p>A container for the Amazon S3 Storage Lens configuration.</p>
  */
 export interface StorageLensConfiguration {
@@ -4005,6 +4455,9 @@ export interface StorageLensConfiguration {
   StorageLensArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetStorageLensConfigurationResult {
   /**
    * <p>The S3 Storage Lens configuration requested.</p>
@@ -4012,6 +4465,9 @@ export interface GetStorageLensConfigurationResult {
   StorageLensConfiguration?: StorageLensConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetStorageLensConfigurationTaggingRequest {
   /**
    * <p>The ID of the Amazon S3 Storage Lens configuration.</p>
@@ -4025,6 +4481,7 @@ export interface GetStorageLensConfigurationTaggingRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StorageLensTag {
@@ -4039,6 +4496,9 @@ export interface StorageLensTag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetStorageLensConfigurationTaggingResult {
   /**
    * <p>The tags of S3 Storage Lens configuration requested.</p>
@@ -4046,6 +4506,9 @@ export interface GetStorageLensConfigurationTaggingResult {
   Tags?: StorageLensTag[];
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPointsRequest {
   /**
    * <p>The Amazon Web Services account ID for the account that owns the specified access points.</p>
@@ -4075,6 +4538,9 @@ export interface ListAccessPointsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPointsResult {
   /**
    * <p>Contains identification and configuration information for one or more access points associated
@@ -4090,6 +4556,9 @@ export interface ListAccessPointsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPointsForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -4113,6 +4582,7 @@ export interface ListAccessPointsForObjectLambdaRequest {
 }
 
 /**
+ * @public
  * <p>An access point with an attached Lambda function used to access transformed data from an Amazon S3
  *          bucket.</p>
  */
@@ -4133,6 +4603,9 @@ export interface ObjectLambdaAccessPoint {
   Alias?: ObjectLambdaAccessPointAlias;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessPointsForObjectLambdaResult {
   /**
    * <p>Returns list of Object Lambda Access Points.</p>
@@ -4148,6 +4621,7 @@ export interface ListAccessPointsForObjectLambdaResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -4169,6 +4643,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -4189,6 +4664,9 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListJobsRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -4217,6 +4695,9 @@ export interface ListJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum OperationName {
   LambdaInvoke = "LambdaInvoke",
   S3DeleteObjectTagging = "S3DeleteObjectTagging",
@@ -4230,6 +4711,7 @@ export enum OperationName {
 }
 
 /**
+ * @public
  * <p>Contains the configuration and status information for a single job retrieved as part of
  *          a job list.</p>
  */
@@ -4279,6 +4761,9 @@ export interface JobListDescriptor {
   ProgressSummary?: JobProgressSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsResult {
   /**
    * <p>If the <code>List Jobs</code> request produced more than the maximum number of results,
@@ -4293,6 +4778,9 @@ export interface ListJobsResult {
   Jobs?: JobListDescriptor[];
 }
 
+/**
+ * @public
+ */
 export interface ListMultiRegionAccessPointsRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -4310,6 +4798,9 @@ export interface ListMultiRegionAccessPointsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListMultiRegionAccessPointsResult {
   /**
    * <p>The list of Multi-Region Access Points associated with the user.</p>
@@ -4324,6 +4815,9 @@ export interface ListMultiRegionAccessPointsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegionalBucketsRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -4350,6 +4844,7 @@ export interface ListRegionalBucketsRequest {
 }
 
 /**
+ * @public
  * <p>The container for the regional bucket.</p>
  */
 export interface RegionalBucket {
@@ -4379,6 +4874,9 @@ export interface RegionalBucket {
   OutpostId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegionalBucketsResult {
   /**
    * <p></p>
@@ -4395,6 +4893,9 @@ export interface ListRegionalBucketsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStorageLensConfigurationsRequest {
   /**
    * <p>The account ID of the requester.</p>
@@ -4408,6 +4909,7 @@ export interface ListStorageLensConfigurationsRequest {
 }
 
 /**
+ * @public
  * <p>Part of <code>ListStorageLensConfigurationResult</code>. Each entry includes the
  *          description of the S3 Storage Lens configuration, its home Region, whether it is enabled, its
  *          Amazon Resource Name (ARN), and config ID.</p>
@@ -4436,6 +4938,9 @@ export interface ListStorageLensConfigurationEntry {
   IsEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ListStorageLensConfigurationsResult {
   /**
    * <p>If the request produced more than the maximum number of S3 Storage Lens configuration results,
@@ -4450,6 +4955,9 @@ export interface ListStorageLensConfigurationsResult {
   StorageLensConfigurationList?: ListStorageLensConfigurationEntry[];
 }
 
+/**
+ * @public
+ */
 export interface PutAccessPointConfigurationForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -4467,6 +4975,9 @@ export interface PutAccessPointConfigurationForObjectLambdaRequest {
   Configuration: ObjectLambdaConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAccessPointPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID for owner of the bucket associated with the specified access point.</p>
@@ -4488,6 +4999,9 @@ export interface PutAccessPointPolicyRequest {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAccessPointPolicyForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -4506,6 +5020,7 @@ export interface PutAccessPointPolicyForObjectLambdaRequest {
 }
 
 /**
+ * @public
  * <p>The container for the Outposts bucket lifecycle configuration.</p>
  */
 export interface LifecycleConfiguration {
@@ -4515,6 +5030,9 @@ export interface LifecycleConfiguration {
   Rules?: LifecycleRule[];
 }
 
+/**
+ * @public
+ */
 export interface PutBucketLifecycleConfigurationRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -4532,6 +5050,9 @@ export interface PutBucketLifecycleConfigurationRequest {
   LifecycleConfiguration?: LifecycleConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -4560,6 +5081,9 @@ export interface PutBucketPolicyRequest {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketReplicationRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -4580,6 +5104,7 @@ export interface PutBucketReplicationRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface Tagging {
@@ -4589,6 +5114,9 @@ export interface Tagging {
   TagSet: S3Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -4608,12 +5136,16 @@ export interface PutBucketTaggingRequest {
   Tagging: Tagging | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MFADelete {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
 /**
+ * @public
  * <p>Describes the versioning state of an Amazon S3 on Outposts bucket. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html">PutBucketVersioning</a>.</p>
  */
@@ -4630,6 +5162,9 @@ export interface VersioningConfiguration {
   Status?: BucketVersioningStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface PutBucketVersioningRequest {
   /**
    * <p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>
@@ -4653,6 +5188,9 @@ export interface PutBucketVersioningRequest {
   VersioningConfiguration: VersioningConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutJobTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -4670,9 +5208,13 @@ export interface PutJobTaggingRequest {
   Tags: S3Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutJobTaggingResult {}
 
 /**
+ * @public
  * <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -4693,6 +5235,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutMultiRegionAccessPointPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -4711,6 +5256,9 @@ export interface PutMultiRegionAccessPointPolicyRequest {
   Details: PutMultiRegionAccessPointPolicyInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutMultiRegionAccessPointPolicyResult {
   /**
    * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
@@ -4719,6 +5267,9 @@ export interface PutMultiRegionAccessPointPolicyResult {
   RequestTokenARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutPublicAccessBlockRequest {
   /**
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified
@@ -4733,6 +5284,9 @@ export interface PutPublicAccessBlockRequest {
   AccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutStorageLensConfigurationRequest {
   /**
    * <p>The ID of the S3 Storage Lens configuration.</p>
@@ -4758,6 +5312,9 @@ export interface PutStorageLensConfigurationRequest {
   Tags?: StorageLensTag[];
 }
 
+/**
+ * @public
+ */
 export interface PutStorageLensConfigurationTaggingRequest {
   /**
    * <p>The ID of the S3 Storage Lens configuration.</p>
@@ -4778,8 +5335,14 @@ export interface PutStorageLensConfigurationTaggingRequest {
   Tags: StorageLensTag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutStorageLensConfigurationTaggingResult {}
 
+/**
+ * @public
+ */
 export interface SubmitMultiRegionAccessPointRoutesRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -4798,8 +5361,14 @@ export interface SubmitMultiRegionAccessPointRoutesRequest {
   RouteUpdates: MultiRegionAccessPointRoute[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SubmitMultiRegionAccessPointRoutesResult {}
 
+/**
+ * @public
+ */
 export interface UpdateJobPriorityRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -4817,6 +5386,9 @@ export interface UpdateJobPriorityRequest {
   Priority: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobPriorityResult {
   /**
    * <p>The ID for the job whose priority Amazon S3 updated.</p>
@@ -4830,6 +5402,7 @@ export interface UpdateJobPriorityResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class JobStatusException extends __BaseException {
@@ -4850,11 +5423,17 @@ export class JobStatusException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RequestedJobStatus {
   Cancelled = "Cancelled",
   Ready = "Ready",
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobStatusRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -4878,6 +5457,9 @@ export interface UpdateJobStatusRequest {
   StatusUpdateReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateJobStatusResult {
   /**
    * <p>The ID for the job whose status was updated.</p>

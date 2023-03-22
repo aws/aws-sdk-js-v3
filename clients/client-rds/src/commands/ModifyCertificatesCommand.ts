@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCertificatesCommand}.
  */
 export interface ModifyCertificatesCommandInput extends ModifyCertificatesMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCertificatesCommand}.
  */
 export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
  *           certificate for Amazon RDS for new DB instances, or remove the override.</p>
  *          <p>By using this operation, you can specify an RDS-approved SSL/TLS certificate for new DB
@@ -70,6 +75,8 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCertificatesCommandInput - {@link ModifyCertificatesCommandInput}
+ * @returns {@link ModifyCertificatesCommandOutput}
  * @see {@link ModifyCertificatesCommandInput} for command's `input` shape.
  * @see {@link ModifyCertificatesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -98,6 +105,9 @@ export class ModifyCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class ModifyCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCertificatesCommandOutput> {
     return deserializeAws_queryModifyCertificatesCommand(output, context);
   }

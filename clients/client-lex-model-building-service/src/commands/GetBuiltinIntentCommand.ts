@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBuiltinIntentCommand}.
  */
 export interface GetBuiltinIntentCommandInput extends GetBuiltinIntentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBuiltinIntentCommand}.
  */
 export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a built-in intent.</p>
  *          <p>This operation requires permission for the
  *         <code>lex:GetBuiltinIntent</code> action.</p>
@@ -52,6 +57,8 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBuiltinIntentCommandInput - {@link GetBuiltinIntentCommandInput}
+ * @returns {@link GetBuiltinIntentCommandOutput}
  * @see {@link GetBuiltinIntentCommandInput} for command's `input` shape.
  * @see {@link GetBuiltinIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetBuiltinIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBuiltinIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetBuiltinIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBuiltinIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBuiltinIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBuiltinIntentCommandOutput> {
     return deserializeAws_restJson1GetBuiltinIntentCommand(output, context);
   }

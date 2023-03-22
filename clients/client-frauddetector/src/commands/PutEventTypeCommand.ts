@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEventTypeCommand}.
  */
 export interface PutEventTypeCommandInput extends PutEventTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEventTypeCommand}.
  */
 export interface PutEventTypeCommandOutput extends PutEventTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an event type. An event is a business activity that is evaluated for fraud risk. With Amazon Fraud Detector, you generate fraud predictions for events. An event type defines the structure for an event sent to Amazon Fraud Detector. This includes the variables sent as part of the event, the entity performing the event (such as a customer), and the labels that classify the event. Example event types include online payment transactions, account registrations, and authentications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutEventTypeCommandOutput extends PutEventTypeResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventTypeCommandInput - {@link PutEventTypeCommandInput}
+ * @returns {@link PutEventTypeCommandOutput}
  * @see {@link PutEventTypeCommandInput} for command's `input` shape.
  * @see {@link PutEventTypeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class PutEventTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutEventTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutEventTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventTypeCommandOutput> {
     return deserializeAws_json1_1PutEventTypeCommand(output, context);
   }

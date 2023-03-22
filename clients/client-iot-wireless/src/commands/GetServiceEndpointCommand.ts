@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceEndpointCommand}.
  */
 export interface GetServiceEndpointCommandInput extends GetServiceEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceEndpointCommand}.
  */
 export interface GetServiceEndpointCommandOutput extends GetServiceEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the account-specific endpoint for Configuration and Update Server (CUPS) protocol or LoRaWAN Network Server (LNS) connections.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceEndpointCommandInput - {@link GetServiceEndpointCommandInput}
+ * @returns {@link GetServiceEndpointCommandOutput}
  * @see {@link GetServiceEndpointCommandInput} for command's `input` shape.
  * @see {@link GetServiceEndpointCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetServiceEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetServiceEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetServiceEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceEndpointCommandOutput> {
     return deserializeAws_restJson1GetServiceEndpointCommand(output, context);
   }

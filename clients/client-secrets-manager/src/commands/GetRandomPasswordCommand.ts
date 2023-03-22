@@ -26,15 +26,20 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRandomPasswordCommand}.
  */
 export interface GetRandomPasswordCommandInput extends GetRandomPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRandomPasswordCommand}.
  */
 export interface GetRandomPasswordCommandOutput extends GetRandomPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a random password. We recommend that you specify the
  *       maximum length and include every character type that the system you are generating a password
  *       for can support.</p>
@@ -55,6 +60,8 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRandomPasswordCommandInput - {@link GetRandomPasswordCommandInput}
+ * @returns {@link GetRandomPasswordCommandOutput}
  * @see {@link GetRandomPasswordCommandInput} for command's `input` shape.
  * @see {@link GetRandomPasswordCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -120,6 +127,9 @@ export class GetRandomPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRandomPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class GetRandomPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRandomPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRandomPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRandomPasswordCommandOutput> {
     return deserializeAws_json1_1GetRandomPasswordCommand(output, context);
   }

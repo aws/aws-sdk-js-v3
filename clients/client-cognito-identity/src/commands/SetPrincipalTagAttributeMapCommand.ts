@@ -27,10 +27,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetPrincipalTagAttributeMapCommand}.
  */
 export interface SetPrincipalTagAttributeMapCommandInput extends SetPrincipalTagAttributeMapInput {}
 /**
+ * @public
+ *
  * The output of {@link SetPrincipalTagAttributeMapCommand}.
  */
 export interface SetPrincipalTagAttributeMapCommandOutput
@@ -38,6 +42,7 @@ export interface SetPrincipalTagAttributeMapCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SetPrincipalTagAttributeMapCommandInput - {@link SetPrincipalTagAttributeMapCommandInput}
+ * @returns {@link SetPrincipalTagAttributeMapCommandOutput}
  * @see {@link SetPrincipalTagAttributeMapCommandInput} for command's `input` shape.
  * @see {@link SetPrincipalTagAttributeMapCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -88,6 +95,9 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetPrincipalTagAttributeMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetPrincipalTagAttributeMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetPrincipalTagAttributeMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

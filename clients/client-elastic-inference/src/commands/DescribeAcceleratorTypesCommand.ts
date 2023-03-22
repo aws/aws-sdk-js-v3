@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAcceleratorTypesCommand}.
  */
 export interface DescribeAcceleratorTypesCommandInput extends DescribeAcceleratorTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAcceleratorTypesCommand}.
  */
 export interface DescribeAcceleratorTypesCommandOutput extends DescribeAcceleratorTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Describes the accelerator types available in a given region, as well as their characteristics, such as memory and throughput.
  *         </p>
@@ -48,6 +53,8 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAcceleratorTypesCommandInput - {@link DescribeAcceleratorTypesCommandInput}
+ * @returns {@link DescribeAcceleratorTypesCommandOutput}
  * @see {@link DescribeAcceleratorTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorTypesCommandOutput} for command's `response` shape.
  * @see {@link ElasticInferenceClientResolvedConfig | config} for ElasticInferenceClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeAcceleratorTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAcceleratorTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeAcceleratorTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAcceleratorTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAcceleratorTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAcceleratorTypesCommandOutput> {
     return deserializeAws_restJson1DescribeAcceleratorTypesCommand(output, context);
   }

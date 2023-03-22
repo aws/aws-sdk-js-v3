@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketStatisticsCommand}.
  */
 export interface GetBucketStatisticsCommandInput extends GetBucketStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketStatisticsCommand}.
  */
 export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) aggregated statistical data about all the S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketStatisticsCommandInput - {@link GetBucketStatisticsCommandInput}
+ * @returns {@link GetBucketStatisticsCommandOutput}
  * @see {@link GetBucketStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetBucketStatisticsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class GetBucketStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetBucketStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBucketStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketStatisticsCommandOutput> {
     return deserializeAws_restJson1GetBucketStatisticsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePricingRuleCommand}.
  */
 export interface DeletePricingRuleCommandInput extends DeletePricingRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link DeletePricingRuleCommand}.
  */
 export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes the pricing rule that's identified by the input Amazon Resource Name (ARN). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePricingRuleCommandInput - {@link DeletePricingRuleCommandInput}
+ * @returns {@link DeletePricingRuleCommandOutput}
  * @see {@link DeletePricingRuleCommandInput} for command's `input` shape.
  * @see {@link DeletePricingRuleCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeletePricingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePricingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeletePricingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePricingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePricingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePricingRuleCommandOutput> {
     return deserializeAws_restJson1DeletePricingRuleCommand(output, context);
   }

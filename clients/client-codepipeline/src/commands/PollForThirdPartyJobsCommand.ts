@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PollForThirdPartyJobsCommand}.
  */
 export interface PollForThirdPartyJobsCommandInput extends PollForThirdPartyJobsInput {}
 /**
+ * @public
+ *
  * The output of {@link PollForThirdPartyJobsCommand}.
  */
 export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Determines whether there are any third party jobs for a job worker to act on. Used
  *             for partner actions only.</p>
  *         <important>
@@ -52,6 +57,8 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * const response = await client.send(command);
  * ```
  *
+ * @param PollForThirdPartyJobsCommandInput - {@link PollForThirdPartyJobsCommandInput}
+ * @returns {@link PollForThirdPartyJobsCommandOutput}
  * @see {@link PollForThirdPartyJobsCommandInput} for command's `input` shape.
  * @see {@link PollForThirdPartyJobsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -81,6 +88,9 @@ export class PollForThirdPartyJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PollForThirdPartyJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PollForThirdPartyJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PollForThirdPartyJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PollForThirdPartyJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForThirdPartyJobsCommandOutput> {
     return deserializeAws_json1_1PollForThirdPartyJobsCommand(output, context);
   }

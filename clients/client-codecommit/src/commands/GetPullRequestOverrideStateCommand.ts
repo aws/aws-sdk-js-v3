@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPullRequestOverrideStateCommand}.
  */
 export interface GetPullRequestOverrideStateCommandInput extends GetPullRequestOverrideStateInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPullRequestOverrideStateCommand}.
  */
 export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequestOverrideStateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about whether approval rules have been set aside (overridden) for a
  *             pull request, and if so, the Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPullRequestOverrideStateCommandInput - {@link GetPullRequestOverrideStateCommandInput}
+ * @returns {@link GetPullRequestOverrideStateCommandOutput}
  * @see {@link GetPullRequestOverrideStateCommandInput} for command's `input` shape.
  * @see {@link GetPullRequestOverrideStateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetPullRequestOverrideStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPullRequestOverrideStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetPullRequestOverrideStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPullRequestOverrideStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPullRequestOverrideStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

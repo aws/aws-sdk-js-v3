@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBClusterEndpointCommand}.
  */
 export interface DeleteDBClusterEndpointCommandInput extends DeleteDBClusterEndpointMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBClusterEndpointCommand}.
  */
 export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.</p>
  *          <note>
  *             <p>This action only applies to Aurora DB clusters.</p>
@@ -49,6 +54,8 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBClusterEndpointCommandInput - {@link DeleteDBClusterEndpointCommandInput}
+ * @returns {@link DeleteDBClusterEndpointCommandOutput}
  * @see {@link DeleteDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteDBClusterEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteDBClusterEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBClusterEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterEndpointCommandOutput> {
     return deserializeAws_queryDeleteDBClusterEndpointCommand(output, context);
   }

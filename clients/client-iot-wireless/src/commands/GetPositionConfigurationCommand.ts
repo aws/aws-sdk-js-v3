@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPositionConfigurationCommand}.
  */
 export interface GetPositionConfigurationCommandInput extends GetPositionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPositionConfigurationCommand}.
  */
 export interface GetPositionConfigurationCommandOutput extends GetPositionConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Get position configuration for a given resource.</p>
@@ -53,6 +58,8 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPositionConfigurationCommandInput - {@link GetPositionConfigurationCommandInput}
+ * @returns {@link GetPositionConfigurationCommandOutput}
  * @see {@link GetPositionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetPositionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetPositionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPositionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetPositionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPositionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPositionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPositionConfigurationCommandOutput> {
     return deserializeAws_restJson1GetPositionConfigurationCommand(output, context);
   }

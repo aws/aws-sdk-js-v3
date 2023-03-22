@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
+ * @returns {@link UpdateAccountSettingsCommandOutput}
  * @see {@link UpdateAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountSettingsCommandOutput> {
     return deserializeAws_json1_0UpdateAccountSettingsCommand(output, context);
   }

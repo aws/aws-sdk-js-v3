@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServerDetailsCommand}.
  */
 export interface GetServerDetailsCommandInput extends GetServerDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServerDetailsCommand}.
  */
 export interface GetServerDetailsCommandOutput extends GetServerDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves detailed information about a specified server. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetServerDetailsCommandOutput extends GetServerDetailsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServerDetailsCommandInput - {@link GetServerDetailsCommandInput}
+ * @returns {@link GetServerDetailsCommandOutput}
  * @see {@link GetServerDetailsCommandInput} for command's `input` shape.
  * @see {@link GetServerDetailsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetServerDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServerDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetServerDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServerDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetServerDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServerDetailsCommandOutput> {
     return deserializeAws_restJson1GetServerDetailsCommand(output, context);
   }

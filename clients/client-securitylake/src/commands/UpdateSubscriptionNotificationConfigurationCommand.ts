@@ -26,11 +26,15 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubscriptionNotificationConfigurationCommand}.
  */
 export interface UpdateSubscriptionNotificationConfigurationCommandInput
   extends UpdateSubscriptionNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubscriptionNotificationConfigurationCommand}.
  */
 export interface UpdateSubscriptionNotificationConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing notification method for the subscription (SQS or HTTPs endpoint) or
  *          switches the notification subscription endpoint for a subscriber.</p>
  * @example
@@ -50,6 +55,8 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubscriptionNotificationConfigurationCommandInput - {@link UpdateSubscriptionNotificationConfigurationCommandInput}
+ * @returns {@link UpdateSubscriptionNotificationConfigurationCommandOutput}
  * @see {@link UpdateSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -101,6 +108,9 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubscriptionNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,6 +156,9 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSubscriptionNotificationConfigurationCommandInput,
     context: __SerdeContext
@@ -153,6 +166,9 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
     return serializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClassificationScopeCommand}.
  */
 export interface GetClassificationScopeCommandInput extends GetClassificationScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetClassificationScopeCommand}.
  */
 export interface GetClassificationScopeCommandOutput extends GetClassificationScopeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the classification scope settings for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetClassificationScopeCommandOutput extends GetClassificationSc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClassificationScopeCommandInput - {@link GetClassificationScopeCommandInput}
+ * @returns {@link GetClassificationScopeCommandOutput}
  * @see {@link GetClassificationScopeCommandInput} for command's `input` shape.
  * @see {@link GetClassificationScopeCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -84,6 +91,9 @@ export class GetClassificationScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClassificationScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetClassificationScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClassificationScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetClassificationScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClassificationScopeCommandOutput> {
     return deserializeAws_restJson1GetClassificationScopeCommand(output, context);
   }

@@ -27,15 +27,20 @@ import {
 import { deserializeAws_queryDeleteRuleCommand, serializeAws_queryDeleteRuleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandInput extends DeleteRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified rule.</p>
  *          <p>You can't delete the default rule.</p>
  * @example
@@ -48,6 +53,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
+ * @returns {@link DeleteRuleCommandOutput}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleCommandOutput> {
     return deserializeAws_queryDeleteRuleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLinkCommand}.
  */
 export interface CreateLinkCommandInput extends CreateLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLinkCommand}.
  */
 export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new link for a specified site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLinkCommandInput - {@link CreateLinkCommandInput}
+ * @returns {@link CreateLinkCommandOutput}
  * @see {@link CreateLinkCommandInput} for command's `input` shape.
  * @see {@link CreateLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLinkCommandOutput> {
     return deserializeAws_restJson1CreateLinkCommand(output, context);
   }

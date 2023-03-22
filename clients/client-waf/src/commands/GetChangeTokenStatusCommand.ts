@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetChangeTokenStatusCommand}.
  */
 export interface GetChangeTokenStatusCommandInput extends GetChangeTokenStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChangeTokenStatusCommand}.
  */
 export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -70,6 +75,8 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChangeTokenStatusCommandInput - {@link GetChangeTokenStatusCommandInput}
+ * @returns {@link GetChangeTokenStatusCommandOutput}
  * @see {@link GetChangeTokenStatusCommandInput} for command's `input` shape.
  * @see {@link GetChangeTokenStatusCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -115,6 +122,9 @@ export class GetChangeTokenStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChangeTokenStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class GetChangeTokenStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChangeTokenStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetChangeTokenStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeTokenStatusCommandOutput> {
     return deserializeAws_json1_1GetChangeTokenStatusCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePhoneNumberCommand}.
  */
 export interface DescribePhoneNumberCommandInput extends DescribePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePhoneNumberCommand}.
  */
 export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance
  *    or traffic distribution group.</p>
  *          <important>
@@ -57,6 +62,8 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePhoneNumberCommandInput - {@link DescribePhoneNumberCommandInput}
+ * @returns {@link DescribePhoneNumberCommandOutput}
  * @see {@link DescribePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DescribePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePhoneNumberCommandOutput> {
     return deserializeAws_restJson1DescribePhoneNumberCommand(output, context);
   }

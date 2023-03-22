@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLaunchConfigurationsCommand}.
  */
 export interface DescribeLaunchConfigurationsCommandInput extends LaunchConfigurationNamesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLaunchConfigurationsCommand}.
  */
 export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigurationsType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the launch configurations in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLaunchConfigurationsCommandInput - {@link DescribeLaunchConfigurationsCommandInput}
+ * @returns {@link DescribeLaunchConfigurationsCommandOutput}
  * @see {@link DescribeLaunchConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -111,6 +118,9 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLaunchConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLaunchConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLaunchConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

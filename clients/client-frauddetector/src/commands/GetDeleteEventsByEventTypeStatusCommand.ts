@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeleteEventsByEventTypeStatusCommand}.
  */
 export interface GetDeleteEventsByEventTypeStatusCommandInput extends GetDeleteEventsByEventTypeStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeleteEventsByEventTypeStatusCommand}.
  */
 export interface GetDeleteEventsByEventTypeStatusCommandOutput
@@ -37,6 +41,7 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status of a <code>DeleteEventsByEventType</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeleteEventsByEventTypeStatusCommandInput - {@link GetDeleteEventsByEventTypeStatusCommandInput}
+ * @returns {@link GetDeleteEventsByEventTypeStatusCommandOutput}
  * @see {@link GetDeleteEventsByEventTypeStatusCommandInput} for command's `input` shape.
  * @see {@link GetDeleteEventsByEventTypeStatusCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetDeleteEventsByEventTypeStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeleteEventsByEventTypeStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetDeleteEventsByEventTypeStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDeleteEventsByEventTypeStatusCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetDeleteEventsByEventTypeStatusCommand extends $Command<
     return serializeAws_json1_1GetDeleteEventsByEventTypeStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

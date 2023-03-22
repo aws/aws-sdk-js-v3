@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDocumentCommand}.
  */
 export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDocumentCommand}.
  */
 export interface DeleteDocumentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the specified document and its associated metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteDocumentCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDocumentCommandInput - {@link DeleteDocumentCommandInput}
+ * @returns {@link DeleteDocumentCommandOutput}
  * @see {@link DeleteDocumentCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentCommandOutput> {
     return deserializeAws_restJson1DeleteDocumentCommand(output, context);
   }

@@ -345,11 +345,13 @@ import {
 import { IoTSiteWiseClient } from "./IoTSiteWiseClient";
 
 /**
+ * @public
  * <p>Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web Services service that connects <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">Industrial Internet of Things (IIoT)</a> devices to the power of the Amazon Web Services Cloud. For more information, see the
  *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/">IoT SiteWise User Guide</a>. For information about IoT SiteWise quotas, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export class IoTSiteWise extends IoTSiteWiseClient {
   /**
+   * @public
    * <p>Associates a child asset with the given parent asset through a hierarchy defined in the
    *       parent asset's model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating assets</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
@@ -384,6 +386,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Associates a time series (data stream) with an asset property.</p>
    */
   public associateTimeSeriesToAssetProperty(
@@ -416,6 +419,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Associates a group (batch) of assets with an IoT SiteWise Monitor project.</p>
    */
   public batchAssociateProjectAssets(
@@ -448,6 +452,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.</p>
    */
   public batchDisassociateProjectAssets(
@@ -480,6 +485,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset
    *       properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying aggregates</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
@@ -514,6 +520,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Gets the current value for one or more asset properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
    *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
@@ -547,6 +554,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Gets the historical values for one or more asset properties. For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
@@ -580,6 +588,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value
    *       (TQV) data point. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting data using the API</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
@@ -599,8 +608,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    *         outside of the inclusive range of [-7 days, +10 minutes] and returns a
    *           <code>TimestampOutOfRangeException</code> error.</p>
    *             <p>For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
-   *         TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,
-   *         then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p>
+   *         TQV has a different quality. For example, if you store a TQV <code>\{T1, GOOD, V1\}</code>,
+   *         then storing <code>\{T1, GOOD, V2\}</code> replaces the existing TQV.</p>
    *          </important>
    *          <p>IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.
    *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue authorization</a> in the
@@ -636,6 +645,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
    *       IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p>
    */
@@ -669,6 +679,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating assets</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
    */
@@ -696,6 +707,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates an asset model from specified property and hierarchy definitions. You create
    *       assets from asset models. With asset models, you can easily create assets of the same type
    *       that have standardized definitions. Each asset created from a model inherits the asset model's
@@ -732,6 +744,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
    *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <important>
@@ -769,6 +782,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates a dashboard in an IoT SiteWise Monitor project.</p>
    */
   public createDashboard(
@@ -801,6 +815,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams
    *       from local servers to IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a gateway</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
@@ -835,6 +850,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM
    *       to authenticate portal users and manage user permissions.</p>
    *          <note>
@@ -870,6 +886,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Creates a project in the specified portal.</p>
    *          <note>
    *             <p>Make sure that the project name and description don't contain confidential
@@ -906,6 +923,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Deletes an access policy that grants the specified identity access to the specified
    *       IoT SiteWise Monitor resource. You can use this operation to revoke access to an IoT SiteWise Monitor
    *       resource.</p>
@@ -940,6 +958,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Deletes an asset. This action can't be undone. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and
    *         models</a> in the <i>IoT SiteWise User Guide</i>. </p>
    *          <note>
@@ -971,6 +990,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Deletes an asset model. This action can't be undone. You must delete all assets created
    *       from an asset model before you can delete the model. Also, you can't delete an asset model if
    *       a parent asset model exists that contains a property formula expression that depends on the
@@ -1007,6 +1027,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Deletes a dashboard from IoT SiteWise Monitor.</p>
    */
   public deleteDashboard(
@@ -1039,6 +1060,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the gateway's files remain
    *       in your gateway's file system.</p>
    */
@@ -1072,6 +1094,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Deletes a portal from IoT SiteWise Monitor.</p>
    */
   public deletePortal(
@@ -1101,6 +1124,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Deletes a project from IoT SiteWise Monitor.</p>
    */
   public deleteProject(
@@ -1133,6 +1157,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Deletes a time series (data stream). If you delete a time series that's associated with an
    *       asset property, the asset property still exists, but the time series will no longer be
    *       associated with this asset property.</p>
@@ -1186,6 +1211,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Describes an access policy, which specifies an identity's access to an IoT SiteWise Monitor portal or
    *       project.</p>
    */
@@ -1219,6 +1245,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an asset.</p>
    */
   public describeAsset(
@@ -1251,6 +1278,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an asset model.</p>
    */
   public describeAssetModel(
@@ -1283,6 +1311,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an asset property.</p>
    *          <note>
    *             <p>When you call this operation for an attribute property, this response includes the
@@ -1322,6 +1351,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a bulk import job request. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
    *         a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    */
@@ -1355,6 +1385,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a dashboard.</p>
    */
   public describeDashboard(
@@ -1387,6 +1418,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the default encryption configuration for the Amazon Web Services account in
    *       the default or specified Region. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
@@ -1423,6 +1455,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a gateway.</p>
    */
   public describeGateway(
@@ -1455,6 +1488,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a gateway capability configuration.
    *       Each gateway capability defines data sources for a gateway. A capability configuration
    *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
@@ -1493,6 +1527,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the current IoT SiteWise logging options.</p>
    */
   public describeLoggingOptions(
@@ -1525,6 +1560,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a portal.</p>
    */
   public describePortal(
@@ -1557,6 +1593,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a project.</p>
    */
   public describeProject(
@@ -1589,6 +1626,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the storage configuration for IoT SiteWise.</p>
    */
   public describeStorageConfiguration(
@@ -1621,6 +1659,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a time series (data stream).</p>
    *          <p>To identify a time series, do one of the following:</p>
    *          <ul>
@@ -1672,6 +1711,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a child asset from the given parent asset through a hierarchy defined in the
    *       parent asset's model.</p>
    */
@@ -1705,6 +1745,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a time series (data stream) from an asset property.</p>
    */
   public disassociateTimeSeriesFromAssetProperty(
@@ -1739,6 +1780,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
    *         aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -1782,6 +1824,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Gets an asset property's current value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
    *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -1825,6 +1868,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Gets the history of an asset property's values. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
    *         historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -1868,6 +1912,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Get interpolated values for an asset property for a specified time interval, during a
    *       period of time. If your time series is missing data points during the specified time interval,
    *       you can use interpolation to estimate the missing data.</p>
@@ -1914,6 +1959,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of access policies for an identity (an IAM Identity Center user, an IAM Identity Center
    *       group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
    */
@@ -1947,6 +1993,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of properties associated with an asset model.
    *       If you update properties associated with the model before you finish listing all the properties,
    *         you need to start all over again.</p>
@@ -1981,6 +2028,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of summaries of all asset models.</p>
    */
   public listAssetModels(
@@ -2013,6 +2061,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of properties associated with an asset.
    *       If you update properties associated with the model before you finish listing all the properties,
    *         you need to start all over again.</p>
@@ -2047,6 +2096,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of asset relationships for an asset. You can use this operation
    *       to identify an asset's root asset and all associated assets between that asset and its
    *       root.</p>
@@ -2081,6 +2131,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of asset summaries.</p>
    *          <p>You can use this operation to do the following:</p>
    *          <ul>
@@ -2119,6 +2170,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of associated assets.</p>
    *          <p>You can use this operation to do the following:</p>
    *          <ul>
@@ -2160,6 +2212,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of bulk import job requests. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List bulk
    *         import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
@@ -2193,6 +2246,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.</p>
    */
   public listDashboards(
@@ -2225,6 +2279,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of gateways.</p>
    */
   public listGateways(
@@ -2254,6 +2309,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of IoT SiteWise Monitor portals.</p>
    */
   public listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
@@ -2280,6 +2336,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of assets associated with an IoT SiteWise Monitor project.</p>
    */
   public listProjectAssets(
@@ -2312,6 +2369,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of projects for an IoT SiteWise Monitor portal.</p>
    */
   public listProjects(
@@ -2341,6 +2399,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the list of tags for an IoT SiteWise resource.</p>
    */
   public listTagsForResource(
@@ -2373,6 +2432,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a paginated list of time series (data streams).</p>
    */
   public listTimeSeries(
@@ -2405,6 +2465,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in
    *       the <i>IoT SiteWise User Guide</i>.</p>
@@ -2439,6 +2500,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Sets logging options for IoT SiteWise.</p>
    */
   public putLoggingOptions(
@@ -2471,6 +2533,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Configures storage settings for IoT SiteWise.</p>
    */
   public putStorageConfiguration(
@@ -2503,6 +2566,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to an IoT SiteWise resource. If a tag already exists for the resource, this operation
    *       updates the tag's value.</p>
    */
@@ -2530,6 +2594,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag from an IoT SiteWise resource.</p>
    */
   public untagResource(
@@ -2562,6 +2627,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing access policy that specifies an identity's access to an IoT SiteWise Monitor
    *       portal or project resource.</p>
    */
@@ -2595,6 +2661,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
    */
@@ -2622,6 +2689,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Updates an asset model and all of the assets that were created from the model. Each asset
    *       created from the model inherits the updated asset model's property and hierarchy definitions.
    *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
@@ -2666,6 +2734,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Updates an asset property's alias and notification state.</p>
    *          <important>
    *             <p>This operation overwrites the property's existing alias and notification state. To keep
@@ -2703,6 +2772,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Updates an IoT SiteWise Monitor dashboard.</p>
    */
   public updateDashboard(
@@ -2735,6 +2805,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Updates a gateway's name.</p>
    */
   public updateGateway(
@@ -2767,6 +2838,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Updates a gateway capability configuration or defines a new capability configuration.
    *       Each gateway capability defines data sources for a gateway. A capability configuration
    *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
@@ -2803,6 +2875,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Updates an IoT SiteWise Monitor portal.</p>
    */
   public updatePortal(
@@ -2832,6 +2905,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * @public
    * <p>Updates an IoT SiteWise Monitor project.</p>
    */
   public updateProject(

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCrawlerCommand}.
  */
 export interface StartCrawlerCommandInput extends StartCrawlerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCrawlerCommand}.
  */
 export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a crawl using the specified crawler, regardless
  *       of what is scheduled. If the crawler is already running, returns a
  *       <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
@@ -48,6 +53,8 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCrawlerCommandInput - {@link StartCrawlerCommandInput}
+ * @returns {@link StartCrawlerCommandOutput}
  * @see {@link StartCrawlerCommandInput} for command's `input` shape.
  * @see {@link StartCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -80,6 +87,9 @@ export class StartCrawlerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCrawlerCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class StartCrawlerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartCrawlerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCrawlerCommandOutput> {
     return deserializeAws_json1_1StartCrawlerCommand(output, context);
   }

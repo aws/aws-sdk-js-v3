@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateLayerUploadCommand}.
  */
 export interface InitiateLayerUploadCommandInput extends InitiateLayerUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link InitiateLayerUploadCommand}.
  */
 export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notifies Amazon ECR that you intend to upload an image layer.</p>
  *          <p>When an image is pushed, the InitiateLayerUpload API is called once for each image layer
  *          that hasn't already been uploaded. Whether an image layer uploads is determined by the
@@ -52,6 +57,8 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateLayerUploadCommandInput - {@link InitiateLayerUploadCommandInput}
+ * @returns {@link InitiateLayerUploadCommandOutput}
  * @see {@link InitiateLayerUploadCommandInput} for command's `input` shape.
  * @see {@link InitiateLayerUploadCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -92,6 +99,9 @@ export class InitiateLayerUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateLayerUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class InitiateLayerUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateLayerUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1InitiateLayerUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateLayerUploadCommandOutput> {
     return deserializeAws_json1_1InitiateLayerUploadCommand(output, context);
   }

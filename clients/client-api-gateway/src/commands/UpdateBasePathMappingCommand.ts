@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBasePathMappingCommand}.
  */
 export interface UpdateBasePathMappingCommandInput extends UpdateBasePathMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBasePathMappingCommand}.
  */
 export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes information about the BasePathMapping resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBasePathMappingCommandInput - {@link UpdateBasePathMappingCommandInput}
+ * @returns {@link UpdateBasePathMappingCommandOutput}
  * @see {@link UpdateBasePathMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateBasePathMappingCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateBasePathMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBasePathMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateBasePathMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBasePathMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBasePathMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBasePathMappingCommandOutput> {
     return deserializeAws_restJson1UpdateBasePathMappingCommand(output, context);
   }

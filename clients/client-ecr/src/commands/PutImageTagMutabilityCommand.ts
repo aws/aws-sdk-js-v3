@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutImageTagMutabilityCommand}.
  */
 export interface PutImageTagMutabilityCommandInput extends PutImageTagMutabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutImageTagMutabilityCommand}.
  */
 export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the image tag mutability settings for the specified repository. For more
  *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image tag
  *                 mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
  * const response = await client.send(command);
  * ```
  *
+ * @param PutImageTagMutabilityCommandInput - {@link PutImageTagMutabilityCommandInput}
+ * @returns {@link PutImageTagMutabilityCommandOutput}
  * @see {@link PutImageTagMutabilityCommandInput} for command's `input` shape.
  * @see {@link PutImageTagMutabilityCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -82,6 +89,9 @@ export class PutImageTagMutabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutImageTagMutabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class PutImageTagMutabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutImageTagMutabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutImageTagMutabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImageTagMutabilityCommandOutput> {
     return deserializeAws_json1_1PutImageTagMutabilityCommand(output, context);
   }

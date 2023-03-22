@@ -204,6 +204,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | ActivateTypeCommandInput
   | BatchDescribeTypeConfigurationsCommandInput
@@ -272,6 +275,9 @@ export type ServiceInputTypes =
   | UpdateTerminationProtectionCommandInput
   | ValidateTemplateCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | ActivateTypeCommandOutput
   | BatchDescribeTypeConfigurationsCommandOutput
@@ -340,6 +346,9 @@ export type ServiceOutputTypes =
   | UpdateTerminationProtectionCommandOutput
   | ValidateTemplateCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -347,7 +356,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -456,11 +465,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CloudFormationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -471,10 +483,15 @@ type CloudFormationClientConfigType = Partial<__SmithyConfiguration<__HttpHandle
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CloudFormationClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CloudFormationClient class constructor that set the region, credentials and other options.
  */
 export interface CloudFormationClientConfig extends CloudFormationClientConfigType {}
 
+/**
+ * @public
+ */
 type CloudFormationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -485,11 +502,14 @@ type CloudFormationClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CloudFormationClient class. This is resolved and normalized from the {@link CloudFormationClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CloudFormationClient class. This is resolved and normalized from the {@link CloudFormationClientConfig | constructor configuration interface}.
  */
 export interface CloudFormationClientResolvedConfig extends CloudFormationClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>CloudFormation</fullname>
  *          <p>CloudFormation allows you to create and manage Amazon Web Services infrastructure
  *          deployments predictably and repeatedly. You can use CloudFormation to leverage

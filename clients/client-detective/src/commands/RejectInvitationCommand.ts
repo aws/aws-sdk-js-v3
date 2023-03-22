@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RejectInvitationCommand}.
  */
 export interface RejectInvitationCommandInput extends RejectInvitationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectInvitationCommand}.
  */
 export interface RejectInvitationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects an invitation to contribute the account data to a behavior graph. This operation
  *          must be called by an invited member account that has the <code>INVITED</code>
  *          status.</p>
@@ -47,6 +52,8 @@ export interface RejectInvitationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectInvitationCommandInput - {@link RejectInvitationCommandInput}
+ * @returns {@link RejectInvitationCommandOutput}
  * @see {@link RejectInvitationCommandInput} for command's `input` shape.
  * @see {@link RejectInvitationCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -86,6 +93,9 @@ export class RejectInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class RejectInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RejectInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectInvitationCommandOutput> {
     return deserializeAws_restJson1RejectInvitationCommand(output, context);
   }

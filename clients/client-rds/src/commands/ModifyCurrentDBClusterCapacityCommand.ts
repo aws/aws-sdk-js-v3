@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCurrentDBClusterCapacityCommand}.
  */
 export interface ModifyCurrentDBClusterCapacityCommandInput extends ModifyCurrentDBClusterCapacityMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCurrentDBClusterCapacityCommand}.
  */
 export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCapacityInfo, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the capacity of an Aurora Serverless v1 DB cluster to a specific value.</p>
  *          <p>Aurora Serverless v1 scales seamlessly based on the workload on the DB cluster. In some cases, the capacity might not scale
  *         fast enough to meet a sudden change in workload, such as a large number of new transactions. Call <code>ModifyCurrentDBClusterCapacity</code>
@@ -63,6 +68,8 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCurrentDBClusterCapacityCommandInput - {@link ModifyCurrentDBClusterCapacityCommandInput}
+ * @returns {@link ModifyCurrentDBClusterCapacityCommandOutput}
  * @see {@link ModifyCurrentDBClusterCapacityCommandInput} for command's `input` shape.
  * @see {@link ModifyCurrentDBClusterCapacityCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -99,6 +106,9 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCurrentDBClusterCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,6 +148,9 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyCurrentDBClusterCapacityCommandInput,
     context: __SerdeContext
@@ -145,6 +158,9 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     return serializeAws_queryModifyCurrentDBClusterCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateMobileSdkReleaseUrlCommand}.
  */
 export interface GenerateMobileSdkReleaseUrlCommandInput extends GenerateMobileSdkReleaseUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateMobileSdkReleaseUrlCommand}.
  */
 export interface GenerateMobileSdkReleaseUrlCommandOutput
@@ -37,6 +41,7 @@ export interface GenerateMobileSdkReleaseUrlCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a presigned download URL for the specified release of the mobile SDK.</p>
  *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
  * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface GenerateMobileSdkReleaseUrlCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateMobileSdkReleaseUrlCommandInput - {@link GenerateMobileSdkReleaseUrlCommandInput}
+ * @returns {@link GenerateMobileSdkReleaseUrlCommandOutput}
  * @see {@link GenerateMobileSdkReleaseUrlCommandInput} for command's `input` shape.
  * @see {@link GenerateMobileSdkReleaseUrlCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -107,6 +114,9 @@ export class GenerateMobileSdkReleaseUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateMobileSdkReleaseUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class GenerateMobileSdkReleaseUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateMobileSdkReleaseUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateMobileSdkReleaseUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

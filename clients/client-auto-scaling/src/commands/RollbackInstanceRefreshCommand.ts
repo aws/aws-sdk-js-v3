@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RollbackInstanceRefreshCommand}.
  */
 export interface RollbackInstanceRefreshCommandInput extends RollbackInstanceRefreshType {}
 /**
+ * @public
+ *
  * The output of {@link RollbackInstanceRefreshCommand}.
  */
 export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an instance refresh that is in progress and rolls back any changes that it
  *             made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh.
  *             This restores your Auto Scaling group to the configuration that it was using before the start of
@@ -68,6 +73,8 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  * const response = await client.send(command);
  * ```
  *
+ * @param RollbackInstanceRefreshCommandInput - {@link RollbackInstanceRefreshCommandInput}
+ * @returns {@link RollbackInstanceRefreshCommandOutput}
  * @see {@link RollbackInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link RollbackInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -111,6 +118,9 @@ export class RollbackInstanceRefreshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RollbackInstanceRefreshCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class RollbackInstanceRefreshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RollbackInstanceRefreshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRollbackInstanceRefreshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RollbackInstanceRefreshCommandOutput> {
     return deserializeAws_queryRollbackInstanceRefreshCommand(output, context);
   }

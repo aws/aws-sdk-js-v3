@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartFleetActionsCommand}.
  */
 export interface StartFleetActionsCommandInput extends StartFleetActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link StartFleetActionsCommand}.
  */
 export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resumes certain types of activity on fleet instances that were suspended with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. For multi-location fleets, fleet actions are managed
  *             separately for each location. Currently, this operation is used to restart a fleet's
  *             auto-scaling activity.</p>
@@ -69,6 +74,8 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFleetActionsCommandInput - {@link StartFleetActionsCommandInput}
+ * @returns {@link StartFleetActionsCommandOutput}
  * @see {@link StartFleetActionsCommandInput} for command's `input` shape.
  * @see {@link StartFleetActionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -109,6 +116,9 @@ export class StartFleetActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFleetActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class StartFleetActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFleetActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartFleetActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFleetActionsCommandOutput> {
     return deserializeAws_json1_1StartFleetActionsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCreateAccountStatusCommand}.
  */
 export interface DescribeCreateAccountStatusCommandInput extends DescribeCreateAccountStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCreateAccountStatusCommand}.
  */
 export interface DescribeCreateAccountStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeCreateAccountStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current status of an asynchronous request to create an account.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -50,6 +55,8 @@ export interface DescribeCreateAccountStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCreateAccountStatusCommandInput - {@link DescribeCreateAccountStatusCommandInput}
+ * @returns {@link DescribeCreateAccountStatusCommandOutput}
  * @see {@link DescribeCreateAccountStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeCreateAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -226,6 +233,9 @@ export class DescribeCreateAccountStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCreateAccountStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -265,10 +275,16 @@ export class DescribeCreateAccountStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCreateAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCreateAccountStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

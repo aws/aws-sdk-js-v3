@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCollaborationCommand}.
  */
 export interface UpdateCollaborationCommandInput extends UpdateCollaborationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCollaborationCommand}.
  */
 export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates collaboration metadata and can only be called by the collaboration owner.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCollaborationCommandInput - {@link UpdateCollaborationCommandInput}
+ * @returns {@link UpdateCollaborationCommandOutput}
  * @see {@link UpdateCollaborationCommandInput} for command's `input` shape.
  * @see {@link UpdateCollaborationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateCollaborationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCollaborationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateCollaborationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCollaborationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCollaborationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCollaborationCommandOutput> {
     return deserializeAws_restJson1UpdateCollaborationCommand(output, context);
   }

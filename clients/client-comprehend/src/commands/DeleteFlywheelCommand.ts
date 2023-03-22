@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFlywheelCommand}.
  */
 export interface DeleteFlywheelCommandInput extends DeleteFlywheelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFlywheelCommand}.
  */
 export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a flywheel. When you delete the flywheel, Amazon Comprehend
  *       does not delete the data lake or the model associated with the flywheel.</p>
  *          <p>For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
@@ -49,6 +54,8 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlywheelCommandInput - {@link DeleteFlywheelCommandInput}
+ * @returns {@link DeleteFlywheelCommandOutput}
  * @see {@link DeleteFlywheelCommandInput} for command's `input` shape.
  * @see {@link DeleteFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteFlywheelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlywheelCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteFlywheelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlywheelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFlywheelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlywheelCommandOutput> {
     return deserializeAws_json1_1DeleteFlywheelCommand(output, context);
   }

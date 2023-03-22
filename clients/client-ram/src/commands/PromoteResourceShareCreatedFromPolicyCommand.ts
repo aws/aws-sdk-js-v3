@@ -26,11 +26,15 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link PromoteResourceShareCreatedFromPolicyCommand}.
  */
 export interface PromoteResourceShareCreatedFromPolicyCommandInput
   extends PromoteResourceShareCreatedFromPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PromoteResourceShareCreatedFromPolicyCommand}.
  */
 export interface PromoteResourceShareCreatedFromPolicyCommandOutput
@@ -38,6 +42,7 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>When you attach a resource-based permission policy to a resource, it automatically
  *             creates a resource share. However, resource shares created this way are visible only to the resource share owner, and
  *             the resource share can't be modified in RAM.</p>
@@ -54,6 +59,8 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PromoteResourceShareCreatedFromPolicyCommandInput - {@link PromoteResourceShareCreatedFromPolicyCommandInput}
+ * @returns {@link PromoteResourceShareCreatedFromPolicyCommandOutput}
  * @see {@link PromoteResourceShareCreatedFromPolicyCommandInput} for command's `input` shape.
  * @see {@link PromoteResourceShareCreatedFromPolicyCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -101,6 +108,9 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PromoteResourceShareCreatedFromPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PromoteResourceShareCreatedFromPolicyCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     return serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

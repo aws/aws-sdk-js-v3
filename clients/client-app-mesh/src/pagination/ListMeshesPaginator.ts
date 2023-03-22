@@ -6,7 +6,7 @@ import { ListMeshesCommand, ListMeshesCommandInput, ListMeshesCommandOutput } fr
 import { AppMeshPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppMeshClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMeshesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMeshes(
   config: AppMeshPaginationConfiguration,
   input: ListMeshesCommandInput,

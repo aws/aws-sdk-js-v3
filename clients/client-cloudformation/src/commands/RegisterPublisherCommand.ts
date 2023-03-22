@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterPublisherCommand}.
  */
 export interface RegisterPublisherCommandInput extends RegisterPublisherInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterPublisherCommand}.
  */
 export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are available for use by all CloudFormation users.
  *          This publisher ID applies to your account in all Amazon Web Services Regions.</p>
  *          <p>For information about requirements for registering as a public extension publisher, see
@@ -52,6 +57,8 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterPublisherCommandInput - {@link RegisterPublisherCommandInput}
+ * @returns {@link RegisterPublisherCommandOutput}
  * @see {@link RegisterPublisherCommandInput} for command's `input` shape.
  * @see {@link RegisterPublisherCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -78,6 +85,9 @@ export class RegisterPublisherCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterPublisherCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class RegisterPublisherCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterPublisherCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRegisterPublisherCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterPublisherCommandOutput> {
     return deserializeAws_queryRegisterPublisherCommand(output, context);
   }

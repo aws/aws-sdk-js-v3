@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessControlRulesCommand}.
  */
 export interface ListAccessControlRulesCommandInput extends ListAccessControlRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessControlRulesCommand}.
  */
 export interface ListAccessControlRulesCommandOutput extends ListAccessControlRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the access control rules for the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessControlRulesCommandInput - {@link ListAccessControlRulesCommandInput}
+ * @returns {@link ListAccessControlRulesCommandOutput}
  * @see {@link ListAccessControlRulesCommandInput} for command's `input` shape.
  * @see {@link ListAccessControlRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListAccessControlRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessControlRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListAccessControlRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessControlRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAccessControlRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessControlRulesCommandOutput> {
     return deserializeAws_json1_1ListAccessControlRulesCommand(output, context);
   }

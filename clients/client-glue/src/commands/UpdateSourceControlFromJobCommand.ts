@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSourceControlFromJobCommand}.
  */
 export interface UpdateSourceControlFromJobCommandInput extends UpdateSourceControlFromJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSourceControlFromJobCommand}.
  */
 export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceControlFromJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Synchronizes a job to the source control repository. This operation takes the job artifacts from the Glue internal stores and makes a commit to the remote repository that is configured on the job.</p>
  *          <p>This API supports optional parameters which take in the repository information.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceCon
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSourceControlFromJobCommandInput - {@link UpdateSourceControlFromJobCommandInput}
+ * @returns {@link UpdateSourceControlFromJobCommandOutput}
  * @see {@link UpdateSourceControlFromJobCommandInput} for command's `input` shape.
  * @see {@link UpdateSourceControlFromJobCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateSourceControlFromJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSourceControlFromJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateSourceControlFromJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSourceControlFromJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSourceControlFromJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

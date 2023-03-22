@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeprovisionIpamPoolCidrCommand}.
  */
 export interface DeprovisionIpamPoolCidrCommandInput extends DeprovisionIpamPoolCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprovisionIpamPoolCidrCommand}.
  */
 export interface DeprovisionIpamPoolCidrCommandOutput extends DeprovisionIpamPoolCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeprovisionIpamPoolCidrCommandOutput extends DeprovisionIpamPoo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprovisionIpamPoolCidrCommandInput - {@link DeprovisionIpamPoolCidrCommandInput}
+ * @returns {@link DeprovisionIpamPoolCidrCommandOutput}
  * @see {@link DeprovisionIpamPoolCidrCommandInput} for command's `input` shape.
  * @see {@link DeprovisionIpamPoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeprovisionIpamPoolCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprovisionIpamPoolCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeprovisionIpamPoolCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprovisionIpamPoolCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeprovisionIpamPoolCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprovisionIpamPoolCidrCommandOutput> {
     return deserializeAws_ec2DeprovisionIpamPoolCidrCommand(output, context);
   }

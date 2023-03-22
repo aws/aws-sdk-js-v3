@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AttachNetworkInterfaceCommand}.
  */
 export interface AttachNetworkInterfaceCommandInput extends AttachNetworkInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachNetworkInterfaceCommand}.
  */
 export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterfaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a network interface to an instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachNetworkInterfaceCommandInput - {@link AttachNetworkInterfaceCommandInput}
+ * @returns {@link AttachNetworkInterfaceCommandOutput}
  * @see {@link AttachNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link AttachNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -87,6 +94,9 @@ export class AttachNetworkInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachNetworkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AttachNetworkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AttachNetworkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachNetworkInterfaceCommandOutput> {
     return deserializeAws_ec2AttachNetworkInterfaceCommand(output, context);
   }

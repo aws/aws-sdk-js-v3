@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPhoneNumberOrderCommand}.
  */
 export interface GetPhoneNumberOrderCommandInput extends GetPhoneNumberOrderRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPhoneNumberOrderCommand}.
  */
 export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details for the specified phone number order, such as the order creation timestamp, phone
  *             numbers in E.164 format, product type, and order status.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPhoneNumberOrderCommandInput - {@link GetPhoneNumberOrderCommandInput}
+ * @returns {@link GetPhoneNumberOrderCommandOutput}
  * @see {@link GetPhoneNumberOrderCommandInput} for command's `input` shape.
  * @see {@link GetPhoneNumberOrderCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetPhoneNumberOrderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPhoneNumberOrderCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetPhoneNumberOrderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPhoneNumberOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPhoneNumberOrderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberOrderCommandOutput> {
     return deserializeAws_restJson1GetPhoneNumberOrderCommand(output, context);
   }

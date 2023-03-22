@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSignalingChannelsCommand}.
  */
 export interface ListSignalingChannelsCommandInput extends ListSignalingChannelsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSignalingChannelsCommand}.
  */
 export interface ListSignalingChannelsCommandOutput extends ListSignalingChannelsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
  *             signaling channel. To retrieve only those channels that satisfy a specific condition,
  *             you can specify a <code>ChannelNameCondition</code>.</p>
@@ -48,6 +53,8 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSignalingChannelsCommandInput - {@link ListSignalingChannelsCommandInput}
+ * @returns {@link ListSignalingChannelsCommandOutput}
  * @see {@link ListSignalingChannelsCommandInput} for command's `input` shape.
  * @see {@link ListSignalingChannelsCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListSignalingChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSignalingChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListSignalingChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSignalingChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSignalingChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSignalingChannelsCommandOutput> {
     return deserializeAws_restJson1ListSignalingChannelsCommand(output, context);
   }

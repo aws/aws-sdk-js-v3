@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppImageConfigCommand}.
  */
 export interface CreateAppImageConfigCommandInput extends CreateAppImageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppImageConfigCommand}.
  */
 export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a configuration for running a SageMaker image as a KernelGateway app. The
  *         configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the
  *         kernels in the image.</p>
@@ -48,6 +53,8 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppImageConfigCommandInput - {@link CreateAppImageConfigCommandInput}
+ * @returns {@link CreateAppImageConfigCommandOutput}
  * @see {@link CreateAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link CreateAppImageConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +81,9 @@ export class CreateAppImageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppImageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateAppImageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppImageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAppImageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppImageConfigCommandOutput> {
     return deserializeAws_json1_1CreateAppImageConfigCommand(output, context);
   }

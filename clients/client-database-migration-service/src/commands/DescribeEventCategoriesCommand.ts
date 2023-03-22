@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventCategoriesCommand}.
  */
 export interface DescribeEventCategoriesCommandInput extends DescribeEventCategoriesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventCategoriesCommand}.
  */
 export interface DescribeEventCategoriesCommandOutput extends DescribeEventCategoriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists categories for all event source types, or, if specified, for a specified source
  *          type. You can see a list of the event categories and source types in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events
  *             and Notifications</a> in the <i>Database Migration Service User
@@ -54,6 +59,8 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
+ * @returns {@link DescribeEventCategoriesCommandOutput}
  * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeEventCategoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventCategoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeEventCategoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventCategoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventCategoriesCommandOutput> {
     return deserializeAws_json1_1DescribeEventCategoriesCommand(output, context);
   }

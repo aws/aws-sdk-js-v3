@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnrollmentStatusesForOrganizationCommand}.
  */
 export interface GetEnrollmentStatusesForOrganizationCommandInput extends GetEnrollmentStatusesForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEnrollmentStatusesForOrganizationCommand}.
  */
 export interface GetEnrollmentStatusesForOrganizationCommandOutput
@@ -37,6 +41,7 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Compute Optimizer enrollment (opt-in) status of organization member
  *             accounts, if your account is an organization management account.</p>
  *          <p>To get the enrollment status of standalone accounts, use the <a>GetEnrollmentStatus</a> action.</p>
@@ -50,6 +55,8 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnrollmentStatusesForOrganizationCommandInput - {@link GetEnrollmentStatusesForOrganizationCommandInput}
+ * @returns {@link GetEnrollmentStatusesForOrganizationCommandOutput}
  * @see {@link GetEnrollmentStatusesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link GetEnrollmentStatusesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnrollmentStatusesForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEnrollmentStatusesForOrganizationCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
     return serializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

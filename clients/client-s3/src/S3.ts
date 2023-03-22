@@ -433,10 +433,12 @@ import {
 import { S3Client } from "./S3Client";
 
 /**
+ * @public
  * <p></p>
  */
 export class S3 extends S3Client {
   /**
+   * @public
    * <p>This action aborts a multipart upload. After a multipart upload is aborted, no
    *          additional parts can be uploaded using that upload ID. The storage consumed by any
    *          previously uploaded parts will be freed. However, if any part uploads are currently in
@@ -507,6 +509,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
    *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
    *          operation. After successfully uploading all relevant parts of an upload, you call this
@@ -649,6 +652,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
    *          <note>
    *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your
@@ -858,6 +862,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Creates a new S3 bucket. To create a bucket, you must register with Amazon S3 and have a
    *          valid Amazon Web Services Access Key ID to authenticate requests. Anonymous requests are never allowed to
    *          create buckets. By creating the bucket, you become the bucket owner.</p>
@@ -1032,6 +1037,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This action initiates a multipart upload and returns an upload ID. This upload ID is
    *          used to associate all of the parts in the specific multipart upload. You specify this
    *          upload ID in each of your subsequent upload part requests (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>). You also include this
@@ -1331,6 +1337,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Deletes the S3 bucket. All objects (including all object versions and delete markers) in
    *          the bucket must be deleted before the bucket itself can be deleted.</p>
    *          <p class="title">
@@ -1376,6 +1383,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Deletes an analytics configuration for the bucket (specified by the analytics
    *          configuration ID).</p>
    *          <p>To use this operation, you must have permissions to perform the
@@ -1435,6 +1443,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Deletes the <code>cors</code> configuration information set for the bucket.</p>
    *          <p>To use this operation, you must have permission to perform the
    *             <code>s3:PutBucketCORS</code> action. The bucket owner has this permission by default
@@ -1487,6 +1496,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This implementation of the DELETE action removes default encryption from the bucket.
    *          For information about the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the
    *             <i>Amazon S3 User Guide</i>.</p>
@@ -1541,6 +1551,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Deletes the S3 Intelligent-Tiering configuration from the specified bucket.</p>
    *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
    *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
@@ -1597,6 +1608,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Deletes an inventory configuration (identified by the inventory ID) from the
    *          bucket.</p>
    *          <p>To use this operation, you must have permissions to perform the
@@ -1654,6 +1666,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all the
    *          lifecycle configuration rules in the lifecycle subresource associated with the bucket. Your
    *          objects never expire, and Amazon S3 no longer automatically deletes any objects on the basis of
@@ -1709,6 +1722,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Deletes a metrics configuration for the Amazon CloudWatch request metrics (specified by the
    *          metrics configuration ID) from the bucket. Note that this doesn't include the daily storage
    *          metrics.</p>
@@ -1774,6 +1788,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Removes <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
    *          must have the <code>s3:PutBucketOwnershipControls</code> permission. For more information
    *          about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
@@ -1824,6 +1839,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This implementation of the DELETE action uses the policy subresource to delete the
    *          policy of a specified bucket. If you are using an identity other than the root user of the
    *          Amazon Web Services account that owns the bucket, the calling identity must have the
@@ -1885,6 +1901,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p> Deletes the replication configuration from the bucket.</p>
    *          <p>To use this operation, you must have permissions to perform the
    *             <code>s3:PutReplicationConfiguration</code> action. The bucket owner has these
@@ -1940,6 +1957,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Deletes the tags from the bucket.</p>
    *          <p>To use this operation, you must have permission to perform the
    *             <code>s3:PutBucketTagging</code> action. By default, the bucket owner has this
@@ -1988,6 +2006,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This action removes the website configuration for a bucket. Amazon S3 returns a <code>200
    *             OK</code> response upon successfully deleting a website configuration on the specified
    *          bucket. You will get a <code>200 OK</code> response if the website configuration you are
@@ -2043,6 +2062,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Removes the null version (if there is one) of an object and inserts a delete marker,
    *          which becomes the latest version of the object. If there isn't a null version, Amazon S3 does
    *          not remove any objects but will still respond that the command was successful.</p>
@@ -2097,6 +2117,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This action enables you to delete multiple objects from a bucket using a single HTTP
    *          request. If you know the object keys that you want to delete, then this action provides
    *          a suitable alternative to sending individual delete requests, reducing per-request
@@ -2180,6 +2201,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Removes the entire tag set from the specified object. For more information about
    *          managing object tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"> Object
    *             Tagging</a>.</p>
@@ -2233,6 +2255,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use this
    *          operation, you must have the <code>s3:PutBucketPublicAccessBlock</code> permission. For
    *          more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
@@ -2292,6 +2315,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This implementation of the GET action uses the <code>accelerate</code> subresource to
    *          return the Transfer Acceleration state of a bucket, which is either <code>Enabled</code> or
    *             <code>Suspended</code>. Amazon S3 Transfer Acceleration is a bucket-level feature that
@@ -2349,6 +2373,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This implementation of the <code>GET</code> action uses the <code>acl</code>
    *          subresource to return the access control list (ACL) of a bucket. To use <code>GET</code> to
    *          return the ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If
@@ -2399,6 +2424,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This implementation of the GET action returns an analytics configuration (identified
    *          by the analytics configuration ID) from the bucket.</p>
    *          <p>To use this operation, you must have permissions to perform the
@@ -2459,6 +2485,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the Cross-Origin Resource Sharing (CORS) configuration information set for the
    *          bucket.</p>
    *          <p> To use this operation, you must have permission to perform the
@@ -2510,6 +2537,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the default encryption configuration for an Amazon S3 bucket. If the bucket does not
    *          have a default encryption configuration, GetBucketEncryption returns
    *          <code>ServerSideEncryptionConfigurationNotFoundError</code>. </p>
@@ -2563,6 +2591,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Gets the S3 Intelligent-Tiering configuration from the specified bucket.</p>
    *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
    *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
@@ -2619,6 +2648,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns an inventory configuration (identified by the inventory configuration ID) from
    *          the bucket.</p>
    *          <p>To use this operation, you must have permissions to perform the
@@ -2677,6 +2707,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <note>
    *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an
    *             object key name prefix, one or more object tags, or a combination of both. Accordingly,
@@ -2762,6 +2793,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the Region the bucket resides in. You set the bucket's Region using the
    *             <code>LocationConstraint</code> request parameter in a <code>CreateBucket</code>
    *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>.</p>
@@ -2811,6 +2843,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the logging status of a bucket and the permissions users have to view and modify
    *          that status. To use GET, you must be the bucket owner.</p>
    *          <p>The following operations are related to <code>GetBucketLogging</code>:</p>
@@ -2857,6 +2890,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Gets a metrics configuration (specified by the metrics configuration ID) from the
    *          bucket. Note that this doesn't include the daily storage metrics.</p>
    *          <p> To use this operation, you must have permissions to perform the
@@ -2922,6 +2956,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the notification configuration of a bucket.</p>
    *          <p>If notifications are not enabled on the bucket, the action returns an empty
    *             <code>NotificationConfiguration</code> element.</p>
@@ -2971,6 +3006,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
    *          must have the <code>s3:GetBucketOwnershipControls</code> permission. For more information
    *          about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
@@ -3020,6 +3056,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the policy of a specified bucket. If you are using an identity other than the
    *          root user of the Amazon Web Services account that owns the bucket, the calling identity must have the
    *             <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the
@@ -3074,6 +3111,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.
    *          In order to use this operation, you must have the <code>s3:GetBucketPolicyStatus</code>
    *          permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
@@ -3134,6 +3172,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the replication configuration of a bucket.</p>
    *          <note>
    *             <p> It can take a while to propagate the put or delete a replication configuration to
@@ -3195,6 +3234,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the request payment configuration of a bucket. To use this version of the
    *          operation, you must be the bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays Buckets</a>.</p>
    *          <p>The following operations are related to <code>GetBucketRequestPayment</code>:</p>
@@ -3236,6 +3276,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the tag set associated with the bucket.</p>
    *          <p>To use this operation, you must have permission to perform the
    *             <code>s3:GetBucketTagging</code> action. By default, the bucket owner has this
@@ -3297,6 +3338,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the versioning state of a bucket.</p>
    *          <p>To retrieve the versioning state of a bucket, you must be the bucket owner.</p>
    *          <p>This implementation also returns the MFA Delete status of the versioning state. If the
@@ -3351,6 +3393,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the website configuration for a bucket. To host website on Amazon S3, you can
    *          configure a bucket as website by adding a website configuration. For more information about
    *          hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on
@@ -3403,6 +3446,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Retrieves objects from Amazon S3. To use <code>GET</code>, you must have <code>READ</code>
    *          access to the object. If you grant <code>READ</code> access to the anonymous user, you can
    *          return the object without using an authorization header.</p>
@@ -3590,6 +3634,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the access control list (ACL) of an object. To use this operation, you must have
    *             <code>s3:GetObjectAcl</code> permissions or <code>READ_ACP</code> access to the object.
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#acl-access-policy-permission-mapping">Mapping of ACL permissions and access policy permissions</a> in the <i>Amazon S3
@@ -3659,6 +3704,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Retrieves all the metadata from an object without returning the object itself. This
    *          action is useful if you're interested only in an object's metadata. To use
    *             <code>GetObjectAttributes</code>, you must have READ access to the object.</p>
@@ -3840,6 +3886,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Gets an object's current legal hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
    *          Objects</a>.</p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
@@ -3882,6 +3929,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock
    *          configuration will be applied by default to every new object placed in the specified
    *          bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
@@ -3925,6 +3973,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    *          <p>The following action is related to <code>GetObjectRetention</code>:</p>
@@ -3966,6 +4015,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns the tag-set of an object. You send the GET request against the tagging
    *          subresource associated with the object.</p>
    *          <p>To use this operation, you must have permission to perform the
@@ -4026,6 +4076,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
    *          distributing large files. For more information about BitTorrent, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Using BitTorrent with Amazon S3</a>.</p>
    *          <note>
@@ -4074,6 +4125,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use
    *          this operation, you must have the <code>s3:GetBucketPublicAccessBlock</code> permission.
    *          For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
@@ -4142,6 +4194,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This action is useful to determine if a bucket exists and you have permission to
    *          access it. The action returns a <code>200 OK</code> if the bucket exists and you have
    *          permission to access it.</p>
@@ -4178,6 +4231,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>The HEAD action retrieves metadata from an object without returning the object
    *          itself. This action is useful if you're only interested in an object's metadata. To use
    *          HEAD, you must have READ access to the object.</p>
@@ -4313,6 +4367,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Lists the analytics configurations for the bucket. You can have up to 1,000 analytics
    *          configurations per bucket.</p>
    *          <p>This action supports list pagination and does not return more than 100 configurations
@@ -4380,6 +4435,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Lists the S3 Intelligent-Tiering configuration from the specified bucket.</p>
    *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
    *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
@@ -4436,6 +4492,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns a list of inventory configurations for the bucket. You can have up to 1,000
    *          analytics configurations per bucket.</p>
    *          <p>This action supports list pagination and does not return more than 100 configurations
@@ -4502,6 +4559,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Lists the metrics configurations for the bucket. The metrics configurations are only for
    *          the request metrics of the bucket and do not provide information on daily storage metrics.
    *          You can have up to 1,000 configurations per bucket.</p>
@@ -4570,6 +4628,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns a list of all buckets owned by the authenticated sender of the request. To use
    *         this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.</p>
    */
@@ -4597,6 +4656,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This action lists in-progress multipart uploads. An in-progress multipart upload is a
    *          multipart upload that has been initiated using the Initiate Multipart Upload request, but
    *          has not yet been completed or aborted.</p>
@@ -4674,6 +4734,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
    *          parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK
    *          response can contain valid or invalid XML. Be sure to design your application to parse the
@@ -4735,6 +4796,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns some or all (up to 1,000) of the objects in a bucket with each request. You can use
    *          the request parameters as selection criteria to return a subset of the objects in a bucket. A
    *          <code>200 OK</code> response can contain valid or invalid XML. Make sure to design your
@@ -4804,6 +4866,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Returns metadata about all versions of the objects in a bucket. You can also use request
    *          parameters as selection criteria to return metadata about a subset of all the object
    *          versions.</p>
@@ -4874,6 +4937,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Lists the parts that have been uploaded for a specific multipart upload. This operation
    *          must include the upload ID, which you obtain by sending the initiate multipart upload
    *          request (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>).
@@ -4949,6 +5013,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a
    *          bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>
    *          <p> To use this operation, you must have permission to perform the
@@ -5018,6 +5083,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets the permissions on an existing bucket using access control lists (ACL). For more
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set
    *          the ACL of a bucket, you must have <code>WRITE_ACP</code> permission.</p>
@@ -5235,6 +5301,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets an analytics configuration for the bucket (specified by the analytics configuration
    *          ID). You can have up to 1,000 analytics configurations per bucket.</p>
    *          <p>You can choose to have storage class analysis export analysis reports sent to a
@@ -5371,6 +5438,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets the <code>cors</code> configuration for your bucket. If the configuration exists,
    *          Amazon S3 replaces it.</p>
    *          <p>To use this operation, you must be allowed to perform the <code>s3:PutBucketCORS</code>
@@ -5458,6 +5526,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This action uses the <code>encryption</code> subresource to configure default
    *          encryption and Amazon S3 Bucket Key for an existing bucket.</p>
    *          <p>Default encryption for a bucket can use server-side encryption with Amazon S3-managed keys
@@ -5523,6 +5592,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Puts a S3 Intelligent-Tiering configuration to the specified bucket.
    *       You can have up to 1,000 S3 Intelligent-Tiering configurations per bucket.</p>
    *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
@@ -5638,6 +5708,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This implementation of the <code>PUT</code> action adds an inventory configuration
    *          (identified by the inventory ID) to the bucket. You can have up to 1,000 inventory
    *          configurations per bucket. </p>
@@ -5768,6 +5839,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
    *          configuration. Keep in mind that this will overwrite an existing lifecycle configuration, so if
    *          you want to retain any configuration details, they must be included in the new lifecycle
@@ -5887,6 +5959,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Set the logging parameters for a bucket and to specify permissions for who can view and
    *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the
    *          source bucket. To set the logging status of a bucket, you must be the bucket owner.</p>
@@ -5994,6 +6067,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
    *          You can have up to 1,000 metrics configurations per bucket. If you're updating an existing
    *          metrics configuration, note that this is a full replacement of the existing metrics
@@ -6072,6 +6146,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Enables notifications of specified events for a bucket. For more information about event
    *          notifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event
    *             Notifications</a>.</p>
@@ -6158,6 +6233,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use this
    *          operation, you must have the <code>s3:PutBucketOwnershipControls</code> permission. For
    *          more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying permissions in a policy</a>. </p>
@@ -6206,6 +6282,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than
    *          the root user of the Amazon Web Services account that owns the bucket, the calling identity must have the
    *             <code>PutBucketPolicy</code> permissions on the specified bucket and belong to the
@@ -6264,6 +6341,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p> Creates a replication configuration or replaces an existing one. For more information,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 User Guide</i>. </p>
    *          <p>Specify the replication configuration in the request body. In the replication
@@ -6357,6 +6435,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays
    *          for downloads from the bucket. This configuration parameter enables the bucket owner (only)
    *          to specify that the person requesting the download will be charged for the download. For
@@ -6406,6 +6485,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets the tags for a bucket.</p>
    *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this, sign
    *          up to get your Amazon Web Services account bill with tag key values included. Then, to see the cost of
@@ -6512,6 +6592,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets the versioning state of an existing bucket.</p>
    *          <p>You can set the versioning state with one of the following values:</p>
    *          <p>
@@ -6586,6 +6667,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets the configuration of the website that is specified in the <code>website</code>
    *          subresource. To configure a bucket as a website, you can add this subresource on the bucket
    *          with website configuration information such as the file name of the index document and any
@@ -6739,6 +6821,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Adds an object to a bucket. You must have WRITE permissions on a bucket to add an object
    *          to it.</p>
    *          <p>Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added the
@@ -6863,6 +6946,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
    *          for a new or existing object in an S3 bucket. You must have <code>WRITE_ACP</code>
    *          permission to set the ACL of an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions">What
@@ -7070,6 +7154,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Applies a legal hold configuration to the specified object. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
    *             Objects</a>.</p>
@@ -7105,6 +7190,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Places an Object Lock configuration on the specified bucket. The rule specified in the
    *          Object Lock configuration will be applied by default to every new object placed in the
    *          specified bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
@@ -7157,6 +7243,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
    *           Users or accounts require the <code>s3:PutObjectRetention</code> permission in order to place
    *           an Object Retention configuration on objects. Bypassing a Governance Retention configuration
@@ -7194,6 +7281,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Sets the supplied tag-set to an object that already exists in a bucket.</p>
    *          <p>A tag is a key-value pair. You can associate tags with an object by sending a PUT
    *          request against the tagging subresource that is associated with the object. You can
@@ -7317,6 +7405,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
    *          To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code>
    *          permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
@@ -7387,6 +7476,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Restores an archived copy of an object back into Amazon S3</p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    *          <p>This action performs the following types of requests: </p>
@@ -7702,6 +7792,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>This action filters the contents of an Amazon S3 object based on a simple structured query
    *          language (SQL) statement. In the request, along with the SQL expression, you must also
    *          specify a data serialization format (JSON, CSV, or Apache Parquet) of the object. Amazon S3 uses
@@ -7848,6 +7939,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Uploads a part in a multipart upload.</p>
    *          <note>
    *             <p>In this operation, you provide part data in your request. However, you have an option
@@ -7993,6 +8085,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Uploads a part by copying data from an existing object as data source. You specify the
    *          data source by adding the request header <code>x-amz-copy-source</code> in your request and
    *          a byte range by adding the request header <code>x-amz-copy-source-range</code> in your
@@ -8191,6 +8284,7 @@ export class S3 extends S3Client {
   }
 
   /**
+   * @public
    * <p>Passes transformed
    *          objects to a <code>GetObject</code> operation when using Object Lambda access points. For information about
    *          Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with

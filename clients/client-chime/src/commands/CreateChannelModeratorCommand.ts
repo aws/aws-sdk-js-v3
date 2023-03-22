@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelModeratorCommand}.
  */
 export interface CreateChannelModeratorCommandInput extends CreateChannelModeratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelModeratorCommand}.
  */
 export interface CreateChannelModeratorCommandOutput extends CreateChannelModeratorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
  *
  *          <ul>
@@ -70,6 +75,8 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelModeratorCommandInput - {@link CreateChannelModeratorCommandInput}
+ * @returns {@link CreateChannelModeratorCommandOutput}
  * @see {@link CreateChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link CreateChannelModeratorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -118,6 +125,9 @@ export class CreateChannelModeratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelModeratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class CreateChannelModeratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelModeratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateChannelModeratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelModeratorCommandOutput> {
     return deserializeAws_restJson1CreateChannelModeratorCommand(output, context);
   }

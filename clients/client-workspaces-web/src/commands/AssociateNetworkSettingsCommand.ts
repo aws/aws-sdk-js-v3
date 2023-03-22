@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateNetworkSettingsCommand}.
  */
 export interface AssociateNetworkSettingsCommandInput extends AssociateNetworkSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateNetworkSettingsCommand}.
  */
 export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a network settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkS
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateNetworkSettingsCommandInput - {@link AssociateNetworkSettingsCommandInput}
+ * @returns {@link AssociateNetworkSettingsCommandOutput}
  * @see {@link AssociateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssociateNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateNetworkSettingsCommandOutput> {
     return deserializeAws_restJson1AssociateNetworkSettingsCommand(output, context);
   }

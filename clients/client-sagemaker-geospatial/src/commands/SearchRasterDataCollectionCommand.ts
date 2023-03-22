@@ -30,15 +30,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchRasterDataCollectionCommand}.
  */
 export interface SearchRasterDataCollectionCommandInput extends SearchRasterDataCollectionInput {}
 /**
+ * @public
+ *
  * The output of {@link SearchRasterDataCollectionCommand}.
  */
 export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDataCollectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you run image query on a specific raster data collection to get a list of the satellite imagery matching the selected filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchRasterDataCollectionCommandInput - {@link SearchRasterDataCollectionCommandInput}
+ * @returns {@link SearchRasterDataCollectionCommandOutput}
  * @see {@link SearchRasterDataCollectionCommandInput} for command's `input` shape.
  * @see {@link SearchRasterDataCollectionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -88,6 +95,9 @@ export class SearchRasterDataCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchRasterDataCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class SearchRasterDataCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchRasterDataCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchRasterDataCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

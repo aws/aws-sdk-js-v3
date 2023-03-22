@@ -27,10 +27,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficPolicyInstanceCommand}.
  */
 export interface CreateTrafficPolicyInstanceCommandInput extends CreateTrafficPolicyInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficPolicyInstanceCommand}.
  */
 export interface CreateTrafficPolicyInstanceCommandOutput
@@ -38,6 +42,7 @@ export interface CreateTrafficPolicyInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates resource record sets in a specified hosted zone based on the settings in a
  * 			specified traffic policy version. In addition, <code>CreateTrafficPolicyInstance</code>
  * 			associates the resource record sets with a specified domain name (such as example.com)
@@ -54,6 +59,8 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficPolicyInstanceCommandInput - {@link CreateTrafficPolicyInstanceCommandInput}
+ * @returns {@link CreateTrafficPolicyInstanceCommandOutput}
  * @see {@link CreateTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -98,6 +105,9 @@ export class CreateTrafficPolicyInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficPolicyInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateTrafficPolicyInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficPolicyInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateTrafficPolicyInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

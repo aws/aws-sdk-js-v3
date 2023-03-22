@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMilestoneCommand}.
  */
 export interface CreateMilestoneCommandInput extends CreateMilestoneInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMilestoneCommand}.
  */
 export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a milestone for an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMilestoneCommandInput - {@link CreateMilestoneCommandInput}
+ * @returns {@link CreateMilestoneCommandOutput}
  * @see {@link CreateMilestoneCommandInput} for command's `input` shape.
  * @see {@link CreateMilestoneCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateMilestoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMilestoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateMilestoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMilestoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMilestoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMilestoneCommandOutput> {
     return deserializeAws_restJson1CreateMilestoneCommand(output, context);
   }

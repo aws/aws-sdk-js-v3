@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInterpolatedAssetPropertyValuesCommand}.
  */
 export interface GetInterpolatedAssetPropertyValuesCommandInput extends GetInterpolatedAssetPropertyValuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInterpolatedAssetPropertyValuesCommand}.
  */
 export interface GetInterpolatedAssetPropertyValuesCommandOutput
@@ -37,6 +41,7 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get interpolated values for an asset property for a specified time interval, during a
  *       period of time. If your time series is missing data points during the specified time interval,
  *       you can use interpolation to estimate the missing data.</p>
@@ -62,6 +67,8 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInterpolatedAssetPropertyValuesCommandInput - {@link GetInterpolatedAssetPropertyValuesCommandInput}
+ * @returns {@link GetInterpolatedAssetPropertyValuesCommandOutput}
  * @see {@link GetInterpolatedAssetPropertyValuesCommandInput} for command's `input` shape.
  * @see {@link GetInterpolatedAssetPropertyValuesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInterpolatedAssetPropertyValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetInterpolatedAssetPropertyValuesCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command<
     return serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

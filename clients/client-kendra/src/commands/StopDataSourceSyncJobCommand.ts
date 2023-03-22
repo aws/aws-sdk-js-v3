@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopDataSourceSyncJobCommand}.
  */
 export interface StopDataSourceSyncJobCommandInput extends StopDataSourceSyncJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopDataSourceSyncJobCommand}.
  */
 export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a synchronization job that is currently running. You can't stop a scheduled
  *       synchronization job.</p>
  * @example
@@ -42,6 +47,8 @@ export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDataSourceSyncJobCommandInput - {@link StopDataSourceSyncJobCommandInput}
+ * @returns {@link StopDataSourceSyncJobCommandOutput}
  * @see {@link StopDataSourceSyncJobCommandInput} for command's `input` shape.
  * @see {@link StopDataSourceSyncJobCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -85,6 +92,9 @@ export class StopDataSourceSyncJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDataSourceSyncJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class StopDataSourceSyncJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDataSourceSyncJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopDataSourceSyncJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDataSourceSyncJobCommandOutput> {
     return deserializeAws_json1_1StopDataSourceSyncJobCommand(output, context);
   }

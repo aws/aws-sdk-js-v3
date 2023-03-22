@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeContextCommand}.
  */
 export interface DescribeContextCommandInput extends DescribeContextRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeContextCommand}.
  */
 export interface DescribeContextCommandOutput extends DescribeContextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a context.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeContextCommandOutput extends DescribeContextResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContextCommandInput - {@link DescribeContextCommandInput}
+ * @returns {@link DescribeContextCommandOutput}
  * @see {@link DescribeContextCommandInput} for command's `input` shape.
  * @see {@link DescribeContextCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeContextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContextCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeContextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeContextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeContextCommandOutput> {
     return deserializeAws_json1_1DescribeContextCommand(output, context);
   }

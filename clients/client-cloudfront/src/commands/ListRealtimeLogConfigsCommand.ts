@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListRealtimeLogConfigsCommand}.
  */
 export interface ListRealtimeLogConfigsCommandInput extends ListRealtimeLogConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRealtimeLogConfigsCommand}.
  */
 export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConfigsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of real-time log configurations.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -51,6 +56,8 @@ export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConf
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRealtimeLogConfigsCommandInput - {@link ListRealtimeLogConfigsCommandInput}
+ * @returns {@link ListRealtimeLogConfigsCommandOutput}
  * @see {@link ListRealtimeLogConfigsCommandInput} for command's `input` shape.
  * @see {@link ListRealtimeLogConfigsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListRealtimeLogConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRealtimeLogConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListRealtimeLogConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRealtimeLogConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListRealtimeLogConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRealtimeLogConfigsCommandOutput> {
     return deserializeAws_restXmlListRealtimeLogConfigsCommand(output, context);
   }

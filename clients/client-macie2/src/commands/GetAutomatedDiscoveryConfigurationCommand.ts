@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAutomatedDiscoveryConfigurationCommand}.
  */
 export interface GetAutomatedDiscoveryConfigurationCommandInput extends GetAutomatedDiscoveryConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAutomatedDiscoveryConfigurationCommand}.
  */
 export interface GetAutomatedDiscoveryConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAutomatedDiscoveryConfigurationCommandInput - {@link GetAutomatedDiscoveryConfigurationCommandInput}
+ * @returns {@link GetAutomatedDiscoveryConfigurationCommandOutput}
  * @see {@link GetAutomatedDiscoveryConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAutomatedDiscoveryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -83,6 +90,9 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAutomatedDiscoveryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAutomatedDiscoveryConfigurationCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command<
     return serializeAws_restJson1GetAutomatedDiscoveryConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

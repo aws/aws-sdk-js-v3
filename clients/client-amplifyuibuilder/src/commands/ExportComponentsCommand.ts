@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportComponentsCommand}.
  */
 export interface ExportComponentsCommandInput extends ExportComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportComponentsCommand}.
  */
 export interface ExportComponentsCommandOutput extends ExportComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports component configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ExportComponentsCommandOutput extends ExportComponentsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportComponentsCommandInput - {@link ExportComponentsCommandInput}
+ * @returns {@link ExportComponentsCommandOutput}
  * @see {@link ExportComponentsCommandInput} for command's `input` shape.
  * @see {@link ExportComponentsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -75,6 +82,9 @@ export class ExportComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ExportComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExportComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportComponentsCommandOutput> {
     return deserializeAws_restJson1ExportComponentsCommand(output, context);
   }

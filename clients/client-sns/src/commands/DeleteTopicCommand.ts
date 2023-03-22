@@ -18,15 +18,20 @@ import { deserializeAws_queryDeleteTopicCommand, serializeAws_queryDeleteTopicCo
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTopicCommand}.
  */
 export interface DeleteTopicCommandInput extends DeleteTopicInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTopicCommand}.
  */
 export interface DeleteTopicCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some
  *             messages previously sent to the topic from being delivered to subscribers. This action
  *             is idempotent, so deleting a topic that does not exist does not result in an
@@ -41,6 +46,8 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTopicCommandInput - {@link DeleteTopicCommandInput}
+ * @returns {@link DeleteTopicCommandOutput}
  * @see {@link DeleteTopicCommandInput} for command's `input` shape.
  * @see {@link DeleteTopicCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteTopicCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTopicCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteTopicCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteTopicCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTopicCommandOutput> {
     return deserializeAws_queryDeleteTopicCommand(output, context);
   }

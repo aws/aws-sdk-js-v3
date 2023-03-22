@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecipeJobCommand}.
  */
 export interface CreateRecipeJobCommandInput extends CreateRecipeJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecipeJobCommand}.
  */
 export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new job to transform input data, using steps defined in an existing Glue DataBrew recipe</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecipeJobCommandInput - {@link CreateRecipeJobCommandInput}
+ * @returns {@link CreateRecipeJobCommandOutput}
  * @see {@link CreateRecipeJobCommandInput} for command's `input` shape.
  * @see {@link CreateRecipeJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateRecipeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecipeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateRecipeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRecipeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRecipeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRecipeJobCommandOutput> {
     return deserializeAws_restJson1CreateRecipeJobCommand(output, context);
   }

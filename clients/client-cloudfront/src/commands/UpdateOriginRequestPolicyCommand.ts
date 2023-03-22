@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOriginRequestPolicyCommand}.
  */
 export interface UpdateOriginRequestPolicyCommandInput extends UpdateOriginRequestPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOriginRequestPolicyCommand}.
  */
 export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an origin request policy configuration.</p>
  *          <p>When you update an origin request policy configuration, all the fields are updated
  * 			with the values provided in the request. You cannot update some fields independent of
@@ -64,6 +69,8 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOriginRequestPolicyCommandInput - {@link UpdateOriginRequestPolicyCommandInput}
+ * @returns {@link UpdateOriginRequestPolicyCommandOutput}
  * @see {@link UpdateOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -130,6 +137,9 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOriginRequestPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOriginRequestPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateOriginRequestPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

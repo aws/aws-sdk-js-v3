@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyRecommendationsReceivedCommand}.
  */
 export interface NotifyRecommendationsReceivedCommandInput extends NotifyRecommendationsReceivedRequest {}
 /**
+ * @public
+ *
  * The output of {@link NotifyRecommendationsReceivedCommand}.
  */
 export interface NotifyRecommendationsReceivedCommandOutput
@@ -37,6 +41,7 @@ export interface NotifyRecommendationsReceivedCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified recommendations from the specified assistant's queue of newly
  *       available recommendations. You can use this API in conjunction with <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling
  *       behavior and avoiding duplicate recommendations.</p>
@@ -50,6 +55,8 @@ export interface NotifyRecommendationsReceivedCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyRecommendationsReceivedCommandInput - {@link NotifyRecommendationsReceivedCommandInput}
+ * @returns {@link NotifyRecommendationsReceivedCommandOutput}
  * @see {@link NotifyRecommendationsReceivedCommandInput} for command's `input` shape.
  * @see {@link NotifyRecommendationsReceivedCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -82,6 +89,9 @@ export class NotifyRecommendationsReceivedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyRecommendationsReceivedCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class NotifyRecommendationsReceivedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyRecommendationsReceivedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1NotifyRecommendationsReceivedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

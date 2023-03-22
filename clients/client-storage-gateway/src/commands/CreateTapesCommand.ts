@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTapesCommand}.
  */
 export interface CreateTapesCommandInput extends CreateTapesInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTapesCommand}.
  */
 export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more virtual tapes. You write data to the virtual tapes and then archive
  *          the tapes. This operation is only supported in the tape gateway type.</p>
  *
@@ -52,6 +57,8 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTapesCommandInput - {@link CreateTapesCommandInput}
+ * @returns {@link CreateTapesCommandOutput}
  * @see {@link CreateTapesCommandInput} for command's `input` shape.
  * @see {@link CreateTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateTapesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTapesCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class CreateTapesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTapesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTapesCommandOutput> {
     return deserializeAws_json1_1CreateTapesCommand(output, context);
   }

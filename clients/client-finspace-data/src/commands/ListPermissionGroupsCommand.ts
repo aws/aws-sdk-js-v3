@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionGroupsCommand}.
  */
 export interface ListPermissionGroupsCommandInput extends ListPermissionGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionGroupsCommand}.
  */
 export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available permission groups in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionGroupsCommandInput - {@link ListPermissionGroupsCommandInput}
+ * @returns {@link ListPermissionGroupsCommandOutput}
  * @see {@link ListPermissionGroupsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionGroupsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListPermissionGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListPermissionGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPermissionGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPermissionGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionGroupsCommandOutput> {
     return deserializeAws_restJson1ListPermissionGroupsCommand(output, context);
   }

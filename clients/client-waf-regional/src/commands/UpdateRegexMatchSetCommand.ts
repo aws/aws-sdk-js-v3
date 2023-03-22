@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRegexMatchSetCommand}.
  */
 export interface UpdateRegexMatchSetCommandInput extends UpdateRegexMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRegexMatchSetCommand}.
  */
 export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -88,6 +93,8 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRegexMatchSetCommandInput - {@link UpdateRegexMatchSetCommandInput}
+ * @returns {@link UpdateRegexMatchSetCommandOutput}
  * @see {@link UpdateRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -172,6 +179,9 @@ export class UpdateRegexMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRegexMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,10 +221,16 @@ export class UpdateRegexMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRegexMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRegexMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegexMatchSetCommandOutput> {
     return deserializeAws_json1_1UpdateRegexMatchSetCommand(output, context);
   }

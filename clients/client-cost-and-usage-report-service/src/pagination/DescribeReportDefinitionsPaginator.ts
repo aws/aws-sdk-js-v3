@@ -10,7 +10,7 @@ import { CostAndUsageReportServiceClient } from "../CostAndUsageReportServiceCli
 import { CostAndUsageReportServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CostAndUsageReportServiceClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeReportDefinitionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeReportDefinitions(
   config: CostAndUsageReportServicePaginationConfiguration,
   input: DescribeReportDefinitionsCommandInput,

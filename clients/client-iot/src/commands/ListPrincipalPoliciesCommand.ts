@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPrincipalPoliciesCommand}.
  */
 export interface ListPrincipalPoliciesCommandInput extends ListPrincipalPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPrincipalPoliciesCommand}.
  */
 export interface ListPrincipalPoliciesCommandOutput extends ListPrincipalPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Lists the policies attached to the specified principal. If you use an Cognito
@@ -53,6 +58,8 @@ export interface ListPrincipalPoliciesCommandOutput extends ListPrincipalPolicie
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPrincipalPoliciesCommandInput - {@link ListPrincipalPoliciesCommandInput}
+ * @returns {@link ListPrincipalPoliciesCommandOutput}
  * @see {@link ListPrincipalPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListPrincipalPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPrincipalPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListPrincipalPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPrincipalPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPrincipalPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPrincipalPoliciesCommandOutput> {
     return deserializeAws_restJson1ListPrincipalPoliciesCommand(output, context);
   }

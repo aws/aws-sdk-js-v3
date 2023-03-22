@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchPutAssetPropertyValueCommand}.
  */
 export interface BatchPutAssetPropertyValueCommandInput extends BatchPutAssetPropertyValueRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchPutAssetPropertyValueCommand}.
  */
 export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPropertyValueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value
  *       (TQV) data point. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting data using the API</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -54,8 +59,8 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  *         outside of the inclusive range of [-7 days, +10 minutes] and returns a
  *           <code>TimestampOutOfRangeException</code> error.</p>
  *             <p>For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
- *         TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,
- *         then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p>
+ *         TQV has a different quality. For example, if you store a TQV <code>\{T1, GOOD, V1\}</code>,
+ *         then storing <code>\{T1, GOOD, V2\}</code> replaces the existing TQV.</p>
  *          </important>
  *          <p>IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.
  *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue authorization</a> in the
@@ -70,6 +75,8 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutAssetPropertyValueCommandInput - {@link BatchPutAssetPropertyValueCommandInput}
+ * @returns {@link BatchPutAssetPropertyValueCommandOutput}
  * @see {@link BatchPutAssetPropertyValueCommandInput} for command's `input` shape.
  * @see {@link BatchPutAssetPropertyValueCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -122,6 +129,9 @@ export class BatchPutAssetPropertyValueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutAssetPropertyValueCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class BatchPutAssetPropertyValueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutAssetPropertyValueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchPutAssetPropertyValueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

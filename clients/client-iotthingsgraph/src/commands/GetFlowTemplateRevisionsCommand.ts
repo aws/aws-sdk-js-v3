@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFlowTemplateRevisionsCommand}.
  */
 export interface GetFlowTemplateRevisionsCommandInput extends GetFlowTemplateRevisionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFlowTemplateRevisionsCommand}.
  */
 export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRevisionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated,
@@ -49,6 +54,8 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFlowTemplateRevisionsCommandInput - {@link GetFlowTemplateRevisionsCommandInput}
+ * @returns {@link GetFlowTemplateRevisionsCommandOutput}
  * @see {@link GetFlowTemplateRevisionsCommandInput} for command's `input` shape.
  * @see {@link GetFlowTemplateRevisionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFlowTemplateRevisionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFlowTemplateRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFlowTemplateRevisionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFlowTemplateRevisionsCommandOutput> {
     return deserializeAws_json1_1GetFlowTemplateRevisionsCommand(output, context);
   }

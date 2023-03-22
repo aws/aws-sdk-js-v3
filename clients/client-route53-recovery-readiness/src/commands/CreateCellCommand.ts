@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCellCommand}.
  */
 export interface CreateCellCommandInput extends CreateCellRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCellCommand}.
  */
 export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a cell in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCellCommandInput - {@link CreateCellCommandInput}
+ * @returns {@link CreateCellCommandOutput}
  * @see {@link CreateCellCommandInput} for command's `input` shape.
  * @see {@link CreateCellCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateCellCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCellCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateCellCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCellCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCellCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCellCommandOutput> {
     return deserializeAws_restJson1CreateCellCommand(output, context);
   }

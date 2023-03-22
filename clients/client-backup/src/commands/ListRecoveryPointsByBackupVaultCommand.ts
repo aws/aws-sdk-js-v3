@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecoveryPointsByBackupVaultCommand}.
  */
 export interface ListRecoveryPointsByBackupVaultCommandInput extends ListRecoveryPointsByBackupVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRecoveryPointsByBackupVaultCommand}.
  */
 export interface ListRecoveryPointsByBackupVaultCommandOutput
@@ -37,6 +41,7 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about the recovery points stored in a backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecoveryPointsByBackupVaultCommandInput - {@link ListRecoveryPointsByBackupVaultCommandInput}
+ * @returns {@link ListRecoveryPointsByBackupVaultCommandOutput}
  * @see {@link ListRecoveryPointsByBackupVaultCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByBackupVaultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecoveryPointsByBackupVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRecoveryPointsByBackupVaultCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     return serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

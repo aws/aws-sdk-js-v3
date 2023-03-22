@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTypeCommand}.
  */
 export interface DeleteTypeCommandInput extends DeleteTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTypeCommand}.
  */
 export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTypeCommandInput - {@link DeleteTypeCommandInput}
+ * @returns {@link DeleteTypeCommandOutput}
  * @see {@link DeleteTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTypeCommandOutput> {
     return deserializeAws_restJson1DeleteTypeCommand(output, context);
   }

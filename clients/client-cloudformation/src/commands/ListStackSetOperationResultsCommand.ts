@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListStackSetOperationResultsCommand}.
  */
 export interface ListStackSetOperationResultsCommandInput extends ListStackSetOperationResultsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStackSetOperationResultsCommand}.
  */
 export interface ListStackSetOperationResultsCommandOutput
@@ -37,6 +41,7 @@ export interface ListStackSetOperationResultsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about the results of a stack set operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListStackSetOperationResultsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStackSetOperationResultsCommandInput - {@link ListStackSetOperationResultsCommandInput}
+ * @returns {@link ListStackSetOperationResultsCommandOutput}
  * @see {@link ListStackSetOperationResultsCommandInput} for command's `input` shape.
  * @see {@link ListStackSetOperationResultsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListStackSetOperationResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStackSetOperationResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListStackSetOperationResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStackSetOperationResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListStackSetOperationResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

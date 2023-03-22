@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an
  *       automatic snapshot of an instance or disk as a manual snapshot. This operation can also be
  *       used to copy a manual or automatic snapshot of an instance or a disk from one Amazon Web Services Region to another in Amazon Lightsail.</p>
@@ -55,6 +60,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
+ * @returns {@link CopySnapshotCommandOutput}
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -108,6 +115,9 @@ export class CopySnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopySnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CopySnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CopySnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
     return deserializeAws_json1_1CopySnapshotCommand(output, context);
   }

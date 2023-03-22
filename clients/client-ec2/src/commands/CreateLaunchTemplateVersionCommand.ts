@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLaunchTemplateVersionCommand}.
  */
 export interface CreateLaunchTemplateVersionCommandInput extends CreateLaunchTemplateVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLaunchTemplateVersionCommand}.
  */
 export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTemplateVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of a launch template. You can specify an existing version of
  *             launch template from which to base the new version.</p>
  *          <p>Launch template versions are numbered in the order in which they are created. You
@@ -54,6 +59,8 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLaunchTemplateVersionCommandInput - {@link CreateLaunchTemplateVersionCommandInput}
+ * @returns {@link CreateLaunchTemplateVersionCommandOutput}
  * @see {@link CreateLaunchTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -122,6 +129,9 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLaunchTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLaunchTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateLaunchTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -239,6 +239,7 @@ import {
 import { ElasticBeanstalkClient } from "./ElasticBeanstalkClient";
 
 /**
+ * @public
  * <fullname>AWS Elastic Beanstalk</fullname>
  *          <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable,
  *       fault-tolerant applications running on the Amazon Web Services cloud.</p>
@@ -255,6 +256,7 @@ import { ElasticBeanstalkClient } from "./ElasticBeanstalkClient";
  */
 export class ElasticBeanstalk extends ElasticBeanstalkClient {
   /**
+   * @public
    * <p>Cancels in-progress environment configuration update or application version
    *       deployment.</p>
    */
@@ -288,6 +290,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Applies a scheduled managed action immediately. A managed action can be applied only if
    *       its status is <code>Scheduled</code>. Get the status and action ID of a managed action with
    *         <a>DescribeEnvironmentManagedActions</a>.</p>
@@ -322,6 +325,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Add or change the operations role used by an environment. After this call is made, Elastic Beanstalk
    *       uses the associated operations role for permissions to downstream services during subsequent
    *       calls acting on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
@@ -357,6 +361,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Checks if the specified CNAME is available.</p>
    */
   public checkDNSAvailability(
@@ -389,6 +394,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Create or update a group of environments that each run a separate component of a single
    *       application. Takes a list of version labels that specify application source bundles for each
    *       of the environments to create or update. The name of each environment and other required
@@ -426,6 +432,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Creates an application that has one configuration template named <code>default</code>
    *       and no application versions.</p>
    */
@@ -459,6 +466,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Creates an application version for the specified application. You can create an
    *       application version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the
    *       output of an AWS CodeBuild build as follows:</p>
@@ -507,6 +515,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Creates an AWS Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk
    *       application. You define application configuration settings in a configuration template. You
    *       can then use the configuration template to deploy different versions of the application with
@@ -562,6 +571,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Launches an AWS Elastic Beanstalk environment for the specified application using the specified
    *       configuration.</p>
    */
@@ -595,6 +605,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Create a new version of your custom platform.</p>
    */
   public createPlatformVersion(
@@ -627,6 +638,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Creates a bucket in Amazon S3 to store application versions, logs, and other files used
    *       by Elastic Beanstalk environments. The Elastic Beanstalk console and EB CLI call this API the
    *       first time you create an environment in a region. If the storage location already exists,
@@ -663,6 +675,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified application along with all associated versions and
    *       configurations. The application versions will not be deleted from your Amazon S3
    *       bucket.</p>
@@ -700,6 +713,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified version from the specified application.</p>
    *          <note>
    *             <p>You cannot delete an application version that is associated with a running
@@ -736,6 +750,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified configuration template.</p>
    *          <note>
    *             <p>When you launch an environment using a configuration template, the environment gets a
@@ -773,6 +788,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Deletes the draft configuration associated with the running environment.</p>
    *          <p>Updating a running environment with any configuration changes creates a draft
    *       configuration set. You can get the draft configuration using <a>DescribeConfigurationSettings</a> while the update is in progress or if the update
@@ -810,6 +826,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified version of a custom platform.</p>
    */
   public deletePlatformVersion(
@@ -842,6 +859,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS
    *       account.</p>
    *          <p>The result currently has one set of attributes—resource quotas.</p>
@@ -876,6 +894,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Returns the descriptions of existing applications.</p>
    */
   public describeApplications(
@@ -908,6 +927,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Retrieve a list of application versions.</p>
    */
   public describeApplicationVersions(
@@ -940,6 +960,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Describes the configuration options that are used in a particular configuration
    *       template or environment, or that a specified solution stack defines. The description includes
    *       the values the options, their default values, and an indication of the required action on a
@@ -975,6 +996,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Returns a description of the settings for the specified configuration set, that is,
    *       either a configuration template or the configuration set associated with a running
    *       environment.</p>
@@ -1021,6 +1043,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the overall health of the specified environment. The
    *         <b>DescribeEnvironmentHealth</b> operation is only available with
    *       AWS Elastic Beanstalk Enhanced Health.</p>
@@ -1055,6 +1078,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Lists an environment's completed and failed managed actions.</p>
    */
   public describeEnvironmentManagedActionHistory(
@@ -1089,6 +1113,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Lists an environment's upcoming and in-progress managed actions.</p>
    */
   public describeEnvironmentManagedActions(
@@ -1121,6 +1146,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Returns AWS resources for this environment.</p>
    */
   public describeEnvironmentResources(
@@ -1153,6 +1179,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Returns descriptions for existing environments.</p>
    */
   public describeEnvironments(
@@ -1185,6 +1212,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Returns list of event descriptions matching criteria up to the last 6 weeks.</p>
    *          <note>
    *             <p>This action returns the most recent 1,000 events from the specified
@@ -1221,6 +1249,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Retrieves detailed information about the health of instances in your AWS Elastic
    *       Beanstalk. This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
    *       reporting</a>.</p>
@@ -1255,6 +1284,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Describes a platform version. Provides full details. Compare to <a>ListPlatformVersions</a>, which provides summary information about a list of
    *       platform versions.</p>
    *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
@@ -1290,6 +1320,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Disassociate the operations role from an environment. After this call is made, Elastic Beanstalk uses
    *       the caller's permissions for permissions to downstream services during subsequent calls acting
    *       on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
@@ -1327,6 +1358,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the available solution stack names, with the public version first and
    *       then in reverse chronological order.</p>
    */
@@ -1360,6 +1392,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Lists the platform branches available for your account in an AWS Region. Provides
    *       summary information about each platform branch.</p>
    *          <p>For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
@@ -1395,6 +1428,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Lists the platform versions available for your account in an AWS Region. Provides
    *       summary information about each platform version. Compare to <a>DescribePlatformVersion</a>, which provides full details about a single platform
    *       version.</p>
@@ -1431,6 +1465,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Return the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.</p>
    *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
    *         <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application
@@ -1466,6 +1501,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Deletes and recreates all of the AWS resources (for example: the Auto Scaling group,
    *       load balancer, etc.) for a specified environment and forces a restart.</p>
    */
@@ -1499,6 +1535,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Initiates a request to compile the specified type of information of the deployed
    *       environment.</p>
    *          <p> Setting the <code>InfoType</code> to <code>tail</code> compiles the last lines from
@@ -1546,6 +1583,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Causes the environment to restart the application container server running on each
    *       Amazon EC2 instance.</p>
    */
@@ -1579,6 +1617,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the compiled information from a <a>RequestEnvironmentInfo</a>
    *       request.</p>
    *          <p>Related Topics</p>
@@ -1620,6 +1659,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Swaps the CNAMEs of two environments.</p>
    */
   public swapEnvironmentCNAMEs(
@@ -1652,6 +1692,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Terminates the specified environment.</p>
    */
   public terminateEnvironment(
@@ -1684,6 +1725,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified application to have the specified properties.</p>
    *          <note>
    *             <p>If a property (for example, <code>description</code>) is not provided, the value
@@ -1720,6 +1762,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Modifies lifecycle settings for an application.</p>
    */
   public updateApplicationResourceLifecycle(
@@ -1752,6 +1795,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified application version to have the specified properties.</p>
    *          <note>
    *             <p>If a property (for example, <code>description</code>) is not provided, the value
@@ -1788,6 +1832,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified configuration template to have the specified properties or
    *       configuration option values.</p>
    *          <note>
@@ -1833,6 +1878,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Updates the environment description, deploys a new application version, updates the
    *       configuration settings to an entirely new configuration template, or updates select
    *       configuration option values in the running environment.</p>
@@ -1873,6 +1919,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code>
    *       for tags to add or update, and <code>TagsToRemove</code>.</p>
    *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
@@ -1924,6 +1971,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
+   * @public
    * <p>Takes a set of configuration settings and either a configuration template or
    *       environment, and determines whether those values are valid.</p>
    *          <p>This action returns a list of messages indicating any errors or warnings associated

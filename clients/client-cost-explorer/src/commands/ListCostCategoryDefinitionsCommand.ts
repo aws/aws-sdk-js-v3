@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCostCategoryDefinitionsCommand}.
  */
 export interface ListCostCategoryDefinitionsCommandInput extends ListCostCategoryDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCostCategoryDefinitionsCommand}.
  */
 export interface ListCostCategoryDefinitionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListCostCategoryDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and effective
  *       dates of all Cost Categories defined in the account. You have the option to use
  *         <code>EffectiveOn</code> to return a list of Cost Categories that were active on a specific
@@ -54,6 +59,8 @@ export interface ListCostCategoryDefinitionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCostCategoryDefinitionsCommandInput - {@link ListCostCategoryDefinitionsCommandInput}
+ * @returns {@link ListCostCategoryDefinitionsCommandOutput}
  * @see {@link ListCostCategoryDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListCostCategoryDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListCostCategoryDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCostCategoryDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListCostCategoryDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCostCategoryDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCostCategoryDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

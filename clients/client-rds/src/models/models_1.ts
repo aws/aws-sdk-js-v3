@@ -36,6 +36,9 @@ import {
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
+/**
+ * @public
+ */
 export interface DescribeDBParametersMessage {
   /**
    * <p>The name of a specific DB parameter group to return details for.</p>
@@ -81,6 +84,9 @@ export interface DescribeDBParametersMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBProxiesRequest {
   /**
    * <p>The name of the DB proxy. If you omit this parameter,
@@ -111,6 +117,9 @@ export interface DescribeDBProxiesRequest {
   MaxRecords?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBProxiesResponse {
   /**
    * <p>A return value representing an arbitrary number of <code>DBProxy</code> data structures.</p>
@@ -125,6 +134,9 @@ export interface DescribeDBProxiesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBProxyEndpointsRequest {
   /**
    * <p>The name of the DB proxy whose endpoints you want to describe. If you omit
@@ -162,6 +174,9 @@ export interface DescribeDBProxyEndpointsRequest {
   MaxRecords?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBProxyEndpointsResponse {
   /**
    * <p>The list of <code>ProxyEndpoint</code> objects returned by the API operation.</p>
@@ -176,6 +191,9 @@ export interface DescribeDBProxyEndpointsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBProxyTargetGroupsRequest {
   /**
    * <p>The identifier of the <code>DBProxy</code> associated with the target group.</p>
@@ -211,6 +229,7 @@ export interface DescribeDBProxyTargetGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Displays the settings that control the size and behavior of the connection pool associated with a <code>DBProxyTarget</code>.</p>
  */
 export interface ConnectionPoolConfigurationInfo {
@@ -253,6 +272,7 @@ export interface ConnectionPoolConfigurationInfo {
 }
 
 /**
+ * @public
  * <p>Represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group
  *         is associated with exactly one RDS DB instance or Aurora DB cluster.</p>
  *          <p>This data type is used as a response element in the <code>DescribeDBProxyTargetGroups</code> action.</p>
@@ -303,6 +323,9 @@ export interface DBProxyTargetGroup {
   UpdatedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBProxyTargetGroupsResponse {
   /**
    * <p>An arbitrary number of <code>DBProxyTargetGroup</code> objects, containing details of the corresponding target groups.</p>
@@ -317,6 +340,9 @@ export interface DescribeDBProxyTargetGroupsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBProxyTargetsRequest {
   /**
    * <p>The identifier of the <code>DBProxyTarget</code> to describe.</p>
@@ -351,12 +377,18 @@ export interface DescribeDBProxyTargetsRequest {
   MaxRecords?: number;
 }
 
+/**
+ * @public
+ */
 export enum TargetRole {
   READ_ONLY = "READ_ONLY",
   READ_WRITE = "READ_WRITE",
   UNKNOWN = "UNKNOWN",
 }
 
+/**
+ * @public
+ */
 export enum TargetHealthReason {
   AUTH_FAILURE = "AUTH_FAILURE",
   CONNECTION_FAILED = "CONNECTION_FAILED",
@@ -365,6 +397,9 @@ export enum TargetHealthReason {
   UNREACHABLE = "UNREACHABLE",
 }
 
+/**
+ * @public
+ */
 export enum TargetState {
   available = "AVAILABLE",
   registering = "REGISTERING",
@@ -372,6 +407,7 @@ export enum TargetState {
 }
 
 /**
+ * @public
  * <p>Information about the connection health of an RDS Proxy target.</p>
  */
 export interface TargetHealth {
@@ -396,6 +432,9 @@ export interface TargetHealth {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export enum TargetType {
   RDS_INSTANCE = "RDS_INSTANCE",
   RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT",
@@ -403,6 +442,7 @@ export enum TargetType {
 }
 
 /**
+ * @public
  * <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
  *         that the proxy can connect to. One or more targets are associated with an RDS Proxy target group.</p>
  *          <p>This data type is used as a response element in the <code>DescribeDBProxyTargets</code> action.</p>
@@ -450,6 +490,9 @@ export interface DBProxyTarget {
   TargetHealth?: TargetHealth;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBProxyTargetsResponse {
   /**
    * <p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>
@@ -465,6 +508,7 @@ export interface DescribeDBProxyTargetsResponse {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeDBSecurityGroups</code> action.</p>
  */
 export interface DBSecurityGroupMessage {
@@ -483,6 +527,7 @@ export interface DBSecurityGroupMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeDBSecurityGroupsMessage {
@@ -517,6 +562,7 @@ export interface DescribeDBSecurityGroupsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeDBSnapshotAttributesMessage {
@@ -527,6 +573,7 @@ export interface DescribeDBSnapshotAttributesMessage {
 }
 
 /**
+ * @public
  * <p>Contains the name and values of a manual DB snapshot attribute</p>
  *          <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
  *     to restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
@@ -553,6 +600,7 @@ export interface DBSnapshotAttribute {
 }
 
 /**
+ * @public
  * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
  *     API action.</p>
  *          <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
@@ -571,6 +619,9 @@ export interface DBSnapshotAttributesResult {
   DBSnapshotAttributes?: DBSnapshotAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBSnapshotAttributesResult {
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
@@ -583,6 +634,7 @@ export interface DescribeDBSnapshotAttributesResult {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeDBSnapshots</code> action.</p>
  */
 export interface DBSnapshotMessage {
@@ -601,6 +653,7 @@ export interface DBSnapshotMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeDBSnapshotsMessage {
@@ -747,6 +800,7 @@ export interface DescribeDBSnapshotsMessage {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeDBSubnetGroups</code> action.</p>
  */
 export interface DBSubnetGroupMessage {
@@ -765,6 +819,7 @@ export interface DBSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeDBSubnetGroupsMessage {
@@ -798,6 +853,7 @@ export interface DescribeDBSubnetGroupsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEngineDefaultClusterParametersMessage {
@@ -831,6 +887,7 @@ export interface DescribeEngineDefaultClusterParametersMessage {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.</p>
  */
 export interface EngineDefaults {
@@ -854,6 +911,9 @@ export interface EngineDefaults {
   Parameters?: Parameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEngineDefaultClusterParametersResult {
   /**
    * <p>Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.</p>
@@ -862,6 +922,7 @@ export interface DescribeEngineDefaultClusterParametersResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEngineDefaultParametersMessage {
@@ -1132,6 +1193,9 @@ export interface DescribeEngineDefaultParametersMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEngineDefaultParametersResult {
   /**
    * <p>Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.</p>
@@ -1140,6 +1204,7 @@ export interface DescribeEngineDefaultParametersResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventCategoriesMessage {
@@ -1157,6 +1222,7 @@ export interface DescribeEventCategoriesMessage {
 }
 
 /**
+ * @public
  * <p>Contains the results of a successful invocation of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html">DescribeEventCategories</a>
  *             operation.</p>
  */
@@ -1173,6 +1239,7 @@ export interface EventCategoriesMap {
 }
 
 /**
+ * @public
  * <p>Data returned from the <code>DescribeEventCategories</code> operation.</p>
  */
 export interface EventCategoriesMessage {
@@ -1182,6 +1249,9 @@ export interface EventCategoriesMessage {
   EventCategoriesMapList?: EventCategoriesMap[];
 }
 
+/**
+ * @public
+ */
 export enum SourceType {
   blue_green_deployment = "blue-green-deployment",
   custom_engine_version = "custom-engine-version",
@@ -1195,6 +1265,7 @@ export enum SourceType {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventsMessage {
@@ -1293,6 +1364,7 @@ export interface DescribeEventsMessage {
 }
 
 /**
+ * @public
  * <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a> action.</p>
  */
 export interface Event {
@@ -1328,6 +1400,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeEvents</code> action.</p>
  */
 export interface EventsMessage {
@@ -1347,6 +1420,7 @@ export interface EventsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventSubscriptionsMessage {
@@ -1381,6 +1455,7 @@ export interface DescribeEventSubscriptionsMessage {
 }
 
 /**
+ * @public
  * <p>Data returned by the <b>DescribeEventSubscriptions</b> action.</p>
  */
 export interface EventSubscriptionsMessage {
@@ -1399,6 +1474,9 @@ export interface EventSubscriptionsMessage {
   EventSubscriptionsList?: EventSubscription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportTasksMessage {
   /**
    * <p>The identifier of the snapshot or cluster export task to be described.</p>
@@ -1490,6 +1568,9 @@ export interface DescribeExportTasksMessage {
   SourceType?: ExportSourceType | string;
 }
 
+/**
+ * @public
+ */
 export interface ExportTasksMessage {
   /**
    * <p>A pagination token that can be used in a later <code>DescribeExportTasks</code>
@@ -1504,6 +1585,9 @@ export interface ExportTasksMessage {
   ExportTasks?: ExportTask[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalClustersMessage {
   /**
    * <p>The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
@@ -1538,6 +1622,9 @@ export interface DescribeGlobalClustersMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface GlobalClustersMessage {
   /**
    * <p>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code> request.
@@ -1553,6 +1640,7 @@ export interface GlobalClustersMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeOptionGroupOptionsMessage {
@@ -1649,6 +1737,7 @@ export interface DescribeOptionGroupOptionsMessage {
 }
 
 /**
+ * @public
  * <p>The minimum DB engine version required for each corresponding allowed value for an option setting.</p>
  */
 export interface MinimumEngineVersionPerAllowedValue {
@@ -1664,6 +1753,7 @@ export interface MinimumEngineVersionPerAllowedValue {
 }
 
 /**
+ * @public
  * <p>Option group option settings are used to display settings available for each option with their default values and other information. These values are used with the DescribeOptionGroupOptions action.</p>
  */
 export interface OptionGroupOptionSetting {
@@ -1709,6 +1799,7 @@ export interface OptionGroupOptionSetting {
 }
 
 /**
+ * @public
  * <p>The version for an option. Option group option versions are returned by
  *             the <code>DescribeOptionGroupOptions</code> action.</p>
  */
@@ -1725,6 +1816,7 @@ export interface OptionVersion {
 }
 
 /**
+ * @public
  * <p>Available option.</p>
  */
 export interface OptionGroupOption {
@@ -1819,6 +1911,7 @@ export interface OptionGroupOption {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface OptionGroupOptionsMessage {
@@ -1837,6 +1930,7 @@ export interface OptionGroupOptionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeOptionGroupsMessage {
@@ -1938,6 +2032,7 @@ export interface DescribeOptionGroupsMessage {
 }
 
 /**
+ * @public
  * <p>List of option groups.</p>
  */
 export interface OptionGroups {
@@ -1956,6 +2051,7 @@ export interface OptionGroups {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeOrderableDBInstanceOptionsMessage {
@@ -2093,6 +2189,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
 }
 
 /**
+ * @public
  * <p>Contains the available processor feature information for the DB instance class of a DB instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor">Configuring the
  *                 Processor of the DB Instance Class</a> in the <i>Amazon RDS User Guide.
@@ -2118,6 +2215,7 @@ export interface AvailableProcessorFeature {
 }
 
 /**
+ * @public
  * <p>Contains a list of available options for a DB instance.</p>
  *          <p>This data type is used as a response element in the <code>DescribeOrderableDBInstanceOptions</code> action.</p>
  */
@@ -2314,6 +2412,7 @@ export interface OrderableDBInstanceOption {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeOrderableDBInstanceOptions</code> action.</p>
  */
 export interface OrderableDBInstanceOptionsMessage {
@@ -2333,6 +2432,7 @@ export interface OrderableDBInstanceOptionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribePendingMaintenanceActionsMessage {
@@ -2382,6 +2482,7 @@ export interface DescribePendingMaintenanceActionsMessage {
 }
 
 /**
+ * @public
  * <p>Data returned from the <b>DescribePendingMaintenanceActions</b> action.</p>
  */
 export interface PendingMaintenanceActionsMessage {
@@ -2401,6 +2502,7 @@ export interface PendingMaintenanceActionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReservedDBInstancesMessage {
@@ -2475,6 +2577,7 @@ export interface DescribeReservedDBInstancesMessage {
 }
 
 /**
+ * @public
  * <p>This data type is used as a response element in the
  *             <code>DescribeReservedDBInstances</code> and <code>DescribeReservedDBInstancesOfferings</code> actions.</p>
  */
@@ -2491,6 +2594,7 @@ export interface RecurringCharge {
 }
 
 /**
+ * @public
  * <p>This data type is used as a response element in the
  *             <code>DescribeReservedDBInstances</code> and
  *             <code>PurchaseReservedDBInstancesOffering</code> actions.</p>
@@ -2581,6 +2685,7 @@ export interface ReservedDBInstance {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeReservedDBInstances</code> action.</p>
  */
 export interface ReservedDBInstanceMessage {
@@ -2599,6 +2704,7 @@ export interface ReservedDBInstanceMessage {
 }
 
 /**
+ * @public
  * <p>The specified reserved DB Instance not found.</p>
  */
 export class ReservedDBInstanceNotFoundFault extends __BaseException {
@@ -2618,6 +2724,7 @@ export class ReservedDBInstanceNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReservedDBInstancesOfferingsMessage {
@@ -2684,6 +2791,7 @@ export interface DescribeReservedDBInstancesOfferingsMessage {
 }
 
 /**
+ * @public
  * <p>This data type is used as a response element in the <code>DescribeReservedDBInstancesOfferings</code> action.</p>
  */
 export interface ReservedDBInstancesOffering {
@@ -2739,6 +2847,7 @@ export interface ReservedDBInstancesOffering {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeReservedDBInstancesOfferings</code> action.</p>
  */
 export interface ReservedDBInstancesOfferingMessage {
@@ -2757,6 +2866,7 @@ export interface ReservedDBInstancesOfferingMessage {
 }
 
 /**
+ * @public
  * <p>Specified offering does not exist.</p>
  */
 export class ReservedDBInstancesOfferingNotFoundFault extends __BaseException {
@@ -2776,6 +2886,7 @@ export class ReservedDBInstancesOfferingNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeSourceRegionsMessage {
@@ -2813,6 +2924,7 @@ export interface DescribeSourceRegionsMessage {
 }
 
 /**
+ * @public
  * <p>Contains an Amazon Web Services Region name as the result of a successful call to the <code>DescribeSourceRegions</code> action.</p>
  */
 export interface SourceRegion {
@@ -2838,6 +2950,7 @@ export interface SourceRegion {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeSourceRegions</code> action.</p>
  */
 export interface SourceRegionMessage {
@@ -2857,6 +2970,7 @@ export interface SourceRegionMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeValidDBInstanceModificationsMessage {
@@ -2867,6 +2981,7 @@ export interface DescribeValidDBInstanceModificationsMessage {
 }
 
 /**
+ * @public
  * <p>A range of double values.</p>
  */
 export interface DoubleRange {
@@ -2882,6 +2997,7 @@ export interface DoubleRange {
 }
 
 /**
+ * @public
  * <p>A range of integer values.</p>
  */
 export interface Range {
@@ -2908,6 +3024,7 @@ export interface Range {
 }
 
 /**
+ * @public
  * <p>Information about valid modifications that you can make to your DB instance.
  *             Contains the result of a successful call to the
  *             <code>DescribeValidDBInstanceModifications</code> action.</p>
@@ -2957,6 +3074,7 @@ export interface ValidStorageOptions {
 }
 
 /**
+ * @public
  * <p>Information about valid modifications that you can make to your DB instance.
  *             Contains the result of a successful call to the
  *             <code>DescribeValidDBInstanceModifications</code> action.
@@ -2975,6 +3093,9 @@ export interface ValidDBInstanceModificationsMessage {
   ValidProcessorFeatures?: AvailableProcessorFeature[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeValidDBInstanceModificationsResult {
   /**
    * <p>Information about valid modifications that you can make to your DB instance.
@@ -2987,6 +3108,7 @@ export interface DescribeValidDBInstanceModificationsResult {
 }
 
 /**
+ * @public
  * <p>
  *             <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
  */
@@ -3007,6 +3129,7 @@ export class DBLogFileNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This data type is used as a response element to <code>DownloadDBLogFilePortion</code>.</p>
  */
 export interface DownloadDBLogFilePortionDetails {
@@ -3027,6 +3150,7 @@ export interface DownloadDBLogFilePortionDetails {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DownloadDBLogFilePortionMessage {
@@ -3082,6 +3206,7 @@ export interface DownloadDBLogFilePortionMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface FailoverDBClusterMessage {
@@ -3105,6 +3230,9 @@ export interface FailoverDBClusterMessage {
   TargetDBInstanceIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface FailoverDBClusterResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -3129,6 +3257,9 @@ export interface FailoverDBClusterResult {
   DBCluster?: DBCluster;
 }
 
+/**
+ * @public
+ */
 export interface FailoverGlobalClusterMessage {
   /**
    * <p>Identifier of the Aurora global database (<a>GlobalCluster</a>)
@@ -3153,6 +3284,9 @@ export interface FailoverGlobalClusterMessage {
   TargetDbClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface FailoverGlobalClusterResult {
   /**
    * <p>A data type representing an Aurora global database.</p>
@@ -3161,6 +3295,7 @@ export interface FailoverGlobalClusterResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ListTagsForResourceMessage {
@@ -3179,6 +3314,7 @@ export interface ListTagsForResourceMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface TagListMessage {
@@ -3188,11 +3324,17 @@ export interface TagListMessage {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum AuditPolicyState {
   LOCKED_POLICY = "locked",
   UNLOCKED_POLICY = "unlocked",
 }
 
+/**
+ * @public
+ */
 export interface ModifyActivityStreamRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the RDS for Oracle or Microsoft SQL Server DB instance.
@@ -3207,6 +3349,9 @@ export interface ModifyActivityStreamRequest {
   AuditPolicyState?: AuditPolicyState | string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyActivityStreamResponse {
   /**
    * <p>The Amazon Web Services KMS key identifier for encryption of messages in the database activity stream.</p>
@@ -3239,6 +3384,9 @@ export interface ModifyActivityStreamResponse {
   PolicyStatus?: ActivityStreamPolicyStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyCertificatesMessage {
   /**
    * <p>The new default certificate identifier to override the current one with.</p>
@@ -3255,6 +3403,9 @@ export interface ModifyCertificatesMessage {
   RemoveCustomerOverride?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyCertificatesResult {
   /**
    * <p>A CA certificate for an Amazon Web Services account.</p>
@@ -3267,6 +3418,9 @@ export interface ModifyCertificatesResult {
   Certificate?: Certificate;
 }
 
+/**
+ * @public
+ */
 export interface DBClusterCapacityInfo {
   /**
    * <p>A user-supplied DB cluster identifier. This identifier is the unique key that
@@ -3297,6 +3451,7 @@ export interface DBClusterCapacityInfo {
 }
 
 /**
+ * @public
  * <p>
  *             <code>Capacity</code> isn't a valid Aurora Serverless DB cluster
  *             capacity. Valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
@@ -3318,6 +3473,9 @@ export class InvalidDBClusterCapacityFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifyCurrentDBClusterCapacityMessage {
   /**
    * <p>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</p>
@@ -3363,12 +3521,18 @@ export interface ModifyCurrentDBClusterCapacityMessage {
   TimeoutAction?: string;
 }
 
+/**
+ * @public
+ */
 export enum CustomEngineVersionStatus {
   available = "available",
   inactive = "inactive",
   inactive_except_restore = "inactive-except-restore",
 }
 
+/**
+ * @public
+ */
 export interface ModifyCustomDBEngineVersionMessage {
   /**
    * <p>The DB engine. The only supported value is <code>custom-oracle-ee</code>.</p>
@@ -3410,6 +3574,7 @@ export interface ModifyCustomDBEngineVersionMessage {
 }
 
 /**
+ * @public
  * <p>The configuration setting for the log types to be enabled for export to CloudWatch
  *             Logs for a specific DB instance or DB cluster.</p>
  *          <p>The <code>EnableLogTypes</code> and <code>DisableLogTypes</code> arrays determine which logs will be exported
@@ -3431,6 +3596,7 @@ export interface CloudwatchLogsExportConfiguration {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyDBClusterMessage {
@@ -3964,6 +4130,9 @@ export interface ModifyDBClusterMessage {
   MasterUserSecretKmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBClusterResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -3988,6 +4157,9 @@ export interface ModifyDBClusterResult {
   DBCluster?: DBCluster;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBClusterEndpointMessage {
   /**
    * <p>The identifier of the endpoint to modify. This parameter is stored as a lowercase string.</p>
@@ -4013,6 +4185,7 @@ export interface ModifyDBClusterEndpointMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DBClusterParameterGroupNameMessage {
@@ -4038,6 +4211,7 @@ export interface DBClusterParameterGroupNameMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyDBClusterParameterGroupMessage {
@@ -4063,6 +4237,7 @@ export interface ModifyDBClusterParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyDBClusterSnapshotAttributeMessage {
@@ -4104,6 +4279,9 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
   ValuesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBClusterSnapshotAttributeResult {
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
@@ -4116,6 +4294,7 @@ export interface ModifyDBClusterSnapshotAttributeResult {
 }
 
 /**
+ * @public
  * <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  */
 export class SharedSnapshotQuotaExceededFault extends __BaseException {
@@ -4135,6 +4314,7 @@ export class SharedSnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The DB upgrade failed because a resource the DB depends on can't be
  *             modified.</p>
  */
@@ -4155,6 +4335,7 @@ export class DBUpgradeDependencyFailureFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyDBInstanceMessage {
@@ -4976,6 +5157,9 @@ export interface ModifyDBInstanceMessage {
   MasterUserSecretKmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -4989,6 +5173,7 @@ export interface ModifyDBInstanceResult {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the
  *         <code>ModifyDBParameterGroup</code> or <code>ResetDBParameterGroup</code> action.</p>
  */
@@ -5000,6 +5185,7 @@ export interface DBParameterGroupNameMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyDBParameterGroupMessage {
@@ -5034,6 +5220,9 @@ export interface ModifyDBParameterGroupMessage {
   Parameters: Parameter[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBProxyRequest {
   /**
    * <p>The identifier for the <code>DBProxy</code> to modify.</p>
@@ -5084,6 +5273,9 @@ export interface ModifyDBProxyRequest {
   SecurityGroups?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBProxyResponse {
   /**
    * <p>The <code>DBProxy</code> object representing the new settings for the proxy.</p>
@@ -5091,6 +5283,9 @@ export interface ModifyDBProxyResponse {
   DBProxy?: DBProxy;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBProxyEndpointRequest {
   /**
    * <p>The name of the DB proxy sociated with the DB proxy endpoint that you want to modify.</p>
@@ -5112,6 +5307,9 @@ export interface ModifyDBProxyEndpointRequest {
   VpcSecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBProxyEndpointResponse {
   /**
    * <p>The <code>DBProxyEndpoint</code> object representing the new settings for the DB proxy endpoint.</p>
@@ -5120,6 +5318,7 @@ export interface ModifyDBProxyEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the settings that control the size and behavior of the connection pool associated with a <code>DBProxyTargetGroup</code>.</p>
  */
 export interface ConnectionPoolConfiguration {
@@ -5171,6 +5370,9 @@ export interface ConnectionPoolConfiguration {
   InitQuery?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBProxyTargetGroupRequest {
   /**
    * <p>The name of the target group to modify.</p>
@@ -5193,6 +5395,9 @@ export interface ModifyDBProxyTargetGroupRequest {
   NewName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBProxyTargetGroupResponse {
   /**
    * <p>The settings of the modified <code>DBProxyTarget</code>.</p>
@@ -5200,6 +5405,9 @@ export interface ModifyDBProxyTargetGroupResponse {
   DBProxyTargetGroup?: DBProxyTargetGroup;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBSnapshotMessage {
   /**
    * <p>The identifier of the DB snapshot to modify.</p>
@@ -5255,6 +5463,9 @@ export interface ModifyDBSnapshotMessage {
   OptionGroupName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBSnapshotResult {
   /**
    * <p>Contains the details of an Amazon RDS DB snapshot.</p>
@@ -5265,6 +5476,7 @@ export interface ModifyDBSnapshotResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyDBSnapshotAttributeMessage {
@@ -5306,6 +5518,9 @@ export interface ModifyDBSnapshotAttributeMessage {
   ValuesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBSnapshotAttributeResult {
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
@@ -5318,6 +5533,7 @@ export interface ModifyDBSnapshotAttributeResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyDBSubnetGroupMessage {
@@ -5341,6 +5557,9 @@ export interface ModifyDBSubnetGroupMessage {
   SubnetIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBSubnetGroupResult {
   /**
    * <p>Contains the details of an Amazon RDS DB subnet group.</p>
@@ -5351,6 +5570,7 @@ export interface ModifyDBSubnetGroupResult {
 }
 
 /**
+ * @public
  * <p>The DB subnet is already in use in the Availability Zone.</p>
  */
 export class SubnetAlreadyInUse extends __BaseException {
@@ -5370,6 +5590,7 @@ export class SubnetAlreadyInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyEventSubscriptionMessage {
@@ -5404,6 +5625,9 @@ export interface ModifyEventSubscriptionMessage {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyEventSubscriptionResult {
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
@@ -5411,6 +5635,9 @@ export interface ModifyEventSubscriptionResult {
   EventSubscription?: EventSubscription;
 }
 
+/**
+ * @public
+ */
 export interface ModifyGlobalClusterMessage {
   /**
    * <p>The DB cluster identifier for the global cluster being modified. This parameter isn't case-sensitive.</p>
@@ -5480,6 +5707,9 @@ export interface ModifyGlobalClusterMessage {
   AllowMajorVersionUpgrade?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyGlobalClusterResult {
   /**
    * <p>A data type representing an Aurora global database.</p>
@@ -5488,6 +5718,7 @@ export interface ModifyGlobalClusterResult {
 }
 
 /**
+ * @public
  * <p>A list of all available options</p>
  */
 export interface OptionConfiguration {
@@ -5523,6 +5754,7 @@ export interface OptionConfiguration {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyOptionGroupMessage {
@@ -5548,6 +5780,9 @@ export interface ModifyOptionGroupMessage {
   ApplyImmediately?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyOptionGroupResult {
   /**
    * <p></p>
@@ -5556,6 +5791,7 @@ export interface ModifyOptionGroupResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface PromoteReadReplicaMessage {
@@ -5616,6 +5852,9 @@ export interface PromoteReadReplicaMessage {
   PreferredBackupWindow?: string;
 }
 
+/**
+ * @public
+ */
 export interface PromoteReadReplicaResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -5629,6 +5868,7 @@ export interface PromoteReadReplicaResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface PromoteReadReplicaDBClusterMessage {
@@ -5647,6 +5887,9 @@ export interface PromoteReadReplicaDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PromoteReadReplicaDBClusterResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -5672,6 +5915,7 @@ export interface PromoteReadReplicaDBClusterResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface PurchaseReservedDBInstancesOfferingMessage {
@@ -5702,6 +5946,9 @@ export interface PurchaseReservedDBInstancesOfferingMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PurchaseReservedDBInstancesOfferingResult {
   /**
    * <p>This data type is used as a response element in the
@@ -5712,6 +5959,7 @@ export interface PurchaseReservedDBInstancesOfferingResult {
 }
 
 /**
+ * @public
  * <p>User already has a reservation with the given identifier.</p>
  */
 export class ReservedDBInstanceAlreadyExistsFault extends __BaseException {
@@ -5731,6 +5979,7 @@ export class ReservedDBInstanceAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request would exceed the user's DB Instance quota.</p>
  */
 export class ReservedDBInstanceQuotaExceededFault extends __BaseException {
@@ -5749,6 +5998,9 @@ export class ReservedDBInstanceQuotaExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RebootDBClusterMessage {
   /**
    * <p>The DB cluster identifier. This parameter is stored as a lowercase string.</p>
@@ -5762,6 +6014,9 @@ export interface RebootDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootDBClusterResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -5787,6 +6042,7 @@ export interface RebootDBClusterResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RebootDBInstanceMessage {
@@ -5808,6 +6064,9 @@ export interface RebootDBInstanceMessage {
   ForceFailover?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RebootDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -5821,6 +6080,7 @@ export interface RebootDBInstanceResult {
 }
 
 /**
+ * @public
  * <p>The proxy is already associated with the specified RDS DB instance or Aurora DB cluster.</p>
  */
 export class DBProxyTargetAlreadyRegisteredFault extends __BaseException {
@@ -5840,6 +6100,7 @@ export class DBProxyTargetAlreadyRegisteredFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation can't be performed because there aren't enough available IP addresses
  *            in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required
  *            from the subnets.</p>
@@ -5860,6 +6121,9 @@ export class InsufficientAvailableIPsInSubnetFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RegisterDBProxyTargetsRequest {
   /**
    * <p>The identifier of the <code>DBProxy</code> that is associated with the <code>DBProxyTargetGroup</code>.</p>
@@ -5882,6 +6146,9 @@ export interface RegisterDBProxyTargetsRequest {
   DBClusterIdentifiers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface RegisterDBProxyTargetsResponse {
   /**
    * <p>One or more <code>DBProxyTarget</code> objects that are created when you register targets with a target group.</p>
@@ -5889,6 +6156,9 @@ export interface RegisterDBProxyTargetsResponse {
   DBProxyTargets?: DBProxyTarget[];
 }
 
+/**
+ * @public
+ */
 export interface RemoveFromGlobalClusterMessage {
   /**
    * <p>The cluster identifier to detach from the Aurora global database cluster.</p>
@@ -5901,6 +6171,9 @@ export interface RemoveFromGlobalClusterMessage {
   DbClusterIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFromGlobalClusterResult {
   /**
    * <p>A data type representing an Aurora global database.</p>
@@ -5909,6 +6182,7 @@ export interface RemoveFromGlobalClusterResult {
 }
 
 /**
+ * @public
  * <p>The specified IAM role Amazon Resource Name (ARN) isn't associated with the specified DB cluster.</p>
  */
 export class DBClusterRoleNotFoundFault extends __BaseException {
@@ -5927,6 +6201,9 @@ export class DBClusterRoleNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RemoveRoleFromDBClusterMessage {
   /**
    * <p>The name of the DB cluster to disassociate the IAM role from.</p>
@@ -5947,6 +6224,7 @@ export interface RemoveRoleFromDBClusterMessage {
 }
 
 /**
+ * @public
  * <p>The specified <code>RoleArn</code> value doesn't match the specified feature for
  *             the DB instance.</p>
  */
@@ -5966,6 +6244,9 @@ export class DBInstanceRoleNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RemoveRoleFromDBInstanceMessage {
   /**
    * <p>The name of the DB instance to disassociate the IAM role from.</p>
@@ -5986,6 +6267,7 @@ export interface RemoveRoleFromDBInstanceMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RemoveSourceIdentifierFromSubscriptionMessage {
@@ -6001,6 +6283,9 @@ export interface RemoveSourceIdentifierFromSubscriptionMessage {
   SourceIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSourceIdentifierFromSubscriptionResult {
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
@@ -6009,6 +6294,7 @@ export interface RemoveSourceIdentifierFromSubscriptionResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RemoveTagsFromResourceMessage {
@@ -6028,6 +6314,7 @@ export interface RemoveTagsFromResourceMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ResetDBClusterParameterGroupMessage {
@@ -6051,6 +6338,7 @@ export interface ResetDBClusterParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ResetDBParameterGroupMessage {
@@ -6103,6 +6391,7 @@ export interface ResetDBParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't
  *             authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>
  */
@@ -6122,6 +6411,9 @@ export class InvalidS3BucketFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBClusterFromS3Message {
   /**
    * <p>A list of Availability Zones (AZs) where instances in the restored DB cluster can be created.</p>
@@ -6496,6 +6788,9 @@ export interface RestoreDBClusterFromS3Message {
   MasterUserSecretKmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBClusterFromS3Result {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -6521,6 +6816,7 @@ export interface RestoreDBClusterFromS3Result {
 }
 
 /**
+ * @public
  * <p>The DB cluster doesn't have enough capacity for the current operation.</p>
  */
 export class InsufficientDBClusterCapacityFault extends __BaseException {
@@ -6540,6 +6836,7 @@ export class InsufficientDBClusterCapacityFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
  */
 export class InvalidRestoreFault extends __BaseException {
@@ -6559,6 +6856,7 @@ export class InvalidRestoreFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RestoreDBClusterFromSnapshotMessage {
@@ -6943,6 +7241,9 @@ export interface RestoreDBClusterFromSnapshotMessage {
   NetworkType?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBClusterFromSnapshotResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -6968,6 +7269,7 @@ export interface RestoreDBClusterFromSnapshotResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RestoreDBClusterToPointInTimeMessage {
@@ -7329,6 +7631,9 @@ export interface RestoreDBClusterToPointInTimeMessage {
   NetworkType?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBClusterToPointInTimeResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -7354,6 +7659,7 @@ export interface RestoreDBClusterToPointInTimeResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RestoreDBInstanceFromDBSnapshotMessage {
@@ -7804,6 +8110,9 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   AllocatedStorage?: number;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBInstanceFromDBSnapshotResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -7816,6 +8125,9 @@ export interface RestoreDBInstanceFromDBSnapshotResult {
   DBInstance?: DBInstance;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBInstanceFromS3Message {
   /**
    * <p>The name of the database to create when the DB instance is created.
@@ -8331,6 +8643,9 @@ export interface RestoreDBInstanceFromS3Message {
   MasterUserSecretKmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBInstanceFromS3Result {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -8344,6 +8659,7 @@ export interface RestoreDBInstanceFromS3Result {
 }
 
 /**
+ * @public
  * <p>
  *             <code>SourceDBInstanceIdentifier</code>
  *         refers to a DB instance with
@@ -8366,6 +8682,7 @@ export class PointInTimeRestoreNotEnabledFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RestoreDBInstanceToPointInTimeMessage {
@@ -8813,6 +9130,9 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   AllocatedStorage?: number;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBInstanceToPointInTimeResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -8826,6 +9146,7 @@ export interface RestoreDBInstanceToPointInTimeResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RevokeDBSecurityGroupIngressMessage {
@@ -8866,6 +9187,9 @@ export interface RevokeDBSecurityGroupIngressMessage {
   EC2SecurityGroupOwnerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RevokeDBSecurityGroupIngressResult {
   /**
    * <p>Contains the details for an Amazon RDS DB security group.</p>
@@ -8875,6 +9199,9 @@ export interface RevokeDBSecurityGroupIngressResult {
   DBSecurityGroup?: DBSecurityGroup;
 }
 
+/**
+ * @public
+ */
 export interface StartActivityStreamRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the DB cluster,
@@ -8908,6 +9235,9 @@ export interface StartActivityStreamRequest {
   EngineNativeAuditFieldsIncluded?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartActivityStreamResponse {
   /**
    * <p>The Amazon Web Services KMS key identifier for encryption of messages in the database activity stream.</p>
@@ -8941,6 +9271,9 @@ export interface StartActivityStreamResponse {
   EngineNativeAuditFieldsIncluded?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartDBClusterMessage {
   /**
    * <p>The DB cluster identifier of the Amazon Aurora DB cluster to be started. This parameter is stored as
@@ -8949,6 +9282,9 @@ export interface StartDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDBClusterResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -8973,6 +9309,9 @@ export interface StartDBClusterResult {
   DBCluster?: DBCluster;
 }
 
+/**
+ * @public
+ */
 export interface StartDBInstanceMessage {
   /**
    * <p>The user-supplied instance identifier.</p>
@@ -8980,6 +9319,9 @@ export interface StartDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -8992,6 +9334,9 @@ export interface StartDBInstanceResult {
   DBInstance?: DBInstance;
 }
 
+/**
+ * @public
+ */
 export interface StartDBInstanceAutomatedBackupsReplicationMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example,
@@ -9035,6 +9380,9 @@ export interface StartDBInstanceAutomatedBackupsReplicationMessage {
   PreSignedUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDBInstanceAutomatedBackupsReplicationResult {
   /**
    * <p>An automated backup of a DB instance. It consists of system backups, transaction logs, and the database instance properties that
@@ -9044,6 +9392,7 @@ export interface StartDBInstanceAutomatedBackupsReplicationResult {
 }
 
 /**
+ * @public
  * <p>You can't start an export task that's already running.</p>
  */
 export class ExportTaskAlreadyExistsFault extends __BaseException {
@@ -9063,6 +9412,7 @@ export class ExportTaskAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The IAM role requires additional permissions to export to an Amazon S3 bucket.</p>
  */
 export class IamRoleMissingPermissionsFault extends __BaseException {
@@ -9082,6 +9432,7 @@ export class IamRoleMissingPermissionsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The IAM role is missing for exporting to an Amazon S3 bucket.</p>
  */
 export class IamRoleNotFoundFault extends __BaseException {
@@ -9101,6 +9452,7 @@ export class IamRoleNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The export is invalid for exporting to an Amazon S3 bucket.</p>
  */
 export class InvalidExportOnlyFault extends __BaseException {
@@ -9120,6 +9472,7 @@ export class InvalidExportOnlyFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The state of the export snapshot is invalid for exporting to an Amazon S3 bucket.</p>
  */
 export class InvalidExportSourceStateFault extends __BaseException {
@@ -9138,6 +9491,9 @@ export class InvalidExportSourceStateFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartExportTaskMessage {
   /**
    * <p>A unique identifier for the export task. This ID isn't an identifier for
@@ -9235,6 +9591,9 @@ export interface StartExportTaskMessage {
   ExportOnly?: string[];
 }
 
+/**
+ * @public
+ */
 export interface StopActivityStreamRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the DB cluster for the database activity stream.
@@ -9249,6 +9608,9 @@ export interface StopActivityStreamRequest {
   ApplyImmediately?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StopActivityStreamResponse {
   /**
    * <p>The Amazon Web Services KMS key identifier used for encrypting messages in the database activity stream.</p>
@@ -9267,6 +9629,9 @@ export interface StopActivityStreamResponse {
   Status?: ActivityStreamStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StopDBClusterMessage {
   /**
    * <p>The DB cluster identifier of the Amazon Aurora DB cluster to be stopped. This parameter is stored as
@@ -9275,6 +9640,9 @@ export interface StopDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDBClusterResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -9299,6 +9667,9 @@ export interface StopDBClusterResult {
   DBCluster?: DBCluster;
 }
 
+/**
+ * @public
+ */
 export interface StopDBInstanceMessage {
   /**
    * <p>The user-supplied instance identifier.</p>
@@ -9311,6 +9682,9 @@ export interface StopDBInstanceMessage {
   DBSnapshotIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -9323,6 +9697,9 @@ export interface StopDBInstanceResult {
   DBInstance?: DBInstance;
 }
 
+/**
+ * @public
+ */
 export interface StopDBInstanceAutomatedBackupsReplicationMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the source DB instance for which to stop replicating automated backups, for example,
@@ -9331,6 +9708,9 @@ export interface StopDBInstanceAutomatedBackupsReplicationMessage {
   SourceDBInstanceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDBInstanceAutomatedBackupsReplicationResult {
   /**
    * <p>An automated backup of a DB instance. It consists of system backups, transaction logs, and the database instance properties that
@@ -9339,6 +9719,9 @@ export interface StopDBInstanceAutomatedBackupsReplicationResult {
   DBInstanceAutomatedBackup?: DBInstanceAutomatedBackup;
 }
 
+/**
+ * @public
+ */
 export interface SwitchoverBlueGreenDeploymentRequest {
   /**
    * <p>The blue/green deployment identifier.</p>
@@ -9359,6 +9742,9 @@ export interface SwitchoverBlueGreenDeploymentRequest {
   SwitchoverTimeout?: number;
 }
 
+/**
+ * @public
+ */
 export interface SwitchoverBlueGreenDeploymentResponse {
   /**
    * <p>Contains the details about a blue/green deployment.</p>
@@ -9371,6 +9757,9 @@ export interface SwitchoverBlueGreenDeploymentResponse {
   BlueGreenDeployment?: BlueGreenDeployment;
 }
 
+/**
+ * @public
+ */
 export interface SwitchoverReadReplicaMessage {
   /**
    * <p>The DB instance identifier of the current standby database. This value is stored as a lowercase string.</p>
@@ -9384,6 +9773,9 @@ export interface SwitchoverReadReplicaMessage {
   DBInstanceIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SwitchoverReadReplicaResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>

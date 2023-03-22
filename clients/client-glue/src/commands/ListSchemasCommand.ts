@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandInput extends ListSchemasInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of schemas with minimal details. Schemas in Deleting status will not be included in the results. Empty results will be returned if there are no schemas available.</p>
  *          <p>When the <code>RegistryId</code> is not provided, all the schemas across registries will be part of the API response.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
+ * @returns {@link ListSchemasCommandOutput}
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemasCommandOutput> {
     return deserializeAws_json1_1ListSchemasCommand(output, context);
   }

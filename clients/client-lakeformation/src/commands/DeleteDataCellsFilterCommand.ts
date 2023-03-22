@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataCellsFilterCommand}.
  */
 export interface DeleteDataCellsFilterCommandInput extends DeleteDataCellsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataCellsFilterCommand}.
  */
 export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a data cell filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataCellsFilterCommandInput - {@link DeleteDataCellsFilterCommandInput}
+ * @returns {@link DeleteDataCellsFilterCommandOutput}
  * @see {@link DeleteDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteDataCellsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteDataCellsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDataCellsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataCellsFilterCommandOutput> {
     return deserializeAws_restJson1DeleteDataCellsFilterCommand(output, context);
   }

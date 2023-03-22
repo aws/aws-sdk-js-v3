@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMembershipCommand}.
  */
 export interface CreateMembershipCommandInput extends CreateMembershipInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMembershipCommand}.
  */
 export interface CreateMembershipCommandOutput extends CreateMembershipOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a membership for a specific collaboration identifier and joins the
  *          collaboration.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMembershipCommandInput - {@link CreateMembershipCommandInput}
+ * @returns {@link CreateMembershipCommandOutput}
  * @see {@link CreateMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateMembershipCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMembershipCommandOutput> {
     return deserializeAws_restJson1CreateMembershipCommand(output, context);
   }

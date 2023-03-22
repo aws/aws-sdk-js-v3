@@ -48,6 +48,9 @@ import {
   Vpc,
 } from "./models_1";
 
+/**
+ * @public
+ */
 export interface CreateReplaceRootVolumeTaskResult {
   /**
    * <p>Information about the root volume replacement task.</p>
@@ -56,6 +59,7 @@ export interface CreateReplaceRootVolumeTaskResult {
 }
 
 /**
+ * @public
  * <p>Describes the price for a Reserved Instance.</p>
  */
 export interface PriceScheduleSpecification {
@@ -77,6 +81,7 @@ export interface PriceScheduleSpecification {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateReservedInstancesListing.</p>
  */
 export interface CreateReservedInstancesListingRequest {
@@ -104,6 +109,7 @@ export interface CreateReservedInstancesListingRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of CreateReservedInstancesListing.</p>
  */
 export interface CreateReservedInstancesListingResult {
@@ -113,6 +119,9 @@ export interface CreateReservedInstancesListingResult {
   ReservedInstancesListings?: ReservedInstancesListing[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRestoreImageTaskRequest {
   /**
    * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
@@ -155,6 +164,9 @@ export interface CreateRestoreImageTaskRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateRestoreImageTaskResult {
   /**
    * <p>The AMI ID.</p>
@@ -162,6 +174,9 @@ export interface CreateRestoreImageTaskResult {
   ImageId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteRequest {
   /**
    * <p>The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
@@ -248,6 +263,9 @@ export interface CreateRouteRequest {
   CoreNetworkArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -255,6 +273,9 @@ export interface CreateRouteResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteTableRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -275,6 +296,7 @@ export interface CreateRouteTableRequest {
 }
 
 /**
+ * @public
  * <p>Describes an association between a route table and a subnet or gateway.</p>
  */
 export interface RouteTableAssociation {
@@ -310,6 +332,7 @@ export interface RouteTableAssociation {
 }
 
 /**
+ * @public
  * <p>Describes a virtual private gateway propagating route.</p>
  */
 export interface PropagatingVgw {
@@ -319,18 +342,25 @@ export interface PropagatingVgw {
   GatewayId?: string;
 }
 
+/**
+ * @public
+ */
 export enum RouteOrigin {
   CreateRoute = "CreateRoute",
   CreateRouteTable = "CreateRouteTable",
   EnableVgwRoutePropagation = "EnableVgwRoutePropagation",
 }
 
+/**
+ * @public
+ */
 export enum RouteState {
   active = "active",
   blackhole = "blackhole",
 }
 
 /**
+ * @public
  * <p>Describes a route in a route table.</p>
  */
 export interface Route {
@@ -432,6 +462,7 @@ export interface Route {
 }
 
 /**
+ * @public
  * <p>Describes a route table.</p>
  */
 export interface RouteTable {
@@ -471,6 +502,9 @@ export interface RouteTable {
   OwnerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteTableResult {
   /**
    * <p>Information about the route table.</p>
@@ -478,12 +512,15 @@ export interface CreateRouteTableResult {
   RouteTable?: RouteTable;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityGroupRequest {
   /**
    * <p>A description for the security group.</p>
    *          <p>Constraints: Up to 255 characters in length</p>
    *          <p>Constraints for EC2-Classic: ASCII characters</p>
-   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    */
   Description: string | undefined;
 
@@ -492,7 +529,7 @@ export interface CreateSecurityGroupRequest {
    *          <p>Constraints: Up to 255 characters in length. Cannot start with
    *             <code>sg-</code>.</p>
    *          <p>Constraints for EC2-Classic: ASCII characters</p>
-   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    */
   GroupName: string | undefined;
 
@@ -514,6 +551,9 @@ export interface CreateSecurityGroupRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityGroupResult {
   /**
    * <p>The ID of the security group.</p>
@@ -526,6 +566,9 @@ export interface CreateSecurityGroupResult {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotRequest {
   /**
    * <p>A description for the snapshot.</p>
@@ -573,6 +616,9 @@ export interface CreateSnapshotRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum SnapshotState {
   completed = "completed",
   error = "error",
@@ -581,12 +627,16 @@ export enum SnapshotState {
   recovering = "recovering",
 }
 
+/**
+ * @public
+ */
 export enum StorageTier {
   archive = "archive",
   standard = "standard",
 }
 
 /**
+ * @public
  * <p>Describes a snapshot.</p>
  */
 export interface Snapshot {
@@ -692,11 +742,15 @@ export interface Snapshot {
   RestoreExpiryTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum CopyTagsFromSource {
   volume = "volume",
 }
 
 /**
+ * @public
  * <p>The instance details to specify which volumes should be snapshotted.</p>
  */
 export interface InstanceSpecification {
@@ -719,6 +773,9 @@ export interface InstanceSpecification {
   ExcludeDataVolumeIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotsRequest {
   /**
    * <p> A description propagated to every snapshot specified by the instance.</p>
@@ -774,6 +831,7 @@ export interface CreateSnapshotsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a snapshot.</p>
  */
 export interface SnapshotInfo {
@@ -836,6 +894,9 @@ export interface SnapshotInfo {
   OutpostArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotsResult {
   /**
    * <p>List of snapshots.</p>
@@ -844,6 +905,7 @@ export interface CreateSnapshotsResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateSpotDatafeedSubscription.</p>
  */
 export interface CreateSpotDatafeedSubscriptionRequest {
@@ -869,6 +931,7 @@ export interface CreateSpotDatafeedSubscriptionRequest {
 }
 
 /**
+ * @public
  * <p>Describes a Spot Instance state change.</p>
  */
 export interface SpotInstanceStateFault {
@@ -883,12 +946,16 @@ export interface SpotInstanceStateFault {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export enum DatafeedSubscriptionState {
   Active = "Active",
   Inactive = "Inactive",
 }
 
 /**
+ * @public
  * <p>Describes the data feed for a Spot Instance.</p>
  */
 export interface SpotDatafeedSubscription {
@@ -919,6 +986,7 @@ export interface SpotDatafeedSubscription {
 }
 
 /**
+ * @public
  * <p>Contains the output of CreateSpotDatafeedSubscription.</p>
  */
 export interface CreateSpotDatafeedSubscriptionResult {
@@ -929,6 +997,7 @@ export interface CreateSpotDatafeedSubscriptionResult {
 }
 
 /**
+ * @public
  * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. For more
  *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Categorizing your storage using
  *         tags</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
@@ -949,6 +1018,9 @@ export interface S3ObjectTag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateStoreImageTaskRequest {
   /**
    * <p>The ID of the AMI.</p>
@@ -975,6 +1047,9 @@ export interface CreateStoreImageTaskRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateStoreImageTaskResult {
   /**
    * <p>The name of the stored AMI object in the S3 bucket.</p>
@@ -982,6 +1057,9 @@ export interface CreateStoreImageTaskResult {
   ObjectKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSubnetRequest {
   /**
    * <p>The tags to assign to the subnet.</p>
@@ -1044,6 +1122,9 @@ export interface CreateSubnetRequest {
   Ipv6Native?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateSubnetResult {
   /**
    * <p>Information about the subnet.</p>
@@ -1051,11 +1132,17 @@ export interface CreateSubnetResult {
   Subnet?: Subnet;
 }
 
+/**
+ * @public
+ */
 export enum SubnetCidrReservationType {
   explicit = "explicit",
   prefix = "prefix",
 }
 
+/**
+ * @public
+ */
 export interface CreateSubnetCidrReservationRequest {
   /**
    * <p>The ID of the subnet.</p>
@@ -1112,6 +1199,7 @@ export interface CreateSubnetCidrReservationRequest {
 }
 
 /**
+ * @public
  * <p>Describes a subnet CIDR reservation.</p>
  */
 export interface SubnetCidrReservation {
@@ -1154,6 +1242,9 @@ export interface SubnetCidrReservation {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSubnetCidrReservationResult {
   /**
    * <p>Information about the created subnet CIDR reservation.</p>
@@ -1161,6 +1252,9 @@ export interface CreateSubnetCidrReservationResult {
   SubnetCidrReservation?: SubnetCidrReservation;
 }
 
+/**
+ * @public
+ */
 export interface CreateTagsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1182,6 +1276,9 @@ export interface CreateTagsRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficMirrorFilterRequest {
   /**
    * <p>The description of the Traffic Mirror filter.</p>
@@ -1207,6 +1304,7 @@ export interface CreateTrafficMirrorFilterRequest {
 }
 
 /**
+ * @public
  * <p>Describes the Traffic Mirror port range.</p>
  */
 export interface TrafficMirrorPortRange {
@@ -1221,17 +1319,24 @@ export interface TrafficMirrorPortRange {
   ToPort?: number;
 }
 
+/**
+ * @public
+ */
 export enum TrafficMirrorRuleAction {
   accept = "accept",
   reject = "reject",
 }
 
+/**
+ * @public
+ */
 export enum TrafficDirection {
   egress = "egress",
   ingress = "ingress",
 }
 
 /**
+ * @public
  * <p>Describes the Traffic Mirror rule.</p>
  */
 export interface TrafficMirrorFilterRule {
@@ -1291,11 +1396,15 @@ export interface TrafficMirrorFilterRule {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export enum TrafficMirrorNetworkService {
   amazon_dns = "amazon-dns",
 }
 
 /**
+ * @public
  * <p>Describes the Traffic Mirror filter.</p>
  */
 export interface TrafficMirrorFilter {
@@ -1330,6 +1439,9 @@ export interface TrafficMirrorFilter {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficMirrorFilterResult {
   /**
    * <p>Information about the Traffic Mirror filter.</p>
@@ -1343,6 +1455,7 @@ export interface CreateTrafficMirrorFilterResult {
 }
 
 /**
+ * @public
  * <p>Information about the Traffic Mirror filter rule port range.</p>
  */
 export interface TrafficMirrorPortRangeRequest {
@@ -1357,6 +1470,9 @@ export interface TrafficMirrorPortRangeRequest {
   ToPort?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficMirrorFilterRuleRequest {
   /**
    * <p>The ID of the filter that this rule is associated with.</p>
@@ -1423,6 +1539,9 @@ export interface CreateTrafficMirrorFilterRuleRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficMirrorFilterRuleResult {
   /**
    * <p>The Traffic Mirror rule.</p>
@@ -1435,6 +1554,9 @@ export interface CreateTrafficMirrorFilterRuleResult {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficMirrorSessionRequest {
   /**
    * <p>The ID of the source network interface.</p>
@@ -1499,6 +1621,7 @@ export interface CreateTrafficMirrorSessionRequest {
 }
 
 /**
+ * @public
  * <p>Describes a Traffic Mirror session.</p>
  */
 export interface TrafficMirrorSession {
@@ -1554,6 +1677,9 @@ export interface TrafficMirrorSession {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficMirrorSessionResult {
   /**
    * <p>Information about the Traffic Mirror session.</p>
@@ -1566,6 +1692,9 @@ export interface CreateTrafficMirrorSessionResult {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficMirrorTargetRequest {
   /**
    * <p>The network interface ID that is associated with the target.</p>
@@ -1605,6 +1734,9 @@ export interface CreateTrafficMirrorTargetRequest {
   GatewayLoadBalancerEndpointId?: string;
 }
 
+/**
+ * @public
+ */
 export enum TrafficMirrorTargetType {
   gateway_load_balancer_endpoint = "gateway-load-balancer-endpoint",
   network_interface = "network-interface",
@@ -1612,6 +1744,7 @@ export enum TrafficMirrorTargetType {
 }
 
 /**
+ * @public
  * <p>Describes a Traffic Mirror target.</p>
  */
 export interface TrafficMirrorTarget {
@@ -1656,6 +1789,9 @@ export interface TrafficMirrorTarget {
   GatewayLoadBalancerEndpointId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTrafficMirrorTargetResult {
   /**
    * <p>Information about the Traffic Mirror target.</p>
@@ -1668,32 +1804,48 @@ export interface CreateTrafficMirrorTargetResult {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum AutoAcceptSharedAttachmentsValue {
   disable = "disable",
   enable = "enable",
 }
 
+/**
+ * @public
+ */
 export enum DefaultRouteTableAssociationValue {
   disable = "disable",
   enable = "enable",
 }
 
+/**
+ * @public
+ */
 export enum DefaultRouteTablePropagationValue {
   disable = "disable",
   enable = "enable",
 }
 
+/**
+ * @public
+ */
 export enum MulticastSupportValue {
   disable = "disable",
   enable = "enable",
 }
 
+/**
+ * @public
+ */
 export enum VpnEcmpSupportValue {
   disable = "disable",
   enable = "enable",
 }
 
 /**
+ * @public
  * <p>Describes the options for a transit gateway.</p>
  */
 export interface TransitGatewayRequestOptions {
@@ -1739,6 +1891,9 @@ export interface TransitGatewayRequestOptions {
   TransitGatewayCidrBlocks?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRequest {
   /**
    * <p>A description of the transit gateway.</p>
@@ -1764,6 +1919,7 @@ export interface CreateTransitGatewayRequest {
 }
 
 /**
+ * @public
  * <p>Describes the options for a transit gateway.</p>
  */
 export interface TransitGatewayOptions {
@@ -1819,6 +1975,9 @@ export interface TransitGatewayOptions {
   MulticastSupport?: MulticastSupportValue | string;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayState {
   available = "available",
   deleted = "deleted",
@@ -1828,6 +1987,7 @@ export enum TransitGatewayState {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway.</p>
  */
 export interface TransitGateway {
@@ -1872,6 +2032,9 @@ export interface TransitGateway {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayResult {
   /**
    * <p>Information about the transit gateway.</p>
@@ -1879,11 +2042,15 @@ export interface CreateTransitGatewayResult {
   TransitGateway?: TransitGateway;
 }
 
+/**
+ * @public
+ */
 export enum ProtocolValue {
   gre = "gre",
 }
 
 /**
+ * @public
  * <p>The options for a Connect attachment.</p>
  */
 export interface CreateTransitGatewayConnectRequestOptions {
@@ -1893,6 +2060,9 @@ export interface CreateTransitGatewayConnectRequestOptions {
   Protocol: ProtocolValue | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayConnectRequest {
   /**
    * <p>The ID of the transit gateway attachment. You can specify a VPC attachment or Amazon Web Services Direct Connect attachment.</p>
@@ -1918,6 +2088,7 @@ export interface CreateTransitGatewayConnectRequest {
 }
 
 /**
+ * @public
  * <p>Describes the Connect attachment options.</p>
  */
 export interface TransitGatewayConnectOptions {
@@ -1928,6 +2099,7 @@ export interface TransitGatewayConnectOptions {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway Connect attachment.</p>
  */
 export interface TransitGatewayConnect {
@@ -1967,6 +2139,9 @@ export interface TransitGatewayConnect {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayConnectResult {
   /**
    * <p>Information about the Connect attachment.</p>
@@ -1975,6 +2150,7 @@ export interface CreateTransitGatewayConnectResult {
 }
 
 /**
+ * @public
  * <p>The BGP options for the Connect attachment.</p>
  */
 export interface TransitGatewayConnectRequestBgpOptions {
@@ -1984,6 +2160,9 @@ export interface TransitGatewayConnectRequestBgpOptions {
   PeerAsn?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayConnectPeerRequest {
   /**
    * <p>The ID of the Connect attachment.</p>
@@ -2029,12 +2208,16 @@ export interface CreateTransitGatewayConnectPeerRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum BgpStatus {
   down = "down",
   up = "up",
 }
 
 /**
+ * @public
  * <p>The BGP configuration information.</p>
  */
 export interface TransitGatewayAttachmentBgpConfiguration {
@@ -2065,6 +2248,7 @@ export interface TransitGatewayAttachmentBgpConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the Connect peer details.</p>
  */
 export interface TransitGatewayConnectPeerConfiguration {
@@ -2094,6 +2278,9 @@ export interface TransitGatewayConnectPeerConfiguration {
   BgpConfigurations?: TransitGatewayAttachmentBgpConfiguration[];
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayConnectPeerState {
   available = "available",
   deleted = "deleted",
@@ -2102,6 +2289,7 @@ export enum TransitGatewayConnectPeerState {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway Connect peer.</p>
  */
 export interface TransitGatewayConnectPeer {
@@ -2136,6 +2324,9 @@ export interface TransitGatewayConnectPeer {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayConnectPeerResult {
   /**
    * <p>Information about the Connect peer.</p>
@@ -2143,22 +2334,32 @@ export interface CreateTransitGatewayConnectPeerResult {
   TransitGatewayConnectPeer?: TransitGatewayConnectPeer;
 }
 
+/**
+ * @public
+ */
 export enum AutoAcceptSharedAssociationsValue {
   disable = "disable",
   enable = "enable",
 }
 
+/**
+ * @public
+ */
 export enum Igmpv2SupportValue {
   disable = "disable",
   enable = "enable",
 }
 
+/**
+ * @public
+ */
 export enum StaticSourcesSupportValue {
   disable = "disable",
   enable = "enable",
 }
 
 /**
+ * @public
  * <p>The options for the transit gateway multicast domain.</p>
  */
 export interface CreateTransitGatewayMulticastDomainRequestOptions {
@@ -2178,6 +2379,9 @@ export interface CreateTransitGatewayMulticastDomainRequestOptions {
   AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway.</p>
@@ -2203,6 +2407,7 @@ export interface CreateTransitGatewayMulticastDomainRequest {
 }
 
 /**
+ * @public
  * <p>Describes the options for a transit gateway multicast domain.</p>
  */
 export interface TransitGatewayMulticastDomainOptions {
@@ -2222,6 +2427,9 @@ export interface TransitGatewayMulticastDomainOptions {
   AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayMulticastDomainState {
   available = "available",
   deleted = "deleted",
@@ -2230,6 +2438,7 @@ export enum TransitGatewayMulticastDomainState {
 }
 
 /**
+ * @public
  * <p>Describes the transit gateway multicast domain.</p>
  */
 export interface TransitGatewayMulticastDomain {
@@ -2274,6 +2483,9 @@ export interface TransitGatewayMulticastDomain {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayMulticastDomainResult {
   /**
    * <p>Information about the transit gateway multicast domain.</p>
@@ -2282,6 +2494,7 @@ export interface CreateTransitGatewayMulticastDomainResult {
 }
 
 /**
+ * @public
  * <p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering request.</p>
  */
 export interface CreateTransitGatewayPeeringAttachmentRequestOptions {
@@ -2291,6 +2504,9 @@ export interface CreateTransitGatewayPeeringAttachmentRequestOptions {
   DynamicRouting?: DynamicRoutingValue | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPeeringAttachmentRequest {
   /**
    * <p>The ID of the transit gateway.</p>
@@ -2330,6 +2546,9 @@ export interface CreateTransitGatewayPeeringAttachmentRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPeeringAttachmentResult {
   /**
    * <p>The transit gateway peering attachment.</p>
@@ -2337,6 +2556,9 @@ export interface CreateTransitGatewayPeeringAttachmentResult {
   TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPolicyTableRequest {
   /**
    * <p>The ID of the transit gateway used for the policy table.</p>
@@ -2356,6 +2578,9 @@ export interface CreateTransitGatewayPolicyTableRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayPolicyTableState {
   available = "available",
   deleted = "deleted",
@@ -2364,6 +2589,7 @@ export enum TransitGatewayPolicyTableState {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway policy table.</p>
  */
 export interface TransitGatewayPolicyTable {
@@ -2393,6 +2619,9 @@ export interface TransitGatewayPolicyTable {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPolicyTableResult {
   /**
    * <p>Describes the created transit gateway policy table.</p>
@@ -2400,6 +2629,9 @@ export interface CreateTransitGatewayPolicyTableResult {
   TransitGatewayPolicyTable?: TransitGatewayPolicyTable;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPrefixListReferenceRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -2429,6 +2661,9 @@ export interface CreateTransitGatewayPrefixListReferenceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayPrefixListReferenceState {
   available = "available",
   deleting = "deleting",
@@ -2437,6 +2672,7 @@ export enum TransitGatewayPrefixListReferenceState {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway prefix list attachment.</p>
  */
 export interface TransitGatewayPrefixListAttachment {
@@ -2457,6 +2693,7 @@ export interface TransitGatewayPrefixListAttachment {
 }
 
 /**
+ * @public
  * <p>Describes a prefix list reference.</p>
  */
 export interface TransitGatewayPrefixListReference {
@@ -2491,6 +2728,9 @@ export interface TransitGatewayPrefixListReference {
   TransitGatewayAttachment?: TransitGatewayPrefixListAttachment;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPrefixListReferenceResult {
   /**
    * <p>Information about the prefix list reference.</p>
@@ -2498,6 +2738,9 @@ export interface CreateTransitGatewayPrefixListReferenceResult {
   TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteRequest {
   /**
    * <p>The CIDR range used for destination matches. Routing decisions are based on the
@@ -2528,6 +2771,9 @@ export interface CreateTransitGatewayRouteRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayRouteState {
   active = "active",
   blackhole = "blackhole",
@@ -2537,6 +2783,7 @@ export enum TransitGatewayRouteState {
 }
 
 /**
+ * @public
  * <p>Describes a route attachment.</p>
  */
 export interface TransitGatewayRouteAttachment {
@@ -2556,12 +2803,16 @@ export interface TransitGatewayRouteAttachment {
   ResourceType?: TransitGatewayAttachmentResourceType | string;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayRouteType {
   propagated = "propagated",
   static = "static",
 }
 
 /**
+ * @public
  * <p>Describes a route for a transit gateway route table.</p>
  */
 export interface TransitGatewayRoute {
@@ -2596,6 +2847,9 @@ export interface TransitGatewayRoute {
   State?: TransitGatewayRouteState | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteResult {
   /**
    * <p>Information about the route.</p>
@@ -2603,6 +2857,9 @@ export interface CreateTransitGatewayRouteResult {
   Route?: TransitGatewayRoute;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteTableRequest {
   /**
    * <p>The ID of the transit gateway.</p>
@@ -2622,6 +2879,9 @@ export interface CreateTransitGatewayRouteTableRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayRouteTableState {
   available = "available",
   deleted = "deleted",
@@ -2630,6 +2890,7 @@ export enum TransitGatewayRouteTableState {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway route table.</p>
  */
 export interface TransitGatewayRouteTable {
@@ -2669,6 +2930,9 @@ export interface TransitGatewayRouteTable {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteTableResult {
   /**
    * <p>Information about the transit gateway route table.</p>
@@ -2676,6 +2940,9 @@ export interface CreateTransitGatewayRouteTableResult {
   TransitGatewayRouteTable?: TransitGatewayRouteTable;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteTableAnnouncementRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -2700,11 +2967,17 @@ export interface CreateTransitGatewayRouteTableAnnouncementRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayRouteTableAnnouncementDirection {
   incoming = "incoming",
   outgoing = "outgoing",
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayRouteTableAnnouncementState {
   available = "available",
   deleted = "deleted",
@@ -2715,6 +2988,7 @@ export enum TransitGatewayRouteTableAnnouncementState {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway route table announcement.</p>
  */
 export interface TransitGatewayRouteTableAnnouncement {
@@ -2774,6 +3048,9 @@ export interface TransitGatewayRouteTableAnnouncement {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteTableAnnouncementResult {
   /**
    * <p>Provides details about the transit gateway route table announcement.</p>
@@ -2782,6 +3059,7 @@ export interface CreateTransitGatewayRouteTableAnnouncementResult {
 }
 
 /**
+ * @public
  * <p>Describes the options for a VPC attachment.</p>
  */
 export interface CreateTransitGatewayVpcAttachmentRequestOptions {
@@ -2801,6 +3079,9 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
   ApplianceModeSupport?: ApplianceModeSupportValue | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayVpcAttachmentRequest {
   /**
    * <p>The ID of the transit gateway.</p>
@@ -2837,6 +3118,9 @@ export interface CreateTransitGatewayVpcAttachmentRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayVpcAttachmentResult {
   /**
    * <p>Information about the VPC attachment.</p>
@@ -2844,21 +3128,31 @@ export interface CreateTransitGatewayVpcAttachmentResult {
   TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
 }
 
+/**
+ * @public
+ */
 export enum VerifiedAccessEndpointAttachmentType {
   vpc = "vpc",
 }
 
+/**
+ * @public
+ */
 export enum VerifiedAccessEndpointType {
   load_balancer = "load-balancer",
   network_interface = "network-interface",
 }
 
+/**
+ * @public
+ */
 export enum VerifiedAccessEndpointProtocol {
   http = "http",
   https = "https",
 }
 
 /**
+ * @public
  * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
  *             <code>load-balancer</code> type.</p>
  */
@@ -2885,6 +3179,7 @@ export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
 }
 
 /**
+ * @public
  * <p>Options for a network interface-type endpoint.</p>
  */
 export interface CreateVerifiedAccessEndpointEniOptions {
@@ -2904,6 +3199,9 @@ export interface CreateVerifiedAccessEndpointEniOptions {
   Port?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateVerifiedAccessEndpointRequest {
   /**
    * <p>The ID of the Verified Access group to associate the endpoint with.</p>
@@ -2984,6 +3282,7 @@ export interface CreateVerifiedAccessEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
  *             <code>load-balancer</code> type.</p>
  */
@@ -3010,6 +3309,7 @@ export interface VerifiedAccessEndpointLoadBalancerOptions {
 }
 
 /**
+ * @public
  * <p>Options for a network-interface type endpoint.</p>
  */
 export interface VerifiedAccessEndpointEniOptions {
@@ -3029,6 +3329,9 @@ export interface VerifiedAccessEndpointEniOptions {
   Port?: number;
 }
 
+/**
+ * @public
+ */
 export enum VerifiedAccessEndpointStatusCode {
   active = "active",
   deleted = "deleted",
@@ -3038,6 +3341,7 @@ export enum VerifiedAccessEndpointStatusCode {
 }
 
 /**
+ * @public
  * <p>Describes the status of a Verified Access endpoint.</p>
  */
 export interface VerifiedAccessEndpointStatus {
@@ -3053,6 +3357,7 @@ export interface VerifiedAccessEndpointStatus {
 }
 
 /**
+ * @public
  * <p>An Amazon Web Services Verified Access endpoint specifies the application that Amazon Web Services Verified Access provides access to. It must be
  *          attached to an Amazon Web Services Verified Access group. An Amazon Web Services Verified Access endpoint must also have an attached access policy
  *          before you attached it to a group.</p>
@@ -3153,6 +3458,9 @@ export interface VerifiedAccessEndpoint {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateVerifiedAccessEndpointResult {
   /**
    * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
@@ -3160,6 +3468,9 @@ export interface CreateVerifiedAccessEndpointResult {
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface CreateVerifiedAccessGroupRequest {
   /**
    * <p>The ID of the Amazon Web Services Verified Access instance.</p>
@@ -3196,6 +3507,7 @@ export interface CreateVerifiedAccessGroupRequest {
 }
 
 /**
+ * @public
  * <p>Describes a Verified Access group.</p>
  */
 export interface VerifiedAccessGroup {
@@ -3245,6 +3557,9 @@ export interface VerifiedAccessGroup {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateVerifiedAccessGroupResult {
   /**
    * <p>The ID of the Verified Access group.</p>
@@ -3252,6 +3567,9 @@ export interface CreateVerifiedAccessGroupResult {
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
 
+/**
+ * @public
+ */
 export interface CreateVerifiedAccessInstanceRequest {
   /**
    * <p>A description for the Amazon Web Services Verified Access instance.</p>
@@ -3277,6 +3595,9 @@ export interface CreateVerifiedAccessInstanceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateVerifiedAccessInstanceResult {
   /**
    * <p>The ID of the Amazon Web Services Verified Access instance.</p>
@@ -3285,6 +3606,7 @@ export interface CreateVerifiedAccessInstanceResult {
 }
 
 /**
+ * @public
  * <p>Options for a device-identity type trust provider.</p>
  */
 export interface CreateVerifiedAccessTrustProviderDeviceOptions {
@@ -3295,6 +3617,7 @@ export interface CreateVerifiedAccessTrustProviderDeviceOptions {
 }
 
 /**
+ * @public
  * <p>Options for an OIDC-based, user-identity type trust provider.</p>
  */
 export interface CreateVerifiedAccessTrustProviderOidcOptions {
@@ -3334,6 +3657,9 @@ export interface CreateVerifiedAccessTrustProviderOidcOptions {
   Scope?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVerifiedAccessTrustProviderRequest {
   /**
    * <p>The type of trust provider can be either user or device-based.</p>
@@ -3389,6 +3715,9 @@ export interface CreateVerifiedAccessTrustProviderRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateVerifiedAccessTrustProviderResult {
   /**
    * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
@@ -3396,6 +3725,9 @@ export interface CreateVerifiedAccessTrustProviderResult {
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
 
+/**
+ * @public
+ */
 export interface CreateVolumeRequest {
   /**
    * <p>The Availability Zone in which to create the volume.</p>
@@ -3573,6 +3905,9 @@ export interface CreateVolumeRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum VolumeState {
   available = "available",
   creating = "creating",
@@ -3583,6 +3918,7 @@ export enum VolumeState {
 }
 
 /**
+ * @public
  * <p>Describes a volume.</p>
  */
 export interface Volume {
@@ -3670,6 +4006,9 @@ export interface Volume {
   Throughput?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcRequest {
   /**
    * <p>The IPv4 network range for the VPC, in CIDR notation. For example,
@@ -3748,6 +4087,9 @@ export interface CreateVpcRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcResult {
   /**
    * <p>Information about the VPC.</p>
@@ -3755,6 +4097,9 @@ export interface CreateVpcResult {
   Vpc?: Vpc;
 }
 
+/**
+ * @public
+ */
 export enum DnsRecordIpType {
   dualstack = "dualstack",
   ipv4 = "ipv4",
@@ -3763,6 +4108,7 @@ export enum DnsRecordIpType {
 }
 
 /**
+ * @public
  * <p>Describes the DNS options for an endpoint.</p>
  */
 export interface DnsOptionsSpecification {
@@ -3780,18 +4126,27 @@ export interface DnsOptionsSpecification {
   PrivateDnsOnlyForInboundResolverEndpoint?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum IpAddressType {
   dualstack = "dualstack",
   ipv4 = "ipv4",
   ipv6 = "ipv6",
 }
 
+/**
+ * @public
+ */
 export enum VpcEndpointType {
   Gateway = "Gateway",
   GatewayLoadBalancer = "GatewayLoadBalancer",
   Interface = "Interface",
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3882,6 +4237,7 @@ export interface CreateVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Describes a DNS entry.</p>
  */
 export interface DnsEntry {
@@ -3897,6 +4253,7 @@ export interface DnsEntry {
 }
 
 /**
+ * @public
  * <p>Describes the DNS options for an endpoint.</p>
  */
 export interface DnsOptions {
@@ -3912,6 +4269,7 @@ export interface DnsOptions {
 }
 
 /**
+ * @public
  * <p>Describes a security group.</p>
  */
 export interface SecurityGroupIdentifier {
@@ -3927,6 +4285,7 @@ export interface SecurityGroupIdentifier {
 }
 
 /**
+ * @public
  * <p>The last error that occurred for a VPC endpoint.</p>
  */
 export interface LastError {
@@ -3941,6 +4300,9 @@ export interface LastError {
   Code?: string;
 }
 
+/**
+ * @public
+ */
 export enum State {
   Available = "Available",
   Deleted = "Deleted",
@@ -3953,6 +4315,7 @@ export enum State {
 }
 
 /**
+ * @public
  * <p>Describes a VPC endpoint.</p>
  */
 export interface VpcEndpoint {
@@ -4053,6 +4416,9 @@ export interface VpcEndpoint {
   LastError?: LastError;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointResult {
   /**
    * <p>Information about the endpoint.</p>
@@ -4066,6 +4432,9 @@ export interface CreateVpcEndpointResult {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointConnectionNotificationRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4104,16 +4473,23 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ConnectionNotificationState {
   Disabled = "Disabled",
   Enabled = "Enabled",
 }
 
+/**
+ * @public
+ */
 export enum ConnectionNotificationType {
   Topic = "Topic",
 }
 
 /**
+ * @public
  * <p>Describes a connection notification for a VPC endpoint or VPC endpoint
  *             service.</p>
  */
@@ -4155,6 +4531,9 @@ export interface ConnectionNotification {
   ConnectionNotificationState?: ConnectionNotificationState | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointConnectionNotificationResult {
   /**
    * <p>Information about the notification.</p>
@@ -4168,6 +4547,9 @@ export interface CreateVpcEndpointConnectionNotificationResult {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointServiceConfigurationRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4215,10 +4597,16 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export enum PayerResponsibility {
   ServiceOwner = "ServiceOwner",
 }
 
+/**
+ * @public
+ */
 export enum DnsNameState {
   Failed = "failed",
   PendingVerification = "pendingVerification",
@@ -4226,6 +4614,7 @@ export enum DnsNameState {
 }
 
 /**
+ * @public
  * <p>Information about the private DNS name for the service endpoint.</p>
  */
 export interface PrivateDnsNameConfiguration {
@@ -4253,6 +4642,9 @@ export interface PrivateDnsNameConfiguration {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export enum ServiceState {
   Available = "Available",
   Deleted = "Deleted",
@@ -4261,6 +4653,9 @@ export enum ServiceState {
   Pending = "Pending",
 }
 
+/**
+ * @public
+ */
 export enum ServiceType {
   Gateway = "Gateway",
   GatewayLoadBalancer = "GatewayLoadBalancer",
@@ -4268,6 +4663,7 @@ export enum ServiceType {
 }
 
 /**
+ * @public
  * <p>Describes the type of service for a VPC endpoint.</p>
  */
 export interface ServiceTypeDetail {
@@ -4277,12 +4673,16 @@ export interface ServiceTypeDetail {
   ServiceType?: ServiceType | string;
 }
 
+/**
+ * @public
+ */
 export enum ServiceConnectivityType {
   ipv4 = "ipv4",
   ipv6 = "ipv6",
 }
 
 /**
+ * @public
  * <p>Describes a service configuration for a VPC endpoint service.</p>
  */
 export interface ServiceConfiguration {
@@ -4363,6 +4763,9 @@ export interface ServiceConfiguration {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcEndpointServiceConfigurationResult {
   /**
    * <p>Information about the service configuration.</p>
@@ -4376,6 +4779,9 @@ export interface CreateVpcEndpointServiceConfigurationResult {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringConnectionRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4415,6 +4821,9 @@ export interface CreateVpcPeeringConnectionRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcPeeringConnectionResult {
   /**
    * <p>Information about the VPC peering connection.</p>
@@ -4422,12 +4831,16 @@ export interface CreateVpcPeeringConnectionResult {
   VpcPeeringConnection?: VpcPeeringConnection;
 }
 
+/**
+ * @public
+ */
 export enum TunnelInsideIpVersion {
   ipv4 = "ipv4",
   ipv6 = "ipv6",
 }
 
 /**
+ * @public
  * <p>The IKE version that is permitted for the VPN tunnel.</p>
  */
 export interface IKEVersionsRequestListValue {
@@ -4438,6 +4851,7 @@ export interface IKEVersionsRequestListValue {
 }
 
 /**
+ * @public
  * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
  */
 export interface CloudWatchLogOptionsSpecification {
@@ -4462,6 +4876,7 @@ export interface CloudWatchLogOptionsSpecification {
 }
 
 /**
+ * @public
  * <p>Options for logging VPN tunnel activity.</p>
  */
 export interface VpnTunnelLogOptionsSpecification {
@@ -4472,6 +4887,7 @@ export interface VpnTunnelLogOptionsSpecification {
 }
 
 /**
+ * @public
  * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
  *             negotiations.</p>
  */
@@ -4483,6 +4899,7 @@ export interface Phase1DHGroupNumbersRequestListValue {
 }
 
 /**
+ * @public
  * <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE
  *             negotiations.</p>
  */
@@ -4494,6 +4911,7 @@ export interface Phase1EncryptionAlgorithmsRequestListValue {
 }
 
 /**
+ * @public
  * <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE
  *             negotiations.</p>
  */
@@ -4505,6 +4923,7 @@ export interface Phase1IntegrityAlgorithmsRequestListValue {
 }
 
 /**
+ * @public
  * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
  *             negotiations.</p>
  */
@@ -4516,6 +4935,7 @@ export interface Phase2DHGroupNumbersRequestListValue {
 }
 
 /**
+ * @public
  * <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE
  *             negotiations.</p>
  */
@@ -4527,6 +4947,7 @@ export interface Phase2EncryptionAlgorithmsRequestListValue {
 }
 
 /**
+ * @public
  * <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
  *             negotiations.</p>
  */
@@ -4538,6 +4959,7 @@ export interface Phase2IntegrityAlgorithmsRequestListValue {
 }
 
 /**
+ * @public
  * <p>The tunnel options for a single VPN tunnel.</p>
  */
 export interface VpnTunnelOptionsSpecification {
@@ -4748,6 +5170,7 @@ export interface VpnTunnelOptionsSpecification {
 }
 
 /**
+ * @public
  * <p>Describes VPN connection options.</p>
  */
 export interface VpnConnectionOptionsSpecification {
@@ -4824,6 +5247,7 @@ export interface VpnConnectionOptionsSpecification {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateVpnConnection.</p>
  */
 export interface CreateVpnConnectionRequest {
@@ -4868,6 +5292,9 @@ export interface CreateVpnConnectionRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export enum GatewayAssociationState {
   associated = "associated",
   associating = "associating",
@@ -4876,6 +5303,7 @@ export enum GatewayAssociationState {
 }
 
 /**
+ * @public
  * <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
  */
 export interface IKEVersionsListValue {
@@ -4886,6 +5314,7 @@ export interface IKEVersionsListValue {
 }
 
 /**
+ * @public
  * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
  */
 export interface CloudWatchLogOptions {
@@ -4910,6 +5339,7 @@ export interface CloudWatchLogOptions {
 }
 
 /**
+ * @public
  * <p>Options for logging VPN tunnel activity.</p>
  */
 export interface VpnTunnelLogOptions {
@@ -4920,6 +5350,7 @@ export interface VpnTunnelLogOptions {
 }
 
 /**
+ * @public
  * <p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>
  */
 export interface Phase1DHGroupNumbersListValue {
@@ -4930,6 +5361,7 @@ export interface Phase1DHGroupNumbersListValue {
 }
 
 /**
+ * @public
  * <p>The encryption algorithm for phase 1 IKE negotiations.</p>
  */
 export interface Phase1EncryptionAlgorithmsListValue {
@@ -4940,6 +5372,7 @@ export interface Phase1EncryptionAlgorithmsListValue {
 }
 
 /**
+ * @public
  * <p>The integrity algorithm for phase 1 IKE negotiations.</p>
  */
 export interface Phase1IntegrityAlgorithmsListValue {
@@ -4950,6 +5383,7 @@ export interface Phase1IntegrityAlgorithmsListValue {
 }
 
 /**
+ * @public
  * <p>The Diffie-Hellmann group number for phase 2 IKE negotiations.</p>
  */
 export interface Phase2DHGroupNumbersListValue {
@@ -4960,6 +5394,7 @@ export interface Phase2DHGroupNumbersListValue {
 }
 
 /**
+ * @public
  * <p>The encryption algorithm for phase 2 IKE negotiations.</p>
  */
 export interface Phase2EncryptionAlgorithmsListValue {
@@ -4970,6 +5405,7 @@ export interface Phase2EncryptionAlgorithmsListValue {
 }
 
 /**
+ * @public
  * <p>The integrity algorithm for phase 2 IKE negotiations.</p>
  */
 export interface Phase2IntegrityAlgorithmsListValue {
@@ -4980,6 +5416,7 @@ export interface Phase2IntegrityAlgorithmsListValue {
 }
 
 /**
+ * @public
  * <p>The VPN tunnel options.</p>
  */
 export interface TunnelOption {
@@ -5094,6 +5531,7 @@ export interface TunnelOption {
 }
 
 /**
+ * @public
  * <p>Describes VPN connection options.</p>
  */
 export interface VpnConnectionOptions {
@@ -5153,10 +5591,16 @@ export interface VpnConnectionOptions {
   TunnelOptions?: TunnelOption[];
 }
 
+/**
+ * @public
+ */
 export enum VpnStaticRouteSource {
   Static = "Static",
 }
 
+/**
+ * @public
+ */
 export enum VpnState {
   available = "available",
   deleted = "deleted",
@@ -5165,6 +5609,7 @@ export enum VpnState {
 }
 
 /**
+ * @public
  * <p>Describes a static route for a VPN connection.</p>
  */
 export interface VpnStaticRoute {
@@ -5184,12 +5629,16 @@ export interface VpnStaticRoute {
   State?: VpnState | string;
 }
 
+/**
+ * @public
+ */
 export enum TelemetryStatus {
   DOWN = "DOWN",
   UP = "UP",
 }
 
 /**
+ * @public
  * <p>Describes telemetry for a VPN tunnel.</p>
  */
 export interface VgwTelemetry {
@@ -5226,6 +5675,7 @@ export interface VgwTelemetry {
 }
 
 /**
+ * @public
  * <p>Describes a VPN connection.</p>
  */
 export interface VpnConnection {
@@ -5311,6 +5761,7 @@ export interface VpnConnection {
 }
 
 /**
+ * @public
  * <p>Contains the output of CreateVpnConnection.</p>
  */
 export interface CreateVpnConnectionResult {
@@ -5321,6 +5772,7 @@ export interface CreateVpnConnectionResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateVpnConnectionRoute.</p>
  */
 export interface CreateVpnConnectionRouteRequest {
@@ -5336,6 +5788,7 @@ export interface CreateVpnConnectionRouteRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CreateVpnGateway.</p>
  */
 export interface CreateVpnGatewayRequest {
@@ -5372,6 +5825,7 @@ export interface CreateVpnGatewayRequest {
 }
 
 /**
+ * @public
  * <p>Describes a virtual private gateway.</p>
  */
 export interface VpnGateway {
@@ -5414,6 +5868,7 @@ export interface VpnGateway {
 }
 
 /**
+ * @public
  * <p>Contains the output of CreateVpnGateway.</p>
  */
 export interface CreateVpnGatewayResult {
@@ -5423,6 +5878,9 @@ export interface CreateVpnGatewayResult {
   VpnGateway?: VpnGateway;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCarrierGatewayRequest {
   /**
    * <p>The ID of the carrier gateway.</p>
@@ -5437,6 +5895,9 @@ export interface DeleteCarrierGatewayRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCarrierGatewayResult {
   /**
    * <p>Information about the carrier gateway.</p>
@@ -5444,6 +5905,9 @@ export interface DeleteCarrierGatewayResult {
   CarrierGateway?: CarrierGateway;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClientVpnEndpointRequest {
   /**
    * <p>The ID of the Client VPN to be deleted.</p>
@@ -5456,6 +5920,9 @@ export interface DeleteClientVpnEndpointRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClientVpnEndpointResult {
   /**
    * <p>The current state of the Client VPN endpoint.</p>
@@ -5463,6 +5930,9 @@ export interface DeleteClientVpnEndpointResult {
   Status?: ClientVpnEndpointStatus;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClientVpnRouteRequest {
   /**
    * <p>The ID of the Client VPN endpoint from which the route is to be deleted.</p>
@@ -5485,6 +5955,9 @@ export interface DeleteClientVpnRouteRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClientVpnRouteResult {
   /**
    * <p>The current state of the route.</p>
@@ -5492,6 +5965,9 @@ export interface DeleteClientVpnRouteResult {
   Status?: ClientVpnRouteStatus;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoipCidrRequest {
   /**
    * <p> A customer-owned IP address range that you want to delete. </p>
@@ -5513,6 +5989,9 @@ export interface DeleteCoipCidrRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoipCidrResult {
   /**
    * <p>
@@ -5522,6 +6001,9 @@ export interface DeleteCoipCidrResult {
   CoipCidr?: CoipCidr;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoipPoolRequest {
   /**
    * <p>The ID of the CoIP pool that you want to delete. </p>
@@ -5536,6 +6018,9 @@ export interface DeleteCoipPoolRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoipPoolResult {
   /**
    * <p>Information about the CoIP address pool.</p>
@@ -5544,6 +6029,7 @@ export interface DeleteCoipPoolResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteCustomerGateway.</p>
  */
 export interface DeleteCustomerGatewayRequest {
@@ -5561,6 +6047,9 @@ export interface DeleteCustomerGatewayRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDhcpOptionsRequest {
   /**
    * <p>The ID of the DHCP options set.</p>
@@ -5575,6 +6064,9 @@ export interface DeleteDhcpOptionsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEgressOnlyInternetGatewayRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5589,6 +6081,9 @@ export interface DeleteEgressOnlyInternetGatewayRequest {
   EgressOnlyInternetGatewayId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEgressOnlyInternetGatewayResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -5596,6 +6091,9 @@ export interface DeleteEgressOnlyInternetGatewayResult {
   ReturnCode?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5621,6 +6119,9 @@ export interface DeleteFleetsRequest {
   TerminateInstances: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FleetStateCode {
   ACTIVE = "active",
   DELETED = "deleted",
@@ -5632,6 +6133,7 @@ export enum FleetStateCode {
 }
 
 /**
+ * @public
  * <p>Describes an EC2 Fleet that was successfully deleted.</p>
  */
 export interface DeleteFleetSuccessItem {
@@ -5651,6 +6153,9 @@ export interface DeleteFleetSuccessItem {
   FleetId?: string;
 }
 
+/**
+ * @public
+ */
 export enum DeleteFleetErrorCode {
   FLEET_ID_DOES_NOT_EXIST = "fleetIdDoesNotExist",
   FLEET_ID_MALFORMED = "fleetIdMalformed",
@@ -5659,6 +6164,7 @@ export enum DeleteFleetErrorCode {
 }
 
 /**
+ * @public
  * <p>Describes an EC2 Fleet error.</p>
  */
 export interface DeleteFleetError {
@@ -5674,6 +6180,7 @@ export interface DeleteFleetError {
 }
 
 /**
+ * @public
  * <p>Describes an EC2 Fleet that was not successfully deleted.</p>
  */
 export interface DeleteFleetErrorItem {
@@ -5688,6 +6195,9 @@ export interface DeleteFleetErrorItem {
   FleetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetsResult {
   /**
    * <p>Information about the EC2 Fleets that are successfully deleted.</p>
@@ -5700,6 +6210,9 @@ export interface DeleteFleetsResult {
   UnsuccessfulFleetDeletions?: DeleteFleetErrorItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlowLogsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5715,6 +6228,9 @@ export interface DeleteFlowLogsRequest {
   FlowLogIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlowLogsResult {
   /**
    * <p>Information about the flow logs that could not be deleted successfully.</p>
@@ -5722,6 +6238,9 @@ export interface DeleteFlowLogsResult {
   Unsuccessful?: UnsuccessfulItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteFpgaImageRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5736,6 +6255,9 @@ export interface DeleteFpgaImageRequest {
   FpgaImageId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFpgaImageResult {
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
@@ -5743,6 +6265,9 @@ export interface DeleteFpgaImageResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceEventWindowRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5764,6 +6289,7 @@ export interface DeleteInstanceEventWindowRequest {
 }
 
 /**
+ * @public
  * <p>The state of the event window.</p>
  */
 export interface InstanceEventWindowStateChange {
@@ -5778,6 +6304,9 @@ export interface InstanceEventWindowStateChange {
   State?: InstanceEventWindowState | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInstanceEventWindowResult {
   /**
    * <p>The state of the event window.</p>
@@ -5785,6 +6314,9 @@ export interface DeleteInstanceEventWindowResult {
   InstanceEventWindowState?: InstanceEventWindowStateChange;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInternetGatewayRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5799,6 +6331,9 @@ export interface DeleteInternetGatewayRequest {
   InternetGatewayId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIpamRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -5839,6 +6374,9 @@ export interface DeleteIpamRequest {
   Cascade?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIpamResult {
   /**
    * <p>Information about the results of the deletion.</p>
@@ -5846,6 +6384,9 @@ export interface DeleteIpamResult {
   Ipam?: Ipam;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIpamPoolRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -5860,6 +6401,9 @@ export interface DeleteIpamPoolRequest {
   IpamPoolId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIpamPoolResult {
   /**
    * <p>Information about the results of the deletion.</p>
@@ -5867,6 +6411,9 @@ export interface DeleteIpamPoolResult {
   IpamPool?: IpamPool;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIpamResourceDiscoveryRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -5881,6 +6428,9 @@ export interface DeleteIpamResourceDiscoveryRequest {
   IpamResourceDiscoveryId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIpamResourceDiscoveryResult {
   /**
    * <p>The IPAM resource discovery.</p>
@@ -5888,6 +6438,9 @@ export interface DeleteIpamResourceDiscoveryResult {
   IpamResourceDiscovery?: IpamResourceDiscovery;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIpamScopeRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -5902,6 +6455,9 @@ export interface DeleteIpamScopeRequest {
   IpamScopeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIpamScopeResult {
   /**
    * <p>Information about the results of the deletion.</p>
@@ -5909,6 +6465,9 @@ export interface DeleteIpamScopeResult {
   IpamScope?: IpamScope;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeyPairRequest {
   /**
    * <p>The name of the key pair.</p>
@@ -5928,6 +6487,9 @@ export interface DeleteKeyPairRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchTemplateRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -5952,6 +6514,9 @@ export interface DeleteLaunchTemplateRequest {
   LaunchTemplateName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchTemplateResult {
   /**
    * <p>Information about the launch template.</p>
@@ -5959,6 +6524,9 @@ export interface DeleteLaunchTemplateResult {
   LaunchTemplate?: LaunchTemplate;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchTemplateVersionsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -5989,6 +6557,7 @@ export interface DeleteLaunchTemplateVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a launch template version that was successfully deleted.</p>
  */
 export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
@@ -6008,6 +6577,9 @@ export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export enum LaunchTemplateErrorCode {
   LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST = "launchTemplateIdDoesNotExist",
   LAUNCH_TEMPLATE_ID_MALFORMED = "launchTemplateIdMalformed",
@@ -6018,6 +6590,7 @@ export enum LaunchTemplateErrorCode {
 }
 
 /**
+ * @public
  * <p>Describes the error that's returned when you cannot delete a launch template
  *             version.</p>
  */
@@ -6034,6 +6607,7 @@ export interface ResponseError {
 }
 
 /**
+ * @public
  * <p>Describes a launch template version that could not be deleted.</p>
  */
 export interface DeleteLaunchTemplateVersionsResponseErrorItem {
@@ -6058,6 +6632,9 @@ export interface DeleteLaunchTemplateVersionsResponseErrorItem {
   ResponseError?: ResponseError;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLaunchTemplateVersionsResult {
   /**
    * <p>Information about the launch template versions that were successfully deleted.</p>
@@ -6070,6 +6647,9 @@ export interface DeleteLaunchTemplateVersionsResult {
   UnsuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseErrorItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocalGatewayRouteRequest {
   /**
    * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
@@ -6097,6 +6677,9 @@ export interface DeleteLocalGatewayRouteRequest {
   DestinationPrefixListId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocalGatewayRouteResult {
   /**
    * <p>Information about the route.</p>
@@ -6104,6 +6687,9 @@ export interface DeleteLocalGatewayRouteResult {
   Route?: LocalGatewayRoute;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocalGatewayRouteTableRequest {
   /**
    * <p>
@@ -6120,6 +6706,9 @@ export interface DeleteLocalGatewayRouteTableRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocalGatewayRouteTableResult {
   /**
    * <p>Information about the local gateway route table.</p>
@@ -6127,6 +6716,9 @@ export interface DeleteLocalGatewayRouteTableResult {
   LocalGatewayRouteTable?: LocalGatewayRouteTable;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
   /**
    * <p>
@@ -6143,6 +6735,9 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationReq
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
   /**
    * <p>Information about the association.</p>
@@ -6150,6 +6745,9 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRes
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
   /**
    * <p>The ID of the association.</p>
@@ -6164,6 +6762,9 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
   /**
    * <p>Information about the association.</p>
@@ -6171,6 +6772,9 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
   LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DeleteManagedPrefixListRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6185,6 +6789,9 @@ export interface DeleteManagedPrefixListRequest {
   PrefixListId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteManagedPrefixListResult {
   /**
    * <p>Information about the prefix list.</p>
@@ -6192,6 +6799,9 @@ export interface DeleteManagedPrefixListResult {
   PrefixList?: ManagedPrefixList;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNatGatewayRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6206,6 +6816,9 @@ export interface DeleteNatGatewayRequest {
   NatGatewayId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNatGatewayResult {
   /**
    * <p>The ID of the NAT gateway.</p>
@@ -6213,6 +6826,9 @@ export interface DeleteNatGatewayResult {
   NatGatewayId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkAclRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6227,6 +6843,9 @@ export interface DeleteNetworkAclRequest {
   NetworkAclId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkAclEntryRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6251,6 +6870,9 @@ export interface DeleteNetworkAclEntryRequest {
   RuleNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkInsightsAccessScopeRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6265,6 +6887,9 @@ export interface DeleteNetworkInsightsAccessScopeRequest {
   NetworkInsightsAccessScopeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkInsightsAccessScopeResult {
   /**
    * <p>The ID of the Network Access Scope.</p>
@@ -6272,6 +6897,9 @@ export interface DeleteNetworkInsightsAccessScopeResult {
   NetworkInsightsAccessScopeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkInsightsAccessScopeAnalysisRequest {
   /**
    * <p>The ID of the Network Access Scope analysis.</p>
@@ -6286,6 +6914,9 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkInsightsAccessScopeAnalysisResult {
   /**
    * <p>The ID of the Network Access Scope analysis.</p>
@@ -6293,6 +6924,9 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisResult {
   NetworkInsightsAccessScopeAnalysisId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkInsightsAnalysisRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6307,6 +6941,9 @@ export interface DeleteNetworkInsightsAnalysisRequest {
   NetworkInsightsAnalysisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkInsightsAnalysisResult {
   /**
    * <p>The ID of the network insights analysis.</p>
@@ -6314,6 +6951,9 @@ export interface DeleteNetworkInsightsAnalysisResult {
   NetworkInsightsAnalysisId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkInsightsPathRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6328,6 +6968,9 @@ export interface DeleteNetworkInsightsPathRequest {
   NetworkInsightsPathId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNetworkInsightsPathResult {
   /**
    * <p>The ID of the path.</p>
@@ -6336,6 +6979,7 @@ export interface DeleteNetworkInsightsPathResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteNetworkInterface.</p>
  */
 export interface DeleteNetworkInterfaceRequest {
@@ -6353,6 +6997,7 @@ export interface DeleteNetworkInterfaceRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteNetworkInterfacePermission.</p>
  */
 export interface DeleteNetworkInterfacePermissionRequest {
@@ -6376,6 +7021,7 @@ export interface DeleteNetworkInterfacePermissionRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output for DeleteNetworkInterfacePermission.</p>
  */
 export interface DeleteNetworkInterfacePermissionResult {
@@ -6385,6 +7031,9 @@ export interface DeleteNetworkInterfacePermissionResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeletePlacementGroupRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6399,6 +7048,9 @@ export interface DeletePlacementGroupRequest {
   GroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePublicIpv4PoolRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -6413,6 +7065,9 @@ export interface DeletePublicIpv4PoolRequest {
   PoolId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePublicIpv4PoolResult {
   /**
    * <p>Information about the result of deleting the public IPv4 pool.</p>
@@ -6420,6 +7075,9 @@ export interface DeletePublicIpv4PoolResult {
   ReturnValue?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueuedReservedInstancesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6434,6 +7092,9 @@ export interface DeleteQueuedReservedInstancesRequest {
   ReservedInstancesIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeleteQueuedReservedInstancesErrorCode {
   RESERVED_INSTANCES_ID_INVALID = "reserved-instances-id-invalid",
   RESERVED_INSTANCES_NOT_IN_QUEUED_STATE = "reserved-instances-not-in-queued-state",
@@ -6441,6 +7102,7 @@ export enum DeleteQueuedReservedInstancesErrorCode {
 }
 
 /**
+ * @public
  * <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
  */
 export interface DeleteQueuedReservedInstancesError {
@@ -6456,6 +7118,7 @@ export interface DeleteQueuedReservedInstancesError {
 }
 
 /**
+ * @public
  * <p>Describes a Reserved Instance whose queued purchase was not deleted.</p>
  */
 export interface FailedQueuedPurchaseDeletion {
@@ -6471,6 +7134,7 @@ export interface FailedQueuedPurchaseDeletion {
 }
 
 /**
+ * @public
  * <p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>
  */
 export interface SuccessfulQueuedPurchaseDeletion {
@@ -6480,6 +7144,9 @@ export interface SuccessfulQueuedPurchaseDeletion {
   ReservedInstancesId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueuedReservedInstancesResult {
   /**
    * <p>Information about the queued purchases that were successfully deleted.</p>
@@ -6492,6 +7159,9 @@ export interface DeleteQueuedReservedInstancesResult {
   FailedQueuedPurchaseDeletions?: FailedQueuedPurchaseDeletion[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteRouteRequest {
   /**
    * <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
@@ -6521,6 +7191,9 @@ export interface DeleteRouteRequest {
   RouteTableId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRouteTableRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6535,6 +7208,9 @@ export interface DeleteRouteTableRequest {
   RouteTableId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityGroupRequest {
   /**
    * <p>The ID of the security group. Required for a nondefault VPC.</p>
@@ -6556,6 +7232,9 @@ export interface DeleteSecurityGroupRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotRequest {
   /**
    * <p>The ID of the EBS snapshot.</p>
@@ -6571,6 +7250,7 @@ export interface DeleteSnapshotRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
  */
 export interface DeleteSpotDatafeedSubscriptionRequest {

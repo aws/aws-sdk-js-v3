@@ -10,7 +10,7 @@ import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticsearchServiceClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeInboundCrossClusterSearchConnectionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeInboundCrossClusterSearchConnections(
   config: ElasticsearchServicePaginationConfiguration,
   input: DescribeInboundCrossClusterSearchConnectionsCommandInput,

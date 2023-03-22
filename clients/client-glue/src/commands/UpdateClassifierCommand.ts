@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClassifierCommand}.
  */
 export interface UpdateClassifierCommandInput extends UpdateClassifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClassifierCommand}.
  */
 export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing classifier (a <code>GrokClassifier</code>,
  *       an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on
  *       which field is present).</p>
@@ -48,6 +53,8 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClassifierCommandInput - {@link UpdateClassifierCommandInput}
+ * @returns {@link UpdateClassifierCommandOutput}
  * @see {@link UpdateClassifierCommandInput} for command's `input` shape.
  * @see {@link UpdateClassifierCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClassifierCommandOutput> {
     return deserializeAws_json1_1UpdateClassifierCommand(output, context);
   }

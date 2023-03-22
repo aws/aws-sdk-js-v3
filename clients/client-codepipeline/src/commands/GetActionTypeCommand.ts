@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetActionTypeCommand}.
  */
 export interface GetActionTypeCommandInput extends GetActionTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link GetActionTypeCommand}.
  */
 export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an action type created for an external provider, where the
  *             action is to be used by customers of the external provider. The action can be created
  *             with any supported integration model.</p>
@@ -48,6 +53,8 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetActionTypeCommandInput - {@link GetActionTypeCommandInput}
+ * @returns {@link GetActionTypeCommandOutput}
  * @see {@link GetActionTypeCommandInput} for command's `input` shape.
  * @see {@link GetActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetActionTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetActionTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetActionTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetActionTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetActionTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActionTypeCommandOutput> {
     return deserializeAws_json1_1GetActionTypeCommand(output, context);
   }

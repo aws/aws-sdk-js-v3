@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInputCommand}.
  */
 export interface CreateInputCommandInput extends CreateInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInputCommand}.
  */
 export interface CreateInputCommandOutput extends CreateInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Create an input
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInputCommandInput - {@link CreateInputCommandInput}
+ * @returns {@link CreateInputCommandOutput}
  * @see {@link CreateInputCommandInput} for command's `input` shape.
  * @see {@link CreateInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInputCommandOutput> {
     return deserializeAws_restJson1CreateInputCommand(output, context);
   }

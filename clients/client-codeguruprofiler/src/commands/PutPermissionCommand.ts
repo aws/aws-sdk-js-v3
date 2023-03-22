@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPermissionCommand}.
  */
 export interface PutPermissionCommandInput extends PutPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPermissionCommand}.
  */
 export interface PutPermissionCommandOutput extends PutPermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Adds permissions to a profiling group's resource-based policy
  *             that are provided using an action group. If a profiling group doesn't have
@@ -71,6 +76,8 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPermissionCommandInput - {@link PutPermissionCommandInput}
+ * @returns {@link PutPermissionCommandOutput}
  * @see {@link PutPermissionCommandInput} for command's `input` shape.
  * @see {@link PutPermissionCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -112,6 +119,9 @@ export class PutPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class PutPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionCommandOutput> {
     return deserializeAws_restJson1PutPermissionCommand(output, context);
   }

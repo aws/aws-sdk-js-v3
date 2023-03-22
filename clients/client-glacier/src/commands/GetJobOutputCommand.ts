@@ -29,15 +29,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobOutputCommand}.
  */
 export interface GetJobOutputCommandInput extends GetJobOutputInput {}
 /**
+ * @public
+ *
  * The output of {@link GetJobOutputCommand}.
  */
 export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOutputOutput, "body">, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the
  *          job, the output will be either the content of an archive or a vault inventory.</p>
  *
@@ -85,6 +90,8 @@ export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobOutputCommandInput - {@link GetJobOutputCommandInput}
+ * @returns {@link GetJobOutputCommandOutput}
  * @see {@link GetJobOutputCommandInput} for command's `input` shape.
  * @see {@link GetJobOutputCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -143,6 +150,9 @@ export class GetJobOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class GetJobOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetJobOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

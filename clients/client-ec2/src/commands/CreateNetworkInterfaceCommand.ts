@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkInterfaceCommand}.
  */
 export interface CreateNetworkInterfaceCommandInput extends CreateNetworkInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkInterfaceCommand}.
  */
 export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterfaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network interface in the specified subnet.</p>
  *          <p>The number of IP addresses you can assign to a network interface varies by instance
  *             type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per ENI Per
@@ -51,6 +56,8 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkInterfaceCommandInput - {@link CreateNetworkInterfaceCommandInput}
+ * @returns {@link CreateNetworkInterfaceCommandOutput}
  * @see {@link CreateNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -120,6 +127,9 @@ export class CreateNetworkInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class CreateNetworkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateNetworkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkInterfaceCommandOutput> {
     return deserializeAws_ec2CreateNetworkInterfaceCommand(output, context);
   }

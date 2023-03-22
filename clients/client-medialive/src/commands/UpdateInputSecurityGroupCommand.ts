@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInputSecurityGroupCommand}.
  */
 export interface UpdateInputSecurityGroupCommandInput extends UpdateInputSecurityGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInputSecurityGroupCommand}.
  */
 export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Update an Input Security Group's Whilelists.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInputSecurityGroupCommandInput - {@link UpdateInputSecurityGroupCommandInput}
+ * @returns {@link UpdateInputSecurityGroupCommandOutput}
  * @see {@link UpdateInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateInputSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateInputSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInputSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateInputSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInputSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateInputSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInputSecurityGroupCommandOutput> {
     return deserializeAws_restJson1UpdateInputSecurityGroupCommand(output, context);
   }

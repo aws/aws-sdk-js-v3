@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateConnectorCommand}.
  */
 export interface DisassociateConnectorCommandInput extends DisassociateConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateConnectorCommand}.
  */
 export interface DisassociateConnectorCommandOutput extends DisassociateConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified connector from Server Migration Service.</p>
  *         <p>After you disassociate a connector, it is no longer available to support
  *             replication jobs.</p>
@@ -48,6 +53,8 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConnectorCommandInput - {@link DisassociateConnectorCommandInput}
+ * @returns {@link DisassociateConnectorCommandOutput}
  * @see {@link DisassociateConnectorCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectorCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisassociateConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DisassociateConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateConnectorCommandOutput> {
     return deserializeAws_json1_1DisassociateConnectorCommand(output, context);
   }

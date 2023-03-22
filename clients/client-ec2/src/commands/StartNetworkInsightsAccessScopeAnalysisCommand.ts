@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link StartNetworkInsightsAccessScopeAnalysisCommand}.
  */
 export interface StartNetworkInsightsAccessScopeAnalysisCommandInput
   extends StartNetworkInsightsAccessScopeAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartNetworkInsightsAccessScopeAnalysisCommand}.
  */
 export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput
@@ -38,6 +42,7 @@ export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts analyzing the specified Network Access Scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartNetworkInsightsAccessScopeAnalysisCommandInput - {@link StartNetworkInsightsAccessScopeAnalysisCommandInput}
+ * @returns {@link StartNetworkInsightsAccessScopeAnalysisCommandOutput}
  * @see {@link StartNetworkInsightsAccessScopeAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartNetworkInsightsAccessScopeAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class StartNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartNetworkInsightsAccessScopeAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class StartNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartNetworkInsightsAccessScopeAnalysisCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class StartNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     return serializeAws_ec2StartNetworkInsightsAccessScopeAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReportCreationCommand}.
  */
 export interface DescribeReportCreationCommandInput extends DescribeReportCreationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReportCreationCommand}.
  */
 export interface DescribeReportCreationCommandOutput extends DescribeReportCreationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>
  *         <p>You can call this operation only from the organization's
  *     management account and from the us-east-1 Region.</p>
@@ -52,6 +57,8 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReportCreationCommandInput - {@link DescribeReportCreationCommandInput}
+ * @returns {@link DescribeReportCreationCommandOutput}
  * @see {@link DescribeReportCreationCommandInput} for command's `input` shape.
  * @see {@link DescribeReportCreationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -127,6 +134,9 @@ export class DescribeReportCreationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReportCreationCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class DescribeReportCreationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReportCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReportCreationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReportCreationCommandOutput> {
     return deserializeAws_json1_1DescribeReportCreationCommand(output, context);
   }

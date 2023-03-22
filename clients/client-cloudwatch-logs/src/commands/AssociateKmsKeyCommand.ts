@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateKmsKeyCommand}.
  */
 export interface AssociateKmsKeyCommandInput extends AssociateKmsKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateKmsKeyCommand}.
  */
 export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified KMS key with the specified log
  *       group.</p>
  *          <p>Associating a KMS key with a log group overrides any existing
@@ -54,6 +59,8 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateKmsKeyCommandInput - {@link AssociateKmsKeyCommandInput}
+ * @returns {@link AssociateKmsKeyCommandOutput}
  * @see {@link AssociateKmsKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateKmsKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -89,6 +96,9 @@ export class AssociateKmsKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateKmsKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class AssociateKmsKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateKmsKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateKmsKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateKmsKeyCommandOutput> {
     return deserializeAws_json1_1AssociateKmsKeyCommand(output, context);
   }

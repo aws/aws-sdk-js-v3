@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeParametersCommand}.
  */
 export interface DescribeParametersCommandInput extends DescribeParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeParametersCommand}.
  */
 export interface DescribeParametersCommandOutput extends DescribeParametersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about a parameter.</p>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
  *    in the request, the response includes information up to the limit specified. The number of items
@@ -58,6 +63,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
+ * @returns {@link DescribeParametersCommandOutput}
  * @see {@link DescribeParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeParametersCommandOutput> {
     return deserializeAws_json1_1DescribeParametersCommand(output, context);
   }

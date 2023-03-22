@@ -26,15 +26,20 @@ import {
 import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link InvokeEndpointAsyncCommand}.
  */
 export interface InvokeEndpointAsyncCommandInput extends InvokeEndpointAsyncInput {}
 /**
+ * @public
+ *
  * The output of {@link InvokeEndpointAsyncCommand}.
  */
 export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>After you deploy a model into production using Amazon SageMaker hosting services, your client
  *             applications use this API to get inferences from the model hosted at the specified
  *             endpoint in an asynchronous manner.</p>
@@ -57,6 +62,8 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * const response = await client.send(command);
  * ```
  *
+ * @param InvokeEndpointAsyncCommandInput - {@link InvokeEndpointAsyncCommandInput}
+ * @returns {@link InvokeEndpointAsyncCommandOutput}
  * @see {@link InvokeEndpointAsyncCommandInput} for command's `input` shape.
  * @see {@link InvokeEndpointAsyncCommandOutput} for command's `response` shape.
  * @see {@link SageMakerRuntimeClientResolvedConfig | config} for SageMakerRuntimeClient's `config` shape.
@@ -89,6 +96,9 @@ export class InvokeEndpointAsyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeEndpointAsyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class InvokeEndpointAsyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeEndpointAsyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InvokeEndpointAsyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeEndpointAsyncCommandOutput> {
     return deserializeAws_restJson1InvokeEndpointAsyncCommand(output, context);
   }

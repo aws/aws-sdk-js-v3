@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterSnapshotCommand}.
  */
 export interface DeleteClusterSnapshotCommandInput extends DeleteClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterSnapshotCommand}.
  */
 export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified manual snapshot. The snapshot must be in the
  *                 <code>available</code> state, with no other users authorized to access the snapshot. </p>
  *          <p>Unlike automated snapshots, manual snapshots are retained even after you delete
@@ -52,6 +57,8 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterSnapshotCommandInput - {@link DeleteClusterSnapshotCommandInput}
+ * @returns {@link DeleteClusterSnapshotCommandOutput}
  * @see {@link DeleteClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterSnapshotCommandOutput> {
     return deserializeAws_queryDeleteClusterSnapshotCommand(output, context);
   }

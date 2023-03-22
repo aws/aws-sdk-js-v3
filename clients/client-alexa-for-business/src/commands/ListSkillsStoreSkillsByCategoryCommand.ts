@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSkillsStoreSkillsByCategoryCommand}.
  */
 export interface ListSkillsStoreSkillsByCategoryCommandInput extends ListSkillsStoreSkillsByCategoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSkillsStoreSkillsByCategoryCommand}.
  */
 export interface ListSkillsStoreSkillsByCategoryCommandOutput
@@ -37,6 +41,7 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all skills in the Alexa skill store by category.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSkillsStoreSkillsByCategoryCommandInput - {@link ListSkillsStoreSkillsByCategoryCommandInput}
+ * @returns {@link ListSkillsStoreSkillsByCategoryCommandOutput}
  * @see {@link ListSkillsStoreSkillsByCategoryCommandInput} for command's `input` shape.
  * @see {@link ListSkillsStoreSkillsByCategoryCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListSkillsStoreSkillsByCategoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSkillsStoreSkillsByCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class ListSkillsStoreSkillsByCategoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSkillsStoreSkillsByCategoryCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class ListSkillsStoreSkillsByCategoryCommand extends $Command<
     return serializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBClusterSnapshotAttributesCommand}.
  */
 export interface DescribeDBClusterSnapshotAttributesCommandInput extends DescribeDBClusterSnapshotAttributesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBClusterSnapshotAttributesCommand}.
  */
 export interface DescribeDBClusterSnapshotAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p>
  *          <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBClusterSnapshotAttributes</code>
  *             returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
@@ -55,6 +60,8 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterSnapshotAttributesCommandInput - {@link DescribeDBClusterSnapshotAttributesCommandInput}
+ * @returns {@link DescribeDBClusterSnapshotAttributesCommandOutput}
  * @see {@link DescribeDBClusterSnapshotAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -98,6 +105,9 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterSnapshotAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDBClusterSnapshotAttributesCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     return serializeAws_queryDescribeDBClusterSnapshotAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

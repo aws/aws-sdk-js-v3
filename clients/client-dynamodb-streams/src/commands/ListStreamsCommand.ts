@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandInput extends ListStreamsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of stream ARNs associated with the current account and endpoint. If the
  *         <code>TableName</code> parameter is present, then <code>ListStreams</code> will return only the
  *       streams ARNs for that table.</p>
@@ -51,6 +56,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
+ * @returns {@link ListStreamsCommandOutput}
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.
@@ -112,6 +119,9 @@ export class ListStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class ListStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamsCommandOutput> {
     return deserializeAws_json1_0ListStreamsCommand(output, context);
   }

@@ -22,15 +22,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketLoggingCommand}.
  */
 export interface PutBucketLoggingCommandInput extends PutBucketLoggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketLoggingCommand}.
  */
 export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the logging parameters for a bucket and to specify permissions for who can view and
  *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the
  *          source bucket. To set the logging status of a bucket, you must be the bucket owner.</p>
@@ -117,6 +122,8 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketLoggingCommandInput - {@link PutBucketLoggingCommandInput}
+ * @returns {@link PutBucketLoggingCommandOutput}
  * @see {@link PutBucketLoggingCommandInput} for command's `input` shape.
  * @see {@link PutBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -172,6 +179,9 @@ export class PutBucketLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -218,10 +228,16 @@ export class PutBucketLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketLoggingCommandOutput> {
     return deserializeAws_restXmlPutBucketLoggingCommand(output, context);
   }

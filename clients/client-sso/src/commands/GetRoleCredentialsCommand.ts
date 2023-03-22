@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRoleCredentialsCommand}.
  */
 export interface GetRoleCredentialsCommandInput extends GetRoleCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRoleCredentialsCommand}.
  */
 export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the STS short-term credentials for a given role name that is assigned to the
  *       user.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoleCredentialsCommandInput - {@link GetRoleCredentialsCommandInput}
+ * @returns {@link GetRoleCredentialsCommandOutput}
  * @see {@link GetRoleCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetRoleCredentialsCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetRoleCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoleCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetRoleCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoleCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRoleCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoleCredentialsCommandOutput> {
     return deserializeAws_restJson1GetRoleCredentialsCommand(output, context);
   }

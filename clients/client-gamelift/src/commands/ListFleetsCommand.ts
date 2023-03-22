@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFleetsCommand}.
  */
 export interface ListFleetsCommandInput extends ListFleetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListFleetsCommand}.
  */
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can call this
  *             operation to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
  *             specify a Region in your request. You can filter the result set to find only those
@@ -78,6 +83,8 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
+ * @returns {@link ListFleetsCommandOutput}
  * @see {@link ListFleetsCommandInput} for command's `input` shape.
  * @see {@link ListFleetsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -115,6 +122,9 @@ export class ListFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class ListFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFleetsCommandOutput> {
     return deserializeAws_json1_1ListFleetsCommand(output, context);
   }

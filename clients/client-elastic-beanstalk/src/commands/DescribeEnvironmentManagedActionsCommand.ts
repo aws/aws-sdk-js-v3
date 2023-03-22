@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentManagedActionsCommand}.
  */
 export interface DescribeEnvironmentManagedActionsCommandInput extends DescribeEnvironmentManagedActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentManagedActionsCommand}.
  */
 export interface DescribeEnvironmentManagedActionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists an environment's upcoming and in-progress managed actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentManagedActionsCommandInput - {@link DescribeEnvironmentManagedActionsCommandInput}
+ * @returns {@link DescribeEnvironmentManagedActionsCommandOutput}
  * @see {@link DescribeEnvironmentManagedActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentManagedActionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -74,6 +81,9 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentManagedActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEnvironmentManagedActionsCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     return serializeAws_queryDescribeEnvironmentManagedActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

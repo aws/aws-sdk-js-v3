@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateEnclaveCertificateIamRoleCommand}.
  */
 export interface AssociateEnclaveCertificateIamRoleCommandInput extends AssociateEnclaveCertificateIamRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateEnclaveCertificateIamRoleCommand}.
  */
 export interface AssociateEnclaveCertificateIamRoleCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate.
  * 			This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more
  * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves
@@ -60,6 +65,8 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateEnclaveCertificateIamRoleCommandInput - {@link AssociateEnclaveCertificateIamRoleCommandInput}
+ * @returns {@link AssociateEnclaveCertificateIamRoleCommandOutput}
  * @see {@link AssociateEnclaveCertificateIamRoleCommandInput} for command's `input` shape.
  * @see {@link AssociateEnclaveCertificateIamRoleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -83,6 +90,9 @@ export class AssociateEnclaveCertificateIamRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateEnclaveCertificateIamRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class AssociateEnclaveCertificateIamRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateEnclaveCertificateIamRoleCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class AssociateEnclaveCertificateIamRoleCommand extends $Command<
     return serializeAws_ec2AssociateEnclaveCertificateIamRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMonitoringScheduleCommand}.
  */
 export interface UpdateMonitoringScheduleCommandInput extends UpdateMonitoringScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMonitoringScheduleCommand}.
  */
 export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a previously created schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMonitoringScheduleCommandInput - {@link UpdateMonitoringScheduleCommandInput}
+ * @returns {@link UpdateMonitoringScheduleCommandOutput}
  * @see {@link UpdateMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitoringScheduleCommandOutput> {
     return deserializeAws_json1_1UpdateMonitoringScheduleCommand(output, context);
   }

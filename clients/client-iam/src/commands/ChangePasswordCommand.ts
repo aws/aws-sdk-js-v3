@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ChangePasswordCommand}.
  */
 export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangePasswordCommand}.
  */
 export interface ChangePasswordCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the password of the IAM user who is calling this operation. This operation
  *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
  *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user password is
@@ -48,6 +53,8 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
+ * @returns {@link ChangePasswordCommandOutput}
  * @see {@link ChangePasswordCommandInput} for command's `input` shape.
  * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -109,6 +116,9 @@ export class ChangePasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangePasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class ChangePasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangePasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryChangePasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangePasswordCommandOutput> {
     return deserializeAws_queryChangePasswordCommand(output, context);
   }

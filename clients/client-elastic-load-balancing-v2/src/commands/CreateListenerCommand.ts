@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateListenerCommand}.
  */
 export interface CreateListenerCommandInput extends CreateListenerInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateListenerCommand}.
  */
 export interface CreateListenerCommandOutput extends CreateListenerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
  *       Gateway Load Balancer.</p>
  *          <p>For more information, see the following:</p>
@@ -74,6 +79,8 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateListenerCommandInput - {@link CreateListenerCommandInput}
+ * @returns {@link CreateListenerCommandOutput}
  * @see {@link CreateListenerCommandInput} for command's `input` shape.
  * @see {@link CreateListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -240,6 +247,9 @@ export class CreateListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -279,10 +289,16 @@ export class CreateListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListenerCommandOutput> {
     return deserializeAws_queryCreateListenerCommand(output, context);
   }

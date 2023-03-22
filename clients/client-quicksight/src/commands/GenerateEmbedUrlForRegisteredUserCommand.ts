@@ -26,10 +26,14 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateEmbedUrlForRegisteredUserCommand}.
  */
 export interface GenerateEmbedUrlForRegisteredUserCommandInput extends GenerateEmbedUrlForRegisteredUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateEmbedUrlForRegisteredUserCommand}.
  */
 export interface GenerateEmbedUrlForRegisteredUserCommandOutput
@@ -37,6 +41,7 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates an embed URL that you can use to embed an Amazon QuickSight experience in your website. This action can be used for any type of user registered in an Amazon QuickSight account.
  *             Before you use this action, make sure that you have configured the relevant Amazon QuickSight resource and permissions.</p>
  *          <p>The following rules apply to the generated URL:</p>
@@ -68,6 +73,8 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateEmbedUrlForRegisteredUserCommandInput - {@link GenerateEmbedUrlForRegisteredUserCommandInput}
+ * @returns {@link GenerateEmbedUrlForRegisteredUserCommandOutput}
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandInput} for command's `input` shape.
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -135,6 +142,9 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateEmbedUrlForRegisteredUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,6 +184,9 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateEmbedUrlForRegisteredUserCommandInput,
     context: __SerdeContext
@@ -181,6 +194,9 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     return serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

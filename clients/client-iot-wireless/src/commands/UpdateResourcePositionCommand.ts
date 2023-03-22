@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourcePositionCommand}.
  */
 export interface UpdateResourcePositionCommandInput extends UpdateResourcePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourcePositionCommand}.
  */
 export interface UpdateResourcePositionCommandOutput extends UpdateResourcePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the position information of a given wireless device or a wireless gateway
  *             resource. The position coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
  *                 (WGS84)</a>.</p>
@@ -48,6 +53,8 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourcePositionCommandInput - {@link UpdateResourcePositionCommandInput}
+ * @returns {@link UpdateResourcePositionCommandOutput}
  * @see {@link UpdateResourcePositionCommandInput} for command's `input` shape.
  * @see {@link UpdateResourcePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateResourcePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourcePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateResourcePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourcePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateResourcePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourcePositionCommandOutput> {
     return deserializeAws_restJson1UpdateResourcePositionCommand(output, context);
   }

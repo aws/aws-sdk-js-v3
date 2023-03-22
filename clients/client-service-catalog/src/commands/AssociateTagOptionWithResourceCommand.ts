@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTagOptionWithResourceCommand}.
  */
 export interface AssociateTagOptionWithResourceCommandInput extends AssociateTagOptionWithResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTagOptionWithResourceCommand}.
  */
 export interface AssociateTagOptionWithResourceCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateTagOptionWithResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate the specified TagOption with the specified portfolio or product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateTagOptionWithResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTagOptionWithResourceCommandInput - {@link AssociateTagOptionWithResourceCommandInput}
+ * @returns {@link AssociateTagOptionWithResourceCommandOutput}
  * @see {@link AssociateTagOptionWithResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateTagOptionWithResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -93,6 +100,9 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTagOptionWithResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateTagOptionWithResourceCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     return serializeAws_json1_1AssociateTagOptionWithResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

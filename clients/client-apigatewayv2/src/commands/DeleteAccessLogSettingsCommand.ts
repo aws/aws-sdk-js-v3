@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessLogSettingsCommand}.
  */
 export interface DeleteAccessLogSettingsCommandInput extends DeleteAccessLogSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessLogSettingsCommand}.
  */
 export interface DeleteAccessLogSettingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the AccessLogSettings for a Stage. To disable access logging for a Stage, delete its AccessLogSettings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteAccessLogSettingsCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessLogSettingsCommandInput - {@link DeleteAccessLogSettingsCommandInput}
+ * @returns {@link DeleteAccessLogSettingsCommandOutput}
  * @see {@link DeleteAccessLogSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessLogSettingsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteAccessLogSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessLogSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteAccessLogSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessLogSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAccessLogSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessLogSettingsCommandOutput> {
     return deserializeAws_restJson1DeleteAccessLogSettingsCommand(output, context);
   }

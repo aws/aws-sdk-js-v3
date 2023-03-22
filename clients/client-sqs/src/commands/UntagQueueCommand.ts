@@ -18,15 +18,20 @@ import { deserializeAws_queryUntagQueueCommand, serializeAws_queryUntagQueueComm
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link UntagQueueCommand}.
  */
 export interface UntagQueueCommandInput extends UntagQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagQueueCommand}.
  */
 export interface UntagQueueCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove cost allocation tags from the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
  * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *         <note>
@@ -44,6 +49,8 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagQueueCommandInput - {@link UntagQueueCommandInput}
+ * @returns {@link UntagQueueCommandOutput}
  * @see {@link UntagQueueCommandInput} for command's `input` shape.
  * @see {@link UntagQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -67,6 +74,9 @@ export class UntagQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,10 +114,16 @@ export class UntagQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagQueueCommandOutput> {
     return deserializeAws_queryUntagQueueCommand(output, context);
   }

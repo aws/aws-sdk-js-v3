@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfiguredTableAssociationCommand}.
  */
 export interface UpdateConfiguredTableAssociationCommandInput extends UpdateConfiguredTableAssociationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfiguredTableAssociationCommand}.
  */
 export interface UpdateConfiguredTableAssociationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateConfiguredTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a configured table association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateConfiguredTableAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfiguredTableAssociationCommandInput - {@link UpdateConfiguredTableAssociationCommandInput}
+ * @returns {@link UpdateConfiguredTableAssociationCommandOutput}
  * @see {@link UpdateConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateConfiguredTableAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfiguredTableAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class UpdateConfiguredTableAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfiguredTableAssociationCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class UpdateConfiguredTableAssociationCommand extends $Command<
     return serializeAws_restJson1UpdateConfiguredTableAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartGeneratedCodeJobCommand}.
  */
 export interface StartGeneratedCodeJobCommandInput extends StartGeneratedCodeJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartGeneratedCodeJobCommand}.
  */
 export interface StartGeneratedCodeJobCommandOutput extends StartGeneratedCodeJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Starts an asynchronous process that generates client code for system-defined and custom messages.
  *       The resulting code is collected as a .zip file and uploaded to a pre-signed Amazon S3 URL.
@@ -49,6 +54,8 @@ export interface StartGeneratedCodeJobCommandOutput extends StartGeneratedCodeJo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartGeneratedCodeJobCommandInput - {@link StartGeneratedCodeJobCommandInput}
+ * @returns {@link StartGeneratedCodeJobCommandOutput}
  * @see {@link StartGeneratedCodeJobCommandInput} for command's `input` shape.
  * @see {@link StartGeneratedCodeJobCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartGeneratedCodeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartGeneratedCodeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartGeneratedCodeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartGeneratedCodeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartGeneratedCodeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartGeneratedCodeJobCommandOutput> {
     return deserializeAws_restJson1StartGeneratedCodeJobCommand(output, context);
   }

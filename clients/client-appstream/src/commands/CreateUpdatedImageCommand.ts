@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUpdatedImageCommand}.
  */
 export interface CreateUpdatedImageCommandInput extends CreateUpdatedImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUpdatedImageCommand}.
  */
 export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new image with the latest Windows operating system updates, driver updates, and AppStream 2.0 agent software.</p>
  *          <p>For more information, see the "Update an Image by Using
  *             Managed AppStream 2.0 Image Updates" section in <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html">Administer Your AppStream 2.0 Images</a>, in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUpdatedImageCommandInput - {@link CreateUpdatedImageCommandInput}
+ * @returns {@link CreateUpdatedImageCommandOutput}
  * @see {@link CreateUpdatedImageCommandInput} for command's `input` shape.
  * @see {@link CreateUpdatedImageCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateUpdatedImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUpdatedImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateUpdatedImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUpdatedImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUpdatedImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUpdatedImageCommandOutput> {
     return deserializeAws_json1_1CreateUpdatedImageCommand(output, context);
   }

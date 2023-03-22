@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceEventConfigurationCommand}.
  */
 export interface UpdateResourceEventConfigurationCommandInput extends UpdateResourceEventConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceEventConfigurationCommand}.
  */
 export interface UpdateResourceEventConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateResourceEventConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the event configuration for a particular resource identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateResourceEventConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceEventConfigurationCommandInput - {@link UpdateResourceEventConfigurationCommandInput}
+ * @returns {@link UpdateResourceEventConfigurationCommandOutput}
  * @see {@link UpdateResourceEventConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceEventConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateResourceEventConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceEventConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class UpdateResourceEventConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateResourceEventConfigurationCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class UpdateResourceEventConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateResourceEventConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

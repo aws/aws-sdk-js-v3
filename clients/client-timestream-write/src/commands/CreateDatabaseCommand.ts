@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatabaseCommand}.
  */
 export interface CreateDatabaseCommandInput extends CreateDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatabaseCommand}.
  */
 export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Timestream database. If the KMS key is not
  *          specified, the database will be encrypted with a Timestream managed KMS key located in your account. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed keys</a>. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. For
  *          details, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html">code sample</a>.
@@ -50,6 +55,8 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatabaseCommandInput - {@link CreateDatabaseCommandInput}
+ * @returns {@link CreateDatabaseCommandOutput}
  * @see {@link CreateDatabaseCommandInput} for command's `input` shape.
  * @see {@link CreateDatabaseCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -98,6 +105,9 @@ export class CreateDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatabaseCommandOutput> {
     return deserializeAws_json1_0CreateDatabaseCommand(output, context);
   }

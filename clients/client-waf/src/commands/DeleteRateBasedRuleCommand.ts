@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRateBasedRuleCommand}.
  */
 export interface DeleteRateBasedRuleCommandInput extends DeleteRateBasedRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRateBasedRuleCommand}.
  */
 export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -73,6 +78,8 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRateBasedRuleCommandInput - {@link DeleteRateBasedRuleCommandInput}
+ * @returns {@link DeleteRateBasedRuleCommandOutput}
  * @see {@link DeleteRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -143,6 +150,9 @@ export class DeleteRateBasedRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRateBasedRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class DeleteRateBasedRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRateBasedRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRateBasedRuleCommandOutput> {
     return deserializeAws_json1_1DeleteRateBasedRuleCommand(output, context);
   }

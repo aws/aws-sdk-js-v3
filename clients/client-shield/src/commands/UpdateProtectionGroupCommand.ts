@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProtectionGroupCommand}.
  */
 export interface UpdateProtectionGroupCommandInput extends UpdateProtectionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProtectionGroupCommand}.
  */
 export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing protection group. A protection group is a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProtectionGroupCommandInput - {@link UpdateProtectionGroupCommandInput}
+ * @returns {@link UpdateProtectionGroupCommandOutput}
  * @see {@link UpdateProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateProtectionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProtectionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateProtectionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateProtectionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProtectionGroupCommandOutput> {
     return deserializeAws_json1_1UpdateProtectionGroupCommand(output, context);
   }

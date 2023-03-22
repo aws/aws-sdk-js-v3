@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateObjectAttributesCommand}.
  */
 export interface UpdateObjectAttributesCommandInput extends UpdateObjectAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateObjectAttributesCommand}.
  */
 export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a given object's attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateObjectAttributesCommandInput - {@link UpdateObjectAttributesCommandInput}
+ * @returns {@link UpdateObjectAttributesCommandOutput}
  * @see {@link UpdateObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdateObjectAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateObjectAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdateObjectAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateObjectAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateObjectAttributesCommandOutput> {
     return deserializeAws_restJson1UpdateObjectAttributesCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryListImportsCommand, serializeAws_queryListImportsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListImportsCommand}.
  */
 export interface ListImportsCommandInput extends ListImportsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListImportsCommand}.
  */
 export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all stacks that are importing an exported output value. To modify or remove an
  *          exported output value, first use this action to see which stacks are using it. To see the
  *          exported output values in your account, see <a>ListExports</a>.</p>
@@ -48,6 +53,8 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImportsCommandInput - {@link ListImportsCommandInput}
+ * @returns {@link ListImportsCommandOutput}
  * @see {@link ListImportsCommandInput} for command's `input` shape.
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListImportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ListImportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListImportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportsCommandOutput> {
     return deserializeAws_queryListImportsCommand(output, context);
   }

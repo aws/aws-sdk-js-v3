@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetContentModerationCommand}.
  */
 export interface GetContentModerationCommandInput extends GetContentModerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContentModerationCommand}.
  */
 export interface GetContentModerationCommandOutput extends GetContentModerationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon Rekognition Video analysis started by
  *        <a>StartContentModeration</a>. For a list of moderation labels in Amazon Rekognition, see
  *        <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using the image and video moderation APIs</a>.</p>
@@ -72,6 +77,8 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContentModerationCommandInput - {@link GetContentModerationCommandInput}
+ * @returns {@link GetContentModerationCommandOutput}
  * @see {@link GetContentModerationCommandInput} for command's `input` shape.
  * @see {@link GetContentModerationCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -118,6 +125,9 @@ export class GetContentModerationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContentModerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class GetContentModerationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContentModerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContentModerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContentModerationCommandOutput> {
     return deserializeAws_json1_1GetContentModerationCommand(output, context);
   }

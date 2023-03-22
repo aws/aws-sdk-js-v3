@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCertificateCommand}.
  */
 export interface DescribeCertificateCommandInput extends DescribeCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCertificateCommand}.
  */
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed metadata about the specified ACM certificate.</p>
  *          <p>If you have just created a certificate using the <code>RequestCertificate</code> action,
  *       there is a delay of several seconds before you can retrieve information about it.</p>
@@ -48,6 +53,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
+ * @returns {@link DescribeCertificateCommandOutput}
  * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificateCommandOutput> {
     return deserializeAws_json1_1DescribeCertificateCommand(output, context);
   }

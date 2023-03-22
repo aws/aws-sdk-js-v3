@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPhoneNumberSettingsCommand}.
  */
 export interface GetPhoneNumberSettingsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetPhoneNumberSettingsCommand}.
  */
 export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPhoneNumberSettingsCommandInput - {@link GetPhoneNumberSettingsCommandInput}
+ * @returns {@link GetPhoneNumberSettingsCommandOutput}
  * @see {@link GetPhoneNumberSettingsCommandInput} for command's `input` shape.
  * @see {@link GetPhoneNumberSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPhoneNumberSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPhoneNumberSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPhoneNumberSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberSettingsCommandOutput> {
     return deserializeAws_restJson1GetPhoneNumberSettingsCommand(output, context);
   }

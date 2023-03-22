@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutCommentReactionCommand}.
  */
 export interface PutCommentReactionCommandInput extends PutCommentReactionInput {}
 /**
+ * @public
+ *
  * The output of {@link PutCommentReactionCommand}.
  */
 export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or
  *         update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
  * @example
@@ -42,6 +47,8 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCommentReactionCommandInput - {@link PutCommentReactionCommandInput}
+ * @returns {@link PutCommentReactionCommandOutput}
  * @see {@link PutCommentReactionCommandInput} for command's `input` shape.
  * @see {@link PutCommentReactionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutCommentReactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCommentReactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutCommentReactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCommentReactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutCommentReactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCommentReactionCommandOutput> {
     return deserializeAws_json1_1PutCommentReactionCommand(output, context);
   }

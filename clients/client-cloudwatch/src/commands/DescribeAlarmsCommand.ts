@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAlarmsCommand}.
  */
 export interface DescribeAlarmsCommandInput extends DescribeAlarmsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAlarmsCommand}.
  */
 export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
  * 			name, the alarm state, or a prefix for any action.</p>
  *          <p>To use this operation and return information about composite alarms, you must be signed on with
@@ -50,6 +55,8 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlarmsCommandInput - {@link DescribeAlarmsCommandInput}
+ * @returns {@link DescribeAlarmsCommandOutput}
  * @see {@link DescribeAlarmsCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeAlarmsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlarmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeAlarmsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlarmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAlarmsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmsCommandOutput> {
     return deserializeAws_queryDescribeAlarmsCommand(output, context);
   }

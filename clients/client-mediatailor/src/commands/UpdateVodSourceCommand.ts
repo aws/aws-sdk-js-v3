@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVodSourceCommand}.
  */
 export interface UpdateVodSourceCommandInput extends UpdateVodSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVodSourceCommand}.
  */
 export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a VOD source's configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVodSourceCommandInput - {@link UpdateVodSourceCommandInput}
+ * @returns {@link UpdateVodSourceCommandOutput}
  * @see {@link UpdateVodSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class UpdateVodSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVodSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class UpdateVodSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVodSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVodSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVodSourceCommandOutput> {
     return deserializeAws_restJson1UpdateVodSourceCommand(output, context);
   }

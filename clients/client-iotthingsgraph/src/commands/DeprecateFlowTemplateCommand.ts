@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateFlowTemplateCommand}.
  */
 export interface DeprecateFlowTemplateCommandInput extends DeprecateFlowTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateFlowTemplateCommand}.
  */
 export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>
@@ -48,6 +53,8 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateFlowTemplateCommandInput - {@link DeprecateFlowTemplateCommandInput}
+ * @returns {@link DeprecateFlowTemplateCommandOutput}
  * @see {@link DeprecateFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link DeprecateFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeprecateFlowTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateFlowTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeprecateFlowTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeprecateFlowTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateFlowTemplateCommandOutput> {
     return deserializeAws_json1_1DeprecateFlowTemplateCommand(output, context);
   }

@@ -23,15 +23,20 @@ import { deserializeAws_queryGetQueueUrlCommand, serializeAws_queryGetQueueUrlCo
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueueUrlCommand}.
  */
 export interface GetQueueUrlCommandInput extends GetQueueUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueueUrlCommand}.
  */
 export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the URL of an existing Amazon SQS queue.</p>
  *          <p>To access a queue that belongs to another AWS account, use the <code>QueueOwnerAWSAccountId</code> parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue.
  *           For more information about shared queue access, see <code>
@@ -48,6 +53,8 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueueUrlCommandInput - {@link GetQueueUrlCommandInput}
+ * @returns {@link GetQueueUrlCommandOutput}
  * @see {@link GetQueueUrlCommandInput} for command's `input` shape.
  * @see {@link GetQueueUrlCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -74,6 +81,9 @@ export class GetQueueUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueueUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetQueueUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueueUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetQueueUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueUrlCommandOutput> {
     return deserializeAws_queryGetQueueUrlCommand(output, context);
   }

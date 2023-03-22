@@ -27,10 +27,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListVPCAssociationAuthorizationsCommand}.
  */
 export interface ListVPCAssociationAuthorizationsCommandInput extends ListVPCAssociationAuthorizationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVPCAssociationAuthorizationsCommand}.
  */
 export interface ListVPCAssociationAuthorizationsCommandOutput
@@ -38,6 +42,7 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the VPCs that were created by other accounts and that can be associated
  * 			with a specified hosted zone because you've submitted one or more
  * 				<code>CreateVPCAssociationAuthorization</code> requests. </p>
@@ -53,6 +58,8 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVPCAssociationAuthorizationsCommandInput - {@link ListVPCAssociationAuthorizationsCommandInput}
+ * @returns {@link ListVPCAssociationAuthorizationsCommandOutput}
  * @see {@link ListVPCAssociationAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link ListVPCAssociationAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -86,6 +93,9 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVPCAssociationAuthorizationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListVPCAssociationAuthorizationsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
     return serializeAws_restXmlListVPCAssociationAuthorizationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

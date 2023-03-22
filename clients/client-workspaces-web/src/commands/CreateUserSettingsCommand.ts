@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserSettingsCommand}.
  */
 export interface CreateUserSettingsCommandInput extends CreateUserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserSettingsCommand}.
  */
 export interface CreateUserSettingsCommandOutput extends CreateUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a user settings resource that can be associated with a web portal. Once
  *          associated with a web portal, user settings control how users can transfer data between a
  *          streaming session and the their local devices. </p>
@@ -48,6 +53,8 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserSettingsCommandInput - {@link CreateUserSettingsCommandInput}
+ * @returns {@link CreateUserSettingsCommandOutput}
  * @see {@link CreateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserSettingsCommandOutput> {
     return deserializeAws_restJson1CreateUserSettingsCommand(output, context);
   }

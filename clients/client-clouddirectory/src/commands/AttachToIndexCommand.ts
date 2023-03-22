@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachToIndexCommand}.
  */
 export interface AttachToIndexCommandInput extends AttachToIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachToIndexCommand}.
  */
 export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified object to the specified index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachToIndexCommandInput - {@link AttachToIndexCommandInput}
+ * @returns {@link AttachToIndexCommandOutput}
  * @see {@link AttachToIndexCommandInput} for command's `input` shape.
  * @see {@link AttachToIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -108,6 +115,9 @@ export class AttachToIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachToIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class AttachToIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachToIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AttachToIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachToIndexCommandOutput> {
     return deserializeAws_restJson1AttachToIndexCommand(output, context);
   }

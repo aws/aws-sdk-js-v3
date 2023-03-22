@@ -20,15 +20,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableHealthServiceAccessForOrganizationCommand}.
  */
 export interface EnableHealthServiceAccessForOrganizationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableHealthServiceAccessForOrganizationCommand}.
  */
 export interface EnableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Health to work with Organizations. You can use the organizational view feature
  *          to aggregate events from all Amazon Web Services accounts in your organization in a centralized location. </p>
  *          <p>This operation also creates a service-linked role for the management account in the
@@ -62,6 +67,8 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableHealthServiceAccessForOrganizationCommandInput - {@link EnableHealthServiceAccessForOrganizationCommandInput}
+ * @returns {@link EnableHealthServiceAccessForOrganizationCommandOutput}
  * @see {@link EnableHealthServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link EnableHealthServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -90,6 +97,9 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableHealthServiceAccessForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableHealthServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     return serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

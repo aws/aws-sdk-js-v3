@@ -10,7 +10,7 @@ import { SSMIncidentsClient } from "../SSMIncidentsClient";
 import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMIncidentsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRelatedItemsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRelatedItems(
   config: SSMIncidentsPaginationConfiguration,
   input: ListRelatedItemsCommandInput,

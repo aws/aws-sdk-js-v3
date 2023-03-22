@@ -7,6 +7,9 @@ import {
 
 import { NetworkManagerServiceException as __BaseException } from "./NetworkManagerServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptAttachmentRequest {
   /**
    * <p>The ID of the attachment. </p>
@@ -14,6 +17,9 @@ export interface AcceptAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum AttachmentType {
   CONNECT = "CONNECT",
   SITE_TO_SITE_VPN = "SITE_TO_SITE_VPN",
@@ -22,6 +28,7 @@ export enum AttachmentType {
 }
 
 /**
+ * @public
  * <p>Describes a tag.</p>
  */
 export interface Tag {
@@ -39,6 +46,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Describes a proposed segment change. In some cases, the segment change must first be evaluated and accepted. </p>
  */
 export interface ProposedSegmentChange {
@@ -58,6 +66,9 @@ export interface ProposedSegmentChange {
   SegmentName?: string;
 }
 
+/**
+ * @public
+ */
 export enum AttachmentState {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -71,6 +82,7 @@ export enum AttachmentState {
 }
 
 /**
+ * @public
  * <p>Describes a core network attachment.</p>
  */
 export interface Attachment {
@@ -145,6 +157,9 @@ export interface Attachment {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AcceptAttachmentResponse {
   /**
    * <p>The response to the attachment request. </p>
@@ -153,6 +168,7 @@ export interface AcceptAttachmentResponse {
 }
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -174,6 +190,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a conflict processing the request. Updating or deleting the resource can
  *             cause an inconsistent state.</p>
  */
@@ -207,6 +224,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request has failed due to an internal error.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -233,6 +251,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -271,6 +290,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -297,6 +317,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a validation exception for a field.</p>
  */
 export interface ValidationExceptionField {
@@ -311,6 +332,9 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CannotParse",
   FIELD_VALIDATION_FAILED = "FieldValidationFailed",
@@ -319,6 +343,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints.</p>
  */
 export class ValidationException extends __BaseException {
@@ -351,6 +376,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the current status of an account within an Amazon Web Services Organization, including service-linked roles (SLRs).</p>
  */
 export interface AccountStatus {
@@ -365,6 +391,9 @@ export interface AccountStatus {
   SLRDeploymentStatus?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateConnectPeerRequest {
   /**
    * <p>The ID of your global network.</p>
@@ -387,6 +416,9 @@ export interface AssociateConnectPeerRequest {
   LinkId?: string;
 }
 
+/**
+ * @public
+ */
 export enum ConnectPeerAssociationState {
   available = "AVAILABLE",
   deleted = "DELETED",
@@ -395,6 +427,7 @@ export enum ConnectPeerAssociationState {
 }
 
 /**
+ * @public
  * <p>Describes a core network Connect peer association.</p>
  */
 export interface ConnectPeerAssociation {
@@ -424,6 +457,9 @@ export interface ConnectPeerAssociation {
   State?: ConnectPeerAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateConnectPeerResponse {
   /**
    * <p>The response to the Connect peer request.</p>
@@ -432,6 +468,7 @@ export interface AssociateConnectPeerResponse {
 }
 
 /**
+ * @public
  * <p>A service limit was exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -479,6 +516,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateCustomerGatewayRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
@@ -501,6 +541,9 @@ export interface AssociateCustomerGatewayRequest {
   LinkId?: string;
 }
 
+/**
+ * @public
+ */
 export enum CustomerGatewayAssociationState {
   available = "AVAILABLE",
   deleted = "DELETED",
@@ -509,6 +552,7 @@ export enum CustomerGatewayAssociationState {
 }
 
 /**
+ * @public
  * <p>Describes the association between a customer gateway, a device, and a link.</p>
  */
 export interface CustomerGatewayAssociation {
@@ -538,6 +582,9 @@ export interface CustomerGatewayAssociation {
   State?: CustomerGatewayAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCustomerGatewayResponse {
   /**
    * <p>The customer gateway association.</p>
@@ -545,6 +592,9 @@ export interface AssociateCustomerGatewayResponse {
   CustomerGatewayAssociation?: CustomerGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -562,6 +612,9 @@ export interface AssociateLinkRequest {
   LinkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum LinkAssociationState {
   available = "AVAILABLE",
   deleted = "DELETED",
@@ -570,6 +623,7 @@ export enum LinkAssociationState {
 }
 
 /**
+ * @public
  * <p>Describes the association between a device and a link.</p>
  */
 export interface LinkAssociation {
@@ -594,6 +648,9 @@ export interface LinkAssociation {
   LinkAssociationState?: LinkAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateLinkResponse {
   /**
    * <p>The link association.</p>
@@ -601,6 +658,9 @@ export interface AssociateLinkResponse {
   LinkAssociation?: LinkAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayConnectPeerRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -623,6 +683,9 @@ export interface AssociateTransitGatewayConnectPeerRequest {
   LinkId?: string;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayConnectPeerAssociationState {
   available = "AVAILABLE",
   deleted = "DELETED",
@@ -631,6 +694,7 @@ export enum TransitGatewayConnectPeerAssociationState {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway Connect peer association.</p>
  */
 export interface TransitGatewayConnectPeerAssociation {
@@ -660,6 +724,9 @@ export interface TransitGatewayConnectPeerAssociation {
   State?: TransitGatewayConnectPeerAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayConnectPeerResponse {
   /**
    * <p>The transit gateway Connect peer association.</p>
@@ -668,6 +735,7 @@ export interface AssociateTransitGatewayConnectPeerResponse {
 }
 
 /**
+ * @public
  * <p>Specifies a location in Amazon Web Services.</p>
  */
 export interface AWSLocation {
@@ -684,6 +752,7 @@ export interface AWSLocation {
 }
 
 /**
+ * @public
  * <p>Describes bandwidth information.</p>
  */
 export interface Bandwidth {
@@ -699,6 +768,7 @@ export interface Bandwidth {
 }
 
 /**
+ * @public
  * <p>Describes the BGP options.</p>
  */
 export interface BgpOptions {
@@ -708,12 +778,18 @@ export interface BgpOptions {
   PeerAsn?: number;
 }
 
+/**
+ * @public
+ */
 export enum ChangeAction {
   ADD = "ADD",
   MODIFY = "MODIFY",
   REMOVE = "REMOVE",
 }
 
+/**
+ * @public
+ */
 export enum ChangeSetState {
   EXECUTING = "EXECUTING",
   EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
@@ -723,6 +799,9 @@ export enum ChangeSetState {
   READY_TO_EXECUTE = "READY_TO_EXECUTE",
 }
 
+/**
+ * @public
+ */
 export enum ChangeStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
@@ -730,6 +809,9 @@ export enum ChangeStatus {
   NOT_STARTED = "NOT_STARTED",
 }
 
+/**
+ * @public
+ */
 export enum ChangeType {
   ATTACHMENT_MAPPING = "ATTACHMENT_MAPPING",
   ATTACHMENT_POLICIES_CONFIGURATION = "ATTACHMENT_POLICIES_CONFIGURATION",
@@ -742,11 +824,15 @@ export enum ChangeType {
   SEGMENT_ACTIONS_CONFIGURATION = "SEGMENT_ACTIONS_CONFIGURATION",
 }
 
+/**
+ * @public
+ */
 export enum TunnelProtocol {
   GRE = "GRE",
 }
 
 /**
+ * @public
  * <p>Describes a core network Connect attachment options.</p>
  */
 export interface ConnectAttachmentOptions {
@@ -757,6 +843,7 @@ export interface ConnectAttachmentOptions {
 }
 
 /**
+ * @public
  * <p>Describes a core network Connect attachment.</p>
  */
 export interface ConnectAttachment {
@@ -776,6 +863,9 @@ export interface ConnectAttachment {
   Options?: ConnectAttachmentOptions;
 }
 
+/**
+ * @public
+ */
 export enum ConnectionState {
   available = "AVAILABLE",
   deleting = "DELETING",
@@ -784,6 +874,7 @@ export enum ConnectionState {
 }
 
 /**
+ * @public
  * <p>Describes a connection.</p>
  */
 export interface Connection {
@@ -843,17 +934,24 @@ export interface Connection {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum ConnectionStatus {
   DOWN = "DOWN",
   UP = "UP",
 }
 
+/**
+ * @public
+ */
 export enum ConnectionType {
   BGP = "BGP",
   IPSEC = "IPSEC",
 }
 
 /**
+ * @public
  * <p>Describes connection health.</p>
  */
 export interface ConnectionHealth {
@@ -874,6 +972,7 @@ export interface ConnectionHealth {
 }
 
 /**
+ * @public
  * <p>Describes a core network BGP configuration.</p>
  */
 export interface ConnectPeerBgpConfiguration {
@@ -899,6 +998,7 @@ export interface ConnectPeerBgpConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes a core network Connect peer configuration.</p>
  */
 export interface ConnectPeerConfiguration {
@@ -928,6 +1028,9 @@ export interface ConnectPeerConfiguration {
   BgpConfigurations?: ConnectPeerBgpConfiguration[];
 }
 
+/**
+ * @public
+ */
 export enum ConnectPeerState {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -936,6 +1039,7 @@ export enum ConnectPeerState {
 }
 
 /**
+ * @public
  * <p>Describes a core network Connect peer.</p>
  */
 export interface ConnectPeer {
@@ -981,6 +1085,7 @@ export interface ConnectPeer {
 }
 
 /**
+ * @public
  * <p>Summary description of a Connect peer.</p>
  */
 export interface ConnectPeerSummary {
@@ -1021,6 +1126,7 @@ export interface ConnectPeerSummary {
 }
 
 /**
+ * @public
  * <p>Describes a core network edge.</p>
  */
 export interface CoreNetworkEdge {
@@ -1041,6 +1147,7 @@ export interface CoreNetworkEdge {
 }
 
 /**
+ * @public
  * <p>Describes a core network segment, which are dedicated routes. Only attachments within this segment can communicate with each other.</p>
  */
 export interface CoreNetworkSegment {
@@ -1060,6 +1167,9 @@ export interface CoreNetworkSegment {
   SharedSegments?: string[];
 }
 
+/**
+ * @public
+ */
 export enum CoreNetworkState {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -1068,6 +1178,7 @@ export enum CoreNetworkState {
 }
 
 /**
+ * @public
  * <p>Describes a core network.</p>
  */
 export interface CoreNetwork {
@@ -1118,6 +1229,7 @@ export interface CoreNetwork {
 }
 
 /**
+ * @public
  * <p>Describes a core network change.</p>
  */
 export interface CoreNetworkChangeValues {
@@ -1158,6 +1270,7 @@ export interface CoreNetworkChangeValues {
 }
 
 /**
+ * @public
  * <p>Details describing a core network change.</p>
  */
 export interface CoreNetworkChange {
@@ -1193,6 +1306,7 @@ export interface CoreNetworkChange {
 }
 
 /**
+ * @public
  * <p>Describes a core network change event.</p>
  */
 export interface CoreNetworkChangeEventValues {
@@ -1218,6 +1332,7 @@ export interface CoreNetworkChangeEventValues {
 }
 
 /**
+ * @public
  * <p>Describes a core network change event. This can be a change to a segment, attachment, route, etc.</p>
  */
 export interface CoreNetworkChangeEvent {
@@ -1252,12 +1367,16 @@ export interface CoreNetworkChangeEvent {
   Values?: CoreNetworkChangeEventValues;
 }
 
+/**
+ * @public
+ */
 export enum CoreNetworkPolicyAlias {
   LATEST = "LATEST",
   LIVE = "LIVE",
 }
 
 /**
+ * @public
  * <p>Provides details about an error in a core network policy.</p>
  */
 export interface CoreNetworkPolicyError {
@@ -1278,6 +1397,7 @@ export interface CoreNetworkPolicyError {
 }
 
 /**
+ * @public
  * <p>Describes a core network policy. You can have only one LIVE Core Policy.</p>
  */
 export interface CoreNetworkPolicy {
@@ -1323,6 +1443,7 @@ export interface CoreNetworkPolicy {
 }
 
 /**
+ * @public
  * <p>Describes a core network policy exception.</p>
  */
 export class CoreNetworkPolicyException extends __BaseException {
@@ -1349,6 +1470,7 @@ export class CoreNetworkPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a core network policy version.</p>
  */
 export interface CoreNetworkPolicyVersion {
@@ -1384,6 +1506,7 @@ export interface CoreNetworkPolicyVersion {
 }
 
 /**
+ * @public
  * <p>Returns details about a core network edge.</p>
  */
 export interface CoreNetworkSegmentEdgeIdentifier {
@@ -1404,6 +1527,7 @@ export interface CoreNetworkSegmentEdgeIdentifier {
 }
 
 /**
+ * @public
  * <p>Returns summary information about a core network.</p>
  */
 export interface CoreNetworkSummary {
@@ -1443,6 +1567,9 @@ export interface CoreNetworkSummary {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectAttachmentRequest {
   /**
    * <p>The ID of a core network where you want to create the attachment. </p>
@@ -1475,6 +1602,9 @@ export interface CreateConnectAttachmentRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectAttachmentResponse {
   /**
    * <p>The response to a Connect attachment request.</p>
@@ -1482,6 +1612,9 @@ export interface CreateConnectAttachmentResponse {
   ConnectAttachment?: ConnectAttachment;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1520,6 +1653,9 @@ export interface CreateConnectionRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionResponse {
   /**
    * <p>Information about the connection.</p>
@@ -1527,6 +1663,9 @@ export interface CreateConnectionResponse {
   Connection?: Connection;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectPeerRequest {
   /**
    * <p>The ID of the connection attachment.</p>
@@ -1564,6 +1703,9 @@ export interface CreateConnectPeerRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectPeerResponse {
   /**
    * <p>The response to the request.</p>
@@ -1571,6 +1713,9 @@ export interface CreateConnectPeerResponse {
   ConnectPeer?: ConnectPeer;
 }
 
+/**
+ * @public
+ */
 export interface CreateCoreNetworkRequest {
   /**
    * <p>The ID of the global network that a core network will be a part of. </p>
@@ -1598,6 +1743,9 @@ export interface CreateCoreNetworkRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCoreNetworkResponse {
   /**
    * <p>Returns details about a core network.</p>
@@ -1606,6 +1754,7 @@ export interface CreateCoreNetworkResponse {
 }
 
 /**
+ * @public
  * <p>Describes a location.</p>
  */
 export interface Location {
@@ -1625,6 +1774,9 @@ export interface Location {
   Longitude?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeviceRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1681,6 +1833,9 @@ export interface CreateDeviceRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum DeviceState {
   available = "AVAILABLE",
   deleting = "DELETING",
@@ -1689,6 +1844,7 @@ export enum DeviceState {
 }
 
 /**
+ * @public
  * <p>Describes a device.</p>
  */
 export interface Device {
@@ -1763,6 +1919,9 @@ export interface Device {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDeviceResponse {
   /**
    * <p>Information about the device.</p>
@@ -1770,6 +1929,9 @@ export interface CreateDeviceResponse {
   Device?: Device;
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalNetworkRequest {
   /**
    * <p>A description of the global network.</p>
@@ -1783,6 +1945,9 @@ export interface CreateGlobalNetworkRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum GlobalNetworkState {
   available = "AVAILABLE",
   deleting = "DELETING",
@@ -1791,6 +1956,7 @@ export enum GlobalNetworkState {
 }
 
 /**
+ * @public
  * <p>Describes a global network. This is a single private network acting as a high-level container for your network objects, including an Amazon Web Services-managed Core Network.</p>
  */
 export interface GlobalNetwork {
@@ -1825,6 +1991,9 @@ export interface GlobalNetwork {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalNetworkResponse {
   /**
    * <p>Information about the global network object.</p>
@@ -1832,6 +2001,9 @@ export interface CreateGlobalNetworkResponse {
   GlobalNetwork?: GlobalNetwork;
 }
 
+/**
+ * @public
+ */
 export interface CreateLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1872,6 +2044,9 @@ export interface CreateLinkRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum LinkState {
   available = "AVAILABLE",
   deleting = "DELETING",
@@ -1880,6 +2055,7 @@ export enum LinkState {
 }
 
 /**
+ * @public
  * <p>Describes a link.</p>
  */
 export interface Link {
@@ -1939,6 +2115,9 @@ export interface Link {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLinkResponse {
   /**
    * <p>Information about the link.</p>
@@ -1946,6 +2125,9 @@ export interface CreateLinkResponse {
   Link?: Link;
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1983,6 +2165,9 @@ export interface CreateSiteRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum SiteState {
   available = "AVAILABLE",
   deleting = "DELETING",
@@ -1991,6 +2176,7 @@ export enum SiteState {
 }
 
 /**
+ * @public
  * <p>Describes a site.</p>
  */
 export interface Site {
@@ -2035,6 +2221,9 @@ export interface Site {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteResponse {
   /**
    * <p>Information about the site.</p>
@@ -2042,6 +2231,9 @@ export interface CreateSiteResponse {
   Site?: Site;
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteToSiteVpnAttachmentRequest {
   /**
    * <p>The ID of a core network where you're creating a site-to-site VPN attachment.</p>
@@ -2065,6 +2257,7 @@ export interface CreateSiteToSiteVpnAttachmentRequest {
 }
 
 /**
+ * @public
  * <p>Creates a site-to-site VPN attachment.</p>
  */
 export interface SiteToSiteVpnAttachment {
@@ -2079,6 +2272,9 @@ export interface SiteToSiteVpnAttachment {
   VpnConnectionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteToSiteVpnAttachmentResponse {
   /**
    * <p>Details about a site-to-site VPN attachment.</p>
@@ -2086,6 +2282,9 @@ export interface CreateSiteToSiteVpnAttachmentResponse {
   SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPeeringRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2108,10 +2307,16 @@ export interface CreateTransitGatewayPeeringRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum PeeringType {
   TRANSIT_GATEWAY = "TRANSIT_GATEWAY",
 }
 
+/**
+ * @public
+ */
 export enum PeeringState {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -2120,6 +2325,7 @@ export enum PeeringState {
 }
 
 /**
+ * @public
  * <p>Describes a peering connection.</p>
  */
 export interface Peering {
@@ -2175,6 +2381,7 @@ export interface Peering {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway peering attachment.</p>
  */
 export interface TransitGatewayPeering {
@@ -2194,6 +2401,9 @@ export interface TransitGatewayPeering {
   TransitGatewayPeeringAttachmentId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPeeringResponse {
   /**
    * <p>Returns information about the transit gateway peering connection request.</p>
@@ -2201,6 +2411,9 @@ export interface CreateTransitGatewayPeeringResponse {
   TransitGatewayPeering?: TransitGatewayPeering;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteTableAttachmentRequest {
   /**
    * <p>The ID of the peer for the </p>
@@ -2224,6 +2437,7 @@ export interface CreateTransitGatewayRouteTableAttachmentRequest {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway route table attachment.</p>
  */
 export interface TransitGatewayRouteTableAttachment {
@@ -2243,6 +2457,9 @@ export interface TransitGatewayRouteTableAttachment {
   TransitGatewayRouteTableArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteTableAttachmentResponse {
   /**
    * <p>The route table associated with the create transit gateway route table attachment request.</p>
@@ -2251,6 +2468,7 @@ export interface CreateTransitGatewayRouteTableAttachmentResponse {
 }
 
 /**
+ * @public
  * <p>Describes the VPC options.</p>
  */
 export interface VpcOptions {
@@ -2265,6 +2483,9 @@ export interface VpcOptions {
   ApplianceModeSupport?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcAttachmentRequest {
   /**
    * <p>The ID of a core network for the VPC attachment.</p>
@@ -2298,6 +2519,7 @@ export interface CreateVpcAttachmentRequest {
 }
 
 /**
+ * @public
  * <p>Describes a VPC attachment.</p>
  */
 export interface VpcAttachment {
@@ -2317,6 +2539,9 @@ export interface VpcAttachment {
   Options?: VpcOptions;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcAttachmentResponse {
   /**
    * <p>Provides details about the VPC attachment.</p>
@@ -2324,6 +2549,9 @@ export interface CreateVpcAttachmentResponse {
   VpcAttachment?: VpcAttachment;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAttachmentRequest {
   /**
    * <p>The ID of the attachment to delete.</p>
@@ -2331,6 +2559,9 @@ export interface DeleteAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAttachmentResponse {
   /**
    * <p>Information about the deleted attachment.</p>
@@ -2338,6 +2569,9 @@ export interface DeleteAttachmentResponse {
   Attachment?: Attachment;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2350,6 +2584,9 @@ export interface DeleteConnectionRequest {
   ConnectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionResponse {
   /**
    * <p>Information about the connection.</p>
@@ -2357,6 +2594,9 @@ export interface DeleteConnectionResponse {
   Connection?: Connection;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectPeerRequest {
   /**
    * <p>The ID of the deleted Connect peer.</p>
@@ -2364,6 +2604,9 @@ export interface DeleteConnectPeerRequest {
   ConnectPeerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectPeerResponse {
   /**
    * <p>Information about the deleted Connect peer.</p>
@@ -2371,6 +2614,9 @@ export interface DeleteConnectPeerResponse {
   ConnectPeer?: ConnectPeer;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoreNetworkRequest {
   /**
    * <p>The network ID of the deleted core network.</p>
@@ -2378,6 +2624,9 @@ export interface DeleteCoreNetworkRequest {
   CoreNetworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoreNetworkResponse {
   /**
    * <p>Information about the deleted core network.</p>
@@ -2385,6 +2634,9 @@ export interface DeleteCoreNetworkResponse {
   CoreNetwork?: CoreNetwork;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoreNetworkPolicyVersionRequest {
   /**
    * <p>The ID of a core network for the deleted policy.</p>
@@ -2397,6 +2649,9 @@ export interface DeleteCoreNetworkPolicyVersionRequest {
   PolicyVersionId: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoreNetworkPolicyVersionResponse {
   /**
    * <p>Returns information about the deleted policy version. </p>
@@ -2404,6 +2659,9 @@ export interface DeleteCoreNetworkPolicyVersionResponse {
   CoreNetworkPolicy?: CoreNetworkPolicy;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2416,6 +2674,9 @@ export interface DeleteDeviceRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceResponse {
   /**
    * <p>Information about the device.</p>
@@ -2423,6 +2684,9 @@ export interface DeleteDeviceResponse {
   Device?: Device;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGlobalNetworkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2430,6 +2694,9 @@ export interface DeleteGlobalNetworkRequest {
   GlobalNetworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGlobalNetworkResponse {
   /**
    * <p>Information about the global network.</p>
@@ -2437,6 +2704,9 @@ export interface DeleteGlobalNetworkResponse {
   GlobalNetwork?: GlobalNetwork;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2449,6 +2719,9 @@ export interface DeleteLinkRequest {
   LinkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLinkResponse {
   /**
    * <p>Information about the link.</p>
@@ -2456,6 +2729,9 @@ export interface DeleteLinkResponse {
   Link?: Link;
 }
 
+/**
+ * @public
+ */
 export interface DeletePeeringRequest {
   /**
    * <p>The ID of the peering connection to delete.</p>
@@ -2463,6 +2739,9 @@ export interface DeletePeeringRequest {
   PeeringId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePeeringResponse {
   /**
    * <p>Information about a deleted peering connection.</p>
@@ -2470,6 +2749,9 @@ export interface DeletePeeringResponse {
   Peering?: Peering;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The ARN of the policy to delete.</p>
@@ -2477,8 +2759,14 @@ export interface DeleteResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSiteRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2491,6 +2779,9 @@ export interface DeleteSiteRequest {
   SiteId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSiteResponse {
   /**
    * <p>Information about the site.</p>
@@ -2498,6 +2789,9 @@ export interface DeleteSiteResponse {
   Site?: Site;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTransitGatewayRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2510,6 +2804,9 @@ export interface DeregisterTransitGatewayRequest {
   TransitGatewayArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TransitGatewayRegistrationState {
   available = "AVAILABLE",
   deleted = "DELETED",
@@ -2519,6 +2816,7 @@ export enum TransitGatewayRegistrationState {
 }
 
 /**
+ * @public
  * <p>Describes the status of a transit gateway registration.</p>
  */
 export interface TransitGatewayRegistrationStateReason {
@@ -2534,6 +2832,7 @@ export interface TransitGatewayRegistrationStateReason {
 }
 
 /**
+ * @public
  * <p>Describes the registration of a transit gateway to a global network.</p>
  */
 export interface TransitGatewayRegistration {
@@ -2553,6 +2852,9 @@ export interface TransitGatewayRegistration {
   State?: TransitGatewayRegistrationStateReason;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTransitGatewayResponse {
   /**
    * <p>The transit gateway registration information.</p>
@@ -2560,6 +2862,9 @@ export interface DeregisterTransitGatewayResponse {
   TransitGatewayRegistration?: TransitGatewayRegistration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalNetworksRequest {
   /**
    * <p>The IDs of one or more global networks. The maximum is 10.</p>
@@ -2577,6 +2882,9 @@ export interface DescribeGlobalNetworksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalNetworksResponse {
   /**
    * <p>Information about the global networks.</p>
@@ -2589,6 +2897,9 @@ export interface DescribeGlobalNetworksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateConnectPeerRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2601,6 +2912,9 @@ export interface DisassociateConnectPeerRequest {
   ConnectPeerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateConnectPeerResponse {
   /**
    * <p>Describes the Connect peer association.</p>
@@ -2608,6 +2922,9 @@ export interface DisassociateConnectPeerResponse {
   ConnectPeerAssociation?: ConnectPeerAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCustomerGatewayRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2620,6 +2937,9 @@ export interface DisassociateCustomerGatewayRequest {
   CustomerGatewayArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCustomerGatewayResponse {
   /**
    * <p>Information about the customer gateway association.</p>
@@ -2627,6 +2947,9 @@ export interface DisassociateCustomerGatewayResponse {
   CustomerGatewayAssociation?: CustomerGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2644,6 +2967,9 @@ export interface DisassociateLinkRequest {
   LinkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateLinkResponse {
   /**
    * <p>Information about the link association.</p>
@@ -2651,6 +2977,9 @@ export interface DisassociateLinkResponse {
   LinkAssociation?: LinkAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayConnectPeerRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2663,6 +2992,9 @@ export interface DisassociateTransitGatewayConnectPeerRequest {
   TransitGatewayConnectPeerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayConnectPeerResponse {
   /**
    * <p>The transit gateway Connect peer association.</p>
@@ -2670,6 +3002,9 @@ export interface DisassociateTransitGatewayConnectPeerResponse {
   TransitGatewayConnectPeerAssociation?: TransitGatewayConnectPeerAssociation;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteCoreNetworkChangeSetRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2682,8 +3017,14 @@ export interface ExecuteCoreNetworkChangeSetRequest {
   PolicyVersionId: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteCoreNetworkChangeSetResponse {}
 
+/**
+ * @public
+ */
 export interface GetConnectAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -2691,6 +3032,9 @@ export interface GetConnectAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectAttachmentResponse {
   /**
    * <p>Details about the Connect attachment.</p>
@@ -2698,6 +3042,9 @@ export interface GetConnectAttachmentResponse {
   ConnectAttachment?: ConnectAttachment;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2725,6 +3072,9 @@ export interface GetConnectionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionsResponse {
   /**
    * <p>Information about the connections.</p>
@@ -2737,6 +3087,9 @@ export interface GetConnectionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectPeerRequest {
   /**
    * <p>The ID of the Connect peer.</p>
@@ -2744,6 +3097,9 @@ export interface GetConnectPeerRequest {
   ConnectPeerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectPeerResponse {
   /**
    * <p>Returns information about a core network Connect peer.</p>
@@ -2751,6 +3107,9 @@ export interface GetConnectPeerResponse {
   ConnectPeer?: ConnectPeer;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectPeerAssociationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2773,6 +3132,9 @@ export interface GetConnectPeerAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectPeerAssociationsResponse {
   /**
    * <p>Displays a list of Connect peer associations.</p>
@@ -2785,6 +3147,9 @@ export interface GetConnectPeerAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2792,6 +3157,9 @@ export interface GetCoreNetworkRequest {
   CoreNetworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkResponse {
   /**
    * <p>Details about a core network.</p>
@@ -2799,6 +3167,9 @@ export interface GetCoreNetworkResponse {
   CoreNetwork?: CoreNetwork;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkChangeEventsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2821,6 +3192,9 @@ export interface GetCoreNetworkChangeEventsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkChangeEventsResponse {
   /**
    * <p>The response to <code>GetCoreNetworkChangeEventsRequest</code>.</p>
@@ -2833,6 +3207,9 @@ export interface GetCoreNetworkChangeEventsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkChangeSetRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2855,6 +3232,9 @@ export interface GetCoreNetworkChangeSetRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkChangeSetResponse {
   /**
    * <p>Describes a core network changes.</p>
@@ -2867,6 +3247,9 @@ export interface GetCoreNetworkChangeSetResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkPolicyRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2884,6 +3267,9 @@ export interface GetCoreNetworkPolicyRequest {
   Alias?: CoreNetworkPolicyAlias | string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkPolicyResponse {
   /**
    * <p>The details about a core network policy.</p>
@@ -2891,6 +3277,9 @@ export interface GetCoreNetworkPolicyResponse {
   CoreNetworkPolicy?: CoreNetworkPolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetCustomerGatewayAssociationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2913,6 +3302,9 @@ export interface GetCustomerGatewayAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCustomerGatewayAssociationsResponse {
   /**
    * <p>The customer gateway associations.</p>
@@ -2925,6 +3317,9 @@ export interface GetCustomerGatewayAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicesRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2952,6 +3347,9 @@ export interface GetDevicesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicesResponse {
   /**
    * <p>The devices.</p>
@@ -2964,6 +3362,9 @@ export interface GetDevicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLinkAssociationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2991,6 +3392,9 @@ export interface GetLinkAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLinkAssociationsResponse {
   /**
    * <p>The link associations.</p>
@@ -3003,6 +3407,9 @@ export interface GetLinkAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLinksRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3040,6 +3447,9 @@ export interface GetLinksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLinksResponse {
   /**
    * <p>The links.</p>
@@ -3052,6 +3462,9 @@ export interface GetLinksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceCountsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3149,6 +3562,7 @@ export interface GetNetworkResourceCountsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource count.</p>
  */
 export interface NetworkResourceCount {
@@ -3163,6 +3577,9 @@ export interface NetworkResourceCount {
   Count?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceCountsResponse {
   /**
    * <p>The count of resources.</p>
@@ -3175,6 +3592,9 @@ export interface GetNetworkResourceCountsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceRelationshipsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3297,6 +3717,7 @@ export interface GetNetworkResourceRelationshipsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource relationship.</p>
  */
 export interface Relationship {
@@ -3311,6 +3732,9 @@ export interface Relationship {
   To?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceRelationshipsResponse {
   /**
    * <p>The resource relationships.</p>
@@ -3323,6 +3747,9 @@ export interface GetNetworkResourceRelationshipsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourcesRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3445,6 +3872,7 @@ export interface GetNetworkResourcesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a network resource.</p>
  */
 export interface NetworkResource {
@@ -3578,6 +4006,9 @@ export interface NetworkResource {
   Metadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourcesResponse {
   /**
    * <p>The network resources.</p>
@@ -3591,6 +4022,7 @@ export interface GetNetworkResourcesResponse {
 }
 
 /**
+ * @public
  * <p>Describes a route table.</p>
  */
 export interface RouteTableIdentifier {
@@ -3605,16 +4037,25 @@ export interface RouteTableIdentifier {
   CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier;
 }
 
+/**
+ * @public
+ */
 export enum RouteState {
   ACTIVE = "ACTIVE",
   BLACKHOLE = "BLACKHOLE",
 }
 
+/**
+ * @public
+ */
 export enum RouteType {
   PROPAGATED = "PROPAGATED",
   STATIC = "STATIC",
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkRoutesRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3668,6 +4109,7 @@ export interface GetNetworkRoutesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the destination of a network route.</p>
  */
 export interface NetworkRouteDestination {
@@ -3703,6 +4145,7 @@ export interface NetworkRouteDestination {
 }
 
 /**
+ * @public
  * <p>Describes a network route.</p>
  */
 export interface NetworkRoute {
@@ -3732,11 +4175,17 @@ export interface NetworkRoute {
   Type?: RouteType | string;
 }
 
+/**
+ * @public
+ */
 export enum RouteTableType {
   CORE_NETWORK_SEGMENT = "CORE_NETWORK_SEGMENT",
   TRANSIT_GATEWAY_ROUTE_TABLE = "TRANSIT_GATEWAY_ROUTE_TABLE",
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkRoutesResponse {
   /**
    * <p>The ARN of the route table.</p>
@@ -3764,6 +4213,9 @@ export interface GetNetworkRoutesResponse {
   NetworkRoutes?: NetworkRoute[];
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkTelemetryRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3886,6 +4338,7 @@ export interface GetNetworkTelemetryRequest {
 }
 
 /**
+ * @public
  * <p>Describes the telemetry information for a resource.</p>
  */
 export interface NetworkTelemetry {
@@ -3935,6 +4388,9 @@ export interface NetworkTelemetry {
   Health?: ConnectionHealth;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkTelemetryResponse {
   /**
    * <p>The network telemetry.</p>
@@ -3947,6 +4403,9 @@ export interface GetNetworkTelemetryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -3954,6 +4413,9 @@ export interface GetResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyResponse {
   /**
    * <p>The resource policy document.</p>
@@ -3961,6 +4423,9 @@ export interface GetResourcePolicyResponse {
   PolicyDocument?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteAnalysisRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3974,6 +4439,7 @@ export interface GetRouteAnalysisRequest {
 }
 
 /**
+ * @public
  * <p>Describes a source or a destination.</p>
  */
 export interface RouteAnalysisEndpointOptions {
@@ -3993,6 +4459,9 @@ export interface RouteAnalysisEndpointOptions {
   IpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export enum RouteAnalysisCompletionReasonCode {
   BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND = "BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND",
   CYCLIC_PATH_DETECTED = "CYCLIC_PATH_DETECTED",
@@ -4007,12 +4476,16 @@ export enum RouteAnalysisCompletionReasonCode {
   TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND = "TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND",
 }
 
+/**
+ * @public
+ */
 export enum RouteAnalysisCompletionResultCode {
   CONNECTED = "CONNECTED",
   NOT_CONNECTED = "NOT_CONNECTED",
 }
 
 /**
+ * @public
  * <p>Describes the status of an analysis at completion.</p>
  */
 export interface RouteAnalysisCompletion {
@@ -4072,6 +4545,7 @@ export interface RouteAnalysisCompletion {
 }
 
 /**
+ * @public
  * <p>Describes a network resource.</p>
  */
 export interface NetworkResourceSummary {
@@ -4107,6 +4581,7 @@ export interface NetworkResourceSummary {
 }
 
 /**
+ * @public
  * <p>Describes a path component.</p>
  */
 export interface PathComponent {
@@ -4127,6 +4602,7 @@ export interface PathComponent {
 }
 
 /**
+ * @public
  * <p>Describes a route analysis path.</p>
  */
 export interface RouteAnalysisPath {
@@ -4141,6 +4617,9 @@ export interface RouteAnalysisPath {
   Path?: PathComponent[];
 }
 
+/**
+ * @public
+ */
 export enum RouteAnalysisStatus {
   completed = "COMPLETED",
   failed = "FAILED",
@@ -4148,6 +4627,7 @@ export enum RouteAnalysisStatus {
 }
 
 /**
+ * @public
  * <p>Describes a route analysis.</p>
  */
 export interface RouteAnalysis {
@@ -4208,6 +4688,9 @@ export interface RouteAnalysis {
   ReturnPath?: RouteAnalysisPath;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteAnalysisResponse {
   /**
    * <p>The route analysis.</p>
@@ -4215,6 +4698,9 @@ export interface GetRouteAnalysisResponse {
   RouteAnalysis?: RouteAnalysis;
 }
 
+/**
+ * @public
+ */
 export interface GetSitesRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4237,6 +4723,9 @@ export interface GetSitesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSitesResponse {
   /**
    * <p>The sites.</p>
@@ -4249,6 +4738,9 @@ export interface GetSitesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSiteToSiteVpnAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -4256,6 +4748,9 @@ export interface GetSiteToSiteVpnAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSiteToSiteVpnAttachmentResponse {
   /**
    * <p>Describes the site-to-site attachment.</p>
@@ -4263,6 +4758,9 @@ export interface GetSiteToSiteVpnAttachmentResponse {
   SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayConnectPeerAssociationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4285,6 +4783,9 @@ export interface GetTransitGatewayConnectPeerAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayConnectPeerAssociationsResponse {
   /**
    * <p>Information about the transit gateway Connect peer associations.</p>
@@ -4297,6 +4798,9 @@ export interface GetTransitGatewayConnectPeerAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPeeringRequest {
   /**
    * <p>The ID of the peering request.</p>
@@ -4304,6 +4808,9 @@ export interface GetTransitGatewayPeeringRequest {
   PeeringId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPeeringResponse {
   /**
    * <p>Returns information about a transit gateway peering. </p>
@@ -4311,6 +4818,9 @@ export interface GetTransitGatewayPeeringResponse {
   TransitGatewayPeering?: TransitGatewayPeering;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRegistrationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4334,6 +4844,9 @@ export interface GetTransitGatewayRegistrationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRegistrationsResponse {
   /**
    * <p>The transit gateway registrations.</p>
@@ -4346,6 +4859,9 @@ export interface GetTransitGatewayRegistrationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRouteTableAttachmentRequest {
   /**
    * <p>The ID of the transit gateway route table attachment.</p>
@@ -4353,6 +4869,9 @@ export interface GetTransitGatewayRouteTableAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRouteTableAttachmentResponse {
   /**
    * <p>Returns information about the transit gateway route table attachment.</p>
@@ -4360,6 +4879,9 @@ export interface GetTransitGatewayRouteTableAttachmentResponse {
   TransitGatewayRouteTableAttachment?: TransitGatewayRouteTableAttachment;
 }
 
+/**
+ * @public
+ */
 export interface GetVpcAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -4367,6 +4889,9 @@ export interface GetVpcAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVpcAttachmentResponse {
   /**
    * <p>Returns details about a VPC attachment.</p>
@@ -4374,6 +4899,9 @@ export interface GetVpcAttachmentResponse {
   VpcAttachment?: VpcAttachment;
 }
 
+/**
+ * @public
+ */
 export interface ListAttachmentsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4406,6 +4934,9 @@ export interface ListAttachmentsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAttachmentsResponse {
   /**
    * <p>Describes the list of attachments.</p>
@@ -4418,6 +4949,9 @@ export interface ListAttachmentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectPeersRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4440,6 +4974,9 @@ export interface ListConnectPeersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectPeersResponse {
   /**
    * <p>Describes the Connect peers.</p>
@@ -4452,6 +4989,9 @@ export interface ListConnectPeersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreNetworkPolicyVersionsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4469,6 +5009,9 @@ export interface ListCoreNetworkPolicyVersionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreNetworkPolicyVersionsResponse {
   /**
    * <p>Describes core network policy versions.</p>
@@ -4481,6 +5024,9 @@ export interface ListCoreNetworkPolicyVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreNetworksRequest {
   /**
    * <p>The maximum number of results to return.</p>
@@ -4493,6 +5039,9 @@ export interface ListCoreNetworksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreNetworksResponse {
   /**
    * <p>Describes the list of core networks.</p>
@@ -4505,6 +5054,9 @@ export interface ListCoreNetworksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationServiceAccessStatusRequest {
   /**
    * <p>The maximum number of results to return.</p>
@@ -4518,6 +5070,7 @@ export interface ListOrganizationServiceAccessStatusRequest {
 }
 
 /**
+ * @public
  * <p>The status of an Amazon Web Services Organization and the accounts within that organization.</p>
  */
 export interface OrganizationStatus {
@@ -4542,6 +5095,9 @@ export interface OrganizationStatus {
   AccountStatusList?: AccountStatus[];
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationServiceAccessStatusResponse {
   /**
    * <p>Displays the status of an Amazon Web Services Organization.</p>
@@ -4554,6 +5110,9 @@ export interface ListOrganizationServiceAccessStatusResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPeeringsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4586,6 +5145,9 @@ export interface ListPeeringsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPeeringsResponse {
   /**
    * <p>Lists the transit gateway peerings for the <code>ListPeerings</code> request.</p>
@@ -4598,6 +5160,9 @@ export interface ListPeeringsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4605,6 +5170,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags.</p>
@@ -4612,6 +5180,9 @@ export interface ListTagsForResourceResponse {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutCoreNetworkPolicyRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4639,6 +5210,9 @@ export interface PutCoreNetworkPolicyRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutCoreNetworkPolicyResponse {
   /**
    * <p>Describes the changed core network policy.</p>
@@ -4646,6 +5220,9 @@ export interface PutCoreNetworkPolicyResponse {
   CoreNetworkPolicy?: CoreNetworkPolicy;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>The JSON resource policy document.</p>
@@ -4658,8 +5235,14 @@ export interface PutResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface RegisterTransitGatewayRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4672,6 +5255,9 @@ export interface RegisterTransitGatewayRequest {
   TransitGatewayArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTransitGatewayResponse {
   /**
    * <p>Information about the transit gateway registration.</p>
@@ -4679,6 +5265,9 @@ export interface RegisterTransitGatewayResponse {
   TransitGatewayRegistration?: TransitGatewayRegistration;
 }
 
+/**
+ * @public
+ */
 export interface RejectAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -4686,6 +5275,9 @@ export interface RejectAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RejectAttachmentResponse {
   /**
    * <p>Describes the rejected attachment request.</p>
@@ -4693,6 +5285,9 @@ export interface RejectAttachmentResponse {
   Attachment?: Attachment;
 }
 
+/**
+ * @public
+ */
 export interface RestoreCoreNetworkPolicyVersionRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4705,6 +5300,9 @@ export interface RestoreCoreNetworkPolicyVersionRequest {
   PolicyVersionId: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreCoreNetworkPolicyVersionResponse {
   /**
    * <p>Describes the restored core network policy.</p>
@@ -4712,6 +5310,9 @@ export interface RestoreCoreNetworkPolicyVersionResponse {
   CoreNetworkPolicy?: CoreNetworkPolicy;
 }
 
+/**
+ * @public
+ */
 export interface StartOrganizationServiceAccessUpdateRequest {
   /**
    * <p>The action to take for the update request. This can be either <code>ENABLE</code> or <code>DISABLE</code>.</p>
@@ -4719,6 +5320,9 @@ export interface StartOrganizationServiceAccessUpdateRequest {
   Action: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartOrganizationServiceAccessUpdateResponse {
   /**
    * <p>The status of the service access update request for an Amazon Web Services Organization.</p>
@@ -4727,6 +5331,7 @@ export interface StartOrganizationServiceAccessUpdateResponse {
 }
 
 /**
+ * @public
  * <p>Describes a source or a destination.</p>
  */
 export interface RouteAnalysisEndpointOptionsSpecification {
@@ -4741,6 +5346,9 @@ export interface RouteAnalysisEndpointOptionsSpecification {
   IpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartRouteAnalysisRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4769,6 +5377,9 @@ export interface StartRouteAnalysisRequest {
   UseMiddleboxes?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartRouteAnalysisResponse {
   /**
    * <p>The route analysis.</p>
@@ -4776,6 +5387,9 @@ export interface StartRouteAnalysisResponse {
   RouteAnalysis?: RouteAnalysis;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4788,8 +5402,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4802,8 +5422,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateConnectionRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4832,6 +5458,9 @@ export interface UpdateConnectionRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectionResponse {
   /**
    * <p>Information about the connection.</p>
@@ -4839,6 +5468,9 @@ export interface UpdateConnectionResponse {
   Connection?: Connection;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCoreNetworkRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4851,6 +5483,9 @@ export interface UpdateCoreNetworkRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCoreNetworkResponse {
   /**
    * <p>Returns information about a core network update.</p>
@@ -4858,6 +5493,9 @@ export interface UpdateCoreNetworkResponse {
   CoreNetwork?: CoreNetwork;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4914,6 +5552,9 @@ export interface UpdateDeviceRequest {
   SiteId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceResponse {
   /**
    * <p>Information about the device.</p>
@@ -4921,6 +5562,9 @@ export interface UpdateDeviceResponse {
   Device?: Device;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalNetworkRequest {
   /**
    * <p>The ID of your global network.</p>
@@ -4934,6 +5578,9 @@ export interface UpdateGlobalNetworkRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalNetworkResponse {
   /**
    * <p>Information about the global network object.</p>
@@ -4941,6 +5588,9 @@ export interface UpdateGlobalNetworkResponse {
   GlobalNetwork?: GlobalNetwork;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4976,6 +5626,9 @@ export interface UpdateLinkRequest {
   Provider?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLinkResponse {
   /**
    * <p>Information about the link.</p>
@@ -4983,6 +5636,9 @@ export interface UpdateLinkResponse {
   Link?: Link;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkResourceMetadataRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -5000,6 +5656,9 @@ export interface UpdateNetworkResourceMetadataRequest {
   Metadata: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkResourceMetadataResponse {
   /**
    * <p>The ARN of the resource.</p>
@@ -5012,6 +5671,9 @@ export interface UpdateNetworkResourceMetadataResponse {
   Metadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSiteRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -5049,6 +5711,9 @@ export interface UpdateSiteRequest {
   Location?: Location;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSiteResponse {
   /**
    * <p>Information about the site.</p>
@@ -5056,6 +5721,9 @@ export interface UpdateSiteResponse {
   Site?: Site;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -5078,6 +5746,9 @@ export interface UpdateVpcAttachmentRequest {
   Options?: VpcOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcAttachmentResponse {
   /**
    * <p>Describes the updated VPC attachment.</p>

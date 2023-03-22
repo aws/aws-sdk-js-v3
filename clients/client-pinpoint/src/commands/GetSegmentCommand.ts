@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSegmentCommand}.
  */
 export interface GetSegmentCommandInput extends GetSegmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSegmentCommand}.
  */
 export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSegmentCommandInput - {@link GetSegmentCommandInput}
+ * @returns {@link GetSegmentCommandOutput}
  * @see {@link GetSegmentCommandInput} for command's `input` shape.
  * @see {@link GetSegmentCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetSegmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSegmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetSegmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSegmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentCommandOutput> {
     return deserializeAws_restJson1GetSegmentCommand(output, context);
   }

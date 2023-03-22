@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MediaConnectServiceException as __BaseException } from "./MediaConnectServiceException";
 
+/**
+ * @public
+ */
 export enum Colorimetry {
   BT2020 = "BT2020",
   BT2100 = "BT2100",
@@ -13,18 +16,27 @@ export enum Colorimetry {
   XYZ = "XYZ",
 }
 
+/**
+ * @public
+ */
 export enum Range {
   FULL = "FULL",
   FULLPROTECT = "FULLPROTECT",
   NARROW = "NARROW",
 }
 
+/**
+ * @public
+ */
 export enum ScanMode {
   interlace = "interlace",
   progressive = "progressive",
   progressive_segmented_frame = "progressive-segmented-frame",
 }
 
+/**
+ * @public
+ */
 export enum Tcs {
   BT2100LINHLG = "BT2100LINHLG",
   BT2100LINPQ = "BT2100LINPQ",
@@ -38,6 +50,7 @@ export enum Tcs {
 }
 
 /**
+ * @public
  * The settings that you want to use to define the media stream.
  */
 export interface FmtpRequest {
@@ -78,6 +91,7 @@ export interface FmtpRequest {
 }
 
 /**
+ * @public
  * Attributes that are related to the media stream.
  */
 export interface MediaStreamAttributesRequest {
@@ -92,6 +106,9 @@ export interface MediaStreamAttributesRequest {
   Lang?: string;
 }
 
+/**
+ * @public
+ */
 export enum MediaStreamType {
   ancillary_data = "ancillary-data",
   audio = "audio",
@@ -99,6 +116,7 @@ export enum MediaStreamType {
 }
 
 /**
+ * @public
  * The media stream that you want to add to the flow.
  */
 export interface AddMediaStreamRequest {
@@ -138,12 +156,18 @@ export interface AddMediaStreamRequest {
   VideoFormat?: string;
 }
 
+/**
+ * @public
+ */
 export enum Algorithm {
   aes128 = "aes128",
   aes192 = "aes192",
   aes256 = "aes256",
 }
 
+/**
+ * @public
+ */
 export enum KeyType {
   speke = "speke",
   srt_password = "srt-password",
@@ -151,6 +175,7 @@ export enum KeyType {
 }
 
 /**
+ * @public
  * Information about the encryption of the flow.
  */
 export interface Encryption {
@@ -201,6 +226,7 @@ export interface Encryption {
 }
 
 /**
+ * @public
  * The VPC interface that you want to designate where the media stream is coming from or going to.
  */
 export interface InterfaceRequest {
@@ -211,6 +237,7 @@ export interface InterfaceRequest {
 }
 
 /**
+ * @public
  * The transport parameters that you want to associate with an outbound media stream.
  */
 export interface DestinationConfigurationRequest {
@@ -230,6 +257,9 @@ export interface DestinationConfigurationRequest {
   Interface: InterfaceRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EncodingName {
   jxsv = "jxsv",
   pcm = "pcm",
@@ -237,12 +267,16 @@ export enum EncodingName {
   smpte291 = "smpte291",
 }
 
+/**
+ * @public
+ */
 export enum EncoderProfile {
   high = "high",
   main = "main",
 }
 
 /**
+ * @public
  * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
  */
 export interface EncodingParametersRequest {
@@ -258,6 +292,7 @@ export interface EncodingParametersRequest {
 }
 
 /**
+ * @public
  * The media stream that you want to associate with the output, and the parameters for that association.
  */
 export interface MediaStreamOutputConfigurationRequest {
@@ -282,6 +317,9 @@ export interface MediaStreamOutputConfigurationRequest {
   MediaStreamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Protocol {
   cdi = "cdi",
   fujitsu_qos = "fujitsu-qos",
@@ -296,6 +334,7 @@ export enum Protocol {
 }
 
 /**
+ * @public
  * The settings for attaching a VPC interface to an output.
  */
 export interface VpcInterfaceAttachment {
@@ -306,6 +345,7 @@ export interface VpcInterfaceAttachment {
 }
 
 /**
+ * @public
  * The output that you want to add to this flow.
  */
 export interface AddOutputRequest {
@@ -386,6 +426,7 @@ export interface AddOutputRequest {
 }
 
 /**
+ * @public
  * The VPC interface that is used for the media stream associated with the source or output.
  */
 export interface Interface {
@@ -396,6 +437,7 @@ export interface Interface {
 }
 
 /**
+ * @public
  * The transport parameters that are associated with an outbound media stream.
  */
 export interface DestinationConfiguration {
@@ -420,12 +462,16 @@ export interface DestinationConfiguration {
   OutboundIp: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EntitlementStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * The settings for a flow entitlement.
  */
 export interface Entitlement {
@@ -466,6 +512,7 @@ export interface Entitlement {
 }
 
 /**
+ * @public
  * The entitlements that you want to grant on a flow.
  */
 export interface GrantEntitlementRequest {
@@ -501,6 +548,7 @@ export interface GrantEntitlementRequest {
 }
 
 /**
+ * @public
  * The transport parameters that are associated with an incoming media stream.
  */
 export interface InputConfiguration {
@@ -521,6 +569,7 @@ export interface InputConfiguration {
 }
 
 /**
+ * @public
  * The transport parameters that you want to associate with an incoming media stream.
  */
 export interface InputConfigurationRequest {
@@ -536,6 +585,7 @@ export interface InputConfigurationRequest {
 }
 
 /**
+ * @public
  * An entitlement that has been granted to you from other AWS accounts.
  */
 export interface ListedEntitlement {
@@ -555,6 +605,9 @@ export interface ListedEntitlement {
   EntitlementName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MaintenanceDay {
   Friday = "Friday",
   Monday = "Monday",
@@ -566,6 +619,7 @@ export enum MaintenanceDay {
 }
 
 /**
+ * @public
  * The maintenance setting of a flow
  */
 export interface Maintenance {
@@ -590,11 +644,17 @@ export interface Maintenance {
   MaintenanceStartHour?: string;
 }
 
+/**
+ * @public
+ */
 export enum SourceType {
   ENTITLED = "ENTITLED",
   OWNED = "OWNED",
 }
 
+/**
+ * @public
+ */
 export enum Status {
   ACTIVE = "ACTIVE",
   DELETING = "DELETING",
@@ -606,6 +666,7 @@ export enum Status {
 }
 
 /**
+ * @public
  * Provides a summary of a flow, including its ARN, Availability Zone, and source type.
  */
 export interface ListedFlow {
@@ -646,6 +707,7 @@ export interface ListedFlow {
 }
 
 /**
+ * @public
  * FMTP
  */
 export interface Fmtp {
@@ -686,6 +748,7 @@ export interface Fmtp {
 }
 
 /**
+ * @public
  * Attributes that are related to the media stream.
  */
 export interface MediaStreamAttributes {
@@ -701,6 +764,7 @@ export interface MediaStreamAttributes {
 }
 
 /**
+ * @public
  * A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
  */
 export interface MediaStream {
@@ -746,6 +810,7 @@ export interface MediaStream {
 }
 
 /**
+ * @public
  * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
  */
 export interface EncodingParameters {
@@ -761,6 +826,7 @@ export interface EncodingParameters {
 }
 
 /**
+ * @public
  * The media stream that is associated with the output, and the parameters for that association.
  */
 export interface MediaStreamOutputConfiguration {
@@ -786,6 +852,7 @@ export interface MediaStreamOutputConfiguration {
 }
 
 /**
+ * @public
  * The media stream that is associated with the source, and the parameters for that association.
  */
 export interface MediaStreamSourceConfiguration {
@@ -806,6 +873,7 @@ export interface MediaStreamSourceConfiguration {
 }
 
 /**
+ * @public
  * The definition of a media stream that you want to associate with the source.
  */
 export interface MediaStreamSourceConfigurationRequest {
@@ -825,19 +893,29 @@ export interface MediaStreamSourceConfigurationRequest {
   MediaStreamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DurationUnits {
   MONTHS = "MONTHS",
 }
 
+/**
+ * @public
+ */
 export enum PriceUnits {
   HOURLY = "HOURLY",
 }
 
+/**
+ * @public
+ */
 export enum ResourceType {
   Mbps_Outbound_Bandwidth = "Mbps_Outbound_Bandwidth",
 }
 
 /**
+ * @public
  * A definition of what is being billed for, including the type and amount.
  */
 export interface ResourceSpecification {
@@ -853,6 +931,7 @@ export interface ResourceSpecification {
 }
 
 /**
+ * @public
  * A savings plan that reserves a certain amount of outbound bandwidth usage at a discounted rate each month over a period of time.
  */
 export interface Offering {
@@ -898,6 +977,7 @@ export interface Offering {
 }
 
 /**
+ * @public
  * Attributes related to the transport stream that are used in a source or output.
  */
 export interface Transport {
@@ -968,6 +1048,7 @@ export interface Transport {
 }
 
 /**
+ * @public
  * The settings for an output.
  */
 export interface Output {
@@ -1037,6 +1118,9 @@ export interface Output {
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
 }
 
+/**
+ * @public
+ */
 export enum ReservationState {
   ACTIVE = "ACTIVE",
   CANCELED = "CANCELED",
@@ -1045,6 +1129,7 @@ export enum ReservationState {
 }
 
 /**
+ * @public
  * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
  */
 export interface Reservation {
@@ -1115,6 +1200,7 @@ export interface Reservation {
 }
 
 /**
+ * @public
  * The settings for the source of the flow.
  */
 export interface SetSourceRequest {
@@ -1210,6 +1296,7 @@ export interface SetSourceRequest {
 }
 
 /**
+ * @public
  * The settings for the source of the flow.
  */
 export interface Source {
@@ -1284,12 +1371,16 @@ export interface Source {
   WhitelistCidr?: string;
 }
 
+/**
+ * @public
+ */
 export enum NetworkInterfaceType {
   efa = "efa",
   ena = "ena",
 }
 
 /**
+ * @public
  * The settings for a VPC Source.
  */
 export interface VpcInterface {
@@ -1325,6 +1416,7 @@ export interface VpcInterface {
 }
 
 /**
+ * @public
  * Desired VPC Interface for a Flow
  */
 export interface VpcInterfaceRequest {
@@ -1355,6 +1447,7 @@ export interface VpcInterfaceRequest {
 }
 
 /**
+ * @public
  * A request to add media streams to the flow.
  */
 export interface AddFlowMediaStreamsRequest {
@@ -1369,6 +1462,9 @@ export interface AddFlowMediaStreamsRequest {
   MediaStreams: AddMediaStreamRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddFlowMediaStreamsResponse {
   /**
    * The ARN of the flow that you added media streams to.
@@ -1382,6 +1478,7 @@ export interface AddFlowMediaStreamsResponse {
 }
 
 /**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class BadRequestException extends __BaseException {
@@ -1406,6 +1503,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class ForbiddenException extends __BaseException {
@@ -1430,6 +1528,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class InternalServerErrorException extends __BaseException {
@@ -1454,6 +1553,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class NotFoundException extends __BaseException {
@@ -1478,6 +1578,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1502,6 +1603,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class TooManyRequestsException extends __BaseException {
@@ -1526,6 +1628,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class AddFlowOutputs420Exception extends __BaseException {
@@ -1550,6 +1653,7 @@ export class AddFlowOutputs420Exception extends __BaseException {
 }
 
 /**
+ * @public
  * A request to add outputs to the specified flow.
  */
 export interface AddFlowOutputsRequest {
@@ -1564,6 +1668,9 @@ export interface AddFlowOutputsRequest {
   Outputs: AddOutputRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddFlowOutputsResponse {
   /**
    * The ARN of the flow that these outputs were added to.
@@ -1577,6 +1684,7 @@ export interface AddFlowOutputsResponse {
 }
 
 /**
+ * @public
  * A request to add sources to the flow.
  */
 export interface AddFlowSourcesRequest {
@@ -1591,6 +1699,9 @@ export interface AddFlowSourcesRequest {
   Sources: SetSourceRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddFlowSourcesResponse {
   /**
    * The ARN of the flow that these sources were added to.
@@ -1604,6 +1715,7 @@ export interface AddFlowSourcesResponse {
 }
 
 /**
+ * @public
  * A request to add VPC interfaces to the flow.
  */
 export interface AddFlowVpcInterfacesRequest {
@@ -1618,6 +1730,9 @@ export interface AddFlowVpcInterfacesRequest {
   VpcInterfaces: VpcInterfaceRequest[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddFlowVpcInterfacesResponse {
   /**
    * The ARN of the flow that these VPC interfaces were added to.
@@ -1631,6 +1746,7 @@ export interface AddFlowVpcInterfacesResponse {
 }
 
 /**
+ * @public
  * Create maintenance setting for a flow
  */
 export interface AddMaintenance {
@@ -1646,6 +1762,7 @@ export interface AddMaintenance {
 }
 
 /**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class CreateFlow420Exception extends __BaseException {
@@ -1669,12 +1786,16 @@ export class CreateFlow420Exception extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum FailoverMode {
   FAILOVER = "FAILOVER",
   MERGE = "MERGE",
 }
 
 /**
+ * @public
  * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
  */
 export interface SourcePriority {
@@ -1684,12 +1805,16 @@ export interface SourcePriority {
   PrimarySource?: string;
 }
 
+/**
+ * @public
+ */
 export enum State {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * The settings for source failover.
  */
 export interface FailoverConfig {
@@ -1712,6 +1837,7 @@ export interface FailoverConfig {
 }
 
 /**
+ * @public
  * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
  */
 export interface CreateFlowRequest {
@@ -1763,6 +1889,7 @@ export interface CreateFlowRequest {
 }
 
 /**
+ * @public
  * The settings for a flow, including its source, outputs, and entitlements.
  */
 export interface Flow {
@@ -1833,6 +1960,9 @@ export interface Flow {
   Maintenance?: Maintenance;
 }
 
+/**
+ * @public
+ */
 export interface CreateFlowResponse {
   /**
    * The settings for a flow, including its source, outputs, and entitlements.
@@ -1840,6 +1970,9 @@ export interface CreateFlowResponse {
   Flow?: Flow;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlowRequest {
   /**
    * The ARN of the flow that you want to delete.
@@ -1847,6 +1980,9 @@ export interface DeleteFlowRequest {
   FlowArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlowResponse {
   /**
    * The ARN of the flow that was deleted.
@@ -1859,6 +1995,9 @@ export interface DeleteFlowResponse {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowRequest {
   /**
    * The ARN of the flow that you want to describe.
@@ -1867,6 +2006,7 @@ export interface DescribeFlowRequest {
 }
 
 /**
+ * @public
  * Messages that provide the state of the flow.
  */
 export interface Messages {
@@ -1876,6 +2016,9 @@ export interface Messages {
   Errors: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowResponse {
   /**
    * The settings for a flow, including its source, outputs, and entitlements.
@@ -1888,6 +2031,9 @@ export interface DescribeFlowResponse {
   Messages?: Messages;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOfferingRequest {
   /**
    * The Amazon Resource Name (ARN) of the offering.
@@ -1895,6 +2041,9 @@ export interface DescribeOfferingRequest {
   OfferingArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOfferingResponse {
   /**
    * A savings plan that reserves a certain amount of outbound bandwidth usage at a discounted rate each month over a period of time.
@@ -1902,6 +2051,9 @@ export interface DescribeOfferingResponse {
   Offering?: Offering;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReservationRequest {
   /**
    * The Amazon Resource Name (ARN) of the reservation.
@@ -1909,6 +2061,9 @@ export interface DescribeReservationRequest {
   ReservationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReservationResponse {
   /**
    * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
@@ -1917,6 +2072,7 @@ export interface DescribeReservationResponse {
 }
 
 /**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class GrantFlowEntitlements420Exception extends __BaseException {
@@ -1941,6 +2097,7 @@ export class GrantFlowEntitlements420Exception extends __BaseException {
 }
 
 /**
+ * @public
  * A request to grant entitlements on a flow.
  */
 export interface GrantFlowEntitlementsRequest {
@@ -1955,6 +2112,9 @@ export interface GrantFlowEntitlementsRequest {
   FlowArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GrantFlowEntitlementsResponse {
   /**
    * The entitlements that were just granted.
@@ -1967,6 +2127,9 @@ export interface GrantFlowEntitlementsResponse {
   FlowArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitlementsRequest {
   /**
    * The maximum number of results to return per API request. For example, you submit a ListEntitlements request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 20 results per page.
@@ -1979,6 +2142,9 @@ export interface ListEntitlementsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitlementsResponse {
   /**
    * A list of entitlements that have been granted to you from other AWS accounts.
@@ -1991,6 +2157,9 @@ export interface ListEntitlementsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowsRequest {
   /**
    * The maximum number of results to return per API request. For example, you submit a ListFlows request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
@@ -2003,6 +2172,9 @@ export interface ListFlowsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowsResponse {
   /**
    * A list of flow summaries.
@@ -2015,6 +2187,9 @@ export interface ListFlowsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOfferingsRequest {
   /**
    * The maximum number of results to return per API request. For example, you submit a ListOfferings request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
@@ -2027,6 +2202,9 @@ export interface ListOfferingsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOfferingsResponse {
   /**
    * The token that identifies which batch of results that you want to see. For example, you submit a ListOfferings request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.
@@ -2039,6 +2217,9 @@ export interface ListOfferingsResponse {
   Offerings?: Offering[];
 }
 
+/**
+ * @public
+ */
 export interface ListReservationsRequest {
   /**
    * The maximum number of results to return per API request. For example, you submit a ListReservations request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
@@ -2051,6 +2232,9 @@ export interface ListReservationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListReservationsResponse {
   /**
    * The token that identifies which batch of results that you want to see. For example, you submit a ListReservations request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListReservations request a second time and specify the NextToken value.
@@ -2063,6 +2247,9 @@ export interface ListReservationsResponse {
   Reservations?: Reservation[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource for which to list the tags.
@@ -2070,6 +2257,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
@@ -2078,6 +2268,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * A request to purchase a offering.
  */
 export interface PurchaseOfferingRequest {
@@ -2097,6 +2288,9 @@ export interface PurchaseOfferingRequest {
   Start: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PurchaseOfferingResponse {
   /**
    * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
@@ -2104,6 +2298,9 @@ export interface PurchaseOfferingResponse {
   Reservation?: Reservation;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFlowMediaStreamRequest {
   /**
    * The Amazon Resource Name (ARN) of the flow.
@@ -2116,6 +2313,9 @@ export interface RemoveFlowMediaStreamRequest {
   MediaStreamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFlowMediaStreamResponse {
   /**
    * The Amazon Resource Name (ARN) of the flow.
@@ -2128,6 +2328,9 @@ export interface RemoveFlowMediaStreamResponse {
   MediaStreamName?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFlowOutputRequest {
   /**
    * The flow that you want to remove an output from.
@@ -2140,6 +2343,9 @@ export interface RemoveFlowOutputRequest {
   OutputArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFlowOutputResponse {
   /**
    * The ARN of the flow that is associated with the output you removed.
@@ -2152,6 +2358,9 @@ export interface RemoveFlowOutputResponse {
   OutputArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFlowSourceRequest {
   /**
    * The flow that you want to remove a source from.
@@ -2164,6 +2373,9 @@ export interface RemoveFlowSourceRequest {
   SourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFlowSourceResponse {
   /**
    * The ARN of the flow that is associated with the source you removed.
@@ -2176,6 +2388,9 @@ export interface RemoveFlowSourceResponse {
   SourceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFlowVpcInterfaceRequest {
   /**
    * The flow that you want to remove a VPC interface from.
@@ -2188,6 +2403,9 @@ export interface RemoveFlowVpcInterfaceRequest {
   VpcInterfaceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFlowVpcInterfaceResponse {
   /**
    * The ARN of the flow that is associated with the VPC interface you removed.
@@ -2205,6 +2423,9 @@ export interface RemoveFlowVpcInterfaceResponse {
   VpcInterfaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface RevokeFlowEntitlementRequest {
   /**
    * The ARN of the entitlement that you want to revoke.
@@ -2217,6 +2438,9 @@ export interface RevokeFlowEntitlementRequest {
   FlowArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeFlowEntitlementResponse {
   /**
    * The ARN of the entitlement that was revoked.
@@ -2229,6 +2453,9 @@ export interface RevokeFlowEntitlementResponse {
   FlowArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFlowRequest {
   /**
    * The ARN of the flow that you want to start.
@@ -2236,6 +2463,9 @@ export interface StartFlowRequest {
   FlowArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartFlowResponse {
   /**
    * The ARN of the flow that you started.
@@ -2248,6 +2478,9 @@ export interface StartFlowResponse {
   Status?: Status | string;
 }
 
+/**
+ * @public
+ */
 export interface StopFlowRequest {
   /**
    * The ARN of the flow that you want to stop.
@@ -2255,6 +2488,9 @@ export interface StopFlowRequest {
   FlowArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopFlowResponse {
   /**
    * The ARN of the flow that you stopped.
@@ -2268,6 +2504,7 @@ export interface StopFlowResponse {
 }
 
 /**
+ * @public
  * The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
  */
 export interface TagResourceRequest {
@@ -2282,6 +2519,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.
@@ -2295,6 +2535,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * Update maintenance setting for a flow
  */
 export interface UpdateMaintenance {
@@ -2315,6 +2556,7 @@ export interface UpdateMaintenance {
 }
 
 /**
+ * @public
  * The settings for source failover.
  */
 export interface UpdateFailoverConfig {
@@ -2337,6 +2579,7 @@ export interface UpdateFailoverConfig {
 }
 
 /**
+ * @public
  * A request to update flow.
  */
 export interface UpdateFlowRequest {
@@ -2356,6 +2599,9 @@ export interface UpdateFlowRequest {
   Maintenance?: UpdateMaintenance;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlowResponse {
   /**
    * The settings for a flow, including its source, outputs, and entitlements.
@@ -2364,6 +2610,7 @@ export interface UpdateFlowResponse {
 }
 
 /**
+ * @public
  * Information about the encryption of the flow.
  */
 export interface UpdateEncryption {
@@ -2414,6 +2661,7 @@ export interface UpdateEncryption {
 }
 
 /**
+ * @public
  * The entitlement fields that you want to update.
  */
 export interface UpdateFlowEntitlementRequest {
@@ -2448,6 +2696,9 @@ export interface UpdateFlowEntitlementRequest {
   Subscribers?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlowEntitlementResponse {
   /**
    * The new configuration of the entitlement that you updated.
@@ -2461,6 +2712,7 @@ export interface UpdateFlowEntitlementResponse {
 }
 
 /**
+ * @public
  * The fields that you want to update in the media stream.
  */
 export interface UpdateFlowMediaStreamRequest {
@@ -2500,6 +2752,9 @@ export interface UpdateFlowMediaStreamRequest {
   VideoFormat?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlowMediaStreamResponse {
   /**
    * The ARN of the flow that is associated with the media stream that you updated.
@@ -2513,6 +2768,7 @@ export interface UpdateFlowMediaStreamResponse {
 }
 
 /**
+ * @public
  * The fields that you want to update in the output.
  */
 export interface UpdateFlowOutputRequest {
@@ -2602,6 +2858,9 @@ export interface UpdateFlowOutputRequest {
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlowOutputResponse {
   /**
    * The ARN of the flow that is associated with the updated output.
@@ -2615,6 +2874,7 @@ export interface UpdateFlowOutputResponse {
 }
 
 /**
+ * @public
  * A request to update the source of a flow.
  */
 export interface UpdateFlowSourceRequest {
@@ -2714,6 +2974,9 @@ export interface UpdateFlowSourceRequest {
   WhitelistCidr?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlowSourceResponse {
   /**
    * The ARN of the flow that you want to update.

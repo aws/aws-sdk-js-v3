@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { TranscribeServiceException as __BaseException } from "./TranscribeServiceException";
 
 /**
+ * @public
  * <p>A time range, in milliseconds, between two points in your media file.</p>
  *          <p>You can use <code>StartTime</code> and <code>EndTime</code> to search a custom
  *             segment. For example, setting <code>StartTime</code> to 10000 and <code>EndTime</code>
@@ -48,6 +49,7 @@ export interface AbsoluteTimeRange {
 }
 
 /**
+ * @public
  * <p>Your request didn't pass one or more validation tests. This can occur when the entity
  *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
  *                 <code>IN PROGRESS</code>). See the exception message field for more
@@ -71,11 +73,17 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum BaseModelName {
   NARROW_BAND = "NarrowBand",
   WIDE_BAND = "WideBand",
 }
 
+/**
+ * @public
+ */
 export enum CallAnalyticsJobStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -83,12 +91,16 @@ export enum CallAnalyticsJobStatus {
   QUEUED = "QUEUED",
 }
 
+/**
+ * @public
+ */
 export enum ParticipantRole {
   AGENT = "AGENT",
   CUSTOMER = "CUSTOMER",
 }
 
 /**
+ * @public
  * <p>Makes it possible to specify which speaker is on which channel. For example, if your
  *             agent is the first participant to speak, you would set <code>ChannelId</code> to
  *                 <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
@@ -107,6 +119,9 @@ export interface ChannelDefinition {
   ParticipantRole?: ParticipantRole | string;
 }
 
+/**
+ * @public
+ */
 export enum LanguageCode {
   AF_ZA = "af-ZA",
   AR_AE = "ar-AE",
@@ -150,6 +165,7 @@ export enum LanguageCode {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon S3 location of the media file you want to use in your
  *             request.</p>
  *          <p>For information on supported media formats, refer to the <a href="https://docs.aws.amazon.com/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-MediaFormat">MediaFormat</a> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
@@ -205,6 +221,9 @@ export interface Media {
   RedactedMediaFileUri?: string;
 }
 
+/**
+ * @public
+ */
 export enum MediaFormat {
   AMR = "amr",
   FLAC = "flac",
@@ -215,6 +234,9 @@ export enum MediaFormat {
   WEBM = "webm",
 }
 
+/**
+ * @public
+ */
 export enum PiiEntityType {
   ADDRESS = "ADDRESS",
   ALL = "ALL",
@@ -230,16 +252,23 @@ export enum PiiEntityType {
   SSN = "SSN",
 }
 
+/**
+ * @public
+ */
 export enum RedactionOutput {
   REDACTED = "redacted",
   REDACTED_AND_UNREDACTED = "redacted_and_unredacted",
 }
 
+/**
+ * @public
+ */
 export enum RedactionType {
   PII = "PII",
 }
 
 /**
+ * @public
  * <p>Makes it possible to redact or flag specified personally identifiable information
  *             (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also
  *             include the sub-parameters: <code>PiiEntityTypes</code>, <code>RedactionOutput</code>,
@@ -273,6 +302,7 @@ export interface ContentRedaction {
 }
 
 /**
+ * @public
  * <p>If using automatic language identification in your request and you want to apply a
  *             custom language model, a custom vocabulary, or a custom vocabulary filter, include
  *                 <code>LanguageIdSettings</code> with the relevant sub-parameters
@@ -336,6 +366,9 @@ export interface LanguageIdSettings {
   LanguageModelName?: string;
 }
 
+/**
+ * @public
+ */
 export enum VocabularyFilterMethod {
   MASK = "mask",
   REMOVE = "remove",
@@ -343,6 +376,7 @@ export enum VocabularyFilterMethod {
 }
 
 /**
+ * @public
  * <p>Provides additional optional settings for your  request, including content redaction,
  *             automatic language identification; allows you to apply custom language models, custom
  *             vocabulary filters, and custom vocabularies.</p>
@@ -432,6 +466,7 @@ export interface CallAnalyticsJobSettings {
 }
 
 /**
+ * @public
  * <p>Provides you with the Amazon S3 URI you can use to access your
  *             transcript.</p>
  */
@@ -476,6 +511,7 @@ export interface Transcript {
 }
 
 /**
+ * @public
  * <p>Provides detailed information about a Call Analytics job.</p>
  *          <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
  *             is <code>COMPLETED</code>, the job is finished. You can find your completed transcript
@@ -643,6 +679,7 @@ export interface CallAnalyticsJob {
 }
 
 /**
+ * @public
  * <p>Provides detailed information about a specific Call Analytics job.</p>
  */
 export interface CallAnalyticsJobSummary {
@@ -699,12 +736,16 @@ export interface CallAnalyticsJobSummary {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export enum InputType {
   POST_CALL = "POST_CALL",
   REAL_TIME = "REAL_TIME",
 }
 
 /**
+ * @public
  * <p>A time range, in percentage, between two points in your media file.</p>
  *          <p>You can use <code>StartPercentage</code> and <code>EndPercentage</code> to search a
  *             custom segment. For example, setting <code>StartPercentage</code> to 10 and
@@ -747,6 +788,7 @@ export interface RelativeTimeRange {
 }
 
 /**
+ * @public
  * <p>Flag the presence or absence of interruptions in your Call Analytics transcription
  *             output.</p>
  *          <p>Rules using <code>InterruptionFilter</code> are designed to match:</p>
@@ -800,6 +842,7 @@ export interface InterruptionFilter {
 }
 
 /**
+ * @public
  * <p>Flag the presence or absence of periods of silence in your Call Analytics
  *             transcription output.</p>
  *          <p>Rules using <code>NonTalkTimeFilter</code> are designed to match:</p>
@@ -840,6 +883,9 @@ export interface NonTalkTimeFilter {
   Negate?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum SentimentValue {
   MIXED = "MIXED",
   NEGATIVE = "NEGATIVE",
@@ -848,6 +894,7 @@ export enum SentimentValue {
 }
 
 /**
+ * @public
  * <p>Flag the presence or absence of specific sentiments detected in your Call Analytics
  *             transcription output.</p>
  *          <p>Rules using <code>SentimentFilter</code> are designed to match:</p>
@@ -904,11 +951,15 @@ export interface SentimentFilter {
   Negate?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum TranscriptFilterType {
   EXACT = "EXACT",
 }
 
 /**
+ * @public
  * <p>Flag the presence or absence of specific words or phrases detected in your Call
  *             Analytics transcription output.</p>
  *          <p>Rules using <code>TranscriptFilter</code> are designed to match:</p>
@@ -971,6 +1022,7 @@ export interface TranscriptFilter {
 }
 
 /**
+ * @public
  * <p>A rule is a set of criteria that you can specify to flag an attribute in your Call
  *             Analytics output. Rules define a Call Analytics category.</p>
  *          <p>Rules can include these parameters: , , , and .</p>
@@ -987,6 +1039,9 @@ export type Rule =
   | Rule.TranscriptFilterMember
   | Rule.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Rule {
   /**
    * <p>Flag the presence or absence of periods of silence in your Call Analytics
@@ -1065,6 +1120,7 @@ export namespace Rule {
 }
 
 /**
+ * @public
  * <p>Provides you with the properties of the Call Analytics category you specified in your
  *             request. This includes the list of rules that define the specified category.</p>
  */
@@ -1105,6 +1161,9 @@ export interface CategoryProperties {
   InputType?: InputType | string;
 }
 
+/**
+ * @public
+ */
 export enum CLMLanguageCode {
   DE_DE = "de-DE",
   EN_AU = "en-AU",
@@ -1116,6 +1175,7 @@ export enum CLMLanguageCode {
 }
 
 /**
+ * @public
  * <p>A resource already exists with this name. Resource names must be unique within an
  *                 Amazon Web Services account.</p>
  */
@@ -1137,6 +1197,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateCallAnalyticsCategoryRequest {
   /**
    * <p>A unique name, chosen by you, for your Call Analytics category. It's helpful to use a
@@ -1169,6 +1232,9 @@ export interface CreateCallAnalyticsCategoryRequest {
   InputType?: InputType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCallAnalyticsCategoryResponse {
   /**
    * <p>Provides you with the properties of your new category, including its associated
@@ -1178,6 +1244,7 @@ export interface CreateCallAnalyticsCategoryResponse {
 }
 
 /**
+ * @public
  * <p>There was an internal error. Check the error message, correct the issue, and try your
  *             request again.</p>
  */
@@ -1200,6 +1267,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  */
@@ -1222,6 +1290,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon S3 location of the training data you want to use to create
  *             a new custom language model, and permissions to access this location.</p>
  *          <p>When using <code>InputDataConfig</code>, you must include these sub-parameters:
@@ -1262,6 +1331,7 @@ export interface InputDataConfig {
 }
 
 /**
+ * @public
  * <p>Adds metadata, in the form of a key:value pair, to the specified resource.</p>
  *          <p>For example, you could add the tag <code>Department:Sales</code> to a resource to
  *             indicate that it pertains to your organization's sales department. You can also use tags
@@ -1285,6 +1355,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLanguageModelRequest {
   /**
    * <p>The language code that represents the language of your model. Each custom language
@@ -1343,12 +1416,18 @@ export interface CreateLanguageModelRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum ModelStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
+/**
+ * @public
+ */
 export interface CreateLanguageModelResponse {
   /**
    * <p>The language code you selected for your custom language model.</p>
@@ -1380,6 +1459,9 @@ export interface CreateLanguageModelResponse {
   ModelStatus?: ModelStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMedicalVocabularyRequest {
   /**
    * <p>A unique name, chosen by you, for your new custom medical vocabulary.</p>
@@ -1415,12 +1497,18 @@ export interface CreateMedicalVocabularyRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum VocabularyState {
   FAILED = "FAILED",
   PENDING = "PENDING",
   READY = "READY",
 }
 
+/**
+ * @public
+ */
 export interface CreateMedicalVocabularyResponse {
   /**
    * <p>The name you chose for your custom medical vocabulary.</p>
@@ -1457,6 +1545,9 @@ export interface CreateMedicalVocabularyResponse {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVocabularyRequest {
   /**
    * <p>A unique name, chosen by you, for your new custom vocabulary.</p>
@@ -1528,6 +1619,9 @@ export interface CreateVocabularyRequest {
   DataAccessRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVocabularyResponse {
   /**
    * <p>The name you chose for your custom vocabulary.</p>
@@ -1562,6 +1656,9 @@ export interface CreateVocabularyResponse {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVocabularyFilterRequest {
   /**
    * <p>A unique name, chosen by you, for your new custom vocabulary filter.</p>
@@ -1633,6 +1730,9 @@ export interface CreateVocabularyFilterRequest {
   DataAccessRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVocabularyFilterResponse {
   /**
    * <p>The name you chose for your custom vocabulary filter.</p>
@@ -1653,6 +1753,9 @@ export interface CreateVocabularyFilterResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCallAnalyticsCategoryRequest {
   /**
    * <p>The name of the Call Analytics category you want to delete. Category names are case
@@ -1661,9 +1764,13 @@ export interface DeleteCallAnalyticsCategoryRequest {
   CategoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCallAnalyticsCategoryResponse {}
 
 /**
+ * @public
  * <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  */
@@ -1685,6 +1792,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCallAnalyticsJobRequest {
   /**
    * <p>The name of the Call Analytics job you want to delete. Job names are case
@@ -1693,8 +1803,14 @@ export interface DeleteCallAnalyticsJobRequest {
   CallAnalyticsJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCallAnalyticsJobResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteLanguageModelRequest {
   /**
    * <p>The name of the custom language model you want to delete. Model names are case
@@ -1703,6 +1819,9 @@ export interface DeleteLanguageModelRequest {
   ModelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMedicalTranscriptionJobRequest {
   /**
    * <p>The name of the medical transcription job you want to delete. Job names are case
@@ -1711,6 +1830,9 @@ export interface DeleteMedicalTranscriptionJobRequest {
   MedicalTranscriptionJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMedicalVocabularyRequest {
   /**
    * <p>The name of the custom medical vocabulary you want to delete. Custom medical
@@ -1719,6 +1841,9 @@ export interface DeleteMedicalVocabularyRequest {
   VocabularyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTranscriptionJobRequest {
   /**
    * <p>The name of the transcription job you want to delete. Job names are case
@@ -1727,6 +1852,9 @@ export interface DeleteTranscriptionJobRequest {
   TranscriptionJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVocabularyRequest {
   /**
    * <p>The name of the custom vocabulary you want to delete. Custom vocabulary names are case
@@ -1735,6 +1863,9 @@ export interface DeleteVocabularyRequest {
   VocabularyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVocabularyFilterRequest {
   /**
    * <p>The name of the custom vocabulary filter you want to delete. Custom vocabulary filter
@@ -1743,6 +1874,9 @@ export interface DeleteVocabularyFilterRequest {
   VocabularyFilterName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLanguageModelRequest {
   /**
    * <p>The name of the custom language model you want information about. Model names are case
@@ -1752,6 +1886,7 @@ export interface DescribeLanguageModelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a custom language model, including:</p>
  *          <ul>
  *             <li>
@@ -1854,6 +1989,9 @@ export interface LanguageModel {
   InputDataConfig?: InputDataConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLanguageModelResponse {
   /**
    * <p>Provides information about the specified custom language model.</p>
@@ -1867,6 +2005,9 @@ export interface DescribeLanguageModelResponse {
   LanguageModel?: LanguageModel;
 }
 
+/**
+ * @public
+ */
 export interface GetCallAnalyticsCategoryRequest {
   /**
    * <p>The name of the Call Analytics category you want information about. Category names are
@@ -1875,6 +2016,9 @@ export interface GetCallAnalyticsCategoryRequest {
   CategoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCallAnalyticsCategoryResponse {
   /**
    * <p>Provides you with the properties of the Call Analytics category you specified in your
@@ -1883,6 +2027,9 @@ export interface GetCallAnalyticsCategoryResponse {
   CategoryProperties?: CategoryProperties;
 }
 
+/**
+ * @public
+ */
 export interface GetCallAnalyticsJobRequest {
   /**
    * <p>The name of the Call Analytics job you want information about. Job names are case
@@ -1891,6 +2038,9 @@ export interface GetCallAnalyticsJobRequest {
   CallAnalyticsJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCallAnalyticsJobResponse {
   /**
    * <p>Provides detailed information about the specified Call Analytics job, including job
@@ -1899,6 +2049,9 @@ export interface GetCallAnalyticsJobResponse {
   CallAnalyticsJob?: CallAnalyticsJob;
 }
 
+/**
+ * @public
+ */
 export interface GetMedicalTranscriptionJobRequest {
   /**
    * <p>The name of the medical transcription job you want information about. Job names are
@@ -1907,11 +2060,15 @@ export interface GetMedicalTranscriptionJobRequest {
   MedicalTranscriptionJobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MedicalContentIdentificationType {
   PHI = "PHI",
 }
 
 /**
+ * @public
  * <p>Allows additional optional settings in your  request, including channel
  *             identification, alternative transcriptions, and speaker partitioning. You can use that to
  *             apply custom vocabularies to your medical transcription job.</p>
@@ -1989,11 +2146,15 @@ export interface MedicalTranscriptionSetting {
   VocabularyName?: string;
 }
 
+/**
+ * @public
+ */
 export enum Specialty {
   PRIMARYCARE = "PRIMARYCARE",
 }
 
 /**
+ * @public
  * <p>Provides you with the Amazon S3 URI you can use to access your
  *             transcript.</p>
  */
@@ -2007,6 +2168,9 @@ export interface MedicalTranscript {
   TranscriptFileUri?: string;
 }
 
+/**
+ * @public
+ */
 export enum TranscriptionJobStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -2014,12 +2178,16 @@ export enum TranscriptionJobStatus {
   QUEUED = "QUEUED",
 }
 
+/**
+ * @public
+ */
 export enum Type {
   CONVERSATION = "CONVERSATION",
   DICTATION = "DICTATION",
 }
 
 /**
+ * @public
  * <p>Provides detailed information about a medical transcription job.</p>
  *          <p>To view the status of the specified medical transcription job, check the
  *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -2183,6 +2351,9 @@ export interface MedicalTranscriptionJob {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface GetMedicalTranscriptionJobResponse {
   /**
    * <p>Provides detailed information about the specified medical transcription job, including
@@ -2191,6 +2362,9 @@ export interface GetMedicalTranscriptionJobResponse {
   MedicalTranscriptionJob?: MedicalTranscriptionJob;
 }
 
+/**
+ * @public
+ */
 export interface GetMedicalVocabularyRequest {
   /**
    * <p>The name of the custom medical vocabulary you want information about. Custom medical
@@ -2199,6 +2373,9 @@ export interface GetMedicalVocabularyRequest {
   VocabularyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMedicalVocabularyResponse {
   /**
    * <p>The name of the custom medical vocabulary you requested information about.</p>
@@ -2241,6 +2418,9 @@ export interface GetMedicalVocabularyResponse {
   DownloadUri?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTranscriptionJobRequest {
   /**
    * <p>The name of the transcription job you want information about. Job names are case
@@ -2250,6 +2430,7 @@ export interface GetTranscriptionJobRequest {
 }
 
 /**
+ * @public
  * <p>Makes it possible to control how your transcription job is processed. Currently, the
  *             only <code>JobExecutionSettings</code> modification you can choose is enabling job
  *             queueing using the <code>AllowDeferredExecution</code> sub-parameter.</p>
@@ -2286,6 +2467,7 @@ export interface JobExecutionSettings {
 }
 
 /**
+ * @public
  * <p>Provides information on the speech contained in a discreet utterance when
  *             multi-language identification is enabled in your request. This utterance represents a
  *             block of speech consisting of one language, preceded or followed by a block of speech in
@@ -2305,6 +2487,7 @@ export interface LanguageCodeItem {
 }
 
 /**
+ * @public
  * <p>Provides the name of the custom language model that was included in the specified
  *             transcription job.</p>
  *          <p>Only use <code>ModelSettings</code> with the <code>LanguageModelName</code>
@@ -2326,6 +2509,7 @@ export interface ModelSettings {
 }
 
 /**
+ * @public
  * <p>Allows additional optional settings in your  request, including channel identification, alternative transcriptions, and speaker
  *             partitioning. You can use that to apply custom vocabularies to your transcription
  *             job.</p>
@@ -2416,12 +2600,16 @@ export interface Settings {
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 }
 
+/**
+ * @public
+ */
 export enum SubtitleFormat {
   SRT = "srt",
   VTT = "vtt",
 }
 
 /**
+ * @public
  * <p>Provides information about your subtitle file, including format, start index, and
  *                 Amazon S3 location.</p>
  */
@@ -2462,6 +2650,7 @@ export interface SubtitlesOutput {
 }
 
 /**
+ * @public
  * <p>Provides detailed information about a transcription job.</p>
  *          <p>To view the status of the specified transcription job, check the
  *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -2669,6 +2858,9 @@ export interface TranscriptionJob {
   LanguageIdSettings?: Record<string, LanguageIdSettings>;
 }
 
+/**
+ * @public
+ */
 export interface GetTranscriptionJobResponse {
   /**
    * <p>Provides detailed information about the specified transcription job, including job
@@ -2677,6 +2869,9 @@ export interface GetTranscriptionJobResponse {
   TranscriptionJob?: TranscriptionJob;
 }
 
+/**
+ * @public
+ */
 export interface GetVocabularyRequest {
   /**
    * <p>The name of the custom vocabulary you want information about. Custom vocabulary names
@@ -2685,6 +2880,9 @@ export interface GetVocabularyRequest {
   VocabularyName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVocabularyResponse {
   /**
    * <p>The name of the custom vocabulary you requested information about.</p>
@@ -2725,6 +2923,9 @@ export interface GetVocabularyResponse {
   DownloadUri?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVocabularyFilterRequest {
   /**
    * <p>The name of the custom vocabulary filter you want information about. Custom vocabulary
@@ -2733,6 +2934,9 @@ export interface GetVocabularyFilterRequest {
   VocabularyFilterName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVocabularyFilterResponse {
   /**
    * <p>The name of the custom vocabulary filter you requested information about.</p>
@@ -2759,6 +2963,9 @@ export interface GetVocabularyFilterResponse {
   DownloadUri?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCallAnalyticsCategoriesRequest {
   /**
    * <p>If your <code>ListCallAnalyticsCategories</code> request returns more results than can
@@ -2777,6 +2984,9 @@ export interface ListCallAnalyticsCategoriesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCallAnalyticsCategoriesResponse {
   /**
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
@@ -2794,6 +3004,9 @@ export interface ListCallAnalyticsCategoriesResponse {
   Categories?: CategoryProperties[];
 }
 
+/**
+ * @public
+ */
 export interface ListCallAnalyticsJobsRequest {
   /**
    * <p>Returns only Call Analytics jobs with the specified status. Jobs are ordered by
@@ -2825,6 +3038,9 @@ export interface ListCallAnalyticsJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCallAnalyticsJobsResponse {
   /**
    * <p>Lists all Call Analytics jobs that have the status specified in your request. Jobs are
@@ -2847,6 +3063,9 @@ export interface ListCallAnalyticsJobsResponse {
   CallAnalyticsJobSummaries?: CallAnalyticsJobSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListLanguageModelsRequest {
   /**
    * <p>Returns only custom language models with the specified status. Language models are
@@ -2878,6 +3097,9 @@ export interface ListLanguageModelsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListLanguageModelsResponse {
   /**
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
@@ -2895,6 +3117,9 @@ export interface ListLanguageModelsResponse {
   Models?: LanguageModel[];
 }
 
+/**
+ * @public
+ */
 export interface ListMedicalTranscriptionJobsRequest {
   /**
    * <p>Returns only medical transcription jobs with the specified status. Jobs are ordered by
@@ -2926,12 +3151,16 @@ export interface ListMedicalTranscriptionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum OutputLocationType {
   CUSTOMER_BUCKET = "CUSTOMER_BUCKET",
   SERVICE_BUCKET = "SERVICE_BUCKET",
 }
 
 /**
+ * @public
  * <p>Provides detailed information about a specific medical transcription job.</p>
  */
 export interface MedicalTranscriptionJobSummary {
@@ -3017,6 +3246,9 @@ export interface MedicalTranscriptionJobSummary {
   Type?: Type | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMedicalTranscriptionJobsResponse {
   /**
    * <p>Lists all medical transcription jobs that have the status specified in your request.
@@ -3039,6 +3271,9 @@ export interface ListMedicalTranscriptionJobsResponse {
   MedicalTranscriptionJobSummaries?: MedicalTranscriptionJobSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListMedicalVocabulariesRequest {
   /**
    * <p>If your <code>ListMedicalVocabularies</code> request returns more results than can be
@@ -3071,6 +3306,7 @@ export interface ListMedicalVocabulariesRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a custom vocabulary, including the language of the custom
  *             vocabulary, when it was last modified, its name, and the processing state.</p>
  */
@@ -3107,6 +3343,9 @@ export interface VocabularyInfo {
   VocabularyState?: VocabularyState | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMedicalVocabulariesResponse {
   /**
    * <p>Lists all custom medical vocabularies that have the status specified in your request.
@@ -3131,6 +3370,9 @@ export interface ListMedicalVocabulariesResponse {
   Vocabularies?: VocabularyInfo[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Returns a list of all tags associated with the specified Amazon Resource Name (ARN).
@@ -3146,6 +3388,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) specified in your request.</p>
@@ -3159,6 +3404,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTranscriptionJobsRequest {
   /**
    * <p>Returns only transcription jobs with the specified status. Jobs are ordered by
@@ -3191,6 +3439,7 @@ export interface ListTranscriptionJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides detailed information about a specific transcription job.</p>
  */
 export interface TranscriptionJobSummary {
@@ -3303,6 +3552,9 @@ export interface TranscriptionJobSummary {
   LanguageCodes?: LanguageCodeItem[];
 }
 
+/**
+ * @public
+ */
 export interface ListTranscriptionJobsResponse {
   /**
    * <p>Lists all transcription jobs that have the status specified in your request. Jobs are
@@ -3325,6 +3577,9 @@ export interface ListTranscriptionJobsResponse {
   TranscriptionJobSummaries?: TranscriptionJobSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListVocabulariesRequest {
   /**
    * <p>If your <code>ListVocabularies</code> request returns more results than can be
@@ -3356,6 +3611,9 @@ export interface ListVocabulariesRequest {
   NameContains?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVocabulariesResponse {
   /**
    * <p>Lists all custom vocabularies that have the status specified in your request.
@@ -3379,6 +3637,9 @@ export interface ListVocabulariesResponse {
   Vocabularies?: VocabularyInfo[];
 }
 
+/**
+ * @public
+ */
 export interface ListVocabularyFiltersRequest {
   /**
    * <p>If your <code>ListVocabularyFilters</code> request returns more results than can be
@@ -3404,6 +3665,7 @@ export interface ListVocabularyFiltersRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a custom vocabulary filter, including the language of the
  *             filter, when it was last modified, and its name.</p>
  */
@@ -3435,6 +3697,9 @@ export interface VocabularyFilterInfo {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListVocabularyFiltersResponse {
   /**
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
@@ -3452,6 +3717,9 @@ export interface ListVocabularyFiltersResponse {
   VocabularyFilters?: VocabularyFilterInfo[];
 }
 
+/**
+ * @public
+ */
 export interface StartCallAnalyticsJobRequest {
   /**
    * <p>A unique name, chosen by you, for your Call Analytics job.</p>
@@ -3567,6 +3835,9 @@ export interface StartCallAnalyticsJobRequest {
   ChannelDefinitions?: ChannelDefinition[];
 }
 
+/**
+ * @public
+ */
 export interface StartCallAnalyticsJobResponse {
   /**
    * <p>Provides detailed information about the current Call Analytics job, including job
@@ -3575,6 +3846,9 @@ export interface StartCallAnalyticsJobResponse {
   CallAnalyticsJob?: CallAnalyticsJob;
 }
 
+/**
+ * @public
+ */
 export interface StartMedicalTranscriptionJobRequest {
   /**
    * <p>A unique name, chosen by you, for your medical transcription job. The name that you
@@ -3764,6 +4038,9 @@ export interface StartMedicalTranscriptionJobRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartMedicalTranscriptionJobResponse {
   /**
    * <p>Provides detailed information about the current medical transcription job, including
@@ -3773,6 +4050,7 @@ export interface StartMedicalTranscriptionJobResponse {
 }
 
 /**
+ * @public
  * <p>Generate subtitles for your media file with your transcription request.</p>
  *          <p>You can choose a start index of 0 or 1, and you can specify either WebVTT or SubRip
  *             (or both) as your output format.</p>
@@ -3797,6 +4075,9 @@ export interface Subtitles {
   OutputStartIndex?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartTranscriptionJobRequest {
   /**
    * <p>A unique name, chosen by you, for your transcription job. The name that you specify is
@@ -4102,6 +4383,9 @@ export interface StartTranscriptionJobRequest {
   LanguageIdSettings?: Record<string, LanguageIdSettings>;
 }
 
+/**
+ * @public
+ */
 export interface StartTranscriptionJobResponse {
   /**
    * <p>Provides detailed information about the current transcription job, including job
@@ -4110,6 +4394,9 @@ export interface StartTranscriptionJobResponse {
   TranscriptionJob?: TranscriptionJob;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to tag. ARNs have the format
@@ -4132,8 +4419,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Transcribe resource you want to remove
@@ -4154,8 +4447,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateCallAnalyticsCategoryRequest {
   /**
    * <p>The name of the Call Analytics category you want to update. Category names are case
@@ -4178,6 +4477,9 @@ export interface UpdateCallAnalyticsCategoryRequest {
   InputType?: InputType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCallAnalyticsCategoryResponse {
   /**
    * <p>Provides you with the properties of the Call Analytics category you specified in your
@@ -4186,6 +4488,9 @@ export interface UpdateCallAnalyticsCategoryResponse {
   CategoryProperties?: CategoryProperties;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMedicalVocabularyRequest {
   /**
    * <p>The name of the custom medical vocabulary you want to update. Custom medical
@@ -4211,6 +4516,9 @@ export interface UpdateMedicalVocabularyRequest {
   VocabularyFileUri: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMedicalVocabularyResponse {
   /**
    * <p>The name of the updated custom medical vocabulary.</p>
@@ -4240,6 +4548,9 @@ export interface UpdateMedicalVocabularyResponse {
   VocabularyState?: VocabularyState | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVocabularyRequest {
   /**
    * <p>The name of the custom vocabulary you want to update. Custom vocabulary names are case
@@ -4301,6 +4612,9 @@ export interface UpdateVocabularyRequest {
   DataAccessRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVocabularyResponse {
   /**
    * <p>The name of the updated custom vocabulary.</p>
@@ -4328,6 +4642,9 @@ export interface UpdateVocabularyResponse {
   VocabularyState?: VocabularyState | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVocabularyFilterRequest {
   /**
    * <p>The name of the custom vocabulary filter you want to update. Custom vocabulary filter
@@ -4376,6 +4693,9 @@ export interface UpdateVocabularyFilterRequest {
   DataAccessRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVocabularyFilterResponse {
   /**
    * <p>The name of the updated custom vocabulary filter.</p>

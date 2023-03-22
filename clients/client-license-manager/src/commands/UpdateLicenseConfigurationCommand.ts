@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLicenseConfigurationCommand}.
  */
 export interface UpdateLicenseConfigurationCommandInput extends UpdateLicenseConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLicenseConfigurationCommand}.
  */
 export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the attributes of an existing license configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLicenseConfigurationCommandInput - {@link UpdateLicenseConfigurationCommandInput}
+ * @returns {@link UpdateLicenseConfigurationCommandOutput}
  * @see {@link UpdateLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

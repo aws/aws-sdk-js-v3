@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccessKeyCommand}.
  */
 export interface UpdateAccessKeyCommandInput extends UpdateAccessKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccessKeyCommand}.
  */
 export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
  *             This operation can be used to disable a user's key as part of a key rotation
  *             workflow.</p>
@@ -51,6 +56,8 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccessKeyCommandInput - {@link UpdateAccessKeyCommandInput}
+ * @returns {@link UpdateAccessKeyCommandOutput}
  * @see {@link UpdateAccessKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -99,6 +106,9 @@ export class UpdateAccessKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class UpdateAccessKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAccessKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccessKeyCommandOutput> {
     return deserializeAws_queryUpdateAccessKeyCommand(output, context);
   }

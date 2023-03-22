@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyWorkersCommand}.
  */
 export interface NotifyWorkersCommandInput extends NotifyWorkersRequest {}
 /**
+ * @public
+ *
  * The output of {@link NotifyWorkersCommand}.
  */
 export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>NotifyWorkers</code>
@@ -55,6 +60,8 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyWorkersCommandInput - {@link NotifyWorkersCommandInput}
+ * @returns {@link NotifyWorkersCommandOutput}
  * @see {@link NotifyWorkersCommandInput} for command's `input` shape.
  * @see {@link NotifyWorkersCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -84,6 +91,9 @@ export class NotifyWorkersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyWorkersCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class NotifyWorkersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyWorkersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1NotifyWorkersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyWorkersCommandOutput> {
     return deserializeAws_json1_1NotifyWorkersCommand(output, context);
   }

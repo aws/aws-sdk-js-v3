@@ -401,6 +401,7 @@ import {
 } from "./commands/UpdateSkillGroupCommand";
 
 /**
+ * @public
  * <p>Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools
  *          to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your
  *          own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations.
@@ -412,6 +413,7 @@ import {
  */
 export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
+   * @public
    * <p>Associates a skill with the organization under the customer's AWS account. If a skill
    *          is private, the user implicitly accepts access to this skill during enablement.</p>
    */
@@ -442,6 +444,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Associates a contact with a given address book.</p>
    */
   public associateContactWithAddressBook(
@@ -474,6 +477,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Associates a device with the specified network profile.</p>
    */
   public associateDeviceWithNetworkProfile(
@@ -506,6 +510,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Associates a device with a given room. This applies all the settings from the room
    *          profile to the device, and all the skills in any skill groups added to that room. This
    *          operation requires the device to be online, or else a manual sync is required. </p>
@@ -540,6 +545,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Associates a skill group with a given room. This enables all skills in the associated
    *          skill group on all devices in the room.</p>
    */
@@ -573,6 +579,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Associates a skill with a skill group.</p>
    */
   public associateSkillWithSkillGroup(
@@ -605,6 +612,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Makes a private skill available for enrolled users to enable on their devices.</p>
    */
   public associateSkillWithUsers(
@@ -637,6 +645,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Creates an address book with the specified details.</p>
    */
   public createAddressBook(
@@ -669,6 +678,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Creates a recurring schedule for usage reports to deliver to the specified S3
    *          location with a specified daily or weekly interval.</p>
    */
@@ -702,6 +712,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Adds a new conference provider under the user's AWS account.</p>
    */
   public createConferenceProvider(
@@ -734,6 +745,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Creates a contact with the specified details.</p>
    */
   public createContact(
@@ -766,6 +778,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Creates a gateway group with the specified details.</p>
    */
   public createGatewayGroup(
@@ -798,6 +811,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Creates a network profile with the specified details.</p>
    */
   public createNetworkProfile(
@@ -830,6 +844,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Creates a new room profile with the specified details.</p>
    */
   public createProfile(
@@ -862,6 +877,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Creates a room with the specified details.</p>
    */
   public createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
@@ -888,6 +904,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Creates a skill group with a specified name and description.</p>
    */
   public createSkillGroup(
@@ -920,6 +937,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Creates a user.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
@@ -946,6 +964,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes an address book by the address book ARN.</p>
    */
   public deleteAddressBook(
@@ -978,6 +997,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes the recurring report delivery schedule with the specified schedule
    *          ARN.</p>
    */
@@ -1011,6 +1031,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a conference provider.</p>
    */
   public deleteConferenceProvider(
@@ -1043,6 +1064,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a contact by the contact ARN.</p>
    */
   public deleteContact(
@@ -1075,6 +1097,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Removes a device from Alexa For Business.</p>
    */
   public deleteDevice(
@@ -1104,6 +1127,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>When this action is called for a specified shared device, it allows authorized users to
    *          delete the device's entire previous history of voice input data and associated response
    *          data. This action can be called once every 24 hours for a specific shared device.</p>
@@ -1138,6 +1162,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a gateway group.</p>
    */
   public deleteGatewayGroup(
@@ -1170,6 +1195,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a network profile by the network profile ARN.</p>
    */
   public deleteNetworkProfile(
@@ -1202,6 +1228,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a room profile by the profile ARN.</p>
    */
   public deleteProfile(
@@ -1234,6 +1261,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a room by the room ARN.</p>
    */
   public deleteRoom(args: DeleteRoomCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoomCommandOutput>;
@@ -1260,6 +1288,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes room skill parameter details by room, skill, and parameter key ID.</p>
    */
   public deleteRoomSkillParameter(
@@ -1292,6 +1321,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Unlinks a third-party account from a skill.</p>
    */
   public deleteSkillAuthorization(
@@ -1324,6 +1354,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a skill group by skill group ARN.</p>
    */
   public deleteSkillGroup(
@@ -1356,6 +1387,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified user by user ARN and enrollment ARN.</p>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
@@ -1382,6 +1414,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a contact from a given address book.</p>
    */
   public disassociateContactFromAddressBook(
@@ -1414,6 +1447,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a device from its current room. The device continues to be connected to
    *          the Wi-Fi network and is still registered to the account. The device settings and skills
    *          are removed from the room.</p>
@@ -1448,6 +1482,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a skill from a skill group.</p>
    */
   public disassociateSkillFromSkillGroup(
@@ -1480,6 +1515,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it
    *          on their devices.</p>
    */
@@ -1513,6 +1549,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a skill group from a specified room. This disables all skills in the
    *          skill group on all devices in the room.</p>
    */
@@ -1546,6 +1583,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Forgets smart home appliances associated to a room.</p>
    */
   public forgetSmartHomeAppliances(
@@ -1578,6 +1616,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Gets address the book details by the address book ARN.</p>
    */
   public getAddressBook(
@@ -1610,6 +1649,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the existing conference preferences.</p>
    */
   public getConferencePreference(
@@ -1642,6 +1682,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Gets details about a specific conference provider.</p>
    */
   public getConferenceProvider(
@@ -1674,6 +1715,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Gets the contact details by the contact ARN.</p>
    */
   public getContact(args: GetContactCommandInput, options?: __HttpHandlerOptions): Promise<GetContactCommandOutput>;
@@ -1700,6 +1742,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Gets the details of a device by device ARN.</p>
    */
   public getDevice(args: GetDeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetDeviceCommandOutput>;
@@ -1726,6 +1769,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of a gateway.</p>
    */
   public getGateway(args: GetGatewayCommandInput, options?: __HttpHandlerOptions): Promise<GetGatewayCommandOutput>;
@@ -1752,6 +1796,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of a gateway group.</p>
    */
   public getGatewayGroup(
@@ -1784,6 +1829,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the configured values for the user enrollment invitation email
    *          template.</p>
    */
@@ -1817,6 +1863,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Gets the network profile details by the network profile ARN.</p>
    */
   public getNetworkProfile(
@@ -1849,6 +1896,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Gets the details of a room profile by profile ARN.</p>
    */
   public getProfile(args: GetProfileCommandInput, options?: __HttpHandlerOptions): Promise<GetProfileCommandOutput>;
@@ -1875,6 +1923,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Gets room details by room ARN.</p>
    */
   public getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
@@ -1901,6 +1950,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Gets room skill parameter details by room, skill, and parameter key ARN.</p>
    */
   public getRoomSkillParameter(
@@ -1933,6 +1983,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Gets skill group details by skill group ARN.</p>
    */
   public getSkillGroup(
@@ -1965,6 +2016,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Lists the details of the schedules that a user configured. A download URL of the report associated with each schedule is returned every time this action is called. A new download URL is returned each time, and is valid for 24 hours.</p>
    */
   public listBusinessReportSchedules(
@@ -1997,6 +2049,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Lists conference providers under a specific AWS account.</p>
    */
   public listConferenceProviders(
@@ -2029,6 +2082,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Lists the device event history, including device connection status, for up to 30
    *          days.</p>
    */
@@ -2062,6 +2116,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details of
    *          a specific gateway group.</p>
    */
@@ -2095,6 +2150,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific
    *          gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries
    *          of gateways that are associated with that gateway group ARN.</p>
@@ -2126,6 +2182,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Lists all enabled skills in a specific skill group.</p>
    */
   public listSkills(args: ListSkillsCommandInput, options?: __HttpHandlerOptions): Promise<ListSkillsCommandOutput>;
@@ -2152,6 +2209,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Lists all categories in the Alexa skill store.</p>
    */
   public listSkillsStoreCategories(
@@ -2184,6 +2242,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Lists all skills in the Alexa skill store by category.</p>
    */
   public listSkillsStoreSkillsByCategory(
@@ -2216,6 +2275,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the smart home appliances associated with a room.</p>
    */
   public listSmartHomeAppliances(
@@ -2248,6 +2308,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags for the specified resource.</p>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
@@ -2274,6 +2335,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Sets the conference preferences on a specific conference provider at the account
    *          level.</p>
    */
@@ -2307,6 +2369,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Configures the email template for the user enrollment invitation with the specified
    *          attributes.</p>
    */
@@ -2340,6 +2403,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates room skill parameter details by room, skill, and parameter key ID. Not all
    *          skills have a room skill parameter.</p>
    */
@@ -2373,6 +2437,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Links a user's account to a third-party skill provider. If this API operation is
    *          called by an assumed IAM role, the skill being linked must be a private skill. Also, the
    *          skill must be owned by the AWS account that assumed the IAM role.</p>
@@ -2407,6 +2472,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM)
    *          using Alexa Voice Service (AVS).</p>
    */
@@ -2440,6 +2506,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a skill from the organization under a user's AWS account. If the skill
    *          is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill
    *          that is rejected can be added later by calling the ApproveSkill API. </p>
@@ -2468,6 +2535,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Determines the details for the room from which a skill request was invoked. This
    *          operation is used by skill developers.</p>
    *          <p>To query ResolveRoom from an Alexa skill, the skill ID needs to be authorized. When
@@ -2500,6 +2568,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Revokes an invitation and invalidates the enrollment URL.</p>
    */
   public revokeInvitation(
@@ -2532,6 +2601,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Searches address books and lists the ones that meet a set of filter and sort
    *          criteria.</p>
    */
@@ -2565,6 +2635,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Searches contacts and lists the ones that meet a set of filter and sort
    *          criteria.</p>
    */
@@ -2598,6 +2669,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Searches devices and lists the ones that meet a set of filter criteria.</p>
    */
   public searchDevices(
@@ -2630,6 +2702,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Searches network profiles and lists the ones that meet a set of filter and sort
    *          criteria.</p>
    */
@@ -2663,6 +2736,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Searches room profiles and lists the ones that meet a set of filter
    *          criteria.</p>
    */
@@ -2696,6 +2770,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Searches rooms and lists the ones that meet a set of filter and sort
    *          criteria.</p>
    */
@@ -2723,6 +2798,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Searches skill groups and lists the ones that meet a set of filter and sort
    *          criteria.</p>
    */
@@ -2756,6 +2832,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Searches users and lists the ones that meet a set of filter and sort
    *          criteria.</p>
    */
@@ -2783,6 +2860,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that
    *          are identified by a search or filter. </p>
    */
@@ -2816,6 +2894,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30
    *          days or until you call this operation again, whichever comes first. </p>
    */
@@ -2849,6 +2928,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Resets a device and its account to the known default settings. This clears all
    *          information and settings set by previous users in the following ways:</p>
    *          <ul>
@@ -2902,6 +2982,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Initiates the discovery of any smart home appliances associated with the
    *          room.</p>
    */
@@ -2935,6 +3016,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Adds metadata tags to a specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2961,6 +3043,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Removes metadata tags from a specified resource.</p>
    */
   public untagResource(
@@ -2993,6 +3076,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates address book details by the address book ARN.</p>
    */
   public updateAddressBook(
@@ -3025,6 +3109,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of the report delivery schedule with the specified schedule
    *          ARN.</p>
    */
@@ -3058,6 +3143,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing conference provider's settings.</p>
    */
   public updateConferenceProvider(
@@ -3090,6 +3176,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates the contact details by the contact ARN.</p>
    */
   public updateContact(
@@ -3122,6 +3209,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates the device name by device ARN.</p>
    */
   public updateDevice(
@@ -3151,6 +3239,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates the details of a gateway. If any optional field is not provided, the existing
    *          corresponding value is left unmodified.</p>
    */
@@ -3184,6 +3273,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates the details of a gateway group. If any optional field is not provided, the
    *          existing corresponding value is left unmodified.</p>
    */
@@ -3217,6 +3307,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates a network profile by the network profile ARN.</p>
    */
   public updateNetworkProfile(
@@ -3249,6 +3340,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing room profile by room profile ARN.</p>
    */
   public updateProfile(
@@ -3281,6 +3373,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates room details by room ARN.</p>
    */
   public updateRoom(args: UpdateRoomCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoomCommandOutput>;
@@ -3307,6 +3400,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   }
 
   /**
+   * @public
    * <p>Updates skill group details by skill group ARN.</p>
    */
   public updateSkillGroup(

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPatchBaselineCommand}.
  */
 export interface GetPatchBaselineCommandInput extends GetPatchBaselineRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPatchBaselineCommand}.
  */
 export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a patch baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPatchBaselineCommandInput - {@link GetPatchBaselineCommandInput}
+ * @returns {@link GetPatchBaselineCommandOutput}
  * @see {@link GetPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link GetPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetPatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetPatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPatchBaselineCommandOutput> {
     return deserializeAws_json1_1GetPatchBaselineCommand(output, context);
   }

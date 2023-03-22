@@ -27,15 +27,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link SearchCommand}.
  */
 export interface SearchCommandInput extends SearchInput {}
 /**
+ * @public
+ *
  * The output of {@link SearchCommand}.
  */
 export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for resources and displays details about all resources that match the
  *             specified criteria. You must specify a query string.</p>
  *          <p>All search queries must use a view. If you don't explicitly specify a view, then
@@ -59,6 +64,8 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchCommandInput - {@link SearchCommandInput}
+ * @returns {@link SearchCommandOutput}
  * @see {@link SearchCommandInput} for command's `input` shape.
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -105,6 +112,9 @@ export class SearchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class SearchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
     return deserializeAws_restJson1SearchCommand(output, context);
   }

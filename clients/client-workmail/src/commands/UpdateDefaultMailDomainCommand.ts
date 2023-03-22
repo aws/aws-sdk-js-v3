@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDefaultMailDomainCommand}.
  */
 export interface UpdateDefaultMailDomainCommandInput extends UpdateDefaultMailDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDefaultMailDomainCommand}.
  */
 export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the default mail domain for an organization. The default mail domain is used by the WorkMail AWS Console to suggest an email address when enabling a mail user. You can only have one default domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailD
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDefaultMailDomainCommandInput - {@link UpdateDefaultMailDomainCommandInput}
+ * @returns {@link UpdateDefaultMailDomainCommandOutput}
  * @see {@link UpdateDefaultMailDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateDefaultMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateDefaultMailDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDefaultMailDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateDefaultMailDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDefaultMailDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDefaultMailDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDefaultMailDomainCommandOutput> {
     return deserializeAws_json1_1UpdateDefaultMailDomainCommand(output, context);
   }

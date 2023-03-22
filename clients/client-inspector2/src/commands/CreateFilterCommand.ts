@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFilterCommand}.
  */
 export interface CreateFilterCommandInput extends CreateFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFilterCommand}.
  */
 export interface CreateFilterCommandOutput extends CreateFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a filter resource using specified filter criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFilterCommandInput - {@link CreateFilterCommandInput}
+ * @returns {@link CreateFilterCommandOutput}
  * @see {@link CreateFilterCommandInput} for command's `input` shape.
  * @see {@link CreateFilterCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -89,6 +96,9 @@ export class CreateFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFilterCommandOutput> {
     return deserializeAws_restJson1CreateFilterCommand(output, context);
   }

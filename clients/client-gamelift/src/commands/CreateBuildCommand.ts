@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBuildCommand}.
  */
 export interface CreateBuildCommandInput extends CreateBuildInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBuildCommand}.
  */
 export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon GameLift build resource for your game server binary files. Combine game
  *             server binaries into a zip file for use with Amazon GameLift. </p>
  *         <important>
@@ -88,6 +93,8 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBuildCommandInput - {@link CreateBuildCommandInput}
+ * @returns {@link CreateBuildCommandOutput}
  * @see {@link CreateBuildCommandInput} for command's `input` shape.
  * @see {@link CreateBuildCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -133,6 +140,9 @@ export class CreateBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class CreateBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBuildCommandOutput> {
     return deserializeAws_json1_1CreateBuildCommand(output, context);
   }

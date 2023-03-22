@@ -26,10 +26,14 @@ import {
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSavingsPlansOfferingsCommand}.
  */
 export interface DescribeSavingsPlansOfferingsCommandInput extends DescribeSavingsPlansOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSavingsPlansOfferingsCommand}.
  */
 export interface DescribeSavingsPlansOfferingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Savings Plans offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSavingsPlansOfferingsCommandInput - {@link DescribeSavingsPlansOfferingsCommandInput}
+ * @returns {@link DescribeSavingsPlansOfferingsCommandOutput}
  * @see {@link DescribeSavingsPlansOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlansOfferingsCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSavingsPlansOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSavingsPlansOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSavingsPlansOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateIpamResourceDiscoveryCommand}.
  */
 export interface AssociateIpamResourceDiscoveryCommandInput extends AssociateIpamResourceDiscoveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateIpamResourceDiscoveryCommand}.
  */
 export interface AssociateIpamResourceDiscoveryCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateIpamResourceDiscoveryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateIpamResourceDiscoveryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateIpamResourceDiscoveryCommandInput - {@link AssociateIpamResourceDiscoveryCommandInput}
+ * @returns {@link AssociateIpamResourceDiscoveryCommandOutput}
  * @see {@link AssociateIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link AssociateIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class AssociateIpamResourceDiscoveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateIpamResourceDiscoveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class AssociateIpamResourceDiscoveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateIpamResourceDiscoveryCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class AssociateIpamResourceDiscoveryCommand extends $Command<
     return serializeAws_ec2AssociateIpamResourceDiscoveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

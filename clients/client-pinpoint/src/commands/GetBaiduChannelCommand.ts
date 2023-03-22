@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBaiduChannelCommand}.
  */
 export interface GetBaiduChannelCommandInput extends GetBaiduChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBaiduChannelCommand}.
  */
 export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the Baidu channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBaiduChannelCommandInput - {@link GetBaiduChannelCommandInput}
+ * @returns {@link GetBaiduChannelCommandOutput}
  * @see {@link GetBaiduChannelCommandInput} for command's `input` shape.
  * @see {@link GetBaiduChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetBaiduChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBaiduChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetBaiduChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBaiduChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBaiduChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBaiduChannelCommandOutput> {
     return deserializeAws_restJson1GetBaiduChannelCommand(output, context);
   }

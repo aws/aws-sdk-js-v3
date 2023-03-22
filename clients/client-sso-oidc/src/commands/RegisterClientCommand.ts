@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterClientCommand}.
  */
 export interface RegisterClientCommandInput extends RegisterClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterClientCommand}.
  */
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a client with IAM Identity Center. This allows clients to initiate device authorization.
  *       The output should be persisted for reuse through many authentication requests.</p>
  * @example
@@ -47,6 +52,8 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterClientCommandInput - {@link RegisterClientCommandInput}
+ * @returns {@link RegisterClientCommandOutput}
  * @see {@link RegisterClientCommandInput} for command's `input` shape.
  * @see {@link RegisterClientCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
@@ -85,6 +92,9 @@ export class RegisterClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class RegisterClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterClientCommandOutput> {
     return deserializeAws_restJson1RegisterClientCommand(output, context);
   }

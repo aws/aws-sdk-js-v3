@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSupportedPhoneNumberCountriesCommand}.
  */
 export interface ListSupportedPhoneNumberCountriesCommandInput extends ListSupportedPhoneNumberCountriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSupportedPhoneNumberCountriesCommand}.
  */
 export interface ListSupportedPhoneNumberCountriesCommandOutput
@@ -53,6 +57,9 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSupportedPhoneNumberCountriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +99,9 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSupportedPhoneNumberCountriesCommandInput,
     context: __SerdeContext
@@ -99,6 +109,9 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     return serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

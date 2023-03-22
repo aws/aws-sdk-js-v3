@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountAuditConfigurationCommand}.
  */
 export interface UpdateAccountAuditConfigurationCommandInput extends UpdateAccountAuditConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountAuditConfigurationCommand}.
  */
 export interface UpdateAccountAuditConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateAccountAuditConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures or reconfigures the Device Defender audit settings for this account.
  *           Settings include how audit notifications are sent and which audit checks are
  *           enabled or disabled.</p>
@@ -51,6 +56,8 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountAuditConfigurationCommandInput - {@link UpdateAccountAuditConfigurationCommandInput}
+ * @returns {@link UpdateAccountAuditConfigurationCommandOutput}
  * @see {@link UpdateAccountAuditConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountAuditConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountAuditConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAccountAuditConfigurationCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateAccountAuditConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

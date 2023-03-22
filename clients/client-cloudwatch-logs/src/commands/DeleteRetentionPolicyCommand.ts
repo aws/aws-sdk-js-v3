@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRetentionPolicyCommand}.
  */
 export interface DeleteRetentionPolicyCommandInput extends DeleteRetentionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRetentionPolicyCommand}.
  */
 export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified retention policy.</p>
  *          <p>Log events do not expire if they belong to log groups without a retention policy.</p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRetentionPolicyCommandInput - {@link DeleteRetentionPolicyCommandInput}
+ * @returns {@link DeleteRetentionPolicyCommandOutput}
  * @see {@link DeleteRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRetentionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteRetentionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRetentionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteRetentionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRetentionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRetentionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRetentionPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteRetentionPolicyCommand(output, context);
   }

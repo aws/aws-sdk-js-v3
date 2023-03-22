@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcesCommand}.
  */
 export interface GetResourcesCommandInput extends GetResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcesCommand}.
  */
 export interface GetResourcesCommandOutput extends GetResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a collection of resources, including folders and documents. The only
  *             <code>CollectionType</code> supported is <code>SHARED_WITH_ME</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
+ * @returns {@link GetResourcesCommandOutput}
  * @see {@link GetResourcesCommandInput} for command's `input` shape.
  * @see {@link GetResourcesCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcesCommandOutput> {
     return deserializeAws_restJson1GetResourcesCommand(output, context);
   }

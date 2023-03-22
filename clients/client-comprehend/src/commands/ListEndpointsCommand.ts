@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEndpointsCommand}.
  */
 export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEndpointsCommand}.
  */
 export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all existing endpoints that you've created.
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEndpointsCommandInput - {@link ListEndpointsCommandInput}
+ * @returns {@link ListEndpointsCommandOutput}
  * @see {@link ListEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointsCommandOutput> {
     return deserializeAws_json1_1ListEndpointsCommand(output, context);
   }

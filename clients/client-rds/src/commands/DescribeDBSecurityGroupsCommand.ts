@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBSecurityGroupsCommand}.
  */
 export interface DescribeDBSecurityGroupsCommandInput extends DescribeDBSecurityGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBSecurityGroupsCommand}.
  */
 export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
  *             the list will contain only the descriptions of the specified DB security group.</p>
  *          <note>
@@ -54,6 +59,8 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBSecurityGroupsCommandInput - {@link DescribeDBSecurityGroupsCommandInput}
+ * @returns {@link DescribeDBSecurityGroupsCommandOutput}
  * @see {@link DescribeDBSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSecurityGroupsCommandOutput> {
     return deserializeAws_queryDescribeDBSecurityGroupsCommand(output, context);
   }

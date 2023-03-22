@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTriggerCommand}.
  */
 export interface DeleteTriggerCommandInput extends DeleteTriggerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTriggerCommand}.
  */
 export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified trigger. If the trigger is not found, no
  *       exception is thrown.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTriggerCommandInput - {@link DeleteTriggerCommandInput}
+ * @returns {@link DeleteTriggerCommandOutput}
  * @see {@link DeleteTriggerCommandInput} for command's `input` shape.
  * @see {@link DeleteTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteTriggerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTriggerCommandOutput> {
     return deserializeAws_json1_1DeleteTriggerCommand(output, context);
   }

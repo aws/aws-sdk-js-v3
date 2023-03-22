@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopDeploymentCommand}.
  */
 export interface StopDeploymentCommandInput extends StopDeploymentInput {}
 /**
+ * @public
+ *
  * The output of {@link StopDeploymentCommand}.
  */
 export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to stop an ongoing deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDeploymentCommandInput - {@link StopDeploymentCommandInput}
+ * @returns {@link StopDeploymentCommandOutput}
  * @see {@link StopDeploymentCommandInput} for command's `input` shape.
  * @see {@link StopDeploymentCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -88,6 +95,9 @@ export class StopDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class StopDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDeploymentCommandOutput> {
     return deserializeAws_json1_1StopDeploymentCommand(output, context);
   }

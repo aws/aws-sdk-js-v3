@@ -128,6 +128,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateReplicationSetCommandInput
   | CreateResponsePlanCommandInput
@@ -159,6 +162,9 @@ export type ServiceInputTypes =
   | UpdateResponsePlanCommandInput
   | UpdateTimelineEventCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateReplicationSetCommandOutput
   | CreateResponsePlanCommandOutput
@@ -190,6 +196,9 @@ export type ServiceOutputTypes =
   | UpdateResponsePlanCommandOutput
   | UpdateTimelineEventCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -197,7 +206,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -306,11 +315,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SSMIncidentsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -321,10 +333,15 @@ type SSMIncidentsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SSMIncidentsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SSMIncidentsClient class constructor that set the region, credentials and other options.
  */
 export interface SSMIncidentsClientConfig extends SSMIncidentsClientConfigType {}
 
+/**
+ * @public
+ */
 type SSMIncidentsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -335,11 +352,14 @@ type SSMIncidentsClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SSMIncidentsClient class. This is resolved and normalized from the {@link SSMIncidentsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SSMIncidentsClient class. This is resolved and normalized from the {@link SSMIncidentsClientConfig | constructor configuration interface}.
  */
 export interface SSMIncidentsClientResolvedConfig extends SSMIncidentsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Systems Manager Incident Manager is an incident management console designed to help users
  *       mitigate and recover from incidents affecting their Amazon Web Services-hosted applications. An
  *       incident is any unplanned interruption or reduction in quality of services. </p>

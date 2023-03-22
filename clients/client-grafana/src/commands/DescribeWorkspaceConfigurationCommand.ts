@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceConfigurationCommand}.
  */
 export interface DescribeWorkspaceConfigurationCommandInput extends DescribeWorkspaceConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceConfigurationCommand}.
  */
 export interface DescribeWorkspaceConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeWorkspaceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the current configuration string for the given workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeWorkspaceConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceConfigurationCommandInput - {@link DescribeWorkspaceConfigurationCommandInput}
+ * @returns {@link DescribeWorkspaceConfigurationCommandOutput}
  * @see {@link DescribeWorkspaceConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeWorkspaceConfigurationCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
     return serializeAws_restJson1DescribeWorkspaceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

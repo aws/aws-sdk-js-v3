@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRunGroupCommand}.
  */
 export interface CreateRunGroupCommandInput extends CreateRunGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRunGroupCommand}.
  */
 export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a run group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRunGroupCommandInput - {@link CreateRunGroupCommandInput}
+ * @returns {@link CreateRunGroupCommandOutput}
  * @see {@link CreateRunGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateRunGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRunGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateRunGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRunGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRunGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRunGroupCommandOutput> {
     return deserializeAws_restJson1CreateRunGroupCommand(output, context);
   }

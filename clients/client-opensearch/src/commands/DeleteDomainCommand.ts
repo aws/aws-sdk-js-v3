@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainCommand}.
  */
 export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainCommand}.
  */
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon OpenSearch Service domain and all of its data. You can't recover a domain
  *    after you delete it.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
+ * @returns {@link DeleteDomainCommandOutput}
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
     return deserializeAws_restJson1DeleteDomainCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Forecast dataset. The information about the dataset that you provide helps
  *       Forecast understand how to consume the data for model training. This includes the
  *       following:</p>
@@ -87,6 +92,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
+ * @returns {@link CreateDatasetCommandOutput}
  * @see {@link CreateDatasetCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -120,6 +127,9 @@ export class CreateDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class CreateDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
     return deserializeAws_json1_1CreateDatasetCommand(output, context);
   }

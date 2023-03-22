@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopWorkspacesCommand}.
  */
 export interface StopWorkspacesCommandInput extends StopWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopWorkspacesCommand}.
  */
 export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Stops the specified WorkSpaces.</p>
  *          <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
  *          state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or
@@ -49,6 +54,8 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StopWorkspacesCommandInput - {@link StopWorkspacesCommandInput}
+ * @returns {@link StopWorkspacesCommandOutput}
  * @see {@link StopWorkspacesCommandInput} for command's `input` shape.
  * @see {@link StopWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -72,6 +79,9 @@ export class StopWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class StopWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopWorkspacesCommandOutput> {
     return deserializeAws_json1_1StopWorkspacesCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocalGatewayRouteTablesCommand}.
  */
 export interface DescribeLocalGatewayRouteTablesCommandInput extends DescribeLocalGatewayRouteTablesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocalGatewayRouteTablesCommand}.
  */
 export interface DescribeLocalGatewayRouteTablesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeLocalGatewayRouteTablesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.
  *          Alternatively, you can filter the results.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeLocalGatewayRouteTablesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocalGatewayRouteTablesCommandInput - {@link DescribeLocalGatewayRouteTablesCommandInput}
+ * @returns {@link DescribeLocalGatewayRouteTablesCommandOutput}
  * @see {@link DescribeLocalGatewayRouteTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocalGatewayRouteTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLocalGatewayRouteTablesCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     return serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

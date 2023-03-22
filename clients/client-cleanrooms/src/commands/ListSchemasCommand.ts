@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandInput extends ListSchemasInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the schemas for relations within a collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
+ * @returns {@link ListSchemasCommandOutput}
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemasCommandOutput> {
     return deserializeAws_restJson1ListSchemasCommand(output, context);
   }

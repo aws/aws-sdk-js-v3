@@ -30,10 +30,14 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecoveryGroupReadinessSummaryCommand}.
  */
 export interface GetRecoveryGroupReadinessSummaryCommandInput extends GetRecoveryGroupReadinessSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecoveryGroupReadinessSummaryCommand}.
  */
 export interface GetRecoveryGroupReadinessSummaryCommandOutput
@@ -41,6 +45,7 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays a summary of information about a recovery group's readiness status. Includes the readiness checks for resources in the recovery group and the readiness status of each one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecoveryGroupReadinessSummaryCommandInput - {@link GetRecoveryGroupReadinessSummaryCommandInput}
+ * @returns {@link GetRecoveryGroupReadinessSummaryCommandOutput}
  * @see {@link GetRecoveryGroupReadinessSummaryCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryGroupReadinessSummaryCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecoveryGroupReadinessSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRecoveryGroupReadinessSummaryCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class GetRecoveryGroupReadinessSummaryCommand extends $Command<
     return serializeAws_restJson1GetRecoveryGroupReadinessSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

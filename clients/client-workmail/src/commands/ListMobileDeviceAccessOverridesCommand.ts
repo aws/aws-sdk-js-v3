@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMobileDeviceAccessOverridesCommand}.
  */
 export interface ListMobileDeviceAccessOverridesCommandInput extends ListMobileDeviceAccessOverridesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMobileDeviceAccessOverridesCommand}.
  */
 export interface ListMobileDeviceAccessOverridesCommandOutput
@@ -37,6 +41,7 @@ export interface ListMobileDeviceAccessOverridesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the mobile device access overrides for any given combination of WorkMail organization, user, or device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListMobileDeviceAccessOverridesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMobileDeviceAccessOverridesCommandInput - {@link ListMobileDeviceAccessOverridesCommandInput}
+ * @returns {@link ListMobileDeviceAccessOverridesCommandOutput}
  * @see {@link ListMobileDeviceAccessOverridesCommandInput} for command's `input` shape.
  * @see {@link ListMobileDeviceAccessOverridesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMobileDeviceAccessOverridesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListMobileDeviceAccessOverridesCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
     return serializeAws_json1_1ListMobileDeviceAccessOverridesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

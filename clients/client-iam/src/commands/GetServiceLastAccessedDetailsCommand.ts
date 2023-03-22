@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceLastAccessedDetailsCommand}.
  */
 export interface GetServiceLastAccessedDetailsCommandInput extends GetServiceLastAccessedDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceLastAccessedDetailsCommand}.
  */
 export interface GetServiceLastAccessedDetailsCommandOutput
@@ -37,6 +41,7 @@ export interface GetServiceLastAccessedDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a service last accessed report that was created using the
  *                 <code>GenerateServiceLastAccessedDetails</code> operation. You can use the
  *                 <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code> to
@@ -99,6 +104,8 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceLastAccessedDetailsCommandInput - {@link GetServiceLastAccessedDetailsCommandInput}
+ * @returns {@link GetServiceLastAccessedDetailsCommandOutput}
  * @see {@link GetServiceLastAccessedDetailsCommandInput} for command's `input` shape.
  * @see {@link GetServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -163,6 +170,9 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceLastAccessedDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -202,10 +212,16 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceLastAccessedDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetServiceLastAccessedDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

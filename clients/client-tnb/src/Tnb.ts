@@ -165,10 +165,12 @@ import {
 import { TnbClient } from "./TnbClient";
 
 /**
+ * @public
  * <p> Amazon Web Services Telco Network Builder (TNB) is a network automation service that helps you deploy and manage telecom networks. AWS TNB helps you with the lifecycle management of your telecommunication network functions throughout planning, deployment, and post-deployment activities.</p>
  */
 export class Tnb extends TnbClient {
   /**
+   * @public
    * <p>Cancels a network operation.</p>
    *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
    */
@@ -202,6 +204,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Creates a function package.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network. For more information, see <a href="https://docs.aws.amazon.com/tnb/latest/ug/function-packages.html">Function packages</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.
    *       </p>
@@ -237,6 +240,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Creates a network instance.</p>
    *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed. Creating a network instance is the third step after creating a network package. For more information about network instances, <a href="https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.</p>
    *          <p>Once you create a network instance, you can instantiate it. To instantiate a network, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html">InstantiateSolNetworkInstance</a>.</p>
@@ -271,6 +275,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Creates a network package.</p>
    *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on. For more information, see <a href="https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.
    *       </p>
@@ -307,6 +312,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Deletes a function package.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
    *          <p>To delete a function package, the package must be in a disabled state. To disable a function package, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html">UpdateSolFunctionPackage</a>.
@@ -342,6 +348,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Deletes a network instance.</p>
    *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
    *          <p>To delete a network instance, the instance must be in a stopped or terminated state. To terminate a network instance, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html">TerminateSolNetworkInstance</a>.</p>
@@ -376,6 +383,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Deletes network package.</p>
    *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
    *          <p>To delete a network package, the package must be in a disable state. To disable a network package, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html">UpdateSolNetworkPackage</a>.</p>
@@ -410,6 +418,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Gets the details of a network function instance, including the instantation state and metadata from the function package descriptor in the network function package.</p>
    *          <p>A network function instance is a function in a function package .</p>
    */
@@ -443,6 +452,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Gets the details of an individual function package, such as the operational state and whether the package is in use.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network..</p>
    */
@@ -476,6 +486,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Gets the contents of a function package.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
    */
@@ -509,6 +520,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Gets a function package descriptor in a function package.</p>
    *          <p>A function package descriptor is a .yaml file in a function package that uses the TOSCA standard to describe how the network function in the function package should run on your network.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
@@ -543,6 +555,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Gets the details of the network instance.</p>
    *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
    */
@@ -576,6 +589,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Gets the details of a network operation, including the tasks involved in the network operation and the status of the tasks.</p>
    *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
    */
@@ -609,6 +623,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Gets the details of a network package.</p>
    *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
    */
@@ -642,6 +657,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Gets the contents of a network package.</p>
    *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
    */
@@ -675,6 +691,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Gets the content of the network service descriptor.</p>
    *          <p>A network service descriptor is a .yaml file in a network package that uses the TOSCA standard to describe the network functions you want to deploy and the Amazon Web Services infrastructure you want to deploy the network functions on.</p>
    */
@@ -708,6 +725,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Instantiates a network instance.</p>
    *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
    *          <p>Before you can instantiate a network instance, you have to create a network instance. For more information, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html">CreateSolNetworkInstance</a>.</p>
@@ -742,6 +760,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Lists network function instances.</p>
    *          <p>A network function instance is a function in a function package .</p>
    */
@@ -775,6 +794,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Lists information about function packages.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
    */
@@ -808,6 +828,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Lists your network instances.</p>
    *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
    */
@@ -841,6 +862,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Lists details for a network operation, including when the operation started and the status of the operation.</p>
    *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
    */
@@ -874,6 +896,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Lists network packages.</p>
    *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
    */
@@ -907,6 +930,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Lists tags for AWS TNB resources.</p>
    */
   public listTagsForResource(
@@ -939,6 +963,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Uploads the contents of a function package.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
    */
@@ -972,6 +997,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Uploads the contents of a network package.</p>
    *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
    */
@@ -1005,6 +1031,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Tags an AWS TNB resource.</p>
    *          <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    */
@@ -1032,6 +1059,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Terminates a network instance.</p>
    *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
    *          <p>You must terminate a network instance before you can delete it.</p>
@@ -1066,6 +1094,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Untags an AWS TNB resource.</p>
    *          <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    */
@@ -1099,6 +1128,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Updates the operational state of function package.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
    */
@@ -1132,6 +1162,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Update a network instance.</p>
    *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
    */
@@ -1165,6 +1196,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Updates the operational state of a network package.</p>
    *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
    *          <p>A network service descriptor is a .yaml file in a network package that uses the TOSCA standard to describe the network functions you want to deploy and the Amazon Web Services infrastructure you want to deploy the network functions on.</p>
@@ -1199,6 +1231,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Validates function package content. This can be used as a dry run before uploading function package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
    */
@@ -1232,6 +1265,7 @@ export class Tnb extends TnbClient {
   }
 
   /**
+   * @public
    * <p>Validates network package content. This can be used as a dry run before uploading network package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.</p>
    *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
    */

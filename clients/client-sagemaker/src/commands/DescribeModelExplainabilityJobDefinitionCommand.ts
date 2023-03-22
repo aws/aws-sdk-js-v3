@@ -26,11 +26,15 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelExplainabilityJobDefinitionCommand}.
  */
 export interface DescribeModelExplainabilityJobDefinitionCommandInput
   extends DescribeModelExplainabilityJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelExplainabilityJobDefinitionCommand}.
  */
 export interface DescribeModelExplainabilityJobDefinitionCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeModelExplainabilityJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of a model explainability job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeModelExplainabilityJobDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelExplainabilityJobDefinitionCommandInput - {@link DescribeModelExplainabilityJobDefinitionCommandInput}
+ * @returns {@link DescribeModelExplainabilityJobDefinitionCommandOutput}
  * @see {@link DescribeModelExplainabilityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeModelExplainabilityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeModelExplainabilityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelExplainabilityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DescribeModelExplainabilityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeModelExplainabilityJobDefinitionCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DescribeModelExplainabilityJobDefinitionCommand extends $Command<
     return serializeAws_json1_1DescribeModelExplainabilityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

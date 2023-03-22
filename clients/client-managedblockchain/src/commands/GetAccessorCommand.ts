@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessorCommand}.
  */
 export interface GetAccessorCommandInput extends GetAccessorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessorCommand}.
  */
 export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about an accessor. An accessor object is a container that has the
  *          information required for token based access to your Ethereum nodes.</p>
  * @example
@@ -51,6 +56,8 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessorCommandInput - {@link GetAccessorCommandInput}
+ * @returns {@link GetAccessorCommandOutput}
  * @see {@link GetAccessorCommandInput} for command's `input` shape.
  * @see {@link GetAccessorCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetAccessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetAccessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAccessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessorCommandOutput> {
     return deserializeAws_restJson1GetAccessorCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentStrategiesCommand}.
  */
 export interface ListDeploymentStrategiesCommandInput extends ListDeploymentStrategiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentStrategiesCommand}.
  */
 export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrategies, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists deployment strategies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentStrategiesCommandInput - {@link ListDeploymentStrategiesCommandInput}
+ * @returns {@link ListDeploymentStrategiesCommandOutput}
  * @see {@link ListDeploymentStrategiesCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentStrategiesCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -99,6 +106,9 @@ export class ListDeploymentStrategiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentStrategiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ListDeploymentStrategiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentStrategiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDeploymentStrategiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentStrategiesCommandOutput> {
     return deserializeAws_restJson1ListDeploymentStrategiesCommand(output, context);
   }

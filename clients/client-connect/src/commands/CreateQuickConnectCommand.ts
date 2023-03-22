@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateQuickConnectCommand}.
  */
 export interface CreateQuickConnectCommandInput extends CreateQuickConnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateQuickConnectCommand}.
  */
 export interface CreateQuickConnectCommandOutput extends CreateQuickConnectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a quick connect for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQuickConnectCommandInput - {@link CreateQuickConnectCommandInput}
+ * @returns {@link CreateQuickConnectCommandOutput}
  * @see {@link CreateQuickConnectCommandInput} for command's `input` shape.
  * @see {@link CreateQuickConnectCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateQuickConnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQuickConnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateQuickConnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQuickConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateQuickConnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQuickConnectCommandOutput> {
     return deserializeAws_restJson1CreateQuickConnectCommand(output, context);
   }

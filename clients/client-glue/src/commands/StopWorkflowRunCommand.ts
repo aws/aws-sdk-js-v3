@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopWorkflowRunCommand}.
  */
 export interface StopWorkflowRunCommandInput extends StopWorkflowRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopWorkflowRunCommand}.
  */
 export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the execution of the specified workflow run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StopWorkflowRunCommandInput - {@link StopWorkflowRunCommandInput}
+ * @returns {@link StopWorkflowRunCommandOutput}
  * @see {@link StopWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link StopWorkflowRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class StopWorkflowRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopWorkflowRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StopWorkflowRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopWorkflowRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopWorkflowRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopWorkflowRunCommandOutput> {
     return deserializeAws_json1_1StopWorkflowRunCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClustersV2Command}.
  */
 export interface ListClustersV2CommandInput extends ListClustersV2Request {}
 /**
+ * @public
+ *
  * The output of {@link ListClustersV2Command}.
  */
 export interface ListClustersV2CommandOutput extends ListClustersV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the MSK clusters in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListClustersV2CommandOutput extends ListClustersV2Response, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClustersV2CommandInput - {@link ListClustersV2CommandInput}
+ * @returns {@link ListClustersV2CommandOutput}
  * @see {@link ListClustersV2CommandInput} for command's `input` shape.
  * @see {@link ListClustersV2CommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListClustersV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClustersV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListClustersV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClustersV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListClustersV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersV2CommandOutput> {
     return deserializeAws_restJson1ListClustersV2Command(output, context);
   }

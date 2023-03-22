@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateRoutingProfileQueuesCommand}.
  */
 export interface DisassociateRoutingProfileQueuesCommandInput extends DisassociateRoutingProfileQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateRoutingProfileQueuesCommand}.
  */
 export interface DisassociateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a set of queues from a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateRoutingProfileQueuesCommandInput - {@link DisassociateRoutingProfileQueuesCommandInput}
+ * @returns {@link DisassociateRoutingProfileQueuesCommandOutput}
  * @see {@link DisassociateRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link DisassociateRoutingProfileQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -82,6 +89,9 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateRoutingProfileQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateRoutingProfileQueuesCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command<
     return serializeAws_restJson1DisassociateRoutingProfileQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

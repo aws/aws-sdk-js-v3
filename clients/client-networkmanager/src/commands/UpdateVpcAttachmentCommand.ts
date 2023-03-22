@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVpcAttachmentCommand}.
  */
 export interface UpdateVpcAttachmentCommandInput extends UpdateVpcAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVpcAttachmentCommand}.
  */
 export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a VPC attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVpcAttachmentCommandInput - {@link UpdateVpcAttachmentCommandInput}
+ * @returns {@link UpdateVpcAttachmentCommandOutput}
  * @see {@link UpdateVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVpcAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVpcAttachmentCommandOutput> {
     return deserializeAws_restJson1UpdateVpcAttachmentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDomainAccessCommand}.
  */
 export interface RestoreDomainAccessCommandInput extends RestoreDomainAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDomainAccessCommand}.
  */
 export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>
@@ -48,6 +53,8 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDomainAccessCommandInput - {@link RestoreDomainAccessCommandInput}
+ * @returns {@link RestoreDomainAccessCommandOutput}
  * @see {@link RestoreDomainAccessCommandInput} for command's `input` shape.
  * @see {@link RestoreDomainAccessCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +93,9 @@ export class RestoreDomainAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDomainAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class RestoreDomainAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDomainAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RestoreDomainAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDomainAccessCommandOutput> {
     return deserializeAws_restJson1RestoreDomainAccessCommand(output, context);
   }

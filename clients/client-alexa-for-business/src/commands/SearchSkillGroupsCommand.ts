@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchSkillGroupsCommand}.
  */
 export interface SearchSkillGroupsCommandInput extends SearchSkillGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchSkillGroupsCommand}.
  */
 export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches skill groups and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -47,6 +52,8 @@ export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSkillGroupsCommandInput - {@link SearchSkillGroupsCommandInput}
+ * @returns {@link SearchSkillGroupsCommandOutput}
  * @see {@link SearchSkillGroupsCommandInput} for command's `input` shape.
  * @see {@link SearchSkillGroupsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -70,6 +77,9 @@ export class SearchSkillGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSkillGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class SearchSkillGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSkillGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchSkillGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSkillGroupsCommandOutput> {
     return deserializeAws_json1_1SearchSkillGroupsCommand(output, context);
   }

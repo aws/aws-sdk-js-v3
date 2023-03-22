@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePresignedNotebookInstanceUrlCommand}.
  */
 export interface CreatePresignedNotebookInstanceUrlCommandInput extends CreatePresignedNotebookInstanceUrlInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePresignedNotebookInstanceUrlCommand}.
  */
 export interface CreatePresignedNotebookInstanceUrlCommandOutput
@@ -37,6 +41,7 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a URL that you can use to connect to the Jupyter server from a notebook
  *             instance. In the SageMaker console, when you choose <code>Open</code> next to a notebook
  *             instance, SageMaker opens a new tab showing the Jupyter server home page from the notebook
@@ -65,6 +70,8 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePresignedNotebookInstanceUrlCommandInput - {@link CreatePresignedNotebookInstanceUrlCommandInput}
+ * @returns {@link CreatePresignedNotebookInstanceUrlCommandOutput}
  * @see {@link CreatePresignedNotebookInstanceUrlCommandInput} for command's `input` shape.
  * @see {@link CreatePresignedNotebookInstanceUrlCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePresignedNotebookInstanceUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreatePresignedNotebookInstanceUrlCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
     return serializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

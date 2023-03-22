@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpnTunnelOptionsCommand}.
  */
 export interface ModifyVpnTunnelOptionsCommandInput extends ModifyVpnTunnelOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpnTunnelOptionsCommand}.
  */
 export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOptionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection. You can modify
  *             multiple options for a tunnel in a single request, but you can only modify one tunnel at
  *             a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site VPN tunnel options for your Site-to-Site VPN
@@ -49,6 +54,8 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpnTunnelOptionsCommandInput - {@link ModifyVpnTunnelOptionsCommandInput}
+ * @returns {@link ModifyVpnTunnelOptionsCommandOutput}
  * @see {@link ModifyVpnTunnelOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnTunnelOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpnTunnelOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpnTunnelOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpnTunnelOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpnTunnelOptionsCommandOutput> {
     return deserializeAws_ec2ModifyVpnTunnelOptionsCommand(output, context);
   }

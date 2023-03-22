@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDeliveryStreamEncryptionCommand}.
  */
 export interface StartDeliveryStreamEncryptionCommandInput extends StartDeliveryStreamEncryptionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartDeliveryStreamEncryptionCommand}.
  */
 export interface StartDeliveryStreamEncryptionCommandOutput
@@ -37,6 +41,7 @@ export interface StartDeliveryStreamEncryptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables server-side encryption (SSE) for the delivery stream. </p>
  *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data
  *          Firehose first sets the encryption status of the stream to <code>ENABLING</code>, and then
@@ -83,6 +88,8 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDeliveryStreamEncryptionCommandInput - {@link StartDeliveryStreamEncryptionCommandInput}
+ * @returns {@link StartDeliveryStreamEncryptionCommandOutput}
  * @see {@link StartDeliveryStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StartDeliveryStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -125,6 +132,9 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeliveryStreamEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeliveryStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDeliveryStreamEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

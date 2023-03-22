@@ -98,6 +98,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchCreateRumMetricDefinitionsCommandInput
   | BatchDeleteRumMetricDefinitionsCommandInput
@@ -117,6 +120,9 @@ export type ServiceInputTypes =
   | UpdateAppMonitorCommandInput
   | UpdateRumMetricDefinitionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchCreateRumMetricDefinitionsCommandOutput
   | BatchDeleteRumMetricDefinitionsCommandOutput
@@ -136,6 +142,9 @@ export type ServiceOutputTypes =
   | UpdateAppMonitorCommandOutput
   | UpdateRumMetricDefinitionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -143,7 +152,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -252,11 +261,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type RUMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -267,10 +279,15 @@ type RUMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of RUMClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of RUMClient class constructor that set the region, credentials and other options.
  */
 export interface RUMClientConfig extends RUMClientConfigType {}
 
+/**
+ * @public
+ */
 type RUMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -281,11 +298,14 @@ type RUMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of RUMClient class. This is resolved and normalized from the {@link RUMClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of RUMClient class. This is resolved and normalized from the {@link RUMClientConfig | constructor configuration interface}.
  */
 export interface RUMClientResolvedConfig extends RUMClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>With Amazon CloudWatch RUM, you can perform real-user monitoring to collect client-side data about
  *        your web application performance from actual user sessions in real time. The data collected includes page load
  *        times, client-side errors, and user behavior. When you view this data, you can see it all aggregated together and

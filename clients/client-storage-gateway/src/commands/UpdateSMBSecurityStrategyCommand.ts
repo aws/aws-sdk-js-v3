@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSMBSecurityStrategyCommand}.
  */
 export interface UpdateSMBSecurityStrategyCommandInput extends UpdateSMBSecurityStrategyInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSMBSecurityStrategyCommand}.
  */
 export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurityStrategyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the SMB security strategy on a file gateway. This action is only supported in
  *          file gateways.</p>
  *
@@ -53,6 +58,8 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSMBSecurityStrategyCommandInput - {@link UpdateSMBSecurityStrategyCommandInput}
+ * @returns {@link UpdateSMBSecurityStrategyCommandOutput}
  * @see {@link UpdateSMBSecurityStrategyCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBSecurityStrategyCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSMBSecurityStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSMBSecurityStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSMBSecurityStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

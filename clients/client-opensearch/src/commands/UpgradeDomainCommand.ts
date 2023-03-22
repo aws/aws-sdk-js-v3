@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpgradeDomainCommand}.
  */
 export interface UpgradeDomainCommandInput extends UpgradeDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpgradeDomainCommand}.
  */
 export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to either upgrade your Amazon OpenSearch Service domain or perform an upgrade
  *    eligibility check to a compatible version of OpenSearch or Elasticsearch.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpgradeDomainCommandInput - {@link UpgradeDomainCommandInput}
+ * @returns {@link UpgradeDomainCommandOutput}
  * @see {@link UpgradeDomainCommandInput} for command's `input` shape.
  * @see {@link UpgradeDomainCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpgradeDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpgradeDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpgradeDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpgradeDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpgradeDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpgradeDomainCommandOutput> {
     return deserializeAws_restJson1UpgradeDomainCommand(output, context);
   }

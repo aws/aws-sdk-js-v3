@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSegmentCommand}.
  */
 export interface GetSegmentCommandInput extends GetSegmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSegmentCommand}.
  */
 export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified segment. Specify the segment you want to view
  *     by specifying its ARN.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSegmentCommandInput - {@link GetSegmentCommandInput}
+ * @returns {@link GetSegmentCommandOutput}
  * @see {@link GetSegmentCommandInput} for command's `input` shape.
  * @see {@link GetSegmentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetSegmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSegmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetSegmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSegmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentCommandOutput> {
     return deserializeAws_restJson1GetSegmentCommand(output, context);
   }

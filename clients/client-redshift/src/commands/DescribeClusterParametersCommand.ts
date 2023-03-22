@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterParametersCommand}.
  */
 export interface DescribeClusterParametersCommandInput extends DescribeClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterParametersCommand}.
  */
 export interface DescribeClusterParametersCommandOutput extends ClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a detailed list of parameters contained within the specified Amazon Redshift
  *             parameter group. For each parameter the response includes information such as parameter
  *             name, description, data type, value, whether the parameter value is modifiable, and so
@@ -57,6 +62,8 @@ export interface DescribeClusterParametersCommandOutput extends ClusterParameter
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterParametersCommandInput - {@link DescribeClusterParametersCommandInput}
+ * @returns {@link DescribeClusterParametersCommandOutput}
  * @see {@link DescribeClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAggregateComplianceByConfigRulesCommand}.
  */
 export interface DescribeAggregateComplianceByConfigRulesCommandInput
   extends DescribeAggregateComplianceByConfigRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAggregateComplianceByConfigRulesCommand}.
  */
 export interface DescribeAggregateComplianceByConfigRulesCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of compliant and noncompliant rules with the
  * 			number of resources for compliant and noncompliant rules. Does not display rules that do not have compliance results.
  * 			</p>
@@ -56,6 +61,8 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAggregateComplianceByConfigRulesCommandInput - {@link DescribeAggregateComplianceByConfigRulesCommandInput}
+ * @returns {@link DescribeAggregateComplianceByConfigRulesCommandOutput}
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAggregateComplianceByConfigRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAggregateComplianceByConfigRulesCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     return serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

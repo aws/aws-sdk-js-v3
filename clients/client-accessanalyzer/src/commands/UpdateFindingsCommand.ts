@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFindingsCommand}.
  */
 export interface UpdateFindingsCommandInput extends UpdateFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFindingsCommand}.
  */
 export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status for the specified findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFindingsCommandInput - {@link UpdateFindingsCommandInput}
+ * @returns {@link UpdateFindingsCommandOutput}
  * @see {@link UpdateFindingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class UpdateFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingsCommandOutput> {
     return deserializeAws_restJson1UpdateFindingsCommand(output, context);
   }

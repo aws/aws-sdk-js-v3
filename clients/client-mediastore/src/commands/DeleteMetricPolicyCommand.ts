@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMetricPolicyCommand}.
  */
 export interface DeleteMetricPolicyCommandInput extends DeleteMetricPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMetricPolicyCommand}.
  */
 export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the metric policy that is associated with the specified container. If there is no metric policy associated with the container, MediaStore doesn't send metrics to CloudWatch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMetricPolicyCommandInput - {@link DeleteMetricPolicyCommandInput}
+ * @returns {@link DeleteMetricPolicyCommandOutput}
  * @see {@link DeleteMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteMetricPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMetricPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteMetricPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMetricPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMetricPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteMetricPolicyCommand(output, context);
   }

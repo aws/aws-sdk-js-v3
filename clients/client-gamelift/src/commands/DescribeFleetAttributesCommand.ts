@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetAttributesCommand}.
  */
 export interface DescribeFleetAttributesCommandInput extends DescribeFleetAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetAttributesCommand}.
  */
 export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttributesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves core fleet-wide properties, including the computing hardware and deployment
  *             configuration for all instances in the fleet.</p>
  *         <p>This operation can be used in the following ways: </p>
@@ -73,6 +78,8 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAttributesCommandInput - {@link DescribeFleetAttributesCommandInput}
+ * @returns {@link DescribeFleetAttributesCommandOutput}
  * @see {@link DescribeFleetAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAttributesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -110,6 +117,9 @@ export class DescribeFleetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class DescribeFleetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetAttributesCommandOutput> {
     return deserializeAws_json1_1DescribeFleetAttributesCommand(output, context);
   }

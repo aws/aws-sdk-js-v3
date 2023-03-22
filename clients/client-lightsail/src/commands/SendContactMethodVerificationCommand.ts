@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SendContactMethodVerificationCommand}.
  */
 export interface SendContactMethodVerificationCommandInput extends SendContactMethodVerificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendContactMethodVerificationCommand}.
  */
 export interface SendContactMethodVerificationCommandOutput
@@ -37,6 +41,7 @@ export interface SendContactMethodVerificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a verification request to an email contact method to ensure it's owned by the
  *       requester. SMS contact methods don't need to be verified.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
@@ -60,6 +65,8 @@ export interface SendContactMethodVerificationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SendContactMethodVerificationCommandInput - {@link SendContactMethodVerificationCommandInput}
+ * @returns {@link SendContactMethodVerificationCommandOutput}
  * @see {@link SendContactMethodVerificationCommandInput} for command's `input` shape.
  * @see {@link SendContactMethodVerificationCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -109,6 +116,9 @@ export class SendContactMethodVerificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendContactMethodVerificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class SendContactMethodVerificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendContactMethodVerificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendContactMethodVerificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

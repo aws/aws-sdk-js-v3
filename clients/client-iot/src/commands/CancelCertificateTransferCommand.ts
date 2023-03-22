@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelCertificateTransferCommand}.
  */
 export interface CancelCertificateTransferCommandInput extends CancelCertificateTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelCertificateTransferCommand}.
  */
 export interface CancelCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a pending transfer for the specified certificate.</p>
  *          <p>
  *             <b>Note</b> Only the transfer source account can use this
@@ -52,6 +57,8 @@ export interface CancelCertificateTransferCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelCertificateTransferCommandInput - {@link CancelCertificateTransferCommandInput}
+ * @returns {@link CancelCertificateTransferCommandOutput}
  * @see {@link CancelCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link CancelCertificateTransferCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -97,6 +104,9 @@ export class CancelCertificateTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelCertificateTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CancelCertificateTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelCertificateTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelCertificateTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetGeoMatchSetCommand}.
  */
 export interface GetGeoMatchSetCommandInput extends GetGeoMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGeoMatchSetCommand}.
  */
 export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGeoMatchSetCommandInput - {@link GetGeoMatchSetCommandInput}
+ * @returns {@link GetGeoMatchSetCommandOutput}
  * @see {@link GetGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetGeoMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetGeoMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGeoMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetGeoMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetGeoMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeoMatchSetCommandOutput> {
     return deserializeAws_json1_1GetGeoMatchSetCommand(output, context);
   }

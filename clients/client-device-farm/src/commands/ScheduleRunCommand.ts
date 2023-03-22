@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ScheduleRunCommand}.
  */
 export interface ScheduleRunCommandInput extends ScheduleRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link ScheduleRunCommand}.
  */
 export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ScheduleRunCommandInput - {@link ScheduleRunCommandInput}
+ * @returns {@link ScheduleRunCommandOutput}
  * @see {@link ScheduleRunCommandInput} for command's `input` shape.
  * @see {@link ScheduleRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -106,6 +113,9 @@ export class ScheduleRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ScheduleRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class ScheduleRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ScheduleRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ScheduleRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScheduleRunCommandOutput> {
     return deserializeAws_json1_1ScheduleRunCommand(output, context);
   }

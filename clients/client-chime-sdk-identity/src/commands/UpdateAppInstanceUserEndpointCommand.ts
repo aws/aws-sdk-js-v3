@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppInstanceUserEndpointCommand}.
  */
 export interface UpdateAppInstanceUserEndpointCommandInput extends UpdateAppInstanceUserEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppInstanceUserEndpointCommand}.
  */
 export interface UpdateAppInstanceUserEndpointCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateAppInstanceUserEndpointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the name and <code>AllowMessage</code> values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateAppInstanceUserEndpointCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppInstanceUserEndpointCommandInput - {@link UpdateAppInstanceUserEndpointCommandInput}
+ * @returns {@link UpdateAppInstanceUserEndpointCommandOutput}
  * @see {@link UpdateAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateAppInstanceUserEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateAppInstanceUserEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppInstanceUserEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateAppInstanceUserEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppInstanceUserEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAppInstanceUserEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

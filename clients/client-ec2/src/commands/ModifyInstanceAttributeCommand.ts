@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyInstanceAttributeCommand}.
  */
 export interface ModifyInstanceAttributeCommandInput extends ModifyInstanceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyInstanceAttributeCommand}.
  */
 export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified attribute of the specified instance. You can specify only one
  *             attribute at a time.</p>
  *          <p>
@@ -51,6 +56,8 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyInstanceAttributeCommandInput - {@link ModifyInstanceAttributeCommandInput}
+ * @returns {@link ModifyInstanceAttributeCommandOutput}
  * @see {@link ModifyInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -102,6 +109,9 @@ export class ModifyInstanceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ModifyInstanceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstanceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyInstanceAttributeCommandOutput> {
     return deserializeAws_ec2ModifyInstanceAttributeCommand(output, context);
   }

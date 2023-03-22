@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateScheduleCommand}.
  */
 export interface UpdateScheduleCommandInput extends UpdateScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateScheduleCommand}.
  */
 export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the definition of an existing DataBrew schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateScheduleCommandInput - {@link UpdateScheduleCommandInput}
+ * @returns {@link UpdateScheduleCommandOutput}
  * @see {@link UpdateScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduleCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduleCommandOutput> {
     return deserializeAws_restJson1UpdateScheduleCommand(output, context);
   }

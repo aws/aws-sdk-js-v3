@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueryResultsCommand}.
  */
 export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueryResultsCommand}.
  */
 export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the results from the specified query.</p>
  *          <p>Only the fields requested in the query are returned, along with a <code>@ptr</code>
  *       field, which is the identifier for the log record. You can use the value of <code>@ptr</code>
@@ -58,6 +63,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryResultsCommandInput - {@link GetQueryResultsCommandInput}
+ * @returns {@link GetQueryResultsCommandOutput}
  * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
  * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetQueryResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetQueryResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetQueryResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryResultsCommandOutput> {
     return deserializeAws_json1_1GetQueryResultsCommand(output, context);
   }

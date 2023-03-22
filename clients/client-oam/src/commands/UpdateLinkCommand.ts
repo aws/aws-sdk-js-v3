@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLinkCommand}.
  */
 export interface UpdateLinkCommandInput extends UpdateLinkInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLinkCommand}.
  */
 export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to change what types of data are shared from a source account to its linked
  *             monitoring account sink. You can't change the sink or change the monitoring account with this operation.</p>
  *         <p>To update the list of tags associated with the sink, use
@@ -49,6 +54,8 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLinkCommandInput - {@link UpdateLinkCommandInput}
+ * @returns {@link UpdateLinkCommandOutput}
  * @see {@link UpdateLinkCommandInput} for command's `input` shape.
  * @see {@link UpdateLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLinkCommandOutput> {
     return deserializeAws_restJson1UpdateLinkCommand(output, context);
   }

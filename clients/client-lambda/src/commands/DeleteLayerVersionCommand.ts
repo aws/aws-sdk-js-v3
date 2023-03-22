@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLayerVersionCommand}.
  */
 export interface DeleteLayerVersionCommandInput extends DeleteLayerVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLayerVersionCommand}.
  */
 export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid
  *       breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
@@ -43,6 +48,8 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLayerVersionCommandInput - {@link DeleteLayerVersionCommandInput}
+ * @returns {@link DeleteLayerVersionCommandOutput}
  * @see {@link DeleteLayerVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteLayerVersionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteLayerVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLayerVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteLayerVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLayerVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLayerVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLayerVersionCommandOutput> {
     return deserializeAws_restJson1DeleteLayerVersionCommand(output, context);
   }

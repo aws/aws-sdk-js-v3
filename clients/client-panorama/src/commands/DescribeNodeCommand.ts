@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNodeCommand}.
  */
 export interface DescribeNodeCommandInput extends DescribeNodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNodeCommand}.
  */
 export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNodeCommandInput - {@link DescribeNodeCommandInput}
+ * @returns {@link DescribeNodeCommandOutput}
  * @see {@link DescribeNodeCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DescribeNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNodeCommandOutput> {
     return deserializeAws_restJson1DescribeNodeCommand(output, context);
   }

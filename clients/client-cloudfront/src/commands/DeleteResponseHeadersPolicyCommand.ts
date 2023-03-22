@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResponseHeadersPolicyCommand}.
  */
 export interface DeleteResponseHeadersPolicyCommandInput extends DeleteResponseHeadersPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResponseHeadersPolicyCommand}.
  */
 export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a response headers policy.</p>
  *          <p>You cannot delete a response headers policy if it's attached to a cache behavior.
  * 			First update your distributions to remove the response headers policy from all cache
@@ -50,6 +55,8 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResponseHeadersPolicyCommandInput - {@link DeleteResponseHeadersPolicyCommandInput}
+ * @returns {@link DeleteResponseHeadersPolicyCommandOutput}
  * @see {@link DeleteResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResponseHeadersPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResponseHeadersPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteResponseHeadersPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

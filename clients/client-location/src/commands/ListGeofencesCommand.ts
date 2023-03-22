@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGeofencesCommand}.
  */
 export interface ListGeofencesCommandInput extends ListGeofencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGeofencesCommand}.
  */
 export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists geofences stored in a given geofence collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGeofencesCommandInput - {@link ListGeofencesCommandInput}
+ * @returns {@link ListGeofencesCommandOutput}
  * @see {@link ListGeofencesCommandInput} for command's `input` shape.
  * @see {@link ListGeofencesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListGeofencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGeofencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListGeofencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGeofencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListGeofencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeofencesCommandOutput> {
     return deserializeAws_restJson1ListGeofencesCommand(output, context);
   }

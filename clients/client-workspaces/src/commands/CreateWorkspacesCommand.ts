@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkspacesCommand}.
  */
 export interface CreateWorkspacesCommandInput extends CreateWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkspacesCommand}.
  */
 export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more WorkSpaces.</p>
  *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
  *          <note>
@@ -53,6 +58,8 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkspacesCommandInput - {@link CreateWorkspacesCommandInput}
+ * @returns {@link CreateWorkspacesCommandOutput}
  * @see {@link CreateWorkspacesCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreateWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspacesCommandOutput> {
     return deserializeAws_json1_1CreateWorkspacesCommand(output, context);
   }

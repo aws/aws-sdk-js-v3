@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetResourceTypesCommand}.
  */
 export interface ListTargetResourceTypesCommandInput extends ListTargetResourceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetResourceTypesCommand}.
  */
 export interface ListTargetResourceTypesCommandOutput extends ListTargetResourceTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the target resource types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTargetResourceTypesCommandOutput extends ListTargetResource
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetResourceTypesCommandInput - {@link ListTargetResourceTypesCommandInput}
+ * @returns {@link ListTargetResourceTypesCommandOutput}
  * @see {@link ListTargetResourceTypesCommandInput} for command's `input` shape.
  * @see {@link ListTargetResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListTargetResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListTargetResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTargetResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetResourceTypesCommandOutput> {
     return deserializeAws_restJson1ListTargetResourceTypesCommand(output, context);
   }

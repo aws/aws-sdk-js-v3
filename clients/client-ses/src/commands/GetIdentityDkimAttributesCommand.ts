@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityDkimAttributesCommand}.
  */
 export interface GetIdentityDkimAttributesCommandInput extends GetIdentityDkimAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityDkimAttributesCommand}.
  */
 export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current status of Easy DKIM signing for an entity. For domain name
  *             identities, this operation also returns the DKIM tokens that are required for Easy DKIM
  *             signing, and whether Amazon SES has successfully verified that these tokens have been
@@ -68,6 +73,8 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityDkimAttributesCommandInput - {@link GetIdentityDkimAttributesCommandInput}
+ * @returns {@link GetIdentityDkimAttributesCommandOutput}
  * @see {@link GetIdentityDkimAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityDkimAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -124,6 +131,9 @@ export class GetIdentityDkimAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityDkimAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,10 +173,16 @@ export class GetIdentityDkimAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdentityDkimAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetIdentityDkimAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentTemplateCommand}.
  */
 export interface CreateEnvironmentTemplateCommandInput extends CreateEnvironmentTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentTemplateCommand}.
  */
 export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment Templates</a> in the <i>Proton User Guide</i>.</p>
  *          <p>You can create an environment template in one of the two following ways:</p>
  *          <ul>
@@ -60,6 +65,8 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentTemplateCommandInput - {@link CreateEnvironmentTemplateCommandInput}
+ * @returns {@link CreateEnvironmentTemplateCommandOutput}
  * @see {@link CreateEnvironmentTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateEnvironmentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateEnvironmentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateEnvironmentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatastoreCommand}.
  */
 export interface DescribeDatastoreCommandInput extends DescribeDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatastoreCommand}.
  */
 export interface DescribeDatastoreCommandOutput extends DescribeDatastoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatastoreCommandInput - {@link DescribeDatastoreCommandInput}
+ * @returns {@link DescribeDatastoreCommandOutput}
  * @see {@link DescribeDatastoreCommandInput} for command's `input` shape.
  * @see {@link DescribeDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatastoreCommandOutput> {
     return deserializeAws_restJson1DescribeDatastoreCommand(output, context);
   }

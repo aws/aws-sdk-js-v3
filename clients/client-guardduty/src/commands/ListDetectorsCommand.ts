@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDetectorsCommand}.
  */
 export interface ListDetectorsCommandInput extends ListDetectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDetectorsCommand}.
  */
 export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists detectorIds of all the existing Amazon GuardDuty detector resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDetectorsCommandInput - {@link ListDetectorsCommandInput}
+ * @returns {@link ListDetectorsCommandOutput}
  * @see {@link ListDetectorsCommandInput} for command's `input` shape.
  * @see {@link ListDetectorsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDetectorsCommandOutput> {
     return deserializeAws_restJson1ListDetectorsCommand(output, context);
   }

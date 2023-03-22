@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMediaPipelinesCommand}.
  */
 export interface ListMediaPipelinesCommandInput extends ListMediaPipelinesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMediaPipelinesCommand}.
  */
 export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of media pipelines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMediaPipelinesCommandInput - {@link ListMediaPipelinesCommandInput}
+ * @returns {@link ListMediaPipelinesCommandOutput}
  * @see {@link ListMediaPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListMediaPipelinesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListMediaPipelinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMediaPipelinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListMediaPipelinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMediaPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMediaPipelinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMediaPipelinesCommandOutput> {
     return deserializeAws_restJson1ListMediaPipelinesCommand(output, context);
   }

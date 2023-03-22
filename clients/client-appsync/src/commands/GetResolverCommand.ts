@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverCommand}.
  */
 export interface GetResolverCommandInput extends GetResolverRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverCommand}.
  */
 export interface GetResolverCommandOutput extends GetResolverResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a <code>Resolver</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverCommandInput - {@link GetResolverCommandInput}
+ * @returns {@link GetResolverCommandOutput}
  * @see {@link GetResolverCommandInput} for command's `input` shape.
  * @see {@link GetResolverCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetResolverCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetResolverCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResolverCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverCommandOutput> {
     return deserializeAws_restJson1GetResolverCommand(output, context);
   }

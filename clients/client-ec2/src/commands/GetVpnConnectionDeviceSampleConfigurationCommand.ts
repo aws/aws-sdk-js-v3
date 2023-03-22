@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetVpnConnectionDeviceSampleConfigurationCommand}.
  */
 export interface GetVpnConnectionDeviceSampleConfigurationCommandInput
   extends GetVpnConnectionDeviceSampleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVpnConnectionDeviceSampleConfigurationCommand}.
  */
 export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer
  *             gateway device specified for your Site-to-Site VPN connection.</p>
  * @example
@@ -50,6 +55,8 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVpnConnectionDeviceSampleConfigurationCommandInput - {@link GetVpnConnectionDeviceSampleConfigurationCommandInput}
+ * @returns {@link GetVpnConnectionDeviceSampleConfigurationCommandOutput}
  * @see {@link GetVpnConnectionDeviceSampleConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVpnConnectionDeviceSampleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpnConnectionDeviceSampleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVpnConnectionDeviceSampleConfigurationCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
     return serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

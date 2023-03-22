@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeploySystemInstanceCommand}.
  */
 export interface DeploySystemInstanceCommandInput extends DeploySystemInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeploySystemInstanceCommand}.
  */
 export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>
@@ -59,6 +64,8 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeploySystemInstanceCommandInput - {@link DeploySystemInstanceCommandInput}
+ * @returns {@link DeploySystemInstanceCommandOutput}
  * @see {@link DeploySystemInstanceCommandInput} for command's `input` shape.
  * @see {@link DeploySystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeploySystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeploySystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeploySystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeploySystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeploySystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeploySystemInstanceCommandOutput> {
     return deserializeAws_json1_1DeploySystemInstanceCommand(output, context);
   }

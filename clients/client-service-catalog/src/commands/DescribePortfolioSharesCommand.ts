@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePortfolioSharesCommand}.
  */
 export interface DescribePortfolioSharesCommandInput extends DescribePortfolioSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePortfolioSharesCommand}.
  */
 export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a summary of each of the portfolio shares that were created for the specified portfolio.</p>
  *          <p>You can use this API to determine which accounts or organizational nodes this
  *          portfolio have been shared, whether the recipient entity has imported the share, and
@@ -50,6 +55,8 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePortfolioSharesCommandInput - {@link DescribePortfolioSharesCommandInput}
+ * @returns {@link DescribePortfolioSharesCommandOutput}
  * @see {@link DescribePortfolioSharesCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioSharesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribePortfolioSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePortfolioSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribePortfolioSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePortfolioSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePortfolioSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortfolioSharesCommandOutput> {
     return deserializeAws_json1_1DescribePortfolioSharesCommand(output, context);
   }

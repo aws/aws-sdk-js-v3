@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountPreferencesCommand}.
  */
 export interface PutAccountPreferencesCommandInput extends PutAccountPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountPreferencesCommand}.
  */
 export interface PutAccountPreferencesCommandOutput extends PutAccountPreferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to set the account preference in the current Amazon Web Services Region
  *       to use long 17 character (63 bit) or short 8 character (32 bit) resource IDs for
  *       new EFS file system and mount target resources. All existing resource IDs are not affected
@@ -56,6 +61,8 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountPreferencesCommandInput - {@link PutAccountPreferencesCommandInput}
+ * @returns {@link PutAccountPreferencesCommandOutput}
  * @see {@link PutAccountPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutAccountPreferencesCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -86,6 +93,9 @@ export class PutAccountPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class PutAccountPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutAccountPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountPreferencesCommandOutput> {
     return deserializeAws_restJson1PutAccountPreferencesCommand(output, context);
   }

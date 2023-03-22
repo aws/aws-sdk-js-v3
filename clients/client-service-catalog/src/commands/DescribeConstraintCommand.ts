@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConstraintCommand}.
  */
 export interface DescribeConstraintCommandInput extends DescribeConstraintInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConstraintCommand}.
  */
 export interface DescribeConstraintCommandOutput extends DescribeConstraintOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified constraint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeConstraintCommandOutput extends DescribeConstraintOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConstraintCommandInput - {@link DescribeConstraintCommandInput}
+ * @returns {@link DescribeConstraintCommandOutput}
  * @see {@link DescribeConstraintCommandInput} for command's `input` shape.
  * @see {@link DescribeConstraintCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeConstraintCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConstraintCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeConstraintCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConstraintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConstraintCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConstraintCommandOutput> {
     return deserializeAws_json1_1DescribeConstraintCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessPoliciesCommand}.
  */
 export interface ListAccessPoliciesCommandInput extends ListAccessPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessPoliciesCommand}.
  */
 export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of access policies for an identity (an IAM Identity Center user, an IAM Identity Center
  *       group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessPoliciesCommandInput - {@link ListAccessPoliciesCommandInput}
+ * @returns {@link ListAccessPoliciesCommandOutput}
  * @see {@link ListAccessPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAccessPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListAccessPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListAccessPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAccessPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessPoliciesCommandOutput> {
     return deserializeAws_restJson1ListAccessPoliciesCommand(output, context);
   }

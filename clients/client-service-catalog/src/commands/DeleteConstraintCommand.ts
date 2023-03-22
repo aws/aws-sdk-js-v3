@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConstraintCommand}.
  */
 export interface DeleteConstraintCommandInput extends DeleteConstraintInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConstraintCommand}.
  */
 export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified constraint.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConstraintCommandInput - {@link DeleteConstraintCommandInput}
+ * @returns {@link DeleteConstraintCommandOutput}
  * @see {@link DeleteConstraintCommandInput} for command's `input` shape.
  * @see {@link DeleteConstraintCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteConstraintCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConstraintCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteConstraintCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConstraintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConstraintCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConstraintCommandOutput> {
     return deserializeAws_json1_1DeleteConstraintCommand(output, context);
   }

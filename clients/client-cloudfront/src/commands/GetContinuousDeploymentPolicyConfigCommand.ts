@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetContinuousDeploymentPolicyConfigCommand}.
  */
 export interface GetContinuousDeploymentPolicyConfigCommandInput extends GetContinuousDeploymentPolicyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContinuousDeploymentPolicyConfigCommand}.
  */
 export interface GetContinuousDeploymentPolicyConfigCommandOutput
@@ -37,6 +41,7 @@ export interface GetContinuousDeploymentPolicyConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets configuration information about a continuous deployment policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetContinuousDeploymentPolicyConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContinuousDeploymentPolicyConfigCommandInput - {@link GetContinuousDeploymentPolicyConfigCommandInput}
+ * @returns {@link GetContinuousDeploymentPolicyConfigCommandOutput}
  * @see {@link GetContinuousDeploymentPolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetContinuousDeploymentPolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContinuousDeploymentPolicyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetContinuousDeploymentPolicyConfigCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command<
     return serializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

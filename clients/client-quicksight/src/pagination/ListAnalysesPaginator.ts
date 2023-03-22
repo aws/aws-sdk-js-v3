@@ -10,7 +10,7 @@ import { QuickSightClient } from "../QuickSightClient";
 import { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: QuickSightClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAnalysesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAnalyses(
   config: QuickSightPaginationConfiguration,
   input: ListAnalysesCommandInput,

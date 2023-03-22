@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUseCasesCommand}.
  */
 export interface ListUseCasesCommandInput extends ListUseCasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUseCasesCommand}.
  */
 export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the use cases for the integration association. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUseCasesCommandInput - {@link ListUseCasesCommandInput}
+ * @returns {@link ListUseCasesCommandOutput}
  * @see {@link ListUseCasesCommandInput} for command's `input` shape.
  * @see {@link ListUseCasesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListUseCasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUseCasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListUseCasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUseCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListUseCasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUseCasesCommandOutput> {
     return deserializeAws_restJson1ListUseCasesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackupVaultNotificationsCommand}.
  */
 export interface GetBackupVaultNotificationsCommandInput extends GetBackupVaultNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBackupVaultNotificationsCommand}.
  */
 export interface GetBackupVaultNotificationsCommandOutput extends GetBackupVaultNotificationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns event notifications for the specified backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBackupVaultNotificationsCommandOutput extends GetBackupVault
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackupVaultNotificationsCommandInput - {@link GetBackupVaultNotificationsCommandInput}
+ * @returns {@link GetBackupVaultNotificationsCommandOutput}
  * @see {@link GetBackupVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link GetBackupVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetBackupVaultNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackupVaultNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetBackupVaultNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackupVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackupVaultNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -22,15 +22,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccessPointPolicyCommand}.
  */
 export interface PutAccessPointPolicyCommandInput extends PutAccessPointPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccessPointPolicyCommand}.
  */
 export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an access policy with the specified access point. Each access point can have only one policy,
  *          so a request made to this API replaces any existing policy associated with the specified
  *          access point.</p>
@@ -59,6 +64,8 @@ export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccessPointPolicyCommandInput - {@link PutAccessPointPolicyCommandInput}
+ * @returns {@link PutAccessPointPolicyCommandOutput}
  * @see {@link PutAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link PutAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -86,6 +93,9 @@ export class PutAccessPointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccessPointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class PutAccessPointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccessPointPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutAccessPointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccessPointPolicyCommandOutput> {
     return deserializeAws_restXmlPutAccessPointPolicyCommand(output, context);
   }

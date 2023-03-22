@@ -23,15 +23,20 @@ import { deserializeAws_json1_1ListRulesCommand, serializeAws_json1_1ListRulesCo
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRulesCommand}.
  */
 export interface ListRulesCommandInput extends ListRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRulesCommand}.
  */
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -51,6 +56,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRulesCommandInput - {@link ListRulesCommandInput}
+ * @returns {@link ListRulesCommandOutput}
  * @see {@link ListRulesCommandInput} for command's `input` shape.
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -101,6 +108,9 @@ export class ListRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ListRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesCommandOutput> {
     return deserializeAws_json1_1ListRulesCommand(output, context);
   }

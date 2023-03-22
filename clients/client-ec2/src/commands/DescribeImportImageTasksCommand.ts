@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImportImageTasksCommand}.
  */
 export interface DescribeImportImageTasksCommandInput extends DescribeImportImageTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImportImageTasksCommand}.
  */
 export interface DescribeImportImageTasksCommandOutput extends DescribeImportImageTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays details about an import virtual machine or import snapshot tasks that are already created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImportImageTasksCommandInput - {@link DescribeImportImageTasksCommandInput}
+ * @returns {@link DescribeImportImageTasksCommandOutput}
  * @see {@link DescribeImportImageTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeImportImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeImportImageTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImportImageTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeImportImageTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImportImageTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeImportImageTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImportImageTasksCommandOutput> {
     return deserializeAws_ec2DescribeImportImageTasksCommand(output, context);
   }

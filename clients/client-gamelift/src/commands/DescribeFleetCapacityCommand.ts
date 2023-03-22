@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetCapacityCommand}.
  */
 export interface DescribeFleetCapacityCommandInput extends DescribeFleetCapacityInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetCapacityCommand}.
  */
 export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource capacity settings for one or more fleets. The data returned
  *             includes the current fleet capacity (number of EC2 instances), and settings that can
  *             control how capacity scaling. For fleets with remote locations, this operation retrieves
@@ -81,6 +86,8 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetCapacityCommandInput - {@link DescribeFleetCapacityCommandInput}
+ * @returns {@link DescribeFleetCapacityCommandOutput}
  * @see {@link DescribeFleetCapacityCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetCapacityCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -118,6 +125,9 @@ export class DescribeFleetCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class DescribeFleetCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetCapacityCommandOutput> {
     return deserializeAws_json1_1DescribeFleetCapacityCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHostReservationOfferingsCommand}.
  */
 export interface DescribeHostReservationOfferingsCommandInput extends DescribeHostReservationOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHostReservationOfferingsCommand}.
  */
 export interface DescribeHostReservationOfferingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeHostReservationOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Dedicated Host reservations that are available to purchase.</p>
  *          <p>The results describe all of the Dedicated Host reservation offerings, including
  *             offerings that might not match the instance family and Region of your Dedicated Hosts.
@@ -54,6 +59,8 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHostReservationOfferingsCommandInput - {@link DescribeHostReservationOfferingsCommandInput}
+ * @returns {@link DescribeHostReservationOfferingsCommandOutput}
  * @see {@link DescribeHostReservationOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostReservationOfferingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHostReservationOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeHostReservationOfferingsCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     return serializeAws_ec2DescribeHostReservationOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

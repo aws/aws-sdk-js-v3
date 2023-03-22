@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UndeprecateActivityTypeCommand}.
  */
 export interface UndeprecateActivityTypeCommandInput extends UndeprecateActivityTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link UndeprecateActivityTypeCommand}.
  */
 export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Undeprecates a previously deprecated <i>activity type</i>. After an activity type has
  *       been undeprecated, you can create new tasks of that activity type.</p>
  *          <note>
@@ -82,6 +87,8 @@ export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param UndeprecateActivityTypeCommandInput - {@link UndeprecateActivityTypeCommandInput}
+ * @returns {@link UndeprecateActivityTypeCommandOutput}
  * @see {@link UndeprecateActivityTypeCommandInput} for command's `input` shape.
  * @see {@link UndeprecateActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -114,6 +121,9 @@ export class UndeprecateActivityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UndeprecateActivityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class UndeprecateActivityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UndeprecateActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UndeprecateActivityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateActivityTypeCommandOutput> {
     return deserializeAws_json1_0UndeprecateActivityTypeCommand(output, context);
   }

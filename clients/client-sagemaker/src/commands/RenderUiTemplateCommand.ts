@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RenderUiTemplateCommand}.
  */
 export interface RenderUiTemplateCommandInput extends RenderUiTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RenderUiTemplateCommand}.
  */
 export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Renders the UI template so that you can preview the worker's experience. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param RenderUiTemplateCommandInput - {@link RenderUiTemplateCommandInput}
+ * @returns {@link RenderUiTemplateCommandOutput}
  * @see {@link RenderUiTemplateCommandInput} for command's `input` shape.
  * @see {@link RenderUiTemplateCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class RenderUiTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RenderUiTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class RenderUiTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RenderUiTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RenderUiTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenderUiTemplateCommandOutput> {
     return deserializeAws_json1_1RenderUiTemplateCommand(output, context);
   }

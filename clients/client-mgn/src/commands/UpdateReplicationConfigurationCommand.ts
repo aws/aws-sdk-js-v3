@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReplicationConfigurationCommand}.
  */
 export interface UpdateReplicationConfigurationCommandInput extends UpdateReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReplicationConfigurationCommand}.
  */
 export interface UpdateReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to update multiple ReplicationConfigurations by Source Server ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReplicationConfigurationCommandInput - {@link UpdateReplicationConfigurationCommandInput}
+ * @returns {@link UpdateReplicationConfigurationCommandOutput}
  * @see {@link UpdateReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class UpdateReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateReplicationConfigurationCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class UpdateReplicationConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

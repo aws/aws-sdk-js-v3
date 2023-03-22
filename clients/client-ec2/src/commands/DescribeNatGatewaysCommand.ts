@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNatGatewaysCommand}.
  */
 export interface DescribeNatGatewaysCommandInput extends DescribeNatGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNatGatewaysCommand}.
  */
 export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your NAT gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNatGatewaysCommandInput - {@link DescribeNatGatewaysCommandInput}
+ * @returns {@link DescribeNatGatewaysCommandOutput}
  * @see {@link DescribeNatGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeNatGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -108,6 +115,9 @@ export class DescribeNatGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNatGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DescribeNatGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNatGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeNatGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNatGatewaysCommandOutput> {
     return deserializeAws_ec2DescribeNatGatewaysCommand(output, context);
   }

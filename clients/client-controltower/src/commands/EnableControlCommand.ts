@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableControlCommand}.
  */
 export interface EnableControlCommandInput extends EnableControlInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableControlCommand}.
  */
 export interface EnableControlCommandOutput extends EnableControlOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API call activates a control. It starts an asynchronous operation that creates AWS resources on the specified
  *       organizational unit and the accounts it contains. The resources created will vary according to
  *       the control that you specify.</p>
@@ -48,6 +53,8 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableControlCommandInput - {@link EnableControlCommandInput}
+ * @returns {@link EnableControlCommandOutput}
  * @see {@link EnableControlCommandInput} for command's `input` shape.
  * @see {@link EnableControlCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
@@ -93,6 +100,9 @@ export class EnableControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class EnableControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1EnableControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableControlCommandOutput> {
     return deserializeAws_restJson1EnableControlCommand(output, context);
   }

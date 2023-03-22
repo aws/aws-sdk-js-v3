@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGameCommand}.
  */
 export interface DeleteGameCommandInput extends DeleteGameRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGameCommand}.
  */
 export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGameCommandInput - {@link DeleteGameCommandInput}
+ * @returns {@link DeleteGameCommandOutput}
  * @see {@link DeleteGameCommandInput} for command's `input` shape.
  * @see {@link DeleteGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteGameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGameCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteGameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGameCommandOutput> {
     return deserializeAws_restJson1DeleteGameCommand(output, context);
   }

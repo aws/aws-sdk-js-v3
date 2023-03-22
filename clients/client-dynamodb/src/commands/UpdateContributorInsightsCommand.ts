@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContributorInsightsCommand}.
  */
 export interface UpdateContributorInsightsCommandInput extends UpdateContributorInsightsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContributorInsightsCommand}.
  */
 export interface UpdateContributorInsightsCommandOutput extends UpdateContributorInsightsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status for contributor insights for a specific table or index. CloudWatch
  *             Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
  *             sort key of frequently accessed items and frequently throttled items in plaintext. If
@@ -52,6 +57,8 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContributorInsightsCommandInput - {@link UpdateContributorInsightsCommandInput}
+ * @returns {@link UpdateContributorInsightsCommandOutput}
  * @see {@link UpdateContributorInsightsCommandInput} for command's `input` shape.
  * @see {@link UpdateContributorInsightsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateContributorInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContributorInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateContributorInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContributorInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateContributorInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

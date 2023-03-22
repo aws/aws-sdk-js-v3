@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlayerSessionsCommand}.
  */
 export interface CreatePlayerSessionsCommandInput extends CreatePlayerSessionsInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlayerSessionsCommand}.
  */
 export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reserves open slots in a game session for a group of players. New player sessions can
  *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
  *             and has a player creation policy of <code>ACCEPT_ALL</code>. To add a single player to a
@@ -64,6 +69,8 @@ export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlayerSessionsCommandInput - {@link CreatePlayerSessionsCommandInput}
+ * @returns {@link CreatePlayerSessionsCommandOutput}
  * @see {@link CreatePlayerSessionsCommandInput} for command's `input` shape.
  * @see {@link CreatePlayerSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -116,6 +123,9 @@ export class CreatePlayerSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlayerSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,10 +165,16 @@ export class CreatePlayerSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlayerSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePlayerSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlayerSessionsCommandOutput> {
     return deserializeAws_json1_1CreatePlayerSessionsCommand(output, context);
   }

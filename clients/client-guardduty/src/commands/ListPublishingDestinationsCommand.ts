@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPublishingDestinationsCommand}.
  */
 export interface ListPublishingDestinationsCommandInput extends ListPublishingDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPublishingDestinationsCommand}.
  */
 export interface ListPublishingDestinationsCommandOutput extends ListPublishingDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of publishing destinations associated with the specified
  *         <code>detectorId</code>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPublishingDestinationsCommandInput - {@link ListPublishingDestinationsCommandInput}
+ * @returns {@link ListPublishingDestinationsCommandOutput}
  * @see {@link ListPublishingDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListPublishingDestinationsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListPublishingDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPublishingDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListPublishingDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPublishingDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPublishingDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

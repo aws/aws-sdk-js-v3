@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFeatureCommand}.
  */
 export interface DeleteFeatureCommandInput extends DeleteFeatureRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFeatureCommand}.
  */
 export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Evidently feature.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFeatureCommandInput - {@link DeleteFeatureCommandInput}
+ * @returns {@link DeleteFeatureCommandOutput}
  * @see {@link DeleteFeatureCommandInput} for command's `input` shape.
  * @see {@link DeleteFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFeatureCommandOutput> {
     return deserializeAws_restJson1DeleteFeatureCommand(output, context);
   }

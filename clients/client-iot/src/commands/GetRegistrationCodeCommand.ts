@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegistrationCodeCommand}.
  */
 export interface GetRegistrationCodeCommandInput extends GetRegistrationCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegistrationCodeCommand}.
  */
 export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a registration code used to register a CA certificate with IoT.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetRegistrationCode</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegistrationCodeCommandInput - {@link GetRegistrationCodeCommandInput}
+ * @returns {@link GetRegistrationCodeCommandOutput}
  * @see {@link GetRegistrationCodeCommandInput} for command's `input` shape.
  * @see {@link GetRegistrationCodeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetRegistrationCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegistrationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetRegistrationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegistrationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRegistrationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegistrationCodeCommandOutput> {
     return deserializeAws_restJson1GetRegistrationCodeCommand(output, context);
   }

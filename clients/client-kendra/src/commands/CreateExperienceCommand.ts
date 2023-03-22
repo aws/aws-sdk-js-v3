@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExperienceCommand}.
  */
 export interface CreateExperienceCommandInput extends CreateExperienceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExperienceCommand}.
  */
 export interface CreateExperienceCommandOutput extends CreateExperienceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Kendra experience such as a search application. For more information
  *             on creating a search application experience, including using the Python and Java SDKs,
  *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
@@ -49,6 +54,8 @@ export interface CreateExperienceCommandOutput extends CreateExperienceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExperienceCommandInput - {@link CreateExperienceCommandInput}
+ * @returns {@link CreateExperienceCommandOutput}
  * @see {@link CreateExperienceCommandInput} for command's `input` shape.
  * @see {@link CreateExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExperienceCommandOutput> {
     return deserializeAws_json1_1CreateExperienceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandInput extends DeleteModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a model.</p>
  *          <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
  *          <p> When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -48,6 +53,8 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
+ * @returns {@link DeleteModelCommandOutput}
  * @see {@link DeleteModelCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCommandOutput> {
     return deserializeAws_json1_1DeleteModelCommand(output, context);
   }

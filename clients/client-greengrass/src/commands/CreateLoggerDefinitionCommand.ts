@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoggerDefinitionCommand}.
  */
 export interface CreateLoggerDefinitionCommandInput extends CreateLoggerDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoggerDefinitionCommand}.
  */
 export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a logger definition. You may provide the initial version of the logger definition now or use ''CreateLoggerDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoggerDefinitionCommandInput - {@link CreateLoggerDefinitionCommandInput}
+ * @returns {@link CreateLoggerDefinitionCommandOutput}
  * @see {@link CreateLoggerDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateLoggerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class CreateLoggerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoggerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class CreateLoggerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoggerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLoggerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoggerDefinitionCommandOutput> {
     return deserializeAws_restJson1CreateLoggerDefinitionCommand(output, context);
   }

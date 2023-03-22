@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIncidentRecordCommand}.
  */
 export interface UpdateIncidentRecordCommandInput extends UpdateIncidentRecordInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIncidentRecordCommand}.
  */
 export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the details of an incident record. You can use this operation to update an
  *             incident record from the defined chat channel. For more information about using actions
  *             in chat channels, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact">Interacting through chat</a>.</p>
@@ -48,6 +53,8 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIncidentRecordCommandInput - {@link UpdateIncidentRecordCommandInput}
+ * @returns {@link UpdateIncidentRecordCommandOutput}
  * @see {@link UpdateIncidentRecordCommandInput} for command's `input` shape.
  * @see {@link UpdateIncidentRecordCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateIncidentRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIncidentRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateIncidentRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIncidentRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateIncidentRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIncidentRecordCommandOutput> {
     return deserializeAws_restJson1UpdateIncidentRecordCommand(output, context);
   }

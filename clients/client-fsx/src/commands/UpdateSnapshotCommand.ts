@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSnapshotCommand}.
  */
 export interface UpdateSnapshotCommandInput extends UpdateSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSnapshotCommand}.
  */
 export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of an Amazon FSx for OpenZFS snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSnapshotCommandInput - {@link UpdateSnapshotCommandInput}
+ * @returns {@link UpdateSnapshotCommandOutput}
  * @see {@link UpdateSnapshotCommandInput} for command's `input` shape.
  * @see {@link UpdateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSnapshotCommandOutput> {
     return deserializeAws_json1_1UpdateSnapshotCommand(output, context);
   }

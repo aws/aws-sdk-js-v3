@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOptionGroupOptionsCommand}.
  */
 export interface DescribeOptionGroupOptionsCommandInput extends DescribeOptionGroupOptionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOptionGroupOptionsCommand}.
  */
 export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOptionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes all available options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOptionGroupOptionsCommandInput - {@link DescribeOptionGroupOptionsCommandInput}
+ * @returns {@link DescribeOptionGroupOptionsCommandOutput}
  * @see {@link DescribeOptionGroupOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOptionGroupOptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +88,9 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOptionGroupOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOptionGroupOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeOptionGroupOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

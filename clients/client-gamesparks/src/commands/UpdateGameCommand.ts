@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGameCommand}.
  */
 export interface UpdateGameCommandInput extends UpdateGameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGameCommand}.
  */
 export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates details of the game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGameCommandInput - {@link UpdateGameCommandInput}
+ * @returns {@link UpdateGameCommandOutput}
  * @see {@link UpdateGameCommandInput} for command's `input` shape.
  * @see {@link UpdateGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateGameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGameCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateGameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameCommandOutput> {
     return deserializeAws_restJson1UpdateGameCommand(output, context);
   }

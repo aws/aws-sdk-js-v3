@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSecurityPolicyCommand}.
  */
 export interface DeleteSecurityPolicyCommandInput extends DeleteSecurityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSecurityPolicyCommand}.
  */
 export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an OpenSearch Serverless security policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityPolicyCommandInput - {@link DeleteSecurityPolicyCommandInput}
+ * @returns {@link DeleteSecurityPolicyCommandOutput}
  * @see {@link DeleteSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteSecurityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteSecurityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteSecurityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityPolicyCommandOutput> {
     return deserializeAws_json1_0DeleteSecurityPolicyCommand(output, context);
   }

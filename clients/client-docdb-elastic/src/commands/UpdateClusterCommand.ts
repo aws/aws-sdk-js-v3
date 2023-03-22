@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterCommand}.
  */
 export interface UpdateClusterCommandInput extends UpdateClusterInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterCommand}.
  */
 export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a Elastic DocumentDB cluster. This includes updating admin-username/password,
  *     upgrading API version setting up a backup window and maintenance window</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
+ * @returns {@link UpdateClusterCommandOutput}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
     return deserializeAws_restJson1UpdateClusterCommand(output, context);
   }

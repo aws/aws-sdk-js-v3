@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSamplingRulesCommand}.
  */
 export interface GetSamplingRulesCommandInput extends GetSamplingRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSamplingRulesCommand}.
  */
 export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all sampling rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSamplingRulesCommandInput - {@link GetSamplingRulesCommandInput}
+ * @returns {@link GetSamplingRulesCommandOutput}
  * @see {@link GetSamplingRulesCommandInput} for command's `input` shape.
  * @see {@link GetSamplingRulesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetSamplingRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSamplingRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetSamplingRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSamplingRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSamplingRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSamplingRulesCommandOutput> {
     return deserializeAws_restJson1GetSamplingRulesCommand(output, context);
   }

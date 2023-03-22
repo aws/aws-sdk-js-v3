@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSecurityConfigurationCommand}.
  */
 export interface CreateSecurityConfigurationCommandInput extends CreateSecurityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSecurityConfigurationCommand}.
  */
 export interface CreateSecurityConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface CreateSecurityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new security configuration. A security configuration is a set of security properties that can be used by Glue. You can use a security configuration to encrypt data at rest. For information about using security configurations in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html">Encrypting Data Written by Crawlers, Jobs, and Development Endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateSecurityConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecurityConfigurationCommandInput - {@link CreateSecurityConfigurationCommandInput}
+ * @returns {@link CreateSecurityConfigurationCommandOutput}
  * @see {@link CreateSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateSecurityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecurityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateSecurityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSecurityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

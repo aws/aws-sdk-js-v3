@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReplaceNetworkAclEntryCommand}.
  */
 export interface ReplaceNetworkAclEntryCommandInput extends ReplaceNetworkAclEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplaceNetworkAclEntryCommand}.
  */
 export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
@@ -42,6 +47,8 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceNetworkAclEntryCommandInput - {@link ReplaceNetworkAclEntryCommandInput}
+ * @returns {@link ReplaceNetworkAclEntryCommandOutput}
  * @see {@link ReplaceNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link ReplaceNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -85,6 +92,9 @@ export class ReplaceNetworkAclEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceNetworkAclEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ReplaceNetworkAclEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceNetworkAclEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ReplaceNetworkAclEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceNetworkAclEntryCommandOutput> {
     return deserializeAws_ec2ReplaceNetworkAclEntryCommand(output, context);
   }

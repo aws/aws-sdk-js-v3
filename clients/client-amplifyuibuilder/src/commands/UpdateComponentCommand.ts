@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateComponentCommand}.
  */
 export interface UpdateComponentCommandInput extends UpdateComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateComponentCommand}.
  */
 export interface UpdateComponentCommandOutput extends UpdateComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateComponentCommandInput - {@link UpdateComponentCommandInput}
+ * @returns {@link UpdateComponentCommandOutput}
  * @see {@link UpdateComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComponentCommandOutput> {
     return deserializeAws_restJson1UpdateComponentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSetCommand}.
  */
 export interface DescribeDataSetCommandInput extends DescribeDataSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSetCommand}.
  */
 export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSetCommandInput - {@link DescribeDataSetCommandInput}
+ * @returns {@link DescribeDataSetCommandOutput}
  * @see {@link DescribeDataSetCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSetCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSetCommandOutput> {
     return deserializeAws_restJson1DescribeDataSetCommand(output, context);
   }

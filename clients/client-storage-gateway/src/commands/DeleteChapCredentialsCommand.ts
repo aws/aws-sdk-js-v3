@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChapCredentialsCommand}.
  */
 export interface DeleteChapCredentialsCommandInput extends DeleteChapCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChapCredentialsCommand}.
  */
 export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified
  *          iSCSI target and initiator pair. This operation is supported in volume and tape gateway
  *          types.</p>
@@ -48,6 +53,8 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChapCredentialsCommandInput - {@link DeleteChapCredentialsCommandInput}
+ * @returns {@link DeleteChapCredentialsCommandOutput}
  * @see {@link DeleteChapCredentialsCommandInput} for command's `input` shape.
  * @see {@link DeleteChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteChapCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChapCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteChapCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChapCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteChapCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChapCredentialsCommandOutput> {
     return deserializeAws_json1_1DeleteChapCredentialsCommand(output, context);
   }

@@ -27,10 +27,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVPCAssociationAuthorizationCommand}.
  */
 export interface CreateVPCAssociationAuthorizationCommandInput extends CreateVPCAssociationAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVPCAssociationAuthorizationCommand}.
  */
 export interface CreateVPCAssociationAuthorizationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateVPCAssociationAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Authorizes the Amazon Web Services account that created a specified VPC to submit an
  * 				<code>AssociateVPCWithHostedZone</code> request to associate the VPC with a
  * 			specified hosted zone that was created by a different account. To submit a
@@ -59,6 +64,8 @@ export interface CreateVPCAssociationAuthorizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVPCAssociationAuthorizationCommandInput - {@link CreateVPCAssociationAuthorizationCommandInput}
+ * @returns {@link CreateVPCAssociationAuthorizationCommandOutput}
  * @see {@link CreateVPCAssociationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link CreateVPCAssociationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -103,6 +110,9 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVPCAssociationAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateVPCAssociationAuthorizationCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
     return serializeAws_restXmlCreateVPCAssociationAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

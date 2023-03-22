@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandInput extends ListSchemasRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of schemas associated with the account. The response provides the
  *       properties for each schema, including the Amazon Resource Name (ARN).
  *       For more information on schemas, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
@@ -48,6 +53,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
+ * @returns {@link ListSchemasCommandOutput}
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemasCommandOutput> {
     return deserializeAws_json1_1ListSchemasCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricPolicyCommand}.
  */
 export interface GetMetricPolicyCommandInput extends GetMetricPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricPolicyCommand}.
  */
 export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the metric policy for the specified container. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricPolicyCommandInput - {@link GetMetricPolicyCommandInput}
+ * @returns {@link GetMetricPolicyCommandOutput}
  * @see {@link GetMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link GetMetricPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetMetricPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetMetricPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMetricPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricPolicyCommandOutput> {
     return deserializeAws_json1_1GetMetricPolicyCommand(output, context);
   }

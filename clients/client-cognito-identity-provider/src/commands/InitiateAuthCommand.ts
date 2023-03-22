@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateAuthCommand}.
  */
 export interface InitiateAuthCommandInput extends InitiateAuthRequest {}
 /**
+ * @public
+ *
  * The output of {@link InitiateAuthCommand}.
  */
 export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates sign-in for a user in the Amazon Cognito user directory. You can't sign in a user
  *             with a federated IdP with <code>InitiateAuth</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html"> Adding user pool sign-in through a third party</a>.</p>
  *
@@ -69,6 +74,8 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateAuthCommandInput - {@link InitiateAuthCommandInput}
+ * @returns {@link InitiateAuthCommandOutput}
  * @see {@link InitiateAuthCommandInput} for command's `input` shape.
  * @see {@link InitiateAuthCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -146,6 +153,9 @@ export class InitiateAuthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateAuthCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,10 +193,16 @@ export class InitiateAuthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateAuthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1InitiateAuthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateAuthCommandOutput> {
     return deserializeAws_json1_1InitiateAuthCommand(output, context);
   }

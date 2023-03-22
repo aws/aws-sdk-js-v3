@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFileSystemFromBackupCommand}.
  */
 export interface CreateFileSystemFromBackupCommandInput extends CreateFileSystemFromBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFileSystemFromBackupCommand}.
  */
 export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSystemFromBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File
  *             Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.</p>
  *          <p>If a file system with the specified client request token exists and the parameters
@@ -78,6 +83,8 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFileSystemFromBackupCommandInput - {@link CreateFileSystemFromBackupCommandInput}
+ * @returns {@link CreateFileSystemFromBackupCommandOutput}
  * @see {@link CreateFileSystemFromBackupCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemFromBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -189,6 +196,9 @@ export class CreateFileSystemFromBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFileSystemFromBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -228,10 +238,16 @@ export class CreateFileSystemFromBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFileSystemFromBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFileSystemFromBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

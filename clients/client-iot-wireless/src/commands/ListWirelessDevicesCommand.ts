@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWirelessDevicesCommand}.
  */
 export interface ListWirelessDevicesCommandInput extends ListWirelessDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWirelessDevicesCommand}.
  */
 export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the wireless devices registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWirelessDevicesCommandInput - {@link ListWirelessDevicesCommandInput}
+ * @returns {@link ListWirelessDevicesCommandOutput}
  * @see {@link ListWirelessDevicesCommandInput} for command's `input` shape.
  * @see {@link ListWirelessDevicesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListWirelessDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWirelessDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListWirelessDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWirelessDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListWirelessDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWirelessDevicesCommandOutput> {
     return deserializeAws_restJson1ListWirelessDevicesCommand(output, context);
   }

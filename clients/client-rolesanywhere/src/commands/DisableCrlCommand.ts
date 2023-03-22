@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableCrlCommand}.
  */
 export interface DisableCrlCommandInput extends ScalarCrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableCrlCommand}.
  */
 export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables a certificate revocation list (CRL).</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableCrlCommandInput - {@link DisableCrlCommandInput}
+ * @returns {@link DisableCrlCommandOutput}
  * @see {@link DisableCrlCommandInput} for command's `input` shape.
  * @see {@link DisableCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class DisableCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DisableCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisableCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableCrlCommandOutput> {
     return deserializeAws_restJson1DisableCrlCommand(output, context);
   }

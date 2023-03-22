@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComplianceDetailsByResourceCommand}.
  */
 export interface GetComplianceDetailsByResourceCommandInput extends GetComplianceDetailsByResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetComplianceDetailsByResourceCommand}.
  */
 export interface GetComplianceDetailsByResourceCommandOutput
@@ -37,6 +41,7 @@ export interface GetComplianceDetailsByResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the evaluation results for the specified Amazon Web Services resource.
  * 			The results indicate which Config rules were used to evaluate
  * 			the resource, when each rule was last invoked, and whether the resource
@@ -51,6 +56,8 @@ export interface GetComplianceDetailsByResourceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceDetailsByResourceCommandInput - {@link GetComplianceDetailsByResourceCommandInput}
+ * @returns {@link GetComplianceDetailsByResourceCommandOutput}
  * @see {@link GetComplianceDetailsByResourceCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailsByResourceCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceDetailsByResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetComplianceDetailsByResourceCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     return serializeAws_json1_1GetComplianceDetailsByResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

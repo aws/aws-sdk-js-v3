@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGroupCertificateConfigurationCommand}.
  */
 export interface UpdateGroupCertificateConfigurationCommandInput extends UpdateGroupCertificateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGroupCertificateConfigurationCommand}.
  */
 export interface UpdateGroupCertificateConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateGroupCertificateConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Updates the Certificate expiry time for a group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateGroupCertificateConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGroupCertificateConfigurationCommandInput - {@link UpdateGroupCertificateConfigurationCommandInput}
+ * @returns {@link UpdateGroupCertificateConfigurationCommandOutput}
  * @see {@link UpdateGroupCertificateConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCertificateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +84,9 @@ export class UpdateGroupCertificateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGroupCertificateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class UpdateGroupCertificateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateGroupCertificateConfigurationCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class UpdateGroupCertificateConfigurationCommand extends $Command<
     return serializeAws_restJson1UpdateGroupCertificateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

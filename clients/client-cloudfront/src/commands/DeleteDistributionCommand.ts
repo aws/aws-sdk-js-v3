@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDistributionCommand}.
  */
 export interface DeleteDistributionCommandInput extends DeleteDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDistributionCommand}.
  */
 export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDistributionCommandInput - {@link DeleteDistributionCommandInput}
+ * @returns {@link DeleteDistributionCommandOutput}
  * @see {@link DeleteDistributionCommandInput} for command's `input` shape.
  * @see {@link DeleteDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDistributionCommandOutput> {
     return deserializeAws_restXmlDeleteDistributionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPhoneNumbersV2Command}.
  */
 export interface ListPhoneNumbersV2CommandInput extends ListPhoneNumbersV2Request {}
 /**
+ * @public
+ *
  * The output of {@link ListPhoneNumbersV2Command}.
  */
 export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided
  *     <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions
  *    associated with traffic distribution group.</p>
@@ -51,6 +56,8 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPhoneNumbersV2CommandInput - {@link ListPhoneNumbersV2CommandInput}
+ * @returns {@link ListPhoneNumbersV2CommandOutput}
  * @see {@link ListPhoneNumbersV2CommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumbersV2CommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListPhoneNumbersV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPhoneNumbersV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListPhoneNumbersV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPhoneNumbersV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPhoneNumbersV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPhoneNumbersV2CommandOutput> {
     return deserializeAws_restJson1ListPhoneNumbersV2Command(output, context);
   }

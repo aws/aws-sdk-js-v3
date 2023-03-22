@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AmplifyUIBuilderServiceException as __BaseException } from "./AmplifyUIBuilderServiceException";
 
 /**
+ * @public
  * <p>Associates a component property to a binding property. This enables exposed properties on
  *       the top level component to propagate data to the component's property values.</p>
  */
@@ -20,6 +21,7 @@ export interface ComponentPropertyBindingProperties {
 }
 
 /**
+ * @public
  * <p>Describes how to bind a component property to form data.</p>
  */
 export interface FormBindingElement {
@@ -34,9 +36,13 @@ export interface FormBindingElement {
   property: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type SortDirection = "ASC" | "DESC";
 
 /**
+ * @public
  * <p>Describes how to sort the data that you bind to a component.</p>
  */
 export interface SortProperty {
@@ -52,6 +58,7 @@ export interface SortProperty {
 }
 
 /**
+ * @public
  * <p>Describes the style configuration of a unique variation of a main component.</p>
  */
 export interface ComponentVariant {
@@ -70,6 +77,7 @@ export interface ComponentVariant {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred. Please retry your request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -89,6 +97,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -108,6 +117,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified in the request conflicts with an existing resource.</p>
  */
 export class ResourceConflictException extends __BaseException {
@@ -127,6 +137,7 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
  *       maximum number of service resources or operations for your Amazon Web Services account. </p>
  */
@@ -146,6 +157,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteComponentRequest {
   /**
    * <p>The unique ID of the Amplify app associated with the component to
@@ -166,6 +180,7 @@ export interface DeleteComponentRequest {
 }
 
 /**
+ * @public
  * <p>The requested resource does not exist, or access was denied.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -184,6 +199,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ExportComponentsRequest {
   /**
    * <p>The unique ID of the Amplify app to export components to.</p>
@@ -202,6 +220,9 @@ export interface ExportComponentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentRequest {
   /**
    * <p>The unique ID of the Amplify app.</p>
@@ -219,6 +240,9 @@ export interface GetComponentRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsRequest {
   /**
    * <p>The unique ID for the Amplify app.</p>
@@ -243,6 +267,7 @@ export interface ListComponentsRequest {
 }
 
 /**
+ * @public
  * <p>Contains a summary of a component. This is a read-only data type that is returned by
  *         <code>ListComponents</code>.</p>
  */
@@ -274,6 +299,9 @@ export interface ComponentSummary {
   componentType: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListComponentsResponse {
   /**
    * <p>The list of components for the Amplify app.</p>
@@ -286,6 +314,9 @@ export interface ListComponentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum TokenProviders {
   /**
    * The figma token provider.
@@ -294,6 +325,7 @@ export enum TokenProviders {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of a request to exchange an access code for a token.</p>
  */
 export interface ExchangeCodeForTokenRequestBody {
@@ -308,6 +340,9 @@ export interface ExchangeCodeForTokenRequestBody {
   redirectUri: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExchangeCodeForTokenRequest {
   /**
    * <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
@@ -320,6 +355,9 @@ export interface ExchangeCodeForTokenRequest {
   request: ExchangeCodeForTokenRequestBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExchangeCodeForTokenResponse {
   /**
    * <p>The access token.</p>
@@ -338,11 +376,15 @@ export interface ExchangeCodeForTokenResponse {
   refreshToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FixedPosition {
   FIRST = "first",
 }
 
 /**
+ * @public
  * <p>Describes the field position.</p>
  */
 export type FieldPosition =
@@ -351,6 +393,9 @@ export type FieldPosition =
   | FieldPosition.RightOfMember
   | FieldPosition.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FieldPosition {
   /**
    * <p>The field position is fixed and doesn't change in relation to other fields.</p>
@@ -405,6 +450,7 @@ export namespace FieldPosition {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for a button UI element that is a part of a form.</p>
  */
 export interface FormButton {
@@ -424,6 +470,9 @@ export interface FormButton {
   position?: FieldPosition;
 }
 
+/**
+ * @public
+ */
 export enum FormButtonsPosition {
   BOTTOM = "bottom",
   TOP = "top",
@@ -431,6 +480,7 @@ export enum FormButtonsPosition {
 }
 
 /**
+ * @public
  * <p>Describes the call to action button configuration for the form.</p>
  */
 export interface FormCTA {
@@ -455,6 +505,9 @@ export interface FormCTA {
   submit?: FormButton;
 }
 
+/**
+ * @public
+ */
 export enum FormDataSourceType {
   /**
    * Will use passed in hooks to use when creating a form from scratch
@@ -467,6 +520,7 @@ export enum FormDataSourceType {
 }
 
 /**
+ * @public
  * <p>Describes the data type configuration for the data source associated with a form.</p>
  */
 export interface FormDataTypeConfig {
@@ -482,6 +536,7 @@ export interface FormDataTypeConfig {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for an input field on a form. Use
  *       <code>FormInputValueProperty</code> to specify the values to render or bind by
  *       default.</p>
@@ -494,6 +549,7 @@ export interface FormInputValueProperty {
 }
 
 /**
+ * @public
  * <p>Associates a complex object with a display value. Use <code>ValueMapping</code> to store
  *       how to represent complex objects when they are displayed.</p>
  */
@@ -510,6 +566,7 @@ export interface ValueMapping {
 }
 
 /**
+ * @public
  * <p>Represents the data binding configuration for a value map.</p>
  */
 export interface ValueMappings {
@@ -520,6 +577,7 @@ export interface ValueMappings {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for the default input values to display for a field.</p>
  */
 export interface FieldInputConfig {
@@ -600,6 +658,7 @@ export interface FieldInputConfig {
 }
 
 /**
+ * @public
  * <p>Describes the validation configuration for a field.</p>
  */
 export interface FieldValidationConfiguration {
@@ -626,6 +685,7 @@ export interface FieldValidationConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the configuration information for a field in a table.</p>
  */
 export interface FieldConfig {
@@ -655,12 +715,16 @@ export interface FieldConfig {
   validations?: FieldValidationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export enum FormActionType {
   CREATE = "create",
   UPDATE = "update",
 }
 
 /**
+ * @public
  * <p>Stores the configuration information for a visual helper element for a form. A sectional
  *       element can be a header, a text block, or a divider. These elements are static and not
  *       associated with any data.</p>
@@ -697,6 +761,7 @@ export interface SectionalElement {
 }
 
 /**
+ * @public
  * <p>Describes the configuration settings for the form's style properties.</p>
  */
 export type FormStyleConfig =
@@ -704,6 +769,9 @@ export type FormStyleConfig =
   | FormStyleConfig.ValueMember
   | FormStyleConfig.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FormStyleConfig {
   /**
    * <p>A reference to a design token to use to bind the form's style properties to an existing
@@ -744,6 +812,7 @@ export namespace FormStyleConfig {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for the form's style.</p>
  */
 export interface FormStyle {
@@ -764,6 +833,7 @@ export interface FormStyle {
 }
 
 /**
+ * @public
  * <p>Represents all of the information that is required to create a form.</p>
  */
 export interface CreateFormData {
@@ -815,6 +885,9 @@ export interface CreateFormData {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFormRequest {
   /**
    * <p>The unique ID of the Amplify app to associate with the form.</p>
@@ -838,6 +911,7 @@ export interface CreateFormRequest {
 }
 
 /**
+ * @public
  * <p>Contains the configuration settings for a <code>Form</code> user interface (UI) element
  *       for an Amplify app. A form is a component you can add to your project by specifying a data
  *       source as the default configuration for the form.</p>
@@ -905,6 +979,9 @@ export interface Form {
   cta?: FormCTA;
 }
 
+/**
+ * @public
+ */
 export interface CreateFormResponse {
   /**
    * <p>Describes the configuration of the new form.</p>
@@ -912,6 +989,9 @@ export interface CreateFormResponse {
   entity?: Form;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFormRequest {
   /**
    * <p>The unique ID of the Amplify app associated with the form to delete.</p>
@@ -929,6 +1009,9 @@ export interface DeleteFormRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportFormsRequest {
   /**
    * <p>The unique ID of the Amplify app to export forms to.</p>
@@ -946,6 +1029,9 @@ export interface ExportFormsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExportFormsResponse {
   /**
    * <p>Represents the configuration of the exported forms.</p>
@@ -958,6 +1044,9 @@ export interface ExportFormsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFormRequest {
   /**
    * <p>The unique ID of the Amplify app.</p>
@@ -975,6 +1064,9 @@ export interface GetFormRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFormResponse {
   /**
    * <p>Represents the configuration settings for the form.</p>
@@ -982,6 +1074,9 @@ export interface GetFormResponse {
   form?: Form;
 }
 
+/**
+ * @public
+ */
 export interface ListFormsRequest {
   /**
    * <p>The unique ID for the Amplify app.</p>
@@ -1005,6 +1100,7 @@ export interface ListFormsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the basic information about a form.</p>
  */
 export interface FormSummary {
@@ -1039,6 +1135,9 @@ export interface FormSummary {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFormsResponse {
   /**
    * <p>The list of forms for the Amplify app.</p>
@@ -1052,6 +1151,7 @@ export interface ListFormsResponse {
 }
 
 /**
+ * @public
  * <p>Updates and saves all of the information about a form, based on form ID.</p>
  */
 export interface UpdateFormData {
@@ -1098,6 +1198,9 @@ export interface UpdateFormData {
   cta?: FormCTA;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFormRequest {
   /**
    * <p>The unique ID for the Amplify app.</p>
@@ -1125,6 +1228,9 @@ export interface UpdateFormRequest {
   updatedForm: UpdateFormData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFormResponse {
   /**
    * <p>Describes the configuration of the updated form.</p>
@@ -1132,6 +1238,9 @@ export interface UpdateFormResponse {
   entity?: Form;
 }
 
+/**
+ * @public
+ */
 export interface GetMetadataRequest {
   /**
    * <p>The unique ID of the Amplify app.</p>
@@ -1144,6 +1253,9 @@ export interface GetMetadataRequest {
   environmentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMetadataResponse {
   /**
    * <p>Represents the configuration settings for the features metadata.</p>
@@ -1152,6 +1264,7 @@ export interface GetMetadataResponse {
 }
 
 /**
+ * @public
  * <p>You don't have permission to perform this operation.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -1171,6 +1284,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Stores the metadata information about a feature on a form or view.</p>
  */
 export interface PutMetadataFlagBody {
@@ -1180,6 +1294,9 @@ export interface PutMetadataFlagBody {
   newValue: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutMetadataFlagRequest {
   /**
    * <p>The unique ID for the Amplify app.</p>
@@ -1203,6 +1320,7 @@ export interface PutMetadataFlagRequest {
 }
 
 /**
+ * @public
  * <p>Describes a refresh token.</p>
  */
 export interface RefreshTokenRequestBody {
@@ -1213,6 +1331,9 @@ export interface RefreshTokenRequestBody {
   token: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RefreshTokenRequest {
   /**
    * <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
@@ -1225,6 +1346,9 @@ export interface RefreshTokenRequest {
   refreshTokenBody: RefreshTokenRequestBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RefreshTokenResponse {
   /**
    * <p>The access token.</p>
@@ -1237,6 +1361,9 @@ export interface RefreshTokenResponse {
   expiresIn: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThemeRequest {
   /**
    * <p>The unique ID of the Amplify app associated with the theme to
@@ -1256,6 +1383,9 @@ export interface DeleteThemeRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportThemesRequest {
   /**
    * <p>The unique ID of the Amplify app to export the themes to.</p>
@@ -1273,6 +1403,9 @@ export interface ExportThemesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetThemeRequest {
   /**
    * <p>The unique ID of the Amplify app.</p>
@@ -1290,6 +1423,9 @@ export interface GetThemeRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListThemesRequest {
   /**
    * <p>The unique ID for the Amplify app.</p>
@@ -1314,6 +1450,7 @@ export interface ListThemesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the basic information about a theme.</p>
  */
 export interface ThemeSummary {
@@ -1338,6 +1475,9 @@ export interface ThemeSummary {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListThemesResponse {
   /**
    * <p>The list of themes for the Amplify app.</p>
@@ -1351,6 +1491,7 @@ export interface ListThemesResponse {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of a theme's properties.</p>
  */
 export interface ThemeValue {
@@ -1366,6 +1507,7 @@ export interface ThemeValue {
 }
 
 /**
+ * @public
  * <p>A key-value pair that defines a property of a theme.</p>
  */
 export interface ThemeValues {
@@ -1381,6 +1523,7 @@ export interface ThemeValues {
 }
 
 /**
+ * @public
  * <p>Stores information for generating Amplify DataStore queries. Use a
  *         <code>Predicate</code> to retrieve a subset of the data in a collection.</p>
  */
@@ -1412,6 +1555,7 @@ export interface Predicate {
 }
 
 /**
+ * @public
  * <p>Represents the data binding configuration for a specific property using data stored in
  *         Amazon Web Services. For Amazon Web Services connected properties, you can bind a property to
  *       data stored in an Amazon S3 bucket, an Amplify DataStore model or an
@@ -1460,6 +1604,7 @@ export interface ComponentBindingPropertiesValueProperties {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for binding a component's properties to data.</p>
  */
 export interface ComponentDataConfiguration {
@@ -1487,6 +1632,7 @@ export interface ComponentDataConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for all of a component's properties. Use
  *         <code>ComponentProperty</code> to specify the values to render or bind by default.</p>
  */
@@ -1572,6 +1718,7 @@ export interface ComponentProperty {
 }
 
 /**
+ * @public
  * <p>Represents the data binding configuration for a component at runtime. You can use
  *         <code>ComponentBindingPropertiesValue</code> to add exposed properties to a component to
  *       allow different values to be entered when a component is reused in different places in an
@@ -1595,6 +1742,7 @@ export interface ComponentBindingPropertiesValue {
 }
 
 /**
+ * @public
  * <p>Represents all of the information that is required to create a theme.</p>
  */
 export interface CreateThemeData {
@@ -1621,6 +1769,7 @@ export interface CreateThemeData {
 }
 
 /**
+ * @public
  * <p>A theme is a collection of style settings that apply globally to the components associated
  *       with an Amplify application.</p>
  */
@@ -1673,6 +1822,7 @@ export interface Theme {
 }
 
 /**
+ * @public
  * <p>Saves the data binding information for a theme.</p>
  */
 export interface UpdateThemeData {
@@ -1698,6 +1848,7 @@ export interface UpdateThemeData {
 }
 
 /**
+ * @public
  * <p>Represents the state configuration when an action modifies a property of another
  *       element within the same component.</p>
  */
@@ -1719,6 +1870,7 @@ export interface MutationActionSetStateParameter {
 }
 
 /**
+ * @public
  * <p>Represents a conditional expression to set a component property. Use
  *         <code>ComponentConditionProperty</code> to set a property to different values conditionally,
  *       based on the value of another property.</p>
@@ -1761,6 +1913,9 @@ export interface ComponentConditionProperty {
   operandType?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeRequest {
   /**
    * <p>The unique ID of the Amplify app associated with the theme.</p>
@@ -1784,6 +1939,9 @@ export interface CreateThemeRequest {
   themeToCreate: CreateThemeData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeResponse {
   /**
    * <p>Describes the configuration of the new theme.</p>
@@ -1791,6 +1949,9 @@ export interface CreateThemeResponse {
   entity?: Theme;
 }
 
+/**
+ * @public
+ */
 export interface GetThemeResponse {
   /**
    * <p>Represents the configuration settings for the theme.</p>
@@ -1798,6 +1959,9 @@ export interface GetThemeResponse {
   theme?: Theme;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThemeRequest {
   /**
    * <p>The unique ID for the Amplify app.</p>
@@ -1825,6 +1989,9 @@ export interface UpdateThemeRequest {
   updatedTheme: UpdateThemeData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThemeResponse {
   /**
    * <p>Describes the configuration of the updated theme.</p>
@@ -1832,6 +1999,9 @@ export interface UpdateThemeResponse {
   entity?: Theme;
 }
 
+/**
+ * @public
+ */
 export interface ExportThemesResponse {
   /**
    * <p>Represents the configuration of the exported themes.</p>
@@ -1845,6 +2015,7 @@ export interface ExportThemesResponse {
 }
 
 /**
+ * @public
  * <p>Represents the event action configuration for an element of a <code>Component</code>
  *       or <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio
  *       that allows you to bind events and actions to components. <code>ActionParameters</code>
@@ -1900,6 +2071,7 @@ export interface ActionParameters {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of an event. You can bind an event and a corresponding
  *       action to a <code>Component</code> or a <code>ComponentChild</code>. A button click
  *       is an example of an event. </p>
@@ -1923,6 +2095,7 @@ export interface ComponentEvent {
 }
 
 /**
+ * @public
  * <p>A nested UI configuration within a parent <code>Component</code>.</p>
  */
 export interface ComponentChild {
@@ -1960,6 +2133,7 @@ export interface ComponentChild {
 }
 
 /**
+ * @public
  * <p>Contains the configuration settings for a user interface (UI) element for an Amplify app. A component is configured as a primary, stand-alone UI element. Use
  *         <code>ComponentChild</code> to configure an instance of a <code>Component</code>. A
  *         <code>ComponentChild</code> instance inherits the configuration of the main
@@ -2064,6 +2238,7 @@ export interface Component {
 }
 
 /**
+ * @public
  * <p>Represents all of the information that is required to create a component.</p>
  */
 export interface CreateComponentData {
@@ -2132,6 +2307,7 @@ export interface CreateComponentData {
 }
 
 /**
+ * @public
  * <p>Updates and saves all of the information about a component, based on component ID.</p>
  */
 export interface UpdateComponentData {
@@ -2198,6 +2374,9 @@ export interface UpdateComponentData {
   schemaVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentRequest {
   /**
    * <p>The unique ID of the Amplify app to associate with the component.</p>
@@ -2221,6 +2400,9 @@ export interface CreateComponentRequest {
   componentToCreate: CreateComponentData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateComponentResponse {
   /**
    * <p>Describes the configuration of the new component.</p>
@@ -2228,6 +2410,9 @@ export interface CreateComponentResponse {
   entity?: Component;
 }
 
+/**
+ * @public
+ */
 export interface GetComponentResponse {
   /**
    * <p>Represents the configuration settings for the component.</p>
@@ -2235,6 +2420,9 @@ export interface GetComponentResponse {
   component?: Component;
 }
 
+/**
+ * @public
+ */
 export interface UpdateComponentRequest {
   /**
    * <p>The unique ID for the Amplify app.</p>
@@ -2262,6 +2450,9 @@ export interface UpdateComponentRequest {
   updatedComponent: UpdateComponentData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateComponentResponse {
   /**
    * <p>Describes the configuration of the updated component.</p>
@@ -2269,6 +2460,9 @@ export interface UpdateComponentResponse {
   entity?: Component;
 }
 
+/**
+ * @public
+ */
 export interface ExportComponentsResponse {
   /**
    * <p>Represents the configuration of the exported components.</p>

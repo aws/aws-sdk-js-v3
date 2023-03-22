@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListHostKeysCommand}.
  */
 export interface ListHostKeysCommandInput extends ListHostKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHostKeysCommand}.
  */
 export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of host keys for the server that's specified by the <code>ServerId</code>
  *       parameter.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHostKeysCommandInput - {@link ListHostKeysCommandInput}
+ * @returns {@link ListHostKeysCommandOutput}
  * @see {@link ListHostKeysCommandInput} for command's `input` shape.
  * @see {@link ListHostKeysCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListHostKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListHostKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHostKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHostKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostKeysCommandOutput> {
     return deserializeAws_json1_1ListHostKeysCommand(output, context);
   }

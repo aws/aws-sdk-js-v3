@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProductCommand}.
  */
 export interface CreateProductCommandInput extends CreateProductInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateProductCommand}.
  */
 export interface CreateProductCommandOutput extends CreateProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a product.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  *          <p>The user or role that performs this operation must have the
@@ -51,6 +56,8 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProductCommandInput - {@link CreateProductCommandInput}
+ * @returns {@link CreateProductCommandOutput}
  * @see {@link CreateProductCommandInput} for command's `input` shape.
  * @see {@link CreateProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProductCommandOutput> {
     return deserializeAws_json1_1CreateProductCommand(output, context);
   }

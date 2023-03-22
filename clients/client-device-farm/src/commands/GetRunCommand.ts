@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetRunCommand, serializeAws_json1_1GetRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRunCommand}.
  */
 export interface GetRunCommandInput extends GetRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRunCommand}.
  */
 export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRunCommandInput - {@link GetRunCommandInput}
+ * @returns {@link GetRunCommandOutput}
  * @see {@link GetRunCommandInput} for command's `input` shape.
  * @see {@link GetRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -115,6 +122,9 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRunCommandOutput> {
     return deserializeAws_json1_1GetRunCommand(output, context);
   }

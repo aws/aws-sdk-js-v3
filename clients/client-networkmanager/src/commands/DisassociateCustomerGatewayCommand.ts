@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateCustomerGatewayCommand}.
  */
 export interface DisassociateCustomerGatewayCommandInput extends DisassociateCustomerGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateCustomerGatewayCommand}.
  */
 export interface DisassociateCustomerGatewayCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateCustomerGatewayCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a customer gateway from a device and a link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateCustomerGatewayCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateCustomerGatewayCommandInput - {@link DisassociateCustomerGatewayCommandInput}
+ * @returns {@link DisassociateCustomerGatewayCommandOutput}
  * @see {@link DisassociateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link DisassociateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +97,9 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateCustomerGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateCustomerGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

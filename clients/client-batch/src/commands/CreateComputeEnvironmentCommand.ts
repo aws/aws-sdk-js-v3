@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateComputeEnvironmentCommand}.
  */
 export interface CreateComputeEnvironmentCommandInput extends CreateComputeEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateComputeEnvironmentCommand}.
  */
 export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Batch compute environment. You can create <code>MANAGED</code> or <code>UNMANAGED</code> compute
  *    environments. <code>MANAGED</code> compute environments can use Amazon EC2 or Fargate resources.
  *     <code>UNMANAGED</code> compute environments can only use EC2 resources.</p>
@@ -124,6 +129,8 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComputeEnvironmentCommandInput - {@link CreateComputeEnvironmentCommandInput}
+ * @returns {@link CreateComputeEnvironmentCommandOutput}
  * @see {@link CreateComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -245,6 +252,9 @@ export class CreateComputeEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComputeEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -284,10 +294,16 @@ export class CreateComputeEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComputeEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateComputeEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComputeEnvironmentCommandOutput> {
     return deserializeAws_restJson1CreateComputeEnvironmentCommand(output, context);
   }

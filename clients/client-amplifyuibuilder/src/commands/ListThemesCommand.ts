@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThemesCommand}.
  */
 export interface ListThemesCommandInput extends ListThemesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThemesCommand}.
  */
 export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of themes for a specified Amplify app and backend
  *       environment.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThemesCommandInput - {@link ListThemesCommandInput}
+ * @returns {@link ListThemesCommandOutput}
  * @see {@link ListThemesCommandInput} for command's `input` shape.
  * @see {@link ListThemesCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListThemesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThemesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class ListThemesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThemesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListThemesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThemesCommandOutput> {
     return deserializeAws_restJson1ListThemesCommand(output, context);
   }

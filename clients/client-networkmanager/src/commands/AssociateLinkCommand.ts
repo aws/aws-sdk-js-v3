@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateLinkCommand}.
  */
 export interface AssociateLinkCommandInput extends AssociateLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateLinkCommand}.
  */
 export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateLinkCommandInput - {@link AssociateLinkCommandInput}
+ * @returns {@link AssociateLinkCommandOutput}
  * @see {@link AssociateLinkCommandInput} for command's `input` shape.
  * @see {@link AssociateLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class AssociateLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class AssociateLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLinkCommandOutput> {
     return deserializeAws_restJson1AssociateLinkCommand(output, context);
   }

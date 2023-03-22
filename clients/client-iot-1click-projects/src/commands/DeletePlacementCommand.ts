@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePlacementCommand}.
  */
 export interface DeletePlacementCommandInput extends DeletePlacementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePlacementCommand}.
  */
 export interface DeletePlacementCommandOutput extends DeletePlacementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a placement. To delete a placement, it must not have any devices associated with
  *       it.</p>
  *          <note>
@@ -54,6 +59,8 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePlacementCommandInput - {@link DeletePlacementCommandInput}
+ * @returns {@link DeletePlacementCommandOutput}
  * @see {@link DeletePlacementCommandInput} for command's `input` shape.
  * @see {@link DeletePlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeletePlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeletePlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlacementCommandOutput> {
     return deserializeAws_restJson1DeletePlacementCommand(output, context);
   }

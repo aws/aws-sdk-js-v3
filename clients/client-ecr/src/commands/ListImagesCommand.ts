@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListImagesCommand}.
  */
 export interface ListImagesCommandInput extends ListImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImagesCommand}.
  */
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the image IDs for the specified repository.</p>
  *         <p>You can filter images based on whether or not they are tagged by using the
  *                 <code>tagStatus</code> filter and specifying either <code>TAGGED</code>,
@@ -52,6 +57,8 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImagesCommandInput - {@link ListImagesCommandInput}
+ * @returns {@link ListImagesCommandOutput}
  * @see {@link ListImagesCommandInput} for command's `input` shape.
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -107,6 +114,9 @@ export class ListImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class ListImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagesCommandOutput> {
     return deserializeAws_json1_1ListImagesCommand(output, context);
   }

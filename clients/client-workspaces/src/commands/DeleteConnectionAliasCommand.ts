@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectionAliasCommand}.
  */
 export interface DeleteConnectionAliasCommandInput extends DeleteConnectionAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectionAliasCommand}.
  */
 export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
  *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
  *          <important>
@@ -61,6 +66,8 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectionAliasCommandInput - {@link DeleteConnectionAliasCommandInput}
+ * @returns {@link DeleteConnectionAliasCommandOutput}
  * @see {@link DeleteConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -102,6 +109,9 @@ export class DeleteConnectionAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectionAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DeleteConnectionAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConnectionAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionAliasCommandOutput> {
     return deserializeAws_json1_1DeleteConnectionAliasCommand(output, context);
   }

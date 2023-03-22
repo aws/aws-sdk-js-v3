@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListSignalCatalogsCommand}.
  */
 export interface ListSignalCatalogsCommandInput extends ListSignalCatalogsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSignalCatalogsCommand}.
  */
 export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists all the created signal catalogs in an Amazon Web Services account. </p>
  *         <p>You can use  to list information about
  *             each signal (node) specified in a signal catalog.</p>
@@ -51,6 +56,8 @@ export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSignalCatalogsCommandInput - {@link ListSignalCatalogsCommandInput}
+ * @returns {@link ListSignalCatalogsCommandOutput}
  * @see {@link ListSignalCatalogsCommandInput} for command's `input` shape.
  * @see {@link ListSignalCatalogsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListSignalCatalogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSignalCatalogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListSignalCatalogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSignalCatalogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListSignalCatalogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSignalCatalogsCommandOutput> {
     return deserializeAws_json1_0ListSignalCatalogsCommand(output, context);
   }

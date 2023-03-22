@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentResourcesCommand}.
  */
 export interface DescribeEnvironmentResourcesCommandInput extends DescribeEnvironmentResourcesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentResourcesCommand}.
  */
 export interface DescribeEnvironmentResourcesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEnvironmentResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns AWS resources for this environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentResourcesCommandInput - {@link DescribeEnvironmentResourcesCommandInput}
+ * @returns {@link DescribeEnvironmentResourcesCommandOutput}
  * @see {@link DescribeEnvironmentResourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentResourcesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -115,6 +122,9 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEnvironmentResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEnvironmentResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

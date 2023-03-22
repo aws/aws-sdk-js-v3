@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTerminationProtectionCommand}.
  */
 export interface UpdateTerminationProtectionCommandInput extends UpdateTerminationProtectionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTerminationProtectionCommand}.
  */
 export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminationProtectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates termination protection for the specified stack. If a user attempts to delete a
  *          stack with termination protection enabled, the operation fails and the stack remains
  *          unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a
@@ -52,6 +57,8 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTerminationProtectionCommandInput - {@link UpdateTerminationProtectionCommandInput}
+ * @returns {@link UpdateTerminationProtectionCommandOutput}
  * @see {@link UpdateTerminationProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateTerminationProtectionCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateTerminationProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTerminationProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdateTerminationProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTerminationProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateTerminationProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetECSServiceRecommendationsCommand}.
  */
 export interface GetECSServiceRecommendationsCommandInput extends GetECSServiceRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetECSServiceRecommendationsCommand}.
  */
 export interface GetECSServiceRecommendationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetECSServiceRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Returns Amazon ECS service recommendations.
  *         </p>
@@ -57,6 +62,8 @@ export interface GetECSServiceRecommendationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetECSServiceRecommendationsCommandInput - {@link GetECSServiceRecommendationsCommandInput}
+ * @returns {@link GetECSServiceRecommendationsCommandOutput}
  * @see {@link GetECSServiceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetECSServiceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -105,6 +112,9 @@ export class GetECSServiceRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetECSServiceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class GetECSServiceRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetECSServiceRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetECSServiceRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

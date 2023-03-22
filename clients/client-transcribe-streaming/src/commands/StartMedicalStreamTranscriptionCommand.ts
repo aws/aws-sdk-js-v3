@@ -32,10 +32,14 @@ import {
 } from "../TranscribeStreamingClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartMedicalStreamTranscriptionCommand}.
  */
 export interface StartMedicalStreamTranscriptionCommandInput extends StartMedicalStreamTranscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMedicalStreamTranscriptionCommand}.
  */
 export interface StartMedicalStreamTranscriptionCommandOutput
@@ -43,6 +47,7 @@ export interface StartMedicalStreamTranscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
  *             Amazon Transcribe Medical and the transcription results are streamed to your
  *             application.</p>
@@ -77,6 +82,8 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMedicalStreamTranscriptionCommandInput - {@link StartMedicalStreamTranscriptionCommandInput}
+ * @returns {@link StartMedicalStreamTranscriptionCommandOutput}
  * @see {@link StartMedicalStreamTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartMedicalStreamTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.
@@ -120,6 +127,9 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMedicalStreamTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,6 +170,9 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartMedicalStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
@@ -167,6 +180,9 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
     return serializeAws_restJson1StartMedicalStreamTranscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext

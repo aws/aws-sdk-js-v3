@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResponsePlanCommand}.
  */
 export interface GetResponsePlanCommandInput extends GetResponsePlanInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResponsePlanCommand}.
  */
 export interface GetResponsePlanCommandOutput extends GetResponsePlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of the specified response plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetResponsePlanCommandOutput extends GetResponsePlanOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResponsePlanCommandInput - {@link GetResponsePlanCommandInput}
+ * @returns {@link GetResponsePlanCommandOutput}
  * @see {@link GetResponsePlanCommandInput} for command's `input` shape.
  * @see {@link GetResponsePlanCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetResponsePlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResponsePlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetResponsePlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResponsePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResponsePlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResponsePlanCommandOutput> {
     return deserializeAws_restJson1GetResponsePlanCommand(output, context);
   }

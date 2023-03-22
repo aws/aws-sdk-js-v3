@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopRelationalDatabaseCommand}.
  */
 export interface StopRelationalDatabaseCommandInput extends StopRelationalDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopRelationalDatabaseCommand}.
  */
 export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specific database that is currently running in Amazon Lightsail.</p>
  *          <p>The <code>stop relational database</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -49,6 +54,8 @@ export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatab
  * const response = await client.send(command);
  * ```
  *
+ * @param StopRelationalDatabaseCommandInput - {@link StopRelationalDatabaseCommandInput}
+ * @returns {@link StopRelationalDatabaseCommandOutput}
  * @see {@link StopRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link StopRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class StopRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class StopRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRelationalDatabaseCommandOutput> {
     return deserializeAws_json1_1StopRelationalDatabaseCommand(output, context);
   }

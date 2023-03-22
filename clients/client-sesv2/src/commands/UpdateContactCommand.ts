@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactCommand}.
  */
 export interface UpdateContactCommandInput extends UpdateContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactCommand}.
  */
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a contact's preferences for a list. It is not necessary to specify all
  *             existing topic preferences in the TopicPreferences object, just the ones that need
  *             updating.</p>
@@ -48,6 +53,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
+ * @returns {@link UpdateContactCommandOutput}
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactCommandOutput> {
     return deserializeAws_restJson1UpdateContactCommand(output, context);
   }

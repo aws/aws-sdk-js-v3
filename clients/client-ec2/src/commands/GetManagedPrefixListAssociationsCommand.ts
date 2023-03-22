@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetManagedPrefixListAssociationsCommand}.
  */
 export interface GetManagedPrefixListAssociationsCommandInput extends GetManagedPrefixListAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetManagedPrefixListAssociationsCommand}.
  */
 export interface GetManagedPrefixListAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetManagedPrefixListAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the resources that are associated with the specified managed prefix list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetManagedPrefixListAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetManagedPrefixListAssociationsCommandInput - {@link GetManagedPrefixListAssociationsCommandInput}
+ * @returns {@link GetManagedPrefixListAssociationsCommandOutput}
  * @see {@link GetManagedPrefixListAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetManagedPrefixListAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class GetManagedPrefixListAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetManagedPrefixListAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class GetManagedPrefixListAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetManagedPrefixListAssociationsCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class GetManagedPrefixListAssociationsCommand extends $Command<
     return serializeAws_ec2GetManagedPrefixListAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -225,6 +225,7 @@ import {
 import { NimbleClient } from "./NimbleClient";
 
 /**
+ * @public
  * <p>Welcome to the Amazon Nimble Studio API reference. This API reference provides
  *             methods, schema, resources, parameters, and more to help you get the most out of Nimble
  *             Studio.</p>
@@ -234,6 +235,7 @@ import { NimbleClient } from "./NimbleClient";
  */
 export class Nimble extends NimbleClient {
   /**
+   * @public
    * <p>Accept EULAs.</p>
    */
   public acceptEulas(args: AcceptEulasCommandInput, options?: __HttpHandlerOptions): Promise<AcceptEulasCommandOutput>;
@@ -260,6 +262,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Create a launch profile.</p>
    */
   public createLaunchProfile(
@@ -292,6 +295,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Creates a streaming image resource in a studio.</p>
    */
   public createStreamingImage(
@@ -324,6 +328,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Creates a streaming session in a studio.</p>
    *         <p>After invoking this operation, you must poll GetStreamingSession until the streaming
    *             session is in the <code>READY</code> state.</p>
@@ -358,6 +363,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Creates a streaming session stream for a streaming session.</p>
    *         <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId
    *             to poll the resource until it is in the <code>READY</code> state.</p>
@@ -392,6 +398,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Create a new studio.</p>
    *         <p>When creating a studio, two IAM roles must be provided: the admin role
    *             and the user role. These roles are assumed by your users when they log in to the Nimble Studio portal.</p>
@@ -440,6 +447,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Creates a studio component resource.</p>
    */
   public createStudioComponent(
@@ -472,6 +480,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Permanently delete a launch profile.</p>
    */
   public deleteLaunchProfile(
@@ -504,6 +513,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Delete a user from launch profile membership.</p>
    */
   public deleteLaunchProfileMember(
@@ -536,6 +546,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Delete streaming image.</p>
    */
   public deleteStreamingImage(
@@ -568,6 +579,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Deletes streaming session resource.</p>
    *         <p>After invoking this operation, use GetStreamingSession to poll the resource until it
    *             transitions to a <code>DELETED</code> state.</p>
@@ -604,6 +616,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Delete a studio resource.</p>
    */
   public deleteStudio(
@@ -633,6 +646,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Deletes a studio component resource.</p>
    */
   public deleteStudioComponent(
@@ -665,6 +679,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Delete a user from studio membership.</p>
    */
   public deleteStudioMember(
@@ -697,6 +712,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Get EULA.</p>
    */
   public getEula(args: GetEulaCommandInput, options?: __HttpHandlerOptions): Promise<GetEulaCommandOutput>;
@@ -723,6 +739,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Get a launch profile.</p>
    */
   public getLaunchProfile(
@@ -755,6 +772,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Launch profile details include the launch profile resource and summary information of
    *             resources that are used by, or available to, the launch profile. This includes the name
    *             and description of all studio components used by the launch profiles, and the name and
@@ -790,6 +808,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Get a launch profile initialization.</p>
    */
   public getLaunchProfileInitialization(
@@ -822,6 +841,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Get a user persona in launch profile membership.</p>
    */
   public getLaunchProfileMember(
@@ -854,6 +874,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Get streaming image.</p>
    */
   public getStreamingImage(
@@ -886,6 +907,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Gets StreamingSession resource.</p>
    *         <p>Invoke this operation to poll for a streaming session state while creating or deleting
    *             a session.</p>
@@ -920,6 +942,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Gets <code>StreamingSessionBackup</code> resource.</p>
    *         <p>Invoke this operation to poll for a streaming session backup while stopping a
    *             streaming session.</p>
@@ -954,6 +977,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Gets a StreamingSessionStream for a streaming session.</p>
    *         <p>Invoke this operation to poll the resource after invoking
    *                 <code>CreateStreamingSessionStream</code>.</p>
@@ -990,6 +1014,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Get a studio resource.</p>
    */
   public getStudio(args: GetStudioCommandInput, options?: __HttpHandlerOptions): Promise<GetStudioCommandOutput>;
@@ -1016,6 +1041,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Gets a studio component resource.</p>
    */
   public getStudioComponent(
@@ -1048,6 +1074,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Get a user's membership in a studio.</p>
    */
   public getStudioMember(
@@ -1080,6 +1107,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>List EULA acceptances.</p>
    */
   public listEulaAcceptances(
@@ -1112,6 +1140,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>List EULAs.</p>
    */
   public listEulas(args: ListEulasCommandInput, options?: __HttpHandlerOptions): Promise<ListEulasCommandOutput>;
@@ -1138,6 +1167,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Get all users in a given launch profile membership.</p>
    */
   public listLaunchProfileMembers(
@@ -1170,6 +1200,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>List all the launch profiles a studio.</p>
    */
   public listLaunchProfiles(
@@ -1202,6 +1233,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>List the streaming image resources available to this studio.</p>
    *         <p>This list will contain both images provided by Amazon Web Services, as well as
    *             streaming images that you have created in your studio.</p>
@@ -1236,6 +1268,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Lists the backups of a streaming session in a studio.</p>
    */
   public listStreamingSessionBackups(
@@ -1268,6 +1301,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Lists the streaming sessions in a studio.</p>
    */
   public listStreamingSessions(
@@ -1300,6 +1334,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Lists the <code>StudioComponents</code> in a studio.</p>
    */
   public listStudioComponents(
@@ -1332,6 +1367,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Get all users in a given studio membership.</p>
    *         <note>
    *             <p>
@@ -1368,6 +1404,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>List studios in your Amazon Web Services accounts in the requested Amazon Web Services Region.</p>
    */
   public listStudios(args: ListStudiosCommandInput, options?: __HttpHandlerOptions): Promise<ListStudiosCommandOutput>;
@@ -1394,6 +1431,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Gets the tags for a resource, given its Amazon Resource Names (ARN).</p>
    *         <p>This operation supports ARNs for all resource types in Nimble Studio that support
    *             tags, including studio, studio component, launch profile, streaming image, and streaming
@@ -1430,6 +1468,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Add/update users with given persona to launch profile membership.</p>
    */
   public putLaunchProfileMembers(
@@ -1462,6 +1501,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Add/update users with given persona to studio membership.</p>
    */
   public putStudioMembers(
@@ -1494,6 +1534,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Transitions sessions from the <code>STOPPED</code> state into the <code>READY</code>
    *             state. The <code>START_IN_PROGRESS</code> state is the intermediate state between the
    *                 <code>STOPPED</code> and <code>READY</code> states.</p>
@@ -1528,6 +1569,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Repairs the IAM Identity Center configuration for a given studio.</p>
    *         <p>If the studio has a valid IAM Identity Center configuration currently associated with
    *             it, this operation will fail with a validation error.</p>
@@ -1566,6 +1608,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Transitions sessions from the <code>READY</code> state into the <code>STOPPED</code>
    *             state. The <code>STOP_IN_PROGRESS</code> state is the intermediate state between the
    *                 <code>READY</code> and <code>STOPPED</code> states.</p>
@@ -1600,6 +1643,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Creates tags for a resource, given its ARN.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1626,6 +1670,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Deletes the tags for a resource.</p>
    */
   public untagResource(
@@ -1658,6 +1703,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Update a launch profile.</p>
    */
   public updateLaunchProfile(
@@ -1690,6 +1736,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Update a user persona in launch profile membership.</p>
    */
   public updateLaunchProfileMember(
@@ -1722,6 +1769,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Update streaming image.</p>
    */
   public updateStreamingImage(
@@ -1754,6 +1802,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Update a Studio resource.</p>
    *         <p>Currently, this operation only supports updating the displayName of your
    *             studio.</p>
@@ -1785,6 +1834,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
+   * @public
    * <p>Updates a studio component resource.</p>
    */
   public updateStudioComponent(

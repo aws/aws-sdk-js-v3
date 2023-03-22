@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartDBInstanceCommand}.
  */
 export interface StartDBInstanceCommandInput extends StartDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartDBInstanceCommand}.
  */
 export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the StopDBInstance action.</p>
  *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
@@ -55,6 +60,8 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDBInstanceCommandInput - {@link StartDBInstanceCommandInput}
+ * @returns {@link StartDBInstanceCommandOutput}
  * @see {@link StartDBInstanceCommandInput} for command's `input` shape.
  * @see {@link StartDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -119,6 +126,9 @@ export class StartDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,10 +168,16 @@ export class StartDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStartDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBInstanceCommandOutput> {
     return deserializeAws_queryStartDBInstanceCommand(output, context);
   }

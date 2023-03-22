@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCorsConfigurationCommand}.
  */
 export interface DeleteCorsConfigurationCommandInput extends DeleteCorsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCorsConfigurationCommand}.
  */
 export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CORS configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCorsConfigurationCommandInput - {@link DeleteCorsConfigurationCommandInput}
+ * @returns {@link DeleteCorsConfigurationCommandOutput}
  * @see {@link DeleteCorsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteCorsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteCorsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCorsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteCorsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCorsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCorsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCorsConfigurationCommandOutput> {
     return deserializeAws_restJson1DeleteCorsConfigurationCommand(output, context);
   }

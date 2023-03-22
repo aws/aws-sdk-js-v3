@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRouteCommand}.
  */
 export interface DescribeRouteCommandInput extends DescribeRouteInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRouteCommand}.
  */
 export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRouteCommandInput - {@link DescribeRouteCommandInput}
+ * @returns {@link DescribeRouteCommandOutput}
  * @see {@link DescribeRouteCommandInput} for command's `input` shape.
  * @see {@link DescribeRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRouteCommandOutput> {
     return deserializeAws_restJson1DescribeRouteCommand(output, context);
   }

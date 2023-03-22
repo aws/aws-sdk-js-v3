@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchAssociatedTranscriptsCommand}.
  */
 export interface SearchAssociatedTranscriptsCommandInput extends SearchAssociatedTranscriptsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchAssociatedTranscriptsCommand}.
  */
 export interface SearchAssociatedTranscriptsCommandOutput
@@ -37,6 +41,7 @@ export interface SearchAssociatedTranscriptsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Search for associated transcripts that meet the specified
  *          criteria.</p>
  * @example
@@ -49,6 +54,8 @@ export interface SearchAssociatedTranscriptsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchAssociatedTranscriptsCommandInput - {@link SearchAssociatedTranscriptsCommandInput}
+ * @returns {@link SearchAssociatedTranscriptsCommandOutput}
  * @see {@link SearchAssociatedTranscriptsCommandInput} for command's `input` shape.
  * @see {@link SearchAssociatedTranscriptsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -91,6 +98,9 @@ export class SearchAssociatedTranscriptsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchAssociatedTranscriptsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class SearchAssociatedTranscriptsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchAssociatedTranscriptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchAssociatedTranscriptsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

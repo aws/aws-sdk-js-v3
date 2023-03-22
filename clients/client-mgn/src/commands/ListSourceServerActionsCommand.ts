@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSourceServerActionsCommand}.
  */
 export interface ListSourceServerActionsCommandInput extends ListSourceServerActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSourceServerActionsCommand}.
  */
 export interface ListSourceServerActionsCommandOutput extends ListSourceServerActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List source server post migration custom actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSourceServerActionsCommandOutput extends ListSourceServerAc
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSourceServerActionsCommandInput - {@link ListSourceServerActionsCommandInput}
+ * @returns {@link ListSourceServerActionsCommandOutput}
  * @see {@link ListSourceServerActionsCommandInput} for command's `input` shape.
  * @see {@link ListSourceServerActionsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListSourceServerActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSourceServerActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListSourceServerActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSourceServerActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSourceServerActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSourceServerActionsCommandOutput> {
     return deserializeAws_restJson1ListSourceServerActionsCommand(output, context);
   }

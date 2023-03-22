@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryPutWarmPoolCommand, serializeAws_queryPutWarmPoolCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutWarmPoolCommand}.
  */
 export interface PutWarmPoolCommandInput extends PutWarmPoolType {}
 /**
+ * @public
+ *
  * The output of {@link PutWarmPoolCommand}.
  */
 export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of
  *             pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your
  *             application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new
@@ -52,6 +57,8 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param PutWarmPoolCommandInput - {@link PutWarmPoolCommandInput}
+ * @returns {@link PutWarmPoolCommandOutput}
  * @see {@link PutWarmPoolCommandInput} for command's `input` shape.
  * @see {@link PutWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -101,6 +108,9 @@ export class PutWarmPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutWarmPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class PutWarmPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutWarmPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutWarmPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutWarmPoolCommandOutput> {
     return deserializeAws_queryPutWarmPoolCommand(output, context);
   }

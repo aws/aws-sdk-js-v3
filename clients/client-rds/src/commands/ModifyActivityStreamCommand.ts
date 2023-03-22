@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyActivityStreamCommand}.
  */
 export interface ModifyActivityStreamCommandInput extends ModifyActivityStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyActivityStreamCommand}.
  */
 export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the audit policy state of a database activity stream to either locked (default) or unlocked. A locked policy is read-only,
  *             whereas an unlocked policy is read/write. If your activity stream is started and locked, you can unlock it, customize your audit policy,
  *             and then lock your activity stream. Restarting the activity stream isn't required. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.Modifying.html"> Modifying a database activity stream</a> in the
@@ -50,6 +55,8 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyActivityStreamCommandInput - {@link ModifyActivityStreamCommandInput}
+ * @returns {@link ModifyActivityStreamCommandOutput}
  * @see {@link ModifyActivityStreamCommandInput} for command's `input` shape.
  * @see {@link ModifyActivityStreamCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -83,6 +90,9 @@ export class ModifyActivityStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyActivityStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ModifyActivityStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyActivityStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyActivityStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyActivityStreamCommandOutput> {
     return deserializeAws_queryModifyActivityStreamCommand(output, context);
   }

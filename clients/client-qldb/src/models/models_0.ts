@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { QLDBServiceException as __BaseException } from "./QLDBServiceException";
 
+/**
+ * @public
+ */
 export interface CancelJournalKinesisStreamRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -16,6 +19,9 @@ export interface CancelJournalKinesisStreamRequest {
   StreamId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelJournalKinesisStreamResponse {
   /**
    * <p>The UUID (Base62-encoded text) of the canceled QLDB journal stream.</p>
@@ -24,6 +30,7 @@ export interface CancelJournalKinesisStreamResponse {
 }
 
 /**
+ * @public
  * <p>One or more parameters in the request aren't valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -50,6 +57,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -82,6 +90,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because a condition wasn't satisfied in advance.</p>
  */
 export class ResourcePreconditionNotMetException extends __BaseException {
@@ -113,11 +122,17 @@ export class ResourcePreconditionNotMetException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum PermissionsMode {
   ALLOW_ALL = "ALLOW_ALL",
   STANDARD = "STANDARD",
 }
 
+/**
+ * @public
+ */
 export interface CreateLedgerRequest {
   /**
    * <p>The name of the ledger that you want to create. The name must be unique among all of the
@@ -230,6 +245,9 @@ export interface CreateLedgerRequest {
   KmsKey?: string;
 }
 
+/**
+ * @public
+ */
 export enum LedgerState {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -237,6 +255,9 @@ export enum LedgerState {
   DELETING = "DELETING",
 }
 
+/**
+ * @public
+ */
 export interface CreateLedgerResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -280,6 +301,7 @@ export interface CreateLedgerResponse {
 }
 
 /**
+ * @public
  * <p>You have reached the limit on the maximum number of resources allowed.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -306,6 +328,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -338,6 +361,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource can't be modified at this time.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -369,6 +393,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteLedgerRequest {
   /**
    * <p>The name of the ledger that you want to delete.</p>
@@ -376,6 +403,9 @@ export interface DeleteLedgerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJournalKinesisStreamRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -389,12 +419,16 @@ export interface DescribeJournalKinesisStreamRequest {
   StreamId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ErrorCause {
   IAM_PERMISSION_REVOKED = "IAM_PERMISSION_REVOKED",
   KINESIS_STREAM_NOT_FOUND = "KINESIS_STREAM_NOT_FOUND",
 }
 
 /**
+ * @public
  * <p>The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal
  *          stream.</p>
  */
@@ -416,6 +450,9 @@ export interface KinesisConfiguration {
   AggregationEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum StreamStatus {
   ACTIVE = "ACTIVE",
   CANCELED = "CANCELED",
@@ -425,6 +462,7 @@ export enum StreamStatus {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon QLDB journal stream, including the Amazon Resource Name
  *          (ARN), stream name, creation time, current status, and the parameters of the original
  *          stream creation request.</p>
@@ -493,6 +531,9 @@ export interface JournalKinesisStreamDescription {
   StreamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJournalKinesisStreamResponse {
   /**
    * <p>Information about the QLDB journal stream returned by a
@@ -501,6 +542,9 @@ export interface DescribeJournalKinesisStreamResponse {
   Stream?: JournalKinesisStreamDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJournalS3ExportRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -514,12 +558,18 @@ export interface DescribeJournalS3ExportRequest {
   ExportId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OutputFormat {
   ION_BINARY = "ION_BINARY",
   ION_TEXT = "ION_TEXT",
   JSON = "JSON",
 }
 
+/**
+ * @public
+ */
 export enum S3ObjectEncryptionType {
   NO_ENCRYPTION = "NO_ENCRYPTION",
   SSE_KMS = "SSE_KMS",
@@ -527,6 +577,7 @@ export enum S3ObjectEncryptionType {
 }
 
 /**
+ * @public
  * <p>The encryption settings that are used by a journal export job to write data in an
  *          Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
@@ -552,6 +603,7 @@ export interface S3EncryptionConfiguration {
 }
 
 /**
+ * @public
  * <p>The Amazon Simple Storage Service (Amazon S3) bucket location in which a journal export job writes the journal
  *          contents.</p>
  */
@@ -598,6 +650,9 @@ export interface S3ExportConfiguration {
   EncryptionConfiguration: S3EncryptionConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ExportStatus {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
@@ -605,6 +660,7 @@ export enum ExportStatus {
 }
 
 /**
+ * @public
  * <p>Information about a journal export job, including the ledger name, export ID, creation
  *          time, current status, and the parameters of the original export creation request.</p>
  */
@@ -669,6 +725,9 @@ export interface JournalS3ExportDescription {
   OutputFormat?: OutputFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJournalS3ExportResponse {
   /**
    * <p>Information about the journal export job returned by a
@@ -677,6 +736,9 @@ export interface DescribeJournalS3ExportResponse {
   ExportDescription: JournalS3ExportDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLedgerRequest {
   /**
    * <p>The name of the ledger that you want to describe.</p>
@@ -684,6 +746,9 @@ export interface DescribeLedgerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EncryptionStatus {
   ENABLED = "ENABLED",
   KMS_KEY_INACCESSIBLE = "KMS_KEY_INACCESSIBLE",
@@ -691,6 +756,7 @@ export enum EncryptionStatus {
 }
 
 /**
+ * @public
  * <p>Information about the encryption of data at rest in an Amazon QLDB ledger. This includes
  *          the current status, the key in Key Management Service (KMS), and when the key became inaccessible (in
  *          the case of an error).</p>
@@ -746,6 +812,9 @@ export interface LedgerEncryptionDescription {
   InaccessibleKmsKeyDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLedgerResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -789,6 +858,9 @@ export interface DescribeLedgerResponse {
   EncryptionDescription?: LedgerEncryptionDescription;
 }
 
+/**
+ * @public
+ */
 export interface ExportJournalToS3Request {
   /**
    * <p>The name of the ledger.</p>
@@ -848,6 +920,9 @@ export interface ExportJournalToS3Request {
   OutputFormat?: OutputFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface ExportJournalToS3Response {
   /**
    * <p>The UUID (represented in Base62-encoded text) that QLDB assigns to each journal export
@@ -859,6 +934,7 @@ export interface ExportJournalToS3Response {
 }
 
 /**
+ * @public
  * <p>A structure that can contain a value in multiple encoding formats.</p>
  */
 export interface ValueHolder {
@@ -868,6 +944,9 @@ export interface ValueHolder {
   IonText?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBlockRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -877,7 +956,7 @@ export interface GetBlockRequest {
   /**
    * <p>The location of the block that you want to request. An address is an Amazon Ion
    *          structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>
-   *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</code>.</p>
+   *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14\}</code>.</p>
    */
   BlockAddress: ValueHolder | undefined;
 
@@ -885,11 +964,14 @@ export interface GetBlockRequest {
    * <p>The latest block location covered by the digest for which to request a proof. An address
    *          is an Amazon Ion structure that has two fields: <code>strandId</code> and
    *             <code>sequenceNo</code>.</p>
-   *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49}</code>.</p>
+   *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49\}</code>.</p>
    */
   DigestTipAddress?: ValueHolder;
 }
 
+/**
+ * @public
+ */
 export interface GetBlockResponse {
   /**
    * <p>The block data object in Amazon Ion format.</p>
@@ -904,6 +986,9 @@ export interface GetBlockResponse {
   Proof?: ValueHolder;
 }
 
+/**
+ * @public
+ */
 export interface GetDigestRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -911,6 +996,9 @@ export interface GetDigestRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDigestResponse {
   /**
    * <p>The 256-bit hash value representing the digest returned by a <code>GetDigest</code>
@@ -926,6 +1014,9 @@ export interface GetDigestResponse {
   DigestTipAddress: ValueHolder | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRevisionRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -935,7 +1026,7 @@ export interface GetRevisionRequest {
   /**
    * <p>The block location of the document revision to be verified. An address is an Amazon Ion
    *          structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>
-   *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</code>.</p>
+   *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14\}</code>.</p>
    */
   BlockAddress: ValueHolder | undefined;
 
@@ -948,11 +1039,14 @@ export interface GetRevisionRequest {
    * <p>The latest block location covered by the digest for which to request a proof. An address
    *          is an Amazon Ion structure that has two fields: <code>strandId</code> and
    *             <code>sequenceNo</code>.</p>
-   *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49}</code>.</p>
+   *          <p>For example: <code>\{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49\}</code>.</p>
    */
   DigestTipAddress?: ValueHolder;
 }
 
+/**
+ * @public
+ */
 export interface GetRevisionResponse {
   /**
    * <p>The proof object in Amazon Ion format returned by a <code>GetRevision</code> request. A
@@ -967,6 +1061,9 @@ export interface GetRevisionResponse {
   Revision: ValueHolder | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalKinesisStreamsForLedgerRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -989,6 +1086,9 @@ export interface ListJournalKinesisStreamsForLedgerRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalKinesisStreamsForLedgerResponse {
   /**
    * <p>The array of QLDB journal stream descriptors that are associated with the given
@@ -1013,6 +1113,9 @@ export interface ListJournalKinesisStreamsForLedgerResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalS3ExportsRequest {
   /**
    * <p>The maximum number of results to return in a single <code>ListJournalS3Exports</code>
@@ -1029,6 +1132,9 @@ export interface ListJournalS3ExportsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalS3ExportsResponse {
   /**
    * <p>The array of journal export job descriptions for all ledgers that are associated with
@@ -1053,6 +1159,9 @@ export interface ListJournalS3ExportsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalS3ExportsForLedgerRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -1075,6 +1184,9 @@ export interface ListJournalS3ExportsForLedgerRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJournalS3ExportsForLedgerResponse {
   /**
    * <p>The array of journal export job descriptions that are associated with the specified
@@ -1099,6 +1211,9 @@ export interface ListJournalS3ExportsForLedgerResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLedgersRequest {
   /**
    * <p>The maximum number of results to return in a single <code>ListLedgers</code> request.
@@ -1115,6 +1230,7 @@ export interface ListLedgersRequest {
 }
 
 /**
+ * @public
  * <p>Information about a ledger, including its name, state, and when it was created.</p>
  */
 export interface LedgerSummary {
@@ -1135,6 +1251,9 @@ export interface LedgerSummary {
   CreationDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListLedgersResponse {
   /**
    * <p>The array of ledger summaries that are associated with the current Amazon Web Services account and
@@ -1159,6 +1278,9 @@ export interface ListLedgersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p>
@@ -1169,6 +1291,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are currently associated with the specified Amazon QLDB resource.</p>
@@ -1176,6 +1301,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StreamJournalToKinesisRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -1234,6 +1362,9 @@ export interface StreamJournalToKinesisRequest {
   StreamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StreamJournalToKinesisResponse {
   /**
    * <p>The UUID (represented in Base62-encoded text) that QLDB assigns to each QLDB journal
@@ -1242,6 +1373,9 @@ export interface StreamJournalToKinesisResponse {
   StreamId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) to which you want to add the tags. For example:</p>
@@ -1259,8 +1393,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) from which to remove the tags. For example:</p>
@@ -1276,8 +1416,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLedgerRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -1347,6 +1493,9 @@ export interface UpdateLedgerRequest {
   KmsKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLedgerResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -1385,6 +1534,9 @@ export interface UpdateLedgerResponse {
   EncryptionDescription?: LedgerEncryptionDescription;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLedgerPermissionsModeRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -1426,6 +1578,9 @@ export interface UpdateLedgerPermissionsModeRequest {
   PermissionsMode: PermissionsMode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLedgerPermissionsModeResponse {
   /**
    * <p>The name of the ledger.</p>

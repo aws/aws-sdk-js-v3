@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRulesPackagesCommand}.
  */
 export interface ListRulesPackagesCommandInput extends ListRulesPackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRulesPackagesCommand}.
  */
 export interface ListRulesPackagesCommandOutput extends ListRulesPackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available Amazon Inspector rules packages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRulesPackagesCommandInput - {@link ListRulesPackagesCommandInput}
+ * @returns {@link ListRulesPackagesCommandOutput}
  * @see {@link ListRulesPackagesCommandInput} for command's `input` shape.
  * @see {@link ListRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -101,6 +108,9 @@ export class ListRulesPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRulesPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class ListRulesPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRulesPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRulesPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesPackagesCommandOutput> {
     return deserializeAws_json1_1ListRulesPackagesCommand(output, context);
   }

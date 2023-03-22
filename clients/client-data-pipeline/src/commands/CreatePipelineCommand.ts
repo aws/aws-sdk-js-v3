@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePipelineCommand}.
  */
 export interface CreatePipelineCommandInput extends CreatePipelineInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePipelineCommand}.
  */
 export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.</p>
  *
  *         <examples>
@@ -48,9 +53,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"name": "myPipeline",
+ * \{"name": "myPipeline",
  *  "uniqueId": "123456789",
- *  "description": "This is my first pipeline"}
+ *  "description": "This is my first pipeline"\}
  *
  *             </request>
  *
@@ -62,7 +67,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * Content-Length: 40
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+ * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
  *
  *             </response>
  *         </examples>
@@ -76,6 +81,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
+ * @returns {@link CreatePipelineCommandOutput}
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -105,6 +112,9 @@ export class CreatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class CreatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePipelineCommandOutput> {
     return deserializeAws_json1_1CreatePipelineCommand(output, context);
   }

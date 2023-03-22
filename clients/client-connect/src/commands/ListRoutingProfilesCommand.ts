@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoutingProfilesCommand}.
  */
 export interface ListRoutingProfilesCommandInput extends ListRoutingProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRoutingProfilesCommand}.
  */
 export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides summary information about the routing profiles for the specified Amazon Connect
  *    instance.</p>
  *          <p>For more information about routing profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html">Routing Profiles</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html">Create a Routing
@@ -49,6 +54,8 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoutingProfilesCommandInput - {@link ListRoutingProfilesCommandInput}
+ * @returns {@link ListRoutingProfilesCommandOutput}
  * @see {@link ListRoutingProfilesCommandInput} for command's `input` shape.
  * @see {@link ListRoutingProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListRoutingProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoutingProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListRoutingProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoutingProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRoutingProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingProfilesCommandOutput> {
     return deserializeAws_restJson1ListRoutingProfilesCommand(output, context);
   }

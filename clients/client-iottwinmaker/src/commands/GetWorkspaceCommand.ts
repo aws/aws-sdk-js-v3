@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkspaceCommand}.
  */
 export interface GetWorkspaceCommandInput extends GetWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkspaceCommand}.
  */
 export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkspaceCommandInput - {@link GetWorkspaceCommandInput}
+ * @returns {@link GetWorkspaceCommandOutput}
  * @see {@link GetWorkspaceCommandInput} for command's `input` shape.
  * @see {@link GetWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkspaceCommandOutput> {
     return deserializeAws_restJson1GetWorkspaceCommand(output, context);
   }

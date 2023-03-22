@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCanaryCommand}.
  */
 export interface GetCanaryCommandInput extends GetCanaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCanaryCommand}.
  */
 export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves complete information about one canary. You must specify
  *       the name of the canary that you want. To get a list of canaries
  *       and their names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
@@ -48,6 +53,8 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCanaryCommandInput - {@link GetCanaryCommandInput}
+ * @returns {@link GetCanaryCommandOutput}
  * @see {@link GetCanaryCommandInput} for command's `input` shape.
  * @see {@link GetCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCanaryCommandOutput> {
     return deserializeAws_restJson1GetCanaryCommand(output, context);
   }

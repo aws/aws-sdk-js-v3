@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContactMethodCommand}.
  */
 export interface CreateContactMethodCommandInput extends CreateContactMethodRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContactMethodCommand}.
  */
 export interface CreateContactMethodCommandOutput extends CreateContactMethodResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an email or SMS text message contact method.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
  *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
@@ -50,6 +55,8 @@ export interface CreateContactMethodCommandOutput extends CreateContactMethodRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContactMethodCommandInput - {@link CreateContactMethodCommandInput}
+ * @returns {@link CreateContactMethodCommandOutput}
  * @see {@link CreateContactMethodCommandInput} for command's `input` shape.
  * @see {@link CreateContactMethodCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateContactMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContactMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateContactMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContactMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateContactMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactMethodCommandOutput> {
     return deserializeAws_json1_1CreateContactMethodCommand(output, context);
   }

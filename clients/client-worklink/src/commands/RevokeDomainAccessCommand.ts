@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeDomainAccessCommand}.
  */
 export interface RevokeDomainAccessCommandInput extends RevokeDomainAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeDomainAccessCommand}.
  */
 export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
@@ -48,6 +53,8 @@ export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeDomainAccessCommandInput - {@link RevokeDomainAccessCommandInput}
+ * @returns {@link RevokeDomainAccessCommandOutput}
  * @see {@link RevokeDomainAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeDomainAccessCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +93,9 @@ export class RevokeDomainAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeDomainAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class RevokeDomainAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeDomainAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RevokeDomainAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeDomainAccessCommandOutput> {
     return deserializeAws_restJson1RevokeDomainAccessCommand(output, context);
   }

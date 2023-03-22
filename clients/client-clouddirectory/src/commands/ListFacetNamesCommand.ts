@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFacetNamesCommand}.
  */
 export interface ListFacetNamesCommandInput extends ListFacetNamesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFacetNamesCommand}.
  */
 export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the names of facets that exist in a schema.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFacetNamesCommandInput - {@link ListFacetNamesCommandInput}
+ * @returns {@link ListFacetNamesCommandOutput}
  * @see {@link ListFacetNamesCommandInput} for command's `input` shape.
  * @see {@link ListFacetNamesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListFacetNamesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFacetNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListFacetNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFacetNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFacetNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFacetNamesCommandOutput> {
     return deserializeAws_restJson1ListFacetNamesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSchedulingPolicyCommand}.
  */
 export interface CreateSchedulingPolicyCommandInput extends CreateSchedulingPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSchedulingPolicyCommand}.
  */
 export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Batch scheduling policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPol
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSchedulingPolicyCommandInput - {@link CreateSchedulingPolicyCommandInput}
+ * @returns {@link CreateSchedulingPolicyCommandOutput}
  * @see {@link CreateSchedulingPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateSchedulingPolicyCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateSchedulingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSchedulingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateSchedulingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSchedulingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSchedulingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchedulingPolicyCommandOutput> {
     return deserializeAws_restJson1CreateSchedulingPolicyCommand(output, context);
   }

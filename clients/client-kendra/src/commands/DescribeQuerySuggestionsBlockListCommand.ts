@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQuerySuggestionsBlockListCommand}.
  */
 export interface DescribeQuerySuggestionsBlockListCommandInput extends DescribeQuerySuggestionsBlockListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQuerySuggestionsBlockListCommand}.
  */
 export interface DescribeQuerySuggestionsBlockListCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a block list used for query suggestions for
  *             an index.</p>
  *          <p>This is used to check the current settings that are applied to a
@@ -54,6 +59,8 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQuerySuggestionsBlockListCommandInput - {@link DescribeQuerySuggestionsBlockListCommandInput}
+ * @returns {@link DescribeQuerySuggestionsBlockListCommandOutput}
  * @see {@link DescribeQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link DescribeQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
     return serializeAws_json1_1DescribeQuerySuggestionsBlockListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

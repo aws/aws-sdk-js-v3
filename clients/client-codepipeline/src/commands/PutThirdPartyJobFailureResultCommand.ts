@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutThirdPartyJobFailureResultCommand}.
  */
 export interface PutThirdPartyJobFailureResultCommandInput extends PutThirdPartyJobFailureResultInput {}
 /**
+ * @public
+ *
  * The output of {@link PutThirdPartyJobFailureResultCommand}.
  */
 export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents the failure of a third party job as returned to the pipeline by a job
  *             worker. Used for partner actions only.</p>
  * @example
@@ -45,6 +50,8 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param PutThirdPartyJobFailureResultCommandInput - {@link PutThirdPartyJobFailureResultCommandInput}
+ * @returns {@link PutThirdPartyJobFailureResultCommandOutput}
  * @see {@link PutThirdPartyJobFailureResultCommandInput} for command's `input` shape.
  * @see {@link PutThirdPartyJobFailureResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -80,6 +87,9 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutThirdPartyJobFailureResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutThirdPartyJobFailureResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutThirdPartyJobFailureResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

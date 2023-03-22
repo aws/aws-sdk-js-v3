@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelBatchJobExecutionCommand}.
  */
 export interface CancelBatchJobExecutionCommandInput extends CancelBatchJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelBatchJobExecutionCommand}.
  */
 export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the running of a specific batch job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExec
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelBatchJobExecutionCommandInput - {@link CancelBatchJobExecutionCommandInput}
+ * @returns {@link CancelBatchJobExecutionCommandOutput}
  * @see {@link CancelBatchJobExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelBatchJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -87,6 +94,9 @@ export class CancelBatchJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelBatchJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CancelBatchJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelBatchJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelBatchJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBatchJobExecutionCommandOutput> {
     return deserializeAws_restJson1CancelBatchJobExecutionCommand(output, context);
   }

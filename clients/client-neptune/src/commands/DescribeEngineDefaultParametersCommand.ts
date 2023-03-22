@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEngineDefaultParametersCommand}.
  */
 export interface DescribeEngineDefaultParametersCommandInput extends DescribeEngineDefaultParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEngineDefaultParametersCommand}.
  */
 export interface DescribeEngineDefaultParametersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEngineDefaultParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default engine and system parameter information for the specified database
  *       engine.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngineDefaultParametersCommandInput - {@link DescribeEngineDefaultParametersCommandInput}
+ * @returns {@link DescribeEngineDefaultParametersCommandOutput}
  * @see {@link DescribeEngineDefaultParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngineDefaultParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,6 +121,9 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEngineDefaultParametersCommandInput,
     context: __SerdeContext
@@ -118,6 +131,9 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     return serializeAws_queryDescribeEngineDefaultParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

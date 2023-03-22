@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorldExportJobCommand}.
  */
 export interface CreateWorldExportJobCommandInput extends CreateWorldExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorldExportJobCommand}.
  */
 export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a world export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorldExportJobCommandInput - {@link CreateWorldExportJobCommandInput}
+ * @returns {@link CreateWorldExportJobCommandOutput}
  * @see {@link CreateWorldExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateWorldExportJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateWorldExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorldExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateWorldExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorldExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWorldExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorldExportJobCommandOutput> {
     return deserializeAws_restJson1CreateWorldExportJobCommand(output, context);
   }

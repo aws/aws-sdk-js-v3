@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsCommand}.
  */
 export interface ListTagsCommandInput extends ListTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsCommand}.
  */
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists tags for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsCommandInput - {@link ListTagsCommandInput}
+ * @returns {@link ListTagsCommandOutput}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
     return deserializeAws_restJson1ListTagsCommand(output, context);
   }

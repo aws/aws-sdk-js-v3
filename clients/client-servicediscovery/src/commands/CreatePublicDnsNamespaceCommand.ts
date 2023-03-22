@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePublicDnsNamespaceCommand}.
  */
 export interface CreatePublicDnsNamespaceCommandInput extends CreatePublicDnsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePublicDnsNamespaceCommand}.
  */
 export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace
  *    defines your service naming scheme. For example, if you name your namespace
  *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
@@ -55,6 +60,8 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePublicDnsNamespaceCommandInput - {@link CreatePublicDnsNamespaceCommandInput}
+ * @returns {@link CreatePublicDnsNamespaceCommandOutput}
  * @see {@link CreatePublicDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreatePublicDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -120,6 +127,9 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePublicDnsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePublicDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePublicDnsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePublicDnsNamespaceCommandOutput> {
     return deserializeAws_json1_1CreatePublicDnsNamespaceCommand(output, context);
   }

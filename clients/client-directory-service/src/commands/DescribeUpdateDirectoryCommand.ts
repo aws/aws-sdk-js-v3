@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUpdateDirectoryCommand}.
  */
 export interface DescribeUpdateDirectoryCommandInput extends DescribeUpdateDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUpdateDirectoryCommand}.
  */
 export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Describes the updates of a directory for a particular update type.
  *     </p>
@@ -48,6 +53,8 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUpdateDirectoryCommandInput - {@link DescribeUpdateDirectoryCommandInput}
+ * @returns {@link DescribeUpdateDirectoryCommandOutput}
  * @see {@link DescribeUpdateDirectoryCommandInput} for command's `input` shape.
  * @see {@link DescribeUpdateDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class DescribeUpdateDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUpdateDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DescribeUpdateDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUpdateDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUpdateDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUpdateDirectoryCommandOutput> {
     return deserializeAws_json1_1DescribeUpdateDirectoryCommand(output, context);
   }

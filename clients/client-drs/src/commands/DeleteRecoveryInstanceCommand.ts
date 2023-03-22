@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecoveryInstanceCommand}.
  */
 export interface DeleteRecoveryInstanceCommandInput extends DeleteRecoveryInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecoveryInstanceCommand}.
  */
 export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a single Recovery Instance by ID. This deletes the Recovery Instance resource from Elastic Disaster Recovery. The Recovery Instance must be disconnected first in order to delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecoveryInstanceCommandInput - {@link DeleteRecoveryInstanceCommandInput}
+ * @returns {@link DeleteRecoveryInstanceCommandOutput}
  * @see {@link DeleteRecoveryInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteRecoveryInstanceCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteRecoveryInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecoveryInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteRecoveryInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecoveryInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRecoveryInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecoveryInstanceCommandOutput> {
     return deserializeAws_restJson1DeleteRecoveryInstanceCommand(output, context);
   }

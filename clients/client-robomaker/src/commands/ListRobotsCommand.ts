@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRobotsCommand}.
  */
 export interface ListRobotsCommandInput extends ListRobotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRobotsCommand}.
  */
 export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Returns a list of robots. You can optionally provide filters to retrieve specific robots.</p>
@@ -51,6 +56,8 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRobotsCommandInput - {@link ListRobotsCommandInput}
+ * @returns {@link ListRobotsCommandOutput}
  * @see {@link ListRobotsCommandInput} for command's `input` shape.
  * @see {@link ListRobotsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListRobotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRobotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListRobotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRobotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRobotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRobotsCommandOutput> {
     return deserializeAws_restJson1ListRobotsCommand(output, context);
   }

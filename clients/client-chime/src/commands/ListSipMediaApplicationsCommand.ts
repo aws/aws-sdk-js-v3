@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSipMediaApplicationsCommand}.
  */
 export interface ListSipMediaApplicationsCommandInput extends ListSipMediaApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSipMediaApplicationsCommand}.
  */
 export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the SIP media applications under the administrator's AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSipMediaApplicationsCommandInput - {@link ListSipMediaApplicationsCommandInput}
+ * @returns {@link ListSipMediaApplicationsCommandOutput}
  * @see {@link ListSipMediaApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListSipMediaApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListSipMediaApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSipMediaApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListSipMediaApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSipMediaApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSipMediaApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSipMediaApplicationsCommandOutput> {
     return deserializeAws_restJson1ListSipMediaApplicationsCommand(output, context);
   }

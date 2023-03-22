@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifySelfservicePermissionsCommand}.
  */
 export interface ModifySelfservicePermissionsCommandInput extends ModifySelfservicePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifySelfservicePermissionsCommand}.
  */
 export interface ModifySelfservicePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface ModifySelfservicePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the self-service WorkSpace management capabilities for your users. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ModifySelfservicePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifySelfservicePermissionsCommandInput - {@link ModifySelfservicePermissionsCommandInput}
+ * @returns {@link ModifySelfservicePermissionsCommandOutput}
  * @see {@link ModifySelfservicePermissionsCommandInput} for command's `input` shape.
  * @see {@link ModifySelfservicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -81,6 +88,9 @@ export class ModifySelfservicePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifySelfservicePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ModifySelfservicePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifySelfservicePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifySelfservicePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

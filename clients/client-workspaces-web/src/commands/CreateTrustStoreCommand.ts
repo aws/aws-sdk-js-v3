@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrustStoreCommand}.
  */
 export interface CreateTrustStoreCommandInput extends CreateTrustStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrustStoreCommand}.
  */
 export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a trust store that can be associated with a web portal. A trust store contains
  *          certificate authority (CA) certificates. Once associated with a web portal, the browser in
  *          a streaming session will recognize certificates that have been issued using any of the CAs
@@ -50,6 +55,8 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrustStoreCommandInput - {@link CreateTrustStoreCommandInput}
+ * @returns {@link CreateTrustStoreCommandOutput}
  * @see {@link CreateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link CreateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrustStoreCommandOutput> {
     return deserializeAws_restJson1CreateTrustStoreCommand(output, context);
   }

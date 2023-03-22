@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetachManagedPolicyFromPermissionSetCommand}.
  */
 export interface DetachManagedPolicyFromPermissionSetCommandInput extends DetachManagedPolicyFromPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachManagedPolicyFromPermissionSetCommand}.
  */
 export interface DetachManagedPolicyFromPermissionSetCommandOutput
@@ -37,6 +41,7 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches the attached AWS managed policy ARN from the specified permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachManagedPolicyFromPermissionSetCommandInput - {@link DetachManagedPolicyFromPermissionSetCommandInput}
+ * @returns {@link DetachManagedPolicyFromPermissionSetCommandOutput}
  * @see {@link DetachManagedPolicyFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DetachManagedPolicyFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -94,6 +101,9 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachManagedPolicyFromPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DetachManagedPolicyFromPermissionSetCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
     return serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePlayerSessionsCommand}.
  */
 export interface DescribePlayerSessionsCommandInput extends DescribePlayerSessionsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePlayerSessionsCommand}.
  */
 export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves properties for one or more player sessions. </p>
  *         <p>This action can be used in the following ways: </p>
  *         <ul>
@@ -72,6 +77,8 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePlayerSessionsCommandInput - {@link DescribePlayerSessionsCommandInput}
+ * @returns {@link DescribePlayerSessionsCommandOutput}
  * @see {@link DescribePlayerSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribePlayerSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -109,6 +116,9 @@ export class DescribePlayerSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePlayerSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DescribePlayerSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePlayerSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePlayerSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlayerSessionsCommandOutput> {
     return deserializeAws_json1_1DescribePlayerSessionsCommand(output, context);
   }

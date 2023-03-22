@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentMetadataCommand}.
  */
 export interface UpdateDocumentMetadataCommandInput extends UpdateDocumentMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentMetadataCommand}.
  */
 export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information related to approval reviews for a specific version of a change template
  *    in Change Manager.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentMetadataCommandInput - {@link UpdateDocumentMetadataCommandInput}
+ * @returns {@link UpdateDocumentMetadataCommandOutput}
  * @see {@link UpdateDocumentMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateDocumentMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UpdateDocumentMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDocumentMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentMetadataCommandOutput> {
     return deserializeAws_json1_1UpdateDocumentMetadataCommand(output, context);
   }

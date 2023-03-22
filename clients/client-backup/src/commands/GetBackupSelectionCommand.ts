@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackupSelectionCommand}.
  */
 export interface GetBackupSelectionCommandInput extends GetBackupSelectionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetBackupSelectionCommand}.
  */
 export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns selection metadata and a document in JSON format that specifies a list of
  *          resources that are associated with a backup plan.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackupSelectionCommandInput - {@link GetBackupSelectionCommandInput}
+ * @returns {@link GetBackupSelectionCommandOutput}
  * @see {@link GetBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link GetBackupSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetBackupSelectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackupSelectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetBackupSelectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackupSelectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackupSelectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackupSelectionCommandOutput> {
     return deserializeAws_restJson1GetBackupSelectionCommand(output, context);
   }

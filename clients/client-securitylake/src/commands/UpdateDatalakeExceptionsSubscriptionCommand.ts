@@ -26,10 +26,14 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatalakeExceptionsSubscriptionCommand}.
  */
 export interface UpdateDatalakeExceptionsSubscriptionCommandInput extends UpdateDatalakeExceptionsSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatalakeExceptionsSubscriptionCommand}.
  */
 export interface UpdateDatalakeExceptionsSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateDatalakeExceptionsSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified notification subscription in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateDatalakeExceptionsSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatalakeExceptionsSubscriptionCommandInput - {@link UpdateDatalakeExceptionsSubscriptionCommandInput}
+ * @returns {@link UpdateDatalakeExceptionsSubscriptionCommandOutput}
  * @see {@link UpdateDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatalakeExceptionsSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDatalakeExceptionsSubscriptionCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
     return serializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

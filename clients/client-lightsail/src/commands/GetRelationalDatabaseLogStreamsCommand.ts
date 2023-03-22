@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseLogStreamsCommand}.
  */
 export interface GetRelationalDatabaseLogStreamsCommandInput extends GetRelationalDatabaseLogStreamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseLogStreamsCommand}.
  */
 export interface GetRelationalDatabaseLogStreamsCommandOutput
@@ -37,6 +41,7 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of available log streams for a specific database in Amazon Lightsail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseLogStreamsCommandInput - {@link GetRelationalDatabaseLogStreamsCommandInput}
+ * @returns {@link GetRelationalDatabaseLogStreamsCommandOutput}
  * @see {@link GetRelationalDatabaseLogStreamsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseLogStreamsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseLogStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseLogStreamsCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
     return serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

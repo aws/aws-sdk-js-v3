@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProvisionedConcurrencyConfigCommand}.
  */
 export interface DeleteProvisionedConcurrencyConfigCommandInput extends DeleteProvisionedConcurrencyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProvisionedConcurrencyConfigCommand}.
  */
 export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the provisioned concurrency configuration for a function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProvisionedConcurrencyConfigCommandInput - {@link DeleteProvisionedConcurrencyConfigCommandInput}
+ * @returns {@link DeleteProvisionedConcurrencyConfigCommandOutput}
  * @see {@link DeleteProvisionedConcurrencyConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisionedConcurrencyConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteProvisionedConcurrencyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProvisionedConcurrencyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class DeleteProvisionedConcurrencyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteProvisionedConcurrencyConfigCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class DeleteProvisionedConcurrencyConfigCommand extends $Command<
     return serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

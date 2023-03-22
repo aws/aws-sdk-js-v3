@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerPolicyCommand}.
  */
 export interface GetContainerPolicyCommandInput extends GetContainerPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerPolicyCommand}.
  */
 export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the access policy for the specified container. For information about the
  *          data that is included in an access policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and Access Management User
  *             Guide</a>.</p>
@@ -48,6 +53,8 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerPolicyCommandInput - {@link GetContainerPolicyCommandInput}
+ * @returns {@link GetContainerPolicyCommandOutput}
  * @see {@link GetContainerPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContainerPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetContainerPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetContainerPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContainerPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerPolicyCommandOutput> {
     return deserializeAws_json1_1GetContainerPolicyCommand(output, context);
   }

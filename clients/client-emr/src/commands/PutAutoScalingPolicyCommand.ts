@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAutoScalingPolicyCommand}.
  */
 export interface PutAutoScalingPolicyCommandInput extends PutAutoScalingPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutAutoScalingPolicyCommand}.
  */
 export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an automatic scaling policy for a core instance group or task
  *          instance group in an Amazon EMR cluster. The automatic scaling policy defines how
  *          an instance group dynamically adds and terminates EC2 instances in response to the value of
@@ -49,6 +54,8 @@ export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyO
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAutoScalingPolicyCommandInput - {@link PutAutoScalingPolicyCommandInput}
+ * @returns {@link PutAutoScalingPolicyCommandOutput}
  * @see {@link PutAutoScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutAutoScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -72,6 +79,9 @@ export class PutAutoScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAutoScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class PutAutoScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAutoScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAutoScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAutoScalingPolicyCommandOutput> {
     return deserializeAws_json1_1PutAutoScalingPolicyCommand(output, context);
   }

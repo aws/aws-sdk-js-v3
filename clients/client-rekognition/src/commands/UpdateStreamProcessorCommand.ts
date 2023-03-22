@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStreamProcessorCommand}.
  */
 export interface UpdateStreamProcessorCommandInput extends UpdateStreamProcessorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStreamProcessorCommand}.
  */
 export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Allows you to update a stream processor. You can change some settings and regions of interest and delete certain parameters.
  *         </p>
@@ -48,6 +53,8 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStreamProcessorCommandInput - {@link UpdateStreamProcessorCommandInput}
+ * @returns {@link UpdateStreamProcessorCommandOutput}
  * @see {@link UpdateStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -91,6 +98,9 @@ export class UpdateStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UpdateStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamProcessorCommandOutput> {
     return deserializeAws_json1_1UpdateStreamProcessorCommand(output, context);
   }

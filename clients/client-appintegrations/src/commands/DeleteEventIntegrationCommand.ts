@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventIntegrationCommand}.
  */
 export interface DeleteEventIntegrationCommandInput extends DeleteEventIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventIntegrationCommand}.
  */
 export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified existing event integration. If the event integration is associated
  *       with clients, the request is rejected.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventIntegrationCommandInput - {@link DeleteEventIntegrationCommandInput}
+ * @returns {@link DeleteEventIntegrationCommandOutput}
  * @see {@link DeleteEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteEventIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteEventIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEventIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventIntegrationCommandOutput> {
     return deserializeAws_restJson1DeleteEventIntegrationCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStorageVirtualMachineCommand}.
  */
 export interface UpdateStorageVirtualMachineCommandInput extends UpdateStorageVirtualMachineRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStorageVirtualMachineCommand}.
  */
 export interface UpdateStorageVirtualMachineCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateStorageVirtualMachineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon FSx for ONTAP storage virtual machine (SVM).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface UpdateStorageVirtualMachineCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStorageVirtualMachineCommandInput - {@link UpdateStorageVirtualMachineCommandInput}
+ * @returns {@link UpdateStorageVirtualMachineCommandOutput}
  * @see {@link UpdateStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link UpdateStorageVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStorageVirtualMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStorageVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateStorageVirtualMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

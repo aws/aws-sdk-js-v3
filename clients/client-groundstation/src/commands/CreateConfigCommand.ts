@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigCommand}.
  */
 export interface CreateConfigCommandInput extends CreateConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigCommand}.
  */
 export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p>
  *          <p>Only one type of <code>configData</code> can be specified.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigCommandInput - {@link CreateConfigCommandInput}
+ * @returns {@link CreateConfigCommandOutput}
  * @see {@link CreateConfigCommandInput} for command's `input` shape.
  * @see {@link CreateConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigCommandOutput> {
     return deserializeAws_restJson1CreateConfigCommand(output, context);
   }

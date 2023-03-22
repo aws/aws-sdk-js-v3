@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ExportTransitGatewayRoutesCommand}.
  */
 export interface ExportTransitGatewayRoutesCommandInput extends ExportTransitGatewayRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportTransitGatewayRoutesCommand}.
  */
 export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGatewayRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports routes from the specified transit gateway route table to the specified S3 bucket.
  *          By default, all routes are exported. Alternatively, you can filter by CIDR range.</p>
  *          <p>The routes are saved to the specified bucket in a JSON file. For more information, see
@@ -50,6 +55,8 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportTransitGatewayRoutesCommandInput - {@link ExportTransitGatewayRoutesCommandInput}
+ * @returns {@link ExportTransitGatewayRoutesCommandOutput}
  * @see {@link ExportTransitGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link ExportTransitGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class ExportTransitGatewayRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportTransitGatewayRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ExportTransitGatewayRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportTransitGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ExportTransitGatewayRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

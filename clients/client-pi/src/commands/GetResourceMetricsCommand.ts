@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceMetricsCommand}.
  */
 export interface GetResourceMetricsCommandInput extends GetResourceMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceMetricsCommand}.
  */
 export interface GetResourceMetricsCommandOutput extends GetResourceMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve Performance Insights metrics for a set of data sources over a time period. You can provide
  *       specific dimension groups and dimensions, and provide aggregation and filtering criteria for
  *       each group.</p>
@@ -52,6 +57,8 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceMetricsCommandInput - {@link GetResourceMetricsCommandInput}
+ * @returns {@link GetResourceMetricsCommandOutput}
  * @see {@link GetResourceMetricsCommandInput} for command's `input` shape.
  * @see {@link GetResourceMetricsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetResourceMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetResourceMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResourceMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceMetricsCommandOutput> {
     return deserializeAws_json1_1GetResourceMetricsCommand(output, context);
   }

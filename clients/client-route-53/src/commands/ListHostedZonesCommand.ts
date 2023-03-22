@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListHostedZonesCommand}.
  */
 export interface ListHostedZonesCommandInput extends ListHostedZonesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHostedZonesCommand}.
  */
 export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of the public and private hosted zones that are associated with the
  * 			current Amazon Web Services account. The response includes a <code>HostedZones</code>
  * 			child element for each hosted zone.</p>
@@ -52,6 +57,8 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHostedZonesCommandInput - {@link ListHostedZonesCommandInput}
+ * @returns {@link ListHostedZonesCommandOutput}
  * @see {@link ListHostedZonesCommandInput} for command's `input` shape.
  * @see {@link ListHostedZonesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -84,6 +91,9 @@ export class ListHostedZonesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostedZonesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListHostedZonesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHostedZonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListHostedZonesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostedZonesCommandOutput> {
     return deserializeAws_restXmlListHostedZonesCommand(output, context);
   }

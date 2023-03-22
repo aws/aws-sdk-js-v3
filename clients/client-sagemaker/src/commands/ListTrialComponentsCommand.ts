@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrialComponentsCommand}.
  */
 export interface ListTrialComponentsCommandInput extends ListTrialComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrialComponentsCommand}.
  */
 export interface ListTrialComponentsCommandOutput extends ListTrialComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the trial components in your account. You can sort the list by trial component name
  *       or creation time. You can filter the list to show only components that were created in a
  *       specific time range. You can also filter on one of the following:</p>
@@ -65,6 +70,8 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrialComponentsCommandInput - {@link ListTrialComponentsCommandInput}
+ * @returns {@link ListTrialComponentsCommandOutput}
  * @see {@link ListTrialComponentsCommandInput} for command's `input` shape.
  * @see {@link ListTrialComponentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListTrialComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrialComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListTrialComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrialComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTrialComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrialComponentsCommandOutput> {
     return deserializeAws_json1_1ListTrialComponentsCommand(output, context);
   }

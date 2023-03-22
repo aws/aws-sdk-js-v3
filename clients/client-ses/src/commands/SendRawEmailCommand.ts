@@ -23,15 +23,20 @@ import { deserializeAws_querySendRawEmailCommand, serializeAws_querySendRawEmail
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendRawEmailCommand}.
  */
 export interface SendRawEmailCommandInput extends SendRawEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendRawEmailCommand}.
  */
 export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message and immediately queues it for sending.</p>
  *
  *         <p>This operation is more flexible than the <code>SendEmail</code> API operation. When
@@ -151,6 +156,8 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param SendRawEmailCommandInput - {@link SendRawEmailCommandInput}
+ * @returns {@link SendRawEmailCommandOutput}
  * @see {@link SendRawEmailCommandInput} for command's `input` shape.
  * @see {@link SendRawEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -218,6 +225,9 @@ export class SendRawEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendRawEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -255,10 +265,16 @@ export class SendRawEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendRawEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendRawEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendRawEmailCommandOutput> {
     return deserializeAws_querySendRawEmailCommand(output, context);
   }

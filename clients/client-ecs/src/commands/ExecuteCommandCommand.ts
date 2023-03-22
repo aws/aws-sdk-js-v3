@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteCommandCommand}.
  */
 export interface ExecuteCommandCommandInput extends ExecuteCommandRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteCommandCommand}.
  */
 export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs a command remotely on a container within a task.</p>
  *          <p>If you use a condition key in your IAM policy to refine the conditions for the policy
  * 			statement, for example limit the actions to a specific cluster, you receive an
@@ -52,6 +57,8 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteCommandCommandInput - {@link ExecuteCommandCommandInput}
+ * @returns {@link ExecuteCommandCommandOutput}
  * @see {@link ExecuteCommandCommandInput} for command's `input` shape.
  * @see {@link ExecuteCommandCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -111,6 +118,9 @@ export class ExecuteCommandCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteCommandCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class ExecuteCommandCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExecuteCommandCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteCommandCommandOutput> {
     return deserializeAws_json1_1ExecuteCommandCommand(output, context);
   }

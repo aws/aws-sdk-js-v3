@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssociationCommand}.
  */
 export interface CreateAssociationCommandInput extends CreateAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssociationCommand}.
  */
 export interface CreateAssociationCommandOutput extends CreateAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A State Manager association defines the state that you want to maintain on your managed
  *    nodes. For example, an association can specify that anti-virus software must be installed and
  *    running on your managed nodes, or that certain ports must be closed. For static targets, the
@@ -55,6 +60,8 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssociationCommandInput - {@link CreateAssociationCommandInput}
+ * @returns {@link CreateAssociationCommandOutput}
  * @see {@link CreateAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateAssociationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -137,6 +144,9 @@ export class CreateAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class CreateAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssociationCommandOutput> {
     return deserializeAws_json1_1CreateAssociationCommand(output, context);
   }

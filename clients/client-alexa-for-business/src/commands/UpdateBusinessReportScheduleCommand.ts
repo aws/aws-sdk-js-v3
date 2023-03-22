@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBusinessReportScheduleCommand}.
  */
 export interface UpdateBusinessReportScheduleCommandInput extends UpdateBusinessReportScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBusinessReportScheduleCommand}.
  */
 export interface UpdateBusinessReportScheduleCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateBusinessReportScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of the report delivery schedule with the specified schedule
  *          ARN.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateBusinessReportScheduleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBusinessReportScheduleCommandInput - {@link UpdateBusinessReportScheduleCommandInput}
+ * @returns {@link UpdateBusinessReportScheduleCommandOutput}
  * @see {@link UpdateBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBusinessReportScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBusinessReportScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateBusinessReportScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

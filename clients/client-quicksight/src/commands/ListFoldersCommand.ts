@@ -26,15 +26,20 @@ import {
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFoldersCommand}.
  */
 export interface ListFoldersCommandInput extends ListFoldersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFoldersCommand}.
  */
 export interface ListFoldersCommandOutput extends ListFoldersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all folders in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFoldersCommandOutput extends ListFoldersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFoldersCommandInput - {@link ListFoldersCommandInput}
+ * @returns {@link ListFoldersCommandOutput}
  * @see {@link ListFoldersCommandInput} for command's `input` shape.
  * @see {@link ListFoldersCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListFoldersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFoldersCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListFoldersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFoldersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFoldersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFoldersCommandOutput> {
     return deserializeAws_restJson1ListFoldersCommand(output, context);
   }

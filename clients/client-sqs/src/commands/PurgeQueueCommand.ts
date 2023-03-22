@@ -18,15 +18,20 @@ import { deserializeAws_queryPurgeQueueCommand, serializeAws_queryPurgeQueueComm
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PurgeQueueCommand}.
  */
 export interface PurgeQueueCommandInput extends PurgeQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurgeQueueCommand}.
  */
 export interface PurgeQueueCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the messages in a queue specified by the <code>QueueURL</code>
  *             parameter.</p>
  *
@@ -51,6 +56,8 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PurgeQueueCommandInput - {@link PurgeQueueCommandInput}
+ * @returns {@link PurgeQueueCommandOutput}
  * @see {@link PurgeQueueCommandInput} for command's `input` shape.
  * @see {@link PurgeQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -80,6 +87,9 @@ export class PurgeQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurgeQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class PurgeQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurgeQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPurgeQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PurgeQueueCommandOutput> {
     return deserializeAws_queryPurgeQueueCommand(output, context);
   }

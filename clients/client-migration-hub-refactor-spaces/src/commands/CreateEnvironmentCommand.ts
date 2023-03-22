@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces environment. The caller owns the environment resource, and all
  *       Refactor Spaces applications, services, and routes created within the environment. They are referred
  *       to as the <i>environment owner</i>. The environment owner has cross-account
@@ -57,6 +62,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
+ * @returns {@link CreateEnvironmentCommandOutput}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
     return deserializeAws_restJson1CreateEnvironmentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetEbsDefaultKmsKeyIdCommand}.
  */
 export interface GetEbsDefaultKmsKeyIdCommandInput extends GetEbsDefaultKmsKeyIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEbsDefaultKmsKeyIdCommand}.
  */
 export interface GetEbsDefaultKmsKeyIdCommandOutput extends GetEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the default KMS key for EBS encryption by default for your account in this Region.
  *   		You can change the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or
  *       <a>ResetEbsDefaultKmsKeyId</a>.</p>
@@ -50,6 +55,8 @@ export interface GetEbsDefaultKmsKeyIdCommandOutput extends GetEbsDefaultKmsKeyI
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEbsDefaultKmsKeyIdCommandInput - {@link GetEbsDefaultKmsKeyIdCommandInput}
+ * @returns {@link GetEbsDefaultKmsKeyIdCommandOutput}
  * @see {@link GetEbsDefaultKmsKeyIdCommandInput} for command's `input` shape.
  * @see {@link GetEbsDefaultKmsKeyIdCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class GetEbsDefaultKmsKeyIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEbsDefaultKmsKeyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetEbsDefaultKmsKeyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEbsDefaultKmsKeyIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetEbsDefaultKmsKeyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEbsDefaultKmsKeyIdCommandOutput> {
     return deserializeAws_ec2GetEbsDefaultKmsKeyIdCommand(output, context);
   }

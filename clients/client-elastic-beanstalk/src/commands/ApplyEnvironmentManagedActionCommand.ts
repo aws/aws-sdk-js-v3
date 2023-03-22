@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ApplyEnvironmentManagedActionCommand}.
  */
 export interface ApplyEnvironmentManagedActionCommandInput extends ApplyEnvironmentManagedActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ApplyEnvironmentManagedActionCommand}.
  */
 export interface ApplyEnvironmentManagedActionCommandOutput
@@ -37,6 +41,7 @@ export interface ApplyEnvironmentManagedActionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a scheduled managed action immediately. A managed action can be applied only if
  *       its status is <code>Scheduled</code>. Get the status and action ID of a managed action with
  *         <a>DescribeEnvironmentManagedActions</a>.</p>
@@ -50,6 +55,8 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplyEnvironmentManagedActionCommandInput - {@link ApplyEnvironmentManagedActionCommandInput}
+ * @returns {@link ApplyEnvironmentManagedActionCommandOutput}
  * @see {@link ApplyEnvironmentManagedActionCommandInput} for command's `input` shape.
  * @see {@link ApplyEnvironmentManagedActionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -79,6 +86,9 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplyEnvironmentManagedActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApplyEnvironmentManagedActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryApplyEnvironmentManagedActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

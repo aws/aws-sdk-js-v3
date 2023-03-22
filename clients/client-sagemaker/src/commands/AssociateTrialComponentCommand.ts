@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTrialComponentCommand}.
  */
 export interface AssociateTrialComponentCommandInput extends AssociateTrialComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTrialComponentCommand}.
  */
 export interface AssociateTrialComponentCommandOutput extends AssociateTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a trial component with a trial. A trial component can be associated with
  *       multiple trials. To disassociate a trial component from a trial, call the <a>DisassociateTrialComponent</a> API.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AssociateTrialComponentCommandOutput extends AssociateTrialComp
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTrialComponentCommandInput - {@link AssociateTrialComponentCommandInput}
+ * @returns {@link AssociateTrialComponentCommandOutput}
  * @see {@link AssociateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link AssociateTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -77,6 +84,9 @@ export class AssociateTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class AssociateTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrialComponentCommandOutput> {
     return deserializeAws_json1_1AssociateTrialComponentCommand(output, context);
   }

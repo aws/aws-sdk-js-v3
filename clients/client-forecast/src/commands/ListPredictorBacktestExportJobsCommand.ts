@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPredictorBacktestExportJobsCommand}.
  */
 export interface ListPredictorBacktestExportJobsCommandInput extends ListPredictorBacktestExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPredictorBacktestExportJobsCommand}.
  */
 export interface ListPredictorBacktestExportJobsCommandOutput
@@ -37,6 +41,7 @@ export interface ListPredictorBacktestExportJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of predictor backtest export jobs created using the <a>CreatePredictorBacktestExportJob</a> operation. This operation returns a
  *             summary for each backtest export job. You can filter the list using an array of <a>Filter</a> objects.</p>
  *          <p>To retrieve the complete set of properties for a particular backtest export job, use
@@ -51,6 +56,8 @@ export interface ListPredictorBacktestExportJobsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPredictorBacktestExportJobsCommandInput - {@link ListPredictorBacktestExportJobsCommandInput}
+ * @returns {@link ListPredictorBacktestExportJobsCommandOutput}
  * @see {@link ListPredictorBacktestExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListPredictorBacktestExportJobsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPredictorBacktestExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPredictorBacktestExportJobsCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
     return serializeAws_json1_1ListPredictorBacktestExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

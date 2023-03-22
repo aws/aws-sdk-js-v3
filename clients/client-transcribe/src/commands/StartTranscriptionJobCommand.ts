@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartTranscriptionJobCommand}.
  */
 export interface StartTranscriptionJobCommandInput extends StartTranscriptionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTranscriptionJobCommand}.
  */
 export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transcribes the audio from a media file and applies any additional Request Parameters
  *             you choose to include in your request.</p>
  *          <p>To make a <code>StartTranscriptionJob</code> request, you must first upload your media
@@ -80,6 +85,8 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTranscriptionJobCommandInput - {@link StartTranscriptionJobCommandInput}
+ * @returns {@link StartTranscriptionJobCommandOutput}
  * @see {@link StartTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link StartTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -121,6 +128,9 @@ export class StartTranscriptionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class StartTranscriptionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartTranscriptionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTranscriptionJobCommandOutput> {
     return deserializeAws_json1_1StartTranscriptionJobCommand(output, context);
   }

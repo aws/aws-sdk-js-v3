@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayGroupCommand}.
  */
 export interface UpdateGatewayGroupCommandInput extends UpdateGatewayGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayGroupCommand}.
  */
 export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of a gateway group. If any optional field is not provided, the
  *          existing corresponding value is left unmodified.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayGroupCommandInput - {@link UpdateGatewayGroupCommandInput}
+ * @returns {@link UpdateGatewayGroupCommandOutput}
  * @see {@link UpdateGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateGatewayGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateGatewayGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateGatewayGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayGroupCommandOutput> {
     return deserializeAws_json1_1UpdateGatewayGroupCommand(output, context);
   }

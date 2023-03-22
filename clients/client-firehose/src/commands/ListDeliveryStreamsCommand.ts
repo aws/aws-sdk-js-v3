@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeliveryStreamsCommand}.
  */
 export interface ListDeliveryStreamsCommandInput extends ListDeliveryStreamsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDeliveryStreamsCommand}.
  */
 export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your delivery streams in alphabetical order of their names.</p>
  *          <p>The number of delivery streams might be too large to return using a single call to
  *             <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
@@ -53,6 +58,8 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeliveryStreamsCommandInput - {@link ListDeliveryStreamsCommandInput}
+ * @returns {@link ListDeliveryStreamsCommandOutput}
  * @see {@link ListDeliveryStreamsCommandInput} for command's `input` shape.
  * @see {@link ListDeliveryStreamsCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListDeliveryStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeliveryStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListDeliveryStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeliveryStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDeliveryStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeliveryStreamsCommandOutput> {
     return deserializeAws_json1_1ListDeliveryStreamsCommand(output, context);
   }

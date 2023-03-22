@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAggregationAuthorizationCommand}.
  */
 export interface PutAggregationAuthorizationCommandInput extends PutAggregationAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAggregationAuthorizationCommand}.
  */
 export interface PutAggregationAuthorizationCommandOutput
@@ -37,6 +41,7 @@ export interface PutAggregationAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Authorizes the aggregator account and region to collect data
  * 			from the source account and region. </p>
  *          <note>
@@ -54,6 +59,8 @@ export interface PutAggregationAuthorizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAggregationAuthorizationCommandInput - {@link PutAggregationAuthorizationCommandInput}
+ * @returns {@link PutAggregationAuthorizationCommandOutput}
  * @see {@link PutAggregationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link PutAggregationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutAggregationAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAggregationAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutAggregationAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAggregationAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAggregationAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

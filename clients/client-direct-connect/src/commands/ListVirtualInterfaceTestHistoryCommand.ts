@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVirtualInterfaceTestHistoryCommand}.
  */
 export interface ListVirtualInterfaceTestHistoryCommandInput extends ListVirtualInterfaceTestHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVirtualInterfaceTestHistoryCommand}.
  */
 export interface ListVirtualInterfaceTestHistoryCommandOutput
@@ -37,6 +41,7 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the virtual interface failover test history.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualInterfaceTestHistoryCommandInput - {@link ListVirtualInterfaceTestHistoryCommandInput}
+ * @returns {@link ListVirtualInterfaceTestHistoryCommandOutput}
  * @see {@link ListVirtualInterfaceTestHistoryCommandInput} for command's `input` shape.
  * @see {@link ListVirtualInterfaceTestHistoryCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualInterfaceTestHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListVirtualInterfaceTestHistoryCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
     return serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

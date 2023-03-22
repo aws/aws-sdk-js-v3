@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessControlConfigurationsCommand}.
  */
 export interface ListAccessControlConfigurationsCommandInput extends ListAccessControlConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessControlConfigurationsCommand}.
  */
 export interface ListAccessControlConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAccessControlConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists one or more access control configurations for an index. This
  *             includes user and group access information for your documents. This
  *             is useful for user context filtering, where search results are filtered
@@ -51,6 +56,8 @@ export interface ListAccessControlConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessControlConfigurationsCommandInput - {@link ListAccessControlConfigurationsCommandInput}
+ * @returns {@link ListAccessControlConfigurationsCommandOutput}
  * @see {@link ListAccessControlConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListAccessControlConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListAccessControlConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessControlConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class ListAccessControlConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAccessControlConfigurationsCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class ListAccessControlConfigurationsCommand extends $Command<
     return serializeAws_json1_1ListAccessControlConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

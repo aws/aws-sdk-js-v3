@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMembershipCommand}.
  */
 export interface DisassociateMembershipCommandInput extends DisassociateMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMembershipCommand}.
  */
 export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the member account from the specified behavior graph. This operation can only be
  *          called by an invited member account that has the <code>ENABLED</code> status.</p>
  *          <p>
@@ -47,6 +52,8 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMembershipCommandInput - {@link DisassociateMembershipCommandInput}
+ * @returns {@link DisassociateMembershipCommandOutput}
  * @see {@link DisassociateMembershipCommandInput} for command's `input` shape.
  * @see {@link DisassociateMembershipCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisassociateMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DisassociateMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMembershipCommandOutput> {
     return deserializeAws_restJson1DisassociateMembershipCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClientCertificateCommand}.
  */
 export interface DeleteClientCertificateCommandInput extends DeleteClientCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClientCertificateCommand}.
  */
 export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the ClientCertificate resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClientCertificateCommandInput - {@link DeleteClientCertificateCommandInput}
+ * @returns {@link DeleteClientCertificateCommandOutput}
  * @see {@link DeleteClientCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteClientCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClientCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteClientCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteClientCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientCertificateCommandOutput> {
     return deserializeAws_restJson1DeleteClientCertificateCommand(output, context);
   }

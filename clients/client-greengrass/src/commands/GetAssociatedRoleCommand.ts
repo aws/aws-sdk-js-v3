@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssociatedRoleCommand}.
  */
 export interface GetAssociatedRoleCommandInput extends GetAssociatedRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssociatedRoleCommand}.
  */
 export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves the role associated with a particular group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssociatedRoleCommandInput - {@link GetAssociatedRoleCommandInput}
+ * @returns {@link GetAssociatedRoleCommandOutput}
  * @see {@link GetAssociatedRoleCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedRoleCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetAssociatedRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociatedRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetAssociatedRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssociatedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAssociatedRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssociatedRoleCommandOutput> {
     return deserializeAws_restJson1GetAssociatedRoleCommand(output, context);
   }

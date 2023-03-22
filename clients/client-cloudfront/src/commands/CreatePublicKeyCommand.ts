@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePublicKeyCommand}.
  */
 export interface CreatePublicKeyCommandInput extends CreatePublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePublicKeyCommand}.
  */
 export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a public key to CloudFront that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePublicKeyCommandInput - {@link CreatePublicKeyCommandInput}
+ * @returns {@link CreatePublicKeyCommandOutput}
  * @see {@link CreatePublicKeyCommandInput} for command's `input` shape.
  * @see {@link CreatePublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreatePublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreatePublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreatePublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePublicKeyCommandOutput> {
     return deserializeAws_restXmlCreatePublicKeyCommand(output, context);
   }

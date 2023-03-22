@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePhoneNumberWithUserCommand}.
  */
 export interface AssociatePhoneNumberWithUserCommandInput extends AssociatePhoneNumberWithUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePhoneNumberWithUserCommand}.
  */
 export interface AssociatePhoneNumberWithUserCommandOutput
@@ -37,6 +41,7 @@ export interface AssociatePhoneNumberWithUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a phone number with the specified Amazon Chime user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociatePhoneNumberWithUserCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociatePhoneNumberWithUserCommandInput - {@link AssociatePhoneNumberWithUserCommandInput}
+ * @returns {@link AssociatePhoneNumberWithUserCommandOutput}
  * @see {@link AssociatePhoneNumberWithUserCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumberWithUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -95,6 +102,9 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePhoneNumberWithUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociatePhoneNumberWithUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociatePhoneNumberWithUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

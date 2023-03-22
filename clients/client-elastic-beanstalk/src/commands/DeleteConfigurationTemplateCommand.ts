@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationTemplateCommand}.
  */
 export interface DeleteConfigurationTemplateCommandInput extends DeleteConfigurationTemplateMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationTemplateCommand}.
  */
 export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified configuration template.</p>
  *          <note>
  *             <p>When you launch an environment using a configuration template, the environment gets a
@@ -49,6 +54,8 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationTemplateCommandInput - {@link DeleteConfigurationTemplateCommandInput}
+ * @returns {@link DeleteConfigurationTemplateCommandOutput}
  * @see {@link DeleteConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

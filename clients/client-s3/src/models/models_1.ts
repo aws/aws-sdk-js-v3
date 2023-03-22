@@ -19,6 +19,9 @@ import {
 } from "./models_0";
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
+/**
+ * @public
+ */
 export interface PutObjectRetentionOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -27,6 +30,9 @@ export interface PutObjectRetentionOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectRetentionRequest {
   /**
    * <p>The bucket name that contains the object you want to apply this Object Retention
@@ -90,6 +96,9 @@ export interface PutObjectRetentionRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectTaggingOutput {
   /**
    * <p>The versionId of the object the tag-set was added to.</p>
@@ -97,6 +106,9 @@ export interface PutObjectTaggingOutput {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutObjectTaggingRequest {
   /**
    * <p>The bucket name containing the object. </p>
@@ -154,6 +166,9 @@ export interface PutObjectTaggingRequest {
   RequestPayer?: RequestPayer | string;
 }
 
+/**
+ * @public
+ */
 export interface PutPublicAccessBlockRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want
@@ -194,6 +209,7 @@ export interface PutPublicAccessBlockRequest {
 }
 
 /**
+ * @public
  * <p>This action is not allowed against this storage tier.</p>
  */
 export class ObjectAlreadyInActiveTierError extends __BaseException {
@@ -212,6 +228,9 @@ export class ObjectAlreadyInActiveTierError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RestoreObjectOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -226,6 +245,9 @@ export interface RestoreObjectOutput {
   RestoreOutputPath?: string;
 }
 
+/**
+ * @public
+ */
 export enum Tier {
   Bulk = "Bulk",
   Expedited = "Expedited",
@@ -233,6 +255,7 @@ export enum Tier {
 }
 
 /**
+ * @public
  * <p>Container for S3 Glacier job parameters.</p>
  */
 export interface GlacierJobParameters {
@@ -243,6 +266,7 @@ export interface GlacierJobParameters {
 }
 
 /**
+ * @public
  * <p>Contains the type of server-side encryption used.</p>
  */
 export interface Encryption {
@@ -269,6 +293,7 @@ export interface Encryption {
 }
 
 /**
+ * @public
  * <p>A metadata key-value pair to store with an object.</p>
  */
 export interface MetadataEntry {
@@ -284,6 +309,7 @@ export interface MetadataEntry {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
  */
 export interface S3Location {
@@ -329,6 +355,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Describes the location where the restore job's output is stored.</p>
  */
 export interface OutputLocation {
@@ -338,16 +365,25 @@ export interface OutputLocation {
   S3?: S3Location;
 }
 
+/**
+ * @public
+ */
 export enum ExpressionType {
   SQL = "SQL",
 }
 
+/**
+ * @public
+ */
 export enum CompressionType {
   BZIP2 = "BZIP2",
   GZIP = "GZIP",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum FileHeaderInfo {
   IGNORE = "IGNORE",
   NONE = "NONE",
@@ -355,6 +391,7 @@ export enum FileHeaderInfo {
 }
 
 /**
+ * @public
  * <p>Describes how an uncompressed comma-separated values (CSV)-formatted input object is
  *          formatted.</p>
  */
@@ -427,12 +464,16 @@ export interface CSVInput {
   AllowQuotedRecordDelimiter?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum JSONType {
   DOCUMENT = "DOCUMENT",
   LINES = "LINES",
 }
 
 /**
+ * @public
  * <p>Specifies JSON as object's input serialization format.</p>
  */
 export interface JSONInput {
@@ -443,11 +484,13 @@ export interface JSONInput {
 }
 
 /**
+ * @public
  * <p>Container for Parquet.</p>
  */
 export interface ParquetInput {}
 
 /**
+ * @public
  * <p>Describes the serialization format of the object.</p>
  */
 export interface InputSerialization {
@@ -473,12 +516,16 @@ export interface InputSerialization {
   Parquet?: ParquetInput;
 }
 
+/**
+ * @public
+ */
 export enum QuoteFields {
   ALWAYS = "ALWAYS",
   ASNEEDED = "ASNEEDED",
 }
 
 /**
+ * @public
  * <p>Describes how uncompressed comma-separated values (CSV)-formatted results are
  *          formatted.</p>
  */
@@ -525,6 +572,7 @@ export interface CSVOutput {
 }
 
 /**
+ * @public
  * <p>Specifies JSON as request's output serialization format.</p>
  */
 export interface JSONOutput {
@@ -536,6 +584,7 @@ export interface JSONOutput {
 }
 
 /**
+ * @public
  * <p>Describes how results of the Select job are serialized.</p>
  */
 export interface OutputSerialization {
@@ -551,6 +600,7 @@ export interface OutputSerialization {
 }
 
 /**
+ * @public
  * <p>Describes the parameters for Select job types.</p>
  */
 export interface SelectParameters {
@@ -575,11 +625,15 @@ export interface SelectParameters {
   OutputSerialization: OutputSerialization | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RestoreRequestType {
   SELECT = "SELECT",
 }
 
 /**
+ * @public
  * <p>Container for restore job parameters.</p>
  */
 export interface RestoreRequest {
@@ -623,6 +677,9 @@ export interface RestoreRequest {
   OutputLocation?: OutputLocation;
 }
 
+/**
+ * @public
+ */
 export interface RestoreObjectRequest {
   /**
    * <p>The bucket name containing the object to restore. </p>
@@ -675,11 +732,13 @@ export interface RestoreObjectRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ContinuationEvent {}
 
 /**
+ * @public
  * <p>A message that indicates the request is complete and no more messages will be sent. You
  *          should not assume that the request is complete until the client receives an
  *             <code>EndEvent</code>.</p>
@@ -687,6 +746,7 @@ export interface ContinuationEvent {}
 export interface EndEvent {}
 
 /**
+ * @public
  * <p>This data type contains information about progress of an operation.</p>
  */
 export interface Progress {
@@ -707,6 +767,7 @@ export interface Progress {
 }
 
 /**
+ * @public
  * <p>This data type contains information about the progress event of an operation.</p>
  */
 export interface ProgressEvent {
@@ -717,6 +778,7 @@ export interface ProgressEvent {
 }
 
 /**
+ * @public
  * <p>The container for the records event.</p>
  */
 export interface RecordsEvent {
@@ -727,6 +789,7 @@ export interface RecordsEvent {
 }
 
 /**
+ * @public
  * <p>Container for the stats details.</p>
  */
 export interface Stats {
@@ -747,6 +810,7 @@ export interface Stats {
 }
 
 /**
+ * @public
  * <p>Container for the Stats Event.</p>
  */
 export interface StatsEvent {
@@ -757,6 +821,7 @@ export interface StatsEvent {
 }
 
 /**
+ * @public
  * <p>The container for selecting objects from a content event stream.</p>
  */
 export type SelectObjectContentEventStream =
@@ -767,6 +832,9 @@ export type SelectObjectContentEventStream =
   | SelectObjectContentEventStream.StatsMember
   | SelectObjectContentEventStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SelectObjectContentEventStream {
   /**
    * <p>The Records Event.</p>
@@ -856,6 +924,9 @@ export namespace SelectObjectContentEventStream {
   };
 }
 
+/**
+ * @public
+ */
 export interface SelectObjectContentOutput {
   /**
    * <p>The array of results.</p>
@@ -864,6 +935,7 @@ export interface SelectObjectContentOutput {
 }
 
 /**
+ * @public
  * <p>Container for specifying if periodic <code>QueryProgress</code> messages should be
  *          sent.</p>
  */
@@ -876,6 +948,7 @@ export interface RequestProgress {
 }
 
 /**
+ * @public
  * <p>Specifies the byte range of the object to get the records from. A record is processed
  *          when its first byte is contained by the range. This parameter is optional, but when
  *          specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the
@@ -903,6 +976,7 @@ export interface ScanRange {
 }
 
 /**
+ * @public
  * <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query
  *          Language (SQL) statement. In the request, along with the SQL expression, you must specify a
  *          data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data
@@ -1006,6 +1080,9 @@ export interface SelectObjectContentRequest {
   ExpectedBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface UploadPartOutput {
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
@@ -1081,6 +1158,9 @@ export interface UploadPartOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface UploadPartRequest {
   /**
    * <p>Object data.</p>
@@ -1208,6 +1288,7 @@ export interface UploadPartRequest {
 }
 
 /**
+ * @public
  * <p>Container for all response elements.</p>
  */
 export interface CopyPartResult {
@@ -1254,6 +1335,9 @@ export interface CopyPartResult {
   ChecksumSHA256?: string;
 }
 
+/**
+ * @public
+ */
 export interface UploadPartCopyOutput {
   /**
    * <p>The version of the source object that was copied, if you have enabled versioning on the
@@ -1303,6 +1387,9 @@ export interface UploadPartCopyOutput {
   RequestCharged?: RequestCharged | string;
 }
 
+/**
+ * @public
+ */
 export interface UploadPartCopyRequest {
   /**
    * <p>The bucket name.</p>
@@ -1446,6 +1533,9 @@ export interface UploadPartCopyRequest {
   ExpectedSourceBucketOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface WriteGetObjectResponseRequest {
   /**
    * <p>Route prefix to the HTTP URL generated.</p>

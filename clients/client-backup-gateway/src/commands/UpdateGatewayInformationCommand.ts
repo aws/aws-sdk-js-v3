@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayInformationCommand}.
  */
 export interface UpdateGatewayInformationCommandInput extends UpdateGatewayInformationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayInformationCommand}.
  */
 export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInformationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a gateway's name. Specify which gateway to update using the Amazon Resource Name
  *       (ARN) of the gateway in your request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayInformationCommandInput - {@link UpdateGatewayInformationCommandInput}
+ * @returns {@link UpdateGatewayInformationCommandOutput}
  * @see {@link UpdateGatewayInformationCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateGatewayInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateGatewayInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateGatewayInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayInformationCommandOutput> {
     return deserializeAws_json1_0UpdateGatewayInformationCommand(output, context);
   }

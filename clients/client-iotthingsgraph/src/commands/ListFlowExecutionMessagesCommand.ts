@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFlowExecutionMessagesCommand}.
  */
 export interface ListFlowExecutionMessagesCommandInput extends ListFlowExecutionMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFlowExecutionMessagesCommand}.
  */
 export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutionMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Returns a list of objects that contain information about events in a flow execution.</p>
@@ -48,6 +53,8 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFlowExecutionMessagesCommandInput - {@link ListFlowExecutionMessagesCommandInput}
+ * @returns {@link ListFlowExecutionMessagesCommandOutput}
  * @see {@link ListFlowExecutionMessagesCommandInput} for command's `input` shape.
  * @see {@link ListFlowExecutionMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListFlowExecutionMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFlowExecutionMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListFlowExecutionMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFlowExecutionMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFlowExecutionMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

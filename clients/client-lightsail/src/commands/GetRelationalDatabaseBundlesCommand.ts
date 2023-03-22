@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseBundlesCommand}.
  */
 export interface GetRelationalDatabaseBundlesCommandInput extends GetRelationalDatabaseBundlesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseBundlesCommand}.
  */
 export interface GetRelationalDatabaseBundlesCommandOutput
@@ -37,6 +41,7 @@ export interface GetRelationalDatabaseBundlesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the
  *       performance specifications for a database.</p>
  *          <p>You can use a bundle ID to create a new database with explicit performance
@@ -51,6 +56,8 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseBundlesCommandInput - {@link GetRelationalDatabaseBundlesCommandInput}
+ * @returns {@link GetRelationalDatabaseBundlesCommandOutput}
  * @see {@link GetRelationalDatabaseBundlesCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetRelationalDatabaseBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class GetRelationalDatabaseBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRelationalDatabaseBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRelationalDatabaseBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

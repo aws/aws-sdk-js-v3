@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPortalsCommand}.
  */
 export interface ListPortalsCommandInput extends ListPortalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPortalsCommand}.
  */
 export interface ListPortalsCommandOutput extends ListPortalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of IoT SiteWise Monitor portals.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPortalsCommandInput - {@link ListPortalsCommandInput}
+ * @returns {@link ListPortalsCommandOutput}
  * @see {@link ListPortalsCommandInput} for command's `input` shape.
  * @see {@link ListPortalsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListPortalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPortalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListPortalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPortalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPortalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortalsCommandOutput> {
     return deserializeAws_restJson1ListPortalsCommand(output, context);
   }

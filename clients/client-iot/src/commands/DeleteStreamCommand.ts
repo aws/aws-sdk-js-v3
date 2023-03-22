@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandInput extends DeleteStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a stream.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteStream</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
+ * @returns {@link DeleteStreamCommandOutput}
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamCommandOutput> {
     return deserializeAws_restJson1DeleteStreamCommand(output, context);
   }

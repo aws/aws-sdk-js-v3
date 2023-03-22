@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIntentsCommand}.
  */
 export interface GetIntentsCommandInput extends GetIntentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIntentsCommand}.
  */
 export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns intent information as follows: </p>
  *          <ul>
  *             <li>
@@ -64,6 +69,8 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIntentsCommandInput - {@link GetIntentsCommandInput}
+ * @returns {@link GetIntentsCommandOutput}
  * @see {@link GetIntentsCommandInput} for command's `input` shape.
  * @see {@link GetIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -127,6 +134,9 @@ export class GetIntentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIntentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class GetIntentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIntentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentsCommandOutput> {
     return deserializeAws_restJson1GetIntentsCommand(output, context);
   }

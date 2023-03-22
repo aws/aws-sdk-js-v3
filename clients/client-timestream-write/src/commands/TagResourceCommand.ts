@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourceCommand}.
  */
 export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagResourceCommand}.
  */
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Associates a set of tags with a Timestream resource. You can then activate
  *          these user-defined tags so that they appear on the Billing and Cost Management console for
  *          cost allocation tracking. </p>
@@ -49,6 +54,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -89,6 +96,9 @@ export class TagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
     return deserializeAws_json1_0TagResourceCommand(output, context);
   }

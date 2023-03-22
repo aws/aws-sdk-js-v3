@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCommentContentCommand}.
  */
 export interface DeleteCommentContentCommandInput extends DeleteCommentContentInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCommentContentCommand}.
  */
 export interface DeleteCommentContentCommandOutput extends DeleteCommentContentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the content of a comment made on a change, file, or commit in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCommentContentCommandInput - {@link DeleteCommentContentCommandInput}
+ * @returns {@link DeleteCommentContentCommandOutput}
  * @see {@link DeleteCommentContentCommandInput} for command's `input` shape.
  * @see {@link DeleteCommentContentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteCommentContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCommentContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteCommentContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCommentContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCommentContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCommentContentCommandOutput> {
     return deserializeAws_json1_1DeleteCommentContentCommand(output, context);
   }

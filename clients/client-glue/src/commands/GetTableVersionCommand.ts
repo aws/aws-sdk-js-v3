@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTableVersionCommand}.
  */
 export interface GetTableVersionCommandInput extends GetTableVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTableVersionCommand}.
  */
 export interface GetTableVersionCommandOutput extends GetTableVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a specified version of a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableVersionCommandInput - {@link GetTableVersionCommandInput}
+ * @returns {@link GetTableVersionCommandOutput}
  * @see {@link GetTableVersionCommandInput} for command's `input` shape.
  * @see {@link GetTableVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetTableVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetTableVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTableVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableVersionCommandOutput> {
     return deserializeAws_json1_1GetTableVersionCommand(output, context);
   }

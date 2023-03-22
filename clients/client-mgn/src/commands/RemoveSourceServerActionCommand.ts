@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveSourceServerActionCommand}.
  */
 export interface RemoveSourceServerActionCommandInput extends RemoveSourceServerActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveSourceServerActionCommand}.
  */
 export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServerActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove source server post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServe
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveSourceServerActionCommandInput - {@link RemoveSourceServerActionCommandInput}
+ * @returns {@link RemoveSourceServerActionCommandOutput}
  * @see {@link RemoveSourceServerActionCommandInput} for command's `input` shape.
  * @see {@link RemoveSourceServerActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class RemoveSourceServerActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveSourceServerActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class RemoveSourceServerActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveSourceServerActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveSourceServerActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveSourceServerActionCommandOutput> {
     return deserializeAws_restJson1RemoveSourceServerActionCommand(output, context);
   }

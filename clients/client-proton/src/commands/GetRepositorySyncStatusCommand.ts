@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRepositorySyncStatusCommand}.
  */
 export interface GetRepositorySyncStatusCommandInput extends GetRepositorySyncStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRepositorySyncStatusCommand}.
  */
 export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the sync status of a repository used for Proton template sync. For more information about template sync, see .</p>
  *          <note>
  *             <p>A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource
@@ -53,6 +58,8 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositorySyncStatusCommandInput - {@link GetRepositorySyncStatusCommandInput}
+ * @returns {@link GetRepositorySyncStatusCommandOutput}
  * @see {@link GetRepositorySyncStatusCommandInput} for command's `input` shape.
  * @see {@link GetRepositorySyncStatusCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetRepositorySyncStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositorySyncStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetRepositorySyncStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositorySyncStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetRepositorySyncStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositorySyncStatusCommandOutput> {
     return deserializeAws_json1_0GetRepositorySyncStatusCommand(output, context);
   }

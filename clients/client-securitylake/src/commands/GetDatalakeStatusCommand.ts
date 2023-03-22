@@ -26,15 +26,20 @@ import {
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatalakeStatusCommand}.
  */
 export interface GetDatalakeStatusCommandInput extends GetDatalakeStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatalakeStatusCommand}.
  */
 export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a snapshot of the current Region, including whether Amazon Security Lake is enabled
  *          for those accounts and which sources Security Lake is collecting data from. </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatalakeStatusCommandInput - {@link GetDatalakeStatusCommandInput}
+ * @returns {@link GetDatalakeStatusCommandOutput}
  * @see {@link GetDatalakeStatusCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeStatusCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetDatalakeStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatalakeStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetDatalakeStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatalakeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDatalakeStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatalakeStatusCommandOutput> {
     return deserializeAws_restJson1GetDatalakeStatusCommand(output, context);
   }

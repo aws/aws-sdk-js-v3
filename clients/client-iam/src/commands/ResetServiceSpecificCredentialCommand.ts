@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ResetServiceSpecificCredentialCommand}.
  */
 export interface ResetServiceSpecificCredentialCommandInput extends ResetServiceSpecificCredentialRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetServiceSpecificCredentialCommand}.
  */
 export interface ResetServiceSpecificCredentialCommandOutput
@@ -37,6 +41,7 @@ export interface ResetServiceSpecificCredentialCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the password for a service-specific credential. The new password is Amazon Web Services
  *             generated and cryptographically strong. It cannot be configured by the user. Resetting
  *             the password immediately invalidates the previous password associated with this
@@ -51,6 +56,8 @@ export interface ResetServiceSpecificCredentialCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetServiceSpecificCredentialCommandInput - {@link ResetServiceSpecificCredentialCommandInput}
+ * @returns {@link ResetServiceSpecificCredentialCommandOutput}
  * @see {@link ResetServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link ResetServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -78,6 +85,9 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetServiceSpecificCredentialCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ResetServiceSpecificCredentialCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     return serializeAws_queryResetServiceSpecificCredentialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

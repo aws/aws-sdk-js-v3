@@ -21,15 +21,20 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLedgerCommand}.
  */
 export interface DeleteLedgerCommandInput extends DeleteLedgerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLedgerCommand}.
  */
 export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a ledger and all of its contents. This action is irreversible.</p>
  *          <p>If deletion protection is enabled, you must first disable it before you can delete the
  *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
@@ -43,6 +48,8 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLedgerCommandInput - {@link DeleteLedgerCommandInput}
+ * @returns {@link DeleteLedgerCommandOutput}
  * @see {@link DeleteLedgerCommandInput} for command's `input` shape.
  * @see {@link DeleteLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLedgerCommandOutput> {
     return deserializeAws_restJson1DeleteLedgerCommand(output, context);
   }

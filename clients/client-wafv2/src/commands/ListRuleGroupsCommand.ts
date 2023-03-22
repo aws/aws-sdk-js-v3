@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListRuleGroupsCommand}.
  */
 export interface ListRuleGroupsCommandInput extends ListRuleGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRuleGroupsCommand}.
  */
 export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups
  *          that you manage. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRuleGroupsCommandInput - {@link ListRuleGroupsCommandInput}
+ * @returns {@link ListRuleGroupsCommandOutput}
  * @see {@link ListRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -98,6 +105,9 @@ export class ListRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class ListRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRuleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRuleGroupsCommandOutput> {
     return deserializeAws_json1_1ListRuleGroupsCommand(output, context);
   }

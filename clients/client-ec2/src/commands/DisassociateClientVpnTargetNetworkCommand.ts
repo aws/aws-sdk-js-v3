@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateClientVpnTargetNetworkCommand}.
  */
 export interface DisassociateClientVpnTargetNetworkCommandInput extends DisassociateClientVpnTargetNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateClientVpnTargetNetworkCommand}.
  */
 export interface DisassociateClientVpnTargetNetworkCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the
  * 			last target network from a Client VPN, the following happens:</p>
  *          <ul>
@@ -64,6 +69,8 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateClientVpnTargetNetworkCommandInput - {@link DisassociateClientVpnTargetNetworkCommandInput}
+ * @returns {@link DisassociateClientVpnTargetNetworkCommandOutput}
  * @see {@link DisassociateClientVpnTargetNetworkCommandInput} for command's `input` shape.
  * @see {@link DisassociateClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -87,6 +94,9 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateClientVpnTargetNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateClientVpnTargetNetworkCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     return serializeAws_ec2DisassociateClientVpnTargetNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

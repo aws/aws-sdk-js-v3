@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssignPrivateNatGatewayAddressCommand}.
  */
 export interface AssignPrivateNatGatewayAddressCommandInput extends AssignPrivateNatGatewayAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignPrivateNatGatewayAddressCommand}.
  */
 export interface AssignPrivateNatGatewayAddressCommandOutput
@@ -37,6 +41,7 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignPrivateNatGatewayAddressCommandInput - {@link AssignPrivateNatGatewayAddressCommandInput}
+ * @returns {@link AssignPrivateNatGatewayAddressCommandOutput}
  * @see {@link AssignPrivateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link AssignPrivateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class AssignPrivateNatGatewayAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignPrivateNatGatewayAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class AssignPrivateNatGatewayAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssignPrivateNatGatewayAddressCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class AssignPrivateNatGatewayAddressCommand extends $Command<
     return serializeAws_ec2AssignPrivateNatGatewayAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

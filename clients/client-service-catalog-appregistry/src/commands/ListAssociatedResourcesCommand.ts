@@ -30,15 +30,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedResourcesCommand}.
  */
 export interface ListAssociatedResourcesCommandInput extends ListAssociatedResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedResourcesCommand}.
  */
 export interface ListAssociatedResourcesCommandOutput extends ListAssociatedResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *        Lists all
  *        of the resources
@@ -70,6 +75,8 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedResourcesCommandInput - {@link ListAssociatedResourcesCommandInput}
+ * @returns {@link ListAssociatedResourcesCommandOutput}
  * @see {@link ListAssociatedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -102,6 +109,9 @@ export class ListAssociatedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ListAssociatedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssociatedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedResourcesCommandOutput> {
     return deserializeAws_restJson1ListAssociatedResourcesCommand(output, context);
   }

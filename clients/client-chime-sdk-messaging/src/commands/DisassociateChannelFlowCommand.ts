@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateChannelFlowCommand}.
  */
 export interface DisassociateChannelFlowCommandInput extends DisassociateChannelFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateChannelFlowCommand}.
  */
 export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to
  *          that channel stop going through the channel flow processor.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateChannelFlowCommandInput - {@link DisassociateChannelFlowCommandInput}
+ * @returns {@link DisassociateChannelFlowCommandOutput}
  * @see {@link DisassociateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link DisassociateChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -98,6 +105,9 @@ export class DisassociateChannelFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class DisassociateChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisassociateChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateChannelFlowCommandOutput> {
     return deserializeAws_restJson1DisassociateChannelFlowCommand(output, context);
   }

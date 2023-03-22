@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeCertificateCommand}.
  */
 export interface RevokeCertificateCommandInput extends RevokeCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeCertificateCommand}.
  */
 export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes a certificate that was issued inside Amazon Web Services Private CA. If you enable a certificate
  * 			revocation list (CRL) when you create or update your private CA, information about the
  * 			revoked certificates will be included in the CRL. Amazon Web Services Private CA writes the CRL to an S3
@@ -60,6 +65,8 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeCertificateCommandInput - {@link RevokeCertificateCommandInput}
+ * @returns {@link RevokeCertificateCommandOutput}
  * @see {@link RevokeCertificateCommandInput} for command's `input` shape.
  * @see {@link RevokeCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -113,6 +120,9 @@ export class RevokeCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class RevokeCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RevokeCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeCertificateCommandOutput> {
     return deserializeAws_json1_1RevokeCertificateCommand(output, context);
   }

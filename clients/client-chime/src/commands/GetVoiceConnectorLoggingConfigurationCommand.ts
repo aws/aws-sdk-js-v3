@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorLoggingConfigurationCommand}.
  */
 export interface GetVoiceConnectorLoggingConfigurationCommandInput
   extends GetVoiceConnectorLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorLoggingConfigurationCommand}.
  */
 export interface GetVoiceConnectorLoggingConfigurationCommandOutput
@@ -38,6 +42,7 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceConnectorLoggingConfigurationCommandInput - {@link GetVoiceConnectorLoggingConfigurationCommandInput}
+ * @returns {@link GetVoiceConnectorLoggingConfigurationCommandOutput}
  * @see {@link GetVoiceConnectorLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVoiceConnectorLoggingConfigurationCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
     return serializeAws_restJson1GetVoiceConnectorLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

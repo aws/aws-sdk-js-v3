@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { CodeCatalystServiceException as __BaseException } from "./CodeCatalystServiceException";
 
 /**
+ * @public
  * <p>The request was denied because you don't have sufficient access to perform this action. Verify that you are a member of a role that allows this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because the requested operation would cause a conflict with the current state of a service resource associated with the request.
  *        Another user might have updated the resource. Reload, make sure you have the latest data, and then try again.</p>
  */
@@ -42,6 +44,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessTokenRequest {
   /**
    * <p>The friendly name of the personal access token.</p>
@@ -54,6 +59,9 @@ export interface CreateAccessTokenRequest {
   expiresTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessTokenResponse {
   /**
    * <p>The secret value of the personal access token.</p>
@@ -77,6 +85,7 @@ export interface CreateAccessTokenResponse {
 }
 
 /**
+ * @public
  * <p>The request was denied because the specified resource was not found. Verify that the spelling is correct and that you have access to the resource.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -96,6 +105,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because one or more resources has reached its limits for the tier the space belongs to. Either reduce
  *       the number of resources, or change the tier if applicable.</p>
  */
@@ -116,6 +126,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -136,6 +147,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  */
 export class ValidationException extends __BaseException {
@@ -154,6 +166,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessTokenRequest {
   /**
    * <p>The ID of the personal access token to delete. You can find the IDs of all PATs associated with your user account by calling <a>ListAccessTokens</a>.</p>
@@ -161,8 +176,14 @@ export interface DeleteAccessTokenRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessTokenResponse {}
 
+/**
+ * @public
+ */
 export interface ListAccessTokensRequest {
   /**
    * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
@@ -176,6 +197,7 @@ export interface ListAccessTokensRequest {
 }
 
 /**
+ * @public
  * <p>Information about a specified personal access token (PAT).</p>
  */
 export interface AccessTokenSummary {
@@ -195,6 +217,9 @@ export interface AccessTokenSummary {
   expiresTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessTokensResponse {
   /**
    * <p>A list of personal access tokens (PATs) associated with the calling user.</p>
@@ -207,11 +232,17 @@ export interface ListAccessTokensResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum CatalogActionVersionFileRecordType {
   LICENSE = "LICENSE",
   README = "README",
 }
 
+/**
+ * @public
+ */
 export interface GetUserDetailsRequest {
   /**
    * <p>The system-generated unique ID of the user. </p>
@@ -225,6 +256,7 @@ export interface GetUserDetailsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an email address.</p>
  */
 export interface EmailAddress {
@@ -239,6 +271,9 @@ export interface EmailAddress {
   verified?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetUserDetailsResponse {
   /**
    * <p>The system-generated unique ID of the user.</p>
@@ -266,6 +301,9 @@ export interface GetUserDetailsResponse {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventLogsRequest {
   /**
    * <p>The name of the space.</p>
@@ -298,12 +336,16 @@ export interface ListEventLogsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum OperationType {
   MUTATION = "MUTATION",
   READONLY = "READONLY",
 }
 
 /**
+ * @public
  * <p>Information about a project in a space.</p>
  */
 export interface ProjectInformation {
@@ -319,6 +361,7 @@ export interface ProjectInformation {
 }
 
 /**
+ * @public
  * <p>Information about the payload of an event recording Amazon CodeCatalyst activity.</p>
  */
 export interface EventPayload {
@@ -333,6 +376,9 @@ export interface EventPayload {
   data?: string;
 }
 
+/**
+ * @public
+ */
 export enum UserType {
   AWS_ACCOUNT = "AWS_ACCOUNT",
   UNKNOWN = "UNKNOWN",
@@ -340,6 +386,7 @@ export enum UserType {
 }
 
 /**
+ * @public
  * <p>Information about a user whose activity is recorded in an event for a space.</p>
  */
 export interface UserIdentity {
@@ -365,6 +412,7 @@ export interface UserIdentity {
 }
 
 /**
+ * @public
  * <p>Information about an entry in an event log of Amazon CodeCatalyst activity.</p>
  */
 export interface EventLogEntry {
@@ -444,6 +492,9 @@ export interface EventLogEntry {
   userAgent?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEventLogsResponse {
   /**
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
@@ -456,6 +507,9 @@ export interface ListEventLogsResponse {
   items: EventLogEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSpaceRequest {
   /**
    * <p>The name of the space.</p>
@@ -463,6 +517,9 @@ export interface GetSpaceRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSpaceResponse {
   /**
    * <p>The name of the space.</p>
@@ -485,6 +542,9 @@ export interface GetSpaceResponse {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSpacesRequest {
   /**
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
@@ -493,6 +553,7 @@ export interface ListSpacesRequest {
 }
 
 /**
+ * @public
  * <p>Information about an space.</p>
  */
 export interface SpaceSummary {
@@ -518,6 +579,9 @@ export interface SpaceSummary {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSpacesResponse {
   /**
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
@@ -530,6 +594,9 @@ export interface ListSpacesResponse {
   items?: SpaceSummary[];
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectRequest {
   /**
    * <p>The name of the space.</p>
@@ -547,6 +614,9 @@ export interface CreateProjectRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectResponse {
   /**
    * <p>The name of the space.</p>
@@ -570,6 +640,7 @@ export interface CreateProjectResponse {
 }
 
 /**
+ * @public
  * <p>Information about the configuration of an integrated development environment (IDE) for a Dev Environment.</p>
  */
 export interface IdeConfiguration {
@@ -587,6 +658,9 @@ export interface IdeConfiguration {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export enum _InstanceType {
   DEV_STANDARD1_LARGE = "dev.standard1.large",
   DEV_STANDARD1_MEDIUM = "dev.standard1.medium",
@@ -595,6 +669,7 @@ export enum _InstanceType {
 }
 
 /**
+ * @public
  * <p>Information about the configuration of persistent storage for a Dev Environment. </p>
  */
 export interface PersistentStorageConfiguration {
@@ -609,6 +684,7 @@ export interface PersistentStorageConfiguration {
 }
 
 /**
+ * @public
  * <p>Information about a repository that will be cloned to a Dev Environment.</p>
  */
 export interface RepositoryInput {
@@ -623,6 +699,9 @@ export interface RepositoryInput {
   branchName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDevEnvironmentRequest {
   /**
    * <p>The name of the space.</p>
@@ -682,6 +761,9 @@ export interface CreateDevEnvironmentRequest {
   persistentStorage: PersistentStorageConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDevEnvironmentResponse {
   /**
    * <p>The name of the space.</p>
@@ -699,6 +781,9 @@ export interface CreateDevEnvironmentResponse {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDevEnvironmentRequest {
   /**
    * <p>The name of the space.</p>
@@ -716,6 +801,9 @@ export interface DeleteDevEnvironmentRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDevEnvironmentResponse {
   /**
    * <p>The name of the space.</p>
@@ -733,6 +821,9 @@ export interface DeleteDevEnvironmentResponse {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDevEnvironmentRequest {
   /**
    * <p>The name of the space.</p>
@@ -751,6 +842,7 @@ export interface GetDevEnvironmentRequest {
 }
 
 /**
+ * @public
  * <p>Information about an integrated development environment (IDE) used in a Dev Environment.</p>
  */
 export interface Ide {
@@ -766,6 +858,7 @@ export interface Ide {
 }
 
 /**
+ * @public
  * <p>Information about the persistent storage for a Dev Environment.</p>
  */
 export interface PersistentStorage {
@@ -780,6 +873,7 @@ export interface PersistentStorage {
 }
 
 /**
+ * @public
  * <p>Information about the source repsitory for a Dev Environment. </p>
  */
 export interface DevEnvironmentRepositorySummary {
@@ -794,6 +888,9 @@ export interface DevEnvironmentRepositorySummary {
   branchName?: string;
 }
 
+/**
+ * @public
+ */
 export enum DevEnvironmentStatus {
   DELETED = "DELETED",
   DELETING = "DELETING",
@@ -805,6 +902,9 @@ export enum DevEnvironmentStatus {
   STOPPING = "STOPPING",
 }
 
+/**
+ * @public
+ */
 export interface GetDevEnvironmentResponse {
   /**
    * <p>The name of the space.</p>
@@ -873,6 +973,7 @@ export interface GetDevEnvironmentResponse {
 }
 
 /**
+ * @public
  * <p/>
  */
 export interface Filter {
@@ -892,6 +993,9 @@ export interface Filter {
   comparisonOperator?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevEnvironmentsRequest {
   /**
    * <p>The name of the space.</p>
@@ -920,6 +1024,7 @@ export interface ListDevEnvironmentsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a Dev Environment. </p>
  */
 export interface DevEnvironmentSummary {
@@ -989,6 +1094,9 @@ export interface DevEnvironmentSummary {
   persistentStorage: PersistentStorage | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDevEnvironmentsResponse {
   /**
    * <p>Information about the Dev Environments in a project.</p>
@@ -1001,6 +1109,9 @@ export interface ListDevEnvironmentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDevEnvironmentRequest {
   /**
    * <p>The name of the space.</p>
@@ -1033,6 +1144,9 @@ export interface StartDevEnvironmentRequest {
   inactivityTimeoutMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartDevEnvironmentResponse {
   /**
    * <p>The name of the space.</p>
@@ -1056,6 +1170,7 @@ export interface StartDevEnvironmentResponse {
 }
 
 /**
+ * @public
  * <p>Information about the commands that will be run on a Dev Environment when an SSH session begins.</p>
  */
 export interface ExecuteCommandSessionConfiguration {
@@ -1070,12 +1185,16 @@ export interface ExecuteCommandSessionConfiguration {
   arguments?: string[];
 }
 
+/**
+ * @public
+ */
 export enum DevEnvironmentSessionType {
   SSH = "SSH",
   SSM = "SSM",
 }
 
 /**
+ * @public
  * <p>Information about the configuration of a Dev Environment session.</p>
  */
 export interface DevEnvironmentSessionConfiguration {
@@ -1090,6 +1209,9 @@ export interface DevEnvironmentSessionConfiguration {
   executeCommandSessionConfiguration?: ExecuteCommandSessionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface StartDevEnvironmentSessionRequest {
   /**
    * <p>The name of the space.</p>
@@ -1113,6 +1235,7 @@ export interface StartDevEnvironmentSessionRequest {
 }
 
 /**
+ * @public
  * <p>Information about connection details for a Dev Environment.</p>
  */
 export interface DevEnvironmentAccessDetails {
@@ -1127,6 +1250,9 @@ export interface DevEnvironmentAccessDetails {
   tokenValue: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDevEnvironmentSessionResponse {
   /**
    * <p>Information about connection details for a Dev Environment.</p>
@@ -1154,6 +1280,9 @@ export interface StartDevEnvironmentSessionResponse {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDevEnvironmentRequest {
   /**
    * <p>The name of the space.</p>
@@ -1171,6 +1300,9 @@ export interface StopDevEnvironmentRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDevEnvironmentResponse {
   /**
    * <p>The name of the space.</p>
@@ -1193,6 +1325,9 @@ export interface StopDevEnvironmentResponse {
   status: DevEnvironmentStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDevEnvironmentSessionRequest {
   /**
    * <p>The name of the space.</p>
@@ -1215,6 +1350,9 @@ export interface StopDevEnvironmentSessionRequest {
   sessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDevEnvironmentSessionResponse {
   /**
    * <p>The name of the space.</p>
@@ -1237,6 +1375,9 @@ export interface StopDevEnvironmentSessionResponse {
   sessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDevEnvironmentRequest {
   /**
    * <p>The name of the space.</p>
@@ -1287,6 +1428,9 @@ export interface UpdateDevEnvironmentRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDevEnvironmentResponse {
   /**
    * <p>The system-generated unique ID of the Dev Environment. </p>
@@ -1330,6 +1474,9 @@ export interface UpdateDevEnvironmentResponse {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetProjectRequest {
   /**
    * <p>The name of the space.</p>
@@ -1342,6 +1489,9 @@ export interface GetProjectRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProjectResponse {
   /**
    * <p>The name of the space.</p>
@@ -1364,6 +1514,9 @@ export interface GetProjectResponse {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export enum ComparisonOperator {
   EQUALS = "EQ",
   GREATER_THAN = "GT",
@@ -1372,11 +1525,15 @@ export enum ComparisonOperator {
   LESS_THAN_OR_EQUALS = "LE",
 }
 
+/**
+ * @public
+ */
 export enum FilterKey {
   HAS_ACCESS_TO = "hasAccessTo",
 }
 
 /**
+ * @public
  * <p>nformation about the filter used to narrow the results returned in a list of projects.</p>
  */
 export interface ProjectListFilter {
@@ -1396,6 +1553,9 @@ export interface ProjectListFilter {
   comparisonOperator?: ComparisonOperator | string;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsRequest {
   /**
    * <p>The name of the space.</p>
@@ -1419,6 +1579,7 @@ export interface ListProjectsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a project.</p>
  */
 export interface ProjectSummary {
@@ -1438,6 +1599,9 @@ export interface ProjectSummary {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsResponse {
   /**
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
@@ -1450,6 +1614,9 @@ export interface ListProjectsResponse {
   items?: ProjectSummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetSourceRepositoryCloneUrlsRequest {
   /**
    * <p>The name of the space.</p>
@@ -1467,6 +1634,9 @@ export interface GetSourceRepositoryCloneUrlsRequest {
   sourceRepositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSourceRepositoryCloneUrlsResponse {
   /**
    * <p>The HTTPS URL to use when cloning the source repository.</p>
@@ -1474,6 +1644,9 @@ export interface GetSourceRepositoryCloneUrlsResponse {
   https: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSourceRepositoriesRequest {
   /**
    * <p>The name of the space.</p>
@@ -1497,6 +1670,7 @@ export interface ListSourceRepositoriesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a source repository returned in a list of source repositories.</p>
  */
 export interface ListSourceRepositoriesItem {
@@ -1526,6 +1700,9 @@ export interface ListSourceRepositoriesItem {
   createdTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSourceRepositoriesResponse {
   /**
    * <p>Information about the source repositories.</p>
@@ -1538,6 +1715,9 @@ export interface ListSourceRepositoriesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSourceRepositoryBranchRequest {
   /**
    * <p>The name of the space.</p>
@@ -1565,6 +1745,9 @@ export interface CreateSourceRepositoryBranchRequest {
   headCommitId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSourceRepositoryBranchResponse {
   /**
    * <p>The Git reference name of the branch.</p>
@@ -1587,6 +1770,9 @@ export interface CreateSourceRepositoryBranchResponse {
   headCommitId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSourceRepositoryBranchesRequest {
   /**
    * <p>The name of the space.</p>
@@ -1615,6 +1801,7 @@ export interface ListSourceRepositoryBranchesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a branch of a source repository returned in a list of branches.</p>
  */
 export interface ListSourceRepositoryBranchesItem {
@@ -1639,6 +1826,9 @@ export interface ListSourceRepositoryBranchesItem {
   headCommitId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSourceRepositoryBranchesResponse {
   /**
    * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
@@ -1651,6 +1841,9 @@ export interface ListSourceRepositoryBranchesResponse {
   items: ListSourceRepositoryBranchesItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSubscriptionRequest {
   /**
    * <p>The name of the space.</p>
@@ -1658,6 +1851,9 @@ export interface GetSubscriptionRequest {
   spaceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSubscriptionResponse {
   /**
    * <p>The type of the billing plan for the space.</p>
@@ -1670,6 +1866,9 @@ export interface GetSubscriptionResponse {
   awsAccountName?: string;
 }
 
+/**
+ * @public
+ */
 export interface VerifySessionResponse {
   /**
    * <p>The system-generated unique ID of the user in Amazon CodeCatalyst.</p>

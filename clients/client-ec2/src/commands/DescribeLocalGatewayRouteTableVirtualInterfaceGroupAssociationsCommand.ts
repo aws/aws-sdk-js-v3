@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand}.
  */
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput
   extends DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand}.
  */
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the associations between virtual interface groups and local gateway route tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput - {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput}
+ * @returns {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput}
  * @see {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
     return serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

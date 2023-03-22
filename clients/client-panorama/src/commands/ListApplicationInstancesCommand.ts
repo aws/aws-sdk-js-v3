@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationInstancesCommand}.
  */
 export interface ListApplicationInstancesCommandInput extends ListApplicationInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationInstancesCommand}.
  */
 export interface ListApplicationInstancesCommandOutput extends ListApplicationInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of application instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListApplicationInstancesCommandOutput extends ListApplicationIn
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationInstancesCommandInput - {@link ListApplicationInstancesCommandInput}
+ * @returns {@link ListApplicationInstancesCommandOutput}
  * @see {@link ListApplicationInstancesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListApplicationInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListApplicationInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListApplicationInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationInstancesCommandOutput> {
     return deserializeAws_restJson1ListApplicationInstancesCommand(output, context);
   }

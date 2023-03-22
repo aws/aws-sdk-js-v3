@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAssumeRolePolicyCommand}.
  */
 export interface UpdateAssumeRolePolicyCommandInput extends UpdateAssumeRolePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAssumeRolePolicyCommand}.
  */
 export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the policy that grants an IAM entity permission to assume a role. This is
  *             typically referred to as the "role trust policy". For more information about roles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using roles to
@@ -44,6 +49,8 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAssumeRolePolicyCommandInput - {@link UpdateAssumeRolePolicyCommandInput}
+ * @returns {@link UpdateAssumeRolePolicyCommandOutput}
  * @see {@link UpdateAssumeRolePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAssumeRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -101,6 +108,9 @@ export class UpdateAssumeRolePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAssumeRolePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class UpdateAssumeRolePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAssumeRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAssumeRolePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssumeRolePolicyCommandOutput> {
     return deserializeAws_queryUpdateAssumeRolePolicyCommand(output, context);
   }

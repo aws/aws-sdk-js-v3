@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTargetGroupCommand}.
  */
 export interface CreateTargetGroupCommandInput extends CreateTargetGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTargetGroupCommand}.
  */
 export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a target group.</p>
  *          <p>For more information, see the following:</p>
  *          <ul>
@@ -73,6 +78,8 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTargetGroupCommandInput - {@link CreateTargetGroupCommandInput}
+ * @returns {@link CreateTargetGroupCommandOutput}
  * @see {@link CreateTargetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -146,6 +153,9 @@ export class CreateTargetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTargetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,10 +195,16 @@ export class CreateTargetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateTargetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTargetGroupCommandOutput> {
     return deserializeAws_queryCreateTargetGroupCommand(output, context);
   }

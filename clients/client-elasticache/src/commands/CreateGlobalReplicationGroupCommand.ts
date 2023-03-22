@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGlobalReplicationGroupCommand}.
  */
 export interface CreateGlobalReplicationGroupCommandInput extends CreateGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateGlobalReplicationGroupCommand}.
  */
 export interface CreateGlobalReplicationGroupCommandOutput
@@ -37,6 +41,7 @@ export interface CreateGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Global Datastore for Redis offers fully managed, fast,
  *             reliable and secure cross-region replication.
  *             Using Global Datastore for Redis, you can create cross-region
@@ -62,6 +67,8 @@ export interface CreateGlobalReplicationGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalReplicationGroupCommandInput - {@link CreateGlobalReplicationGroupCommandInput}
+ * @returns {@link CreateGlobalReplicationGroupCommandOutput}
  * @see {@link CreateGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -100,6 +107,9 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

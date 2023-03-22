@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContextCommand}.
  */
 export interface CreateContextCommandInput extends CreateContextRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContextCommand}.
  */
 export interface CreateContextCommandOutput extends CreateContextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <i>context</i>. A context is a lineage tracking entity that
  *         represents a logical grouping of other tracking or experiment entities. Some examples are
  *         an endpoint and a model package. For more information, see
@@ -50,6 +55,8 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContextCommandInput - {@link CreateContextCommandInput}
+ * @returns {@link CreateContextCommandOutput}
  * @see {@link CreateContextCommandInput} for command's `input` shape.
  * @see {@link CreateContextCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateContextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContextCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateContextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateContextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContextCommandOutput> {
     return deserializeAws_json1_1CreateContextCommand(output, context);
   }

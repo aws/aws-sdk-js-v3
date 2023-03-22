@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBrokersCommand}.
  */
 export interface ListBrokersCommandInput extends ListBrokersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBrokersCommand}.
  */
 export interface ListBrokersCommandOutput extends ListBrokersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all brokers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBrokersCommandInput - {@link ListBrokersCommandInput}
+ * @returns {@link ListBrokersCommandOutput}
  * @see {@link ListBrokersCommandInput} for command's `input` shape.
  * @see {@link ListBrokersCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListBrokersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBrokersCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListBrokersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBrokersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBrokersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBrokersCommandOutput> {
     return deserializeAws_restJson1ListBrokersCommand(output, context);
   }

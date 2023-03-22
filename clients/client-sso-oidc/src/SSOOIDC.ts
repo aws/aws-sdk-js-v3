@@ -15,6 +15,7 @@ import {
 import { SSOOIDCClient } from "./SSOOIDCClient";
 
 /**
+ * @public
  * <p>AWS IAM Identity Center (successor to AWS Single Sign-On) OpenID Connect (OIDC) is a web service that enables a client (such as AWS CLI
  *       or a native application) to register with IAM Identity Center. The service also enables the client to
  *       fetch the user’s access token upon successful authentication and authorization with
@@ -58,6 +59,7 @@ import { SSOOIDCClient } from "./SSOOIDCClient";
  */
 export class SSOOIDC extends SSOOIDCClient {
   /**
+   * @public
    * <p>Creates and returns an access token for the authorized client. The access token issued
    *       will be used to fetch short-term credentials for the assigned roles in the AWS
    *       account.</p>
@@ -86,6 +88,7 @@ export class SSOOIDC extends SSOOIDCClient {
   }
 
   /**
+   * @public
    * <p>Registers a client with IAM Identity Center. This allows clients to initiate device authorization.
    *       The output should be persisted for reuse through many authentication requests.</p>
    */
@@ -119,6 +122,7 @@ export class SSOOIDC extends SSOOIDCClient {
   }
 
   /**
+   * @public
    * <p>Initiates device authorization by requesting a pair of verification codes from the
    *       authorization service.</p>
    */

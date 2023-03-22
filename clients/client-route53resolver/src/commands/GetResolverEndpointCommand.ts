@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverEndpointCommand}.
  */
 export interface GetResolverEndpointCommandInput extends GetResolverEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverEndpointCommand}.
  */
 export interface GetResolverEndpointCommandOutput extends GetResolverEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified Resolver endpoint, such as whether it's an inbound or an outbound Resolver endpoint, and the
  * 			current status of the endpoint.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetResolverEndpointCommandOutput extends GetResolverEndpointRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverEndpointCommandInput - {@link GetResolverEndpointCommandInput}
+ * @returns {@link GetResolverEndpointCommandOutput}
  * @see {@link GetResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link GetResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetResolverEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetResolverEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResolverEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverEndpointCommandOutput> {
     return deserializeAws_json1_1GetResolverEndpointCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveLayerVersionPermissionCommand}.
  */
 export interface RemoveLayerVersionPermissionCommandInput extends RemoveLayerVersionPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveLayerVersionPermissionCommand}.
  */
 export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. For more information, see
  *         <a>AddLayerVersionPermission</a>.</p>
@@ -46,6 +51,8 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveLayerVersionPermissionCommandInput - {@link RemoveLayerVersionPermissionCommandInput}
+ * @returns {@link RemoveLayerVersionPermissionCommandOutput}
  * @see {@link RemoveLayerVersionPermissionCommandInput} for command's `input` shape.
  * @see {@link RemoveLayerVersionPermissionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -85,6 +92,9 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveLayerVersionPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveLayerVersionPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveLayerVersionPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

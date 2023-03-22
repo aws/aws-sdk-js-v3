@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListImagePipelinesCommand}.
  */
 export interface ListImagePipelinesCommandInput extends ListImagePipelinesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImagePipelinesCommand}.
  */
 export interface ListImagePipelinesCommandOutput extends ListImagePipelinesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of image pipelines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImagePipelinesCommandInput - {@link ListImagePipelinesCommandInput}
+ * @returns {@link ListImagePipelinesCommandOutput}
  * @see {@link ListImagePipelinesCommandInput} for command's `input` shape.
  * @see {@link ListImagePipelinesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -92,6 +99,9 @@ export class ListImagePipelinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImagePipelinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ListImagePipelinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImagePipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListImagePipelinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagePipelinesCommandOutput> {
     return deserializeAws_restJson1ListImagePipelinesCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCampaignCommand}.
  */
 export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCampaignCommand}.
  */
 export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a campaign by deleting the solution deployment. The solution that
  *       the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no
  *       longer be specified in a
@@ -46,6 +51,8 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCampaignCommandInput - {@link DeleteCampaignCommandInput}
+ * @returns {@link DeleteCampaignCommandOutput}
  * @see {@link DeleteCampaignCommandInput} for command's `input` shape.
  * @see {@link DeleteCampaignCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCampaignCommandOutput> {
     return deserializeAws_json1_1DeleteCampaignCommand(output, context);
   }

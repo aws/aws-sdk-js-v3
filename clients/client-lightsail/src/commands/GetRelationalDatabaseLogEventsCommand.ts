@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseLogEventsCommand}.
  */
 export interface GetRelationalDatabaseLogEventsCommandInput extends GetRelationalDatabaseLogEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseLogEventsCommand}.
  */
 export interface GetRelationalDatabaseLogEventsCommandOutput
@@ -37,6 +41,7 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of log events for a database in Amazon Lightsail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseLogEventsCommandInput - {@link GetRelationalDatabaseLogEventsCommandInput}
+ * @returns {@link GetRelationalDatabaseLogEventsCommandOutput}
  * @see {@link GetRelationalDatabaseLogEventsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseLogEventsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseLogEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseLogEventsCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command<
     return serializeAws_json1_1GetRelationalDatabaseLogEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

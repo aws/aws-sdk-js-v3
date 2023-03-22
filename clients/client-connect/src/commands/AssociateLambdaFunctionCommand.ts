@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateLambdaFunctionCommand}.
  */
 export interface AssociateLambdaFunctionCommandInput extends AssociateLambdaFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateLambdaFunctionCommand}.
  */
 export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Allows the specified Amazon Connect instance to access the specified Lambda
  *    function.</p>
@@ -43,6 +48,8 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateLambdaFunctionCommandInput - {@link AssociateLambdaFunctionCommandInput}
+ * @returns {@link AssociateLambdaFunctionCommandOutput}
  * @see {@link AssociateLambdaFunctionCommandInput} for command's `input` shape.
  * @see {@link AssociateLambdaFunctionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateLambdaFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateLambdaFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssociateLambdaFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateLambdaFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateLambdaFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLambdaFunctionCommandOutput> {
     return deserializeAws_restJson1AssociateLambdaFunctionCommand(output, context);
   }

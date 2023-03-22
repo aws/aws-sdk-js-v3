@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlaybackKeyPairsCommand}.
  */
 export interface ListPlaybackKeyPairsCommandInput extends ListPlaybackKeyPairsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPlaybackKeyPairsCommand}.
  */
 export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summary information about playback key pairs. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
  *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlaybackKeyPairsCommandInput - {@link ListPlaybackKeyPairsCommandInput}
+ * @returns {@link ListPlaybackKeyPairsCommandOutput}
  * @see {@link ListPlaybackKeyPairsCommandInput} for command's `input` shape.
  * @see {@link ListPlaybackKeyPairsCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -76,6 +83,9 @@ export class ListPlaybackKeyPairsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlaybackKeyPairsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListPlaybackKeyPairsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlaybackKeyPairsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPlaybackKeyPairsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlaybackKeyPairsCommandOutput> {
     return deserializeAws_restJson1ListPlaybackKeyPairsCommand(output, context);
   }

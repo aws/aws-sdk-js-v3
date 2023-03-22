@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeviceFleetCommand}.
  */
 export interface CreateDeviceFleetCommandInput extends CreateDeviceFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeviceFleetCommand}.
  */
 export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a device fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeviceFleetCommandInput - {@link CreateDeviceFleetCommandInput}
+ * @returns {@link CreateDeviceFleetCommandOutput}
  * @see {@link CreateDeviceFleetCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceFleetCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class CreateDeviceFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeviceFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class CreateDeviceFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeviceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDeviceFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceFleetCommandOutput> {
     return deserializeAws_json1_1CreateDeviceFleetCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataCatalogsCommand}.
  */
 export interface ListDataCatalogsCommandInput extends ListDataCatalogsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDataCatalogsCommand}.
  */
 export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the data catalogs in the current Amazon Web Services account.</p>
  *          <note>
  *             <p>In the Athena console, data catalogs are listed as "data sources" on the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
@@ -49,6 +54,8 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataCatalogsCommandInput - {@link ListDataCatalogsCommandInput}
+ * @returns {@link ListDataCatalogsCommandOutput}
  * @see {@link ListDataCatalogsCommandInput} for command's `input` shape.
  * @see {@link ListDataCatalogsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListDataCatalogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataCatalogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListDataCatalogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataCatalogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDataCatalogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataCatalogsCommandOutput> {
     return deserializeAws_json1_1ListDataCatalogsCommand(output, context);
   }

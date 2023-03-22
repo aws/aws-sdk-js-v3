@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNotificationCommand}.
  */
 export interface CreateNotificationCommandInput extends CreateNotificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNotificationCommand}.
  */
 export interface CreateNotificationCommandOutput extends CreateNotificationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a notification. You must create the budget before you create the associated notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNotificationCommandInput - {@link CreateNotificationCommandInput}
+ * @returns {@link CreateNotificationCommandOutput}
  * @see {@link CreateNotificationCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNotificationCommandOutput> {
     return deserializeAws_json1_1CreateNotificationCommand(output, context);
   }

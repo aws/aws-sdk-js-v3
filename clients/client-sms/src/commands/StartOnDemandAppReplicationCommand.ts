@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartOnDemandAppReplicationCommand}.
  */
 export interface StartOnDemandAppReplicationCommandInput extends StartOnDemandAppReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartOnDemandAppReplicationCommand}.
  */
 export interface StartOnDemandAppReplicationCommandOutput
@@ -37,6 +41,7 @@ export interface StartOnDemandAppReplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an on-demand replication run for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface StartOnDemandAppReplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartOnDemandAppReplicationCommandInput - {@link StartOnDemandAppReplicationCommandInput}
+ * @returns {@link StartOnDemandAppReplicationCommandOutput}
  * @see {@link StartOnDemandAppReplicationCommandInput} for command's `input` shape.
  * @see {@link StartOnDemandAppReplicationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartOnDemandAppReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartOnDemandAppReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartOnDemandAppReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartOnDemandAppReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartOnDemandAppReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

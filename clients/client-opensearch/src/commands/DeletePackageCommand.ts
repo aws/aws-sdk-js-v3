@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePackageCommand}.
  */
 export interface DeletePackageCommandInput extends DeletePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePackageCommand}.
  */
 export interface DeletePackageCommandOutput extends DeletePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon OpenSearch Service package. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
  *     packages for Amazon OpenSearch Service</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePackageCommandInput - {@link DeletePackageCommandInput}
+ * @returns {@link DeletePackageCommandOutput}
  * @see {@link DeletePackageCommandInput} for command's `input` shape.
  * @see {@link DeletePackageCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeletePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeletePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeletePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePackageCommandOutput> {
     return deserializeAws_restJson1DeletePackageCommand(output, context);
   }

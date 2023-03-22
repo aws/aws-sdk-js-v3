@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePolicyCommand}.
  */
 export interface UpdatePolicyCommandInput extends UpdatePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePolicyCommand}.
  */
 export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing policy with a new name, description, or content. If you don't
  *             supply any parameter, that value remains unchanged. You can't change a policy's
  *             type.</p>
@@ -49,6 +54,8 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePolicyCommandInput - {@link UpdatePolicyCommandInput}
+ * @returns {@link UpdatePolicyCommandOutput}
  * @see {@link UpdatePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdatePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -474,6 +481,9 @@ export class UpdatePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -511,10 +521,16 @@ export class UpdatePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePolicyCommandOutput> {
     return deserializeAws_json1_1UpdatePolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartPipeCommand}.
  */
 export interface StartPipeCommandInput extends StartPipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartPipeCommand}.
  */
 export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start an existing pipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StartPipeCommandInput - {@link StartPipeCommandInput}
+ * @returns {@link StartPipeCommandOutput}
  * @see {@link StartPipeCommandInput} for command's `input` shape.
  * @see {@link StartPipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartPipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartPipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StartPipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartPipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartPipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPipeCommandOutput> {
     return deserializeAws_restJson1StartPipeCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteCustomVocabularyItemCommand}.
  */
 export interface BatchDeleteCustomVocabularyItemCommandInput extends BatchDeleteCustomVocabularyItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteCustomVocabularyItemCommand}.
  */
 export interface BatchDeleteCustomVocabularyItemCommandOutput
@@ -37,6 +41,7 @@ export interface BatchDeleteCustomVocabularyItemCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a batch of custom vocabulary items for a given bot locale's
  *          custom vocabulary.</p>
  * @example
@@ -49,6 +54,8 @@ export interface BatchDeleteCustomVocabularyItemCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteCustomVocabularyItemCommandInput - {@link BatchDeleteCustomVocabularyItemCommandInput}
+ * @returns {@link BatchDeleteCustomVocabularyItemCommandOutput}
  * @see {@link BatchDeleteCustomVocabularyItemCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteCustomVocabularyItemCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -91,6 +98,9 @@ export class BatchDeleteCustomVocabularyItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteCustomVocabularyItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class BatchDeleteCustomVocabularyItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDeleteCustomVocabularyItemCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class BatchDeleteCustomVocabularyItemCommand extends $Command<
     return serializeAws_restJson1BatchDeleteCustomVocabularyItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

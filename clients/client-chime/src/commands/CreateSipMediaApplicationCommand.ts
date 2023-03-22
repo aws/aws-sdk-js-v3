@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSipMediaApplicationCommand}.
  */
 export interface CreateSipMediaApplicationCommandInput extends CreateSipMediaApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSipMediaApplicationCommand}.
  */
 export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSipMediaApplicationCommandInput - {@link CreateSipMediaApplicationCommandInput}
+ * @returns {@link CreateSipMediaApplicationCommandOutput}
  * @see {@link CreateSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +104,9 @@ export class CreateSipMediaApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSipMediaApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CreateSipMediaApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSipMediaApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

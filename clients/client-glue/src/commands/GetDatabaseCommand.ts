@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatabaseCommand}.
  */
 export interface GetDatabaseCommandInput extends GetDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatabaseCommand}.
  */
 export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the definition of a specified database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatabaseCommandInput - {@link GetDatabaseCommandInput}
+ * @returns {@link GetDatabaseCommandOutput}
  * @see {@link GetDatabaseCommandInput} for command's `input` shape.
  * @see {@link GetDatabaseCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatabaseCommandOutput> {
     return deserializeAws_json1_1GetDatabaseCommand(output, context);
   }

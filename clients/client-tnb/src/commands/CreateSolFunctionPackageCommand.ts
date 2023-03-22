@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSolFunctionPackageCommand}.
  */
 export interface CreateSolFunctionPackageCommandInput extends CreateSolFunctionPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSolFunctionPackageCommand}.
  */
 export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunctionPackageOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network. For more information, see <a href="https://docs.aws.amazon.com/tnb/latest/ug/function-packages.html">Function packages</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.
  *       </p>
@@ -49,6 +54,8 @@ export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunction
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSolFunctionPackageCommandInput - {@link CreateSolFunctionPackageCommandInput}
+ * @returns {@link CreateSolFunctionPackageCommandOutput}
  * @see {@link CreateSolFunctionPackageCommandInput} for command's `input` shape.
  * @see {@link CreateSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateSolFunctionPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSolFunctionPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateSolFunctionPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSolFunctionPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSolFunctionPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSolFunctionPackageCommandOutput> {
     return deserializeAws_restJson1CreateSolFunctionPackageCommand(output, context);
   }

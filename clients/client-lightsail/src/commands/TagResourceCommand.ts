@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourceCommand}.
  */
 export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagResourceCommand}.
  */
 export interface TagResourceCommandOutput extends TagResourceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to the specified Amazon Lightsail resource. Each resource can have a
  *       maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique
  *       per resource. For more information about tags, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -51,6 +56,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class TagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
     return deserializeAws_json1_1TagResourceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopImportCommand}.
  */
 export interface StopImportCommandInput extends StopImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopImportCommand}.
  */
 export interface StopImportCommandOutput extends StopImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Stops a specified import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopImportCommandOutput extends StopImportResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param StopImportCommandInput - {@link StopImportCommandInput}
+ * @returns {@link StopImportCommandOutput}
  * @see {@link StopImportCommandInput} for command's `input` shape.
  * @see {@link StopImportCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -81,6 +88,9 @@ export class StopImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class StopImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopImportCommandOutput> {
     return deserializeAws_json1_1StopImportCommand(output, context);
   }

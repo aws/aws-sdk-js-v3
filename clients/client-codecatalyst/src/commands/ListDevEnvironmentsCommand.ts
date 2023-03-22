@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevEnvironmentsCommand}.
  */
 export interface ListDevEnvironmentsCommandInput extends ListDevEnvironmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDevEnvironmentsCommand}.
  */
 export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrives a list of Dev Environments in a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevEnvironmentsCommandInput - {@link ListDevEnvironmentsCommandInput}
+ * @returns {@link ListDevEnvironmentsCommandOutput}
  * @see {@link ListDevEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListDevEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListDevEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListDevEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDevEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevEnvironmentsCommandOutput> {
     return deserializeAws_restJson1ListDevEnvironmentsCommand(output, context);
   }

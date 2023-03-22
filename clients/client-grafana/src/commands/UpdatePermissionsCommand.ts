@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePermissionsCommand}.
  */
 export interface UpdatePermissionsCommandInput extends UpdatePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePermissionsCommand}.
  */
 export interface UpdatePermissionsCommandOutput extends UpdatePermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates which users in a workspace have the Grafana <code>Admin</code> or
  *                 <code>Editor</code> roles.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePermissionsCommandInput - {@link UpdatePermissionsCommandInput}
+ * @returns {@link UpdatePermissionsCommandOutput}
  * @see {@link UpdatePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdatePermissionsCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdatePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdatePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePermissionsCommandOutput> {
     return deserializeAws_restJson1UpdatePermissionsCommand(output, context);
   }

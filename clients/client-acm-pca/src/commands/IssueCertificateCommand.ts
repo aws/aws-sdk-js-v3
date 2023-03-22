@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link IssueCertificateCommand}.
  */
 export interface IssueCertificateCommandInput extends IssueCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link IssueCertificateCommand}.
  */
 export interface IssueCertificateCommandOutput extends IssueCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uses your private certificate authority (CA), or one that has been shared with you, to
  * 			issue a client certificate. This action returns the Amazon Resource Name (ARN) of the
  * 			certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and
@@ -53,6 +58,8 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param IssueCertificateCommandInput - {@link IssueCertificateCommandInput}
+ * @returns {@link IssueCertificateCommandOutput}
  * @see {@link IssueCertificateCommandInput} for command's `input` shape.
  * @see {@link IssueCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -97,6 +104,9 @@ export class IssueCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IssueCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class IssueCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IssueCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1IssueCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IssueCertificateCommandOutput> {
     return deserializeAws_json1_1IssueCertificateCommand(output, context);
   }

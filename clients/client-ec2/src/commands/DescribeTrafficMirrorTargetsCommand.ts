@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrafficMirrorTargetsCommand}.
  */
 export interface DescribeTrafficMirrorTargetsCommandInput extends DescribeTrafficMirrorTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrafficMirrorTargetsCommand}.
  */
 export interface DescribeTrafficMirrorTargetsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTrafficMirrorTargetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about one or more Traffic Mirror targets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeTrafficMirrorTargetsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrafficMirrorTargetsCommandInput - {@link DescribeTrafficMirrorTargetsCommandInput}
+ * @returns {@link DescribeTrafficMirrorTargetsCommandOutput}
  * @see {@link DescribeTrafficMirrorTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficMirrorTargetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrafficMirrorTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrafficMirrorTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTrafficMirrorTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

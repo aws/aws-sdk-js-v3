@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDistributionCommand}.
  */
 export interface UpdateDistributionCommandInput extends UpdateDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDistributionCommand}.
  */
 export interface UpdateDistributionCommandOutput extends UpdateDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration for a CloudFront distribution.</p>
  *          <p>The update process includes getting the current distribution configuration, updating
  * 			it to make your changes, and then submitting an <code>UpdateDistribution</code> request
@@ -81,6 +86,8 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDistributionCommandInput - {@link UpdateDistributionCommandInput}
+ * @returns {@link UpdateDistributionCommandOutput}
  * @see {@link UpdateDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -336,6 +343,9 @@ export class UpdateDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -375,10 +385,16 @@ export class UpdateDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDistributionCommandOutput> {
     return deserializeAws_restXmlUpdateDistributionCommand(output, context);
   }

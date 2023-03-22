@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuildsCommand}.
  */
 export interface ListBuildsCommandInput extends ListBuildsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBuildsCommand}.
  */
 export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves build resources for all builds associated with the Amazon Web Services account in use. You
  *             can limit results to builds that are in a specific status by using the
  *                 <code>Status</code> parameter. Use the pagination parameters to retrieve results in
@@ -62,6 +67,8 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuildsCommandInput - {@link ListBuildsCommandInput}
+ * @returns {@link ListBuildsCommandOutput}
  * @see {@link ListBuildsCommandInput} for command's `input` shape.
  * @see {@link ListBuildsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListBuildsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuildsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class ListBuildsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuildsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBuildsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuildsCommandOutput> {
     return deserializeAws_json1_1ListBuildsCommand(output, context);
   }

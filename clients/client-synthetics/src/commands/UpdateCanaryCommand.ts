@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCanaryCommand}.
  */
 export interface UpdateCanaryCommandInput extends UpdateCanaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCanaryCommand}.
  */
 export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of a canary that has
  *          already been created.</p>
  *          <p>You can't use this operation to update the tags of an existing canary. To
@@ -50,6 +55,8 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCanaryCommandInput - {@link UpdateCanaryCommandInput}
+ * @returns {@link UpdateCanaryCommandOutput}
  * @see {@link UpdateCanaryCommandInput} for command's `input` shape.
  * @see {@link UpdateCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCanaryCommandOutput> {
     return deserializeAws_restJson1UpdateCanaryCommand(output, context);
   }

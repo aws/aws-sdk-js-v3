@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIntegrationAssociationCommand}.
  */
 export interface DeleteIntegrationAssociationCommandInput extends DeleteIntegrationAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIntegrationAssociationCommand}.
  */
 export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The
  *    association must not have any use cases associated with it.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIntegrationAssociationCommandInput - {@link DeleteIntegrationAssociationCommandInput}
+ * @returns {@link DeleteIntegrationAssociationCommandOutput}
  * @see {@link DeleteIntegrationAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteIntegrationAssociationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteIntegrationAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIntegrationAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteIntegrationAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIntegrationAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteIntegrationAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

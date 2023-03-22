@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeviceDefinitionVersionCommand}.
  */
 export interface CreateDeviceDefinitionVersionCommandInput extends CreateDeviceDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeviceDefinitionVersionCommand}.
  */
 export interface CreateDeviceDefinitionVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateDeviceDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Creates a version of a device definition that has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateDeviceDefinitionVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeviceDefinitionVersionCommandInput - {@link CreateDeviceDefinitionVersionCommandInput}
+ * @returns {@link CreateDeviceDefinitionVersionCommandOutput}
  * @see {@link CreateDeviceDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeviceDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeviceDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDeviceDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

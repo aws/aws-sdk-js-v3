@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFieldOptionsCommand}.
  */
 export interface ListFieldOptionsCommandInput extends ListFieldOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFieldOptionsCommand}.
  */
 export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the field options for a field identifier in the domain. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFieldOptionsCommandInput - {@link ListFieldOptionsCommandInput}
+ * @returns {@link ListFieldOptionsCommandOutput}
  * @see {@link ListFieldOptionsCommandInput} for command's `input` shape.
  * @see {@link ListFieldOptionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListFieldOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFieldOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListFieldOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFieldOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFieldOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFieldOptionsCommandOutput> {
     return deserializeAws_restJson1ListFieldOptionsCommand(output, context);
   }

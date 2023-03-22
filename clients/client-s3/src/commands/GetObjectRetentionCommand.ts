@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectRetentionCommand}.
  */
 export interface GetObjectRetentionCommandInput extends GetObjectRetentionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectRetentionCommand}.
  */
 export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  *          <p>The following action is related to <code>GetObjectRetention</code>:</p>
@@ -55,6 +60,8 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectRetentionCommandInput - {@link GetObjectRetentionCommandInput}
+ * @returns {@link GetObjectRetentionCommandOutput}
  * @see {@link GetObjectRetentionCommandInput} for command's `input` shape.
  * @see {@link GetObjectRetentionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -84,6 +91,9 @@ export class GetObjectRetentionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectRetentionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetObjectRetentionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectRetentionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectRetentionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectRetentionCommandOutput> {
     return deserializeAws_restXmlGetObjectRetentionCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceShareInvitationsCommand}.
  */
 export interface GetResourceShareInvitationsCommandInput extends GetResourceShareInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceShareInvitationsCommand}.
  */
 export interface GetResourceShareInvitationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetResourceShareInvitationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about invitations that you have received for resource shares.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetResourceShareInvitationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceShareInvitationsCommandInput - {@link GetResourceShareInvitationsCommandInput}
+ * @returns {@link GetResourceShareInvitationsCommandOutput}
  * @see {@link GetResourceShareInvitationsCommandInput} for command's `input` shape.
  * @see {@link GetResourceShareInvitationsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -95,6 +102,9 @@ export class GetResourceShareInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceShareInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class GetResourceShareInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceShareInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetResourceShareInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

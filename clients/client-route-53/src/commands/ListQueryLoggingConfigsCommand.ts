@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueryLoggingConfigsCommand}.
  */
 export interface ListQueryLoggingConfigsCommandInput extends ListQueryLoggingConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueryLoggingConfigsCommand}.
  */
 export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the configurations for DNS query logging that are associated with the current
  * 				Amazon Web Services account or the configuration that is associated with a specified
  * 			hosted zone.</p>
@@ -52,6 +57,8 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueryLoggingConfigsCommandInput - {@link ListQueryLoggingConfigsCommandInput}
+ * @returns {@link ListQueryLoggingConfigsCommandOutput}
  * @see {@link ListQueryLoggingConfigsCommandInput} for command's `input` shape.
  * @see {@link ListQueryLoggingConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -85,6 +92,9 @@ export class ListQueryLoggingConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueryLoggingConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListQueryLoggingConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueryLoggingConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListQueryLoggingConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueryLoggingConfigsCommandOutput> {
     return deserializeAws_restXmlListQueryLoggingConfigsCommand(output, context);
   }

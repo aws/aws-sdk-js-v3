@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteComputeEnvironmentCommand}.
  */
 export interface DeleteComputeEnvironmentCommandInput extends DeleteComputeEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteComputeEnvironmentCommand}.
  */
 export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Batch compute environment.</p>
  *          <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation. Compute environments that use Fargate resources must terminate all
  *    active jobs on that compute environment before deleting the compute environment. If this isn't done, the compute
@@ -49,6 +54,8 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteComputeEnvironmentCommandInput - {@link DeleteComputeEnvironmentCommandInput}
+ * @returns {@link DeleteComputeEnvironmentCommandOutput}
  * @see {@link DeleteComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteComputeEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteComputeEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DeleteComputeEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteComputeEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteComputeEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteComputeEnvironmentCommandOutput> {
     return deserializeAws_restJson1DeleteComputeEnvironmentCommand(output, context);
   }

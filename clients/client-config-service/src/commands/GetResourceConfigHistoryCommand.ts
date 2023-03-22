@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceConfigHistoryCommand}.
  */
 export interface GetResourceConfigHistoryCommandInput extends GetResourceConfigHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceConfigHistoryCommand}.
  */
 export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfigHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>ConfigurationItems</code> for the specified resource.
  * 			The list contains details about each state of the resource
  * 			during the specified time interval. If you specified a retention
@@ -65,6 +70,8 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceConfigHistoryCommandInput - {@link GetResourceConfigHistoryCommandInput}
+ * @returns {@link GetResourceConfigHistoryCommandOutput}
  * @see {@link GetResourceConfigHistoryCommandInput} for command's `input` shape.
  * @see {@link GetResourceConfigHistoryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -114,6 +121,9 @@ export class GetResourceConfigHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceConfigHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class GetResourceConfigHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceConfigHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResourceConfigHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceConfigHistoryCommandOutput> {
     return deserializeAws_json1_1GetResourceConfigHistoryCommand(output, context);
   }

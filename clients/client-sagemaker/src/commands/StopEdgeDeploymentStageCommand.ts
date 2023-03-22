@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopEdgeDeploymentStageCommand}.
  */
 export interface StopEdgeDeploymentStageCommandInput extends StopEdgeDeploymentStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopEdgeDeploymentStageCommand}.
  */
 export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a stage in an edge deployment plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param StopEdgeDeploymentStageCommandInput - {@link StopEdgeDeploymentStageCommandInput}
+ * @returns {@link StopEdgeDeploymentStageCommandOutput}
  * @see {@link StopEdgeDeploymentStageCommandInput} for command's `input` shape.
  * @see {@link StopEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -64,6 +71,9 @@ export class StopEdgeDeploymentStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopEdgeDeploymentStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,10 +113,16 @@ export class StopEdgeDeploymentStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopEdgeDeploymentStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopEdgeDeploymentStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEdgeDeploymentStageCommandOutput> {
     return deserializeAws_json1_1StopEdgeDeploymentStageCommand(output, context);
   }

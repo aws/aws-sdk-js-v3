@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationPortfolioAccessCommand}.
  */
 export interface ListOrganizationPortfolioAccessCommandInput extends ListOrganizationPortfolioAccessInput {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationPortfolioAccessCommand}.
  */
 export interface ListOrganizationPortfolioAccessCommandOutput
@@ -37,6 +41,7 @@ export interface ListOrganizationPortfolioAccessCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the organization nodes that have access to the specified portfolio. This API can
  *          only be called by the management account in the organization or by a delegated
  *          admin.</p>
@@ -51,6 +56,8 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationPortfolioAccessCommandInput - {@link ListOrganizationPortfolioAccessCommandInput}
+ * @returns {@link ListOrganizationPortfolioAccessCommandOutput}
  * @see {@link ListOrganizationPortfolioAccessCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationPortfolioAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationPortfolioAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListOrganizationPortfolioAccessCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
     return serializeAws_json1_1ListOrganizationPortfolioAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

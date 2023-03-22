@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceSettingsCommand}.
  */
 export interface UpdateServiceSettingsCommandInput extends UpdateServiceSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceSettingsCommand}.
  */
 export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates License Manager settings for the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceSettingsCommandInput - {@link UpdateServiceSettingsCommandInput}
+ * @returns {@link UpdateServiceSettingsCommandOutput}
  * @see {@link UpdateServiceSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSettingsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class UpdateServiceSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class UpdateServiceSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateServiceSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceSettingsCommandOutput> {
     return deserializeAws_json1_1UpdateServiceSettingsCommand(output, context);
   }

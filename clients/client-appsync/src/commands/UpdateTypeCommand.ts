@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTypeCommand}.
  */
 export interface UpdateTypeCommandInput extends UpdateTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTypeCommand}.
  */
 export interface UpdateTypeCommandOutput extends UpdateTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateTypeCommandOutput extends UpdateTypeResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTypeCommandInput - {@link UpdateTypeCommandInput}
+ * @returns {@link UpdateTypeCommandOutput}
  * @see {@link UpdateTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +93,9 @@ export class UpdateTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTypeCommandOutput> {
     return deserializeAws_restJson1UpdateTypeCommand(output, context);
   }

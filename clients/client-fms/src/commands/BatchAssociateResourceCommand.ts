@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateResourceCommand}.
  */
 export interface BatchAssociateResourceCommandInput extends BatchAssociateResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateResourceCommand}.
  */
 export interface BatchAssociateResourceCommandOutput extends BatchAssociateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate resources to a Firewall Manager resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateResourceCommandInput - {@link BatchAssociateResourceCommandInput}
+ * @returns {@link BatchAssociateResourceCommandOutput}
  * @see {@link BatchAssociateResourceCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateResourceCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -92,6 +99,9 @@ export class BatchAssociateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class BatchAssociateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchAssociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchAssociateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchAssociateResourceCommandOutput> {
     return deserializeAws_json1_1BatchAssociateResourceCommand(output, context);
   }

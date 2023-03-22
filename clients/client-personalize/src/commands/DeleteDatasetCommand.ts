@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a dataset. You can't delete a dataset if an associated
  *         <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the
  *       CREATE PENDING or IN PROGRESS state. For more information on datasets, see
@@ -44,6 +49,8 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
+ * @returns {@link DeleteDatasetCommandOutput}
  * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetCommandOutput> {
     return deserializeAws_json1_1DeleteDatasetCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateVolumeCommand, serializeAws_ec2CreateVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVolumeCommand}.
  */
 export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVolumeCommand}.
  */
 export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
  *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
  *       Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p>
@@ -53,6 +58,8 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVolumeCommandInput - {@link CreateVolumeCommandInput}
+ * @returns {@link CreateVolumeCommandOutput}
  * @see {@link CreateVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -130,6 +137,9 @@ export class CreateVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,10 +177,16 @@ export class CreateVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVolumeCommandOutput> {
     return deserializeAws_ec2CreateVolumeCommand(output, context);
   }

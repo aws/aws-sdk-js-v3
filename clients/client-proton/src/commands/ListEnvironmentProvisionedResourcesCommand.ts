@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentProvisionedResourcesCommand}.
  */
 export interface ListEnvironmentProvisionedResourcesCommandInput extends ListEnvironmentProvisionedResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentProvisionedResourcesCommand}.
  */
 export interface ListEnvironmentProvisionedResourcesCommandOutput
@@ -37,6 +41,7 @@ export interface ListEnvironmentProvisionedResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the provisioned resources for your environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListEnvironmentProvisionedResourcesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentProvisionedResourcesCommandInput - {@link ListEnvironmentProvisionedResourcesCommandInput}
+ * @returns {@link ListEnvironmentProvisionedResourcesCommandOutput}
  * @see {@link ListEnvironmentProvisionedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentProvisionedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListEnvironmentProvisionedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentProvisionedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class ListEnvironmentProvisionedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListEnvironmentProvisionedResourcesCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class ListEnvironmentProvisionedResourcesCommand extends $Command<
     return serializeAws_json1_0ListEnvironmentProvisionedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

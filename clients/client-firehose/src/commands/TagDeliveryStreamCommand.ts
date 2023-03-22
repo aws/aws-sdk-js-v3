@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TagDeliveryStreamCommand}.
  */
 export interface TagDeliveryStreamCommandInput extends TagDeliveryStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link TagDeliveryStreamCommand}.
  */
 export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair
  *          that you can define and assign to Amazon Web Services resources. If you specify a tag that
  *          already exists, the tag value is replaced with the value that you specify in the request.
@@ -55,6 +60,8 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param TagDeliveryStreamCommandInput - {@link TagDeliveryStreamCommandInput}
+ * @returns {@link TagDeliveryStreamCommandOutput}
  * @see {@link TagDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link TagDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -90,6 +97,9 @@ export class TagDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class TagDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TagDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagDeliveryStreamCommandOutput> {
     return deserializeAws_json1_1TagDeliveryStreamCommand(output, context);
   }

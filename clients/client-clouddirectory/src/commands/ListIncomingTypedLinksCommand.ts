@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIncomingTypedLinksCommand}.
  */
 export interface ListIncomingTypedLinksCommandInput extends ListIncomingTypedLinksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIncomingTypedLinksCommand}.
  */
 export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLinksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
  *       information for an object. It also supports filtering by typed link facet and identity
  *       attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
@@ -48,6 +53,8 @@ export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLi
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIncomingTypedLinksCommandInput - {@link ListIncomingTypedLinksCommandInput}
+ * @returns {@link ListIncomingTypedLinksCommandOutput}
  * @see {@link ListIncomingTypedLinksCommandInput} for command's `input` shape.
  * @see {@link ListIncomingTypedLinksCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -103,6 +110,9 @@ export class ListIncomingTypedLinksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIncomingTypedLinksCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class ListIncomingTypedLinksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIncomingTypedLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIncomingTypedLinksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIncomingTypedLinksCommandOutput> {
     return deserializeAws_restJson1ListIncomingTypedLinksCommand(output, context);
   }

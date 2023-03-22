@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartCelebrityRecognitionCommand}.
  */
 export interface StartCelebrityRecognitionCommandInput extends StartCelebrityRecognitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCelebrityRecognitionCommand}.
  */
 export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRecognitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous recognition of celebrities in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect celebrities in a video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *       and the filename of the video.
@@ -56,6 +61,8 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCelebrityRecognitionCommandInput - {@link StartCelebrityRecognitionCommandInput}
+ * @returns {@link StartCelebrityRecognitionCommandOutput}
  * @see {@link StartCelebrityRecognitionCommandInput} for command's `input` shape.
  * @see {@link StartCelebrityRecognitionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -112,6 +119,9 @@ export class StartCelebrityRecognitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCelebrityRecognitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class StartCelebrityRecognitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCelebrityRecognitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartCelebrityRecognitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

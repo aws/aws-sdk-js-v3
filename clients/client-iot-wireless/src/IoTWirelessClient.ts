@@ -386,6 +386,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateAwsAccountWithPartnerAccountCommandInput
   | AssociateMulticastGroupWithFuotaTaskCommandInput
@@ -489,6 +492,9 @@ export type ServiceInputTypes =
   | UpdateWirelessDeviceCommandInput
   | UpdateWirelessGatewayCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateAwsAccountWithPartnerAccountCommandOutput
   | AssociateMulticastGroupWithFuotaTaskCommandOutput
@@ -592,6 +598,9 @@ export type ServiceOutputTypes =
   | UpdateWirelessDeviceCommandOutput
   | UpdateWirelessGatewayCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -599,7 +608,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -708,11 +717,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type IoTWirelessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -723,10 +735,15 @@ type IoTWirelessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of IoTWirelessClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IoTWirelessClient class constructor that set the region, credentials and other options.
  */
 export interface IoTWirelessClientConfig extends IoTWirelessClientConfigType {}
 
+/**
+ * @public
+ */
 type IoTWirelessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -737,11 +754,14 @@ type IoTWirelessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IoTWirelessClient class. This is resolved and normalized from the {@link IoTWirelessClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IoTWirelessClient class. This is resolved and normalized from the {@link IoTWirelessClientConfig | constructor configuration interface}.
  */
 export interface IoTWirelessClientResolvedConfig extends IoTWirelessClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>AWS IoT Wireless provides bi-directional communication between internet-connected wireless
  * 	        devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the
  * 	        IoT Wireless API. These wireless devices use the Low Power Wide Area Networking (LPWAN)

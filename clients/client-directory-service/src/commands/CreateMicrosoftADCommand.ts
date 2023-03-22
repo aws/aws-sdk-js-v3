@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMicrosoftADCommand}.
  */
 export interface CreateMicrosoftADCommandInput extends CreateMicrosoftADRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMicrosoftADCommand}.
  */
 export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Microsoft AD directory in the Amazon Web Services Cloud. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">Managed Microsoft AD</a> in the <i>Directory Service Admin Guide</i>.</p>
  *          <p>Before you call <i>CreateMicrosoftAD</i>, ensure that all of the required
  *       permissions have been explicitly granted through a policy. For details about what permissions
@@ -49,6 +54,8 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMicrosoftADCommandInput - {@link CreateMicrosoftADCommandInput}
+ * @returns {@link CreateMicrosoftADCommandOutput}
  * @see {@link CreateMicrosoftADCommandInput} for command's `input` shape.
  * @see {@link CreateMicrosoftADCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateMicrosoftADCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMicrosoftADCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateMicrosoftADCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMicrosoftADCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMicrosoftADCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMicrosoftADCommandOutput> {
     return deserializeAws_json1_1CreateMicrosoftADCommand(output, context);
   }

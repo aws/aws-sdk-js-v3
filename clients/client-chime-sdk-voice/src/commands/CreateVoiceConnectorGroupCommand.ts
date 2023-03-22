@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVoiceConnectorGroupCommand}.
  */
 export interface CreateVoiceConnectorGroupCommandInput extends CreateVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVoiceConnectorGroupCommand}.
  */
 export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConnectorGroupResponse, __MetadataBearer {}
@@ -51,6 +55,9 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,10 +97,16 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

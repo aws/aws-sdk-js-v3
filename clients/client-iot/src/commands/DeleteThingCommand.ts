@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThingCommand}.
  */
 export interface DeleteThingCommandInput extends DeleteThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThingCommand}.
  */
 export interface DeleteThingCommandOutput extends DeleteThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
  * 			successful or you specify a thing that doesn't exist.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThing</a> action.</p>
@@ -48,6 +53,8 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThingCommandInput - {@link DeleteThingCommandInput}
+ * @returns {@link DeleteThingCommandOutput}
  * @see {@link DeleteThingCommandInput} for command's `input` shape.
  * @see {@link DeleteThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThingCommandOutput> {
     return deserializeAws_restJson1DeleteThingCommand(output, context);
   }

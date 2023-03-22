@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHealthCheckCommand}.
  */
 export interface CreateHealthCheckCommandInput extends CreateHealthCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHealthCheckCommand}.
  */
 export interface CreateHealthCheckCommandOutput extends CreateHealthCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new health check.</p>
  *          <p>For information about adding health checks to resource record sets, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId">HealthCheckId</a> in <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>. </p>
  *          <p>
@@ -80,6 +85,8 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHealthCheckCommandInput - {@link CreateHealthCheckCommandInput}
+ * @returns {@link CreateHealthCheckCommandOutput}
  * @see {@link CreateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link CreateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -132,6 +139,9 @@ export class CreateHealthCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHealthCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class CreateHealthCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateHealthCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHealthCheckCommandOutput> {
     return deserializeAws_restXmlCreateHealthCheckCommand(output, context);
   }

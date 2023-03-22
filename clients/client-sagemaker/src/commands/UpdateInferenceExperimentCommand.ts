@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInferenceExperimentCommand}.
  */
 export interface UpdateInferenceExperimentCommandInput extends UpdateInferenceExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInferenceExperimentCommand}.
  */
 export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *            Updates an inference experiment that you created. The status of the inference experiment has to be either
  *            <code>Created</code>, <code>Running</code>. For more information on the status of an inference experiment,
@@ -50,6 +55,8 @@ export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceE
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInferenceExperimentCommandInput - {@link UpdateInferenceExperimentCommandInput}
+ * @returns {@link UpdateInferenceExperimentCommandOutput}
  * @see {@link UpdateInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link UpdateInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateInferenceExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInferenceExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateInferenceExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateInferenceExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

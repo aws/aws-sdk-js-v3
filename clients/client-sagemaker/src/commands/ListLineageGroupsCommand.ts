@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLineageGroupsCommand}.
  */
 export interface ListLineageGroupsCommandInput extends ListLineageGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLineageGroupsCommand}.
  */
 export interface ListLineageGroupsCommandOutput extends ListLineageGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of lineage groups shared with your Amazon Web Services account.
  *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html">
  *             Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ListLineageGroupsCommandOutput extends ListLineageGroupsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLineageGroupsCommandInput - {@link ListLineageGroupsCommandInput}
+ * @returns {@link ListLineageGroupsCommandOutput}
  * @see {@link ListLineageGroupsCommandInput} for command's `input` shape.
  * @see {@link ListLineageGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListLineageGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLineageGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListLineageGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLineageGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLineageGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLineageGroupsCommandOutput> {
     return deserializeAws_json1_1ListLineageGroupsCommand(output, context);
   }

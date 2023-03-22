@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHsmConfigurationCommand}.
  */
 export interface CreateHsmConfigurationCommandInput extends CreateHsmConfigurationMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateHsmConfigurationCommand}.
  */
 export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an HSM configuration that contains the information required by an Amazon Redshift
  *             cluster to store and use database encryption keys in a Hardware Security Module (HSM).
  *             After creating the HSM configuration, you can specify it as a parameter when creating a
@@ -52,6 +57,8 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHsmConfigurationCommandInput - {@link CreateHsmConfigurationCommandInput}
+ * @returns {@link CreateHsmConfigurationCommandOutput}
  * @see {@link CreateHsmConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateHsmConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateHsmConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHsmConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateHsmConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHsmConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateHsmConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHsmConfigurationCommandOutput> {
     return deserializeAws_queryCreateHsmConfigurationCommand(output, context);
   }

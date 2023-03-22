@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCacheSubnetGroupCommand}.
  */
 export interface DeleteCacheSubnetGroupCommandInput extends DeleteCacheSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCacheSubnetGroupCommand}.
  */
 export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cache subnet group.</p>
  *          <note>
  *             <p>You cannot delete a default cache subnet group or one that is associated with any clusters.</p>
@@ -44,6 +49,8 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCacheSubnetGroupCommandInput - {@link DeleteCacheSubnetGroupCommandInput}
+ * @returns {@link DeleteCacheSubnetGroupCommandOutput}
  * @see {@link DeleteCacheSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteCacheSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCacheSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteCacheSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCacheSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteCacheSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCacheSubnetGroupCommandOutput> {
     return deserializeAws_queryDeleteCacheSubnetGroupCommand(output, context);
   }

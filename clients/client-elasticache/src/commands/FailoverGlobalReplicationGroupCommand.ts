@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link FailoverGlobalReplicationGroupCommand}.
  */
 export interface FailoverGlobalReplicationGroupCommandInput extends FailoverGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link FailoverGlobalReplicationGroupCommand}.
  */
 export interface FailoverGlobalReplicationGroupCommandOutput
@@ -37,6 +41,7 @@ export interface FailoverGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to failover the primary region to a secondary region. The secondary region will become primary, and all other clusters will become secondary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface FailoverGlobalReplicationGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param FailoverGlobalReplicationGroupCommandInput - {@link FailoverGlobalReplicationGroupCommandInput}
+ * @returns {@link FailoverGlobalReplicationGroupCommandOutput}
  * @see {@link FailoverGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link FailoverGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -83,6 +90,9 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FailoverGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: FailoverGlobalReplicationGroupCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     return serializeAws_queryFailoverGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGroupQueryCommand}.
  */
 export interface UpdateGroupQueryCommandInput extends UpdateGroupQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGroupQueryCommand}.
  */
 export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the resource query of a group. For more information about resource queries,
  *             see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>.</p>
  *          <p>
@@ -58,6 +63,8 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGroupQueryCommandInput - {@link UpdateGroupQueryCommandInput}
+ * @returns {@link UpdateGroupQueryCommandOutput}
  * @see {@link UpdateGroupQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupQueryCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -100,6 +107,9 @@ export class UpdateGroupQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGroupQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class UpdateGroupQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGroupQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGroupQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupQueryCommandOutput> {
     return deserializeAws_restJson1UpdateGroupQueryCommand(output, context);
   }

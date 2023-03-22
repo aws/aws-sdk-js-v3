@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationSnapshotCommand}.
  */
 export interface CreateApplicationSnapshotCommandInput extends CreateApplicationSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationSnapshotCommand}.
  */
 export interface CreateApplicationSnapshotCommandOutput extends CreateApplicationSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of the application's state data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationSnapshotCommandInput - {@link CreateApplicationSnapshotCommandInput}
+ * @returns {@link CreateApplicationSnapshotCommandOutput}
  * @see {@link CreateApplicationSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationSnapshotCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -95,6 +102,9 @@ export class CreateApplicationSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateApplicationSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateApplicationSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

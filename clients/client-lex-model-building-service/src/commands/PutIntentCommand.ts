@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutIntentCommand}.
  */
 export interface PutIntentCommandInput extends PutIntentRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutIntentCommand}.
  */
 export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an intent or replaces an existing intent.</p>
  *          <p>To define the interaction between the user and your bot, you use
  *       one or more intents. For a pizza ordering bot, for example, you would
@@ -107,6 +112,8 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutIntentCommandInput - {@link PutIntentCommandInput}
+ * @returns {@link PutIntentCommandOutput}
  * @see {@link PutIntentCommandInput} for command's `input` shape.
  * @see {@link PutIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -422,6 +429,9 @@ export class PutIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -459,10 +469,16 @@ export class PutIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIntentCommandOutput> {
     return deserializeAws_restJson1PutIntentCommand(output, context);
   }

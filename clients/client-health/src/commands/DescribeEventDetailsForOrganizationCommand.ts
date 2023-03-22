@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventDetailsForOrganizationCommand}.
  */
 export interface DescribeEventDetailsForOrganizationCommandInput extends DescribeEventDetailsForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventDetailsForOrganizationCommand}.
  */
 export interface DescribeEventDetailsForOrganizationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about one or more specified events for one or more
  *          Amazon Web Services accounts in your organization. This information includes standard event data (such as
  *          the Amazon Web Services Region and service), an event description, and (depending on the event) possible
@@ -80,6 +85,8 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventDetailsForOrganizationCommandInput - {@link DescribeEventDetailsForOrganizationCommandInput}
+ * @returns {@link DescribeEventDetailsForOrganizationCommandOutput}
  * @see {@link DescribeEventDetailsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeEventDetailsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -106,6 +113,9 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventDetailsForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEventDetailsForOrganizationCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
     return serializeAws_json1_1DescribeEventDetailsForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpnConnectionCommand}.
  */
 export interface CreateVpnConnectionCommandInput extends CreateVpnConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpnConnectionCommand}.
  */
 export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a VPN connection between an existing virtual private gateway or transit
  *             gateway and a customer gateway. The supported connection type is
  *             <code>ipsec.1</code>.</p>
@@ -62,6 +67,8 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpnConnectionCommandInput - {@link CreateVpnConnectionCommandInput}
+ * @returns {@link CreateVpnConnectionCommandOutput}
  * @see {@link CreateVpnConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpnConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -85,6 +92,9 @@ export class CreateVpnConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpnConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateVpnConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpnConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVpnConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpnConnectionCommandOutput> {
     return deserializeAws_ec2CreateVpnConnectionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetExportJobCommand}.
  */
 export interface CreateDatasetExportJobCommandInput extends CreateDatasetExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetExportJobCommand}.
  */
 export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a job that exports data from your dataset to an Amazon S3 bucket.
  *       To allow Amazon Personalize to export the training data, you must specify an
  *       service-linked IAM role that gives Amazon Personalize <code>PutObject</code>
@@ -64,6 +69,8 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetExportJobCommandInput - {@link CreateDatasetExportJobCommandInput}
+ * @returns {@link CreateDatasetExportJobCommandOutput}
  * @see {@link CreateDatasetExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetExportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -105,6 +112,9 @@ export class CreateDatasetExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class CreateDatasetExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDatasetExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetExportJobCommandOutput> {
     return deserializeAws_json1_1CreateDatasetExportJobCommand(output, context);
   }

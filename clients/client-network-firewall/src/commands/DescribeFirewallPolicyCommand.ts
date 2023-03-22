@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFirewallPolicyCommand}.
  */
 export interface DescribeFirewallPolicyCommandInput extends DescribeFirewallPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFirewallPolicyCommand}.
  */
 export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the data objects for the specified firewall policy. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFirewallPolicyCommandInput - {@link DescribeFirewallPolicyCommandInput}
+ * @returns {@link DescribeFirewallPolicyCommandOutput}
  * @see {@link DescribeFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -95,6 +102,9 @@ export class DescribeFirewallPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFirewallPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DescribeFirewallPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFirewallPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeFirewallPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFirewallPolicyCommandOutput> {
     return deserializeAws_json1_0DescribeFirewallPolicyCommand(output, context);
   }

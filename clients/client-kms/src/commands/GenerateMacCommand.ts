@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateMacCommand}.
  */
 export interface GenerateMacCommandInput extends GenerateMacRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateMacCommand}.
  */
 export interface GenerateMacCommandOutput extends GenerateMacResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS key and a MAC algorithm that the key supports.
  *       HMAC KMS keys and the HMAC algorithms that KMS uses conform to industry standards defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
  *          <p>You can use value that GenerateMac returns in the <a>VerifyMac</a> operation to
@@ -73,6 +78,8 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateMacCommandInput - {@link GenerateMacCommandInput}
+ * @returns {@link GenerateMacCommandOutput}
  * @see {@link GenerateMacCommandInput} for command's `input` shape.
  * @see {@link GenerateMacCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -173,6 +180,9 @@ export class GenerateMacCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateMacCommandInput) {
     // Start section: command_constructor
     super();
@@ -210,10 +220,16 @@ export class GenerateMacCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateMacCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateMacCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateMacCommandOutput> {
     return deserializeAws_json1_1GenerateMacCommand(output, context);
   }

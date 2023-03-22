@@ -34,6 +34,7 @@ import {
 } from "./commands/UpdateReportDefinitionCommand";
 
 /**
+ * @public
  * <p>This reference provides descriptions of the AWS Application Cost Profiler API.</p>
  *          <p>The AWS Application Cost Profiler API provides programmatic access to view, create, update, and delete
  *       application cost report definitions, as well as to import your usage data into the Application Cost Profiler
@@ -43,6 +44,7 @@ import {
  */
 export class ApplicationCostProfiler extends ApplicationCostProfilerClient {
   /**
+   * @public
    * <p>Deletes the specified report definition in AWS Application Cost Profiler. This stops the report from being
    *       generated.</p>
    */
@@ -76,6 +78,7 @@ export class ApplicationCostProfiler extends ApplicationCostProfilerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the definition of a report already configured in AWS Application Cost Profiler.</p>
    */
   public getReportDefinition(
@@ -108,6 +111,7 @@ export class ApplicationCostProfiler extends ApplicationCostProfilerClient {
   }
 
   /**
+   * @public
    * <p>Ingests application usage data from Amazon Simple Storage Service (Amazon S3).</p>
    *          <p>The data must already exist in the S3 location. As part of the action, AWS Application Cost Profiler
    *       copies the object from your S3 bucket to an S3 bucket owned by Amazon for processing
@@ -143,6 +147,7 @@ export class ApplicationCostProfiler extends ApplicationCostProfilerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of all reports and their configurations for your AWS account.</p>
    *          <p>The maximum number of reports is one.</p>
    */
@@ -176,6 +181,7 @@ export class ApplicationCostProfiler extends ApplicationCostProfilerClient {
   }
 
   /**
+   * @public
    * <p>Creates the report definition for a report in Application Cost Profiler.</p>
    */
   public putReportDefinition(
@@ -208,6 +214,7 @@ export class ApplicationCostProfiler extends ApplicationCostProfilerClient {
   }
 
   /**
+   * @public
    * <p>Updates existing report in AWS Application Cost Profiler.</p>
    */
   public updateReportDefinition(

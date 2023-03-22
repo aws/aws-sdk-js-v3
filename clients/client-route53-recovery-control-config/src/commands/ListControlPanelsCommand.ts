@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListControlPanelsCommand}.
  */
 export interface ListControlPanelsCommandInput extends ListControlPanelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListControlPanelsCommand}.
  */
 export interface ListControlPanelsCommandOutput extends ListControlPanelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of control panels in an account or in a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListControlPanelsCommandOutput extends ListControlPanelsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlPanelsCommandInput - {@link ListControlPanelsCommandInput}
+ * @returns {@link ListControlPanelsCommandOutput}
  * @see {@link ListControlPanelsCommandInput} for command's `input` shape.
  * @see {@link ListControlPanelsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListControlPanelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlPanelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListControlPanelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListControlPanelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListControlPanelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListControlPanelsCommandOutput> {
     return deserializeAws_restJson1ListControlPanelsCommand(output, context);
   }

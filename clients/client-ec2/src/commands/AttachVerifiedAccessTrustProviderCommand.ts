@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AttachVerifiedAccessTrustProviderCommand}.
  */
 export interface AttachVerifiedAccessTrustProviderCommandInput extends AttachVerifiedAccessTrustProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachVerifiedAccessTrustProviderCommand}.
  */
 export interface AttachVerifiedAccessTrustProviderCommandOutput
@@ -37,6 +41,7 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
  *          information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access
  *          instance.</p>
@@ -50,6 +55,8 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachVerifiedAccessTrustProviderCommandInput - {@link AttachVerifiedAccessTrustProviderCommandInput}
+ * @returns {@link AttachVerifiedAccessTrustProviderCommandOutput}
  * @see {@link AttachVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link AttachVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class AttachVerifiedAccessTrustProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachVerifiedAccessTrustProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,6 +122,9 @@ export class AttachVerifiedAccessTrustProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
@@ -119,6 +132,9 @@ export class AttachVerifiedAccessTrustProviderCommand extends $Command<
     return serializeAws_ec2AttachVerifiedAccessTrustProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutComplianceItemsCommand}.
  */
 export interface PutComplianceItemsCommandInput extends PutComplianceItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutComplianceItemsCommand}.
  */
 export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a compliance type and other compliance details on a designated resource. This
  *    operation lets you register custom compliance details with a resource. This call overwrites
  *    existing compliance information on the resource, so you must provide a full list of compliance
@@ -101,6 +106,8 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param PutComplianceItemsCommandInput - {@link PutComplianceItemsCommandInput}
+ * @returns {@link PutComplianceItemsCommandOutput}
  * @see {@link PutComplianceItemsCommandInput} for command's `input` shape.
  * @see {@link PutComplianceItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -147,6 +154,9 @@ export class PutComplianceItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutComplianceItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class PutComplianceItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutComplianceItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutComplianceItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutComplianceItemsCommandOutput> {
     return deserializeAws_json1_1PutComplianceItemsCommand(output, context);
   }

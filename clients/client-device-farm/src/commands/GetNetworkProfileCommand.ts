@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkProfileCommand}.
  */
 export interface GetNetworkProfileCommandInput extends GetNetworkProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkProfileCommand}.
  */
 export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkProfileCommandInput - {@link GetNetworkProfileCommandInput}
+ * @returns {@link GetNetworkProfileCommandOutput}
  * @see {@link GetNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link GetNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkProfileCommandOutput> {
     return deserializeAws_json1_1GetNetworkProfileCommand(output, context);
   }

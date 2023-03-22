@@ -10,7 +10,7 @@ import { Inspector2Client } from "../Inspector2Client";
 import { Inspector2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Inspector2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFindingsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFindings(
   config: Inspector2PaginationConfiguration,
   input: ListFindingsCommandInput,

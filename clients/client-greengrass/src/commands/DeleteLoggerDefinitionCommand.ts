@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoggerDefinitionCommand}.
  */
 export interface DeleteLoggerDefinitionCommandInput extends DeleteLoggerDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoggerDefinitionCommand}.
  */
 export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a logger definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoggerDefinitionCommandInput - {@link DeleteLoggerDefinitionCommandInput}
+ * @returns {@link DeleteLoggerDefinitionCommandOutput}
  * @see {@link DeleteLoggerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteLoggerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteLoggerDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoggerDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteLoggerDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoggerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLoggerDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoggerDefinitionCommandOutput> {
     return deserializeAws_restJson1DeleteLoggerDefinitionCommand(output, context);
   }

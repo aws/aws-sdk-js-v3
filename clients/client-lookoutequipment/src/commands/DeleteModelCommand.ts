@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandInput extends DeleteModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an ML model currently available for Amazon Lookout for Equipment. This will
  *          prevent it from being used with an inference scheduler, even one that is already set up.
  *       </p>
@@ -43,6 +48,8 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
+ * @returns {@link DeleteModelCommandOutput}
  * @see {@link DeleteModelCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCommandOutput> {
     return deserializeAws_json1_0DeleteModelCommand(output, context);
   }

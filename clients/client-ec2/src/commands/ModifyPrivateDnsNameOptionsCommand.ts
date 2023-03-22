@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyPrivateDnsNameOptionsCommand}.
  */
 export interface ModifyPrivateDnsNameOptionsCommandInput extends ModifyPrivateDnsNameOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyPrivateDnsNameOptionsCommand}.
  */
 export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateDnsNameOptionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the options for instance hostnames for the specified instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateD
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyPrivateDnsNameOptionsCommandInput - {@link ModifyPrivateDnsNameOptionsCommandInput}
+ * @returns {@link ModifyPrivateDnsNameOptionsCommandOutput}
  * @see {@link ModifyPrivateDnsNameOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyPrivateDnsNameOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ModifyPrivateDnsNameOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyPrivateDnsNameOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ModifyPrivateDnsNameOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyPrivateDnsNameOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyPrivateDnsNameOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

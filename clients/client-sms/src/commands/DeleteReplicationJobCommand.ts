@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationJobCommand}.
  */
 export interface DeleteReplicationJobCommandInput extends DeleteReplicationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationJobCommand}.
  */
 export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified replication job.</p>
  *         <p>After you delete a replication job, there are no further replication runs. Amazon Web Services
  *             deletes the contents of the Amazon S3 bucket used to store Server Migration Service artifacts. The AMIs created
@@ -49,6 +54,8 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationJobCommandInput - {@link DeleteReplicationJobCommandInput}
+ * @returns {@link DeleteReplicationJobCommandOutput}
  * @see {@link DeleteReplicationJobCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteReplicationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteReplicationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReplicationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationJobCommandOutput> {
     return deserializeAws_json1_1DeleteReplicationJobCommand(output, context);
   }

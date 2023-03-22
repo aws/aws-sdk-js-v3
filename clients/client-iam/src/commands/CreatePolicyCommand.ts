@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryCreatePolicyCommand, serializeAws_queryCreatePolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePolicyCommand}.
  */
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new managed policy for your Amazon Web Services account.</p>
  *          <p>This operation creates a policy version with a version identifier of <code>v1</code>
  *             and sets v1 as the policy's default version. For more information about policy versions,
@@ -53,6 +58,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePolicyCommandInput - {@link CreatePolicyCommandInput}
+ * @returns {@link CreatePolicyCommandOutput}
  * @see {@link CreatePolicyCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -100,6 +107,9 @@ export class CreatePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class CreatePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreatePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyCommandOutput> {
     return deserializeAws_queryCreatePolicyCommand(output, context);
   }

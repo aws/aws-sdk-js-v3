@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSAMLProviderCommand}.
  */
 export interface UpdateSAMLProviderCommandInput extends UpdateSAMLProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSAMLProviderCommand}.
  */
 export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the metadata document for an existing SAML provider resource object.</p>
  *          <note>
  *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
@@ -49,6 +54,8 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSAMLProviderCommandInput - {@link UpdateSAMLProviderCommandInput}
+ * @returns {@link UpdateSAMLProviderCommandOutput}
  * @see {@link UpdateSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSAMLProviderCommandOutput> {
     return deserializeAws_queryUpdateSAMLProviderCommand(output, context);
   }

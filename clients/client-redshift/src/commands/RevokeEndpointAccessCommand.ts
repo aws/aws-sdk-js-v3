@@ -22,15 +22,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeEndpointAccessCommand}.
  */
 export interface RevokeEndpointAccessCommandInput extends RevokeEndpointAccessMessage {}
 /**
+ * @public
+ *
  * The output of {@link RevokeEndpointAccessCommand}.
  */
 export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes access to a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +47,8 @@ export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeEndpointAccessCommandInput - {@link RevokeEndpointAccessCommandInput}
+ * @returns {@link RevokeEndpointAccessCommandOutput}
  * @see {@link RevokeEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -87,6 +94,9 @@ export class RevokeEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class RevokeEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRevokeEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeEndpointAccessCommandOutput> {
     return deserializeAws_queryRevokeEndpointAccessCommand(output, context);
   }

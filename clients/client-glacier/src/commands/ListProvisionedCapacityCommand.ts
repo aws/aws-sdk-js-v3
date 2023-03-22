@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProvisionedCapacityCommand}.
  */
 export interface ListProvisionedCapacityCommandInput extends ListProvisionedCapacityInput {}
 /**
+ * @public
+ *
  * The output of {@link ListProvisionedCapacityCommand}.
  */
 export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCapacityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists the provisioned capacity units for the specified AWS
  *          account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisionedCapacityCommandInput - {@link ListProvisionedCapacityCommandInput}
+ * @returns {@link ListProvisionedCapacityCommandOutput}
  * @see {@link ListProvisionedCapacityCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedCapacityCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -106,6 +113,9 @@ export class ListProvisionedCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisionedCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class ListProvisionedCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProvisionedCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProvisionedCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProvisionedCapacityCommandOutput> {
     return deserializeAws_restJson1ListProvisionedCapacityCommand(output, context);
   }

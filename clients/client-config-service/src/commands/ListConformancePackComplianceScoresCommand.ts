@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConformancePackComplianceScoresCommand}.
  */
 export interface ListConformancePackComplianceScoresCommandInput extends ListConformancePackComplianceScoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConformancePackComplianceScoresCommand}.
  */
 export interface ListConformancePackComplianceScoresCommandOutput
@@ -37,6 +41,7 @@ export interface ListConformancePackComplianceScoresCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of conformance pack compliance scores.
  * 			A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
  * 			This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand
@@ -54,6 +59,8 @@ export interface ListConformancePackComplianceScoresCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConformancePackComplianceScoresCommandInput - {@link ListConformancePackComplianceScoresCommandInput}
+ * @returns {@link ListConformancePackComplianceScoresCommandOutput}
  * @see {@link ListConformancePackComplianceScoresCommandInput} for command's `input` shape.
  * @see {@link ListConformancePackComplianceScoresCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConformancePackComplianceScoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListConformancePackComplianceScoresCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
     return serializeAws_json1_1ListConformancePackComplianceScoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

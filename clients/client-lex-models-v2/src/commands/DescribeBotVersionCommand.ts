@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBotVersionCommand}.
  */
 export interface DescribeBotVersionCommandInput extends DescribeBotVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBotVersionCommand}.
  */
 export interface DescribeBotVersionCommandOutput extends DescribeBotVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides metadata about a version of a bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBotVersionCommandInput - {@link DescribeBotVersionCommandInput}
+ * @returns {@link DescribeBotVersionCommandOutput}
  * @see {@link DescribeBotVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeBotVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeBotVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBotVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeBotVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBotVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeBotVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBotVersionCommandOutput> {
     return deserializeAws_restJson1DescribeBotVersionCommand(output, context);
   }

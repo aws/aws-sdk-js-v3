@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComputeAuthTokenCommand}.
  */
 export interface GetComputeAuthTokenCommandInput extends GetComputeAuthTokenInput {}
 /**
+ * @public
+ *
  * The output of {@link GetComputeAuthTokenCommand}.
  */
 export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests an authorization token from GameLift. The authorization token is used by your
  *             game server to authenticate with GameLift. Each authentication token has an expiration
  *             token. To continue using the compute resource to host your game server, regularly
@@ -49,6 +54,8 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComputeAuthTokenCommandInput - {@link GetComputeAuthTokenCommandInput}
+ * @returns {@link GetComputeAuthTokenCommandOutput}
  * @see {@link GetComputeAuthTokenCommandInput} for command's `input` shape.
  * @see {@link GetComputeAuthTokenCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetComputeAuthTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComputeAuthTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetComputeAuthTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComputeAuthTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetComputeAuthTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComputeAuthTokenCommandOutput> {
     return deserializeAws_json1_1GetComputeAuthTokenCommand(output, context);
   }

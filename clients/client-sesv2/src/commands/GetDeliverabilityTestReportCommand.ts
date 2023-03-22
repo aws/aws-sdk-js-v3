@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeliverabilityTestReportCommand}.
  */
 export interface GetDeliverabilityTestReportCommandInput extends GetDeliverabilityTestReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeliverabilityTestReportCommand}.
  */
 export interface GetDeliverabilityTestReportCommandOutput
@@ -37,6 +41,7 @@ export interface GetDeliverabilityTestReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve the results of a predictive inbox placement test.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetDeliverabilityTestReportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeliverabilityTestReportCommandInput - {@link GetDeliverabilityTestReportCommandInput}
+ * @returns {@link GetDeliverabilityTestReportCommandOutput}
  * @see {@link GetDeliverabilityTestReportCommandInput} for command's `input` shape.
  * @see {@link GetDeliverabilityTestReportCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -80,6 +87,9 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeliverabilityTestReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeliverabilityTestReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDeliverabilityTestReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

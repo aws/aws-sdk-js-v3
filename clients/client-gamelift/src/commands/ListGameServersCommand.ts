@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGameServersCommand}.
  */
 export interface ListGameServersCommandInput extends ListGameServersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGameServersCommand}.
  */
 export interface ListGameServersCommandOutput extends ListGameServersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -59,6 +64,8 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGameServersCommandInput - {@link ListGameServersCommandInput}
+ * @returns {@link ListGameServersCommandOutput}
  * @see {@link ListGameServersCommandInput} for command's `input` shape.
  * @see {@link ListGameServersCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListGameServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGameServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListGameServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGameServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGameServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGameServersCommandOutput> {
     return deserializeAws_json1_1ListGameServersCommand(output, context);
   }

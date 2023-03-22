@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostedZoneLimitCommand}.
  */
 export interface GetHostedZoneLimitCommandInput extends GetHostedZoneLimitRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHostedZoneLimitCommand}.
  */
 export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified limit for a specified hosted zone, for example, the maximum number
  * 			of records that you can create in the hosted zone. </p>
  *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -51,6 +56,8 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostedZoneLimitCommandInput - {@link GetHostedZoneLimitCommandInput}
+ * @returns {@link GetHostedZoneLimitCommandOutput}
  * @see {@link GetHostedZoneLimitCommandInput} for command's `input` shape.
  * @see {@link GetHostedZoneLimitCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -83,6 +90,9 @@ export class GetHostedZoneLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostedZoneLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetHostedZoneLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostedZoneLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetHostedZoneLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostedZoneLimitCommandOutput> {
     return deserializeAws_restXmlGetHostedZoneLimitCommand(output, context);
   }

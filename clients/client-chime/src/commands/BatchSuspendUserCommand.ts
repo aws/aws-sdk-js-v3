@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchSuspendUserCommand}.
  */
 export interface BatchSuspendUserCommandInput extends BatchSuspendUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchSuspendUserCommand}.
  */
 export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon Chime
  *             account. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
  *                 Guide</i>.</p>
@@ -62,6 +67,8 @@ export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchSuspendUserCommandInput - {@link BatchSuspendUserCommandInput}
+ * @returns {@link BatchSuspendUserCommandOutput}
  * @see {@link BatchSuspendUserCommandInput} for command's `input` shape.
  * @see {@link BatchSuspendUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -106,6 +113,9 @@ export class BatchSuspendUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchSuspendUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class BatchSuspendUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchSuspendUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchSuspendUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchSuspendUserCommandOutput> {
     return deserializeAws_restJson1BatchSuspendUserCommand(output, context);
   }

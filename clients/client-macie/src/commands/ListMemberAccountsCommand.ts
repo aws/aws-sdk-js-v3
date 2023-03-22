@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMemberAccountsCommand}.
  */
 export interface ListMemberAccountsCommandInput extends ListMemberAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMemberAccountsCommand}.
  */
 export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Lists all Amazon Macie Classic member accounts for the current Macie
  *       Classic administrator account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMemberAccountsCommandInput - {@link ListMemberAccountsCommandInput}
+ * @returns {@link ListMemberAccountsCommandOutput}
  * @see {@link ListMemberAccountsCommandInput} for command's `input` shape.
  * @see {@link ListMemberAccountsCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListMemberAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMemberAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListMemberAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMemberAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMemberAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMemberAccountsCommandOutput> {
     return deserializeAws_json1_1ListMemberAccountsCommand(output, context);
   }

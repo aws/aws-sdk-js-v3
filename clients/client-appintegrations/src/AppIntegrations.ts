@@ -75,6 +75,7 @@ import {
 } from "./commands/UpdateEventIntegrationCommand";
 
 /**
+ * @public
  * <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
  *       applications.</p>
  *          <p>For information about how you can use external applications with Amazon Connect, see
@@ -85,6 +86,7 @@ import {
  */
 export class AppIntegrations extends AppIntegrationsClient {
   /**
+   * @public
    * <p>Creates and persists a DataIntegration resource.</p>
    *          <note>
    *             <p>You cannot create a DataIntegration association for a DataIntegration that has been
@@ -122,6 +124,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Creates an EventIntegration, given a specified name, description, and a reference to an
    *         Amazon EventBridge bus in your account and a partner event source that pushes events to
    *       that bus. No objects are created in the your account, only metadata that is persisted on the
@@ -157,6 +160,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the DataIntegration. Only DataIntegrations that don't have any
    *       DataIntegrationAssociations can be deleted. Deleting a DataIntegration also deletes the
    *       underlying Amazon AppFlow flow and service linked role. </p>
@@ -196,6 +200,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified existing event integration. If the event integration is associated
    *       with clients, the request is rejected.</p>
    */
@@ -229,6 +234,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the DataIntegration.</p>
    *          <note>
    *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -266,6 +272,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the event integration.</p>
    */
   public getEventIntegration(
@@ -298,6 +305,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of DataIntegration associations in the account.</p>
    *          <note>
    *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -335,6 +343,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of DataIntegrations in the account.</p>
    *          <note>
    *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -372,6 +381,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of event integration associations in the account. </p>
    */
   public listEventIntegrationAssociations(
@@ -404,6 +414,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of event integrations in the account.</p>
    */
   public listEventIntegrations(
@@ -436,6 +447,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -468,6 +480,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tags to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -494,6 +507,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified resource.</p>
    */
   public untagResource(
@@ -526,6 +540,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Updates the description of a DataIntegration.</p>
    *          <note>
    *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -563,6 +578,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
+   * @public
    * <p>Updates the description of an event integration.</p>
    */
   public updateEventIntegration(

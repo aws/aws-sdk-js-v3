@@ -22,15 +22,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketWebsiteCommand}.
  */
 export interface PutBucketWebsiteCommandInput extends PutBucketWebsiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketWebsiteCommand}.
  */
 export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the configuration of the website that is specified in the <code>website</code>
  *          subresource. To configure a bucket as a website, you can add this subresource on the bucket
  *          with website configuration information such as the file name of the index document and any
@@ -163,6 +168,8 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketWebsiteCommandInput - {@link PutBucketWebsiteCommandInput}
+ * @returns {@link PutBucketWebsiteCommandOutput}
  * @see {@link PutBucketWebsiteCommandInput} for command's `input` shape.
  * @see {@link PutBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -212,6 +219,9 @@ export class PutBucketWebsiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketWebsiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -258,10 +268,16 @@ export class PutBucketWebsiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketWebsiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketWebsiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketWebsiteCommandOutput> {
     return deserializeAws_restXmlPutBucketWebsiteCommand(output, context);
   }

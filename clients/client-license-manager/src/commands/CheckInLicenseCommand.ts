@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CheckInLicenseCommand}.
  */
 export interface CheckInLicenseCommandInput extends CheckInLicenseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CheckInLicenseCommand}.
  */
 export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks in the specified license. Check in a license when it is no longer in use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckInLicenseCommandInput - {@link CheckInLicenseCommandInput}
+ * @returns {@link CheckInLicenseCommandOutput}
  * @see {@link CheckInLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckInLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -94,6 +101,9 @@ export class CheckInLicenseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckInLicenseCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CheckInLicenseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckInLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CheckInLicenseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckInLicenseCommandOutput> {
     return deserializeAws_json1_1CheckInLicenseCommand(output, context);
   }

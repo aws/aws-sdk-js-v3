@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link TestFunctionCommand}.
  */
 export interface TestFunctionCommandInput extends TestFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestFunctionCommand}.
  */
 export interface TestFunctionCommandOutput extends TestFunctionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests a CloudFront function.</p>
  *          <p>To test a function, you provide an <i>event object</i> that represents
  * 			an HTTP request or response that your CloudFront distribution could receive in production.
@@ -55,6 +60,8 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param TestFunctionCommandInput - {@link TestFunctionCommandInput}
+ * @returns {@link TestFunctionCommandOutput}
  * @see {@link TestFunctionCommandInput} for command's `input` shape.
  * @see {@link TestFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -93,6 +100,9 @@ export class TestFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class TestFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlTestFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestFunctionCommandOutput> {
     return deserializeAws_restXmlTestFunctionCommand(output, context);
   }

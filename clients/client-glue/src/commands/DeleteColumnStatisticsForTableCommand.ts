@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteColumnStatisticsForTableCommand}.
  */
 export interface DeleteColumnStatisticsForTableCommandInput extends DeleteColumnStatisticsForTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteColumnStatisticsForTableCommand}.
  */
 export interface DeleteColumnStatisticsForTableCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteColumnStatisticsForTableCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves table statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteColumnStatisticsForTableCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteColumnStatisticsForTableCommandInput - {@link DeleteColumnStatisticsForTableCommandInput}
+ * @returns {@link DeleteColumnStatisticsForTableCommandOutput}
  * @see {@link DeleteColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link DeleteColumnStatisticsForTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteColumnStatisticsForTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteColumnStatisticsForTableCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
     return serializeAws_json1_1DeleteColumnStatisticsForTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCoipPoolsCommand}.
  */
 export interface DescribeCoipPoolsCommandInput extends DescribeCoipPoolsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCoipPoolsCommand}.
  */
 export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified customer-owned address pools or all of your customer-owned address pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCoipPoolsCommandInput - {@link DescribeCoipPoolsCommandInput}
+ * @returns {@link DescribeCoipPoolsCommandOutput}
  * @see {@link DescribeCoipPoolsCommandInput} for command's `input` shape.
  * @see {@link DescribeCoipPoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeCoipPoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCoipPoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeCoipPoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCoipPoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeCoipPoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCoipPoolsCommandOutput> {
     return deserializeAws_ec2DescribeCoipPoolsCommand(output, context);
   }

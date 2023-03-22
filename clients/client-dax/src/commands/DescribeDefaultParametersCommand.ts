@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDefaultParametersCommand}.
  */
 export interface DescribeDefaultParametersCommandInput extends DescribeDefaultParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDefaultParametersCommand}.
  */
 export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultParametersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default system parameter information for the DAX caching
  *             software.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDefaultParametersCommandInput - {@link DescribeDefaultParametersCommandInput}
+ * @returns {@link DescribeDefaultParametersCommandOutput}
  * @see {@link DescribeDefaultParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeDefaultParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDefaultParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeDefaultParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDefaultParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDefaultParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

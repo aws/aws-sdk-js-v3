@@ -10,7 +10,7 @@ import {
 import { AppStreamPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppStreamClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeImagePermissionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeImagePermissions(
   config: AppStreamPaginationConfiguration,
   input: DescribeImagePermissionsCommandInput,

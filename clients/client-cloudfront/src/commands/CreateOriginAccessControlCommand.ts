@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOriginAccessControlCommand}.
  */
 export interface CreateOriginAccessControlCommandInput extends CreateOriginAccessControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOriginAccessControlCommand}.
  */
 export interface CreateOriginAccessControlCommandOutput extends CreateOriginAccessControlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new origin access control in CloudFront. After you create an origin access
  * 			control, you can add it to an origin in a CloudFront distribution so that CloudFront sends
  * 			authenticated (signed) requests to the origin.</p>
@@ -52,6 +57,8 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOriginAccessControlCommandInput - {@link CreateOriginAccessControlCommandInput}
+ * @returns {@link CreateOriginAccessControlCommandOutput}
  * @see {@link CreateOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link CreateOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateOriginAccessControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOriginAccessControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateOriginAccessControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOriginAccessControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateOriginAccessControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

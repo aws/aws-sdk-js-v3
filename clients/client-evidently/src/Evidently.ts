@@ -166,6 +166,7 @@ import {
 import { EvidentlyClient } from "./EvidentlyClient";
 
 /**
+ * @public
  * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving
  *       them to a specified percentage
  *       of your users while you roll out the feature. You can monitor the performance of the new feature
@@ -179,6 +180,7 @@ import { EvidentlyClient } from "./EvidentlyClient";
  */
 export class Evidently extends EvidentlyClient {
   /**
+   * @public
    * <p>This operation assigns feature variation to user sessions. For each user session, you pass
    *       in an <code>entityID</code> that represents the user. Evidently then checks the evaluation
    *       rules and assigns the variation.</p>
@@ -225,6 +227,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Creates an Evidently <i>experiment</i>. Before you create an experiment,
    *       you must create the feature to use for the experiment.</p>
    *          <p>An experiment helps you make feature design
@@ -266,6 +269,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Creates an Evidently <i>feature</i> that you want to launch or test. You can define up to
    *        five variations of a feature, and use these variations in your launches and experiments. A feature must be created in
    *        a project. For information about creating a project, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html">CreateProject</a>.</p>
@@ -302,6 +306,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Creates a <i>launch</i> of a given feature. Before you create a launch, you
    *       must create the feature to use for the launch.</p>
    *          <p>You can use a launch to safely validate new features by serving them to a specified
@@ -338,6 +343,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Creates a project, which is the logical object in Evidently that can contain features, launches, and
    *       experiments. Use projects to group similar features together.</p>
    *          <p>To update an existing project, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateProject.html">UpdateProject</a>.</p>
@@ -372,6 +378,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to define a <i>segment</i> of your audience. A segment
    *       is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users,
    *       users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects,
@@ -416,6 +423,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Evidently experiment. The feature used for the experiment is not deleted.</p>
    *          <p>To stop an experiment without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopExperiment.html">StopExperiment</a>. </p>
    */
@@ -449,6 +457,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Evidently feature.</p>
    */
   public deleteFeature(
@@ -481,6 +490,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Evidently launch. The feature used for the launch is not deleted.</p>
    *          <p>To stop a launch without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopLaunch.html">StopLaunch</a>. </p>
    */
@@ -511,6 +521,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Evidently project. Before you can delete a project, you must delete all the
    *       features that the project contains. To delete a feature, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteFeature.html">DeleteFeature</a>.</p>
    */
@@ -544,6 +555,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Deletes a segment. You can't delete a segment that is being used in a launch or experiment, even if that
    *     launch or experiment is not currently running.</p>
    */
@@ -577,6 +589,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>This operation assigns a feature variation to one given user session. You pass in an
    *         <code>entityID</code> that represents the user. Evidently then checks the evaluation rules
    *       and assigns the variation.</p>
@@ -633,6 +646,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns the details about one experiment. You must already know the
    *       experiment name. To retrieve a list of experiments in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html">ListExperiments</a>.</p>
    */
@@ -666,6 +680,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the results of a running or completed experiment. No results are available until
    *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.
    *        To increase the statistical power, Evidently performs an additional offline p-value analysis at the end of the experiment.
@@ -705,6 +720,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns the details about one feature. You must already know the feature name. To
    *       retrieve a list of features in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html">ListFeatures</a>.</p>
    */
@@ -732,6 +748,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns the details about one launch. You must already know the
    *        launch name. To retrieve a list of launches in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html">ListLaunches</a>.</p>
    */
@@ -759,6 +776,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns the details about one launch. You must already know the
    *        project name. To retrieve a list of projects in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html">ListProjects</a>.</p>
    */
@@ -786,6 +804,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified segment. Specify the segment you want to view
    *     by specifying its ARN.</p>
    */
@@ -813,6 +832,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns configuration details about all the experiments in the specified project.</p>
    */
   public listExperiments(
@@ -845,6 +865,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns configuration details about all the features in the specified project.</p>
    */
   public listFeatures(
@@ -874,6 +895,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns configuration details about all the launches in the specified project.</p>
    */
   public listLaunches(
@@ -903,6 +925,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns configuration details about all the projects in the current Region in your
    *       account.</p>
    */
@@ -933,6 +956,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to find which experiments or launches are using a specified segment.</p>
    */
   public listSegmentReferences(
@@ -965,6 +989,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of audience segments that you have created in your account in this Region.</p>
    */
   public listSegments(
@@ -994,6 +1019,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Displays the tags associated with an Evidently resource.</p>
    */
   public listTagsForResource(
@@ -1026,6 +1052,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Sends performance events to Evidently. These events can be used to evaluate a launch or
    *       an experiment.</p>
    */
@@ -1059,6 +1086,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Starts an existing experiment. To create an experiment,
    *         use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html">CreateExperiment</a>.</p>
    */
@@ -1092,6 +1120,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Starts an existing launch. To create a launch,
    *        use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html">CreateLaunch</a>.</p>
    */
@@ -1119,6 +1148,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Stops an experiment that is currently running. If you stop an experiment, you can't
    *       resume it or restart it.</p>
    */
@@ -1152,6 +1182,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Stops a launch that is currently running. After you stop a launch, you will not be able to resume it or restart it.
    *        Also, it
    *        will not be evaluated as a rule for traffic allocation, and the traffic that was allocated to the launch
@@ -1182,6 +1213,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch Evidently resource. Projects,
    *        features, launches, and experiments can be tagged.</p>
    *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
@@ -1220,6 +1252,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to test a rules pattern that you plan to use to create an audience segment.
    *       For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.</p>
    */
@@ -1253,6 +1286,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(
@@ -1285,6 +1319,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Updates an Evidently experiment. </p>
    *          <p>Don't use this operation to update an experiment's tag. Instead, use
    *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
@@ -1319,6 +1354,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing feature.</p>
    *          <p>You can't use this operation to update the tags of an existing feature. Instead, use
    *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
@@ -1353,6 +1389,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Updates a launch of a given feature. </p>
    *          <p>Don't use this operation to update the tags of an existing launch. Instead, use
    *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
@@ -1384,6 +1421,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Updates the description of an existing project.</p>
    *          <p>To create a new project, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html">CreateProject</a>.</p>
    *          <p>Don't use this operation to update the data storage options of a project. Instead, use
@@ -1421,6 +1459,7 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * @public
    * <p>Updates the data storage options for this project. If you store evaluation events, you an
    *       keep them and analyze them on your own. If you choose not to store evaluation events,
    *       Evidently deletes them after using them to produce metrics and other experiment results that

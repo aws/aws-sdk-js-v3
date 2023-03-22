@@ -151,6 +151,7 @@ import {
 import { SMSClient } from "./SMSClient";
 
 /**
+ * @public
  * <important>
  *             <p>
  *                <b>Product update</b>
@@ -180,6 +181,7 @@ import { SMSClient } from "./SMSClient";
  */
 export class SMS extends SMSClient {
   /**
+   * @public
    * <p>Creates an application. An application consists of one or more server groups. Each
    *             server group contain one or more servers.</p>
    */
@@ -207,6 +209,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Creates a replication job. The replication job schedules periodic replication runs
    *             to replicate your server to Amazon Web Services. Each replication run creates an Amazon Machine Image
    *             (AMI).</p>
@@ -241,6 +244,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified application. Optionally deletes the launched stack associated with
    *             the application and all Server Migration Service replication jobs for servers in the application.</p>
    */
@@ -268,6 +272,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the launch configuration for the specified application.</p>
    */
   public deleteAppLaunchConfiguration(
@@ -300,6 +305,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the replication configuration for the specified application.</p>
    */
   public deleteAppReplicationConfiguration(
@@ -332,6 +338,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the validation configuration for the specified application.</p>
    */
   public deleteAppValidationConfiguration(
@@ -364,6 +371,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified replication job.</p>
    *         <p>After you delete a replication job, there are no further replication runs. Amazon Web Services
    *             deletes the contents of the Amazon S3 bucket used to store Server Migration Service artifacts. The AMIs created
@@ -399,6 +407,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Deletes all servers from your server catalog.</p>
    */
   public deleteServerCatalog(
@@ -431,6 +440,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified connector from Server Migration Service.</p>
    *         <p>After you disassociate a connector, it is no longer available to support
    *             replication jobs.</p>
@@ -465,6 +475,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Generates a target change set for a currently launched stack and writes it to an Amazon S3
    *             object in the customer’s Amazon S3 bucket.</p>
    */
@@ -498,6 +509,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Generates an CloudFormation template based on the current launch configuration and writes it to
    *             an Amazon S3 object in the customer’s Amazon S3 bucket.</p>
    */
@@ -531,6 +543,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Retrieve information about the specified application.</p>
    */
   public getApp(args: GetAppCommandInput, options?: __HttpHandlerOptions): Promise<GetAppCommandOutput>;
@@ -557,6 +570,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the application launch configuration associated with the specified application.</p>
    */
   public getAppLaunchConfiguration(
@@ -589,6 +603,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the application replication configuration associated with the specified
    *             application.</p>
    */
@@ -622,6 +637,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a configuration for validating an application.</p>
    */
   public getAppValidationConfiguration(
@@ -654,6 +670,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves output from validating an application.</p>
    */
   public getAppValidationOutput(
@@ -686,6 +703,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Describes the connectors registered with the Server Migration Service.</p>
    */
   public getConnectors(
@@ -718,6 +736,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified replication job or all of your replication jobs.</p>
    */
   public getReplicationJobs(
@@ -750,6 +769,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Describes the replication runs for the specified replication job.</p>
    */
   public getReplicationRuns(
@@ -782,6 +802,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Describes the servers in your server catalog.</p>
    *         <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
    */
@@ -809,6 +830,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Allows application import from Migration Hub.</p>
    */
   public importAppCatalog(
@@ -841,6 +863,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Gathers a complete list of on-premises servers. Connectors must be installed and
    *             monitoring all servers to import.</p>
    *         <p>This call returns immediately, but might take additional time to retrieve all the
@@ -876,6 +899,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Launches the specified application as a stack in CloudFormation.</p>
    */
   public launchApp(args: LaunchAppCommandInput, options?: __HttpHandlerOptions): Promise<LaunchAppCommandOutput>;
@@ -902,6 +926,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves summaries for all applications.</p>
    */
   public listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
@@ -928,6 +953,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Provides information to Server Migration Service about whether application validation is successful.</p>
    */
   public notifyAppValidationOutput(
@@ -960,6 +986,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates the launch configuration for the specified application.</p>
    */
   public putAppLaunchConfiguration(
@@ -992,6 +1019,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates the replication configuration for the specified application.</p>
    */
   public putAppReplicationConfiguration(
@@ -1024,6 +1052,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a validation configuration for the specified application.</p>
    */
   public putAppValidationConfiguration(
@@ -1056,6 +1085,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Starts replicating the specified application by creating replication jobs for each server in the
    *             application.</p>
    */
@@ -1089,6 +1119,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Starts an on-demand replication run for the specified application.</p>
    */
   public startOnDemandAppReplication(
@@ -1121,6 +1152,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Starts an on-demand replication run for the specified replication job. This
    *             replication run starts immediately. This replication run is in addition to the ones
    *             already scheduled.</p>
@@ -1157,6 +1189,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Stops replicating the specified application by deleting the replication job for each server in
    *             the application.</p>
    */
@@ -1190,6 +1223,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Terminates the stack for the specified application.</p>
    */
   public terminateApp(
@@ -1219,6 +1253,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified application.</p>
    */
   public updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
@@ -1245,6 +1280,7 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified settings for the specified replication job.</p>
    */
   public updateReplicationJob(

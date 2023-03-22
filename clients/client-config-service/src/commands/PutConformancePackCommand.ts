@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConformancePackCommand}.
  */
 export interface PutConformancePackCommandInput extends PutConformancePackRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConformancePackCommand}.
  */
 export interface PutConformancePackCommandOutput extends PutConformancePackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across an organization.
  * 			For information on how many conformance packs you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -55,6 +60,8 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConformancePackCommandInput - {@link PutConformancePackCommandInput}
+ * @returns {@link PutConformancePackCommandOutput}
  * @see {@link PutConformancePackCommandInput} for command's `input` shape.
  * @see {@link PutConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -141,6 +148,9 @@ export class PutConformancePackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConformancePackCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,10 +190,16 @@ export class PutConformancePackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConformancePackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutConformancePackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConformancePackCommandOutput> {
     return deserializeAws_json1_1PutConformancePackCommand(output, context);
   }

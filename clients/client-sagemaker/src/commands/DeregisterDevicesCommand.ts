@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterDevicesCommand}.
  */
 export interface DeregisterDevicesCommandInput extends DeregisterDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterDevicesCommand}.
  */
 export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterDevicesCommandInput - {@link DeregisterDevicesCommandInput}
+ * @returns {@link DeregisterDevicesCommandOutput}
  * @see {@link DeregisterDevicesCommandInput} for command's `input` shape.
  * @see {@link DeregisterDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -64,6 +71,9 @@ export class DeregisterDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,10 +113,16 @@ export class DeregisterDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterDevicesCommandOutput> {
     return deserializeAws_json1_1DeregisterDevicesCommand(output, context);
   }

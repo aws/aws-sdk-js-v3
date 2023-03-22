@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIceServerConfigCommand}.
  */
 export interface GetIceServerConfigCommandInput extends GetIceServerConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIceServerConfigCommand}.
  */
 export interface GetIceServerConfigCommandOutput extends GetIceServerConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the Interactive Connectivity Establishment (ICE) server configuration
  *             information, including URIs, username, and password which can be used to configure the
  *             WebRTC connection. The ICE component uses this configuration information to setup the
@@ -63,6 +68,8 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIceServerConfigCommandInput - {@link GetIceServerConfigCommandInput}
+ * @returns {@link GetIceServerConfigCommandOutput}
  * @see {@link GetIceServerConfigCommandInput} for command's `input` shape.
  * @see {@link GetIceServerConfigCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for KinesisVideoSignalingClient's `config` shape.
@@ -107,6 +114,9 @@ export class GetIceServerConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIceServerConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class GetIceServerConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIceServerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIceServerConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIceServerConfigCommandOutput> {
     return deserializeAws_restJson1GetIceServerConfigCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBillingGroupCommand}.
  */
 export interface CreateBillingGroupCommandInput extends CreateBillingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBillingGroupCommand}.
  */
 export interface CreateBillingGroupCommandOutput extends CreateBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBillingGroupCommandInput - {@link CreateBillingGroupCommandInput}
+ * @returns {@link CreateBillingGroupCommandOutput}
  * @see {@link CreateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class CreateBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class CreateBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBillingGroupCommandOutput> {
     return deserializeAws_restJson1CreateBillingGroupCommand(output, context);
   }

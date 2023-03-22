@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOptionGroupCommand}.
  */
 export interface CreateOptionGroupCommandInput extends CreateOptionGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateOptionGroupCommand}.
  */
 export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new option group. You can create up to 20 option groups.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOptionGroupCommandInput - {@link CreateOptionGroupCommandInput}
+ * @returns {@link CreateOptionGroupCommandOutput}
  * @see {@link CreateOptionGroupCommandInput} for command's `input` shape.
  * @see {@link CreateOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreateOptionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOptionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class CreateOptionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOptionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateOptionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOptionGroupCommandOutput> {
     return deserializeAws_queryCreateOptionGroupCommand(output, context);
   }

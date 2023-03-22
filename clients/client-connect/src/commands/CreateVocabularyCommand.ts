@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVocabularyCommand}.
  */
 export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVocabularyCommand}.
  */
 export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a
  *    custom vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
  *    vocabulary in post-call and real-time contact analysis sessions for that language.</p>
@@ -48,6 +53,8 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVocabularyCommandInput - {@link CreateVocabularyCommandInput}
+ * @returns {@link CreateVocabularyCommandOutput}
  * @see {@link CreateVocabularyCommandInput} for command's `input` shape.
  * @see {@link CreateVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVocabularyCommandOutput> {
     return deserializeAws_restJson1CreateVocabularyCommand(output, context);
   }

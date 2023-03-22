@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainNameCommand}.
  */
 export interface CreateDomainNameCommandInput extends CreateDomainNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainNameCommand}.
  */
 export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a domain name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainNameCommandInput - {@link CreateDomainNameCommandInput}
+ * @returns {@link CreateDomainNameCommandOutput}
  * @see {@link CreateDomainNameCommandInput} for command's `input` shape.
  * @see {@link CreateDomainNameCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -83,6 +90,9 @@ export class CreateDomainNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class CreateDomainNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDomainNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainNameCommandOutput> {
     return deserializeAws_restJson1CreateDomainNameCommand(output, context);
   }

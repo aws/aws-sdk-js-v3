@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotificationCommand}.
  */
 export interface DeleteNotificationCommandInput extends DeleteNotificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotificationCommand}.
  */
 export interface DeleteNotificationCommandOutput extends DeleteNotificationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a notification.</p>
  * 		       <important>
  * 			         <p>Deleting a notification also deletes the subscribers that are associated with the notification.</p>
@@ -49,6 +54,8 @@ export interface DeleteNotificationCommandOutput extends DeleteNotificationRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotificationCommandInput - {@link DeleteNotificationCommandInput}
+ * @returns {@link DeleteNotificationCommandOutput}
  * @see {@link DeleteNotificationCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotificationCommandOutput> {
     return deserializeAws_json1_1DeleteNotificationCommand(output, context);
   }

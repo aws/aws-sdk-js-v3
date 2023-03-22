@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCoreNetworkChangeSetCommand}.
  */
 export interface GetCoreNetworkChangeSetCommandInput extends GetCoreNetworkChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCoreNetworkChangeSetCommand}.
  */
 export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChangeSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a change set between the LIVE core network policy and a submitted policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoreNetworkChangeSetCommandInput - {@link GetCoreNetworkChangeSetCommandInput}
+ * @returns {@link GetCoreNetworkChangeSetCommandOutput}
  * @see {@link GetCoreNetworkChangeSetCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkChangeSetCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetCoreNetworkChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoreNetworkChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetCoreNetworkChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoreNetworkChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCoreNetworkChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreNetworkChangeSetCommandOutput> {
     return deserializeAws_restJson1GetCoreNetworkChangeSetCommand(output, context);
   }

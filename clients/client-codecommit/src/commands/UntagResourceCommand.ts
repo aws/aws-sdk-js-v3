@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandInput extends UntagResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes tags for a resource in AWS CodeCommit. For a list of valid resources in AWS
  *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a> in the <i>AWS CodeCommit User
  *                 Guide</i>.</p>
@@ -43,6 +48,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -103,6 +110,9 @@ export class UntagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UntagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
     return deserializeAws_json1_1UntagResourceCommand(output, context);
   }

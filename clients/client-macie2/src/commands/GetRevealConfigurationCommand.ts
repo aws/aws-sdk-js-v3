@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRevealConfigurationCommand}.
  */
 export interface GetRevealConfigurationCommandInput extends GetRevealConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRevealConfigurationCommand}.
  */
 export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRevealConfigurationCommandInput - {@link GetRevealConfigurationCommandInput}
+ * @returns {@link GetRevealConfigurationCommandOutput}
  * @see {@link GetRevealConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRevealConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -81,6 +88,9 @@ export class GetRevealConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRevealConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetRevealConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRevealConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRevealConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRevealConfigurationCommandOutput> {
     return deserializeAws_restJson1GetRevealConfigurationCommand(output, context);
   }

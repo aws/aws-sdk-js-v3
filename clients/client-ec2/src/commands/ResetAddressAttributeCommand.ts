@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ResetAddressAttributeCommand}.
  */
 export interface ResetAddressAttributeCommandInput extends ResetAddressAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetAddressAttributeCommand}.
  */
 export interface ResetAddressAttributeCommandOutput extends ResetAddressAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the attribute of the specified IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ResetAddressAttributeCommandOutput extends ResetAddressAttribut
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetAddressAttributeCommandInput - {@link ResetAddressAttributeCommandInput}
+ * @returns {@link ResetAddressAttributeCommandOutput}
  * @see {@link ResetAddressAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetAddressAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class ResetAddressAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetAddressAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class ResetAddressAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetAddressAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ResetAddressAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetAddressAttributeCommandOutput> {
     return deserializeAws_ec2ResetAddressAttributeCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopEngagementCommand}.
  */
 export interface StopEngagementCommandInput extends StopEngagementRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopEngagementCommand}.
  */
 export interface StopEngagementCommandOutput extends StopEngagementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an engagement before it finishes the final stage of the escalation plan or
  *          engagement plan. Further contacts aren't engaged.</p>
  * @example
@@ -47,6 +52,8 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StopEngagementCommandInput - {@link StopEngagementCommandInput}
+ * @returns {@link StopEngagementCommandOutput}
  * @see {@link StopEngagementCommandInput} for command's `input` shape.
  * @see {@link StopEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -98,6 +105,9 @@ export class StopEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class StopEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEngagementCommandOutput> {
     return deserializeAws_json1_1StopEngagementCommand(output, context);
   }

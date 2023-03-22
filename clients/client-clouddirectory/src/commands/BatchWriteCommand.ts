@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchWriteCommand}.
  */
 export interface BatchWriteCommandInput extends BatchWriteRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchWriteCommand}.
  */
 export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs all the write operations in a batch. Either all the operations succeed or
  *       none.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchWriteCommandInput - {@link BatchWriteCommandInput}
+ * @returns {@link BatchWriteCommandOutput}
  * @see {@link BatchWriteCommandInput} for command's `input` shape.
  * @see {@link BatchWriteCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -95,6 +102,9 @@ export class BatchWriteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchWriteCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class BatchWriteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchWriteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchWriteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchWriteCommandOutput> {
     return deserializeAws_restJson1BatchWriteCommand(output, context);
   }

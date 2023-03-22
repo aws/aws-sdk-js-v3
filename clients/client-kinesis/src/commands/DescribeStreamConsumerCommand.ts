@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStreamConsumerCommand}.
  */
 export interface DescribeStreamConsumerCommandInput extends DescribeStreamConsumerInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStreamConsumerCommand}.
  */
 export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsumerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>To get the description of a registered consumer, provide the ARN of the consumer.
  *             Alternatively, you can provide the ARN of the data stream and the name you gave the
  *             consumer when you registered it. You may also provide all three parameters, as long as
@@ -53,6 +58,8 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStreamConsumerCommandInput - {@link DescribeStreamConsumerCommandInput}
+ * @returns {@link DescribeStreamConsumerCommandOutput}
  * @see {@link DescribeStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamConsumerCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeStreamConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStreamConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeStreamConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStreamConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStreamConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamConsumerCommandOutput> {
     return deserializeAws_json1_1DescribeStreamConsumerCommand(output, context);
   }

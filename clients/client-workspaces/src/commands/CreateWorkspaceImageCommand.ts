@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkspaceImageCommand}.
  */
 export interface CreateWorkspaceImageCommandInput extends CreateWorkspaceImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkspaceImageCommand}.
  */
 export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new WorkSpace image from an existing WorkSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkspaceImageCommandInput - {@link CreateWorkspaceImageCommandInput}
+ * @returns {@link CreateWorkspaceImageCommandOutput}
  * @see {@link CreateWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateWorkspaceImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateWorkspaceImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWorkspaceImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceImageCommandOutput> {
     return deserializeAws_json1_1CreateWorkspaceImageCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartSimulationCommand}.
  */
 export interface StartSimulationCommandInput extends StartSimulationInput {}
 /**
+ * @public
+ *
  * The output of {@link StartSimulationCommand}.
  */
 export interface StartSimulationCommandOutput extends StartSimulationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a simulation with the given name and schema.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSimulationCommandInput - {@link StartSimulationCommandInput}
+ * @returns {@link StartSimulationCommandOutput}
  * @see {@link StartSimulationCommandInput} for command's `input` shape.
  * @see {@link StartSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartSimulationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSimulationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class StartSimulationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartSimulationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSimulationCommandOutput> {
     return deserializeAws_restJson1StartSimulationCommand(output, context);
   }

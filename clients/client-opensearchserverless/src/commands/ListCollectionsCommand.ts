@@ -30,19 +30,24 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListCollectionsCommand}.
  */
 export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCollectionsCommand}.
  */
 export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
  *         <note>
- *             <p>Make sure to include an empty request body {} if you don't include any collection
+ *             <p>Make sure to include an empty request body \{\} if you don't include any collection
  *                 filters in the request.</p>
  *         </note>
  * @example
@@ -55,6 +60,8 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCollectionsCommandInput - {@link ListCollectionsCommandInput}
+ * @returns {@link ListCollectionsCommandOutput}
  * @see {@link ListCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListCollectionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListCollectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCollectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListCollectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListCollectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCollectionsCommandOutput> {
     return deserializeAws_json1_0ListCollectionsCommand(output, context);
   }

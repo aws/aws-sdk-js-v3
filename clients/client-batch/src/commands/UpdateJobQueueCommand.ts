@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobQueueCommand}.
  */
 export interface UpdateJobQueueCommandInput extends UpdateJobQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobQueueCommand}.
  */
 export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a job queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobQueueCommandInput - {@link UpdateJobQueueCommandInput}
+ * @returns {@link UpdateJobQueueCommandOutput}
  * @see {@link UpdateJobQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateJobQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateJobQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateJobQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobQueueCommandOutput> {
     return deserializeAws_restJson1UpdateJobQueueCommand(output, context);
   }

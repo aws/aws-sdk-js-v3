@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSystemInstanceCommand}.
  */
 export interface DeleteSystemInstanceCommandInput extends DeleteSystemInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSystemInstanceCommand}.
  */
 export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes a system instance.
@@ -50,6 +55,8 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSystemInstanceCommandInput - {@link DeleteSystemInstanceCommandInput}
+ * @returns {@link DeleteSystemInstanceCommandOutput}
  * @see {@link DeleteSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteSystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteSystemInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSystemInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteSystemInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSystemInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSystemInstanceCommandOutput> {
     return deserializeAws_json1_1DeleteSystemInstanceCommand(output, context);
   }

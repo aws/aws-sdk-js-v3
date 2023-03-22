@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountPreferencesCommand}.
  */
 export interface DescribeAccountPreferencesCommandInput extends DescribeAccountPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountPreferencesCommand}.
  */
 export interface DescribeAccountPreferencesCommandOutput extends DescribeAccountPreferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the account preferences settings for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.
  *       For more information, see <a href="efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon EFS resource IDs</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountPreferencesCommandInput - {@link DescribeAccountPreferencesCommandInput}
+ * @returns {@link DescribeAccountPreferencesCommandOutput}
  * @see {@link DescribeAccountPreferencesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountPreferencesCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeAccountPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeAccountPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAccountPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

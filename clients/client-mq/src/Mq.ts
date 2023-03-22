@@ -82,10 +82,12 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { MqClient } from "./MqClient";
 
 /**
+ * @public
  * <p>Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.</p>
  */
 export class Mq extends MqClient {
   /**
+   * @public
    * <p>Creates a broker. Note: This API is asynchronous.</p> <p>To create a broker, you must either use the AmazonMQFullAccess IAM policy or include the following EC2 permissions in your IAM policy.</p> <ul><li><p>ec2:CreateNetworkInterface</p> <p>This permission is required to allow Amazon MQ to create an elastic network interface (ENI) on behalf of your account.</p></li> <li><p>ec2:CreateNetworkInterfacePermission</p> <p>This permission is required to attach the ENI to the broker instance.</p></li> <li><p>ec2:DeleteNetworkInterface</p></li> <li><p>ec2:DeleteNetworkInterfacePermission</p></li> <li><p>ec2:DetachNetworkInterface</p></li> <li><p>ec2:DescribeInternetGateways</p></li> <li><p>ec2:DescribeNetworkInterfaces</p></li> <li><p>ec2:DescribeNetworkInterfacePermissions</p></li> <li><p>ec2:DescribeRouteTables</p></li> <li><p>ec2:DescribeSecurityGroups</p></li> <li><p>ec2:DescribeSubnets</p></li> <li><p>ec2:DescribeVpcs</p></li></ul> <p>For more information, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user">Create an IAM User and Get Your AWS Credentials</a> and <a href="https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface">Never Modify or Delete the Amazon MQ Elastic Network Interface</a> in the <i>Amazon MQ Developer Guide</i>.</p>
    */
   public createBroker(
@@ -115,6 +117,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).</p>
    */
   public createConfiguration(
@@ -147,6 +150,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Add a tag to a resource.</p>
    */
   public createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
@@ -173,6 +177,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Creates an ActiveMQ user.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
@@ -199,6 +204,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Deletes a broker. Note: This API is asynchronous.</p>
    */
   public deleteBroker(
@@ -228,6 +234,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag from a resource.</p>
    */
   public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
@@ -254,6 +261,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Deletes an ActiveMQ user.</p>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
@@ -280,6 +288,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified broker.</p>
    */
   public describeBroker(
@@ -312,6 +321,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Describe available engine types and versions.</p>
    */
   public describeBrokerEngineTypes(
@@ -344,6 +354,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Describe available broker instance options.</p>
    */
   public describeBrokerInstanceOptions(
@@ -376,6 +387,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified configuration.</p>
    */
   public describeConfiguration(
@@ -408,6 +420,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Returns the specified configuration revision for the specified configuration.</p>
    */
   public describeConfigurationRevision(
@@ -440,6 +453,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an ActiveMQ user.</p>
    */
   public describeUser(
@@ -469,6 +483,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all brokers.</p>
    */
   public listBrokers(args: ListBrokersCommandInput, options?: __HttpHandlerOptions): Promise<ListBrokersCommandOutput>;
@@ -495,6 +510,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all revisions for the specified configuration.</p>
    */
   public listConfigurationRevisions(
@@ -527,6 +543,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all configurations.</p>
    */
   public listConfigurations(
@@ -559,6 +576,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Lists tags for a resource.</p>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
@@ -585,6 +603,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all ActiveMQ users.</p>
    */
   public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
@@ -611,6 +630,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Reboots a broker. Note: This API is asynchronous.</p>
    */
   public rebootBroker(
@@ -640,6 +660,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Adds a pending configuration change to a broker.</p>
    */
   public updateBroker(
@@ -669,6 +690,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified configuration.</p>
    */
   public updateConfiguration(
@@ -701,6 +723,7 @@ export class Mq extends MqClient {
   }
 
   /**
+   * @public
    * <p>Updates the information for an ActiveMQ user.</p>
    */
   public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;

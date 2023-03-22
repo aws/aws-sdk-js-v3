@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListContainersCommand}.
  */
 export interface ListContainersCommandInput extends ListContainersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListContainersCommand}.
  */
 export interface ListContainersCommandOutput extends ListContainersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the properties of all containers in AWS Elemental MediaStore. </p>
  *          <p>You can query to receive all the containers in one response. Or you can include the
  *             <code>MaxResults</code> parameter to receive a limited number of containers in each
@@ -54,6 +59,8 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContainersCommandInput - {@link ListContainersCommandInput}
+ * @returns {@link ListContainersCommandOutput}
  * @see {@link ListContainersCommandInput} for command's `input` shape.
  * @see {@link ListContainersCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListContainersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContainersCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListContainersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContainersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListContainersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContainersCommandOutput> {
     return deserializeAws_json1_1ListContainersCommand(output, context);
   }

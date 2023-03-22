@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAliasCommand}.
  */
 export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAliasCommand}.
  */
 export interface UpdateAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an existing KMS alias with a different KMS key. Each alias is associated with
  *       only one KMS key at a time, although a KMS key can have multiple aliases. The alias and the
  *       KMS key must be in the same Amazon Web Services account and Region.</p>
@@ -103,6 +108,8 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
+ * @returns {@link UpdateAliasCommandOutput}
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -172,6 +179,9 @@ export class UpdateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -209,10 +219,16 @@ export class UpdateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAliasCommandOutput> {
     return deserializeAws_json1_1UpdateAliasCommand(output, context);
   }

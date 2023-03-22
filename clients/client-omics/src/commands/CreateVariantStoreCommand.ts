@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVariantStoreCommand}.
  */
 export interface CreateVariantStoreCommandInput extends CreateVariantStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVariantStoreCommand}.
  */
 export interface CreateVariantStoreCommandOutput extends CreateVariantStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a variant store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateVariantStoreCommandOutput extends CreateVariantStoreRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVariantStoreCommandInput - {@link CreateVariantStoreCommandInput}
+ * @returns {@link CreateVariantStoreCommandOutput}
  * @see {@link CreateVariantStoreCommandInput} for command's `input` shape.
  * @see {@link CreateVariantStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateVariantStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVariantStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateVariantStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVariantStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateVariantStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVariantStoreCommandOutput> {
     return deserializeAws_restJson1CreateVariantStoreCommand(output, context);
   }

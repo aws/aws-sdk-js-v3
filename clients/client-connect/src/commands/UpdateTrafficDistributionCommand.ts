@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrafficDistributionCommand}.
  */
 export interface UpdateTrafficDistributionCommandInput extends UpdateTrafficDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrafficDistributionCommand}.
  */
 export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDistributionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the traffic distribution for a given traffic distribution group. </p>
  *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony
  *     traffic distribution across Amazon Web Services Regions
@@ -49,6 +54,8 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrafficDistributionCommandInput - {@link UpdateTrafficDistributionCommandInput}
+ * @returns {@link UpdateTrafficDistributionCommandOutput}
  * @see {@link UpdateTrafficDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateTrafficDistributionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateTrafficDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrafficDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateTrafficDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrafficDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTrafficDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

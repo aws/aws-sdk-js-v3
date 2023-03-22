@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCodeReviewCommand}.
  */
 export interface CreateCodeReviewCommandInput extends CreateCodeReviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCodeReviewCommand}.
  */
 export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">CodeReviewType</a> of
  *             <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a
  *          specified branch in an associated repository. <code>PullRequest</code> code reviews are
@@ -49,6 +54,8 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCodeReviewCommandInput - {@link CreateCodeReviewCommandInput}
+ * @returns {@link CreateCodeReviewCommandOutput}
  * @see {@link CreateCodeReviewCommandInput} for command's `input` shape.
  * @see {@link CreateCodeReviewCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -92,6 +99,9 @@ export class CreateCodeReviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCodeReviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateCodeReviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCodeReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCodeReviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCodeReviewCommandOutput> {
     return deserializeAws_restJson1CreateCodeReviewCommand(output, context);
   }

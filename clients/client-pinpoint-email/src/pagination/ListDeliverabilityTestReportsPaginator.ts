@@ -10,7 +10,7 @@ import { PinpointEmailClient } from "../PinpointEmailClient";
 import { PinpointEmailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PinpointEmailClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDeliverabilityTestReportsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDeliverabilityTestReports(
   config: PinpointEmailPaginationConfiguration,
   input: ListDeliverabilityTestReportsCommandInput,

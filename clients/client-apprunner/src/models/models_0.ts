@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { AppRunnerServiceException as __BaseException } from "./AppRunnerServiceException";
 
+/**
+ * @public
+ */
 export interface AssociateCustomDomainRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to associate a custom domain name with.</p>
@@ -25,6 +28,9 @@ export interface AssociateCustomDomainRequest {
   EnableWWWSubdomain?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum CertificateValidationRecordStatus {
   FAILED = "FAILED",
   PENDING_VALIDATION = "PENDING_VALIDATION",
@@ -32,6 +38,7 @@ export enum CertificateValidationRecordStatus {
 }
 
 /**
+ * @public
  * <p>Describes a certificate CNAME record to add to your DNS. For more information, see <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_AssociateCustomDomain.html">AssociateCustomDomain</a>.</p>
  */
 export interface CertificateValidationRecord {
@@ -57,6 +64,9 @@ export interface CertificateValidationRecord {
   Status?: CertificateValidationRecordStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum CustomDomainAssociationStatus {
   ACTIVE = "ACTIVE",
   BINDING_CERTIFICATE = "BINDING_CERTIFICATE",
@@ -68,6 +78,7 @@ export enum CustomDomainAssociationStatus {
 }
 
 /**
+ * @public
  * <p>Describes a custom domain that's associated with an App Runner service.</p>
  */
 export interface CustomDomain {
@@ -96,6 +107,7 @@ export interface CustomDomain {
 }
 
 /**
+ * @public
  * <p>DNS Target record for a custom domain of this Amazon VPC.</p>
  */
 export interface VpcDNSTarget {
@@ -115,6 +127,9 @@ export interface VpcDNSTarget {
   DomainName?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCustomDomainResponse {
   /**
    * <p>The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.</p>
@@ -139,6 +154,7 @@ export interface AssociateCustomDomainResponse {
 }
 
 /**
+ * @public
  * <p>An unexpected service exception occurred.</p>
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -160,6 +176,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -181,6 +198,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can't perform this action when the resource is in its current state.</p>
  */
 export class InvalidStateException extends __BaseException {
@@ -202,6 +220,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a tag that is applied to an App Runner resource. A tag is a metadata item consisting of a key-value pair.</p>
  */
 export interface Tag {
@@ -216,6 +235,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAutoScalingConfigurationRequest {
   /**
    * <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number <code>1</code> of this
@@ -260,12 +282,16 @@ export interface CreateAutoScalingConfigurationRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum AutoScalingConfigurationStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
 /**
+ * @public
  * <p>Describes an App Runner automatic scaling configuration resource.</p>
  *          <p>A higher <code>MinSize</code> increases the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The tradeoff is a higher
  *       minimal cost.</p>
@@ -332,6 +358,9 @@ export interface AutoScalingConfiguration {
   DeletedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateAutoScalingConfigurationResponse {
   /**
    * <p>A description of the App Runner auto scaling configuration that's created by this request.</p>
@@ -340,6 +369,7 @@ export interface CreateAutoScalingConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p>
  *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
  *         <i>Amazon Web Services General Reference</i>.</p>
@@ -362,10 +392,16 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ProviderType {
   GITHUB = "GITHUB",
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionRequest {
   /**
    * <p>A name for the new connection. It must be unique across all App Runner connections for the Amazon Web Services account in the Amazon Web Services Region.</p>
@@ -383,6 +419,9 @@ export interface CreateConnectionRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum ConnectionStatus {
   AVAILABLE = "AVAILABLE",
   DELETED = "DELETED",
@@ -391,6 +430,7 @@ export enum ConnectionStatus {
 }
 
 /**
+ * @public
  * <p>Describes an App Runner connection resource.</p>
  */
 export interface Connection {
@@ -420,6 +460,9 @@ export interface Connection {
   CreatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionResponse {
   /**
    * <p>A description of the App Runner connection that's created by this request.</p>
@@ -427,11 +470,15 @@ export interface CreateConnectionResponse {
   Connection: Connection | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TracingVendor {
   AWSXRAY = "AWSXRAY",
 }
 
 /**
+ * @public
  * <p>Describes the configuration of the tracing feature within an App Runner observability configuration.</p>
  */
 export interface TraceConfiguration {
@@ -441,6 +488,9 @@ export interface TraceConfiguration {
   Vendor: TracingVendor | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateObservabilityConfigurationRequest {
   /**
    * <p>A name for the observability configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number
@@ -465,12 +515,16 @@ export interface CreateObservabilityConfigurationRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum ObservabilityConfigurationStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
 /**
+ * @public
  * <p>Describes an App Runner observability configuration resource. Multiple revisions of a configuration have the same
  *         <code>ObservabilityConfigurationName</code> and different <code>ObservabilityConfigurationRevision</code> values.</p>
  *          <p>The resource is designed to configure multiple features (currently one feature, tracing). This type contains optional members that describe the
@@ -522,6 +576,9 @@ export interface ObservabilityConfiguration {
   DeletedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateObservabilityConfigurationResponse {
   /**
    * <p>A description of the App Runner observability configuration that's created by this request.</p>
@@ -530,6 +587,7 @@ export interface CreateObservabilityConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Describes a custom encryption key that App Runner uses to encrypt copies of the source repository and service logs.</p>
  */
 export interface EncryptionConfiguration {
@@ -539,12 +597,16 @@ export interface EncryptionConfiguration {
   KmsKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum HealthCheckProtocol {
   HTTP = "HTTP",
   TCP = "TCP",
 }
 
 /**
+ * @public
  * <p>Describes the settings for the health check that App Runner performs to monitor the health of a service.</p>
  */
 export interface HealthCheckConfiguration {
@@ -595,6 +657,7 @@ export interface HealthCheckConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the runtime configuration of an App Runner service instance (scaling unit).</p>
  */
 export interface InstanceConfiguration {
@@ -619,12 +682,16 @@ export interface InstanceConfiguration {
   InstanceRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum EgressType {
   DEFAULT = "DEFAULT",
   VPC = "VPC",
 }
 
 /**
+ * @public
  * <p>Describes configuration settings related to outbound network traffic of an App Runner service.</p>
  */
 export interface EgressConfiguration {
@@ -643,6 +710,7 @@ export interface EgressConfiguration {
 }
 
 /**
+ * @public
  * <p>Network configuration settings for inbound network traffic.</p>
  */
 export interface IngressConfiguration {
@@ -654,6 +722,7 @@ export interface IngressConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes configuration settings related to network traffic of an App Runner service. Consists of embedded objects for each configurable network
  *       feature.</p>
  */
@@ -670,6 +739,7 @@ export interface NetworkConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the observability configuration of an App Runner service. These are additional observability features, like tracing, that you choose to
  *       enable. They're configured in a separate resource that you associate with your service.</p>
  */
@@ -694,6 +764,7 @@ export interface ServiceObservabilityConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.</p>
  */
 export interface AuthenticationConfiguration {
@@ -710,6 +781,9 @@ export interface AuthenticationConfiguration {
   AccessRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum Runtime {
   CORRETTO_11 = "CORRETTO_11",
   CORRETTO_8 = "CORRETTO_8",
@@ -724,6 +798,7 @@ export enum Runtime {
 }
 
 /**
+ * @public
  * <p>Describes the basic configuration needed for building and running an App Runner service. This type doesn't support the full set of possible
  *       configuration options. Fur full configuration capabilities, use a <code>apprunner.yaml</code> file in the source code repository.</p>
  */
@@ -779,12 +854,16 @@ export interface CodeConfigurationValues {
   RuntimeEnvironmentSecrets?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ConfigurationSource {
   API = "API",
   REPOSITORY = "REPOSITORY",
 }
 
 /**
+ * @public
  * <p>Describes the configuration that App Runner uses to build and run an App Runner service from a source code repository.</p>
  */
 export interface CodeConfiguration {
@@ -812,11 +891,15 @@ export interface CodeConfiguration {
   CodeConfigurationValues?: CodeConfigurationValues;
 }
 
+/**
+ * @public
+ */
 export enum SourceCodeVersionType {
   BRANCH = "BRANCH",
 }
 
 /**
+ * @public
  * <p>Identifies a version of code that App Runner refers to within a source code repository.</p>
  */
 export interface SourceCodeVersion {
@@ -834,6 +917,7 @@ export interface SourceCodeVersion {
 }
 
 /**
+ * @public
  * <p>Describes a source code repository.</p>
  */
 export interface CodeRepository {
@@ -858,6 +942,7 @@ export interface CodeRepository {
 }
 
 /**
+ * @public
  * <p>Describes the configuration that App Runner uses to run an App Runner service using an image pulled from a source image repository.</p>
  */
 export interface ImageConfiguration {
@@ -901,12 +986,16 @@ export interface ImageConfiguration {
   RuntimeEnvironmentSecrets?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ImageRepositoryType {
   ECR = "ECR",
   ECR_PUBLIC = "ECR_PUBLIC",
 }
 
 /**
+ * @public
  * <p>Describes a source image repository.</p>
  */
 export interface ImageRepository {
@@ -928,6 +1017,7 @@ export interface ImageRepository {
 }
 
 /**
+ * @public
  * <p>Describes the source deployed to an App Runner service. It can be a code or an image repository.</p>
  */
 export interface SourceConfiguration {
@@ -958,6 +1048,9 @@ export interface SourceConfiguration {
   AuthenticationConfiguration?: AuthenticationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceRequest {
   /**
    * <p>A name for the App Runner service. It must be unique across all the running App Runner services in your Amazon Web Services account in the Amazon Web Services Region.</p>
@@ -1014,6 +1107,7 @@ export interface CreateServiceRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information about an App Runner automatic scaling configuration resource.</p>
  *          <p>This type contains limited information about an auto scaling configuration. It includes only identification information, without configuration
  *       details. It's returned by the <a>ListAutoScalingConfigurations</a> action. Complete configuration information is returned by the <a>CreateAutoScalingConfiguration</a>, <a>DescribeAutoScalingConfiguration</a>, and <a>DeleteAutoScalingConfiguration</a>
@@ -1037,6 +1131,9 @@ export interface AutoScalingConfigurationSummary {
   AutoScalingConfigurationRevision?: number;
 }
 
+/**
+ * @public
+ */
 export enum ServiceStatus {
   CREATE_FAILED = "CREATE_FAILED",
   DELETED = "DELETED",
@@ -1047,6 +1144,7 @@ export enum ServiceStatus {
 }
 
 /**
+ * @public
  * <p>Describes an App Runner service. It can describe a service in any state, including deleted services.</p>
  *          <p>This type contains the full information about a service, including configuration details. It's returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html">CreateService</a>, <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeService.html">DescribeService</a>, and <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteService.html">DeleteService</a> actions. A subset of this
  *       information is returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListServices.html">ListServices</a> action using the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ServiceSummary.html">ServiceSummary</a> type.</p>
@@ -1142,6 +1240,9 @@ export interface Service {
   ObservabilityConfiguration?: ServiceObservabilityConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceResponse {
   /**
    * <p>A description of the App Runner service that's created by this request.</p>
@@ -1154,6 +1255,9 @@ export interface CreateServiceResponse {
   OperationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcConnectorRequest {
   /**
    * <p>A name for the VPC connector.</p>
@@ -1183,12 +1287,16 @@ export interface CreateVpcConnectorRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum VpcConnectorStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
 /**
+ * @public
  * <p>Describes an App Runner VPC connector resource. A VPC connector describes the Amazon Virtual Private Cloud (Amazon VPC) that an App Runner service is
  *       associated with, and the subnets and security group that are used.</p>
  *          <p>Multiple revisions of a connector might have the same <code>Name</code> and different <code>Revision</code> values.</p>
@@ -1244,6 +1352,9 @@ export interface VpcConnector {
   DeletedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcConnectorResponse {
   /**
    * <p>A description of the App Runner VPC connector that's created by this request.</p>
@@ -1252,6 +1363,7 @@ export interface CreateVpcConnectorResponse {
 }
 
 /**
+ * @public
  * <p>The configuration of your VPC and the associated VPC endpoint. The VPC endpoint is an Amazon Web Services PrivateLink resource that allows access to your App Runner
  *       services from within an Amazon VPC.</p>
  */
@@ -1268,6 +1380,9 @@ export interface IngressVpcConfiguration {
   VpcEndpointId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcIngressConnectionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.</p>
@@ -1292,6 +1407,9 @@ export interface CreateVpcIngressConnectionRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum VpcIngressConnectionStatus {
   AVAILABLE = "AVAILABLE",
   DELETED = "DELETED",
@@ -1304,6 +1422,7 @@ export enum VpcIngressConnectionStatus {
 }
 
 /**
+ * @public
  * <p>The App Runner resource that specifies an App Runner endpoint for incoming traffic. It establishes a connection between a VPC interface endpoint and a App Runner
  *       service, to make your App Runner service accessible from only within an Amazon VPC.</p>
  */
@@ -1382,6 +1501,9 @@ export interface VpcIngressConnection {
   DeletedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcIngressConnectionResponse {
   /**
    * <p>A description of the App Runner VPC Ingress Connection resource that's created by this request. </p>
@@ -1389,6 +1511,9 @@ export interface CreateVpcIngressConnectionResponse {
   VpcIngressConnection: VpcIngressConnection | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAutoScalingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p>
@@ -1400,6 +1525,9 @@ export interface DeleteAutoScalingConfigurationRequest {
   AutoScalingConfigurationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAutoScalingConfigurationResponse {
   /**
    * <p>A description of the App Runner auto scaling configuration that this request just deleted.</p>
@@ -1408,6 +1536,7 @@ export interface DeleteAutoScalingConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1428,6 +1557,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner connection that you want to delete.</p>
@@ -1435,6 +1567,9 @@ export interface DeleteConnectionRequest {
   ConnectionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionResponse {
   /**
    * <p>A description of the App Runner connection that this request just deleted.</p>
@@ -1442,6 +1577,9 @@ export interface DeleteConnectionResponse {
   Connection?: Connection;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObservabilityConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner observability configuration that you want to delete.</p>
@@ -1453,6 +1591,9 @@ export interface DeleteObservabilityConfigurationRequest {
   ObservabilityConfigurationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteObservabilityConfigurationResponse {
   /**
    * <p>A description of the App Runner observability configuration that this request just deleted.</p>
@@ -1460,6 +1601,9 @@ export interface DeleteObservabilityConfigurationResponse {
   ObservabilityConfiguration: ObservabilityConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to delete.</p>
@@ -1467,6 +1611,9 @@ export interface DeleteServiceRequest {
   ServiceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceResponse {
   /**
    * <p>A description of the App Runner service that this request just deleted.</p>
@@ -1480,6 +1627,9 @@ export interface DeleteServiceResponse {
   OperationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcConnectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p>
@@ -1488,6 +1638,9 @@ export interface DeleteVpcConnectorRequest {
   VpcConnectorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcConnectorResponse {
   /**
    * <p>A description of the App Runner VPC connector that this request just deleted.</p>
@@ -1495,6 +1648,9 @@ export interface DeleteVpcConnectorResponse {
   VpcConnector: VpcConnector | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcIngressConnectionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner VPC Ingress Connection that you want to delete.</p>
@@ -1502,6 +1658,9 @@ export interface DeleteVpcIngressConnectionRequest {
   VpcIngressConnectionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVpcIngressConnectionResponse {
   /**
    * <p>A description of the App Runner VPC Ingress Connection that this request just deleted.</p>
@@ -1509,6 +1668,9 @@ export interface DeleteVpcIngressConnectionResponse {
   VpcIngressConnection: VpcIngressConnection | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoScalingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want a description for.</p>
@@ -1521,6 +1683,9 @@ export interface DescribeAutoScalingConfigurationRequest {
   AutoScalingConfigurationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoScalingConfigurationResponse {
   /**
    * <p>A full description of the App Runner auto scaling configuration that you specified in this request.</p>
@@ -1528,6 +1693,9 @@ export interface DescribeAutoScalingConfigurationResponse {
   AutoScalingConfiguration: AutoScalingConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCustomDomainsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want associated custom domain names to be described for.</p>
@@ -1548,6 +1716,9 @@ export interface DescribeCustomDomainsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCustomDomainsResponse {
   /**
    * <p>The App Runner subdomain of the App Runner service. The associated custom domain names are mapped to this target name.</p>
@@ -1577,6 +1748,9 @@ export interface DescribeCustomDomainsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeObservabilityConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner observability configuration that you want a description for.</p>
@@ -1589,6 +1763,9 @@ export interface DescribeObservabilityConfigurationRequest {
   ObservabilityConfigurationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeObservabilityConfigurationResponse {
   /**
    * <p>A full description of the App Runner observability configuration that you specified in this request.</p>
@@ -1596,6 +1773,9 @@ export interface DescribeObservabilityConfigurationResponse {
   ObservabilityConfiguration: ObservabilityConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want a description for.</p>
@@ -1603,6 +1783,9 @@ export interface DescribeServiceRequest {
   ServiceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceResponse {
   /**
    * <p>A full description of the App Runner service that you specified in this request.</p>
@@ -1610,6 +1793,9 @@ export interface DescribeServiceResponse {
   Service: Service | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcConnectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want a description for.</p>
@@ -1618,6 +1804,9 @@ export interface DescribeVpcConnectorRequest {
   VpcConnectorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcConnectorResponse {
   /**
    * <p>A description of the App Runner VPC connector that you specified in this request.</p>
@@ -1625,6 +1814,9 @@ export interface DescribeVpcConnectorResponse {
   VpcConnector: VpcConnector | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcIngressConnectionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner VPC Ingress Connection that you want a description for.</p>
@@ -1632,6 +1824,9 @@ export interface DescribeVpcIngressConnectionRequest {
   VpcIngressConnectionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVpcIngressConnectionResponse {
   /**
    * <p>A description of the App Runner VPC Ingress Connection that you specified in this request.</p>
@@ -1639,6 +1834,9 @@ export interface DescribeVpcIngressConnectionResponse {
   VpcIngressConnection: VpcIngressConnection | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCustomDomainRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to disassociate a custom domain name from.</p>
@@ -1651,6 +1849,9 @@ export interface DisassociateCustomDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCustomDomainResponse {
   /**
    * <p>The App Runner subdomain of the App Runner service. The disassociated custom domain name was mapped to this target name.</p>
@@ -1674,6 +1875,9 @@ export interface DisassociateCustomDomainResponse {
   VpcDNSTargets: VpcDNSTarget[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAutoScalingConfigurationsRequest {
   /**
    * <p>The name of the App Runner auto scaling configuration that you want to list. If specified, App Runner lists revisions that share this name. If not specified, App Runner
@@ -1703,6 +1907,9 @@ export interface ListAutoScalingConfigurationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAutoScalingConfigurationsResponse {
   /**
    * <p>A list of summary information records for auto scaling configurations. In a paginated request, the request returns up to <code>MaxResults</code>
@@ -1716,6 +1923,9 @@ export interface ListAutoScalingConfigurationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectionsRequest {
   /**
    * <p>If specified, only this connection is returned. If not specified, the result isn't filtered by name.</p>
@@ -1737,6 +1947,7 @@ export interface ListConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information about an App Runner connection resource.</p>
  */
 export interface ConnectionSummary {
@@ -1766,6 +1977,9 @@ export interface ConnectionSummary {
   CreatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectionsResponse {
   /**
    * <p>A list of summary information records for connections. In a paginated request, the request returns up to <code>MaxResults</code> records for each
@@ -1779,6 +1993,9 @@ export interface ListConnectionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListObservabilityConfigurationsRequest {
   /**
    * <p>The name of the App Runner observability configuration that you want to list. If specified, App Runner lists revisions that share this name. If not specified,
@@ -1809,6 +2026,7 @@ export interface ListObservabilityConfigurationsRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information about an App Runner observability configuration resource.</p>
  *          <p>This type contains limited information about an observability configuration. It includes only identification information, without configuration
  *       details. It's returned by the <a>ListObservabilityConfigurations</a> action. Complete configuration information is returned by the <a>CreateObservabilityConfiguration</a>, <a>DescribeObservabilityConfiguration</a>, and <a>DeleteObservabilityConfiguration</a>
@@ -1832,6 +2050,9 @@ export interface ObservabilityConfigurationSummary {
   ObservabilityConfigurationRevision?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListObservabilityConfigurationsResponse {
   /**
    * <p>A list of summary information records for observability configurations. In a paginated request, the request returns up to <code>MaxResults</code>
@@ -1845,6 +2066,9 @@ export interface ListObservabilityConfigurationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOperationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want a list of operations for.</p>
@@ -1865,6 +2089,9 @@ export interface ListOperationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export enum OperationStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1875,6 +2102,9 @@ export enum OperationStatus {
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export enum OperationType {
   CREATE_SERVICE = "CREATE_SERVICE",
   DELETE_SERVICE = "DELETE_SERVICE",
@@ -1885,6 +2115,7 @@ export enum OperationType {
 }
 
 /**
+ * @public
  * <p>Provides summary information for an operation that occurred on an App Runner service.</p>
  */
 export interface OperationSummary {
@@ -1924,6 +2155,9 @@ export interface OperationSummary {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListOperationsResponse {
   /**
    * <p>A list of operation summary information records. In a paginated request, the request returns up to <code>MaxResults</code> records for each
@@ -1937,6 +2171,9 @@ export interface ListOperationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesRequest {
   /**
    * <p>A token from a previous result page. Used for a paginated request. The request retrieves the next result page. All other parameter values must be
@@ -1953,6 +2190,7 @@ export interface ListServicesRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information for an App Runner service.</p>
  *          <p>This type contains limited information about a service. It doesn't include configuration details. It's returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListServices.html">ListServices</a> action. Complete service information is returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html">CreateService</a>, <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeService.html">DescribeService</a>, and <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteService.html">DeleteService</a> actions using the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_Service.html">Service</a> type.</p>
  */
@@ -2006,6 +2244,9 @@ export interface ServiceSummary {
   Status?: ServiceStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesResponse {
   /**
    * <p>A list of service summary information records. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>
@@ -2018,6 +2259,9 @@ export interface ListServicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that a tag list is requested for.</p>
@@ -2026,6 +2270,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of the tag key-value pairs that are associated with the resource.</p>
@@ -2033,6 +2280,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListVpcConnectorsRequest {
   /**
    * <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p>
@@ -2048,6 +2298,9 @@ export interface ListVpcConnectorsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcConnectorsResponse {
   /**
    * <p>A list of information records for VPC connectors. In a paginated request, the request returns up to <code>MaxResults</code> records for each
@@ -2062,6 +2315,7 @@ export interface ListVpcConnectorsResponse {
 }
 
 /**
+ * @public
  * <p>Returns a list of VPC Ingress Connections based on the filter provided. It can return either <code>ServiceArn</code> or <code>VpcEndpointId</code>, or both.</p>
  */
 export interface ListVpcIngressConnectionsFilter {
@@ -2078,6 +2332,9 @@ export interface ListVpcIngressConnectionsFilter {
   VpcEndpointId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcIngressConnectionsRequest {
   /**
    * <p>The VPC Ingress Connections to be listed based on either the Service Arn or Vpc Endpoint Id, or both.</p>
@@ -2099,6 +2356,7 @@ export interface ListVpcIngressConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information about an VPC Ingress Connection, which includes its VPC Ingress Connection ARN and its associated Service ARN.</p>
  */
 export interface VpcIngressConnectionSummary {
@@ -2115,6 +2373,9 @@ export interface VpcIngressConnectionSummary {
   ServiceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVpcIngressConnectionsResponse {
   /**
    * <p>A list of summary information records for VPC Ingress Connections. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>
@@ -2127,6 +2388,9 @@ export interface ListVpcIngressConnectionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PauseServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to pause.</p>
@@ -2134,6 +2398,9 @@ export interface PauseServiceRequest {
   ServiceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PauseServiceResponse {
   /**
    * <p>A description of the App Runner service that this request just paused.</p>
@@ -2147,6 +2414,9 @@ export interface PauseServiceResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResumeServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to resume.</p>
@@ -2154,6 +2424,9 @@ export interface ResumeServiceRequest {
   ServiceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResumeServiceResponse {
   /**
    * <p>A description of the App Runner service that this request just resumed.</p>
@@ -2167,6 +2440,9 @@ export interface ResumeServiceResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDeploymentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to manually deploy to.</p>
@@ -2174,6 +2450,9 @@ export interface StartDeploymentRequest {
   ServiceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDeploymentResponse {
   /**
    * <p>The unique ID of the asynchronous operation that this request started. You can use it combined with the <a>ListOperations</a> call to track
@@ -2182,6 +2461,9 @@ export interface StartDeploymentResponse {
   OperationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to update tags for.</p>
@@ -2196,8 +2478,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
@@ -2211,8 +2499,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to update.</p>
@@ -2254,6 +2548,9 @@ export interface UpdateServiceRequest {
   ObservabilityConfiguration?: ServiceObservabilityConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceResponse {
   /**
    * <p>A description of the App Runner service updated by this request. All configuration values in the returned <code>Service</code> structure reflect
@@ -2268,6 +2565,9 @@ export interface UpdateServiceResponse {
   OperationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcIngressConnectionRequest {
   /**
    * <p>The Amazon Resource Name (Arn) for the App Runner VPC Ingress Connection resource that you want to update.</p>
@@ -2281,6 +2581,9 @@ export interface UpdateVpcIngressConnectionRequest {
   IngressVpcConfiguration: IngressVpcConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcIngressConnectionResponse {
   /**
    * <p>A description of the App Runner VPC Ingress Connection resource that's updated by this request.</p>

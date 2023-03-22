@@ -10,7 +10,7 @@ import { ECRClient } from "../ECRClient";
 import { ECRPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECRClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeRepositoriesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeRepositories(
   config: ECRPaginationConfiguration,
   input: DescribeRepositoriesCommandInput,

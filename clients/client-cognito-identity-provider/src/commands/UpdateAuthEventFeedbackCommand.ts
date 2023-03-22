@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAuthEventFeedbackCommand}.
  */
 export interface UpdateAuthEventFeedbackCommandInput extends UpdateAuthEventFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAuthEventFeedbackCommand}.
  */
 export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the feedback for an authentication event, whether it was from a valid user or
  *             not. This feedback is used for improving the risk evaluation decision for the user pool
  *             as part of Amazon Cognito advanced security.</p>
@@ -53,6 +58,8 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAuthEventFeedbackCommandInput - {@link UpdateAuthEventFeedbackCommandInput}
+ * @returns {@link UpdateAuthEventFeedbackCommandOutput}
  * @see {@link UpdateAuthEventFeedbackCommandInput} for command's `input` shape.
  * @see {@link UpdateAuthEventFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -100,6 +107,9 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAuthEventFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAuthEventFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAuthEventFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAuthEventFeedbackCommandOutput> {
     return deserializeAws_json1_1UpdateAuthEventFeedbackCommand(output, context);
   }

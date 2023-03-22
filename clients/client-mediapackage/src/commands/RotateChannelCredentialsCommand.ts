@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RotateChannelCredentialsCommand}.
  */
 export interface RotateChannelCredentialsCommandInput extends RotateChannelCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RotateChannelCredentialsCommand}.
  */
 export interface RotateChannelCredentialsCommandOutput extends RotateChannelCredentialsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead
@@ -48,6 +53,8 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
  * const response = await client.send(command);
  * ```
  *
+ * @param RotateChannelCredentialsCommandInput - {@link RotateChannelCredentialsCommandInput}
+ * @returns {@link RotateChannelCredentialsCommandOutput}
  * @see {@link RotateChannelCredentialsCommandInput} for command's `input` shape.
  * @see {@link RotateChannelCredentialsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -89,6 +96,9 @@ export class RotateChannelCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RotateChannelCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class RotateChannelCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RotateChannelCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RotateChannelCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateChannelCredentialsCommandOutput> {
     return deserializeAws_restJson1RotateChannelCredentialsCommand(output, context);
   }

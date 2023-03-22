@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourceAttributesCommand}.
  */
 export interface PutResourceAttributesCommandInput extends PutResourceAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutResourceAttributesCommand}.
  */
 export interface PutResourceAttributesCommandOutput extends PutResourceAttributesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides identifying details of the resource being migrated so that it can be associated
  *          in the Application Discovery Service repository. This association occurs asynchronously
  *          after <code>PutResourceAttributes</code> returns.</p>
@@ -71,6 +76,8 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourceAttributesCommandInput - {@link PutResourceAttributesCommandInput}
+ * @returns {@link PutResourceAttributesCommandOutput}
  * @see {@link PutResourceAttributesCommandInput} for command's `input` shape.
  * @see {@link PutResourceAttributesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -128,6 +135,9 @@ export class PutResourceAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourceAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,10 +177,16 @@ export class PutResourceAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourceAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutResourceAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourceAttributesCommandOutput> {
     return deserializeAws_json1_1PutResourceAttributesCommand(output, context);
   }

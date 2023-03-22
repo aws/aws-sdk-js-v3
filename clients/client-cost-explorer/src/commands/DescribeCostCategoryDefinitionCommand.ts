@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCostCategoryDefinitionCommand}.
  */
 export interface DescribeCostCategoryDefinitionCommandInput extends DescribeCostCategoryDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCostCategoryDefinitionCommand}.
  */
 export interface DescribeCostCategoryDefinitionCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
  *       Cost Category that's defined in the account.</p>
  *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that's
@@ -53,6 +58,8 @@ export interface DescribeCostCategoryDefinitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCostCategoryDefinitionCommandInput - {@link DescribeCostCategoryDefinitionCommandInput}
+ * @returns {@link DescribeCostCategoryDefinitionCommandOutput}
  * @see {@link DescribeCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCostCategoryDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCostCategoryDefinitionCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
     return serializeAws_json1_1DescribeCostCategoryDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

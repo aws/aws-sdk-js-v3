@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecommendationTemplateCommand}.
  */
 export interface DeleteRecommendationTemplateCommandInput extends DeleteRecommendationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecommendationTemplateCommand}.
  */
 export interface DeleteRecommendationTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteRecommendationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a recommendation template. This is a destructive action that can't be
  *       undone.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteRecommendationTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecommendationTemplateCommandInput - {@link DeleteRecommendationTemplateCommandInput}
+ * @returns {@link DeleteRecommendationTemplateCommandOutput}
  * @see {@link DeleteRecommendationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteRecommendationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteRecommendationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecommendationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteRecommendationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecommendationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRecommendationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAppReplicationConfigurationCommand}.
  */
 export interface PutAppReplicationConfigurationCommandInput extends PutAppReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAppReplicationConfigurationCommand}.
  */
 export interface PutAppReplicationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutAppReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the replication configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutAppReplicationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAppReplicationConfigurationCommandInput - {@link PutAppReplicationConfigurationCommandInput}
+ * @returns {@link PutAppReplicationConfigurationCommandOutput}
  * @see {@link PutAppReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAppReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAppReplicationConfigurationCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     return serializeAws_json1_1PutAppReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

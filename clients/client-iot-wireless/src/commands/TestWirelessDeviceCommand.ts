@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestWirelessDeviceCommand}.
  */
 export interface TestWirelessDeviceCommandInput extends TestWirelessDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestWirelessDeviceCommand}.
  */
 export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulates a provisioned device by sending an uplink data payload of <code>Hello</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param TestWirelessDeviceCommandInput - {@link TestWirelessDeviceCommandInput}
+ * @returns {@link TestWirelessDeviceCommandOutput}
  * @see {@link TestWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link TestWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +88,9 @@ export class TestWirelessDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestWirelessDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class TestWirelessDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestWirelessDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TestWirelessDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestWirelessDeviceCommandOutput> {
     return deserializeAws_restJson1TestWirelessDeviceCommand(output, context);
   }

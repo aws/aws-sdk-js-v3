@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDelegatedAdminAccountCommand}.
  */
 export interface GetDelegatedAdminAccountCommandInput extends GetDelegatedAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDelegatedAdminAccountCommand}.
  */
 export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdminAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the Amazon Inspector delegated administrator for your
  *          organization.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdmin
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDelegatedAdminAccountCommandInput - {@link GetDelegatedAdminAccountCommandInput}
+ * @returns {@link GetDelegatedAdminAccountCommandOutput}
  * @see {@link GetDelegatedAdminAccountCommandInput} for command's `input` shape.
  * @see {@link GetDelegatedAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -86,6 +93,9 @@ export class GetDelegatedAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDelegatedAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetDelegatedAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDelegatedAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDelegatedAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDelegatedAdminAccountCommandOutput> {
     return deserializeAws_restJson1GetDelegatedAdminAccountCommand(output, context);
   }

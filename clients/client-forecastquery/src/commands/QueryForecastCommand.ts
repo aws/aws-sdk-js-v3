@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link QueryForecastCommand}.
  */
 export interface QueryForecastCommandInput extends QueryForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link QueryForecastCommand}.
  */
 export interface QueryForecastCommandOutput extends QueryForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a forecast for a single item, filtered by the supplied criteria.</p>
  *          <p>The criteria is a key-value pair. The key is either <code>item_id</code> (or the
  *       equivalent non-timestamp, non-target field) from the <code>TARGET_TIME_SERIES</code> dataset,
@@ -57,6 +62,8 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryForecastCommandInput - {@link QueryForecastCommandInput}
+ * @returns {@link QueryForecastCommandOutput}
  * @see {@link QueryForecastCommandInput} for command's `input` shape.
  * @see {@link QueryForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastqueryClientResolvedConfig | config} for ForecastqueryClient's `config` shape.
@@ -96,6 +103,9 @@ export class QueryForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class QueryForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1QueryForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryForecastCommandOutput> {
     return deserializeAws_json1_1QueryForecastCommand(output, context);
   }

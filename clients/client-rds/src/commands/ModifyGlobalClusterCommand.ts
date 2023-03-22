@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyGlobalClusterCommand}.
  */
 export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyGlobalClusterCommand}.
  */
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify a setting for an Amazon Aurora global cluster. You can change one or more database configuration
  *         parameters by specifying these parameters and the new values in the request. For more information on
  *         Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
@@ -52,6 +57,8 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyGlobalClusterCommandInput - {@link ModifyGlobalClusterCommandInput}
+ * @returns {@link ModifyGlobalClusterCommandOutput}
  * @see {@link ModifyGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -87,6 +94,9 @@ export class ModifyGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ModifyGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyGlobalClusterCommandOutput> {
     return deserializeAws_queryModifyGlobalClusterCommand(output, context);
   }

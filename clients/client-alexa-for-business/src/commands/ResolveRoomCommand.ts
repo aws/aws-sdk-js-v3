@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResolveRoomCommand}.
  */
 export interface ResolveRoomCommandInput extends ResolveRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResolveRoomCommand}.
  */
 export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Determines the details for the room from which a skill request was invoked. This
  *          operation is used by skill developers.</p>
  *          <p>To query ResolveRoom from an Alexa skill, the skill ID needs to be authorized. When
@@ -52,6 +57,8 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveRoomCommandInput - {@link ResolveRoomCommandInput}
+ * @returns {@link ResolveRoomCommandOutput}
  * @see {@link ResolveRoomCommandInput} for command's `input` shape.
  * @see {@link ResolveRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -78,6 +85,9 @@ export class ResolveRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ResolveRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResolveRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveRoomCommandOutput> {
     return deserializeAws_json1_1ResolveRoomCommand(output, context);
   }

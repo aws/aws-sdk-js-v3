@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInferenceSchedulerCommand}.
  */
 export interface DeleteInferenceSchedulerCommandInput extends DeleteInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInferenceSchedulerCommand}.
  */
 export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an inference scheduler that has been set up. Already processed output results
  *          are not affected. </p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInferenceSchedulerCommandInput - {@link DeleteInferenceSchedulerCommandInput}
+ * @returns {@link DeleteInferenceSchedulerCommandOutput}
  * @see {@link DeleteInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link DeleteInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInferenceSchedulerCommandOutput> {
     return deserializeAws_json1_0DeleteInferenceSchedulerCommand(output, context);
   }

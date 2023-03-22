@@ -25,15 +25,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccessPointPolicyForObjectLambdaCommand}.
  */
 export interface PutAccessPointPolicyForObjectLambdaCommandInput extends PutAccessPointPolicyForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccessPointPolicyForObjectLambdaCommand}.
  */
 export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or replaces resource policy for an Object Lambda Access Point. For an example policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli">Creating Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>The following actions are related to
  *          <code>PutAccessPointPolicyForObjectLambda</code>:</p>
@@ -59,6 +64,8 @@ export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __Meta
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccessPointPolicyForObjectLambdaCommandInput - {@link PutAccessPointPolicyForObjectLambdaCommandInput}
+ * @returns {@link PutAccessPointPolicyForObjectLambdaCommandOutput}
  * @see {@link PutAccessPointPolicyForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link PutAccessPointPolicyForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutAccessPointPolicyForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccessPointPolicyForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class PutAccessPointPolicyForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAccessPointPolicyForObjectLambdaCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class PutAccessPointPolicyForObjectLambdaCommand extends $Command<
     return serializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

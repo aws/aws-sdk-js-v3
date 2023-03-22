@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSuiteRunsCommand}.
  */
 export interface ListSuiteRunsCommandInput extends ListSuiteRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSuiteRunsCommand}.
  */
 export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists runs of the specified Device Advisor test suite. You can list all runs of the test
  *             suite, or the runs of a specific version of the test suite.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteRuns</a> action.</p>
@@ -48,6 +53,8 @@ export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSuiteRunsCommandInput - {@link ListSuiteRunsCommandInput}
+ * @returns {@link ListSuiteRunsCommandOutput}
  * @see {@link ListSuiteRunsCommandInput} for command's `input` shape.
  * @see {@link ListSuiteRunsCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListSuiteRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSuiteRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListSuiteRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSuiteRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSuiteRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSuiteRunsCommandOutput> {
     return deserializeAws_restJson1ListSuiteRunsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFeatureMetadataCommand}.
  */
 export interface UpdateFeatureMetadataCommandInput extends UpdateFeatureMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFeatureMetadataCommand}.
  */
 export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description and parameters of the feature group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFeatureMetadataCommandInput - {@link UpdateFeatureMetadataCommandInput}
+ * @returns {@link UpdateFeatureMetadataCommandOutput}
  * @see {@link UpdateFeatureMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateFeatureMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class UpdateFeatureMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFeatureMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class UpdateFeatureMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFeatureMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFeatureMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeatureMetadataCommandOutput> {
     return deserializeAws_json1_1UpdateFeatureMetadataCommand(output, context);
   }

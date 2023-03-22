@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClusterSnapshotsCommand}.
  */
 export interface ListClusterSnapshotsCommandInput extends ListClusterSnapshotsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListClusterSnapshotsCommand}.
  */
 export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about Elastic DocumentDB snapshots for a specified cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClusterSnapshotsCommandInput - {@link ListClusterSnapshotsCommandInput}
+ * @returns {@link ListClusterSnapshotsCommandOutput}
  * @see {@link ListClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListClusterSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClusterSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListClusterSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListClusterSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClusterSnapshotsCommandOutput> {
     return deserializeAws_restJson1ListClusterSnapshotsCommand(output, context);
   }

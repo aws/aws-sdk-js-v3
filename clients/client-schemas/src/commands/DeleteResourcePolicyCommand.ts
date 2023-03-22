@@ -21,15 +21,20 @@ import {
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourcePolicyCommand}.
  */
 export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourcePolicyCommand}.
  */
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the resource-based policy attached to the specified registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
+ * @returns {@link DeleteResourcePolicyCommandOutput}
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
     return deserializeAws_restJson1DeleteResourcePolicyCommand(output, context);
   }

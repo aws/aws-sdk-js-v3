@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBgpFailoverTestCommand}.
  */
 export interface StartBgpFailoverTestCommandInput extends StartBgpFailoverTestRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartBgpFailoverTestCommand}.
  */
 export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the virtual interface failover test that verifies your configuration meets your resiliency requirements by placing the BGP peering session in the DOWN state. You can then send traffic to verify that there are no outages.</p>
  *          <p>You can run the test on public, private, transit, and hosted virtual interfaces.</p>
  *          <p>You can use <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.html">ListVirtualInterfaceTestHistory</a> to view the virtual interface test history.</p>
@@ -49,6 +54,8 @@ export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestR
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBgpFailoverTestCommandInput - {@link StartBgpFailoverTestCommandInput}
+ * @returns {@link StartBgpFailoverTestCommandOutput}
  * @see {@link StartBgpFailoverTestCommandInput} for command's `input` shape.
  * @see {@link StartBgpFailoverTestCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -78,6 +85,9 @@ export class StartBgpFailoverTestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBgpFailoverTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class StartBgpFailoverTestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBgpFailoverTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartBgpFailoverTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBgpFailoverTestCommandOutput> {
     return deserializeAws_json1_1StartBgpFailoverTestCommand(output, context);
   }

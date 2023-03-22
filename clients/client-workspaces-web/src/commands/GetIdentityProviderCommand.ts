@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdentityProviderCommand}.
  */
 export interface GetIdentityProviderCommandInput extends GetIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIdentityProviderCommand}.
  */
 export interface GetIdentityProviderCommandOutput extends GetIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityProviderCommandInput - {@link GetIdentityProviderCommandInput}
+ * @returns {@link GetIdentityProviderCommandOutput}
  * @see {@link GetIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link GetIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityProviderCommandOutput> {
     return deserializeAws_restJson1GetIdentityProviderCommand(output, context);
   }

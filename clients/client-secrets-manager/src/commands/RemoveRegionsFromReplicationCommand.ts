@@ -26,10 +26,14 @@ import {
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveRegionsFromReplicationCommand}.
  */
 export interface RemoveRegionsFromReplicationCommandInput extends RemoveRegionsFromReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveRegionsFromReplicationCommand}.
  */
 export interface RemoveRegionsFromReplicationCommandOutput
@@ -37,6 +41,7 @@ export interface RemoveRegionsFromReplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a secret that is replicated to other Regions, deletes the secret replicas from the Regions you specify.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
@@ -55,6 +60,8 @@ export interface RemoveRegionsFromReplicationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveRegionsFromReplicationCommandInput - {@link RemoveRegionsFromReplicationCommandInput}
+ * @returns {@link RemoveRegionsFromReplicationCommandOutput}
  * @see {@link RemoveRegionsFromReplicationCommandInput} for command's `input` shape.
  * @see {@link RemoveRegionsFromReplicationCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -105,6 +112,9 @@ export class RemoveRegionsFromReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveRegionsFromReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class RemoveRegionsFromReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveRegionsFromReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveRegionsFromReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRunTasksCommand}.
  */
 export interface ListRunTasksCommandInput extends ListRunTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRunTasksCommand}.
  */
 export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of tasks for a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRunTasksCommandInput - {@link ListRunTasksCommandInput}
+ * @returns {@link ListRunTasksCommandOutput}
  * @see {@link ListRunTasksCommandInput} for command's `input` shape.
  * @see {@link ListRunTasksCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListRunTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRunTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListRunTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRunTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRunTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunTasksCommandOutput> {
     return deserializeAws_restJson1ListRunTasksCommand(output, context);
   }

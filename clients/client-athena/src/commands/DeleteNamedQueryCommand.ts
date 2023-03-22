@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNamedQueryCommand}.
  */
 export interface DeleteNamedQueryCommandInput extends DeleteNamedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNamedQueryCommand}.
  */
 export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the named query if you have access to the workgroup in which the query was
  *             saved.</p>
  *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
@@ -50,6 +55,8 @@ export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNamedQueryCommandInput - {@link DeleteNamedQueryCommandInput}
+ * @returns {@link DeleteNamedQueryCommandOutput}
  * @see {@link DeleteNamedQueryCommandInput} for command's `input` shape.
  * @see {@link DeleteNamedQueryCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteNamedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNamedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteNamedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteNamedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNamedQueryCommandOutput> {
     return deserializeAws_json1_1DeleteNamedQueryCommand(output, context);
   }

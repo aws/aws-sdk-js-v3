@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueryStatisticsCommand}.
  */
 export interface GetQueryStatisticsCommandInput extends GetQueryStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueryStatisticsCommand}.
  */
 export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves statistics on the planning and execution of a query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryStatisticsCommandInput - {@link GetQueryStatisticsCommandInput}
+ * @returns {@link GetQueryStatisticsCommandOutput}
  * @see {@link GetQueryStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetQueryStatisticsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetQueryStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetQueryStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetQueryStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryStatisticsCommandOutput> {
     return deserializeAws_restJson1GetQueryStatisticsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartExecutionCommand}.
  */
 export interface StartExecutionCommandInput extends StartExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartExecutionCommand}.
  */
 export interface StartExecutionCommandOutput extends StartExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a state machine execution. If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>
  *
  *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
@@ -59,6 +64,8 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExecutionCommandInput - {@link StartExecutionCommandInput}
+ * @returns {@link StartExecutionCommandOutput}
  * @see {@link StartExecutionCommandInput} for command's `input` shape.
  * @see {@link StartExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -112,6 +119,9 @@ export class StartExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class StartExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0StartExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExecutionCommandOutput> {
     return deserializeAws_json1_0StartExecutionCommand(output, context);
   }

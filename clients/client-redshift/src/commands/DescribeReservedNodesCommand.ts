@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedNodesCommand}.
  */
 export interface DescribeReservedNodesCommandInput extends DescribeReservedNodesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedNodesCommand}.
  */
 export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the descriptions of the reserved nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedNodesCommandInput - {@link DescribeReservedNodesCommandInput}
+ * @returns {@link DescribeReservedNodesCommandOutput}
  * @see {@link DescribeReservedNodesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeReservedNodesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedNodesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DescribeReservedNodesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservedNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeReservedNodesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReservedNodesCommandOutput> {
     return deserializeAws_queryDescribeReservedNodesCommand(output, context);
   }

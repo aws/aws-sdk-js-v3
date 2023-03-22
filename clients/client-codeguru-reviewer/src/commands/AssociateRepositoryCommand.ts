@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateRepositoryCommand}.
  */
 export interface AssociateRepositoryCommandInput extends AssociateRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateRepositoryCommand}.
  */
 export interface AssociateRepositoryCommandOutput extends AssociateRepositoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use to associate an Amazon Web Services CodeCommit repository or a repository managed by Amazon Web Services
  *          CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru Reviewer reviews
  *          source code changes in the repository's pull requests and provides automatic
@@ -68,6 +73,8 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateRepositoryCommandInput - {@link AssociateRepositoryCommandInput}
+ * @returns {@link AssociateRepositoryCommandOutput}
  * @see {@link AssociateRepositoryCommandInput} for command's `input` shape.
  * @see {@link AssociateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -108,6 +115,9 @@ export class AssociateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class AssociateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRepositoryCommandOutput> {
     return deserializeAws_restJson1AssociateRepositoryCommand(output, context);
   }

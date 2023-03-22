@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListLabelsCommand}.
  */
 export interface ListLabelsCommandInput extends ListLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLabelsCommand}.
  */
 export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Provides a list of labels.
  * </p>
@@ -48,6 +53,8 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLabelsCommandInput - {@link ListLabelsCommandInput}
+ * @returns {@link ListLabelsCommandOutput}
  * @see {@link ListLabelsCommandInput} for command's `input` shape.
  * @see {@link ListLabelsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLabelsCommandOutput> {
     return deserializeAws_json1_0ListLabelsCommand(output, context);
   }

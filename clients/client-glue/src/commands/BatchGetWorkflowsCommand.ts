@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetWorkflowsCommand}.
  */
 export interface BatchGetWorkflowsCommandInput extends BatchGetWorkflowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetWorkflowsCommand}.
  */
 export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of resource metadata for a given list of workflow names. After calling the <code>ListWorkflows</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetWorkflowsCommandInput - {@link BatchGetWorkflowsCommandInput}
+ * @returns {@link BatchGetWorkflowsCommandOutput}
  * @see {@link BatchGetWorkflowsCommandInput} for command's `input` shape.
  * @see {@link BatchGetWorkflowsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class BatchGetWorkflowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetWorkflowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class BatchGetWorkflowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetWorkflowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetWorkflowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetWorkflowsCommandOutput> {
     return deserializeAws_json1_1BatchGetWorkflowsCommand(output, context);
   }

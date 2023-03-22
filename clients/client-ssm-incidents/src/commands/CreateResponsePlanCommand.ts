@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResponsePlanCommand}.
  */
 export interface CreateResponsePlanCommandInput extends CreateResponsePlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateResponsePlanCommand}.
  */
 export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a response plan that automates the initial response to incidents. A response
  *             plan engages contacts, starts chat channel collaboration, and initiates runbooks at the
  *             beginning of an incident.</p>
@@ -48,6 +53,8 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResponsePlanCommandInput - {@link CreateResponsePlanCommandInput}
+ * @returns {@link CreateResponsePlanCommandOutput}
  * @see {@link CreateResponsePlanCommandInput} for command's `input` shape.
  * @see {@link CreateResponsePlanCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateResponsePlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResponsePlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateResponsePlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResponsePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateResponsePlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResponsePlanCommandOutput> {
     return deserializeAws_restJson1CreateResponsePlanCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AttachVpnGatewayCommand}.
  */
 export interface AttachVpnGatewayCommandInput extends AttachVpnGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachVpnGatewayCommand}.
  */
 export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private
  *             gateway to one VPC at a time.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
@@ -49,6 +54,8 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachVpnGatewayCommandInput - {@link AttachVpnGatewayCommandInput}
+ * @returns {@link AttachVpnGatewayCommandOutput}
  * @see {@link AttachVpnGatewayCommandInput} for command's `input` shape.
  * @see {@link AttachVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class AttachVpnGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachVpnGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class AttachVpnGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachVpnGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AttachVpnGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachVpnGatewayCommandOutput> {
     return deserializeAws_ec2AttachVpnGatewayCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobsByPipelineCommand}.
  */
 export interface ListJobsByPipelineCommandInput extends ListJobsByPipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobsByPipelineCommand}.
  */
 export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ListJobsByPipeline operation gets a list of the jobs currently in a pipeline.</p>
  *         <p>Elastic Transcoder returns all of the jobs currently in the specified pipeline. The response body contains
  *             one element for each job that satisfies the search criteria.</p>
@@ -52,6 +57,8 @@ export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobsByPipelineCommandInput - {@link ListJobsByPipelineCommandInput}
+ * @returns {@link ListJobsByPipelineCommandOutput}
  * @see {@link ListJobsByPipelineCommandInput} for command's `input` shape.
  * @see {@link ListJobsByPipelineCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListJobsByPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobsByPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListJobsByPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobsByPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListJobsByPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsByPipelineCommandOutput> {
     return deserializeAws_restJson1ListJobsByPipelineCommand(output, context);
   }

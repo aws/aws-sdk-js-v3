@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackendStorageCommand}.
  */
 export interface DeleteBackendStorageCommandInput extends DeleteBackendStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackendStorageCommand}.
  */
 export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackendStorageCommandInput - {@link DeleteBackendStorageCommandInput}
+ * @returns {@link DeleteBackendStorageCommandOutput}
  * @see {@link DeleteBackendStorageCommandInput} for command's `input` shape.
  * @see {@link DeleteBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteBackendStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackendStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteBackendStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBackendStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackendStorageCommandOutput> {
     return deserializeAws_restJson1DeleteBackendStorageCommand(output, context);
   }

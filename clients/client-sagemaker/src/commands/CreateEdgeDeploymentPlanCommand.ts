@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEdgeDeploymentPlanCommand}.
  */
 export interface CreateEdgeDeploymentPlanCommandInput extends CreateEdgeDeploymentPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEdgeDeploymentPlanCommand}.
  */
 export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploymentPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an edge deployment plan, consisting of multiple stages. Each stage may have a different deployment configuration and devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEdgeDeploymentPlanCommandInput - {@link CreateEdgeDeploymentPlanCommandInput}
+ * @returns {@link CreateEdgeDeploymentPlanCommandOutput}
  * @see {@link CreateEdgeDeploymentPlanCommandInput} for command's `input` shape.
  * @see {@link CreateEdgeDeploymentPlanCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class CreateEdgeDeploymentPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEdgeDeploymentPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class CreateEdgeDeploymentPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEdgeDeploymentPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEdgeDeploymentPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEdgeDeploymentPlanCommandOutput> {
     return deserializeAws_json1_1CreateEdgeDeploymentPlanCommand(output, context);
   }

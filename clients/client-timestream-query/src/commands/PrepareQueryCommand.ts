@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link PrepareQueryCommand}.
  */
 export interface PrepareQueryCommandInput extends PrepareQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link PrepareQueryCommand}.
  */
 export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A synchronous operation that allows you to submit a query with parameters to be stored
  *             by Timestream for later running. Timestream only supports using this operation with the
  *                 <code>PrepareQueryRequest$ValidateOnly</code> set to <code>true</code>. </p>
@@ -49,6 +54,8 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param PrepareQueryCommandInput - {@link PrepareQueryCommandInput}
+ * @returns {@link PrepareQueryCommandOutput}
  * @see {@link PrepareQueryCommandInput} for command's `input` shape.
  * @see {@link PrepareQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -89,6 +96,9 @@ export class PrepareQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PrepareQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PrepareQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PrepareQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0PrepareQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PrepareQueryCommandOutput> {
     return deserializeAws_json1_0PrepareQueryCommand(output, context);
   }

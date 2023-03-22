@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEvaluationCommand}.
  */
 export interface CreateEvaluationCommandInput extends CreateEvaluationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEvaluationCommand}.
  */
 export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <code>Evaluation</code> of an <code>MLModel</code>. An <code>MLModel</code> is evaluated on a set of observations associated to a <code>DataSource</code>. Like a <code>DataSource</code>
  *           for an <code>MLModel</code>, the <code>DataSource</code> for an <code>Evaluation</code> contains values for the <code>Target Variable</code>. The <code>Evaluation</code> compares the predicted result for each observation to the actual outcome and provides a
  *             summary so that you know how effective the <code>MLModel</code> functions on the test
@@ -57,6 +62,8 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEvaluationCommandInput - {@link CreateEvaluationCommandInput}
+ * @returns {@link CreateEvaluationCommandOutput}
  * @see {@link CreateEvaluationCommandInput} for command's `input` shape.
  * @see {@link CreateEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEvaluationCommandOutput> {
     return deserializeAws_json1_1CreateEvaluationCommand(output, context);
   }

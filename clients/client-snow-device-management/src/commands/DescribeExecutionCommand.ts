@@ -30,15 +30,20 @@ import {
 } from "../SnowDeviceManagementClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExecutionCommand}.
  */
 export interface DescribeExecutionCommandInput extends DescribeExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExecutionCommand}.
  */
 export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks the status of a remote task running on one or more target devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExecutionCommandInput - {@link DescribeExecutionCommandInput}
+ * @returns {@link DescribeExecutionCommandOutput}
  * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
@@ -88,6 +95,9 @@ export class DescribeExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DescribeExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExecutionCommandOutput> {
     return deserializeAws_restJson1DescribeExecutionCommand(output, context);
   }

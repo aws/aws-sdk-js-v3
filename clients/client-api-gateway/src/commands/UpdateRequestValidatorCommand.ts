@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRequestValidatorCommand}.
  */
 export interface UpdateRequestValidatorCommandInput extends UpdateRequestValidatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRequestValidatorCommand}.
  */
 export interface UpdateRequestValidatorCommandOutput extends RequestValidator, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a RequestValidator of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRequestValidatorCommandOutput extends RequestValidator, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRequestValidatorCommandInput - {@link UpdateRequestValidatorCommandInput}
+ * @returns {@link UpdateRequestValidatorCommandOutput}
  * @see {@link UpdateRequestValidatorCommandInput} for command's `input` shape.
  * @see {@link UpdateRequestValidatorCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateRequestValidatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRequestValidatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateRequestValidatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRequestValidatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRequestValidatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRequestValidatorCommandOutput> {
     return deserializeAws_restJson1UpdateRequestValidatorCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableGatewayCommand}.
  */
 export interface DisableGatewayCommandInput extends DisableGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableGatewayCommand}.
  */
 export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables a tape gateway when the gateway is no longer functioning. For example, if your
  *          gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.</p>
  *
@@ -54,6 +59,8 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableGatewayCommandInput - {@link DisableGatewayCommandInput}
+ * @returns {@link DisableGatewayCommandOutput}
  * @see {@link DisableGatewayCommandInput} for command's `input` shape.
  * @see {@link DisableGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -101,6 +108,9 @@ export class DisableGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class DisableGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableGatewayCommandOutput> {
     return deserializeAws_json1_1DisableGatewayCommand(output, context);
   }

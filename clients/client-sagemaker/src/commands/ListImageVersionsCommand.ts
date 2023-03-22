@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListImageVersionsCommand}.
  */
 export interface ListImageVersionsCommandInput extends ListImageVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImageVersionsCommand}.
  */
 export interface ListImageVersionsCommandOutput extends ListImageVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the versions of a specified image and their properties. The list can be filtered
  *         by creation time or modified time.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListImageVersionsCommandOutput extends ListImageVersionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImageVersionsCommandInput - {@link ListImageVersionsCommandInput}
+ * @returns {@link ListImageVersionsCommandOutput}
  * @see {@link ListImageVersionsCommandInput} for command's `input` shape.
  * @see {@link ListImageVersionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +80,9 @@ export class ListImageVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImageVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListImageVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListImageVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImageVersionsCommandOutput> {
     return deserializeAws_json1_1ListImageVersionsCommand(output, context);
   }

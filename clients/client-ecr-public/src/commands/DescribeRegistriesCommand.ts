@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRegistriesCommand}.
  */
 export interface DescribeRegistriesCommandInput extends DescribeRegistriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRegistriesCommand}.
  */
 export interface DescribeRegistriesCommandOutput extends DescribeRegistriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details for a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRegistriesCommandInput - {@link DescribeRegistriesCommandInput}
+ * @returns {@link DescribeRegistriesCommandOutput}
  * @see {@link DescribeRegistriesCommandInput} for command's `input` shape.
  * @see {@link DescribeRegistriesCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeRegistriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRegistriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeRegistriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRegistriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRegistriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegistriesCommandOutput> {
     return deserializeAws_json1_1DescribeRegistriesCommand(output, context);
   }

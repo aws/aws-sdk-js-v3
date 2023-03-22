@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEntitiesDetectionV2JobCommand}.
  */
 export interface DescribeEntitiesDetectionV2JobCommandInput extends DescribeEntitiesDetectionV2JobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEntitiesDetectionV2JobCommand}.
  */
 export interface DescribeEntitiesDetectionV2JobCommandOutput
@@ -41,6 +45,7 @@ export interface DescribeEntitiesDetectionV2JobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a medical entities detection job. Use this operation
  *       to get the status of a detection job.</p>
  * @example
@@ -53,6 +58,8 @@ export interface DescribeEntitiesDetectionV2JobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntitiesDetectionV2JobCommandInput - {@link DescribeEntitiesDetectionV2JobCommandInput}
+ * @returns {@link DescribeEntitiesDetectionV2JobCommandOutput}
  * @see {@link DescribeEntitiesDetectionV2JobCommandInput} for command's `input` shape.
  * @see {@link DescribeEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntitiesDetectionV2JobCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEntitiesDetectionV2JobCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     return serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

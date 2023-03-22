@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetOpsItemCommand}.
  */
 export interface GetOpsItemCommandInput extends GetOpsItemRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOpsItemCommand}.
  */
 export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about an OpsItem by using the ID. You must have permission in Identity and Access Management (IAM) to view information about an OpsItem. For more information,
  *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
  *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
@@ -52,6 +57,8 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpsItemCommandInput - {@link GetOpsItemCommandInput}
+ * @returns {@link GetOpsItemCommandOutput}
  * @see {@link GetOpsItemCommandInput} for command's `input` shape.
  * @see {@link GetOpsItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetOpsItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpsItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetOpsItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOpsItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOpsItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpsItemCommandOutput> {
     return deserializeAws_json1_1GetOpsItemCommand(output, context);
   }

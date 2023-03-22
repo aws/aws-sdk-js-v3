@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsOfResourceCommand}.
  */
 export interface ListTagsOfResourceCommandInput extends ListTagsOfResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsOfResourceCommand}.
  */
 export interface ListTagsOfResourceCommandOutput extends ListTagsOfResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10
  *             times per second, per account.</p>
  *          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
@@ -49,6 +54,8 @@ export interface ListTagsOfResourceCommandOutput extends ListTagsOfResourceOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsOfResourceCommandInput - {@link ListTagsOfResourceCommandInput}
+ * @returns {@link ListTagsOfResourceCommandOutput}
  * @see {@link ListTagsOfResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsOfResourceCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListTagsOfResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsOfResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListTagsOfResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsOfResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListTagsOfResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsOfResourceCommandOutput> {
     return deserializeAws_json1_0ListTagsOfResourceCommand(output, context);
   }

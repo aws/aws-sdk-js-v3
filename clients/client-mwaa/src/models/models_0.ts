@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { MWAAServiceException as __BaseException } from "./MWAAServiceException";
 
 /**
+ * @public
  * <p>Access to the Apache Airflow Web UI or CLI has been denied due to insufficient permissions. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html">Accessing an Amazon MWAA environment</a>.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateCliTokenRequest {
   /**
    * <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -31,6 +35,9 @@ export interface CreateCliTokenRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCliTokenResponse {
   /**
    * <p>An Airflow CLI login token.</p>
@@ -44,6 +51,7 @@ export interface CreateCliTokenResponse {
 }
 
 /**
+ * @public
  * <p>ResourceNotFoundException: The resource is not available.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -62,6 +70,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum LoggingLevel {
   CRITICAL = "CRITICAL",
   DEBUG = "DEBUG",
@@ -71,6 +82,7 @@ export enum LoggingLevel {
 }
 
 /**
+ * @public
  * <p>Enables the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>) and defines the log level to send to CloudWatch Logs (e.g. <code>INFO</code>).</p>
  */
 export interface ModuleLoggingConfigurationInput {
@@ -86,6 +98,7 @@ export interface ModuleLoggingConfigurationInput {
 }
 
 /**
+ * @public
  * <p>Defines the Apache Airflow log types to send to CloudWatch Logs.</p>
  */
 export interface LoggingConfigurationInput {
@@ -116,6 +129,7 @@ export interface LoggingConfigurationInput {
 }
 
 /**
+ * @public
  * <p>Describes the VPC networking components used to secure and enable network traffic between the Amazon Web Services resources for your environment. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About networking on Amazon MWAA</a>.</p>
  */
 export interface NetworkConfiguration {
@@ -130,12 +144,16 @@ export interface NetworkConfiguration {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export enum WebserverAccessMode {
   PRIVATE_ONLY = "PRIVATE_ONLY",
   PUBLIC_ONLY = "PUBLIC_ONLY",
 }
 
 /**
+ * @public
  * <p>This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API reference documentation to create an environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/get-started.html">Get started with Amazon Managed Workflows for Apache Airflow</a>.</p>
  */
 export interface CreateEnvironmentInput {
@@ -250,6 +268,9 @@ export interface CreateEnvironmentInput {
   Schedulers?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateEnvironmentOutput {
   /**
    * <p>The Amazon Resource Name (ARN) returned in the response for the environment.</p>
@@ -258,6 +279,7 @@ export interface CreateEnvironmentOutput {
 }
 
 /**
+ * @public
  * <p>InternalServerException: An internal error has occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -277,6 +299,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>ValidationException: The provided input is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -295,6 +318,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateWebLoginTokenRequest {
   /**
    * <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -302,6 +328,9 @@ export interface CreateWebLoginTokenRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateWebLoginTokenResponse {
   /**
    * <p>An Airflow web server login token.</p>
@@ -314,6 +343,9 @@ export interface CreateWebLoginTokenResponse {
   WebServerHostname?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentInput {
   /**
    * <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -321,8 +353,14 @@ export interface DeleteEnvironmentInput {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentOutput {}
 
+/**
+ * @public
+ */
 export interface GetEnvironmentInput {
   /**
    * <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -331,6 +369,7 @@ export interface GetEnvironmentInput {
 }
 
 /**
+ * @public
  * <p>Describes the error(s) encountered with the last update of the environment.</p>
  */
 export interface UpdateError {
@@ -345,6 +384,9 @@ export interface UpdateError {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export enum UpdateStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
@@ -352,6 +394,7 @@ export enum UpdateStatus {
 }
 
 /**
+ * @public
  * <p>Describes the status of the last update on the environment, and any errors that were encountered.</p>
  */
 export interface LastUpdate {
@@ -377,6 +420,7 @@ export interface LastUpdate {
 }
 
 /**
+ * @public
  * <p>Describes the Apache Airflow log details for the log type (e.g. <code>DagProcessingLogs</code>).</p>
  */
 export interface ModuleLoggingConfiguration {
@@ -397,6 +441,7 @@ export interface ModuleLoggingConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the Apache Airflow log types that are published to CloudWatch Logs.</p>
  */
 export interface LoggingConfiguration {
@@ -426,6 +471,9 @@ export interface LoggingConfiguration {
   TaskLogs?: ModuleLoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentStatus {
   AVAILABLE = "AVAILABLE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -438,6 +486,7 @@ export enum EnvironmentStatus {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
  */
 export interface Environment {
@@ -607,6 +656,9 @@ export interface Environment {
   Schedulers?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentOutput {
   /**
    * <p>An object containing all available details about the environment.</p>
@@ -614,6 +666,9 @@ export interface GetEnvironmentOutput {
   Environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsInput {
   /**
    * <p>Retrieves the next page of the results.</p>
@@ -626,6 +681,9 @@ export interface ListEnvironmentsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsOutput {
   /**
    * <p>Returns a list of Amazon MWAA environments.</p>
@@ -638,6 +696,9 @@ export interface ListEnvironmentsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
@@ -645,6 +706,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The key-value tag pairs associated to your environment. To learn more, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
@@ -653,6 +717,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>
  *             <b>Internal only</b>. Represents the dimensions of a metric. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
  */
@@ -671,6 +736,7 @@ export interface Dimension {
 }
 
 /**
+ * @public
  * <p>
  *             <b>Internal only</b>. Represents a set of statistics that describe a specific metric. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
  */
@@ -700,6 +766,9 @@ export interface StatisticSet {
   Maximum?: number;
 }
 
+/**
+ * @public
+ */
 export enum Unit {
   BITS = "Bits",
   BITS_PER_SECOND = "Bits/Second",
@@ -731,6 +800,7 @@ export enum Unit {
 }
 
 /**
+ * @public
  * <p>
  *             <b>Internal only</b>. Collects Apache Airflow metrics. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
  */
@@ -772,6 +842,9 @@ export interface MetricDatum {
   StatisticValues?: StatisticSet;
 }
 
+/**
+ * @public
+ */
 export interface PublishMetricsInput {
   /**
    * <p>
@@ -786,8 +859,14 @@ export interface PublishMetricsInput {
   MetricData: MetricDatum[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PublishMetricsOutput {}
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
@@ -800,8 +879,14 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
@@ -814,9 +899,13 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**
+ * @public
  * <p>Defines the VPC networking components used to secure and enable network traffic between the Amazon Web Services resources for your environment. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About networking on Amazon MWAA</a>.</p>
  */
 export interface UpdateNetworkConfigurationInput {
@@ -826,6 +915,9 @@ export interface UpdateNetworkConfigurationInput {
   SecurityGroupIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentInput {
   /**
    * <p>The name of your Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -919,6 +1011,9 @@ export interface UpdateEnvironmentInput {
   Schedulers?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnvironmentOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>

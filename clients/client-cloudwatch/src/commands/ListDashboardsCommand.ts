@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListDashboardsCommand}.
  */
 export interface ListDashboardsCommandInput extends ListDashboardsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDashboardsCommand}.
  */
 export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only
  * 			those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are
  * 			listed.
@@ -54,6 +59,8 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDashboardsCommandInput - {@link ListDashboardsCommandInput}
+ * @returns {@link ListDashboardsCommandOutput}
  * @see {@link ListDashboardsCommandInput} for command's `input` shape.
  * @see {@link ListDashboardsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListDashboardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDashboardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListDashboardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListDashboardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardsCommandOutput> {
     return deserializeAws_queryListDashboardsCommand(output, context);
   }

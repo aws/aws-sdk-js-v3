@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIdentityPoolUsageCommand}.
  */
 export interface ListIdentityPoolUsageCommandInput extends ListIdentityPoolUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIdentityPoolUsageCommand}.
  */
 export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of identity pools registered with Cognito.</p>
  *       <p>ListIdentityPoolUsage can only be called with developer credentials. You
  *          cannot make this API call with the temporary user credentials provided by Cognito
@@ -52,14 +57,14 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  * X-AMZ-DATE: 20141111T211414Z
  * AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>, SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amzn-requestid, Signature=<signature>
  *
- * {
+ * \{
  *     "Operation": "com.amazonaws.cognito.sync.model#ListIdentityPoolUsage",
  *     "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
  *     "Input":
- *     {
+ *     \{
  *         "MaxResults": "2"
- *     }
- * }
+ *     \}
+ * \}
  *                </request>
  *             <response>
  * 1.1 200 OK
@@ -68,29 +73,29 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  * content-length: 519
  * date: Tue, 11 Nov 2014 21:14:14 GMT
  *
- * {
+ * \{
  *     "Output":
- *     {
+ *     \{
  *         "__type": "com.amazonaws.cognito.sync.model#ListIdentityPoolUsageResponse",
  *         "Count": 2,
  *         "IdentityPoolUsages": [
- *         {
+ *         \{
  *             "DataStorage": 0,
  *             "IdentityPoolId": "IDENTITY_POOL_ID",
  *             "LastModifiedDate": 1.413836234607E9,
  *             "SyncSessionsCount": null
- *         },
- *         {
+ *         \},
+ *         \{
  *             "DataStorage": 0,
  *             "IdentityPoolId": "IDENTITY_POOL_ID",
  *             "LastModifiedDate": 1.410892165601E9,
  *             "SyncSessionsCount": null
- *         }],
+ *         \}],
  *         "MaxResults": 2,
  *         "NextToken": "dXMtZWFzdC0xOjBjMWJhMDUyLWUwOTgtNDFmYS1hNzZlLWVhYTJjMTI1Zjg2MQ=="
- *     },
+ *     \},
  *     "Version": "1.0"
- * }
+ * \}
  *                </response>
  *          </example>
  *       </examples>
@@ -104,6 +109,8 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentityPoolUsageCommandInput - {@link ListIdentityPoolUsageCommandInput}
+ * @returns {@link ListIdentityPoolUsageCommandOutput}
  * @see {@link ListIdentityPoolUsageCommandInput} for command's `input` shape.
  * @see {@link ListIdentityPoolUsageCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -143,6 +150,9 @@ export class ListIdentityPoolUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentityPoolUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,10 +192,16 @@ export class ListIdentityPoolUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentityPoolUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIdentityPoolUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityPoolUsageCommandOutput> {
     return deserializeAws_restJson1ListIdentityPoolUsageCommand(output, context);
   }

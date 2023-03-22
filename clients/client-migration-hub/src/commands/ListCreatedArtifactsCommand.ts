@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCreatedArtifactsCommand}.
  */
 export interface ListCreatedArtifactsCommandInput extends ListCreatedArtifactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCreatedArtifactsCommand}.
  */
 export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the created artifacts attached to a given migration task in an update stream. This
  *          API has the following traits:</p>
  *          <ul>
@@ -60,6 +65,8 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCreatedArtifactsCommandInput - {@link ListCreatedArtifactsCommandInput}
+ * @returns {@link ListCreatedArtifactsCommandOutput}
  * @see {@link ListCreatedArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListCreatedArtifactsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -109,6 +116,9 @@ export class ListCreatedArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCreatedArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class ListCreatedArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCreatedArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCreatedArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCreatedArtifactsCommandOutput> {
     return deserializeAws_json1_1ListCreatedArtifactsCommand(output, context);
   }

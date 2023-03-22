@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProblemsCommand}.
  */
 export interface ListProblemsCommandInput extends ListProblemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProblemsCommand}.
  */
 export interface ListProblemsCommandOutput extends ListProblemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the problems with your application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProblemsCommandInput - {@link ListProblemsCommandInput}
+ * @returns {@link ListProblemsCommandOutput}
  * @see {@link ListProblemsCommandInput} for command's `input` shape.
  * @see {@link ListProblemsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListProblemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProblemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListProblemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProblemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProblemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProblemsCommandOutput> {
     return deserializeAws_json1_1ListProblemsCommand(output, context);
   }

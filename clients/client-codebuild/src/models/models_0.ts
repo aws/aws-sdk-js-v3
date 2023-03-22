@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { CodeBuildServiceException as __BaseException } from "./CodeBuildServiceException";
 
 /**
+ * @public
  * <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
  */
 export class AccountLimitExceededException extends __BaseException {
@@ -22,28 +23,43 @@ export class AccountLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ArtifactNamespace {
   BUILD_ID = "BUILD_ID",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum ArtifactPackaging {
   NONE = "NONE",
   ZIP = "ZIP",
 }
 
+/**
+ * @public
+ */
 export enum ArtifactsType {
   CODEPIPELINE = "CODEPIPELINE",
   NO_ARTIFACTS = "NO_ARTIFACTS",
   S3 = "S3",
 }
 
+/**
+ * @public
+ */
 export enum AuthType {
   BASIC_AUTH = "BASIC_AUTH",
   OAUTH = "OAUTH",
   PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN",
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteBuildsInput {
   /**
    * <p>The IDs of the builds to delete.</p>
@@ -52,6 +68,7 @@ export interface BatchDeleteBuildsInput {
 }
 
 /**
+ * @public
  * <p>Information about a build that could not be successfully deleted.</p>
  */
 export interface BuildNotDeleted {
@@ -66,6 +83,9 @@ export interface BuildNotDeleted {
   statusCode?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteBuildsOutput {
   /**
    * <p>The IDs of the builds that were successfully deleted.</p>
@@ -79,6 +99,7 @@ export interface BatchDeleteBuildsOutput {
 }
 
 /**
+ * @public
  * <p>The input value that was provided is not valid.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -97,6 +118,9 @@ export class InvalidInputException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchGetBuildBatchesInput {
   /**
    * <p>An array that contains the batch build identifiers to retrieve.</p>
@@ -104,6 +128,9 @@ export interface BatchGetBuildBatchesInput {
   ids: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BucketOwnerAccess {
   FULL = "FULL",
   NONE = "NONE",
@@ -111,6 +138,7 @@ export enum BucketOwnerAccess {
 }
 
 /**
+ * @public
  * <p>Information about build output artifacts.</p>
  */
 export interface BuildArtifacts {
@@ -206,12 +234,16 @@ export interface BuildArtifacts {
   bucketOwnerAccess?: BucketOwnerAccess | string;
 }
 
+/**
+ * @public
+ */
 export enum BatchReportModeType {
   REPORT_AGGREGATED_BATCH = "REPORT_AGGREGATED_BATCH",
   REPORT_INDIVIDUAL_BUILDS = "REPORT_INDIVIDUAL_BUILDS",
 }
 
 /**
+ * @public
  * <p>Specifies restrictions for the batch build.</p>
  */
 export interface BatchRestrictions {
@@ -230,6 +262,7 @@ export interface BatchRestrictions {
 }
 
 /**
+ * @public
  * <p>Contains configuration information about a batch build project.</p>
  */
 export interface ProjectBuildBatchConfig {
@@ -273,6 +306,9 @@ export interface ProjectBuildBatchConfig {
   batchReportMode?: BatchReportModeType | string;
 }
 
+/**
+ * @public
+ */
 export enum StatusType {
   FAILED = "FAILED",
   FAULT = "FAULT",
@@ -283,6 +319,7 @@ export enum StatusType {
 }
 
 /**
+ * @public
  * <p>Represents a resolved build artifact. A resolved artifact is an artifact that is built and
  *             deployed to the destination, such as Amazon S3.</p>
  */
@@ -304,6 +341,7 @@ export interface ResolvedArtifact {
 }
 
 /**
+ * @public
  * <p>Contains summary information about a batch build group.</p>
  */
 export interface BuildSummary {
@@ -362,6 +400,7 @@ export interface BuildSummary {
 }
 
 /**
+ * @public
  * <p>Contains information about a batch build build group. Build groups are used to combine
  *             builds that can run in parallel, while still being able to set dependencies on other
  *             build groups.</p>
@@ -396,12 +435,18 @@ export interface BuildGroup {
   priorBuildSummaryList?: BuildSummary[];
 }
 
+/**
+ * @public
+ */
 export enum CacheMode {
   LOCAL_CUSTOM_CACHE = "LOCAL_CUSTOM_CACHE",
   LOCAL_DOCKER_LAYER_CACHE = "LOCAL_DOCKER_LAYER_CACHE",
   LOCAL_SOURCE_CACHE = "LOCAL_SOURCE_CACHE",
 }
 
+/**
+ * @public
+ */
 export enum CacheType {
   LOCAL = "LOCAL",
   NO_CACHE = "NO_CACHE",
@@ -409,6 +454,7 @@ export enum CacheType {
 }
 
 /**
+ * @public
  * <p>Information about the cache for the build project.</p>
  */
 export interface ProjectCache {
@@ -510,6 +556,9 @@ export interface ProjectCache {
   modes?: (CacheMode | string)[];
 }
 
+/**
+ * @public
+ */
 export enum ComputeType {
   BUILD_GENERAL1_2XLARGE = "BUILD_GENERAL1_2XLARGE",
   BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
@@ -517,6 +566,9 @@ export enum ComputeType {
   BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL",
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentVariableType {
   PARAMETER_STORE = "PARAMETER_STORE",
   PLAINTEXT = "PLAINTEXT",
@@ -524,6 +576,7 @@ export enum EnvironmentVariableType {
 }
 
 /**
+ * @public
  * <p>Information about an environment variable for a build project or a build.</p>
  */
 export interface EnvironmentVariable {
@@ -571,16 +624,23 @@ export interface EnvironmentVariable {
   type?: EnvironmentVariableType | string;
 }
 
+/**
+ * @public
+ */
 export enum ImagePullCredentialsType {
   CODEBUILD = "CODEBUILD",
   SERVICE_ROLE = "SERVICE_ROLE",
 }
 
+/**
+ * @public
+ */
 export enum CredentialProviderType {
   SECRETS_MANAGER = "SECRETS_MANAGER",
 }
 
 /**
+ * @public
  * <p> Information about credentials that provide access to a private Docker registry. When
  *             this is set: </p>
  *         <ul>
@@ -613,6 +673,9 @@ export interface RegistryCredential {
   credentialProvider: CredentialProviderType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EnvironmentType {
   ARM_CONTAINER = "ARM_CONTAINER",
   LINUX_CONTAINER = "LINUX_CONTAINER",
@@ -622,6 +685,7 @@ export enum EnvironmentType {
 }
 
 /**
+ * @public
  * <p>Information about the build environment of the build project.</p>
  */
 export interface ProjectEnvironment {
@@ -798,11 +862,15 @@ export interface ProjectEnvironment {
   imagePullCredentialsType?: ImagePullCredentialsType | string;
 }
 
+/**
+ * @public
+ */
 export enum FileSystemType {
   EFS = "EFS",
 }
 
 /**
+ * @public
  * <p> Information about a file system created by Amazon Elastic File System (EFS). For more
  *             information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html">What Is
  *                 Amazon Elastic File System?</a>
@@ -853,12 +921,16 @@ export interface ProjectFileSystemLocation {
   mountOptions?: string;
 }
 
+/**
+ * @public
+ */
 export enum LogsConfigStatusType {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p> Information about CloudWatch Logs for a build project. </p>
  */
 export interface CloudWatchLogsConfig {
@@ -891,6 +963,7 @@ export interface CloudWatchLogsConfig {
 }
 
 /**
+ * @public
  * <p> Information about S3 logs for a build project. </p>
  */
 export interface S3LogsConfig {
@@ -972,6 +1045,7 @@ export interface S3LogsConfig {
 }
 
 /**
+ * @public
  * <p> Information about logs for a build project. These can be logs in CloudWatch Logs, built in a
  *             specified S3 bucket, or both. </p>
  */
@@ -989,6 +1063,7 @@ export interface LogsConfig {
 }
 
 /**
+ * @public
  * <p>Additional information about a build phase that has an error. You can use this
  *             information for troubleshooting.</p>
  */
@@ -1005,6 +1080,9 @@ export interface PhaseContext {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export enum BuildBatchPhaseType {
   COMBINE_ARTIFACTS = "COMBINE_ARTIFACTS",
   DOWNLOAD_BATCHSPEC = "DOWNLOAD_BATCHSPEC",
@@ -1016,6 +1094,7 @@ export enum BuildBatchPhaseType {
 }
 
 /**
+ * @public
  * <p>Contains information about a stage for a batch build.</p>
  */
 export interface BuildBatchPhase {
@@ -1109,11 +1188,15 @@ export interface BuildBatchPhase {
   contexts?: PhaseContext[];
 }
 
+/**
+ * @public
+ */
 export enum SourceAuthType {
   OAUTH = "OAUTH",
 }
 
 /**
+ * @public
  * <p>Information about the authorization settings for CodeBuild to access the source code to be
  *             built.</p>
  *         <p>This information is for the CodeBuild console's use only. Your code should not get or set
@@ -1136,6 +1219,7 @@ export interface SourceAuth {
 }
 
 /**
+ * @public
  * <p>Contains information that defines how the CodeBuild build project reports the build status
  *             to the source provider. </p>
  */
@@ -1178,6 +1262,7 @@ export interface BuildStatusConfig {
 }
 
 /**
+ * @public
  * <p> Information about the Git submodules configuration for an CodeBuild build project.
  *         </p>
  */
@@ -1188,6 +1273,9 @@ export interface GitSubmodulesConfig {
   fetchSubmodules: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SourceType {
   BITBUCKET = "BITBUCKET",
   CODECOMMIT = "CODECOMMIT",
@@ -1199,6 +1287,7 @@ export enum SourceType {
 }
 
 /**
+ * @public
  * <p>Information about the build input source code for the build project.</p>
  */
 export interface ProjectSource {
@@ -1372,6 +1461,7 @@ export interface ProjectSource {
 }
 
 /**
+ * @public
  * <p> A source identifier and its corresponding version. </p>
  */
 export interface ProjectSourceVersion {
@@ -1414,6 +1504,7 @@ export interface ProjectSourceVersion {
 }
 
 /**
+ * @public
  * <p>Information about the VPC configuration that CodeBuild accesses.</p>
  */
 export interface VpcConfig {
@@ -1434,6 +1525,7 @@ export interface VpcConfig {
 }
 
 /**
+ * @public
  * <p>Contains information about a batch build.</p>
  */
 export interface BuildBatch {
@@ -1658,6 +1750,9 @@ export interface BuildBatch {
   debugSessionEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetBuildBatchesOutput {
   /**
    * <p>An array of <code>BuildBatch</code> objects that represent the retrieved batch
@@ -1671,6 +1766,9 @@ export interface BatchGetBuildBatchesOutput {
   buildBatchesNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetBuildsInput {
   /**
    * <p>The IDs of the builds.</p>
@@ -1679,6 +1777,7 @@ export interface BatchGetBuildsInput {
 }
 
 /**
+ * @public
  * <p>Contains information about the debug session for a build. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing a
  *                 running build in Session Manager</a>.</p>
  */
@@ -1697,6 +1796,7 @@ export interface DebugSession {
 }
 
 /**
+ * @public
  * <p>Contains information about an exported environment variable. </p>
  *         <p>Exported environment variables are used in conjunction with CodePipeline to export
  *   environment variables from the current build stage to subsequent stages in the pipeline.
@@ -1722,6 +1822,7 @@ export interface ExportedEnvironmentVariable {
 }
 
 /**
+ * @public
  * <p>Information about build logs in CloudWatch Logs.</p>
  */
 export interface LogsLocation {
@@ -1747,14 +1848,14 @@ export interface LogsLocation {
 
   /**
    * <p> The ARN of CloudWatch Logs for a build project. Its format is
-   *                 <code>arn:${Partition}:logs:${Region}:${Account}:log-group:${LogGroupName}:log-stream:${LogStreamName}</code>.
+   *                 <code>arn:$\{Partition\}:logs:$\{Region\}:$\{Account\}:log-group:$\{LogGroupName\}:log-stream:$\{LogStreamName\}</code>.
    *             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies">Resources Defined by CloudWatch Logs</a>. </p>
    */
   cloudWatchLogsArn?: string;
 
   /**
    * <p> The ARN of S3 logs for a build project. Its format is
-   *                 <code>arn:${Partition}:s3:::${BucketName}/${ObjectName}</code>. For more
+   *                 <code>arn:$\{Partition\}:s3:::$\{BucketName\}/$\{ObjectName\}</code>. For more
    *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html#amazons3-resources-for-iam-policies">Resources Defined by Amazon S3</a>. </p>
    */
   s3LogsArn?: string;
@@ -1771,6 +1872,7 @@ export interface LogsLocation {
 }
 
 /**
+ * @public
  * <p>Describes a network interface.</p>
  */
 export interface NetworkInterface {
@@ -1785,6 +1887,9 @@ export interface NetworkInterface {
   networkInterfaceId?: string;
 }
 
+/**
+ * @public
+ */
 export enum BuildPhaseType {
   BUILD = "BUILD",
   COMPLETED = "COMPLETED",
@@ -1800,6 +1905,7 @@ export enum BuildPhaseType {
 }
 
 /**
+ * @public
  * <p>Information about a stage for a build.</p>
  */
 export interface BuildPhase {
@@ -1910,6 +2016,7 @@ export interface BuildPhase {
 }
 
 /**
+ * @public
  * <p>Information about a build.</p>
  */
 export interface Build {
@@ -2175,6 +2282,9 @@ export interface Build {
   buildBatchArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetBuildsOutput {
   /**
    * <p>Information about the requested builds.</p>
@@ -2187,6 +2297,9 @@ export interface BatchGetBuildsOutput {
   buildsNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetProjectsInput {
   /**
    * <p>The names or ARNs of the build projects. To get information about a project shared
@@ -2197,6 +2310,7 @@ export interface BatchGetProjectsInput {
 }
 
 /**
+ * @public
  * <p>Information about the build output artifacts for the build project.</p>
  */
 export interface ProjectArtifacts {
@@ -2449,6 +2563,7 @@ export interface ProjectArtifacts {
 }
 
 /**
+ * @public
  * <p>Information about the build badge for the build project.</p>
  */
 export interface ProjectBadge {
@@ -2465,12 +2580,16 @@ export interface ProjectBadge {
   badgeRequestUrl?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProjectVisibilityType {
   PRIVATE = "PRIVATE",
   PUBLIC_READ = "PUBLIC_READ",
 }
 
 /**
+ * @public
  * <p>A tag, consisting of a key and a value.</p>
  *         <p>This tag is available for use by Amazon Web Services services that support tags in CodeBuild.</p>
  */
@@ -2486,11 +2605,17 @@ export interface Tag {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum WebhookBuildType {
   BUILD = "BUILD",
   BUILD_BATCH = "BUILD_BATCH",
 }
 
+/**
+ * @public
+ */
 export enum WebhookFilterType {
   ACTOR_ACCOUNT_ID = "ACTOR_ACCOUNT_ID",
   BASE_REF = "BASE_REF",
@@ -2501,6 +2626,7 @@ export enum WebhookFilterType {
 }
 
 /**
+ * @public
  * <p> A filter used to determine which webhooks trigger a build. </p>
  */
 export interface WebhookFilter {
@@ -2605,6 +2731,7 @@ export interface WebhookFilter {
 }
 
 /**
+ * @public
  * <p>Information about a webhook that connects repository events to a build project in
  *       CodeBuild.</p>
  */
@@ -2661,6 +2788,7 @@ export interface Webhook {
 }
 
 /**
+ * @public
  * <p>Information about a build project.</p>
  */
 export interface Project {
@@ -2872,6 +3000,9 @@ export interface Project {
   resourceAccessRole?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetProjectsOutput {
   /**
    * <p>Information about the requested build projects.</p>
@@ -2884,6 +3015,9 @@ export interface BatchGetProjectsOutput {
   projectsNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetReportGroupsInput {
   /**
    * <p>
@@ -2893,17 +3027,24 @@ export interface BatchGetReportGroupsInput {
   reportGroupArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ReportExportConfigType {
   NO_EXPORT = "NO_EXPORT",
   S3 = "S3",
 }
 
+/**
+ * @public
+ */
 export enum ReportPackagingType {
   NONE = "NONE",
   ZIP = "ZIP",
 }
 
 /**
+ * @public
  * <p> Information about the S3 bucket where the raw data of a report are exported. </p>
  */
 export interface S3ReportExportConfig {
@@ -2952,6 +3093,7 @@ export interface S3ReportExportConfig {
 }
 
 /**
+ * @public
  * <p> Information about the location where the run of a report is exported. </p>
  */
 export interface ReportExportConfig {
@@ -2977,17 +3119,24 @@ export interface ReportExportConfig {
   s3Destination?: S3ReportExportConfig;
 }
 
+/**
+ * @public
+ */
 export enum ReportGroupStatusType {
   ACTIVE = "ACTIVE",
   DELETING = "DELETING",
 }
 
+/**
+ * @public
+ */
 export enum ReportType {
   CODE_COVERAGE = "CODE_COVERAGE",
   TEST = "TEST",
 }
 
 /**
+ * @public
  * <p>A series of reports. Each report contains information about the results from running a
  *             series of test cases. You specify the test cases for a report group in the buildspec for
  *             a build project using one or more paths to the test case files. </p>
@@ -3061,6 +3210,9 @@ export interface ReportGroup {
   status?: ReportGroupStatusType | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetReportGroupsOutput {
   /**
    * <p>
@@ -3077,6 +3229,9 @@ export interface BatchGetReportGroupsOutput {
   reportGroupsNotFound?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetReportsInput {
   /**
    * <p>
@@ -3087,6 +3242,7 @@ export interface BatchGetReportsInput {
 }
 
 /**
+ * @public
  * <p>Contains a summary of a code coverage report.</p>
  *         <p>Line coverage measures how many statements your tests cover. A statement is a single
  *       instruction, not including comments, conditionals, etc.</p>
@@ -3125,6 +3281,9 @@ export interface CodeCoverageReportSummary {
   branchesMissed?: number;
 }
 
+/**
+ * @public
+ */
 export enum ReportStatusType {
   DELETING = "DELETING",
   FAILED = "FAILED",
@@ -3134,6 +3293,7 @@ export enum ReportStatusType {
 }
 
 /**
+ * @public
  * <p> Information about a test report. </p>
  */
 export interface TestReportSummary {
@@ -3157,6 +3317,7 @@ export interface TestReportSummary {
 }
 
 /**
+ * @public
  * <p>Information about the results from running a series of test cases during the run of a
  *             build project. The test cases are specified in the buildspec for the build project using
  *             one or more paths to the test case files. You can specify any type of tests you want,
@@ -3239,6 +3400,9 @@ export interface Report {
   codeCoverageSummary?: CodeCoverageReportSummary;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetReportsOutput {
   /**
    * <p>
@@ -3256,6 +3420,7 @@ export interface BatchGetReportsOutput {
 }
 
 /**
+ * @public
  * <p>Specifies filters when retrieving batch builds.</p>
  */
 export interface BuildBatchFilter {
@@ -3266,6 +3431,9 @@ export interface BuildBatchFilter {
   status?: StatusType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectInput {
   /**
    * <p>The name of the build project.</p>
@@ -3428,6 +3596,9 @@ export interface CreateProjectInput {
   concurrentBuildLimit?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectOutput {
   /**
    * <p>Information about the build project that was created.</p>
@@ -3436,6 +3607,7 @@ export interface CreateProjectOutput {
 }
 
 /**
+ * @public
  * <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
  *             settings already exists.</p>
  */
@@ -3455,6 +3627,9 @@ export class ResourceAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateReportGroupInput {
   /**
    * <p>
@@ -3487,6 +3662,9 @@ export interface CreateReportGroupInput {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateReportGroupOutput {
   /**
    * <p>
@@ -3496,6 +3674,9 @@ export interface CreateReportGroupOutput {
   reportGroup?: ReportGroup;
 }
 
+/**
+ * @public
+ */
 export interface CreateWebhookInput {
   /**
    * <p>The name of the CodeBuild project.</p>
@@ -3529,6 +3710,9 @@ export interface CreateWebhookInput {
   buildType?: WebhookBuildType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWebhookOutput {
   /**
    * <p>Information about a webhook that connects repository events to a build project in
@@ -3538,6 +3722,7 @@ export interface CreateWebhookOutput {
 }
 
 /**
+ * @public
  * <p>There was a problem with the underlying OAuth provider.</p>
  */
 export class OAuthProviderException extends __BaseException {
@@ -3557,6 +3742,7 @@ export class OAuthProviderException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified Amazon Web Services resource cannot be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -3575,6 +3761,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteBuildBatchInput {
   /**
    * <p>The identifier of the batch build to delete.</p>
@@ -3582,6 +3771,9 @@ export interface DeleteBuildBatchInput {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBuildBatchOutput {
   /**
    * <p>The status code.</p>
@@ -3600,6 +3792,9 @@ export interface DeleteBuildBatchOutput {
   buildsNotDeleted?: BuildNotDeleted[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectInput {
   /**
    * <p>The name of the build project.</p>
@@ -3607,8 +3802,14 @@ export interface DeleteProjectInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteReportInput {
   /**
    * <p>
@@ -3618,8 +3819,14 @@ export interface DeleteReportInput {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReportOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteReportGroupInput {
   /**
    * <p>The ARN of the report group to delete. </p>
@@ -3636,8 +3843,14 @@ export interface DeleteReportGroupInput {
   deleteReports?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReportGroupOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyInput {
   /**
    * <p> The ARN of the resource that is associated with the resource policy. </p>
@@ -3645,8 +3858,14 @@ export interface DeleteResourcePolicyInput {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteSourceCredentialsInput {
   /**
    * <p> The Amazon Resource Name (ARN) of the token.</p>
@@ -3654,6 +3873,9 @@ export interface DeleteSourceCredentialsInput {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSourceCredentialsOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the token. </p>
@@ -3661,6 +3883,9 @@ export interface DeleteSourceCredentialsOutput {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWebhookInput {
   /**
    * <p>The name of the CodeBuild project.</p>
@@ -3668,18 +3893,30 @@ export interface DeleteWebhookInput {
   projectName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWebhookOutput {}
 
+/**
+ * @public
+ */
 export enum ReportCodeCoverageSortByType {
   FILE_PATH = "FILE_PATH",
   LINE_COVERAGE_PERCENTAGE = "LINE_COVERAGE_PERCENTAGE",
 }
 
+/**
+ * @public
+ */
 export enum SortOrderType {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface DescribeCodeCoveragesInput {
   /**
    * <p>
@@ -3732,6 +3969,7 @@ export interface DescribeCodeCoveragesInput {
 }
 
 /**
+ * @public
  * <p>Contains code coverage report information.</p>
  *         <p>Line coverage measures how many statements your tests cover. A statement is a single
  *       instruction, not including comments, conditionals, etc.</p>
@@ -3790,6 +4028,9 @@ export interface CodeCoverage {
   expired?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCodeCoveragesOutput {
   /**
    * <p>If there are more items to return, this contains a token that is passed to a subsequent
@@ -3804,6 +4045,7 @@ export interface DescribeCodeCoveragesOutput {
 }
 
 /**
+ * @public
  * <p>A filter used to return specific types of test cases. In order to pass the filter, the
  *             report must meet all of the filter properties.</p>
  */
@@ -3849,6 +4091,9 @@ export interface TestCaseFilter {
   keyword?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTestCasesInput {
   /**
    * <p>
@@ -3885,6 +4130,7 @@ export interface DescribeTestCasesInput {
 }
 
 /**
+ * @public
  * <p> Information about a test case created using a framework such as NUnit or Cucumber. A
  *             test case might be a unit test or a configuration test. </p>
  */
@@ -3935,6 +4181,9 @@ export interface TestCase {
   expired?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTestCasesOutput {
   /**
    * <p>
@@ -3955,6 +4204,9 @@ export interface DescribeTestCasesOutput {
   testCases?: TestCase[];
 }
 
+/**
+ * @public
+ */
 export enum ReportGroupTrendFieldType {
   BRANCHES_COVERED = "BRANCHES_COVERED",
   BRANCHES_MISSED = "BRANCHES_MISSED",
@@ -3967,6 +4219,9 @@ export enum ReportGroupTrendFieldType {
   TOTAL = "TOTAL",
 }
 
+/**
+ * @public
+ */
 export interface GetReportGroupTrendInput {
   /**
    * <p>The ARN of the report group that contains the reports to analyze.</p>
@@ -4046,6 +4301,7 @@ export interface GetReportGroupTrendInput {
 }
 
 /**
+ * @public
  * <p>Contains the unmodified data for the report. For more information, see .</p>
  */
 export interface ReportWithRawData {
@@ -4061,6 +4317,7 @@ export interface ReportWithRawData {
 }
 
 /**
+ * @public
  * <p>Contains trend statistics for a set of reports. The actual values depend on the type of
  *             trend being collected. For more information, see .</p>
  */
@@ -4081,6 +4338,9 @@ export interface ReportGroupTrendStats {
   min?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetReportGroupTrendOutput {
   /**
    * <p>Contains the accumulated trend data.</p>
@@ -4093,6 +4353,9 @@ export interface GetReportGroupTrendOutput {
   rawData?: ReportWithRawData[];
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyInput {
   /**
    * <p> The ARN of the resource that is associated with the resource policy. </p>
@@ -4100,6 +4363,9 @@ export interface GetResourcePolicyInput {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyOutput {
   /**
    * <p> The resource policy for the resource identified by the input ARN parameter. </p>
@@ -4107,12 +4373,18 @@ export interface GetResourcePolicyOutput {
   policy?: string;
 }
 
+/**
+ * @public
+ */
 export enum ServerType {
   BITBUCKET = "BITBUCKET",
   GITHUB = "GITHUB",
   GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
 }
 
+/**
+ * @public
+ */
 export interface ImportSourceCredentialsInput {
   /**
    * <p> The Bitbucket username when the <code>authType</code> is BASIC_AUTH. This parameter
@@ -4146,6 +4418,9 @@ export interface ImportSourceCredentialsInput {
   shouldOverwrite?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ImportSourceCredentialsOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the token. </p>
@@ -4153,6 +4428,9 @@ export interface ImportSourceCredentialsOutput {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface InvalidateProjectCacheInput {
   /**
    * <p>The name of the CodeBuild build project that the cache is reset for.</p>
@@ -4160,8 +4438,14 @@ export interface InvalidateProjectCacheInput {
   projectName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface InvalidateProjectCacheOutput {}
 
+/**
+ * @public
+ */
 export interface ListBuildBatchesInput {
   /**
    * <p>A <code>BuildBatchFilter</code> object that specifies the filters for the search.</p>
@@ -4196,6 +4480,9 @@ export interface ListBuildBatchesInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildBatchesOutput {
   /**
    * <p>An array of strings that contains the batch build identifiers.</p>
@@ -4209,6 +4496,9 @@ export interface ListBuildBatchesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildBatchesForProjectInput {
   /**
    * <p>The name of the project.</p>
@@ -4250,6 +4540,9 @@ export interface ListBuildBatchesForProjectInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildBatchesForProjectOutput {
   /**
    * <p>An array of strings that contains the batch build identifiers.</p>
@@ -4264,6 +4557,9 @@ export interface ListBuildBatchesForProjectOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildsInput {
   /**
    * <p>The order to list build IDs. Valid values include:</p>
@@ -4293,6 +4589,9 @@ export interface ListBuildsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildsOutput {
   /**
    * <p>A list of build IDs, with each build ID representing a single build.</p>
@@ -4308,6 +4607,9 @@ export interface ListBuildsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildsForProjectInput {
   /**
    * <p>The name of the CodeBuild project.</p>
@@ -4344,6 +4646,9 @@ export interface ListBuildsForProjectInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBuildsForProjectOutput {
   /**
    * <p>A list of build identifiers for the specified build project, with each build ID representing a
@@ -4360,9 +4665,13 @@ export interface ListBuildsForProjectOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCuratedEnvironmentImagesInput {}
 
 /**
+ * @public
  * <p>Information about a Docker image that is managed by CodeBuild.</p>
  */
 export interface EnvironmentImage {
@@ -4382,6 +4691,9 @@ export interface EnvironmentImage {
   versions?: string[];
 }
 
+/**
+ * @public
+ */
 export enum LanguageType {
   ANDROID = "ANDROID",
   BASE = "BASE",
@@ -4396,6 +4708,7 @@ export enum LanguageType {
 }
 
 /**
+ * @public
  * <p>A set of Docker images that are related by programming language and are managed by
  *             CodeBuild.</p>
  */
@@ -4412,6 +4725,9 @@ export interface EnvironmentLanguage {
   images?: EnvironmentImage[];
 }
 
+/**
+ * @public
+ */
 export enum PlatformType {
   AMAZON_LINUX = "AMAZON_LINUX",
   DEBIAN = "DEBIAN",
@@ -4420,6 +4736,7 @@ export enum PlatformType {
 }
 
 /**
+ * @public
  * <p>A set of Docker images that are related by platform and are managed by CodeBuild.</p>
  */
 export interface EnvironmentPlatform {
@@ -4435,6 +4752,9 @@ export interface EnvironmentPlatform {
   languages?: EnvironmentLanguage[];
 }
 
+/**
+ * @public
+ */
 export interface ListCuratedEnvironmentImagesOutput {
   /**
    * <p>Information about supported platforms for Docker images that are managed by
@@ -4443,12 +4763,18 @@ export interface ListCuratedEnvironmentImagesOutput {
   platforms?: EnvironmentPlatform[];
 }
 
+/**
+ * @public
+ */
 export enum ProjectSortByType {
   CREATED_TIME = "CREATED_TIME",
   LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
   NAME = "NAME",
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsInput {
   /**
    * <p>The criterion to be used to list build project names. Valid values include:</p>
@@ -4501,6 +4827,9 @@ export interface ListProjectsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsOutput {
   /**
    * <p>If there are more than 100 items in the list, only the first 100 items are returned,
@@ -4517,12 +4846,18 @@ export interface ListProjectsOutput {
   projects?: string[];
 }
 
+/**
+ * @public
+ */
 export enum ReportGroupSortByType {
   CREATED_TIME = "CREATED_TIME",
   LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
   NAME = "NAME",
 }
 
+/**
+ * @public
+ */
 export interface ListReportGroupsInput {
   /**
    * <p>
@@ -4574,6 +4909,9 @@ export interface ListReportGroupsInput {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListReportGroupsOutput {
   /**
    * <p>
@@ -4595,6 +4933,7 @@ export interface ListReportGroupsOutput {
 }
 
 /**
+ * @public
  * <p> A filter used to return reports with the status specified by the input
  *                 <code>status</code> parameter. </p>
  */
@@ -4605,6 +4944,9 @@ export interface ReportFilter {
   status?: ReportStatusType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListReportsInput {
   /**
    * <p>
@@ -4652,6 +4994,9 @@ export interface ListReportsInput {
   filter?: ReportFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListReportsOutput {
   /**
    * <p>
@@ -4672,6 +5017,9 @@ export interface ListReportsOutput {
   reports?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListReportsForReportGroupInput {
   /**
    * <p>
@@ -4714,6 +5062,9 @@ export interface ListReportsForReportGroupInput {
   filter?: ReportFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListReportsForReportGroupOutput {
   /**
    * <p>
@@ -4734,11 +5085,17 @@ export interface ListReportsForReportGroupOutput {
   reports?: string[];
 }
 
+/**
+ * @public
+ */
 export enum SharedResourceSortByType {
   ARN = "ARN",
   MODIFIED_TIME = "MODIFIED_TIME",
 }
 
+/**
+ * @public
+ */
 export interface ListSharedProjectsInput {
   /**
    * <p> The criterion to be used to list build projects shared with the current Amazon Web Services account
@@ -4790,6 +5147,9 @@ export interface ListSharedProjectsInput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSharedProjectsOutput {
   /**
    * <p> During a previous call, the maximum number of items that can be returned is the value
@@ -4808,6 +5168,9 @@ export interface ListSharedProjectsOutput {
   projects?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListSharedReportGroupsInput {
   /**
    * <p>The order in which to list shared report groups. Valid values include:</p>
@@ -4859,6 +5222,9 @@ export interface ListSharedReportGroupsInput {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSharedReportGroupsOutput {
   /**
    * <p> During a previous call, the maximum number of items that can be returned is the value
@@ -4877,9 +5243,13 @@ export interface ListSharedReportGroupsOutput {
   reportGroups?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListSourceCredentialsInput {}
 
 /**
+ * @public
  * <p> Information about the credentials for a GitHub, GitHub Enterprise, or Bitbucket
  *             repository. </p>
  */
@@ -4902,6 +5272,9 @@ export interface SourceCredentialsInfo {
   authType?: AuthType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSourceCredentialsOutput {
   /**
    * <p> A list of <code>SourceCredentialsInfo</code> objects. Each
@@ -4911,6 +5284,9 @@ export interface ListSourceCredentialsOutput {
   sourceCredentialsInfos?: SourceCredentialsInfo[];
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyInput {
   /**
    * <p> A JSON-formatted resource policy. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share">Sharing
@@ -4926,6 +5302,9 @@ export interface PutResourcePolicyInput {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyOutput {
   /**
    * <p> The ARN of the <code>Project</code> or <code>ReportGroup</code> resource that is
@@ -4934,6 +5313,9 @@ export interface PutResourcePolicyOutput {
   resourceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface RetryBuildInput {
   /**
    * <p>Specifies the identifier of the build to restart.</p>
@@ -4950,6 +5332,9 @@ export interface RetryBuildInput {
   idempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RetryBuildOutput {
   /**
    * <p>Information about a build.</p>
@@ -4957,11 +5342,17 @@ export interface RetryBuildOutput {
   build?: Build;
 }
 
+/**
+ * @public
+ */
 export enum RetryBuildBatchType {
   RETRY_ALL_BUILDS = "RETRY_ALL_BUILDS",
   RETRY_FAILED_BUILDS = "RETRY_FAILED_BUILDS",
 }
 
+/**
+ * @public
+ */
 export interface RetryBuildBatchInput {
   /**
    * <p>Specifies the identifier of the batch build to restart.</p>
@@ -4983,6 +5374,9 @@ export interface RetryBuildBatchInput {
   retryType?: RetryBuildBatchType | string;
 }
 
+/**
+ * @public
+ */
 export interface RetryBuildBatchOutput {
   /**
    * <p>Contains information about a batch build.</p>
@@ -4990,6 +5384,9 @@ export interface RetryBuildBatchOutput {
   buildBatch?: BuildBatch;
 }
 
+/**
+ * @public
+ */
 export interface StartBuildInput {
   /**
    * <p>The name of the CodeBuild build project to start running a build.</p>
@@ -5246,6 +5643,9 @@ export interface StartBuildInput {
   debugSessionEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartBuildOutput {
   /**
    * <p>Information about the build to be run.</p>
@@ -5253,6 +5653,9 @@ export interface StartBuildOutput {
   build?: Build;
 }
 
+/**
+ * @public
+ */
 export interface StartBuildBatchInput {
   /**
    * <p>The name of the project.</p>
@@ -5507,6 +5910,9 @@ export interface StartBuildBatchInput {
   debugSessionEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartBuildBatchOutput {
   /**
    * <p>A <code>BuildBatch</code> object that contains information about the batch build.</p>
@@ -5514,6 +5920,9 @@ export interface StartBuildBatchOutput {
   buildBatch?: BuildBatch;
 }
 
+/**
+ * @public
+ */
 export interface StopBuildInput {
   /**
    * <p>The ID of the build.</p>
@@ -5521,6 +5930,9 @@ export interface StopBuildInput {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopBuildOutput {
   /**
    * <p>Information about the build.</p>
@@ -5528,6 +5940,9 @@ export interface StopBuildOutput {
   build?: Build;
 }
 
+/**
+ * @public
+ */
 export interface StopBuildBatchInput {
   /**
    * <p>The identifier of the batch build to stop.</p>
@@ -5535,6 +5950,9 @@ export interface StopBuildBatchInput {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopBuildBatchOutput {
   /**
    * <p>Contains information about a batch build.</p>
@@ -5542,6 +5960,9 @@ export interface StopBuildBatchOutput {
   buildBatch?: BuildBatch;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectInput {
   /**
    * <p>The name of the build project.</p>
@@ -5707,6 +6128,9 @@ export interface UpdateProjectInput {
   concurrentBuildLimit?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectOutput {
   /**
    * <p>Information about the build project that was changed.</p>
@@ -5714,6 +6138,9 @@ export interface UpdateProjectOutput {
   project?: Project;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectVisibilityInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the build project.</p>
@@ -5743,6 +6170,9 @@ export interface UpdateProjectVisibilityInput {
   resourceAccessRole?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectVisibilityOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the build project.</p>
@@ -5771,6 +6201,9 @@ export interface UpdateProjectVisibilityOutput {
   projectVisibility?: ProjectVisibilityType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReportGroupInput {
   /**
    * <p>
@@ -5808,6 +6241,9 @@ export interface UpdateReportGroupInput {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateReportGroupOutput {
   /**
    * <p>
@@ -5817,6 +6253,9 @@ export interface UpdateReportGroupOutput {
   reportGroup?: ReportGroup;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWebhookInput {
   /**
    * <p>The name of the CodeBuild project.</p>
@@ -5855,6 +6294,9 @@ export interface UpdateWebhookInput {
   buildType?: WebhookBuildType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWebhookOutput {
   /**
    * <p> Information about a repository's webhook that is associated with a project in CodeBuild.

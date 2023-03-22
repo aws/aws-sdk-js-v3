@@ -19,15 +19,20 @@ import { deserializeAws_queryPauseClusterCommand, serializeAws_queryPauseCluster
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link PauseClusterCommand}.
  */
 export interface PauseClusterCommandInput extends PauseClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link PauseClusterCommand}.
  */
 export interface PauseClusterCommandOutput extends PauseClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Pauses a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,6 +44,8 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param PauseClusterCommandInput - {@link PauseClusterCommandInput}
+ * @returns {@link PauseClusterCommandOutput}
  * @see {@link PauseClusterCommandInput} for command's `input` shape.
  * @see {@link PauseClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -69,6 +76,9 @@ export class PauseClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PauseClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,10 +116,16 @@ export class PauseClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PauseClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPauseClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PauseClusterCommandOutput> {
     return deserializeAws_queryPauseClusterCommand(output, context);
   }

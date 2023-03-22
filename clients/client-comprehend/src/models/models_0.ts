@@ -3,17 +3,24 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ComprehendServiceException as __BaseException } from "./ComprehendServiceException";
 
+/**
+ * @public
+ */
 export enum AugmentedManifestsDocumentTypeFormat {
   PLAIN_TEXT_DOCUMENT = "PLAIN_TEXT_DOCUMENT",
   SEMI_STRUCTURED_DOCUMENT = "SEMI_STRUCTURED_DOCUMENT",
 }
 
+/**
+ * @public
+ */
 export enum Split {
   TEST = "TEST",
   TRAIN = "TRAIN",
 }
 
 /**
+ * @public
  * <p>An augmented manifest file that provides training data for your custom model. An augmented
  *       manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p>
  */
@@ -77,6 +84,9 @@ export interface AugmentedManifestsListItem {
   DocumentType?: AugmentedManifestsDocumentTypeFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectDominantLanguageRequest {
   /**
    * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
@@ -86,6 +96,7 @@ export interface BatchDetectDominantLanguageRequest {
 }
 
 /**
+ * @public
  * <p>Describes an error that occurred while processing a document in a batch. The operation
  *       returns on <code>BatchItemError</code> object for each document that contained an
  *       error.</p>
@@ -108,6 +119,7 @@ export interface BatchItemError {
 }
 
 /**
+ * @public
  * <p>Returns the code for the dominant language in the input text and the level of
  *       confidence that Amazon Comprehend has in the accuracy of the detection.</p>
  */
@@ -127,6 +139,7 @@ export interface DominantLanguage {
 }
 
 /**
+ * @public
  * <p>The result of calling the  operation.
  *       The operation returns one object for each document that is successfully processed by the
  *       operation.</p>
@@ -144,6 +157,9 @@ export interface BatchDetectDominantLanguageItemResult {
   Languages?: DominantLanguage[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectDominantLanguageResponse {
   /**
    * <p>A list of  objects
@@ -163,6 +179,7 @@ export interface BatchDetectDominantLanguageResponse {
 }
 
 /**
+ * @public
  * <p>The number of documents in the request exceeds the limit of 25. Try your request again
  *       with fewer documents.</p>
  */
@@ -185,6 +202,7 @@ export class BatchSizeLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal server error occurred. Retry your request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -205,6 +223,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum InvalidRequestDetailReason {
   DOCUMENT_SIZE_EXCEEDED = "DOCUMENT_SIZE_EXCEEDED",
   PAGE_LIMIT_EXCEEDED = "PAGE_LIMIT_EXCEEDED",
@@ -213,6 +234,7 @@ export enum InvalidRequestDetailReason {
 }
 
 /**
+ * @public
  * <p>Provides additional detail about why the request failed:</p>
  *          <ul>
  *             <li>
@@ -236,11 +258,15 @@ export interface InvalidRequestDetail {
   Reason?: InvalidRequestDetailReason | string;
 }
 
+/**
+ * @public
+ */
 export enum InvalidRequestReason {
   INVALID_DOCUMENT = "INVALID_DOCUMENT",
 }
 
 /**
+ * @public
  * <p>The request is invalid.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -283,6 +309,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  */
 export class TextSizeLimitExceededException extends __BaseException {
@@ -303,6 +330,9 @@ export class TextSizeLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum LanguageCode {
   AR = "ar",
   DE = "de",
@@ -318,6 +348,9 @@ export enum LanguageCode {
   ZH_TW = "zh-TW",
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectEntitiesRequest {
   /**
    * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
@@ -333,6 +366,7 @@ export interface BatchDetectEntitiesRequest {
 }
 
 /**
+ * @public
  * <p>Nested block contained within a block.</p>
  */
 export interface ChildBlock {
@@ -353,6 +387,7 @@ export interface ChildBlock {
 }
 
 /**
+ * @public
  * <p>A reference to a block. </p>
  */
 export interface BlockReference {
@@ -377,6 +412,9 @@ export interface BlockReference {
   ChildBlocks?: ChildBlock[];
 }
 
+/**
+ * @public
+ */
 export enum EntityType {
   COMMERCIAL_ITEM = "COMMERCIAL_ITEM",
   DATE = "DATE",
@@ -390,6 +428,7 @@ export enum EntityType {
 }
 
 /**
+ * @public
  * <p>Provides information about an entity. </p>
  *          <p> </p>
  */
@@ -434,6 +473,7 @@ export interface Entity {
 }
 
 /**
+ * @public
  * <p>The result of calling the  operation. The
  *       operation returns one object for each document that is successfully processed by the
  *       operation.</p>
@@ -451,6 +491,9 @@ export interface BatchDetectEntitiesItemResult {
   Entities?: Entity[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectEntitiesResponse {
   /**
    * <p>A list of  objects containing the
@@ -470,6 +513,7 @@ export interface BatchDetectEntitiesResponse {
 }
 
 /**
+ * @public
  * <p>Amazon Comprehend can't process the language of the input text. For custom entity
  *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
  *       For a list of supported languages,
@@ -494,6 +538,9 @@ export class UnsupportedLanguageException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectKeyPhrasesRequest {
   /**
    * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
@@ -509,6 +556,7 @@ export interface BatchDetectKeyPhrasesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a key noun phrase.</p>
  */
 export interface KeyPhrase {
@@ -537,6 +585,7 @@ export interface KeyPhrase {
 }
 
 /**
+ * @public
  * <p>The result of calling the  operation. The
  *       operation returns one object for each document that is successfully processed by the
  *       operation.</p>
@@ -554,6 +603,9 @@ export interface BatchDetectKeyPhrasesItemResult {
   KeyPhrases?: KeyPhrase[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectKeyPhrasesResponse {
   /**
    * <p>A list of  objects containing the
@@ -572,6 +624,9 @@ export interface BatchDetectKeyPhrasesResponse {
   ErrorList: BatchItemError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectSentimentRequest {
   /**
    * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
@@ -590,6 +645,9 @@ export interface BatchDetectSentimentRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SentimentType {
   MIXED = "MIXED",
   NEGATIVE = "NEGATIVE",
@@ -598,6 +656,7 @@ export enum SentimentType {
 }
 
 /**
+ * @public
  * <p>Describes the level of confidence that Amazon Comprehend has in the accuracy of its
  *       detection of sentiments.</p>
  */
@@ -628,6 +687,7 @@ export interface SentimentScore {
 }
 
 /**
+ * @public
  * <p>The result of calling the  operation. The
  *       operation returns one object for each document that is successfully processed by the
  *       operation.</p>
@@ -650,6 +710,9 @@ export interface BatchDetectSentimentItemResult {
   SentimentScore?: SentimentScore;
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectSentimentResponse {
   /**
    * <p>A list of  objects containing the
@@ -668,6 +731,9 @@ export interface BatchDetectSentimentResponse {
   ErrorList: BatchItemError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SyntaxLanguageCode {
   DE = "de",
   EN = "en",
@@ -677,6 +743,9 @@ export enum SyntaxLanguageCode {
   PT = "pt",
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectSyntaxRequest {
   /**
    * <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25
@@ -692,6 +761,9 @@ export interface BatchDetectSyntaxRequest {
   LanguageCode: SyntaxLanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PartOfSpeechTagType {
   ADJ = "ADJ",
   ADP = "ADP",
@@ -714,6 +786,7 @@ export enum PartOfSpeechTagType {
 }
 
 /**
+ * @public
  * <p>Identifies the part of speech represented by the token and gives the confidence that
  *       Amazon Comprehend has that the part of speech was correctly identified. For more information
  *       about the parts of speech that Amazon Comprehend can identify, see
@@ -734,6 +807,7 @@ export interface PartOfSpeechTag {
 }
 
 /**
+ * @public
  * <p>Represents a work in the input text that was recognized and assigned a part of speech.
  *       There is one syntax token record for each word in the source text.</p>
  */
@@ -770,6 +844,7 @@ export interface SyntaxToken {
 }
 
 /**
+ * @public
  * <p>The result of calling the  operation. The
  *       operation returns one object that is successfully processed by the operation.</p>
  */
@@ -785,6 +860,9 @@ export interface BatchDetectSyntaxItemResult {
   SyntaxTokens?: SyntaxToken[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectSyntaxResponse {
   /**
    * <p>A list of  objects containing the
@@ -803,6 +881,9 @@ export interface BatchDetectSyntaxResponse {
   ErrorList: BatchItemError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectTargetedSentimentRequest {
   /**
    * <p>A list containing the UTF-8 encoded text of the input documents.
@@ -817,6 +898,7 @@ export interface BatchDetectTargetedSentimentRequest {
 }
 
 /**
+ * @public
  * <p>Contains the sentiment and sentiment score for one mention of an entity.</p>
  *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
  */
@@ -833,6 +915,9 @@ export interface MentionSentiment {
   SentimentScore?: SentimentScore;
 }
 
+/**
+ * @public
+ */
 export enum TargetedSentimentEntityType {
   ATTRIBUTE = "ATTRIBUTE",
   BOOK = "BOOK",
@@ -854,6 +939,7 @@ export enum TargetedSentimentEntityType {
 }
 
 /**
+ * @public
  * <p>Information about one mention of an entity. The mention information includes the location of the mention
  *       in the text and the sentiment of the mention.</p>
  *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
@@ -896,6 +982,7 @@ export interface TargetedSentimentMention {
 }
 
 /**
+ * @public
  * <p>Information about one of the entities found by targeted sentiment analysis.</p>
  *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
  */
@@ -914,6 +1001,7 @@ export interface TargetedSentimentEntity {
 }
 
 /**
+ * @public
  * <p>Analysis results for one of the documents in the batch.</p>
  */
 export interface BatchDetectTargetedSentimentItemResult {
@@ -928,6 +1016,9 @@ export interface BatchDetectTargetedSentimentItemResult {
   Entities?: TargetedSentimentEntity[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDetectTargetedSentimentResponse {
   /**
    * <p>A list of objects containing the results of the operation.
@@ -942,12 +1033,16 @@ export interface BatchDetectTargetedSentimentResponse {
   ErrorList: BatchItemError[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BlockType {
   LINE = "LINE",
   WORD = "WORD",
 }
 
 /**
+ * @public
  * <p>The bounding box around the detected page
  *      or around an element on a document page.
  *     The left (x-coordinate) and top (y-coordinate) are coordinates that
@@ -978,6 +1073,7 @@ export interface BoundingBox {
 }
 
 /**
+ * @public
  * <p>The X and Y coordinates of a point on a document page.</p>
  *          <p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_Point.html">Point</a> in the Amazon Textract API reference.</p>
  */
@@ -994,6 +1090,7 @@ export interface Point {
 }
 
 /**
+ * @public
  * <p>Information about the location of items on a document page.</p>
  *          <p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_Geometry.html">Geometry</a> in the Amazon Textract API reference.</p>
  */
@@ -1010,11 +1107,15 @@ export interface Geometry {
   Polygon?: Point[];
 }
 
+/**
+ * @public
+ */
 export enum RelationshipType {
   CHILD = "CHILD",
 }
 
 /**
+ * @public
  * <p>List of child blocks for the current block.</p>
  */
 export interface RelationshipsListItem {
@@ -1030,6 +1131,7 @@ export interface RelationshipsListItem {
 }
 
 /**
+ * @public
  * <p>Information about each word or line of text in the input document.</p>
  *          <p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_Block.html">Block</a> in the Amazon Textract API reference.</p>
  */
@@ -1077,6 +1179,7 @@ export interface Block {
 }
 
 /**
+ * @public
  * <p>Describes the result metrics for the test data associated with an documentation
  *       classifier.</p>
  */
@@ -1143,6 +1246,7 @@ export interface ClassifierEvaluationMetrics {
 }
 
 /**
+ * @public
  * <p>Provides information about a document classifier.</p>
  */
 export interface ClassifierMetadata {
@@ -1170,22 +1274,32 @@ export interface ClassifierMetadata {
   EvaluationMetrics?: ClassifierEvaluationMetrics;
 }
 
+/**
+ * @public
+ */
 export enum DocumentReadAction {
   TEXTRACT_ANALYZE_DOCUMENT = "TEXTRACT_ANALYZE_DOCUMENT",
   TEXTRACT_DETECT_DOCUMENT_TEXT = "TEXTRACT_DETECT_DOCUMENT_TEXT",
 }
 
+/**
+ * @public
+ */
 export enum DocumentReadMode {
   FORCE_DOCUMENT_READ_ACTION = "FORCE_DOCUMENT_READ_ACTION",
   SERVICE_DEFAULT = "SERVICE_DEFAULT",
 }
 
+/**
+ * @public
+ */
 export enum DocumentReadFeatureTypes {
   FORMS = "FORMS",
   TABLES = "TABLES",
 }
 
 /**
+ * @public
  * <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files. </p>
  *          <p> By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type: </p>
  *          <ul>
@@ -1263,6 +1377,9 @@ export interface DocumentReaderConfig {
   FeatureTypes?: (DocumentReadFeatureTypes | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ClassifyDocumentRequest {
   /**
    * <p>The document text to be analyzed. If you enter text using this parameter,
@@ -1297,6 +1414,7 @@ export interface ClassifyDocumentRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the class that categorizes the document being analyzed</p>
  */
 export interface DocumentClass {
@@ -1318,6 +1436,7 @@ export interface DocumentClass {
 }
 
 /**
+ * @public
  * <p>Array of the number of characters extracted from each page.</p>
  */
 export interface ExtractedCharactersListItem {
@@ -1333,6 +1452,7 @@ export interface ExtractedCharactersListItem {
 }
 
 /**
+ * @public
  * <p>Information about the document, discovered during text extraction.</p>
  */
 export interface DocumentMetadata {
@@ -1347,6 +1467,9 @@ export interface DocumentMetadata {
   ExtractedCharacters?: ExtractedCharactersListItem[];
 }
 
+/**
+ * @public
+ */
 export enum DocumentType {
   IMAGE = "IMAGE",
   MS_WORD = "MS_WORD",
@@ -1358,6 +1481,7 @@ export enum DocumentType {
 }
 
 /**
+ * @public
  * <p>Document type for each page in the document.</p>
  */
 export interface DocumentTypeListItem {
@@ -1372,6 +1496,9 @@ export interface DocumentTypeListItem {
   Type?: DocumentType | string;
 }
 
+/**
+ * @public
+ */
 export enum PageBasedErrorCode {
   INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
   PAGE_CHARACTERS_EXCEEDED = "PAGE_CHARACTERS_EXCEEDED",
@@ -1381,6 +1508,7 @@ export enum PageBasedErrorCode {
 }
 
 /**
+ * @public
  * <p>Text extraction encountered one or more page-level errors in the input document.</p>
  *          <p>The <code>ErrorCode</code> contains one of the following values:</p>
  *          <ul>
@@ -1423,6 +1551,7 @@ export interface ErrorsListItem {
 }
 
 /**
+ * @public
  * <p>Specifies one of the label or labels that categorize the document being analyzed.</p>
  */
 export interface DocumentLabel {
@@ -1443,6 +1572,9 @@ export interface DocumentLabel {
   Page?: number;
 }
 
+/**
+ * @public
+ */
 export interface ClassifyDocumentResponse {
   /**
    * <p>The classes used by the document being analyzed. These are used for multi-class trained
@@ -1480,6 +1612,7 @@ export interface ClassifyDocumentResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource is not available. Check the resource and try your request
  *       again.</p>
  */
@@ -1501,6 +1634,9 @@ export class ResourceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ContainsPiiEntitiesRequest {
   /**
    * <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
@@ -1513,6 +1649,9 @@ export interface ContainsPiiEntitiesRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PiiEntityType {
   ADDRESS = "ADDRESS",
   AGE = "AGE",
@@ -1554,6 +1693,7 @@ export enum PiiEntityType {
 }
 
 /**
+ * @public
  * <p>Specifies one of the label or labels that categorize the personally identifiable
  *       information (PII) entity being analyzed.</p>
  */
@@ -1570,6 +1710,9 @@ export interface EntityLabel {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export interface ContainsPiiEntitiesResponse {
   /**
    * <p>The labels used in the document being analyzed. Individual labels represent personally
@@ -1578,12 +1721,16 @@ export interface ContainsPiiEntitiesResponse {
   Labels?: EntityLabel[];
 }
 
+/**
+ * @public
+ */
 export enum DatasetType {
   TEST = "TEST",
   TRAIN = "TRAIN",
 }
 
 /**
+ * @public
  * <p>An augmented manifest file that provides training data for your custom model.
  *       An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p>
  */
@@ -1626,12 +1773,16 @@ export interface DatasetAugmentedManifestsListItem {
   DocumentType?: AugmentedManifestsDocumentTypeFormat | string;
 }
 
+/**
+ * @public
+ */
 export enum DatasetDataFormat {
   AUGMENTED_MANIFEST = "AUGMENTED_MANIFEST",
   COMPREHEND_CSV = "COMPREHEND_CSV",
 }
 
 /**
+ * @public
  * <p>Describes the dataset input data configuration for a document classifier model.</p>
  *          <p>For more information on how the input file is formatted, see  <a href="https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html">Preparing training data</a>
  *       in the Comprehend Developer Guide. </p>
@@ -1661,6 +1812,7 @@ export interface DatasetDocumentClassifierInputDataConfig {
 }
 
 /**
+ * @public
  * <p>Describes the annotations associated with a entity recognizer.</p>
  */
 export interface DatasetEntityRecognizerAnnotations {
@@ -1672,12 +1824,16 @@ export interface DatasetEntityRecognizerAnnotations {
   S3Uri: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum InputFormat {
   ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE",
   ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE",
 }
 
 /**
+ * @public
  * <p>Describes the documents submitted with a dataset for an entity recognizer model.</p>
  */
 export interface DatasetEntityRecognizerDocuments {
@@ -1698,6 +1854,7 @@ export interface DatasetEntityRecognizerDocuments {
 }
 
 /**
+ * @public
  * <p>Describes the dataset entity list for an entity recognizer model.</p>
  *          <p>For more information on how the input file is formatted, see  <a href="https://docs.aws.amazon.com/comprehend/latest/dg/prep-training-data-cer.html">Preparing training data</a>
  *       in the Comprehend Developer Guide. </p>
@@ -1710,6 +1867,7 @@ export interface DatasetEntityRecognizerEntityList {
 }
 
 /**
+ * @public
  * <p>Specifies the format and location of the input data. You must provide either the
  *       <code>Annotations</code> parameter or the <code>EntityList</code> parameter.</p>
  */
@@ -1732,6 +1890,7 @@ export interface DatasetEntityRecognizerInputDataConfig {
 }
 
 /**
+ * @public
  * <p>Specifies the format and location of the input data for the dataset.</p>
  */
 export interface DatasetInputDataConfig {
@@ -1765,6 +1924,7 @@ export interface DatasetInputDataConfig {
 }
 
 /**
+ * @public
  * <p>A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For
  *       example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to
  *       indicate its use by a particular department. </p>
@@ -1787,6 +1947,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the flywheel of the flywheel to receive the data.</p>
@@ -1827,6 +1990,9 @@ export interface CreateDatasetRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetResponse {
   /**
    * <p>The ARN of the dataset.</p>
@@ -1835,6 +2001,7 @@ export interface CreateDatasetResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource name is already in use. Use a different name and try your request
  *       again.</p>
  */
@@ -1857,6 +2024,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of resources per account has been exceeded. Review the resources, and
  *       then try your request again.</p>
  */
@@ -1879,6 +2047,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1900,6 +2069,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -1921,6 +2091,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request contains more tags than can be associated with a resource (50 tags per
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
@@ -1943,12 +2114,16 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DocumentClassifierDataFormat {
   AUGMENTED_MANIFEST = "AUGMENTED_MANIFEST",
   COMPREHEND_CSV = "COMPREHEND_CSV",
 }
 
 /**
+ * @public
  * <p>The input properties for training a document classifier. </p>
  *          <p>For more information on how the input file is formatted, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html">Preparing training data</a> in the Comprehend Developer Guide.
@@ -2017,12 +2192,16 @@ export interface DocumentClassifierInputDataConfig {
   AugmentedManifests?: AugmentedManifestsListItem[];
 }
 
+/**
+ * @public
+ */
 export enum DocumentClassifierMode {
   MULTI_CLASS = "MULTI_CLASS",
   MULTI_LABEL = "MULTI_LABEL",
 }
 
 /**
+ * @public
  * <p>Provides output results configuration parameters for custom classifier jobs. </p>
  */
 export interface DocumentClassifierOutputDataConfig {
@@ -2071,6 +2250,7 @@ export interface DocumentClassifierOutputDataConfig {
 }
 
 /**
+ * @public
  * <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
  *       the resources you are using for the job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
  *         VPC</a>. </p>
@@ -2095,6 +2275,9 @@ export interface VpcConfig {
   Subnets: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDocumentClassifierRequest {
   /**
    * <p>The name of the document classifier.</p>
@@ -2205,17 +2388,20 @@ export interface CreateDocumentClassifierRequest {
    *       JSON body is also enclosed in double quotes, then you must escape the double quotes that are
    *       inside the policy:</p>
    *          <p>
-   *             <code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code>
+   *             <code>"\{\"attribute\": \"value\", \"attribute\": [\"value\"]\}"</code>
    *          </p>
    *          <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double
    *       quotes to enclose the JSON names and values:</p>
    *          <p>
-   *             <code>'{"attribute": "value", "attribute": ["value"]}'</code>
+   *             <code>'\{"attribute": "value", "attribute": ["value"]\}'</code>
    *          </p>
    */
   ModelPolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDocumentClassifierResponse {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>
@@ -2224,6 +2410,7 @@ export interface CreateDocumentClassifierResponse {
 }
 
 /**
+ * @public
  * <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
  *       re-enter it.</p>
  */
@@ -2245,6 +2432,9 @@ export class KmsKeyValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateEndpointRequest {
   /**
    * <p>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used for
@@ -2293,6 +2483,9 @@ export interface CreateEndpointRequest {
   FlywheelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEndpointResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint being created.</p>
@@ -2307,6 +2500,7 @@ export interface CreateEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Describes the annotations associated with a entity recognizer.</p>
  */
 export interface EntityRecognizerAnnotations {
@@ -2323,12 +2517,16 @@ export interface EntityRecognizerAnnotations {
   TestS3Uri?: string;
 }
 
+/**
+ * @public
+ */
 export enum EntityRecognizerDataFormat {
   AUGMENTED_MANIFEST = "AUGMENTED_MANIFEST",
   COMPREHEND_CSV = "COMPREHEND_CSV",
 }
 
 /**
+ * @public
  * <p>Describes the training documents submitted with an entity recognizer.</p>
  */
 export interface EntityRecognizerDocuments {
@@ -2357,6 +2555,7 @@ export interface EntityRecognizerDocuments {
 }
 
 /**
+ * @public
  * <p>Describes the entity list submitted with an entity recognizer.</p>
  */
 export interface EntityRecognizerEntityList {
@@ -2368,6 +2567,7 @@ export interface EntityRecognizerEntityList {
 }
 
 /**
+ * @public
  * <p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a
  *       custom entity recognizer.</p>
  */
@@ -2383,6 +2583,7 @@ export interface EntityTypesListItem {
 }
 
 /**
+ * @public
  * <p>Specifies the format and location of the input data.</p>
  */
 export interface EntityRecognizerInputDataConfig {
@@ -2453,6 +2654,9 @@ export interface EntityRecognizerInputDataConfig {
   AugmentedManifests?: AugmentedManifestsListItem[];
 }
 
+/**
+ * @public
+ */
 export interface CreateEntityRecognizerRequest {
   /**
    * <p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256
@@ -2555,17 +2759,20 @@ export interface CreateEntityRecognizerRequest {
    *       enclosed in double quotes, then you must escape the double quotes that are inside the
    *       policy:</p>
    *          <p>
-   *             <code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code>
+   *             <code>"\{\"attribute\": \"value\", \"attribute\": [\"value\"]\}"</code>
    *          </p>
    *          <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double
    *       quotes to enclose the JSON names and values:</p>
    *          <p>
-   *             <code>'{"attribute": "value", "attribute": ["value"]}'</code>
+   *             <code>'\{"attribute": "value", "attribute": ["value"]\}'</code>
    *          </p>
    */
   ModelPolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEntityRecognizerResponse {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
@@ -2574,6 +2781,7 @@ export interface CreateEntityRecognizerResponse {
 }
 
 /**
+ * @public
  * <p>Data security configuration.</p>
  */
 export interface DataSecurityConfig {
@@ -2612,12 +2820,16 @@ export interface DataSecurityConfig {
   VpcConfig?: VpcConfig;
 }
 
+/**
+ * @public
+ */
 export enum ModelType {
   DOCUMENT_CLASSIFIER = "DOCUMENT_CLASSIFIER",
   ENTITY_RECOGNIZER = "ENTITY_RECOGNIZER",
 }
 
 /**
+ * @public
  * <p>Configuration required for a custom classification model.</p>
  */
 export interface DocumentClassificationConfig {
@@ -2633,6 +2845,7 @@ export interface DocumentClassificationConfig {
 }
 
 /**
+ * @public
  * <p>Configuration required for an entity recognition model.</p>
  */
 export interface EntityRecognitionConfig {
@@ -2643,6 +2856,7 @@ export interface EntityRecognitionConfig {
 }
 
 /**
+ * @public
  * <p>Configuration about the custom classifier associated with the flywheel.</p>
  */
 export interface TaskConfig {
@@ -2662,6 +2876,9 @@ export interface TaskConfig {
   EntityRecognitionConfig?: EntityRecognitionConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateFlywheelRequest {
   /**
    * <p>Name for the flywheel.</p>
@@ -2712,6 +2929,9 @@ export interface CreateFlywheelRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFlywheelResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the flywheel.</p>
@@ -2724,6 +2944,9 @@ export interface CreateFlywheelResponse {
   ActiveModelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDocumentClassifierRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
@@ -2731,8 +2954,14 @@ export interface DeleteDocumentClassifierRequest {
   DocumentClassifierArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDocumentClassifierResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteEndpointRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint being deleted.</p>
@@ -2740,8 +2969,14 @@ export interface DeleteEndpointRequest {
   EndpointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteEntityRecognizerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
@@ -2749,8 +2984,14 @@ export interface DeleteEntityRecognizerRequest {
   EntityRecognizerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEntityRecognizerResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteFlywheelRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the flywheel to delete.</p>
@@ -2758,8 +2999,14 @@ export interface DeleteFlywheelRequest {
   FlywheelArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlywheelResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom model version that has the policy to delete.</p>
@@ -2772,8 +3019,14 @@ export interface DeleteResourcePolicyRequest {
   PolicyRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeDatasetRequest {
   /**
    * <p>The ARN of the dataset.</p>
@@ -2781,6 +3034,9 @@ export interface DescribeDatasetRequest {
   DatasetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DatasetStatus {
   COMPLETED = "COMPLETED",
   CREATING = "CREATING",
@@ -2788,6 +3044,7 @@ export enum DatasetStatus {
 }
 
 /**
+ * @public
  * <p>Properties associated with the dataset.</p>
  */
 export interface DatasetProperties {
@@ -2843,6 +3100,9 @@ export interface DatasetProperties {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetResponse {
   /**
    * <p>The dataset properties.</p>
@@ -2850,6 +3110,9 @@ export interface DescribeDatasetResponse {
   DatasetProperties?: DatasetProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDocumentClassificationJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The
@@ -2859,6 +3122,7 @@ export interface DescribeDocumentClassificationJobRequest {
 }
 
 /**
+ * @public
  * <p>The input properties for an inference job. The document reader config field applies
  *       only to non-text inputs for custom analysis.</p>
  */
@@ -2899,6 +3163,9 @@ export interface InputDataConfig {
   DocumentReaderConfig?: DocumentReaderConfig;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -2909,6 +3176,7 @@ export enum JobStatus {
 }
 
 /**
+ * @public
  * <p>Provides configuration parameters for the output of inference jobs.</p>
  *          <p></p>
  */
@@ -2957,6 +3225,7 @@ export interface OutputDataConfig {
 }
 
 /**
+ * @public
  * <p>Provides information about a document classification job.</p>
  */
 export interface DocumentClassificationJobProperties {
@@ -3059,6 +3328,9 @@ export interface DocumentClassificationJobProperties {
   FlywheelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDocumentClassificationJobResponse {
   /**
    * <p>An object that describes the properties associated with the document classification
@@ -3068,6 +3340,7 @@ export interface DescribeDocumentClassificationJobResponse {
 }
 
 /**
+ * @public
  * <p>The specified job was not found. Check the job ID and try again.</p>
  */
 export class JobNotFoundException extends __BaseException {
@@ -3088,6 +3361,9 @@ export class JobNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeDocumentClassifierRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier. The
@@ -3096,6 +3372,9 @@ export interface DescribeDocumentClassifierRequest {
   DocumentClassifierArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ModelStatus {
   DELETING = "DELETING",
   IN_ERROR = "IN_ERROR",
@@ -3107,6 +3386,7 @@ export enum ModelStatus {
 }
 
 /**
+ * @public
  * <p>Provides information about a document classifier.</p>
  */
 export interface DocumentClassifierProperties {
@@ -3246,6 +3526,9 @@ export interface DocumentClassifierProperties {
   FlywheelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDocumentClassifierResponse {
   /**
    * <p>An object that contains the properties associated with a document classifier.</p>
@@ -3253,6 +3536,9 @@ export interface DescribeDocumentClassifierResponse {
   DocumentClassifierProperties?: DocumentClassifierProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDominantLanguageDetectionJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The
@@ -3262,6 +3548,7 @@ export interface DescribeDominantLanguageDetectionJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a dominant language detection job.</p>
  */
 export interface DominantLanguageDetectionJobProperties {
@@ -3355,6 +3642,9 @@ export interface DominantLanguageDetectionJobProperties {
   VpcConfig?: VpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDominantLanguageDetectionJobResponse {
   /**
    * <p>An object that contains the properties associated with a dominant language detection
@@ -3363,6 +3653,9 @@ export interface DescribeDominantLanguageDetectionJobResponse {
   DominantLanguageDetectionJobProperties?: DominantLanguageDetectionJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint being described.</p>
@@ -3370,6 +3663,9 @@ export interface DescribeEndpointRequest {
   EndpointArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EndpointStatus {
   CREATING = "CREATING",
   DELETING = "DELETING",
@@ -3379,6 +3675,7 @@ export enum EndpointStatus {
 }
 
 /**
+ * @public
  * <p>Specifies information about the specified endpoint.
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  */
@@ -3452,6 +3749,9 @@ export interface EndpointProperties {
   FlywheelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointResponse {
   /**
    * <p>Describes information associated with the specific endpoint.</p>
@@ -3459,6 +3759,9 @@ export interface DescribeEndpointResponse {
   EndpointProperties?: EndpointProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntitiesDetectionJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The
@@ -3468,6 +3771,7 @@ export interface DescribeEntitiesDetectionJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about an entities detection job.</p>
  */
 export interface EntitiesDetectionJobProperties {
@@ -3570,6 +3874,9 @@ export interface EntitiesDetectionJobProperties {
   VpcConfig?: VpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntitiesDetectionJobResponse {
   /**
    * <p>An object that contains the properties associated with an entities detection job.</p>
@@ -3577,6 +3884,9 @@ export interface DescribeEntitiesDetectionJobResponse {
   EntitiesDetectionJobProperties?: EntitiesDetectionJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntityRecognizerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
@@ -3585,6 +3895,7 @@ export interface DescribeEntityRecognizerRequest {
 }
 
 /**
+ * @public
  * <p>Output data configuration.</p>
  */
 export interface EntityRecognizerOutputDataConfig {
@@ -3595,6 +3906,7 @@ export interface EntityRecognizerOutputDataConfig {
 }
 
 /**
+ * @public
  * <p>Detailed information about the accuracy of an entity recognizer for a specific entity
  *       type. </p>
  */
@@ -3622,6 +3934,7 @@ export interface EntityTypesEvaluationMetrics {
 }
 
 /**
+ * @public
  * <p>Individual item from the list of entity types in the metadata of an entity
  *       recognizer.</p>
  */
@@ -3645,6 +3958,7 @@ export interface EntityRecognizerMetadataEntityTypesListItem {
 }
 
 /**
+ * @public
  * <p>Detailed information about the accuracy of an entity recognizer. </p>
  */
 export interface EntityRecognizerEvaluationMetrics {
@@ -3673,6 +3987,7 @@ export interface EntityRecognizerEvaluationMetrics {
 }
 
 /**
+ * @public
  * <p>Detailed information about an entity recognizer.</p>
  */
 export interface EntityRecognizerMetadata {
@@ -3700,6 +4015,7 @@ export interface EntityRecognizerMetadata {
 }
 
 /**
+ * @public
  * <p>Describes information about an entity recognizer.</p>
  */
 export interface EntityRecognizerProperties {
@@ -3824,6 +4140,9 @@ export interface EntityRecognizerProperties {
   OutputDataConfig?: EntityRecognizerOutputDataConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntityRecognizerResponse {
   /**
    * <p>Describes information associated with an entity recognizer.</p>
@@ -3831,6 +4150,9 @@ export interface DescribeEntityRecognizerResponse {
   EntityRecognizerProperties?: EntityRecognizerProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsDetectionJobRequest {
   /**
    * <p>The identifier of the events detection job.</p>
@@ -3839,6 +4161,7 @@ export interface DescribeEventsDetectionJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about an events detection job.</p>
  */
 export interface EventsDetectionJobProperties {
@@ -3915,6 +4238,9 @@ export interface EventsDetectionJobProperties {
   TargetEventTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsDetectionJobResponse {
   /**
    * <p>An object that contains the properties associated with an event detection job.</p>
@@ -3922,6 +4248,9 @@ export interface DescribeEventsDetectionJobResponse {
   EventsDetectionJobProperties?: EventsDetectionJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlywheelRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the flywheel.</p>
@@ -3929,6 +4258,9 @@ export interface DescribeFlywheelRequest {
   FlywheelArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FlywheelStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -3938,6 +4270,7 @@ export enum FlywheelStatus {
 }
 
 /**
+ * @public
  * <p>The flywheel properties.</p>
  */
 export interface FlywheelProperties {
@@ -4003,6 +4336,9 @@ export interface FlywheelProperties {
   LatestFlywheelIteration?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlywheelResponse {
   /**
    * <p>The flywheel properties.</p>
@@ -4010,6 +4346,9 @@ export interface DescribeFlywheelResponse {
   FlywheelProperties?: FlywheelProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlywheelIterationRequest {
   /**
    * <p></p>
@@ -4023,6 +4362,7 @@ export interface DescribeFlywheelIterationRequest {
 }
 
 /**
+ * @public
  * <p>The evaluation metrics associated with the evaluated model.</p>
  */
 export interface FlywheelModelEvaluationMetrics {
@@ -4047,6 +4387,9 @@ export interface FlywheelModelEvaluationMetrics {
   AverageAccuracy?: number;
 }
 
+/**
+ * @public
+ */
 export enum FlywheelIterationStatus {
   COMPLETED = "COMPLETED",
   EVALUATING = "EVALUATING",
@@ -4057,6 +4400,7 @@ export enum FlywheelIterationStatus {
 }
 
 /**
+ * @public
  * <p>The configuration properties of a flywheel iteration.</p>
  */
 export interface FlywheelIterationProperties {
@@ -4116,6 +4460,9 @@ export interface FlywheelIterationProperties {
   EvaluationManifestS3Prefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlywheelIterationResponse {
   /**
    * <p>The configuration properties of a flywheel iteration.</p>
@@ -4123,6 +4470,9 @@ export interface DescribeFlywheelIterationResponse {
   FlywheelIterationProperties?: FlywheelIterationProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeyPhrasesDetectionJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The
@@ -4133,6 +4483,7 @@ export interface DescribeKeyPhrasesDetectionJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a key phrases detection job.</p>
  */
 export interface KeyPhrasesDetectionJobProperties {
@@ -4230,6 +4581,9 @@ export interface KeyPhrasesDetectionJobProperties {
   VpcConfig?: VpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeKeyPhrasesDetectionJobResponse {
   /**
    * <p>An object that contains the properties associated with a key phrases detection job.
@@ -4238,6 +4592,9 @@ export interface DescribeKeyPhrasesDetectionJobResponse {
   KeyPhrasesDetectionJobProperties?: KeyPhrasesDetectionJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribePiiEntitiesDetectionJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its
@@ -4246,12 +4603,16 @@ export interface DescribePiiEntitiesDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PiiEntitiesDetectionMode {
   ONLY_OFFSETS = "ONLY_OFFSETS",
   ONLY_REDACTION = "ONLY_REDACTION",
 }
 
 /**
+ * @public
  * <p>Provides configuration parameters for the output of PII entity detection jobs.</p>
  */
 export interface PiiOutputDataConfig {
@@ -4272,12 +4633,16 @@ export interface PiiOutputDataConfig {
   KmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export enum PiiEntitiesDetectionMaskMode {
   MASK = "MASK",
   REPLACE_WITH_PII_ENTITY_TYPE = "REPLACE_WITH_PII_ENTITY_TYPE",
 }
 
 /**
+ * @public
  * <p>Provides configuration parameters for PII entity redaction.</p>
  */
 export interface RedactionConfig {
@@ -4300,6 +4665,7 @@ export interface RedactionConfig {
 }
 
 /**
+ * @public
  * <p>Provides information about a PII entities detection job.</p>
  */
 export interface PiiEntitiesDetectionJobProperties {
@@ -4385,6 +4751,9 @@ export interface PiiEntitiesDetectionJobProperties {
   Mode?: PiiEntitiesDetectionMode | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePiiEntitiesDetectionJobResponse {
   /**
    * <p>Provides information about a PII entities detection job.</p>
@@ -4392,6 +4761,9 @@ export interface DescribePiiEntitiesDetectionJobResponse {
   PiiEntitiesDetectionJobProperties?: PiiEntitiesDetectionJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom model version that has the resource policy.</p>
@@ -4399,6 +4771,9 @@ export interface DescribeResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePolicyResponse {
   /**
    * <p>The JSON body of the resource-based policy.</p>
@@ -4422,6 +4797,9 @@ export interface DescribeResourcePolicyResponse {
   PolicyRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSentimentDetectionJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its
@@ -4431,6 +4809,7 @@ export interface DescribeSentimentDetectionJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a sentiment detection job.</p>
  */
 export interface SentimentDetectionJobProperties {
@@ -4528,6 +4907,9 @@ export interface SentimentDetectionJobProperties {
   VpcConfig?: VpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSentimentDetectionJobResponse {
   /**
    * <p>An object that contains the properties associated with a sentiment detection job.</p>
@@ -4535,6 +4917,9 @@ export interface DescribeSentimentDetectionJobResponse {
   SentimentDetectionJobProperties?: SentimentDetectionJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTargetedSentimentDetectionJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The
@@ -4545,6 +4930,7 @@ export interface DescribeTargetedSentimentDetectionJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a targeted sentiment detection job.</p>
  */
 export interface TargetedSentimentDetectionJobProperties {
@@ -4642,6 +5028,9 @@ export interface TargetedSentimentDetectionJobProperties {
   VpcConfig?: VpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTargetedSentimentDetectionJobResponse {
   /**
    * <p>An object that contains the properties associated with a targeted sentiment detection job.</p>
@@ -4649,6 +5038,9 @@ export interface DescribeTargetedSentimentDetectionJobResponse {
   TargetedSentimentDetectionJobProperties?: TargetedSentimentDetectionJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTopicsDetectionJobRequest {
   /**
    * <p>The identifier assigned by the user to the detection job.</p>
@@ -4657,6 +5049,7 @@ export interface DescribeTopicsDetectionJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a topic detection job.</p>
  */
 export interface TopicsDetectionJobProperties {
@@ -4755,6 +5148,9 @@ export interface TopicsDetectionJobProperties {
   VpcConfig?: VpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTopicsDetectionJobResponse {
   /**
    * <p>The list of properties for the requested job.</p>
@@ -4762,6 +5158,9 @@ export interface DescribeTopicsDetectionJobResponse {
   TopicsDetectionJobProperties?: TopicsDetectionJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface DetectDominantLanguageRequest {
   /**
    * <p>A UTF-8 text string. The string must contain at least 20 characters. The maximum string size is 100 KB.</p>
@@ -4769,6 +5168,9 @@ export interface DetectDominantLanguageRequest {
   Text: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectDominantLanguageResponse {
   /**
    * <p>The languages that Amazon Comprehend detected in the input text. For each language, the
@@ -4779,6 +5181,9 @@ export interface DetectDominantLanguageResponse {
   Languages?: DominantLanguage[];
 }
 
+/**
+ * @public
+ */
 export interface DetectEntitiesRequest {
   /**
    * <p>A UTF-8 text string. The maximum string size is 100 KB. If you enter text using this parameter,
@@ -4832,6 +5237,9 @@ export interface DetectEntitiesRequest {
   DocumentReaderConfig?: DocumentReaderConfig;
 }
 
+/**
+ * @public
+ */
 export interface DetectEntitiesResponse {
   /**
    * <p>A collection of entities identified in the input text. For each entity, the response
@@ -4873,6 +5281,9 @@ export interface DetectEntitiesResponse {
   Errors?: ErrorsListItem[];
 }
 
+/**
+ * @public
+ */
 export interface DetectKeyPhrasesRequest {
   /**
    * <p>A UTF-8 text string. The string must contain less than 100 KB of UTF-8 encoded
@@ -4887,6 +5298,9 @@ export interface DetectKeyPhrasesRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectKeyPhrasesResponse {
   /**
    * <p>A collection of key phrases that Amazon Comprehend identified in the input text. For
@@ -4897,6 +5311,9 @@ export interface DetectKeyPhrasesResponse {
   KeyPhrases?: KeyPhrase[];
 }
 
+/**
+ * @public
+ */
 export interface DetectPiiEntitiesRequest {
   /**
    * <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
@@ -4910,6 +5327,7 @@ export interface DetectPiiEntitiesRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a PII entity.</p>
  */
 export interface PiiEntity {
@@ -4937,6 +5355,9 @@ export interface PiiEntity {
   EndOffset?: number;
 }
 
+/**
+ * @public
+ */
 export interface DetectPiiEntitiesResponse {
   /**
    * <p>A collection of PII entities identified in the input text. For each entity, the response
@@ -4946,6 +5367,9 @@ export interface DetectPiiEntitiesResponse {
   Entities?: PiiEntity[];
 }
 
+/**
+ * @public
+ */
 export interface DetectSentimentRequest {
   /**
    * <p>A UTF-8 text string. The maximum string size is 5 KB.</p>
@@ -4963,6 +5387,9 @@ export interface DetectSentimentRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectSentimentResponse {
   /**
    * <p>The inferred sentiment that Amazon Comprehend has the highest level of confidence
@@ -4977,6 +5404,9 @@ export interface DetectSentimentResponse {
   SentimentScore?: SentimentScore;
 }
 
+/**
+ * @public
+ */
 export interface DetectSyntaxRequest {
   /**
    * <p>A UTF-8 string. The maximum string size is 5 KB.</p>
@@ -4991,6 +5421,9 @@ export interface DetectSyntaxRequest {
   LanguageCode: SyntaxLanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectSyntaxResponse {
   /**
    * <p>A collection of syntax tokens describing the text. For each token, the response provides
@@ -5002,6 +5435,9 @@ export interface DetectSyntaxResponse {
   SyntaxTokens?: SyntaxToken[];
 }
 
+/**
+ * @public
+ */
 export interface DetectTargetedSentimentRequest {
   /**
    * <p>A UTF-8 text string. The maximum string length is 5 KB.</p>
@@ -5014,6 +5450,9 @@ export interface DetectTargetedSentimentRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectTargetedSentimentResponse {
   /**
    * <p>Targeted sentiment analysis for each of the entities identified in the input text.</p>
@@ -5021,6 +5460,9 @@ export interface DetectTargetedSentimentResponse {
   Entities?: TargetedSentimentEntity[];
 }
 
+/**
+ * @public
+ */
 export interface ImportModelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom model to import.</p>
@@ -5074,6 +5516,9 @@ export interface ImportModelRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportModelResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom model being imported.</p>
@@ -5082,6 +5527,7 @@ export interface ImportModelResponse {
 }
 
 /**
+ * @public
  * <p>The filter specified for the operation is invalid. Specify a different
  *       filter.</p>
  */
@@ -5104,6 +5550,7 @@ export class InvalidFilterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Filter the datasets based on creation time or dataset status.</p>
  */
 export interface DatasetFilter {
@@ -5128,6 +5575,9 @@ export interface DatasetFilter {
   CreationTimeBefore?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the flywheel.</p>
@@ -5150,6 +5600,9 @@ export interface ListDatasetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsResponse {
   /**
    * <p>The dataset properties list.</p>
@@ -5163,6 +5616,7 @@ export interface ListDatasetsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of document classification jobs. For more
  *       information, see the  operation. You can
  *       provide only one filter parameter in each request.</p>
@@ -5193,6 +5647,9 @@ export interface DocumentClassificationJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentClassificationJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their names, status, or the
@@ -5211,6 +5668,9 @@ export interface ListDocumentClassificationJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentClassificationJobsResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -5224,6 +5684,7 @@ export interface ListDocumentClassificationJobsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of document classifiers. You can only specify
  *       one filtering parameter in a request. For more information, see the
  *         <code>ListDocumentClassifiers</code> operation.</p>
@@ -5254,6 +5715,9 @@ export interface DocumentClassifierFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentClassifiersRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
@@ -5272,6 +5736,9 @@ export interface ListDocumentClassifiersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentClassifiersResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -5284,6 +5751,9 @@ export interface ListDocumentClassifiersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentClassifierSummariesRequest {
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -5297,6 +5767,7 @@ export interface ListDocumentClassifierSummariesRequest {
 }
 
 /**
+ * @public
  * <p>Describes information about a document classifier and its versions.</p>
  */
 export interface DocumentClassifierSummary {
@@ -5326,6 +5797,9 @@ export interface DocumentClassifierSummary {
   LatestVersionStatus?: ModelStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDocumentClassifierSummariesResponse {
   /**
    * <p>The list of summaries of document classifiers.</p>
@@ -5339,6 +5813,7 @@ export interface ListDocumentClassifierSummariesResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of dominant language detection jobs. For more
  *       information, see the
  *       operation.</p>
@@ -5370,6 +5845,9 @@ export interface DominantLanguageDetectionJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDominantLanguageDetectionJobsRequest {
   /**
    * <p>Filters that jobs that are returned. You can filter jobs on their name, status, or the
@@ -5388,6 +5866,9 @@ export interface ListDominantLanguageDetectionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDominantLanguageDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -5401,6 +5882,7 @@ export interface ListDominantLanguageDetectionJobsResponse {
 }
 
 /**
+ * @public
  * <p>The filter used to determine which endpoints are returned. You can filter jobs on their
  *       name, model, status, or the date and time that they were created. You can only set one filter
  *       at a time. </p>
@@ -5428,6 +5910,9 @@ export interface EndpointFilter {
   CreationTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsRequest {
   /**
    * <p>Filters the endpoints that are returned. You can filter endpoints on their name, model,
@@ -5447,6 +5932,9 @@ export interface ListEndpointsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEndpointsResponse {
   /**
    * <p>Displays a list of endpoint properties being retrieved by the service in response to the
@@ -5461,6 +5949,7 @@ export interface ListEndpointsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of dominant language detection jobs. For more
  *       information, see the  operation.</p>
  */
@@ -5491,6 +5980,9 @@ export interface EntitiesDetectionJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesDetectionJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
@@ -5509,6 +6001,9 @@ export interface ListEntitiesDetectionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -5522,6 +6017,7 @@ export interface ListEntitiesDetectionJobsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of entity recognizers. You can only specify one
  *       filtering parameter in a request. For more information, see the
  *         <code>ListEntityRecognizers</code> operation./></p>
@@ -5552,6 +6048,9 @@ export interface EntityRecognizerFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEntityRecognizersRequest {
   /**
    * <p>Filters the list of entities returned. You can filter on <code>Status</code>,
@@ -5571,6 +6070,9 @@ export interface ListEntityRecognizersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEntityRecognizersResponse {
   /**
    * <p>The list of properties of an entity recognizer.</p>
@@ -5583,6 +6085,9 @@ export interface ListEntityRecognizersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEntityRecognizerSummariesRequest {
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -5596,6 +6101,7 @@ export interface ListEntityRecognizerSummariesRequest {
 }
 
 /**
+ * @public
  * <p> Describes the information about an entity recognizer and its versions.</p>
  */
 export interface EntityRecognizerSummary {
@@ -5625,6 +6131,9 @@ export interface EntityRecognizerSummary {
   LatestVersionStatus?: ModelStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListEntityRecognizerSummariesResponse {
   /**
    * <p>The list entity recognizer summaries.</p>
@@ -5638,6 +6147,7 @@ export interface ListEntityRecognizerSummariesResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of event detection jobs.</p>
  */
 export interface EventsDetectionJobFilter {
@@ -5667,6 +6177,9 @@ export interface EventsDetectionJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEventsDetectionJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
@@ -5685,6 +6198,9 @@ export interface ListEventsDetectionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEventsDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -5698,6 +6214,7 @@ export interface ListEventsDetectionJobsResponse {
 }
 
 /**
+ * @public
  * <p>Filter the flywheel iterations based on creation time.</p>
  */
 export interface FlywheelIterationFilter {
@@ -5712,6 +6229,9 @@ export interface FlywheelIterationFilter {
   CreationTimeBefore?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListFlywheelIterationHistoryRequest {
   /**
    * <p>The ARN of the flywheel.</p>
@@ -5734,6 +6254,9 @@ export interface ListFlywheelIterationHistoryRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFlywheelIterationHistoryResponse {
   /**
    * <p>List of flywheel iteration properties</p>
@@ -5747,6 +6270,7 @@ export interface ListFlywheelIterationHistoryResponse {
 }
 
 /**
+ * @public
  * <p>Filter the flywheels based on creation time or flywheel status.</p>
  */
 export interface FlywheelFilter {
@@ -5766,6 +6290,9 @@ export interface FlywheelFilter {
   CreationTimeBefore?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListFlywheelsRequest {
   /**
    * <p>Filters the flywheels that are returned. You can filter flywheels on their status,
@@ -5786,6 +6313,7 @@ export interface ListFlywheelsRequest {
 }
 
 /**
+ * @public
  * <p>Flywheel summary information.</p>
  */
 export interface FlywheelSummary {
@@ -5835,6 +6363,9 @@ export interface FlywheelSummary {
   LatestFlywheelIteration?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFlywheelsResponse {
   /**
    * <p>A list of flywheel properties retrieved by the service in response to the request.
@@ -5849,6 +6380,7 @@ export interface ListFlywheelsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of dominant language detection jobs. For more
  *       information, see the  operation.</p>
  */
@@ -5879,6 +6411,9 @@ export interface KeyPhrasesDetectionJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListKeyPhrasesDetectionJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
@@ -5897,6 +6432,9 @@ export interface ListKeyPhrasesDetectionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListKeyPhrasesDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -5910,6 +6448,7 @@ export interface ListKeyPhrasesDetectionJobsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of PII entity detection jobs.</p>
  */
 export interface PiiEntitiesDetectionJobFilter {
@@ -5939,6 +6478,9 @@ export interface PiiEntitiesDetectionJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPiiEntitiesDetectionJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
@@ -5957,6 +6499,9 @@ export interface ListPiiEntitiesDetectionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPiiEntitiesDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -5970,6 +6515,7 @@ export interface ListPiiEntitiesDetectionJobsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of dominant language detection jobs. For more
  *       information, see the  operation.</p>
  */
@@ -6000,6 +6546,9 @@ export interface SentimentDetectionJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSentimentDetectionJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
@@ -6018,6 +6567,9 @@ export interface ListSentimentDetectionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSentimentDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -6030,6 +6582,9 @@ export interface ListSentimentDetectionJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.
@@ -6038,6 +6593,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are
@@ -6055,6 +6613,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of dominant language detection jobs. For more
  *       information, see the <code>ListTargetedSentimentDetectionJobs</code> operation.</p>
  */
@@ -6085,6 +6644,9 @@ export interface TargetedSentimentDetectionJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetedSentimentDetectionJobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
@@ -6103,6 +6665,9 @@ export interface ListTargetedSentimentDetectionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetedSentimentDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -6116,6 +6681,7 @@ export interface ListTargetedSentimentDetectionJobsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering topic detection jobs. For more information, see
  *         .</p>
  */
@@ -6146,6 +6712,9 @@ export interface TopicsDetectionJobFilter {
   SubmitTimeAfter?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTopicsDetectionJobsRequest {
   /**
    * <p>Filters the jobs that are returned. Jobs can be filtered on their name, status, or the
@@ -6164,6 +6733,9 @@ export interface ListTopicsDetectionJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTopicsDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -6176,6 +6748,9 @@ export interface ListTopicsDetectionJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom model to attach the policy to.</p>
@@ -6188,12 +6763,12 @@ export interface PutResourcePolicyRequest {
    *       attribute names and values in double quotes. If the JSON body is also enclosed in double
    *       quotes, then you must escape the double quotes that are inside the policy:</p>
    *          <p>
-   *             <code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code>
+   *             <code>"\{\"attribute\": \"value\", \"attribute\": [\"value\"]\}"</code>
    *          </p>
    *          <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double
    *       quotes to enclose the JSON names and values:</p>
    *          <p>
-   *             <code>'{"attribute": "value", "attribute": ["value"]}'</code>
+   *             <code>'\{"attribute": "value", "attribute": ["value"]\}'</code>
    *          </p>
    */
   ResourcePolicy: string | undefined;
@@ -6206,6 +6781,9 @@ export interface PutResourcePolicyRequest {
   PolicyRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {
   /**
    * <p>The revision ID of the policy. Each time you modify a policy, Amazon Comprehend assigns a
@@ -6214,6 +6792,9 @@ export interface PutResourcePolicyResponse {
   PolicyRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentClassificationJobRequest {
   /**
    * <p>The identifier of the job.</p>
@@ -6287,6 +6868,9 @@ export interface StartDocumentClassificationJobRequest {
   FlywheelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentClassificationJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of the job, use this identifier
@@ -6341,6 +6925,9 @@ export interface StartDocumentClassificationJobResponse {
   DocumentClassifierArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDominantLanguageDetectionJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -6402,6 +6989,9 @@ export interface StartDominantLanguageDetectionJobRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartDominantLanguageDetectionJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -6443,6 +7033,9 @@ export interface StartDominantLanguageDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StartEntitiesDetectionJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -6524,6 +7117,9 @@ export interface StartEntitiesDetectionJobRequest {
   FlywheelArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartEntitiesDetectionJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of job, use this identifier with
@@ -6577,6 +7173,9 @@ export interface StartEntitiesDetectionJobResponse {
   EntityRecognizerArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartEventsDetectionJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -6623,6 +7222,9 @@ export interface StartEventsDetectionJobRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartEventsDetectionJobResponse {
   /**
    * <p>An unique identifier for the request. If you don't set the client request token, Amazon
@@ -6650,6 +7252,9 @@ export interface StartEventsDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StartFlywheelIterationRequest {
   /**
    * <p>The ARN of the flywheel.</p>
@@ -6663,6 +7268,9 @@ export interface StartFlywheelIterationRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartFlywheelIterationResponse {
   /**
    * <p></p>
@@ -6675,6 +7283,9 @@ export interface StartFlywheelIterationResponse {
   FlywheelIterationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartKeyPhrasesDetectionJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -6743,6 +7354,9 @@ export interface StartKeyPhrasesDetectionJobRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartKeyPhrasesDetectionJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -6784,6 +7398,9 @@ export interface StartKeyPhrasesDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StartPiiEntitiesDetectionJobRequest {
   /**
    * <p>The input properties for a PII entities detection job.</p>
@@ -6839,6 +7456,9 @@ export interface StartPiiEntitiesDetectionJobRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartPiiEntitiesDetectionJobResponse {
   /**
    * <p>The identifier generated for the job.</p>
@@ -6865,6 +7485,9 @@ export interface StartPiiEntitiesDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StartSentimentDetectionJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -6932,6 +7555,9 @@ export interface StartSentimentDetectionJobRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartSentimentDetectionJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -6973,6 +7599,9 @@ export interface StartSentimentDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StartTargetedSentimentDetectionJobRequest {
   /**
    * <p>The input properties for an inference job. The document reader config field applies
@@ -7040,6 +7669,9 @@ export interface StartTargetedSentimentDetectionJobRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartTargetedSentimentDetectionJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
@@ -7082,6 +7714,9 @@ export interface StartTargetedSentimentDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StartTopicsDetectionJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -7150,6 +7785,9 @@ export interface StartTopicsDetectionJobRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartTopicsDetectionJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of the job, use this identifier
@@ -7193,6 +7831,9 @@ export interface StartTopicsDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StopDominantLanguageDetectionJobRequest {
   /**
    * <p>The identifier of the dominant language detection job to stop.</p>
@@ -7200,6 +7841,9 @@ export interface StopDominantLanguageDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDominantLanguageDetectionJobResponse {
   /**
    * <p>The identifier of the dominant language detection job to stop.</p>
@@ -7214,6 +7858,9 @@ export interface StopDominantLanguageDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StopEntitiesDetectionJobRequest {
   /**
    * <p>The identifier of the entities detection job to stop.</p>
@@ -7221,6 +7868,9 @@ export interface StopEntitiesDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEntitiesDetectionJobResponse {
   /**
    * <p>The identifier of the entities detection job to stop.</p>
@@ -7235,6 +7885,9 @@ export interface StopEntitiesDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StopEventsDetectionJobRequest {
   /**
    * <p>The identifier of the events detection job to stop.</p>
@@ -7242,6 +7895,9 @@ export interface StopEventsDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEventsDetectionJobResponse {
   /**
    * <p>The identifier of the events detection job to stop.</p>
@@ -7254,6 +7910,9 @@ export interface StopEventsDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StopKeyPhrasesDetectionJobRequest {
   /**
    * <p>The identifier of the key phrases detection job to stop.</p>
@@ -7261,6 +7920,9 @@ export interface StopKeyPhrasesDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopKeyPhrasesDetectionJobResponse {
   /**
    * <p>The identifier of the key phrases detection job to stop.</p>
@@ -7275,6 +7937,9 @@ export interface StopKeyPhrasesDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StopPiiEntitiesDetectionJobRequest {
   /**
    * <p>The identifier of the PII entities detection job to stop.</p>
@@ -7282,6 +7947,9 @@ export interface StopPiiEntitiesDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopPiiEntitiesDetectionJobResponse {
   /**
    * <p>The identifier of the PII entities detection job to stop.</p>
@@ -7294,6 +7962,9 @@ export interface StopPiiEntitiesDetectionJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface StopSentimentDetectionJobRequest {
   /**
    * <p>The identifier of the sentiment detection job to stop.</p>
@@ -7301,6 +7972,9 @@ export interface StopSentimentDetectionJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopSentimentDetectionJobResponse {
   /**
    * <p>The identifier of the sentiment detection job to stop.</p>

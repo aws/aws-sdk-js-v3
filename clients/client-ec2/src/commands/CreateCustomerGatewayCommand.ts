@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomerGatewayCommand}.
  */
 export interface CreateCustomerGatewayCommandInput extends CreateCustomerGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomerGatewayCommand}.
  */
 export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewayResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information to Amazon Web Services about your customer gateway device. The
  *             customer gateway device is the appliance at your end of the VPN connection. You
  *             must provide the IP address of the customer gateway device’s external
@@ -59,6 +64,8 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomerGatewayCommandInput - {@link CreateCustomerGatewayCommandInput}
+ * @returns {@link CreateCustomerGatewayCommandOutput}
  * @see {@link CreateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -106,6 +113,9 @@ export class CreateCustomerGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomerGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateCustomerGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateCustomerGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomerGatewayCommandOutput> {
     return deserializeAws_ec2CreateCustomerGatewayCommand(output, context);
   }

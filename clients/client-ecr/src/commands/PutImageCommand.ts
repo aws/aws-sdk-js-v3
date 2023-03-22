@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1PutImageCommand, serializeAws_json1_1PutImageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutImageCommand}.
  */
 export interface PutImageCommandInput extends PutImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutImageCommand}.
  */
 export interface PutImageCommandOutput extends PutImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the image manifest and tags associated with an image.</p>
  *         <p>When an image is pushed and all new image layers have been uploaded, the PutImage API
  *             is called once to create or update the image manifest and the tags associated with the
@@ -51,6 +56,8 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param PutImageCommandInput - {@link PutImageCommandInput}
+ * @returns {@link PutImageCommandOutput}
  * @see {@link PutImageCommandInput} for command's `input` shape.
  * @see {@link PutImageCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -108,6 +115,9 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImageCommandOutput> {
     return deserializeAws_json1_1PutImageCommand(output, context);
   }

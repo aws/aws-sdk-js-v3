@@ -22,15 +22,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIntentCommand}.
  */
 export interface DescribeIntentCommandInput extends DescribeIntentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIntentCommand}.
  */
 export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +47,8 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIntentCommandInput - {@link DescribeIntentCommandInput}
+ * @returns {@link DescribeIntentCommandOutput}
  * @see {@link DescribeIntentCommandInput} for command's `input` shape.
  * @see {@link DescribeIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIntentCommandOutput> {
     return deserializeAws_restJson1DescribeIntentCommand(output, context);
   }

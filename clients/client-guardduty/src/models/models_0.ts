@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { GuardDutyServiceException as __BaseException } from "./GuardDutyServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptAdministratorInvitationRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -20,9 +23,13 @@ export interface AcceptAdministratorInvitationRequest {
   InvitationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AcceptAdministratorInvitationResponse {}
 
 /**
+ * @public
  * <p>A bad request exception object.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -53,6 +60,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal server error exception object.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -82,6 +90,9 @@ export class InternalServerErrorException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AcceptInvitationRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -99,9 +110,13 @@ export interface AcceptInvitationRequest {
   InvitationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AcceptInvitationResponse {}
 
 /**
+ * @public
  * <p>Contains information on the current access control policies for the bucket.</p>
  */
 export interface AccessControlList {
@@ -119,6 +134,7 @@ export interface AccessControlList {
 }
 
 /**
+ * @public
  * <p>Contains information about the access keys.</p>
  */
 export interface AccessKeyDetails {
@@ -144,6 +160,7 @@ export interface AccessKeyDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the account.</p>
  */
 export interface AccountDetail {
@@ -159,6 +176,7 @@ export interface AccountDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about which data sources are enabled for the GuardDuty member account.</p>
  */
 export interface DataSourceFreeTrial {
@@ -169,6 +187,7 @@ export interface DataSourceFreeTrial {
 }
 
 /**
+ * @public
  * <p>Provides details about the Kubernetes resources when it is enabled as a data source.</p>
  */
 export interface KubernetesDataSourceFreeTrial {
@@ -179,6 +198,7 @@ export interface KubernetesDataSourceFreeTrial {
 }
 
 /**
+ * @public
  * <p>Provides details about Malware Protection when it is enabled as a data source.</p>
  */
 export interface MalwareProtectionDataSourceFreeTrial {
@@ -189,6 +209,7 @@ export interface MalwareProtectionDataSourceFreeTrial {
 }
 
 /**
+ * @public
  * <p>Contains information about which data sources are enabled for the GuardDuty member account.</p>
  */
 export interface DataSourcesFreeTrial {
@@ -223,6 +244,9 @@ export interface DataSourcesFreeTrial {
   MalwareProtection?: MalwareProtectionDataSourceFreeTrial;
 }
 
+/**
+ * @public
+ */
 export enum FreeTrialFeatureResult {
   CLOUD_TRAIL = "CLOUD_TRAIL",
   DNS_LOGS = "DNS_LOGS",
@@ -234,6 +258,7 @@ export enum FreeTrialFeatureResult {
 }
 
 /**
+ * @public
  * <p>Contains information about the free trial period for a feature.</p>
  */
 export interface FreeTrialFeatureConfigurationResult {
@@ -249,6 +274,7 @@ export interface FreeTrialFeatureConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Provides details of the GuardDuty member account that uses a free trial service.</p>
  */
 export interface AccountFreeTrialInfo {
@@ -271,6 +297,7 @@ export interface AccountFreeTrialInfo {
 }
 
 /**
+ * @public
  * <p>Contains information on how the bucker owner's S3 Block Public Access settings are being
  *       applied to the S3 bucket. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">S3 Block Public
  *         Access</a> for more information. </p>
@@ -298,6 +325,7 @@ export interface BlockPublicAccess {
 }
 
 /**
+ * @public
  * <p>Contains information about the account level permissions on the S3 bucket.</p>
  */
 export interface AccountLevelPermissions {
@@ -308,6 +336,7 @@ export interface AccountLevelPermissions {
 }
 
 /**
+ * @public
  * <p>Contains information about the domain.</p>
  */
 export interface DomainDetails {
@@ -318,6 +347,7 @@ export interface DomainDetails {
 }
 
 /**
+ * @public
  * <p>Contains details about the remote Amazon Web Services account that made the API call.</p>
  */
 export interface RemoteAccountDetails {
@@ -333,6 +363,7 @@ export interface RemoteAccountDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the city associated with the IP address.</p>
  */
 export interface City {
@@ -343,6 +374,7 @@ export interface City {
 }
 
 /**
+ * @public
  * <p>Contains information about the country where the remote IP address is located.</p>
  */
 export interface Country {
@@ -358,6 +390,7 @@ export interface Country {
 }
 
 /**
+ * @public
  * <p>Contains information about the location of the remote IP address.</p>
  */
 export interface GeoLocation {
@@ -373,6 +406,7 @@ export interface GeoLocation {
 }
 
 /**
+ * @public
  * <p>Contains information about the ISP organization of the remote IP address.</p>
  */
 export interface Organization {
@@ -399,6 +433,7 @@ export interface Organization {
 }
 
 /**
+ * @public
  * <p>Contains information about the remote IP address of the connection.</p>
  */
 export interface RemoteIpDetails {
@@ -429,6 +464,7 @@ export interface RemoteIpDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the API action.</p>
  */
 export interface AwsApiCallAction {
@@ -479,6 +515,7 @@ export interface AwsApiCallAction {
 }
 
 /**
+ * @public
  * <p>Contains information about the DNS_REQUEST action described in this finding.</p>
  */
 export interface DnsRequestAction {
@@ -499,6 +536,7 @@ export interface DnsRequestAction {
 }
 
 /**
+ * @public
  * <p>Information about the Kubernetes API call action described in this finding.</p>
  */
 export interface KubernetesApiCallAction {
@@ -539,6 +577,7 @@ export interface KubernetesApiCallAction {
 }
 
 /**
+ * @public
  * <p>Contains information about the local IP address of the connection.</p>
  */
 export interface LocalIpDetails {
@@ -549,6 +588,7 @@ export interface LocalIpDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the port for the local connection.</p>
  */
 export interface LocalPortDetails {
@@ -564,6 +604,7 @@ export interface LocalPortDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the remote port.</p>
  */
 export interface RemotePortDetails {
@@ -579,6 +620,7 @@ export interface RemotePortDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the NETWORK_CONNECTION action described in the finding.</p>
  */
 export interface NetworkConnectionAction {
@@ -619,6 +661,7 @@ export interface NetworkConnectionAction {
 }
 
 /**
+ * @public
  * <p>Contains information about the port probe details.</p>
  */
 export interface PortProbeDetail {
@@ -639,6 +682,7 @@ export interface PortProbeDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about the PORT_PROBE action described in the finding.</p>
  */
 export interface PortProbeAction {
@@ -654,6 +698,7 @@ export interface PortProbeAction {
 }
 
 /**
+ * @public
  * <p>Information about the login attempts.</p>
  */
 export interface LoginAttribute {
@@ -681,6 +726,7 @@ export interface LoginAttribute {
 }
 
 /**
+ * @public
  * <p>Indicates that a login attempt was made to the potentially compromised database from
  *     a remote IP address.</p>
  */
@@ -697,6 +743,7 @@ export interface RdsLoginAttemptAction {
 }
 
 /**
+ * @public
  * <p>Contains information about actions.</p>
  */
 export interface Action {
@@ -736,12 +783,16 @@ export interface Action {
   RdsLoginAttemptAction?: RdsLoginAttemptAction;
 }
 
+/**
+ * @public
+ */
 export enum AdminStatus {
   DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>The account within the organization specified as the GuardDuty delegated
  *       administrator.</p>
  */
@@ -758,6 +809,7 @@ export interface AdminAccount {
 }
 
 /**
+ * @public
  * <p>Contains information about the administrator account and invitation.</p>
  */
 export interface Administrator {
@@ -782,6 +834,9 @@ export interface Administrator {
   InvitedAt?: string;
 }
 
+/**
+ * @public
+ */
 export interface ArchiveFindingsRequest {
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
@@ -795,9 +850,13 @@ export interface ArchiveFindingsRequest {
   FindingIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ArchiveFindingsResponse {}
 
 /**
+ * @public
  * <p>Contains information on the current bucket policies for the S3 bucket.</p>
  */
 export interface BucketPolicy {
@@ -815,6 +874,7 @@ export interface BucketPolicy {
 }
 
 /**
+ * @public
  * <p>Contains information about the bucket level permissions for the S3 bucket.</p>
  */
 export interface BucketLevelPermissions {
@@ -835,12 +895,16 @@ export interface BucketLevelPermissions {
   BlockPublicAccess?: BlockPublicAccess;
 }
 
+/**
+ * @public
+ */
 export enum DataSourceStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Contains information on the status of CloudTrail as a data source for the detector.</p>
  */
 export interface CloudTrailConfigurationResult {
@@ -851,6 +915,7 @@ export interface CloudTrailConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Contains information about the condition.</p>
  */
 export interface Condition {
@@ -942,6 +1007,7 @@ export interface Condition {
 }
 
 /**
+ * @public
  * <p>Container security context.</p>
  */
 export interface SecurityContext {
@@ -952,6 +1018,7 @@ export interface SecurityContext {
 }
 
 /**
+ * @public
  * <p>Container volume mount.</p>
  */
 export interface VolumeMount {
@@ -967,6 +1034,7 @@ export interface VolumeMount {
 }
 
 /**
+ * @public
  * <p>Details of a container.</p>
  */
 export interface Container {
@@ -1007,6 +1075,7 @@ export interface Container {
 }
 
 /**
+ * @public
  * <p>Describes whether Kubernetes audit logs are enabled as a data source.</p>
  */
 export interface KubernetesAuditLogsConfiguration {
@@ -1017,6 +1086,7 @@ export interface KubernetesAuditLogsConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes whether any Kubernetes data sources are enabled.</p>
  */
 export interface KubernetesConfiguration {
@@ -1027,6 +1097,7 @@ export interface KubernetesConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
  */
 export interface ScanEc2InstanceWithFindings {
@@ -1037,6 +1108,7 @@ export interface ScanEc2InstanceWithFindings {
 }
 
 /**
+ * @public
  * <p>Describes whether Malware Protection will be enabled as a data source.</p>
  */
 export interface MalwareProtectionConfiguration {
@@ -1047,6 +1119,7 @@ export interface MalwareProtectionConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes whether S3 data event logs will be enabled as a data source.</p>
  */
 export interface S3LogsConfiguration {
@@ -1057,6 +1130,7 @@ export interface S3LogsConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains information about which data sources are enabled.</p>
  */
 export interface DataSourceConfigurations {
@@ -1076,6 +1150,9 @@ export interface DataSourceConfigurations {
   MalwareProtection?: MalwareProtectionConfiguration;
 }
 
+/**
+ * @public
+ */
 export enum DetectorFeature {
   EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
   EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
@@ -1083,12 +1160,16 @@ export enum DetectorFeature {
   S3_DATA_EVENTS = "S3_DATA_EVENTS",
 }
 
+/**
+ * @public
+ */
 export enum FeatureStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>Contains information about a GuardDuty feature.</p>
  */
 export interface DetectorFeatureConfiguration {
@@ -1103,12 +1184,18 @@ export interface DetectorFeatureConfiguration {
   Status?: FeatureStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum FindingPublishingFrequency {
   FIFTEEN_MINUTES = "FIFTEEN_MINUTES",
   ONE_HOUR = "ONE_HOUR",
   SIX_HOURS = "SIX_HOURS",
 }
 
+/**
+ * @public
+ */
 export interface CreateDetectorRequest {
   /**
    * <p>A Boolean value that specifies whether the detector is to be enabled.</p>
@@ -1147,6 +1234,7 @@ export interface CreateDetectorRequest {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
  */
 export interface EbsVolumesResult {
@@ -1162,6 +1250,7 @@ export interface EbsVolumesResult {
 }
 
 /**
+ * @public
  * <p>An object that contains information on the status of whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
  */
 export interface ScanEc2InstanceWithFindingsResult {
@@ -1172,6 +1261,7 @@ export interface ScanEc2InstanceWithFindingsResult {
 }
 
 /**
+ * @public
  * <p>An object that contains information on the status of all Malware Protection data sources.</p>
  */
 export interface MalwareProtectionConfigurationResult {
@@ -1187,6 +1277,7 @@ export interface MalwareProtectionConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Specifies the names of the data sources that couldn't be enabled.</p>
  */
 export interface UnprocessedDataSourcesResult {
@@ -1196,6 +1287,9 @@ export interface UnprocessedDataSourcesResult {
   MalwareProtection?: MalwareProtectionConfigurationResult;
 }
 
+/**
+ * @public
+ */
 export interface CreateDetectorResponse {
   /**
    * <p>The unique ID of the created detector.</p>
@@ -1209,12 +1303,16 @@ export interface CreateDetectorResponse {
   UnprocessedDataSources?: UnprocessedDataSourcesResult;
 }
 
+/**
+ * @public
+ */
 export enum FilterAction {
   ARCHIVE = "ARCHIVE",
   NOOP = "NOOP",
 }
 
 /**
+ * @public
  * <p>Contains information about the criteria used for querying findings.</p>
  */
 export interface FindingCriteria {
@@ -1225,6 +1323,9 @@ export interface FindingCriteria {
   Criterion?: Record<string, Condition>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFilterRequest {
   /**
    * <p>The ID of the detector belonging to the GuardDuty account that you want to create a filter
@@ -1240,7 +1341,7 @@ export interface CreateFilterRequest {
 
   /**
    * <p>The description of the filter. Valid characters include alphanumeric characters, and special
-   *       characters such as hyphen, period, colon, underscore, parentheses (<code>{ }</code>, <code>[ ]</code>, and
+   *       characters such as hyphen, period, colon, underscore, parentheses (<code>\{ \}</code>, <code>[ ]</code>, and
    *       <code>( )</code>), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.</p>
    */
   Description?: string;
@@ -1442,6 +1543,9 @@ export interface CreateFilterRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFilterResponse {
   /**
    * <p>The name of the successfully created filter.</p>
@@ -1449,6 +1553,9 @@ export interface CreateFilterResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum IpSetFormat {
   ALIEN_VAULT = "ALIEN_VAULT",
   FIRE_EYE = "FIRE_EYE",
@@ -1458,6 +1565,9 @@ export enum IpSetFormat {
   TXT = "TXT",
 }
 
+/**
+ * @public
+ */
 export interface CreateIPSetRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account that you want to create an IPSet
@@ -1498,6 +1608,9 @@ export interface CreateIPSetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateIPSetResponse {
   /**
    * <p>The ID of the IPSet resource.</p>
@@ -1505,6 +1618,9 @@ export interface CreateIPSetResponse {
   IpSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account that you want to associate member
@@ -1520,6 +1636,7 @@ export interface CreateMembersRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the accounts that weren't processed.</p>
  */
 export interface UnprocessedAccount {
@@ -1534,6 +1651,9 @@ export interface UnprocessedAccount {
   Result: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMembersResponse {
   /**
    * <p>A list of objects that include the <code>accountIds</code> of the unprocessed accounts and
@@ -1543,6 +1663,7 @@ export interface CreateMembersResponse {
 }
 
 /**
+ * @public
  * <p>Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3
  *       bucket, and the ARN of the KMS key to use to encrypt published findings.</p>
  */
@@ -1561,10 +1682,16 @@ export interface DestinationProperties {
   KmsKeyArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum DestinationType {
   S3 = "S3",
 }
 
+/**
+ * @public
+ */
 export interface CreatePublishingDestinationRequest {
   /**
    * <p>The ID of the GuardDuty detector associated with the publishing destination.</p>
@@ -1589,6 +1716,9 @@ export interface CreatePublishingDestinationRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePublishingDestinationResponse {
   /**
    * <p>The ID of the publishing destination that is created.</p>
@@ -1596,6 +1726,9 @@ export interface CreatePublishingDestinationResponse {
   DestinationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSampleFindingsRequest {
   /**
    * <p>The ID of the detector to create sample findings for.</p>
@@ -1608,8 +1741,14 @@ export interface CreateSampleFindingsRequest {
   FindingTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSampleFindingsResponse {}
 
+/**
+ * @public
+ */
 export enum ThreatIntelSetFormat {
   ALIEN_VAULT = "ALIEN_VAULT",
   FIRE_EYE = "FIRE_EYE",
@@ -1619,6 +1758,9 @@ export enum ThreatIntelSetFormat {
   TXT = "TXT",
 }
 
+/**
+ * @public
+ */
 export interface CreateThreatIntelSetRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account that you want to create a
@@ -1659,6 +1801,9 @@ export interface CreateThreatIntelSetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateThreatIntelSetResponse {
   /**
    * <p>The ID of the ThreatIntelSet resource.</p>
@@ -1666,6 +1811,9 @@ export interface CreateThreatIntelSetResponse {
   ThreatIntelSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CriterionKey {
   ACCOUNT_ID = "ACCOUNT_ID",
   EC2_INSTANCE_ARN = "EC2_INSTANCE_ARN",
@@ -1675,6 +1823,9 @@ export enum CriterionKey {
   SCAN_STATUS = "SCAN_STATUS",
 }
 
+/**
+ * @public
+ */
 export enum DataSource {
   CLOUD_TRAIL = "CLOUD_TRAIL",
   DNS_LOGS = "DNS_LOGS",
@@ -1685,6 +1836,7 @@ export enum DataSource {
 }
 
 /**
+ * @public
  * <p>Contains information on the status of DNS logs as a data source.</p>
  */
 export interface DNSLogsConfigurationResult {
@@ -1695,6 +1847,7 @@ export interface DNSLogsConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Contains information on the status of VPC flow logs as a data source.</p>
  */
 export interface FlowLogsConfigurationResult {
@@ -1705,6 +1858,7 @@ export interface FlowLogsConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Describes whether Kubernetes audit logs are enabled as a data source.</p>
  */
 export interface KubernetesAuditLogsConfigurationResult {
@@ -1715,6 +1869,7 @@ export interface KubernetesAuditLogsConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Describes whether any Kubernetes logs will be enabled as a data source.</p>
  */
 export interface KubernetesConfigurationResult {
@@ -1725,6 +1880,7 @@ export interface KubernetesConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Describes whether S3 data event logs will be enabled as a data source.</p>
  */
 export interface S3LogsConfigurationResult {
@@ -1736,6 +1892,7 @@ export interface S3LogsConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Contains information on the status of data sources for the detector.</p>
  */
 export interface DataSourceConfigurationsResult {
@@ -1772,6 +1929,9 @@ export interface DataSourceConfigurationsResult {
   MalwareProtection?: MalwareProtectionConfigurationResult;
 }
 
+/**
+ * @public
+ */
 export interface DeclineInvitationsRequest {
   /**
    * <p>A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member
@@ -1780,6 +1940,9 @@ export interface DeclineInvitationsRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeclineInvitationsResponse {
   /**
    * <p>A list of objects that contain the unprocessed account and a result string that explains
@@ -1789,6 +1952,7 @@ export interface DeclineInvitationsResponse {
 }
 
 /**
+ * @public
  * <p>Contains information on the server side encryption method used in the S3 bucket. See
  *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">S3
  *         Server-Side Encryption</a> for more information.</p>
@@ -1806,6 +1970,9 @@ export interface DefaultServerSideEncryption {
   KmsMasterKeyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDetectorRequest {
   /**
    * <p>The unique ID of the detector that you want to delete.</p>
@@ -1813,8 +1980,14 @@ export interface DeleteDetectorRequest {
   DetectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDetectorResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteFilterRequest {
   /**
    * <p>The unique ID of the detector that the filter is associated with.</p>
@@ -1827,8 +2000,14 @@ export interface DeleteFilterRequest {
   FilterName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFilterResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteInvitationsRequest {
   /**
    * <p>A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member
@@ -1837,6 +2016,9 @@ export interface DeleteInvitationsRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInvitationsResponse {
   /**
    * <p>A list of objects that contain the unprocessed account and a result string that explains
@@ -1845,6 +2027,9 @@ export interface DeleteInvitationsResponse {
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIPSetRequest {
   /**
    * <p>The unique ID of the detector associated with the IPSet.</p>
@@ -1857,8 +2042,14 @@ export interface DeleteIPSetRequest {
   IpSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIPSetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account whose members you want to
@@ -1872,6 +2063,9 @@ export interface DeleteMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembersResponse {
   /**
    * <p>The accounts that could not be processed.</p>
@@ -1879,6 +2073,9 @@ export interface DeleteMembersResponse {
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePublishingDestinationRequest {
   /**
    * <p>The unique ID of the detector associated with the publishing destination to delete.</p>
@@ -1891,8 +2088,14 @@ export interface DeletePublishingDestinationRequest {
   DestinationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePublishingDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteThreatIntelSetRequest {
   /**
    * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
@@ -1905,9 +2108,13 @@ export interface DeleteThreatIntelSetRequest {
   ThreatIntelSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThreatIntelSetResponse {}
 
 /**
+ * @public
  * <p>Contains information about the condition.</p>
  */
 export interface FilterCondition {
@@ -1932,6 +2139,7 @@ export interface FilterCondition {
 }
 
 /**
+ * @public
  * <p>Represents a condition that when matched will be added to the response of the operation.
  *       Irrespective of using any filter criteria, an administrator account can view the scan
  *       entries for all of its member accounts.
@@ -1950,6 +2158,7 @@ export interface FilterCriterion {
 }
 
 /**
+ * @public
  * <p>Represents the criteria to be used in the filter for describing scan entries.</p>
  */
 export interface FilterCriteria {
@@ -1959,12 +2168,16 @@ export interface FilterCriteria {
   FilterCriterion?: FilterCriterion[];
 }
 
+/**
+ * @public
+ */
 export enum OrderBy {
   ASC = "ASC",
   DESC = "DESC",
 }
 
 /**
+ * @public
  * <p>Contains information about the criteria used for sorting findings.</p>
  */
 export interface SortCriteria {
@@ -1980,6 +2193,9 @@ export interface SortCriteria {
   OrderBy?: OrderBy | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMalwareScansRequest {
   /**
    * <p>The unique ID of the detector that the request is associated with.</p>
@@ -2014,6 +2230,7 @@ export interface DescribeMalwareScansRequest {
 }
 
 /**
+ * @public
  * <p>Contains EBS volume details.</p>
  */
 export interface VolumeDetail {
@@ -2054,6 +2271,7 @@ export interface VolumeDetail {
 }
 
 /**
+ * @public
  * <p>Represents the resources that were scanned in the scan entry.</p>
  */
 export interface ResourceDetails {
@@ -2063,12 +2281,16 @@ export interface ResourceDetails {
   InstanceArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum ScanResult {
   CLEAN = "CLEAN",
   INFECTED = "INFECTED",
 }
 
 /**
+ * @public
  * <p>Represents the result of the scan.</p>
  */
 export interface ScanResultDetails {
@@ -2078,6 +2300,9 @@ export interface ScanResultDetails {
   ScanResult?: ScanResult | string;
 }
 
+/**
+ * @public
+ */
 export enum ScanStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -2085,6 +2310,7 @@ export enum ScanStatus {
 }
 
 /**
+ * @public
  * <p>Represents the reason the scan was triggered.</p>
  */
 export interface TriggerDetails {
@@ -2100,6 +2326,7 @@ export interface TriggerDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about a malware scan.</p>
  */
 export interface Scan {
@@ -2175,6 +2402,9 @@ export interface Scan {
   AttachedVolumes?: VolumeDetail[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeMalwareScansResponse {
   /**
    * <p>Contains information about malware scans.</p>
@@ -2187,6 +2417,9 @@ export interface DescribeMalwareScansResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationRequest {
   /**
    * <p>The ID of the detector to retrieve information about the delegated administrator
@@ -2210,6 +2443,7 @@ export interface DescribeOrganizationConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>The current configuration of Kubernetes audit logs as a data source for the organization.</p>
  */
 export interface OrganizationKubernetesAuditLogsConfigurationResult {
@@ -2220,6 +2454,7 @@ export interface OrganizationKubernetesAuditLogsConfigurationResult {
 }
 
 /**
+ * @public
  * <p>The current configuration of all Kubernetes data sources for the organization.</p>
  */
 export interface OrganizationKubernetesConfigurationResult {
@@ -2230,6 +2465,7 @@ export interface OrganizationKubernetesConfigurationResult {
 }
 
 /**
+ * @public
  * <p>An object that contains information on the status of whether EBS volumes scanning will be enabled as a data source for an organization.</p>
  */
 export interface OrganizationEbsVolumesResult {
@@ -2240,6 +2476,7 @@ export interface OrganizationEbsVolumesResult {
 }
 
 /**
+ * @public
  * <p>An object that contains information on the status of scanning EC2 instances with findings for an organization.</p>
  */
 export interface OrganizationScanEc2InstanceWithFindingsResult {
@@ -2250,6 +2487,7 @@ export interface OrganizationScanEc2InstanceWithFindingsResult {
 }
 
 /**
+ * @public
  * <p>An object that contains information on the status of all Malware Protection data source for an organization.</p>
  */
 export interface OrganizationMalwareProtectionConfigurationResult {
@@ -2260,6 +2498,7 @@ export interface OrganizationMalwareProtectionConfigurationResult {
 }
 
 /**
+ * @public
  * <p>The current configuration of S3 data event logs as a data source for the
  *       organization.</p>
  */
@@ -2272,6 +2511,7 @@ export interface OrganizationS3LogsConfigurationResult {
 }
 
 /**
+ * @public
  * <p>An object that contains information on which data sources are automatically enabled for
  *       new members within the organization.</p>
  */
@@ -2292,11 +2532,17 @@ export interface OrganizationDataSourceConfigurationsResult {
   MalwareProtection?: OrganizationMalwareProtectionConfigurationResult;
 }
 
+/**
+ * @public
+ */
 export enum OrgFeatureStatus {
   NEW = "NEW",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum OrgFeature {
   EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
   EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
@@ -2305,6 +2551,7 @@ export enum OrgFeature {
 }
 
 /**
+ * @public
  * <p>A list of features which will be configured for the organization.</p>
  */
 export interface OrganizationFeatureConfigurationResult {
@@ -2325,6 +2572,9 @@ export interface OrganizationFeatureConfigurationResult {
   AutoEnable?: OrgFeatureStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationResponse {
   /**
    * <p>Indicates whether GuardDuty is automatically enabled for accounts added to the
@@ -2357,6 +2607,9 @@ export interface DescribeOrganizationConfigurationResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePublishingDestinationRequest {
   /**
    * <p>The unique ID of the detector associated with the publishing destination to
@@ -2370,6 +2623,9 @@ export interface DescribePublishingDestinationRequest {
   DestinationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PublishingStatus {
   PENDING_VERIFICATION = "PENDING_VERIFICATION",
   PUBLISHING = "PUBLISHING",
@@ -2377,6 +2633,9 @@ export enum PublishingStatus {
   UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY = "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY",
 }
 
+/**
+ * @public
+ */
 export interface DescribePublishingDestinationResponse {
   /**
    * <p>The ID of the publishing destination.</p>
@@ -2408,6 +2667,7 @@ export interface DescribePublishingDestinationResponse {
 }
 
 /**
+ * @public
  * <p>Contains information about the publishing destination, including the ID, type, and
  *       status.</p>
  */
@@ -2429,6 +2689,9 @@ export interface Destination {
   Status: PublishingStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DetectorFeatureResult {
   CLOUD_TRAIL = "CLOUD_TRAIL",
   DNS_LOGS = "DNS_LOGS",
@@ -2440,6 +2703,7 @@ export enum DetectorFeatureResult {
 }
 
 /**
+ * @public
  * <p>Contains information about a GuardDuty feature.</p>
  */
 export interface DetectorFeatureConfigurationResult {
@@ -2459,11 +2723,17 @@ export interface DetectorFeatureConfigurationResult {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export enum DetectorStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
+/**
+ * @public
+ */
 export interface DisableOrganizationAdminAccountRequest {
   /**
    * <p>The Amazon Web Services Account ID for the organizations account to be disabled as a GuardDuty delegated
@@ -2472,8 +2742,14 @@ export interface DisableOrganizationAdminAccountRequest {
   AdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableOrganizationAdminAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromAdministratorAccountRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -2481,8 +2757,14 @@ export interface DisassociateFromAdministratorAccountRequest {
   DetectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateFromAdministratorAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromMasterAccountRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -2490,8 +2772,14 @@ export interface DisassociateFromMasterAccountRequest {
   DetectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateFromMasterAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account whose members you want to
@@ -2506,6 +2794,9 @@ export interface DisassociateMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMembersResponse {
   /**
    * <p>A list of objects that contain the unprocessed account and a result string that explains
@@ -2514,12 +2805,16 @@ export interface DisassociateMembersResponse {
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EbsSnapshotPreservation {
   NO_RETENTION = "NO_RETENTION",
   RETENTION_WITH_FINDING = "RETENTION_WITH_FINDING",
 }
 
 /**
+ * @public
  * <p>Contains list of scanned and skipped EBS volumes with details.</p>
  */
 export interface EbsVolumeDetails {
@@ -2535,6 +2830,7 @@ export interface EbsVolumeDetails {
 }
 
 /**
+ * @public
  * <p>Contains details of the highest severity threat detected during scan and number of infected files.</p>
  */
 export interface HighestSeverityThreatDetails {
@@ -2555,6 +2851,7 @@ export interface HighestSeverityThreatDetails {
 }
 
 /**
+ * @public
  * <p>Total number of scanned files.</p>
  */
 export interface ScannedItemCount {
@@ -2575,6 +2872,7 @@ export interface ScannedItemCount {
 }
 
 /**
+ * @public
  * <p>Contains details of infected file including name, file path and hash.</p>
  */
 export interface ScanFilePath {
@@ -2600,6 +2898,7 @@ export interface ScanFilePath {
 }
 
 /**
+ * @public
  * <p>Contains files infected with the given threat providing details of malware name and severity.</p>
  */
 export interface ScanThreatName {
@@ -2625,6 +2924,7 @@ export interface ScanThreatName {
 }
 
 /**
+ * @public
  * <p>Contains details about identified threats organized by threat name.</p>
  */
 export interface ThreatDetectedByName {
@@ -2650,6 +2950,7 @@ export interface ThreatDetectedByName {
 }
 
 /**
+ * @public
  * <p>Contains total number of infected files.</p>
  */
 export interface ThreatsDetectedItemCount {
@@ -2660,6 +2961,7 @@ export interface ThreatsDetectedItemCount {
 }
 
 /**
+ * @public
  * <p>Contains a complete view providing malware scan result details.</p>
  */
 export interface ScanDetections {
@@ -2685,6 +2987,7 @@ export interface ScanDetections {
 }
 
 /**
+ * @public
  * <p>Contains details from the malware scan that created a finding.</p>
  */
 export interface EbsVolumeScanDetails {
@@ -2720,6 +3023,7 @@ export interface EbsVolumeScanDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about a tag associated with the EC2 instance.</p>
  */
 export interface Tag {
@@ -2735,6 +3039,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Represents a pre-existing file or directory on the host machine that the volume maps to.</p>
  */
 export interface HostPath {
@@ -2745,6 +3050,7 @@ export interface HostPath {
 }
 
 /**
+ * @public
  * <p>Volume used by the Kubernetes workload.</p>
  */
 export interface Volume {
@@ -2760,6 +3066,7 @@ export interface Volume {
 }
 
 /**
+ * @public
  * <p>Contains information about the task in an ECS cluster.</p>
  */
 export interface EcsTaskDetails {
@@ -2815,6 +3122,7 @@ export interface EcsTaskDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the details of the ECS Cluster.</p>
  */
 export interface EcsClusterDetails {
@@ -2860,6 +3168,7 @@ export interface EcsClusterDetails {
 }
 
 /**
+ * @public
  * <p>Details about the EKS cluster involved in a Kubernetes finding.</p>
  */
 export interface EksClusterDetails {
@@ -2894,6 +3203,9 @@ export interface EksClusterDetails {
   CreatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface EnableOrganizationAdminAccountRequest {
   /**
    * <p>The Amazon Web Services Account ID for the organization account to be enabled as a GuardDuty delegated
@@ -2902,9 +3214,13 @@ export interface EnableOrganizationAdminAccountRequest {
   AdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableOrganizationAdminAccountResponse {}
 
 /**
+ * @public
  * <p>An instance of a threat intelligence detail that constitutes evidence for the
  *       finding.</p>
  */
@@ -2922,6 +3238,7 @@ export interface ThreatIntelligenceDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about the reason that the finding was generated.</p>
  */
 export interface Evidence {
@@ -2931,12 +3248,16 @@ export interface Evidence {
   ThreatIntelligenceDetails?: ThreatIntelligenceDetail[];
 }
 
+/**
+ * @public
+ */
 export enum Feedback {
   NOT_USEFUL = "NOT_USEFUL",
   USEFUL = "USEFUL",
 }
 
 /**
+ * @public
  * <p>Contains information about the EC2 instance profile.</p>
  */
 export interface IamInstanceProfile {
@@ -2952,6 +3273,7 @@ export interface IamInstanceProfile {
 }
 
 /**
+ * @public
  * <p>Contains other private IP address information of the EC2 instance.</p>
  */
 export interface PrivateIpAddressDetails {
@@ -2967,6 +3289,7 @@ export interface PrivateIpAddressDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the security groups associated with the EC2 instance.</p>
  */
 export interface SecurityGroup {
@@ -2982,6 +3305,7 @@ export interface SecurityGroup {
 }
 
 /**
+ * @public
  * <p>Contains information about the elastic network interface of the EC2 instance.</p>
  */
 export interface NetworkInterface {
@@ -3037,6 +3361,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>Contains information about the product code for the EC2 instance.</p>
  */
 export interface ProductCode {
@@ -3052,6 +3377,7 @@ export interface ProductCode {
 }
 
 /**
+ * @public
  * <p>Contains information about the details of an instance.</p>
  */
 export interface InstanceDetails {
@@ -3123,6 +3449,7 @@ export interface InstanceDetails {
 }
 
 /**
+ * @public
  * <p>Details about the Kubernetes user involved in a Kubernetes finding.</p>
  */
 export interface KubernetesUserDetails {
@@ -3143,6 +3470,7 @@ export interface KubernetesUserDetails {
 }
 
 /**
+ * @public
  * <p>Details about the Kubernetes workload involved in a Kubernetes finding.</p>
  */
 export interface KubernetesWorkloadDetails {
@@ -3183,6 +3511,7 @@ export interface KubernetesWorkloadDetails {
 }
 
 /**
+ * @public
  * <p>Details about Kubernetes resources such as a Kubernetes user or workload resource involved in a Kubernetes finding.</p>
  */
 export interface KubernetesDetails {
@@ -3198,6 +3527,7 @@ export interface KubernetesDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the resource type <code>RDSDBInstance</code> involved in a GuardDuty
  *     finding.</p>
  */
@@ -3235,6 +3565,7 @@ export interface RdsDbInstanceDetails {
 }
 
 /**
+ * @public
  * <p>Contains information about the user and authentication details for a database instance
  *     involved in the finding.</p>
  */
@@ -3266,6 +3597,7 @@ export interface RdsDbUserDetails {
 }
 
 /**
+ * @public
  * <p>Contains information on the owner of the bucket.</p>
  */
 export interface Owner {
@@ -3279,6 +3611,7 @@ export interface Owner {
 }
 
 /**
+ * @public
  * <p>Contains information about how permissions are configured for the S3 bucket.</p>
  */
 export interface PermissionConfiguration {
@@ -3294,6 +3627,7 @@ export interface PermissionConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the public access policies that apply to the S3 bucket.</p>
  */
 export interface PublicAccess {
@@ -3310,6 +3644,7 @@ export interface PublicAccess {
 }
 
 /**
+ * @public
  * <p>Contains information on the S3 bucket.</p>
  */
 export interface S3BucketDetail {
@@ -3355,6 +3690,7 @@ export interface S3BucketDetail {
 }
 
 /**
+ * @public
  * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted
  *       GuardDuty to generate a finding.</p>
  */
@@ -3418,6 +3754,7 @@ export interface Resource {
 }
 
 /**
+ * @public
  * <p>Additional information about the generated finding.</p>
  */
 export interface ServiceAdditionalInfo {
@@ -3433,6 +3770,7 @@ export interface ServiceAdditionalInfo {
 }
 
 /**
+ * @public
  * <p>Contains additional information about the generated finding.</p>
  */
 export interface Service {
@@ -3505,6 +3843,7 @@ export interface Service {
 }
 
 /**
+ * @public
  * <p>Contains information about the finding, which is generated when abnormal or suspicious
  *       activity is detected.</p>
  */
@@ -3587,6 +3926,7 @@ export interface Finding {
 }
 
 /**
+ * @public
  * <p>Contains information about finding statistics.</p>
  */
 export interface FindingStatistics {
@@ -3596,10 +3936,16 @@ export interface FindingStatistics {
   CountBySeverity?: Record<string, number>;
 }
 
+/**
+ * @public
+ */
 export enum FindingStatisticType {
   COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY",
 }
 
+/**
+ * @public
+ */
 export interface GetAdministratorAccountRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -3607,6 +3953,9 @@ export interface GetAdministratorAccountRequest {
   DetectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAdministratorAccountResponse {
   /**
    * <p>The administrator account details.</p>
@@ -3614,6 +3963,9 @@ export interface GetAdministratorAccountResponse {
   Administrator: Administrator | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDetectorRequest {
   /**
    * <p>The unique ID of the detector that you want to get.</p>
@@ -3621,6 +3973,9 @@ export interface GetDetectorRequest {
   DetectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDetectorResponse {
   /**
    * <p>The timestamp of when the detector was created.</p>
@@ -3665,6 +4020,9 @@ export interface GetDetectorResponse {
   Features?: DetectorFeatureConfigurationResult[];
 }
 
+/**
+ * @public
+ */
 export interface GetFilterRequest {
   /**
    * <p>The unique ID of the detector that the filter is associated with.</p>
@@ -3677,6 +4035,9 @@ export interface GetFilterRequest {
   FilterName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFilterResponse {
   /**
    * <p>The name of the filter.</p>
@@ -3710,6 +4071,9 @@ export interface GetFilterResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsRequest {
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
@@ -3728,6 +4092,9 @@ export interface GetFindingsRequest {
   SortCriteria?: SortCriteria;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsResponse {
   /**
    * <p>A list of findings.</p>
@@ -3735,6 +4102,9 @@ export interface GetFindingsResponse {
   Findings: Finding[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsStatisticsRequest {
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings' statistics you
@@ -3753,6 +4123,9 @@ export interface GetFindingsStatisticsRequest {
   FindingCriteria?: FindingCriteria;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsStatisticsResponse {
   /**
    * <p>The finding statistics object.</p>
@@ -3760,8 +4133,14 @@ export interface GetFindingsStatisticsResponse {
   FindingStatistics: FindingStatistics | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInvitationsCountRequest {}
 
+/**
+ * @public
+ */
 export interface GetInvitationsCountResponse {
   /**
    * <p>The number of received invitations.</p>
@@ -3769,6 +4148,9 @@ export interface GetInvitationsCountResponse {
   InvitationsCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetIPSetRequest {
   /**
    * <p>The unique ID of the detector that the IPSet is associated with.</p>
@@ -3781,6 +4163,9 @@ export interface GetIPSetRequest {
   IpSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum IpSetStatus {
   ACTIVATING = "ACTIVATING",
   ACTIVE = "ACTIVE",
@@ -3791,6 +4176,9 @@ export enum IpSetStatus {
   INACTIVE = "INACTIVE",
 }
 
+/**
+ * @public
+ */
 export interface GetIPSetResponse {
   /**
    * <p>The user-friendly name for the IPSet.</p>
@@ -3818,6 +4206,9 @@ export interface GetIPSetResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetMalwareScanSettingsRequest {
   /**
    * <p>The unique ID of the detector that the scan setting is associated with.</p>
@@ -3825,11 +4216,15 @@ export interface GetMalwareScanSettingsRequest {
   DetectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ScanCriterionKey {
   EC2_INSTANCE_TAG = "EC2_INSTANCE_TAG",
 }
 
 /**
+ * @public
  * <p>Represents key, value pair to be matched against given resource property.</p>
  */
 export interface ScanConditionPair {
@@ -3848,6 +4243,7 @@ export interface ScanConditionPair {
 }
 
 /**
+ * @public
  * <p>Contains information about the condition.</p>
  */
 export interface ScanCondition {
@@ -3860,6 +4256,7 @@ export interface ScanCondition {
 }
 
 /**
+ * @public
  * <p>Contains information about criteria used to filter resources before triggering malware scan.</p>
  */
 export interface ScanResourceCriteria {
@@ -3874,6 +4271,9 @@ export interface ScanResourceCriteria {
   Exclude?: Record<string, ScanCondition>;
 }
 
+/**
+ * @public
+ */
 export interface GetMalwareScanSettingsResponse {
   /**
    * <p>Represents the criteria to be used in the filter for scanning resources.</p>
@@ -3886,6 +4286,9 @@ export interface GetMalwareScanSettingsResponse {
   EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
 }
 
+/**
+ * @public
+ */
 export interface GetMasterAccountRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -3894,6 +4297,7 @@ export interface GetMasterAccountRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the administrator account and invitation.</p>
  */
 export interface Master {
@@ -3918,6 +4322,9 @@ export interface Master {
   InvitedAt?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMasterAccountResponse {
   /**
    * <p>The administrator account details.</p>
@@ -3925,6 +4332,9 @@ export interface GetMasterAccountResponse {
   Master: Master | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMemberDetectorsRequest {
   /**
    * <p>The detector ID for the administrator account.</p>
@@ -3938,6 +4348,7 @@ export interface GetMemberDetectorsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the features for the member account.</p>
  */
 export interface MemberFeaturesConfigurationResult {
@@ -3958,6 +4369,7 @@ export interface MemberFeaturesConfigurationResult {
 }
 
 /**
+ * @public
  * <p>Contains information on which data sources are enabled for a member account.</p>
  */
 export interface MemberDataSourceConfiguration {
@@ -3979,6 +4391,9 @@ export interface MemberDataSourceConfiguration {
   Features?: MemberFeaturesConfigurationResult[];
 }
 
+/**
+ * @public
+ */
 export interface GetMemberDetectorsResponse {
   /**
    * <p>An object that describes which data sources are enabled for a member account.</p>
@@ -3992,6 +4407,9 @@ export interface GetMemberDetectorsResponse {
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account whose members you want to
@@ -4006,6 +4424,7 @@ export interface GetMembersRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the member account. </p>
  */
 export interface Member {
@@ -4050,6 +4469,9 @@ export interface Member {
   AdministratorId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMembersResponse {
   /**
    * <p>A list of members.</p>
@@ -4063,6 +4485,9 @@ export interface GetMembersResponse {
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRemainingFreeTrialDaysRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty member account.</p>
@@ -4075,6 +4500,9 @@ export interface GetRemainingFreeTrialDaysRequest {
   AccountIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetRemainingFreeTrialDaysResponse {
   /**
    * <p>The member accounts which were included in a request and were processed successfully.</p>
@@ -4087,6 +4515,9 @@ export interface GetRemainingFreeTrialDaysResponse {
   UnprocessedAccounts?: UnprocessedAccount[];
 }
 
+/**
+ * @public
+ */
 export interface GetThreatIntelSetRequest {
   /**
    * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
@@ -4099,6 +4530,9 @@ export interface GetThreatIntelSetRequest {
   ThreatIntelSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ThreatIntelSetStatus {
   ACTIVATING = "ACTIVATING",
   ACTIVE = "ACTIVE",
@@ -4109,6 +4543,9 @@ export enum ThreatIntelSetStatus {
   INACTIVE = "INACTIVE",
 }
 
+/**
+ * @public
+ */
 export interface GetThreatIntelSetResponse {
   /**
    * <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by
@@ -4137,6 +4574,9 @@ export interface GetThreatIntelSetResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum UsageFeature {
   CLOUD_TRAIL = "CLOUD_TRAIL",
   DNS_LOGS = "DNS_LOGS",
@@ -4150,6 +4590,7 @@ export enum UsageFeature {
 }
 
 /**
+ * @public
  * <p>Contains information about the criteria used to query usage statistics.</p>
  */
 export interface UsageCriteria {
@@ -4177,6 +4618,9 @@ export interface UsageCriteria {
   Features?: (UsageFeature | string)[];
 }
 
+/**
+ * @public
+ */
 export enum UsageStatisticType {
   SUM_BY_ACCOUNT = "SUM_BY_ACCOUNT",
   SUM_BY_DATA_SOURCE = "SUM_BY_DATA_SOURCE",
@@ -4185,6 +4629,9 @@ export enum UsageStatisticType {
   TOP_RESOURCES = "TOP_RESOURCES",
 }
 
+/**
+ * @public
+ */
 export interface GetUsageStatisticsRequest {
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose usage statistics you
@@ -4223,6 +4670,7 @@ export interface GetUsageStatisticsRequest {
 }
 
 /**
+ * @public
  * <p>Contains the total usage with the corresponding currency unit for that value.</p>
  */
 export interface Total {
@@ -4238,6 +4686,7 @@ export interface Total {
 }
 
 /**
+ * @public
  * <p>Contains information on the total of usage based on account IDs.</p>
  */
 export interface UsageAccountResult {
@@ -4253,6 +4702,7 @@ export interface UsageAccountResult {
 }
 
 /**
+ * @public
  * <p>Contains information on the result of usage based on data source type.</p>
  */
 export interface UsageDataSourceResult {
@@ -4268,6 +4718,7 @@ export interface UsageDataSourceResult {
 }
 
 /**
+ * @public
  * <p>Contains information about the result of the total usage based on the feature.</p>
  */
 export interface UsageFeatureResult {
@@ -4283,6 +4734,7 @@ export interface UsageFeatureResult {
 }
 
 /**
+ * @public
  * <p>Contains information on the sum of usage based on an Amazon Web Services resource.</p>
  */
 export interface UsageResourceResult {
@@ -4298,6 +4750,7 @@ export interface UsageResourceResult {
 }
 
 /**
+ * @public
  * <p>Contains the result of GuardDuty usage. If a UsageStatisticType is provided the result for
  *       other types will be null. </p>
  */
@@ -4329,6 +4782,9 @@ export interface UsageStatistics {
   SumByFeature?: UsageFeatureResult[];
 }
 
+/**
+ * @public
+ */
 export interface GetUsageStatisticsResponse {
   /**
    * <p>The usage statistics object. If a UsageStatisticType was provided, the objects
@@ -4343,6 +4799,9 @@ export interface GetUsageStatisticsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface InviteMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account that you want to invite members
@@ -4368,6 +4827,9 @@ export interface InviteMembersRequest {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface InviteMembersResponse {
   /**
    * <p>A list of objects that contain the unprocessed account and a result string that explains
@@ -4376,6 +4838,9 @@ export interface InviteMembersResponse {
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDetectorsRequest {
   /**
    * <p>You can use this parameter to indicate the maximum number of items that you want in the
@@ -4392,6 +4857,9 @@ export interface ListDetectorsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDetectorsResponse {
   /**
    * <p>A list of detector IDs.</p>
@@ -4405,6 +4873,9 @@ export interface ListDetectorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFiltersRequest {
   /**
    * <p>The unique ID of the detector that the filter is associated with.</p>
@@ -4426,6 +4897,9 @@ export interface ListFiltersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFiltersResponse {
   /**
    * <p>A list of filter names.</p>
@@ -4439,6 +4913,9 @@ export interface ListFiltersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsRequest {
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
@@ -4621,6 +5098,9 @@ export interface ListFindingsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingsResponse {
   /**
    * <p>The IDs of the findings that you're listing.</p>
@@ -4634,6 +5114,9 @@ export interface ListFindingsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsRequest {
   /**
    * <p>You can use this parameter to indicate the maximum number of items that you want in the
@@ -4651,6 +5134,7 @@ export interface ListInvitationsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the invitation to become a member account.</p>
  */
 export interface Invitation {
@@ -4676,6 +5160,9 @@ export interface Invitation {
   InvitedAt?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsResponse {
   /**
    * <p>A list of invitation descriptions.</p>
@@ -4689,6 +5176,9 @@ export interface ListInvitationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIPSetsRequest {
   /**
    * <p>The unique ID of the detector that the IPSet is associated with.</p>
@@ -4710,6 +5200,9 @@ export interface ListIPSetsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListIPSetsResponse {
   /**
    * <p>The IDs of the IPSet resources.</p>
@@ -4723,6 +5216,9 @@ export interface ListIPSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersRequest {
   /**
    * <p>The unique ID of the detector the member is associated with.</p>
@@ -4755,6 +5251,9 @@ export interface ListMembersRequest {
   OnlyAssociated?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersResponse {
   /**
    * <p>A list of members.</p>
@@ -4768,6 +5267,9 @@ export interface ListMembersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -4783,6 +5285,9 @@ export interface ListOrganizationAdminAccountsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsResponse {
   /**
    * <p>A list of accounts configured as GuardDuty delegated
@@ -4797,6 +5302,9 @@ export interface ListOrganizationAdminAccountsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPublishingDestinationsRequest {
   /**
    * <p>The ID of the detector to retrieve publishing destinations for.</p>
@@ -4817,6 +5325,9 @@ export interface ListPublishingDestinationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPublishingDestinationsResponse {
   /**
    * <p>A <code>Destinations</code> object that includes information about each publishing
@@ -4833,6 +5344,9 @@ export interface ListPublishingDestinationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the given GuardDuty resource. </p>
@@ -4840,6 +5354,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
@@ -4847,6 +5364,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListThreatIntelSetsRequest {
   /**
    * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
@@ -4868,6 +5388,9 @@ export interface ListThreatIntelSetsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThreatIntelSetsResponse {
   /**
    * <p>The IDs of the ThreatIntelSet resources.</p>
@@ -4881,6 +5404,9 @@ export interface ListThreatIntelSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartMonitoringMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty administrator account associated with the member
@@ -4894,6 +5420,9 @@ export interface StartMonitoringMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMonitoringMembersResponse {
   /**
    * <p>A list of objects that contain the unprocessed account and a result string that explains
@@ -4902,6 +5431,9 @@ export interface StartMonitoringMembersResponse {
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMonitoringMembersRequest {
   /**
    * <p>The unique ID of the detector associated with the GuardDuty administrator account that is
@@ -4915,6 +5447,9 @@ export interface StopMonitoringMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMonitoringMembersResponse {
   /**
    * <p>A list of objects that contain an accountId for each account that could not be processed,
@@ -4923,6 +5458,9 @@ export interface StopMonitoringMembersResponse {
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.</p>
@@ -4935,8 +5473,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UnarchiveFindingsRequest {
   /**
    * <p>The ID of the detector associated with the findings to unarchive.</p>
@@ -4949,8 +5493,14 @@ export interface UnarchiveFindingsRequest {
   FindingIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnarchiveFindingsResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>
@@ -4963,8 +5513,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDetectorRequest {
   /**
    * <p>The unique ID of the detector to update.</p>
@@ -4998,8 +5554,14 @@ export interface UpdateDetectorRequest {
   Features?: DetectorFeatureConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDetectorResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFilterRequest {
   /**
    * <p>The unique ID of the detector that specifies the GuardDuty service where you want to
@@ -5014,7 +5576,7 @@ export interface UpdateFilterRequest {
 
   /**
    * <p>The description of the filter. Valid characters include alphanumeric characters, and special
-   *       characters such as hyphen, period, colon, underscore, parentheses (<code>{ }</code>, <code>[ ]</code>, and
+   *       characters such as hyphen, period, colon, underscore, parentheses (<code>\{ \}</code>, <code>[ ]</code>, and
    *       <code>( )</code>), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.</p>
    */
   Description?: string;
@@ -5036,6 +5598,9 @@ export interface UpdateFilterRequest {
   FindingCriteria?: FindingCriteria;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFilterResponse {
   /**
    * <p>The name of the filter.</p>
@@ -5043,6 +5608,9 @@ export interface UpdateFilterResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFindingsFeedbackRequest {
   /**
    * <p>The ID of the detector associated with the findings to update feedback for.</p>
@@ -5065,8 +5633,14 @@ export interface UpdateFindingsFeedbackRequest {
   Comments?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFindingsFeedbackResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateIPSetRequest {
   /**
    * <p>The detectorID that specifies the GuardDuty service whose IPSet you want to update.</p>
@@ -5094,8 +5668,14 @@ export interface UpdateIPSetRequest {
   Activate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIPSetResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateMalwareScanSettingsRequest {
   /**
    * <p>The unique ID of the detector that specifies the GuardDuty service where you want to
@@ -5114,9 +5694,13 @@ export interface UpdateMalwareScanSettingsRequest {
   EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMalwareScanSettingsResponse {}
 
 /**
+ * @public
  * <p>Contains information about the features for the member account.</p>
  */
 export interface MemberFeaturesConfiguration {
@@ -5131,6 +5715,9 @@ export interface MemberFeaturesConfiguration {
   Status?: FeatureStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMemberDetectorsRequest {
   /**
    * <p>The detector ID of the administrator account.</p>
@@ -5155,6 +5742,9 @@ export interface UpdateMemberDetectorsRequest {
   Features?: MemberFeaturesConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateMemberDetectorsResponse {
   /**
    * <p>A list of member account IDs that were unable to be processed along with an explanation
@@ -5164,6 +5754,7 @@ export interface UpdateMemberDetectorsResponse {
 }
 
 /**
+ * @public
  * <p>Organization-wide Kubernetes audit logs configuration.</p>
  */
 export interface OrganizationKubernetesAuditLogsConfiguration {
@@ -5175,6 +5766,7 @@ export interface OrganizationKubernetesAuditLogsConfiguration {
 }
 
 /**
+ * @public
  * <p>Organization-wide Kubernetes data sources configurations.</p>
  */
 export interface OrganizationKubernetesConfiguration {
@@ -5185,6 +5777,7 @@ export interface OrganizationKubernetesConfiguration {
 }
 
 /**
+ * @public
  * <p>Organization-wide EBS volumes scan configuration.</p>
  */
 export interface OrganizationEbsVolumes {
@@ -5195,6 +5788,7 @@ export interface OrganizationEbsVolumes {
 }
 
 /**
+ * @public
  * <p>Organization-wide EC2 instances with findings scan configuration.</p>
  */
 export interface OrganizationScanEc2InstanceWithFindings {
@@ -5205,6 +5799,7 @@ export interface OrganizationScanEc2InstanceWithFindings {
 }
 
 /**
+ * @public
  * <p>Organization-wide Malware Protection configurations.</p>
  */
 export interface OrganizationMalwareProtectionConfiguration {
@@ -5215,6 +5810,7 @@ export interface OrganizationMalwareProtectionConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes whether S3 data event logs will be automatically enabled for new members of the
  *       organization.</p>
  */
@@ -5227,6 +5823,7 @@ export interface OrganizationS3LogsConfiguration {
 }
 
 /**
+ * @public
  * <p>An object that contains information on which data sources will be configured to be
  *       automatically enabled for new members within the organization.</p>
  */
@@ -5249,6 +5846,7 @@ export interface OrganizationDataSourceConfigurations {
 }
 
 /**
+ * @public
  * <p>A list of features which will be configured for the organization.</p>
  */
 export interface OrganizationFeatureConfiguration {
@@ -5263,6 +5861,9 @@ export interface OrganizationFeatureConfiguration {
   AutoEnable?: OrgFeatureStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>The ID of the detector to update the delegated administrator for.</p>
@@ -5287,8 +5888,14 @@ export interface UpdateOrganizationConfigurationRequest {
   Features?: OrganizationFeatureConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdatePublishingDestinationRequest {
   /**
    * <p>The ID of the detector associated with the publishing destinations to update.</p>
@@ -5307,8 +5914,14 @@ export interface UpdatePublishingDestinationRequest {
   DestinationProperties?: DestinationProperties;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePublishingDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateThreatIntelSetRequest {
   /**
    * <p>The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to
@@ -5338,6 +5951,9 @@ export interface UpdateThreatIntelSetRequest {
   Activate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThreatIntelSetResponse {}
 
 /**

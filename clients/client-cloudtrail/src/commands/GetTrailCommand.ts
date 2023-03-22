@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1GetTrailCommand, serializeAws_json1_1GetTrailCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrailCommand}.
  */
 export interface GetTrailCommandInput extends GetTrailRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrailCommand}.
  */
 export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns settings information for a specified trail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrailCommandInput - {@link GetTrailCommandInput}
+ * @returns {@link GetTrailCommandOutput}
  * @see {@link GetTrailCommandInput} for command's `input` shape.
  * @see {@link GetTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -112,6 +119,9 @@ export class GetTrailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrailCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class GetTrailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTrailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrailCommandOutput> {
     return deserializeAws_json1_1GetTrailCommand(output, context);
   }

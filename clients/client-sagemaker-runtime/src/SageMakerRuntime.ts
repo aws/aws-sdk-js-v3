@@ -14,10 +14,12 @@ import {
 import { SageMakerRuntimeClient } from "./SageMakerRuntimeClient";
 
 /**
+ * @public
  * <p> The Amazon SageMaker runtime API. </p>
  */
 export class SageMakerRuntime extends SageMakerRuntimeClient {
   /**
+   * @public
    * <p>After you deploy a model into production using Amazon SageMaker hosting services, your
    *             client applications use this API to get inferences from the model hosted at the
    *             specified endpoint. </p>
@@ -69,6 +71,7 @@ export class SageMakerRuntime extends SageMakerRuntimeClient {
   }
 
   /**
+   * @public
    * <p>After you deploy a model into production using Amazon SageMaker hosting services, your client
    *             applications use this API to get inferences from the model hosted at the specified
    *             endpoint in an asynchronous manner.</p>

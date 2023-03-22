@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChunksCommand}.
  */
 export interface ListChunksCommandInput extends ListChunksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListChunksCommand}.
  */
 export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * List chunks in a given Object
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChunksCommandInput - {@link ListChunksCommandInput}
+ * @returns {@link ListChunksCommandOutput}
  * @see {@link ListChunksCommandInput} for command's `input` shape.
  * @see {@link ListChunksCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListChunksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChunksCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListChunksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChunksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListChunksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChunksCommandOutput> {
     return deserializeAws_restJson1ListChunksCommand(output, context);
   }

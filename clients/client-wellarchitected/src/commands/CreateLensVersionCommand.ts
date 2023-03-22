@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLensVersionCommand}.
  */
 export interface CreateLensVersionCommandInput extends CreateLensVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLensVersionCommand}.
  */
 export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new lens version.</p>
  *         <p>A lens can have up to 100 versions.</p>
  *         <p>After a lens has been imported, create a new lens version to publish it.  The owner of a lens can share the lens with other
@@ -50,6 +55,8 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLensVersionCommandInput - {@link CreateLensVersionCommandInput}
+ * @returns {@link CreateLensVersionCommandOutput}
  * @see {@link CreateLensVersionCommandInput} for command's `input` shape.
  * @see {@link CreateLensVersionCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateLensVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLensVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateLensVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLensVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateLensVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLensVersionCommandOutput> {
     return deserializeAws_restJson1CreateLensVersionCommand(output, context);
   }

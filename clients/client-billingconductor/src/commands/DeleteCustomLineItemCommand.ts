@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomLineItemCommand}.
  */
 export interface DeleteCustomLineItemCommandInput extends DeleteCustomLineItemInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomLineItemCommand}.
  */
 export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes the custom line item identified by the given ARN in the current, or previous billing period.
  *     </p>
@@ -48,6 +53,8 @@ export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomLineItemCommandInput - {@link DeleteCustomLineItemCommandInput}
+ * @returns {@link DeleteCustomLineItemCommandOutput}
  * @see {@link DeleteCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteCustomLineItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomLineItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteCustomLineItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomLineItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteCustomLineItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomLineItemCommandOutput> {
     return deserializeAws_restJson1DeleteCustomLineItemCommand(output, context);
   }

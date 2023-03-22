@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetStackPolicyCommand}.
  */
 export interface SetStackPolicyCommandInput extends SetStackPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link SetStackPolicyCommand}.
  */
 export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets a stack policy for a specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetStackPolicyCommandInput - {@link SetStackPolicyCommandInput}
+ * @returns {@link SetStackPolicyCommandOutput}
  * @see {@link SetStackPolicyCommandInput} for command's `input` shape.
  * @see {@link SetStackPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -64,6 +71,9 @@ export class SetStackPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetStackPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,10 +113,16 @@ export class SetStackPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetStackPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetStackPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetStackPolicyCommandOutput> {
     return deserializeAws_querySetStackPolicyCommand(output, context);
   }

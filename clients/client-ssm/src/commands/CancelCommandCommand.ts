@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelCommandCommand}.
  */
 export interface CancelCommandCommandInput extends CancelCommandRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelCommandCommand}.
  */
 export interface CancelCommandCommandOutput extends CancelCommandResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the
  *    command will be terminated and the underlying process stopped.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelCommandCommandInput - {@link CancelCommandCommandInput}
+ * @returns {@link CancelCommandCommandOutput}
  * @see {@link CancelCommandCommandInput} for command's `input` shape.
  * @see {@link CancelCommandCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -99,6 +106,9 @@ export class CancelCommandCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelCommandCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class CancelCommandCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelCommandCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelCommandCommandOutput> {
     return deserializeAws_json1_1CancelCommandCommand(output, context);
   }

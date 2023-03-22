@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand}.
  */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput
   extends BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand}.
  */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
@@ -38,6 +42,7 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between an approval rule template and one or more specified repositories. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput - {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput}
+ * @returns {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput}
  * @see {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -106,6 +113,9 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,6 +161,9 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
     context: __SerdeContext
@@ -158,6 +171,9 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     return serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePullRequestEventsCommand}.
  */
 export interface DescribePullRequestEventsCommandInput extends DescribePullRequestEventsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePullRequestEventsCommand}.
  */
 export interface DescribePullRequestEventsCommandOutput extends DescribePullRequestEventsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more pull request events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePullRequestEventsCommandInput - {@link DescribePullRequestEventsCommandInput}
+ * @returns {@link DescribePullRequestEventsCommandOutput}
  * @see {@link DescribePullRequestEventsCommandInput} for command's `input` shape.
  * @see {@link DescribePullRequestEventsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -109,6 +116,9 @@ export class DescribePullRequestEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePullRequestEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DescribePullRequestEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePullRequestEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePullRequestEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

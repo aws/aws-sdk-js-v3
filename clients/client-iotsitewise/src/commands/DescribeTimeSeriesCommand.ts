@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTimeSeriesCommand}.
  */
 export interface DescribeTimeSeriesCommandInput extends DescribeTimeSeriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTimeSeriesCommand}.
  */
 export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a time series (data stream).</p>
  *          <p>To identify a time series, do one of the following:</p>
  *          <ul>
@@ -65,6 +70,8 @@ export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTimeSeriesCommandInput - {@link DescribeTimeSeriesCommandInput}
+ * @returns {@link DescribeTimeSeriesCommandOutput}
  * @see {@link DescribeTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link DescribeTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -104,6 +111,9 @@ export class DescribeTimeSeriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTimeSeriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DescribeTimeSeriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeTimeSeriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTimeSeriesCommandOutput> {
     return deserializeAws_restJson1DescribeTimeSeriesCommand(output, context);
   }

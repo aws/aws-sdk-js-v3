@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVirtualGatewayCommand}.
  */
 export interface DescribeVirtualGatewayCommandInput extends DescribeVirtualGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVirtualGatewayCommand}.
  */
 export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing virtual gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGate
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualGatewayCommandInput - {@link DescribeVirtualGatewayCommandInput}
+ * @returns {@link DescribeVirtualGatewayCommandOutput}
  * @see {@link DescribeVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualGatewayCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeVirtualGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeVirtualGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVirtualGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualGatewayCommandOutput> {
     return deserializeAws_restJson1DescribeVirtualGatewayCommand(output, context);
   }

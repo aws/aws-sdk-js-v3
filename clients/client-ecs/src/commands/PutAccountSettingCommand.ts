@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountSettingCommand}.
  */
 export interface PutAccountSettingCommandInput extends PutAccountSettingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountSettingCommand}.
  */
 export interface PutAccountSettingCommandOutput extends PutAccountSettingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an account setting. Account settings are set on a per-Region basis.</p>
  *          <p>If you change the account setting for the root user, the default settings for all of
  * 			the users and roles that no individual account setting was specified are reset for.
@@ -69,6 +74,8 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountSettingCommandInput - {@link PutAccountSettingCommandInput}
+ * @returns {@link PutAccountSettingCommandOutput}
  * @see {@link PutAccountSettingCommandInput} for command's `input` shape.
  * @see {@link PutAccountSettingCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -147,6 +154,9 @@ export class PutAccountSettingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountSettingCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class PutAccountSettingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAccountSettingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountSettingCommandOutput> {
     return deserializeAws_json1_1PutAccountSettingCommand(output, context);
   }

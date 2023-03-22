@@ -10,7 +10,7 @@ import { DataPipelineClient } from "../DataPipelineClient";
 import { DataPipelinePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataPipelineClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeObjectsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeObjects(
   config: DataPipelinePaginationConfiguration,
   input: DescribeObjectsCommandInput,

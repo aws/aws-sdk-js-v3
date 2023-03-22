@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePrincipalMappingCommand}.
  */
 export interface DeletePrincipalMappingCommandInput extends DeletePrincipalMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePrincipalMappingCommand}.
  */
 export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a group so that all users and sub groups that belong to the group can
  *             no longer access documents only available to that group.</p>
  *          <p>For example, after deleting the group "Summer Interns", all interns who
@@ -55,6 +60,8 @@ export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePrincipalMappingCommandInput - {@link DeletePrincipalMappingCommandInput}
+ * @returns {@link DeletePrincipalMappingCommandOutput}
  * @see {@link DeletePrincipalMappingCommandInput} for command's `input` shape.
  * @see {@link DeletePrincipalMappingCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -102,6 +109,9 @@ export class DeletePrincipalMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePrincipalMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DeletePrincipalMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePrincipalMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePrincipalMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePrincipalMappingCommandOutput> {
     return deserializeAws_json1_1DeletePrincipalMappingCommand(output, context);
   }

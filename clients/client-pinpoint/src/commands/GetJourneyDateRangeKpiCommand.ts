@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJourneyDateRangeKpiCommand}.
  */
 export interface GetJourneyDateRangeKpiCommandInput extends GetJourneyDateRangeKpiRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJourneyDateRangeKpiCommand}.
  */
 export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRangeKpiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard engagement metric that applies to a journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRange
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJourneyDateRangeKpiCommandInput - {@link GetJourneyDateRangeKpiCommandInput}
+ * @returns {@link GetJourneyDateRangeKpiCommandOutput}
  * @see {@link GetJourneyDateRangeKpiCommandInput} for command's `input` shape.
  * @see {@link GetJourneyDateRangeKpiCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJourneyDateRangeKpiCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJourneyDateRangeKpiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetJourneyDateRangeKpiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJourneyDateRangeKpiCommandOutput> {
     return deserializeAws_restJson1GetJourneyDateRangeKpiCommand(output, context);
   }

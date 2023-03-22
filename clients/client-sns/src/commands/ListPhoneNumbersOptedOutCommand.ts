@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPhoneNumbersOptedOutCommand}.
  */
 export interface ListPhoneNumbersOptedOutCommandInput extends ListPhoneNumbersOptedOutInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPhoneNumbersOptedOutCommand}.
  */
 export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersOptedOutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
  *             messages to them.</p>
  *          <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
@@ -53,6 +58,8 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPhoneNumbersOptedOutCommandInput - {@link ListPhoneNumbersOptedOutCommandInput}
+ * @returns {@link ListPhoneNumbersOptedOutCommandOutput}
  * @see {@link ListPhoneNumbersOptedOutCommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumbersOptedOutCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPhoneNumbersOptedOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPhoneNumbersOptedOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListPhoneNumbersOptedOutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPhoneNumbersOptedOutCommandOutput> {
     return deserializeAws_queryListPhoneNumbersOptedOutCommand(output, context);
   }

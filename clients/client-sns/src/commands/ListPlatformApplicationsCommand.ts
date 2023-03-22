@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlatformApplicationsCommand}.
  */
 export interface ListPlatformApplicationsCommandInput extends ListPlatformApplicationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPlatformApplicationsCommand}.
  */
 export interface ListPlatformApplicationsCommandOutput extends ListPlatformApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the platform application objects for the supported push notification services,
  *             such as APNS and GCM (Firebase Cloud Messaging). The results for
  *                 <code>ListPlatformApplications</code> are paginated and return a limited list of
@@ -55,6 +60,8 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlatformApplicationsCommandInput - {@link ListPlatformApplicationsCommandInput}
+ * @returns {@link ListPlatformApplicationsCommandOutput}
  * @see {@link ListPlatformApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListPlatformApplicationsCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListPlatformApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlatformApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListPlatformApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlatformApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListPlatformApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformApplicationsCommandOutput> {
     return deserializeAws_queryListPlatformApplicationsCommand(output, context);
   }

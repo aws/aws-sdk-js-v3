@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterCommand}.
  */
 export interface DescribeClusterCommandInput extends DescribeClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterCommand}.
  */
 export interface DescribeClusterCommandOutput extends DescribeClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptive information about an Amazon EKS cluster.</p>
  *          <p>The API server endpoint and certificate authority data returned by this operation are
  *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
@@ -54,6 +59,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterCommandInput - {@link DescribeClusterCommandInput}
+ * @returns {@link DescribeClusterCommandOutput}
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -131,6 +138,9 @@ export class DescribeClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class DescribeClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterCommandOutput> {
     return deserializeAws_restJson1DescribeClusterCommand(output, context);
   }

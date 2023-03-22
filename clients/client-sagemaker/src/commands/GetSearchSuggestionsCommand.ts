@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSearchSuggestionsCommand}.
  */
 export interface GetSearchSuggestionsCommandInput extends GetSearchSuggestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSearchSuggestionsCommand}.
  */
 export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>An auto-complete API for the search functionality in the SageMaker console. It returns
  *       suggestions of possible matches for the property name to use in <code>Search</code>
  *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
@@ -49,6 +54,8 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSearchSuggestionsCommandInput - {@link GetSearchSuggestionsCommandInput}
+ * @returns {@link GetSearchSuggestionsCommandOutput}
  * @see {@link GetSearchSuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetSearchSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class GetSearchSuggestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSearchSuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class GetSearchSuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSearchSuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSearchSuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSearchSuggestionsCommandOutput> {
     return deserializeAws_json1_1GetSearchSuggestionsCommand(output, context);
   }

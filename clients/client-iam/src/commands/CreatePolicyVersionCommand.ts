@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePolicyVersionCommand}.
  */
 export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePolicyVersionCommand}.
  */
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of the specified managed policy. To update a managed policy, you
  *             create a new policy version. A managed policy can have up to five versions. If the
  *             policy has five versions, you must delete an existing version using <a>DeletePolicyVersion</a> before you create a new version.</p>
@@ -53,6 +58,8 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePolicyVersionCommandInput - {@link CreatePolicyVersionCommandInput}
+ * @returns {@link CreatePolicyVersionCommandOutput}
  * @see {@link CreatePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreatePolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreatePolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreatePolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyVersionCommandOutput> {
     return deserializeAws_queryCreatePolicyVersionCommand(output, context);
   }

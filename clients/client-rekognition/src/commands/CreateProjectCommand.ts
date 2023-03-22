@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandInput extends CreateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a group of resources (datasets, model versions)
  *          that you use to create and manage Amazon Rekognition Custom Labels models.  </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:CreateProject</code> action.</p>
@@ -48,6 +53,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
+ * @returns {@link CreateProjectCommandOutput}
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectCommandOutput> {
     return deserializeAws_json1_1CreateProjectCommand(output, context);
   }

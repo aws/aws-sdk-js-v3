@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateEncryptionConfigCommand}.
  */
 export interface AssociateEncryptionConfigCommandInput extends AssociateEncryptionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateEncryptionConfigCommand}.
  */
 export interface AssociateEncryptionConfigCommandOutput extends AssociateEncryptionConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate encryption configuration to an existing cluster.</p>
  *          <p>You can use this API to enable encryption on existing clusters which do not have
  *             encryption already enabled. This allows you to implement a defense-in-depth security
@@ -49,6 +54,8 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateEncryptionConfigCommandInput - {@link AssociateEncryptionConfigCommandInput}
+ * @returns {@link AssociateEncryptionConfigCommandOutput}
  * @see {@link AssociateEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -97,6 +104,9 @@ export class AssociateEncryptionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class AssociateEncryptionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateEncryptionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateEncryptionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

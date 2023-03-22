@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSnapshotCommand}.
  */
 export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSnapshotCommand}.
  */
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of the game configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
+ * @returns {@link CreateSnapshotCommandOutput}
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotCommandOutput> {
     return deserializeAws_restJson1CreateSnapshotCommand(output, context);
   }

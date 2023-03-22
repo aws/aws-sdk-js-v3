@@ -28,15 +28,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterParameterGroupCommand}.
  */
 export interface ModifyClusterParameterGroupCommandInput extends ModifyClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterParameterGroupCommand}.
  */
 export interface ModifyClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a parameter group. For the parameters parameter, it can't contain ASCII characters.</p>
  *          <p>
  * For more information about parameters and parameter groups, go to
@@ -52,6 +57,8 @@ export interface ModifyClusterParameterGroupCommandOutput extends ClusterParamet
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterParameterGroupCommandInput - {@link ModifyClusterParameterGroupCommandInput}
+ * @returns {@link ModifyClusterParameterGroupCommandOutput}
  * @see {@link ModifyClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -83,6 +90,9 @@ export class ModifyClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ModifyClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

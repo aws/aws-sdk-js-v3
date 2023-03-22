@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateContactFromAddressBookCommand}.
  */
 export interface DisassociateContactFromAddressBookCommandInput extends DisassociateContactFromAddressBookRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateContactFromAddressBookCommand}.
  */
 export interface DisassociateContactFromAddressBookCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateContactFromAddressBookCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a contact from a given address book.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DisassociateContactFromAddressBookCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateContactFromAddressBookCommandInput - {@link DisassociateContactFromAddressBookCommandInput}
+ * @returns {@link DisassociateContactFromAddressBookCommandOutput}
  * @see {@link DisassociateContactFromAddressBookCommandInput} for command's `input` shape.
  * @see {@link DisassociateContactFromAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -71,6 +78,9 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateContactFromAddressBookCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateContactFromAddressBookCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
     return serializeAws_json1_1DisassociateContactFromAddressBookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

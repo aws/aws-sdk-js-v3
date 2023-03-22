@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQuerySuggestionsCommand}.
  */
 export interface GetQuerySuggestionsCommandInput extends GetQuerySuggestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQuerySuggestionsCommand}.
  */
 export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches the queries that are suggested to your users.</p>
  *          <p>
  *             <code>GetQuerySuggestions</code> is currently not supported in the
@@ -49,6 +54,8 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQuerySuggestionsCommandInput - {@link GetQuerySuggestionsCommandInput}
+ * @returns {@link GetQuerySuggestionsCommandOutput}
  * @see {@link GetQuerySuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetQuerySuggestionsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetQuerySuggestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQuerySuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class GetQuerySuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQuerySuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetQuerySuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQuerySuggestionsCommandOutput> {
     return deserializeAws_json1_1GetQuerySuggestionsCommand(output, context);
   }

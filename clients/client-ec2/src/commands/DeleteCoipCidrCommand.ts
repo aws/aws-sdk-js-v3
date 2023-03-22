@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DeleteCoipCidrCommand, serializeAws_ec2DeleteCoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCoipCidrCommand}.
  */
 export interface DeleteCoipCidrCommandInput extends DeleteCoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCoipCidrCommand}.
  */
 export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a range of customer-owned IP addresses.
  *       </p>
@@ -45,6 +50,8 @@ export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCoipCidrCommandInput - {@link DeleteCoipCidrCommandInput}
+ * @returns {@link DeleteCoipCidrCommandOutput}
  * @see {@link DeleteCoipCidrCommandInput} for command's `input` shape.
  * @see {@link DeleteCoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class DeleteCoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class DeleteCoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteCoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoipCidrCommandOutput> {
     return deserializeAws_ec2DeleteCoipCidrCommand(output, context);
   }

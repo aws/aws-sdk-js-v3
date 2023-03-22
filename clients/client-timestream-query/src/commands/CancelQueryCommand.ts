@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelQueryCommand}.
  */
 export interface CancelQueryCommandInput extends CancelQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelQueryCommand}.
  */
 export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Cancels a query that has been issued. Cancellation is provided only if the query has
  *             not completed running before the cancellation request was issued. Because cancellation
  *             is an idempotent operation, subsequent cancellation requests will return a
@@ -52,6 +57,8 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelQueryCommandInput - {@link CancelQueryCommandInput}
+ * @returns {@link CancelQueryCommandOutput}
  * @see {@link CancelQueryCommandInput} for command's `input` shape.
  * @see {@link CancelQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -92,6 +99,9 @@ export class CancelQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CancelQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CancelQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelQueryCommandOutput> {
     return deserializeAws_json1_0CancelQueryCommand(output, context);
   }

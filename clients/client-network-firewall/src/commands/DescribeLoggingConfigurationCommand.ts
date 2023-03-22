@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoggingConfigurationCommand}.
  */
 export interface DescribeLoggingConfigurationCommandInput extends DescribeLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoggingConfigurationCommand}.
  */
 export interface DescribeLoggingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the logging configuration for the specified firewall. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeLoggingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoggingConfigurationCommandInput - {@link DescribeLoggingConfigurationCommandInput}
+ * @returns {@link DescribeLoggingConfigurationCommandOutput}
  * @see {@link DescribeLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

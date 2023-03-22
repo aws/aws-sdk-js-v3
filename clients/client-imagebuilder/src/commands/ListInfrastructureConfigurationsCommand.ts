@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInfrastructureConfigurationsCommand}.
  */
 export interface ListInfrastructureConfigurationsCommandInput extends ListInfrastructureConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInfrastructureConfigurationsCommand}.
  */
 export interface ListInfrastructureConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListInfrastructureConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of infrastructure configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListInfrastructureConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInfrastructureConfigurationsCommandInput - {@link ListInfrastructureConfigurationsCommandInput}
+ * @returns {@link ListInfrastructureConfigurationsCommandOutput}
  * @see {@link ListInfrastructureConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListInfrastructureConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -94,6 +101,9 @@ export class ListInfrastructureConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInfrastructureConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class ListInfrastructureConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListInfrastructureConfigurationsCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class ListInfrastructureConfigurationsCommand extends $Command<
     return serializeAws_restJson1ListInfrastructureConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

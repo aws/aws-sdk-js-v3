@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRouteAnalysisCommand}.
  */
 export interface GetRouteAnalysisCommandInput extends GetRouteAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRouteAnalysisCommand}.
  */
 export interface GetRouteAnalysisCommandOutput extends GetRouteAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified route analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRouteAnalysisCommandOutput extends GetRouteAnalysisResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRouteAnalysisCommandInput - {@link GetRouteAnalysisCommandInput}
+ * @returns {@link GetRouteAnalysisCommandOutput}
  * @see {@link GetRouteAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetRouteAnalysisCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetRouteAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRouteAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetRouteAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRouteAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRouteAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteAnalysisCommandOutput> {
     return deserializeAws_restJson1GetRouteAnalysisCommand(output, context);
   }

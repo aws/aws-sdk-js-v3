@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceProfileCommand}.
  */
 export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceProfileCommand}.
  */
 export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a profile that can be applied to one or more private device instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceProfileCommandInput - {@link DeleteInstanceProfileCommandInput}
+ * @returns {@link DeleteInstanceProfileCommandOutput}
  * @see {@link DeleteInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceProfileCommandOutput> {
     return deserializeAws_json1_1DeleteInstanceProfileCommand(output, context);
   }

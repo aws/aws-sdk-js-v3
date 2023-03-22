@@ -24,15 +24,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketAnalyticsConfigurationCommand}.
  */
 export interface PutBucketAnalyticsConfigurationCommandInput extends PutBucketAnalyticsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketAnalyticsConfigurationCommand}.
  */
 export interface PutBucketAnalyticsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets an analytics configuration for the bucket (specified by the analytics configuration
  *          ID). You can have up to 1,000 analytics configurations per bucket.</p>
  *          <p>You can choose to have storage class analysis export analysis reports sent to a
@@ -148,6 +153,8 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketAnalyticsConfigurationCommandInput - {@link PutBucketAnalyticsConfigurationCommandInput}
+ * @returns {@link PutBucketAnalyticsConfigurationCommandOutput}
  * @see {@link PutBucketAnalyticsConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -177,6 +184,9 @@ export class PutBucketAnalyticsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketAnalyticsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -216,6 +226,9 @@ export class PutBucketAnalyticsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketAnalyticsConfigurationCommandInput,
     context: __SerdeContext
@@ -223,6 +236,9 @@ export class PutBucketAnalyticsConfigurationCommand extends $Command<
     return serializeAws_restXmlPutBucketAnalyticsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

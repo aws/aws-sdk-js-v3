@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssetPropertyValueHistoryCommand}.
  */
 export interface GetAssetPropertyValueHistoryCommandInput extends GetAssetPropertyValueHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssetPropertyValueHistoryCommand}.
  */
 export interface GetAssetPropertyValueHistoryCommandOutput
@@ -37,6 +41,7 @@ export interface GetAssetPropertyValueHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the history of an asset property's values. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
  *         historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -59,6 +64,8 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssetPropertyValueHistoryCommandInput - {@link GetAssetPropertyValueHistoryCommandInput}
+ * @returns {@link GetAssetPropertyValueHistoryCommandOutput}
  * @see {@link GetAssetPropertyValueHistoryCommandInput} for command's `input` shape.
  * @see {@link GetAssetPropertyValueHistoryCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetAssetPropertyValueHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssetPropertyValueHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class GetAssetPropertyValueHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssetPropertyValueHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAssetPropertyValueHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

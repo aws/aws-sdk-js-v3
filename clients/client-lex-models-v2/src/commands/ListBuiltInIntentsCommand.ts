@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuiltInIntentsCommand}.
  */
 export interface ListBuiltInIntentsCommandInput extends ListBuiltInIntentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBuiltInIntentsCommand}.
  */
 export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of built-in intents provided by Amazon Lex that you can use
  *          in your bot. </p>
  *          <p>To use a built-in intent as a the base for your own intent, include
@@ -51,6 +56,8 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuiltInIntentsCommandInput - {@link ListBuiltInIntentsCommandInput}
+ * @returns {@link ListBuiltInIntentsCommandOutput}
  * @see {@link ListBuiltInIntentsCommandInput} for command's `input` shape.
  * @see {@link ListBuiltInIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -89,6 +96,9 @@ export class ListBuiltInIntentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuiltInIntentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListBuiltInIntentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuiltInIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBuiltInIntentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuiltInIntentsCommandOutput> {
     return deserializeAws_restJson1ListBuiltInIntentsCommand(output, context);
   }

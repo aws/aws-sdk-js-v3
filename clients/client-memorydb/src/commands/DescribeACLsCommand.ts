@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeACLsCommand}.
  */
 export interface DescribeACLsCommandInput extends DescribeACLsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeACLsCommand}.
  */
 export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of ACLs</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeACLsCommandInput - {@link DescribeACLsCommandInput}
+ * @returns {@link DescribeACLsCommandOutput}
  * @see {@link DescribeACLsCommandInput} for command's `input` shape.
  * @see {@link DescribeACLsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeACLsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeACLsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeACLsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeACLsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeACLsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeACLsCommandOutput> {
     return deserializeAws_json1_1DescribeACLsCommand(output, context);
   }

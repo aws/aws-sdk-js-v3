@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSigningProfileCommand}.
  */
 export interface GetSigningProfileCommandInput extends GetSigningProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSigningProfileCommand}.
  */
 export interface GetSigningProfileCommandOutput extends GetSigningProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information on a specific signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSigningProfileCommandInput - {@link GetSigningProfileCommandInput}
+ * @returns {@link GetSigningProfileCommandOutput}
  * @see {@link GetSigningProfileCommandInput} for command's `input` shape.
  * @see {@link GetSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetSigningProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSigningProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetSigningProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSigningProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningProfileCommandOutput> {
     return deserializeAws_restJson1GetSigningProfileCommand(output, context);
   }

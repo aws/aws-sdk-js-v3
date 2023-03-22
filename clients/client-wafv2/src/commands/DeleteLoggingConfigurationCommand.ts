@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoggingConfigurationCommand}.
  */
 export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoggingConfigurationCommand}.
  */
 export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the <a>LoggingConfiguration</a> from the specified web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
+ * @returns {@link DeleteLoggingConfigurationCommandOutput}
  * @see {@link DeleteLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -108,6 +115,9 @@ export class DeleteLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DeleteLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

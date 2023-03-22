@@ -26,10 +26,14 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRobotApplicationVersionCommand}.
  */
 export interface CreateRobotApplicationVersionCommandInput extends CreateRobotApplicationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRobotApplicationVersionCommand}.
  */
 export interface CreateRobotApplicationVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateRobotApplicationVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a version of a robot application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateRobotApplicationVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRobotApplicationVersionCommandInput - {@link CreateRobotApplicationVersionCommandInput}
+ * @returns {@link CreateRobotApplicationVersionCommandOutput}
  * @see {@link CreateRobotApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateRobotApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateRobotApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRobotApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateRobotApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRobotApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRobotApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

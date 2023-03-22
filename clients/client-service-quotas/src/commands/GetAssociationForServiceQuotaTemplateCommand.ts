@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssociationForServiceQuotaTemplateCommand}.
  */
 export interface GetAssociationForServiceQuotaTemplateCommandInput
   extends GetAssociationForServiceQuotaTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssociationForServiceQuotaTemplateCommand}.
  */
 export interface GetAssociationForServiceQuotaTemplateCommandOutput
@@ -38,6 +42,7 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status of the association for the quota request template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssociationForServiceQuotaTemplateCommandInput - {@link GetAssociationForServiceQuotaTemplateCommandInput}
+ * @returns {@link GetAssociationForServiceQuotaTemplateCommandOutput}
  * @see {@link GetAssociationForServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link GetAssociationForServiceQuotaTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -98,6 +105,9 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociationForServiceQuotaTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAssociationForServiceQuotaTemplateCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
     return serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

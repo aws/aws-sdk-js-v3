@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityProfilesCommand}.
  */
 export interface ListSecurityProfilesCommandInput extends ListSecurityProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityProfilesCommand}.
  */
 export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p>
  *          <p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
  *      <i>Amazon Connect Administrator Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityProfilesCommandInput - {@link ListSecurityProfilesCommandInput}
+ * @returns {@link ListSecurityProfilesCommandOutput}
  * @see {@link ListSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListSecurityProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListSecurityProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSecurityProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityProfilesCommandOutput> {
     return deserializeAws_restJson1ListSecurityProfilesCommand(output, context);
   }

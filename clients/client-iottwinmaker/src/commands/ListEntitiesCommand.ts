@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitiesCommand}.
  */
 export interface ListEntitiesCommandInput extends ListEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitiesCommand}.
  */
 export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all entities in a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitiesCommandInput - {@link ListEntitiesCommandInput}
+ * @returns {@link ListEntitiesCommandOutput}
  * @see {@link ListEntitiesCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesCommandOutput> {
     return deserializeAws_restJson1ListEntitiesCommand(output, context);
   }

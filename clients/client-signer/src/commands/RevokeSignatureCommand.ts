@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeSignatureCommand}.
  */
 export interface RevokeSignatureCommandInput extends RevokeSignatureRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeSignatureCommand}.
  */
 export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of a signing job to REVOKED. This indicates that the signature is no
  * 			longer valid.</p>
  * @example
@@ -42,6 +47,8 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeSignatureCommandInput - {@link RevokeSignatureCommandInput}
+ * @returns {@link RevokeSignatureCommandOutput}
  * @see {@link RevokeSignatureCommandInput} for command's `input` shape.
  * @see {@link RevokeSignatureCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -81,6 +88,9 @@ export class RevokeSignatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeSignatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class RevokeSignatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeSignatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RevokeSignatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeSignatureCommandOutput> {
     return deserializeAws_restJson1RevokeSignatureCommand(output, context);
   }

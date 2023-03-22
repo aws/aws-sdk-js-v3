@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityProfilesForTargetCommand}.
  */
 export interface ListSecurityProfilesForTargetCommandInput extends ListSecurityProfilesForTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityProfilesForTargetCommand}.
  */
 export interface ListSecurityProfilesForTargetCommandOutput
@@ -37,6 +41,7 @@ export interface ListSecurityProfilesForTargetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfilesForTarget</a> action.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListSecurityProfilesForTargetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityProfilesForTargetCommandInput - {@link ListSecurityProfilesForTargetCommandInput}
+ * @returns {@link ListSecurityProfilesForTargetCommandOutput}
  * @see {@link ListSecurityProfilesForTargetCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilesForTargetCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListSecurityProfilesForTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityProfilesForTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListSecurityProfilesForTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityProfilesForTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSecurityProfilesForTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

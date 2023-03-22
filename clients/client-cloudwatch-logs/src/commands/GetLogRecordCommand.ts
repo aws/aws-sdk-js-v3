@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLogRecordCommand}.
  */
 export interface GetLogRecordCommandInput extends GetLogRecordRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLogRecordCommand}.
  */
 export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all of the fields and values of a single log event. All fields are retrieved,
  *       even if the original query that produced the <code>logRecordPointer</code> retrieved only a
  *       subset of fields. Fields are returned as field name/field value pairs.</p>
@@ -49,6 +54,8 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLogRecordCommandInput - {@link GetLogRecordCommandInput}
+ * @returns {@link GetLogRecordCommandOutput}
  * @see {@link GetLogRecordCommandInput} for command's `input` shape.
  * @see {@link GetLogRecordCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetLogRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLogRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetLogRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLogRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLogRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogRecordCommandOutput> {
     return deserializeAws_json1_1GetLogRecordCommand(output, context);
   }

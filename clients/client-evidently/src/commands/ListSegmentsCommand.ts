@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSegmentsCommand}.
  */
 export interface ListSegmentsCommandInput extends ListSegmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSegmentsCommand}.
  */
 export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of audience segments that you have created in your account in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSegmentsCommandInput - {@link ListSegmentsCommandInput}
+ * @returns {@link ListSegmentsCommandOutput}
  * @see {@link ListSegmentsCommandInput} for command's `input` shape.
  * @see {@link ListSegmentsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListSegmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSegmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListSegmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSegmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSegmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSegmentsCommandOutput> {
     return deserializeAws_restJson1ListSegmentsCommand(output, context);
   }

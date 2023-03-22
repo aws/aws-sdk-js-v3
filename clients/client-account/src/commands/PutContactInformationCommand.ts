@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutContactInformationCommand}.
  */
 export interface PutContactInformationCommandInput extends PutContactInformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutContactInformationCommand}.
  */
 export interface PutContactInformationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the primary contact information of an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
  *             the primary and alternate contact information</a>.</p>
@@ -43,6 +48,8 @@ export interface PutContactInformationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutContactInformationCommandInput - {@link PutContactInformationCommandInput}
+ * @returns {@link PutContactInformationCommandOutput}
  * @see {@link PutContactInformationCommandInput} for command's `input` shape.
  * @see {@link PutContactInformationCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutContactInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutContactInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class PutContactInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutContactInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutContactInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContactInformationCommandOutput> {
     return deserializeAws_restJson1PutContactInformationCommand(output, context);
   }

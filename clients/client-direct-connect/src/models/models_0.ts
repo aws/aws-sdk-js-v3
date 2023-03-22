@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DirectConnectServiceException as __BaseException } from "./DirectConnectServiceException";
 
 /**
+ * @public
  * <p>Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP)
  *         over a public virtual interface.</p>
  */
@@ -14,6 +15,9 @@ export interface RouteFilterPrefix {
   cidr?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -37,12 +41,16 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   overrideAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
+/**
+ * @public
+ */
 export enum GatewayType {
   TransitGateway = "transitGateway",
   VirtualPrivateGateway = "virtualPrivateGateway",
 }
 
 /**
+ * @public
  * <p>Information about the associated gateway.</p>
  */
 export interface AssociatedGateway {
@@ -67,6 +75,9 @@ export interface AssociatedGateway {
   region?: string;
 }
 
+/**
+ * @public
+ */
 export enum DirectConnectGatewayAssociationState {
   associated = "associated",
   associating = "associating",
@@ -76,6 +87,7 @@ export enum DirectConnectGatewayAssociationState {
 }
 
 /**
+ * @public
  * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
  */
 export interface DirectConnectGatewayAssociation {
@@ -155,6 +167,9 @@ export interface DirectConnectGatewayAssociation {
   virtualGatewayOwnerAccount?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptDirectConnectGatewayAssociationProposalResult {
   /**
    * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
@@ -163,6 +178,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalResult {
 }
 
 /**
+ * @public
  * <p>One or more parameters are not valid.</p>
  */
 export class DirectConnectClientException extends __BaseException {
@@ -182,6 +198,7 @@ export class DirectConnectClientException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A server-side error occurred.</p>
  */
 export class DirectConnectServerException extends __BaseException {
@@ -200,12 +217,16 @@ export class DirectConnectServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum AddressFamily {
   IPv4 = "ipv4",
   IPv6 = "ipv6",
 }
 
 /**
+ * @public
  * <p>The name and status of a customer agreement. </p>
  */
 export interface CustomerAgreement {
@@ -221,6 +242,9 @@ export interface CustomerAgreement {
   status?: string;
 }
 
+/**
+ * @public
+ */
 export interface AllocateConnectionOnInterconnectRequest {
   /**
    * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
@@ -251,6 +275,9 @@ export interface AllocateConnectionOnInterconnectRequest {
   vlan: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ConnectionState {
   available = "available",
   deleted = "deleted",
@@ -263,6 +290,9 @@ export enum ConnectionState {
   unknown = "unknown",
 }
 
+/**
+ * @public
+ */
 export enum HasLogicalRedundancy {
   No = "no",
   Unknown = "unknown",
@@ -270,6 +300,7 @@ export enum HasLogicalRedundancy {
 }
 
 /**
+ * @public
  * <p>Information about the MAC Security (MACsec) secret key.</p>
  */
 export interface MacSecKey {
@@ -314,6 +345,7 @@ export interface MacSecKey {
 }
 
 /**
+ * @public
  * <p>Information about a tag.</p>
  */
 export interface Tag {
@@ -329,6 +361,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Information about an Direct Connect connection.</p>
  */
 export interface Connection {
@@ -486,6 +519,9 @@ export interface Connection {
   macSecKeys?: MacSecKey[];
 }
 
+/**
+ * @public
+ */
 export interface AllocateHostedConnectionRequest {
   /**
    * <p>The ID of the interconnect or LAG.</p>
@@ -519,6 +555,7 @@ export interface AllocateHostedConnectionRequest {
 }
 
 /**
+ * @public
  * <p>A tag key was specified more than once.</p>
  */
 export class DuplicateTagKeysException extends __BaseException {
@@ -538,6 +575,7 @@ export class DuplicateTagKeysException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the limit on the number of tags that can be assigned.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -557,6 +595,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a private virtual interface to be provisioned on a connection.</p>
  */
 export interface NewPrivateVirtualInterfaceAllocation {
@@ -607,6 +646,9 @@ export interface NewPrivateVirtualInterfaceAllocation {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AllocatePrivateVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection on which the private virtual interface is provisioned.</p>
@@ -624,6 +666,9 @@ export interface AllocatePrivateVirtualInterfaceRequest {
   newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation | undefined;
 }
 
+/**
+ * @public
+ */
 export enum BGPPeerState {
   Available = "available",
   Deleted = "deleted",
@@ -632,6 +677,9 @@ export enum BGPPeerState {
   Verifying = "verifying",
 }
 
+/**
+ * @public
+ */
 export enum BGPStatus {
   Down = "down",
   Unknown = "unknown",
@@ -639,6 +687,7 @@ export enum BGPStatus {
 }
 
 /**
+ * @public
  * <p>Information about a BGP peer.</p>
  */
 export interface BGPPeer {
@@ -731,6 +780,9 @@ export interface BGPPeer {
   awsLogicalDeviceId?: string;
 }
 
+/**
+ * @public
+ */
 export enum VirtualInterfaceState {
   available = "available",
   confirming = "confirming",
@@ -744,6 +796,7 @@ export enum VirtualInterfaceState {
 }
 
 /**
+ * @public
  * <p>Information about a virtual interface.</p>
  */
 export interface VirtualInterface {
@@ -919,6 +972,7 @@ export interface VirtualInterface {
 }
 
 /**
+ * @public
  * <p>Information about a public virtual interface to be provisioned on a connection.</p>
  */
 export interface NewPublicVirtualInterfaceAllocation {
@@ -969,6 +1023,9 @@ export interface NewPublicVirtualInterfaceAllocation {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AllocatePublicVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection on which the public virtual interface is provisioned.</p>
@@ -987,6 +1044,7 @@ export interface AllocatePublicVirtualInterfaceRequest {
 }
 
 /**
+ * @public
  * <p>Information about a transit virtual interface to be provisioned on a connection.</p>
  */
 export interface NewTransitVirtualInterfaceAllocation {
@@ -1037,6 +1095,9 @@ export interface NewTransitVirtualInterfaceAllocation {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AllocateTransitVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
@@ -1054,6 +1115,9 @@ export interface AllocateTransitVirtualInterfaceRequest {
   newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocation | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AllocateTransitVirtualInterfaceResult {
   /**
    * <p>Information about a virtual interface.</p>
@@ -1061,6 +1125,9 @@ export interface AllocateTransitVirtualInterfaceResult {
   virtualInterface?: VirtualInterface;
 }
 
+/**
+ * @public
+ */
 export interface AssociateConnectionWithLagRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -1073,6 +1140,9 @@ export interface AssociateConnectionWithLagRequest {
   lagId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateHostedConnectionRequest {
   /**
    * <p>The ID of the hosted connection.</p>
@@ -1085,6 +1155,9 @@ export interface AssociateHostedConnectionRequest {
   parentConnectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateMacSecKeyRequest {
   /**
    * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
@@ -1116,6 +1189,9 @@ export interface AssociateMacSecKeyRequest {
   cak?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateMacSecKeyResponse {
   /**
    * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
@@ -1128,6 +1204,9 @@ export interface AssociateMacSecKeyResponse {
   macSecKeys?: MacSecKey[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateVirtualInterfaceRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -1140,6 +1219,9 @@ export interface AssociateVirtualInterfaceRequest {
   connectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmConnectionRequest {
   /**
    * <p>The ID of the hosted connection.</p>
@@ -1147,6 +1229,9 @@ export interface ConfirmConnectionRequest {
   connectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmConnectionResponse {
   /**
    * <p>The state of the connection. The following are the possible values:</p>
@@ -1192,6 +1277,9 @@ export interface ConfirmConnectionResponse {
   connectionState?: ConnectionState | string;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmCustomerAgreementRequest {
   /**
    * <p>
@@ -1203,6 +1291,9 @@ export interface ConfirmCustomerAgreementRequest {
   agreementName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmCustomerAgreementResponse {
   /**
    * <p>
@@ -1212,6 +1303,9 @@ export interface ConfirmCustomerAgreementResponse {
   status?: string;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmPrivateVirtualInterfaceRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -1229,6 +1323,9 @@ export interface ConfirmPrivateVirtualInterfaceRequest {
   directConnectGatewayId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmPrivateVirtualInterfaceResponse {
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -1274,6 +1371,9 @@ export interface ConfirmPrivateVirtualInterfaceResponse {
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmPublicVirtualInterfaceRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -1281,6 +1381,9 @@ export interface ConfirmPublicVirtualInterfaceRequest {
   virtualInterfaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmPublicVirtualInterfaceResponse {
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -1326,6 +1429,9 @@ export interface ConfirmPublicVirtualInterfaceResponse {
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmTransitVirtualInterfaceRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -1338,6 +1444,9 @@ export interface ConfirmTransitVirtualInterfaceRequest {
   directConnectGatewayId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmTransitVirtualInterfaceResponse {
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -1383,6 +1492,9 @@ export interface ConfirmTransitVirtualInterfaceResponse {
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
 
+/**
+ * @public
+ */
 export interface Connections {
   /**
    * <p>The connections.</p>
@@ -1391,6 +1503,7 @@ export interface Connections {
 }
 
 /**
+ * @public
  * <p>Information about a new BGP peer.</p>
  */
 export interface NewBGPPeer {
@@ -1420,6 +1533,9 @@ export interface NewBGPPeer {
   customerAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBGPPeerRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -1432,6 +1548,9 @@ export interface CreateBGPPeerRequest {
   newBGPPeer?: NewBGPPeer;
 }
 
+/**
+ * @public
+ */
 export interface CreateBGPPeerResponse {
   /**
    * <p>The virtual interface.</p>
@@ -1439,6 +1558,9 @@ export interface CreateBGPPeerResponse {
   virtualInterface?: VirtualInterface;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionRequest {
   /**
    * <p>The location of the connection.</p>
@@ -1477,6 +1599,9 @@ export interface CreateConnectionRequest {
   requestMACSec?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectConnectGatewayRequest {
   /**
    * <p>The name of the Direct Connect gateway.</p>
@@ -1491,6 +1616,9 @@ export interface CreateDirectConnectGatewayRequest {
   amazonSideAsn?: number;
 }
 
+/**
+ * @public
+ */
 export enum DirectConnectGatewayState {
   available = "available",
   deleted = "deleted",
@@ -1499,6 +1627,7 @@ export enum DirectConnectGatewayState {
 }
 
 /**
+ * @public
  * <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
  */
 export interface DirectConnectGateway {
@@ -1551,6 +1680,9 @@ export interface DirectConnectGateway {
   stateChangeError?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectConnectGatewayResult {
   /**
    * <p>The Direct Connect gateway.</p>
@@ -1558,6 +1690,9 @@ export interface CreateDirectConnectGatewayResult {
   directConnectGateway?: DirectConnectGateway;
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectConnectGatewayAssociationRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -1582,6 +1717,9 @@ export interface CreateDirectConnectGatewayAssociationRequest {
   virtualGatewayId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectConnectGatewayAssociationResult {
   /**
    * <p>The association to be created.</p>
@@ -1589,6 +1727,9 @@ export interface CreateDirectConnectGatewayAssociationResult {
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectConnectGatewayAssociationProposalRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -1616,6 +1757,9 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
   removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
+/**
+ * @public
+ */
 export enum DirectConnectGatewayAssociationProposalState {
   accepted = "accepted",
   deleted = "deleted",
@@ -1623,6 +1767,7 @@ export enum DirectConnectGatewayAssociationProposalState {
 }
 
 /**
+ * @public
  * <p>Information about the  proposal request to attach a virtual private gateway to a Direct Connect gateway. </p>
  */
 export interface DirectConnectGatewayAssociationProposal {
@@ -1676,6 +1821,9 @@ export interface DirectConnectGatewayAssociationProposal {
   requestedAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDirectConnectGatewayAssociationProposalResult {
   /**
    * <p>Information about the Direct Connect gateway proposal.</p>
@@ -1683,6 +1831,9 @@ export interface CreateDirectConnectGatewayAssociationProposalResult {
   directConnectGatewayAssociationProposal?: DirectConnectGatewayAssociationProposal;
 }
 
+/**
+ * @public
+ */
 export interface CreateInterconnectRequest {
   /**
    * <p>The name of the interconnect.</p>
@@ -1715,6 +1866,9 @@ export interface CreateInterconnectRequest {
   providerName?: string;
 }
 
+/**
+ * @public
+ */
 export enum InterconnectState {
   available = "available",
   deleted = "deleted",
@@ -1726,6 +1880,7 @@ export enum InterconnectState {
 }
 
 /**
+ * @public
  * <p>Information about an interconnect.</p>
  */
 export interface Interconnect {
@@ -1839,6 +1994,9 @@ export interface Interconnect {
   providerName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLagRequest {
   /**
    * <p>The number of physical dedicated connections initially provisioned and bundled by the
@@ -1891,6 +2049,9 @@ export interface CreateLagRequest {
   requestMACSec?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum LagState {
   available = "available",
   deleted = "deleted",
@@ -1902,6 +2063,7 @@ export enum LagState {
 }
 
 /**
+ * @public
  * <p>Information about a link aggregation group (LAG).</p>
  */
 export interface Lag {
@@ -2048,6 +2210,7 @@ export interface Lag {
 }
 
 /**
+ * @public
  * <p>Information about a private virtual interface.</p>
  */
 export interface NewPrivateVirtualInterface {
@@ -2113,6 +2276,9 @@ export interface NewPrivateVirtualInterface {
   enableSiteLink?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreatePrivateVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -2126,6 +2292,7 @@ export interface CreatePrivateVirtualInterfaceRequest {
 }
 
 /**
+ * @public
  * <p>Information about a public virtual interface.</p>
  */
 export interface NewPublicVirtualInterface {
@@ -2176,6 +2343,9 @@ export interface NewPublicVirtualInterface {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePublicVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -2189,6 +2359,7 @@ export interface CreatePublicVirtualInterfaceRequest {
 }
 
 /**
+ * @public
  * <p>Information about a transit virtual interface.</p>
  */
 export interface NewTransitVirtualInterface {
@@ -2249,6 +2420,9 @@ export interface NewTransitVirtualInterface {
   enableSiteLink?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -2261,6 +2435,9 @@ export interface CreateTransitVirtualInterfaceRequest {
   newTransitVirtualInterface: NewTransitVirtualInterface | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitVirtualInterfaceResult {
   /**
    * <p>Information about a virtual interface.</p>
@@ -2268,6 +2445,9 @@ export interface CreateTransitVirtualInterfaceResult {
   virtualInterface?: VirtualInterface;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBGPPeerRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -2290,6 +2470,9 @@ export interface DeleteBGPPeerRequest {
   bgpPeerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBGPPeerResponse {
   /**
    * <p>The virtual interface.</p>
@@ -2297,6 +2480,9 @@ export interface DeleteBGPPeerResponse {
   virtualInterface?: VirtualInterface;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -2304,6 +2490,9 @@ export interface DeleteConnectionRequest {
   connectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDirectConnectGatewayRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -2311,6 +2500,9 @@ export interface DeleteDirectConnectGatewayRequest {
   directConnectGatewayId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDirectConnectGatewayResult {
   /**
    * <p>The Direct Connect gateway.</p>
@@ -2318,6 +2510,9 @@ export interface DeleteDirectConnectGatewayResult {
   directConnectGateway?: DirectConnectGateway;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDirectConnectGatewayAssociationRequest {
   /**
    * <p>The ID of the Direct Connect gateway association.</p>
@@ -2335,6 +2530,9 @@ export interface DeleteDirectConnectGatewayAssociationRequest {
   virtualGatewayId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDirectConnectGatewayAssociationResult {
   /**
    * <p>Information about the deleted association.</p>
@@ -2342,6 +2540,9 @@ export interface DeleteDirectConnectGatewayAssociationResult {
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDirectConnectGatewayAssociationProposalRequest {
   /**
    * <p>The ID of the proposal.</p>
@@ -2349,6 +2550,9 @@ export interface DeleteDirectConnectGatewayAssociationProposalRequest {
   proposalId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDirectConnectGatewayAssociationProposalResult {
   /**
    * <p>The ID of the associated gateway.</p>
@@ -2356,6 +2560,9 @@ export interface DeleteDirectConnectGatewayAssociationProposalResult {
   directConnectGatewayAssociationProposal?: DirectConnectGatewayAssociationProposal;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInterconnectRequest {
   /**
    * <p>The ID of the interconnect.</p>
@@ -2363,6 +2570,9 @@ export interface DeleteInterconnectRequest {
   interconnectId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInterconnectResponse {
   /**
    * <p>The state of the interconnect. The following are the possible values:</p>
@@ -2401,6 +2611,9 @@ export interface DeleteInterconnectResponse {
   interconnectState?: InterconnectState | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLagRequest {
   /**
    * <p>The ID of the LAG.</p>
@@ -2408,6 +2621,9 @@ export interface DeleteLagRequest {
   lagId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVirtualInterfaceRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -2415,6 +2631,9 @@ export interface DeleteVirtualInterfaceRequest {
   virtualInterfaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVirtualInterfaceResponse {
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -2460,10 +2679,16 @@ export interface DeleteVirtualInterfaceResponse {
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
 
+/**
+ * @public
+ */
 export enum LoaContentType {
   PDF = "application/pdf",
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionLoaRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -2483,6 +2708,7 @@ export interface DescribeConnectionLoaRequest {
 }
 
 /**
+ * @public
  * <p>Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
  */
 export interface Loa {
@@ -2497,6 +2723,9 @@ export interface Loa {
   loaContentType?: LoaContentType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionLoaResponse {
   /**
    * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
@@ -2504,6 +2733,9 @@ export interface DescribeConnectionLoaResponse {
   loa?: Loa;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionsRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -2511,6 +2743,9 @@ export interface DescribeConnectionsRequest {
   connectionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectionsOnInterconnectRequest {
   /**
    * <p>The ID of the interconnect.</p>
@@ -2518,12 +2753,18 @@ export interface DescribeConnectionsOnInterconnectRequest {
   interconnectId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NniPartnerType {
   NonPartner = "nonPartner",
   V1 = "v1",
   V2 = "v2",
 }
 
+/**
+ * @public
+ */
 export interface DescribeCustomerMetadataResponse {
   /**
    * <p>The list of customer agreements.</p>
@@ -2547,6 +2788,9 @@ export interface DescribeCustomerMetadataResponse {
   nniPartnerType?: NniPartnerType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -2577,6 +2821,9 @@ export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectConnectGatewayAssociationProposalsResult {
   /**
    * <p>Describes the Direct Connect gateway association proposals.</p>
@@ -2589,6 +2836,9 @@ export interface DescribeDirectConnectGatewayAssociationProposalsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectConnectGatewayAssociationsRequest {
   /**
    * <p>The ID of the Direct Connect gateway association.</p>
@@ -2624,6 +2874,9 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
   virtualGatewayId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectConnectGatewayAssociationsResult {
   /**
    * <p>Information about the associations.</p>
@@ -2636,6 +2889,9 @@ export interface DescribeDirectConnectGatewayAssociationsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectConnectGatewayAttachmentsRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -2661,6 +2917,9 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum DirectConnectGatewayAttachmentState {
   attached = "attached",
   attaching = "attaching",
@@ -2668,12 +2927,16 @@ export enum DirectConnectGatewayAttachmentState {
   detaching = "detaching",
 }
 
+/**
+ * @public
+ */
 export enum DirectConnectGatewayAttachmentType {
   PrivateVirtualInterface = "PrivateVirtualInterface",
   TransitVirtualInterface = "TransitVirtualInterface",
 }
 
 /**
+ * @public
  * <p>Information about an attachment between a Direct Connect gateway and a virtual interface.</p>
  */
 export interface DirectConnectGatewayAttachment {
@@ -2731,6 +2994,9 @@ export interface DirectConnectGatewayAttachment {
   stateChangeError?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectConnectGatewayAttachmentsResult {
   /**
    * <p>The attachments.</p>
@@ -2743,6 +3009,9 @@ export interface DescribeDirectConnectGatewayAttachmentsResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectConnectGatewaysRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -2763,6 +3032,9 @@ export interface DescribeDirectConnectGatewaysRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDirectConnectGatewaysResult {
   /**
    * <p>The Direct Connect gateways.</p>
@@ -2775,6 +3047,9 @@ export interface DescribeDirectConnectGatewaysResult {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHostedConnectionsRequest {
   /**
    * <p>The ID of the interconnect or LAG.</p>
@@ -2782,6 +3057,9 @@ export interface DescribeHostedConnectionsRequest {
   connectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInterconnectLoaRequest {
   /**
    * <p>The ID of the interconnect.</p>
@@ -2799,6 +3077,9 @@ export interface DescribeInterconnectLoaRequest {
   loaContentType?: LoaContentType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInterconnectLoaResponse {
   /**
    * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
@@ -2806,6 +3087,9 @@ export interface DescribeInterconnectLoaResponse {
   loa?: Loa;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInterconnectsRequest {
   /**
    * <p>The ID of the interconnect.</p>
@@ -2813,6 +3097,9 @@ export interface DescribeInterconnectsRequest {
   interconnectId?: string;
 }
 
+/**
+ * @public
+ */
 export interface Interconnects {
   /**
    * <p>The interconnects.</p>
@@ -2820,6 +3107,9 @@ export interface Interconnects {
   interconnects?: Interconnect[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLagsRequest {
   /**
    * <p>The ID of the LAG.</p>
@@ -2827,6 +3117,9 @@ export interface DescribeLagsRequest {
   lagId?: string;
 }
 
+/**
+ * @public
+ */
 export interface Lags {
   /**
    * <p>The LAGs.</p>
@@ -2834,6 +3127,9 @@ export interface Lags {
   lags?: Lag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoaRequest {
   /**
    * <p>The ID of a connection, LAG, or interconnect.</p>
@@ -2853,6 +3149,7 @@ export interface DescribeLoaRequest {
 }
 
 /**
+ * @public
  * <p>Information about an Direct Connect location.</p>
  */
 export interface Location {
@@ -2887,6 +3184,9 @@ export interface Location {
   availableMacSecPortSpeeds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface Locations {
   /**
    * <p>The locations.</p>
@@ -2895,6 +3195,7 @@ export interface Locations {
 }
 
 /**
+ * @public
  * <p>Provides the details about a virtual interface's router.</p>
  */
 export interface DescribeRouterConfigurationRequest {
@@ -2910,6 +3211,7 @@ export interface DescribeRouterConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Information about the virtual router.</p>
  */
 export interface RouterType {
@@ -2944,6 +3246,9 @@ export interface RouterType {
   routerTypeIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRouterConfigurationResponse {
   /**
    * <p>The customer router configuration.</p>
@@ -2966,6 +3271,9 @@ export interface DescribeRouterConfigurationResponse {
   virtualInterfaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsRequest {
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources.</p>
@@ -2974,6 +3282,7 @@ export interface DescribeTagsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a tag associated with an Direct Connect resource.</p>
  */
 export interface ResourceTag {
@@ -2988,6 +3297,9 @@ export interface ResourceTag {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsResponse {
   /**
    * <p>Information about the tags.</p>
@@ -2996,6 +3308,7 @@ export interface DescribeTagsResponse {
 }
 
 /**
+ * @public
  * <p>Information about a virtual private gateway for a private virtual interface.</p>
  */
 export interface VirtualGateway {
@@ -3028,6 +3341,9 @@ export interface VirtualGateway {
   virtualGatewayState?: string;
 }
 
+/**
+ * @public
+ */
 export interface VirtualGateways {
   /**
    * <p>The virtual private gateways.</p>
@@ -3035,6 +3351,9 @@ export interface VirtualGateways {
   virtualGateways?: VirtualGateway[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeVirtualInterfacesRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -3047,6 +3366,9 @@ export interface DescribeVirtualInterfacesRequest {
   virtualInterfaceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface VirtualInterfaces {
   /**
    * <p>The virtual interfaces</p>
@@ -3054,6 +3376,9 @@ export interface VirtualInterfaces {
   virtualInterfaces?: VirtualInterface[];
 }
 
+/**
+ * @public
+ */
 export interface DisassociateConnectionFromLagRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -3066,6 +3391,9 @@ export interface DisassociateConnectionFromLagRequest {
   lagId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMacSecKeyRequest {
   /**
    * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
@@ -3080,6 +3408,9 @@ export interface DisassociateMacSecKeyRequest {
   secretARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMacSecKeyResponse {
   /**
    * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
@@ -3092,6 +3423,9 @@ export interface DisassociateMacSecKeyResponse {
   macSecKeys?: MacSecKey[];
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualInterfaceTestHistoryRequest {
   /**
    * <p>The ID of the virtual interface failover test.</p>
@@ -3128,6 +3462,7 @@ export interface ListVirtualInterfaceTestHistoryRequest {
 }
 
 /**
+ * @public
  * <p>Information about the virtual interface failover test.</p>
  */
 export interface VirtualInterfaceTestHistory {
@@ -3172,6 +3507,9 @@ export interface VirtualInterfaceTestHistory {
   endTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualInterfaceTestHistoryResponse {
   /**
    * <p>The ID of the tested virtual interface.</p>
@@ -3184,6 +3522,9 @@ export interface ListVirtualInterfaceTestHistoryResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartBgpFailoverTestRequest {
   /**
    * <p>The ID of the virtual interface you want to test.</p>
@@ -3203,6 +3544,9 @@ export interface StartBgpFailoverTestRequest {
   testDurationInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartBgpFailoverTestResponse {
   /**
    * <p>Information about the virtual interface failover test.</p>
@@ -3210,6 +3554,9 @@ export interface StartBgpFailoverTestResponse {
   virtualInterfaceTest?: VirtualInterfaceTestHistory;
 }
 
+/**
+ * @public
+ */
 export interface StopBgpFailoverTestRequest {
   /**
    * <p>The ID of the virtual interface you no longer want to test.</p>
@@ -3217,6 +3564,9 @@ export interface StopBgpFailoverTestRequest {
   virtualInterfaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopBgpFailoverTestResponse {
   /**
    * <p>Information about the virtual interface failover test.</p>
@@ -3224,6 +3574,9 @@ export interface StopBgpFailoverTestResponse {
   virtualInterfaceTest?: VirtualInterfaceTestHistory;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3236,8 +3589,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3250,8 +3609,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateConnectionRequest {
   /**
    * <p>The ID of the dedicated connection.</p>
@@ -3271,6 +3636,9 @@ export interface UpdateConnectionRequest {
   encryptionMode?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDirectConnectGatewayRequest {
   /**
    * <p>The ID of the Direct Connect gateway to update.</p>
@@ -3283,6 +3651,9 @@ export interface UpdateDirectConnectGatewayRequest {
   newDirectConnectGatewayName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDirectConnectGatewayResponse {
   /**
    * <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
@@ -3290,6 +3661,9 @@ export interface UpdateDirectConnectGatewayResponse {
   directConnectGateway?: DirectConnectGateway;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDirectConnectGatewayAssociationRequest {
   /**
    * <p>The ID of the Direct Connect gateway association.</p>
@@ -3307,6 +3681,9 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
   removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDirectConnectGatewayAssociationResult {
   /**
    * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
@@ -3314,6 +3691,9 @@ export interface UpdateDirectConnectGatewayAssociationResult {
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLagRequest {
   /**
    * <p>The ID of the LAG.</p>
@@ -3337,6 +3717,9 @@ export interface UpdateLagRequest {
   encryptionMode?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVirtualInterfaceAttributesRequest {
   /**
    * <p>The ID of the virtual private interface.</p>

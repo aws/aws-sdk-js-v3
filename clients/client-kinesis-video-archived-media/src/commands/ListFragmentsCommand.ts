@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFragmentsCommand}.
  */
 export interface ListFragmentsCommandInput extends ListFragmentsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListFragmentsCommand}.
  */
 export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <a>Fragment</a> objects from the specified stream and
  *             timestamp range within the archived data.</p>
  *         <p>Listing fragments is eventually consistent. This means that even if the producer
@@ -86,6 +91,8 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFragmentsCommandInput - {@link ListFragmentsCommandInput}
+ * @returns {@link ListFragmentsCommandOutput}
  * @see {@link ListFragmentsCommandInput} for command's `input` shape.
  * @see {@link ListFragmentsCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -132,6 +139,9 @@ export class ListFragmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFragmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class ListFragmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFragmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFragmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFragmentsCommandOutput> {
     return deserializeAws_restJson1ListFragmentsCommand(output, context);
   }

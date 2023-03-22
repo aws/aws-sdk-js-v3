@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ImportDecoderManifestCommand}.
  */
 export interface ImportDecoderManifestCommandInput extends ImportDecoderManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportDecoderManifestCommand}.
  */
 export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a decoder manifest using your existing CAN DBC file from your local device.
  *         </p>
  * @example
@@ -47,6 +52,8 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportDecoderManifestCommandInput - {@link ImportDecoderManifestCommandInput}
+ * @returns {@link ImportDecoderManifestCommandOutput}
  * @see {@link ImportDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link ImportDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -95,6 +102,9 @@ export class ImportDecoderManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportDecoderManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ImportDecoderManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportDecoderManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ImportDecoderManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportDecoderManifestCommandOutput> {
     return deserializeAws_json1_0ImportDecoderManifestCommand(output, context);
   }

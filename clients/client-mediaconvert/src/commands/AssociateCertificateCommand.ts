@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateCertificateCommand}.
  */
 export interface AssociateCertificateCommandInput extends AssociateCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateCertificateCommand}.
  */
 export interface AssociateCertificateCommandOutput extends AssociateCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateCertificateCommandInput - {@link AssociateCertificateCommandInput}
+ * @returns {@link AssociateCertificateCommandOutput}
  * @see {@link AssociateCertificateCommandInput} for command's `input` shape.
  * @see {@link AssociateCertificateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +94,9 @@ export class AssociateCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class AssociateCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCertificateCommandOutput> {
     return deserializeAws_restJson1AssociateCertificateCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlacementGroupCommand}.
  */
 export interface CreatePlacementGroupCommandInput extends CreatePlacementGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlacementGroupCommand}.
  */
 export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a placement group in which to launch instances. The strategy of the placement
  *             group determines how the instances are organized within the group. </p>
  *          <p>A <code>cluster</code> placement group is a logical grouping of instances within a
@@ -55,6 +60,8 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlacementGroupCommandInput - {@link CreatePlacementGroupCommandInput}
+ * @returns {@link CreatePlacementGroupCommandOutput}
  * @see {@link CreatePlacementGroupCommandInput} for command's `input` shape.
  * @see {@link CreatePlacementGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -90,6 +97,9 @@ export class CreatePlacementGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlacementGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreatePlacementGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlacementGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreatePlacementGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlacementGroupCommandOutput> {
     return deserializeAws_ec2CreatePlacementGroupCommand(output, context);
   }

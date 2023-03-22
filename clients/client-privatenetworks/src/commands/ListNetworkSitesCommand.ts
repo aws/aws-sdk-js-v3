@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNetworkSitesCommand}.
  */
 export interface ListNetworkSitesCommandInput extends ListNetworkSitesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNetworkSitesCommand}.
  */
 export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists network sites. Add filters to your request to return a more
  *             specific list of results. Use filters to match the status of the network site.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNetworkSitesCommandInput - {@link ListNetworkSitesCommandInput}
+ * @returns {@link ListNetworkSitesCommandOutput}
  * @see {@link ListNetworkSitesCommandInput} for command's `input` shape.
  * @see {@link ListNetworkSitesCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListNetworkSitesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNetworkSitesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListNetworkSitesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNetworkSitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListNetworkSitesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkSitesCommandOutput> {
     return deserializeAws_restJson1ListNetworkSitesCommand(output, context);
   }

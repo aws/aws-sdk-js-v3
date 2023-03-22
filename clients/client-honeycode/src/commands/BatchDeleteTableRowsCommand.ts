@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteTableRowsCommand}.
  */
 export interface BatchDeleteTableRowsCommandInput extends BatchDeleteTableRowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteTableRowsCommand}.
  */
 export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The BatchDeleteTableRows API allows you to delete one or more rows from a table in a workbook.
  *             You need to specify the ids of the rows that you want to delete from the table.
@@ -49,6 +54,8 @@ export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteTableRowsCommandInput - {@link BatchDeleteTableRowsCommandInput}
+ * @returns {@link BatchDeleteTableRowsCommandOutput}
  * @see {@link BatchDeleteTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -98,6 +105,9 @@ export class BatchDeleteTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class BatchDeleteTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchDeleteTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteTableRowsCommandOutput> {
     return deserializeAws_restJson1BatchDeleteTableRowsCommand(output, context);
   }

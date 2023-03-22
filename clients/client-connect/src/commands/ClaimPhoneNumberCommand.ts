@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ClaimPhoneNumberCommand}.
  */
 export interface ClaimPhoneNumberCommandInput extends ClaimPhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link ClaimPhoneNumberCommand}.
  */
 export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Claims an available phone number to your Amazon Connect instance or traffic distribution
  *    group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p>
  *          <p>For more information about how to use this operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html">Claim a phone number in your
@@ -56,6 +61,8 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ClaimPhoneNumberCommandInput - {@link ClaimPhoneNumberCommandInput}
+ * @returns {@link ClaimPhoneNumberCommandOutput}
  * @see {@link ClaimPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link ClaimPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -97,6 +104,9 @@ export class ClaimPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClaimPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ClaimPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClaimPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ClaimPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClaimPhoneNumberCommandOutput> {
     return deserializeAws_restJson1ClaimPhoneNumberCommand(output, context);
   }

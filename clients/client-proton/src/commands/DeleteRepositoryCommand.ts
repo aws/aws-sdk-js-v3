@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRepositoryCommand}.
  */
 export interface DeleteRepositoryCommandInput extends DeleteRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRepositoryCommand}.
  */
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>De-register and unlink your repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
+ * @returns {@link DeleteRepositoryCommandOutput}
  * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRepositoryCommandOutput> {
     return deserializeAws_json1_0DeleteRepositoryCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetLocationUtilizationCommand}.
  */
 export interface DescribeFleetLocationUtilizationCommandInput extends DescribeFleetLocationUtilizationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetLocationUtilizationCommand}.
  */
 export interface DescribeFleetLocationUtilizationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeFleetLocationUtilizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves current usage data for a fleet location. Utilization data provides a
  *             snapshot of current game hosting activity at the requested location. Use this operation
  *             to retrieve utilization information for a fleet's remote location or home Region (you
@@ -65,6 +70,8 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetLocationUtilizationCommandInput - {@link DescribeFleetLocationUtilizationCommandInput}
+ * @returns {@link DescribeFleetLocationUtilizationCommandOutput}
  * @see {@link DescribeFleetLocationUtilizationCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetLocationUtilizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -105,6 +112,9 @@ export class DescribeFleetLocationUtilizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetLocationUtilizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,6 +154,9 @@ export class DescribeFleetLocationUtilizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFleetLocationUtilizationCommandInput,
     context: __SerdeContext
@@ -151,6 +164,9 @@ export class DescribeFleetLocationUtilizationCommand extends $Command<
     return serializeAws_json1_1DescribeFleetLocationUtilizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

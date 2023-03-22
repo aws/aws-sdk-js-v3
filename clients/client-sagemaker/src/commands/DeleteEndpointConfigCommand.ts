@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointConfigCommand}.
  */
 export interface DeleteEndpointConfigCommandInput extends DeleteEndpointConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointConfigCommand}.
  */
 export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API
  *             deletes only the specified configuration. It does not delete endpoints created using the
  *             configuration. </p>
@@ -49,6 +54,8 @@ export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointConfigCommandInput - {@link DeleteEndpointConfigCommandInput}
+ * @returns {@link DeleteEndpointConfigCommandOutput}
  * @see {@link DeleteEndpointConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteEndpointConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DeleteEndpointConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEndpointConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointConfigCommandOutput> {
     return deserializeAws_json1_1DeleteEndpointConfigCommand(output, context);
   }

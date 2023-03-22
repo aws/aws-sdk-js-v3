@@ -30,15 +30,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetViewCommand}.
  */
 export interface BatchGetViewCommandInput extends BatchGetViewInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetViewCommand}.
  */
 export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about a list of views.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetViewCommandInput - {@link BatchGetViewCommandInput}
+ * @returns {@link BatchGetViewCommandOutput}
  * @see {@link BatchGetViewCommandInput} for command's `input` shape.
  * @see {@link BatchGetViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -92,6 +99,9 @@ export class BatchGetViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class BatchGetViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetViewCommandOutput> {
     return deserializeAws_restJson1BatchGetViewCommand(output, context);
   }

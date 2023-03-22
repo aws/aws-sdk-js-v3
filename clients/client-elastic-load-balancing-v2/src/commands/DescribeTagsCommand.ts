@@ -27,15 +27,20 @@ import {
 import { deserializeAws_queryDescribeTagsCommand, serializeAws_queryDescribeTagsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandInput extends DescribeTagsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the tags for the specified Elastic Load Balancing resources. You can describe
  *       the tags for one or more Application Load Balancers, Network Load Balancers, Gateway Load
  *       Balancers, target groups, listeners, or rules.</p>
@@ -49,6 +54,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
+ * @returns {@link DescribeTagsCommandOutput}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -116,6 +123,9 @@ export class DescribeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
     return deserializeAws_queryDescribeTagsCommand(output, context);
   }

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTransitGatewayPeeringAttachmentsCommand}.
  */
 export interface DescribeTransitGatewayPeeringAttachmentsCommandInput
   extends DescribeTransitGatewayPeeringAttachmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTransitGatewayPeeringAttachmentsCommand}.
  */
 export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your transit gateway peering attachments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTransitGatewayPeeringAttachmentsCommandInput - {@link DescribeTransitGatewayPeeringAttachmentsCommandInput}
+ * @returns {@link DescribeTransitGatewayPeeringAttachmentsCommandOutput}
  * @see {@link DescribeTransitGatewayPeeringAttachmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayPeeringAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTransitGatewayPeeringAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     return serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

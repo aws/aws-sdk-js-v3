@@ -26,10 +26,14 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResourceSharePermissionCommand}.
  */
 export interface DisassociateResourceSharePermissionCommandInput extends DisassociateResourceSharePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResourceSharePermissionCommand}.
  */
 export interface DisassociateResourceSharePermissionCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateResourceSharePermissionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an RAM permission from a resource share. Permission changes take effect
  *             immediately. You can remove a RAM permission from a resource share only if there are currently
  *             no resources of the relevant resource type currently attached to the resource share.</p>
@@ -50,6 +55,8 @@ export interface DisassociateResourceSharePermissionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResourceSharePermissionCommandInput - {@link DisassociateResourceSharePermissionCommandInput}
+ * @returns {@link DisassociateResourceSharePermissionCommandOutput}
  * @see {@link DisassociateResourceSharePermissionCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceSharePermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -97,6 +104,9 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResourceSharePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +146,9 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateResourceSharePermissionCommandInput,
     context: __SerdeContext
@@ -143,6 +156,9 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
     return serializeAws_restJson1DisassociateResourceSharePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

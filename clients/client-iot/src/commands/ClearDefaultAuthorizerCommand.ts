@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ClearDefaultAuthorizerCommand}.
  */
 export interface ClearDefaultAuthorizerCommandInput extends ClearDefaultAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link ClearDefaultAuthorizerCommand}.
  */
 export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Clears the default authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ClearDefaultAuthorizer</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthori
  * const response = await client.send(command);
  * ```
  *
+ * @param ClearDefaultAuthorizerCommandInput - {@link ClearDefaultAuthorizerCommandInput}
+ * @returns {@link ClearDefaultAuthorizerCommandOutput}
  * @see {@link ClearDefaultAuthorizerCommandInput} for command's `input` shape.
  * @see {@link ClearDefaultAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class ClearDefaultAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClearDefaultAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ClearDefaultAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClearDefaultAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ClearDefaultAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClearDefaultAuthorizerCommandOutput> {
     return deserializeAws_restJson1ClearDefaultAuthorizerCommand(output, context);
   }

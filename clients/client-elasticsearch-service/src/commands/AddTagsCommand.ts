@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsCommand}.
  */
 export interface AddTagsCommandInput extends AddTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsCommand}.
  */
 export interface AddTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
  *           Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
  * @example
@@ -46,6 +51,8 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsCommandInput - {@link AddTagsCommandInput}
+ * @returns {@link AddTagsCommandOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -81,6 +88,9 @@ export class AddTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class AddTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
     return deserializeAws_restJson1AddTagsCommand(output, context);
   }

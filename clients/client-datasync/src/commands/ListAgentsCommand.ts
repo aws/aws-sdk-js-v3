@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAgentsCommand}.
  */
 export interface ListAgentsCommandInput extends ListAgentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAgentsCommand}.
  */
 export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p>
  *          <p>With pagination, you can reduce the number of agents returned in a response. If you get
  *       a truncated list of agents in a response, the response contains a marker that you can specify
@@ -56,6 +61,8 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAgentsCommandInput - {@link ListAgentsCommandInput}
+ * @returns {@link ListAgentsCommandOutput}
  * @see {@link ListAgentsCommandInput} for command's `input` shape.
  * @see {@link ListAgentsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListAgentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAgentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListAgentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAgentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAgentsCommandOutput> {
     return deserializeAws_json1_1ListAgentsCommand(output, context);
   }

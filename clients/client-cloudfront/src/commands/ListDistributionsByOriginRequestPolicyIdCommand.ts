@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsByOriginRequestPolicyIdCommand}.
  */
 export interface ListDistributionsByOriginRequestPolicyIdCommandInput
   extends ListDistributionsByOriginRequestPolicyIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsByOriginRequestPolicyIdCommand}.
  */
 export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
@@ -38,6 +42,7 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified origin request policy.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -55,6 +60,8 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByOriginRequestPolicyIdCommandInput - {@link ListDistributionsByOriginRequestPolicyIdCommandInput}
+ * @returns {@link ListDistributionsByOriginRequestPolicyIdCommandOutput}
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByOriginRequestPolicyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDistributionsByOriginRequestPolicyIdCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     return serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

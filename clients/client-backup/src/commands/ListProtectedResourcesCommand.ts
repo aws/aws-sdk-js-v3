@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProtectedResourcesCommand}.
  */
 export interface ListProtectedResourcesCommandInput extends ListProtectedResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListProtectedResourcesCommand}.
  */
 export interface ListProtectedResourcesCommandOutput extends ListProtectedResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of resources successfully backed up by Backup, including
  *          the time the resource was saved, an Amazon Resource Name (ARN) of the resource, and a
  *          resource type.</p>
@@ -48,6 +53,8 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtectedResourcesCommandInput - {@link ListProtectedResourcesCommandInput}
+ * @returns {@link ListProtectedResourcesCommandOutput}
  * @see {@link ListProtectedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListProtectedResourcesCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListProtectedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtectedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListProtectedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtectedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProtectedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectedResourcesCommandOutput> {
     return deserializeAws_restJson1ListProtectedResourcesCommand(output, context);
   }

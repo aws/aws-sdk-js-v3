@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandInput extends DeleteBackupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing backup of a table.</p>
  *          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per
  *             second.</p>
@@ -48,6 +53,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
+ * @returns {@link DeleteBackupCommandOutput}
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -96,6 +103,9 @@ export class DeleteBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupCommandOutput> {
     return deserializeAws_json1_0DeleteBackupCommand(output, context);
   }

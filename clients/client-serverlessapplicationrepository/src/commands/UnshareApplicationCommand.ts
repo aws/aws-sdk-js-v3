@@ -25,15 +25,20 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link UnshareApplicationCommand}.
  */
 export interface UnshareApplicationCommandInput extends UnshareApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnshareApplicationCommand}.
  */
 export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unshares an application from an AWS Organization.</p><p>This operation can be called only from the organization's master account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UnshareApplicationCommandInput - {@link UnshareApplicationCommandInput}
+ * @returns {@link UnshareApplicationCommandOutput}
  * @see {@link UnshareApplicationCommandInput} for command's `input` shape.
  * @see {@link UnshareApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -83,6 +90,9 @@ export class UnshareApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnshareApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UnshareApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnshareApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UnshareApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnshareApplicationCommandOutput> {
     return deserializeAws_restJson1UnshareApplicationCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOriginEndpointCommand}.
  */
 export interface UpdateOriginEndpointCommandInput extends UpdateOriginEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOriginEndpointCommand}.
  */
 export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates an existing OriginEndpoint.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOriginEndpointCommandInput - {@link UpdateOriginEndpointCommandInput}
+ * @returns {@link UpdateOriginEndpointCommandOutput}
  * @see {@link UpdateOriginEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateOriginEndpointCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateOriginEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOriginEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateOriginEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOriginEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateOriginEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOriginEndpointCommandOutput> {
     return deserializeAws_restJson1UpdateOriginEndpointCommand(output, context);
   }

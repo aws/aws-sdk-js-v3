@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBotVersionCommand}.
  */
 export interface DeleteBotVersionCommandInput extends DeleteBotVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBotVersionCommand}.
  */
 export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific version of a bot. To delete all versions of a bot,
  *          use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBot.html">DeleteBot</a> operation.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBotVersionCommandInput - {@link DeleteBotVersionCommandInput}
+ * @returns {@link DeleteBotVersionCommandOutput}
  * @see {@link DeleteBotVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteBotVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteBotVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBotVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteBotVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBotVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBotVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBotVersionCommandOutput> {
     return deserializeAws_restJson1DeleteBotVersionCommand(output, context);
   }

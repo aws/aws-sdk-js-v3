@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListInventoryEntriesCommand}.
  */
 export interface ListInventoryEntriesCommandInput extends ListInventoryEntriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInventoryEntriesCommand}.
  */
 export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of inventory items returned by the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInventoryEntriesCommandInput - {@link ListInventoryEntriesCommandInput}
+ * @returns {@link ListInventoryEntriesCommandOutput}
  * @see {@link ListInventoryEntriesCommandInput} for command's `input` shape.
  * @see {@link ListInventoryEntriesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -101,6 +108,9 @@ export class ListInventoryEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInventoryEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class ListInventoryEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInventoryEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListInventoryEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInventoryEntriesCommandOutput> {
     return deserializeAws_json1_1ListInventoryEntriesCommand(output, context);
   }

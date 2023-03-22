@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCampaignCommand}.
  */
 export interface CreateCampaignCommandInput extends CreateCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCampaignCommand}.
  */
 export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a campaign that deploys a solution version. When a client calls the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
  *       and
@@ -115,6 +120,8 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
+ * @returns {@link CreateCampaignCommandOutput}
  * @see {@link CreateCampaignCommandInput} for command's `input` shape.
  * @see {@link CreateCampaignCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -156,6 +163,9 @@ export class CreateCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -195,10 +205,16 @@ export class CreateCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCampaignCommandOutput> {
     return deserializeAws_json1_1CreateCampaignCommand(output, context);
   }

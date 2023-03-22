@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDocumentationPartCommand}.
  */
 export interface CreateDocumentationPartCommandInput extends CreateDocumentationPartRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDocumentationPartCommand}.
  */
 export interface CreateDocumentationPartCommandOutput extends DocumentationPart, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a documentation part.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDocumentationPartCommandOutput extends DocumentationPart,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDocumentationPartCommandInput - {@link CreateDocumentationPartCommandInput}
+ * @returns {@link CreateDocumentationPartCommandOutput}
  * @see {@link CreateDocumentationPartCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentationPartCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateDocumentationPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDocumentationPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateDocumentationPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDocumentationPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDocumentationPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDocumentationPartCommandOutput> {
     return deserializeAws_restJson1CreateDocumentationPartCommand(output, context);
   }

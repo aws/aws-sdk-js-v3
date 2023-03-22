@@ -33,15 +33,20 @@ import {
 } from "../SageMakerGeospatialClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTileCommand}.
  */
 export interface GetTileCommandInput extends GetTileInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTileCommand}.
  */
 export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput, "BinaryFile">, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a web mercator tile for the given Earth Observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +58,8 @@ export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTileCommandInput - {@link GetTileCommandInput}
+ * @returns {@link GetTileCommandOutput}
  * @see {@link GetTileCommandInput} for command's `input` shape.
  * @see {@link GetTileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetTileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTileCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetTileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

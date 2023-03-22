@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFindingAggregationsCommand}.
  */
 export interface ListFindingAggregationsCommandInput extends ListFindingAggregationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFindingAggregationsCommand}.
  */
 export interface ListFindingAggregationsCommandOutput extends ListFindingAggregationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists aggregated finding data for your environment based on specific criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFindingAggregationsCommandInput - {@link ListFindingAggregationsCommandInput}
+ * @returns {@link ListFindingAggregationsCommandOutput}
  * @see {@link ListFindingAggregationsCommandInput} for command's `input` shape.
  * @see {@link ListFindingAggregationsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -79,6 +86,9 @@ export class ListFindingAggregationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFindingAggregationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListFindingAggregationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFindingAggregationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFindingAggregationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingAggregationsCommandOutput> {
     return deserializeAws_restJson1ListFindingAggregationsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVaultLockCommand}.
  */
 export interface GetVaultLockCommandInput extends GetVaultLockInput {}
 /**
+ * @public
+ *
  * The output of {@link GetVaultLockCommand}.
  */
 export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation retrieves the following attributes from the <code>lock-policy</code>
  *          subresource set on the specified vault: </p>
  *          <ul>
@@ -73,6 +78,8 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVaultLockCommandInput - {@link GetVaultLockCommandInput}
+ * @returns {@link GetVaultLockCommandOutput}
  * @see {@link GetVaultLockCommandInput} for command's `input` shape.
  * @see {@link GetVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -129,6 +136,9 @@ export class GetVaultLockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVaultLockCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,10 +176,16 @@ export class GetVaultLockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetVaultLockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVaultLockCommandOutput> {
     return deserializeAws_restJson1GetVaultLockCommand(output, context);
   }

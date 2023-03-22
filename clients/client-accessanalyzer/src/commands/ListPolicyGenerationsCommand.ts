@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPolicyGenerationsCommand}.
  */
 export interface ListPolicyGenerationsCommandInput extends ListPolicyGenerationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPolicyGenerationsCommand}.
  */
 export interface ListPolicyGenerationsCommandOutput extends ListPolicyGenerationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the policy generations requested in the last seven days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPolicyGenerationsCommandOutput extends ListPolicyGeneration
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPolicyGenerationsCommandInput - {@link ListPolicyGenerationsCommandInput}
+ * @returns {@link ListPolicyGenerationsCommandOutput}
  * @see {@link ListPolicyGenerationsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyGenerationsCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListPolicyGenerationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPolicyGenerationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListPolicyGenerationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPolicyGenerationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPolicyGenerationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyGenerationsCommandOutput> {
     return deserializeAws_restJson1ListPolicyGenerationsCommand(output, context);
   }

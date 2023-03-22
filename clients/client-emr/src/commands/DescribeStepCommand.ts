@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStepCommand}.
  */
 export interface DescribeStepCommandInput extends DescribeStepInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStepCommand}.
  */
 export interface DescribeStepCommandOutput extends DescribeStepOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides more detail about the cluster step.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStepCommandInput - {@link DescribeStepCommandInput}
+ * @returns {@link DescribeStepCommandOutput}
  * @see {@link DescribeStepCommandInput} for command's `input` shape.
  * @see {@link DescribeStepCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -76,6 +83,9 @@ export class DescribeStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DescribeStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStepCommandOutput> {
     return deserializeAws_json1_1DescribeStepCommand(output, context);
   }

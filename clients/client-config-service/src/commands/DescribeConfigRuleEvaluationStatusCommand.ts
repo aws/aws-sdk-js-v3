@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigRuleEvaluationStatusCommand}.
  */
 export interface DescribeConfigRuleEvaluationStatusCommandInput extends DescribeConfigRuleEvaluationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigRuleEvaluationStatusCommand}.
  */
 export interface DescribeConfigRuleEvaluationStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns status information for each of your Config managed rules. The status includes information such as the last time Config invoked the rule, the last time Config failed to invoke
  * 			the rule, and the related error for the last failure.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigRuleEvaluationStatusCommandInput - {@link DescribeConfigRuleEvaluationStatusCommandInput}
+ * @returns {@link DescribeConfigRuleEvaluationStatusCommandOutput}
  * @see {@link DescribeConfigRuleEvaluationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigRuleEvaluationStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigRuleEvaluationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConfigRuleEvaluationStatusCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
     return serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

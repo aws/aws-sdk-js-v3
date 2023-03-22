@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceAuthenticationCommand}.
  */
 export interface DescribeWorkspaceAuthenticationCommandInput extends DescribeWorkspaceAuthenticationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceAuthenticationCommand}.
  */
 export interface DescribeWorkspaceAuthenticationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays information about the authentication methods used in one Amazon Managed Grafana
  *             workspace.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceAuthenticationCommandInput - {@link DescribeWorkspaceAuthenticationCommandInput}
+ * @returns {@link DescribeWorkspaceAuthenticationCommandOutput}
  * @see {@link DescribeWorkspaceAuthenticationCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceAuthenticationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeWorkspaceAuthenticationCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command<
     return serializeAws_restJson1DescribeWorkspaceAuthenticationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

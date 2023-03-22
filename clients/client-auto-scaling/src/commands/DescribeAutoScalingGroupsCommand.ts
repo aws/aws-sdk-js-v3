@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutoScalingGroupsCommand}.
  */
 export interface DescribeAutoScalingGroupsCommandInput extends AutoScalingGroupNamesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutoScalingGroupsCommand}.
  */
 export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroupsType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the Auto Scaling groups in the account and Region.</p>
  *          <p>If you specify Auto Scaling group names, the output includes information for only the
  *             specified Auto Scaling groups. If you specify filters, the output includes information for only
@@ -52,6 +57,8 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutoScalingGroupsCommandInput - {@link DescribeAutoScalingGroupsCommandInput}
+ * @returns {@link DescribeAutoScalingGroupsCommandOutput}
  * @see {@link DescribeAutoScalingGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -135,6 +142,9 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoScalingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,10 +184,16 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAutoScalingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAutoScalingGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,10 +24,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSipMediaApplicationCommand}.
  */
 export interface DeleteSipMediaApplicationCommandInput extends DeleteSipMediaApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSipMediaApplicationCommand}.
  */
 export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer {}
@@ -49,6 +53,9 @@ export class DeleteSipMediaApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSipMediaApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,10 +95,16 @@ export class DeleteSipMediaApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSipMediaApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

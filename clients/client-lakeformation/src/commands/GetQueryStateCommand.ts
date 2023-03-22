@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueryStateCommand}.
  */
 export interface GetQueryStateCommandInput extends GetQueryStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQueryStateCommand}.
  */
 export interface GetQueryStateCommandOutput extends GetQueryStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the state of a query previously submitted. Clients are expected to poll <code>GetQueryState</code> to monitor the current state of the planning before retrieving the work units. A query state is only visible to the principal that made the initial call to <code>StartQueryPlanning</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetQueryStateCommandOutput extends GetQueryStateResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryStateCommandInput - {@link GetQueryStateCommandInput}
+ * @returns {@link GetQueryStateCommandOutput}
  * @see {@link GetQueryStateCommandInput} for command's `input` shape.
  * @see {@link GetQueryStateCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetQueryStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetQueryStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetQueryStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryStateCommandOutput> {
     return deserializeAws_restJson1GetQueryStateCommand(output, context);
   }

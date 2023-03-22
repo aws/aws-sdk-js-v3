@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeContactFlowModuleCommand}.
  */
 export interface DescribeContactFlowModuleCommandInput extends DescribeContactFlowModuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeContactFlowModuleCommand}.
  */
 export interface DescribeContactFlowModuleCommandOutput extends DescribeContactFlowModuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContactFlowModuleCommandInput - {@link DescribeContactFlowModuleCommandInput}
+ * @returns {@link DescribeContactFlowModuleCommandOutput}
  * @see {@link DescribeContactFlowModuleCommandInput} for command's `input` shape.
  * @see {@link DescribeContactFlowModuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeContactFlowModuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContactFlowModuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeContactFlowModuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContactFlowModuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeContactFlowModuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationSubnetGroupCommand}.
  */
 export interface CreateReplicationSubnetGroupCommandInput extends CreateReplicationSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationSubnetGroupCommand}.
  */
 export interface CreateReplicationSubnetGroupCommandOutput
@@ -41,6 +45,7 @@ export interface CreateReplicationSubnetGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
  *          <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the
  *           service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p>
@@ -54,6 +59,8 @@ export interface CreateReplicationSubnetGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationSubnetGroupCommandInput - {@link CreateReplicationSubnetGroupCommandInput}
+ * @returns {@link CreateReplicationSubnetGroupCommandOutput}
  * @see {@link CreateReplicationSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -123,6 +130,9 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateReplicationSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

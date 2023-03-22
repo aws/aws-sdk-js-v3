@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link OptInPhoneNumberCommand}.
  */
 export interface OptInPhoneNumberCommandInput extends OptInPhoneNumberInput {}
 /**
+ * @public
+ *
  * The output of {@link OptInPhoneNumberCommand}.
  */
 export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this request to opt in a phone number that is opted out, which enables you to
  *             resume sending SMS messages to the number.</p>
  *          <p>You can opt in a phone number only once every 30 days.</p>
@@ -48,6 +53,8 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param OptInPhoneNumberCommandInput - {@link OptInPhoneNumberCommandInput}
+ * @returns {@link OptInPhoneNumberCommandOutput}
  * @see {@link OptInPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link OptInPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -84,6 +91,9 @@ export class OptInPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: OptInPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class OptInPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: OptInPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryOptInPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OptInPhoneNumberCommandOutput> {
     return deserializeAws_queryOptInPhoneNumberCommand(output, context);
   }

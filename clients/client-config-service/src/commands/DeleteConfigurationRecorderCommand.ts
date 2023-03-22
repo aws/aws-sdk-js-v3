@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationRecorderCommand}.
  */
 export interface DeleteConfigurationRecorderCommandInput extends DeleteConfigurationRecorderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationRecorderCommand}.
  */
 export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the configuration recorder.</p>
  *          <p>After the configuration recorder is deleted, Config will
  * 			not record resource configuration changes until you create a new
@@ -53,6 +58,8 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationRecorderCommandInput - {@link DeleteConfigurationRecorderCommandInput}
+ * @returns {@link DeleteConfigurationRecorderCommandOutput}
  * @see {@link DeleteConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteConfigurationRecorderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationRecorderCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteConfigurationRecorderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationRecorderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConfigurationRecorderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

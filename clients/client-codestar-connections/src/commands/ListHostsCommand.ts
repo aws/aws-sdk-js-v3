@@ -27,15 +27,20 @@ import {
 import { deserializeAws_json1_0ListHostsCommand, serializeAws_json1_0ListHostsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListHostsCommand}.
  */
 export interface ListHostsCommandInput extends ListHostsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListHostsCommand}.
  */
 export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the hosts associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,6 +52,8 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHostsCommandInput - {@link ListHostsCommandInput}
+ * @returns {@link ListHostsCommandOutput}
  * @see {@link ListHostsCommandInput} for command's `input` shape.
  * @see {@link ListHostsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -70,6 +77,9 @@ export class ListHostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class ListHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostsCommandOutput> {
     return deserializeAws_json1_0ListHostsCommand(output, context);
   }

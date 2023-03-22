@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSolFunctionPackageDescriptorCommand}.
  */
 export interface GetSolFunctionPackageDescriptorCommandInput extends GetSolFunctionPackageDescriptorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSolFunctionPackageDescriptorCommand}.
  */
 export interface GetSolFunctionPackageDescriptorCommandOutput
@@ -37,6 +41,7 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a function package descriptor in a function package.</p>
  *          <p>A function package descriptor is a .yaml file in a function package that uses the TOSCA standard to describe how the network function in the function package should run on your network.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
@@ -50,6 +55,8 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSolFunctionPackageDescriptorCommandInput - {@link GetSolFunctionPackageDescriptorCommandInput}
+ * @returns {@link GetSolFunctionPackageDescriptorCommandOutput}
  * @see {@link GetSolFunctionPackageDescriptorCommandInput} for command's `input` shape.
  * @see {@link GetSolFunctionPackageDescriptorCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetSolFunctionPackageDescriptorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSolFunctionPackageDescriptorCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class GetSolFunctionPackageDescriptorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSolFunctionPackageDescriptorCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class GetSolFunctionPackageDescriptorCommand extends $Command<
     return serializeAws_restJson1GetSolFunctionPackageDescriptorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

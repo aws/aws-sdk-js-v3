@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReplayCommand}.
  */
 export interface StartReplayCommandInput extends StartReplayRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartReplayCommand}.
  */
 export interface StartReplayCommandOutput extends StartReplayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the specified replay. Events are not necessarily replayed in the exact same order
  *       that they were added to the archive. A replay processes events to replay based on the time in
  *       the event, and replays them using 1 minute intervals. If you specify an
@@ -54,6 +59,8 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplayCommandInput - {@link StartReplayCommandInput}
+ * @returns {@link StartReplayCommandOutput}
  * @see {@link StartReplayCommandInput} for command's `input` shape.
  * @see {@link StartReplayCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -93,6 +100,9 @@ export class StartReplayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplayCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StartReplayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReplayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartReplayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReplayCommandOutput> {
     return deserializeAws_json1_1StartReplayCommand(output, context);
   }

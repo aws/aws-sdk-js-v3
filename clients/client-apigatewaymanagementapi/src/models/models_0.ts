@@ -3,11 +3,15 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { ApiGatewayManagementApiServiceException as __BaseException } from "./ApiGatewayManagementApiServiceException";
 
+/**
+ * @public
+ */
 export interface DeleteConnectionRequest {
   ConnectionId: string | undefined;
 }
 
 /**
+ * @public
  * <p>The caller is not authorized to invoke this operation.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -27,6 +31,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The connection with the provided id no longer exists.</p>
  */
 export class GoneException extends __BaseException {
@@ -46,6 +51,7 @@ export class GoneException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -64,10 +70,16 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionRequest {
   ConnectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface Identity {
   /**
    * <p>The source IP address of the TCP connection making the request to API Gateway.</p>
@@ -80,6 +92,9 @@ export interface Identity {
   UserAgent: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionResponse {
   /**
    * <p>The time in ISO 8601 format for when the connection was established.</p>
@@ -94,6 +109,7 @@ export interface GetConnectionResponse {
 }
 
 /**
+ * @public
  * <p>The data has exceeded the maximum size allowed.</p>
  */
 export class PayloadTooLargeException extends __BaseException {
@@ -114,6 +130,9 @@ export class PayloadTooLargeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PostToConnectionRequest {
   /**
    * <p>The data to be sent to the client specified by its connection id.</p>

@@ -264,10 +264,12 @@ import {
 import { KendraClient } from "./KendraClient";
 
 /**
+ * @public
  * <p>Amazon Kendra is a service for indexing large document sets.</p>
  */
 export class Kendra extends KendraClient {
   /**
+   * @public
    * <p>Grants users or groups in your IAM Identity Center identity source access
    *             to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a
    *             search application. For more information on creating a search application
@@ -304,6 +306,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Defines the specific permissions of users or groups in your IAM Identity Center
    *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
    *             experience such as a search application. For more information on creating a
@@ -340,6 +343,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more documents from an index. The documents must have
    *       been added with the <code>BatchPutDocument</code> API.</p>
    *          <p>The documents are deleted asynchronously. You can see the progress of
@@ -376,6 +380,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Returns the indexing status for one or more documents submitted
    *             with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
    *                 BatchPutDocument</a> API.</p>
@@ -420,6 +425,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more documents to an index.</p>
    *          <p>The <code>BatchPutDocument</code> API enables you to ingest
    *       inline documents or a set of documents stored in an Amazon S3 bucket. Use
@@ -463,6 +469,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Clears existing query suggestions from an index.</p>
    *          <p>This deletes existing suggestions only, not the queries
    *             in the query log. After you clear suggestions, Amazon Kendra learns
@@ -504,6 +511,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Creates an access configuration for your documents. This includes
    *             user and group access information for your documents. This is useful
    *             for user context filtering, where search results are filtered based
@@ -558,6 +566,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Creates a data source connector that you want to use with an Amazon Kendra
    *       index.</p>
    *          <p>You specify a name, data source connector type and description for your data source. You
@@ -602,6 +611,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Kendra experience such as a search application. For more information
    *             on creating a search application experience, including using the Python and Java SDKs,
    *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
@@ -637,6 +647,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
    *          <p>Adding FAQs to an index is an asynchronous operation.</p>
    *          <p>For an example of adding an FAQ to an index using Python and Java SDKs,
@@ -667,6 +678,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Kendra index. Index creation is an asynchronous API. To determine
    *       if index creation has completed, check the <code>Status</code> field returned from a call to
    *         <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code> when
@@ -702,6 +714,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Creates a block list to exlcude certain queries from suggestions.</p>
    *          <p>Any query that contains words or phrases specified in the block
    *             list is blocked or filtered out from being shown as a suggestion.</p>
@@ -748,6 +761,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Creates a thesaurus for an index. The thesaurus
    *       contains a list of synonyms in Solr format.</p>
    *          <p>For an example of adding a thesaurus file to an index, see
@@ -784,6 +798,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Deletes an access control configuration that you created for your
    *             documents in an index. This includes user and group access information
    *             for your documents. This is useful for user context filtering, where search
@@ -819,6 +834,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Kendra data source connector. An exception is not thrown if the
    *       data source is already being deleted. While the data source is being deleted, the
    *         <code>Status</code> field returned by a call to the <code>DescribeDataSource</code> API is
@@ -854,6 +870,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Deletes your Amazon Kendra experience such as a search application. For more information on
    *             creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a search
    *                 experience with no code</a>.</p>
@@ -888,6 +905,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Removes an FAQ from an index.</p>
    */
   public deleteFaq(args: DeleteFaqCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFaqCommandOutput>;
@@ -914,6 +932,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is
    *       already being deleted. While the index is being deleted, the <code>Status</code> field
    *       returned by a call to the <code>DescribeIndex</code> API is set to
@@ -943,6 +962,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Deletes a group so that all users and sub groups that belong to the group can
    *             no longer access documents only available to that group.</p>
    *          <p>For example, after deleting the group "Summer Interns", all interns who
@@ -989,6 +1009,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Deletes a block list used for query suggestions for an index.</p>
    *          <p>A deleted block list might not take effect right away. Amazon Kendra
    *             needs to refresh the entire suggestions list to add back the
@@ -1027,6 +1048,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing Amazon Kendra thesaurus.
    *       </p>
    */
@@ -1060,6 +1082,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an access control configuration that you created for your
    *             documents in an index. This includes user and group access information for your
    *             documents. This is useful for user context filtering, where search results are
@@ -1095,6 +1118,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an Amazon Kendra data source connector.</p>
    */
   public describeDataSource(
@@ -1127,6 +1151,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets information about your Amazon Kendra experience such as a search application.
    *             For more information on creating a search application experience,
    *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -1162,6 +1187,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an FAQ list.</p>
    */
   public describeFaq(args: DescribeFaqCommandInput, options?: __HttpHandlerOptions): Promise<DescribeFaqCommandOutput>;
@@ -1188,6 +1214,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an existing Amazon Kendra index.</p>
    */
   public describeIndex(
@@ -1220,6 +1247,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Describes the processing of <code>PUT</code> and <code>DELETE</code> actions
    *             for mapping users to their groups. This includes information on the status of
    *             actions currently processing or yet to be processed, when actions were last updated,
@@ -1260,6 +1288,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a block list used for query suggestions for
    *             an index.</p>
    *          <p>This is used to check the current settings that are applied to a
@@ -1298,6 +1327,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets information on the settings of query suggestions for an index.</p>
    *          <p>This is used to check the current settings applied
    *             to query suggestions.</p>
@@ -1335,6 +1365,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an existing Amazon Kendra thesaurus.</p>
    */
   public describeThesaurus(
@@ -1367,6 +1398,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Prevents users or groups in your IAM Identity Center identity source
    *             from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience
    *             such as a search application. For more information on creating a search
@@ -1403,6 +1435,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Removes the specific permissions of users or groups in your IAM Identity Center
    *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
    *             experience such as a search application. For more information on creating a
@@ -1439,6 +1472,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Fetches the queries that are suggested to your users.</p>
    *          <p>
    *             <code>GetQuerySuggestions</code> is currently not supported in the
@@ -1474,6 +1508,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Retrieves search metrics data. The data provides a snapshot of how
    *             your users interact with your search application and how effective
    *             the application is.</p>
@@ -1505,6 +1540,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Lists one or more access control configurations for an index. This
    *             includes user and group access information for your documents. This
    *             is useful for user context filtering, where search results are filtered
@@ -1540,6 +1576,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Lists the data source connectors that you have created.</p>
    */
   public listDataSources(
@@ -1572,6 +1609,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets statistics about synchronizing a data source connector.</p>
    */
   public listDataSourceSyncJobs(
@@ -1604,6 +1642,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Lists specific permissions of users and groups with access to your
    *             Amazon Kendra experience.</p>
    */
@@ -1637,6 +1676,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Lists users or groups in your IAM Identity Center identity source that are
    *             granted access to your Amazon Kendra experience. You can create an Amazon Kendra experience
    *             such as a search application. For more information on creating a search
@@ -1673,6 +1713,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra experience such
    *             as a search application. For more information on creating a search application
    *             experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
@@ -1708,6 +1749,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of FAQ lists associated with an index.</p>
    */
   public listFaqs(args: ListFaqsCommandInput, options?: __HttpHandlerOptions): Promise<ListFaqsCommandOutput>;
@@ -1734,6 +1776,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of groups that are mapped to users before a
    *             given ordering or timestamp identifier.</p>
    *          <p>
@@ -1770,6 +1813,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Lists the Amazon Kendra indexes that you created.</p>
    */
   public listIndices(args: ListIndicesCommandInput, options?: __HttpHandlerOptions): Promise<ListIndicesCommandOutput>;
@@ -1796,6 +1840,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Lists the block lists used for query suggestions for an index.</p>
    *          <p>For information on the current quota limits for block lists, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
@@ -1834,6 +1879,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of tags associated with a specified resource. Indexes,
    *       FAQs, and data sources can have tags associated with them.</p>
    */
@@ -1867,6 +1913,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Lists the thesauri for an index.</p>
    */
   public listThesauri(
@@ -1896,6 +1943,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Maps users to their groups so that you only need to provide
    *             the user ID when you issue the query.</p>
    *          <p>You can also map sub groups to groups.
@@ -1946,6 +1994,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Searches an active index. Use this API to search your documents using query. The
    *             <code>Query</code> API enables to do faceted search and to filter results based on
    *          document attributes.</p>
@@ -1992,6 +2041,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Starts a synchronization job for a data source connector. If a synchronization job is
    *       already in progress, Amazon Kendra returns a <code>ResourceInUseException</code>
    *       exception.</p>
@@ -2026,6 +2076,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Stops a synchronization job that is currently running. You can't stop a scheduled
    *       synchronization job.</p>
    */
@@ -2059,6 +2110,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Enables you to provide feedback to Amazon Kendra to improve the
    *             performance of your index.</p>
    *          <p>
@@ -2095,6 +2147,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tag to the specified index, FAQ, or data source
    *       resource. If the tag already exists, the existing value is replaced with
    *       the new value.</p>
@@ -2123,6 +2176,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag from an index, FAQ, or a data source.</p>
    */
   public untagResource(
@@ -2155,6 +2209,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Updates an access control configuration for your documents in an index. This
    *             includes user and group access information for your documents. This is useful
    *             for user context filtering, where search results are filtered based on the user
@@ -2206,6 +2261,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing Amazon Kendra data source connector.</p>
    */
   public updateDataSource(
@@ -2238,6 +2294,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Updates your Amazon Kendra experience such as a search application. For more information on
    *             creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
    *                 search experience with no code</a>.</p>
@@ -2272,6 +2329,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing Amazon Kendra index.</p>
    */
   public updateIndex(args: UpdateIndexCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIndexCommandOutput>;
@@ -2298,6 +2356,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Updates a block list used for query suggestions for an index.</p>
    *          <p>Updates to a block list might not take effect right away. Amazon Kendra
    *             needs to refresh the entire suggestions list to apply any updates to the
@@ -2340,6 +2399,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Updates the settings of query suggestions for an index.</p>
    *          <p>Amazon Kendra supports partial updates, so you only need to provide
    *             the fields you want to update.</p>
@@ -2383,6 +2443,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * @public
    * <p>Updates a thesaurus for an index.</p>
    */
   public updateThesaurus(

@@ -26,15 +26,20 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEnvironmentOutputsCommand}.
  */
 export interface ListEnvironmentOutputsCommandInput extends ListEnvironmentOutputsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListEnvironmentOutputsCommand}.
  */
 export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutputsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the infrastructure as code outputs for your environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEnvironmentOutputsCommandInput - {@link ListEnvironmentOutputsCommandInput}
+ * @returns {@link ListEnvironmentOutputsCommandOutput}
  * @see {@link ListEnvironmentOutputsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentOutputsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListEnvironmentOutputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEnvironmentOutputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListEnvironmentOutputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEnvironmentOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListEnvironmentOutputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentOutputsCommandOutput> {
     return deserializeAws_json1_0ListEnvironmentOutputsCommand(output, context);
   }

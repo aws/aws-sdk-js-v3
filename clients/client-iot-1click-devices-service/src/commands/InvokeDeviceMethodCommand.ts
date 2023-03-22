@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InvokeDeviceMethodCommand}.
  */
 export interface InvokeDeviceMethodCommandInput extends InvokeDeviceMethodRequest {}
 /**
+ * @public
+ *
  * The output of {@link InvokeDeviceMethodCommand}.
  */
 export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, issues a request to invoke a named device method (with possible
  *  parameters). See the "Example POST" code snippet below.</p>
  * @example
@@ -51,6 +56,8 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param InvokeDeviceMethodCommandInput - {@link InvokeDeviceMethodCommandInput}
+ * @returns {@link InvokeDeviceMethodCommandOutput}
  * @see {@link InvokeDeviceMethodCommandInput} for command's `input` shape.
  * @see {@link InvokeDeviceMethodCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -86,6 +93,9 @@ export class InvokeDeviceMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeDeviceMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class InvokeDeviceMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeDeviceMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1InvokeDeviceMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeDeviceMethodCommandOutput> {
     return deserializeAws_restJson1InvokeDeviceMethodCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUnsuspendUserCommand}.
  */
 export interface BatchUnsuspendUserCommandInput extends BatchUnsuspendUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUnsuspendUserCommand}.
  */
 export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the suspension from up to 50 previously suspended users for the specified Amazon
  *             Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code>
  *             accounts can be unsuspended using this action. For more information about different account types, see
@@ -58,6 +63,8 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUnsuspendUserCommandInput - {@link BatchUnsuspendUserCommandInput}
+ * @returns {@link BatchUnsuspendUserCommandOutput}
  * @see {@link BatchUnsuspendUserCommandInput} for command's `input` shape.
  * @see {@link BatchUnsuspendUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -102,6 +109,9 @@ export class BatchUnsuspendUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUnsuspendUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class BatchUnsuspendUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUnsuspendUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchUnsuspendUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUnsuspendUserCommandOutput> {
     return deserializeAws_restJson1BatchUnsuspendUserCommand(output, context);
   }

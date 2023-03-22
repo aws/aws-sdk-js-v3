@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateActionTargetCommand}.
  */
 export interface CreateActionTargetCommandInput extends CreateActionTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateActionTargetCommand}.
  */
 export interface CreateActionTargetCommandOutput extends CreateActionTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom action target in Security Hub.</p>
  *          <p>You can use custom actions on findings and insights in Security Hub to trigger target actions
  *          in Amazon CloudWatch Events.</p>
@@ -48,6 +53,8 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateActionTargetCommandInput - {@link CreateActionTargetCommandInput}
+ * @returns {@link CreateActionTargetCommandOutput}
  * @see {@link CreateActionTargetCommandInput} for command's `input` shape.
  * @see {@link CreateActionTargetCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateActionTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateActionTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateActionTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateActionTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateActionTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateActionTargetCommandOutput> {
     return deserializeAws_restJson1CreateActionTargetCommand(output, context);
   }

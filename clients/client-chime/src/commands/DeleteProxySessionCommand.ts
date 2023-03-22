@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProxySessionCommand}.
  */
 export interface DeleteProxySessionCommandInput extends DeleteProxySessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProxySessionCommand}.
  */
 export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified proxy session from the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProxySessionCommandInput - {@link DeleteProxySessionCommandInput}
+ * @returns {@link DeleteProxySessionCommandOutput}
  * @see {@link DeleteProxySessionCommandInput} for command's `input` shape.
  * @see {@link DeleteProxySessionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteProxySessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProxySessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteProxySessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProxySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteProxySessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProxySessionCommandOutput> {
     return deserializeAws_restJson1DeleteProxySessionCommand(output, context);
   }

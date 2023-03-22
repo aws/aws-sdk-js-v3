@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDataQualityRuleRecommendationRunCommand}.
  */
 export interface StartDataQualityRuleRecommendationRunCommandInput
   extends StartDataQualityRuleRecommendationRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDataQualityRuleRecommendationRunCommand}.
  */
 export interface StartDataQualityRuleRecommendationRunCommandOutput
@@ -38,6 +42,7 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDataQualityRuleRecommendationRunCommandInput - {@link StartDataQualityRuleRecommendationRunCommandInput}
+ * @returns {@link StartDataQualityRuleRecommendationRunCommandOutput}
  * @see {@link StartDataQualityRuleRecommendationRunCommandInput} for command's `input` shape.
  * @see {@link StartDataQualityRuleRecommendationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDataQualityRuleRecommendationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class StartDataQualityRuleRecommendationRunCommand extends $Command<
     return serializeAws_json1_1StartDataQualityRuleRecommendationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

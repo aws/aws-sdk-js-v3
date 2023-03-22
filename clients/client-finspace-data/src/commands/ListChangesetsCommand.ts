@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChangesetsCommand}.
  */
 export interface ListChangesetsCommandInput extends ListChangesetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChangesetsCommand}.
  */
 export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the FinSpace Changesets for a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChangesetsCommandInput - {@link ListChangesetsCommandInput}
+ * @returns {@link ListChangesetsCommandOutput}
  * @see {@link ListChangesetsCommandInput} for command's `input` shape.
  * @see {@link ListChangesetsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListChangesetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChangesetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListChangesetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChangesetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListChangesetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangesetsCommandOutput> {
     return deserializeAws_restJson1ListChangesetsCommand(output, context);
   }

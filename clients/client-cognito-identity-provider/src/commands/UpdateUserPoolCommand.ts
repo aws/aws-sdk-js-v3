@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserPoolCommand}.
  */
 export interface UpdateUserPoolCommandInput extends UpdateUserPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserPoolCommand}.
  */
 export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified user pool with the specified attributes. You can get a list of
  *             the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>. If you don't provide a value for an attribute, it will be
  *             set to the default value.
@@ -72,6 +77,8 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserPoolCommandInput - {@link UpdateUserPoolCommandInput}
+ * @returns {@link UpdateUserPoolCommandOutput}
  * @see {@link UpdateUserPoolCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -138,6 +145,9 @@ export class UpdateUserPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,10 +188,16 @@ export class UpdateUserPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserPoolCommandOutput> {
     return deserializeAws_json1_1UpdateUserPoolCommand(output, context);
   }

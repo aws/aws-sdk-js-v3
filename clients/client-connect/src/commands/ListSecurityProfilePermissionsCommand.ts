@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityProfilePermissionsCommand}.
  */
 export interface ListSecurityProfilePermissionsCommandInput extends ListSecurityProfilePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityProfilePermissionsCommand}.
  */
 export interface ListSecurityProfilePermissionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListSecurityProfilePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Lists the permissions granted to a security profile.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListSecurityProfilePermissionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityProfilePermissionsCommandInput - {@link ListSecurityProfilePermissionsCommandInput}
+ * @returns {@link ListSecurityProfilePermissionsCommandOutput}
  * @see {@link ListSecurityProfilePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilePermissionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListSecurityProfilePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityProfilePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class ListSecurityProfilePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSecurityProfilePermissionsCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class ListSecurityProfilePermissionsCommand extends $Command<
     return serializeAws_restJson1ListSecurityProfilePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

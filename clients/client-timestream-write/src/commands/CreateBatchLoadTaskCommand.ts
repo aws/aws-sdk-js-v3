@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBatchLoadTaskCommand}.
  */
 export interface CreateBatchLoadTaskCommandInput extends CreateBatchLoadTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBatchLoadTaskCommand}.
  */
 export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Timestream batch load task. A batch load task processes data from
  *          a CSV source in an S3 location and writes to a Timestream table. A mapping from
  *          source to target is defined in a batch load task. Errors and events are written to a report
@@ -55,6 +60,8 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchLoadTaskCommandInput - {@link CreateBatchLoadTaskCommandInput}
+ * @returns {@link CreateBatchLoadTaskCommandOutput}
  * @see {@link CreateBatchLoadTaskCommandInput} for command's `input` shape.
  * @see {@link CreateBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateBatchLoadTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchLoadTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateBatchLoadTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchLoadTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateBatchLoadTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchLoadTaskCommandOutput> {
     return deserializeAws_json1_0CreateBatchLoadTaskCommand(output, context);
   }

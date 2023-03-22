@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHealthEventsCommand}.
  */
 export interface ListHealthEventsCommandInput extends ListHealthEventsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListHealthEventsCommand}.
  */
 export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all health events for a monitor in Amazon CloudWatch Internet Monitor. Returns all information for health events including the client location information the network
  * 			cause and status, event start and end time, percentage of total traffic impacted, and status.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHealthEventsCommandInput - {@link ListHealthEventsCommandInput}
+ * @returns {@link ListHealthEventsCommandOutput}
  * @see {@link ListHealthEventsCommandInput} for command's `input` shape.
  * @see {@link ListHealthEventsCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListHealthEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHealthEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListHealthEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHealthEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListHealthEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHealthEventsCommandOutput> {
     return deserializeAws_restJson1ListHealthEventsCommand(output, context);
   }

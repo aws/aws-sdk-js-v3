@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetLocationAttributesCommand}.
  */
 export interface DescribeFleetLocationAttributesCommandInput extends DescribeFleetLocationAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetLocationAttributesCommand}.
  */
 export interface DescribeFleetLocationAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeFleetLocationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information on a fleet's remote locations, including life-cycle status and
  *             any suspended fleet activity. </p>
  *         <p>This operation can be used in the following ways: </p>
@@ -73,6 +78,8 @@ export interface DescribeFleetLocationAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetLocationAttributesCommandInput - {@link DescribeFleetLocationAttributesCommandInput}
+ * @returns {@link DescribeFleetLocationAttributesCommandOutput}
  * @see {@link DescribeFleetLocationAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetLocationAttributesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -113,6 +120,9 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetLocationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,6 +162,9 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFleetLocationAttributesCommandInput,
     context: __SerdeContext
@@ -159,6 +172,9 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
     return serializeAws_json1_1DescribeFleetLocationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

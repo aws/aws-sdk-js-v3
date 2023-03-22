@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterApplicationCommand}.
  */
 export interface DeregisterApplicationCommandInput extends DeregisterApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterApplicationCommand}.
  */
 export interface DeregisterApplicationCommandOutput extends DeregisterApplicationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregister an SAP application with AWS Systems Manager for SAP. This action does not
  *          aﬀect the existing setup of your SAP workloads on Amazon EC2.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterApplicationCommandInput - {@link DeregisterApplicationCommandInput}
+ * @returns {@link DeregisterApplicationCommandOutput}
  * @see {@link DeregisterApplicationCommandInput} for command's `input` shape.
  * @see {@link DeregisterApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeregisterApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeregisterApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeregisterApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterApplicationCommandOutput> {
     return deserializeAws_restJson1DeregisterApplicationCommand(output, context);
   }

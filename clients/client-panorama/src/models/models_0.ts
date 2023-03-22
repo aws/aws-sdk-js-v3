@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { PanoramaServiceException as __BaseException } from "./PanoramaServiceException";
 
 /**
+ * @public
  * <p>The requestor does not have permission to access the target action or resource.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Details about a beta appliance software update.</p>
  */
 export interface AlternateSoftwareMetadata {
@@ -34,18 +36,27 @@ export interface AlternateSoftwareMetadata {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export enum ApplicationInstanceHealthStatus {
   ERROR = "ERROR",
   NOT_AVAILABLE = "NOT_AVAILABLE",
   RUNNING = "RUNNING",
 }
 
+/**
+ * @public
+ */
 export enum DesiredState {
   REMOVED = "REMOVED",
   RUNNING = "RUNNING",
   STOPPED = "STOPPED",
 }
 
+/**
+ * @public
+ */
 export enum DeviceReportedStatus {
   INSTALL_ERROR = "INSTALL_ERROR",
   INSTALL_IN_PROGRESS = "INSTALL_IN_PROGRESS",
@@ -61,6 +72,7 @@ export enum DeviceReportedStatus {
 }
 
 /**
+ * @public
  * <p>An application instance's state.</p>
  */
 export interface ReportedRuntimeContextState {
@@ -85,6 +97,9 @@ export interface ReportedRuntimeContextState {
   DeviceReportedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ApplicationInstanceStatus {
   DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR",
   DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED",
@@ -100,6 +115,7 @@ export enum ApplicationInstanceStatus {
 }
 
 /**
+ * @public
  * <p>An application instance on a device.</p>
  */
 export interface ApplicationInstance {
@@ -165,6 +181,7 @@ export interface ApplicationInstance {
 }
 
 /**
+ * @public
  * <p>A conflict exception error argument.</p>
  */
 export interface ConflictExceptionErrorArgument {
@@ -180,6 +197,7 @@ export interface ConflictExceptionErrorArgument {
 }
 
 /**
+ * @public
  * <p>The target resource is in use.</p>
  */
 export class ConflictException extends __BaseException {
@@ -223,12 +241,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ConnectionType {
   DHCP = "DHCP",
   STATIC_IP = "STATIC_IP",
 }
 
 /**
+ * @public
  * <p>Parameter overrides for an application instance. This is a JSON document that has a single key
  *         (<code>PayloadData</code>) where the value is an escaped string representation of the overrides document.</p>
  */
@@ -236,6 +258,9 @@ export type ManifestOverridesPayload =
   | ManifestOverridesPayload.PayloadDataMember
   | ManifestOverridesPayload.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ManifestOverridesPayload {
   /**
    * <p>The overrides document.</p>
@@ -262,12 +287,16 @@ export namespace ManifestOverridesPayload {
 }
 
 /**
+ * @public
  * <p>A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>)
  *       where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This
  *       file is located in the <code>graphs</code> folder in your application source.</p>
  */
 export type ManifestPayload = ManifestPayload.PayloadDataMember | ManifestPayload.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ManifestPayload {
   /**
    * <p>The application manifest.</p>
@@ -293,6 +322,9 @@ export namespace ManifestPayload {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationInstanceRequest {
   /**
    * <p>A name for the application instance.</p>
@@ -335,6 +367,9 @@ export interface CreateApplicationInstanceRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationInstanceResponse {
   /**
    * <p>The application instance's ID.</p>
@@ -343,6 +378,7 @@ export interface CreateApplicationInstanceResponse {
 }
 
 /**
+ * @public
  * <p>An internal error occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -369,6 +405,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause a limit to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -413,6 +450,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A validation exception error argument.</p>
  */
 export interface ValidationExceptionErrorArgument {
@@ -428,6 +466,7 @@ export interface ValidationExceptionErrorArgument {
 }
 
 /**
+ * @public
  * <p>A validation exception field.</p>
  */
 export interface ValidationExceptionField {
@@ -442,6 +481,9 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -450,6 +492,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The request contains an invalid parameter value.</p>
  */
 export class ValidationException extends __BaseException {
@@ -494,6 +537,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An over-the-air update (OTA) job configuration.</p>
  */
 export interface OTAJobConfig {
@@ -509,6 +553,7 @@ export interface OTAJobConfig {
 }
 
 /**
+ * @public
  * <p>A job's configuration.</p>
  */
 export interface DeviceJobConfig {
@@ -518,11 +563,17 @@ export interface DeviceJobConfig {
   OTAJobConfig?: OTAJobConfig;
 }
 
+/**
+ * @public
+ */
 export enum JobType {
   OTA = "OTA",
   REBOOT = "REBOOT",
 }
 
+/**
+ * @public
+ */
 export interface CreateJobForDevicesRequest {
   /**
    * <p>ID of target device.</p>
@@ -541,6 +592,7 @@ export interface CreateJobForDevicesRequest {
 }
 
 /**
+ * @public
  * <p>A job for a device.</p>
  */
 export interface Job {
@@ -555,6 +607,9 @@ export interface Job {
   DeviceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobForDevicesResponse {
   /**
    * <p>A list of jobs.</p>
@@ -563,6 +618,7 @@ export interface CreateJobForDevicesResponse {
 }
 
 /**
+ * @public
  * <p>The target resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -594,11 +650,15 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum JobResourceType {
   PACKAGE = "PACKAGE",
 }
 
 /**
+ * @public
  * <p>Tags for a job.</p>
  */
 export interface JobResourceTags {
@@ -613,10 +673,16 @@ export interface JobResourceTags {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TemplateType {
   RTSP_CAMERA_STREAM = "RTSP_CAMERA_STREAM",
 }
 
+/**
+ * @public
+ */
 export interface CreateNodeFromTemplateJobRequest {
   /**
    * <p>The type of node.</p>
@@ -654,6 +720,9 @@ export interface CreateNodeFromTemplateJobRequest {
   JobTags?: JobResourceTags[];
 }
 
+/**
+ * @public
+ */
 export interface CreateNodeFromTemplateJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -661,6 +730,9 @@ export interface CreateNodeFromTemplateJobResponse {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackageRequest {
   /**
    * <p>A name for the package.</p>
@@ -674,6 +746,7 @@ export interface CreatePackageRequest {
 }
 
 /**
+ * @public
  * <p>A storage location.</p>
  */
 export interface StorageLocation {
@@ -703,6 +776,9 @@ export interface StorageLocation {
   ManifestPrefixLocation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackageResponse {
   /**
    * <p>The package's ID.</p>
@@ -721,6 +797,7 @@ export interface CreatePackageResponse {
 }
 
 /**
+ * @public
  * <p>A location in Amazon S3.</p>
  */
 export interface S3Location {
@@ -741,6 +818,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>A package version input configuration.</p>
  */
 export interface PackageVersionInputConfig {
@@ -751,6 +829,7 @@ export interface PackageVersionInputConfig {
 }
 
 /**
+ * @public
  * <p>A configuration for a package import job.</p>
  */
 export interface PackageImportJobInputConfig {
@@ -760,12 +839,16 @@ export interface PackageImportJobInputConfig {
   PackageVersionInputConfig?: PackageVersionInputConfig;
 }
 
+/**
+ * @public
+ */
 export enum PackageImportJobType {
   MARKETPLACE_NODE_PACKAGE_VERSION = "MARKETPLACE_NODE_PACKAGE_VERSION",
   NODE_PACKAGE_VERSION = "NODE_PACKAGE_VERSION",
 }
 
 /**
+ * @public
  * <p>A package version output configuration.</p>
  */
 export interface PackageVersionOutputConfig {
@@ -786,6 +869,7 @@ export interface PackageVersionOutputConfig {
 }
 
 /**
+ * @public
  * <p>An output configuration for a package import job.</p>
  */
 export interface PackageImportJobOutputConfig {
@@ -795,6 +879,9 @@ export interface PackageImportJobOutputConfig {
   PackageVersionOutputConfig?: PackageVersionOutputConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreatePackageImportJobRequest {
   /**
    * <p>A job type for the package import job.</p>
@@ -822,6 +909,9 @@ export interface CreatePackageImportJobRequest {
   JobTags?: JobResourceTags[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePackageImportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -829,6 +919,9 @@ export interface CreatePackageImportJobResponse {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceRequest {
   /**
    * <p>The device's ID.</p>
@@ -836,6 +929,9 @@ export interface DeleteDeviceRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceResponse {
   /**
    * <p>The device's ID.</p>
@@ -843,6 +939,9 @@ export interface DeleteDeviceResponse {
   DeviceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageRequest {
   /**
    * <p>The package's ID.</p>
@@ -856,8 +955,14 @@ export interface DeletePackageRequest {
   ForceDelete?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeletePackageResponse {}
 
+/**
+ * @public
+ */
 export interface DeregisterPackageVersionRequest {
   /**
    * <p>An owner account.</p>
@@ -885,8 +990,14 @@ export interface DeregisterPackageVersionRequest {
   UpdatedLatestPatchVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterPackageVersionResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeApplicationInstanceRequest {
   /**
    * <p>The application instance's ID.</p>
@@ -894,6 +1005,9 @@ export interface DescribeApplicationInstanceRequest {
   ApplicationInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationInstanceResponse {
   /**
    * <p>The application instance's name.</p>
@@ -971,6 +1085,9 @@ export interface DescribeApplicationInstanceResponse {
   RuntimeContextStates?: ReportedRuntimeContextState[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationInstanceDetailsRequest {
   /**
    * <p>The application instance's ID.</p>
@@ -978,6 +1095,9 @@ export interface DescribeApplicationInstanceDetailsRequest {
   ApplicationInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationInstanceDetailsResponse {
   /**
    * <p>The application instance's name.</p>
@@ -1020,6 +1140,9 @@ export interface DescribeApplicationInstanceDetailsResponse {
   ApplicationInstanceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceRequest {
   /**
    * <p>The device's ID.</p>
@@ -1027,11 +1150,17 @@ export interface DescribeDeviceRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeviceBrand {
   AWS_PANORAMA = "AWS_PANORAMA",
   LENOVO = "LENOVO",
 }
 
+/**
+ * @public
+ */
 export enum NetworkConnectionStatus {
   CONNECTED = "CONNECTED",
   CONNECTING = "CONNECTING",
@@ -1039,6 +1168,7 @@ export enum NetworkConnectionStatus {
 }
 
 /**
+ * @public
  * <p>A device's Ethernet status.</p>
  */
 export interface EthernetStatus {
@@ -1059,6 +1189,7 @@ export interface EthernetStatus {
 }
 
 /**
+ * @public
  * <p>Details about an NTP server connection.</p>
  */
 export interface NtpStatus {
@@ -1079,6 +1210,7 @@ export interface NtpStatus {
 }
 
 /**
+ * @public
  * <p>The network status of a device.</p>
  */
 export interface NetworkStatus {
@@ -1103,6 +1235,9 @@ export interface NetworkStatus {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export enum DeviceAggregatedStatus {
   AWAITING_PROVISIONING = "AWAITING_PROVISIONING",
   DELETING = "DELETING",
@@ -1116,6 +1251,9 @@ export enum DeviceAggregatedStatus {
   UPDATE_NEEDED = "UPDATE_NEEDED",
 }
 
+/**
+ * @public
+ */
 export enum DeviceConnectionStatus {
   AWAITING_CREDENTIALS = "AWAITING_CREDENTIALS",
   ERROR = "ERROR",
@@ -1124,6 +1262,9 @@ export enum DeviceConnectionStatus {
   ONLINE = "ONLINE",
 }
 
+/**
+ * @public
+ */
 export enum UpdateProgress {
   COMPLETED = "COMPLETED",
   DOWNLOADING = "DOWNLOADING",
@@ -1135,6 +1276,7 @@ export enum UpdateProgress {
 }
 
 /**
+ * @public
  * <p>Returns information about the latest device job.</p>
  */
 export interface LatestDeviceJob {
@@ -1155,6 +1297,7 @@ export interface LatestDeviceJob {
 }
 
 /**
+ * @public
  * <p>A static IP configuration.</p>
  */
 export interface StaticIpConnectionInfo {
@@ -1180,6 +1323,7 @@ export interface StaticIpConnectionInfo {
 }
 
 /**
+ * @public
  * <p>A device's network configuration.</p>
  */
 export interface EthernetPayload {
@@ -1195,6 +1339,7 @@ export interface EthernetPayload {
 }
 
 /**
+ * @public
  * <p>Network time protocol (NTP) server settings. Use this option to connect to local NTP servers instead of
  *         <code>pool.ntp.org</code>.</p>
  */
@@ -1206,6 +1351,7 @@ export interface NtpPayload {
 }
 
 /**
+ * @public
  * <p>The network configuration for a device.</p>
  */
 export interface NetworkPayload {
@@ -1225,6 +1371,9 @@ export interface NetworkPayload {
   Ntp?: NtpPayload;
 }
 
+/**
+ * @public
+ */
 export enum DeviceStatus {
   AWAITING_PROVISIONING = "AWAITING_PROVISIONING",
   DELETING = "DELETING",
@@ -1234,11 +1383,17 @@ export enum DeviceStatus {
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export enum DeviceType {
   PANORAMA_APPLIANCE = "PANORAMA_APPLIANCE",
   PANORAMA_APPLIANCE_DEVELOPER_KIT = "PANORAMA_APPLIANCE_DEVELOPER_KIT",
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceResponse {
   /**
    * <p>The device's ID.</p>
@@ -1341,6 +1496,9 @@ export interface DescribeDeviceResponse {
   DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceJobRequest {
   /**
    * <p>The job's ID.</p>
@@ -1348,6 +1506,9 @@ export interface DescribeDeviceJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -1395,6 +1556,9 @@ export interface DescribeDeviceJobResponse {
   JobType?: JobType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodeRequest {
   /**
    * <p>The node's ID.</p>
@@ -1407,6 +1571,9 @@ export interface DescribeNodeRequest {
   OwnerAccount?: string;
 }
 
+/**
+ * @public
+ */
 export enum NodeCategory {
   BUSINESS_LOGIC = "BUSINESS_LOGIC",
   MEDIA_SINK = "MEDIA_SINK",
@@ -1414,6 +1581,9 @@ export enum NodeCategory {
   ML_MODEL = "ML_MODEL",
 }
 
+/**
+ * @public
+ */
 export enum PortType {
   BOOLEAN = "BOOLEAN",
   FLOAT32 = "FLOAT32",
@@ -1423,6 +1593,7 @@ export enum PortType {
 }
 
 /**
+ * @public
  * <p>A node input port.</p>
  */
 export interface NodeInputPort {
@@ -1453,6 +1624,7 @@ export interface NodeInputPort {
 }
 
 /**
+ * @public
  * <p>A node output port.</p>
  */
 export interface NodeOutputPort {
@@ -1473,6 +1645,7 @@ export interface NodeOutputPort {
 }
 
 /**
+ * @public
  * <p>A node interface.</p>
  */
 export interface NodeInterface {
@@ -1487,6 +1660,9 @@ export interface NodeInterface {
   Outputs: NodeOutputPort[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodeResponse {
   /**
    * <p>The node's ID.</p>
@@ -1559,6 +1735,9 @@ export interface DescribeNodeResponse {
   LastUpdatedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodeFromTemplateJobRequest {
   /**
    * <p>The job's ID.</p>
@@ -1566,12 +1745,18 @@ export interface DescribeNodeFromTemplateJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NodeFromTemplateJobStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodeFromTemplateJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -1634,6 +1819,9 @@ export interface DescribeNodeFromTemplateJobResponse {
   JobTags?: JobResourceTags[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageRequest {
   /**
    * <p>The package's ID.</p>
@@ -1641,6 +1829,9 @@ export interface DescribePackageRequest {
   PackageId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageResponse {
   /**
    * <p>The package's ID.</p>
@@ -1683,6 +1874,9 @@ export interface DescribePackageResponse {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageImportJobRequest {
   /**
    * <p>The job's ID.</p>
@@ -1691,6 +1885,7 @@ export interface DescribePackageImportJobRequest {
 }
 
 /**
+ * @public
  * <p>The location of an output object in Amazon S3.</p>
  */
 export interface OutPutS3Location {
@@ -1706,6 +1901,7 @@ export interface OutPutS3Location {
 }
 
 /**
+ * @public
  * <p>Results of a package import job.</p>
  */
 export interface PackageImportJobOutput {
@@ -1730,12 +1926,18 @@ export interface PackageImportJobOutput {
   OutputS3Location: OutPutS3Location | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PackageImportJobStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
   SUCCEEDED = "SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageImportJobResponse {
   /**
    * <p>The job's ID.</p>
@@ -1793,6 +1995,9 @@ export interface DescribePackageImportJobResponse {
   JobTags?: JobResourceTags[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageVersionRequest {
   /**
    * <p>The version's owner account.</p>
@@ -1815,6 +2020,9 @@ export interface DescribePackageVersionRequest {
   PatchVersion?: string;
 }
 
+/**
+ * @public
+ */
 export enum PackageVersionStatus {
   DELETING = "DELETING",
   FAILED = "FAILED",
@@ -1822,6 +2030,9 @@ export enum PackageVersionStatus {
   REGISTER_PENDING = "REGISTER_PENDING",
 }
 
+/**
+ * @public
+ */
 export interface DescribePackageVersionResponse {
   /**
    * <p>The account ID of the version's owner.</p>
@@ -1875,6 +2086,7 @@ export interface DescribePackageVersionResponse {
 }
 
 /**
+ * @public
  * <p>A device.</p>
  */
 export interface Device {
@@ -1945,6 +2157,7 @@ export interface Device {
 }
 
 /**
+ * @public
  * <p>A job that runs on a device.</p>
  */
 export interface DeviceJob {
@@ -1974,6 +2187,9 @@ export interface DeviceJob {
   JobType?: JobType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstanceDependenciesRequest {
   /**
    * <p>The application instance's ID.</p>
@@ -1992,6 +2208,7 @@ export interface ListApplicationInstanceDependenciesRequest {
 }
 
 /**
+ * @public
  * <p>A package object.</p>
  */
 export interface PackageObject {
@@ -2011,6 +2228,9 @@ export interface PackageObject {
   PatchVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstanceDependenciesResponse {
   /**
    * <p>A list of package objects.</p>
@@ -2023,6 +2243,9 @@ export interface ListApplicationInstanceDependenciesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstanceNodeInstancesRequest {
   /**
    * <p>The node instances' application instance ID.</p>
@@ -2040,6 +2263,9 @@ export interface ListApplicationInstanceNodeInstancesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum NodeInstanceStatus {
   ERROR = "ERROR",
   NOT_AVAILABLE = "NOT_AVAILABLE",
@@ -2048,6 +2274,7 @@ export enum NodeInstanceStatus {
 }
 
 /**
+ * @public
  * <p>A node instance.</p>
  */
 export interface NodeInstance {
@@ -2087,6 +2314,9 @@ export interface NodeInstance {
   CurrentStatus: NodeInstanceStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstanceNodeInstancesResponse {
   /**
    * <p>A list of node instances.</p>
@@ -2099,6 +2329,9 @@ export interface ListApplicationInstanceNodeInstancesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum StatusFilter {
   DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR",
   DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED",
@@ -2109,6 +2342,9 @@ export enum StatusFilter {
   REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED",
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstancesRequest {
   /**
    * <p>The application instances' device ID.</p>
@@ -2131,6 +2367,9 @@ export interface ListApplicationInstancesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationInstancesResponse {
   /**
    * <p>A list of application instances.</p>
@@ -2143,6 +2382,9 @@ export interface ListApplicationInstancesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListDevicesSortBy {
   CREATED_TIME = "CREATED_TIME",
   DEVICE_AGGREGATED_STATUS = "DEVICE_AGGREGATED_STATUS",
@@ -2150,11 +2392,17 @@ export enum ListDevicesSortBy {
   NAME = "NAME",
 }
 
+/**
+ * @public
+ */
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesRequest {
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -2187,6 +2435,9 @@ export interface ListDevicesRequest {
   DeviceAggregatedStatusFilter?: DeviceAggregatedStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesResponse {
   /**
    * <p>A list of devices.</p>
@@ -2199,6 +2450,9 @@ export interface ListDevicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesJobsRequest {
   /**
    * <p>Filter results by the job's target device ID.</p>
@@ -2216,6 +2470,9 @@ export interface ListDevicesJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDevicesJobsResponse {
   /**
    * <p>A list of jobs.</p>
@@ -2228,6 +2485,9 @@ export interface ListDevicesJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodeFromTemplateJobsRequest {
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -2241,6 +2501,7 @@ export interface ListNodeFromTemplateJobsRequest {
 }
 
 /**
+ * @public
  * <p>A job to create a camera stream node.</p>
  */
 export interface NodeFromTemplateJob {
@@ -2275,6 +2536,9 @@ export interface NodeFromTemplateJob {
   NodeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodeFromTemplateJobsResponse {
   /**
    * <p>A list of jobs.</p>
@@ -2287,6 +2551,9 @@ export interface ListNodeFromTemplateJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodesRequest {
   /**
    * <p>Search for nodes by category.</p>
@@ -2325,6 +2592,7 @@ export interface ListNodesRequest {
 }
 
 /**
+ * @public
  * <p>An application node that represents a camera stream, a model, code, or output.</p>
  */
 export interface Node {
@@ -2384,6 +2652,9 @@ export interface Node {
   CreatedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListNodesResponse {
   /**
    * <p>A list of nodes.</p>
@@ -2396,6 +2667,9 @@ export interface ListNodesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageImportJobsRequest {
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -2409,6 +2683,7 @@ export interface ListPackageImportJobsRequest {
 }
 
 /**
+ * @public
  * <p>A job to import a package version.</p>
  */
 export interface PackageImportJob {
@@ -2443,6 +2718,9 @@ export interface PackageImportJob {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPackageImportJobsResponse {
   /**
    * <p>A list of package import jobs.</p>
@@ -2455,6 +2733,9 @@ export interface ListPackageImportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagesRequest {
   /**
    * <p>The maximum number of packages to return in one page of results.</p>
@@ -2468,6 +2749,7 @@ export interface ListPackagesRequest {
 }
 
 /**
+ * @public
  * <p>A package summary.</p>
  */
 export interface PackageListItem {
@@ -2497,6 +2779,9 @@ export interface PackageListItem {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListPackagesResponse {
   /**
    * <p>A list of packages.</p>
@@ -2509,6 +2794,9 @@ export interface ListPackagesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -2516,6 +2804,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags.</p>
@@ -2523,12 +2814,16 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum NodeSignalValue {
   PAUSE = "PAUSE",
   RESUME = "RESUME",
 }
 
 /**
+ * @public
  * <p>A signal to a camera node to start or stop processing video.</p>
  */
 export interface NodeSignal {
@@ -2543,6 +2838,9 @@ export interface NodeSignal {
   Signal: NodeSignalValue | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ProvisionDeviceRequest {
   /**
    * <p>A name for the device.</p>
@@ -2565,6 +2863,9 @@ export interface ProvisionDeviceRequest {
   NetworkingConfiguration?: NetworkPayload;
 }
 
+/**
+ * @public
+ */
 export interface ProvisionDeviceResponse {
   /**
    * <p>The device's ID.</p>
@@ -2592,6 +2893,9 @@ export interface ProvisionDeviceResponse {
   IotThingName?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterPackageVersionRequest {
   /**
    * <p>An owner account.</p>
@@ -2619,8 +2923,14 @@ export interface RegisterPackageVersionRequest {
   MarkLatest?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RegisterPackageVersionResponse {}
 
+/**
+ * @public
+ */
 export interface RemoveApplicationInstanceRequest {
   /**
    * <p>An application instance ID.</p>
@@ -2628,8 +2938,14 @@ export interface RemoveApplicationInstanceRequest {
   ApplicationInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveApplicationInstanceResponse {}
 
+/**
+ * @public
+ */
 export interface SignalApplicationInstanceNodeInstancesRequest {
   /**
    * <p>An application instance ID.</p>
@@ -2642,6 +2958,9 @@ export interface SignalApplicationInstanceNodeInstancesRequest {
   NodeSignals: NodeSignal[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SignalApplicationInstanceNodeInstancesResponse {
   /**
    * <p>An application instance ID.</p>
@@ -2649,6 +2968,9 @@ export interface SignalApplicationInstanceNodeInstancesResponse {
   ApplicationInstanceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -2661,8 +2983,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -2675,8 +3003,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDeviceMetadataRequest {
   /**
    * <p>The device's ID.</p>
@@ -2689,6 +3023,9 @@ export interface UpdateDeviceMetadataRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceMetadataResponse {
   /**
    * <p>The device's ID.</p>

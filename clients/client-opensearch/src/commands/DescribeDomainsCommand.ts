@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainsCommand}.
  */
 export interface DescribeDomainsCommandInput extends DescribeDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainsCommand}.
  */
 export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns domain configuration information about the specified Amazon OpenSearch Service
  *    domains.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainsCommandInput - {@link DescribeDomainsCommandInput}
+ * @returns {@link DescribeDomainsCommandOutput}
  * @see {@link DescribeDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainsCommandOutput> {
     return deserializeAws_restJson1DescribeDomainsCommand(output, context);
   }

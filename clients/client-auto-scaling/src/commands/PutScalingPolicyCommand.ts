@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutScalingPolicyCommand}.
  */
 export interface PutScalingPolicyCommandInput extends PutScalingPolicyType {}
 /**
+ * @public
+ *
  * The output of {@link PutScalingPolicyCommand}.
  */
 export interface PutScalingPolicyCommandOutput extends PolicyARNType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are used to
  *             scale an Auto Scaling group based on configurable metrics. If no policies are defined, the
  *             dynamic scaling and predictive scaling features are not used. </p>
@@ -55,6 +60,8 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
+ * @returns {@link PutScalingPolicyCommandOutput}
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -126,6 +133,9 @@ export class PutScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,10 +175,16 @@ export class PutScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
     return deserializeAws_queryPutScalingPolicyCommand(output, context);
   }

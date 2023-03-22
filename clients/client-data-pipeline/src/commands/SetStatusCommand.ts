@@ -18,15 +18,20 @@ import { SetStatusInput, SetStatusInputFilterSensitiveLog } from "../models/mode
 import { deserializeAws_json1_1SetStatusCommand, serializeAws_json1_1SetStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetStatusCommand}.
  */
 export interface SetStatusCommandInput extends SetStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link SetStatusCommand}.
  */
 export interface SetStatusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline.
  *             This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity).
  *             You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.</p>
@@ -42,10 +47,10 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"pipelineId": "df-0634701J7KEXAMPLE",
+ * \{"pipelineId": "df-0634701J7KEXAMPLE",
  *  "objectIds":
  *   ["o-08600941GHJWMBR9E2"],
- *  "status": "pause"}
+ *  "status": "pause"\}
  *
  *             </request>
  *
@@ -70,6 +75,8 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetStatusCommandInput - {@link SetStatusCommandInput}
+ * @returns {@link SetStatusCommandOutput}
  * @see {@link SetStatusCommandInput} for command's `input` shape.
  * @see {@link SetStatusCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -105,6 +112,9 @@ export class SetStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class SetStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetStatusCommandOutput> {
     return deserializeAws_json1_1SetStatusCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAuditFindingCommand}.
  */
 export interface DescribeAuditFindingCommandInput extends DescribeAuditFindingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAuditFindingCommand}.
  */
 export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a single audit finding. Properties include the reason for
  *       noncompliance, the severity of the issue,
  *       and the start time
@@ -51,6 +56,8 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAuditFindingCommandInput - {@link DescribeAuditFindingCommandInput}
+ * @returns {@link DescribeAuditFindingCommandOutput}
  * @see {@link DescribeAuditFindingCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditFindingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeAuditFindingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAuditFindingCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeAuditFindingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAuditFindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAuditFindingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAuditFindingCommandOutput> {
     return deserializeAws_restJson1DescribeAuditFindingCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLabelCommand}.
  */
 export interface DeleteLabelCommandInput extends DeleteLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLabelCommand}.
  */
 export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a label.</p>
  *          <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>
  *          <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>
@@ -49,6 +54,8 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLabelCommandInput - {@link DeleteLabelCommandInput}
+ * @returns {@link DeleteLabelCommandOutput}
  * @see {@link DeleteLabelCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLabelCommandOutput> {
     return deserializeAws_json1_1DeleteLabelCommand(output, context);
   }

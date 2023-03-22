@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIntegrationWorkflowCommand}.
  */
 export interface CreateIntegrationWorkflowCommandInput extends CreateIntegrationWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIntegrationWorkflowCommand}.
  */
 export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegrationWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 	Creates an integration workflow. An integration workflow is an async process which ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
  * 	</p>
@@ -48,6 +53,8 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIntegrationWorkflowCommandInput - {@link CreateIntegrationWorkflowCommandInput}
+ * @returns {@link CreateIntegrationWorkflowCommandOutput}
  * @see {@link CreateIntegrationWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateIntegrationWorkflowCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateIntegrationWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIntegrationWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateIntegrationWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIntegrationWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateIntegrationWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

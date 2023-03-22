@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutReplicationConfigurationCommand}.
  */
 export interface PutReplicationConfigurationCommandInput extends PutReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutReplicationConfigurationCommand}.
  */
 export interface PutReplicationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface PutReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the replication configuration for a registry. The existing
  *             replication configuration for a repository can be retrieved with the <a>DescribeRegistry</a> API action. The first time the
  *             PutReplicationConfiguration API is called, a service-linked IAM role is created in
@@ -58,6 +63,8 @@ export interface PutReplicationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutReplicationConfigurationCommandInput - {@link PutReplicationConfigurationCommandInput}
+ * @returns {@link PutReplicationConfigurationCommandOutput}
  * @see {@link PutReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -91,6 +98,9 @@ export class PutReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class PutReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutReplicationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

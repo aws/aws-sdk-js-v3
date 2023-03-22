@@ -6,7 +6,7 @@ import { EMRContainersClient } from "../EMRContainersClient";
 import { EMRContainersPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EMRContainersClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListJobRunsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListJobRuns(
   config: EMRContainersPaginationConfiguration,
   input: ListJobRunsCommandInput,

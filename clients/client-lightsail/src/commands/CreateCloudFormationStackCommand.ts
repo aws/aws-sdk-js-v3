@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCloudFormationStackCommand}.
  */
 export interface CreateCloudFormationStackCommandInput extends CreateCloudFormationStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCloudFormationStackCommand}.
  */
 export interface CreateCloudFormationStackCommandOutput extends CreateCloudFormationStackResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance from an exported
  *       Amazon Lightsail snapshot. This operation results in a CloudFormation stack record that can be
  *       used to track the AWS CloudFormation stack created. Use the <code>get cloud formation stack
@@ -53,6 +58,8 @@ export interface CreateCloudFormationStackCommandOutput extends CreateCloudForma
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCloudFormationStackCommandInput - {@link CreateCloudFormationStackCommandInput}
+ * @returns {@link CreateCloudFormationStackCommandOutput}
  * @see {@link CreateCloudFormationStackCommandInput} for command's `input` shape.
  * @see {@link CreateCloudFormationStackCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateCloudFormationStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCloudFormationStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateCloudFormationStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCloudFormationStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCloudFormationStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

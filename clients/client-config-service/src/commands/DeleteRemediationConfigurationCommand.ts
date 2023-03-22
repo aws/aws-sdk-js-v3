@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRemediationConfigurationCommand}.
  */
 export interface DeleteRemediationConfigurationCommandInput extends DeleteRemediationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRemediationConfigurationCommand}.
  */
 export interface DeleteRemediationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteRemediationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the remediation configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteRemediationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRemediationConfigurationCommandInput - {@link DeleteRemediationConfigurationCommandInput}
+ * @returns {@link DeleteRemediationConfigurationCommandOutput}
  * @see {@link DeleteRemediationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRemediationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -106,6 +113,9 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRemediationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteRemediationConfigurationCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     return serializeAws_json1_1DeleteRemediationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

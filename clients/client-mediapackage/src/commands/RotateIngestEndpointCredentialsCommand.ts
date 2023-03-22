@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RotateIngestEndpointCredentialsCommand}.
  */
 export interface RotateIngestEndpointCredentialsCommandInput extends RotateIngestEndpointCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RotateIngestEndpointCredentialsCommand}.
  */
 export interface RotateIngestEndpointCredentialsCommandOutput
@@ -37,6 +41,7 @@ export interface RotateIngestEndpointCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface RotateIngestEndpointCredentialsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RotateIngestEndpointCredentialsCommandInput - {@link RotateIngestEndpointCredentialsCommandInput}
+ * @returns {@link RotateIngestEndpointCredentialsCommandOutput}
  * @see {@link RotateIngestEndpointCredentialsCommandInput} for command's `input` shape.
  * @see {@link RotateIngestEndpointCredentialsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -89,6 +96,9 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RotateIngestEndpointCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RotateIngestEndpointCredentialsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     return serializeAws_restJson1RotateIngestEndpointCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

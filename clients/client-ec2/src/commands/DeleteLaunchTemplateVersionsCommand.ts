@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLaunchTemplateVersionsCommand}.
  */
 export interface DeleteLaunchTemplateVersionsCommandInput extends DeleteLaunchTemplateVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLaunchTemplateVersionsCommand}.
  */
 export interface DeleteLaunchTemplateVersionsCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more versions of a launch template. You cannot delete the default
  *             version of a launch template; you must first assign a different version as the default.
  *             If the default version is the only version for the launch template, you must delete the
@@ -51,6 +56,8 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchTemplateVersionsCommandInput - {@link DeleteLaunchTemplateVersionsCommandInput}
+ * @returns {@link DeleteLaunchTemplateVersionsCommandOutput}
  * @see {@link DeleteLaunchTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchTemplateVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteLaunchTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

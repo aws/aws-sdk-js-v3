@@ -26,10 +26,14 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrafficPolicyInstancesByPolicyCommand}.
  */
 export interface ListTrafficPolicyInstancesByPolicyCommandInput extends ListTrafficPolicyInstancesByPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrafficPolicyInstancesByPolicyCommand}.
  */
 export interface ListTrafficPolicyInstancesByPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface ListTrafficPolicyInstancesByPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the traffic policy instances that you created by using a
  * 			specify traffic policy version.</p>
  *          <note>
@@ -59,6 +64,8 @@ export interface ListTrafficPolicyInstancesByPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrafficPolicyInstancesByPolicyCommandInput - {@link ListTrafficPolicyInstancesByPolicyCommandInput}
+ * @returns {@link ListTrafficPolicyInstancesByPolicyCommandOutput}
  * @see {@link ListTrafficPolicyInstancesByPolicyCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyInstancesByPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -91,6 +98,9 @@ export class ListTrafficPolicyInstancesByPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrafficPolicyInstancesByPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class ListTrafficPolicyInstancesByPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListTrafficPolicyInstancesByPolicyCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class ListTrafficPolicyInstancesByPolicyCommand extends $Command<
     return serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

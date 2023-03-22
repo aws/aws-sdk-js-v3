@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterWebhookWithThirdPartyCommand}.
  */
 export interface RegisterWebhookWithThirdPartyCommandInput extends RegisterWebhookWithThirdPartyInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterWebhookWithThirdPartyCommand}.
  */
 export interface RegisterWebhookWithThirdPartyCommandOutput
@@ -37,6 +41,7 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures a connection between the webhook that was created and the external tool
  *             with events to be detected.</p>
  * @example
@@ -49,6 +54,8 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterWebhookWithThirdPartyCommandInput - {@link RegisterWebhookWithThirdPartyCommandInput}
+ * @returns {@link RegisterWebhookWithThirdPartyCommandOutput}
  * @see {@link RegisterWebhookWithThirdPartyCommandInput} for command's `input` shape.
  * @see {@link RegisterWebhookWithThirdPartyCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -79,6 +86,9 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterWebhookWithThirdPartyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterWebhookWithThirdPartyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterWebhookWithThirdPartyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

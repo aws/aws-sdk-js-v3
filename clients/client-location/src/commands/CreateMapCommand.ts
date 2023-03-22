@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMapCommand}.
  */
 export interface CreateMapCommandInput extends CreateMapRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMapCommand}.
  */
 export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different
  *             styles sourced from global location data providers.</p>
  *          <note>
@@ -53,6 +58,8 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMapCommandInput - {@link CreateMapCommandInput}
+ * @returns {@link CreateMapCommandOutput}
  * @see {@link CreateMapCommandInput} for command's `input` shape.
  * @see {@link CreateMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMapCommandOutput> {
     return deserializeAws_restJson1CreateMapCommand(output, context);
   }

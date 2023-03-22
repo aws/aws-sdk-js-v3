@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyProjectVersionCommand}.
  */
 export interface CopyProjectVersionCommandInput extends CopyProjectVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyProjectVersionCommand}.
  */
 export interface CopyProjectVersionCommandOutput extends CopyProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and
  *          destination projects can be in different AWS accounts but must be in the same AWS Region.
  *          You can't copy a model to another AWS service.
@@ -64,6 +69,8 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyProjectVersionCommandInput - {@link CopyProjectVersionCommandInput}
+ * @returns {@link CopyProjectVersionCommandOutput}
  * @see {@link CopyProjectVersionCommandInput} for command's `input` shape.
  * @see {@link CopyProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -147,6 +154,9 @@ export class CopyProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class CopyProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CopyProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyProjectVersionCommandOutput> {
     return deserializeAws_json1_1CopyProjectVersionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRuleGroupsNamespaceCommand}.
  */
 export interface PutRuleGroupsNamespaceCommandInput extends PutRuleGroupsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRuleGroupsNamespaceCommand}.
  */
 export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Update a rule groups namespace.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRuleGroupsNamespaceCommandInput - {@link PutRuleGroupsNamespaceCommandInput}
+ * @returns {@link PutRuleGroupsNamespaceCommandOutput}
  * @see {@link PutRuleGroupsNamespaceCommandInput} for command's `input` shape.
  * @see {@link PutRuleGroupsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -90,6 +97,9 @@ export class PutRuleGroupsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRuleGroupsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class PutRuleGroupsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRuleGroupsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutRuleGroupsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRuleGroupsNamespaceCommandOutput> {
     return deserializeAws_restJson1PutRuleGroupsNamespaceCommand(output, context);
   }

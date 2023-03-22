@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKeyCommand}.
  */
 export interface CreateKeyCommandInput extends CreateKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKeyCommand}.
  */
 export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an API key resource in your Amazon Web Services account, which lets you grant
  *                 <code>geo:GetMap*</code> actions for Amazon Location Map resources to the API key
  *             bearer.</p>
@@ -53,6 +58,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeyCommandInput - {@link CreateKeyCommandInput}
+ * @returns {@link CreateKeyCommandOutput}
  * @see {@link CreateKeyCommandInput} for command's `input` shape.
  * @see {@link CreateKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyCommandOutput> {
     return deserializeAws_restJson1CreateKeyCommand(output, context);
   }

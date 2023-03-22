@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingsCommand}.
  */
 export interface GetFindingsCommandInput extends GetFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingsCommand}.
  */
 export interface GetFindingsCommandOutput extends GetFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes Amazon GuardDuty findings specified by finding IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingsCommandInput - {@link GetFindingsCommandInput}
+ * @returns {@link GetFindingsCommandOutput}
  * @see {@link GetFindingsCommandInput} for command's `input` shape.
  * @see {@link GetFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsCommandOutput> {
     return deserializeAws_restJson1GetFindingsCommand(output, context);
   }

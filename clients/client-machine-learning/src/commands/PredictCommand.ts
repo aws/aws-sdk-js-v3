@@ -24,15 +24,20 @@ import {
 import { deserializeAws_json1_1PredictCommand, serializeAws_json1_1PredictCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PredictCommand}.
  */
 export interface PredictCommandInput extends PredictInput {}
 /**
+ * @public
+ *
  * The output of {@link PredictCommand}.
  */
 export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a prediction for the observation using the specified <code>ML Model</code>.</p>
  *         <p>
  *             <b>Note:</b> Not all response parameters will be populated. Whether a
@@ -47,6 +52,8 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PredictCommandInput - {@link PredictCommandInput}
+ * @returns {@link PredictCommandOutput}
  * @see {@link PredictCommandInput} for command's `input` shape.
  * @see {@link PredictCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -85,6 +92,9 @@ export class PredictCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PredictCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class PredictCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PredictCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PredictCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PredictCommandOutput> {
     return deserializeAws_json1_1PredictCommand(output, context);
   }

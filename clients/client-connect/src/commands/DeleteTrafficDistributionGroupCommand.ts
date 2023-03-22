@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrafficDistributionGroupCommand}.
  */
 export interface DeleteTrafficDistributionGroupCommandInput extends DeleteTrafficDistributionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrafficDistributionGroupCommand}.
  */
 export interface DeleteTrafficDistributionGroupCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteTrafficDistributionGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is
  *    created.</p>
  *          <p>For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete traffic distribution groups</a> in
@@ -51,6 +56,8 @@ export interface DeleteTrafficDistributionGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrafficDistributionGroupCommandInput - {@link DeleteTrafficDistributionGroupCommandInput}
+ * @returns {@link DeleteTrafficDistributionGroupCommandOutput}
  * @see {@link DeleteTrafficDistributionGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficDistributionGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteTrafficDistributionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrafficDistributionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class DeleteTrafficDistributionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTrafficDistributionGroupCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class DeleteTrafficDistributionGroupCommand extends $Command<
     return serializeAws_restJson1DeleteTrafficDistributionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

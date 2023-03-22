@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from Wisdom service.
  */
 export class WisdomServiceException extends __ServiceException {

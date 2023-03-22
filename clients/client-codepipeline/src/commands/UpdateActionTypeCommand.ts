@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateActionTypeCommand}.
  */
 export interface UpdateActionTypeCommandInput extends UpdateActionTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateActionTypeCommand}.
  */
 export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an action type that was created with any supported integration model, where
  *             the action type is to be used by customers of the action type provider. Use a JSON file
  *             with the action definition and <code>UpdateActionType</code> to provide the full
@@ -44,6 +49,8 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateActionTypeCommandInput - {@link UpdateActionTypeCommandInput}
+ * @returns {@link UpdateActionTypeCommandOutput}
  * @see {@link UpdateActionTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateActionTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateActionTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UpdateActionTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateActionTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateActionTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateActionTypeCommandOutput> {
     return deserializeAws_json1_1UpdateActionTypeCommand(output, context);
   }

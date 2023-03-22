@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AdvertiseByoipCidrCommand}.
  */
 export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdvertiseByoipCidrCommand}.
  */
 export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon Web Services resources through
  *          bring your own IP addresses (BYOIP).</p>
  *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
@@ -56,6 +61,8 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  * const response = await client.send(command);
  * ```
  *
+ * @param AdvertiseByoipCidrCommandInput - {@link AdvertiseByoipCidrCommandInput}
+ * @returns {@link AdvertiseByoipCidrCommandOutput}
  * @see {@link AdvertiseByoipCidrCommandInput} for command's `input` shape.
  * @see {@link AdvertiseByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +86,9 @@ export class AdvertiseByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdvertiseByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class AdvertiseByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdvertiseByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AdvertiseByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdvertiseByoipCidrCommandOutput> {
     return deserializeAws_ec2AdvertiseByoipCidrCommand(output, context);
   }

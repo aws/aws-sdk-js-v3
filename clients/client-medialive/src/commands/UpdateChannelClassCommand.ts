@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChannelClassCommand}.
  */
 export interface UpdateChannelClassCommandInput extends UpdateChannelClassRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChannelClassCommand}.
  */
 export interface UpdateChannelClassCommandOutput extends UpdateChannelClassResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Changes the class of the channel.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelClassCommandInput - {@link UpdateChannelClassCommandInput}
+ * @returns {@link UpdateChannelClassCommandOutput}
  * @see {@link UpdateChannelClassCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelClassCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -96,6 +103,9 @@ export class UpdateChannelClassCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelClassCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class UpdateChannelClassCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelClassCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateChannelClassCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelClassCommandOutput> {
     return deserializeAws_restJson1UpdateChannelClassCommand(output, context);
   }

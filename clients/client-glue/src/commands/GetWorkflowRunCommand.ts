@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkflowRunCommand}.
  */
 export interface GetWorkflowRunCommandInput extends GetWorkflowRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkflowRunCommand}.
  */
 export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the metadata for a given workflow run. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowRunCommandInput - {@link GetWorkflowRunCommandInput}
+ * @returns {@link GetWorkflowRunCommandOutput}
  * @see {@link GetWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetWorkflowRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetWorkflowRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetWorkflowRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowRunCommandOutput> {
     return deserializeAws_json1_1GetWorkflowRunCommand(output, context);
   }

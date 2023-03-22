@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHumanTaskUiCommand}.
  */
 export interface CreateHumanTaskUiCommandInput extends CreateHumanTaskUiRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHumanTaskUiCommand}.
  */
 export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHumanTaskUiCommandInput - {@link CreateHumanTaskUiCommandInput}
+ * @returns {@link CreateHumanTaskUiCommandOutput}
  * @see {@link CreateHumanTaskUiCommandInput} for command's `input` shape.
  * @see {@link CreateHumanTaskUiCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateHumanTaskUiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHumanTaskUiCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateHumanTaskUiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHumanTaskUiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHumanTaskUiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHumanTaskUiCommandOutput> {
     return deserializeAws_json1_1CreateHumanTaskUiCommand(output, context);
   }

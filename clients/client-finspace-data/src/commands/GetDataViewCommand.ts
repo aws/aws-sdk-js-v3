@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataViewCommand}.
  */
 export interface GetDataViewCommandInput extends GetDataViewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataViewCommand}.
  */
 export interface GetDataViewCommandOutput extends GetDataViewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Dataview.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetDataViewCommandOutput extends GetDataViewResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataViewCommandInput - {@link GetDataViewCommandInput}
+ * @returns {@link GetDataViewCommandOutput}
  * @see {@link GetDataViewCommandInput} for command's `input` shape.
  * @see {@link GetDataViewCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetDataViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetDataViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataViewCommandOutput> {
     return deserializeAws_restJson1GetDataViewCommand(output, context);
   }

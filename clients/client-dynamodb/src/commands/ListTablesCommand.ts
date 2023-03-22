@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListTablesCommand}.
  */
 export interface ListTablesCommandInput extends ListTablesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTablesCommand}.
  */
 export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of table names associated with the current account and endpoint. The
  *             output from <code>ListTables</code> is paginated, with each page returning a maximum of
  *             100 table names.</p>
@@ -48,6 +53,8 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTablesCommandInput - {@link ListTablesCommandInput}
+ * @returns {@link ListTablesCommandOutput}
  * @see {@link ListTablesCommandInput} for command's `input` shape.
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ListTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTablesCommandOutput> {
     return deserializeAws_json1_0ListTablesCommand(output, context);
   }

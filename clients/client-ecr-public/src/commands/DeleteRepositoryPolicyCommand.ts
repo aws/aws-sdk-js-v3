@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRepositoryPolicyCommand}.
  */
 export interface DeleteRepositoryPolicyCommandInput extends DeleteRepositoryPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRepositoryPolicyCommand}.
  */
 export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the repository policy that's associated with the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRepositoryPolicyCommandInput - {@link DeleteRepositoryPolicyCommandInput}
+ * @returns {@link DeleteRepositoryPolicyCommandOutput}
  * @see {@link DeleteRepositoryPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteRepositoryPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRepositoryPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteRepositoryPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRepositoryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRepositoryPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRepositoryPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteRepositoryPolicyCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLaunchConfigurationCommand}.
  */
 export interface CreateLaunchConfigurationCommandInput extends CreateLaunchConfigurationType {}
 /**
+ * @public
+ *
  * The output of {@link CreateLaunchConfigurationCommand}.
  */
 export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a launch configuration.</p>
  *          <p>If you exceed your maximum limit of launch configurations, the call fails. To query
  *             this limit, call the <a>DescribeAccountLimits</a> API. For information about
@@ -53,6 +58,8 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLaunchConfigurationCommandInput - {@link CreateLaunchConfigurationCommandInput}
+ * @returns {@link CreateLaunchConfigurationCommandOutput}
  * @see {@link CreateLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

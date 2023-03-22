@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSkillWithSkillGroupCommand}.
  */
 export interface AssociateSkillWithSkillGroupCommandInput extends AssociateSkillWithSkillGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSkillWithSkillGroupCommand}.
  */
 export interface AssociateSkillWithSkillGroupCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateSkillWithSkillGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a skill with a skill group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateSkillWithSkillGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSkillWithSkillGroupCommandInput - {@link AssociateSkillWithSkillGroupCommandInput}
+ * @returns {@link AssociateSkillWithSkillGroupCommandOutput}
  * @see {@link AssociateSkillWithSkillGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillWithSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -80,6 +87,9 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSkillWithSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSkillWithSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateSkillWithSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

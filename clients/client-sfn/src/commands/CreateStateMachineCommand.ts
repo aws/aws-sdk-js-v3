@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStateMachineCommand}.
  */
 export interface CreateStateMachineCommandInput extends CreateStateMachineInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStateMachineCommand}.
  */
 export interface CreateStateMachineCommandOutput extends CreateStateMachineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a state machine. A state machine consists of a collection of states that can do
  *       work (<code>Task</code> states), determine to which states to transition next
  *         (<code>Choice</code> states), stop an execution with an error (<code>Fail</code> states),
@@ -65,6 +70,8 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStateMachineCommandInput - {@link CreateStateMachineCommandInput}
+ * @returns {@link CreateStateMachineCommandOutput}
  * @see {@link CreateStateMachineCommandInput} for command's `input` shape.
  * @see {@link CreateStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -122,6 +129,9 @@ export class CreateStateMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStateMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class CreateStateMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateStateMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStateMachineCommandOutput> {
     return deserializeAws_json1_0CreateStateMachineCommand(output, context);
   }

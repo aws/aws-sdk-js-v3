@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableAWSServiceAccessCommand}.
  */
 export interface DisableAWSServiceAccessCommandInput extends DisableAWSServiceAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableAWSServiceAccessCommand}.
  */
 export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the integration of an Amazon Web Services service (the service that is specified by
  *                 <code>ServicePrincipal</code>) with Organizations. When you disable integration, the
  *             specified service no longer can create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
@@ -96,6 +101,8 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAWSServiceAccessCommandInput - {@link DisableAWSServiceAccessCommandInput}
+ * @returns {@link DisableAWSServiceAccessCommandOutput}
  * @see {@link DisableAWSServiceAccessCommandInput} for command's `input` shape.
  * @see {@link DisableAWSServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -449,6 +456,9 @@ export class DisableAWSServiceAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAWSServiceAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -488,10 +498,16 @@ export class DisableAWSServiceAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableAWSServiceAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableAWSServiceAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableAWSServiceAccessCommandOutput> {
     return deserializeAws_json1_1DisableAWSServiceAccessCommand(output, context);
   }

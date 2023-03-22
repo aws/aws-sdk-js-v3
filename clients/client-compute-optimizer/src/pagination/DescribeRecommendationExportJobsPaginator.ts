@@ -10,7 +10,7 @@ import { ComputeOptimizerClient } from "../ComputeOptimizerClient";
 import { ComputeOptimizerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ComputeOptimizerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeRecommendationExportJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeRecommendationExportJobs(
   config: ComputeOptimizerPaginationConfiguration,
   input: DescribeRecommendationExportJobsCommandInput,

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DiscoverInputSchemaCommand}.
  */
 export interface DiscoverInputSchemaCommandInput extends DiscoverInputSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DiscoverInputSchemaCommand}.
  */
 export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating
  *       sample records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose
  *       delivery stream) or Amazon S3 object. In the response, the operation returns the inferred
@@ -56,6 +61,8 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DiscoverInputSchemaCommandInput - {@link DiscoverInputSchemaCommandInput}
+ * @returns {@link DiscoverInputSchemaCommandOutput}
  * @see {@link DiscoverInputSchemaCommandInput} for command's `input` shape.
  * @see {@link DiscoverInputSchemaCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -100,6 +107,9 @@ export class DiscoverInputSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DiscoverInputSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class DiscoverInputSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DiscoverInputSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DiscoverInputSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DiscoverInputSchemaCommandOutput> {
     return deserializeAws_json1_1DiscoverInputSchemaCommand(output, context);
   }

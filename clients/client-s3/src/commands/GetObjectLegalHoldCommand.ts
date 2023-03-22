@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectLegalHoldCommand}.
  */
 export interface GetObjectLegalHoldCommandInput extends GetObjectLegalHoldRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectLegalHoldCommand}.
  */
 export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an object's current legal hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *          Objects</a>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
@@ -56,6 +61,8 @@ export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectLegalHoldCommandInput - {@link GetObjectLegalHoldCommandInput}
+ * @returns {@link GetObjectLegalHoldCommandOutput}
  * @see {@link GetObjectLegalHoldCommandInput} for command's `input` shape.
  * @see {@link GetObjectLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -85,6 +92,9 @@ export class GetObjectLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetObjectLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectLegalHoldCommandOutput> {
     return deserializeAws_restXmlGetObjectLegalHoldCommand(output, context);
   }

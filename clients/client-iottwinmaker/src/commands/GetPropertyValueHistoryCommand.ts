@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPropertyValueHistoryCommand}.
  */
 export interface GetPropertyValueHistoryCommandInput extends GetPropertyValueHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPropertyValueHistoryCommand}.
  */
 export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the history of a time series property value for a component, component type, entity, or workspace.</p>
  *          <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries, specify values for <code>componentName</code> and
  *         <code>entityId</code>. For cross-entity quries, specify a value for <code>componentTypeId</code>.</p>
@@ -48,6 +53,8 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPropertyValueHistoryCommandInput - {@link GetPropertyValueHistoryCommandInput}
+ * @returns {@link GetPropertyValueHistoryCommandOutput}
  * @see {@link GetPropertyValueHistoryCommandInput} for command's `input` shape.
  * @see {@link GetPropertyValueHistoryCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetPropertyValueHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPropertyValueHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetPropertyValueHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPropertyValueHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPropertyValueHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPropertyValueHistoryCommandOutput> {
     return deserializeAws_restJson1GetPropertyValueHistoryCommand(output, context);
   }

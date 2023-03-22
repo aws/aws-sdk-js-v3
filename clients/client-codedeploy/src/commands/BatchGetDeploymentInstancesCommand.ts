@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetDeploymentInstancesCommand}.
  */
 export interface BatchGetDeploymentInstancesCommandInput extends BatchGetDeploymentInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetDeploymentInstancesCommand}.
  */
 export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploymentInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <note>
@@ -55,6 +60,8 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDeploymentInstancesCommandInput - {@link BatchGetDeploymentInstancesCommandInput}
+ * @returns {@link BatchGetDeploymentInstancesCommandOutput}
  * @see {@link BatchGetDeploymentInstancesCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -100,6 +107,9 @@ export class BatchGetDeploymentInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDeploymentInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class BatchGetDeploymentInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDeploymentInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDeploymentInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

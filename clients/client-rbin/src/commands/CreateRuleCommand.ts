@@ -26,15 +26,20 @@ import {
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandInput extends CreateRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-create-rule">
  *       Create Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
+ * @returns {@link CreateRuleCommandOutput}
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
     return deserializeAws_restJson1CreateRuleCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateVpcCommand, serializeAws_ec2CreateVpcCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcCommand}.
  */
 export interface CreateVpcCommandInput extends CreateVpcRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcCommand}.
  */
 export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a VPC with the specified CIDR blocks. For more information, see
  * 	      <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
@@ -53,6 +58,8 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcCommandInput - {@link CreateVpcCommandInput}
+ * @returns {@link CreateVpcCommandOutput}
  * @see {@link CreateVpcCommandInput} for command's `input` shape.
  * @see {@link CreateVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -94,6 +101,9 @@ export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateVpcCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcCommandOutput> {
     return deserializeAws_ec2CreateVpcCommand(output, context);
   }

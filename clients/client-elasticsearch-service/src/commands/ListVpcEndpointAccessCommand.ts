@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVpcEndpointAccessCommand}.
  */
 export interface ListVpcEndpointAccessCommandInput extends ListVpcEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVpcEndpointAccessCommand}.
  */
 export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about each  principal that is allowed to access a
  *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
  * @example
@@ -51,6 +56,8 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcEndpointAccessCommandInput - {@link ListVpcEndpointAccessCommandInput}
+ * @returns {@link ListVpcEndpointAccessCommandOutput}
  * @see {@link ListVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListVpcEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListVpcEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListVpcEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcEndpointAccessCommandOutput> {
     return deserializeAws_restJson1ListVpcEndpointAccessCommand(output, context);
   }

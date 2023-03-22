@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterSecurityGroupCommand}.
  */
 export interface CreateClusterSecurityGroupCommandInput extends CreateClusterSecurityGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterSecurityGroupCommand}.
  */
 export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSecurityGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Redshift security group. You use security groups to control access
  *             to non-VPC clusters.</p>
  *          <p>
@@ -51,6 +56,8 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterSecurityGroupCommandInput - {@link CreateClusterSecurityGroupCommandInput}
+ * @returns {@link CreateClusterSecurityGroupCommandOutput}
  * @see {@link CreateClusterSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateClusterSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateClusterSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateClusterSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

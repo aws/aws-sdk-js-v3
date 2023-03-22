@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNotificationSubscriptionCommand}.
  */
 export interface CreateNotificationSubscriptionCommandInput extends CreateNotificationSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNotificationSubscriptionCommand}.
  */
 export interface CreateNotificationSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateNotificationSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
  *             confirmation message, and must confirm the subscription.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer
@@ -51,6 +56,8 @@ export interface CreateNotificationSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNotificationSubscriptionCommandInput - {@link CreateNotificationSubscriptionCommandInput}
+ * @returns {@link CreateNotificationSubscriptionCommandOutput}
  * @see {@link CreateNotificationSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNotificationSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateNotificationSubscriptionCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     return serializeAws_restJson1CreateNotificationSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

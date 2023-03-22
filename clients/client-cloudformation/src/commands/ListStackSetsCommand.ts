@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListStackSetsCommand}.
  */
 export interface ListStackSetsCommandInput extends ListStackSetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStackSetsCommand}.
  */
 export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about stack sets that are associated with the user.</p>
  *          <ul>
  *             <li>
@@ -64,6 +69,8 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStackSetsCommandInput - {@link ListStackSetsCommandInput}
+ * @returns {@link ListStackSetsCommandOutput}
  * @see {@link ListStackSetsCommandInput} for command's `input` shape.
  * @see {@link ListStackSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListStackSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStackSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListStackSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStackSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListStackSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStackSetsCommandOutput> {
     return deserializeAws_queryListStackSetsCommand(output, context);
   }

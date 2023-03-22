@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartLoggingCommand}.
  */
 export interface StartLoggingCommandInput extends StartLoggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartLoggingCommand}.
  */
 export interface StartLoggingCommandOutput extends StartLoggingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail.
  *          For a trail that is enabled in all regions, this operation must be called from the region
  *          in which the trail was created. This operation cannot be called on the shadow trails
@@ -49,6 +54,8 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StartLoggingCommandInput - {@link StartLoggingCommandInput}
+ * @returns {@link StartLoggingCommandOutput}
  * @see {@link StartLoggingCommandInput} for command's `input` shape.
  * @see {@link StartLoggingCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -142,6 +149,9 @@ export class StartLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,10 +189,16 @@ export class StartLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLoggingCommandOutput> {
     return deserializeAws_json1_1StartLoggingCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCampaignCommand}.
  */
 export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCampaignCommand}.
  */
 export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a data collection campaign. Deleting a campaign suspends all data collection
  *             and removes it from any vehicles. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCampaignCommandInput - {@link DeleteCampaignCommandInput}
+ * @returns {@link DeleteCampaignCommandOutput}
  * @see {@link DeleteCampaignCommandInput} for command's `input` shape.
  * @see {@link DeleteCampaignCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCampaignCommandOutput> {
     return deserializeAws_json1_0DeleteCampaignCommand(output, context);
   }

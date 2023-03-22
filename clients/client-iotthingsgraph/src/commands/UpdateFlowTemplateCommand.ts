@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFlowTemplateCommand}.
  */
 export interface UpdateFlowTemplateCommandInput extends UpdateFlowTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFlowTemplateCommand}.
  */
 export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this
@@ -49,6 +54,8 @@ export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFlowTemplateCommandInput - {@link UpdateFlowTemplateCommandInput}
+ * @returns {@link UpdateFlowTemplateCommandOutput}
  * @see {@link UpdateFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateFlowTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFlowTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateFlowTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFlowTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowTemplateCommandOutput> {
     return deserializeAws_json1_1UpdateFlowTemplateCommand(output, context);
   }

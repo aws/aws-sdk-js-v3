@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandInput extends UntagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a tag or list of tags from a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
@@ -88,6 +95,9 @@ export class UntagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UntagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
     return deserializeAws_restJson1UntagResourceCommand(output, context);
   }

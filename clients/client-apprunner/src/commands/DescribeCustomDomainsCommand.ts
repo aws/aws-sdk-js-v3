@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCustomDomainsCommand}.
  */
 export interface DescribeCustomDomainsCommandInput extends DescribeCustomDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCustomDomainsCommand}.
  */
 export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a description of custom domain names that are associated with an App Runner service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomDomainsCommandInput - {@link DescribeCustomDomainsCommandInput}
+ * @returns {@link DescribeCustomDomainsCommandOutput}
  * @see {@link DescribeCustomDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomDomainsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeCustomDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeCustomDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCustomDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeCustomDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCustomDomainsCommandOutput> {
     return deserializeAws_json1_0DescribeCustomDomainsCommand(output, context);
   }

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopSNOMEDCTInferenceJobCommand}.
  */
 export interface StopSNOMEDCTInferenceJobCommandInput extends StopSNOMEDCTInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopSNOMEDCTInferenceJobCommand}.
  */
 export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Stops an InferSNOMEDCT inference job in progress.
  *     </p>
@@ -52,6 +57,8 @@ export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInfer
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSNOMEDCTInferenceJobCommandInput - {@link StopSNOMEDCTInferenceJobCommandInput}
+ * @returns {@link StopSNOMEDCTInferenceJobCommandOutput}
  * @see {@link StopSNOMEDCTInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StopSNOMEDCTInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -91,6 +98,9 @@ export class StopSNOMEDCTInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSNOMEDCTInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class StopSNOMEDCTInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSNOMEDCTInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopSNOMEDCTInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSNOMEDCTInferenceJobCommandOutput> {
     return deserializeAws_json1_1StopSNOMEDCTInferenceJobCommand(output, context);
   }

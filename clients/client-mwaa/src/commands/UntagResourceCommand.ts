@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandInput extends UntagResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>"Environment": "Staging"</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
@@ -78,6 +85,9 @@ export class UntagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UntagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
     return deserializeAws_restJson1UntagResourceCommand(output, context);
   }

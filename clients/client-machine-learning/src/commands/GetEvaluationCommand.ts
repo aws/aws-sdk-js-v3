@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEvaluationCommand}.
  */
 export interface GetEvaluationCommandInput extends GetEvaluationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetEvaluationCommand}.
  */
 export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an <code>Evaluation</code> that includes metadata as well as the current status of the <code>Evaluation</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEvaluationCommandInput - {@link GetEvaluationCommandInput}
+ * @returns {@link GetEvaluationCommandOutput}
  * @see {@link GetEvaluationCommandInput} for command's `input` shape.
  * @see {@link GetEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEvaluationCommandOutput> {
     return deserializeAws_json1_1GetEvaluationCommand(output, context);
   }

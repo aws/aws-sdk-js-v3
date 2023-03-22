@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DescribeSubnetsCommand, serializeAws_ec2DescribeSubnetsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSubnetsCommand}.
  */
 export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSubnetsCommand}.
  */
 export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your subnets.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -45,6 +50,8 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubnetsCommandInput - {@link DescribeSubnetsCommandInput}
+ * @returns {@link DescribeSubnetsCommandOutput}
  * @see {@link DescribeSubnetsCommandInput} for command's `input` shape.
  * @see {@link DescribeSubnetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -102,6 +109,9 @@ export class DescribeSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DescribeSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubnetsCommandOutput> {
     return deserializeAws_ec2DescribeSubnetsCommand(output, context);
   }

@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTextMessageSpendLimitOverrideCommand}.
  */
 export interface DeleteTextMessageSpendLimitOverrideCommandInput extends DeleteTextMessageSpendLimitOverrideRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTextMessageSpendLimitOverrideCommand}.
  */
 export interface DeleteTextMessageSpendLimitOverrideCommandOutput
@@ -41,6 +45,7 @@ export interface DeleteTextMessageSpendLimitOverrideCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an account-level monthly spending limit override for sending text messages.
  *             Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the
  *                 <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more
@@ -56,6 +61,8 @@ export interface DeleteTextMessageSpendLimitOverrideCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTextMessageSpendLimitOverrideCommandInput - {@link DeleteTextMessageSpendLimitOverrideCommandInput}
+ * @returns {@link DeleteTextMessageSpendLimitOverrideCommandOutput}
  * @see {@link DeleteTextMessageSpendLimitOverrideCommandInput} for command's `input` shape.
  * @see {@link DeleteTextMessageSpendLimitOverrideCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteTextMessageSpendLimitOverrideCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTextMessageSpendLimitOverrideCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class DeleteTextMessageSpendLimitOverrideCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTextMessageSpendLimitOverrideCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class DeleteTextMessageSpendLimitOverrideCommand extends $Command<
     return serializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

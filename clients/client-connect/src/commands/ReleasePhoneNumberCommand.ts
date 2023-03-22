@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReleasePhoneNumberCommand}.
  */
 export interface ReleasePhoneNumberCommandInput extends ReleasePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReleasePhoneNumberCommand}.
  */
 export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You
  *    can call this API only in the Amazon Web Services Region where the number was claimed.</p>
  *          <important>
@@ -49,6 +54,8 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleasePhoneNumberCommandInput - {@link ReleasePhoneNumberCommandInput}
+ * @returns {@link ReleasePhoneNumberCommandOutput}
  * @see {@link ReleasePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link ReleasePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -93,6 +100,9 @@ export class ReleasePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleasePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ReleasePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleasePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ReleasePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleasePhoneNumberCommandOutput> {
     return deserializeAws_restJson1ReleasePhoneNumberCommand(output, context);
   }

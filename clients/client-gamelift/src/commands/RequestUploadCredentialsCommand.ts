@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RequestUploadCredentialsCommand}.
  */
 export interface RequestUploadCredentialsCommandInput extends RequestUploadCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link RequestUploadCredentialsCommand}.
  */
 export interface RequestUploadCredentialsCommandOutput extends RequestUploadCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build
  *             files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see
  *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html">GameSession</a>.</p>
@@ -60,6 +65,8 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestUploadCredentialsCommandInput - {@link RequestUploadCredentialsCommandInput}
+ * @returns {@link RequestUploadCredentialsCommandOutput}
  * @see {@link RequestUploadCredentialsCommandInput} for command's `input` shape.
  * @see {@link RequestUploadCredentialsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -97,6 +104,9 @@ export class RequestUploadCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestUploadCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class RequestUploadCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestUploadCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RequestUploadCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestUploadCredentialsCommandOutput> {
     return deserializeAws_json1_1RequestUploadCredentialsCommand(output, context);
   }

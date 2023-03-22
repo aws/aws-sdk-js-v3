@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetEmailIdentityPoliciesCommand}.
  */
 export interface GetEmailIdentityPoliciesCommandInput extends GetEmailIdentityPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEmailIdentityPoliciesCommand}.
  */
 export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the requested sending authorization policies for the given identity (an email
  *             address or a domain). The policies are returned as a map of policy names to policy
  *             contents. You can retrieve a maximum of 20 policies at a time.</p>
@@ -57,6 +62,8 @@ export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityP
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEmailIdentityPoliciesCommandInput - {@link GetEmailIdentityPoliciesCommandInput}
+ * @returns {@link GetEmailIdentityPoliciesCommandOutput}
  * @see {@link GetEmailIdentityPoliciesCommandInput} for command's `input` shape.
  * @see {@link GetEmailIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -89,6 +96,9 @@ export class GetEmailIdentityPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEmailIdentityPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class GetEmailIdentityPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEmailIdentityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEmailIdentityPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailIdentityPoliciesCommandOutput> {
     return deserializeAws_restJson1GetEmailIdentityPoliciesCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceComplianceSummariesCommand}.
  */
 export interface ListResourceComplianceSummariesCommandInput extends ListResourceComplianceSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceComplianceSummariesCommand}.
  */
 export interface ListResourceComplianceSummariesCommandOutput
@@ -37,6 +41,7 @@ export interface ListResourceComplianceSummariesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a resource-level summary count. The summary includes information about compliant and
  *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
  *    criteria you specify.</p>
@@ -50,6 +55,8 @@ export interface ListResourceComplianceSummariesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceComplianceSummariesCommandInput - {@link ListResourceComplianceSummariesCommandInput}
+ * @returns {@link ListResourceComplianceSummariesCommandOutput}
  * @see {@link ListResourceComplianceSummariesCommandInput} for command's `input` shape.
  * @see {@link ListResourceComplianceSummariesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceComplianceSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResourceComplianceSummariesCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     return serializeAws_json1_1ListResourceComplianceSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

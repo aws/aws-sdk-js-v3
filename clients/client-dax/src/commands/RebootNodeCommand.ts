@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootNodeCommand}.
  */
 export interface RebootNodeCommandInput extends RebootNodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebootNodeCommand}.
  */
 export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reboots a single node of a DAX cluster. The reboot action takes place
  *             as soon as possible. During the
  *             reboot, the node status is set to REBOOTING.</p>
@@ -52,6 +57,8 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootNodeCommandInput - {@link RebootNodeCommandInput}
+ * @returns {@link RebootNodeCommandOutput}
  * @see {@link RebootNodeCommandInput} for command's `input` shape.
  * @see {@link RebootNodeCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -94,6 +101,9 @@ export class RebootNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class RebootNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RebootNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootNodeCommandOutput> {
     return deserializeAws_json1_1RebootNodeCommand(output, context);
   }

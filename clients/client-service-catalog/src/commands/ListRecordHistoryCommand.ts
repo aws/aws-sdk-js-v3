@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecordHistoryCommand}.
  */
 export interface ListRecordHistoryCommandInput extends ListRecordHistoryInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRecordHistoryCommand}.
  */
 export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified requests or all performed requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecordHistoryCommandInput - {@link ListRecordHistoryCommandInput}
+ * @returns {@link ListRecordHistoryCommandOutput}
  * @see {@link ListRecordHistoryCommandInput} for command's `input` shape.
  * @see {@link ListRecordHistoryCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListRecordHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecordHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListRecordHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecordHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRecordHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecordHistoryCommandOutput> {
     return deserializeAws_json1_1ListRecordHistoryCommand(output, context);
   }

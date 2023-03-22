@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointGroupCommand}.
  */
 export interface UpdateEndpointGroupCommandInput extends UpdateEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointGroupCommand}.
  */
 export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointGroupCommandInput - {@link UpdateEndpointGroupCommandInput}
+ * @returns {@link UpdateEndpointGroupCommandOutput}
  * @see {@link UpdateEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class UpdateEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointGroupCommandOutput> {
     return deserializeAws_json1_1UpdateEndpointGroupCommand(output, context);
   }

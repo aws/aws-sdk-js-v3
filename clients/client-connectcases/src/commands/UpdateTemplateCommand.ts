@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTemplateCommand}.
  */
 export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTemplateCommand}.
  */
 export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the attributes of an existing template. The template attributes that can be
  *       modified include <code>name</code>, <code>description</code>,
  *       <code>layoutConfiguration</code>, <code>requiredFields</code>, and <code>status</code>. At
@@ -50,6 +55,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
+ * @returns {@link UpdateTemplateCommandOutput}
  * @see {@link UpdateTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -95,6 +102,9 @@ export class UpdateTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateCommandOutput> {
     return deserializeAws_restJson1UpdateTemplateCommand(output, context);
   }

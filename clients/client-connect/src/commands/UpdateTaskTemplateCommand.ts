@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTaskTemplateCommand}.
  */
 export interface UpdateTaskTemplateCommandInput extends UpdateTaskTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTaskTemplateCommand}.
  */
 export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates details about a specific task template in the specified Amazon Connect instance.
  *    This operation does not support partial updates. Instead it does a full update of template
  *    content.</p>
@@ -48,6 +53,8 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTaskTemplateCommandInput - {@link UpdateTaskTemplateCommandInput}
+ * @returns {@link UpdateTaskTemplateCommandOutput}
  * @see {@link UpdateTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateTaskTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTaskTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateTaskTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTaskTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskTemplateCommandOutput> {
     return deserializeAws_restJson1UpdateTaskTemplateCommand(output, context);
   }

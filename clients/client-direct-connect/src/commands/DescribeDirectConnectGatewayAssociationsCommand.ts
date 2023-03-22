@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDirectConnectGatewayAssociationsCommand}.
  */
 export interface DescribeDirectConnectGatewayAssociationsCommandInput
   extends DescribeDirectConnectGatewayAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDirectConnectGatewayAssociationsCommand}.
  */
 export interface DescribeDirectConnectGatewayAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:</p>
  *          <ul>
  *             <li>
@@ -71,6 +76,8 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectConnectGatewayAssociationsCommandInput - {@link DescribeDirectConnectGatewayAssociationsCommandInput}
+ * @returns {@link DescribeDirectConnectGatewayAssociationsCommandOutput}
  * @see {@link DescribeDirectConnectGatewayAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewayAssociationsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -100,6 +107,9 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectConnectGatewayAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDirectConnectGatewayAssociationsCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     return serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

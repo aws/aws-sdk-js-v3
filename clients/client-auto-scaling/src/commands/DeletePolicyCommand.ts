@@ -18,15 +18,20 @@ import { DeletePolicyType, DeletePolicyTypeFilterSensitiveLog } from "../models/
 import { deserializeAws_queryDeletePolicyCommand, serializeAws_queryDeletePolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePolicyCommand}.
  */
 export interface DeletePolicyCommandInput extends DeletePolicyType {}
 /**
+ * @public
+ *
  * The output of {@link DeletePolicyCommand}.
  */
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified scaling policy.</p>
  *          <p>Deleting either a step scaling policy or a simple scaling policy deletes the
  *             underlying alarm action, but does not delete the alarm, even if it no longer has an
@@ -43,6 +48,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
+ * @returns {@link DeletePolicyCommandOutput}
  * @see {@link DeletePolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeletePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeletePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeletePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyCommandOutput> {
     return deserializeAws_queryDeletePolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPresetCommand}.
  */
 export interface GetPresetCommandInput extends GetPresetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPresetCommand}.
  */
 export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve the JSON for a specific preset.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPresetCommandInput - {@link GetPresetCommandInput}
+ * @returns {@link GetPresetCommandOutput}
  * @see {@link GetPresetCommandInput} for command's `input` shape.
  * @see {@link GetPresetCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetPresetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPresetCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetPresetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPresetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPresetCommandOutput> {
     return deserializeAws_restJson1GetPresetCommand(output, context);
   }

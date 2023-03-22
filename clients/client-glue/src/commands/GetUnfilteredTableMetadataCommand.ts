@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUnfilteredTableMetadataCommand}.
  */
 export interface GetUnfilteredTableMetadataCommandInput extends GetUnfilteredTableMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUnfilteredTableMetadataCommand}.
  */
 export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTableMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves table metadata from the Data Catalog that contains unfiltered
  *           metadata.</p>
  *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetTable</code>.</p>
@@ -48,6 +53,8 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUnfilteredTableMetadataCommandInput - {@link GetUnfilteredTableMetadataCommandInput}
+ * @returns {@link GetUnfilteredTableMetadataCommandOutput}
  * @see {@link GetUnfilteredTableMetadataCommandInput} for command's `input` shape.
  * @see {@link GetUnfilteredTableMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUnfilteredTableMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUnfilteredTableMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUnfilteredTableMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterParameterGroupCommand}.
  */
 export interface CreateClusterParameterGroupCommandInput extends CreateClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterParameterGroupCommand}.
  */
 export interface CreateClusterParameterGroupCommandOutput extends CreateClusterParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Redshift parameter group.</p>
  *          <p>Creating parameter groups is independent of creating clusters. You can associate a
  *             cluster with a parameter group when you create the cluster. You can also associate an
@@ -54,6 +59,8 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterParameterGroupCommandInput - {@link CreateClusterParameterGroupCommandInput}
+ * @returns {@link CreateClusterParameterGroupCommandOutput}
  * @see {@link CreateClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class CreateClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

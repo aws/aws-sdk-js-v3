@@ -10,7 +10,7 @@ import { DevOpsGuruClient } from "../DevOpsGuruClient";
 import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DevOpsGuruClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchOrganizationInsightsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateSearchOrganizationInsights(
   config: DevOpsGuruPaginationConfiguration,
   input: SearchOrganizationInsightsCommandInput,

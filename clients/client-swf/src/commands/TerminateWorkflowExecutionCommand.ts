@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateWorkflowExecutionCommand}.
  */
 export interface TerminateWorkflowExecutionCommandInput extends TerminateWorkflowExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link TerminateWorkflowExecutionCommand}.
  */
 export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Records a <code>WorkflowExecutionTerminated</code> event and forces closure of the
  *       workflow execution identified by the given domain, runId, and workflowId. The child policy,
  *       registered with the workflow type or specified when starting this execution, is applied to any
@@ -84,6 +89,8 @@ export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateWorkflowExecutionCommandInput - {@link TerminateWorkflowExecutionCommandInput}
+ * @returns {@link TerminateWorkflowExecutionCommandOutput}
  * @see {@link TerminateWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link TerminateWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -113,6 +120,9 @@ export class TerminateWorkflowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateWorkflowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class TerminateWorkflowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0TerminateWorkflowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

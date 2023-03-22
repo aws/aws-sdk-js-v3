@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPrincipalsForPortfolioCommand}.
  */
 export interface ListPrincipalsForPortfolioCommandInput extends ListPrincipalsForPortfolioInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPrincipalsForPortfolioCommand}.
  */
 export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsForPortfolioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the specified portfolio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPrincipalsForPortfolioCommandInput - {@link ListPrincipalsForPortfolioCommandInput}
+ * @returns {@link ListPrincipalsForPortfolioCommandOutput}
  * @see {@link ListPrincipalsForPortfolioCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalsForPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPrincipalsForPortfolioCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPrincipalsForPortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPrincipalsForPortfolioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMonitorCommand}.
  */
 export interface DeleteMonitorCommandInput extends DeleteMonitorInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMonitorCommand}.
  */
 export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a monitor in Amazon CloudWatch Internet Monitor. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMonitorCommandInput - {@link DeleteMonitorCommandInput}
+ * @returns {@link DeleteMonitorCommandOutput}
  * @see {@link DeleteMonitorCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMonitorCommandOutput> {
     return deserializeAws_restJson1DeleteMonitorCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMobileDeviceAccessEffectCommand}.
  */
 export interface GetMobileDeviceAccessEffectCommandInput extends GetMobileDeviceAccessEffectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMobileDeviceAccessEffectCommand}.
  */
 export interface GetMobileDeviceAccessEffectCommandOutput
@@ -37,6 +41,7 @@ export interface GetMobileDeviceAccessEffectCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulates the effect of the mobile device access rules for the given attributes of a sample access event. Use this method to test the effects of the current set of mobile device access
  *          rules for the WorkMail organization for a particular user's attributes.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetMobileDeviceAccessEffectCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMobileDeviceAccessEffectCommandInput - {@link GetMobileDeviceAccessEffectCommandInput}
+ * @returns {@link GetMobileDeviceAccessEffectCommandOutput}
  * @see {@link GetMobileDeviceAccessEffectCommandInput} for command's `input` shape.
  * @see {@link GetMobileDeviceAccessEffectCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetMobileDeviceAccessEffectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMobileDeviceAccessEffectCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetMobileDeviceAccessEffectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMobileDeviceAccessEffectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMobileDeviceAccessEffectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

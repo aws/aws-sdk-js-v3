@@ -27,15 +27,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListScheduledQueriesCommand}.
  */
 export interface ListScheduledQueriesCommandInput extends ListScheduledQueriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListScheduledQueriesCommand}.
  */
 export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all scheduled queries in the caller's Amazon account and Region. <code>ListScheduledQueries</code> is eventually consistent. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,6 +52,8 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScheduledQueriesCommandInput - {@link ListScheduledQueriesCommandInput}
+ * @returns {@link ListScheduledQueriesCommandOutput}
  * @see {@link ListScheduledQueriesCommandInput} for command's `input` shape.
  * @see {@link ListScheduledQueriesCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListScheduledQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScheduledQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListScheduledQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScheduledQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListScheduledQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledQueriesCommandOutput> {
     return deserializeAws_json1_0ListScheduledQueriesCommand(output, context);
   }

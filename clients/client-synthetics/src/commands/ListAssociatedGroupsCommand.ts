@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedGroupsCommand}.
  */
 export interface ListAssociatedGroupsCommandInput extends ListAssociatedGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedGroupsCommand}.
  */
 export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the groups that the specified canary is associated with. The canary
  *       that you specify must be in the current Region.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedGroupsCommandInput - {@link ListAssociatedGroupsCommandInput}
+ * @returns {@link ListAssociatedGroupsCommandOutput}
  * @see {@link ListAssociatedGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedGroupsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListAssociatedGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListAssociatedGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAssociatedGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedGroupsCommandOutput> {
     return deserializeAws_restJson1ListAssociatedGroupsCommand(output, context);
   }

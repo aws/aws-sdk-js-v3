@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceCommand}.
  */
 export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceCommand}.
  */
 export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates data for the resource. To have the latest information, it must be preceded by
  *          a <a>DescribeResource</a> call. The dataset in the request should be the one
  *          expected when performing another <code>DescribeResource</code> call.</p>
@@ -48,6 +53,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
+ * @returns {@link UpdateResourceCommandOutput}
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -109,6 +116,9 @@ export class UpdateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class UpdateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceCommandOutput> {
     return deserializeAws_json1_1UpdateResourceCommand(output, context);
   }

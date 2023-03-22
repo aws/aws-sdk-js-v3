@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeliverConfigSnapshotCommand}.
  */
 export interface DeliverConfigSnapshotCommandInput extends DeliverConfigSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeliverConfigSnapshotCommand}.
  */
 export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules delivery of a configuration snapshot to the Amazon S3
  * 			bucket in the specified delivery channel. After the delivery has
  * 			started, Config sends the following notifications using an
@@ -62,6 +67,8 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * const response = await client.send(command);
  * ```
  *
+ * @param DeliverConfigSnapshotCommandInput - {@link DeliverConfigSnapshotCommandInput}
+ * @returns {@link DeliverConfigSnapshotCommandOutput}
  * @see {@link DeliverConfigSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeliverConfigSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeliverConfigSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeliverConfigSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeliverConfigSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeliverConfigSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeliverConfigSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeliverConfigSnapshotCommandOutput> {
     return deserializeAws_json1_1DeliverConfigSnapshotCommand(output, context);
   }

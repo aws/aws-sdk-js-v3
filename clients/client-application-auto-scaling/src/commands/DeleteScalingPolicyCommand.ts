@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScalingPolicyCommand}.
  */
 export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScalingPolicyCommand}.
  */
 export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified scaling policy for an Application Auto Scaling scalable target.</p>
  *          <p>Deleting a step scaling policy deletes the underlying alarm action, but does not delete
  *          the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated
@@ -55,6 +60,8 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScalingPolicyCommandInput - {@link DeleteScalingPolicyCommandInput}
+ * @returns {@link DeleteScalingPolicyCommandOutput}
  * @see {@link DeleteScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -110,6 +117,9 @@ export class DeleteScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class DeleteScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScalingPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteScalingPolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>
  *          <p>This operation returns only those permissions that have been explicitly granted.</p>
  *          <p>For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
@@ -48,6 +53,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
+ * @returns {@link ListPermissionsCommandOutput}
  * @see {@link ListPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionsCommandOutput> {
     return deserializeAws_restJson1ListPermissionsCommand(output, context);
   }

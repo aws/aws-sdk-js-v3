@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitiesDetectionJobsCommand}.
  */
 export interface ListEntitiesDetectionJobsCommandInput extends ListEntitiesDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitiesDetectionJobsCommand}.
  */
 export interface ListEntitiesDetectionJobsCommandOutput extends ListEntitiesDetectionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the entity detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEntitiesDetectionJobsCommandOutput extends ListEntitiesDete
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitiesDetectionJobsCommandInput - {@link ListEntitiesDetectionJobsCommandInput}
+ * @returns {@link ListEntitiesDetectionJobsCommandOutput}
  * @see {@link ListEntitiesDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitiesDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitiesDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEntitiesDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

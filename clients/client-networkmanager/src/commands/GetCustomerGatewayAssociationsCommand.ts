@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCustomerGatewayAssociationsCommand}.
  */
 export interface GetCustomerGatewayAssociationsCommandInput extends GetCustomerGatewayAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCustomerGatewayAssociationsCommand}.
  */
 export interface GetCustomerGatewayAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface GetCustomerGatewayAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the association information for customer gateways that are associated with
  *             devices and links in your global network.</p>
  * @example
@@ -49,6 +54,8 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCustomerGatewayAssociationsCommandInput - {@link GetCustomerGatewayAssociationsCommandInput}
+ * @returns {@link GetCustomerGatewayAssociationsCommandOutput}
  * @see {@link GetCustomerGatewayAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetCustomerGatewayAssociationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCustomerGatewayAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCustomerGatewayAssociationsCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     return serializeAws_restJson1GetCustomerGatewayAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

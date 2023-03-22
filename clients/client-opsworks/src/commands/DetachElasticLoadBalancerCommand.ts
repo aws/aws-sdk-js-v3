@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachElasticLoadBalancerCommand}.
  */
 export interface DetachElasticLoadBalancerCommandInput extends DetachElasticLoadBalancerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachElasticLoadBalancerCommand}.
  */
 export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a specified Elastic Load Balancing instance from its layer.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -49,6 +54,8 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachElasticLoadBalancerCommandInput - {@link DetachElasticLoadBalancerCommandInput}
+ * @returns {@link DetachElasticLoadBalancerCommandOutput}
  * @see {@link DetachElasticLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DetachElasticLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +82,9 @@ export class DetachElasticLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachElasticLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DetachElasticLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachElasticLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetachElasticLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

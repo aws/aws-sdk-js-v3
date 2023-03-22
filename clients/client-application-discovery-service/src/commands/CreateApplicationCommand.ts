@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application with the given name and description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
+ * @returns {@link CreateApplicationCommandOutput}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
     return deserializeAws_json1_1CreateApplicationCommand(output, context);
   }

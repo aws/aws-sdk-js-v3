@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateNodeCommand}.
  */
 export interface AssociateNodeCommandInput extends AssociateNodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateNodeCommand}.
  */
 export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Associates a new node with the server. For more information about how to disassociate a node, see <a>DisassociateNode</a>.</p>
  *          <p>
  *       On a Chef server: This command is an alternative to  <code>knife bootstrap</code>.</p>
@@ -62,6 +67,8 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateNodeCommandInput - {@link AssociateNodeCommandInput}
+ * @returns {@link AssociateNodeCommandOutput}
  * @see {@link AssociateNodeCommandInput} for command's `input` shape.
  * @see {@link AssociateNodeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -97,6 +104,9 @@ export class AssociateNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class AssociateNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateNodeCommandOutput> {
     return deserializeAws_json1_1AssociateNodeCommand(output, context);
   }

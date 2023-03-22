@@ -22,15 +22,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketCorsCommand}.
  */
 export interface PutBucketCorsCommandInput extends PutBucketCorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketCorsCommand}.
  */
 export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the <code>cors</code> configuration for your bucket. If the configuration exists,
  *          Amazon S3 replaces it.</p>
  *          <p>To use this operation, you must be allowed to perform the <code>s3:PutBucketCORS</code>
@@ -97,6 +102,8 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketCorsCommandInput - {@link PutBucketCorsCommandInput}
+ * @returns {@link PutBucketCorsCommandOutput}
  * @see {@link PutBucketCorsCommandInput} for command's `input` shape.
  * @see {@link PutBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -171,6 +178,9 @@ export class PutBucketCorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketCorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -215,10 +225,16 @@ export class PutBucketCorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketCorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketCorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketCorsCommandOutput> {
     return deserializeAws_restXmlPutBucketCorsCommand(output, context);
   }

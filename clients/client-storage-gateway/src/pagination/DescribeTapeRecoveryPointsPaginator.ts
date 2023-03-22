@@ -10,7 +10,7 @@ import { StorageGatewayClient } from "../StorageGatewayClient";
 import { StorageGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: StorageGatewayClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeTapeRecoveryPointsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeTapeRecoveryPoints(
   config: StorageGatewayPaginationConfiguration,
   input: DescribeTapeRecoveryPointsCommandInput,

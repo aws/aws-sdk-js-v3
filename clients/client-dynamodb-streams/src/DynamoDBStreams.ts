@@ -16,6 +16,7 @@ import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput }
 import { DynamoDBStreamsClient } from "./DynamoDBStreamsClient";
 
 /**
+ * @public
  * <fullname>Amazon DynamoDB</fullname>
  *
  *          <p>Amazon DynamoDB Streams provides API actions for accessing streams and processing
@@ -25,6 +26,7 @@ import { DynamoDBStreamsClient } from "./DynamoDBStreamsClient";
  */
 export class DynamoDBStreams extends DynamoDBStreamsClient {
   /**
+   * @public
    * <p>Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.</p>
    *          <note>
    *             <p>You can call <code>DescribeStream</code> at a maximum rate of 10 times per second.</p>
@@ -65,6 +67,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the stream records from a given shard.</p>
    *          <p>Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard iterator
    *       specifies the position in the shard from which you want to start reading stream records
@@ -101,6 +104,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   }
 
   /**
+   * @public
    * <p>Returns a shard iterator. A shard iterator provides information
    *       about how to retrieve the stream records from within a shard.  Use
    *       the shard iterator in a subsequent
@@ -140,6 +144,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of stream ARNs associated with the current account and endpoint. If the
    *         <code>TableName</code> parameter is present, then <code>ListStreams</code> will return only the
    *       streams ARNs for that table.</p>

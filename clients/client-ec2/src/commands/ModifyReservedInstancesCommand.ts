@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyReservedInstancesCommand}.
  */
 export interface ModifyReservedInstancesCommandInput extends ModifyReservedInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyReservedInstancesCommand}.
  */
 export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the configuration of your Reserved Instances, such as the Availability Zone,
  *        instance count, or instance type. The Reserved Instances to be modified must be identical,
  *        except for Availability Zone, network platform, and instance type.</p>
@@ -53,6 +58,8 @@ export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInst
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReservedInstancesCommandInput - {@link ModifyReservedInstancesCommandInput}
+ * @returns {@link ModifyReservedInstancesCommandOutput}
  * @see {@link ModifyReservedInstancesCommandInput} for command's `input` shape.
  * @see {@link ModifyReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class ModifyReservedInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReservedInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ModifyReservedInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReservedInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyReservedInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReservedInstancesCommandOutput> {
     return deserializeAws_ec2ModifyReservedInstancesCommand(output, context);
   }

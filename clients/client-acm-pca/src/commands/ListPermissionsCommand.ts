@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all permissions on a private CA, if any, granted to the Certificate Manager (ACM) service
  * 			principal (acm.amazonaws.com). </p>
  *          <p>These permissions allow ACM to issue and renew ACM certificates that reside in the
@@ -73,6 +78,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
+ * @returns {@link ListPermissionsCommandOutput}
  * @see {@link ListPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionsCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -114,6 +121,9 @@ export class ListPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class ListPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionsCommandOutput> {
     return deserializeAws_json1_1ListPermissionsCommand(output, context);
   }

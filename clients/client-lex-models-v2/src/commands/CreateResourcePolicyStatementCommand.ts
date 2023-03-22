@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourcePolicyStatementCommand}.
  */
 export interface CreateResourcePolicyStatementCommandInput extends CreateResourcePolicyStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourcePolicyStatementCommand}.
  */
 export interface CreateResourcePolicyStatementCommandOutput
@@ -37,6 +41,7 @@ export interface CreateResourcePolicyStatementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new resource policy statement to a bot or bot alias. If a
  *          resource policy exists, the statement is added to the current resource
  *          policy. If a policy doesn't exist, a new policy is created.</p>
@@ -52,6 +57,8 @@ export interface CreateResourcePolicyStatementCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourcePolicyStatementCommandInput - {@link CreateResourcePolicyStatementCommandInput}
+ * @returns {@link CreateResourcePolicyStatementCommandOutput}
  * @see {@link CreateResourcePolicyStatementCommandInput} for command's `input` shape.
  * @see {@link CreateResourcePolicyStatementCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -104,6 +111,9 @@ export class CreateResourcePolicyStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourcePolicyStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class CreateResourcePolicyStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourcePolicyStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateResourcePolicyStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

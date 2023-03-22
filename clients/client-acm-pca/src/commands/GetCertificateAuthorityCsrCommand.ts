@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCertificateAuthorityCsrCommand}.
  */
 export interface GetCertificateAuthorityCsrCommandInput extends GetCertificateAuthorityCsrRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCertificateAuthorityCsrCommand}.
  */
 export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateAuthorityCsrResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the certificate signing request (CSR) for your private certificate authority
  * 			(CA). The CSR is created when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. Sign the CSR with your Amazon Web Services Private CA-hosted
  * 			or on-premises root or subordinate CA. Then import the signed certificate back into
@@ -50,6 +55,8 @@ export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateA
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCertificateAuthorityCsrCommandInput - {@link GetCertificateAuthorityCsrCommandInput}
+ * @returns {@link GetCertificateAuthorityCsrCommandOutput}
  * @see {@link GetCertificateAuthorityCsrCommandInput} for command's `input` shape.
  * @see {@link GetCertificateAuthorityCsrCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCertificateAuthorityCsrCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCertificateAuthorityCsrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCertificateAuthorityCsrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

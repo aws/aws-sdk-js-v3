@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkflowTypesCommand}.
  */
 export interface ListWorkflowTypesCommandInput extends ListWorkflowTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkflowTypesCommand}.
  */
 export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about workflow types in the specified domain. The results may be
  *       split into multiple pages that can be retrieved by making the call repeatedly.</p>
  *          <p>
@@ -70,6 +75,8 @@ export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkflowTypesCommandInput - {@link ListWorkflowTypesCommandInput}
+ * @returns {@link ListWorkflowTypesCommandOutput}
  * @see {@link ListWorkflowTypesCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowTypesCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -99,6 +106,9 @@ export class ListWorkflowTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkflowTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class ListWorkflowTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkflowTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListWorkflowTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowTypesCommandOutput> {
     return deserializeAws_json1_0ListWorkflowTypesCommand(output, context);
   }

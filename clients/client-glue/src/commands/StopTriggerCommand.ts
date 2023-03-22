@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopTriggerCommand}.
  */
 export interface StopTriggerCommandInput extends StopTriggerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopTriggerCommand}.
  */
 export interface StopTriggerCommandOutput extends StopTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specified trigger.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTriggerCommandInput - {@link StopTriggerCommandInput}
+ * @returns {@link StopTriggerCommandOutput}
  * @see {@link StopTriggerCommandInput} for command's `input` shape.
  * @see {@link StopTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class StopTriggerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class StopTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTriggerCommandOutput> {
     return deserializeAws_json1_1StopTriggerCommand(output, context);
   }

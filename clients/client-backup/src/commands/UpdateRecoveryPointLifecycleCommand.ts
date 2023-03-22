@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRecoveryPointLifecycleCommand}.
  */
 export interface UpdateRecoveryPointLifecycleCommandInput extends UpdateRecoveryPointLifecycleInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRecoveryPointLifecycleCommand}.
  */
 export interface UpdateRecoveryPointLifecycleCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the transition lifecycle of a recovery point.</p>
  *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
  *          it expires. Backup transitions and expires backups automatically according to
@@ -60,6 +65,8 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecoveryPointLifecycleCommandInput - {@link UpdateRecoveryPointLifecycleCommandInput}
+ * @returns {@link UpdateRecoveryPointLifecycleCommandOutput}
  * @see {@link UpdateRecoveryPointLifecycleCommandInput} for command's `input` shape.
  * @see {@link UpdateRecoveryPointLifecycleCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -100,6 +107,9 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecoveryPointLifecycleCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRecoveryPointLifecycleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRecoveryPointLifecycleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

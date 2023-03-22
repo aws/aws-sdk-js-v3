@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountsCommand}.
  */
 export interface ListAccountsCommandInput extends ListAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountsCommand}.
  */
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
  *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>IAM Identity Center User Guide</i>. This operation
  *       returns a paginated response.</p>
@@ -48,6 +53,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
+ * @returns {@link ListAccountsCommandOutput}
  * @see {@link ListAccountsCommandInput} for command's `input` shape.
  * @see {@link ListAccountsCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsCommandOutput> {
     return deserializeAws_restJson1ListAccountsCommand(output, context);
   }

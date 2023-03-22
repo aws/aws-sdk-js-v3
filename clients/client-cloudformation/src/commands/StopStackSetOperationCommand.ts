@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link StopStackSetOperationCommand}.
  */
 export interface StopStackSetOperationCommandInput extends StopStackSetOperationInput {}
 /**
+ * @public
+ *
  * The output of {@link StopStackSetOperationCommand}.
  */
 export interface StopStackSetOperationCommandOutput extends StopStackSetOperationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an in-progress operation on a stack set and its associated stack instances.
  *          StackSets will cancel all the unstarted stack instance deployments and wait for those are
  *          in-progress to complete.</p>
@@ -48,6 +53,8 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStackSetOperationCommandInput - {@link StopStackSetOperationCommandInput}
+ * @returns {@link StopStackSetOperationCommandOutput}
  * @see {@link StopStackSetOperationCommandInput} for command's `input` shape.
  * @see {@link StopStackSetOperationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -80,6 +87,9 @@ export class StopStackSetOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStackSetOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class StopStackSetOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStackSetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStopStackSetOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStackSetOperationCommandOutput> {
     return deserializeAws_queryStopStackSetOperationCommand(output, context);
   }

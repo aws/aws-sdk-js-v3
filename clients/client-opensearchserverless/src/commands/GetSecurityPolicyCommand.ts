@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetSecurityPolicyCommand}.
  */
 export interface GetSecurityPolicyCommandInput extends GetSecurityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSecurityPolicyCommand}.
  */
 export interface GetSecurityPolicyCommandOutput extends GetSecurityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a configured OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
  *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
  *                 rest for Amazon OpenSearch Serverless</a>.</p>
@@ -52,6 +57,8 @@ export interface GetSecurityPolicyCommandOutput extends GetSecurityPolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSecurityPolicyCommandInput - {@link GetSecurityPolicyCommandInput}
+ * @returns {@link GetSecurityPolicyCommandOutput}
  * @see {@link GetSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link GetSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetSecurityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSecurityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetSecurityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSecurityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetSecurityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSecurityPolicyCommandOutput> {
     return deserializeAws_json1_0GetSecurityPolicyCommand(output, context);
   }

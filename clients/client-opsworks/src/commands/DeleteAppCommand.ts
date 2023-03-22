@@ -18,15 +18,20 @@ import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { deserializeAws_json1_1DeleteAppCommand, serializeAws_json1_1DeleteAppCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandInput extends DeleteAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified app.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -43,6 +48,8 @@ export interface DeleteAppCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
+ * @returns {@link DeleteAppCommandOutput}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DeleteAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppCommandOutput> {
     return deserializeAws_json1_1DeleteAppCommand(output, context);
   }

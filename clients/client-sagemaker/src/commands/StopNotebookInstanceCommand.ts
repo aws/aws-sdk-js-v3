@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopNotebookInstanceCommand}.
  */
 export interface StopNotebookInstanceCommandInput extends StopNotebookInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link StopNotebookInstanceCommand}.
  */
 export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the ML compute instance. Before terminating the instance, SageMaker
  *             disconnects the ML storage volume from it. SageMaker preserves the ML storage volume. SageMaker
  *             stops charging you for the ML compute instance when you call
@@ -49,6 +54,8 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param StopNotebookInstanceCommandInput - {@link StopNotebookInstanceCommandInput}
+ * @returns {@link StopNotebookInstanceCommandOutput}
  * @see {@link StopNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link StopNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class StopNotebookInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class StopNotebookInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopNotebookInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopNotebookInstanceCommandOutput> {
     return deserializeAws_json1_1StopNotebookInstanceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEndpointCommand}.
  */
 export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEndpointCommand}.
  */
 export interface CreateEndpointCommandOutput extends CreateEndpointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint and associates it with the specified Outpost.</p>
  *          <note>
  *             <p>It can take up to 5 minutes for this action to finish.</p>
@@ -63,6 +68,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
+ * @returns {@link CreateEndpointCommandOutput}
  * @see {@link CreateEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class CreateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointCommandOutput> {
     return deserializeAws_restJson1CreateEndpointCommand(output, context);
   }

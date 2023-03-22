@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableSsoCommand}.
  */
 export interface DisableSsoCommandInput extends DisableSsoRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableSsoCommand}.
  */
 export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables single-sign on for a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableSsoCommandInput - {@link DisableSsoCommandInput}
+ * @returns {@link DisableSsoCommandOutput}
  * @see {@link DisableSsoCommandInput} for command's `input` shape.
  * @see {@link DisableSsoCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisableSsoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableSsoCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DisableSsoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableSsoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableSsoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableSsoCommandOutput> {
     return deserializeAws_json1_1DisableSsoCommand(output, context);
   }

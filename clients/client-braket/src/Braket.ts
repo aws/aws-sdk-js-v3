@@ -45,6 +45,7 @@ import {
 } from "./commands/UntagResourceCommand";
 
 /**
+ * @public
  * <p>The Amazon Braket API Reference provides information about the operations and structures
  *          supported in Amazon Braket.</p>
  *          <p>Additional Resources:</p>
@@ -58,6 +59,7 @@ import {
  */
 export class Braket extends BraketClient {
   /**
+   * @public
    * <p>Cancels an Amazon Braket job.</p>
    */
   public cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
@@ -84,6 +86,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Cancels the specified task.</p>
    */
   public cancelQuantumTask(
@@ -116,6 +119,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Braket job.</p>
    */
   public createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
@@ -142,6 +146,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Creates a quantum task.</p>
    */
   public createQuantumTask(
@@ -174,6 +179,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the devices available in Amazon Braket.</p>
    *          <note>
    *             <p>For backwards compatibility with older versions of BraketSchemas, OpenQASM
@@ -209,6 +215,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified Amazon Braket job.</p>
    */
   public getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
@@ -235,6 +242,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified quantum task.</p>
    */
   public getQuantumTask(
@@ -267,6 +275,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Shows the tags associated with this resource.</p>
    */
   public listTagsForResource(
@@ -299,6 +308,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Searches for devices using the specified filters.</p>
    */
   public searchDevices(
@@ -331,6 +341,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Searches for Amazon Braket jobs that match the specified filter values.</p>
    */
   public searchJobs(args: SearchJobsCommandInput, options?: __HttpHandlerOptions): Promise<SearchJobsCommandOutput>;
@@ -357,6 +368,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Searches for tasks that match the specified filter values.</p>
    */
   public searchQuantumTasks(
@@ -389,6 +401,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Add a tag to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -415,6 +428,7 @@ export class Braket extends BraketClient {
   }
 
   /**
+   * @public
    * <p>Remove tags from a resource.</p>
    */
   public untagResource(

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAliasCommand}.
  */
 export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAliasCommand}.
  */
 export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
+ * @returns {@link DeleteAliasCommandOutput}
  * @see {@link DeleteAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -76,6 +83,9 @@ export class DeleteAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAliasCommandOutput> {
     return deserializeAws_restJson1DeleteAliasCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetLocalConsolePasswordCommand}.
  */
 export interface SetLocalConsolePasswordCommandInput extends SetLocalConsolePasswordInput {}
 /**
+ * @public
+ *
  * The output of {@link SetLocalConsolePasswordCommand}.
  */
 export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePasswordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the password for your VM local console. When you log in to the local console for
  *          the first time, you log in to the VM with the default credentials. We recommend that you
  *          set a new password. You don't need to know the default password to set a new
@@ -49,6 +54,8 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  * const response = await client.send(command);
  * ```
  *
+ * @param SetLocalConsolePasswordCommandInput - {@link SetLocalConsolePasswordCommandInput}
+ * @returns {@link SetLocalConsolePasswordCommandOutput}
  * @see {@link SetLocalConsolePasswordCommandInput} for command's `input` shape.
  * @see {@link SetLocalConsolePasswordCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -97,6 +104,9 @@ export class SetLocalConsolePasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetLocalConsolePasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class SetLocalConsolePasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetLocalConsolePasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetLocalConsolePasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetLocalConsolePasswordCommandOutput> {
     return deserializeAws_json1_1SetLocalConsolePasswordCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExperimentTemplateCommand}.
  */
 export interface DeleteExperimentTemplateCommandInput extends DeleteExperimentTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExperimentTemplateCommand}.
  */
 export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExperimentTemplateCommandInput - {@link DeleteExperimentTemplateCommandInput}
+ * @returns {@link DeleteExperimentTemplateCommandOutput}
  * @see {@link DeleteExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteExperimentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExperimentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteExperimentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExperimentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteExperimentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentTemplateCommandOutput> {
     return deserializeAws_restJson1DeleteExperimentTemplateCommand(output, context);
   }

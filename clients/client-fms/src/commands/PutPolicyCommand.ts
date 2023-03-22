@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1PutPolicyCommand, serializeAws_json1_1PutPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPolicyCommand}.
  */
 export interface PutPolicyCommandInput extends PutPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPolicyCommand}.
  */
 export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Firewall Manager policy.</p>
  *          <p>Firewall Manager provides the following types of policies: </p>
  *          <ul>
@@ -75,6 +80,8 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPolicyCommandInput - {@link PutPolicyCommandInput}
+ * @returns {@link PutPolicyCommandOutput}
  * @see {@link PutPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPolicyCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -120,6 +127,9 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPolicyCommandOutput> {
     return deserializeAws_json1_1PutPolicyCommand(output, context);
   }

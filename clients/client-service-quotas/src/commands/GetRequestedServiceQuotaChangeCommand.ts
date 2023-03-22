@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRequestedServiceQuotaChangeCommand}.
  */
 export interface GetRequestedServiceQuotaChangeCommandInput extends GetRequestedServiceQuotaChangeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRequestedServiceQuotaChangeCommand}.
  */
 export interface GetRequestedServiceQuotaChangeCommandOutput
@@ -37,6 +41,7 @@ export interface GetRequestedServiceQuotaChangeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified quota increase request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetRequestedServiceQuotaChangeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRequestedServiceQuotaChangeCommandInput - {@link GetRequestedServiceQuotaChangeCommandInput}
+ * @returns {@link GetRequestedServiceQuotaChangeCommandOutput}
  * @see {@link GetRequestedServiceQuotaChangeCommandInput} for command's `input` shape.
  * @see {@link GetRequestedServiceQuotaChangeCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRequestedServiceQuotaChangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRequestedServiceQuotaChangeCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     return serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

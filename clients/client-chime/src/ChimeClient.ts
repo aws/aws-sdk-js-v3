@@ -593,6 +593,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociatePhoneNumberWithUserCommandInput
   | AssociatePhoneNumbersWithVoiceConnectorCommandInput
@@ -786,6 +789,9 @@ export type ServiceInputTypes =
   | UpdateVoiceConnectorGroupCommandInput
   | ValidateE911AddressCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociatePhoneNumberWithUserCommandOutput
   | AssociatePhoneNumbersWithVoiceConnectorCommandOutput
@@ -979,6 +985,9 @@ export type ServiceOutputTypes =
   | UpdateVoiceConnectorGroupCommandOutput
   | ValidateE911AddressCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -986,7 +995,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -1095,11 +1104,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ChimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -1110,10 +1122,15 @@ type ChimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ChimeClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ChimeClient class constructor that set the region, credentials and other options.
  */
 export interface ChimeClientConfig extends ChimeClientConfigType {}
 
+/**
+ * @public
+ */
 type ChimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -1124,11 +1141,14 @@ type ChimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandler
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ChimeClient class. This is resolved and normalized from the {@link ChimeClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ChimeClient class. This is resolved and normalized from the {@link ChimeClientConfig | constructor configuration interface}.
  */
 export interface ChimeClientResolvedConfig extends ChimeClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The Amazon Chime API (application programming interface) is designed for developers to
  *             perform key tasks, such as creating and managing Amazon Chime accounts, users, and Voice
  *             Connectors. This guide provides detailed information about the Amazon Chime API,

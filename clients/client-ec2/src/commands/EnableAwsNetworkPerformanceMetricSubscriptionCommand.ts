@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAwsNetworkPerformanceMetricSubscriptionCommand}.
  */
 export interface EnableAwsNetworkPerformanceMetricSubscriptionCommandInput
   extends EnableAwsNetworkPerformanceMetricSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableAwsNetworkPerformanceMetricSubscriptionCommand}.
  */
 export interface EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
@@ -38,6 +42,7 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Infrastructure Performance subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAwsNetworkPerformanceMetricSubscriptionCommandInput - {@link EnableAwsNetworkPerformanceMetricSubscriptionCommandInput}
+ * @returns {@link EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput}
  * @see {@link EnableAwsNetworkPerformanceMetricSubscriptionCommandInput} for command's `input` shape.
  * @see {@link EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
     return serializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

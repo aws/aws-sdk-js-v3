@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBProxyEndpointCommand}.
  */
 export interface CreateDBProxyEndpointCommandInput extends CreateDBProxyEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBProxyEndpointCommand}.
  */
 export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>DBProxyEndpoint</code>. Only applies to proxies that are associated with Aurora DB clusters.
  *         You can use DB proxy endpoints to specify read/write or read-only access to the DB cluster. You can also use
  *         DB proxy endpoints to access a DB proxy through a different VPC than the proxy's default VPC.</p>
@@ -48,6 +53,8 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBProxyEndpointCommandInput - {@link CreateDBProxyEndpointCommandInput}
+ * @returns {@link CreateDBProxyEndpointCommandOutput}
  * @see {@link CreateDBProxyEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDBProxyEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateDBProxyEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBProxyEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateDBProxyEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBProxyEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBProxyEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBProxyEndpointCommandOutput> {
     return deserializeAws_queryCreateDBProxyEndpointCommand(output, context);
   }

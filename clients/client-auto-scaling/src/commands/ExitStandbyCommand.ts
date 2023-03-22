@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryExitStandbyCommand, serializeAws_queryExitStandbyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ExitStandbyCommand}.
  */
 export interface ExitStandbyCommandInput extends ExitStandbyQuery {}
 /**
+ * @public
+ *
  * The output of {@link ExitStandbyCommand}.
  */
 export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Moves the specified instances out of the standby state.</p>
  *          <p>After you put the instances back in service, the desired capacity is
  *             incremented.</p>
@@ -48,6 +53,8 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ExitStandbyCommandInput - {@link ExitStandbyCommandInput}
+ * @returns {@link ExitStandbyCommandOutput}
  * @see {@link ExitStandbyCommandInput} for command's `input` shape.
  * @see {@link ExitStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -105,6 +112,9 @@ export class ExitStandbyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExitStandbyCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class ExitStandbyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExitStandbyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryExitStandbyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExitStandbyCommandOutput> {
     return deserializeAws_queryExitStandbyCommand(output, context);
   }

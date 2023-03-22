@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLicenseVersionsCommand}.
  */
 export interface ListLicenseVersionsCommandInput extends ListLicenseVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLicenseVersionsCommand}.
  */
 export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all versions of the specified license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLicenseVersionsCommandInput - {@link ListLicenseVersionsCommandInput}
+ * @returns {@link ListLicenseVersionsCommandOutput}
  * @see {@link ListLicenseVersionsCommandInput} for command's `input` shape.
  * @see {@link ListLicenseVersionsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListLicenseVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLicenseVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListLicenseVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLicenseVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLicenseVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLicenseVersionsCommandOutput> {
     return deserializeAws_json1_1ListLicenseVersionsCommand(output, context);
   }

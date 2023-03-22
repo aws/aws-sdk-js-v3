@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
@@ -48,6 +53,8 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
+ * @returns {@link DeleteFleetCommandOutput}
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetCommandOutput> {
     return deserializeAws_restJson1DeleteFleetCommand(output, context);
   }

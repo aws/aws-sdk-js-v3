@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceGroupCommand}.
  */
 export interface CreateResourceGroupCommandInput extends CreateResourceGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceGroupCommand}.
  */
 export interface CreateResourceGroupCommandOutput extends CreateResourceGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a resource group using the specified set of tags (key and value pairs) that
  *          are used to select the EC2 instances to be included in an Amazon Inspector assessment
  *          target. The created resource group is then used to create an Amazon Inspector assessment
@@ -49,6 +54,8 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceGroupCommandInput - {@link CreateResourceGroupCommandInput}
+ * @returns {@link CreateResourceGroupCommandOutput}
  * @see {@link CreateResourceGroupCommandInput} for command's `input` shape.
  * @see {@link CreateResourceGroupCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -110,6 +117,9 @@ export class CreateResourceGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateResourceGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateResourceGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceGroupCommandOutput> {
     return deserializeAws_json1_1CreateResourceGroupCommand(output, context);
   }

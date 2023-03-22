@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNodegroupCommand}.
  */
 export interface CreateNodegroupCommandInput extends CreateNodegroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNodegroupCommand}.
  */
 export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a managed node group for an Amazon EKS cluster. You can only create a
  *             node group for your cluster that is equal to the current Kubernetes version for the
  *             cluster. All node groups are created with the latest AMI release version for the
@@ -59,6 +64,8 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNodegroupCommandInput - {@link CreateNodegroupCommandInput}
+ * @returns {@link CreateNodegroupCommandOutput}
  * @see {@link CreateNodegroupCommandInput} for command's `input` shape.
  * @see {@link CreateNodegroupCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateNodegroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNodegroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class CreateNodegroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNodegroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateNodegroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNodegroupCommandOutput> {
     return deserializeAws_restJson1CreateNodegroupCommand(output, context);
   }

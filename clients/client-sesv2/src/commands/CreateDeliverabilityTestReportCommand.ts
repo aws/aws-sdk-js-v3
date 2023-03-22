@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeliverabilityTestReportCommand}.
  */
 export interface CreateDeliverabilityTestReportCommandInput extends CreateDeliverabilityTestReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeliverabilityTestReportCommand}.
  */
 export interface CreateDeliverabilityTestReportCommandOutput
@@ -37,6 +41,7 @@ export interface CreateDeliverabilityTestReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
  *             by various email providers around the world. When you perform a predictive inbox placement test, you provide a
  *             sample message that contains the content that you plan to send to your customers. Amazon SES
@@ -54,6 +59,8 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeliverabilityTestReportCommandInput - {@link CreateDeliverabilityTestReportCommandInput}
+ * @returns {@link CreateDeliverabilityTestReportCommandOutput}
  * @see {@link CreateDeliverabilityTestReportCommandInput} for command's `input` shape.
  * @see {@link CreateDeliverabilityTestReportCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -106,6 +113,9 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeliverabilityTestReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateDeliverabilityTestReportCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     return serializeAws_restJson1CreateDeliverabilityTestReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

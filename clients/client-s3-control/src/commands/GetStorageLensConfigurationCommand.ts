@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetStorageLensConfigurationCommand}.
  */
 export interface GetStorageLensConfigurationCommandInput extends GetStorageLensConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStorageLensConfigurationCommand}.
  */
 export interface GetStorageLensConfigurationCommandOutput extends GetStorageLensConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the Amazon S3 Storage Lens configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
  *             activity and usage with Amazon S3 Storage Lens </a> in the
  *             <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -54,6 +59,8 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStorageLensConfigurationCommandInput - {@link GetStorageLensConfigurationCommandInput}
+ * @returns {@link GetStorageLensConfigurationCommandOutput}
  * @see {@link GetStorageLensConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetStorageLensConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -80,6 +87,9 @@ export class GetStorageLensConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStorageLensConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetStorageLensConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStorageLensConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetStorageLensConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

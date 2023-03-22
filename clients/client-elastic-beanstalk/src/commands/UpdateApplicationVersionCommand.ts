@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationVersionCommand}.
  */
 export interface UpdateApplicationVersionCommandInput extends UpdateApplicationVersionMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationVersionCommand}.
  */
 export interface UpdateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified application version to have the specified properties.</p>
  *          <note>
  *             <p>If a property (for example, <code>description</code>) is not provided, the value
@@ -50,6 +55,8 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationVersionCommandInput - {@link UpdateApplicationVersionCommandInput}
+ * @returns {@link UpdateApplicationVersionCommandOutput}
  * @see {@link UpdateApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -101,6 +108,9 @@ export class UpdateApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class UpdateApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationVersionCommandOutput> {
     return deserializeAws_queryUpdateApplicationVersionCommand(output, context);
   }

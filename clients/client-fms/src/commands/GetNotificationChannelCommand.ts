@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNotificationChannelCommand}.
  */
 export interface GetNotificationChannelCommandInput extends GetNotificationChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNotificationChannelCommand}.
  */
 export interface GetNotificationChannelCommandOutput extends GetNotificationChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information
  *       about the Amazon Simple Notification Service (SNS) topic that is used to
  *       record Firewall Manager SNS logs.</p>
@@ -48,6 +53,8 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNotificationChannelCommandInput - {@link GetNotificationChannelCommandInput}
+ * @returns {@link GetNotificationChannelCommandOutput}
  * @see {@link GetNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link GetNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetNotificationChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNotificationChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetNotificationChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNotificationChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNotificationChannelCommandOutput> {
     return deserializeAws_json1_1GetNotificationChannelCommand(output, context);
   }

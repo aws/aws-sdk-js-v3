@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExportECSServiceRecommendationsCommand}.
  */
 export interface ExportECSServiceRecommendationsCommandInput extends ExportECSServiceRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportECSServiceRecommendationsCommand}.
  */
 export interface ExportECSServiceRecommendationsCommandOutput
@@ -37,6 +41,7 @@ export interface ExportECSServiceRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Exports optimization recommendations for Amazon ECS services on Fargate.
  *         </p>
@@ -55,6 +60,8 @@ export interface ExportECSServiceRecommendationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportECSServiceRecommendationsCommandInput - {@link ExportECSServiceRecommendationsCommandInput}
+ * @returns {@link ExportECSServiceRecommendationsCommandOutput}
  * @see {@link ExportECSServiceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportECSServiceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -103,6 +110,9 @@ export class ExportECSServiceRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportECSServiceRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class ExportECSServiceRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportECSServiceRecommendationsCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class ExportECSServiceRecommendationsCommand extends $Command<
     return serializeAws_json1_0ExportECSServiceRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

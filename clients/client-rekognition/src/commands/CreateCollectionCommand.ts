@@ -26,15 +26,20 @@ import {
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCollectionCommand}.
  */
 export interface CreateCollectionCommandInput extends CreateCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCollectionCommand}.
  */
 export interface CreateCollectionCommandOutput extends CreateCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a collection in an AWS Region. You can add faces to the collection using the
  *         <a>IndexFaces</a> operation. </p>
  *          <p>For example, you might create collections, one for each of your application users. A
@@ -60,6 +65,8 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCollectionCommandInput - {@link CreateCollectionCommandInput}
+ * @returns {@link CreateCollectionCommandOutput}
  * @see {@link CreateCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateCollectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -125,6 +132,9 @@ export class CreateCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class CreateCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCollectionCommandOutput> {
     return deserializeAws_json1_1CreateCollectionCommand(output, context);
   }

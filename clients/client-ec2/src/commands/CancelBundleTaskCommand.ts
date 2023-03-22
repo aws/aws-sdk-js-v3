@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CancelBundleTaskCommand}.
  */
 export interface CancelBundleTaskCommandInput extends CancelBundleTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelBundleTaskCommand}.
  */
 export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelBundleTaskCommandInput - {@link CancelBundleTaskCommandInput}
+ * @returns {@link CancelBundleTaskCommandOutput}
  * @see {@link CancelBundleTaskCommandInput} for command's `input` shape.
  * @see {@link CancelBundleTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class CancelBundleTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelBundleTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class CancelBundleTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelBundleTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelBundleTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBundleTaskCommandOutput> {
     return deserializeAws_ec2CancelBundleTaskCommand(output, context);
   }

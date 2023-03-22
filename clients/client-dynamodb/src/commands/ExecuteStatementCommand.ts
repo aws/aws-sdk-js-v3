@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteStatementCommand}.
  */
 export interface ExecuteStatementCommandInput extends ExecuteStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteStatementCommand}.
  */
 export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation allows you to perform reads and singleton writes on data stored in
  *             DynamoDB, using PartiQL.</p>
  *          <p>For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
@@ -58,6 +63,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
+ * @returns {@link ExecuteStatementCommandOutput}
  * @see {@link ExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -114,6 +121,9 @@ export class ExecuteStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class ExecuteStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ExecuteStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteStatementCommandOutput> {
     return deserializeAws_json1_0ExecuteStatementCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RebootDBInstanceCommand}.
  */
 export interface RebootDBInstanceCommandInput extends RebootDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebootDBInstanceCommand}.
  */
 export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You might need to reboot your DB instance, usually for maintenance reasons. For example,
  *       if you make certain modifications, or if you change the DB parameter group associated with the
  *       DB instance, you must reboot the instance for the changes to take effect.</p>
@@ -50,6 +55,8 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootDBInstanceCommandInput - {@link RebootDBInstanceCommandInput}
+ * @returns {@link RebootDBInstanceCommandOutput}
  * @see {@link RebootDBInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -80,6 +87,9 @@ export class RebootDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class RebootDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRebootDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootDBInstanceCommandOutput> {
     return deserializeAws_queryRebootDBInstanceCommand(output, context);
   }

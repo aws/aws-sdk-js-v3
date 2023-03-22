@@ -10,7 +10,7 @@ import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlCon
 import { Route53RecoveryControlConfigPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Route53RecoveryControlConfigClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListControlPanelsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListControlPanels(
   config: Route53RecoveryControlConfigPaginationConfiguration,
   input: ListControlPanelsCommandInput,

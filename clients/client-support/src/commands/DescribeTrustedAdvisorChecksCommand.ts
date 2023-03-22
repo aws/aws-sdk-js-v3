@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrustedAdvisorChecksCommand}.
  */
 export interface DescribeTrustedAdvisorChecksCommandInput extends DescribeTrustedAdvisorChecksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrustedAdvisorChecksCommand}.
  */
 export interface DescribeTrustedAdvisorChecksCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all available Trusted Advisor checks, including the name, ID,
  *             category, description, and metadata. You must specify a language code.</p>
  *          <p>The response contains a <a>TrustedAdvisorCheckDescription</a> object for
@@ -73,6 +78,8 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrustedAdvisorChecksCommandInput - {@link DescribeTrustedAdvisorChecksCommandInput}
+ * @returns {@link DescribeTrustedAdvisorChecksCommandOutput}
  * @see {@link DescribeTrustedAdvisorChecksCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorChecksCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -99,6 +106,9 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrustedAdvisorChecksCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrustedAdvisorChecksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTrustedAdvisorChecksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

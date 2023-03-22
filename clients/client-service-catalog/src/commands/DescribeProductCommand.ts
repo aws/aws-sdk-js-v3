@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProductCommand}.
  */
 export interface DescribeProductCommandInput extends DescribeProductInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProductCommand}.
  */
 export interface DescribeProductCommandOutput extends DescribeProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified product.</p>
  *          <note>
  *             <p>
@@ -55,6 +60,8 @@ export interface DescribeProductCommandOutput extends DescribeProductOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProductCommandInput - {@link DescribeProductCommandInput}
+ * @returns {@link DescribeProductCommandOutput}
  * @see {@link DescribeProductCommandInput} for command's `input` shape.
  * @see {@link DescribeProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProductCommandOutput> {
     return deserializeAws_json1_1DescribeProductCommand(output, context);
   }

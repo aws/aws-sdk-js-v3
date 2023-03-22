@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExtendTransactionCommand}.
  */
 export interface ExtendTransactionCommandInput extends ExtendTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExtendTransactionCommand}.
  */
 export interface ExtendTransactionCommandOutput extends ExtendTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Indicates to the service that the specified transaction is still active and should not be treated as idle and aborted.</p>
  *          <p>Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ExtendTransactionCommandInput - {@link ExtendTransactionCommandInput}
+ * @returns {@link ExtendTransactionCommandOutput}
  * @see {@link ExtendTransactionCommandInput} for command's `input` shape.
  * @see {@link ExtendTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -91,6 +98,9 @@ export class ExtendTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExtendTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ExtendTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExtendTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ExtendTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExtendTransactionCommandOutput> {
     return deserializeAws_restJson1ExtendTransactionCommand(output, context);
   }

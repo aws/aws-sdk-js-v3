@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrialCommand}.
  */
 export interface DescribeTrialCommandInput extends DescribeTrialRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrialCommand}.
  */
 export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of a trial's properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrialCommandInput - {@link DescribeTrialCommandInput}
+ * @returns {@link DescribeTrialCommandOutput}
  * @see {@link DescribeTrialCommandInput} for command's `input` shape.
  * @see {@link DescribeTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeTrialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrialCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class DescribeTrialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTrialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrialCommandOutput> {
     return deserializeAws_json1_1DescribeTrialCommand(output, context);
   }

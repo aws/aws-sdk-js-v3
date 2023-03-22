@@ -186,6 +186,7 @@ import {
 import { SNSClient } from "./SNSClient";
 
 /**
+ * @public
  * <fullname>Amazon Simple Notification Service</fullname>
  *          <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you
  *             to build distributed web-enabled applications. Applications can use Amazon SNS to easily push
@@ -202,6 +203,7 @@ import { SNSClient } from "./SNSClient";
  */
 export class SNS extends SNSClient {
   /**
+   * @public
    * <p>Adds a statement to a topic's access control policy, granting access for the specified
    *             Amazon Web Services accounts to the specified actions.</p>
    *          <note>
@@ -240,6 +242,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Accepts a phone number and indicates whether the phone holder has opted out of
    *             receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number
    *             that is opted out.</p>
@@ -276,6 +279,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Verifies an endpoint owner's intent to receive messages by validating the token sent
    *             to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the
    *             action creates a new subscription and returns its Amazon Resource Name (ARN). This call
@@ -312,6 +316,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Creates a platform application object for one of the supported push notification
    *             services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile
    *             apps may register. You must specify <code>PlatformPrincipal</code> and
@@ -388,6 +393,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Creates an endpoint for a device and mobile app on one of the supported push
    *             notification services, such as GCM (Firebase Cloud Messaging) and APNS.
    *                 <code>CreatePlatformEndpoint</code> requires the <code>PlatformApplicationArn</code>
@@ -433,6 +439,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a
    *             one-time password (OTP) to that phone number.</p>
    *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -474,6 +481,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Creates a topic to which notifications can be published. Users can create at most
    *             100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html">Creating an Amazon SNS
    *                 topic</a> in the <i>Amazon SNS Developer Guide</i>. This action is
@@ -504,6 +512,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
    *             idempotent. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
    *             Notifications</a>. </p>
@@ -540,6 +549,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a platform application object for one of the supported push notification
    *             services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see
    *                 <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS
@@ -575,6 +585,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Web Services account's verified or pending phone number from the SMS
    *             sandbox.</p>
    *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -616,6 +627,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some
    *             messages previously sent to the topic from being delivered to subscribers. This action
    *             is idempotent, so deleting a topic that does not exist does not result in an
@@ -645,6 +657,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
    *             stored in the specified Amazon SNS topic. </p>
    */
@@ -678,6 +691,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the endpoint attributes for a device on one of the supported push
    *             notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more
    *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -712,6 +726,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the attributes of the platform application object for the supported push
    *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
    *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -746,6 +761,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Returns the settings for sending SMS messages from your Amazon Web Services account.</p>
    *          <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
    */
@@ -779,6 +795,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target
    *             Amazon Web Services Region.</p>
    *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -820,6 +837,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Returns all of the properties of a subscription.</p>
    */
   public getSubscriptionAttributes(
@@ -852,6 +870,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Returns all of the properties of a topic. Topic properties returned might differ based
    *             on the authorization of the user.</p>
    */
@@ -885,6 +904,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Lists the endpoints and endpoint attributes for devices in a supported push
    *             notification service, such as GCM (Firebase Cloud Messaging) and APNS. The results for
    *                 <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited
@@ -926,6 +946,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata.
    *             For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
    *             Guide</i>.</p>
@@ -960,6 +981,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
    *             messages to them.</p>
    *          <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
@@ -999,6 +1021,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Lists the platform application objects for the supported push notification services,
    *             such as APNS and GCM (Firebase Cloud Messaging). The results for
    *                 <code>ListPlatformApplications</code> are paginated and return a limited list of
@@ -1040,6 +1063,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Lists the calling Amazon Web Services account's current verified and pending destination phone
    *             numbers in the SMS sandbox.</p>
    *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -1081,6 +1105,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the requester's subscriptions. Each call returns a limited list of
    *             subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is
    *             also returned. Use the <code>NextToken</code> parameter in a new
@@ -1117,6 +1142,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the subscriptions to a specific topic. Each call returns a limited
    *             list of subscriptions, up to 100. If there are more subscriptions, a
    *                 <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in
@@ -1153,6 +1179,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>List all tags added to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
    *                 <i>Amazon Simple Notification Service Developer Guide</i>.</p>
    */
@@ -1186,6 +1213,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the requester's topics. Each call returns a limited list of topics,
    *             up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the
    *                 <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get
@@ -1216,6 +1244,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Use this request to opt in a phone number that is opted out, which enables you to
    *             resume sending SMS messages to the number.</p>
    *          <p>You can opt in a phone number only once every 30 days.</p>
@@ -1250,6 +1279,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone
    *             number, or a message to a mobile platform endpoint (when you specify the
    *                 <code>TargetArn</code>).</p>
@@ -1293,6 +1323,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Publishes up to ten messages to the specified topic. This is a batch version of
    *                 <code>Publish</code>. For FIFO topics, multiple messages within a single batch are
    *             published in the order they are sent, and messages are deduplicated within the batch and
@@ -1342,6 +1373,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS
    *             topic.</p>
    */
@@ -1375,6 +1407,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Removes a statement from a topic's access control policy.</p>
    *          <note>
    *             <p>To remove the ability to change topic permissions, you must deny permissions to
@@ -1412,6 +1445,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Sets the attributes for an endpoint for a device on one of the supported push
    *             notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more
    *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -1446,6 +1480,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Sets the attributes of the platform application object for the supported push
    *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
    *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring
@@ -1482,6 +1517,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Use this request to set the default settings for sending SMS messages and receiving
    *             daily SMS usage reports.</p>
    *          <p>You can override some of these settings for a single message when you use the
@@ -1524,6 +1560,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Allows a subscription owner to set an attribute of the subscription to a new
    *             value.</p>
    */
@@ -1557,6 +1594,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
    *          <note>
    *             <p>To remove the ability to change topic permissions, you must deny permissions to
@@ -1594,6 +1632,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or
    *             if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must
    *             run the <code>ConfirmSubscription</code> action to confirm the subscription.</p>
@@ -1625,6 +1664,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Add tags to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
    *                 <i>Amazon SNS Developer Guide</i>.</p>
    *          <p>When you use topic tags, keep the following guidelines in mind:</p>
@@ -1673,6 +1713,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Deletes a subscription. If the subscription requires authentication for deletion, only
    *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services
    *             signature is required. If the <code>Unsubscribe</code> call does not require
@@ -1710,6 +1751,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Remove tags from the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
    *                 <i>Amazon SNS Developer Guide</i>.</p>
    */
@@ -1743,6 +1785,7 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * @public
    * <p>Verifies a destination phone number with a one-time password (OTP) for the calling
    *             Amazon Web Services account.</p>
    *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the

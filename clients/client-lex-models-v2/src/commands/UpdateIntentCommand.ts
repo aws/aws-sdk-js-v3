@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIntentCommand}.
  */
 export interface UpdateIntentCommandInput extends UpdateIntentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIntentCommand}.
  */
 export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings for an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIntentCommandInput - {@link UpdateIntentCommandInput}
+ * @returns {@link UpdateIntentCommandOutput}
  * @see {@link UpdateIntentCommandInput} for command's `input` shape.
  * @see {@link UpdateIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class UpdateIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIntentCommandOutput> {
     return deserializeAws_restJson1UpdateIntentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeliveryChannelsCommand}.
  */
 export interface DescribeDeliveryChannelsCommandInput extends DescribeDeliveryChannelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeliveryChannelsCommand}.
  */
 export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryChannelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about the specified delivery channel. If a
  * 			delivery channel is not specified, this action returns the details
  * 			of all delivery channels associated with the account.</p>
@@ -52,6 +57,8 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeliveryChannelsCommandInput - {@link DescribeDeliveryChannelsCommandInput}
+ * @returns {@link DescribeDeliveryChannelsCommandOutput}
  * @see {@link DescribeDeliveryChannelsCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryChannelsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeDeliveryChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeliveryChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeDeliveryChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeliveryChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDeliveryChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeliveryChannelsCommandOutput> {
     return deserializeAws_json1_1DescribeDeliveryChannelsCommand(output, context);
   }

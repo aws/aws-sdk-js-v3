@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUtterancesViewCommand}.
  */
 export interface GetUtterancesViewCommandInput extends GetUtterancesViewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUtterancesViewCommand}.
  */
 export interface GetUtterancesViewCommandOutput extends GetUtterancesViewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>GetUtterancesView</code> operation to get information
  *       about the utterances that your users have made to your bot. You can use
  *       this list to tune the utterances that your bot responds to.</p>
@@ -73,6 +78,8 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUtterancesViewCommandInput - {@link GetUtterancesViewCommandInput}
+ * @returns {@link GetUtterancesViewCommandOutput}
  * @see {@link GetUtterancesViewCommandInput} for command's `input` shape.
  * @see {@link GetUtterancesViewCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -107,6 +114,9 @@ export class GetUtterancesViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUtterancesViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class GetUtterancesViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUtterancesViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUtterancesViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUtterancesViewCommandOutput> {
     return deserializeAws_restJson1GetUtterancesViewCommand(output, context);
   }

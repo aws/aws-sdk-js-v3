@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWaveCommand}.
  */
 export interface DeleteWaveCommandInput extends DeleteWaveRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWaveCommand}.
  */
 export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWaveCommandInput - {@link DeleteWaveCommandInput}
+ * @returns {@link DeleteWaveCommandOutput}
  * @see {@link DeleteWaveCommandInput} for command's `input` shape.
  * @see {@link DeleteWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteWaveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWaveCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DeleteWaveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWaveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWaveCommandOutput> {
     return deserializeAws_restJson1DeleteWaveCommand(output, context);
   }

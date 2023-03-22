@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApiMappingCommand}.
  */
 export interface UpdateApiMappingCommandInput extends UpdateApiMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApiMappingCommand}.
  */
 export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The API mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApiMappingCommandInput - {@link UpdateApiMappingCommandInput}
+ * @returns {@link UpdateApiMappingCommandOutput}
  * @see {@link UpdateApiMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateApiMappingCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateApiMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApiMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateApiMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApiMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApiMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiMappingCommandOutput> {
     return deserializeAws_restJson1UpdateApiMappingCommand(output, context);
   }

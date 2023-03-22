@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1QueryCommand, serializeAws_json1_1QueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link QueryCommand}.
  */
 export interface QueryCommandInput extends QueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link QueryCommand}.
  */
 export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches an active index. Use this API to search your documents using query. The
  *             <code>Query</code> API enables to do faceted search and to filter results based on
  *          document attributes.</p>
@@ -63,6 +68,8 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryCommandInput - {@link QueryCommandInput}
+ * @returns {@link QueryCommandOutput}
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -111,6 +118,9 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1QueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
     return deserializeAws_json1_1QueryCommand(output, context);
   }

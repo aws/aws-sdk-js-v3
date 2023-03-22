@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEndpointAccessCommand}.
  */
 export interface ListEndpointAccessCommandInput extends ListEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEndpointAccessCommand}.
  */
 export interface ListEndpointAccessCommandOutput extends ListEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>EndpointAccess</code> objects and relevant information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListEndpointAccessCommandOutput extends ListEndpointAccessRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEndpointAccessCommandInput - {@link ListEndpointAccessCommandInput}
+ * @returns {@link ListEndpointAccessCommandOutput}
  * @see {@link ListEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link ListEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointAccessCommandOutput> {
     return deserializeAws_json1_1ListEndpointAccessCommand(output, context);
   }

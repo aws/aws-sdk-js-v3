@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountsCommand}.
  */
 export interface ListAccountsCommandInput extends ListAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountsCommand}.
  */
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the accounts in the organization. To request only the accounts in a
  *             specified root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation instead.</p>
  *          <note>
@@ -57,6 +62,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
+ * @returns {@link ListAccountsCommandOutput}
  * @see {@link ListAccountsCommandInput} for command's `input` shape.
  * @see {@link ListAccountsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -257,6 +264,9 @@ export class ListAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -294,10 +304,16 @@ export class ListAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsCommandOutput> {
     return deserializeAws_json1_1ListAccountsCommand(output, context);
   }

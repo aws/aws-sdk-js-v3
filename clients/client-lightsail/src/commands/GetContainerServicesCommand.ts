@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerServicesCommand}.
  */
 export interface GetContainerServicesCommandInput extends GetContainerServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerServicesCommand}.
  */
 export interface GetContainerServicesCommandOutput extends ContainerServicesListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more of your Amazon Lightsail container services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetContainerServicesCommandOutput extends ContainerServicesList
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerServicesCommandInput - {@link GetContainerServicesCommandInput}
+ * @returns {@link GetContainerServicesCommandOutput}
  * @see {@link GetContainerServicesCommandInput} for command's `input` shape.
  * @see {@link GetContainerServicesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -92,6 +99,9 @@ export class GetContainerServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class GetContainerServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContainerServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerServicesCommandOutput> {
     return deserializeAws_json1_1GetContainerServicesCommand(output, context);
   }

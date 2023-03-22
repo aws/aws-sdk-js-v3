@@ -21,15 +21,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSpaceCommand}.
  */
 export interface DeleteSpaceCommandInput extends DeleteSpaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSpaceCommand}.
  */
 export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to delete a space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSpaceCommandInput - {@link DeleteSpaceCommandInput}
+ * @returns {@link DeleteSpaceCommandOutput}
  * @see {@link DeleteSpaceCommandInput} for command's `input` shape.
  * @see {@link DeleteSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteSpaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSpaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class DeleteSpaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSpaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSpaceCommandOutput> {
     return deserializeAws_json1_1DeleteSpaceCommand(output, context);
   }

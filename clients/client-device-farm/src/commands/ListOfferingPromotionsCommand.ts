@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOfferingPromotionsCommand}.
  */
 export interface ListOfferingPromotionsCommandInput extends ListOfferingPromotionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOfferingPromotionsCommand}.
  */
 export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromotionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of offering promotions. Each offering promotion record contains the ID and description
  *             of the promotion. The API returns a <code>NotEligible</code> error if the caller is not permitted to invoke
  *             the operation. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you must be able to invoke this operation.</p>
@@ -48,6 +53,8 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOfferingPromotionsCommandInput - {@link ListOfferingPromotionsCommandInput}
+ * @returns {@link ListOfferingPromotionsCommandOutput}
  * @see {@link ListOfferingPromotionsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingPromotionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListOfferingPromotionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOfferingPromotionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListOfferingPromotionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOfferingPromotionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListOfferingPromotionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingPromotionsCommandOutput> {
     return deserializeAws_json1_1ListOfferingPromotionsCommand(output, context);
   }

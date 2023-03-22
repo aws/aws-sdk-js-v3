@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTaskCommand}.
  */
 export interface DeleteTaskCommandInput extends DeleteTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTaskCommand}.
  */
 export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an DataSync task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTaskCommandInput - {@link DeleteTaskCommandInput}
+ * @returns {@link DeleteTaskCommandOutput}
  * @see {@link DeleteTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskCommandOutput> {
     return deserializeAws_json1_1DeleteTaskCommand(output, context);
   }

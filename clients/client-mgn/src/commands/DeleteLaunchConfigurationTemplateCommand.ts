@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLaunchConfigurationTemplateCommand}.
  */
 export interface DeleteLaunchConfigurationTemplateCommandInput extends DeleteLaunchConfigurationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLaunchConfigurationTemplateCommand}.
  */
 export interface DeleteLaunchConfigurationTemplateCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a single Launch Configuration Template by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchConfigurationTemplateCommandInput - {@link DeleteLaunchConfigurationTemplateCommandInput}
+ * @returns {@link DeleteLaunchConfigurationTemplateCommandOutput}
  * @see {@link DeleteLaunchConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteLaunchConfigurationTemplateCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     return serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

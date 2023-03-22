@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartContactRecordingCommand}.
  */
 export interface StartContactRecordingCommandInput extends StartContactRecordingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartContactRecordingCommand}.
  */
 export interface StartContactRecordingCommandOutput extends StartContactRecordingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts recording the contact: </p>
  *          <ul>
  *             <li>
@@ -64,6 +69,8 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * const response = await client.send(command);
  * ```
  *
+ * @param StartContactRecordingCommandInput - {@link StartContactRecordingCommandInput}
+ * @returns {@link StartContactRecordingCommandOutput}
  * @see {@link StartContactRecordingCommandInput} for command's `input` shape.
  * @see {@link StartContactRecordingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -99,6 +106,9 @@ export class StartContactRecordingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartContactRecordingCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class StartContactRecordingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartContactRecordingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartContactRecordingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContactRecordingCommandOutput> {
     return deserializeAws_restJson1StartContactRecordingCommand(output, context);
   }

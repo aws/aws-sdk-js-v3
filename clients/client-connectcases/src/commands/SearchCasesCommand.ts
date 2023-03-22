@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchCasesCommand}.
  */
 export interface SearchCasesCommandInput extends SearchCasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchCasesCommand}.
  */
 export interface SearchCasesCommandOutput extends SearchCasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for cases within their associated Cases domain. Search results are returned
  *       as a paginated list of abridged case documents.</p>
  *          <note>
@@ -52,6 +57,8 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchCasesCommandInput - {@link SearchCasesCommandInput}
+ * @returns {@link SearchCasesCommandOutput}
  * @see {@link SearchCasesCommandInput} for command's `input` shape.
  * @see {@link SearchCasesCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -92,6 +99,9 @@ export class SearchCasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SearchCasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SearchCasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCasesCommandOutput> {
     return deserializeAws_restJson1SearchCasesCommand(output, context);
   }

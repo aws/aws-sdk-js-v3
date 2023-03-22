@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KinesisAnalyticsServiceException as __BaseException } from "./KinesisAnalyticsServiceException";
 
 /**
+ * @public
  * <p>Provides a description of CloudWatch logging options, including the log stream
  *             Amazon Resource Name (ARN) and the role ARN.</p>
  */
@@ -21,6 +22,9 @@ export interface CloudWatchLoggingOption {
   RoleARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationCloudWatchLoggingOptionRequest {
   /**
    * <p>The Kinesis Analytics application name.</p>
@@ -40,9 +44,13 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
   CloudWatchLoggingOption: CloudWatchLoggingOption | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationCloudWatchLoggingOptionResponse {}
 
 /**
+ * @public
  * <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -62,6 +70,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specified input parameter value is invalid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -81,6 +90,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Application is not available for this operation.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -100,6 +110,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specified application can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -119,6 +130,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -138,6 +150,7 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the number of in-application streams to create for a given
  *             streaming source. For information about parallelism,
  *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
@@ -153,6 +166,7 @@ export interface InputParallelism {
 }
 
 /**
+ * @public
  * <p>An object that contains the Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that
  *             is used to preprocess records in the stream, and the ARN of the IAM role that is used to
  *             access the AWS Lambda function. </p>
@@ -175,6 +189,7 @@ export interface InputLambdaProcessor {
 }
 
 /**
+ * @public
  * <p>Provides a description of a processor that is used to preprocess the records in the
  *             stream before being processed by your application code. Currently, the only input
  *             processor available is <a href="https://docs.aws.amazon.com/lambda/">AWS
@@ -189,6 +204,7 @@ export interface InputProcessingConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the mapping of each data element in the streaming
  *             source to the corresponding column in the in-application stream.</p>
  *         <p>Also used to describe the format of the reference data source.</p>
@@ -212,6 +228,7 @@ export interface RecordColumn {
 }
 
 /**
+ * @public
  * <p>Provides additional mapping information when the record format
  *             uses delimiters, such as CSV. For example, the following sample records
  *             use CSV format, where the records use the <i>'\n'</i> as the row delimiter and a comma (",") as the column delimiter:
@@ -237,6 +254,7 @@ export interface CSVMappingParameters {
 }
 
 /**
+ * @public
  * <p>Provides additional mapping information when JSON is the record format on the streaming source.</p>
  */
 export interface JSONMappingParameters {
@@ -247,6 +265,7 @@ export interface JSONMappingParameters {
 }
 
 /**
+ * @public
  * <p>When configuring application input
  *             at the time of creating or updating an application,
  *             provides additional mapping information specific to
@@ -266,12 +285,16 @@ export interface MappingParameters {
   CSVMappingParameters?: CSVMappingParameters;
 }
 
+/**
+ * @public
+ */
 export enum RecordFormatType {
   CSV = "CSV",
   JSON = "JSON",
 }
 
 /**
+ * @public
  * <p>
  *             Describes the record format and relevant mapping information that
  *             should be applied to schematize the records on the stream.
@@ -290,6 +313,7 @@ export interface RecordFormat {
 }
 
 /**
+ * @public
  * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
  */
 export interface SourceSchema {
@@ -310,6 +334,7 @@ export interface SourceSchema {
 }
 
 /**
+ * @public
  * <p> Identifies an Amazon Kinesis Firehose delivery stream as the streaming source. You
  *             provide the delivery stream's Amazon Resource Name (ARN) and an IAM role ARN that
  *             enables Amazon Kinesis Analytics to access the stream on your behalf.</p>
@@ -329,6 +354,7 @@ export interface KinesisFirehoseInput {
 }
 
 /**
+ * @public
  * <p> Identifies an Amazon Kinesis stream as the streaming source. You provide the
  *             stream's Amazon Resource Name (ARN) and an IAM role ARN that enables Amazon Kinesis
  *             Analytics to access the stream on your behalf.</p>
@@ -346,6 +372,7 @@ export interface KinesisStreamsInput {
 }
 
 /**
+ * @public
  * <p>When you configure the application input, you specify the streaming source,  the
  *             in-application stream name that is created, and the mapping between the two.
  *             For more information,
@@ -399,6 +426,7 @@ export interface Input {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AddApplicationInputRequest {
@@ -420,11 +448,13 @@ export interface AddApplicationInputRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AddApplicationInputResponse {}
 
 /**
+ * @public
  * <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
  */
 export class CodeValidationException extends __BaseException {
@@ -443,6 +473,9 @@ export class CodeValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationInputProcessingConfigurationRequest {
   /**
    * <p>Name of the application to which you want to add the input processing configuration.</p>
@@ -468,9 +501,13 @@ export interface AddApplicationInputProcessingConfigurationRequest {
   InputProcessingConfiguration: InputProcessingConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddApplicationInputProcessingConfigurationResponse {}
 
 /**
+ * @public
  * <p>Describes the data format when records are written to the destination.
  *             For more information,
  *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.
@@ -486,6 +523,7 @@ export interface DestinationSchema {
 }
 
 /**
+ * @public
  * <p>When configuring application output,
  *             identifies an Amazon Kinesis Firehose delivery stream as the destination.
  *             You provide the stream Amazon Resource Name (ARN) and an IAM role
@@ -504,6 +542,7 @@ export interface KinesisFirehoseOutput {
 }
 
 /**
+ * @public
  * <p>When configuring application output, identifies an Amazon Kinesis stream as the
  *             destination. You provide the stream Amazon Resource Name (ARN) and also an IAM role ARN
  *             that Amazon Kinesis Analytics can use to write to the stream on your behalf.</p>
@@ -521,6 +560,7 @@ export interface KinesisStreamsOutput {
 }
 
 /**
+ * @public
  * <p>When configuring application output, identifies an AWS Lambda function as the
  *             destination. You provide the function Amazon Resource Name (ARN) and also an IAM role
  *             ARN that Amazon Kinesis Analytics can use to write to the function on your behalf. </p>
@@ -543,6 +583,7 @@ export interface LambdaOutput {
 }
 
 /**
+ * @public
  * <p>
  *             Describes application output configuration in which you identify
  *             an in-application stream and a destination where you want the
@@ -585,6 +626,7 @@ export interface Output {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AddApplicationOutputRequest {
@@ -611,11 +653,13 @@ export interface AddApplicationOutputRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AddApplicationOutputResponse {}
 
 /**
+ * @public
  * <p>Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf.</p>
  *         <p>An Amazon Kinesis Analytics application loads reference data only once. If the data changes,
  *             you call the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html">UpdateApplication</a> operation to trigger
@@ -639,6 +683,7 @@ export interface S3ReferenceDataSource {
 }
 
 /**
+ * @public
  * <p>Describes the reference data source by providing the source information (S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.</p>
  */
 export interface ReferenceDataSource {
@@ -661,6 +706,7 @@ export interface ReferenceDataSource {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AddApplicationReferenceDataSourceRequest {
@@ -684,10 +730,14 @@ export interface AddApplicationReferenceDataSourceRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AddApplicationReferenceDataSourceResponse {}
 
+/**
+ * @public
+ */
 export enum ApplicationStatus {
   DELETING = "DELETING",
   READY = "READY",
@@ -698,6 +748,7 @@ export enum ApplicationStatus {
 }
 
 /**
+ * @public
  * <p>Description of the CloudWatch logging option.</p>
  */
 export interface CloudWatchLoggingOptionDescription {
@@ -718,6 +769,7 @@ export interface CloudWatchLoggingOptionDescription {
 }
 
 /**
+ * @public
  * <p>An object that contains the Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that
  *             is used to preprocess records in the stream, and the ARN of the IAM role that is  used
  *             to access the AWS Lambda expression.</p>
@@ -735,6 +787,7 @@ export interface InputLambdaProcessorDescription {
 }
 
 /**
+ * @public
  * <p>Provides configuration information about an input processor. Currently, the only input processor available is
  *             <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.</p>
  */
@@ -745,6 +798,9 @@ export interface InputProcessingConfigurationDescription {
   InputLambdaProcessorDescription?: InputLambdaProcessorDescription;
 }
 
+/**
+ * @public
+ */
 export enum InputStartingPosition {
   LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
   NOW = "NOW",
@@ -752,6 +808,7 @@ export enum InputStartingPosition {
 }
 
 /**
+ * @public
  * <p>Describes the point at which the application reads from
  *             the streaming source.</p>
  */
@@ -782,6 +839,7 @@ export interface InputStartingPositionConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *             Describes the Amazon Kinesis Firehose delivery stream that is configured as the streaming source
  *             in the application input configuration.
@@ -800,6 +858,7 @@ export interface KinesisFirehoseInputDescription {
 }
 
 /**
+ * @public
  * <p>
  *             Describes the Amazon Kinesis stream that is configured as the streaming source
  *             in the application input configuration.
@@ -818,6 +877,7 @@ export interface KinesisStreamsInputDescription {
 }
 
 /**
+ * @public
  * <p>Describes the application input configuration.
  *             For more information,
  *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
@@ -880,6 +940,7 @@ export interface InputDescription {
 }
 
 /**
+ * @public
  * <p>
  *             For an application output, describes
  *             the Amazon Kinesis Firehose delivery stream configured as its destination.
@@ -898,6 +959,7 @@ export interface KinesisFirehoseOutputDescription {
 }
 
 /**
+ * @public
  * <p>
  *             For an application output, describes
  *             the Amazon Kinesis stream configured as its destination.
@@ -916,6 +978,7 @@ export interface KinesisStreamsOutputDescription {
 }
 
 /**
+ * @public
  * <p>For an application output, describes the AWS Lambda function configured as its
  *             destination. </p>
  */
@@ -932,6 +995,7 @@ export interface LambdaOutputDescription {
 }
 
 /**
+ * @public
  * <p>Describes the application output configuration, which includes
  *             the in-application stream name and the destination where the stream data
  *             is written. The destination can be an Amazon Kinesis stream or an
@@ -974,6 +1038,7 @@ export interface OutputDescription {
 }
 
 /**
+ * @public
  * <p>Provides the bucket name and object key name that stores the reference data.</p>
  */
 export interface S3ReferenceDataSourceDescription {
@@ -994,6 +1059,7 @@ export interface S3ReferenceDataSourceDescription {
 }
 
 /**
+ * @public
  * <p>Describes the reference data source configured for an application.</p>
  */
 export interface ReferenceDataSourceDescription {
@@ -1021,6 +1087,7 @@ export interface ReferenceDataSourceDescription {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -1105,6 +1172,7 @@ export interface ApplicationDetail {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -1128,6 +1196,7 @@ export interface ApplicationSummary {
 }
 
 /**
+ * @public
  * <p>Describes CloudWatch logging option updates.</p>
  */
 export interface CloudWatchLoggingOptionUpdate {
@@ -1148,6 +1217,7 @@ export interface CloudWatchLoggingOptionUpdate {
 }
 
 /**
+ * @public
  * <p>Provides updates to the parallelism count.</p>
  */
 export interface InputParallelismUpdate {
@@ -1159,6 +1229,7 @@ export interface InputParallelismUpdate {
 }
 
 /**
+ * @public
  * <p>Represents an update to the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html">InputLambdaProcessor</a> that is used to preprocess the records in the stream.</p>
  */
 export interface InputLambdaProcessorUpdate {
@@ -1180,6 +1251,7 @@ export interface InputLambdaProcessorUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to an <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a>. </p>
  */
 export interface InputProcessingConfigurationUpdate {
@@ -1190,6 +1262,7 @@ export interface InputProcessingConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates for the application's input schema.</p>
  */
 export interface InputSchemaUpdate {
@@ -1211,6 +1284,7 @@ export interface InputSchemaUpdate {
 }
 
 /**
+ * @public
  * <p>When updating application input configuration, provides information about an
  *             Amazon Kinesis Firehose delivery stream as the streaming source.</p>
  */
@@ -1229,6 +1303,7 @@ export interface KinesisFirehoseInputUpdate {
 }
 
 /**
+ * @public
  * <p>When updating application input configuration, provides information about an
  *             Amazon Kinesis stream as the streaming source.</p>
  */
@@ -1245,6 +1320,7 @@ export interface KinesisStreamsInputUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to a specific input configuration (identified by the
  *             <code>InputId</code> of an application). </p>
  */
@@ -1291,6 +1367,7 @@ export interface InputUpdate {
 }
 
 /**
+ * @public
  * <p>
  *             When updating an output configuration using the
  *             <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html">UpdateApplication</a> operation,
@@ -1312,6 +1389,7 @@ export interface KinesisFirehoseOutputUpdate {
 }
 
 /**
+ * @public
  * <p>
  *             When updating an output configuration using the
  *             <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html">UpdateApplication</a>  operation,
@@ -1332,6 +1410,7 @@ export interface KinesisStreamsOutputUpdate {
 }
 
 /**
+ * @public
  * <p>When updating an output configuration using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html">UpdateApplication</a>
  *             operation, provides information about an AWS Lambda function configured as the
  *             destination.</p>
@@ -1353,6 +1432,7 @@ export interface LambdaOutputUpdate {
 }
 
 /**
+ * @public
  * <p>
  *             Describes updates to the output configuration identified by
  *             the <code>OutputId</code>.
@@ -1394,6 +1474,7 @@ export interface OutputUpdate {
 }
 
 /**
+ * @public
  * <p>Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.</p>
  */
 export interface S3ReferenceDataSourceUpdate {
@@ -1414,6 +1495,7 @@ export interface S3ReferenceDataSourceUpdate {
 }
 
 /**
+ * @public
  * <p>When you update a reference data source configuration for an application, this object provides all the updated values (such as the source bucket name and object key name), the in-application table name that is created, and updated mapping information that maps the data in the Amazon S3 object to the in-application reference table that is created.</p>
  */
 export interface ReferenceDataSourceUpdate {
@@ -1440,6 +1522,7 @@ export interface ReferenceDataSourceUpdate {
 }
 
 /**
+ * @public
  * <p>Describes updates to apply to an existing Amazon Kinesis Analytics application.</p>
  */
 export interface ApplicationUpdate {
@@ -1470,6 +1553,7 @@ export interface ApplicationUpdate {
 }
 
 /**
+ * @public
  * <p>A key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Note that
  *         the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
  *       For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
@@ -1487,6 +1571,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>TBD</p>
  */
 export interface CreateApplicationRequest {
@@ -1558,6 +1643,7 @@ export interface CreateApplicationRequest {
 }
 
 /**
+ * @public
  * <p>TBD</p>
  */
 export interface CreateApplicationResponse {
@@ -1570,6 +1656,7 @@ export interface CreateApplicationResponse {
 }
 
 /**
+ * @public
  * <p>Exceeded the number of applications allowed.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1589,6 +1676,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -1608,6 +1696,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteApplicationRequest {
@@ -1625,10 +1714,14 @@ export interface DeleteApplicationRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   /**
    * <p>The Kinesis Analytics application name.</p>
@@ -1647,8 +1740,14 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   CloudWatchLoggingOptionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationCloudWatchLoggingOptionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteApplicationInputProcessingConfigurationRequest {
   /**
    * <p>The Kinesis Analytics application name.</p>
@@ -1667,9 +1766,13 @@ export interface DeleteApplicationInputProcessingConfigurationRequest {
   InputId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationInputProcessingConfigurationResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteApplicationOutputRequest {
@@ -1701,10 +1804,14 @@ export interface DeleteApplicationOutputRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteApplicationOutputResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteApplicationReferenceDataSourceRequest {
   /**
    * <p>Name of an existing application.</p>
@@ -1729,9 +1836,13 @@ export interface DeleteApplicationReferenceDataSourceRequest {
   ReferenceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationReferenceDataSourceResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeApplicationRequest {
@@ -1742,6 +1853,7 @@ export interface DescribeApplicationRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeApplicationResponse {
@@ -1752,6 +1864,7 @@ export interface DescribeApplicationResponse {
 }
 
 /**
+ * @public
  * <p>Provides a description of an Amazon S3 data source, including the Amazon Resource
  *             Name (ARN) of the S3 bucket, the ARN of the IAM role that is used to access the bucket,
  *             and the name of the Amazon S3 object that contains the data.</p>
@@ -1773,6 +1886,9 @@ export interface S3Configuration {
   FileKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DiscoverInputSchemaRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the streaming source.</p>
@@ -1802,6 +1918,7 @@ export interface DiscoverInputSchemaRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DiscoverInputSchemaResponse {
@@ -1827,6 +1944,7 @@ export interface DiscoverInputSchemaResponse {
 }
 
 /**
+ * @public
  * <p>Discovery failed to get a record from the
  *             streaming source because of the Amazon Kinesis Streams
  *             ProvisionedThroughputExceededException. For more information,
@@ -1850,6 +1968,7 @@ export class ResourceProvisionedThroughputExceededException extends __BaseExcept
 }
 
 /**
+ * @public
  * <p>The service is unavailable. Back off and retry the operation. </p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1869,6 +1988,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for
  *             the given streaming source.</p>
  */
@@ -1893,6 +2013,7 @@ export class UnableToDetectSchemaException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>When you start your application,
  *             you provide this configuration, which identifies the input source and the point
  *             in the input source at which you want the application to start processing records.</p>
@@ -1912,6 +2033,7 @@ export interface InputConfiguration {
 }
 
 /**
+ * @public
  * <p>User-provided application configuration is not valid.</p>
  */
 export class InvalidApplicationConfigurationException extends __BaseException {
@@ -1931,6 +2053,7 @@ export class InvalidApplicationConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ListApplicationsRequest {
@@ -1946,6 +2069,7 @@ export interface ListApplicationsRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ListApplicationsResponse {
@@ -1960,6 +2084,9 @@ export interface ListApplicationsResponse {
   HasMoreApplications: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the application for which to retrieve tags.</p>
@@ -1967,6 +2094,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The key-value tags assigned to the application.</p>
@@ -1975,6 +2105,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StartApplicationRequest {
@@ -1990,11 +2121,13 @@ export interface StartApplicationRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StartApplicationResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export interface StopApplicationRequest {
@@ -2005,10 +2138,14 @@ export interface StopApplicationRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StopApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the application to assign the tags.</p>
@@ -2021,8 +2158,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the Kinesis Analytics application from which to remove the tags.</p>
@@ -2035,8 +2178,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
    * <p>Name of the Amazon Kinesis Analytics application to update.</p>
@@ -2055,6 +2204,9 @@ export interface UpdateApplicationRequest {
   ApplicationUpdate: ApplicationUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {}
 
 /**

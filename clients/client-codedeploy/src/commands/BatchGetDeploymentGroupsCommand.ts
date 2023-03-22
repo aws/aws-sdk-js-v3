@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetDeploymentGroupsCommand}.
  */
 export interface BatchGetDeploymentGroupsCommandInput extends BatchGetDeploymentGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetDeploymentGroupsCommand}.
  */
 export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more deployment groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDeploymentGroupsCommandInput - {@link BatchGetDeploymentGroupsCommandInput}
+ * @returns {@link BatchGetDeploymentGroupsCommandOutput}
  * @see {@link BatchGetDeploymentGroupsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -91,6 +98,9 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDeploymentGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDeploymentGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDeploymentGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDeploymentGroupsCommandOutput> {
     return deserializeAws_json1_1BatchGetDeploymentGroupsCommand(output, context);
   }

@@ -10,7 +10,7 @@ import { MigrationHubRefactorSpacesClient } from "../MigrationHubRefactorSpacesC
 import { MigrationHubRefactorSpacesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MigrationHubRefactorSpacesClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListServicesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListServices(
   config: MigrationHubRefactorSpacesPaginationConfiguration,
   input: ListServicesCommandInput,

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableResourceMetricsCommand}.
  */
 export interface ListAvailableResourceMetricsCommandInput extends ListAvailableResourceMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableResourceMetricsCommand}.
  */
 export interface ListAvailableResourceMetricsCommandOutput
@@ -37,6 +41,7 @@ export interface ListAvailableResourceMetricsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve metrics of the specified types that can be queried for a specified DB instance.
  *       </p>
  * @example
@@ -49,6 +54,8 @@ export interface ListAvailableResourceMetricsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableResourceMetricsCommandInput - {@link ListAvailableResourceMetricsCommandInput}
+ * @returns {@link ListAvailableResourceMetricsCommandOutput}
  * @see {@link ListAvailableResourceMetricsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableResourceMetricsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListAvailableResourceMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableResourceMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListAvailableResourceMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAvailableResourceMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAvailableResourceMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

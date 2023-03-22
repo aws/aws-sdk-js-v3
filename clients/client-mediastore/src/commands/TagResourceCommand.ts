@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourceCommand}.
  */
 export interface TagResourceCommandInput extends TagResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link TagResourceCommand}.
  */
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tags to the specified AWS Elemental MediaStore container. Tags are key:value pairs that you can associate with AWS resources. For example, the
  *             tag key might be "customer" and the tag value might be "companyA." You can specify one or more tags to add to each container. You can add up to 50
  *             tags to each container. For more information about tagging, including naming and usage conventions, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html">Tagging Resources in MediaStore</a>.</p>
@@ -48,6 +53,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -81,6 +88,9 @@ export class TagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
     return deserializeAws_json1_1TagResourceCommand(output, context);
   }

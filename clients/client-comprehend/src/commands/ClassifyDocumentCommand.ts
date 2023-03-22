@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ClassifyDocumentCommand}.
  */
 export interface ClassifyDocumentCommandInput extends ClassifyDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ClassifyDocumentCommand}.
  */
 export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new document classification request to analyze a single document in real-time,
  *       using a previously created and trained custom model and an endpoint.</p>
  *          <p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
@@ -56,6 +61,8 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ClassifyDocumentCommandInput - {@link ClassifyDocumentCommandInput}
+ * @returns {@link ClassifyDocumentCommandOutput}
  * @see {@link ClassifyDocumentCommandInput} for command's `input` shape.
  * @see {@link ClassifyDocumentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -92,6 +99,9 @@ export class ClassifyDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ClassifyDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class ClassifyDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ClassifyDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ClassifyDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClassifyDocumentCommandOutput> {
     return deserializeAws_json1_1ClassifyDocumentCommand(output, context);
   }

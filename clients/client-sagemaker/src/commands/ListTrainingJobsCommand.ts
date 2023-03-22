@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrainingJobsCommand}.
  */
 export interface ListTrainingJobsCommandInput extends ListTrainingJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrainingJobsCommand}.
  */
 export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists training jobs.</p>
  *          <note>
  *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
@@ -44,7 +49,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *             <p>For example, if <code>ListTrainingJobs</code> is invoked with the following
  *                 parameters:</p>
  *             <p>
- *                <code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code>
+ *                <code>\{ ... MaxResults: 100, StatusEquals: InProgress ... \}</code>
  *             </p>
  *             <p>First, 100 trainings jobs with any status, including those other than
  *                     <code>InProgress</code>, are selected (sorted according to the creation time,
@@ -67,6 +72,8 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrainingJobsCommandInput - {@link ListTrainingJobsCommandInput}
+ * @returns {@link ListTrainingJobsCommandOutput}
  * @see {@link ListTrainingJobsCommandInput} for command's `input` shape.
  * @see {@link ListTrainingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListTrainingJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrainingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListTrainingJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrainingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTrainingJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrainingJobsCommandOutput> {
     return deserializeAws_json1_1ListTrainingJobsCommand(output, context);
   }

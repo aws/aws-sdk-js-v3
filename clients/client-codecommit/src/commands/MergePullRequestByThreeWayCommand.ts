@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergePullRequestByThreeWayCommand}.
  */
 export interface MergePullRequestByThreeWayCommandInput extends MergePullRequestByThreeWayInput {}
 /**
+ * @public
+ *
  * The output of {@link MergePullRequestByThreeWayCommand}.
  */
 export interface MergePullRequestByThreeWayCommandOutput extends MergePullRequestByThreeWayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to merge the source commit of a pull request into the specified destination
  *             branch for that pull request at the specified commit using the three-way merge strategy. If the merge is successful, it closes the pull request.</p>
  * @example
@@ -47,6 +52,8 @@ export interface MergePullRequestByThreeWayCommandOutput extends MergePullReques
  * const response = await client.send(command);
  * ```
  *
+ * @param MergePullRequestByThreeWayCommandInput - {@link MergePullRequestByThreeWayCommandInput}
+ * @returns {@link MergePullRequestByThreeWayCommandOutput}
  * @see {@link MergePullRequestByThreeWayCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestByThreeWayCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -197,6 +204,9 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergePullRequestByThreeWayCommandInput) {
     // Start section: command_constructor
     super();
@@ -236,10 +246,16 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergePullRequestByThreeWayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MergePullRequestByThreeWayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

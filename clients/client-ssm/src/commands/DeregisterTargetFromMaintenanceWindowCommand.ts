@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTargetFromMaintenanceWindowCommand}.
  */
 export interface DeregisterTargetFromMaintenanceWindowCommandInput
   extends DeregisterTargetFromMaintenanceWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTargetFromMaintenanceWindowCommand}.
  */
 export interface DeregisterTargetFromMaintenanceWindowCommandOutput
@@ -38,6 +42,7 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a target from a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTargetFromMaintenanceWindowCommandInput - {@link DeregisterTargetFromMaintenanceWindowCommandInput}
+ * @returns {@link DeregisterTargetFromMaintenanceWindowCommandOutput}
  * @see {@link DeregisterTargetFromMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link DeregisterTargetFromMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTargetFromMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterTargetFromMaintenanceWindowCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
     return serializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

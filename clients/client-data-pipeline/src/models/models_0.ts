@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DataPipelineServiceException as __BaseException } from "./DataPipelineServiceException";
 
 /**
+ * @public
  * <p>A value or list of parameter values. </p>
  */
 export interface ParameterValue {
@@ -19,6 +20,7 @@ export interface ParameterValue {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for ActivatePipeline.</p>
  */
 export interface ActivatePipelineInput {
@@ -39,11 +41,13 @@ export interface ActivatePipelineInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of ActivatePipeline.</p>
  */
 export interface ActivatePipelineOutput {}
 
 /**
+ * @public
  * <p>An internal service error occurred.</p>
  */
 export class InternalServiceError extends __BaseException {
@@ -63,6 +67,7 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -82,6 +87,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified pipeline has been deleted.</p>
  */
 export class PipelineDeletedException extends __BaseException {
@@ -101,6 +107,7 @@ export class PipelineDeletedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  */
 export class PipelineNotFoundException extends __BaseException {
@@ -120,6 +127,7 @@ export class PipelineNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Tags are key/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline.
  *             For more information, see <a href="http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
  */
@@ -138,6 +146,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for AddTags.</p>
  */
 export interface AddTagsInput {
@@ -153,11 +162,13 @@ export interface AddTagsInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of AddTags.</p>
  */
 export interface AddTagsOutput {}
 
 /**
+ * @public
  * <p>Contains the parameters for CreatePipeline.</p>
  */
 export interface CreatePipelineInput {
@@ -193,6 +204,7 @@ export interface CreatePipelineInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of CreatePipeline.</p>
  */
 export interface CreatePipelineOutput {
@@ -203,6 +215,7 @@ export interface CreatePipelineOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DeactivatePipeline.</p>
  */
 export interface DeactivatePipelineInput {
@@ -221,11 +234,13 @@ export interface DeactivatePipelineInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of DeactivatePipeline.</p>
  */
 export interface DeactivatePipelineOutput {}
 
 /**
+ * @public
  * <p>Contains the parameters for DeletePipeline.</p>
  */
 export interface DeletePipelineInput {
@@ -236,6 +251,7 @@ export interface DeletePipelineInput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribeObjects.</p>
  */
 export interface DescribeObjectsInput {
@@ -263,6 +279,7 @@ export interface DescribeObjectsInput {
 }
 
 /**
+ * @public
  * <p>A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.</p>
  */
 export interface Field {
@@ -283,6 +300,7 @@ export interface Field {
 }
 
 /**
+ * @public
  * <p>Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.</p>
  */
 export interface PipelineObject {
@@ -303,6 +321,7 @@ export interface PipelineObject {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribeObjects.</p>
  */
 export interface DescribeObjectsOutput {
@@ -324,6 +343,7 @@ export interface DescribeObjectsOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for DescribePipelines.</p>
  */
 export interface DescribePipelinesInput {
@@ -335,6 +355,7 @@ export interface DescribePipelinesInput {
 }
 
 /**
+ * @public
  * <p>Contains pipeline metadata.</p>
  */
 export interface PipelineDescription {
@@ -366,6 +387,7 @@ export interface PipelineDescription {
 }
 
 /**
+ * @public
  * <p>Contains the output of DescribePipelines.</p>
  */
 export interface DescribePipelinesOutput {
@@ -376,6 +398,7 @@ export interface DescribePipelinesOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for EvaluateExpression.</p>
  */
 export interface EvaluateExpressionInput {
@@ -396,6 +419,7 @@ export interface EvaluateExpressionInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of EvaluateExpression.</p>
  */
 export interface EvaluateExpressionOutput {
@@ -406,6 +430,7 @@ export interface EvaluateExpressionOutput {
 }
 
 /**
+ * @public
  * <p>The specified task was not found. </p>
  */
 export class TaskNotFoundException extends __BaseException {
@@ -425,6 +450,7 @@ export class TaskNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for GetPipelineDefinition.</p>
  */
 export interface GetPipelineDefinitionInput {
@@ -442,6 +468,7 @@ export interface GetPipelineDefinitionInput {
 }
 
 /**
+ * @public
  * <p>The attributes allowed or specified with a parameter object.</p>
  */
 export interface ParameterAttribute {
@@ -457,6 +484,7 @@ export interface ParameterAttribute {
 }
 
 /**
+ * @public
  * <p>Contains information about a parameter object.</p>
  */
 export interface ParameterObject {
@@ -472,6 +500,7 @@ export interface ParameterObject {
 }
 
 /**
+ * @public
  * <p>Contains the output of GetPipelineDefinition.</p>
  */
 export interface GetPipelineDefinitionOutput {
@@ -492,6 +521,7 @@ export interface GetPipelineDefinitionOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for ListPipelines.</p>
  */
 export interface ListPipelinesInput {
@@ -504,6 +534,7 @@ export interface ListPipelinesInput {
 }
 
 /**
+ * @public
  * <p>Contains the name and identifier of a pipeline.</p>
  */
 export interface PipelineIdName {
@@ -519,6 +550,7 @@ export interface PipelineIdName {
 }
 
 /**
+ * @public
  * <p>Contains the output of ListPipelines.</p>
  */
 export interface ListPipelinesOutput {
@@ -541,6 +573,7 @@ export interface ListPipelinesOutput {
 }
 
 /**
+ * @public
  * <p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance.
  *             For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i>
  *             Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p></p>
@@ -558,6 +591,7 @@ export interface InstanceIdentity {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for PollForTask.</p>
  */
 export interface PollForTaskInput {
@@ -580,6 +614,7 @@ export interface PollForTaskInput {
 }
 
 /**
+ * @public
  * <p>Contains information about a pipeline task that is assigned to a task runner.</p>
  */
 export interface TaskObject {
@@ -605,6 +640,7 @@ export interface TaskObject {
 }
 
 /**
+ * @public
  * <p>Contains the output of PollForTask.</p>
  */
 export interface PollForTaskOutput {
@@ -617,6 +653,7 @@ export interface PollForTaskOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for PutPipelineDefinition.</p>
  */
 export interface PutPipelineDefinitionInput {
@@ -642,6 +679,7 @@ export interface PutPipelineDefinitionInput {
 }
 
 /**
+ * @public
  * <p>Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.</p>
  */
 export interface ValidationError {
@@ -657,6 +695,7 @@ export interface ValidationError {
 }
 
 /**
+ * @public
  * <p>Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.</p>
  */
 export interface ValidationWarning {
@@ -672,6 +711,7 @@ export interface ValidationWarning {
 }
 
 /**
+ * @public
  * <p>Contains the output of PutPipelineDefinition.</p>
  */
 export interface PutPipelineDefinitionOutput {
@@ -692,6 +732,9 @@ export interface PutPipelineDefinitionOutput {
   errored: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OperatorType {
   Between = "BETWEEN",
   Equal = "EQ",
@@ -701,6 +744,7 @@ export enum OperatorType {
 }
 
 /**
+ * @public
  * <p>Contains a logical operation for comparing the value of a field with a specified value.</p>
  */
 export interface Operator {
@@ -744,6 +788,7 @@ export interface Operator {
 }
 
 /**
+ * @public
  * <p>A comparision that is used to determine whether a query should return this object.</p>
  */
 export interface Selector {
@@ -759,6 +804,7 @@ export interface Selector {
 }
 
 /**
+ * @public
  * <p>Defines the query to run against an object.</p>
  */
 export interface Query {
@@ -769,6 +815,7 @@ export interface Query {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for QueryObjects.</p>
  */
 export interface QueryObjectsInput {
@@ -804,6 +851,7 @@ export interface QueryObjectsInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of QueryObjects.</p>
  */
 export interface QueryObjectsOutput {
@@ -825,6 +873,7 @@ export interface QueryObjectsOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for RemoveTags.</p>
  */
 export interface RemoveTagsInput {
@@ -840,11 +889,13 @@ export interface RemoveTagsInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of RemoveTags.</p>
  */
 export interface RemoveTagsOutput {}
 
 /**
+ * @public
  * <p>Contains the parameters for ReportTaskProgress.</p>
  */
 export interface ReportTaskProgressInput {
@@ -860,6 +911,7 @@ export interface ReportTaskProgressInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of ReportTaskProgress.</p>
  */
 export interface ReportTaskProgressOutput {
@@ -870,6 +922,7 @@ export interface ReportTaskProgressOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for ReportTaskRunnerHeartbeat.</p>
  */
 export interface ReportTaskRunnerHeartbeatInput {
@@ -894,6 +947,7 @@ export interface ReportTaskRunnerHeartbeatInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of ReportTaskRunnerHeartbeat.</p>
  */
 export interface ReportTaskRunnerHeartbeatOutput {
@@ -904,6 +958,7 @@ export interface ReportTaskRunnerHeartbeatOutput {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for SetStatus.</p>
  */
 export interface SetStatusInput {
@@ -924,6 +979,9 @@ export interface SetStatusInput {
   status: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TaskStatus {
   FAILED = "FAILED",
   FALSE = "FALSE",
@@ -931,6 +989,7 @@ export enum TaskStatus {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for SetTaskStatus.</p>
  */
 export interface SetTaskStatusInput {
@@ -964,11 +1023,13 @@ export interface SetTaskStatusInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of SetTaskStatus.</p>
  */
 export interface SetTaskStatusOutput {}
 
 /**
+ * @public
  * <p>Contains the parameters for ValidatePipelineDefinition.</p>
  */
 export interface ValidatePipelineDefinitionInput {
@@ -994,6 +1055,7 @@ export interface ValidatePipelineDefinitionInput {
 }
 
 /**
+ * @public
  * <p>Contains the output of ValidatePipelineDefinition.</p>
  */
 export interface ValidatePipelineDefinitionOutput {

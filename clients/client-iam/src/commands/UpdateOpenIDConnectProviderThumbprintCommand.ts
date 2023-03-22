@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOpenIDConnectProviderThumbprintCommand}.
  */
 export interface UpdateOpenIDConnectProviderThumbprintCommandInput
   extends UpdateOpenIDConnectProviderThumbprintRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOpenIDConnectProviderThumbprintCommand}.
  */
 export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the existing list of server certificate thumbprints associated with an OpenID
  *             Connect (OIDC) provider resource object with a new list of thumbprints.</p>
  *          <p>The list that you pass with this operation completely replaces the existing list of
@@ -67,6 +72,8 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOpenIDConnectProviderThumbprintCommandInput - {@link UpdateOpenIDConnectProviderThumbprintCommandInput}
+ * @returns {@link UpdateOpenIDConnectProviderThumbprintCommandOutput}
  * @see {@link UpdateOpenIDConnectProviderThumbprintCommandInput} for command's `input` shape.
  * @see {@link UpdateOpenIDConnectProviderThumbprintCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOpenIDConnectProviderThumbprintCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,6 +151,9 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateOpenIDConnectProviderThumbprintCommandInput,
     context: __SerdeContext
@@ -148,6 +161,9 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     return serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

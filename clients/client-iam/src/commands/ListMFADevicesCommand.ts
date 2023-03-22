@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListMFADevicesCommand}.
  */
 export interface ListMFADevicesCommandInput extends ListMFADevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMFADevicesCommand}.
  */
 export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name,
  *             then this operation lists all the MFA devices associated with the specified user. If you
  *             do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services
@@ -51,6 +56,8 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMFADevicesCommandInput - {@link ListMFADevicesCommandInput}
+ * @returns {@link ListMFADevicesCommandOutput}
  * @see {@link ListMFADevicesCommandInput} for command's `input` shape.
  * @see {@link ListMFADevicesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListMFADevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMFADevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListMFADevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMFADevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListMFADevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMFADevicesCommandOutput> {
     return deserializeAws_queryListMFADevicesCommand(output, context);
   }

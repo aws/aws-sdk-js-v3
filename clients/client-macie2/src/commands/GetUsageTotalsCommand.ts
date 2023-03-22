@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUsageTotalsCommand}.
  */
 export interface GetUsageTotalsCommandInput extends GetUsageTotalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUsageTotalsCommand}.
  */
 export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) aggregated usage data for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsageTotalsCommandInput - {@link GetUsageTotalsCommandInput}
+ * @returns {@link GetUsageTotalsCommandOutput}
  * @see {@link GetUsageTotalsCommandInput} for command's `input` shape.
  * @see {@link GetUsageTotalsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class GetUsageTotalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsageTotalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetUsageTotalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsageTotalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUsageTotalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageTotalsCommandOutput> {
     return deserializeAws_restJson1GetUsageTotalsCommand(output, context);
   }

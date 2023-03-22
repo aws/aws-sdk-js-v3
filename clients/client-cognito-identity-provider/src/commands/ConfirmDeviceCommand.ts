@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmDeviceCommand}.
  */
 export interface ConfirmDeviceCommandInput extends ConfirmDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmDeviceCommand}.
  */
 export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Confirms tracking of the device. This API call is the call that begins device
  *             tracking.</p>
  * @example
@@ -52,6 +57,8 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmDeviceCommandInput - {@link ConfirmDeviceCommandInput}
+ * @returns {@link ConfirmDeviceCommandOutput}
  * @see {@link ConfirmDeviceCommandInput} for command's `input` shape.
  * @see {@link ConfirmDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -118,6 +125,9 @@ export class ConfirmDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class ConfirmDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ConfirmDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmDeviceCommandOutput> {
     return deserializeAws_json1_1ConfirmDeviceCommand(output, context);
   }

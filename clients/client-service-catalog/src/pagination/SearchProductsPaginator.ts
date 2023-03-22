@@ -10,7 +10,7 @@ import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceCatalogClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchProductsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateSearchProducts(
   config: ServiceCatalogPaginationConfiguration,
   input: SearchProductsCommandInput,

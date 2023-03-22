@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContactChannelCommand}.
  */
 export interface CreateContactChannelCommandInput extends CreateContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContactChannelCommand}.
  */
 export interface CreateContactChannelCommandOutput extends CreateContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A contact channel is the method that Incident Manager uses to engage your contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContactChannelCommandInput - {@link CreateContactChannelCommandInput}
+ * @returns {@link CreateContactChannelCommandOutput}
  * @see {@link CreateContactChannelCommandInput} for command's `input` shape.
  * @see {@link CreateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -110,6 +117,9 @@ export class CreateContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactChannelCommandOutput> {
     return deserializeAws_json1_1CreateContactChannelCommand(output, context);
   }

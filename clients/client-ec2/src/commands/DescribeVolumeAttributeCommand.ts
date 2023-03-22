@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVolumeAttributeCommand}.
  */
 export interface DescribeVolumeAttributeCommandInput extends DescribeVolumeAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVolumeAttributeCommand}.
  */
 export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified volume. You can specify only one
  *       attribute at a time.</p>
  *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumeAttributeCommandInput - {@link DescribeVolumeAttributeCommandInput}
+ * @returns {@link DescribeVolumeAttributeCommandOutput}
  * @see {@link DescribeVolumeAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +98,9 @@ export class DescribeVolumeAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumeAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class DescribeVolumeAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumeAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVolumeAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumeAttributeCommandOutput> {
     return deserializeAws_ec2DescribeVolumeAttributeCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendedIntentsCommand}.
  */
 export interface ListRecommendedIntentsCommandInput extends ListRecommendedIntentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendedIntentsCommand}.
  */
 export interface ListRecommendedIntentsCommandOutput extends ListRecommendedIntentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of recommended intents provided by the bot
  *          recommendation that you can use in your bot. Intents in the
  *          response are ordered by relevance.</p>
@@ -48,6 +53,8 @@ export interface ListRecommendedIntentsCommandOutput extends ListRecommendedInte
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendedIntentsCommandInput - {@link ListRecommendedIntentsCommandInput}
+ * @returns {@link ListRecommendedIntentsCommandOutput}
  * @see {@link ListRecommendedIntentsCommandInput} for command's `input` shape.
  * @see {@link ListRecommendedIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -90,6 +97,9 @@ export class ListRecommendedIntentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendedIntentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListRecommendedIntentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendedIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRecommendedIntentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendedIntentsCommandOutput> {
     return deserializeAws_restJson1ListRecommendedIntentsCommand(output, context);
   }

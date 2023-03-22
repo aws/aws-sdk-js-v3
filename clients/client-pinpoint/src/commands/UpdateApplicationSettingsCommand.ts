@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationSettingsCommand}.
  */
 export interface UpdateApplicationSettingsCommandInput extends UpdateApplicationSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationSettingsCommand}.
  */
 export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicationSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationSettingsCommandInput - {@link UpdateApplicationSettingsCommandInput}
+ * @returns {@link UpdateApplicationSettingsCommandOutput}
  * @see {@link UpdateApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationSettingsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateApplicationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateApplicationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApplicationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

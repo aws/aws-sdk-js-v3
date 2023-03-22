@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePredictorBacktestExportJobCommand}.
  */
 export interface DescribePredictorBacktestExportJobCommandInput extends DescribePredictorBacktestExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePredictorBacktestExportJobCommand}.
  */
 export interface DescribePredictorBacktestExportJobCommandOutput
@@ -37,6 +41,7 @@ export interface DescribePredictorBacktestExportJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a predictor backtest export job created using the <a>CreatePredictorBacktestExportJob</a> operation.</p>
  *          <p>In addition to listing the properties provided by the user in the
  *                 <code>CreatePredictorBacktestExportJob</code> request, this operation lists the
@@ -72,6 +77,8 @@ export interface DescribePredictorBacktestExportJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePredictorBacktestExportJobCommandInput - {@link DescribePredictorBacktestExportJobCommandInput}
+ * @returns {@link DescribePredictorBacktestExportJobCommandOutput}
  * @see {@link DescribePredictorBacktestExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribePredictorBacktestExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -103,6 +110,9 @@ export class DescribePredictorBacktestExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePredictorBacktestExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,6 +152,9 @@ export class DescribePredictorBacktestExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePredictorBacktestExportJobCommandInput,
     context: __SerdeContext
@@ -149,6 +162,9 @@ export class DescribePredictorBacktestExportJobCommand extends $Command<
     return serializeAws_json1_1DescribePredictorBacktestExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

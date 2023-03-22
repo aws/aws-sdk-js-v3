@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutManagedScalingPolicyCommand}.
  */
 export interface PutManagedScalingPolicyCommandInput extends PutManagedScalingPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutManagedScalingPolicyCommand}.
  */
 export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a managed scaling policy for an Amazon EMR cluster. The
  *          managed scaling policy defines the limits for resources, such as EC2 instances that can be
  *          added or terminated from a cluster. The policy only applies to the core and task nodes. The
@@ -49,6 +54,8 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * const response = await client.send(command);
  * ```
  *
+ * @param PutManagedScalingPolicyCommandInput - {@link PutManagedScalingPolicyCommandInput}
+ * @returns {@link PutManagedScalingPolicyCommandOutput}
  * @see {@link PutManagedScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -72,6 +79,9 @@ export class PutManagedScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutManagedScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class PutManagedScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutManagedScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutManagedScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutManagedScalingPolicyCommandOutput> {
     return deserializeAws_json1_1PutManagedScalingPolicyCommand(output, context);
   }

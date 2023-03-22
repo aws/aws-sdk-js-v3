@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ImportImageCommand, serializeAws_ec2ImportImageCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ImportImageCommand}.
  */
 export interface ImportImageCommandInput extends ImportImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportImageCommand}.
  */
 export interface ImportImageCommandOutput extends ImportImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>To import your virtual machines (VMs) with a console-based experience, you can use the
  *     <i>Import virtual machine images to Amazon Web Services</i> template in the <a href="https://console.aws.amazon.com/migrationhub/orchestrator">Migration Hub Orchestrator console</a>. For more
@@ -58,6 +63,8 @@ export interface ImportImageCommandOutput extends ImportImageResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportImageCommandInput - {@link ImportImageCommandInput}
+ * @returns {@link ImportImageCommandOutput}
  * @see {@link ImportImageCommandInput} for command's `input` shape.
  * @see {@link ImportImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -81,6 +88,9 @@ export class ImportImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ImportImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ImportImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportImageCommandOutput> {
     return deserializeAws_ec2ImportImageCommand(output, context);
   }

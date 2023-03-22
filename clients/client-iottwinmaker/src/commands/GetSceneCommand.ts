@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSceneCommand}.
  */
 export interface GetSceneCommandInput extends GetSceneRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSceneCommand}.
  */
 export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a scene.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSceneCommandInput - {@link GetSceneCommandInput}
+ * @returns {@link GetSceneCommandOutput}
  * @see {@link GetSceneCommandInput} for command's `input` shape.
  * @see {@link GetSceneCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetSceneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSceneCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetSceneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSceneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSceneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSceneCommandOutput> {
     return deserializeAws_restJson1GetSceneCommand(output, context);
   }

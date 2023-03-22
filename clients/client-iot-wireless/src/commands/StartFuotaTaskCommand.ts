@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartFuotaTaskCommand}.
  */
 export interface StartFuotaTaskCommandInput extends StartFuotaTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFuotaTaskCommand}.
  */
 export interface StartFuotaTaskCommandOutput extends StartFuotaTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartFuotaTaskCommandOutput extends StartFuotaTaskResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFuotaTaskCommandInput - {@link StartFuotaTaskCommandInput}
+ * @returns {@link StartFuotaTaskCommandOutput}
  * @see {@link StartFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link StartFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFuotaTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFuotaTaskCommandOutput> {
     return deserializeAws_restJson1StartFuotaTaskCommand(output, context);
   }

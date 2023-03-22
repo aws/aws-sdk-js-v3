@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEngineDefaultParametersCommand}.
  */
 export interface DescribeEngineDefaultParametersCommandInput extends DescribeEngineDefaultParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEngineDefaultParametersCommand}.
  */
 export interface DescribeEngineDefaultParametersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeEngineDefaultParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default engine and system parameter information for the specified database engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngineDefaultParametersCommandInput - {@link DescribeEngineDefaultParametersCommandInput}
+ * @returns {@link DescribeEngineDefaultParametersCommandOutput}
  * @see {@link DescribeEngineDefaultParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngineDefaultParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEngineDefaultParametersCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     return serializeAws_queryDescribeEngineDefaultParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

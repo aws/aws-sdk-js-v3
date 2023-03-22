@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFindingsFeedbackCommand}.
  */
 export interface UpdateFindingsFeedbackCommandInput extends UpdateFindingsFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFindingsFeedbackCommand}.
  */
 export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Marks the specified GuardDuty findings as useful or not useful.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFindingsFeedbackCommandInput - {@link UpdateFindingsFeedbackCommandInput}
+ * @returns {@link UpdateFindingsFeedbackCommandOutput}
  * @see {@link UpdateFindingsFeedbackCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsFeedbackCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateFindingsFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFindingsFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdateFindingsFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFindingsFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFindingsFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingsFeedbackCommandOutput> {
     return deserializeAws_restJson1UpdateFindingsFeedbackCommand(output, context);
   }

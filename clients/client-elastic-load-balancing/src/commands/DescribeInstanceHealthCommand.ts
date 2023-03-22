@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceHealthCommand}.
  */
 export interface DescribeInstanceHealthCommandInput extends DescribeEndPointStateInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceHealthCommand}.
  */
 export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointStateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the state of the specified instances with respect to the specified load balancer. If no instances are specified, the call describes the state of all instances that are currently registered with the load balancer. If instances are specified, their state is returned even if they are no longer registered with the load balancer. The state of terminated instances is not returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceHealthCommandInput - {@link DescribeInstanceHealthCommandInput}
+ * @returns {@link DescribeInstanceHealthCommandOutput}
  * @see {@link DescribeInstanceHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -108,6 +115,9 @@ export class DescribeInstanceHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DescribeInstanceHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeInstanceHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstanceHealthCommandOutput> {
     return deserializeAws_queryDescribeInstanceHealthCommand(output, context);
   }

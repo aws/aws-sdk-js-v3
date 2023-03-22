@@ -53,6 +53,7 @@ import {
 } from "./commands/UpdateNotificationRuleCommand";
 
 /**
+ * @public
  * <p>This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the
  *       operations and data types for the AWS CodeStar Notifications API. You can use the AWS CodeStar Notifications API
  *       to work with the following objects:</p>
@@ -140,6 +141,7 @@ import {
  */
 export class CodestarNotifications extends CodestarNotificationsClient {
   /**
+   * @public
    * <p>Creates a notification rule for a resource. The rule specifies the events you want
    *             notifications about and the targets (such as Chatbot topics or Chatbot clients configured for Slack) where you want to receive
    *             them.</p>
@@ -174,6 +176,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a notification rule for a resource.</p>
    */
   public deleteNotificationRule(
@@ -206,6 +209,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified target for notifications.</p>
    */
   public deleteTarget(
@@ -235,6 +239,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specified notification rule.</p>
    */
   public describeNotificationRule(
@@ -267,6 +272,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the event types available for configuring notifications.</p>
    */
   public listEventTypes(
@@ -299,6 +305,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the notification rules for an Amazon Web Services account.</p>
    */
   public listNotificationRules(
@@ -331,6 +338,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the tags associated with a notification rule.</p>
    */
   public listTagsForResource(
@@ -363,6 +371,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the notification rule targets for an Amazon Web Services account.</p>
    */
   public listTargets(args: ListTargetsCommandInput, options?: __HttpHandlerOptions): Promise<ListTargetsCommandOutput>;
@@ -389,6 +398,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Creates an association between a notification rule and an Chatbot topic or Chatbot client so that the
    *             associated target can receive notifications when the events described in the rule are
    *             triggered.</p>
@@ -417,6 +427,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Associates a set of provided tags with a notification rule.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -443,6 +454,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Removes an association between a notification rule and an Chatbot topic so that
    *             subscribers to that topic stop receiving notifications when the events described in the
    *             rule are triggered.</p>
@@ -471,6 +483,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Removes the association between one or more provided tags and a notification
    *             rule.</p>
    */
@@ -504,6 +517,7 @@ export class CodestarNotifications extends CodestarNotificationsClient {
   }
 
   /**
+   * @public
    * <p>Updates a notification rule for a resource. You can change the events that trigger the
    *             notification rule, the status of the rule, and the targets that receive the
    *             notifications.</p>

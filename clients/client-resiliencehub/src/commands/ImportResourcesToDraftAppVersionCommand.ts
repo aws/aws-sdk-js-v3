@@ -26,10 +26,14 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportResourcesToDraftAppVersionCommand}.
  */
 export interface ImportResourcesToDraftAppVersionCommandInput extends ImportResourcesToDraftAppVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportResourcesToDraftAppVersionCommand}.
  */
 export interface ImportResourcesToDraftAppVersionCommandOutput
@@ -37,6 +41,7 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports resources to AWS Resilience Hub application draft version from different input sources. For more information about the input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
  *         the structure and describe your Resilience Hub application</a>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportResourcesToDraftAppVersionCommandInput - {@link ImportResourcesToDraftAppVersionCommandInput}
+ * @returns {@link ImportResourcesToDraftAppVersionCommandOutput}
  * @see {@link ImportResourcesToDraftAppVersionCommandInput} for command's `input` shape.
  * @see {@link ImportResourcesToDraftAppVersionCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -96,6 +103,9 @@ export class ImportResourcesToDraftAppVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportResourcesToDraftAppVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,6 +145,9 @@ export class ImportResourcesToDraftAppVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ImportResourcesToDraftAppVersionCommandInput,
     context: __SerdeContext
@@ -142,6 +155,9 @@ export class ImportResourcesToDraftAppVersionCommand extends $Command<
     return serializeAws_restJson1ImportResourcesToDraftAppVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

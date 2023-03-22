@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TestEventPatternCommand}.
  */
 export interface TestEventPatternCommandInput extends TestEventPatternRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestEventPatternCommand}.
  */
 export interface TestEventPatternCommandOutput extends TestEventPatternResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests whether the specified event pattern matches the provided event.</p>
  *          <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs).
  *       However, EventBridge uses an exact match in event patterns and rules. Be sure to use the
@@ -50,6 +55,8 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param TestEventPatternCommandInput - {@link TestEventPatternCommandInput}
+ * @returns {@link TestEventPatternCommandOutput}
  * @see {@link TestEventPatternCommandInput} for command's `input` shape.
  * @see {@link TestEventPatternCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -79,6 +86,9 @@ export class TestEventPatternCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestEventPatternCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class TestEventPatternCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestEventPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TestEventPatternCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestEventPatternCommandOutput> {
     return deserializeAws_json1_1TestEventPatternCommand(output, context);
   }

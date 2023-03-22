@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelJobExecutionCommand}.
  */
 export interface CancelJobExecutionCommandInput extends CancelJobExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelJobExecutionCommand}.
  */
 export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the execution of a job for a given thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJobExecution</a> action.</p>
  * @example
@@ -42,6 +47,8 @@ export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobExecutionCommandInput - {@link CancelJobExecutionCommandInput}
+ * @returns {@link CancelJobExecutionCommandOutput}
  * @see {@link CancelJobExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class CancelJobExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CancelJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobExecutionCommandOutput> {
     return deserializeAws_restJson1CancelJobExecutionCommand(output, context);
   }

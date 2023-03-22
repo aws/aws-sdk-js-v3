@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRemoteAccessSessionCommand}.
  */
 export interface CreateRemoteAccessSessionCommandInput extends CreateRemoteAccessSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRemoteAccessSessionCommand}.
  */
 export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies and starts a remote access session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRemoteAccessSessionCommandInput - {@link CreateRemoteAccessSessionCommandInput}
+ * @returns {@link CreateRemoteAccessSessionCommandOutput}
  * @see {@link CreateRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link CreateRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -102,6 +109,9 @@ export class CreateRemoteAccessSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRemoteAccessSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateRemoteAccessSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRemoteAccessSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

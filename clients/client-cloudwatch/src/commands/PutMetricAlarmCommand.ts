@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutMetricAlarmCommand}.
  */
 export interface PutMetricAlarmCommandInput extends PutMetricAlarmInput {}
 /**
+ * @public
+ *
  * The output of {@link PutMetricAlarmCommand}.
  */
 export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,
  * 			anomaly detection model, or Metrics Insights query. For more information about using
  * 			a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create alarms on Metrics Insights queries</a>.</p>
@@ -92,6 +97,8 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetricAlarmCommandInput - {@link PutMetricAlarmCommandInput}
+ * @returns {@link PutMetricAlarmCommandOutput}
  * @see {@link PutMetricAlarmCommandInput} for command's `input` shape.
  * @see {@link PutMetricAlarmCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -118,6 +125,9 @@ export class PutMetricAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetricAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class PutMetricAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetricAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutMetricAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricAlarmCommandOutput> {
     return deserializeAws_queryPutMetricAlarmCommand(output, context);
   }

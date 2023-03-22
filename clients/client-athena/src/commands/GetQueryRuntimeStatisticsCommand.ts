@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQueryRuntimeStatisticsCommand}.
  */
 export interface GetQueryRuntimeStatisticsCommandInput extends GetQueryRuntimeStatisticsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetQueryRuntimeStatisticsCommand}.
  */
 export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeStatisticsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns query execution runtime statistics related to a single execution of a query if
  *             you have access to the workgroup in which the query ran. Query execution runtime
  *             statistics are returned only when <a>QueryExecutionStatus$State</a> is in a
@@ -51,6 +56,8 @@ export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeS
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueryRuntimeStatisticsCommandInput - {@link GetQueryRuntimeStatisticsCommandInput}
+ * @returns {@link GetQueryRuntimeStatisticsCommandOutput}
  * @see {@link GetQueryRuntimeStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetQueryRuntimeStatisticsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryRuntimeStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryRuntimeStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetQueryRuntimeStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

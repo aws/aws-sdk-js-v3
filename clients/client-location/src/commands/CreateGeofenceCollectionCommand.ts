@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGeofenceCollectionCommand}.
  */
 export interface CreateGeofenceCollectionCommandInput extends CreateGeofenceCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGeofenceCollectionCommand}.
  */
 export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a geofence collection, which manages and stores geofences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGeofenceCollectionCommandInput - {@link CreateGeofenceCollectionCommandInput}
+ * @returns {@link CreateGeofenceCollectionCommandOutput}
  * @see {@link CreateGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateGeofenceCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGeofenceCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateGeofenceCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGeofenceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateGeofenceCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGeofenceCollectionCommandOutput> {
     return deserializeAws_restJson1CreateGeofenceCollectionCommand(output, context);
   }

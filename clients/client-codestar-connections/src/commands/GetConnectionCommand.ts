@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectionCommand}.
  */
 export interface GetConnectionCommandInput extends GetConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectionCommand}.
  */
 export interface GetConnectionCommandOutput extends GetConnectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the connection ARN and details such as status, owner, and provider type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectionCommandInput - {@link GetConnectionCommandInput}
+ * @returns {@link GetConnectionCommandOutput}
  * @see {@link GetConnectionCommandInput} for command's `input` shape.
  * @see {@link GetConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -79,6 +86,9 @@ export class GetConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionCommandOutput> {
     return deserializeAws_json1_0GetConnectionCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMergeConflictsCommand}.
  */
 export interface GetMergeConflictsCommandInput extends GetMergeConflictsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMergeConflictsCommand}.
  */
 export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about merge conflicts between the before and after commit IDs for a pull request in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMergeConflictsCommandInput - {@link GetMergeConflictsCommandInput}
+ * @returns {@link GetMergeConflictsCommandOutput}
  * @see {@link GetMergeConflictsCommandInput} for command's `input` shape.
  * @see {@link GetMergeConflictsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -142,6 +149,9 @@ export class GetMergeConflictsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMergeConflictsCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class GetMergeConflictsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMergeConflictsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMergeConflictsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMergeConflictsCommandOutput> {
     return deserializeAws_json1_1GetMergeConflictsCommand(output, context);
   }

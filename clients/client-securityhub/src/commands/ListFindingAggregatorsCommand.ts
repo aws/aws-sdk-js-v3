@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListFindingAggregatorsCommand}.
  */
 export interface ListFindingAggregatorsCommandInput extends ListFindingAggregatorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFindingAggregatorsCommand}.
  */
 export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregatorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>If finding aggregation is enabled, then <code>ListFindingAggregators</code> returns the ARN of the finding aggregator. You can run this operation from any Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFindingAggregatorsCommandInput - {@link ListFindingAggregatorsCommandInput}
+ * @returns {@link ListFindingAggregatorsCommandOutput}
  * @see {@link ListFindingAggregatorsCommandInput} for command's `input` shape.
  * @see {@link ListFindingAggregatorsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListFindingAggregatorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFindingAggregatorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ListFindingAggregatorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFindingAggregatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFindingAggregatorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingAggregatorsCommandOutput> {
     return deserializeAws_restJson1ListFindingAggregatorsCommand(output, context);
   }

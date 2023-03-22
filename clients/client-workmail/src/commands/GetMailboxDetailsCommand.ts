@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMailboxDetailsCommand}.
  */
 export interface GetMailboxDetailsCommandInput extends GetMailboxDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMailboxDetailsCommand}.
  */
 export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a user's mailbox details for a specified organization and user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMailboxDetailsCommandInput - {@link GetMailboxDetailsCommandInput}
+ * @returns {@link GetMailboxDetailsCommandOutput}
  * @see {@link GetMailboxDetailsCommandInput} for command's `input` shape.
  * @see {@link GetMailboxDetailsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetMailboxDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMailboxDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetMailboxDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMailboxDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMailboxDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMailboxDetailsCommandOutput> {
     return deserializeAws_json1_1GetMailboxDetailsCommand(output, context);
   }

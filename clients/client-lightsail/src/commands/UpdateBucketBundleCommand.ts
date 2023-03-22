@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBucketBundleCommand}.
  */
 export interface UpdateBucketBundleCommandInput extends UpdateBucketBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBucketBundleCommand}.
  */
 export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p>
  *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
  *       bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services
@@ -58,6 +63,8 @@ export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResul
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBucketBundleCommandInput - {@link UpdateBucketBundleCommandInput}
+ * @returns {@link UpdateBucketBundleCommandOutput}
  * @see {@link UpdateBucketBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateBucketBundleCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class UpdateBucketBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBucketBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class UpdateBucketBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBucketBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateBucketBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBucketBundleCommandOutput> {
     return deserializeAws_json1_1UpdateBucketBundleCommand(output, context);
   }

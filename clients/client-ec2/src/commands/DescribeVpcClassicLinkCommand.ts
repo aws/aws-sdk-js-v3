@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcClassicLinkCommand}.
  */
 export interface DescribeVpcClassicLinkCommandInput extends DescribeVpcClassicLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcClassicLinkCommand}.
  */
 export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicLinkResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the ClassicLink status of one or more VPCs.</p>
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -49,6 +54,8 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcClassicLinkCommandInput - {@link DescribeVpcClassicLinkCommandInput}
+ * @returns {@link DescribeVpcClassicLinkCommandOutput}
  * @see {@link DescribeVpcClassicLinkCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcClassicLinkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DescribeVpcClassicLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcClassicLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class DescribeVpcClassicLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcClassicLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpcClassicLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcClassicLinkCommandOutput> {
     return deserializeAws_ec2DescribeVpcClassicLinkCommand(output, context);
   }

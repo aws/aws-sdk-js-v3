@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOriginRequestPolicyCommand}.
  */
 export interface CreateOriginRequestPolicyCommandInput extends CreateOriginRequestPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOriginRequestPolicyCommand}.
  */
 export interface CreateOriginRequestPolicyCommandOutput extends CreateOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an origin request policy.</p>
  *          <p>After you create an origin request policy, you can attach it to one or more cache
  * 			behaviors. When it's attached to a cache behavior, the origin request policy determines
@@ -72,6 +77,8 @@ export interface CreateOriginRequestPolicyCommandOutput extends CreateOriginRequ
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOriginRequestPolicyCommandInput - {@link CreateOriginRequestPolicyCommandInput}
+ * @returns {@link CreateOriginRequestPolicyCommandOutput}
  * @see {@link CreateOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -130,6 +137,9 @@ export class CreateOriginRequestPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOriginRequestPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,10 +179,16 @@ export class CreateOriginRequestPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOriginRequestPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateOriginRequestPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

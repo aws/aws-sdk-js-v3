@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRuntimeConfigurationCommand}.
  */
 export interface DescribeRuntimeConfigurationCommandInput extends DescribeRuntimeConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRuntimeConfigurationCommand}.
  */
 export interface DescribeRuntimeConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeRuntimeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration tells
  *             GameLift which server processes to run (and how) on each instance in the fleet.</p>
  *         <p>To get the runtime configuration that is currently in forces for a fleet, provide the
@@ -65,6 +70,8 @@ export interface DescribeRuntimeConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRuntimeConfigurationCommandInput - {@link DescribeRuntimeConfigurationCommandInput}
+ * @returns {@link DescribeRuntimeConfigurationCommandOutput}
  * @see {@link DescribeRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -102,6 +109,9 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRuntimeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRuntimeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRuntimeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

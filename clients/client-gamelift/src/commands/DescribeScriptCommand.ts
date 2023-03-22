@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScriptCommand}.
  */
 export interface DescribeScriptCommandInput extends DescribeScriptInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScriptCommand}.
  */
 export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves properties for a Realtime script. </p>
  *         <p>To request a script record, specify the script ID. If successful, an object containing
  *             the script properties is returned.</p>
@@ -60,6 +65,8 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScriptCommandInput - {@link DescribeScriptCommandInput}
+ * @returns {@link DescribeScriptCommandOutput}
  * @see {@link DescribeScriptCommandInput} for command's `input` shape.
  * @see {@link DescribeScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -97,6 +104,9 @@ export class DescribeScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DescribeScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScriptCommandOutput> {
     return deserializeAws_json1_1DescribeScriptCommand(output, context);
   }

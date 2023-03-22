@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingProfileConcurrencyCommand}.
  */
 export interface UpdateRoutingProfileConcurrencyCommandInput extends UpdateRoutingProfileConcurrencyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingProfileConcurrencyCommand}.
  */
 export interface UpdateRoutingProfileConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing
  *    profile.</p>
  * @example
@@ -45,6 +50,8 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingProfileConcurrencyCommandInput - {@link UpdateRoutingProfileConcurrencyCommandInput}
+ * @returns {@link UpdateRoutingProfileConcurrencyCommandOutput}
  * @see {@link UpdateRoutingProfileConcurrencyCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +90,9 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingProfileConcurrencyCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateRoutingProfileConcurrencyCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
     return serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

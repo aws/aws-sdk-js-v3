@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutParameterCommand}.
  */
 export interface PutParameterCommandInput extends PutParameterRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutParameterCommand}.
  */
 export interface PutParameterCommandOutput extends PutParameterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add a parameter to the system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param PutParameterCommandInput - {@link PutParameterCommandInput}
+ * @returns {@link PutParameterCommandOutput}
  * @see {@link PutParameterCommandInput} for command's `input` shape.
  * @see {@link PutParameterCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -136,6 +143,9 @@ export class PutParameterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutParameterCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class PutParameterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutParameterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutParameterCommandOutput> {
     return deserializeAws_json1_1PutParameterCommand(output, context);
   }

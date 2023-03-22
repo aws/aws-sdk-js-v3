@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link PollForActivityTaskCommand}.
  */
 export interface PollForActivityTaskCommandInput extends PollForActivityTaskInput {}
 /**
+ * @public
+ *
  * The output of {@link PollForActivityTaskCommand}.
  */
 export interface PollForActivityTaskCommandOutput extends ActivityTask, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to get an <a>ActivityTask</a> from the specified activity
  *         <code>taskList</code>. This initiates a long poll, where the service holds the HTTP
  *       connection open and responds as soon as a task becomes available. The maximum time the service
@@ -81,6 +86,8 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  * const response = await client.send(command);
  * ```
  *
+ * @param PollForActivityTaskCommandInput - {@link PollForActivityTaskCommandInput}
+ * @returns {@link PollForActivityTaskCommandOutput}
  * @see {@link PollForActivityTaskCommandInput} for command's `input` shape.
  * @see {@link PollForActivityTaskCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -113,6 +120,9 @@ export class PollForActivityTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PollForActivityTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class PollForActivityTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PollForActivityTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0PollForActivityTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForActivityTaskCommandOutput> {
     return deserializeAws_json1_0PollForActivityTaskCommand(output, context);
   }

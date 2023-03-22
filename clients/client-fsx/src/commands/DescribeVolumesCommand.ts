@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVolumesCommand}.
  */
 export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVolumesCommand}.
  */
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for
  *             OpenZFS volumes.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumesCommandInput - {@link DescribeVolumesCommandInput}
+ * @returns {@link DescribeVolumesCommandOutput}
  * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumesCommandOutput> {
     return deserializeAws_json1_1DescribeVolumesCommand(output, context);
   }

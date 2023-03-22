@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListVehiclesInFleetCommand}.
  */
 export interface ListVehiclesInFleetCommandInput extends ListVehiclesInFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVehiclesInFleetCommand}.
  */
 export interface ListVehiclesInFleetCommandOutput extends ListVehiclesInFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of summaries of all vehicles associated with a fleet. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -49,6 +54,8 @@ export interface ListVehiclesInFleetCommandOutput extends ListVehiclesInFleetRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVehiclesInFleetCommandInput - {@link ListVehiclesInFleetCommandInput}
+ * @returns {@link ListVehiclesInFleetCommandOutput}
  * @see {@link ListVehiclesInFleetCommandInput} for command's `input` shape.
  * @see {@link ListVehiclesInFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListVehiclesInFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVehiclesInFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListVehiclesInFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVehiclesInFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListVehiclesInFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVehiclesInFleetCommandOutput> {
     return deserializeAws_json1_0ListVehiclesInFleetCommand(output, context);
   }

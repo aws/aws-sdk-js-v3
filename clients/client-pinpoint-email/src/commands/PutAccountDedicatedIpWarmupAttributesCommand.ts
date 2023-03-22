@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
 export interface PutAccountDedicatedIpWarmupAttributesCommandInput
   extends PutAccountDedicatedIpWarmupAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
 export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
@@ -38,6 +42,7 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountDedicatedIpWarmupAttributesCommandInput - {@link PutAccountDedicatedIpWarmupAttributesCommandInput}
+ * @returns {@link PutAccountDedicatedIpWarmupAttributesCommandOutput}
  * @see {@link PutAccountDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -78,6 +85,9 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountDedicatedIpWarmupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAccountDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     return serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

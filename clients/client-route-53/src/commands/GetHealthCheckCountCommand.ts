@@ -26,15 +26,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetHealthCheckCountCommand}.
  */
 export interface GetHealthCheckCountCommandInput extends GetHealthCheckCountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHealthCheckCountCommand}.
  */
 export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the number of health checks that are associated with the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHealthCheckCountCommandInput - {@link GetHealthCheckCountCommandInput}
+ * @returns {@link GetHealthCheckCountCommandOutput}
  * @see {@link GetHealthCheckCountCommandInput} for command's `input` shape.
  * @see {@link GetHealthCheckCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -69,6 +76,9 @@ export class GetHealthCheckCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHealthCheckCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class GetHealthCheckCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHealthCheckCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetHealthCheckCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHealthCheckCountCommandOutput> {
     return deserializeAws_restXmlGetHealthCheckCountCommand(output, context);
   }

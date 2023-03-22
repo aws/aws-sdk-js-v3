@@ -26,10 +26,14 @@ import {
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSavingsPlansOfferingRatesCommand}.
  */
 export interface DescribeSavingsPlansOfferingRatesCommandInput extends DescribeSavingsPlansOfferingRatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSavingsPlansOfferingRatesCommand}.
  */
 export interface DescribeSavingsPlansOfferingRatesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Savings Plans offering rates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSavingsPlansOfferingRatesCommandInput - {@link DescribeSavingsPlansOfferingRatesCommandInput}
+ * @returns {@link DescribeSavingsPlansOfferingRatesCommandOutput}
  * @see {@link DescribeSavingsPlansOfferingRatesCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlansOfferingRatesCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
@@ -77,6 +84,9 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSavingsPlansOfferingRatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeSavingsPlansOfferingRatesCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
     return serializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EnableMetricsCollectionCommand}.
  */
 export interface EnableMetricsCollectionCommandInput extends EnableMetricsCollectionQuery {}
 /**
+ * @public
+ *
  * The output of {@link EnableMetricsCollectionCommand}.
  */
 export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables group metrics collection for the specified Auto Scaling group.</p>
  *          <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on
  *             threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch
@@ -46,6 +51,8 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableMetricsCollectionCommandInput - {@link EnableMetricsCollectionCommandInput}
+ * @returns {@link EnableMetricsCollectionCommandOutput}
  * @see {@link EnableMetricsCollectionCommandInput} for command's `input` shape.
  * @see {@link EnableMetricsCollectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -85,6 +92,9 @@ export class EnableMetricsCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableMetricsCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class EnableMetricsCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableMetricsCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryEnableMetricsCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMetricsCollectionCommandOutput> {
     return deserializeAws_queryEnableMetricsCollectionCommand(output, context);
   }

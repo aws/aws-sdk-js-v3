@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetEndpointAttributesCommand}.
  */
 export interface SetEndpointAttributesCommandInput extends SetEndpointAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetEndpointAttributesCommand}.
  */
 export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the attributes for an endpoint for a device on one of the supported push
  *             notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -43,6 +48,8 @@ export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetEndpointAttributesCommandInput - {@link SetEndpointAttributesCommandInput}
+ * @returns {@link SetEndpointAttributesCommandOutput}
  * @see {@link SetEndpointAttributesCommandInput} for command's `input` shape.
  * @see {@link SetEndpointAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -79,6 +86,9 @@ export class SetEndpointAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetEndpointAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class SetEndpointAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetEndpointAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetEndpointAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetEndpointAttributesCommandOutput> {
     return deserializeAws_querySetEndpointAttributesCommand(output, context);
   }

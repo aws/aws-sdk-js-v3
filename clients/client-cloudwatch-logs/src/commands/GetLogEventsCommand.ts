@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLogEventsCommand}.
  */
 export interface GetLogEventsCommandInput extends GetLogEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLogEventsCommand}.
  */
 export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists log events from the specified log stream. You can list all of the log events or
  *       filter using a time range.</p>
  *          <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events).
@@ -56,6 +61,8 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLogEventsCommandInput - {@link GetLogEventsCommandInput}
+ * @returns {@link GetLogEventsCommandOutput}
  * @see {@link GetLogEventsCommandInput} for command's `input` shape.
  * @see {@link GetLogEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetLogEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLogEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetLogEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLogEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogEventsCommandOutput> {
     return deserializeAws_json1_1GetLogEventsCommand(output, context);
   }

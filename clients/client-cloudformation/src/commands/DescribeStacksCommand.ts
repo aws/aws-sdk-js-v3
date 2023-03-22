@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStacksCommand}.
  */
 export interface DescribeStacksCommandInput extends DescribeStacksInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStacksCommand}.
  */
 export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description for the specified stack; if no stack name was specified, then it
  *          returns the description for all the stacks created.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStacksCommandInput - {@link DescribeStacksCommandInput}
+ * @returns {@link DescribeStacksCommandOutput}
  * @see {@link DescribeStacksCommandInput} for command's `input` shape.
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeStacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeStacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeStacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStacksCommandOutput> {
     return deserializeAws_queryDescribeStacksCommand(output, context);
   }

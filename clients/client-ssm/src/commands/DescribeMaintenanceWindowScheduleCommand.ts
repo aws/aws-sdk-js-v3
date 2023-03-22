@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceWindowScheduleCommand}.
  */
 export interface DescribeMaintenanceWindowScheduleCommandInput extends DescribeMaintenanceWindowScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceWindowScheduleCommand}.
  */
 export interface DescribeMaintenanceWindowScheduleCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeMaintenanceWindowScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about upcoming executions of a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeMaintenanceWindowScheduleCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowScheduleCommandInput - {@link DescribeMaintenanceWindowScheduleCommandInput}
+ * @returns {@link DescribeMaintenanceWindowScheduleCommandOutput}
  * @see {@link DescribeMaintenanceWindowScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowScheduleCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowScheduleCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
     return serializeAws_json1_1DescribeMaintenanceWindowScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

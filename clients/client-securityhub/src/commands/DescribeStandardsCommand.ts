@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStandardsCommand}.
  */
 export interface DescribeStandardsCommandInput extends DescribeStandardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStandardsCommand}.
  */
 export interface DescribeStandardsCommandOutput extends DescribeStandardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available standards in Security Hub.</p>
  *          <p>For each standard, the results include the standard ARN, the name, and a description. </p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStandardsCommandInput - {@link DescribeStandardsCommandInput}
+ * @returns {@link DescribeStandardsCommandOutput}
  * @see {@link DescribeStandardsCommandInput} for command's `input` shape.
  * @see {@link DescribeStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeStandardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStandardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeStandardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeStandardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStandardsCommandOutput> {
     return deserializeAws_restJson1DescribeStandardsCommand(output, context);
   }

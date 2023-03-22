@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDetectorModelAnalysisResultsCommand}.
  */
 export interface GetDetectorModelAnalysisResultsCommandInput extends GetDetectorModelAnalysisResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDetectorModelAnalysisResultsCommand}.
  */
 export interface GetDetectorModelAnalysisResultsCommandOutput
@@ -37,6 +41,7 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves one or more analysis results of the detector model.</p>
  *          <note>
  *             <p>After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.</p>
@@ -51,6 +56,8 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDetectorModelAnalysisResultsCommandInput - {@link GetDetectorModelAnalysisResultsCommandInput}
+ * @returns {@link GetDetectorModelAnalysisResultsCommandOutput}
  * @see {@link GetDetectorModelAnalysisResultsCommandInput} for command's `input` shape.
  * @see {@link GetDetectorModelAnalysisResultsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDetectorModelAnalysisResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDetectorModelAnalysisResultsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command<
     return serializeAws_restJson1GetDetectorModelAnalysisResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

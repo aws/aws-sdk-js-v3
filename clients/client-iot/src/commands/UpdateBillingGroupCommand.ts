@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBillingGroupCommand}.
  */
 export interface UpdateBillingGroupCommandInput extends UpdateBillingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBillingGroupCommand}.
  */
 export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about the billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateBillingGroup</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBillingGroupCommandInput - {@link UpdateBillingGroupCommandInput}
+ * @returns {@link UpdateBillingGroupCommandOutput}
  * @see {@link UpdateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBillingGroupCommandOutput> {
     return deserializeAws_restJson1UpdateBillingGroupCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentAccountConnectionCommand}.
  */
 export interface CreateEnvironmentAccountConnectionCommandInput extends CreateEnvironmentAccountConnectionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentAccountConnectionCommand}.
  */
 export interface CreateEnvironmentAccountConnectionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment
  *       account from a management account.</p>
  *          <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment
@@ -52,6 +57,8 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentAccountConnectionCommandInput - {@link CreateEnvironmentAccountConnectionCommandInput}
+ * @returns {@link CreateEnvironmentAccountConnectionCommandOutput}
  * @see {@link CreateEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateEnvironmentAccountConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentAccountConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class CreateEnvironmentAccountConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class CreateEnvironmentAccountConnectionCommand extends $Command<
     return serializeAws_json1_0CreateEnvironmentAccountConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

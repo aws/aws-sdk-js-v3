@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSampleDataCommand}.
  */
 export interface GetSampleDataCommandInput extends GetSampleDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSampleDataCommand}.
  */
 export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a selection of sample records from an Amazon S3 datasource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSampleDataCommandInput - {@link GetSampleDataCommandInput}
+ * @returns {@link GetSampleDataCommandOutput}
  * @see {@link GetSampleDataCommandInput} for command's `input` shape.
  * @see {@link GetSampleDataCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetSampleDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSampleDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetSampleDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSampleDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSampleDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampleDataCommandOutput> {
     return deserializeAws_restJson1GetSampleDataCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolutionsCommand}.
  */
 export interface ListSolutionsCommandInput extends ListSolutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSolutionsCommand}.
  */
 export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of solutions that use the given dataset group.
  *       When a dataset group is not specified, all the solutions associated with the account are listed.
  *       The response provides the properties for each solution, including the Amazon Resource Name (ARN).
@@ -49,6 +54,8 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolutionsCommandInput - {@link ListSolutionsCommandInput}
+ * @returns {@link ListSolutionsCommandOutput}
  * @see {@link ListSolutionsCommandInput} for command's `input` shape.
  * @see {@link ListSolutionsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListSolutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ListSolutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSolutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolutionsCommandOutput> {
     return deserializeAws_json1_1ListSolutionsCommand(output, context);
   }

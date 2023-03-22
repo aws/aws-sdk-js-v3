@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHttpNamespaceCommand}.
  */
 export interface CreateHttpNamespaceCommandInput extends CreateHttpNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHttpNamespaceCommand}.
  */
 export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be
  *    discovered using a <code>DiscoverInstances</code> request but can't be discovered using
  *    DNS.</p>
@@ -50,6 +55,8 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHttpNamespaceCommandInput - {@link CreateHttpNamespaceCommandInput}
+ * @returns {@link CreateHttpNamespaceCommandOutput}
  * @see {@link CreateHttpNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreateHttpNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -115,6 +122,9 @@ export class CreateHttpNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHttpNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class CreateHttpNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHttpNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHttpNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHttpNamespaceCommandOutput> {
     return deserializeAws_json1_1CreateHttpNamespaceCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChangedBlocksCommand}.
  */
 export interface ListChangedBlocksCommandInput extends ListChangedBlocksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChangedBlocksCommand}.
  */
 export interface ListChangedBlocksCommandOutput extends ListChangedBlocksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the blocks that are different between two
  *             Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChangedBlocksCommandInput - {@link ListChangedBlocksCommandInput}
+ * @returns {@link ListChangedBlocksCommandOutput}
  * @see {@link ListChangedBlocksCommandInput} for command's `input` shape.
  * @see {@link ListChangedBlocksCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListChangedBlocksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChangedBlocksCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListChangedBlocksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChangedBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListChangedBlocksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangedBlocksCommandOutput> {
     return deserializeAws_restJson1ListChangedBlocksCommand(output, context);
   }

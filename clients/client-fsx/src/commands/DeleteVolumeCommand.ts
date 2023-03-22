@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVolumeCommand}.
  */
 export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVolumeCommand}.
  */
 export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
  *             volume.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
+ * @returns {@link DeleteVolumeCommandOutput}
  * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVolumeCommandOutput> {
     return deserializeAws_json1_1DeleteVolumeCommand(output, context);
   }

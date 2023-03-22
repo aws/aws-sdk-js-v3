@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResponseHeadersPolicyCommand}.
  */
 export interface UpdateResponseHeadersPolicyCommandInput extends UpdateResponseHeadersPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResponseHeadersPolicyCommand}.
  */
 export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a response headers policy.</p>
  *          <p>When you update a response headers policy, the entire policy is replaced. You cannot
  * 			update some policy fields independent of others. To update a response headers policy
@@ -64,6 +69,8 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResponseHeadersPolicyCommandInput - {@link UpdateResponseHeadersPolicyCommandInput}
+ * @returns {@link UpdateResponseHeadersPolicyCommandOutput}
  * @see {@link UpdateResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -133,6 +140,9 @@ export class UpdateResponseHeadersPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResponseHeadersPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,10 +182,16 @@ export class UpdateResponseHeadersPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResponseHeadersPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateResponseHeadersPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

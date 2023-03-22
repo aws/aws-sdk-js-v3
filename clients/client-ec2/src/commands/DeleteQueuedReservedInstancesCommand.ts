@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueuedReservedInstancesCommand}.
  */
 export interface DeleteQueuedReservedInstancesCommandInput extends DeleteQueuedReservedInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueuedReservedInstancesCommand}.
  */
 export interface DeleteQueuedReservedInstancesCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteQueuedReservedInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the queued purchases for the specified Reserved Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteQueuedReservedInstancesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueuedReservedInstancesCommandInput - {@link DeleteQueuedReservedInstancesCommandInput}
+ * @returns {@link DeleteQueuedReservedInstancesCommandOutput}
  * @see {@link DeleteQueuedReservedInstancesCommandInput} for command's `input` shape.
  * @see {@link DeleteQueuedReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueuedReservedInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueuedReservedInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteQueuedReservedInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -27,15 +27,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMultipartUploadCommand}.
  */
 export interface CreateMultipartUploadCommandInput extends CreateMultipartUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMultipartUploadCommand}.
  */
 export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action initiates a multipart upload and returns an upload ID. This upload ID is
  *          used to associate all of the parts in the specific multipart upload. You specify this
  *          upload ID in each of your subsequent upload part requests (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>). You also include this
@@ -314,6 +319,8 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMultipartUploadCommandInput - {@link CreateMultipartUploadCommandInput}
+ * @returns {@link CreateMultipartUploadCommandOutput}
  * @see {@link CreateMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link CreateMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -362,6 +369,9 @@ export class CreateMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -402,10 +412,16 @@ export class CreateMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMultipartUploadCommandOutput> {
     return deserializeAws_restXmlCreateMultipartUploadCommand(output, context);
   }

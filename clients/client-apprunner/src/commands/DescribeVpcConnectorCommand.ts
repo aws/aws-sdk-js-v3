@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcConnectorCommand}.
  */
 export interface DescribeVpcConnectorCommandInput extends DescribeVpcConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcConnectorCommand}.
  */
 export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a description of an App Runner VPC connector resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcConnectorCommandInput - {@link DescribeVpcConnectorCommandInput}
+ * @returns {@link DescribeVpcConnectorCommandOutput}
  * @see {@link DescribeVpcConnectorCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeVpcConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DescribeVpcConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeVpcConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcConnectorCommandOutput> {
     return deserializeAws_json1_0DescribeVpcConnectorCommand(output, context);
   }

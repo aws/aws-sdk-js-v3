@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMissionProfileCommand}.
  */
 export interface UpdateMissionProfileCommandInput extends UpdateMissionProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMissionProfileCommand}.
  */
 export interface UpdateMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a mission profile.</p>
  *          <p>Updating a mission profile will not update the execution parameters
  *          for existing future contacts.</p>
@@ -48,6 +53,8 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMissionProfileCommandInput - {@link UpdateMissionProfileCommandInput}
+ * @returns {@link UpdateMissionProfileCommandOutput}
  * @see {@link UpdateMissionProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateMissionProfileCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -80,6 +87,9 @@ export class UpdateMissionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMissionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class UpdateMissionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMissionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMissionProfileCommandOutput> {
     return deserializeAws_restJson1UpdateMissionProfileCommand(output, context);
   }

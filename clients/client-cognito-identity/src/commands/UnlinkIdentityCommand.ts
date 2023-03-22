@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnlinkIdentityCommand}.
  */
 export interface UnlinkIdentityCommandInput extends UnlinkIdentityInput {}
 /**
+ * @public
+ *
  * The output of {@link UnlinkIdentityCommand}.
  */
 export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unlinks a federated identity from an existing account. Unlinked logins will be
  *          considered new identities next time they are seen. Removing the last linked login will make
  *          this identity inaccessible.</p>
@@ -44,6 +49,8 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UnlinkIdentityCommandInput - {@link UnlinkIdentityCommandInput}
+ * @returns {@link UnlinkIdentityCommandOutput}
  * @see {@link UnlinkIdentityCommandInput} for command's `input` shape.
  * @see {@link UnlinkIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -91,6 +98,9 @@ export class UnlinkIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnlinkIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class UnlinkIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnlinkIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UnlinkIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlinkIdentityCommandOutput> {
     return deserializeAws_json1_1UnlinkIdentityCommand(output, context);
   }

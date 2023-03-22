@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBClusterParameterGroupCommand}.
  */
 export interface DeleteDBClusterParameterGroupCommandInput extends DeleteDBClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBClusterParameterGroupCommand}.
  */
 export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified cluster parameter group. The cluster parameter group to be deleted can't be associated with any clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBClusterParameterGroupCommandInput - {@link DeleteDBClusterParameterGroupCommandInput}
+ * @returns {@link DeleteDBClusterParameterGroupCommandOutput}
  * @see {@link DeleteDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -74,6 +81,9 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

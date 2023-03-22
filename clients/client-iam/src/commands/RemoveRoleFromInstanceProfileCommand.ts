@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveRoleFromInstanceProfileCommand}.
  */
 export interface RemoveRoleFromInstanceProfileCommandInput extends RemoveRoleFromInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveRoleFromInstanceProfileCommand}.
  */
 export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified IAM role from the specified EC2 instance profile.</p>
  *          <important>
  *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you
@@ -53,6 +58,8 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveRoleFromInstanceProfileCommandInput - {@link RemoveRoleFromInstanceProfileCommandInput}
+ * @returns {@link RemoveRoleFromInstanceProfileCommandOutput}
  * @see {@link RemoveRoleFromInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link RemoveRoleFromInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -106,6 +113,9 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveRoleFromInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveRoleFromInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRemoveRoleFromInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

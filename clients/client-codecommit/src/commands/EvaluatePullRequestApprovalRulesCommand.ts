@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EvaluatePullRequestApprovalRulesCommand}.
  */
 export interface EvaluatePullRequestApprovalRulesCommandInput extends EvaluatePullRequestApprovalRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link EvaluatePullRequestApprovalRulesCommand}.
  */
 export interface EvaluatePullRequestApprovalRulesCommandOutput
@@ -37,6 +41,7 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates whether a pull request has met all the conditions specified in its associated approval rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluatePullRequestApprovalRulesCommandInput - {@link EvaluatePullRequestApprovalRulesCommandInput}
+ * @returns {@link EvaluatePullRequestApprovalRulesCommandOutput}
  * @see {@link EvaluatePullRequestApprovalRulesCommandInput} for command's `input` shape.
  * @see {@link EvaluatePullRequestApprovalRulesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -104,6 +111,9 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluatePullRequestApprovalRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EvaluatePullRequestApprovalRulesCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     return serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

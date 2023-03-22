@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNodegroupVersionCommand}.
  */
 export interface UpdateNodegroupVersionCommandInput extends UpdateNodegroupVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNodegroupVersionCommand}.
  */
 export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node
  *             group.</p>
  *          <p>You can update a node group using a launch template only if the node group was
@@ -66,6 +71,8 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNodegroupVersionCommandInput - {@link UpdateNodegroupVersionCommandInput}
+ * @returns {@link UpdateNodegroupVersionCommandOutput}
  * @see {@link UpdateNodegroupVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateNodegroupVersionCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -114,6 +121,9 @@ export class UpdateNodegroupVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNodegroupVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,10 +163,16 @@ export class UpdateNodegroupVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNodegroupVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateNodegroupVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNodegroupVersionCommandOutput> {
     return deserializeAws_restJson1UpdateNodegroupVersionCommand(output, context);
   }

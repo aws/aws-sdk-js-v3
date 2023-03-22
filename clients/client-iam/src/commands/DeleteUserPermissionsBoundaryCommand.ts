@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserPermissionsBoundaryCommand}.
  */
 export interface DeleteUserPermissionsBoundaryCommandInput extends DeleteUserPermissionsBoundaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserPermissionsBoundaryCommand}.
  */
 export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the permissions boundary for the specified IAM user.</p>
  *          <important>
  *             <p>Deleting the permissions boundary for a user might increase its permissions by
@@ -49,6 +54,8 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserPermissionsBoundaryCommandInput - {@link DeleteUserPermissionsBoundaryCommandInput}
+ * @returns {@link DeleteUserPermissionsBoundaryCommandOutput}
  * @see {@link DeleteUserPermissionsBoundaryCommandInput} for command's `input` shape.
  * @see {@link DeleteUserPermissionsBoundaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserPermissionsBoundaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserPermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteUserPermissionsBoundaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

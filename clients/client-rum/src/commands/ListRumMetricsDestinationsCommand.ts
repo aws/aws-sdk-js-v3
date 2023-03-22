@@ -26,15 +26,20 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRumMetricsDestinationsCommand}.
  */
 export interface ListRumMetricsDestinationsCommandInput extends ListRumMetricsDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRumMetricsDestinationsCommand}.
  */
 export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of destinations that you have created to receive RUM extended metrics,
  *          for the specified app monitor.</p>
  *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html">AddRumMetrics</a>.</p>
@@ -48,6 +53,8 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRumMetricsDestinationsCommandInput - {@link ListRumMetricsDestinationsCommandInput}
+ * @returns {@link ListRumMetricsDestinationsCommandOutput}
  * @see {@link ListRumMetricsDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListRumMetricsDestinationsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListRumMetricsDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRumMetricsDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListRumMetricsDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRumMetricsDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRumMetricsDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

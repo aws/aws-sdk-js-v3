@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateQuantumTaskCommand}.
  */
 export interface CreateQuantumTaskCommandInput extends CreateQuantumTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateQuantumTaskCommand}.
  */
 export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a quantum task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQuantumTaskCommandInput - {@link CreateQuantumTaskCommandInput}
+ * @returns {@link CreateQuantumTaskCommandOutput}
  * @see {@link CreateQuantumTaskCommandInput} for command's `input` shape.
  * @see {@link CreateQuantumTaskCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateQuantumTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQuantumTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateQuantumTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQuantumTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateQuantumTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQuantumTaskCommandOutput> {
     return deserializeAws_restJson1CreateQuantumTaskCommand(output, context);
   }

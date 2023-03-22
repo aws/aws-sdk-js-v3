@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRoomCommand}.
  */
 export interface GetRoomCommandInput extends GetRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRoomCommand}.
  */
 export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoomCommandInput - {@link GetRoomCommandInput}
+ * @returns {@link GetRoomCommandOutput}
  * @see {@link GetRoomCommandInput} for command's `input` shape.
  * @see {@link GetRoomCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoomCommandOutput> {
     return deserializeAws_restJson1GetRoomCommand(output, context);
   }

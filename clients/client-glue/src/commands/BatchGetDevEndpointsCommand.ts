@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetDevEndpointsCommand}.
  */
 export interface BatchGetDevEndpointsCommandInput extends BatchGetDevEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetDevEndpointsCommand}.
  */
 export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of resource metadata for a given list of development endpoint names. After
  *       calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the
  *       data to which you have been granted permissions. This operation supports all IAM permissions,
@@ -49,6 +54,8 @@ export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDevEndpointsCommandInput - {@link BatchGetDevEndpointsCommandInput}
+ * @returns {@link BatchGetDevEndpointsCommandOutput}
  * @see {@link BatchGetDevEndpointsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDevEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +91,9 @@ export class BatchGetDevEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDevEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class BatchGetDevEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDevEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDevEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDevEndpointsCommandOutput> {
     return deserializeAws_json1_1BatchGetDevEndpointsCommand(output, context);
   }

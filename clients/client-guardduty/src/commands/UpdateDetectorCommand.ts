@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDetectorCommand}.
  */
 export interface UpdateDetectorCommandInput extends UpdateDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDetectorCommand}.
  */
 export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Amazon GuardDuty detector specified by the detectorId.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -49,6 +54,8 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDetectorCommandInput - {@link UpdateDetectorCommandInput}
+ * @returns {@link UpdateDetectorCommandOutput}
  * @see {@link UpdateDetectorCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -78,6 +85,9 @@ export class UpdateDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class UpdateDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDetectorCommandOutput> {
     return deserializeAws_restJson1UpdateDetectorCommand(output, context);
   }

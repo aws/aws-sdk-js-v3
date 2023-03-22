@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateParticipantConnectionCommand}.
  */
 export interface CreateParticipantConnectionCommandInput extends CreateParticipantConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateParticipantConnectionCommand}.
  */
 export interface CreateParticipantConnectionCommandOutput
@@ -41,6 +45,7 @@ export interface CreateParticipantConnectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the participant's connection. </p>
  *          <note>
  *             <p>
@@ -55,7 +60,7 @@ export interface CreateParticipantConnectionCommandOutput
  *          <p>For chat, you need to publish the following on the established websocket
  *             connection:</p>
  *          <p>
- *             <code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code>
+ *             <code>\{"topic":"aws/subscribe","content":\{"topics":["aws/chat"]\}\}</code>
  *          </p>
  *          <p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
  *             clients need to call this API again to obtain a new websocket URL and perform the same
@@ -86,6 +91,8 @@ export interface CreateParticipantConnectionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateParticipantConnectionCommandInput - {@link CreateParticipantConnectionCommandInput}
+ * @returns {@link CreateParticipantConnectionCommandOutput}
  * @see {@link CreateParticipantConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateParticipantConnectionCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
@@ -121,6 +128,9 @@ export class CreateParticipantConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateParticipantConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,10 +170,16 @@ export class CreateParticipantConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateParticipantConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateParticipantConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

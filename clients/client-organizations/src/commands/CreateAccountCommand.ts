@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountCommand}.
  */
 export interface CreateAccountCommandInput extends CreateAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountCommand}.
  */
 export interface CreateAccountCommandOutput extends CreateAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services account that is automatically a member of the organization whose
  *             credentials made the request. This is an asynchronous request that Amazon Web Services performs in the
  *             background. Because <code>CreateAccount</code> operates asynchronously, it can return a
@@ -120,6 +125,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountCommandInput - {@link CreateAccountCommandInput}
+ * @returns {@link CreateAccountCommandOutput}
  * @see {@link CreateAccountCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -500,6 +507,9 @@ export class CreateAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -537,10 +547,16 @@ export class CreateAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountCommandOutput> {
     return deserializeAws_json1_1CreateAccountCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DocDBServiceException as __BaseException } from "./DocDBServiceException";
 
 /**
+ * @public
  * <p>Represents the input to <a>AddSourceIdentifierToSubscription</a>.
  *         </p>
  */
@@ -39,6 +40,7 @@ export interface AddSourceIdentifierToSubscriptionMessage {
 }
 
 /**
+ * @public
  * <p>Detailed information about an event to which you have subscribed.</p>
  */
 export interface EventSubscription {
@@ -103,6 +105,9 @@ export interface EventSubscription {
   EventSubscriptionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddSourceIdentifierToSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
@@ -111,6 +116,7 @@ export interface AddSourceIdentifierToSubscriptionResult {
 }
 
 /**
+ * @public
  * <p>The requested source could not be found. </p>
  */
 export class SourceNotFoundFault extends __BaseException {
@@ -130,6 +136,7 @@ export class SourceNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The subscription name does not exist. </p>
  */
 export class SubscriptionNotFoundFault extends __BaseException {
@@ -149,21 +156,23 @@ export class SubscriptionNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Metadata assigned to an Amazon DocumentDB resource consisting of a key-value pair.</p>
  */
 export interface Tag {
   /**
-   * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "<code>aws:</code>" or "<code>rds:</code>". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "<code>aws:</code>" or "<code>rds:</code>". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    */
   Key?: string;
 
   /**
-   * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "<code>aws:</code>" or "<code>rds:</code>". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "<code>aws:</code>" or "<code>rds:</code>". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    */
   Value?: string;
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>AddTagsToResource</a>.
  *         </p>
  */
@@ -181,6 +190,7 @@ export interface AddTagsToResourceMessage {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
  */
@@ -201,6 +211,7 @@ export class DBClusterNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
  */
@@ -221,6 +232,7 @@ export class DBInstanceNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
  */
@@ -241,6 +253,7 @@ export class DBSnapshotNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ApplyPendingMaintenanceAction</a>.
  *         </p>
  */
@@ -286,6 +299,7 @@ export interface ApplyPendingMaintenanceActionMessage {
 }
 
 /**
+ * @public
  * <p>Provides information about a pending maintenance action for a resource.</p>
  */
 export interface PendingMaintenanceAction {
@@ -327,6 +341,7 @@ export interface PendingMaintenanceAction {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>ApplyPendingMaintenanceAction</a>.
  *         </p>
  */
@@ -344,6 +359,9 @@ export interface ResourcePendingMaintenanceActions {
   PendingMaintenanceActionDetails?: PendingMaintenanceAction[];
 }
 
+/**
+ * @public
+ */
 export interface ApplyPendingMaintenanceActionResult {
   /**
    * <p>Represents the output of <a>ApplyPendingMaintenanceAction</a>.
@@ -353,6 +371,7 @@ export interface ApplyPendingMaintenanceActionResult {
 }
 
 /**
+ * @public
  * <p>The cluster isn't in a valid state.</p>
  */
 export class InvalidDBClusterStateFault extends __BaseException {
@@ -372,6 +391,7 @@ export class InvalidDBClusterStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The specified instance isn't in the <i>available</i> state.
  *         </p>
  */
@@ -392,6 +412,7 @@ export class InvalidDBInstanceStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource ID was not found.</p>
  */
 export class ResourceNotFoundFault extends __BaseException {
@@ -411,6 +432,7 @@ export class ResourceNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>CopyDBClusterParameterGroup</a>.
  *         </p>
  */
@@ -468,6 +490,7 @@ export interface CopyDBClusterParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>Detailed information about a cluster parameter group. </p>
  */
 export interface DBClusterParameterGroup {
@@ -494,6 +517,9 @@ export interface DBClusterParameterGroup {
   DBClusterParameterGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyDBClusterParameterGroupResult {
   /**
    * <p>Detailed information about a cluster parameter group. </p>
@@ -502,6 +528,7 @@ export interface CopyDBClusterParameterGroupResult {
 }
 
 /**
+ * @public
  * <p>A parameter group with the same name already exists.</p>
  */
 export class DBParameterGroupAlreadyExistsFault extends __BaseException {
@@ -521,6 +548,7 @@ export class DBParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
  */
@@ -541,6 +569,7 @@ export class DBParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This request would cause you to exceed the allowed number of parameter groups.</p>
  */
 export class DBParameterGroupQuotaExceededFault extends __BaseException {
@@ -560,6 +589,7 @@ export class DBParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>CopyDBClusterSnapshot</a>.
  *         </p>
  */
@@ -681,6 +711,7 @@ export interface CopyDBClusterSnapshotMessage {
 }
 
 /**
+ * @public
  * <p>Detailed information about a cluster snapshot. </p>
  */
 export interface DBClusterSnapshot {
@@ -776,6 +807,9 @@ export interface DBClusterSnapshot {
   SourceDBClusterSnapshotArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyDBClusterSnapshotResult {
   /**
    * <p>Detailed information about a cluster snapshot. </p>
@@ -784,6 +818,7 @@ export interface CopyDBClusterSnapshotResult {
 }
 
 /**
+ * @public
  * <p>You already have a cluster snapshot with the given identifier.</p>
  */
 export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
@@ -803,6 +838,7 @@ export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
  */
@@ -823,6 +859,7 @@ export class DBClusterSnapshotNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided value isn't a valid cluster snapshot state.</p>
  */
 export class InvalidDBClusterSnapshotStateFault extends __BaseException {
@@ -842,6 +879,7 @@ export class InvalidDBClusterSnapshotStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error occurred when accessing an KMS key.</p>
  */
 export class KMSKeyNotAccessibleFault extends __BaseException {
@@ -861,6 +899,7 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause you to exceed the allowed number of snapshots.</p>
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
@@ -880,6 +919,7 @@ export class SnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>CreateDBCluster</a>.
  *         </p>
  */
@@ -1083,6 +1123,7 @@ export interface CreateDBClusterMessage {
 }
 
 /**
+ * @public
  * <p>Describes an Identity and Access Management (IAM) role that is associated with a
  *             cluster.</p>
  */
@@ -1114,6 +1155,7 @@ export interface DBClusterRole {
 }
 
 /**
+ * @public
  * <p>Contains information about an instance that is part of a cluster.</p>
  */
 export interface DBClusterMember {
@@ -1142,6 +1184,7 @@ export interface DBClusterMember {
 }
 
 /**
+ * @public
  * <p>Used as a response element for queries on virtual private cloud (VPC) security group
  *             membership.</p>
  */
@@ -1158,6 +1201,7 @@ export interface VpcSecurityGroupMembership {
 }
 
 /**
+ * @public
  * <p>Detailed information about a cluster. </p>
  */
 export interface DBCluster {
@@ -1337,6 +1381,9 @@ export interface DBCluster {
   DeletionProtection?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
@@ -1345,6 +1392,7 @@ export interface CreateDBClusterResult {
 }
 
 /**
+ * @public
  * <p>You already have a cluster with the given identifier.</p>
  */
 export class DBClusterAlreadyExistsFault extends __BaseException {
@@ -1364,6 +1412,7 @@ export class DBClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster parameter group. </p>
  */
@@ -1384,6 +1433,7 @@ export class DBClusterParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The cluster can't be created because you have reached the maximum allowed quota of clusters.</p>
  */
 export class DBClusterQuotaExceededFault extends __BaseException {
@@ -1403,6 +1453,7 @@ export class DBClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  */
 export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
@@ -1422,6 +1473,7 @@ export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
  */
@@ -1442,6 +1494,7 @@ export class DBSubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
  */
 export class GlobalClusterNotFoundFault extends __BaseException {
@@ -1461,6 +1514,7 @@ export class GlobalClusterNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available. </p>
  */
 export class InsufficientStorageClusterCapacityFault extends __BaseException {
@@ -1480,6 +1534,7 @@ export class InsufficientStorageClusterCapacityFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The subnet group can't be deleted because it's in use.</p>
  */
 export class InvalidDBSubnetGroupStateFault extends __BaseException {
@@ -1499,6 +1554,7 @@ export class InvalidDBSubnetGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation can't be performed while the cluster is in this state.</p>
  */
 export class InvalidGlobalClusterStateFault extends __BaseException {
@@ -1518,6 +1574,7 @@ export class InvalidGlobalClusterStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested subnet is not valid, or multiple subnets were requested that are not all
  *             in a common virtual private cloud (VPC).</p>
  */
@@ -1538,6 +1595,7 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The subnet group doesn't cover all Availability Zones after it is created
  *             because of changes that were made.</p>
  */
@@ -1558,6 +1616,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause you to exceed the allowed amount of storage available across
  *             all instances.</p>
  */
@@ -1578,6 +1637,7 @@ export class StorageQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of <a>CreateDBClusterParameterGroup</a>.</p>
  */
 export interface CreateDBClusterParameterGroupMessage {
@@ -1612,6 +1672,9 @@ export interface CreateDBClusterParameterGroupMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDBClusterParameterGroupResult {
   /**
    * <p>Detailed information about a cluster parameter group. </p>
@@ -1620,6 +1683,7 @@ export interface CreateDBClusterParameterGroupResult {
 }
 
 /**
+ * @public
  * <p>Represents the input of <a>CreateDBClusterSnapshot</a>.</p>
  */
 export interface CreateDBClusterSnapshotMessage {
@@ -1665,6 +1729,9 @@ export interface CreateDBClusterSnapshotMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDBClusterSnapshotResult {
   /**
    * <p>Detailed information about a cluster snapshot. </p>
@@ -1673,6 +1740,7 @@ export interface CreateDBClusterSnapshotResult {
 }
 
 /**
+ * @public
  * <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p>
  *         <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
  */
@@ -1693,6 +1761,7 @@ export class AuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>CreateDBInstance</a>.</p>
  */
 export interface CreateDBInstanceMessage {
@@ -1800,6 +1869,7 @@ export interface CreateDBInstanceMessage {
 }
 
 /**
+ * @public
  * <p>Information about an Availability Zone.</p>
  */
 export interface AvailabilityZone {
@@ -1810,6 +1880,7 @@ export interface AvailabilityZone {
 }
 
 /**
+ * @public
  * <p> Detailed information about a subnet. </p>
  */
 export interface Subnet {
@@ -1830,6 +1901,7 @@ export interface Subnet {
 }
 
 /**
+ * @public
  * <p>Detailed information about a subnet group. </p>
  */
 export interface DBSubnetGroup {
@@ -1865,6 +1937,7 @@ export interface DBSubnetGroup {
 }
 
 /**
+ * @public
  * <p>Network information for accessing a cluster or instance. Client programs must
  *             specify a valid endpoint to access these Amazon DocumentDB resources.</p>
  */
@@ -1886,6 +1959,7 @@ export interface Endpoint {
 }
 
 /**
+ * @public
  * <p>A list of the log types whose configuration is still pending. These log types are in
  *             the process of being activated or deactivated.</p>
  */
@@ -1904,6 +1978,7 @@ export interface PendingCloudwatchLogsExports {
 }
 
 /**
+ * @public
  * <p> One or more modified settings for an instance. These modified settings have been
  *             requested, but haven't been applied yet.</p>
  */
@@ -1990,6 +2065,7 @@ export interface PendingModifiedValues {
 }
 
 /**
+ * @public
  * <p>Provides a list of status information for an instance.</p>
  */
 export interface DBInstanceStatusInfo {
@@ -2019,6 +2095,7 @@ export interface DBInstanceStatusInfo {
 }
 
 /**
+ * @public
  * <p>Detailed information about an instance. </p>
  */
 export interface DBInstance {
@@ -2169,6 +2246,9 @@ export interface DBInstance {
   EnabledCloudwatchLogsExports?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDBInstanceResult {
   /**
    * <p>Detailed information about an instance. </p>
@@ -2177,6 +2257,7 @@ export interface CreateDBInstanceResult {
 }
 
 /**
+ * @public
  * <p>You already have a instance with the given identifier.</p>
  */
 export class DBInstanceAlreadyExistsFault extends __BaseException {
@@ -2196,6 +2277,7 @@ export class DBInstanceAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBSecurityGroupName</code> doesn't refer to an existing security group. </p>
  */
@@ -2216,6 +2298,7 @@ export class DBSecurityGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause you to exceed the allowed number of instances.</p>
  */
 export class InstanceQuotaExceededFault extends __BaseException {
@@ -2235,6 +2318,7 @@ export class InstanceQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified instance class isn't available in the specified Availability Zone.</p>
  */
 export class InsufficientDBInstanceCapacityFault extends __BaseException {
@@ -2254,6 +2338,7 @@ export class InsufficientDBInstanceCapacityFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Storage of the specified <code>StorageType</code> can't be associated with the DB
  *             instance. </p>
  */
@@ -2274,6 +2359,7 @@ export class StorageTypeNotSupportedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>CreateDBSubnetGroup</a>.</p>
  */
 export interface CreateDBSubnetGroupMessage {
@@ -2302,6 +2388,9 @@ export interface CreateDBSubnetGroupMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDBSubnetGroupResult {
   /**
    * <p>Detailed information about a subnet group. </p>
@@ -2310,6 +2399,7 @@ export interface CreateDBSubnetGroupResult {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBSubnetGroupName</code> is already being used by an existing subnet group. </p>
  */
@@ -2330,6 +2420,7 @@ export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause you to exceed the allowed number of subnet groups.</p>
  */
 export class DBSubnetGroupQuotaExceededFault extends __BaseException {
@@ -2349,6 +2440,7 @@ export class DBSubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause you to exceed the allowed number of subnets in a subnet group.</p>
  */
 export class DBSubnetQuotaExceededFault extends __BaseException {
@@ -2368,6 +2460,7 @@ export class DBSubnetQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>CreateEventSubscription</a>.</p>
  */
 export interface CreateEventSubscriptionMessage {
@@ -2436,6 +2529,9 @@ export interface CreateEventSubscriptionMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateEventSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
@@ -2444,6 +2540,7 @@ export interface CreateEventSubscriptionResult {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of event subscriptions. </p>
  */
 export class EventSubscriptionQuotaExceededFault extends __BaseException {
@@ -2463,6 +2560,7 @@ export class EventSubscriptionQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
  */
 export class SNSInvalidTopicFault extends __BaseException {
@@ -2482,6 +2580,7 @@ export class SNSInvalidTopicFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>
  */
 export class SNSNoAuthorizationFault extends __BaseException {
@@ -2501,6 +2600,7 @@ export class SNSNoAuthorizationFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
  */
 export class SNSTopicArnNotFoundFault extends __BaseException {
@@ -2520,6 +2620,7 @@ export class SNSTopicArnNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided subscription name already exists. </p>
  */
 export class SubscriptionAlreadyExistFault extends __BaseException {
@@ -2539,6 +2640,7 @@ export class SubscriptionAlreadyExistFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided category does not exist. </p>
  */
 export class SubscriptionCategoryNotFoundFault extends __BaseException {
@@ -2558,6 +2660,7 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>CreateGlobalCluster</a>.</p>
  */
 export interface CreateGlobalClusterMessage {
@@ -2598,6 +2701,7 @@ export interface CreateGlobalClusterMessage {
 }
 
 /**
+ * @public
  * <p>A data structure with information about any primary and secondary clusters associated with an Amazon DocumentDB global clusters. </p>
  */
 export interface GlobalClusterMember {
@@ -2618,6 +2722,7 @@ export interface GlobalClusterMember {
 }
 
 /**
+ * @public
  * <p>A data type representing an Amazon DocumentDB global cluster.</p>
  */
 export interface GlobalCluster {
@@ -2672,6 +2777,9 @@ export interface GlobalCluster {
   GlobalClusterMembers?: GlobalClusterMember[];
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalClusterResult {
   /**
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
@@ -2680,6 +2788,7 @@ export interface CreateGlobalClusterResult {
 }
 
 /**
+ * @public
  * <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global cluster identifier (unique name) to create a new global cluster. </p>
  */
 export class GlobalClusterAlreadyExistsFault extends __BaseException {
@@ -2699,6 +2808,7 @@ export class GlobalClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of global  clusters for this account is already at the maximum allowed.</p>
  */
 export class GlobalClusterQuotaExceededFault extends __BaseException {
@@ -2718,6 +2828,7 @@ export class GlobalClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DeleteDBCluster</a>.</p>
  */
 export interface DeleteDBClusterMessage {
@@ -2763,6 +2874,9 @@ export interface DeleteDBClusterMessage {
   FinalDBSnapshotIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
@@ -2771,6 +2885,7 @@ export interface DeleteDBClusterResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DeleteDBClusterParameterGroup</a>.</p>
  */
 export interface DeleteDBClusterParameterGroupMessage {
@@ -2793,6 +2908,7 @@ export interface DeleteDBClusterParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
  */
 export class InvalidDBParameterGroupStateFault extends __BaseException {
@@ -2812,6 +2928,7 @@ export class InvalidDBParameterGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DeleteDBClusterSnapshot</a>.</p>
  */
 export interface DeleteDBClusterSnapshotMessage {
@@ -2822,6 +2939,9 @@ export interface DeleteDBClusterSnapshotMessage {
   DBClusterSnapshotIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDBClusterSnapshotResult {
   /**
    * <p>Detailed information about a cluster snapshot. </p>
@@ -2830,6 +2950,7 @@ export interface DeleteDBClusterSnapshotResult {
 }
 
 /**
+ * @public
  * <p>
  *             <code>DBSnapshotIdentifier</code> is already being used by an existing snapshot. </p>
  */
@@ -2850,6 +2971,7 @@ export class DBSnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DeleteDBInstance</a>.</p>
  */
 export interface DeleteDBInstanceMessage {
@@ -2866,6 +2988,9 @@ export interface DeleteDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDBInstanceResult {
   /**
    * <p>Detailed information about an instance. </p>
@@ -2874,6 +2999,7 @@ export interface DeleteDBInstanceResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DeleteDBSubnetGroup</a>.</p>
  */
 export interface DeleteDBSubnetGroupMessage {
@@ -2891,6 +3017,7 @@ export interface DeleteDBSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p> The subnet isn't in the <i>available</i> state. </p>
  */
 export class InvalidDBSubnetStateFault extends __BaseException {
@@ -2910,6 +3037,7 @@ export class InvalidDBSubnetStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DeleteEventSubscription</a>.</p>
  */
 export interface DeleteEventSubscriptionMessage {
@@ -2919,6 +3047,9 @@ export interface DeleteEventSubscriptionMessage {
   SubscriptionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
@@ -2927,6 +3058,7 @@ export interface DeleteEventSubscriptionResult {
 }
 
 /**
+ * @public
  * <p>Someone else might be modifying a subscription. Wait a few seconds, and try
  *             again.</p>
  */
@@ -2947,6 +3079,7 @@ export class InvalidEventSubscriptionStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DeleteGlobalCluster</a>.</p>
  */
 export interface DeleteGlobalClusterMessage {
@@ -2956,6 +3089,9 @@ export interface DeleteGlobalClusterMessage {
   GlobalClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGlobalClusterResult {
   /**
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
@@ -2964,6 +3100,7 @@ export interface DeleteGlobalClusterResult {
 }
 
 /**
+ * @public
  * <p>A certificate authority (CA) certificate for an Amazon Web Services account.</p>
  */
 export interface Certificate {
@@ -3008,6 +3145,9 @@ export interface Certificate {
   CertificateArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CertificateMessage {
   /**
    * <p>A list of certificates for this Amazon Web Services account.</p>
@@ -3021,6 +3161,7 @@ export interface CertificateMessage {
 }
 
 /**
+ * @public
  * <p>
  *             <code>CertificateIdentifier</code> doesn't refer to an existing certificate. </p>
  */
@@ -3041,6 +3182,7 @@ export class CertificateNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A named set of filter values, used to return a more specific list of results. You can
  *             use a filter to match a set of resources by specific criteria, such as IDs.</p>
  *         <p>Wildcards are not supported in filters.</p>
@@ -3057,6 +3199,9 @@ export interface Filter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificatesMessage {
   /**
    * <p>The user-supplied certificate identifier. If this parameter is specified, information for only the specified certificate is returned. If this parameter is omitted, a list of up to <code>MaxRecords</code> certificates is returned. This parameter is not case sensitive.</p>
@@ -3096,6 +3241,7 @@ export interface DescribeCertificatesMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DBClusterParameterGroups</a>.</p>
  */
 export interface DBClusterParameterGroupsMessage {
@@ -3113,6 +3259,7 @@ export interface DBClusterParameterGroupsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeDBClusterParameterGroups</a>.</p>
  */
 export interface DescribeDBClusterParameterGroupsMessage {
@@ -3150,9 +3297,13 @@ export interface DescribeDBClusterParameterGroupsMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export type ApplyMethod = "immediate" | "pending-reboot";
 
 /**
+ * @public
  * <p>Detailed information about an individual parameter.</p>
  */
 export interface Parameter {
@@ -3210,6 +3361,7 @@ export interface Parameter {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DBClusterParameterGroup</a>.</p>
  */
 export interface DBClusterParameterGroupDetails {
@@ -3227,6 +3379,7 @@ export interface DBClusterParameterGroupDetails {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeDBClusterParameters</a>.</p>
  */
 export interface DescribeDBClusterParametersMessage {
@@ -3270,6 +3423,7 @@ export interface DescribeDBClusterParametersMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribeDBClusters</a>.</p>
  */
 export interface DBClusterMessage {
@@ -3287,6 +3441,7 @@ export interface DBClusterMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeDBClusters</a>.</p>
  */
 export interface DescribeDBClustersMessage {
@@ -3331,6 +3486,7 @@ export interface DescribeDBClustersMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeDBClusterSnapshotAttributes</a>.</p>
  */
 export interface DescribeDBClusterSnapshotAttributesMessage {
@@ -3341,6 +3497,7 @@ export interface DescribeDBClusterSnapshotAttributesMessage {
 }
 
 /**
+ * @public
  * <p>Contains the name and values of a manual cluster snapshot attribute.</p>
  *         <p>Manual cluster snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual cluster snapshot.</p>
  */
@@ -3359,6 +3516,7 @@ export interface DBClusterSnapshotAttribute {
 }
 
 /**
+ * @public
  * <p>Detailed information about the attributes that are associated with a cluster
  *             snapshot.</p>
  */
@@ -3374,6 +3532,9 @@ export interface DBClusterSnapshotAttributesResult {
   DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDBClusterSnapshotAttributesResult {
   /**
    * <p>Detailed information about the attributes that are associated with a cluster
@@ -3383,6 +3544,7 @@ export interface DescribeDBClusterSnapshotAttributesResult {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribeDBClusterSnapshots</a>.</p>
  */
 export interface DBClusterSnapshotMessage {
@@ -3400,6 +3562,7 @@ export interface DBClusterSnapshotMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeDBClusterSnapshots</a>.</p>
  */
 export interface DescribeDBClusterSnapshotsMessage {
@@ -3489,6 +3652,7 @@ export interface DescribeDBClusterSnapshotsMessage {
 }
 
 /**
+ * @public
  * <p>The version of the database engine that an instance can be upgraded to.</p>
  */
 export interface UpgradeTarget {
@@ -3520,6 +3684,7 @@ export interface UpgradeTarget {
 }
 
 /**
+ * @public
  * <p> Detailed information about an engine version. </p>
  */
 export interface DBEngineVersion {
@@ -3567,6 +3732,7 @@ export interface DBEngineVersion {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribeDBEngineVersions</a>.</p>
  */
 export interface DBEngineVersionMessage {
@@ -3584,6 +3750,7 @@ export interface DBEngineVersionMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeDBEngineVersions</a>.</p>
  */
 export interface DescribeDBEngineVersionsMessage {
@@ -3650,6 +3817,7 @@ export interface DescribeDBEngineVersionsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribeDBInstances</a>.</p>
  */
 export interface DBInstanceMessage {
@@ -3667,6 +3835,7 @@ export interface DBInstanceMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeDBInstances</a>.</p>
  */
 export interface DescribeDBInstancesMessage {
@@ -3716,6 +3885,7 @@ export interface DescribeDBInstancesMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribeDBSubnetGroups</a>.</p>
  */
 export interface DBSubnetGroupMessage {
@@ -3733,6 +3903,7 @@ export interface DBSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeDBSubnetGroups</a>.</p>
  */
 export interface DescribeDBSubnetGroupsMessage {
@@ -3764,6 +3935,7 @@ export interface DescribeDBSubnetGroupsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeEngineDefaultClusterParameters</a>.</p>
  */
 export interface DescribeEngineDefaultClusterParametersMessage {
@@ -3796,6 +3968,7 @@ export interface DescribeEngineDefaultClusterParametersMessage {
 }
 
 /**
+ * @public
  * <p>Contains the result of a successful invocation of the
  *                 <code>DescribeEngineDefaultClusterParameters</code> operation. </p>
  */
@@ -3818,6 +3991,9 @@ export interface EngineDefaults {
   Parameters?: Parameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEngineDefaultClusterParametersResult {
   /**
    * <p>Contains the result of a successful invocation of the
@@ -3827,6 +4003,7 @@ export interface DescribeEngineDefaultClusterParametersResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeEventCategories</a>.</p>
  */
 export interface DescribeEventCategoriesMessage {
@@ -3844,6 +4021,7 @@ export interface DescribeEventCategoriesMessage {
 }
 
 /**
+ * @public
  * <p>An event source type, accompanied by one or more event category names.</p>
  */
 export interface EventCategoriesMap {
@@ -3859,6 +4037,7 @@ export interface EventCategoriesMap {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribeEventCategories</a>.</p>
  */
 export interface EventCategoriesMessage {
@@ -3868,6 +4047,9 @@ export interface EventCategoriesMessage {
   EventCategoriesMapList?: EventCategoriesMap[];
 }
 
+/**
+ * @public
+ */
 export type SourceType =
   | "db-cluster"
   | "db-cluster-snapshot"
@@ -3877,6 +4059,7 @@ export type SourceType =
   | "db-snapshot";
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeEvents</a>.</p>
  */
 export interface DescribeEventsMessage {
@@ -3963,6 +4146,7 @@ export interface DescribeEventsMessage {
 }
 
 /**
+ * @public
  * <p>Detailed information about an event.</p>
  */
 export interface Event {
@@ -3998,6 +4182,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribeEvents</a>.</p>
  */
 export interface EventsMessage {
@@ -4015,6 +4200,7 @@ export interface EventsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeEventSubscriptions</a>.</p>
  */
 export interface DescribeEventSubscriptionsMessage {
@@ -4047,6 +4233,7 @@ export interface DescribeEventSubscriptionsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribeEventSubscriptions</a>.</p>
  */
 export interface EventSubscriptionsMessage {
@@ -4063,6 +4250,9 @@ export interface EventSubscriptionsMessage {
   EventSubscriptionsList?: EventSubscription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalClustersMessage {
   /**
    * <p>The user-supplied  cluster identifier. If this parameter is specified, information from only the specific cluster is returned. This parameter isn't case-sensitive.</p>
@@ -4086,6 +4276,9 @@ export interface DescribeGlobalClustersMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface GlobalClustersMessage {
   /**
    * <p></p>
@@ -4099,6 +4292,7 @@ export interface GlobalClustersMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribeOrderableDBInstanceOptions</a>.</p>
  */
 export interface DescribeOrderableDBInstanceOptionsMessage {
@@ -4154,6 +4348,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
 }
 
 /**
+ * @public
  * <p>The options that are available for an instance.</p>
  */
 export interface OrderableDBInstanceOption {
@@ -4189,6 +4384,7 @@ export interface OrderableDBInstanceOption {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribeOrderableDBInstanceOptions</a>.</p>
  */
 export interface OrderableDBInstanceOptionsMessage {
@@ -4206,6 +4402,7 @@ export interface OrderableDBInstanceOptionsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>DescribePendingMaintenanceActions</a>.</p>
  */
 export interface DescribePendingMaintenanceActionsMessage {
@@ -4253,6 +4450,7 @@ export interface DescribePendingMaintenanceActionsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>DescribePendingMaintenanceActions</a>.</p>
  */
 export interface PendingMaintenanceActionsMessage {
@@ -4270,6 +4468,7 @@ export interface PendingMaintenanceActionsMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>FailoverDBCluster</a>.</p>
  */
 export interface FailoverDBClusterMessage {
@@ -4292,6 +4491,9 @@ export interface FailoverDBClusterMessage {
   TargetDBInstanceIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface FailoverDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
@@ -4300,6 +4502,7 @@ export interface FailoverDBClusterResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ListTagsForResource</a>.</p>
  */
 export interface ListTagsForResourceMessage {
@@ -4316,6 +4519,7 @@ export interface ListTagsForResourceMessage {
 }
 
 /**
+ * @public
  * <p>Represents the output of <a>ListTagsForResource</a>.</p>
  */
 export interface TagListMessage {
@@ -4326,6 +4530,7 @@ export interface TagListMessage {
 }
 
 /**
+ * @public
  * <p>The state of the security group doesn't allow deletion.</p>
  */
 export class InvalidDBSecurityGroupStateFault extends __BaseException {
@@ -4345,6 +4550,7 @@ export class InvalidDBSecurityGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration setting for the log types to be enabled for export to Amazon
  *             CloudWatch Logs for a specific instance or cluster.</p>
  *         <p>The <code>EnableLogTypes</code> and <code>DisableLogTypes</code> arrays determine
@@ -4364,6 +4570,7 @@ export interface CloudwatchLogsExportConfiguration {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ModifyDBCluster</a>.</p>
  */
 export interface ModifyDBClusterMessage {
@@ -4512,6 +4719,9 @@ export interface ModifyDBClusterMessage {
   DeletionProtection?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
@@ -4520,6 +4730,7 @@ export interface ModifyDBClusterResult {
 }
 
 /**
+ * @public
  * <p>Contains the name of a cluster parameter group.</p>
  */
 export interface DBClusterParameterGroupNameMessage {
@@ -4545,6 +4756,7 @@ export interface DBClusterParameterGroupNameMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ModifyDBClusterParameterGroup</a>.</p>
  */
 export interface ModifyDBClusterParameterGroupMessage {
@@ -4560,6 +4772,7 @@ export interface ModifyDBClusterParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ModifyDBClusterSnapshotAttribute</a>.</p>
  */
 export interface ModifyDBClusterSnapshotAttributeMessage {
@@ -4588,6 +4801,9 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
   ValuesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBClusterSnapshotAttributeResult {
   /**
    * <p>Detailed information about the attributes that are associated with a cluster
@@ -4597,6 +4813,7 @@ export interface ModifyDBClusterSnapshotAttributeResult {
 }
 
 /**
+ * @public
  * <p>You have exceeded the maximum number of accounts that you can share a manual DB
  *             snapshot with. </p>
  */
@@ -4617,6 +4834,7 @@ export class SharedSnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The upgrade failed because a resource that the depends on can't be
  *             modified.</p>
  */
@@ -4637,6 +4855,7 @@ export class DBUpgradeDependencyFailureFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ModifyDBInstance</a>.</p>
  */
 export interface ModifyDBInstanceMessage {
@@ -4750,6 +4969,9 @@ export interface ModifyDBInstanceMessage {
   PerformanceInsightsKMSKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBInstanceResult {
   /**
    * <p>Detailed information about an instance. </p>
@@ -4758,6 +4980,7 @@ export interface ModifyDBInstanceResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ModifyDBSubnetGroup</a>.</p>
  */
 export interface ModifyDBSubnetGroupMessage {
@@ -4780,6 +5003,9 @@ export interface ModifyDBSubnetGroupMessage {
   SubnetIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyDBSubnetGroupResult {
   /**
    * <p>Detailed information about a subnet group. </p>
@@ -4788,6 +5014,7 @@ export interface ModifyDBSubnetGroupResult {
 }
 
 /**
+ * @public
  * <p>The subnet is already in use in the Availability Zone.</p>
  */
 export class SubnetAlreadyInUse extends __BaseException {
@@ -4807,6 +5034,7 @@ export class SubnetAlreadyInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ModifyEventSubscription</a>.</p>
  */
 export interface ModifyEventSubscriptionMessage {
@@ -4840,6 +5068,9 @@ export interface ModifyEventSubscriptionMessage {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyEventSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
@@ -4848,6 +5079,7 @@ export interface ModifyEventSubscriptionResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ModifyGlobalCluster</a>.</p>
  */
 export interface ModifyGlobalClusterMessage {
@@ -4882,6 +5114,9 @@ export interface ModifyGlobalClusterMessage {
   DeletionProtection?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyGlobalClusterResult {
   /**
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
@@ -4890,6 +5125,7 @@ export interface ModifyGlobalClusterResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>RebootDBInstance</a>.</p>
  */
 export interface RebootDBInstanceMessage {
@@ -4912,6 +5148,9 @@ export interface RebootDBInstanceMessage {
   ForceFailover?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RebootDBInstanceResult {
   /**
    * <p>Detailed information about an instance. </p>
@@ -4920,6 +5159,7 @@ export interface RebootDBInstanceResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>RemoveFromGlobalCluster</a>.</p>
  */
 export interface RemoveFromGlobalClusterMessage {
@@ -4934,6 +5174,9 @@ export interface RemoveFromGlobalClusterMessage {
   DbClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveFromGlobalClusterResult {
   /**
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
@@ -4942,6 +5185,7 @@ export interface RemoveFromGlobalClusterResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>RemoveSourceIdentifierFromSubscription</a>.</p>
  */
 export interface RemoveSourceIdentifierFromSubscriptionMessage {
@@ -4958,6 +5202,9 @@ export interface RemoveSourceIdentifierFromSubscriptionMessage {
   SourceIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveSourceIdentifierFromSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
@@ -4966,6 +5213,7 @@ export interface RemoveSourceIdentifierFromSubscriptionResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>RemoveTagsFromResource</a>.</p>
  */
 export interface RemoveTagsFromResourceMessage {
@@ -4982,6 +5230,7 @@ export interface RemoveTagsFromResourceMessage {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>ResetDBClusterParameterGroup</a>.</p>
  */
 export interface ResetDBClusterParameterGroupMessage {
@@ -5007,6 +5256,7 @@ export interface ResetDBClusterParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>The cluster doesn't have enough capacity for the current operation.</p>
  */
 export class InsufficientDBClusterCapacityFault extends __BaseException {
@@ -5026,6 +5276,7 @@ export class InsufficientDBClusterCapacityFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The state of the snapshot doesn't allow deletion.</p>
  */
 export class InvalidDBSnapshotStateFault extends __BaseException {
@@ -5045,6 +5296,7 @@ export class InvalidDBSnapshotStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB
  *             instance.</p>
  */
@@ -5065,6 +5317,7 @@ export class InvalidRestoreFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>RestoreDBClusterFromSnapshot</a>.</p>
  */
 export interface RestoreDBClusterFromSnapshotMessage {
@@ -5175,6 +5428,9 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DeletionProtection?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBClusterFromSnapshotResult {
   /**
    * <p>Detailed information about a cluster. </p>
@@ -5183,6 +5439,7 @@ export interface RestoreDBClusterFromSnapshotResult {
 }
 
 /**
+ * @public
  * <p>Represents the input to <a>RestoreDBClusterToPointInTime</a>.</p>
  */
 export interface RestoreDBClusterToPointInTimeMessage {
@@ -5322,6 +5579,9 @@ export interface RestoreDBClusterToPointInTimeMessage {
   DeletionProtection?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDBClusterToPointInTimeResult {
   /**
    * <p>Detailed information about a cluster. </p>
@@ -5329,6 +5589,9 @@ export interface RestoreDBClusterToPointInTimeResult {
   DBCluster?: DBCluster;
 }
 
+/**
+ * @public
+ */
 export interface StartDBClusterMessage {
   /**
    * <p>The identifier of the cluster to restart. Example:
@@ -5338,6 +5601,9 @@ export interface StartDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
@@ -5345,6 +5611,9 @@ export interface StartDBClusterResult {
   DBCluster?: DBCluster;
 }
 
+/**
+ * @public
+ */
 export interface StopDBClusterMessage {
   /**
    * <p>The identifier of the cluster to stop. Example:
@@ -5354,6 +5623,9 @@ export interface StopDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>

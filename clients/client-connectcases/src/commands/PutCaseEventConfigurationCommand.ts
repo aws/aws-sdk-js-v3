@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutCaseEventConfigurationCommand}.
  */
 export interface PutCaseEventConfigurationCommandInput extends PutCaseEventConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutCaseEventConfigurationCommand}.
  */
 export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>API for adding case event publishing configuration</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCaseEventConfigurationCommandInput - {@link PutCaseEventConfigurationCommandInput}
+ * @returns {@link PutCaseEventConfigurationCommandOutput}
  * @see {@link PutCaseEventConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutCaseEventConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +93,9 @@ export class PutCaseEventConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCaseEventConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class PutCaseEventConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCaseEventConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutCaseEventConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -10,7 +10,7 @@ import { KafkaClient } from "../KafkaClient";
 import { KafkaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KafkaClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListClustersV2Command(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListClustersV2(
   config: KafkaPaginationConfiguration,
   input: ListClustersV2CommandInput,

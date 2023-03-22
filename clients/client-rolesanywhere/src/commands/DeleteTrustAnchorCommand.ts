@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrustAnchorCommand}.
  */
 export interface DeleteTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrustAnchorCommand}.
  */
 export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a trust anchor.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrustAnchorCommandInput - {@link DeleteTrustAnchorCommandInput}
+ * @returns {@link DeleteTrustAnchorCommandOutput}
  * @see {@link DeleteTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link DeleteTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteTrustAnchorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrustAnchorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteTrustAnchorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteTrustAnchorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrustAnchorCommandOutput> {
     return deserializeAws_restJson1DeleteTrustAnchorCommand(output, context);
   }

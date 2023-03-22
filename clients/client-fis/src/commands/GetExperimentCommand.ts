@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExperimentCommand}.
  */
 export interface GetExperimentCommandInput extends GetExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExperimentCommand}.
  */
 export interface GetExperimentCommandOutput extends GetExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExperimentCommandInput - {@link GetExperimentCommandInput}
+ * @returns {@link GetExperimentCommandOutput}
  * @see {@link GetExperimentCommandInput} for command's `input` shape.
  * @see {@link GetExperimentCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class GetExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExperimentCommandOutput> {
     return deserializeAws_restJson1GetExperimentCommand(output, context);
   }

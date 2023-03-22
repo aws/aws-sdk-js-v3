@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateInstanceEventWindowCommand}.
  */
 export interface DisassociateInstanceEventWindowCommandInput extends DisassociateInstanceEventWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateInstanceEventWindowCommand}.
  */
 export interface DisassociateInstanceEventWindowCommandOutput
@@ -37,6 +41,7 @@ export interface DisassociateInstanceEventWindowCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates one or more targets from an event window.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
  *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -50,6 +55,8 @@ export interface DisassociateInstanceEventWindowCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateInstanceEventWindowCommandInput - {@link DisassociateInstanceEventWindowCommandInput}
+ * @returns {@link DisassociateInstanceEventWindowCommandOutput}
  * @see {@link DisassociateInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link DisassociateInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DisassociateInstanceEventWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,6 +122,9 @@ export class DisassociateInstanceEventWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateInstanceEventWindowCommandInput,
     context: __SerdeContext
@@ -119,6 +132,9 @@ export class DisassociateInstanceEventWindowCommand extends $Command<
     return serializeAws_ec2DisassociateInstanceEventWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

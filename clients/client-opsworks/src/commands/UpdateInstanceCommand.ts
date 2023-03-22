@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInstanceCommand}.
  */
 export interface UpdateInstanceCommandInput extends UpdateInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInstanceCommand}.
  */
 export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified instance.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -46,6 +51,8 @@ export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceCommandInput - {@link UpdateInstanceCommandInput}
+ * @returns {@link UpdateInstanceCommandOutput}
  * @see {@link UpdateInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class UpdateInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInstanceCommandOutput> {
     return deserializeAws_json1_1UpdateInstanceCommand(output, context);
   }

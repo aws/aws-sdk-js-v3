@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCertificatesCommand}.
  */
 export interface DescribeCertificatesCommandInput extends DescribeCertificatesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCertificatesCommand}.
  */
 export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for this Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificatesCommandInput - {@link DescribeCertificatesCommandInput}
+ * @returns {@link DescribeCertificatesCommandOutput}
  * @see {@link DescribeCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -73,6 +80,9 @@ export class DescribeCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DescribeCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificatesCommandOutput> {
     return deserializeAws_queryDescribeCertificatesCommand(output, context);
   }

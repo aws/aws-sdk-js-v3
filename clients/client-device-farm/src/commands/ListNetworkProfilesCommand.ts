@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNetworkProfilesCommand}.
  */
 export interface ListNetworkProfilesCommandInput extends ListNetworkProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNetworkProfilesCommand}.
  */
 export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of available network profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNetworkProfilesCommandInput - {@link ListNetworkProfilesCommandInput}
+ * @returns {@link ListNetworkProfilesCommandOutput}
  * @see {@link ListNetworkProfilesCommandInput} for command's `input` shape.
  * @see {@link ListNetworkProfilesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListNetworkProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNetworkProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListNetworkProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNetworkProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListNetworkProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkProfilesCommandOutput> {
     return deserializeAws_json1_1ListNetworkProfilesCommand(output, context);
   }

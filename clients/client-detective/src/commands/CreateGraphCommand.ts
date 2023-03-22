@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGraphCommand}.
  */
 export interface CreateGraphCommandInput extends CreateGraphRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGraphCommand}.
  */
 export interface CreateGraphCommandOutput extends CreateGraphResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new behavior graph for the calling account, and sets that account as the
  *          administrator account. This operation is called by the account that is enabling Detective.</p>
  *          <p>Before you try to enable Detective, make sure that your account has been
@@ -61,6 +66,8 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGraphCommandInput - {@link CreateGraphCommandInput}
+ * @returns {@link CreateGraphCommandOutput}
  * @see {@link CreateGraphCommandInput} for command's `input` shape.
  * @see {@link CreateGraphCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -112,6 +119,9 @@ export class CreateGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,10 +159,16 @@ export class CreateGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGraphCommandOutput> {
     return deserializeAws_restJson1CreateGraphCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeploymentGroupCommand}.
  */
 export interface DeleteDeploymentGroupCommandInput extends DeleteDeploymentGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeploymentGroupCommand}.
  */
 export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a deployment group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeploymentGroupCommandInput - {@link DeleteDeploymentGroupCommandInput}
+ * @returns {@link DeleteDeploymentGroupCommandOutput}
  * @see {@link DeleteDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteDeploymentGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeploymentGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DeleteDeploymentGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeploymentGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDeploymentGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentGroupCommandOutput> {
     return deserializeAws_json1_1DeleteDeploymentGroupCommand(output, context);
   }

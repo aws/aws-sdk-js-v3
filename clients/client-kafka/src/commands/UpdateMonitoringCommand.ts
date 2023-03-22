@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMonitoringCommand}.
  */
 export interface UpdateMonitoringCommandInput extends UpdateMonitoringRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMonitoringCommand}.
  */
 export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the monitoring settings for the cluster. You can use this operation to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon CloudWatch. You can also specify settings for open monitoring with Prometheus.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMonitoringCommandInput - {@link UpdateMonitoringCommandInput}
+ * @returns {@link UpdateMonitoringCommandOutput}
  * @see {@link UpdateMonitoringCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitoringCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateMonitoringCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMonitoringCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateMonitoringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMonitoringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMonitoringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitoringCommandOutput> {
     return deserializeAws_restJson1UpdateMonitoringCommand(output, context);
   }

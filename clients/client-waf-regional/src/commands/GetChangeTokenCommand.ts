@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetChangeTokenCommand}.
  */
 export interface GetChangeTokenCommandInput extends GetChangeTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChangeTokenCommand}.
  */
 export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -60,6 +65,8 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChangeTokenCommandInput - {@link GetChangeTokenCommandInput}
+ * @returns {@link GetChangeTokenCommandOutput}
  * @see {@link GetChangeTokenCommandInput} for command's `input` shape.
  * @see {@link GetChangeTokenCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -100,6 +107,9 @@ export class GetChangeTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChangeTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetChangeTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChangeTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetChangeTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeTokenCommandOutput> {
     return deserializeAws_json1_1GetChangeTokenCommand(output, context);
   }

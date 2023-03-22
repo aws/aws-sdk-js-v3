@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnvironmentTemplateVersionCommand}.
  */
 export interface GetEnvironmentTemplateVersionCommandInput extends GetEnvironmentTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetEnvironmentTemplateVersionCommand}.
  */
 export interface GetEnvironmentTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface GetEnvironmentTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for a major or minor version of an environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetEnvironmentTemplateVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnvironmentTemplateVersionCommandInput - {@link GetEnvironmentTemplateVersionCommandInput}
+ * @returns {@link GetEnvironmentTemplateVersionCommandOutput}
  * @see {@link GetEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetEnvironmentTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnvironmentTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetEnvironmentTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnvironmentTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetEnvironmentTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

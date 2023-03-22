@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLiveSourceCommand}.
  */
 export interface DeleteLiveSourceCommandInput extends DeleteLiveSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLiveSourceCommand}.
  */
 export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The live source to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLiveSourceCommandInput - {@link DeleteLiveSourceCommandInput}
+ * @returns {@link DeleteLiveSourceCommandOutput}
  * @see {@link DeleteLiveSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteLiveSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLiveSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteLiveSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLiveSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteLiveSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLiveSourceCommandOutput> {
     return deserializeAws_restJson1DeleteLiveSourceCommand(output, context);
   }

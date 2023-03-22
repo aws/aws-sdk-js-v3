@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ImportSnapshotCommand, serializeAws_ec2ImportSnapshotCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ImportSnapshotCommand}.
  */
 export interface ImportSnapshotCommandInput extends ImportSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportSnapshotCommand}.
  */
 export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports a disk into an EBS snapshot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html">Importing a disk as a snapshot using VM Import/Export</a> in the
  *    <i>VM Import/Export User Guide</i>.</p>
@@ -45,6 +50,8 @@ export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportSnapshotCommandInput - {@link ImportSnapshotCommandInput}
+ * @returns {@link ImportSnapshotCommandOutput}
  * @see {@link ImportSnapshotCommandInput} for command's `input` shape.
  * @see {@link ImportSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class ImportSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class ImportSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ImportSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportSnapshotCommandOutput> {
     return deserializeAws_ec2ImportSnapshotCommand(output, context);
   }

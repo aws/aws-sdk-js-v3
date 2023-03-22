@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocalGatewayRouteTableVpcAssociationCommand}.
  */
 export interface CreateLocalGatewayRouteTableVpcAssociationCommandInput
   extends CreateLocalGatewayRouteTableVpcAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocalGatewayRouteTableVpcAssociationCommand}.
  */
 export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified VPC with the specified local gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocalGatewayRouteTableVpcAssociationCommandInput - {@link CreateLocalGatewayRouteTableVpcAssociationCommandInput}
+ * @returns {@link CreateLocalGatewayRouteTableVpcAssociationCommandOutput}
  * @see {@link CreateLocalGatewayRouteTableVpcAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateLocalGatewayRouteTableVpcAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocalGatewayRouteTableVpcAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     return serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

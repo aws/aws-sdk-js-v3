@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeprovisionPublicIpv4PoolCidrCommand}.
  */
 export interface DeprovisionPublicIpv4PoolCidrCommandInput extends DeprovisionPublicIpv4PoolCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprovisionPublicIpv4PoolCidrCommand}.
  */
 export interface DeprovisionPublicIpv4PoolCidrCommandOutput
@@ -37,6 +41,7 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprovision a CIDR from a public IPv4 pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprovisionPublicIpv4PoolCidrCommandInput - {@link DeprovisionPublicIpv4PoolCidrCommandInput}
+ * @returns {@link DeprovisionPublicIpv4PoolCidrCommandOutput}
  * @see {@link DeprovisionPublicIpv4PoolCidrCommandInput} for command's `input` shape.
  * @see {@link DeprovisionPublicIpv4PoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DeprovisionPublicIpv4PoolCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprovisionPublicIpv4PoolCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DeprovisionPublicIpv4PoolCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprovisionPublicIpv4PoolCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

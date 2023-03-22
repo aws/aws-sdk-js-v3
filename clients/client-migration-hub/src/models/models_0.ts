@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MigrationHubServiceException as __BaseException } from "./MigrationHubServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +25,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum ApplicationStatus {
   COMPLETED = "COMPLETED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -31,6 +35,7 @@ export enum ApplicationStatus {
 }
 
 /**
+ * @public
  * <p>The state of an application discovered through Migration Hub import, the AWS Agentless
  *          Discovery Connector, or the AWS Application Discovery Agent.</p>
  */
@@ -53,6 +58,7 @@ export interface ApplicationState {
 }
 
 /**
+ * @public
  * <p>An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2
  *          instance, RDS instance, etc.).</p>
  */
@@ -69,6 +75,9 @@ export interface CreatedArtifact {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCreatedArtifactRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -95,9 +104,13 @@ export interface AssociateCreatedArtifactRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCreatedArtifactResult {}
 
 /**
+ * @public
  * <p>Exception raised to indicate a successfully authorized action when the
  *             <code>DryRun</code> flag is set to "true".</p>
  */
@@ -120,6 +133,7 @@ export class DryRunOperation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The home region is not set. Set the home region to continue.</p>
  */
 export class HomeRegionNotSetException extends __BaseException {
@@ -141,6 +155,7 @@ export class HomeRegionNotSetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when an internal, configuration, or dependency error is
  *          encountered.</p>
  */
@@ -163,6 +178,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when the provided input violates a policy constraint or is entered in
  *          the wrong format or data type.</p>
  */
@@ -185,6 +201,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when the request references a resource (Application Discovery Service
  *          configuration, update stream, migration task, etc.) that does not exist in Application
  *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
@@ -208,6 +225,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when there is an internal, configuration, or dependency error
  *          encountered.</p>
  */
@@ -230,6 +248,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -260,6 +279,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  */
@@ -282,6 +302,7 @@ export class UnauthorizedOperation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Object representing the on-premises resource being migrated.</p>
  */
 export interface DiscoveredResource {
@@ -298,6 +319,9 @@ export interface DiscoveredResource {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDiscoveredResourceRequest {
   /**
    * <p>The name of the ProgressUpdateStream.</p>
@@ -323,9 +347,13 @@ export interface AssociateDiscoveredResourceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDiscoveredResourceResult {}
 
 /**
+ * @public
  * <p>Exception raised when there are problems accessing Application Discovery Service
  *          (Application Discovery Service); most likely due to a misconfigured policy or the
  *             <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
@@ -348,6 +376,9 @@ export class PolicyErrorException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateProgressUpdateStreamRequest {
   /**
    * <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this
@@ -363,8 +394,14 @@ export interface CreateProgressUpdateStreamRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateProgressUpdateStreamResult {}
 
+/**
+ * @public
+ */
 export interface DeleteProgressUpdateStreamRequest {
   /**
    * <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this
@@ -380,8 +417,14 @@ export interface DeleteProgressUpdateStreamRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProgressUpdateStreamResult {}
 
+/**
+ * @public
+ */
 export interface DescribeApplicationStateRequest {
   /**
    * <p>The configurationId in Application Discovery Service that uniquely identifies the
@@ -390,6 +433,9 @@ export interface DescribeApplicationStateRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeApplicationStateResult {
   /**
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
@@ -402,6 +448,9 @@ export interface DescribeApplicationStateResult {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMigrationTaskRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -416,6 +465,9 @@ export interface DescribeMigrationTaskRequest {
   MigrationTaskName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ResourceAttributeType {
   BIOS_ID = "BIOS_ID",
   FQDN = "FQDN",
@@ -430,6 +482,7 @@ export enum ResourceAttributeType {
 }
 
 /**
+ * @public
  * <p>Attribute associated with a resource.</p>
  *          <p>Note the corresponding format required per type listed below:</p>
  *
@@ -457,13 +510,13 @@ export enum ResourceAttributeType {
  *             <dt>MAC_ADDRESS</dt>
  *             <dd>
  *                <p>
- *                   <code>^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$</code>
+ *                   <code>^([0-9A-Fa-f]\{2\}[:-])\{5\}([0-9A-Fa-f]\{2\})$</code>
  *                </p>
  *             </dd>
  *             <dt>FQDN</dt>
  *             <dd>
  *                <p>
- *                   <code>^[^<>{}\\\\/?,=\\p{Cntrl}]{1,256}$</code>
+ *                   <code>^[^<>\{\}\\\\/?,=\\p\{Cntrl\}]\{1,256\}$</code>
  *                </p>
  *             </dd>
  *          </dl>
@@ -480,6 +533,9 @@ export interface ResourceAttribute {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -488,6 +544,7 @@ export enum Status {
 }
 
 /**
+ * @public
  * <p>Task object encapsulating task information.</p>
  */
 export interface Task {
@@ -510,6 +567,7 @@ export interface Task {
 }
 
 /**
+ * @public
  * <p>Represents a migration task in a migration tool.</p>
  */
 export interface MigrationTask {
@@ -542,6 +600,9 @@ export interface MigrationTask {
   ResourceAttributeList?: ResourceAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeMigrationTaskResult {
   /**
    * <p>Object encapsulating information about the migration task.</p>
@@ -549,6 +610,9 @@ export interface DescribeMigrationTaskResult {
   MigrationTask?: MigrationTask;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCreatedArtifactRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -575,8 +639,14 @@ export interface DisassociateCreatedArtifactRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCreatedArtifactResult {}
 
+/**
+ * @public
+ */
 export interface DisassociateDiscoveredResourceRequest {
   /**
    * <p>The name of the ProgressUpdateStream.</p>
@@ -603,8 +673,14 @@ export interface DisassociateDiscoveredResourceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDiscoveredResourceResult {}
 
+/**
+ * @public
+ */
 export interface ImportMigrationTaskRequest {
   /**
    * <p>The name of the ProgressUpdateStream. ></p>
@@ -625,8 +701,14 @@ export interface ImportMigrationTaskRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ImportMigrationTaskResult {}
 
+/**
+ * @public
+ */
 export interface ListApplicationStatesRequest {
   /**
    * <p>The configurationIds from the Application Discovery Service that uniquely identifies
@@ -647,6 +729,9 @@ export interface ListApplicationStatesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationStatesResult {
   /**
    * <p>A list of Applications that exist in Application Discovery Service.</p>
@@ -661,6 +746,9 @@ export interface ListApplicationStatesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCreatedArtifactsRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -687,6 +775,9 @@ export interface ListCreatedArtifactsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCreatedArtifactsResult {
   /**
    * <p>If there are more created artifacts than the max result, return the next token to be
@@ -701,6 +792,9 @@ export interface ListCreatedArtifactsResult {
   CreatedArtifactList?: CreatedArtifact[];
 }
 
+/**
+ * @public
+ */
 export interface ListDiscoveredResourcesRequest {
   /**
    * <p>The name of the ProgressUpdateStream.</p>
@@ -727,6 +821,9 @@ export interface ListDiscoveredResourcesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDiscoveredResourcesResult {
   /**
    * <p>If there are more discovered resources than the max result, return the next token to be
@@ -740,6 +837,9 @@ export interface ListDiscoveredResourcesResult {
   DiscoveredResourceList?: DiscoveredResource[];
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationTasksRequest {
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
@@ -760,6 +860,7 @@ export interface ListMigrationTasksRequest {
 }
 
 /**
+ * @public
  * <p>MigrationTaskSummary includes <code>MigrationTaskName</code>,
  *             <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>,
  *          and <code>UpdateDateTime</code> for each task.</p>
@@ -799,6 +900,9 @@ export interface MigrationTaskSummary {
   UpdateDateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationTasksResult {
   /**
    * <p>If there are more migration tasks than the max result, return the next token to be
@@ -814,6 +918,9 @@ export interface ListMigrationTasksResult {
   MigrationTaskSummaryList?: MigrationTaskSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListProgressUpdateStreamsRequest {
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
@@ -829,6 +936,7 @@ export interface ListProgressUpdateStreamsRequest {
 }
 
 /**
+ * @public
  * <p>Summary of the AWS resource used for access control that is implicitly linked to your
  *          AWS account.</p>
  */
@@ -841,6 +949,9 @@ export interface ProgressUpdateStreamSummary {
   ProgressUpdateStreamName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProgressUpdateStreamsResult {
   /**
    * <p>List of progress update streams up to the max number of results passed in the
@@ -855,6 +966,9 @@ export interface ListProgressUpdateStreamsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyApplicationStateRequest {
   /**
    * <p>The configurationId in Application Discovery Service that uniquely identifies the
@@ -879,8 +993,14 @@ export interface NotifyApplicationStateRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface NotifyApplicationStateResult {}
 
+/**
+ * @public
+ */
 export interface NotifyMigrationTaskStateRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -918,8 +1038,14 @@ export interface NotifyMigrationTaskStateRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface NotifyMigrationTaskStateResult {}
 
+/**
+ * @public
+ */
 export interface PutResourceAttributesRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -972,6 +1098,9 @@ export interface PutResourceAttributesRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutResourceAttributesResult {}
 
 /**

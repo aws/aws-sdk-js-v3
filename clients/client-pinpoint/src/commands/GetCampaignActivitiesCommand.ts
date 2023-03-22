@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCampaignActivitiesCommand}.
  */
 export interface GetCampaignActivitiesCommandInput extends GetCampaignActivitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCampaignActivitiesCommand}.
  */
 export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all the activities for a campaign.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignActivitiesCommandInput - {@link GetCampaignActivitiesCommandInput}
+ * @returns {@link GetCampaignActivitiesCommandOutput}
  * @see {@link GetCampaignActivitiesCommandInput} for command's `input` shape.
  * @see {@link GetCampaignActivitiesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetCampaignActivitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignActivitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetCampaignActivitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCampaignActivitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignActivitiesCommandOutput> {
     return deserializeAws_restJson1GetCampaignActivitiesCommand(output, context);
   }

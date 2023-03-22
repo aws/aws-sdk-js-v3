@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeviceProfileCommand}.
  */
 export interface CreateDeviceProfileCommandInput extends CreateDeviceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeviceProfileCommand}.
  */
 export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new device profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeviceProfileCommandInput - {@link CreateDeviceProfileCommandInput}
+ * @returns {@link CreateDeviceProfileCommandOutput}
  * @see {@link CreateDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateDeviceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeviceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateDeviceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeviceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDeviceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceProfileCommandOutput> {
     return deserializeAws_restJson1CreateDeviceProfileCommand(output, context);
   }

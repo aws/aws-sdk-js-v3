@@ -17,12 +17,14 @@ import { PutObjectCommand, PutObjectCommandInput, PutObjectCommandOutput } from 
 import { MediaStoreDataClient } from "./MediaStoreDataClient";
 
 /**
+ * @public
  * <p>An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3
  *          service. Objects are the fundamental entities that are stored in AWS Elemental
  *          MediaStore.</p>
  */
 export class MediaStoreData extends MediaStoreDataClient {
   /**
+   * @public
    * <p>Deletes an object at the specified path.</p>
    */
   public deleteObject(
@@ -52,6 +54,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
+   * @public
    * <p>Gets the headers for an object at the specified path.</p>
    */
   public describeObject(
@@ -84,6 +87,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
+   * @public
    * <p>Downloads the object at the specified path. If the object’s upload availability is set to <code>streaming</code>, AWS Elemental MediaStore downloads the object even if it’s still uploading the object.</p>
    */
   public getObject(args: GetObjectCommandInput, options?: __HttpHandlerOptions): Promise<GetObjectCommandOutput>;
@@ -110,6 +114,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of metadata entries about folders and objects in the specified
    *          folder.</p>
    */
@@ -137,6 +142,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
+   * @public
    * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB for standard upload availability and 10 MB for streaming upload availability.</p>
    */
   public putObject(args: PutObjectCommandInput, options?: __HttpHandlerOptions): Promise<PutObjectCommandOutput>;

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOriginEndpointCommand}.
  */
 export interface CreateOriginEndpointCommandInput extends CreateOriginEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOriginEndpointCommand}.
  */
 export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a new OriginEndpoint record.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOriginEndpointCommandInput - {@link CreateOriginEndpointCommandInput}
+ * @returns {@link CreateOriginEndpointCommandOutput}
  * @see {@link CreateOriginEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateOriginEndpointCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateOriginEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOriginEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateOriginEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOriginEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateOriginEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOriginEndpointCommandOutput> {
     return deserializeAws_restJson1CreateOriginEndpointCommand(output, context);
   }

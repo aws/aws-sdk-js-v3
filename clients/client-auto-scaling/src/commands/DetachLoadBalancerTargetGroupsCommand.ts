@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetachLoadBalancerTargetGroupsCommand}.
  */
 export interface DetachLoadBalancerTargetGroupsCommandInput extends DetachLoadBalancerTargetGroupsType {}
 /**
+ * @public
+ *
  * The output of {@link DetachLoadBalancerTargetGroupsCommand}.
  */
 export interface DetachLoadBalancerTargetGroupsCommandOutput
@@ -37,6 +41,7 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
  *          <p>When you detach a target group, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
@@ -57,6 +62,8 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachLoadBalancerTargetGroupsCommandInput - {@link DetachLoadBalancerTargetGroupsCommandInput}
+ * @returns {@link DetachLoadBalancerTargetGroupsCommandOutput}
  * @see {@link DetachLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DetachLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -98,6 +105,9 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachLoadBalancerTargetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DetachLoadBalancerTargetGroupsCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
     return serializeAws_queryDetachLoadBalancerTargetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

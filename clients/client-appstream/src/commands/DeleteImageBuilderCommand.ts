@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImageBuilderCommand}.
  */
 export interface DeleteImageBuilderCommandInput extends DeleteImageBuilderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImageBuilderCommand}.
  */
 export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified image builder and releases the capacity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImageBuilderCommandInput - {@link DeleteImageBuilderCommandInput}
+ * @returns {@link DeleteImageBuilderCommandOutput}
  * @see {@link DeleteImageBuilderCommandInput} for command's `input` shape.
  * @see {@link DeleteImageBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteImageBuilderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImageBuilderCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteImageBuilderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImageBuilderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteImageBuilderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageBuilderCommandOutput> {
     return deserializeAws_json1_1DeleteImageBuilderCommand(output, context);
   }

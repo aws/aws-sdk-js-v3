@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartExportCommand}.
  */
 export interface StartExportCommandInput extends StartExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartExportCommand}.
  */
 export interface StartExportCommandOutput extends StartExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExportCommandInput - {@link StartExportCommandInput}
+ * @returns {@link StartExportCommandOutput}
  * @see {@link StartExportCommandInput} for command's `input` shape.
  * @see {@link StartExportCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class StartExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class StartExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExportCommandOutput> {
     return deserializeAws_restJson1StartExportCommand(output, context);
   }

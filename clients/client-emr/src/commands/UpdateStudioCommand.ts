@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStudioCommand}.
  */
 export interface UpdateStudioCommandInput extends UpdateStudioInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStudioCommand}.
  */
 export interface UpdateStudioCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EMR Studio configuration, including attributes such as name,
  *          description, and subnets.</p>
  * @example
@@ -42,6 +47,8 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStudioCommandInput - {@link UpdateStudioCommandInput}
+ * @returns {@link UpdateStudioCommandOutput}
  * @see {@link UpdateStudioCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdateStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class UpdateStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStudioCommandOutput> {
     return deserializeAws_json1_1UpdateStudioCommand(output, context);
   }

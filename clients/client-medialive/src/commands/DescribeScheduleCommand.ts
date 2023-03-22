@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduleCommand}.
  */
 export interface DescribeScheduleCommandInput extends DescribeScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduleCommand}.
  */
 export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Get a channel schedule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduleCommandInput - {@link DescribeScheduleCommandInput}
+ * @returns {@link DescribeScheduleCommandOutput}
  * @see {@link DescribeScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DescribeScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduleCommandOutput> {
     return deserializeAws_restJson1DescribeScheduleCommand(output, context);
   }

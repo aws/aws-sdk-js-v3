@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAcceleratorCommand}.
  */
 export interface DeleteAcceleratorCommandInput extends DeleteAcceleratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAcceleratorCommand}.
  */
 export interface DeleteAcceleratorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources
  * 			(listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p>
  * 	        <important>
@@ -58,6 +63,8 @@ export interface DeleteAcceleratorCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAcceleratorCommandInput - {@link DeleteAcceleratorCommandInput}
+ * @returns {@link DeleteAcceleratorCommandOutput}
  * @see {@link DeleteAcceleratorCommandInput} for command's `input` shape.
  * @see {@link DeleteAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -97,6 +104,9 @@ export class DeleteAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class DeleteAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAcceleratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAcceleratorCommandOutput> {
     return deserializeAws_json1_1DeleteAcceleratorCommand(output, context);
   }

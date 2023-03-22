@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetPoliciesStatsCommand}.
  */
 export interface GetPoliciesStatsCommandInput extends GetPoliciesStatsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPoliciesStatsCommand}.
  */
 export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns statistical information about your OpenSearch Serverless access policies, security
  *             configurations, and security policies.</p>
  * @example
@@ -51,6 +56,8 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPoliciesStatsCommandInput - {@link GetPoliciesStatsCommandInput}
+ * @returns {@link GetPoliciesStatsCommandOutput}
  * @see {@link GetPoliciesStatsCommandInput} for command's `input` shape.
  * @see {@link GetPoliciesStatsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -77,6 +84,9 @@ export class GetPoliciesStatsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPoliciesStatsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class GetPoliciesStatsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPoliciesStatsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetPoliciesStatsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPoliciesStatsCommandOutput> {
     return deserializeAws_json1_0GetPoliciesStatsCommand(output, context);
   }

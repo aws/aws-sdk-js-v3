@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVerifiedAccessGroupCommand}.
  */
 export interface DeleteVerifiedAccessGroupCommandInput extends DeleteVerifiedAccessGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVerifiedAccessGroupCommand}.
  */
 export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an Amazon Web Services Verified Access group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVerifiedAccessGroupCommandInput - {@link DeleteVerifiedAccessGroupCommandInput}
+ * @returns {@link DeleteVerifiedAccessGroupCommandOutput}
  * @see {@link DeleteVerifiedAccessGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedAccessGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVerifiedAccessGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVerifiedAccessGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteVerifiedAccessGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

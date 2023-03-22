@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrafficMirrorFiltersCommand}.
  */
 export interface DescribeTrafficMirrorFiltersCommandInput extends DescribeTrafficMirrorFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrafficMirrorFiltersCommand}.
  */
 export interface DescribeTrafficMirrorFiltersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Traffic Mirror filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrafficMirrorFiltersCommandInput - {@link DescribeTrafficMirrorFiltersCommandInput}
+ * @returns {@link DescribeTrafficMirrorFiltersCommandOutput}
  * @see {@link DescribeTrafficMirrorFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficMirrorFiltersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrafficMirrorFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrafficMirrorFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTrafficMirrorFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

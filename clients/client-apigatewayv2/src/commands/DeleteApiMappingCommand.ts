@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApiMappingCommand}.
  */
 export interface DeleteApiMappingCommandInput extends DeleteApiMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApiMappingCommand}.
  */
 export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an API mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApiMappingCommandInput - {@link DeleteApiMappingCommandInput}
+ * @returns {@link DeleteApiMappingCommandOutput}
  * @see {@link DeleteApiMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteApiMappingCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteApiMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApiMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteApiMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApiMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteApiMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApiMappingCommandOutput> {
     return deserializeAws_restJson1DeleteApiMappingCommand(output, context);
   }

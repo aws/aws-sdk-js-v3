@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSkillAuthorizationCommand}.
  */
 export interface DeleteSkillAuthorizationCommandInput extends DeleteSkillAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSkillAuthorizationCommand}.
  */
 export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthorizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unlinks a third-party account from a skill.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSkillAuthorizationCommandInput - {@link DeleteSkillAuthorizationCommandInput}
+ * @returns {@link DeleteSkillAuthorizationCommandOutput}
  * @see {@link DeleteSkillAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteSkillAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteSkillAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSkillAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteSkillAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSkillAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSkillAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSkillAuthorizationCommandOutput> {
     return deserializeAws_json1_1DeleteSkillAuthorizationCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateSolFunctionPackageContentCommand}.
  */
 export interface ValidateSolFunctionPackageContentCommandInput extends ValidateSolFunctionPackageContentInput {}
 /**
+ * @public
+ *
  * The output of {@link ValidateSolFunctionPackageContentCommand}.
  */
 export interface ValidateSolFunctionPackageContentCommandOutput
@@ -37,6 +41,7 @@ export interface ValidateSolFunctionPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates function package content. This can be used as a dry run before uploading function package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateSolFunctionPackageContentCommandInput - {@link ValidateSolFunctionPackageContentCommandInput}
+ * @returns {@link ValidateSolFunctionPackageContentCommandOutput}
  * @see {@link ValidateSolFunctionPackageContentCommandInput} for command's `input` shape.
  * @see {@link ValidateSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -87,6 +94,9 @@ export class ValidateSolFunctionPackageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateSolFunctionPackageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class ValidateSolFunctionPackageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ValidateSolFunctionPackageContentCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class ValidateSolFunctionPackageContentCommand extends $Command<
     return serializeAws_restJson1ValidateSolFunctionPackageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

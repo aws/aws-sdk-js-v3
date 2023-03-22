@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReportGroupCommand}.
  */
 export interface CreateReportGroupCommandInput extends CreateReportGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateReportGroupCommand}.
  */
 export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a report group. A report group contains a collection of reports.
  *     </p>
@@ -48,6 +53,8 @@ export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReportGroupCommandInput - {@link CreateReportGroupCommandInput}
+ * @returns {@link CreateReportGroupCommandOutput}
  * @see {@link CreateReportGroupCommandInput} for command's `input` shape.
  * @see {@link CreateReportGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateReportGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReportGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateReportGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReportGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateReportGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReportGroupCommandOutput> {
     return deserializeAws_json1_1CreateReportGroupCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedCacheNodesOfferingsCommand}.
  */
 export interface DescribeReservedCacheNodesOfferingsCommandInput extends DescribeReservedCacheNodesOfferingsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedCacheNodesOfferingsCommand}.
  */
 export interface DescribeReservedCacheNodesOfferingsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists available reserved cache
  *             node offerings.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedCacheNodesOfferingsCommandInput - {@link DescribeReservedCacheNodesOfferingsCommandInput}
+ * @returns {@link DescribeReservedCacheNodesOfferingsCommandOutput}
  * @see {@link DescribeReservedCacheNodesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedCacheNodesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -354,6 +361,9 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedCacheNodesOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -393,6 +403,9 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedCacheNodesOfferingsCommandInput,
     context: __SerdeContext
@@ -400,6 +413,9 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     return serializeAws_queryDescribeReservedCacheNodesOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

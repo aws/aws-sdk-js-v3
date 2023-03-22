@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RebalanceSlotsInGlobalReplicationGroupCommand}.
  */
 export interface RebalanceSlotsInGlobalReplicationGroupCommandInput
   extends RebalanceSlotsInGlobalReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebalanceSlotsInGlobalReplicationGroupCommand}.
  */
 export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
@@ -38,6 +42,7 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Redistribute slots to ensure uniform distribution across existing shards in the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RebalanceSlotsInGlobalReplicationGroupCommandInput - {@link RebalanceSlotsInGlobalReplicationGroupCommandInput}
+ * @returns {@link RebalanceSlotsInGlobalReplicationGroupCommandOutput}
  * @see {@link RebalanceSlotsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link RebalanceSlotsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -81,6 +88,9 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebalanceSlotsInGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RebalanceSlotsInGlobalReplicationGroupCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
     return serializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

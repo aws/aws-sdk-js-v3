@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseOfferingCommand}.
  */
 export interface PurchaseOfferingCommandInput extends PurchaseOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseOfferingCommand}.
  */
 export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Purchase an offering and create a reservation.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseOfferingCommandInput - {@link PurchaseOfferingCommandInput}
+ * @returns {@link PurchaseOfferingCommandOutput}
  * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class PurchaseOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class PurchaseOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PurchaseOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PurchaseOfferingCommandOutput> {
     return deserializeAws_restJson1PurchaseOfferingCommand(output, context);
   }

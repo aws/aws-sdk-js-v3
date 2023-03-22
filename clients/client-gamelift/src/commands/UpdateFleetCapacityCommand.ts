@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFleetCapacityCommand}.
  */
 export interface UpdateFleetCapacityCommandInput extends UpdateFleetCapacityInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFleetCapacityCommand}.
  */
 export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates capacity settings for a fleet. For fleets with multiple locations, use this
  *             operation to manage capacity settings in each location individually. Fleet capacity
  *             determines the number of game sessions and players that can be hosted based on the fleet
@@ -90,6 +95,8 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetCapacityCommandInput - {@link UpdateFleetCapacityCommandInput}
+ * @returns {@link UpdateFleetCapacityCommandOutput}
  * @see {@link UpdateFleetCapacityCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetCapacityCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -145,6 +152,9 @@ export class UpdateFleetCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -184,10 +194,16 @@ export class UpdateFleetCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFleetCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetCapacityCommandOutput> {
     return deserializeAws_json1_1UpdateFleetCapacityCommand(output, context);
   }

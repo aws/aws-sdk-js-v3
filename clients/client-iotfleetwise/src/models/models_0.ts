@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { IoTFleetWiseServiceException as __BaseException } from "./IoTFleetWiseServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient permission to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,6 +23,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum NodeDataType {
   BOOLEAN = "BOOLEAN",
   BOOLEAN_ARRAY = "BOOLEAN_ARRAY",
@@ -53,6 +57,7 @@ export enum NodeDataType {
 }
 
 /**
+ * @public
  * <p>A signal that represents a vehicle device such as the engine, heater, and door locks.
  *             Data from an actuator reports the state of a certain vehicle device.</p>
  *         <note>
@@ -105,6 +110,9 @@ export interface Actuator {
   assignedValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateVehicleFleetRequest {
   /**
    * <p> The unique ID of the vehicle to associate with the fleet. </p>
@@ -117,9 +125,13 @@ export interface AssociateVehicleFleetRequest {
   fleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateVehicleFleetResponse {}
 
 /**
+ * @public
  * <p>The request couldn't be completed because the server temporarily failed.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -145,6 +157,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource wasn't found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -176,6 +189,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request couldn't be completed due to throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -213,6 +227,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A validation error due to mismatch between the expected data type, length, or pattern
  *             of the parameter and the input.</p>
  */
@@ -228,6 +243,9 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -236,6 +254,7 @@ export enum ValidationExceptionReason {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -267,6 +286,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A signal that represents static information about the vehicle, such as engine type or
  *             manufacturing date.</p>
  */
@@ -320,12 +340,16 @@ export interface Attribute {
   defaultValue?: string;
 }
 
+/**
+ * @public
+ */
 export enum VehicleAssociationBehavior {
   CREATE_IOT_THING = "CreateIotThing",
   VALIDATE_IOT_THING_EXISTS = "ValidateIotThingExists",
 }
 
 /**
+ * @public
  * <p>A set of key/value pairs that are used to manage the resource.</p>
  */
 export interface Tag {
@@ -341,6 +365,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Information about the vehicle to create.</p>
  */
 export interface CreateVehicleRequestItem {
@@ -379,6 +404,9 @@ export interface CreateVehicleRequestItem {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateVehicleRequest {
   /**
    * <p> A list of information about each vehicle to create. For more information, see the
@@ -388,6 +416,7 @@ export interface BatchCreateVehicleRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP error resulting from creating a vehicle.</p>
  */
 export interface CreateVehicleError {
@@ -408,6 +437,7 @@ export interface CreateVehicleError {
 }
 
 /**
+ * @public
  * <p>Information about a created vehicle.</p>
  */
 export interface CreateVehicleResponseItem {
@@ -427,6 +457,9 @@ export interface CreateVehicleResponseItem {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateVehicleResponse {
   /**
    * <p> A list of information about a batch of created vehicles. For more information, see
@@ -442,6 +475,7 @@ export interface BatchCreateVehicleResponse {
 }
 
 /**
+ * @public
  * <p>A service quota was exceeded. </p>
  */
 export class LimitExceededException extends __BaseException {
@@ -472,12 +506,16 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum UpdateMode {
   MERGE = "Merge",
   OVERWRITE = "Overwrite",
 }
 
 /**
+ * @public
  * <p>Information about the vehicle to update.</p>
  */
 export interface UpdateVehicleRequestItem {
@@ -513,6 +551,9 @@ export interface UpdateVehicleRequestItem {
   attributeUpdateMode?: UpdateMode | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateVehicleRequest {
   /**
    * <p> A list of information about the vehicles to update. For more information, see the
@@ -522,6 +563,7 @@ export interface BatchUpdateVehicleRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP error resulting from updating the description for a vehicle.</p>
  */
 export interface UpdateVehicleError {
@@ -542,6 +584,7 @@ export interface UpdateVehicleError {
 }
 
 /**
+ * @public
  * <p>Information about the updated vehicle.</p>
  */
 export interface UpdateVehicleResponseItem {
@@ -556,6 +599,9 @@ export interface UpdateVehicleResponseItem {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateVehicleResponse {
   /**
    * <p> A list of information about the batch of updated vehicles. </p>
@@ -573,6 +619,7 @@ export interface BatchUpdateVehicleResponse {
 }
 
 /**
+ * @public
  * <p>A group of signals that are defined in a hierarchical structure.</p>
  */
 export interface Branch {
@@ -589,6 +636,7 @@ export interface Branch {
 }
 
 /**
+ * @public
  * <p>The request has conflicting operations. This can occur if you're trying to perform
  *             more than one operation on the same resource at the same time.</p>
  */
@@ -620,12 +668,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum TriggerMode {
   ALWAYS = "ALWAYS",
   RISING_EDGE = "RISING_EDGE",
 }
 
 /**
+ * @public
  * <p>Information about a collection scheme that uses a simple logical expression to
  *             recognize what data to collect.</p>
  */
@@ -661,6 +713,7 @@ export interface ConditionBasedCollectionScheme {
 }
 
 /**
+ * @public
  * <p>Information about a collection scheme that uses a time period to decide how often to
  *             collect data.</p>
  */
@@ -674,6 +727,7 @@ export interface TimeBasedCollectionScheme {
 }
 
 /**
+ * @public
  * <p>Specifies what data to collect and how often or when to collect it.</p>
  */
 export type CollectionScheme =
@@ -681,6 +735,9 @@ export type CollectionScheme =
   | CollectionScheme.TimeBasedCollectionSchemeMember
   | CollectionScheme.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace CollectionScheme {
   /**
    * <p>Information about a collection scheme that uses a time period to decide how often to
@@ -723,17 +780,24 @@ export namespace CollectionScheme {
   };
 }
 
+/**
+ * @public
+ */
 export enum Compression {
   OFF = "OFF",
   SNAPPY = "SNAPPY",
 }
 
+/**
+ * @public
+ */
 export enum DiagnosticsMode {
   OFF = "OFF",
   SEND_ACTIVE_DTCS = "SEND_ACTIVE_DTCS",
 }
 
 /**
+ * @public
  * <p>Information about a signal.</p>
  */
 export interface SignalInformation {
@@ -757,11 +821,17 @@ export interface SignalInformation {
   minimumSamplingIntervalMs?: number;
 }
 
+/**
+ * @public
+ */
 export enum SpoolingMode {
   OFF = "OFF",
   TO_DISK = "TO_DISK",
 }
 
+/**
+ * @public
+ */
 export interface CreateCampaignRequest {
   /**
    * <p> The name of the campaign to create. </p>
@@ -868,6 +938,9 @@ export interface CreateCampaignRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCampaignResponse {
   /**
    * <p>The name of the created campaign.</p>
@@ -880,6 +953,9 @@ export interface CreateCampaignResponse {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCampaignRequest {
   /**
    * <p> The name of the campaign to delete. </p>
@@ -887,6 +963,9 @@ export interface DeleteCampaignRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCampaignResponse {
   /**
    * <p>The name of the deleted campaign.</p>
@@ -902,6 +981,9 @@ export interface DeleteCampaignResponse {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignRequest {
   /**
    * <p> The name of the campaign to retrieve information about. </p>
@@ -909,6 +991,9 @@ export interface GetCampaignRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum CampaignStatus {
   CREATING = "CREATING",
   RUNNING = "RUNNING",
@@ -916,6 +1001,9 @@ export enum CampaignStatus {
   WAITING_FOR_APPROVAL = "WAITING_FOR_APPROVAL",
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignResponse {
   /**
    * <p>The name of the campaign.</p>
@@ -1019,6 +1107,9 @@ export interface GetCampaignResponse {
   lastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListCampaignsRequest {
   /**
    * <p>A pagination token for the next set of results.</p>
@@ -1041,6 +1132,7 @@ export interface ListCampaignsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a campaign. </p>
  *         <p>You can use the  API operation to return this
  *             information about multiple created campaigns.</p>
@@ -1110,6 +1202,9 @@ export interface CampaignSummary {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCampaignsResponse {
   /**
    * <p> A summary of information about each campaign. </p>
@@ -1122,6 +1217,9 @@ export interface ListCampaignsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum UpdateCampaignAction {
   APPROVE = "APPROVE",
   RESUME = "RESUME",
@@ -1129,6 +1227,9 @@ export enum UpdateCampaignAction {
   UPDATE = "UPDATE",
 }
 
+/**
+ * @public
+ */
 export interface UpdateCampaignRequest {
   /**
    * <p> The name of the campaign to update. </p>
@@ -1171,6 +1272,9 @@ export interface UpdateCampaignRequest {
   action: UpdateCampaignAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCampaignResponse {
   /**
    * <p> The Amazon Resource Name (ARN) of the campaign. </p>
@@ -1212,6 +1316,7 @@ export interface UpdateCampaignResponse {
 }
 
 /**
+ * @public
  * <p>Configurations used to create a decoder manifest.</p>
  */
 export interface CanDbcDefinition {
@@ -1233,6 +1338,7 @@ export interface CanDbcDefinition {
 }
 
 /**
+ * @public
  * <p>A single controller area network (CAN) device interface.</p>
  */
 export interface CanInterface {
@@ -1253,6 +1359,7 @@ export interface CanInterface {
 }
 
 /**
+ * @public
  * <p>Information about a single controller area network (CAN) signal and the messages it
  *             receives and transmits.</p>
  */
@@ -1298,12 +1405,16 @@ export interface CanSignal {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export enum LogType {
   ERROR = "ERROR",
   OFF = "OFF",
 }
 
 /**
+ * @public
  * <p>The log delivery option to send data to Amazon CloudWatch Logs.</p>
  */
 export interface CloudWatchLogDeliveryOptions {
@@ -1319,6 +1430,7 @@ export interface CloudWatchLogDeliveryOptions {
 }
 
 /**
+ * @public
  * <p>A network interface that specifies the On-board diagnostic (OBD) II network protocol.</p>
  */
 export interface ObdInterface {
@@ -1358,12 +1470,16 @@ export interface ObdInterface {
   hasTransmissionEcu?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum NetworkInterfaceType {
   CAN_INTERFACE = "CAN_INTERFACE",
   OBD_INTERFACE = "OBD_INTERFACE",
 }
 
 /**
+ * @public
  * <p>Represents a node and its specifications in an in-vehicle communication network. All
  *             signal decoders must be associated with a network node. </p>
  *         <p> To return this information about all the network interfaces specified in a decoder
@@ -1398,6 +1514,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>Information about signal messages using the on-board diagnostics (OBD) II protocol in
  *             a vehicle.</p>
  */
@@ -1448,12 +1565,16 @@ export interface ObdSignal {
   bitMaskLength?: number;
 }
 
+/**
+ * @public
+ */
 export enum SignalDecoderType {
   CAN_SIGNAL = "CAN_SIGNAL",
   OBD_SIGNAL = "OBD_SIGNAL",
 }
 
 /**
+ * @public
  * <p>Information about a signal decoder.</p>
  */
 export interface SignalDecoder {
@@ -1486,6 +1607,9 @@ export interface SignalDecoder {
   obdSignal?: ObdSignal;
 }
 
+/**
+ * @public
+ */
 export interface CreateDecoderManifestRequest {
   /**
    * <p> The unique name of the decoder manifest to create.</p>
@@ -1518,6 +1642,9 @@ export interface CreateDecoderManifestRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDecoderManifestResponse {
   /**
    * <p> The name of the created decoder manifest. </p>
@@ -1530,6 +1657,9 @@ export interface CreateDecoderManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NetworkInterfaceFailureReason {
   CAN_NETWORK_INTERFACE_INFO_IS_NULL = "CAN_NETWORK_INTERFACE_INFO_IS_NULL",
   CONFLICTING_NETWORK_INTERFACE = "CONFLICTING_NETWORK_INTERFACE",
@@ -1540,6 +1670,7 @@ export enum NetworkInterfaceFailureReason {
 }
 
 /**
+ * @public
  * <p>A reason a vehicle network interface isn't valid.</p>
  */
 export interface InvalidNetworkInterface {
@@ -1554,6 +1685,9 @@ export interface InvalidNetworkInterface {
   reason?: NetworkInterfaceFailureReason | string;
 }
 
+/**
+ * @public
+ */
 export enum SignalDecoderFailureReason {
   CAN_SIGNAL_INFO_IS_NULL = "CAN_SIGNAL_INFO_IS_NULL",
   CONFLICTING_SIGNAL = "CONFLICTING_SIGNAL",
@@ -1567,6 +1701,7 @@ export enum SignalDecoderFailureReason {
 }
 
 /**
+ * @public
  * <p>A reason that a signal decoder isn't valid.</p>
  */
 export interface InvalidSignalDecoder {
@@ -1582,6 +1717,7 @@ export interface InvalidSignalDecoder {
 }
 
 /**
+ * @public
  * <p>The request couldn't be completed because it contains signal decoders with one or more validation errors.</p>
  */
 export class DecoderManifestValidationException extends __BaseException {
@@ -1612,6 +1748,9 @@ export class DecoderManifestValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetRequest {
   /**
    * <p> The unique ID of the fleet to create. </p>
@@ -1634,6 +1773,9 @@ export interface CreateFleetRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetResponse {
   /**
    * <p> The ID of the created fleet. </p>
@@ -1646,6 +1788,9 @@ export interface CreateFleetResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateModelManifestRequest {
   /**
    * <p> The name of the vehicle model to create.</p>
@@ -1673,6 +1818,9 @@ export interface CreateModelManifestRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateModelManifestResponse {
   /**
    * <p> The name of the created vehicle model.</p>
@@ -1686,6 +1834,7 @@ export interface CreateModelManifestResponse {
 }
 
 /**
+ * @public
  * <p>A reason that a signal isn't valid.</p>
  */
 export interface InvalidSignal {
@@ -1701,6 +1850,7 @@ export interface InvalidSignal {
 }
 
 /**
+ * @public
  * <p>The request couldn't be completed because it contains signals that aren't valid.</p>
  */
 export class InvalidSignalsException extends __BaseException {
@@ -1726,6 +1876,7 @@ export class InvalidSignalsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An input component that reports the environmental condition of a vehicle.</p>
  *         <note>
  *             <p>You can collect data about fluid levels, temperatures, vibrations, or battery
@@ -1771,6 +1922,7 @@ export interface Sensor {
 }
 
 /**
+ * @public
  * <p>A general abstraction of a signal. A node can be specified as an actuator, attribute,
  *             branch, or sensor.</p>
  */
@@ -1781,6 +1933,9 @@ export type Node =
   | Node.SensorMember
   | Node.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Node {
   /**
    * <p>Information about a node specified as a branch.</p>
@@ -1864,6 +2019,9 @@ export namespace Node {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateSignalCatalogRequest {
   /**
    * <p> The name of the signal catalog to create. </p>
@@ -1887,6 +2045,9 @@ export interface CreateSignalCatalogRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSignalCatalogResponse {
   /**
    * <p> The name of the created signal catalog. </p>
@@ -1900,6 +2061,7 @@ export interface CreateSignalCatalogResponse {
 }
 
 /**
+ * @public
  * <p>The specified node type doesn't match the expected node type for a node. You can
  *             specify the node type as branch, sensor, actuator, or attribute.</p>
  */
@@ -1931,6 +2093,9 @@ export class InvalidNodeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateVehicleRequest {
   /**
    * <p> The unique ID of the vehicle to create. </p>
@@ -1968,6 +2133,9 @@ export interface CreateVehicleRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateVehicleResponse {
   /**
    * <p>The unique ID of the created vehicle.</p>
@@ -1985,6 +2153,9 @@ export interface CreateVehicleResponse {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDecoderManifestRequest {
   /**
    * <p> The name of the decoder manifest to delete. </p>
@@ -1992,6 +2163,9 @@ export interface DeleteDecoderManifestRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDecoderManifestResponse {
   /**
    * <p>The name of the deleted decoder manifest.</p>
@@ -2004,6 +2178,9 @@ export interface DeleteDecoderManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDecoderManifestRequest {
   /**
    * <p> The name of the decoder manifest to retrieve information about. </p>
@@ -2011,11 +2188,17 @@ export interface GetDecoderManifestRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ManifestStatus {
   ACTIVE = "ACTIVE",
   DRAFT = "DRAFT",
 }
 
+/**
+ * @public
+ */
 export interface GetDecoderManifestResponse {
   /**
    * <p> The name of the decoder manifest. </p>
@@ -2057,10 +2240,14 @@ export interface GetDecoderManifestResponse {
 }
 
 /**
+ * @public
  * <p>Specifications for defining a vehicle network.</p>
  */
 export type NetworkFileDefinition = NetworkFileDefinition.CanDbcMember | NetworkFileDefinition.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace NetworkFileDefinition {
   /**
    * <p>Information, including CAN DBC files, about the configurations used to create a
@@ -2087,6 +2274,9 @@ export namespace NetworkFileDefinition {
   };
 }
 
+/**
+ * @public
+ */
 export interface ImportDecoderManifestRequest {
   /**
    * <p> The name of the decoder manifest to import. </p>
@@ -2099,6 +2289,9 @@ export interface ImportDecoderManifestRequest {
   networkFileDefinitions: NetworkFileDefinition[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportDecoderManifestResponse {
   /**
    * <p> The name of the imported decoder manifest. </p>
@@ -2111,6 +2304,9 @@ export interface ImportDecoderManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestNetworkInterfacesRequest {
   /**
    * <p> The name of the decoder manifest to list information about. </p>
@@ -2129,6 +2325,9 @@ export interface ListDecoderManifestNetworkInterfacesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestNetworkInterfacesResponse {
   /**
    * <p> A list of information about network interfaces. </p>
@@ -2141,6 +2340,9 @@ export interface ListDecoderManifestNetworkInterfacesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestsRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of a vehicle model (model manifest) associated with
@@ -2161,6 +2363,7 @@ export interface ListDecoderManifestsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a created decoder manifest. You can use the  API operation to return this information about
  *             multiple decoder manifests.</p>
  */
@@ -2207,6 +2410,9 @@ export interface DecoderManifestSummary {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestsResponse {
   /**
    * <p> A list of information about each decoder manifest. </p>
@@ -2219,6 +2425,9 @@ export interface ListDecoderManifestsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestSignalsRequest {
   /**
    * <p> The name of the decoder manifest to list information about. </p>
@@ -2237,6 +2446,9 @@ export interface ListDecoderManifestSignalsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestSignalsResponse {
   /**
    * <p> Information about a list of signals to decode. </p>
@@ -2249,6 +2461,9 @@ export interface ListDecoderManifestSignalsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDecoderManifestRequest {
   /**
    * <p> The name of the decoder manifest to update.</p>
@@ -2302,6 +2517,9 @@ export interface UpdateDecoderManifestRequest {
   status?: ManifestStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDecoderManifestResponse {
   /**
    * <p> The name of the updated decoder manifest. </p>
@@ -2314,6 +2532,9 @@ export interface UpdateDecoderManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetRequest {
   /**
    * <p> The ID of the fleet to delete. </p>
@@ -2321,6 +2542,9 @@ export interface DeleteFleetRequest {
   fleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetResponse {
   /**
    * <p>The ID of the deleted fleet.</p>
@@ -2333,6 +2557,9 @@ export interface DeleteFleetResponse {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteModelManifestRequest {
   /**
    * <p> The name of the model manifest to delete. </p>
@@ -2340,6 +2567,9 @@ export interface DeleteModelManifestRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteModelManifestResponse {
   /**
    * <p>The name of the deleted model manifest.</p>
@@ -2352,6 +2582,9 @@ export interface DeleteModelManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSignalCatalogRequest {
   /**
    * <p> The name of the signal catalog to delete. </p>
@@ -2359,6 +2592,9 @@ export interface DeleteSignalCatalogRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSignalCatalogResponse {
   /**
    * <p>The name of the deleted signal catalog.</p>
@@ -2371,6 +2607,9 @@ export interface DeleteSignalCatalogResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVehicleRequest {
   /**
    * <p>The ID of the vehicle to delete. </p>
@@ -2378,6 +2617,9 @@ export interface DeleteVehicleRequest {
   vehicleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVehicleResponse {
   /**
    * <p>The ID of the deleted vehicle.</p>
@@ -2390,6 +2632,9 @@ export interface DeleteVehicleResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateVehicleFleetRequest {
   /**
    * <p> The unique ID of the vehicle to disassociate from the fleet.</p>
@@ -2402,8 +2647,14 @@ export interface DisassociateVehicleFleetRequest {
   fleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateVehicleFleetResponse {}
 
+/**
+ * @public
+ */
 export interface ListFleetsForVehicleRequest {
   /**
    * <p> The ID of the vehicle to retrieve information about. </p>
@@ -2422,6 +2673,9 @@ export interface ListFleetsForVehicleRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsForVehicleResponse {
   /**
    * <p> A list of fleet IDs that the vehicle is associated with. </p>
@@ -2434,6 +2688,9 @@ export interface ListFleetsForVehicleResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFleetRequest {
   /**
    * <p> The ID of the fleet to retrieve information about. </p>
@@ -2441,6 +2698,9 @@ export interface GetFleetRequest {
   fleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFleetResponse {
   /**
    * <p> The ID of the fleet.</p>
@@ -2475,6 +2735,9 @@ export interface GetFleetResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsRequest {
   /**
    * <p>A pagination token for the next set of results.</p>
@@ -2489,6 +2752,7 @@ export interface ListFleetsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a fleet.</p>
  *         <p>You can use the  API operation to return this
  *             information about multiple fleets.</p>
@@ -2527,6 +2791,9 @@ export interface FleetSummary {
   lastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsResponse {
   /**
    * <p> A list of information for each fleet. </p>
@@ -2539,6 +2806,9 @@ export interface ListFleetsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetRequest {
   /**
    * <p> The ID of the fleet to update. </p>
@@ -2551,6 +2821,9 @@ export interface UpdateFleetRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetResponse {
   /**
    * <p>The ID of the updated fleet.</p>
@@ -2563,6 +2836,9 @@ export interface UpdateFleetResponse {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVehiclesInFleetRequest {
   /**
    * <p> The ID of a fleet. </p>
@@ -2581,6 +2857,9 @@ export interface ListVehiclesInFleetRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListVehiclesInFleetResponse {
   /**
    * <p> A list of vehicles associated with the fleet. </p>
@@ -2594,12 +2873,16 @@ export interface ListVehiclesInFleetResponse {
 }
 
 /**
+ * @public
  * <p>Vehicle Signal Specification (VSS) is a precise language used to describe and model
  *             signals in vehicle networks. The JSON file collects signal specificiations in a VSS
  *             format.</p>
  */
 export type FormattedVss = FormattedVss.VssJsonMember | FormattedVss.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FormattedVss {
   /**
    * <p>Provides the VSS in JSON format.</p>
@@ -2625,8 +2908,14 @@ export namespace FormattedVss {
   };
 }
 
+/**
+ * @public
+ */
 export interface GetLoggingOptionsRequest {}
 
+/**
+ * @public
+ */
 export interface GetLoggingOptionsResponse {
   /**
    * <p>Returns information about log delivery to Amazon CloudWatch Logs.</p>
@@ -2634,6 +2923,9 @@ export interface GetLoggingOptionsResponse {
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetModelManifestRequest {
   /**
    * <p> The name of the vehicle model to retrieve information about. </p>
@@ -2641,6 +2933,9 @@ export interface GetModelManifestRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetModelManifestResponse {
   /**
    * <p> The name of the vehicle model. </p>
@@ -2681,8 +2976,14 @@ export interface GetModelManifestResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRegisterAccountStatusRequest {}
 
+/**
+ * @public
+ */
 export enum RegistrationStatus {
   REGISTRATION_FAILURE = "REGISTRATION_FAILURE",
   REGISTRATION_PENDING = "REGISTRATION_PENDING",
@@ -2690,6 +2991,7 @@ export enum RegistrationStatus {
 }
 
 /**
+ * @public
  * <p>Information about registering an Identity and Access Management (IAM) resource so Amazon Web Services IoT FleetWise edge agent
  *             software can transfer your vehicle data to Amazon Timestream.</p>
  */
@@ -2713,6 +3015,7 @@ export interface IamRegistrationResponse {
 }
 
 /**
+ * @public
  * <p>Information about the registered Amazon Timestream resources or errors, if any.</p>
  */
 export interface TimestreamRegistrationResponse {
@@ -2749,6 +3052,9 @@ export interface TimestreamRegistrationResponse {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRegisterAccountStatusResponse {
   /**
    * <p> The unique ID of the Amazon Web Services account, provided at account creation. </p>
@@ -2801,6 +3107,9 @@ export interface GetRegisterAccountStatusResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSignalCatalogRequest {
   /**
    * <p> The name of the signal catalog to retrieve information about. </p>
@@ -2809,6 +3118,7 @@ export interface GetSignalCatalogRequest {
 }
 
 /**
+ * @public
  * <p>Information about the number of nodes and node types in a vehicle network.</p>
  */
 export interface NodeCounts {
@@ -2838,6 +3148,9 @@ export interface NodeCounts {
   totalActuators?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSignalCatalogResponse {
   /**
    * <p> The name of the signal catalog. </p>
@@ -2870,6 +3183,9 @@ export interface GetSignalCatalogResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVehicleRequest {
   /**
    * <p> The ID of the vehicle to retrieve information about. </p>
@@ -2877,6 +3193,9 @@ export interface GetVehicleRequest {
   vehicleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVehicleResponse {
   /**
    * <p>The ID of the vehicle.</p>
@@ -2917,6 +3236,9 @@ export interface GetVehicleResponse {
   lastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetVehicleStatusRequest {
   /**
    * <p>A pagination token for the next set of results.</p>
@@ -2935,6 +3257,9 @@ export interface GetVehicleStatusRequest {
   vehicleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum VehicleState {
   CREATED = "CREATED",
   DELETING = "DELETING",
@@ -2944,6 +3269,7 @@ export enum VehicleState {
 }
 
 /**
+ * @public
  * <p>Information about the state of a vehicle and how it relates to the status of a
  *             campaign.</p>
  */
@@ -2990,6 +3316,9 @@ export interface VehicleStatus {
   status?: VehicleState | string;
 }
 
+/**
+ * @public
+ */
 export interface GetVehicleStatusResponse {
   /**
    * <p> Lists information about the state of the vehicle with deployed campaigns. </p>
@@ -3003,6 +3332,7 @@ export interface GetVehicleStatusResponse {
 }
 
 /**
+ * @public
  * <p>The IAM resource that enables Amazon Web Services IoT FleetWise edge agent software to send data to
  *             Amazon Timestream. </p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
@@ -3017,6 +3347,9 @@ export interface IamResources {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportSignalCatalogRequest {
   /**
    * <p>The name of the signal catalog to import.</p>
@@ -3040,6 +3373,9 @@ export interface ImportSignalCatalogRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportSignalCatalogResponse {
   /**
    * <p> The name of the imported signal catalog. </p>
@@ -3052,6 +3388,9 @@ export interface ImportSignalCatalogResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -3059,6 +3398,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource.</p>
@@ -3066,6 +3408,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListModelManifestNodesRequest {
   /**
    * <p> The name of the vehicle model to list information about. </p>
@@ -3084,6 +3429,9 @@ export interface ListModelManifestNodesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListModelManifestNodesResponse {
   /**
    * <p> A list of information about nodes. </p>
@@ -3096,6 +3444,9 @@ export interface ListModelManifestNodesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelManifestsRequest {
   /**
    * <p> The ARN of a signal catalog. If you specify a signal catalog, only the vehicle models
@@ -3116,6 +3467,7 @@ export interface ListModelManifestsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a vehicle model (model manifest). You can use the  API operation to return this information about
  *             multiple vehicle models.</p>
  */
@@ -3160,6 +3512,9 @@ export interface ModelManifestSummary {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelManifestsResponse {
   /**
    * <p> A list of information about vehicle models.</p>
@@ -3172,6 +3527,9 @@ export interface ListModelManifestsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelManifestRequest {
   /**
    * <p> The name of the vehicle model to update. </p>
@@ -3203,6 +3561,9 @@ export interface UpdateModelManifestRequest {
   status?: ManifestStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelManifestResponse {
   /**
    * <p> The name of the updated vehicle model. </p>
@@ -3215,6 +3576,9 @@ export interface UpdateModelManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLoggingOptionsRequest {
   /**
    * <p>Creates or updates the log delivery option to Amazon CloudWatch Logs.</p>
@@ -3222,9 +3586,13 @@ export interface PutLoggingOptionsRequest {
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLoggingOptionsResponse {}
 
 /**
+ * @public
  * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
  *             your vehicle data to.</p>
  */
@@ -3240,6 +3608,9 @@ export interface TimestreamResources {
   timestreamTableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAccountRequest {
   /**
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
@@ -3255,6 +3626,9 @@ export interface RegisterAccountRequest {
   iamResources?: IamResources;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAccountResponse {
   /**
    * <p> The status of registering your Amazon Web Services account, IAM role, and Timestream resources.
@@ -3286,6 +3660,9 @@ export interface RegisterAccountResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalCatalogNodesRequest {
   /**
    * <p> The name of the signal catalog to list information about. </p>
@@ -3304,6 +3681,9 @@ export interface ListSignalCatalogNodesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalCatalogNodesResponse {
   /**
    * <p> A list of information about nodes. </p>
@@ -3316,6 +3696,9 @@ export interface ListSignalCatalogNodesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalCatalogsRequest {
   /**
    * <p>A pagination token for the next set of results.</p>
@@ -3330,6 +3713,7 @@ export interface ListSignalCatalogsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a collection of standardized signals, which can be attributes,
  *             branches, sensors, or actuators.</p>
  */
@@ -3355,6 +3739,9 @@ export interface SignalCatalogSummary {
   lastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalCatalogsResponse {
   /**
    * <p> A list of information about each signal catalog. </p>
@@ -3367,6 +3754,9 @@ export interface ListSignalCatalogsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSignalCatalogRequest {
   /**
    * <p> The name of the signal catalog to update. </p>
@@ -3395,6 +3785,9 @@ export interface UpdateSignalCatalogRequest {
   nodesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSignalCatalogResponse {
   /**
    * <p> The name of the updated signal catalog. </p>
@@ -3407,6 +3800,9 @@ export interface UpdateSignalCatalogResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -3419,8 +3815,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -3433,8 +3835,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface ListVehiclesRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of a vehicle model (model manifest). You can use this optional
@@ -3455,6 +3863,7 @@ export interface ListVehiclesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a vehicle.</p>
  *         <p>To return this information about vehicles in your account, you can use the  API operation.</p>
  */
@@ -3490,6 +3899,9 @@ export interface VehicleSummary {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVehiclesResponse {
   /**
    * <p> A list of vehicles and information about them. </p>
@@ -3502,6 +3914,9 @@ export interface ListVehiclesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVehicleRequest {
   /**
    * <p>The unique ID of the vehicle to update.</p>
@@ -3535,6 +3950,9 @@ export interface UpdateVehicleRequest {
   attributeUpdateMode?: UpdateMode | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVehicleResponse {
   /**
    * <p>The ID of the updated vehicle.</p>

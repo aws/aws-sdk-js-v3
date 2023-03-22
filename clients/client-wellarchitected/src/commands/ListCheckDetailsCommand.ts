@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCheckDetailsCommand}.
  */
 export interface ListCheckDetailsCommandInput extends ListCheckDetailsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCheckDetailsCommand}.
  */
 export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List of Trusted Advisor check details by account related to the workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCheckDetailsCommandInput - {@link ListCheckDetailsCommandInput}
+ * @returns {@link ListCheckDetailsCommandOutput}
  * @see {@link ListCheckDetailsCommandInput} for command's `input` shape.
  * @see {@link ListCheckDetailsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListCheckDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCheckDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListCheckDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCheckDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCheckDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCheckDetailsCommandOutput> {
     return deserializeAws_restJson1ListCheckDetailsCommand(output, context);
   }

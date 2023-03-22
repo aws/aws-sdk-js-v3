@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficMirrorSessionCommand}.
  */
 export interface CreateTrafficMirrorSessionCommandInput extends CreateTrafficMirrorSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficMirrorSessionCommand}.
  */
 export interface CreateTrafficMirrorSessionCommandOutput extends CreateTrafficMirrorSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Traffic Mirror session.</p>
  *          <p>A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it
  *          to the session to define a subset of the traffic to mirror, for example all TCP
@@ -52,6 +57,8 @@ export interface CreateTrafficMirrorSessionCommandOutput extends CreateTrafficMi
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficMirrorSessionCommandInput - {@link CreateTrafficMirrorSessionCommandInput}
+ * @returns {@link CreateTrafficMirrorSessionCommandOutput}
  * @see {@link CreateTrafficMirrorSessionCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficMirrorSessionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class CreateTrafficMirrorSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficMirrorSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class CreateTrafficMirrorSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficMirrorSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateTrafficMirrorSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

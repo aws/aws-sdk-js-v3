@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuiltInSlotTypesCommand}.
  */
 export interface ListBuiltInSlotTypesCommandInput extends ListBuiltInSlotTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBuiltInSlotTypesCommand}.
  */
 export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of built-in slot types that meet the specified
  *          criteria.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuiltInSlotTypesCommandInput - {@link ListBuiltInSlotTypesCommandInput}
+ * @returns {@link ListBuiltInSlotTypesCommandOutput}
  * @see {@link ListBuiltInSlotTypesCommandInput} for command's `input` shape.
  * @see {@link ListBuiltInSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -85,6 +92,9 @@ export class ListBuiltInSlotTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuiltInSlotTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class ListBuiltInSlotTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuiltInSlotTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBuiltInSlotTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuiltInSlotTypesCommandOutput> {
     return deserializeAws_restJson1ListBuiltInSlotTypesCommand(output, context);
   }

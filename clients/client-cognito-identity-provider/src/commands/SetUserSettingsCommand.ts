@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetUserSettingsCommand}.
  */
 export interface SetUserSettingsCommandInput extends SetUserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetUserSettingsCommand}.
  */
 export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <i>This action is no longer supported.</i> You can use it to configure
  *             only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
@@ -53,6 +58,8 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param SetUserSettingsCommandInput - {@link SetUserSettingsCommandInput}
+ * @returns {@link SetUserSettingsCommandOutput}
  * @see {@link SetUserSettingsCommandInput} for command's `input` shape.
  * @see {@link SetUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -102,6 +109,9 @@ export class SetUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class SetUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserSettingsCommandOutput> {
     return deserializeAws_json1_1SetUserSettingsCommand(output, context);
   }

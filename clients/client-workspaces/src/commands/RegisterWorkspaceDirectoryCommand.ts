@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterWorkspaceDirectoryCommand}.
  */
 export interface RegisterWorkspaceDirectoryCommandInput extends RegisterWorkspaceDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterWorkspaceDirectoryCommand}.
  */
 export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspaceDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the specified directory. This operation is asynchronous and returns before the
  *          WorkSpace directory is registered. If this is the first time you are registering a
  *          directory, you will need to create the workspaces_DefaultRole role before you can register
@@ -50,6 +55,8 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterWorkspaceDirectoryCommandInput - {@link RegisterWorkspaceDirectoryCommandInput}
+ * @returns {@link RegisterWorkspaceDirectoryCommandOutput}
  * @see {@link RegisterWorkspaceDirectoryCommandInput} for command's `input` shape.
  * @see {@link RegisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -101,6 +108,9 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterWorkspaceDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterWorkspaceDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterWorkspaceDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

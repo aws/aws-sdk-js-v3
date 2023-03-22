@@ -435,6 +435,7 @@ import {
 import { ServiceCatalogClient } from "./ServiceCatalogClient";
 
 /**
+ * @public
  * <fullname>Service Catalog</fullname>
  *          <p>
  *             <a href="http://aws.amazon.com/servicecatalog">Service Catalog</a> enables
@@ -445,6 +446,7 @@ import { ServiceCatalogClient } from "./ServiceCatalogClient";
  */
 export class ServiceCatalog extends ServiceCatalogClient {
   /**
+   * @public
    * <p>Accepts an offer to share the specified portfolio.</p>
    */
   public acceptPortfolioShare(
@@ -477,6 +479,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified budget with the specified resource.</p>
    */
   public associateBudgetWithResource(
@@ -509,6 +512,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified principal ARN with the specified portfolio.</p>
    *          <p>If you share the portfolio with principal name sharing enabled, the <code>PrincipalARN</code> association is
    *          included in the share. </p>
@@ -556,6 +560,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified product with the specified portfolio.</p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
    */
@@ -589,6 +594,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Associates a self-service action with a provisioning artifact.</p>
    */
   public associateServiceActionWithProvisioningArtifact(
@@ -623,6 +629,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Associate the specified TagOption with the specified portfolio or product.</p>
    */
   public associateTagOptionWithResource(
@@ -655,6 +662,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Associates multiple self-service actions with provisioning artifacts.</p>
    */
   public batchAssociateServiceActionWithProvisioningArtifact(
@@ -689,6 +697,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
    */
   public batchDisassociateServiceActionFromProvisioningArtifact(
@@ -723,6 +732,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Copies the specified source product to the specified target product or a new
    *          product.</p>
    *          <p>You can copy a product to the same account or another account. You can copy a product
@@ -755,6 +765,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Creates a constraint.</p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
    */
@@ -788,6 +799,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Creates a portfolio.</p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
    */
@@ -821,6 +833,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Shares the specified portfolio with the specified account or organization node.
    *          Shares to an organization node can only be created by the management account of an
    *          organization or by a delegated administrator. You can share portfolios to an organization,
@@ -871,6 +884,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Creates a product.</p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
    *          <p>The user or role that performs this operation must have the
@@ -908,6 +922,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Creates a plan.</p>
    *          <p>A plan includes the list of resources to be
    *          created (when provisioning a new product) or modified (when updating a provisioned product)
@@ -947,6 +962,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
    *          <p>You cannot create a provisioning artifact for a product that was shared with you.</p>
    *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
@@ -983,6 +999,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Creates a self-service action.</p>
    */
   public createServiceAction(
@@ -1015,6 +1032,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Creates a TagOption.</p>
    */
   public createTagOption(
@@ -1047,6 +1065,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified constraint.</p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
    */
@@ -1080,6 +1099,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified portfolio.</p>
    *          <p>You cannot delete a portfolio if it was shared with you or if it has associated
    *          products, users, constraints, or shared accounts.</p>
@@ -1115,6 +1135,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Stops sharing the specified portfolio with the specified account or organization
    *          node. Shares to an organization node can only be deleted by the management account of an
    *          organization or by a delegated administrator.</p>
@@ -1150,6 +1171,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified product.</p>
    *          <p>You cannot delete a product if it was shared with you or is associated with a portfolio.</p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
@@ -1184,6 +1206,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified plan.</p>
    */
   public deleteProvisionedProductPlan(
@@ -1216,6 +1239,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>
    *          <p>You cannot delete a provisioning artifact associated with a product that was shared with you.
    *          You cannot delete the last provisioning artifact for a product, because a product must have at
@@ -1251,6 +1275,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Deletes a self-service action.</p>
    */
   public deleteServiceAction(
@@ -1283,6 +1308,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified TagOption.</p>
    *          <p>You cannot delete a TagOption if it is associated with a product or portfolio.</p>
    */
@@ -1316,6 +1342,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified constraint.</p>
    */
   public describeConstraint(
@@ -1348,6 +1375,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets the status of the specified copy product operation.</p>
    */
   public describeCopyProductStatus(
@@ -1380,6 +1408,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified portfolio.</p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
    */
@@ -1413,6 +1442,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Returns a summary of each of the portfolio shares that were created for the specified portfolio.</p>
    *          <p>You can use this API to determine which accounts or organizational nodes this
    *          portfolio have been shared, whether the recipient entity has imported the share, and
@@ -1449,6 +1479,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets the status of the specified portfolio share operation. This API can only be called
    *          by the management account in the organization or by a delegated admin.</p>
    */
@@ -1482,6 +1513,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified product.</p>
    *          <note>
    *             <p>
@@ -1523,6 +1555,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified product. This operation is run with administrator access.</p>
    */
   public describeProductAsAdmin(
@@ -1555,6 +1588,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified product.</p>
    */
   public describeProductView(
@@ -1587,6 +1621,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified provisioned product.</p>
    */
   public describeProvisionedProduct(
@@ -1619,6 +1654,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the resource changes for the specified plan.</p>
    */
   public describeProvisionedProductPlan(
@@ -1651,6 +1687,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified provisioning artifact (also known as a version) for the specified product.</p>
    */
   public describeProvisioningArtifact(
@@ -1683,6 +1720,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the configuration required to provision the specified product using
    *          the specified provisioning artifact.</p>
    *          <p>If the output contains a TagOption key with an empty list of values, there is a
@@ -1722,6 +1760,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified request operation.</p>
    *          <p>Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>,
    *          <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>).
@@ -1762,6 +1801,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Describes a self-service action.</p>
    */
   public describeServiceAction(
@@ -1794,6 +1834,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Finds the default parameters for a specific self-service action on a specific provisioned product and returns a map of the results to the user.</p>
    */
   public describeServiceActionExecutionParameters(
@@ -1828,6 +1869,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the specified TagOption.</p>
    */
   public describeTagOption(
@@ -1860,6 +1902,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Disable portfolio sharing through the Organizations service. This command will not
    *          delete your current shares, but prevents you from creating new shares throughout your
    *          organization. Current shares are not kept in sync with your organization structure if the structure
@@ -1904,6 +1947,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified budget from the specified resource.</p>
    */
   public disassociateBudgetFromResource(
@@ -1936,6 +1980,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a previously associated principal ARN from a specified
    *          portfolio.</p>
    *          <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the
@@ -1976,6 +2021,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified product from the specified portfolio. </p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
    */
@@ -2009,6 +2055,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>
    */
   public disassociateServiceActionFromProvisioningArtifact(
@@ -2043,6 +2090,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Disassociates the specified TagOption from the specified resource.</p>
    */
   public disassociateTagOptionFromResource(
@@ -2075,6 +2123,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the
    *          current structure. This API can only be called by the management account in the organization.</p>
    *          <p>When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code> on your behalf so that your shares stay in sync with any changes in your Organizations structure.</p>
@@ -2119,6 +2168,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Provisions or modifies a product based on the resource changes for the specified plan.</p>
    */
   public executeProvisionedProductPlan(
@@ -2151,6 +2201,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Executes a self-service action against a provisioned product.</p>
    */
   public executeProvisionedProductServiceAction(
@@ -2185,6 +2236,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Get the Access Status for Organizations portfolio share feature. This API can only be
    *          called by the management account in the organization or by a delegated admin.</p>
    */
@@ -2218,6 +2270,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>This API takes either a <code>ProvisonedProductId</code> or a <code>ProvisionedProductName</code>, along with a list of one or more output keys, and responds with the key/value pairs of those outputs.</p>
    */
   public getProvisionedProductOutputs(
@@ -2250,6 +2303,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>
    *          Requests the import
    *          of a resource
@@ -2323,6 +2377,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all imported portfolios for which account-to-account shares were accepted by
    *          this account. By specifying the <code>PortfolioShareType</code>, you can list portfolios for which
    *          organizational shares were accepted by this account.</p>
@@ -2357,6 +2412,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all the budgets associated to the specified resource.</p>
    */
   public listBudgetsForResource(
@@ -2389,6 +2445,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists the constraints for the specified portfolio and product.</p>
    */
   public listConstraintsForPortfolio(
@@ -2421,6 +2478,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>
    *          Lists the paths
    *          to the specified product.
@@ -2478,6 +2536,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists the organization nodes that have access to the specified portfolio. This API can
    *          only be called by the management account in the organization or by a delegated
    *          admin.</p>
@@ -2513,6 +2572,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists the account IDs that have access to the specified portfolio.</p>
    *          <p>A delegated admin can list the accounts that have access to the shared portfolio. Note that if a delegated admin is de-registered, they can no longer perform this operation.</p>
    */
@@ -2546,6 +2606,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all portfolios in the catalog.</p>
    */
   public listPortfolios(
@@ -2578,6 +2639,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all portfolios that the specified product is associated with.</p>
    */
   public listPortfoliosForProduct(
@@ -2610,6 +2672,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the specified portfolio.</p>
    */
   public listPrincipalsForPortfolio(
@@ -2642,6 +2705,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>
    */
   public listProvisionedProductPlans(
@@ -2674,6 +2738,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all provisioning artifacts (also known as versions) for the specified product.</p>
    */
   public listProvisioningArtifacts(
@@ -2706,6 +2771,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all provisioning artifacts (also known as versions) for the specified self-service action.</p>
    */
   public listProvisioningArtifactsForServiceAction(
@@ -2740,6 +2806,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists the specified requests or all performed requests.</p>
    */
   public listRecordHistory(
@@ -2772,6 +2839,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists the resources associated with the specified TagOption.</p>
    */
   public listResourcesForTagOption(
@@ -2804,6 +2872,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists all self-service actions.</p>
    */
   public listServiceActions(
@@ -2836,6 +2905,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>
    */
   public listServiceActionsForProvisioningArtifact(
@@ -2870,6 +2940,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region. </p>
    */
   public listStackInstancesForProvisionedProduct(
@@ -2904,6 +2975,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists the specified TagOptions or all TagOptions.</p>
    */
   public listTagOptions(
@@ -2936,6 +3008,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>
    *          Provisions the specified product.
    *       </p>
@@ -3004,6 +3077,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Rejects an offer to share the specified portfolio.</p>
    */
   public rejectPortfolioShare(
@@ -3036,6 +3110,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Lists the provisioned products that are available (not terminated).</p>
    *          <p>To use additional filtering, see <a>SearchProvisionedProducts</a>.</p>
    */
@@ -3069,6 +3144,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the products to which the caller has access.</p>
    */
   public searchProducts(
@@ -3101,6 +3177,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the products for the specified portfolio or all products.</p>
    */
   public searchProductsAsAdmin(
@@ -3133,6 +3210,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Gets information about the provisioned products that meet the specified criteria.</p>
    */
   public searchProvisionedProducts(
@@ -3165,6 +3243,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Terminates the specified provisioned product.</p>
    *          <p>This operation does not delete any records associated with the provisioned product.</p>
    *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
@@ -3199,6 +3278,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified constraint.</p>
    */
   public updateConstraint(
@@ -3231,6 +3311,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified portfolio.</p>
    *          <p>You cannot update a product that was shared with you.</p>
    */
@@ -3264,6 +3345,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code> sharing
    *          or Principal sharing for an existing portfolio share. </p>
    *          <p>The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be COMPLETED.</p>
@@ -3310,6 +3392,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified product.</p>
    */
   public updateProduct(
@@ -3342,6 +3425,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Requests updates to the configuration of the specified provisioned product.</p>
    *          <p>If there are tags associated with the object, they cannot be updated or added.
    *          Depending on the specific updates requested, this operation can update with no
@@ -3378,6 +3462,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Requests updates to the properties of the specified provisioned product.</p>
    */
   public updateProvisionedProductProperties(
@@ -3410,6 +3495,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified provisioning artifact (also known as a version) for the specified product.</p>
    *          <p>You cannot update a provisioning artifact for a product that was shared with you.</p>
    */
@@ -3443,6 +3529,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Updates a self-service action.</p>
    */
   public updateServiceAction(
@@ -3475,6 +3562,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified TagOption.</p>
    */
   public updateTagOption(

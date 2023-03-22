@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTableReplicaAutoScalingCommand}.
  */
 export interface DescribeTableReplicaAutoScalingCommandInput extends DescribeTableReplicaAutoScalingInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTableReplicaAutoScalingCommand}.
  */
 export interface DescribeTableReplicaAutoScalingCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes auto scaling settings across replicas of the global table at once.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
@@ -52,6 +57,8 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTableReplicaAutoScalingCommandInput - {@link DescribeTableReplicaAutoScalingCommandInput}
+ * @returns {@link DescribeTableReplicaAutoScalingCommandOutput}
  * @see {@link DescribeTableReplicaAutoScalingCommandInput} for command's `input` shape.
  * @see {@link DescribeTableReplicaAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableReplicaAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTableReplicaAutoScalingCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
     return serializeAws_json1_0DescribeTableReplicaAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

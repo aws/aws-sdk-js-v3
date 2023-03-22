@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExternalModelCommand}.
  */
 export interface DeleteExternalModelCommandInput extends DeleteExternalModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExternalModelCommand}.
  */
 export interface DeleteExternalModelCommandOutput extends DeleteExternalModelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a SageMaker model from Amazon Fraud Detector.</p>
  *          <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteExternalModelCommandOutput extends DeleteExternalModelRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExternalModelCommandInput - {@link DeleteExternalModelCommandInput}
+ * @returns {@link DeleteExternalModelCommandOutput}
  * @see {@link DeleteExternalModelCommandInput} for command's `input` shape.
  * @see {@link DeleteExternalModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -85,6 +92,9 @@ export class DeleteExternalModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExternalModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DeleteExternalModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExternalModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteExternalModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExternalModelCommandOutput> {
     return deserializeAws_json1_1DeleteExternalModelCommand(output, context);
   }

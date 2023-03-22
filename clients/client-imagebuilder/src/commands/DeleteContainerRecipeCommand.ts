@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContainerRecipeCommand}.
  */
 export interface DeleteContainerRecipeCommandInput extends DeleteContainerRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContainerRecipeCommand}.
  */
 export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a container recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContainerRecipeCommandInput - {@link DeleteContainerRecipeCommandInput}
+ * @returns {@link DeleteContainerRecipeCommandOutput}
  * @see {@link DeleteContainerRecipeCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteContainerRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContainerRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteContainerRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContainerRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteContainerRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContainerRecipeCommandOutput> {
     return deserializeAws_restJson1DeleteContainerRecipeCommand(output, context);
   }

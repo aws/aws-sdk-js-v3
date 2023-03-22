@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteListenerCommand}.
  */
 export interface DeleteListenerCommandInput extends DeleteListenerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteListenerCommand}.
  */
 export interface DeleteListenerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a listener from an accelerator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteListenerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteListenerCommandInput - {@link DeleteListenerCommandInput}
+ * @returns {@link DeleteListenerCommandOutput}
  * @see {@link DeleteListenerCommandInput} for command's `input` shape.
  * @see {@link DeleteListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteListenerCommandOutput> {
     return deserializeAws_json1_1DeleteListenerCommand(output, context);
   }

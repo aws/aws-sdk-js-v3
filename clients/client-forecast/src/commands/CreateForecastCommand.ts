@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateForecastCommand}.
  */
 export interface CreateForecastCommandInput extends CreateForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateForecastCommand}.
  */
 export interface CreateForecastCommandOutput extends CreateForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that was
  *       used to train the predictor. This is known as inference. To retrieve the forecast for a single
  *       item at low latency, use the  operation. To
@@ -66,6 +71,8 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateForecastCommandInput - {@link CreateForecastCommandInput}
+ * @returns {@link CreateForecastCommandOutput}
  * @see {@link CreateForecastCommandInput} for command's `input` shape.
  * @see {@link CreateForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -106,6 +113,9 @@ export class CreateForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class CreateForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateForecastCommandOutput> {
     return deserializeAws_json1_1CreateForecastCommand(output, context);
   }

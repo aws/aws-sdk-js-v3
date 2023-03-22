@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAWSDefaultServiceQuotasCommand}.
  */
 export interface ListAWSDefaultServiceQuotasCommandInput extends ListAWSDefaultServiceQuotasRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAWSDefaultServiceQuotasCommand}.
  */
 export interface ListAWSDefaultServiceQuotasCommandOutput
@@ -37,6 +41,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the default values for the quotas for the specified AWS service. A default value
  *       does not reflect any quota increases.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAWSDefaultServiceQuotasCommandInput - {@link ListAWSDefaultServiceQuotasCommandInput}
+ * @returns {@link ListAWSDefaultServiceQuotasCommandOutput}
  * @see {@link ListAWSDefaultServiceQuotasCommandInput} for command's `input` shape.
  * @see {@link ListAWSDefaultServiceQuotasCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -91,6 +98,9 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAWSDefaultServiceQuotasCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAWSDefaultServiceQuotasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAWSDefaultServiceQuotasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

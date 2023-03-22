@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFunctionUrlConfigCommand}.
  */
 export interface GetFunctionUrlConfigCommandInput extends GetFunctionUrlConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFunctionUrlConfigCommand}.
  */
 export interface GetFunctionUrlConfigCommandOutput extends GetFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about a Lambda function URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFunctionUrlConfigCommandOutput extends GetFunctionUrlConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionUrlConfigCommandInput - {@link GetFunctionUrlConfigCommandInput}
+ * @returns {@link GetFunctionUrlConfigCommandOutput}
  * @see {@link GetFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link GetFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetFunctionUrlConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionUrlConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetFunctionUrlConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFunctionUrlConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionUrlConfigCommandOutput> {
     return deserializeAws_restJson1GetFunctionUrlConfigCommand(output, context);
   }

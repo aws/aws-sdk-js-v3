@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReplicationSetCommand}.
  */
 export interface GetReplicationSetCommandInput extends GetReplicationSetInput {}
 /**
+ * @public
+ *
  * The output of {@link GetReplicationSetCommand}.
  */
 export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve your Incident Manager replication set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReplicationSetCommandInput - {@link GetReplicationSetCommandInput}
+ * @returns {@link GetReplicationSetCommandOutput}
  * @see {@link GetReplicationSetCommandInput} for command's `input` shape.
  * @see {@link GetReplicationSetCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetReplicationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReplicationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetReplicationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReplicationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetReplicationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReplicationSetCommandOutput> {
     return deserializeAws_restJson1GetReplicationSetCommand(output, context);
   }

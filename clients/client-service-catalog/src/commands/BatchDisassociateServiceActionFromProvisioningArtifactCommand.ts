@@ -26,11 +26,15 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisassociateServiceActionFromProvisioningArtifactCommand}.
  */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandInput
   extends BatchDisassociateServiceActionFromProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisassociateServiceActionFromProvisioningArtifactCommand}.
  */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
@@ -38,6 +42,7 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateServiceActionFromProvisioningArtifactCommandInput - {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandInput}
+ * @returns {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput}
  * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     return serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

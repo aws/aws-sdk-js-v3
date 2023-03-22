@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactPolicyCommand}.
  */
 export interface GetContactPolicyCommandInput extends GetContactPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactPolicyCommand}.
  */
 export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource policies attached to the specified contact or escalation
  *          plan.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactPolicyCommandInput - {@link GetContactPolicyCommandInput}
+ * @returns {@link GetContactPolicyCommandOutput}
  * @see {@link GetContactPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContactPolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetContactPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class GetContactPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContactPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContactPolicyCommandOutput> {
     return deserializeAws_json1_1GetContactPolicyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVirtualGatewayCommand}.
  */
 export interface UpdateVirtualGatewayCommandInput extends UpdateVirtualGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVirtualGatewayCommand}.
  */
 export interface UpdateVirtualGatewayCommandOutput extends UpdateVirtualGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing virtual gateway in a specified service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateVirtualGatewayCommandOutput extends UpdateVirtualGatewayO
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVirtualGatewayCommandInput - {@link UpdateVirtualGatewayCommandInput}
+ * @returns {@link UpdateVirtualGatewayCommandOutput}
  * @see {@link UpdateVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualGatewayCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -98,6 +105,9 @@ export class UpdateVirtualGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVirtualGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class UpdateVirtualGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVirtualGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVirtualGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualGatewayCommandOutput> {
     return deserializeAws_restJson1UpdateVirtualGatewayCommand(output, context);
   }

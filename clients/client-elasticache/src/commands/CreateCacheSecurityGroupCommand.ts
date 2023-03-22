@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCacheSecurityGroupCommand}.
  */
 export interface CreateCacheSecurityGroupCommandInput extends CreateCacheSecurityGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateCacheSecurityGroupCommand}.
  */
 export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecurityGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cache security group. Use a
  *             cache security group to control access to one or more clusters.</p>
  *          <p>Cache security groups are only used when you are creating a cluster outside of an Amazon
@@ -51,6 +56,8 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCacheSecurityGroupCommandInput - {@link CreateCacheSecurityGroupCommandInput}
+ * @returns {@link CreateCacheSecurityGroupCommandOutput}
  * @see {@link CreateCacheSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCacheSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateCacheSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCacheSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class CreateCacheSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCacheSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateCacheSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheSecurityGroupCommandOutput> {
     return deserializeAws_queryCreateCacheSecurityGroupCommand(output, context);
   }

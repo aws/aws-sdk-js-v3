@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterDelegatedAdministratorCommand}.
  */
 export interface RegisterDelegatedAdministratorCommandInput extends RegisterDelegatedAdministratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterDelegatedAdministratorCommand}.
  */
 export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified member account to administer the Organizations features of the specified
  *             Amazon Web Services service. It grants read-only access to Organizations service data. The account still
  *             requires IAM permissions to access and administer the Amazon Web Services service.</p>
@@ -52,6 +57,8 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDelegatedAdministratorCommandInput - {@link RegisterDelegatedAdministratorCommandInput}
+ * @returns {@link RegisterDelegatedAdministratorCommandOutput}
  * @see {@link RegisterDelegatedAdministratorCommandInput} for command's `input` shape.
  * @see {@link RegisterDelegatedAdministratorCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -414,6 +421,9 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDelegatedAdministratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -453,6 +463,9 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterDelegatedAdministratorCommandInput,
     context: __SerdeContext
@@ -460,6 +473,9 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
     return serializeAws_json1_1RegisterDelegatedAdministratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBulkPublishDetailsCommand}.
  */
 export interface GetBulkPublishDetailsCommandInput extends GetBulkPublishDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBulkPublishDetailsCommand}.
  */
 export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the status of the last BulkPublish operation for an identity pool.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBulkPublishDetailsCommandInput - {@link GetBulkPublishDetailsCommandInput}
+ * @returns {@link GetBulkPublishDetailsCommandOutput}
  * @see {@link GetBulkPublishDetailsCommandInput} for command's `input` shape.
  * @see {@link GetBulkPublishDetailsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -85,6 +92,9 @@ export class GetBulkPublishDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBulkPublishDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetBulkPublishDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBulkPublishDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBulkPublishDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBulkPublishDetailsCommandOutput> {
     return deserializeAws_restJson1GetBulkPublishDetailsCommand(output, context);
   }

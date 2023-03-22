@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectChildrenCommand}.
  */
 export interface ListObjectChildrenCommandInput extends ListObjectChildrenRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectChildrenCommand}.
  */
 export interface ListObjectChildrenCommandOutput extends ListObjectChildrenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of child objects that are associated with a given
  *       object.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectChildrenCommandInput - {@link ListObjectChildrenCommandInput}
+ * @returns {@link ListObjectChildrenCommandOutput}
  * @see {@link ListObjectChildrenCommandInput} for command's `input` shape.
  * @see {@link ListObjectChildrenCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +109,9 @@ export class ListObjectChildrenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectChildrenCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class ListObjectChildrenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectChildrenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListObjectChildrenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectChildrenCommandOutput> {
     return deserializeAws_restJson1ListObjectChildrenCommand(output, context);
   }

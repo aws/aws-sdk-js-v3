@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCoreNetworkCommand}.
  */
 export interface GetCoreNetworkCommandInput extends GetCoreNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCoreNetworkCommand}.
  */
 export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the LIVE policy for a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoreNetworkCommandInput - {@link GetCoreNetworkCommandInput}
+ * @returns {@link GetCoreNetworkCommandOutput}
  * @see {@link GetCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetCoreNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoreNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetCoreNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCoreNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreNetworkCommandOutput> {
     return deserializeAws_restJson1GetCoreNetworkCommand(output, context);
   }

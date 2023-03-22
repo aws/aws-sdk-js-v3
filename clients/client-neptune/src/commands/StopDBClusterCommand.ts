@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link StopDBClusterCommand}.
  */
 export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link StopDBClusterCommand}.
  */
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune
  *       retains the DB cluster's metadata, including its endpoints and DB parameter
  *       groups.</p>
@@ -50,6 +55,8 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDBClusterCommandInput - {@link StopDBClusterCommandInput}
+ * @returns {@link StopDBClusterCommandOutput}
  * @see {@link StopDBClusterCommandInput} for command's `input` shape.
  * @see {@link StopDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -83,6 +90,9 @@ export class StopDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class StopDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStopDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBClusterCommandOutput> {
     return deserializeAws_queryStopDBClusterCommand(output, context);
   }

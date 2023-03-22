@@ -10,7 +10,7 @@ import { ImagebuilderClient } from "../ImagebuilderClient";
 import { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ImagebuilderClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListComponentBuildVersionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListComponentBuildVersions(
   config: ImagebuilderPaginationConfiguration,
   input: ListComponentBuildVersionsCommandInput,

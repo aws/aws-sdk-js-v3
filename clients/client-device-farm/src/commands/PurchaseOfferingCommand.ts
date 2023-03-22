@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseOfferingCommand}.
  */
 export interface PurchaseOfferingCommandInput extends PurchaseOfferingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseOfferingCommand}.
  */
 export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased
  *             quantity for an offering, unless the renewal was overridden. The API returns a <code>NotEligible</code>
  *             error if the user is not permitted to invoke the operation. If you must be able to invoke this operation,
@@ -49,6 +54,8 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseOfferingCommandInput - {@link PurchaseOfferingCommandInput}
+ * @returns {@link PurchaseOfferingCommandOutput}
  * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -123,6 +130,9 @@ export class PurchaseOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class PurchaseOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PurchaseOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PurchaseOfferingCommandOutput> {
     return deserializeAws_json1_1PurchaseOfferingCommand(output, context);
   }

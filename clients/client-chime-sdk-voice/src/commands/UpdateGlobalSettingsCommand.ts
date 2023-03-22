@@ -21,10 +21,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGlobalSettingsCommand}.
  */
 export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGlobalSettingsCommand}.
  */
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
@@ -46,6 +50,9 @@ export class UpdateGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,10 +92,16 @@ export class UpdateGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalSettingsCommandOutput> {
     return deserializeAws_restJson1UpdateGlobalSettingsCommand(output, context);
   }

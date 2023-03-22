@@ -26,15 +26,20 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMembersCommand}.
  */
 export interface ListMembersCommandInput extends ListMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMembersCommand}.
  */
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists details about all member accounts for the current Security Hub administrator
  *          account.</p>
  *          <p>The results include both member accounts that belong to an organization and member
@@ -49,6 +54,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMembersCommandInput - {@link ListMembersCommandInput}
+ * @returns {@link ListMembersCommandOutput}
  * @see {@link ListMembersCommandInput} for command's `input` shape.
  * @see {@link ListMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
     return deserializeAws_restJson1ListMembersCommand(output, context);
   }

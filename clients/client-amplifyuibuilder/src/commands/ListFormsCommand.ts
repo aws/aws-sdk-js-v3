@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFormsCommand}.
  */
 export interface ListFormsCommandInput extends ListFormsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFormsCommand}.
  */
 export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of forms for a specified Amplify app and backend environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFormsCommandInput - {@link ListFormsCommandInput}
+ * @returns {@link ListFormsCommandOutput}
  * @see {@link ListFormsCommandInput} for command's `input` shape.
  * @see {@link ListFormsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListFormsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFormsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListFormsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFormsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFormsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFormsCommandOutput> {
     return deserializeAws_restJson1ListFormsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveUserFromGroupCommand}.
  */
 export interface RemoveUserFromGroupCommandInput extends RemoveUserFromGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveUserFromGroupCommand}.
  */
 export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified user from the specified group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveUserFromGroupCommandInput - {@link RemoveUserFromGroupCommandInput}
+ * @returns {@link RemoveUserFromGroupCommandOutput}
  * @see {@link RemoveUserFromGroupCommandInput} for command's `input` shape.
  * @see {@link RemoveUserFromGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -88,6 +95,9 @@ export class RemoveUserFromGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveUserFromGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class RemoveUserFromGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveUserFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRemoveUserFromGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveUserFromGroupCommandOutput> {
     return deserializeAws_queryRemoveUserFromGroupCommand(output, context);
   }

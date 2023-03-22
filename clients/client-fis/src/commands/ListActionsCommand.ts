@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListActionsCommand}.
  */
 export interface ListActionsCommandInput extends ListActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListActionsCommand}.
  */
 export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the available FIS actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActionsCommandInput - {@link ListActionsCommandInput}
+ * @returns {@link ListActionsCommandOutput}
  * @see {@link ListActionsCommandInput} for command's `input` shape.
  * @see {@link ListActionsCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActionsCommandOutput> {
     return deserializeAws_restJson1ListActionsCommand(output, context);
   }

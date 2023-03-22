@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmTransitVirtualInterfaceCommand}.
  */
 export interface ConfirmTransitVirtualInterfaceCommandInput extends ConfirmTransitVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmTransitVirtualInterfaceCommand}.
  */
 export interface ConfirmTransitVirtualInterfaceCommandOutput
@@ -37,6 +41,7 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts ownership of a transit virtual interface created by another Amazon Web Services account.</p>
  *          <p> After the owner of the transit virtual interface makes this call, the specified transit virtual interface is created and made available to handle traffic.</p>
  * @example
@@ -49,6 +54,8 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmTransitVirtualInterfaceCommandInput - {@link ConfirmTransitVirtualInterfaceCommandInput}
+ * @returns {@link ConfirmTransitVirtualInterfaceCommandOutput}
  * @see {@link ConfirmTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmTransitVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -78,6 +85,9 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmTransitVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConfirmTransitVirtualInterfaceCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
     return serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

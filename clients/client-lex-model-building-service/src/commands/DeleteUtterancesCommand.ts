@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUtterancesCommand}.
  */
 export interface DeleteUtterancesCommandInput extends DeleteUtterancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUtterancesCommand}.
  */
 export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes stored utterances.</p>
  *          <p>Amazon Lex stores the utterances that users send to your bot. Utterances
  *       are stored for 15 days for use with the <a>GetUtterancesView</a> operation, and then stored indefinitely for use in improving the
@@ -56,6 +61,8 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUtterancesCommandInput - {@link DeleteUtterancesCommandInput}
+ * @returns {@link DeleteUtterancesCommandOutput}
  * @see {@link DeleteUtterancesCommandInput} for command's `input` shape.
  * @see {@link DeleteUtterancesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteUtterancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUtterancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteUtterancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUtterancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteUtterancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUtterancesCommandOutput> {
     return deserializeAws_restJson1DeleteUtterancesCommand(output, context);
   }

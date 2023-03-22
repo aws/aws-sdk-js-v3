@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAssetModelCommand}.
  */
 export interface DescribeAssetModelCommandInput extends DescribeAssetModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAssetModelCommand}.
  */
 export interface DescribeAssetModelCommandOutput extends DescribeAssetModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an asset model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssetModelCommandInput - {@link DescribeAssetModelCommandInput}
+ * @returns {@link DescribeAssetModelCommandOutput}
  * @see {@link DescribeAssetModelCommandInput} for command's `input` shape.
  * @see {@link DescribeAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeAssetModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssetModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeAssetModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeAssetModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssetModelCommandOutput> {
     return deserializeAws_restJson1DescribeAssetModelCommand(output, context);
   }

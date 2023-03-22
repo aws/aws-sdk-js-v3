@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAnnotationImportJobCommand}.
  */
 export interface StartAnnotationImportJobCommandInput extends StartAnnotationImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAnnotationImportJobCommand}.
  */
 export interface StartAnnotationImportJobCommandOutput extends StartAnnotationImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an annotation import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAnnotationImportJobCommandInput - {@link StartAnnotationImportJobCommandInput}
+ * @returns {@link StartAnnotationImportJobCommandOutput}
  * @see {@link StartAnnotationImportJobCommandInput} for command's `input` shape.
  * @see {@link StartAnnotationImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +94,9 @@ export class StartAnnotationImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAnnotationImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class StartAnnotationImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAnnotationImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartAnnotationImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAnnotationImportJobCommandOutput> {
     return deserializeAws_restJson1StartAnnotationImportJobCommand(output, context);
   }

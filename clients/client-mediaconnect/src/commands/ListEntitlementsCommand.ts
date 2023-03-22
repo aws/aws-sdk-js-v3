@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitlementsCommand}.
  */
 export interface ListEntitlementsCommandInput extends ListEntitlementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitlementsCommand}.
  */
 export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitlementsCommandInput - {@link ListEntitlementsCommandInput}
+ * @returns {@link ListEntitlementsCommandOutput}
  * @see {@link ListEntitlementsCommandInput} for command's `input` shape.
  * @see {@link ListEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListEntitlementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitlementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ListEntitlementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEntitlementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitlementsCommandOutput> {
     return deserializeAws_restJson1ListEntitlementsCommand(output, context);
   }

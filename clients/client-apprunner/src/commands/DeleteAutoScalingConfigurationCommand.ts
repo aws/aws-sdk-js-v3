@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAutoScalingConfigurationCommand}.
  */
 export interface DeleteAutoScalingConfigurationCommandInput extends DeleteAutoScalingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAutoScalingConfigurationCommand}.
  */
 export interface DeleteAutoScalingConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an App Runner automatic scaling configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
  *       configuration that's used by one or more App Runner services.</p>
  * @example
@@ -49,6 +54,8 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAutoScalingConfigurationCommandInput - {@link DeleteAutoScalingConfigurationCommandInput}
+ * @returns {@link DeleteAutoScalingConfigurationCommandOutput}
  * @see {@link DeleteAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAutoScalingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,6 +130,9 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAutoScalingConfigurationCommandInput,
     context: __SerdeContext
@@ -127,6 +140,9 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     return serializeAws_json1_0DeleteAutoScalingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

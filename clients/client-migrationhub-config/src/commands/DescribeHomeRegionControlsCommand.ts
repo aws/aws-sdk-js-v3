@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHomeRegionControlsCommand}.
  */
 export interface DescribeHomeRegionControlsCommandInput extends DescribeHomeRegionControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHomeRegionControlsCommand}.
  */
 export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeRegionControlsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>
  *       fields.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHomeRegionControlsCommandInput - {@link DescribeHomeRegionControlsCommandInput}
+ * @returns {@link DescribeHomeRegionControlsCommandOutput}
  * @see {@link DescribeHomeRegionControlsCommandInput} for command's `input` shape.
  * @see {@link DescribeHomeRegionControlsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHomeRegionControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHomeRegionControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeHomeRegionControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFindingsFilterCommand}.
  */
 export interface DeleteFindingsFilterCommandInput extends DeleteFindingsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFindingsFilterCommand}.
  */
 export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a findings filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFindingsFilterCommandInput - {@link DeleteFindingsFilterCommandInput}
+ * @returns {@link DeleteFindingsFilterCommandOutput}
  * @see {@link DeleteFindingsFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteFindingsFilterCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteFindingsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFindingsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteFindingsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFindingsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteFindingsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFindingsFilterCommandOutput> {
     return deserializeAws_restJson1DeleteFindingsFilterCommand(output, context);
   }

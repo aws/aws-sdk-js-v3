@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThesaurusCommand}.
  */
 export interface DeleteThesaurusCommandInput extends DeleteThesaurusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThesaurusCommand}.
  */
 export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Amazon Kendra thesaurus.
  *       </p>
  * @example
@@ -42,6 +47,8 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThesaurusCommandInput - {@link DeleteThesaurusCommandInput}
+ * @returns {@link DeleteThesaurusCommandOutput}
  * @see {@link DeleteThesaurusCommandInput} for command's `input` shape.
  * @see {@link DeleteThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteThesaurusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThesaurusCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteThesaurusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThesaurusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteThesaurusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThesaurusCommandOutput> {
     return deserializeAws_json1_1DeleteThesaurusCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSceneCommand}.
  */
 export interface UpdateSceneCommandInput extends UpdateSceneRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSceneCommand}.
  */
 export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a scene.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSceneCommandInput - {@link UpdateSceneCommandInput}
+ * @returns {@link UpdateSceneCommandOutput}
  * @see {@link UpdateSceneCommandInput} for command's `input` shape.
  * @see {@link UpdateSceneCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateSceneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSceneCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateSceneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSceneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSceneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSceneCommandOutput> {
     return deserializeAws_restJson1UpdateSceneCommand(output, context);
   }

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MobileServiceException as __BaseException } from "./MobileServiceException";
 
 /**
+ * @public
  * <p>
  *             Account Action is required in order to continue the request.
  *         </p>
@@ -25,6 +26,7 @@ export class AccountActionRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             The request cannot be processed because some parameter is not valid or the project
  *             state prevents the operation from being performed.
@@ -47,6 +49,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             Request structure used to request a project be created.
  *         </p>
@@ -85,6 +88,7 @@ export interface CreateProjectRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Information about an instance of an AWS resource associated with a project.
  *         </p>
@@ -126,6 +130,9 @@ export interface Resource {
   attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum ProjectState {
   IMPORTING = "IMPORTING",
   NORMAL = "NORMAL",
@@ -133,6 +140,7 @@ export enum ProjectState {
 }
 
 /**
+ * @public
  * <p>
  *             Detailed information about an AWS Mobile Hub project.
  *         </p>
@@ -196,6 +204,7 @@ export interface ProjectDetails {
 }
 
 /**
+ * @public
  * <p>
  *             Result structure used in response to a request to create a project.
  *         </p>
@@ -210,6 +219,7 @@ export interface CreateProjectResult {
 }
 
 /**
+ * @public
  * <p>
  *             The service has encountered an unexpected error condition which prevents it from
  *             servicing the request.
@@ -232,6 +242,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             There are too many AWS Mobile Hub projects in the account or the account has
  *             exceeded the maximum number of resources in some AWS service. You should create
@@ -264,6 +275,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             No entity can be found with the specified identifier.
  *         </p>
@@ -285,6 +297,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             The service is temporarily unavailable. The request should be retried after some
  *             time delay.
@@ -315,6 +328,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             Too many requests have been received for this AWS account in too short a time. The
  *             request should be retried after some time delay.
@@ -345,6 +359,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
@@ -366,6 +381,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             Request structure used to request a project be deleted.
  *         </p>
@@ -380,6 +396,7 @@ export interface DeleteProjectRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Result structure used in response to request to delete a project.
  *         </p>
@@ -402,6 +419,7 @@ export interface DeleteProjectResult {
 }
 
 /**
+ * @public
  * <p>
  *             Request structure to request the details of a specific bundle.
  *         </p>
@@ -415,6 +433,9 @@ export interface DescribeBundleRequest {
   bundleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Platform {
   ANDROID = "ANDROID",
   JAVASCRIPT = "JAVASCRIPT",
@@ -426,6 +447,7 @@ export enum Platform {
 }
 
 /**
+ * @public
  * <p>
  *             The details of the bundle.
  *         </p>
@@ -475,6 +497,7 @@ export interface BundleDetails {
 }
 
 /**
+ * @public
  * <p>
  *             Result structure contains the details of the bundle.
  *         </p>
@@ -489,6 +512,7 @@ export interface DescribeBundleResult {
 }
 
 /**
+ * @public
  * <p>
  *             Request structure used to request details about a project.
  *         </p>
@@ -510,6 +534,7 @@ export interface DescribeProjectRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Result structure used for requests of project details.
  *         </p>
@@ -524,6 +549,7 @@ export interface DescribeProjectResult {
 }
 
 /**
+ * @public
  * <p>
  *             Request structure used to request generation of custom SDK and tool packages
  *             required to integrate mobile web or app clients with backed AWS resources.
@@ -553,6 +579,7 @@ export interface ExportBundleRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Result structure which contains link to download custom-generated SDK and
  *             tool packages used to integrate mobile web or app clients with backed
@@ -571,6 +598,7 @@ export interface ExportBundleResult {
 }
 
 /**
+ * @public
  * <p>
  *             Request structure used in requests to export project configuration details.
  *         </p>
@@ -585,6 +613,7 @@ export interface ExportProjectRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Result structure used for requests to export project configuration details.
  *         </p>
@@ -619,6 +648,7 @@ export interface ExportProjectResult {
 }
 
 /**
+ * @public
  * <p>
  *             Request structure to request all available bundles.
  *         </p>
@@ -642,6 +672,7 @@ export interface ListBundlesRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Result structure contains a list of all available bundles with details.
  *         </p>
@@ -664,6 +695,7 @@ export interface ListBundlesResult {
 }
 
 /**
+ * @public
  * <p>
  *             Request structure used to request projects list in AWS Mobile Hub.
  *         </p>
@@ -687,6 +719,7 @@ export interface ListProjectsRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Summary information about an AWS Mobile Hub project.
  *         </p>
@@ -708,6 +741,7 @@ export interface ProjectSummary {
 }
 
 /**
+ * @public
  * <p>
  *             Result structure used for requests to list projects in AWS Mobile Hub.
  *         </p>
@@ -731,6 +765,7 @@ export interface ListProjectsResult {
 }
 
 /**
+ * @public
  * <p>
  *             Request structure used for requests to update project configuration.
  *         </p>
@@ -754,6 +789,7 @@ export interface UpdateProjectRequest {
 }
 
 /**
+ * @public
  * <p>
  *             Result structure used for requests to updated project configuration.
  *         </p>

@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandInput extends ListAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the aliases of a specified image or image version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
+ * @returns {@link ListAliasesCommandOutput}
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class ListAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAliasesCommandOutput> {
     return deserializeAws_json1_1ListAliasesCommand(output, context);
   }

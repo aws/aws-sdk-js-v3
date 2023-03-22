@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleGroupCommand}.
  */
 export interface UpdateRuleGroupCommandInput extends UpdateRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleGroupCommand}.
  */
 export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified <a>RuleGroup</a>.</p>
  *          <note>
  *             <p>This operation completely replaces the mutable specifications that you already have for the rule group with the ones that you provide to this call. </p>
@@ -64,6 +69,8 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleGroupCommandInput - {@link UpdateRuleGroupCommandInput}
+ * @returns {@link UpdateRuleGroupCommandOutput}
  * @see {@link UpdateRuleGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -160,6 +167,9 @@ export class UpdateRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -199,10 +209,16 @@ export class UpdateRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleGroupCommandOutput> {
     return deserializeAws_json1_1UpdateRuleGroupCommand(output, context);
   }

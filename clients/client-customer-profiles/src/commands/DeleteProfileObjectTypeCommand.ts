@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProfileObjectTypeCommand}.
  */
 export interface DeleteProfileObjectTypeCommandInput extends DeleteProfileObjectTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProfileObjectTypeCommand}.
  */
 export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a ProfileObjectType from a specific domain as well as removes all the
  *          ProfileObjects of that type. It also disables integrations from this specific
  *          ProfileObjectType. In addition, it scrubs all of the fields of the standard profile that
@@ -49,6 +54,8 @@ export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjec
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProfileObjectTypeCommandInput - {@link DeleteProfileObjectTypeCommandInput}
+ * @returns {@link DeleteProfileObjectTypeCommandOutput}
  * @see {@link DeleteProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileObjectTypeCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteProfileObjectTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProfileObjectTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteProfileObjectTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProfileObjectTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteProfileObjectTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileObjectTypeCommandOutput> {
     return deserializeAws_restJson1DeleteProfileObjectTypeCommand(output, context);
   }

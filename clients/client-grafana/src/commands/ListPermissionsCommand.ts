@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the users and groups who have the Grafana <code>Admin</code> and
  *                 <code>Editor</code> roles in this workspace. If you use this operation without
  *             specifying <code>userId</code> or <code>groupId</code>, the operation returns the roles
@@ -51,6 +56,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
+ * @returns {@link ListPermissionsCommandOutput}
  * @see {@link ListPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionsCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionsCommandOutput> {
     return deserializeAws_restJson1ListPermissionsCommand(output, context);
   }

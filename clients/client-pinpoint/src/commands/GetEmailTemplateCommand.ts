@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEmailTemplateCommand}.
  */
 export interface GetEmailTemplateCommandInput extends GetEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEmailTemplateCommand}.
  */
 export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEmailTemplateCommandInput - {@link GetEmailTemplateCommandInput}
+ * @returns {@link GetEmailTemplateCommandOutput}
  * @see {@link GetEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link GetEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class GetEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailTemplateCommandOutput> {
     return deserializeAws_restJson1GetEmailTemplateCommand(output, context);
   }

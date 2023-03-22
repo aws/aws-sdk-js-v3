@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateGatewayCommand}.
  */
 export interface ActivateGatewayCommandInput extends ActivateGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link ActivateGatewayCommand}.
  */
 export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates the gateway you previously deployed on your host. In the activation process,
  *          you specify information such as the Amazon Web Services Region that you want to use for
  *          storing snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot
@@ -53,6 +58,8 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateGatewayCommandInput - {@link ActivateGatewayCommandInput}
+ * @returns {@link ActivateGatewayCommandOutput}
  * @see {@link ActivateGatewayCommandInput} for command's `input` shape.
  * @see {@link ActivateGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -106,6 +113,9 @@ export class ActivateGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,10 +155,16 @@ export class ActivateGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ActivateGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateGatewayCommandOutput> {
     return deserializeAws_json1_1ActivateGatewayCommand(output, context);
   }

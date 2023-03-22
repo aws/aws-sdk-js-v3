@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMapCommand}.
  */
 export interface DescribeMapCommandInput extends DescribeMapRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMapCommand}.
  */
 export interface DescribeMapCommandOutput extends DescribeMapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the map resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMapCommandInput - {@link DescribeMapCommandInput}
+ * @returns {@link DescribeMapCommandOutput}
  * @see {@link DescribeMapCommandInput} for command's `input` shape.
  * @see {@link DescribeMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DescribeMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMapCommandOutput> {
     return deserializeAws_restJson1DescribeMapCommand(output, context);
   }

@@ -3,12 +3,16 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { PipesServiceException as __BaseException } from "./PipesServiceException";
 
+/**
+ * @public
+ */
 export enum AssignPublicIp {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used.
  *          This structure is relevant only for ECS tasks that use the <code>awsvpc</code> network mode.</p>
  */
@@ -32,6 +36,7 @@ export interface AwsVpcConfiguration {
 }
 
 /**
+ * @public
  * <p>The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000.
  *          If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an Batch job.</p>
  */
@@ -43,6 +48,7 @@ export interface BatchArrayProperties {
 }
 
 /**
+ * @public
  * <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing
  *          environment variables from the Docker image or the task definition.</p>
  *          <note>
@@ -61,6 +67,9 @@ export interface BatchEnvironmentVariable {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export enum BatchResourceRequirementType {
   GPU = "GPU",
   MEMORY = "MEMORY",
@@ -68,6 +77,7 @@ export enum BatchResourceRequirementType {
 }
 
 /**
+ * @public
  * <p>The type and amount of a resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
  */
 export interface BatchResourceRequirement {
@@ -243,6 +253,7 @@ export interface BatchResourceRequirement {
 }
 
 /**
+ * @public
  * <p>The overrides that are sent to a container.</p>
  */
 export interface BatchContainerOverrides {
@@ -275,12 +286,16 @@ export interface BatchContainerOverrides {
   ResourceRequirements?: BatchResourceRequirement[];
 }
 
+/**
+ * @public
+ */
 export enum BatchJobDependencyType {
   N_TO_N = "N_TO_N",
   SEQUENTIAL = "SEQUENTIAL",
 }
 
 /**
+ * @public
  * <p>An object that represents an Batch job dependency.</p>
  */
 export interface BatchJobDependency {
@@ -296,6 +311,7 @@ export interface BatchJobDependency {
 }
 
 /**
+ * @public
  * <p>The retry strategy that's associated with a job. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html">
  *          Automated job retries</a> in the <i>Batch User Guide</i>.</p>
  */
@@ -308,6 +324,7 @@ export interface BatchRetryStrategy {
 }
 
 /**
+ * @public
  * <p>The details of a capacity provider strategy. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html">CapacityProviderStrategyItem</a> in the Amazon ECS API Reference.</p>
  */
 export interface CapacityProviderStrategyItem {
@@ -332,6 +349,7 @@ export interface CapacityProviderStrategyItem {
 }
 
 /**
+ * @public
  * <p>An action you attempted resulted in an exception.</p>
  */
 export class ConflictException extends __BaseException {
@@ -362,12 +380,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum RequestedPipeState {
   RUNNING = "RUNNING",
   STOPPED = "STOPPED",
 }
 
 /**
+ * @public
  * <p>These are custom parameter to be used when the target is an API Gateway REST APIs or
  *          EventBridge ApiDestinations. In the latter case, these are merged with any
  *          InvocationParameters specified on the Connection, with any values from the Connection taking
@@ -394,6 +416,7 @@ export interface PipeEnrichmentHttpParameters {
 }
 
 /**
+ * @public
  * <p>The parameters required to set up enrichment on your pipe.</p>
  */
 export interface PipeEnrichmentParameters {
@@ -417,12 +440,16 @@ export interface PipeEnrichmentParameters {
 }
 
 /**
+ * @public
  * <p>The Secrets Manager secret that stores your broker credentials.</p>
  */
 export type MQBrokerAccessCredentials =
   | MQBrokerAccessCredentials.BasicAuthMember
   | MQBrokerAccessCredentials.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MQBrokerAccessCredentials {
   /**
    * <p>The ARN of the Secrets Manager secret.</p>
@@ -449,6 +476,7 @@ export namespace MQBrokerAccessCredentials {
 }
 
 /**
+ * @public
  * <p>The parameters for using an Active MQ broker as a source.</p>
  */
 export interface PipeSourceActiveMQBrokerParameters {
@@ -474,6 +502,7 @@ export interface PipeSourceActiveMQBrokerParameters {
 }
 
 /**
+ * @public
  * <p>A <code>DeadLetterConfig</code> object that contains information about a dead-letter queue configuration.</p>
  */
 export interface DeadLetterConfig {
@@ -483,16 +512,23 @@ export interface DeadLetterConfig {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export enum OnPartialBatchItemFailureStreams {
   AUTOMATIC_BISECT = "AUTOMATIC_BISECT",
 }
 
+/**
+ * @public
+ */
 export enum DynamoDBStreamStartPosition {
   LATEST = "LATEST",
   TRIM_HORIZON = "TRIM_HORIZON",
 }
 
 /**
+ * @public
  * <p>The parameters for using a DynamoDB stream as a source.</p>
  */
 export interface PipeSourceDynamoDBStreamParameters {
@@ -541,6 +577,7 @@ export interface PipeSourceDynamoDBStreamParameters {
 }
 
 /**
+ * @public
  * <p>Filter events using an event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
  *          Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  */
@@ -552,6 +589,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>The collection of event patterns used to filter events. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
  *          Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  */
@@ -562,6 +600,9 @@ export interface FilterCriteria {
   Filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export enum KinesisStreamStartPosition {
   AT_TIMESTAMP = "AT_TIMESTAMP",
   LATEST = "LATEST",
@@ -569,6 +610,7 @@ export enum KinesisStreamStartPosition {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Kinesis stream as a source.</p>
  */
 export interface PipeSourceKinesisStreamParameters {
@@ -622,6 +664,7 @@ export interface PipeSourceKinesisStreamParameters {
 }
 
 /**
+ * @public
  * <p>The Secrets Manager secret that stores your stream credentials.</p>
  */
 export type MSKAccessCredentials =
@@ -629,6 +672,9 @@ export type MSKAccessCredentials =
   | MSKAccessCredentials.SaslScram512AuthMember
   | MSKAccessCredentials.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MSKAccessCredentials {
   /**
    * <p>The ARN of the Secrets Manager secret.</p>
@@ -668,12 +714,16 @@ export namespace MSKAccessCredentials {
   };
 }
 
+/**
+ * @public
+ */
 export enum MSKStartPosition {
   LATEST = "LATEST",
   TRIM_HORIZON = "TRIM_HORIZON",
 }
 
 /**
+ * @public
  * <p>The parameters for using an MSK stream as a source.</p>
  */
 export interface PipeSourceManagedStreamingKafkaParameters {
@@ -709,6 +759,7 @@ export interface PipeSourceManagedStreamingKafkaParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Rabbit MQ broker as a source.</p>
  */
 export interface PipeSourceRabbitMQBrokerParameters {
@@ -739,6 +790,7 @@ export interface PipeSourceRabbitMQBrokerParameters {
 }
 
 /**
+ * @public
  * <p>The Secrets Manager secret that stores your stream credentials.</p>
  */
 export type SelfManagedKafkaAccessConfigurationCredentials =
@@ -748,6 +800,9 @@ export type SelfManagedKafkaAccessConfigurationCredentials =
   | SelfManagedKafkaAccessConfigurationCredentials.SaslScram512AuthMember
   | SelfManagedKafkaAccessConfigurationCredentials.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SelfManagedKafkaAccessConfigurationCredentials {
   /**
    * <p>The ARN of the Secrets Manager secret.</p>
@@ -819,12 +874,16 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
   };
 }
 
+/**
+ * @public
+ */
 export enum SelfManagedKafkaStartPosition {
   LATEST = "LATEST",
   TRIM_HORIZON = "TRIM_HORIZON",
 }
 
 /**
+ * @public
  * <p>This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used.</p>
  */
 export interface SelfManagedKafkaAccessConfigurationVpc {
@@ -841,6 +900,7 @@ export interface SelfManagedKafkaAccessConfigurationVpc {
 }
 
 /**
+ * @public
  * <p>The parameters for using a self-managed Apache Kafka stream as a source.</p>
  */
 export interface PipeSourceSelfManagedKafkaParameters {
@@ -891,6 +951,7 @@ export interface PipeSourceSelfManagedKafkaParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Amazon SQS stream as a source.</p>
  */
 export interface PipeSourceSqsQueueParameters {
@@ -906,6 +967,7 @@ export interface PipeSourceSqsQueueParameters {
 }
 
 /**
+ * @public
  * <p>The parameters required to set up a source for your pipe.</p>
  */
 export interface PipeSourceParameters {
@@ -952,6 +1014,7 @@ export interface PipeSourceParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using an Batch job as a target.</p>
  */
 export interface PipeTargetBatchJobParameters {
@@ -999,6 +1062,7 @@ export interface PipeTargetBatchJobParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using an CloudWatch Logs log stream as a target.</p>
  */
 export interface PipeTargetCloudWatchLogsParameters {
@@ -1013,6 +1077,9 @@ export interface PipeTargetCloudWatchLogsParameters {
   Timestamp?: string;
 }
 
+/**
+ * @public
+ */
 export enum LaunchType {
   EC2 = "EC2",
   EXTERNAL = "EXTERNAL",
@@ -1020,6 +1087,7 @@ export enum LaunchType {
 }
 
 /**
+ * @public
  * <p>This structure specifies the network configuration for an Amazon ECS task.</p>
  */
 export interface NetworkConfiguration {
@@ -1032,6 +1100,7 @@ export interface NetworkConfiguration {
 }
 
 /**
+ * @public
  * <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can
  *          override the existing environment variables from the Docker image or the task definition. You must also specify a container name.</p>
  */
@@ -1047,11 +1116,15 @@ export interface EcsEnvironmentVariable {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export enum EcsEnvironmentFileType {
   s3 = "s3",
 }
 
 /**
+ * @public
  * <p>A list of files containing the environment variables to pass to a container. You can
  *          specify up to ten environment files. The file must have a <code>.env</code> file
  *          extension. Each line in an environment file should contain an environment variable in
@@ -1088,12 +1161,16 @@ export interface EcsEnvironmentFile {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EcsResourceRequirementType {
   GPU = "GPU",
   InferenceAccelerator = "InferenceAccelerator",
 }
 
 /**
+ * @public
  * <p>The type and amount of a resource to assign to a container. The supported resource
  *          types are GPUs and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with
  *             GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with
@@ -1122,8 +1199,9 @@ export interface EcsResourceRequirement {
 }
 
 /**
+ * @public
  * <p>The overrides that are sent to a container. An empty container override can be passed in. An example of an empty
- *          container override is <code>{"containerOverrides": [ ] }</code>. If a non-empty container override is specified, the <code>name</code> parameter must be included.</p>
+ *          container override is <code>\{"containerOverrides": [ ] \}</code>. If a non-empty container override is specified, the <code>name</code> parameter must be included.</p>
  */
 export interface EcsContainerOverride {
   /**
@@ -1171,6 +1249,7 @@ export interface EcsContainerOverride {
 }
 
 /**
+ * @public
  * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
  *          expand the total amount of ephemeral storage available, beyond the default amount, for
  *          tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
@@ -1191,6 +1270,7 @@ export interface EcsEphemeralStorage {
 }
 
 /**
+ * @public
  * <p>Details on an Elastic Inference accelerator task override. This parameter is used to
  *          override the Elastic Inference accelerator specified in the task definition. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-inference.html">Working with Amazon
@@ -1210,6 +1290,7 @@ export interface EcsInferenceAcceleratorOverride {
 }
 
 /**
+ * @public
  * <p>The overrides that are associated with a task.</p>
  */
 export interface EcsTaskOverride {
@@ -1266,12 +1347,16 @@ export interface EcsTaskOverride {
   TaskRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum PlacementConstraintType {
   DISTINCT_INSTANCE = "distinctInstance",
   MEMBER_OF = "memberOf",
 }
 
 /**
+ * @public
  * <p>An object representing a constraint on task placement. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the Amazon Elastic Container Service Developer
  *          Guide.</p>
  */
@@ -1291,6 +1376,9 @@ export interface PlacementConstraint {
   expression?: string;
 }
 
+/**
+ * @public
+ */
 export enum PlacementStrategyType {
   BINPACK = "binpack",
   RANDOM = "random",
@@ -1298,6 +1386,7 @@ export enum PlacementStrategyType {
 }
 
 /**
+ * @public
  * <p>The task placement strategy for a task or service. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the Amazon Elastic Container Service Service Developer
  *          Guide.</p>
  */
@@ -1322,11 +1411,15 @@ export interface PlacementStrategy {
   field?: string;
 }
 
+/**
+ * @public
+ */
 export enum PropagateTags {
   TASK_DEFINITION = "TASK_DEFINITION",
 }
 
 /**
+ * @public
  * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge, rules and event buses
  *          support tagging.</p>
  */
@@ -1344,6 +1437,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>The parameters for using an Amazon ECS task as a target.</p>
  */
 export interface PipeTargetEcsTaskParameters {
@@ -1452,6 +1546,7 @@ export interface PipeTargetEcsTaskParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using an EventBridge event bus as a target.</p>
  */
 export interface PipeTargetEventBridgeEventBusParameters {
@@ -1486,6 +1581,7 @@ export interface PipeTargetEventBridgeEventBusParameters {
 }
 
 /**
+ * @public
  * <p>These are custom parameter to be used when the target is an API Gateway REST APIs or
  *       EventBridge ApiDestinations.</p>
  */
@@ -1510,6 +1606,7 @@ export interface PipeTargetHttpParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Kinesis stream as a source.</p>
  */
 export interface PipeTargetKinesisStreamParameters {
@@ -1522,12 +1619,16 @@ export interface PipeTargetKinesisStreamParameters {
   PartitionKey: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PipeTargetInvocationType {
   FIRE_AND_FORGET = "FIRE_AND_FORGET",
   REQUEST_RESPONSE = "REQUEST_RESPONSE",
 }
 
 /**
+ * @public
  * <p>The parameters for using a Lambda function as a target.</p>
  */
 export interface PipeTargetLambdaFunctionParameters {
@@ -1556,6 +1657,7 @@ export interface PipeTargetLambdaFunctionParameters {
 }
 
 /**
+ * @public
  * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the
  *       Amazon Redshift Data API ExecuteStatement.</p>
  */
@@ -1595,6 +1697,7 @@ export interface PipeTargetRedshiftDataParameters {
 }
 
 /**
+ * @public
  * <p>Name/Value pair of a parameter to start execution of a SageMaker Model Building
  *          Pipeline.</p>
  */
@@ -1611,6 +1714,7 @@ export interface SageMakerPipelineParameter {
 }
 
 /**
+ * @public
  * <p>The parameters for using a SageMaker pipeline as a target.</p>
  */
 export interface PipeTargetSageMakerPipelineParameters {
@@ -1621,6 +1725,7 @@ export interface PipeTargetSageMakerPipelineParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Amazon SQS stream as a source.</p>
  */
 export interface PipeTargetSqsQueueParameters {
@@ -1637,6 +1742,7 @@ export interface PipeTargetSqsQueueParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Step Functions state machine as a target.</p>
  */
 export interface PipeTargetStateMachineParameters {
@@ -1647,6 +1753,7 @@ export interface PipeTargetStateMachineParameters {
 }
 
 /**
+ * @public
  * <p>The parameters required to set up a target for your pipe.</p>
  */
 export interface PipeTargetParameters {
@@ -1715,6 +1822,9 @@ export interface PipeTargetParameters {
   CloudWatchLogsParameters?: PipeTargetCloudWatchLogsParameters;
 }
 
+/**
+ * @public
+ */
 export interface CreatePipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -1772,6 +1882,9 @@ export interface CreatePipeRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export enum PipeState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATING = "CREATING",
@@ -1786,6 +1899,9 @@ export enum PipeState {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export interface CreatePipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -1819,6 +1935,7 @@ export interface CreatePipeResponse {
 }
 
 /**
+ * @public
  * <p>This exception occurs due to unexpected causes.</p>
  */
 export class InternalException extends __BaseException {
@@ -1844,6 +1961,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An entity that you specified does not exist.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -1863,6 +1981,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A quota has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -1906,6 +2025,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An action was throttled.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -1943,6 +2063,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that an error has occurred while performing a validate operation.</p>
  */
 export interface ValidationExceptionField {
@@ -1958,6 +2079,7 @@ export interface ValidationExceptionField {
 }
 
 /**
+ * @public
  * <p>Indicates that an error has occurred while performing a validate operation.</p>
  */
 export class ValidationException extends __BaseException {
@@ -1982,6 +2104,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeletePipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -1989,12 +2114,18 @@ export interface DeletePipeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum RequestedPipeStateDescribeResponse {
   DELETED = "DELETED",
   RUNNING = "RUNNING",
   STOPPED = "STOPPED",
 }
 
+/**
+ * @public
+ */
 export interface DeletePipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2027,6 +2158,9 @@ export interface DeletePipeResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -2034,6 +2168,9 @@ export interface DescribePipeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2116,6 +2253,9 @@ export interface DescribePipeResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPipesRequest {
   /**
    * <p>A value that will return a subset of the pipes associated with this account. For example, <code>"NamePrefix": "ABC"</code> will return
@@ -2157,6 +2297,7 @@ export interface ListPipesRequest {
 }
 
 /**
+ * @public
  * <p>An object that represents a pipe. Amazon EventBridgePipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
  */
 export interface Pipe {
@@ -2211,6 +2352,9 @@ export interface Pipe {
   Enrichment?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPipesResponse {
   /**
    * <p>The pipes returned by the call.</p>
@@ -2225,6 +2369,9 @@ export interface ListPipesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the pipe for which you want to view tags.</p>
@@ -2232,6 +2379,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of key-value pairs to associate with the pipe.</p>
@@ -2239,6 +2389,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartPipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -2246,6 +2399,9 @@ export interface StartPipeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartPipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2278,6 +2434,9 @@ export interface StartPipeResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StopPipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -2285,6 +2444,9 @@ export interface StopPipeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopPipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2318,6 +2480,7 @@ export interface StopPipeResponse {
 }
 
 /**
+ * @public
  * <p>The parameters for using an Active MQ broker as a source.</p>
  */
 export interface UpdatePipeSourceActiveMQBrokerParameters {
@@ -2338,6 +2501,7 @@ export interface UpdatePipeSourceActiveMQBrokerParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a DynamoDB stream as a source.</p>
  */
 export interface UpdatePipeSourceDynamoDBStreamParameters {
@@ -2381,6 +2545,7 @@ export interface UpdatePipeSourceDynamoDBStreamParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Kinesis stream as a source.</p>
  */
 export interface UpdatePipeSourceKinesisStreamParameters {
@@ -2424,6 +2589,7 @@ export interface UpdatePipeSourceKinesisStreamParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using an MSK stream as a source.</p>
  */
 export interface UpdatePipeSourceManagedStreamingKafkaParameters {
@@ -2444,6 +2610,7 @@ export interface UpdatePipeSourceManagedStreamingKafkaParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Rabbit MQ broker as a source.</p>
  */
 export interface UpdatePipeSourceRabbitMQBrokerParameters {
@@ -2464,6 +2631,7 @@ export interface UpdatePipeSourceRabbitMQBrokerParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a self-managed Apache Kafka stream as a source.</p>
  */
 export interface UpdatePipeSourceSelfManagedKafkaParameters {
@@ -2494,6 +2662,7 @@ export interface UpdatePipeSourceSelfManagedKafkaParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Amazon SQS stream as a source.</p>
  */
 export interface UpdatePipeSourceSqsQueueParameters {
@@ -2509,6 +2678,7 @@ export interface UpdatePipeSourceSqsQueueParameters {
 }
 
 /**
+ * @public
  * <p>The parameters required to set up a source for your pipe.</p>
  */
 export interface UpdatePipeSourceParameters {
@@ -2554,6 +2724,9 @@ export interface UpdatePipeSourceParameters {
   SelfManagedKafkaParameters?: UpdatePipeSourceSelfManagedKafkaParameters;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -2601,6 +2774,9 @@ export interface UpdatePipeRequest {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2633,6 +2809,9 @@ export interface UpdatePipeResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2645,8 +2824,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2659,6 +2844,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

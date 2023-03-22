@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataRepositoryAssociationsCommand}.
  */
 export interface DescribeDataRepositoryAssociationsCommandInput extends DescribeDataRepositoryAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataRepositoryAssociationsCommand}.
  */
 export interface DescribeDataRepositoryAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
  *             data repository associations, if one or more <code>AssociationIds</code> values
  *             are provided in the request, or if filters are used in the request. Data repository
@@ -66,6 +71,8 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataRepositoryAssociationsCommandInput - {@link DescribeDataRepositoryAssociationsCommandInput}
+ * @returns {@link DescribeDataRepositoryAssociationsCommandOutput}
  * @see {@link DescribeDataRepositoryAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDataRepositoryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -104,6 +111,9 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataRepositoryAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,6 +153,9 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDataRepositoryAssociationsCommandInput,
     context: __SerdeContext
@@ -150,6 +163,9 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command<
     return serializeAws_json1_1DescribeDataRepositoryAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSinksCommand}.
  */
 export interface ListSinksCommandInput extends ListSinksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSinksCommand}.
  */
 export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation in a monitoring account to return the list of sinks created in that account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSinksCommandInput - {@link ListSinksCommandInput}
+ * @returns {@link ListSinksCommandOutput}
  * @see {@link ListSinksCommandInput} for command's `input` shape.
  * @see {@link ListSinksCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListSinksCommand extends $Command<ListSinksCommandInput, ListSinksC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSinksCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListSinksCommand extends $Command<ListSinksCommandInput, ListSinksC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSinksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSinksCommandOutput> {
     return deserializeAws_restJson1ListSinksCommand(output, context);
   }

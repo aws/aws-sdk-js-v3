@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2ModifyIpamScopeCommand, serializeAws_ec2ModifyIpamScopeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyIpamScopeCommand}.
  */
 export interface ModifyIpamScopeCommandInput extends ModifyIpamScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyIpamScopeCommand}.
  */
 export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify an IPAM scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyIpamScopeCommandInput - {@link ModifyIpamScopeCommandInput}
+ * @returns {@link ModifyIpamScopeCommandOutput}
  * @see {@link ModifyIpamScopeCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -66,6 +73,9 @@ export class ModifyIpamScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyIpamScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,10 +115,16 @@ export class ModifyIpamScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyIpamScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyIpamScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIpamScopeCommandOutput> {
     return deserializeAws_ec2ModifyIpamScopeCommand(output, context);
   }

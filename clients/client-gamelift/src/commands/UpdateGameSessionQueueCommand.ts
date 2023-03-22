@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGameSessionQueueCommand}.
  */
 export interface UpdateGameSessionQueueCommandInput extends UpdateGameSessionQueueInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGameSessionQueueCommand}.
  */
 export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of a game session queue, which determines how the queue
  *             processes new game session requests. To update settings, specify the queue name to be
  *             updated and provide the new settings. When updating destinations, provide a complete
@@ -56,6 +61,8 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGameSessionQueueCommandInput - {@link UpdateGameSessionQueueCommandInput}
+ * @returns {@link UpdateGameSessionQueueCommandOutput}
  * @see {@link UpdateGameSessionQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateGameSessionQueueCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateGameSessionQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGameSessionQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateGameSessionQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGameSessionQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateGameSessionQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameSessionQueueCommandOutput> {
     return deserializeAws_json1_1UpdateGameSessionQueueCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DeleteIpamPoolCommand, serializeAws_ec2DeleteIpamPoolCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIpamPoolCommand}.
  */
 export interface DeleteIpamPoolCommandInput extends DeleteIpamPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIpamPoolCommand}.
  */
 export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an IPAM pool.</p>
  *          <note>
  *             <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release
@@ -50,6 +55,8 @@ export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIpamPoolCommandInput - {@link DeleteIpamPoolCommandInput}
+ * @returns {@link DeleteIpamPoolCommandOutput}
  * @see {@link DeleteIpamPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteIpamPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIpamPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteIpamPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIpamPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteIpamPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIpamPoolCommandOutput> {
     return deserializeAws_ec2DeleteIpamPoolCommand(output, context);
   }

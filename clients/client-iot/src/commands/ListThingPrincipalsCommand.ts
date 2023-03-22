@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThingPrincipalsCommand}.
  */
 export interface ListThingPrincipalsCommandInput extends ListThingPrincipalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThingPrincipalsCommand}.
  */
 export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the principals associated with the specified thing. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities.</p>
@@ -49,6 +54,8 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThingPrincipalsCommandInput - {@link ListThingPrincipalsCommandInput}
+ * @returns {@link ListThingPrincipalsCommandOutput}
  * @see {@link ListThingPrincipalsCommandInput} for command's `input` shape.
  * @see {@link ListThingPrincipalsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListThingPrincipalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThingPrincipalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListThingPrincipalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThingPrincipalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListThingPrincipalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingPrincipalsCommandOutput> {
     return deserializeAws_restJson1ListThingPrincipalsCommand(output, context);
   }

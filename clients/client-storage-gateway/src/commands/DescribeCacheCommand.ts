@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheCommand}.
  */
 export interface DescribeCacheCommandInput extends DescribeCacheInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheCommand}.
  */
 export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the cache of a gateway. This operation is only supported in
  *          the cached volume, tape, and file gateway types.</p>
  *
@@ -50,6 +55,8 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheCommandInput - {@link DescribeCacheCommandInput}
+ * @returns {@link DescribeCacheCommandOutput}
  * @see {@link DescribeCacheCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -106,6 +113,9 @@ export class DescribeCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class DescribeCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCacheCommandOutput> {
     return deserializeAws_json1_1DescribeCacheCommand(output, context);
   }

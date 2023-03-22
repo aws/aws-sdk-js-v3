@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkAclEntryCommand}.
  */
 export interface CreateNetworkAclEntryCommandInput extends CreateNetworkAclEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkAclEntryCommand}.
  */
 export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules
  * 		        and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated
  * 		        with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of
@@ -48,6 +53,8 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkAclEntryCommandInput - {@link CreateNetworkAclEntryCommandInput}
+ * @returns {@link CreateNetworkAclEntryCommandOutput}
  * @see {@link CreateNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +98,9 @@ export class CreateNetworkAclEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkAclEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateNetworkAclEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkAclEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateNetworkAclEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkAclEntryCommandOutput> {
     return deserializeAws_ec2CreateNetworkAclEntryCommand(output, context);
   }

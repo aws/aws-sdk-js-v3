@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteControlCommand}.
  */
 export interface DeleteControlCommandInput extends DeleteControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteControlCommand}.
  */
 export interface DeleteControlCommandOutput extends DeleteControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a custom control in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteControlCommandInput - {@link DeleteControlCommandInput}
+ * @returns {@link DeleteControlCommandOutput}
  * @see {@link DeleteControlCommandInput} for command's `input` shape.
  * @see {@link DeleteControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteControlCommandOutput> {
     return deserializeAws_restJson1DeleteControlCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBrokerStorageCommand}.
  */
 export interface UpdateBrokerStorageCommandInput extends UpdateBrokerStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBrokerStorageCommand}.
  */
 export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the EBS storage associated with MSK brokers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBrokerStorageCommandInput - {@link UpdateBrokerStorageCommandInput}
+ * @returns {@link UpdateBrokerStorageCommandOutput}
  * @see {@link UpdateBrokerStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerStorageCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateBrokerStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBrokerStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateBrokerStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBrokerStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBrokerStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerStorageCommandOutput> {
     return deserializeAws_restJson1UpdateBrokerStorageCommand(output, context);
   }

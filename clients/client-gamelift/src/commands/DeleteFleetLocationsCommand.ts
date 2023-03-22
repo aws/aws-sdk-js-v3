@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetLocationsCommand}.
  */
 export interface DeleteFleetLocationsCommandInput extends DeleteFleetLocationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetLocationsCommand}.
  */
 export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes locations from a multi-location fleet. When deleting a location, all game
  *             server process and all instances that are still active in the location are shut down. </p>
  *         <p>To delete fleet locations, identify the fleet ID and provide a list of the locations
@@ -59,6 +64,8 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetLocationsCommandInput - {@link DeleteFleetLocationsCommandInput}
+ * @returns {@link DeleteFleetLocationsCommandOutput}
  * @see {@link DeleteFleetLocationsCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetLocationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -99,6 +106,9 @@ export class DeleteFleetLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class DeleteFleetLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFleetLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetLocationsCommandOutput> {
     return deserializeAws_json1_1DeleteFleetLocationsCommand(output, context);
   }

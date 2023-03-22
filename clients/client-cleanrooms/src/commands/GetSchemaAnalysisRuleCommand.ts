@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSchemaAnalysisRuleCommand}.
  */
 export interface GetSchemaAnalysisRuleCommandInput extends GetSchemaAnalysisRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSchemaAnalysisRuleCommand}.
  */
 export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a schema analysis rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSchemaAnalysisRuleCommandInput - {@link GetSchemaAnalysisRuleCommandInput}
+ * @returns {@link GetSchemaAnalysisRuleCommandOutput}
  * @see {@link GetSchemaAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link GetSchemaAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetSchemaAnalysisRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaAnalysisRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetSchemaAnalysisRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaAnalysisRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSchemaAnalysisRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaAnalysisRuleCommandOutput> {
     return deserializeAws_restJson1GetSchemaAnalysisRuleCommand(output, context);
   }

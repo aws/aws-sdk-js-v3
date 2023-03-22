@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMultiplexCommand}.
  */
 export interface DeleteMultiplexCommandInput extends DeleteMultiplexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMultiplexCommand}.
  */
 export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Delete a multiplex. The multiplex must be idle.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMultiplexCommandInput - {@link DeleteMultiplexCommandInput}
+ * @returns {@link DeleteMultiplexCommandOutput}
  * @see {@link DeleteMultiplexCommandInput} for command's `input` shape.
  * @see {@link DeleteMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class DeleteMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DeleteMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMultiplexCommandOutput> {
     return deserializeAws_restJson1DeleteMultiplexCommand(output, context);
   }

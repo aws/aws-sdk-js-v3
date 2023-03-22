@@ -26,10 +26,14 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListJournalKinesisStreamsForLedgerCommand}.
  */
 export interface ListJournalKinesisStreamsForLedgerCommandInput extends ListJournalKinesisStreamsForLedgerRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJournalKinesisStreamsForLedgerCommand}.
  */
 export interface ListJournalKinesisStreamsForLedgerCommandOutput
@@ -37,6 +41,7 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of all Amazon QLDB journal stream descriptors for a given ledger. The
  *          output of each stream descriptor includes the same details that are returned by
  *             <code>DescribeJournalKinesisStream</code>.</p>
@@ -56,6 +61,8 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJournalKinesisStreamsForLedgerCommandInput - {@link ListJournalKinesisStreamsForLedgerCommandInput}
+ * @returns {@link ListJournalKinesisStreamsForLedgerCommandOutput}
  * @see {@link ListJournalKinesisStreamsForLedgerCommandInput} for command's `input` shape.
  * @see {@link ListJournalKinesisStreamsForLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJournalKinesisStreamsForLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,6 +137,9 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListJournalKinesisStreamsForLedgerCommandInput,
     context: __SerdeContext
@@ -134,6 +147,9 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     return serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

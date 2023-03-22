@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLocalGatewayRouteCommand}.
  */
 export interface DeleteLocalGatewayRouteCommandInput extends DeleteLocalGatewayRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLocalGatewayRouteCommand}.
  */
 export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified route from the specified local gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGateway
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocalGatewayRouteCommandInput - {@link DeleteLocalGatewayRouteCommandInput}
+ * @returns {@link DeleteLocalGatewayRouteCommandOutput}
  * @see {@link DeleteLocalGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocalGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLocalGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteLocalGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLocalGatewayRouteCommandOutput> {
     return deserializeAws_ec2DeleteLocalGatewayRouteCommand(output, context);
   }

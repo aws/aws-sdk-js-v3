@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSipRuleCommand}.
  */
 export interface UpdateSipRuleCommandInput extends UpdateSipRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSipRuleCommand}.
  */
 export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of the specified SIP rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSipRuleCommandInput - {@link UpdateSipRuleCommandInput}
+ * @returns {@link UpdateSipRuleCommandOutput}
  * @see {@link UpdateSipRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateSipRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSipRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateSipRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateSipRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSipRuleCommandOutput> {
     return deserializeAws_restJson1UpdateSipRuleCommand(output, context);
   }

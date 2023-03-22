@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterCommand}.
  */
 export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterCommand}.
  */
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a cluster. You can use this operation to change one or more cluster configuration settings by specifying the settings and the new values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
+ * @returns {@link UpdateClusterCommandOutput}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -117,6 +124,9 @@ export class UpdateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class UpdateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
     return deserializeAws_json1_1UpdateClusterCommand(output, context);
   }

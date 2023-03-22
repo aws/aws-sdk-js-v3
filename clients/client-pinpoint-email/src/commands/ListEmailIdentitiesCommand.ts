@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEmailIdentitiesCommand}.
  */
 export interface ListEmailIdentitiesCommandInput extends ListEmailIdentitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEmailIdentitiesCommand}.
  */
 export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all of the email identities that are associated with your Amazon Pinpoint
  *             account. An identity can be either an email address or a domain. This operation returns
  *             identities that are verified as well as those that aren't.</p>
@@ -48,6 +53,8 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEmailIdentitiesCommandInput - {@link ListEmailIdentitiesCommandInput}
+ * @returns {@link ListEmailIdentitiesCommandOutput}
  * @see {@link ListEmailIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListEmailIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListEmailIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEmailIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListEmailIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEmailIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEmailIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEmailIdentitiesCommandOutput> {
     return deserializeAws_restJson1ListEmailIdentitiesCommand(output, context);
   }

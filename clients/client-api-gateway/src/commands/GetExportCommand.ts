@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExportCommand}.
  */
 export interface GetExportCommandInput extends GetExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExportCommand}.
  */
 export interface GetExportCommandOutput extends ExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a deployed version of a RestApi in a specified format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetExportCommandOutput extends ExportResponse, __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExportCommandInput - {@link GetExportCommandInput}
+ * @returns {@link GetExportCommandOutput}
  * @see {@link GetExportCommandInput} for command's `input` shape.
  * @see {@link GetExportCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExportCommandOutput> {
     return deserializeAws_restJson1GetExportCommand(output, context);
   }

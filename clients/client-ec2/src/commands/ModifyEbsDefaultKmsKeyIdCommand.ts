@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyEbsDefaultKmsKeyIdCommand}.
  */
 export interface ModifyEbsDefaultKmsKeyIdCommandInput extends ModifyEbsDefaultKmsKeyIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyEbsDefaultKmsKeyIdCommand}.
  */
 export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p>
  *          <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
  *       you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services
@@ -53,6 +58,8 @@ export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultK
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyEbsDefaultKmsKeyIdCommandInput - {@link ModifyEbsDefaultKmsKeyIdCommandInput}
+ * @returns {@link ModifyEbsDefaultKmsKeyIdCommandOutput}
  * @see {@link ModifyEbsDefaultKmsKeyIdCommandInput} for command's `input` shape.
  * @see {@link ModifyEbsDefaultKmsKeyIdCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyEbsDefaultKmsKeyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyEbsDefaultKmsKeyIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEbsDefaultKmsKeyIdCommandOutput> {
     return deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand(output, context);
   }

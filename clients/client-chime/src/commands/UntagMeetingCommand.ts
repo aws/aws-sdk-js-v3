@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagMeetingCommand}.
  */
 export interface UntagMeetingCommandInput extends UntagMeetingRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagMeetingCommand}.
  */
 export interface UntagMeetingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Untags the specified tags from the specified Amazon Chime SDK meeting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface UntagMeetingCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagMeetingCommandInput - {@link UntagMeetingCommandInput}
+ * @returns {@link UntagMeetingCommandOutput}
  * @see {@link UntagMeetingCommandInput} for command's `input` shape.
  * @see {@link UntagMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -85,6 +92,9 @@ export class UntagMeetingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagMeetingCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class UntagMeetingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UntagMeetingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagMeetingCommandOutput> {
     return deserializeAws_restJson1UntagMeetingCommand(output, context);
   }

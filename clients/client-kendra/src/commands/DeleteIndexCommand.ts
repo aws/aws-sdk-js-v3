@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIndexCommand}.
  */
 export interface DeleteIndexCommandInput extends DeleteIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIndexCommand}.
  */
 export interface DeleteIndexCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is
  *       already being deleted. While the index is being deleted, the <code>Status</code> field
  *       returned by a call to the <code>DescribeIndex</code> API is set to
@@ -44,6 +49,8 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIndexCommandInput - {@link DeleteIndexCommandInput}
+ * @returns {@link DeleteIndexCommandOutput}
  * @see {@link DeleteIndexCommandInput} for command's `input` shape.
  * @see {@link DeleteIndexCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIndexCommandOutput> {
     return deserializeAws_json1_1DeleteIndexCommand(output, context);
   }

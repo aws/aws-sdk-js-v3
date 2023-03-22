@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListStackInstancesCommand}.
  */
 export interface ListStackInstancesCommandInput extends ListStackInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStackInstancesCommand}.
  */
 export interface ListStackInstancesCommandOutput extends ListStackInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about stack instances that are associated with the specified
  *          stack set. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region, or that have a specific status.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStackInstancesCommandInput - {@link ListStackInstancesCommandInput}
+ * @returns {@link ListStackInstancesCommandOutput}
  * @see {@link ListStackInstancesCommandInput} for command's `input` shape.
  * @see {@link ListStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -73,6 +80,9 @@ export class ListStackInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStackInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class ListStackInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStackInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListStackInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStackInstancesCommandOutput> {
     return deserializeAws_queryListStackInstancesCommand(output, context);
   }

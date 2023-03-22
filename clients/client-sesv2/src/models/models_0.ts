@@ -3,16 +3,25 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { SESv2ServiceException as __BaseException } from "./SESv2ServiceException";
 
+/**
+ * @public
+ */
 export enum ContactLanguage {
   EN = "EN",
   JA = "JA",
 }
 
+/**
+ * @public
+ */
 export enum MailType {
   MARKETING = "MARKETING",
   TRANSACTIONAL = "TRANSACTIONAL",
 }
 
+/**
+ * @public
+ */
 export enum ReviewStatus {
   DENIED = "DENIED",
   FAILED = "FAILED",
@@ -21,6 +30,7 @@ export enum ReviewStatus {
 }
 
 /**
+ * @public
  * <p>An object that contains information about your account details review.</p>
  */
 export interface ReviewDetails {
@@ -59,6 +69,7 @@ export interface ReviewDetails {
 }
 
 /**
+ * @public
  * <p>An object that contains information about your account details.</p>
  */
 export interface AccountDetails {
@@ -110,6 +121,7 @@ export interface AccountDetails {
 }
 
 /**
+ * @public
  * <p>The message can't be sent because the account's ability to send email has been
  *             permanently restricted.</p>
  */
@@ -130,6 +142,7 @@ export class AccountSuspendedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource specified in your request already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -149,6 +162,7 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input you provided is invalid.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -167,12 +181,18 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum MetricDimensionName {
   CONFIGURATION_SET = "CONFIGURATION_SET",
   EMAIL_IDENTITY = "EMAIL_IDENTITY",
   ISP = "ISP",
 }
 
+/**
+ * @public
+ */
 export enum Metric {
   CLICK = "CLICK",
   COMPLAINT = "COMPLAINT",
@@ -186,11 +206,15 @@ export enum Metric {
   TRANSIENT_BOUNCE = "TRANSIENT_BOUNCE",
 }
 
+/**
+ * @public
+ */
 export enum MetricNamespace {
   VDM = "VDM",
 }
 
 /**
+ * @public
  * <p>Represents a single metric data query to include in a batch.</p>
  */
 export interface BatchGetMetricDataQuery {
@@ -291,6 +315,7 @@ export interface BatchGetMetricDataQuery {
 }
 
 /**
+ * @public
  * <p>Represents a request to retrieve a batch of metric data.</p>
  */
 export interface BatchGetMetricDataRequest {
@@ -300,12 +325,16 @@ export interface BatchGetMetricDataRequest {
   Queries: BatchGetMetricDataQuery[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum QueryErrorCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
 }
 
 /**
+ * @public
  * <p>An error corresponding to the unsuccessful processing of a single metric data query.</p>
  */
 export interface MetricDataError {
@@ -337,6 +366,7 @@ export interface MetricDataError {
 }
 
 /**
+ * @public
  * <p>The result of a single metric data query.</p>
  */
 export interface MetricDataResult {
@@ -357,6 +387,7 @@ export interface MetricDataResult {
 }
 
 /**
+ * @public
  * <p>Represents the result of processing your metric data batch request</p>
  */
 export interface BatchGetMetricDataResponse {
@@ -372,6 +403,7 @@ export interface BatchGetMetricDataResponse {
 }
 
 /**
+ * @public
  * <p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -391,6 +423,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource you attempted to access doesn't exist.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -410,6 +443,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Too many requests have been made to the operation.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -428,12 +462,16 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum BehaviorOnMxFailure {
   REJECT_MESSAGE = "REJECT_MESSAGE",
   USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE",
 }
 
 /**
+ * @public
  * <p>An object that contains information about a blacklisting event that impacts one of the
  *             dedicated IP addresses that is associated with your account.</p>
  */
@@ -456,6 +494,7 @@ export interface BlacklistEntry {
 }
 
 /**
+ * @public
  * <p>An object that represents the content of the email, and optionally a character set
  *             specification.</p>
  */
@@ -475,6 +514,7 @@ export interface Content {
 }
 
 /**
+ * @public
  * <p>Represents the body of the email message.</p>
  */
 export interface Body {
@@ -494,6 +534,7 @@ export interface Body {
 }
 
 /**
+ * @public
  * <p>An object that defines the email template to use for an email message, and the values
  *             to use for any message variables in that template. An <i>email
  *                 template</i> is a type of message template that contains content that you
@@ -521,6 +562,7 @@ export interface Template {
 }
 
 /**
+ * @public
  * <p>An object that contains the body of the message. You can specify a template
  *             message.</p>
  */
@@ -532,6 +574,7 @@ export interface BulkEmailContent {
 }
 
 /**
+ * @public
  * <p>An object that describes the recipients for an email.</p>
  *          <note>
  *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
@@ -563,6 +606,7 @@ export interface Destination {
 }
 
 /**
+ * @public
  * <p>An object which contains <code>ReplacementTemplateData</code> to be used for a
  *             specific <code>BulkEmailEntry</code>.</p>
  */
@@ -576,6 +620,7 @@ export interface ReplacementTemplate {
 }
 
 /**
+ * @public
  * <p>The <code>ReplaceEmailContent</code> object to be used for a specific
  *                 <code>BulkEmailEntry</code>. The <code>ReplacementTemplate</code> can be specified
  *             within this object.</p>
@@ -589,6 +634,7 @@ export interface ReplacementEmailContent {
 }
 
 /**
+ * @public
  * <p>Contains the name and value of a tag that you apply to an email. You can use message
  *             tags when you publish email sending events.
  *             </p>
@@ -625,6 +671,9 @@ export interface MessageTag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BulkEmailEntry {
   /**
    * <p>Represents the destination of the message, consisting of To:, CC:, and BCC:
@@ -655,6 +704,9 @@ export interface BulkEmailEntry {
   ReplacementEmailContent?: ReplacementEmailContent;
 }
 
+/**
+ * @public
+ */
 export enum BulkEmailStatus {
   ACCOUNT_DAILY_QUOTA_EXCEEDED = "ACCOUNT_DAILY_QUOTA_EXCEEDED",
   ACCOUNT_SENDING_PAUSED = "ACCOUNT_SENDING_PAUSED",
@@ -673,6 +725,7 @@ export enum BulkEmailStatus {
 }
 
 /**
+ * @public
  * <p>The result of the <code>SendBulkEmail</code> operation of each specified
  *                 <code>BulkEmailEntry</code>.</p>
  */
@@ -755,6 +808,9 @@ export interface BulkEmailEntryResult {
   MessageId?: string;
 }
 
+/**
+ * @public
+ */
 export enum DimensionValueSource {
   EMAIL_HEADER = "EMAIL_HEADER",
   LINK_TAG = "LINK_TAG",
@@ -762,6 +818,7 @@ export enum DimensionValueSource {
 }
 
 /**
+ * @public
  * <p>An object that defines the dimension configuration to use when you send email events
  *             to Amazon CloudWatch.</p>
  */
@@ -808,6 +865,7 @@ export interface CloudWatchDimensionConfiguration {
 }
 
 /**
+ * @public
  * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
  *             monitor and gain insights on your email sending metrics.</p>
  */
@@ -820,6 +878,7 @@ export interface CloudWatchDestination {
 }
 
 /**
+ * @public
  * <p>The resource is being modified by another operation or thread.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -839,6 +898,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>If there is already an ongoing account details update under review.</p>
  */
 export class ConflictException extends __BaseException {
@@ -857,12 +917,16 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum SubscriptionStatus {
   OPT_IN = "OPT_IN",
   OPT_OUT = "OPT_OUT",
 }
 
 /**
+ * @public
  * <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
  */
 export interface TopicPreference {
@@ -879,6 +943,7 @@ export interface TopicPreference {
 }
 
 /**
+ * @public
  * <p>A contact is the end-user who is receiving the email.</p>
  */
 export interface Contact {
@@ -910,6 +975,7 @@ export interface Contact {
 }
 
 /**
+ * @public
  * <p>A list that contains contacts that have subscribed to a particular topic or
  *             topics.</p>
  */
@@ -925,12 +991,16 @@ export interface ContactList {
   LastUpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export enum ContactListImportAction {
   DELETE = "DELETE",
   PUT = "PUT",
 }
 
 /**
+ * @public
  * <p>An object that contains details about the action of a contact list.</p>
  */
 export interface ContactListDestination {
@@ -955,12 +1025,16 @@ export interface ContactListDestination {
   ContactListImportAction: ContactListImportAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum TlsPolicy {
   OPTIONAL = "OPTIONAL",
   REQUIRE = "REQUIRE",
 }
 
 /**
+ * @public
  * <p>Used to associate a configuration set with a dedicated IP pool.</p>
  */
 export interface DeliveryOptions {
@@ -979,6 +1053,7 @@ export interface DeliveryOptions {
 }
 
 /**
+ * @public
  * <p>Enable or disable collection of reputation metrics for emails that you send using this
  *             configuration set in the current Amazon Web Services Region. </p>
  */
@@ -999,6 +1074,7 @@ export interface ReputationOptions {
 }
 
 /**
+ * @public
  * <p>Used to enable or disable email sending for messages that use this configuration set
  *             in the current Amazon Web Services Region.</p>
  */
@@ -1010,12 +1086,16 @@ export interface SendingOptions {
   SendingEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum SuppressionListReason {
   BOUNCE = "BOUNCE",
   COMPLAINT = "COMPLAINT",
 }
 
 /**
+ * @public
  * <p>An object that contains information about the suppression list preferences for your
  *             account.</p>
  */
@@ -1043,6 +1123,7 @@ export interface SuppressionOptions {
 }
 
 /**
+ * @public
  * <p>An object that defines the tags that are associated with a resource.
  *                 A <i>tag</i> is a label that you optionally define and associate with
  *             a resource. Tags can help you categorize and manage resources in different ways, such as
@@ -1094,6 +1175,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>An object that defines the tracking options for a configuration set. When you use the
  *             Amazon SES API v2 to send an email, it contains an invisible image that's used to track when
  *             recipients open your email. If your email contains links, those links are changed
@@ -1109,12 +1191,16 @@ export interface TrackingOptions {
   CustomRedirectDomain: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum FeatureStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
 }
 
 /**
+ * @public
  * <p>An object containing additional settings for your VDM configuration as applicable to
  *             the Dashboard.</p>
  */
@@ -1139,6 +1225,7 @@ export interface DashboardOptions {
 }
 
 /**
+ * @public
  * <p>An object containing additional settings for your VDM configuration as applicable to
  *             the Guardian.</p>
  */
@@ -1163,6 +1250,7 @@ export interface GuardianOptions {
 }
 
 /**
+ * @public
  * <p>An object that defines the VDM settings that apply to emails that you send using the
  *             configuration set.</p>
  */
@@ -1181,6 +1269,7 @@ export interface VdmOptions {
 }
 
 /**
+ * @public
  * <p>A request to create a configuration set.</p>
  */
 export interface CreateConfigurationSetRequest {
@@ -1234,12 +1323,14 @@ export interface CreateConfigurationSetRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateConfigurationSetResponse {}
 
 /**
+ * @public
  * <p>There are too many instances of the specified resource type.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1259,6 +1350,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
  *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
  */
@@ -1276,6 +1368,9 @@ export interface KinesisFirehoseDestination {
   DeliveryStreamArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum EventType {
   BOUNCE = "BOUNCE",
   CLICK = "CLICK",
@@ -1290,6 +1385,7 @@ export enum EventType {
 }
 
 /**
+ * @public
  * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
  *             email event data to a Amazon Pinpoint project to view metrics using the Transactional Messaging
  *             dashboards that are built in to Amazon Pinpoint. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html">Transactional
@@ -1303,6 +1399,7 @@ export interface PinpointDestination {
 }
 
 /**
+ * @public
  * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
  *             send notification when certain email events occur.</p>
  */
@@ -1315,6 +1412,7 @@ export interface SnsDestination {
 }
 
 /**
+ * @public
  * <p>An object that defines the event destination. Specifically, it defines which services
  *             receive events from emails sent using the configuration set that the event destination
  *             is associated with. Also defines the types of events that are sent to the event
@@ -1364,6 +1462,7 @@ export interface EventDestinationDefinition {
 }
 
 /**
+ * @public
  * <p>A request to add an event destination to a configuration set.</p>
  */
 export interface CreateConfigurationSetEventDestinationRequest {
@@ -1384,11 +1483,15 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface CreateContactRequest {
   /**
    * <p>The name of the contact list to which the contact should be added.</p>
@@ -1417,9 +1520,13 @@ export interface CreateContactRequest {
   AttributesData?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactResponse {}
 
 /**
+ * @public
  * <p>An interest group, theme, or label within a list. Lists can have multiple
  *             topics.</p>
  */
@@ -1446,6 +1553,9 @@ export interface Topic {
   DefaultSubscriptionStatus: SubscriptionStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactListRequest {
   /**
    * <p>The name of the contact list.</p>
@@ -1469,9 +1579,13 @@ export interface CreateContactListRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateContactListResponse {}
 
 /**
+ * @public
  * <p>Represents a request to create a custom verification email template.</p>
  */
 export interface CreateCustomVerificationEmailTemplateRequest {
@@ -1512,17 +1626,22 @@ export interface CreateCustomVerificationEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
 export interface CreateCustomVerificationEmailTemplateResponse {}
 
+/**
+ * @public
+ */
 export enum ScalingMode {
   MANAGED = "MANAGED",
   STANDARD = "STANDARD",
 }
 
 /**
+ * @public
  * <p>A request to create a new dedicated IP pool.</p>
  */
 export interface CreateDedicatedIpPoolRequest {
@@ -1544,12 +1663,14 @@ export interface CreateDedicatedIpPoolRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateDedicatedIpPoolResponse {}
 
 /**
+ * @public
  * <p>Represents the raw content of an email message.</p>
  */
 export interface RawMessage {
@@ -1587,6 +1708,7 @@ export interface RawMessage {
 }
 
 /**
+ * @public
  * <p>Represents the email message that you're sending. The <code>Message</code> object
  *             consists of a subject line and a message body.</p>
  */
@@ -1606,6 +1728,7 @@ export interface Message {
 }
 
 /**
+ * @public
  * <p>An object that defines the entire content of the email, including the message headers
  *             and the body content. You can create a simple email message, in which you specify the
  *             subject and the text and HTML versions of the message body. You can also create raw
@@ -1659,6 +1782,7 @@ export interface EmailContent {
 }
 
 /**
+ * @public
  * <p>A request to perform a predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will
  *             be handled by various email providers around the world. When you perform a predictive inbox placement test, you
  *             provide a sample message that contains the content that you plan to send to your
@@ -1691,12 +1815,16 @@ export interface CreateDeliverabilityTestReportRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum DeliverabilityTestStatus {
   COMPLETED = "COMPLETED",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
 /**
+ * @public
  * <p>Information about the predictive inbox placement test that you created.</p>
  */
 export interface CreateDeliverabilityTestReportResponse {
@@ -1715,6 +1843,7 @@ export interface CreateDeliverabilityTestReportResponse {
 }
 
 /**
+ * @public
  * <p>The message can't be sent because the sending domain isn't verified.</p>
  */
 export class MailFromDomainNotVerifiedException extends __BaseException {
@@ -1734,6 +1863,7 @@ export class MailFromDomainNotVerifiedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The message can't be sent because it contains invalid content.</p>
  */
 export class MessageRejected extends __BaseException {
@@ -1753,6 +1883,7 @@ export class MessageRejected extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The message can't be sent because the account's ability to send email is currently
  *             paused.</p>
  */
@@ -1772,12 +1903,16 @@ export class SendingPausedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum DkimSigningKeyLength {
   RSA_1024_BIT = "RSA_1024_BIT",
   RSA_2048_BIT = "RSA_2048_BIT",
 }
 
 /**
+ * @public
  * <p>An object that contains configuration for Bring Your Own DKIM (BYODKIM), or, for Easy DKIM</p>
  */
 export interface DkimSigningAttributes {
@@ -1801,6 +1936,7 @@ export interface DkimSigningAttributes {
 }
 
 /**
+ * @public
  * <p>A request to begin the verification process for an email identity (an email address or
  *             domain).</p>
  */
@@ -1833,11 +1969,17 @@ export interface CreateEmailIdentityRequest {
   ConfigurationSetName?: string;
 }
 
+/**
+ * @public
+ */
 export enum DkimSigningAttributesOrigin {
   AWS_SES = "AWS_SES",
   EXTERNAL = "EXTERNAL",
 }
 
+/**
+ * @public
+ */
 export enum DkimStatus {
   FAILED = "FAILED",
   NOT_STARTED = "NOT_STARTED",
@@ -1847,6 +1989,7 @@ export enum DkimStatus {
 }
 
 /**
+ * @public
  * <p>An object that contains information about the DKIM authentication status for an email
  *             identity.</p>
  *          <p>Amazon SES determines the authentication status by searching for specific records in the
@@ -1947,6 +2090,9 @@ export interface DkimAttributes {
   LastKeyGenerationTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export enum IdentityType {
   DOMAIN = "DOMAIN",
   EMAIL_ADDRESS = "EMAIL_ADDRESS",
@@ -1954,6 +2100,7 @@ export enum IdentityType {
 }
 
 /**
+ * @public
  * <p>If the email identity is a domain, this object contains information about the DKIM
  *             verification status for the domain.</p>
  *          <p>If the email identity is an email address, this object is empty. </p>
@@ -1979,6 +2126,7 @@ export interface CreateEmailIdentityResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to create a sending authorization policy for an identity. Sending
  *             authorization is an Amazon SES feature that enables you to authorize other senders to use
  *             your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
@@ -2005,12 +2153,14 @@ export interface CreateEmailIdentityPolicyRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateEmailIdentityPolicyResponse {}
 
 /**
+ * @public
  * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
  *             part.</p>
  */
@@ -2033,6 +2183,7 @@ export interface EmailTemplateContent {
 }
 
 /**
+ * @public
  * <p>Represents a request to create an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
@@ -2050,17 +2201,22 @@ export interface CreateEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
 export interface CreateEmailTemplateResponse {}
 
+/**
+ * @public
+ */
 export enum DataFormat {
   CSV = "CSV",
   JSON = "JSON",
 }
 
 /**
+ * @public
  * <p>An object that contains details about the data source of the import job.</p>
  */
 export interface ImportDataSource {
@@ -2076,12 +2232,16 @@ export interface ImportDataSource {
   DataFormat: DataFormat | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SuppressionListImportAction {
   DELETE = "DELETE",
   PUT = "PUT",
 }
 
 /**
+ * @public
  * <p>An object that contains details about the action of suppression list.</p>
  */
 export interface SuppressionListDestination {
@@ -2101,6 +2261,7 @@ export interface SuppressionListDestination {
 }
 
 /**
+ * @public
  * <p>An object that contains details about the resource destination the import job is going
  *             to target.</p>
  */
@@ -2117,6 +2278,7 @@ export interface ImportDestination {
 }
 
 /**
+ * @public
  * <p>Represents a request to create an import job from a data source for a data
  *             destination.</p>
  */
@@ -2133,6 +2295,7 @@ export interface CreateImportJobRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
@@ -2144,6 +2307,7 @@ export interface CreateImportJobResponse {
 }
 
 /**
+ * @public
  * <p>Contains information about a custom verification email template.</p>
  */
 export interface CustomVerificationEmailTemplateMetadata {
@@ -2176,6 +2340,7 @@ export interface CustomVerificationEmailTemplateMetadata {
 }
 
 /**
+ * @public
  * <p>An object that contains inbox placement data for email sent from one of your email
  *             domains to a specific email provider.</p>
  */
@@ -2211,6 +2376,7 @@ export interface DomainIspPlacement {
 }
 
 /**
+ * @public
  * <p>An object that contains information about the amount of email that was delivered to
  *             recipients.</p>
  */
@@ -2240,6 +2406,7 @@ export interface VolumeStatistics {
 }
 
 /**
+ * @public
  * <p>An object that contains information about the volume of email sent on each day of the
  *             analysis period.</p>
  */
@@ -2263,6 +2430,7 @@ export interface DailyVolume {
 }
 
 /**
+ * @public
  * <p>An object containing additional settings for your VDM configuration as applicable to the Dashboard.</p>
  */
 export interface DashboardAttributes {
@@ -2282,12 +2450,16 @@ export interface DashboardAttributes {
   EngagementMetrics?: FeatureStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum WarmupStatus {
   DONE = "DONE",
   IN_PROGRESS = "IN_PROGRESS",
 }
 
 /**
+ * @public
  * <p>Contains information about a dedicated IP address that is associated with your Amazon SES
  *             account.</p>
  *          <p>To learn more about requesting dedicated IP addresses, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/dedicated-ip-case.html">Requesting and Relinquishing
@@ -2331,6 +2503,7 @@ export interface DedicatedIp {
 }
 
 /**
+ * @public
  * <p>Contains information about a dedicated IP pool.</p>
  */
 export interface DedicatedIpPool {
@@ -2356,6 +2529,7 @@ export interface DedicatedIpPool {
 }
 
 /**
+ * @public
  * <p>A request to delete a configuration set.</p>
  */
 export interface DeleteConfigurationSetRequest {
@@ -2366,12 +2540,14 @@ export interface DeleteConfigurationSetRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteConfigurationSetResponse {}
 
 /**
+ * @public
  * <p>A request to delete an event destination from a configuration set.</p>
  */
 export interface DeleteConfigurationSetEventDestinationRequest {
@@ -2388,11 +2564,15 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteContactRequest {
   /**
    * <p>The name of the contact list from which the contact should be removed.</p>
@@ -2405,8 +2585,14 @@ export interface DeleteContactRequest {
   EmailAddress: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteContactListRequest {
   /**
    * <p>The name of the contact list.</p>
@@ -2414,9 +2600,13 @@ export interface DeleteContactListRequest {
   ContactListName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactListResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete an existing custom verification email template.</p>
  */
 export interface DeleteCustomVerificationEmailTemplateRequest {
@@ -2427,12 +2617,14 @@ export interface DeleteCustomVerificationEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
 export interface DeleteCustomVerificationEmailTemplateResponse {}
 
 /**
+ * @public
  * <p>A request to delete a dedicated IP pool.</p>
  */
 export interface DeleteDedicatedIpPoolRequest {
@@ -2443,12 +2635,14 @@ export interface DeleteDedicatedIpPoolRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteDedicatedIpPoolResponse {}
 
 /**
+ * @public
  * <p>A request to delete an existing email identity. When you delete an identity, you lose
  *             the ability to send email from that identity. You can restore your ability to send email
  *             by completing the verification process for the identity again.</p>
@@ -2461,12 +2655,14 @@ export interface DeleteEmailIdentityRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteEmailIdentityResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete a sending authorization policy for an identity. Sending
  *             authorization is an Amazon SES feature that enables you to authorize other senders to
  *             use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
@@ -2486,12 +2682,14 @@ export interface DeleteEmailIdentityPolicyRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteEmailIdentityPolicyResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
@@ -2503,12 +2701,14 @@ export interface DeleteEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
 export interface DeleteEmailTemplateResponse {}
 
 /**
+ * @public
  * <p>A request to remove an email address from the suppression list for your
  *             account.</p>
  */
@@ -2520,11 +2720,15 @@ export interface DeleteSuppressedDestinationRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteSuppressedDestinationResponse {}
 
+/**
+ * @public
+ */
 export enum DeliverabilityDashboardAccountStatus {
   ACTIVE = "ACTIVE",
   DISABLED = "DISABLED",
@@ -2532,6 +2736,7 @@ export enum DeliverabilityDashboardAccountStatus {
 }
 
 /**
+ * @public
  * <p>An object that contains metadata related to a predictive inbox placement test.</p>
  */
 export interface DeliverabilityTestReport {
@@ -2570,6 +2775,7 @@ export interface DeliverabilityTestReport {
 }
 
 /**
+ * @public
  * <p>An object that contains the deliverability data for a specific campaign. This data is
  *             available for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -2661,6 +2867,7 @@ export interface DomainDeliverabilityCampaign {
 }
 
 /**
+ * @public
  * <p>An object that contains information about the inbox placement data settings for a
  *             verified domain that’s associated with your Amazon Web Services account. This data is available only
  *             if you enabled the Deliverability dashboard for the domain.</p>
@@ -2679,6 +2886,7 @@ export interface InboxPlacementTrackingOption {
 }
 
 /**
+ * @public
  * <p>An object that contains information about the Deliverability dashboard subscription for a
  *             verified domain that you use to send email and currently has an active Deliverability dashboard
  *             subscription. If a Deliverability dashboard subscription is active for a domain, you gain access
@@ -2705,6 +2913,7 @@ export interface DomainDeliverabilityTrackingOption {
 }
 
 /**
+ * @public
  * <p>Contains information about an email template.</p>
  */
 export interface EmailTemplateMetadata {
@@ -2720,6 +2929,7 @@ export interface EmailTemplateMetadata {
 }
 
 /**
+ * @public
  * <p>In the Amazon SES API v2, <i>events</i> include message sends, deliveries, opens,
  *             clicks, bounces, complaints and delivery delays. <i>Event destinations</i>
  *             are places that you can send information about these events to. For example, you can
@@ -2841,6 +3051,7 @@ export interface EventDestination {
 }
 
 /**
+ * @public
  * <p>An object that contains the failure details about an import job.</p>
  */
 export interface FailureInfo {
@@ -2857,12 +3068,14 @@ export interface FailureInfo {
 }
 
 /**
+ * @public
  * <p>A request to obtain information about the email-sending capabilities of your Amazon SES
  *             account.</p>
  */
 export interface GetAccountRequest {}
 
 /**
+ * @public
  * <p>An object that contains information about the per-day and per-second sending limits
  *             for your Amazon SES account in the current Amazon Web Services Region.</p>
  */
@@ -2889,6 +3102,7 @@ export interface SendQuota {
 }
 
 /**
+ * @public
  * <p>An object that contains information about the email address suppression preferences
  *             for your account in the current Amazon Web Services Region.</p>
  */
@@ -2916,6 +3130,7 @@ export interface SuppressionAttributes {
 }
 
 /**
+ * @public
  * <p>An object containing additional settings for your VDM configuration as applicable to the Guardian.</p>
  */
 export interface GuardianAttributes {
@@ -2936,6 +3151,7 @@ export interface GuardianAttributes {
 }
 
 /**
+ * @public
  * <p>The VDM attributes that apply to your Amazon SES account.</p>
  */
 export interface VdmAttributes {
@@ -2966,6 +3182,7 @@ export interface VdmAttributes {
 }
 
 /**
+ * @public
  * <p>A list of details about the email-sending capabilities of your Amazon SES account in the
  *             current Amazon Web Services Region.</p>
  */
@@ -3046,6 +3263,7 @@ export interface GetAccountResponse {
 }
 
 /**
+ * @public
  * <p>A request to retrieve a list of the blacklists that your dedicated IP addresses appear
  *             on.</p>
  */
@@ -3059,6 +3277,7 @@ export interface GetBlacklistReportsRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains information about blacklist events.</p>
  */
 export interface GetBlacklistReportsResponse {
@@ -3070,6 +3289,7 @@ export interface GetBlacklistReportsResponse {
 }
 
 /**
+ * @public
  * <p>A request to obtain information about a configuration set.</p>
  */
 export interface GetConfigurationSetRequest {
@@ -3080,6 +3300,7 @@ export interface GetConfigurationSetRequest {
 }
 
 /**
+ * @public
  * <p>Information about a configuration set.</p>
  */
 export interface GetConfigurationSetResponse {
@@ -3132,6 +3353,7 @@ export interface GetConfigurationSetResponse {
 }
 
 /**
+ * @public
  * <p>A request to obtain information about the event destinations for a configuration
  *             set.</p>
  */
@@ -3143,6 +3365,7 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 /**
+ * @public
  * <p>Information about an event destination for a configuration set.</p>
  */
 export interface GetConfigurationSetEventDestinationsResponse {
@@ -3153,6 +3376,9 @@ export interface GetConfigurationSetEventDestinationsResponse {
   EventDestinations?: EventDestination[];
 }
 
+/**
+ * @public
+ */
 export interface GetContactRequest {
   /**
    * <p>The name of the contact list to which the contact belongs.</p>
@@ -3165,6 +3391,9 @@ export interface GetContactRequest {
   EmailAddress: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactResponse {
   /**
    * <p>The name of the contact list to which the contact belongs.</p>
@@ -3208,6 +3437,9 @@ export interface GetContactResponse {
   LastUpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetContactListRequest {
   /**
    * <p>The name of the contact list.</p>
@@ -3215,6 +3447,9 @@ export interface GetContactListRequest {
   ContactListName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactListResponse {
   /**
    * <p>The name of the contact list.</p>
@@ -3249,6 +3484,7 @@ export interface GetContactListResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to retrieve an existing custom verification email
  *             template.</p>
  */
@@ -3260,6 +3496,7 @@ export interface GetCustomVerificationEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>The following elements are returned by the service.</p>
  */
 export interface GetCustomVerificationEmailTemplateResponse {
@@ -3297,6 +3534,7 @@ export interface GetCustomVerificationEmailTemplateResponse {
 }
 
 /**
+ * @public
  * <p>A request to obtain more information about a dedicated IP address.</p>
  */
 export interface GetDedicatedIpRequest {
@@ -3308,6 +3546,7 @@ export interface GetDedicatedIpRequest {
 }
 
 /**
+ * @public
  * <p>Information about a dedicated IP address.</p>
  */
 export interface GetDedicatedIpResponse {
@@ -3318,6 +3557,7 @@ export interface GetDedicatedIpResponse {
 }
 
 /**
+ * @public
  * <p>A request to obtain more information about a dedicated IP pool.</p>
  */
 export interface GetDedicatedIpPoolRequest {
@@ -3328,6 +3568,7 @@ export interface GetDedicatedIpPoolRequest {
 }
 
 /**
+ * @public
  * <p>The following element is returned by the service.</p>
  */
 export interface GetDedicatedIpPoolResponse {
@@ -3338,6 +3579,7 @@ export interface GetDedicatedIpPoolResponse {
 }
 
 /**
+ * @public
  * <p>A request to obtain more information about dedicated IP pools.</p>
  */
 export interface GetDedicatedIpsRequest {
@@ -3362,6 +3604,7 @@ export interface GetDedicatedIpsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the dedicated IP addresses that are associated with your Amazon Web Services
  *             account.</p>
  */
@@ -3380,6 +3623,7 @@ export interface GetDedicatedIpsResponse {
 }
 
 /**
+ * @public
  * <p>Retrieve information about the status of the Deliverability dashboard for your Amazon Web Services account.
  *             When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and
  *             other metrics for your domains. You also gain the ability to perform predictive inbox placement tests.</p>
@@ -3390,6 +3634,7 @@ export interface GetDedicatedIpsResponse {
 export interface GetDeliverabilityDashboardOptionsRequest {}
 
 /**
+ * @public
  * <p>An object that shows the status of the Deliverability dashboard.</p>
  */
 export interface GetDeliverabilityDashboardOptionsResponse {
@@ -3430,6 +3675,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
 }
 
 /**
+ * @public
  * <p>A request to retrieve the results of a predictive inbox placement test.</p>
  */
 export interface GetDeliverabilityTestReportRequest {
@@ -3440,6 +3686,7 @@ export interface GetDeliverabilityTestReportRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains inbox placement data for an email provider.</p>
  */
 export interface PlacementStatistics {
@@ -3474,6 +3721,7 @@ export interface PlacementStatistics {
 }
 
 /**
+ * @public
  * <p>An object that describes how email sent during the predictive inbox placement test was handled by a certain
  *             email provider.</p>
  */
@@ -3490,6 +3738,7 @@ export interface IspPlacement {
 }
 
 /**
+ * @public
  * <p>The results of the predictive inbox placement test.</p>
  */
 export interface GetDeliverabilityTestReportResponse {
@@ -3525,6 +3774,7 @@ export interface GetDeliverabilityTestReportResponse {
 }
 
 /**
+ * @public
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available
  *             for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -3539,6 +3789,7 @@ export interface GetDomainDeliverabilityCampaignRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains all the deliverability data for a specific campaign. This data
  *             is available for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for.</p>
@@ -3551,6 +3802,7 @@ export interface GetDomainDeliverabilityCampaignResponse {
 }
 
 /**
+ * @public
  * <p>A request to obtain deliverability metrics for a domain.</p>
  */
 export interface GetDomainStatisticsReportRequest {
@@ -3574,6 +3826,7 @@ export interface GetDomainStatisticsReportRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains information about email that was sent from the selected
  *             domain.</p>
  */
@@ -3598,6 +3851,7 @@ export interface OverallVolume {
 }
 
 /**
+ * @public
  * <p>An object that includes statistics that are related to the domain that you
  *             specified.</p>
  */
@@ -3618,6 +3872,7 @@ export interface GetDomainStatisticsReportResponse {
 }
 
 /**
+ * @public
  * <p>A request to return details about an email identity.</p>
  */
 export interface GetEmailIdentityRequest {
@@ -3627,6 +3882,9 @@ export interface GetEmailIdentityRequest {
   EmailIdentity: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum MailFromDomainStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
@@ -3635,6 +3893,7 @@ export enum MailFromDomainStatus {
 }
 
 /**
+ * @public
  * <p>A list of attributes that are associated with a MAIL FROM domain.</p>
  */
 export interface MailFromAttributes {
@@ -3684,6 +3943,9 @@ export interface MailFromAttributes {
   BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum VerificationStatus {
   FAILED = "FAILED",
   NOT_STARTED = "NOT_STARTED",
@@ -3693,6 +3955,7 @@ export enum VerificationStatus {
 }
 
 /**
+ * @public
  * <p>Details about an email identity.</p>
  */
 export interface GetEmailIdentityResponse {
@@ -3781,6 +4044,7 @@ export interface GetEmailIdentityResponse {
 }
 
 /**
+ * @public
  * <p>A request to return the policies of an email identity.</p>
  */
 export interface GetEmailIdentityPoliciesRequest {
@@ -3791,6 +4055,7 @@ export interface GetEmailIdentityPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Identity policies associated with email identity.</p>
  */
 export interface GetEmailIdentityPoliciesResponse {
@@ -3801,6 +4066,7 @@ export interface GetEmailIdentityPoliciesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to display the template object (which includes the subject line,
  *             HTML part and text part) for the template you specify.</p>
  */
@@ -3812,6 +4078,7 @@ export interface GetEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>The following element is returned by the service.</p>
  */
 export interface GetEmailTemplateResponse {
@@ -3828,6 +4095,7 @@ export interface GetEmailTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request for information about an import job using the import job
  *             ID.</p>
  */
@@ -3838,6 +4106,9 @@ export interface GetImportJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   COMPLETED = "COMPLETED",
   CREATED = "CREATED",
@@ -3846,6 +4117,7 @@ export enum JobStatus {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
@@ -3898,6 +4170,7 @@ export interface GetImportJobResponse {
 }
 
 /**
+ * @public
  * <p>A request to retrieve information about an email address that's on the suppression
  *             list for your account.</p>
  */
@@ -3909,6 +4182,7 @@ export interface GetSuppressedDestinationRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains additional attributes that are related an email address that
  *             is on the suppression list for your account.</p>
  */
@@ -3927,6 +4201,7 @@ export interface SuppressedDestinationAttributes {
 }
 
 /**
+ * @public
  * <p>An object that contains information about an email address that is on the suppression
  *             list for your account.</p>
  */
@@ -3955,6 +4230,7 @@ export interface SuppressedDestination {
 }
 
 /**
+ * @public
  * <p>Information about the suppressed email address.</p>
  */
 export interface GetSuppressedDestinationResponse {
@@ -3965,6 +4241,7 @@ export interface GetSuppressedDestinationResponse {
 }
 
 /**
+ * @public
  * <p>Information about an email identity.</p>
  */
 export interface IdentityInfo {
@@ -4019,12 +4296,16 @@ export interface IdentityInfo {
   VerificationStatus?: VerificationStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum ImportDestinationType {
   CONTACT_LIST = "CONTACT_LIST",
   SUPPRESSION_LIST = "SUPPRESSION_LIST",
 }
 
 /**
+ * @public
  * <p>A summary of the import job.</p>
  */
 export interface ImportJobSummary {
@@ -4062,6 +4343,7 @@ export interface ImportJobSummary {
 }
 
 /**
+ * @public
  * <p>The specified request includes an invalid or expired token.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -4081,6 +4363,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request to obtain a list of configuration sets for your Amazon SES account in the current
  *             Amazon Web Services Region.</p>
  */
@@ -4101,6 +4384,7 @@ export interface ListConfigurationSetsRequest {
 }
 
 /**
+ * @public
  * <p>A list of configuration sets in your Amazon SES account in the current Amazon Web Services Region.</p>
  */
 export interface ListConfigurationSetsResponse {
@@ -4119,6 +4403,9 @@ export interface ListConfigurationSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactListsRequest {
   /**
    * <p>Maximum number of contact lists to return at once. Use this parameter to paginate
@@ -4138,6 +4425,9 @@ export interface ListContactListsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactListsResponse {
   /**
    * <p>The available contact lists.</p>
@@ -4153,6 +4443,7 @@ export interface ListContactListsResponse {
 }
 
 /**
+ * @public
  * <p>Used for filtering by a specific topic preference.</p>
  */
 export interface TopicFilter {
@@ -4169,6 +4460,7 @@ export interface TopicFilter {
 }
 
 /**
+ * @public
  * <p>A filter that can be applied to a list of contacts.</p>
  */
 export interface ListContactsFilter {
@@ -4184,6 +4476,9 @@ export interface ListContactsFilter {
   TopicFilter?: TopicFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListContactsRequest {
   /**
    * <p>The name of the contact list.</p>
@@ -4213,6 +4508,9 @@ export interface ListContactsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactsResponse {
   /**
    * <p>The contacts present in a specific contact list.</p>
@@ -4228,6 +4526,7 @@ export interface ListContactsResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to list the existing custom verification email templates for your
  *             account.</p>
  */
@@ -4251,6 +4550,7 @@ export interface ListCustomVerificationEmailTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>The following elements are returned by the service.</p>
  */
 export interface ListCustomVerificationEmailTemplatesResponse {
@@ -4269,6 +4569,7 @@ export interface ListCustomVerificationEmailTemplatesResponse {
 }
 
 /**
+ * @public
  * <p>A request to obtain a list of dedicated IP pools.</p>
  */
 export interface ListDedicatedIpPoolsRequest {
@@ -4288,6 +4589,7 @@ export interface ListDedicatedIpPoolsRequest {
 }
 
 /**
+ * @public
  * <p>A list of dedicated IP pools.</p>
  */
 export interface ListDedicatedIpPoolsResponse {
@@ -4306,6 +4608,7 @@ export interface ListDedicatedIpPoolsResponse {
 }
 
 /**
+ * @public
  * <p>A request to list all of the predictive inbox placement tests that you've performed.</p>
  */
 export interface ListDeliverabilityTestReportsRequest {
@@ -4327,6 +4630,7 @@ export interface ListDeliverabilityTestReportsRequest {
 }
 
 /**
+ * @public
  * <p>A list of the predictive inbox placement test reports that are available for your account, regardless of
  *             whether or not those tests are complete.</p>
  */
@@ -4345,6 +4649,7 @@ export interface ListDeliverabilityTestReportsResponse {
 }
 
 /**
+ * @public
  * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send
  *             email during a specified time range. This data is available for a domain only if you
  *             enabled the Deliverability dashboard.</p>
@@ -4386,6 +4691,7 @@ export interface ListDomainDeliverabilityCampaignsRequest {
 }
 
 /**
+ * @public
  * <p>An array of objects that provide deliverability data for all the campaigns that used a
  *             specific domain to send email during a specified time range. This data is available for
  *             a domain only if you enabled the Deliverability dashboard for the domain.</p>
@@ -4406,6 +4712,7 @@ export interface ListDomainDeliverabilityCampaignsResponse {
 }
 
 /**
+ * @public
  * <p>A request to list all of the email identities associated with your Amazon Web Services account. This
  *             list includes identities that you've already verified, identities that are unverified,
  *             and identities that were verified in the past, but are no longer verified.</p>
@@ -4428,6 +4735,7 @@ export interface ListEmailIdentitiesRequest {
 }
 
 /**
+ * @public
  * <p>A list of all of the identities that you've attempted to verify, regardless of whether
  *             or not those identities were successfully verified.</p>
  */
@@ -4448,6 +4756,7 @@ export interface ListEmailIdentitiesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to list the email templates present in your Amazon SES account in the
  *             current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -4469,6 +4778,7 @@ export interface ListEmailTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>The following elements are returned by the service.</p>
  */
 export interface ListEmailTemplatesResponse {
@@ -4487,6 +4797,7 @@ export interface ListEmailTemplatesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to list all of the import jobs for a data destination within the
  *             specified maximum number of import jobs.</p>
  */
@@ -4515,6 +4826,7 @@ export interface ListImportJobsRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
@@ -4533,6 +4845,7 @@ export interface ListImportJobsResponse {
 }
 
 /**
+ * @public
  * <p>An object used to specify a list or topic to which an email belongs, which will be
  *             used when a contact chooses to unsubscribe.</p>
  */
@@ -4548,6 +4861,9 @@ export interface ListManagementOptions {
   TopicName?: string;
 }
 
+/**
+ * @public
+ */
 export enum ListRecommendationsFilterKey {
   IMPACT = "IMPACT",
   RESOURCE_ARN = "RESOURCE_ARN",
@@ -4556,6 +4872,7 @@ export enum ListRecommendationsFilterKey {
 }
 
 /**
+ * @public
  * <p>Represents a request to list the existing recommendations for your account.</p>
  */
 export interface ListRecommendationsRequest {
@@ -4584,16 +4901,25 @@ export interface ListRecommendationsRequest {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export enum RecommendationImpact {
   HIGH = "HIGH",
   LOW = "LOW",
 }
 
+/**
+ * @public
+ */
 export enum RecommendationStatus {
   FIXED = "FIXED",
   OPEN = "OPEN",
 }
 
+/**
+ * @public
+ */
 export enum RecommendationType {
   BIMI = "BIMI",
   DKIM = "DKIM",
@@ -4602,6 +4928,7 @@ export enum RecommendationType {
 }
 
 /**
+ * @public
  * <p>A recommendation generated for your account.</p>
  */
 export interface Recommendation {
@@ -4647,6 +4974,7 @@ export interface Recommendation {
 }
 
 /**
+ * @public
  * <p>Contains the response to your request to retrieve the list of recommendations for your account.</p>
  */
 export interface ListRecommendationsResponse {
@@ -4665,6 +4993,7 @@ export interface ListRecommendationsResponse {
 }
 
 /**
+ * @public
  * <p>A request to obtain a list of email destinations that are on the suppression list for
  *             your account.</p>
  */
@@ -4703,6 +5032,7 @@ export interface ListSuppressedDestinationsRequest {
 }
 
 /**
+ * @public
  * <p>A summary that describes the suppressed email address.</p>
  */
 export interface SuppressedDestinationSummary {
@@ -4724,6 +5054,7 @@ export interface SuppressedDestinationSummary {
 }
 
 /**
+ * @public
  * <p>A list of suppressed email addresses.</p>
  */
 export interface ListSuppressedDestinationsResponse {
@@ -4742,6 +5073,9 @@ export interface ListSuppressedDestinationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag
@@ -4750,6 +5084,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>An array that lists all the tags that are associated with the resource. Each tag
@@ -4760,6 +5097,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>A request to enable or disable the automatic IP address warm-up feature.</p>
  */
 export interface PutAccountDedicatedIpWarmupAttributesRequest {
@@ -4773,12 +5111,14 @@ export interface PutAccountDedicatedIpWarmupAttributesRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutAccountDedicatedIpWarmupAttributesResponse {}
 
 /**
+ * @public
  * <p>A request to submit new account details.</p>
  */
 export interface PutAccountDetailsRequest {
@@ -4825,12 +5165,14 @@ export interface PutAccountDetailsRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutAccountDetailsResponse {}
 
 /**
+ * @public
  * <p>A request to change the ability of your account to send email.</p>
  */
 export interface PutAccountSendingAttributesRequest {
@@ -4846,12 +5188,14 @@ export interface PutAccountSendingAttributesRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutAccountSendingAttributesResponse {}
 
 /**
+ * @public
  * <p>A request to change your account's suppression preferences.</p>
  */
 export interface PutAccountSuppressionAttributesRequest {
@@ -4878,12 +5222,14 @@ export interface PutAccountSuppressionAttributesRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutAccountSuppressionAttributesResponse {}
 
 /**
+ * @public
  * <p>A request to submit new account VDM attributes.</p>
  */
 export interface PutAccountVdmAttributesRequest {
@@ -4893,9 +5239,13 @@ export interface PutAccountVdmAttributesRequest {
   VdmAttributes: VdmAttributes | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAccountVdmAttributesResponse {}
 
 /**
+ * @public
  * <p>A request to associate a configuration set with a dedicated IP pool.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsRequest {
@@ -4919,12 +5269,14 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsResponse {}
 
 /**
+ * @public
  * <p>A request to enable or disable tracking of reputation metrics for a configuration
  *             set.</p>
  */
@@ -4943,12 +5295,14 @@ export interface PutConfigurationSetReputationOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetReputationOptionsResponse {}
 
 /**
+ * @public
  * <p>A request to enable or disable the ability of Amazon SES to send emails that use a specific
  *             configuration set.</p>
  */
@@ -4966,12 +5320,14 @@ export interface PutConfigurationSetSendingOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetSendingOptionsResponse {}
 
 /**
+ * @public
  * <p>A request to change the account suppression list preferences for a specific
  *             configuration set.</p>
  */
@@ -5005,12 +5361,14 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetSuppressionOptionsResponse {}
 
 /**
+ * @public
  * <p>A request to add a custom domain for tracking open and click events to a configuration
  *             set.</p>
  */
@@ -5027,12 +5385,14 @@ export interface PutConfigurationSetTrackingOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetTrackingOptionsResponse {}
 
 /**
+ * @public
  * <p>A request to add specific VDM settings to a configuration set.</p>
  */
 export interface PutConfigurationSetVdmOptionsRequest {
@@ -5048,12 +5408,14 @@ export interface PutConfigurationSetVdmOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetVdmOptionsResponse {}
 
 /**
+ * @public
  * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
  */
 export interface PutDedicatedIpInPoolRequest {
@@ -5071,12 +5433,14 @@ export interface PutDedicatedIpInPoolRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutDedicatedIpInPoolResponse {}
 
 /**
+ * @public
  * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
  *             is useful when you want to resume the warm-up process for an existing IP address.</p>
  */
@@ -5094,12 +5458,14 @@ export interface PutDedicatedIpWarmupAttributesRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutDedicatedIpWarmupAttributesResponse {}
 
 /**
+ * @public
  * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
  *             access to reputation, deliverability, and other metrics for the domains that you use to
  *             send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p>
@@ -5122,11 +5488,13 @@ export interface PutDeliverabilityDashboardOptionRequest {
 }
 
 /**
+ * @public
  * <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
  */
 export interface PutDeliverabilityDashboardOptionResponse {}
 
 /**
+ * @public
  * <p>A request to associate a configuration set with an email identity.</p>
  */
 export interface PutEmailIdentityConfigurationSetAttributesRequest {
@@ -5142,12 +5510,14 @@ export interface PutEmailIdentityConfigurationSetAttributesRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
 export interface PutEmailIdentityConfigurationSetAttributesResponse {}
 
 /**
+ * @public
  * <p>A request to enable or disable DKIM signing of email that you send from an email
  *             identity.</p>
  */
@@ -5167,12 +5537,14 @@ export interface PutEmailIdentityDkimAttributesRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutEmailIdentityDkimAttributesResponse {}
 
 /**
+ * @public
  * <p>A request to change the DKIM attributes for an email identity.</p>
  */
 export interface PutEmailIdentityDkimSigningAttributesRequest {
@@ -5208,6 +5580,7 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  *          <p>The following data is returned in JSON format by the service.</p>
  */
@@ -5270,6 +5643,7 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
 }
 
 /**
+ * @public
  * <p>A request to set the attributes that control how bounce and complaint events are
  *             processed.</p>
  */
@@ -5293,12 +5667,14 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutEmailIdentityFeedbackAttributesResponse {}
 
 /**
+ * @public
  * <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
  */
 export interface PutEmailIdentityMailFromAttributesRequest {
@@ -5340,12 +5716,14 @@ export interface PutEmailIdentityMailFromAttributesRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutEmailIdentityMailFromAttributesResponse {}
 
 /**
+ * @public
  * <p>A request to add an email destination to the suppression list for your account.</p>
  */
 export interface PutSuppressedDestinationRequest {
@@ -5363,12 +5741,14 @@ export interface PutSuppressedDestinationRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutSuppressedDestinationResponse {}
 
 /**
+ * @public
  * <p>Represents a request to send email messages to multiple destinations using Amazon SES. For
  *             more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -5447,6 +5827,7 @@ export interface SendBulkEmailRequest {
 }
 
 /**
+ * @public
  * <p>The following data is returned in JSON format by the service.</p>
  */
 export interface SendBulkEmailResponse {
@@ -5458,6 +5839,7 @@ export interface SendBulkEmailResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to send a custom verification email to a specified
  *             recipient.</p>
  */
@@ -5480,6 +5862,7 @@ export interface SendCustomVerificationEmailRequest {
 }
 
 /**
+ * @public
  * <p>The following element is returned by the service.</p>
  */
 export interface SendCustomVerificationEmailResponse {
@@ -5491,6 +5874,7 @@ export interface SendCustomVerificationEmailResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to send a single formatted email using Amazon SES. For more
  *             information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -5579,6 +5963,7 @@ export interface SendEmailRequest {
 }
 
 /**
+ * @public
  * <p>A unique message ID that you receive when an email is accepted for sending.</p>
  */
 export interface SendEmailResponse {
@@ -5595,6 +5980,9 @@ export interface SendEmailResponse {
   MessageId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags
@@ -5611,9 +5999,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>>Represents a request to create a preview of the MIME content of an email when
  *             provided with a template and a set of replacement data.</p>
  */
@@ -5632,6 +6024,7 @@ export interface TestRenderEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>The following element is returned by the service.</p>
  */
 export interface TestRenderEmailTemplateResponse {
@@ -5643,6 +6036,9 @@ export interface TestRenderEmailTemplateResponse {
   RenderedTemplate: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more
@@ -5662,9 +6058,13 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>A request to change the settings for an event destination for a configuration
  *             set.</p>
  */
@@ -5687,11 +6087,15 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactRequest {
   /**
    * <p>The name of the contact list.</p>
@@ -5720,8 +6124,14 @@ export interface UpdateContactRequest {
   AttributesData?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateContactListRequest {
   /**
    * <p>The name of the contact list.</p>
@@ -5740,9 +6150,13 @@ export interface UpdateContactListRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactListResponse {}
 
 /**
+ * @public
  * <p>Represents a request to update an existing custom verification email template.</p>
  */
 export interface UpdateCustomVerificationEmailTemplateRequest {
@@ -5783,12 +6197,14 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
 export interface UpdateCustomVerificationEmailTemplateResponse {}
 
 /**
+ * @public
  * <p>Represents a request to update a sending authorization policy for an identity. Sending
  *             authorization is an Amazon SES feature that enables you to authorize other senders to use
  *             your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
@@ -5815,12 +6231,14 @@ export interface UpdateEmailIdentityPolicyRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface UpdateEmailIdentityPolicyResponse {}
 
 /**
+ * @public
  * <p>Represents a request to update an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
@@ -5838,6 +6256,7 @@ export interface UpdateEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */

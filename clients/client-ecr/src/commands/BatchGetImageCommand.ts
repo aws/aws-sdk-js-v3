@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetImageCommand}.
  */
 export interface BatchGetImageCommandInput extends BatchGetImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetImageCommand}.
  */
 export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets detailed information for an image. Images are specified with either an
  *                 <code>imageTag</code> or <code>imageDigest</code>.</p>
  *         <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
@@ -49,6 +54,8 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetImageCommandInput - {@link BatchGetImageCommandInput}
+ * @returns {@link BatchGetImageCommandOutput}
  * @see {@link BatchGetImageCommandInput} for command's `input` shape.
  * @see {@link BatchGetImageCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -115,6 +122,9 @@ export class BatchGetImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class BatchGetImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetImageCommandOutput> {
     return deserializeAws_json1_1BatchGetImageCommand(output, context);
   }

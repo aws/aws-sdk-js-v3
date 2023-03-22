@@ -26,15 +26,20 @@ import {
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPermissionCommand}.
  */
 export interface GetPermissionCommandInput extends GetPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPermissionCommand}.
  */
 export interface GetPermissionCommandOutput extends GetPermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the contents of an RAM permission in JSON format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPermissionCommandInput - {@link GetPermissionCommandInput}
+ * @returns {@link GetPermissionCommandOutput}
  * @see {@link GetPermissionCommandInput} for command's `input` shape.
  * @see {@link GetPermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class GetPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPermissionCommandOutput> {
     return deserializeAws_restJson1GetPermissionCommand(output, context);
   }

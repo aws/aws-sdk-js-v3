@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPartsCommand}.
  */
 export interface ListPartsCommandInput extends ListPartsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPartsCommand}.
  */
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists the parts of an archive that have been uploaded in a specific
  *          multipart upload. You can make this request at any time during an in-progress multipart
  *          upload before you complete the upload (see <a>CompleteMultipartUpload</a>. List
@@ -67,6 +72,8 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPartsCommandInput - {@link ListPartsCommandInput}
+ * @returns {@link ListPartsCommandOutput}
  * @see {@link ListPartsCommandInput} for command's `input` shape.
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -136,6 +143,9 @@ export class ListPartsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPartsCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class ListPartsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPartsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartsCommandOutput> {
     return deserializeAws_restJson1ListPartsCommand(output, context);
   }

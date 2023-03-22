@@ -59,6 +59,7 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { IdentitystoreClient } from "./IdentitystoreClient";
 
 /**
+ * @public
  * <p>The Identity Store service used by AWS IAM Identity Center (successor to AWS Single Sign-On) provides a single place to retrieve all of
  *          your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User
  *             Guide</a>.</p>
@@ -74,6 +75,7 @@ import { IdentitystoreClient } from "./IdentitystoreClient";
  */
 export class Identitystore extends IdentitystoreClient {
   /**
+   * @public
    * <p>Creates a group within the specified identity store.</p>
    */
   public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
@@ -100,6 +102,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Creates a relationship between a member and a group. The following identifiers must be specified: <code>GroupId</code>, <code>IdentityStoreId</code>, and <code>MemberId</code>.</p>
    */
   public createGroupMembership(
@@ -132,6 +135,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Creates a new user within the specified identity store.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
@@ -158,6 +162,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Delete a group within an identity store given <code>GroupId</code>.</p>
    */
   public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
@@ -184,6 +189,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Delete a membership within a group given <code>MembershipId</code>.</p>
    */
   public deleteGroupMembership(
@@ -216,6 +222,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Deletes a user within an identity store given <code>UserId</code>.</p>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
@@ -242,6 +249,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
    *          store.</p>
    */
@@ -275,6 +283,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Retrieves membership metadata and attributes from <code>MembershipId</code> in an identity store.</p>
    */
   public describeGroupMembership(
@@ -307,6 +316,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p>
    */
   public describeUser(
@@ -336,6 +346,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Retrieves <code>GroupId</code> in an identity store.</p>
    */
   public getGroupId(args: GetGroupIdCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupIdCommandOutput>;
@@ -362,6 +373,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the <code>MembershipId</code> in an identity store.</p>
    */
   public getGroupMembershipId(
@@ -394,6 +406,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the <code>UserId</code> in an identity store.</p>
    */
   public getUserId(args: GetUserIdCommandInput, options?: __HttpHandlerOptions): Promise<GetUserIdCommandOutput>;
@@ -420,6 +433,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Checks the user's membership in all requested groups and returns if the member exists in all queried groups.</p>
    */
   public isMemberInGroups(
@@ -452,6 +466,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>For the specified group in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</p>
    */
   public listGroupMemberships(
@@ -484,6 +499,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>For the specified member in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</p>
    */
   public listGroupMembershipsForMember(
@@ -516,6 +532,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Lists all groups in the identity store. Returns a paginated list of complete <code>Group</code> objects.
    *          Filtering for a <code>Group</code> by the <code>DisplayName</code> attribute is deprecated. Instead, use the <code>GetGroupId</code> API action.</p>
    */
@@ -543,6 +560,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects.
    *          Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</p>
    */
@@ -570,6 +588,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>For the specified group in the specified identity store, updates the group metadata and attributes.</p>
    */
   public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
@@ -596,6 +615,7 @@ export class Identitystore extends IdentitystoreClient {
   }
 
   /**
+   * @public
    * <p>For the specified user in the specified identity store, updates the user metadata and attributes.</p>
    */
   public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;

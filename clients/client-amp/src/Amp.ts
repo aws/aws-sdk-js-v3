@@ -105,10 +105,12 @@ import {
 } from "./commands/UpdateWorkspaceAliasCommand";
 
 /**
+ * @public
  * Amazon Managed Service for Prometheus
  */
 export class Amp extends AmpClient {
   /**
+   * @public
    * Create an alert manager definition.
    */
   public createAlertManagerDefinition(
@@ -141,6 +143,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Create logging configuration.
    */
   public createLoggingConfiguration(
@@ -173,6 +176,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Create a rule group namespace.
    */
   public createRuleGroupsNamespace(
@@ -205,6 +209,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Creates a new AMP workspace.
    */
   public createWorkspace(
@@ -237,6 +242,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Deletes an alert manager definition.
    */
   public deleteAlertManagerDefinition(
@@ -269,6 +275,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Delete logging configuration.
    */
   public deleteLoggingConfiguration(
@@ -301,6 +308,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Delete a rule groups namespace.
    */
   public deleteRuleGroupsNamespace(
@@ -333,6 +341,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Deletes an AMP workspace.
    */
   public deleteWorkspace(
@@ -365,6 +374,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Describes an alert manager definition.
    */
   public describeAlertManagerDefinition(
@@ -397,6 +407,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Describes logging configuration.
    */
   public describeLoggingConfiguration(
@@ -429,6 +440,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Describe a rule groups namespace.
    */
   public describeRuleGroupsNamespace(
@@ -461,6 +473,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Describes an existing AMP workspace.
    */
   public describeWorkspace(
@@ -493,6 +506,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Lists rule groups namespaces.
    */
   public listRuleGroupsNamespaces(
@@ -525,6 +539,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Lists the tags you have assigned to the resource.
    */
   public listTagsForResource(
@@ -557,6 +572,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Lists all AMP workspaces, including workspaces being created or deleted.
    */
   public listWorkspaces(
@@ -589,6 +605,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Update an alert manager definition.
    */
   public putAlertManagerDefinition(
@@ -621,6 +638,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Update a rule groups namespace.
    */
   public putRuleGroupsNamespace(
@@ -653,6 +671,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Creates tags for the specified resource.
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -679,6 +698,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Deletes tags from the specified resource.
    */
   public untagResource(
@@ -711,6 +731,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Update logging configuration.
    */
   public updateLoggingConfiguration(
@@ -743,6 +764,7 @@ export class Amp extends AmpClient {
   }
 
   /**
+   * @public
    * Updates an AMP workspace alias.
    */
   public updateWorkspaceAlias(

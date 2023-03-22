@@ -122,6 +122,7 @@ import {
 import { ServiceDiscoveryClient } from "./ServiceDiscoveryClient";
 
 /**
+ * @public
  * <fullname>Cloud Map</fullname>
  *          <p>With Cloud Map, you can configure public DNS, private DNS, or HTTP namespaces that your
  *    microservice applications run in. When an instance becomes available, you can call the Cloud Map
@@ -132,6 +133,7 @@ import { ServiceDiscoveryClient } from "./ServiceDiscoveryClient";
  */
 export class ServiceDiscovery extends ServiceDiscoveryClient {
   /**
+   * @public
    * <p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be
    *    discovered using a <code>DiscoverInstances</code> request but can't be discovered using
    *    DNS.</p>
@@ -168,6 +170,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Creates a private namespace based on DNS, which is visible only inside a specified Amazon
    *    VPC. The namespace defines your service naming scheme. For example, if you name your namespace
    *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
@@ -207,6 +210,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace
    *    defines your service naming scheme. For example, if you name your namespace
    *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
@@ -248,6 +252,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Creates a service. This action defines the configuration for the following entities:</p>
    *          <ul>
    *             <li>
@@ -321,6 +326,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Deletes a namespace from the current account. If the namespace still contains one or more
    *    services, the request fails.</p>
    */
@@ -354,6 +360,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified service. If the service still contains one or more registered instances,
    *    the request fails.</p>
    */
@@ -387,6 +394,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the
    *    specified instance.</p>
    */
@@ -420,6 +428,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Discovers registered instances for a specified namespace and service. You can use
    *     <code>DiscoverInstances</code> to discover instances for any type of namespace. For public and
    *    private DNS namespaces, you can also use DNS queries to discover instances.</p>
@@ -454,6 +463,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a specified instance.</p>
    */
   public getInstance(args: GetInstanceCommandInput, options?: __HttpHandlerOptions): Promise<GetInstanceCommandOutput>;
@@ -480,6 +490,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or
    *     <code>Unknown</code>) of one or more instances that are associated with a specified
    *    service.</p>
@@ -518,6 +529,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a namespace.</p>
    */
   public getNamespace(
@@ -547,6 +559,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Gets information about any operation that returns an operation ID in the response, such as a
    *     <code>CreateService</code> request.</p>
    *          <note>
@@ -580,6 +593,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Gets the settings for a specified service.</p>
    */
   public getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
@@ -606,6 +620,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Lists summary information about the instances that you registered by using a specified
    *    service.</p>
    */
@@ -639,6 +654,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Lists summary information about the namespaces that were created by the current Amazon Web Services account.</p>
    */
   public listNamespaces(
@@ -671,6 +687,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Lists operations that match the criteria that you specify.</p>
    */
   public listOperations(
@@ -703,6 +720,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Lists summary information for all the services that are associated with one or more
    *    specified namespaces.</p>
    */
@@ -733,6 +751,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Lists tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -765,6 +784,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates one or more records and, optionally, creates a health check based on the
    *    settings in a specified service. When you submit a <code>RegisterInstance</code> request, the
    *    following occurs:</p>
@@ -840,6 +860,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -866,6 +887,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(
@@ -898,6 +920,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Updates an HTTP
    *    namespace.</p>
    */
@@ -931,6 +954,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Submits a request to change the health status of a custom health check to healthy or
    *    unhealthy.</p>
    *          <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for
@@ -969,6 +993,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Updates a private DNS
    *    namespace.</p>
    */
@@ -1002,6 +1027,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Updates a public DNS
    *    namespace.</p>
    */
@@ -1035,6 +1061,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * @public
    * <p>Submits a request to perform the following operations:</p>
    *          <ul>
    *             <li>

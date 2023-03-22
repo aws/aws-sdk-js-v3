@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMessageCommand}.
  */
 export interface DeleteMessageCommandInput extends DeleteMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMessageCommand}.
  */
 export interface DeleteMessageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified message from the specified queue. To select the message to
  *             delete, use the <code>ReceiptHandle</code> of the message (<i>not</i> the
  *                 <code>MessageId</code> which you receive when you send the message). Amazon SQS can
@@ -60,6 +65,8 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMessageCommandInput - {@link DeleteMessageCommandInput}
+ * @returns {@link DeleteMessageCommandOutput}
  * @see {@link DeleteMessageCommandInput} for command's `input` shape.
  * @see {@link DeleteMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageCommandOutput> {
     return deserializeAws_queryDeleteMessageCommand(output, context);
   }

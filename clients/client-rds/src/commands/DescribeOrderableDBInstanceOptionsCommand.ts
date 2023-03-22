@@ -26,10 +26,14 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrderableDBInstanceOptionsCommand}.
  */
 export interface DescribeOrderableDBInstanceOptionsCommandInput extends DescribeOrderableDBInstanceOptionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrderableDBInstanceOptionsCommand}.
  */
 export interface DescribeOrderableDBInstanceOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of orderable DB instance options for the specified DB engine, DB engine version, and DB instance class.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrderableDBInstanceOptionsCommandInput - {@link DescribeOrderableDBInstanceOptionsCommandInput}
+ * @returns {@link DescribeOrderableDBInstanceOptionsCommandOutput}
  * @see {@link DescribeOrderableDBInstanceOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOrderableDBInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrderableDBInstanceOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrderableDBInstanceOptionsCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     return serializeAws_queryDescribeOrderableDBInstanceOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

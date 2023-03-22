@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ChimeSDKVoiceServiceException as __BaseException } from "./ChimeSDKVoiceServiceException";
 
+/**
+ * @public
+ */
 export enum ErrorCode {
   AccessDenied = "AccessDenied",
   BadRequest = "BadRequest",
@@ -22,6 +25,9 @@ export enum ErrorCode {
   VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
 }
 
+/**
+ * @public
+ */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
@@ -42,6 +48,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface Address {
   streetName?: string;
   streetSuffix?: string;
@@ -55,27 +64,42 @@ export interface Address {
   country?: string;
 }
 
+/**
+ * @public
+ */
 export enum AlexaSkillStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
   VoiceConnectorId: string | undefined;
   E164PhoneNumbers: string[] | undefined;
   ForceAssociate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PhoneNumberError {
   PhoneNumberId?: string;
   ErrorCode?: ErrorCode | string;
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
@@ -96,6 +120,9 @@ export class BadRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
@@ -116,6 +143,9 @@ export class ForbiddenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
@@ -136,6 +166,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
@@ -156,6 +189,9 @@ export class ServiceFailureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
@@ -176,6 +212,9 @@ export class ServiceUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
@@ -196,6 +235,9 @@ export class ThrottledClientException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
@@ -216,43 +258,70 @@ export class UnauthorizedClientException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   VoiceConnectorGroupId: string | undefined;
   E164PhoneNumbers: string[] | undefined;
   ForceAssociate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDeletePhoneNumberRequest {
   PhoneNumberIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeletePhoneNumberResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberProductType {
   SipMediaApplicationDialIn = "SipMediaApplicationDialIn",
   VoiceConnector = "VoiceConnector",
 }
 
+/**
+ * @public
+ */
 export interface UpdatePhoneNumberRequestItem {
   PhoneNumberId: string | undefined;
   ProductType?: PhoneNumberProductType | string;
   CallingName?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdatePhoneNumberRequest {
   UpdatePhoneNumberRequestItems: UpdatePhoneNumberRequestItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdatePhoneNumberResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export enum CallingNameStatus {
   Unassigned = "Unassigned",
   UpdateFailed = "UpdateFailed",
@@ -260,6 +329,9 @@ export enum CallingNameStatus {
   UpdateSucceeded = "UpdateSucceeded",
 }
 
+/**
+ * @public
+ */
 export interface CandidateAddress {
   streetInfo?: string;
   streetNumber?: string;
@@ -270,32 +342,50 @@ export interface CandidateAddress {
   country?: string;
 }
 
+/**
+ * @public
+ */
 export enum Capability {
   SMS = "SMS",
   Voice = "Voice",
 }
 
+/**
+ * @public
+ */
 export interface CreatePhoneNumberOrderRequest {
   ProductType: PhoneNumberProductType | string | undefined;
   E164PhoneNumbers: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OrderedPhoneNumberStatus {
   Acquired = "Acquired",
   Failed = "Failed",
   Processing = "Processing",
 }
 
+/**
+ * @public
+ */
 export interface OrderedPhoneNumber {
   E164PhoneNumber?: string;
   Status?: OrderedPhoneNumberStatus | string;
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberOrderType {
   New = "New",
   Porting = "Porting",
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberOrderStatus {
   CancelRequested = "CancelRequested",
   Cancelled = "Cancelled",
@@ -310,6 +400,9 @@ export enum PhoneNumberOrderStatus {
   Successful = "Successful",
 }
 
+/**
+ * @public
+ */
 export interface PhoneNumberOrder {
   PhoneNumberOrderId?: string;
   ProductType?: PhoneNumberProductType | string;
@@ -320,10 +413,16 @@ export interface PhoneNumberOrder {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreatePhoneNumberOrderResponse {
   PhoneNumberOrder?: PhoneNumberOrder;
 }
 
+/**
+ * @public
+ */
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
@@ -344,21 +443,33 @@ export class ResourceLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum GeoMatchLevel {
   AreaCode = "AreaCode",
   Country = "Country",
 }
 
+/**
+ * @public
+ */
 export interface GeoMatchParams {
   Country: string | undefined;
   AreaCode: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NumberSelectionBehavior {
   AvoidSticky = "AvoidSticky",
   PreferSticky = "PreferSticky",
 }
 
+/**
+ * @public
+ */
 export interface CreateProxySessionRequest {
   VoiceConnectorId: string | undefined;
   ParticipantPhoneNumbers: string[] | undefined;
@@ -370,17 +481,26 @@ export interface CreateProxySessionRequest {
   GeoMatchParams?: GeoMatchParams;
 }
 
+/**
+ * @public
+ */
 export interface Participant {
   PhoneNumber?: string;
   ProxyPhoneNumber?: string;
 }
 
+/**
+ * @public
+ */
 export enum ProxySessionStatus {
   Closed = "Closed",
   InProgress = "InProgress",
   Open = "Open",
 }
 
+/**
+ * @public
+ */
 export interface ProxySession {
   VoiceConnectorId?: string;
   ProxySessionId?: string;
@@ -397,10 +517,16 @@ export interface ProxySession {
   GeoMatchParams?: GeoMatchParams;
 }
 
+/**
+ * @public
+ */
 export interface CreateProxySessionResponse {
   ProxySession?: ProxySession;
 }
 
+/**
+ * @public
+ */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
@@ -421,16 +547,25 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface SipMediaApplicationEndpoint {
   LambdaArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipMediaApplicationRequest {
   AwsRegion: string | undefined;
   Name: string | undefined;
   Endpoints: SipMediaApplicationEndpoint[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SipMediaApplication {
   SipMediaApplicationId?: string;
   AwsRegion?: string;
@@ -440,10 +575,16 @@ export interface SipMediaApplication {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipMediaApplicationResponse {
   SipMediaApplication?: SipMediaApplication;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipMediaApplicationCallRequest {
   FromPhoneNumber: string | undefined;
   ToPhoneNumber: string | undefined;
@@ -452,25 +593,40 @@ export interface CreateSipMediaApplicationCallRequest {
   ArgumentsMap?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SipMediaApplicationCall {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipMediaApplicationCallResponse {
   SipMediaApplicationCall?: SipMediaApplicationCall;
 }
 
+/**
+ * @public
+ */
 export interface SipRuleTargetApplication {
   SipMediaApplicationId?: string;
   Priority?: number;
   AwsRegion?: string;
 }
 
+/**
+ * @public
+ */
 export enum SipRuleTriggerType {
   RequestUriHostname = "RequestUriHostname",
   ToPhoneNumber = "ToPhoneNumber",
 }
 
+/**
+ * @public
+ */
 export interface CreateSipRuleRequest {
   Name: string | undefined;
   TriggerType: SipRuleTriggerType | string | undefined;
@@ -479,6 +635,9 @@ export interface CreateSipRuleRequest {
   TargetApplications?: SipRuleTargetApplication[];
 }
 
+/**
+ * @public
+ */
 export interface SipRule {
   SipRuleId?: string;
   Name?: string;
@@ -490,10 +649,16 @@ export interface SipRule {
   UpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateSipRuleResponse {
   SipRule?: SipRule;
 }
 
+/**
+ * @public
+ */
 export enum VoiceConnectorAwsRegion {
   AP_NORTHEAST_1 = "ap-northeast-1",
   AP_NORTHEAST_2 = "ap-northeast-2",
@@ -507,12 +672,18 @@ export enum VoiceConnectorAwsRegion {
   US_WEST_2 = "us-west-2",
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceConnectorRequest {
   Name: string | undefined;
   AwsRegion?: VoiceConnectorAwsRegion | string;
   RequireEncryption: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface VoiceConnector {
   VoiceConnectorId?: string;
   AwsRegion?: VoiceConnectorAwsRegion | string;
@@ -524,20 +695,32 @@ export interface VoiceConnector {
   VoiceConnectorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceConnectorResponse {
   VoiceConnector?: VoiceConnector;
 }
 
+/**
+ * @public
+ */
 export interface VoiceConnectorItem {
   VoiceConnectorId: string | undefined;
   Priority: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceConnectorGroupRequest {
   Name: string | undefined;
   VoiceConnectorItems?: VoiceConnectorItem[];
 }
 
+/**
+ * @public
+ */
 export interface VoiceConnectorGroup {
   VoiceConnectorGroupId?: string;
   Name?: string;
@@ -547,102 +730,171 @@ export interface VoiceConnectorGroup {
   VoiceConnectorGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceConnectorGroupResponse {
   VoiceConnectorGroup?: VoiceConnectorGroup;
 }
 
+/**
+ * @public
+ */
 export interface DeletePhoneNumberRequest {
   PhoneNumberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProxySessionRequest {
   VoiceConnectorId: string | undefined;
   ProxySessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSipMediaApplicationRequest {
   SipMediaApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSipRuleRequest {
   SipRuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorGroupRequest {
   VoiceConnectorGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorOriginationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorProxyRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorStreamingConfigurationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorTerminationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceConnectorTerminationCredentialsRequest {
   VoiceConnectorId: string | undefined;
   Usernames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorRequest {
   VoiceConnectorId: string | undefined;
   E164PhoneNumbers: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   VoiceConnectorGroupId: string | undefined;
   E164PhoneNumbers: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   PhoneNumberErrors?: PhoneNumberError[];
 }
 
+/**
+ * @public
+ */
 export interface VoiceConnectorSettings {
   CdrBucket?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGlobalSettingsResponse {
   VoiceConnector?: VoiceConnectorSettings;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberRequest {
   PhoneNumberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberAssociationName {
   SipRuleId = "SipRuleId",
   VoiceConnectorGroupId = "VoiceConnectorGroupId",
   VoiceConnectorId = "VoiceConnectorId",
 }
 
+/**
+ * @public
+ */
 export interface PhoneNumberAssociation {
   Value?: string;
   Name?: PhoneNumberAssociationName | string;
   AssociatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface PhoneNumberCapabilities {
   InboundCall?: boolean;
   OutboundCall?: boolean;
@@ -652,6 +904,9 @@ export interface PhoneNumberCapabilities {
   OutboundMMS?: boolean;
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberStatus {
   AcquireFailed = "AcquireFailed",
   AcquireInProgress = "AcquireInProgress",
@@ -666,11 +921,17 @@ export enum PhoneNumberStatus {
   Unassigned = "Unassigned",
 }
 
+/**
+ * @public
+ */
 export enum PhoneNumberType {
   Local = "Local",
   TollFree = "TollFree",
 }
 
+/**
+ * @public
+ */
 export interface PhoneNumber {
   PhoneNumberId?: string;
   E164PhoneNumber?: string;
@@ -688,129 +949,219 @@ export interface PhoneNumber {
   OrderId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberResponse {
   PhoneNumber?: PhoneNumber;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberOrderRequest {
   PhoneNumberOrderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberOrderResponse {
   PhoneNumberOrder?: PhoneNumberOrder;
 }
 
+/**
+ * @public
+ */
 export interface GetPhoneNumberSettingsResponse {
   CallingName?: string;
   CallingNameUpdatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetProxySessionRequest {
   VoiceConnectorId: string | undefined;
   ProxySessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProxySessionResponse {
   ProxySession?: ProxySession;
 }
 
+/**
+ * @public
+ */
 export interface GetSipMediaApplicationRequest {
   SipMediaApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSipMediaApplicationResponse {
   SipMediaApplication?: SipMediaApplication;
 }
 
+/**
+ * @public
+ */
 export interface GetSipMediaApplicationAlexaSkillConfigurationRequest {
   SipMediaApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SipMediaApplicationAlexaSkillConfiguration {
   AlexaSkillStatus: AlexaSkillStatus | string | undefined;
   AlexaSkillIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSipMediaApplicationAlexaSkillConfigurationResponse {
   SipMediaApplicationAlexaSkillConfiguration?: SipMediaApplicationAlexaSkillConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetSipMediaApplicationLoggingConfigurationRequest {
   SipMediaApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SipMediaApplicationLoggingConfiguration {
   EnableSipMediaApplicationMessageLogs?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetSipMediaApplicationLoggingConfigurationResponse {
   SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetSipRuleRequest {
   SipRuleId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSipRuleResponse {
   SipRule?: SipRule;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorResponse {
   VoiceConnector?: VoiceConnector;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorEmergencyCallingConfigurationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DNISEmergencyCallingConfiguration {
   EmergencyPhoneNumber: string | undefined;
   TestPhoneNumber?: string;
   CallingCountry: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EmergencyCallingConfiguration {
   DNIS?: DNISEmergencyCallingConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorEmergencyCallingConfigurationResponse {
   EmergencyCallingConfiguration?: EmergencyCallingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorGroupRequest {
   VoiceConnectorGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorGroupResponse {
   VoiceConnectorGroup?: VoiceConnectorGroup;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorLoggingConfigurationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface LoggingConfiguration {
   EnableSIPLogs?: boolean;
   EnableMediaMetricLogs?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorLoggingConfigurationResponse {
   LoggingConfiguration?: LoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorOriginationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum OriginationRouteProtocol {
   TCP = "TCP",
   UDP = "UDP",
 }
 
+/**
+ * @public
+ */
 export interface OriginationRoute {
   Host?: string;
   Port?: number;
@@ -819,19 +1170,31 @@ export interface OriginationRoute {
   Weight?: number;
 }
 
+/**
+ * @public
+ */
 export interface Origination {
   Routes?: OriginationRoute[];
   Disabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorOriginationResponse {
   Origination?: Origination;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorProxyRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface Proxy {
   DefaultSessionExpiryMinutes?: number;
   Disabled?: boolean;
@@ -839,38 +1202,62 @@ export interface Proxy {
   PhoneNumberCountries?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorProxyResponse {
   Proxy?: Proxy;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorStreamingConfigurationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum NotificationTarget {
   EventBridge = "EventBridge",
   SNS = "SNS",
   SQS = "SQS",
 }
 
+/**
+ * @public
+ */
 export interface StreamingNotificationTarget {
   NotificationTarget?: NotificationTarget | string;
 }
 
+/**
+ * @public
+ */
 export interface StreamingConfiguration {
   DataRetentionInHours: number | undefined;
   Disabled: boolean | undefined;
   StreamingNotificationTargets?: StreamingNotificationTarget[];
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorStreamingConfigurationResponse {
   StreamingConfiguration?: StreamingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorTerminationRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface Termination {
   CpsLimit?: number;
   DefaultPhoneNumber?: string;
@@ -879,37 +1266,61 @@ export interface Termination {
   Disabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorTerminationResponse {
   Termination?: Termination;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorTerminationHealthRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TerminationHealth {
   Timestamp?: Date;
   Source?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetVoiceConnectorTerminationHealthResponse {
   TerminationHealth?: TerminationHealth;
 }
 
+/**
+ * @public
+ */
 export interface ListAvailableVoiceConnectorRegionsResponse {
   VoiceConnectorRegions?: (VoiceConnectorAwsRegion | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListPhoneNumberOrdersRequest {
   NextToken?: string;
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPhoneNumberOrdersResponse {
   PhoneNumberOrders?: PhoneNumberOrder[];
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPhoneNumbersRequest {
   Status?: string;
   ProductType?: PhoneNumberProductType | string;
@@ -919,11 +1330,17 @@ export interface ListPhoneNumbersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPhoneNumbersResponse {
   PhoneNumbers?: PhoneNumber[];
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProxySessionsRequest {
   VoiceConnectorId: string | undefined;
   Status?: ProxySessionStatus | string;
@@ -931,118 +1348,193 @@ export interface ListProxySessionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListProxySessionsResponse {
   ProxySessions?: ProxySession[];
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSipMediaApplicationsRequest {
   MaxResults?: number;
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSipMediaApplicationsResponse {
   SipMediaApplications?: SipMediaApplication[];
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSipRulesRequest {
   SipMediaApplicationId?: string;
   MaxResults?: number;
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSipRulesResponse {
   SipRules?: SipRule[];
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSupportedPhoneNumberCountriesRequest {
   ProductType: PhoneNumberProductType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PhoneNumberCountry {
   CountryCode?: string;
   SupportedPhoneNumberTypes?: (PhoneNumberType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListSupportedPhoneNumberCountriesResponse {
   PhoneNumberCountries?: PhoneNumberCountry[];
 }
 
+/**
+ * @public
+ */
 export interface ListVoiceConnectorGroupsRequest {
   NextToken?: string;
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListVoiceConnectorGroupsResponse {
   VoiceConnectorGroups?: VoiceConnectorGroup[];
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVoiceConnectorsRequest {
   NextToken?: string;
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListVoiceConnectorsResponse {
   VoiceConnectors?: VoiceConnector[];
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVoiceConnectorTerminationCredentialsRequest {
   VoiceConnectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVoiceConnectorTerminationCredentialsResponse {
   Usernames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface PutSipMediaApplicationAlexaSkillConfigurationRequest {
   SipMediaApplicationId: string | undefined;
   SipMediaApplicationAlexaSkillConfiguration?: SipMediaApplicationAlexaSkillConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutSipMediaApplicationAlexaSkillConfigurationResponse {
   SipMediaApplicationAlexaSkillConfiguration?: SipMediaApplicationAlexaSkillConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutSipMediaApplicationLoggingConfigurationRequest {
   SipMediaApplicationId: string | undefined;
   SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutSipMediaApplicationLoggingConfigurationResponse {
   SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorEmergencyCallingConfigurationRequest {
   VoiceConnectorId: string | undefined;
   EmergencyCallingConfiguration: EmergencyCallingConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorEmergencyCallingConfigurationResponse {
   EmergencyCallingConfiguration?: EmergencyCallingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorLoggingConfigurationRequest {
   VoiceConnectorId: string | undefined;
   LoggingConfiguration: LoggingConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorLoggingConfigurationResponse {
   LoggingConfiguration?: LoggingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorOriginationRequest {
   VoiceConnectorId: string | undefined;
   Origination: Origination | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorOriginationResponse {
   Origination?: Origination;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorProxyRequest {
   VoiceConnectorId: string | undefined;
   DefaultSessionExpiryMinutes: number | undefined;
@@ -1051,46 +1543,76 @@ export interface PutVoiceConnectorProxyRequest {
   Disabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorProxyResponse {
   Proxy?: Proxy;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorStreamingConfigurationRequest {
   VoiceConnectorId: string | undefined;
   StreamingConfiguration: StreamingConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorStreamingConfigurationResponse {
   StreamingConfiguration?: StreamingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorTerminationRequest {
   VoiceConnectorId: string | undefined;
   Termination: Termination | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorTerminationResponse {
   Termination?: Termination;
 }
 
+/**
+ * @public
+ */
 export interface Credential {
   Username?: string;
   Password?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutVoiceConnectorTerminationCredentialsRequest {
   VoiceConnectorId: string | undefined;
   Credentials?: Credential[];
 }
 
+/**
+ * @public
+ */
 export interface RestorePhoneNumberRequest {
   PhoneNumberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestorePhoneNumberResponse {
   PhoneNumber?: PhoneNumber;
 }
 
+/**
+ * @public
+ */
 export interface SearchAvailablePhoneNumbersRequest {
   AreaCode?: string;
   City?: string;
@@ -1102,29 +1624,47 @@ export interface SearchAvailablePhoneNumbersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchAvailablePhoneNumbersResponse {
   E164PhoneNumbers?: string[];
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalSettingsRequest {
   VoiceConnector?: VoiceConnectorSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePhoneNumberRequest {
   PhoneNumberId: string | undefined;
   ProductType?: PhoneNumberProductType | string;
   CallingName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePhoneNumberResponse {
   PhoneNumber?: PhoneNumber;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePhoneNumberSettingsRequest {
   CallingName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProxySessionRequest {
   VoiceConnectorId: string | undefined;
   ProxySessionId: string | undefined;
@@ -1132,30 +1672,48 @@ export interface UpdateProxySessionRequest {
   ExpiryMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProxySessionResponse {
   ProxySession?: ProxySession;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSipMediaApplicationRequest {
   SipMediaApplicationId: string | undefined;
   Name?: string;
   Endpoints?: SipMediaApplicationEndpoint[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSipMediaApplicationResponse {
   SipMediaApplication?: SipMediaApplication;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSipMediaApplicationCallRequest {
   SipMediaApplicationId: string | undefined;
   TransactionId: string | undefined;
   Arguments: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSipMediaApplicationCallResponse {
   SipMediaApplicationCall?: SipMediaApplicationCall;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSipRuleRequest {
   SipRuleId: string | undefined;
   Name: string | undefined;
@@ -1163,30 +1721,48 @@ export interface UpdateSipRuleRequest {
   TargetApplications?: SipRuleTargetApplication[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSipRuleResponse {
   SipRule?: SipRule;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVoiceConnectorRequest {
   VoiceConnectorId: string | undefined;
   Name: string | undefined;
   RequireEncryption: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVoiceConnectorResponse {
   VoiceConnector?: VoiceConnector;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVoiceConnectorGroupRequest {
   VoiceConnectorGroupId: string | undefined;
   Name: string | undefined;
   VoiceConnectorItems: VoiceConnectorItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVoiceConnectorGroupResponse {
   VoiceConnectorGroup?: VoiceConnectorGroup;
 }
 
+/**
+ * @public
+ */
 export interface ValidateE911AddressRequest {
   AwsAccountId: string | undefined;
   StreetNumber: string | undefined;
@@ -1197,6 +1773,9 @@ export interface ValidateE911AddressRequest {
   PostalCode: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ValidateE911AddressResponse {
   ValidationResult?: number;
   AddressExternalId?: string;

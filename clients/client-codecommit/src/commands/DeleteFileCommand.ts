@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFileCommand}.
  */
 export interface DeleteFileCommandInput extends DeleteFileInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFileCommand}.
  */
 export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified file from a specified branch. A commit is created on the branch
  *             that contains the revision. The file still exists in the commits earlier to the commit
  *             that contains the deletion.</p>
@@ -48,6 +53,8 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileCommandInput - {@link DeleteFileCommandInput}
+ * @returns {@link DeleteFileCommandOutput}
  * @see {@link DeleteFileCommandInput} for command's `input` shape.
  * @see {@link DeleteFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -149,6 +156,9 @@ export class DeleteFileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,10 +196,16 @@ export class DeleteFileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileCommandOutput> {
     return deserializeAws_json1_1DeleteFileCommand(output, context);
   }

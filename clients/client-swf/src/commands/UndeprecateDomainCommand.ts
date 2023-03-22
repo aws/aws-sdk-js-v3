@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UndeprecateDomainCommand}.
  */
 export interface UndeprecateDomainCommandInput extends UndeprecateDomainInput {}
 /**
+ * @public
+ *
  * The output of {@link UndeprecateDomainCommand}.
  */
 export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Undeprecates a previously deprecated domain. After a domain has been undeprecated it can be used
  *       to create new workflow executions or register new types.</p>
  *          <note>
@@ -69,6 +74,8 @@ export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UndeprecateDomainCommandInput - {@link UndeprecateDomainCommandInput}
+ * @returns {@link UndeprecateDomainCommandOutput}
  * @see {@link UndeprecateDomainCommandInput} for command's `input` shape.
  * @see {@link UndeprecateDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -101,6 +108,9 @@ export class UndeprecateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UndeprecateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,10 +150,16 @@ export class UndeprecateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UndeprecateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UndeprecateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateDomainCommandOutput> {
     return deserializeAws_json1_0UndeprecateDomainCommand(output, context);
   }

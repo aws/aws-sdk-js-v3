@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link QuerySchemaVersionMetadataCommand}.
  */
 export interface QuerySchemaVersionMetadataCommandInput extends QuerySchemaVersionMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link QuerySchemaVersionMetadataCommand}.
  */
 export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Queries for the schema version metadata information. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  * const response = await client.send(command);
  * ```
  *
+ * @param QuerySchemaVersionMetadataCommandInput - {@link QuerySchemaVersionMetadataCommandInput}
+ * @returns {@link QuerySchemaVersionMetadataCommandOutput}
  * @see {@link QuerySchemaVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link QuerySchemaVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +85,9 @@ export class QuerySchemaVersionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QuerySchemaVersionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class QuerySchemaVersionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QuerySchemaVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1QuerySchemaVersionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

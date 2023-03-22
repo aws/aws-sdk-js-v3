@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProfileTimesCommand}.
  */
 export interface ListProfileTimesCommandInput extends ListProfileTimesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProfileTimesCommand}.
  */
 export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the start times of the available aggregated profiles of a profiling group
  *         for an aggregation period within the specified time range.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfileTimesCommandInput - {@link ListProfileTimesCommandInput}
+ * @returns {@link ListProfileTimesCommandOutput}
  * @see {@link ListProfileTimesCommandInput} for command's `input` shape.
  * @see {@link ListProfileTimesCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListProfileTimesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfileTimesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListProfileTimesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfileTimesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProfileTimesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfileTimesCommandOutput> {
     return deserializeAws_restJson1ListProfileTimesCommand(output, context);
   }

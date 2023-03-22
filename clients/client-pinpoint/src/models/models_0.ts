@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { PinpointServiceException as __BaseException } from "./PinpointServiceException";
 
+/**
+ * @public
+ */
 export enum __EndpointTypesElement {
   ADM = "ADM",
   APNS = "APNS",
@@ -19,6 +22,9 @@ export enum __EndpointTypesElement {
   VOICE = "VOICE",
 }
 
+/**
+ * @public
+ */
 export enum Action {
   DEEP_LINK = "DEEP_LINK",
   OPEN_APP = "OPEN_APP",
@@ -26,6 +32,7 @@ export enum Action {
 }
 
 /**
+ * @public
  * <p>Provides information about an activity that was performed by a campaign.</p>
  */
 export interface ActivityResponse {
@@ -96,6 +103,7 @@ export interface ActivityResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the activities that were performed by a campaign.</p>
  */
 export interface ActivitiesResponse {
@@ -110,6 +118,9 @@ export interface ActivitiesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export enum AttributeType {
   AFTER = "AFTER",
   BEFORE = "BEFORE",
@@ -121,6 +132,7 @@ export enum AttributeType {
 }
 
 /**
+ * @public
  * <p>Specifies attribute-based criteria for including or excluding endpoints from a segment.</p>
  */
 export interface AttributeDimension {
@@ -135,12 +147,16 @@ export interface AttributeDimension {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DimensionType {
   EXCLUSIVE = "EXCLUSIVE",
   INCLUSIVE = "INCLUSIVE",
 }
 
 /**
+ * @public
  * <p>Specifies the dimension type and values for a segment dimension.</p>
  */
 export interface SetDimension {
@@ -156,6 +172,7 @@ export interface SetDimension {
 }
 
 /**
+ * @public
  * <p>Specifies metric-based criteria for including or excluding endpoints from a segment. These criteria derive from custom metrics that you define for endpoints.</p>
  */
 export interface MetricDimension {
@@ -171,6 +188,7 @@ export interface MetricDimension {
 }
 
 /**
+ * @public
  * <p>Specifies the dimensions for an event filter that determines when a campaign is sent or a journey activity is performed.</p>
  */
 export interface EventDimensions {
@@ -191,6 +209,7 @@ export interface EventDimensions {
 }
 
 /**
+ * @public
  * <p>Specifies the conditions to evaluate for an event that applies to an activity in a journey.</p>
  */
 export interface EventCondition {
@@ -206,6 +225,7 @@ export interface EventCondition {
 }
 
 /**
+ * @public
  * <p>Specifies a segment to associate with an activity in a journey.</p>
  */
 export interface SegmentCondition {
@@ -215,6 +235,9 @@ export interface SegmentCondition {
   SegmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Duration {
   DAY_14 = "DAY_14",
   DAY_30 = "DAY_30",
@@ -222,12 +245,16 @@ export enum Duration {
   HR_24 = "HR_24",
 }
 
+/**
+ * @public
+ */
 export enum RecencyType {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
 /**
+ * @public
  * <p>Specifies criteria for including or excluding endpoints from a segment based on how recently an endpoint was active.</p>
  */
 export interface RecencyDimension {
@@ -243,6 +270,7 @@ export interface RecencyDimension {
 }
 
 /**
+ * @public
  * <p>Specifies dimension settings for including or excluding endpoints from a segment based on how recently an endpoint was active.</p>
  */
 export interface SegmentBehaviors {
@@ -253,6 +281,7 @@ export interface SegmentBehaviors {
 }
 
 /**
+ * @public
  * <p>Specifies demographic-based dimension settings for including or excluding endpoints from a segment. These settings derive from characteristics of endpoint devices, such as platform, make, and model.</p>
  */
 export interface SegmentDemographics {
@@ -288,6 +317,7 @@ export interface SegmentDemographics {
 }
 
 /**
+ * @public
  * <p>Specifies the GPS coordinates of a location.</p>
  */
 export interface GPSCoordinates {
@@ -303,6 +333,7 @@ export interface GPSCoordinates {
 }
 
 /**
+ * @public
  * <p>Specifies GPS-based criteria for including or excluding endpoints from a segment.</p>
  */
 export interface GPSPointDimension {
@@ -318,6 +349,7 @@ export interface GPSPointDimension {
 }
 
 /**
+ * @public
  * <p>Specifies geographical dimension settings for a segment.</p>
  */
 export interface SegmentLocation {
@@ -333,6 +365,7 @@ export interface SegmentLocation {
 }
 
 /**
+ * @public
  * <p>Specifies the dimension settings for a segment.</p>
  */
 export interface SegmentDimensions {
@@ -368,6 +401,7 @@ export interface SegmentDimensions {
 }
 
 /**
+ * @public
  * <p>Specifies a condition to evaluate for an activity in a journey.</p>
  */
 export interface SimpleCondition {
@@ -387,12 +421,16 @@ export interface SimpleCondition {
   SegmentDimensions?: SegmentDimensions;
 }
 
+/**
+ * @public
+ */
 export enum Operator {
   ALL = "ALL",
   ANY = "ANY",
 }
 
 /**
+ * @public
  * <p>Specifies the conditions to evaluate for an activity in a journey, and how to evaluate those conditions.</p>
  */
 export interface Condition {
@@ -408,6 +446,7 @@ export interface Condition {
 }
 
 /**
+ * @public
  * <p>Specifies a duration or a date and time that indicates when Amazon Pinpoint determines whether an activity's conditions have been met or an activity moves participants to the next activity in a journey.</p>
  */
 export interface WaitTime {
@@ -423,6 +462,7 @@ export interface WaitTime {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p> <note><p>To create yes/no split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note>
  */
 export interface ConditionalSplitActivity {
@@ -447,6 +487,9 @@ export interface ConditionalSplitActivity {
   TrueActivity?: string;
 }
 
+/**
+ * @public
+ */
 export interface ContactCenterActivity {
   /**
    * <p>The unique identifier for the next activity to perform after the this activity.</p>
@@ -455,6 +498,7 @@ export interface ContactCenterActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the message content for a custom channel message that's sent to participants in a journey.</p>
  */
 export interface JourneyCustomMessage {
@@ -465,6 +509,7 @@ export interface JourneyCustomMessage {
 }
 
 /**
+ * @public
  * <p>The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.</p>
  */
 export interface CustomMessageActivity {
@@ -500,6 +545,7 @@ export interface CustomMessageActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the "From" address for an email message that's sent to participants in a journey.</p>
  */
 export interface JourneyEmailMessage {
@@ -510,6 +556,7 @@ export interface JourneyEmailMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for an email activity in a journey. This type of activity sends an email message to participants.</p>
  */
 export interface EmailMessageActivity {
@@ -535,6 +582,7 @@ export interface EmailMessageActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a holdout activity in a journey. This type of activity stops a journey for a specified percentage of participants.</p>
  */
 export interface HoldoutActivity {
@@ -550,6 +598,7 @@ export interface HoldoutActivity {
 }
 
 /**
+ * @public
  * <p>Specifies a condition to evaluate for an activity path in a journey.</p>
  */
 export interface MultiConditionalBranch {
@@ -565,6 +614,7 @@ export interface MultiConditionalBranch {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p> <note><p>To create multivariate split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note>
  */
 export interface MultiConditionalSplitActivity {
@@ -585,6 +635,7 @@ export interface MultiConditionalSplitActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the message configuration for a push notification that's sent to participants in a journey.</p>
  */
 export interface JourneyPushMessage {
@@ -595,6 +646,7 @@ export interface JourneyPushMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a push notification activity in a journey. This type of activity sends a push notification to participants.</p>
  */
 export interface PushMessageActivity {
@@ -620,6 +672,7 @@ export interface PushMessageActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a path in a random split activity in a journey.</p>
  */
 export interface RandomSplitEntry {
@@ -635,6 +688,7 @@ export interface RandomSplitEntry {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a random split activity in a journey. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
  */
 export interface RandomSplitActivity {
@@ -644,12 +698,16 @@ export interface RandomSplitActivity {
   Branches?: RandomSplitEntry[];
 }
 
+/**
+ * @public
+ */
 export enum MessageType {
   PROMOTIONAL = "PROMOTIONAL",
   TRANSACTIONAL = "TRANSACTIONAL",
 }
 
 /**
+ * @public
  * <p>Specifies the sender ID and message type for an SMS message that's sent to participants in a journey.</p>
  */
 export interface JourneySMSMessage {
@@ -680,6 +738,7 @@ export interface JourneySMSMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for an SMS activity in a journey. This type of activity sends a text message to participants.</p>
  */
 export interface SMSMessageActivity {
@@ -705,6 +764,7 @@ export interface SMSMessageActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a wait activity in a journey. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p>
  */
 export interface WaitActivity {
@@ -720,6 +780,7 @@ export interface WaitActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration and other settings for an activity in a journey.</p>
  */
 export interface Activity {
@@ -779,6 +840,9 @@ export interface Activity {
   ContactCenter?: ContactCenterActivity;
 }
 
+/**
+ * @public
+ */
 export enum ChannelType {
   ADM = "ADM",
   APNS = "APNS",
@@ -796,6 +860,7 @@ export enum ChannelType {
 }
 
 /**
+ * @public
  * <p>Specifies address-based configuration settings for a message that's sent directly to an endpoint.</p>
  */
 export interface AddressConfiguration {
@@ -831,6 +896,7 @@ export interface AddressConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
  */
 export interface ADMChannelRequest {
@@ -851,6 +917,7 @@ export interface ADMChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
  */
 export interface ADMChannelResponse {
@@ -906,6 +973,7 @@ export interface ADMChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the ADM (Amazon Device Messaging) channel.</p>
  */
 export interface ADMMessage {
@@ -990,6 +1058,9 @@ export interface ADMMessage {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export enum Alignment {
   CENTER = "CENTER",
   LEFT = "LEFT",
@@ -997,6 +1068,7 @@ export enum Alignment {
 }
 
 /**
+ * @public
  * <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the ADM (Amazon Device Messaging), Baidu (Baidu Cloud Push), or GCM (Firebase Cloud Messaging, formerly Google Cloud Messaging) channel.</p>
  */
 export interface AndroidPushNotificationTemplate {
@@ -1047,6 +1119,7 @@ export interface AndroidPushNotificationTemplate {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
  */
 export interface APNSChannelRequest {
@@ -1092,6 +1165,7 @@ export interface APNSChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
  */
 export interface APNSChannelResponse {
@@ -1157,6 +1231,7 @@ export interface APNSChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the APNs (Apple Push Notification service) channel.</p>
  */
 export interface APNSMessage {
@@ -1252,6 +1327,7 @@ export interface APNSMessage {
 }
 
 /**
+ * @public
  * <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service) channel.</p>
  */
 export interface APNSPushNotificationTemplate {
@@ -1292,6 +1368,7 @@ export interface APNSPushNotificationTemplate {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
  */
 export interface APNSSandboxChannelRequest {
@@ -1337,6 +1414,7 @@ export interface APNSSandboxChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
  */
 export interface APNSSandboxChannelResponse {
@@ -1402,6 +1480,7 @@ export interface APNSSandboxChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
  */
 export interface APNSVoipChannelRequest {
@@ -1447,6 +1526,7 @@ export interface APNSVoipChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
  */
 export interface APNSVoipChannelResponse {
@@ -1512,6 +1592,7 @@ export interface APNSVoipChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
  */
 export interface APNSVoipSandboxChannelRequest {
@@ -1557,6 +1638,7 @@ export interface APNSVoipSandboxChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
  */
 export interface APNSVoipSandboxChannelResponse {
@@ -1622,6 +1704,7 @@ export interface APNSVoipSandboxChannelResponse {
 }
 
 /**
+ * @public
  * <p>Provides a single value and metadata about that value as part of an array of query results for a standard metric that applies to an application, campaign, or journey.</p>
  */
 export interface ResultRowValue {
@@ -1642,6 +1725,7 @@ export interface ResultRowValue {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
  */
 export interface ResultRow {
@@ -1657,6 +1741,7 @@ export interface ResultRow {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
  */
 export interface BaseKpiResult {
@@ -1667,6 +1752,7 @@ export interface BaseKpiResult {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
  */
 export interface ApplicationDateRangeKpiResponse {
@@ -1702,6 +1788,7 @@ export interface ApplicationDateRangeKpiResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about an application.</p>
  */
 export interface ApplicationResponse {
@@ -1731,12 +1818,16 @@ export interface ApplicationResponse {
   CreationDate?: string;
 }
 
+/**
+ * @public
+ */
 export enum Mode {
   DELIVERY = "DELIVERY",
   FILTER = "FILTER",
 }
 
 /**
+ * @public
  * <p>Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign.</p>
  */
 export interface CampaignHook {
@@ -1757,6 +1848,7 @@ export interface CampaignHook {
 }
 
 /**
+ * @public
  * <p>For a campaign, specifies limits on the messages that the campaign can send. For an application, specifies the default limits for messages that campaigns in the application can send.</p>
  */
 export interface CampaignLimits {
@@ -1787,6 +1879,7 @@ export interface CampaignLimits {
 }
 
 /**
+ * @public
  * <p>Specifies the start and end times that define a time range when messages aren't sent to endpoints.</p>
  */
 export interface QuietTime {
@@ -1802,6 +1895,7 @@ export interface QuietTime {
 }
 
 /**
+ * @public
  * <p>Provides information about an application, including the default settings for an application.</p>
  */
 export interface ApplicationSettingsResource {
@@ -1832,6 +1926,7 @@ export interface ApplicationSettingsResource {
 }
 
 /**
+ * @public
  * <p>Provides information about all of your applications.</p>
  */
 export interface ApplicationsResponse {
@@ -1847,6 +1942,7 @@ export interface ApplicationsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.</p>
  */
 export interface AttributesResource {
@@ -1867,6 +1963,7 @@ export interface AttributesResource {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -1897,6 +1994,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
  */
 export interface BaiduChannelRequest {
@@ -1917,6 +2015,7 @@ export interface BaiduChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
  */
 export interface BaiduChannelResponse {
@@ -1977,6 +2076,7 @@ export interface BaiduChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the Baidu (Baidu Cloud Push) channel.</p>
  */
 export interface BaiduMessage {
@@ -2051,6 +2151,9 @@ export interface BaiduMessage {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export enum ButtonAction {
   CLOSE = "CLOSE",
   DEEP_LINK = "DEEP_LINK",
@@ -2058,6 +2161,7 @@ export enum ButtonAction {
 }
 
 /**
+ * @public
  * <p>Specifies the contents of a message that's sent through a custom channel to recipients of a campaign.</p>
  */
 export interface CampaignCustomMessage {
@@ -2068,6 +2172,7 @@ export interface CampaignCustomMessage {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to a campaign, and provides information about that query.</p>
  */
 export interface CampaignDateRangeKpiResponse {
@@ -2108,6 +2213,7 @@ export interface CampaignDateRangeKpiResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the content and "From" address for an email message that's sent to recipients of a campaign.</p>
  */
 export interface CampaignEmailMessage {
@@ -2132,12 +2238,16 @@ export interface CampaignEmailMessage {
   Title?: string;
 }
 
+/**
+ * @public
+ */
 export enum FilterType {
   ENDPOINT = "ENDPOINT",
   SYSTEM = "SYSTEM",
 }
 
 /**
+ * @public
  * <p>Specifies the settings for events that cause a campaign to be sent.</p>
  */
 export interface CampaignEventFilter {
@@ -2153,6 +2263,7 @@ export interface CampaignEventFilter {
 }
 
 /**
+ * @public
  * <p>Text config for Message Body.</p>
  */
 export interface InAppMessageBodyConfig {
@@ -2173,6 +2284,7 @@ export interface InAppMessageBodyConfig {
 }
 
 /**
+ * @public
  * <p>Text config for Message Header.</p>
  */
 export interface InAppMessageHeaderConfig {
@@ -2193,6 +2305,7 @@ export interface InAppMessageHeaderConfig {
 }
 
 /**
+ * @public
  * <p>Override button configuration.</p>
  */
 export interface OverrideButtonConfiguration {
@@ -2208,6 +2321,7 @@ export interface OverrideButtonConfiguration {
 }
 
 /**
+ * @public
  * <p>Default button configuration.</p>
  */
 export interface DefaultButtonConfiguration {
@@ -2243,6 +2357,7 @@ export interface DefaultButtonConfiguration {
 }
 
 /**
+ * @public
  * <p>Button Config for an in-app message.</p>
  */
 export interface InAppMessageButton {
@@ -2268,6 +2383,7 @@ export interface InAppMessageButton {
 }
 
 /**
+ * @public
  * <p>The configuration for the message content.</p>
  */
 export interface InAppMessageContent {
@@ -2302,6 +2418,9 @@ export interface InAppMessageContent {
   SecondaryBtn?: InAppMessageButton;
 }
 
+/**
+ * @public
+ */
 export enum Layout {
   BOTTOM_BANNER = "BOTTOM_BANNER",
   CAROUSEL = "CAROUSEL",
@@ -2312,6 +2431,7 @@ export enum Layout {
 }
 
 /**
+ * @public
  * <p>In-app message configuration.</p>
  */
 export interface CampaignInAppMessage {
@@ -2337,6 +2457,7 @@ export interface CampaignInAppMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the delivery configuration settings for sending a campaign or campaign treatment through a custom channel. This object is required if you use the CampaignCustomMessage object to define the message to send for the campaign or campaign treatment.</p>
  */
 export interface CustomDeliveryConfiguration {
@@ -2352,6 +2473,7 @@ export interface CustomDeliveryConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a push notification that's sent to recipients of a campaign.</p>
  */
 export interface Message {
@@ -2417,6 +2539,7 @@ export interface Message {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for an SMS message that's sent to recipients of a campaign.</p>
  */
 export interface CampaignSmsMessage {
@@ -2452,6 +2575,7 @@ export interface CampaignSmsMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the message configuration settings for a campaign.</p>
  */
 export interface MessageConfiguration {
@@ -2501,6 +2625,9 @@ export interface MessageConfiguration {
   InAppMessage?: CampaignInAppMessage;
 }
 
+/**
+ * @public
+ */
 export enum Frequency {
   DAILY = "DAILY",
   EVENT = "EVENT",
@@ -2512,6 +2639,7 @@ export enum Frequency {
 }
 
 /**
+ * @public
  * <p>Specifies the schedule settings for a campaign.</p>
  */
 export interface Schedule {
@@ -2554,6 +2682,9 @@ export interface Schedule {
   Timezone?: string;
 }
 
+/**
+ * @public
+ */
 export enum CampaignStatus {
   COMPLETED = "COMPLETED",
   DELETED = "DELETED",
@@ -2565,6 +2696,7 @@ export enum CampaignStatus {
 }
 
 /**
+ * @public
  * <p>Provides information about the status of a campaign.</p>
  */
 export interface CampaignState {
@@ -2575,6 +2707,7 @@ export interface CampaignState {
 }
 
 /**
+ * @public
  * <p>Specifies the name and version of the message template to use for the message.</p>
  */
 export interface Template {
@@ -2590,6 +2723,7 @@ export interface Template {
 }
 
 /**
+ * @public
  * <p>Specifies the message template to use for the message, for each type of channel.</p>
  */
 export interface TemplateConfiguration {
@@ -2615,6 +2749,7 @@ export interface TemplateConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a campaign treatment. A <i>treatment</i> is a variation of a campaign that's used for A/B testing of a campaign.</p>
  */
 export interface TreatmentResource {
@@ -2665,6 +2800,7 @@ export interface TreatmentResource {
 }
 
 /**
+ * @public
  * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
  */
 export interface CampaignResponse {
@@ -2795,6 +2931,7 @@ export interface CampaignResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
  */
 export interface CampaignsResponse {
@@ -2810,6 +2947,7 @@ export interface CampaignsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the general settings and status of a channel for an application.</p>
  */
 export interface ChannelResponse {
@@ -2860,6 +2998,7 @@ export interface ChannelResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
  */
 export interface ChannelsResponse {
@@ -2870,6 +3009,7 @@ export interface ChannelsResponse {
 }
 
 /**
+ * @public
  * <p>Closed Days Rule. Part of Journey sending schedule.</p>
  */
 export interface ClosedDaysRule {
@@ -2890,6 +3030,7 @@ export interface ClosedDaysRule {
 }
 
 /**
+ * @public
  * <p>The time when journey will stop sending messages.</p>
  */
 export interface ClosedDays {
@@ -2920,6 +3061,7 @@ export interface ClosedDays {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class ConflictException extends __BaseException {
@@ -2950,6 +3092,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the display name of an application and the tags to associate with the application.</p>
  */
 export interface CreateApplicationRequest {
@@ -2964,6 +3107,9 @@ export interface CreateApplicationRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppRequest {
   /**
    * <p>Specifies the display name of an application and the tags to associate with the application.</p>
@@ -2971,6 +3117,9 @@ export interface CreateAppRequest {
   CreateApplicationRequest: CreateApplicationRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppResponse {
   /**
    * <p>Provides information about an application.</p>
@@ -2979,6 +3128,7 @@ export interface CreateAppResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -3009,6 +3159,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -3039,6 +3190,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class MethodNotAllowedException extends __BaseException {
@@ -3069,6 +3221,7 @@ export class MethodNotAllowedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -3099,6 +3252,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class PayloadTooLargeException extends __BaseException {
@@ -3129,6 +3283,7 @@ export class PayloadTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -3159,6 +3314,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a campaign treatment. A <i>treatment</i> is a variation of a campaign that's used for A/B testing of a campaign.</p>
  */
 export interface WriteTreatmentResource {
@@ -3199,6 +3355,7 @@ export interface WriteTreatmentResource {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration and other settings for a campaign.</p>
  */
 export interface WriteCampaignRequest {
@@ -3288,6 +3445,9 @@ export interface WriteCampaignRequest {
   Priority?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateCampaignRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -3300,6 +3460,9 @@ export interface CreateCampaignRequest {
   WriteCampaignRequest: WriteCampaignRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCampaignResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -3308,6 +3471,7 @@ export interface CreateCampaignResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
  */
 export interface EmailTemplateRequest {
@@ -3347,6 +3511,9 @@ export interface EmailTemplateRequest {
   TextPart?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEmailTemplateRequest {
   /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
@@ -3360,6 +3527,7 @@ export interface CreateEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a request to create a message template.</p>
  */
 export interface CreateTemplateMessageBody {
@@ -3379,6 +3547,9 @@ export interface CreateTemplateMessageBody {
   RequestID?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEmailTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -3387,6 +3558,7 @@ export interface CreateEmailTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a job that exports endpoint definitions to an Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
 export interface ExportJobRequest {
@@ -3411,6 +3583,9 @@ export interface ExportJobRequest {
   SegmentVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateExportJobRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -3424,6 +3599,7 @@ export interface CreateExportJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the resource settings for a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ExportJobResource {
@@ -3448,6 +3624,9 @@ export interface ExportJobResource {
   SegmentVersion?: number;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   COMPLETED = "COMPLETED",
   COMPLETING = "COMPLETING",
@@ -3461,6 +3640,7 @@ export enum JobStatus {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ExportJobResponse {
@@ -3530,6 +3710,9 @@ export interface ExportJobResponse {
   Type: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExportJobResponse {
   /**
    * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
@@ -3537,12 +3720,16 @@ export interface CreateExportJobResponse {
   ExportJobResponse: ExportJobResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Format {
   CSV = "CSV",
   JSON = "JSON",
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a job that imports endpoint definitions from an Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
 export interface ImportJobRequest {
@@ -3587,6 +3774,9 @@ export interface ImportJobRequest {
   SegmentName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateImportJobRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -3600,6 +3790,7 @@ export interface CreateImportJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the resource settings for a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ImportJobResource {
@@ -3645,6 +3836,7 @@ export interface ImportJobResource {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ImportJobResponse {
@@ -3714,6 +3906,9 @@ export interface ImportJobResponse {
   Type: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateImportJobResponse {
   /**
    * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
@@ -3722,6 +3917,7 @@ export interface CreateImportJobResponse {
 }
 
 /**
+ * @public
  * <p>InApp Template Request.</p>
  */
 export interface InAppTemplateRequest {
@@ -3751,6 +3947,9 @@ export interface InAppTemplateRequest {
   TemplateDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateInAppTemplateRequest {
   /**
    * <p>InApp Template Request.</p>
@@ -3764,6 +3963,7 @@ export interface CreateInAppTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a request to create a message template.</p>
  */
 export interface TemplateCreateMessageBody {
@@ -3783,6 +3983,9 @@ export interface TemplateCreateMessageBody {
   RequestID?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateInAppTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -3791,6 +3994,7 @@ export interface CreateInAppTemplateResponse {
 }
 
 /**
+ * @public
  * <p>The channel-specific configurations for the journey.</p>
  */
 export interface JourneyChannelSettings {
@@ -3806,6 +4010,7 @@ export interface JourneyChannelSettings {
 }
 
 /**
+ * @public
  * <p>Specifies limits on the messages that a journey can send and the number of times participants can enter a journey.</p>
  */
 export interface JourneyLimits {
@@ -3830,6 +4035,9 @@ export interface JourneyLimits {
   EndpointReentryInterval?: string;
 }
 
+/**
+ * @public
+ */
 export enum DayOfWeek {
   FRIDAY = "FRIDAY",
   MONDAY = "MONDAY",
@@ -3841,6 +4049,7 @@ export enum DayOfWeek {
 }
 
 /**
+ * @public
  * <p>List of OpenHours Rules.</p>
  */
 export interface OpenHoursRule {
@@ -3856,6 +4065,7 @@ export interface OpenHoursRule {
 }
 
 /**
+ * @public
  * <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
  */
 export interface OpenHours {
@@ -3886,6 +4096,7 @@ export interface OpenHours {
 }
 
 /**
+ * @public
  * <p>Specifies the schedule settings for a journey.</p>
  */
 export interface JourneySchedule {
@@ -3911,6 +4122,7 @@ export interface JourneySchedule {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for an event that causes a campaign to be sent or a journey activity to be performed.</p>
  */
 export interface EventFilter {
@@ -3926,6 +4138,7 @@ export interface EventFilter {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for an event that causes a journey activity to start.</p>
  */
 export interface EventStartCondition {
@@ -3938,6 +4151,7 @@ export interface EventStartCondition {
 }
 
 /**
+ * @public
  * <p>Specifies the conditions for the first activity in a journey. This activity and its conditions determine which users are participants in a journey.</p>
  */
 export interface StartCondition {
@@ -3957,6 +4171,9 @@ export interface StartCondition {
   SegmentStartCondition?: SegmentCondition;
 }
 
+/**
+ * @public
+ */
 export enum State {
   ACTIVE = "ACTIVE",
   CANCELLED = "CANCELLED",
@@ -3967,6 +4184,7 @@ export enum State {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration and other settings for a journey.</p>
  */
 export interface WriteJourneyRequest {
@@ -4061,6 +4279,9 @@ export interface WriteJourneyRequest {
   ClosedDays?: ClosedDays;
 }
 
+/**
+ * @public
+ */
 export interface CreateJourneyRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4074,6 +4295,7 @@ export interface CreateJourneyRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status, configuration, and other settings for a journey.</p>
  */
 export interface JourneyResponse {
@@ -4183,6 +4405,9 @@ export interface JourneyResponse {
   ClosedDays?: ClosedDays;
 }
 
+/**
+ * @public
+ */
 export interface CreateJourneyResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -4191,6 +4416,7 @@ export interface CreateJourneyResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the default settings and content for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 export interface DefaultPushNotificationTemplate {
@@ -4221,6 +4447,7 @@ export interface DefaultPushNotificationTemplate {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 export interface PushNotificationTemplateRequest {
@@ -4270,6 +4497,9 @@ export interface PushNotificationTemplateRequest {
   TemplateDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePushTemplateRequest {
   /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
@@ -4282,6 +4512,9 @@ export interface CreatePushTemplateRequest {
   TemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePushTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -4290,6 +4523,7 @@ export interface CreatePushTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies Amazon Pinpoint configuration settings for retrieving and processing recommendation data from a recommender model.</p>
  */
 export interface CreateRecommenderConfigurationShape {
@@ -4339,6 +4573,9 @@ export interface CreateRecommenderConfigurationShape {
   RecommendationsPerMessage?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecommenderConfigurationRequest {
   /**
    * <p>Specifies Amazon Pinpoint configuration settings for retrieving and processing recommendation data from a recommender model.</p>
@@ -4347,6 +4584,7 @@ export interface CreateRecommenderConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
  */
 export interface RecommenderConfigurationResponse {
@@ -4411,6 +4649,9 @@ export interface RecommenderConfigurationResponse {
   RecommendationsPerMessage?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecommenderConfigurationResponse {
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
@@ -4419,6 +4660,7 @@ export interface CreateRecommenderConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the segment identifier and version of a segment.</p>
  */
 export interface SegmentReference {
@@ -4433,12 +4675,18 @@ export interface SegmentReference {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export enum SourceType {
   ALL = "ALL",
   ANY = "ANY",
   NONE = "NONE",
 }
 
+/**
+ * @public
+ */
 export enum Type {
   ALL = "ALL",
   ANY = "ANY",
@@ -4446,6 +4694,7 @@ export enum Type {
 }
 
 /**
+ * @public
  * <p>Specifies the base segments and dimensions for a segment, and the relationships between these base segments and dimensions.</p>
  */
 export interface SegmentGroup {
@@ -4470,6 +4719,9 @@ export interface SegmentGroup {
   Type?: Type | string;
 }
 
+/**
+ * @public
+ */
 export enum Include {
   ALL = "ALL",
   ANY = "ANY",
@@ -4477,6 +4729,7 @@ export enum Include {
 }
 
 /**
+ * @public
  * <p>Specifies the settings that define the relationships between segment groups for a segment.</p>
  */
 export interface SegmentGroupList {
@@ -4492,6 +4745,7 @@ export interface SegmentGroupList {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration, dimension, and other settings for a segment. A WriteSegmentRequest object can include a Dimensions object or a SegmentGroups object, but not both.</p>
  */
 export interface WriteSegmentRequest {
@@ -4516,6 +4770,9 @@ export interface WriteSegmentRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSegmentRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4529,6 +4786,7 @@ export interface CreateSegmentRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the import job that created a segment. An import job is a job that creates a user segment by importing endpoint definitions.</p>
  */
 export interface SegmentImportResource {
@@ -4563,12 +4821,16 @@ export interface SegmentImportResource {
   Size: number | undefined;
 }
 
+/**
+ * @public
+ */
 export enum SegmentType {
   DIMENSIONAL = "DIMENSIONAL",
   IMPORT = "IMPORT",
 }
 
 /**
+ * @public
  * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
  */
 export interface SegmentResponse {
@@ -4633,6 +4895,9 @@ export interface SegmentResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateSegmentResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -4641,6 +4906,7 @@ export interface CreateSegmentResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
  */
 export interface SMSTemplateRequest {
@@ -4670,6 +4936,9 @@ export interface SMSTemplateRequest {
   TemplateDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSmsTemplateRequest {
   /**
    * <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
@@ -4682,6 +4951,9 @@ export interface CreateSmsTemplateRequest {
   TemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSmsTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -4690,6 +4962,7 @@ export interface CreateSmsTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
  */
 export interface VoiceTemplateRequest {
@@ -4724,6 +4997,9 @@ export interface VoiceTemplateRequest {
   VoiceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -4736,6 +5012,9 @@ export interface CreateVoiceTemplateRequest {
   VoiceTemplateRequest: VoiceTemplateRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -4744,6 +5023,7 @@ export interface CreateVoiceTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the default message for all channels.</p>
  */
 export interface DefaultMessage {
@@ -4759,6 +5039,7 @@ export interface DefaultMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the default settings and content for a push notification that's sent directly to an endpoint.</p>
  */
 export interface DefaultPushNotificationMessage {
@@ -4798,6 +5079,9 @@ export interface DefaultPushNotificationMessage {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAdmChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4805,6 +5089,9 @@ export interface DeleteAdmChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAdmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -4812,6 +5099,9 @@ export interface DeleteAdmChannelResponse {
   ADMChannelResponse: ADMChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4819,6 +5109,9 @@ export interface DeleteApnsChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -4826,6 +5119,9 @@ export interface DeleteApnsChannelResponse {
   APNSChannelResponse: APNSChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsSandboxChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4833,6 +5129,9 @@ export interface DeleteApnsSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -4840,6 +5139,9 @@ export interface DeleteApnsSandboxChannelResponse {
   APNSSandboxChannelResponse: APNSSandboxChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsVoipChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4847,6 +5149,9 @@ export interface DeleteApnsVoipChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsVoipChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -4854,6 +5159,9 @@ export interface DeleteApnsVoipChannelResponse {
   APNSVoipChannelResponse: APNSVoipChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsVoipSandboxChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4861,6 +5169,9 @@ export interface DeleteApnsVoipSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsVoipSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -4868,6 +5179,9 @@ export interface DeleteApnsVoipSandboxChannelResponse {
   APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4875,6 +5189,9 @@ export interface DeleteAppRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppResponse {
   /**
    * <p>Provides information about an application.</p>
@@ -4882,6 +5199,9 @@ export interface DeleteAppResponse {
   ApplicationResponse: ApplicationResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBaiduChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4889,6 +5209,9 @@ export interface DeleteBaiduChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBaiduChannelResponse {
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
@@ -4896,6 +5219,9 @@ export interface DeleteBaiduChannelResponse {
   BaiduChannelResponse: BaiduChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCampaignRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4908,6 +5234,9 @@ export interface DeleteCampaignRequest {
   CampaignId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCampaignResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -4915,6 +5244,9 @@ export interface DeleteCampaignResponse {
   CampaignResponse: CampaignResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEmailChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4923,6 +5255,7 @@ export interface DeleteEmailChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the email channel for an application.</p>
  */
 export interface EmailChannelResponse {
@@ -5002,6 +5335,9 @@ export interface EmailChannelResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEmailChannelResponse {
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
@@ -5009,6 +5345,9 @@ export interface DeleteEmailChannelResponse {
   EmailChannelResponse: EmailChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEmailTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5022,6 +5361,7 @@ export interface DeleteEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export interface MessageBody {
@@ -5036,6 +5376,9 @@ export interface MessageBody {
   RequestID?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEmailTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5043,6 +5386,9 @@ export interface DeleteEmailTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5056,6 +5402,7 @@ export interface DeleteEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Specifies demographic information about an endpoint, such as the applicable time zone and platform.</p>
  */
 export interface EndpointDemographic {
@@ -5101,6 +5448,7 @@ export interface EndpointDemographic {
 }
 
 /**
+ * @public
  * <p>Specifies geographic information about an endpoint.</p>
  */
 export interface EndpointLocation {
@@ -5136,6 +5484,7 @@ export interface EndpointLocation {
 }
 
 /**
+ * @public
  * <p>Specifies data for one or more attributes that describe the user who's associated with an endpoint.</p>
  */
 export interface EndpointUser {
@@ -5151,6 +5500,7 @@ export interface EndpointUser {
 }
 
 /**
+ * @public
  * <p>Provides information about the channel type and other settings for an endpoint.</p>
  */
 export interface EndpointResponse {
@@ -5230,6 +5580,9 @@ export interface EndpointResponse {
   User?: EndpointUser;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointResponse {
   /**
    * <p>Provides information about the channel type and other settings for an endpoint.</p>
@@ -5237,6 +5590,9 @@ export interface DeleteEndpointResponse {
   EndpointResponse: EndpointResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventStreamRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5245,6 +5601,7 @@ export interface DeleteEventStreamRequest {
 }
 
 /**
+ * @public
  * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
  */
 export interface EventStream {
@@ -5281,6 +5638,9 @@ export interface EventStream {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventStreamResponse {
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
@@ -5288,6 +5648,9 @@ export interface DeleteEventStreamResponse {
   EventStream: EventStream | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGcmChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5296,6 +5659,7 @@ export interface DeleteGcmChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface GCMChannelResponse {
@@ -5355,6 +5719,9 @@ export interface GCMChannelResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGcmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
@@ -5362,6 +5729,9 @@ export interface DeleteGcmChannelResponse {
   GCMChannelResponse: GCMChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInAppTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5374,6 +5744,9 @@ export interface DeleteInAppTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInAppTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5381,6 +5754,9 @@ export interface DeleteInAppTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJourneyRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5393,6 +5769,9 @@ export interface DeleteJourneyRequest {
   JourneyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJourneyResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -5400,6 +5779,9 @@ export interface DeleteJourneyResponse {
   JourneyResponse: JourneyResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePushTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5412,6 +5794,9 @@ export interface DeletePushTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePushTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5419,6 +5804,9 @@ export interface DeletePushTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecommenderConfigurationRequest {
   /**
    * <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
@@ -5426,6 +5814,9 @@ export interface DeleteRecommenderConfigurationRequest {
   RecommenderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecommenderConfigurationResponse {
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
@@ -5433,6 +5824,9 @@ export interface DeleteRecommenderConfigurationResponse {
   RecommenderConfigurationResponse: RecommenderConfigurationResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSegmentRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5445,6 +5839,9 @@ export interface DeleteSegmentRequest {
   SegmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSegmentResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -5452,6 +5849,9 @@ export interface DeleteSegmentResponse {
   SegmentResponse: SegmentResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSmsChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5460,6 +5860,7 @@ export interface DeleteSmsChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the SMS channel for an application.</p>
  */
 export interface SMSChannelResponse {
@@ -5534,6 +5935,9 @@ export interface SMSChannelResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSmsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
@@ -5541,6 +5945,9 @@ export interface DeleteSmsChannelResponse {
   SMSChannelResponse: SMSChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSmsTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5553,6 +5960,9 @@ export interface DeleteSmsTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSmsTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5560,6 +5970,9 @@ export interface DeleteSmsTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserEndpointsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5573,6 +5986,7 @@ export interface DeleteUserEndpointsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about all the endpoints that are associated with a user ID.</p>
  */
 export interface EndpointsResponse {
@@ -5582,6 +5996,9 @@ export interface EndpointsResponse {
   Item: EndpointResponse[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserEndpointsResponse {
   /**
    * <p>Provides information about all the endpoints that are associated with a user ID.</p>
@@ -5589,6 +6006,9 @@ export interface DeleteUserEndpointsResponse {
   EndpointsResponse: EndpointsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5597,6 +6017,7 @@ export interface DeleteVoiceChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the voice channel for an application.</p>
  */
 export interface VoiceChannelResponse {
@@ -5651,6 +6072,9 @@ export interface VoiceChannelResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceChannelResponse {
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
@@ -5658,6 +6082,9 @@ export interface DeleteVoiceChannelResponse {
   VoiceChannelResponse: VoiceChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5670,6 +6097,9 @@ export interface DeleteVoiceTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5677,6 +6107,9 @@ export interface DeleteVoiceTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export enum DeliveryStatus {
   DUPLICATE = "DUPLICATE",
   OPT_OUT = "OPT_OUT",
@@ -5688,6 +6121,7 @@ export enum DeliveryStatus {
 }
 
 /**
+ * @public
  * <p>Specifies the contents of an email message, represented as a raw MIME message.</p>
  */
 export interface RawEmail {
@@ -5698,6 +6132,7 @@ export interface RawEmail {
 }
 
 /**
+ * @public
  * <p>Specifies the subject or body of an email message, represented as textual email data and the applicable character set.</p>
  */
 export interface SimpleEmailPart {
@@ -5713,6 +6148,7 @@ export interface SimpleEmailPart {
 }
 
 /**
+ * @public
  * <p>Specifies the contents of an email message, composed of a subject, a text part, and an HTML part.</p>
  */
 export interface SimpleEmail {
@@ -5733,6 +6169,7 @@ export interface SimpleEmail {
 }
 
 /**
+ * @public
  * <p>Specifies the default settings and content for a one-time email message that's sent directly to an endpoint.</p>
  */
 export interface EmailMessage {
@@ -5773,6 +6210,7 @@ export interface EmailMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the GCM channel. The GCM channel enables Amazon Pinpoint to send messages to the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface GCMMessage {
@@ -5863,6 +6301,7 @@ export interface GCMMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the default settings for a one-time SMS message that's sent directly to an endpoint.</p>
  */
 export interface SMSMessage {
@@ -5913,6 +6352,7 @@ export interface SMSMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time voice message that's sent directly to an endpoint through the voice channel.</p>
  */
 export interface VoiceMessage {
@@ -5943,6 +6383,7 @@ export interface VoiceMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings and content for the default message and any default messages that you tailored for specific channels.</p>
  */
 export interface DirectMessageConfiguration {
@@ -5993,6 +6434,7 @@ export interface DirectMessageConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the email channel for an application.</p>
  */
 export interface EmailChannelRequest {
@@ -6022,6 +6464,9 @@ export interface EmailChannelRequest {
   RoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export enum TemplateType {
   EMAIL = "EMAIL",
   INAPP = "INAPP",
@@ -6031,6 +6476,7 @@ export enum TemplateType {
 }
 
 /**
+ * @public
  * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
  */
 export interface EmailTemplateResponse {
@@ -6101,6 +6547,7 @@ export interface EmailTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies an endpoint to create or update and the settings and attributes to set or change for the endpoint.</p>
  */
 export interface EndpointBatchItem {
@@ -6166,6 +6613,7 @@ export interface EndpointBatchItem {
 }
 
 /**
+ * @public
  * <p>Specifies a batch of endpoints to create or update and the settings and attributes to set or change for each endpoint.</p>
  */
 export interface EndpointBatchRequest {
@@ -6176,6 +6624,7 @@ export interface EndpointBatchRequest {
 }
 
 /**
+ * @public
  * <p>Provides the status code and message that result from processing data for an endpoint.</p>
  */
 export interface EndpointItemResponse {
@@ -6191,6 +6640,7 @@ export interface EndpointItemResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the delivery status and results of sending a message directly to an endpoint.</p>
  */
 export interface EndpointMessageResult {
@@ -6226,6 +6676,7 @@ export interface EndpointMessageResult {
 }
 
 /**
+ * @public
  * <p>Specifies the channel type and other settings for an endpoint.</p>
  */
 export interface EndpointRequest {
@@ -6286,6 +6737,7 @@ export interface EndpointRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the content, including message variables and attributes, to use in a message that's sent directly to an endpoint.</p>
  */
 export interface EndpointSendConfiguration {
@@ -6316,6 +6768,7 @@ export interface EndpointSendConfiguration {
 }
 
 /**
+ * @public
  * <p>Provides information about a session.</p>
  */
 export interface Session {
@@ -6341,6 +6794,7 @@ export interface Session {
 }
 
 /**
+ * @public
  * <p>Specifies information about an event that reports data to Amazon Pinpoint.</p>
  */
 export interface Event {
@@ -6396,6 +6850,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p>Provides the status code and message that result from processing an event.</p>
  */
 export interface EventItemResponse {
@@ -6411,6 +6866,7 @@ export interface EventItemResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the properties and attributes of an endpoint that's associated with an event.</p>
  */
 export interface PublicEndpoint {
@@ -6471,6 +6927,7 @@ export interface PublicEndpoint {
 }
 
 /**
+ * @public
  * <p>Specifies a batch of endpoints and events to process.</p>
  */
 export interface EventsBatch {
@@ -6486,6 +6943,7 @@ export interface EventsBatch {
 }
 
 /**
+ * @public
  * <p>Specifies a batch of events to process.</p>
  */
 export interface EventsRequest {
@@ -6496,6 +6954,7 @@ export interface EventsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the results of a request to create or update an endpoint that's associated with an event.</p>
  */
 export interface ItemResponse {
@@ -6511,6 +6970,7 @@ export interface ItemResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about endpoints and the events that they're associated with.</p>
  */
 export interface EventsResponse {
@@ -6521,6 +6981,7 @@ export interface EventsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
  */
 export interface ExportJobsResponse {
@@ -6536,6 +6997,7 @@ export interface ExportJobsResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the GCM channel for an application. This channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface GCMChannelRequest {
@@ -6550,6 +7012,9 @@ export interface GCMChannelRequest {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetAdmChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6557,6 +7022,9 @@ export interface GetAdmChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAdmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -6564,6 +7032,9 @@ export interface GetAdmChannelResponse {
   ADMChannelResponse: ADMChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6571,6 +7042,9 @@ export interface GetApnsChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -6578,6 +7052,9 @@ export interface GetApnsChannelResponse {
   APNSChannelResponse: APNSChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsSandboxChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6585,6 +7062,9 @@ export interface GetApnsSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -6592,6 +7072,9 @@ export interface GetApnsSandboxChannelResponse {
   APNSSandboxChannelResponse: APNSSandboxChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsVoipChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6599,6 +7082,9 @@ export interface GetApnsVoipChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsVoipChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -6606,6 +7092,9 @@ export interface GetApnsVoipChannelResponse {
   APNSVoipChannelResponse: APNSVoipChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsVoipSandboxChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6613,6 +7102,9 @@ export interface GetApnsVoipSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsVoipSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -6620,6 +7112,9 @@ export interface GetApnsVoipSandboxChannelResponse {
   APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6627,6 +7122,9 @@ export interface GetAppRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppResponse {
   /**
    * <p>Provides information about an application.</p>
@@ -6634,6 +7132,9 @@ export interface GetAppResponse {
   ApplicationResponse: ApplicationResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationDateRangeKpiRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6666,6 +7167,9 @@ export interface GetApplicationDateRangeKpiRequest {
   StartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationDateRangeKpiResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
@@ -6673,6 +7177,9 @@ export interface GetApplicationDateRangeKpiResponse {
   ApplicationDateRangeKpiResponse: ApplicationDateRangeKpiResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationSettingsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6680,6 +7187,9 @@ export interface GetApplicationSettingsRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationSettingsResponse {
   /**
    * <p>Provides information about an application, including the default settings for an application.</p>
@@ -6687,6 +7197,9 @@ export interface GetApplicationSettingsResponse {
   ApplicationSettingsResource: ApplicationSettingsResource | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppsRequest {
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
@@ -6699,6 +7212,9 @@ export interface GetAppsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAppsResponse {
   /**
    * <p>Provides information about all of your applications.</p>
@@ -6706,6 +7222,9 @@ export interface GetAppsResponse {
   ApplicationsResponse: ApplicationsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBaiduChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6713,6 +7232,9 @@ export interface GetBaiduChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBaiduChannelResponse {
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
@@ -6720,6 +7242,9 @@ export interface GetBaiduChannelResponse {
   BaiduChannelResponse: BaiduChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6732,6 +7257,9 @@ export interface GetCampaignRequest {
   CampaignId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -6739,6 +7267,9 @@ export interface GetCampaignResponse {
   CampaignResponse: CampaignResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignActivitiesRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6761,6 +7292,9 @@ export interface GetCampaignActivitiesRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignActivitiesResponse {
   /**
    * <p>Provides information about the activities that were performed by a campaign.</p>
@@ -6768,6 +7302,9 @@ export interface GetCampaignActivitiesResponse {
   ActivitiesResponse: ActivitiesResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignDateRangeKpiRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6805,6 +7342,9 @@ export interface GetCampaignDateRangeKpiRequest {
   StartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignDateRangeKpiResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard metric that applies to a campaign, and provides information about that query.</p>
@@ -6812,6 +7352,9 @@ export interface GetCampaignDateRangeKpiResponse {
   CampaignDateRangeKpiResponse: CampaignDateRangeKpiResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6829,6 +7372,9 @@ export interface GetCampaignsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignsResponse {
   /**
    * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
@@ -6836,6 +7382,9 @@ export interface GetCampaignsResponse {
   CampaignsResponse: CampaignsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignVersionRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6853,6 +7402,9 @@ export interface GetCampaignVersionRequest {
   Version: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignVersionResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -6860,6 +7412,9 @@ export interface GetCampaignVersionResponse {
   CampaignResponse: CampaignResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignVersionsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6882,6 +7437,9 @@ export interface GetCampaignVersionsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignVersionsResponse {
   /**
    * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>

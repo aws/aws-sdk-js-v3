@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateManagedEndpointCommand}.
  */
 export interface CreateManagedEndpointCommandInput extends CreateManagedEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateManagedEndpointCommand}.
  */
 export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to
  *             Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual
  *          cluster.</p>
@@ -48,6 +53,8 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateManagedEndpointCommandInput - {@link CreateManagedEndpointCommandInput}
+ * @returns {@link CreateManagedEndpointCommandOutput}
  * @see {@link CreateManagedEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateManagedEndpointCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateManagedEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateManagedEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateManagedEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateManagedEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateManagedEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateManagedEndpointCommandOutput> {
     return deserializeAws_restJson1CreateManagedEndpointCommand(output, context);
   }

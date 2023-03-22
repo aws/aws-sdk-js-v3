@@ -26,10 +26,14 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreTableFromClusterSnapshotCommand}.
  */
 export interface RestoreTableFromClusterSnapshotCommandInput extends RestoreTableFromClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreTableFromClusterSnapshotCommand}.
  */
 export interface RestoreTableFromClusterSnapshotCommandOutput
@@ -37,6 +41,7 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must
  *             create the new table within the Amazon Redshift cluster that the snapshot was taken
  *             from.</p>
@@ -61,6 +66,8 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreTableFromClusterSnapshotCommandInput - {@link RestoreTableFromClusterSnapshotCommandInput}
+ * @returns {@link RestoreTableFromClusterSnapshotCommandOutput}
  * @see {@link RestoreTableFromClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreTableFromClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -110,6 +117,9 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreTableFromClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,6 +159,9 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RestoreTableFromClusterSnapshotCommandInput,
     context: __SerdeContext
@@ -156,6 +169,9 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     return serializeAws_queryRestoreTableFromClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

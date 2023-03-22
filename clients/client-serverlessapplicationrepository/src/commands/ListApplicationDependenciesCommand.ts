@@ -30,10 +30,14 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationDependenciesCommand}.
  */
 export interface ListApplicationDependenciesCommandInput extends ListApplicationDependenciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationDependenciesCommand}.
  */
 export interface ListApplicationDependenciesCommandOutput
@@ -41,6 +45,7 @@ export interface ListApplicationDependenciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the list of applications nested in the containing application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface ListApplicationDependenciesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationDependenciesCommandInput - {@link ListApplicationDependenciesCommandInput}
+ * @returns {@link ListApplicationDependenciesCommandOutput}
  * @see {@link ListApplicationDependenciesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationDependenciesCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListApplicationDependenciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationDependenciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListApplicationDependenciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationDependenciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListApplicationDependenciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

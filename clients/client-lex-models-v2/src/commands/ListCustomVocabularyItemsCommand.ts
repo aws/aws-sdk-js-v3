@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomVocabularyItemsCommand}.
  */
 export interface ListCustomVocabularyItemsCommandInput extends ListCustomVocabularyItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomVocabularyItemsCommand}.
  */
 export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabularyItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Paginated list of custom vocabulary items for a given bot locale's
  *          custom vocabulary.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabu
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomVocabularyItemsCommandInput - {@link ListCustomVocabularyItemsCommandInput}
+ * @returns {@link ListCustomVocabularyItemsCommandOutput}
  * @see {@link ListCustomVocabularyItemsCommandInput} for command's `input` shape.
  * @see {@link ListCustomVocabularyItemsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -89,6 +96,9 @@ export class ListCustomVocabularyItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomVocabularyItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListCustomVocabularyItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomVocabularyItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListCustomVocabularyItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

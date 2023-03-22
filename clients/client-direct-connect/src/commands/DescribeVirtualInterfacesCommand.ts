@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVirtualInterfacesCommand}.
  */
 export interface DescribeVirtualInterfacesCommandInput extends DescribeVirtualInterfacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVirtualInterfacesCommand}.
  */
 export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterfaces, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays all virtual interfaces for an Amazon Web Services account. Virtual interfaces deleted fewer
  *       than 15 minutes before you make the request are also returned. If you specify a
  *       connection ID, only the virtual interfaces associated with the connection are returned.
@@ -50,6 +55,8 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualInterfacesCommandInput - {@link DescribeVirtualInterfacesCommandInput}
+ * @returns {@link DescribeVirtualInterfacesCommandOutput}
  * @see {@link DescribeVirtualInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualInterfacesCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeVirtualInterfacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualInterfacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeVirtualInterfacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualInterfacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeVirtualInterfacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

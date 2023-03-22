@@ -26,11 +26,15 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedNodeExchangeStatusCommand}.
  */
 export interface DescribeReservedNodeExchangeStatusCommandInput
   extends DescribeReservedNodeExchangeStatusInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedNodeExchangeStatusCommand}.
  */
 export interface DescribeReservedNodeExchangeStatusCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns exchange status details and associated metadata for a reserved-node
  *             exchange. Statuses include such values as in progress and requested.</p>
  * @example
@@ -50,6 +55,8 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedNodeExchangeStatusCommandInput - {@link DescribeReservedNodeExchangeStatusCommandInput}
+ * @returns {@link DescribeReservedNodeExchangeStatusCommandOutput}
  * @see {@link DescribeReservedNodeExchangeStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodeExchangeStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedNodeExchangeStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedNodeExchangeStatusCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command<
     return serializeAws_queryDescribeReservedNodeExchangeStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

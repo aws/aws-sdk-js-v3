@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachCertificateToDistributionCommand}.
  */
 export interface AttachCertificateToDistributionCommandInput extends AttachCertificateToDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachCertificateToDistributionCommand}.
  */
 export interface AttachCertificateToDistributionCommandOutput
@@ -37,6 +41,7 @@ export interface AttachCertificateToDistributionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>After the certificate is attached, your distribution accepts HTTPS traffic for all of the
@@ -60,6 +65,8 @@ export interface AttachCertificateToDistributionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachCertificateToDistributionCommandInput - {@link AttachCertificateToDistributionCommandInput}
+ * @returns {@link AttachCertificateToDistributionCommandOutput}
  * @see {@link AttachCertificateToDistributionCommandInput} for command's `input` shape.
  * @see {@link AttachCertificateToDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -109,6 +116,9 @@ export class AttachCertificateToDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachCertificateToDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,6 +158,9 @@ export class AttachCertificateToDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AttachCertificateToDistributionCommandInput,
     context: __SerdeContext
@@ -155,6 +168,9 @@ export class AttachCertificateToDistributionCommand extends $Command<
     return serializeAws_json1_1AttachCertificateToDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

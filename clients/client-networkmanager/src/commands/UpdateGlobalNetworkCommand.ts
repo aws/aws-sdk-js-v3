@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGlobalNetworkCommand}.
  */
 export interface UpdateGlobalNetworkCommandInput extends UpdateGlobalNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGlobalNetworkCommand}.
  */
 export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing global network. To remove information for any of the parameters,
  *             specify an empty string.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGlobalNetworkCommandInput - {@link UpdateGlobalNetworkCommandInput}
+ * @returns {@link UpdateGlobalNetworkCommandOutput}
  * @see {@link UpdateGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateGlobalNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateGlobalNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateGlobalNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalNetworkCommandOutput> {
     return deserializeAws_restJson1UpdateGlobalNetworkCommand(output, context);
   }

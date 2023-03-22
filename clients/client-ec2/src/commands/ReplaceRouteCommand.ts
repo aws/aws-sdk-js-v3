@@ -18,15 +18,20 @@ import { ReplaceRouteRequest, ReplaceRouteRequestFilterSensitiveLog } from "../m
 import { deserializeAws_ec2ReplaceRouteCommand, serializeAws_ec2ReplaceRouteCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReplaceRouteCommand}.
  */
 export interface ReplaceRouteCommandInput extends ReplaceRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplaceRouteCommand}.
  */
 export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces an existing route within a route table in a VPC.</p>
  *          <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify
  *            exactly one of the resources from the parameter list, or reset the local route to its default
@@ -43,6 +48,8 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceRouteCommandInput - {@link ReplaceRouteCommandInput}
+ * @returns {@link ReplaceRouteCommandOutput}
  * @see {@link ReplaceRouteCommandInput} for command's `input` shape.
  * @see {@link ReplaceRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +86,9 @@ export class ReplaceRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ReplaceRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ReplaceRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceRouteCommandOutput> {
     return deserializeAws_ec2ReplaceRouteCommand(output, context);
   }

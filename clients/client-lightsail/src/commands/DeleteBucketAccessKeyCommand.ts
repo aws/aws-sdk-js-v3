@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketAccessKeyCommand}.
  */
 export interface DeleteBucketAccessKeyCommandInput extends DeleteBucketAccessKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketAccessKeyCommand}.
  */
 export interface DeleteBucketAccessKeyCommandOutput extends DeleteBucketAccessKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an access key for the specified Amazon Lightsail bucket.</p>
  *          <p>We recommend that you delete an access key if the secret access key is compromised.</p>
  *          <p>For more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
@@ -49,6 +54,8 @@ export interface DeleteBucketAccessKeyCommandOutput extends DeleteBucketAccessKe
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketAccessKeyCommandInput - {@link DeleteBucketAccessKeyCommandInput}
+ * @returns {@link DeleteBucketAccessKeyCommandOutput}
  * @see {@link DeleteBucketAccessKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteBucketAccessKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteBucketAccessKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteBucketAccessKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketAccessKeyCommandOutput> {
     return deserializeAws_json1_1DeleteBucketAccessKeyCommand(output, context);
   }

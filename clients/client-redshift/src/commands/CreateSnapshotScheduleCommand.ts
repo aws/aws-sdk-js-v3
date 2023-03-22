@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSnapshotScheduleCommand}.
  */
 export interface CreateSnapshotScheduleCommandInput extends CreateSnapshotScheduleMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateSnapshotScheduleCommand}.
  */
 export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a snapshot schedule that can be associated to a cluster and which overrides the default system backup schedule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotScheduleCommandInput - {@link CreateSnapshotScheduleCommandInput}
+ * @returns {@link CreateSnapshotScheduleCommandOutput}
  * @see {@link CreateSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -87,6 +94,9 @@ export class CreateSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CreateSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotScheduleCommandOutput> {
     return deserializeAws_queryCreateSnapshotScheduleCommand(output, context);
   }

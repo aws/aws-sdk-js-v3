@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterOnPremisesInstanceCommand}.
  */
 export interface RegisterOnPremisesInstanceCommandInput extends RegisterOnPremisesInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterOnPremisesInstanceCommand}.
  */
 export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an on-premises instance.</p>
  *         <note>
  *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.</p>
@@ -44,6 +49,8 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterOnPremisesInstanceCommandInput - {@link RegisterOnPremisesInstanceCommandInput}
+ * @returns {@link RegisterOnPremisesInstanceCommandOutput}
  * @see {@link RegisterOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -100,6 +107,9 @@ export class RegisterOnPremisesInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterOnPremisesInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class RegisterOnPremisesInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterOnPremisesInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

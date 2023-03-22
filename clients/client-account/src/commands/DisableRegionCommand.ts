@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableRegionCommand}.
  */
 export interface DisableRegionCommandInput extends DisableRegionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableRegionCommand}.
  */
 export interface DisableRegionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables (opts-out) a particular Region for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableRegionCommandInput - {@link DisableRegionCommandInput}
+ * @returns {@link DisableRegionCommandOutput}
  * @see {@link DisableRegionCommandInput} for command's `input` shape.
  * @see {@link DisableRegionCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -84,6 +91,9 @@ export class DisableRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DisableRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisableRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableRegionCommandOutput> {
     return deserializeAws_restJson1DisableRegionCommand(output, context);
   }

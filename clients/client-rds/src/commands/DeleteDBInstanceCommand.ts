@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBInstanceCommand}.
  */
 export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBInstanceCommand}.
  */
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The DeleteDBInstance action deletes a previously provisioned DB instance.
  *           When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
  *           Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not deleted.</p>
@@ -68,6 +73,8 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBInstanceCommandInput - {@link DeleteDBInstanceCommandInput}
+ * @returns {@link DeleteDBInstanceCommandOutput}
  * @see {@link DeleteDBInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -131,6 +138,9 @@ export class DeleteDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,10 +180,16 @@ export class DeleteDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
     return deserializeAws_queryDeleteDBInstanceCommand(output, context);
   }

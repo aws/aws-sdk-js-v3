@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBProxyTargetGroupCommand}.
  */
 export interface ModifyDBProxyTargetGroupCommandInput extends ModifyDBProxyTargetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBProxyTargetGroupCommand}.
  */
 export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTargetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBProxyTargetGroupCommandInput - {@link ModifyDBProxyTargetGroupCommandInput}
+ * @returns {@link ModifyDBProxyTargetGroupCommandOutput}
  * @see {@link ModifyDBProxyTargetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBProxyTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -78,6 +85,9 @@ export class ModifyDBProxyTargetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBProxyTargetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ModifyDBProxyTargetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBProxyTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBProxyTargetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBProxyTargetGroupCommandOutput> {
     return deserializeAws_queryModifyDBProxyTargetGroupCommand(output, context);
   }

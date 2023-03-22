@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLayerCommand}.
  */
 export interface DeleteLayerCommandInput extends DeleteLayerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLayerCommand}.
  */
 export interface DeleteLayerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified layer. You must first stop and then delete all associated instances or
  *       unassign registered instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html">How to
  *         Delete a Layer</a>.</p>
@@ -48,6 +53,8 @@ export interface DeleteLayerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLayerCommandInput - {@link DeleteLayerCommandInput}
+ * @returns {@link DeleteLayerCommandOutput}
  * @see {@link DeleteLayerCommandInput} for command's `input` shape.
  * @see {@link DeleteLayerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteLayerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLayerCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DeleteLayerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLayerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLayerCommandOutput> {
     return deserializeAws_json1_1DeleteLayerCommand(output, context);
   }

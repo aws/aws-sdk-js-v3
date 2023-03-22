@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImageBuilderStreamingURLCommand}.
  */
 export interface CreateImageBuilderStreamingURLCommandInput extends CreateImageBuilderStreamingURLRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImageBuilderStreamingURLCommand}.
  */
 export interface CreateImageBuilderStreamingURLCommandOutput
@@ -37,6 +41,7 @@ export interface CreateImageBuilderStreamingURLCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a URL to start an image builder streaming session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateImageBuilderStreamingURLCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImageBuilderStreamingURLCommandInput - {@link CreateImageBuilderStreamingURLCommandInput}
+ * @returns {@link CreateImageBuilderStreamingURLCommandOutput}
  * @see {@link CreateImageBuilderStreamingURLCommandInput} for command's `input` shape.
  * @see {@link CreateImageBuilderStreamingURLCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -77,6 +84,9 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImageBuilderStreamingURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateImageBuilderStreamingURLCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
     return serializeAws_json1_1CreateImageBuilderStreamingURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

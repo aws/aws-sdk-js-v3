@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServersCommand}.
  */
 export interface ListServersCommandInput extends ListServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServersCommand}.
  */
 export interface ListServersCommandOutput extends ListServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the file transfer protocol-enabled servers that are associated with your Amazon Web Services
  *       account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServersCommandInput - {@link ListServersCommandInput}
+ * @returns {@link ListServersCommandOutput}
  * @see {@link ListServersCommandInput} for command's `input` shape.
  * @see {@link ListServersCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServersCommandOutput> {
     return deserializeAws_json1_1ListServersCommand(output, context);
   }

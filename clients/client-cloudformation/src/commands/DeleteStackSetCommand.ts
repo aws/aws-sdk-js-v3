@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStackSetCommand}.
  */
 export interface DeleteStackSetCommandInput extends DeleteStackSetInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStackSetCommand}.
  */
 export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a stack set. Before you can delete a stack set, all its member stack instances
  *          must be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStackSetCommandInput - {@link DeleteStackSetCommandInput}
+ * @returns {@link DeleteStackSetCommandOutput}
  * @see {@link DeleteStackSetCommandInput} for command's `input` shape.
  * @see {@link DeleteStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteStackSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStackSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DeleteStackSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteStackSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackSetCommandOutput> {
     return deserializeAws_queryDeleteStackSetCommand(output, context);
   }

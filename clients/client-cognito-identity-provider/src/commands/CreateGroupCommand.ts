@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandInput extends CreateGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new group in the specified user pool.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -52,6 +57,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
+ * @returns {@link CreateGroupCommandOutput}
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -101,6 +108,9 @@ export class CreateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupCommandOutput> {
     return deserializeAws_json1_1CreateGroupCommand(output, context);
   }

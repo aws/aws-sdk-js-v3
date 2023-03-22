@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWebhookCommand}.
  */
 export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWebhookCommand}.
  */
 export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
  *             Bitbucket repository, stops CodeBuild from rebuilding the source code every time a code
  *             change is pushed to the repository.</p>
@@ -48,6 +53,8 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWebhookCommandInput - {@link DeleteWebhookCommandInput}
+ * @returns {@link DeleteWebhookCommandOutput}
  * @see {@link DeleteWebhookCommandInput} for command's `input` shape.
  * @see {@link DeleteWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWebhookCommandOutput> {
     return deserializeAws_json1_1DeleteWebhookCommand(output, context);
   }

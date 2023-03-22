@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTaskCommand}.
  */
 export interface CreateTaskCommandInput extends CreateTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTaskCommand}.
  */
 export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures a task, which defines where and how DataSync transfers your
  *       data.</p>
  *          <p>A task includes a source location, a destination location, and the preferences for how and
@@ -50,6 +55,8 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTaskCommandInput - {@link CreateTaskCommandInput}
+ * @returns {@link CreateTaskCommandOutput}
  * @see {@link CreateTaskCommandInput} for command's `input` shape.
  * @see {@link CreateTaskCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskCommandOutput> {
     return deserializeAws_json1_1CreateTaskCommand(output, context);
   }

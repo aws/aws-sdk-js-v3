@@ -25,15 +25,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPointForObjectLambdaCommand}.
  */
 export interface DeleteAccessPointForObjectLambdaCommandInput extends DeleteAccessPointForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPointForObjectLambdaCommand}.
  */
 export interface DeleteAccessPointForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *          <code>DeleteAccessPointForObjectLambda</code>:</p>
@@ -64,6 +69,8 @@ export interface DeleteAccessPointForObjectLambdaCommandOutput extends __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPointForObjectLambdaCommandInput - {@link DeleteAccessPointForObjectLambdaCommandInput}
+ * @returns {@link DeleteAccessPointForObjectLambdaCommandOutput}
  * @see {@link DeleteAccessPointForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteAccessPointForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPointForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class DeleteAccessPointForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAccessPointForObjectLambdaCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class DeleteAccessPointForObjectLambdaCommand extends $Command<
     return serializeAws_restXmlDeleteAccessPointForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

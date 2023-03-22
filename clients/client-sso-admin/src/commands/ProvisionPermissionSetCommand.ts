@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link ProvisionPermissionSetCommand}.
  */
 export interface ProvisionPermissionSetCommandInput extends ProvisionPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvisionPermissionSetCommand}.
  */
 export interface ProvisionPermissionSetCommandOutput extends ProvisionPermissionSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The process by which a specified permission set is provisioned to the specified
  *       target.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvisionPermissionSetCommandInput - {@link ProvisionPermissionSetCommandInput}
+ * @returns {@link ProvisionPermissionSetCommandOutput}
  * @see {@link ProvisionPermissionSetCommandInput} for command's `input` shape.
  * @see {@link ProvisionPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -93,6 +100,9 @@ export class ProvisionPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class ProvisionPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionPermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ProvisionPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionPermissionSetCommandOutput> {
     return deserializeAws_json1_1ProvisionPermissionSetCommand(output, context);
   }

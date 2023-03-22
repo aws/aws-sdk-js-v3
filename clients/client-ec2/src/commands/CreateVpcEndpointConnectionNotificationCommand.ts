@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcEndpointConnectionNotificationCommand}.
  */
 export interface CreateVpcEndpointConnectionNotificationCommandInput
   extends CreateVpcEndpointConnectionNotificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcEndpointConnectionNotificationCommand}.
  */
 export interface CreateVpcEndpointConnectionNotificationCommandOutput
@@ -38,6 +42,7 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a connection notification for a specified VPC endpoint or VPC endpoint
  *             service. A connection notification notifies you of specific endpoint events. You must
  *             create an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create a Topic</a> in
@@ -53,6 +58,8 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcEndpointConnectionNotificationCommandInput - {@link CreateVpcEndpointConnectionNotificationCommandInput}
+ * @returns {@link CreateVpcEndpointConnectionNotificationCommandOutput}
  * @see {@link CreateVpcEndpointConnectionNotificationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointConnectionNotificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcEndpointConnectionNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateVpcEndpointConnectionNotificationCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
     return serializeAws_ec2CreateVpcEndpointConnectionNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

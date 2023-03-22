@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeKeyPairsCommand}.
  */
 export interface DescribeKeyPairsCommandInput extends DescribeKeyPairsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeKeyPairsCommand}.
  */
 export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified key pairs or all of your key pairs.</p>
  *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a>
  * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -48,6 +53,8 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeKeyPairsCommandInput - {@link DescribeKeyPairsCommandInput}
+ * @returns {@link DescribeKeyPairsCommandOutput}
  * @see {@link DescribeKeyPairsCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyPairsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -94,6 +101,9 @@ export class DescribeKeyPairsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeKeyPairsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DescribeKeyPairsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeKeyPairsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeKeyPairsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeyPairsCommandOutput> {
     return deserializeAws_ec2DescribeKeyPairsCommand(output, context);
   }

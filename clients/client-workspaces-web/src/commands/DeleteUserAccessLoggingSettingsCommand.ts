@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserAccessLoggingSettingsCommand}.
  */
 export interface DeleteUserAccessLoggingSettingsCommandInput extends DeleteUserAccessLoggingSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserAccessLoggingSettingsCommand}.
  */
 export interface DeleteUserAccessLoggingSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes user access logging settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteUserAccessLoggingSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserAccessLoggingSettingsCommandInput - {@link DeleteUserAccessLoggingSettingsCommandInput}
+ * @returns {@link DeleteUserAccessLoggingSettingsCommandOutput}
  * @see {@link DeleteUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -86,6 +93,9 @@ export class DeleteUserAccessLoggingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class DeleteUserAccessLoggingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class DeleteUserAccessLoggingSettingsCommand extends $Command<
     return serializeAws_restJson1DeleteUserAccessLoggingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

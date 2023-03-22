@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePoliciesCommand}.
  */
 export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePoliciesCommand}.
  */
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource policies set on individual resources by Resource Access Manager
  *       during cross-account permission grants. Also retrieves the Data Catalog resource
  *       policy.</p>
@@ -51,6 +56,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
+ * @returns {@link GetResourcePoliciesCommandOutput}
  * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetResourcePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class GetResourcePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResourcePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePoliciesCommandOutput> {
     return deserializeAws_json1_1GetResourcePoliciesCommand(output, context);
   }

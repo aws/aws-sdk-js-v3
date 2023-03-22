@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InferRxNormCommand}.
  */
 export interface InferRxNormCommandInput extends InferRxNormRequest {}
 /**
+ * @public
+ *
  * The output of {@link InferRxNormCommand}.
  */
 export interface InferRxNormCommandOutput extends InferRxNormResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>InferRxNorm detects medications as entities listed in a patient record and links to the
  *       normalized concept identifiers in the RxNorm database from the National Library of Medicine.
  *       Amazon Comprehend Medical only detects medical entities in English language texts.  </p>
@@ -52,6 +57,8 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param InferRxNormCommandInput - {@link InferRxNormCommandInput}
+ * @returns {@link InferRxNormCommandOutput}
  * @see {@link InferRxNormCommandInput} for command's `input` shape.
  * @see {@link InferRxNormCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -99,6 +106,9 @@ export class InferRxNormCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InferRxNormCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class InferRxNormCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InferRxNormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1InferRxNormCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InferRxNormCommandOutput> {
     return deserializeAws_json1_1InferRxNormCommand(output, context);
   }

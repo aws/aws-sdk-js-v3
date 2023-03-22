@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateDetectorCommand}.
  */
 export interface BatchUpdateDetectorCommandInput extends BatchUpdateDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateDetectorCommand}.
  */
 export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the state, variable values, and timer settings of one or more detectors
  *       (instances) of a specified detector model.</p>
  * @example
@@ -47,6 +52,8 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateDetectorCommandInput - {@link BatchUpdateDetectorCommandInput}
+ * @returns {@link BatchUpdateDetectorCommandOutput}
  * @see {@link BatchUpdateDetectorCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateDetectorCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -82,6 +89,9 @@ export class BatchUpdateDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class BatchUpdateDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchUpdateDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateDetectorCommandOutput> {
     return deserializeAws_restJson1BatchUpdateDetectorCommand(output, context);
   }

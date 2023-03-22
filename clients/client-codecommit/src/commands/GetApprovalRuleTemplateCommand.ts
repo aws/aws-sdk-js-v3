@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApprovalRuleTemplateCommand}.
  */
 export interface GetApprovalRuleTemplateCommandInput extends GetApprovalRuleTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link GetApprovalRuleTemplateCommand}.
  */
 export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTem
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApprovalRuleTemplateCommandInput - {@link GetApprovalRuleTemplateCommandInput}
+ * @returns {@link GetApprovalRuleTemplateCommandOutput}
  * @see {@link GetApprovalRuleTemplateCommandInput} for command's `input` shape.
  * @see {@link GetApprovalRuleTemplateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApprovalRuleTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApprovalRuleTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetApprovalRuleTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApprovalRuleTemplateCommandOutput> {
     return deserializeAws_json1_1GetApprovalRuleTemplateCommand(output, context);
   }

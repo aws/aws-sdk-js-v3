@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackupJobsCommand}.
  */
 export interface ListBackupJobsCommandInput extends ListBackupJobsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBackupJobsCommand}.
  */
 export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing backup jobs for an authenticated account for the last 30
  *          days. For a longer period of time, consider using these <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">monitoring tools</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupJobsCommandInput - {@link ListBackupJobsCommandInput}
+ * @returns {@link ListBackupJobsCommandOutput}
  * @see {@link ListBackupJobsCommandInput} for command's `input` shape.
  * @see {@link ListBackupJobsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListBackupJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class ListBackupJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBackupJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupJobsCommandOutput> {
     return deserializeAws_restJson1ListBackupJobsCommand(output, context);
   }

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotificationChannelCommand}.
  */
 export interface DeleteNotificationChannelCommandInput extends DeleteNotificationChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotificationChannelCommand}.
  */
 export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Firewall Manager association with the IAM role and the Amazon Simple
  *       Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>
  * @example
@@ -45,6 +50,8 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotificationChannelCommandInput - {@link DeleteNotificationChannelCommandInput}
+ * @returns {@link DeleteNotificationChannelCommandOutput}
  * @see {@link DeleteNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteNotificationChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotificationChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteNotificationChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteNotificationChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

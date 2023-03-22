@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStudioCommand}.
  */
 export interface CreateStudioCommandInput extends CreateStudioInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStudioCommand}.
  */
 export interface CreateStudioCommandOutput extends CreateStudioOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon EMR Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStudioCommandInput - {@link CreateStudioCommandInput}
+ * @returns {@link CreateStudioCommandOutput}
  * @see {@link CreateStudioCommandInput} for command's `input` shape.
  * @see {@link CreateStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -76,6 +83,9 @@ export class CreateStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class CreateStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStudioCommandOutput> {
     return deserializeAws_json1_1CreateStudioCommand(output, context);
   }

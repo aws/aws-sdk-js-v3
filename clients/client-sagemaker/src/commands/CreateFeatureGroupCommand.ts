@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFeatureGroupCommand}.
  */
 export interface CreateFeatureGroupCommandInput extends CreateFeatureGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFeatureGroupCommand}.
  */
 export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new <code>FeatureGroup</code>. A <code>FeatureGroup</code> is a group of
  *             <code>Features</code> defined in the <code>FeatureStore</code> to describe a
  *             <code>Record</code>. </p>
@@ -58,6 +63,8 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFeatureGroupCommandInput - {@link CreateFeatureGroupCommandInput}
+ * @returns {@link CreateFeatureGroupCommandOutput}
  * @see {@link CreateFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link CreateFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -88,6 +95,9 @@ export class CreateFeatureGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFeatureGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class CreateFeatureGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFeatureGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFeatureGroupCommandOutput> {
     return deserializeAws_json1_1CreateFeatureGroupCommand(output, context);
   }

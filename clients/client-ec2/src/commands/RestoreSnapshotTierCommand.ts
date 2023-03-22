@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreSnapshotTierCommand}.
  */
 export interface RestoreSnapshotTierCommandInput extends RestoreSnapshotTierRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreSnapshotTierCommand}.
  */
 export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore
  *       period or restore type for a snapshot that was previously temporarily restored.</p>
  *          <p>For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot">
@@ -50,6 +55,8 @@ export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierRes
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreSnapshotTierCommandInput - {@link RestoreSnapshotTierCommandInput}
+ * @returns {@link RestoreSnapshotTierCommandOutput}
  * @see {@link RestoreSnapshotTierCommandInput} for command's `input` shape.
  * @see {@link RestoreSnapshotTierCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +80,9 @@ export class RestoreSnapshotTierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreSnapshotTierCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class RestoreSnapshotTierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreSnapshotTierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RestoreSnapshotTierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreSnapshotTierCommandOutput> {
     return deserializeAws_ec2RestoreSnapshotTierCommand(output, context);
   }

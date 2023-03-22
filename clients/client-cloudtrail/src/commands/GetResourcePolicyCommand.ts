@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Retrieves the JSON text of the resource-based policy document attached to the CloudTrail channel.
  *       </p>
@@ -48,6 +53,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
  * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -94,6 +101,9 @@ export class GetResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class GetResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePolicyCommandOutput> {
     return deserializeAws_json1_1GetResourcePolicyCommand(output, context);
   }

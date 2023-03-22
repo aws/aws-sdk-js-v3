@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPortfoliosForProductCommand}.
  */
 export interface ListPortfoliosForProductCommandInput extends ListPortfoliosForProductInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPortfoliosForProductCommand}.
  */
 export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosForProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all portfolios that the specified product is associated with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPortfoliosForProductCommandInput - {@link ListPortfoliosForProductCommandInput}
+ * @returns {@link ListPortfoliosForProductCommandOutput}
  * @see {@link ListPortfoliosForProductCommandInput} for command's `input` shape.
  * @see {@link ListPortfoliosForProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListPortfoliosForProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPortfoliosForProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListPortfoliosForProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPortfoliosForProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPortfoliosForProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortfoliosForProductCommandOutput> {
     return deserializeAws_json1_1ListPortfoliosForProductCommand(output, context);
   }

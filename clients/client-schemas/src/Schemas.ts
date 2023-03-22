@@ -151,10 +151,12 @@ import {
 import { SchemasClient } from "./SchemasClient";
 
 /**
+ * @public
  * <p>Amazon EventBridge Schema Registry</p>
  */
 export class Schemas extends SchemasClient {
   /**
+   * @public
    * <p>Creates a discoverer.</p>
    */
   public createDiscoverer(
@@ -187,6 +189,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Creates a registry.</p>
    */
   public createRegistry(
@@ -219,6 +222,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Creates a schema definition.</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
    */
   public createSchema(
@@ -248,6 +252,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Deletes a discoverer.</p>
    */
   public deleteDiscoverer(
@@ -280,6 +285,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Registry.</p>
    */
   public deleteRegistry(
@@ -312,6 +318,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Delete the resource-based policy attached to the specified registry.</p>
    */
   public deleteResourcePolicy(
@@ -344,6 +351,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Delete a schema definition.</p>
    */
   public deleteSchema(
@@ -373,6 +381,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Delete the schema version definition</p>
    */
   public deleteSchemaVersion(
@@ -405,6 +414,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Describe the code binding URI.</p>
    */
   public describeCodeBinding(
@@ -437,6 +447,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Describes the discoverer.</p>
    */
   public describeDiscoverer(
@@ -469,6 +480,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Describes the registry.</p>
    */
   public describeRegistry(
@@ -501,6 +513,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Retrieve the schema definition.</p>
    */
   public describeSchema(
@@ -532,6 +545,9 @@ export class Schemas extends SchemasClient {
     }
   }
 
+  /**
+   * @public
+   */
   public exportSchema(
     args: ExportSchemaCommandInput,
     options?: __HttpHandlerOptions
@@ -559,6 +575,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Get the code binding source URI.</p>
    */
   public getCodeBindingSource(
@@ -591,6 +608,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Get the discovered schema that was generated based on sampled events.</p>
    */
   public getDiscoveredSchema(
@@ -623,6 +641,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the resource-based policy attached to a given registry.</p>
    */
   public getResourcePolicy(
@@ -655,6 +674,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>List the discoverers.</p>
    */
   public listDiscoverers(
@@ -687,6 +707,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>List the registries.</p>
    */
   public listRegistries(
@@ -719,6 +740,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>List the schemas.</p>
    */
   public listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
@@ -745,6 +767,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of the schema versions and related information.</p>
    */
   public listSchemaVersions(
@@ -777,6 +800,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Get tags for resource.</p>
    */
   public listTagsForResource(
@@ -809,6 +833,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Put code binding URI</p>
    */
   public putCodeBinding(
@@ -841,6 +866,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>The name of the policy.</p>
    */
   public putResourcePolicy(
@@ -873,6 +899,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Search the schemas</p>
    */
   public searchSchemas(
@@ -905,6 +932,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Starts the discoverer</p>
    */
   public startDiscoverer(
@@ -937,6 +965,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Stops the discoverer</p>
    */
   public stopDiscoverer(
@@ -969,6 +998,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Add tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -995,6 +1025,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a resource.</p>
    */
   public untagResource(
@@ -1027,6 +1058,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Updates the discoverer</p>
    */
   public updateDiscoverer(
@@ -1059,6 +1091,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Updates a registry.</p>
    */
   public updateRegistry(
@@ -1091,6 +1124,7 @@ export class Schemas extends SchemasClient {
   }
 
   /**
+   * @public
    * <p>Updates the schema definition</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
    */
   public updateSchema(

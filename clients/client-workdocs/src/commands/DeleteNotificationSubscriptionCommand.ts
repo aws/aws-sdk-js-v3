@@ -24,15 +24,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotificationSubscriptionCommand}.
  */
 export interface DeleteNotificationSubscriptionCommandInput extends DeleteNotificationSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotificationSubscriptionCommand}.
  */
 export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified subscription from the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotificationSubscriptionCommandInput - {@link DeleteNotificationSubscriptionCommandInput}
+ * @returns {@link DeleteNotificationSubscriptionCommandOutput}
  * @see {@link DeleteNotificationSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotificationSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +128,9 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNotificationSubscriptionCommandInput,
     context: __SerdeContext
@@ -125,6 +138,9 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     return serializeAws_restJson1DeleteNotificationSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

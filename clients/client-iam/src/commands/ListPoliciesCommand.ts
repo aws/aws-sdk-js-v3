@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryListPoliciesCommand, serializeAws_queryListPoliciesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPoliciesCommand}.
  */
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the managed policies that are available in your Amazon Web Services account, including
  *             your own customer-defined managed policies and all Amazon Web Services managed policies.</p>
  *          <p>You can filter the list of policies that is returned using the optional
@@ -58,6 +63,8 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPoliciesCommandInput - {@link ListPoliciesCommandInput}
+ * @returns {@link ListPoliciesCommandOutput}
  * @see {@link ListPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPoliciesCommandOutput> {
     return deserializeAws_queryListPoliciesCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProvisionedConcurrencyConfigCommand}.
  */
 export interface GetProvisionedConcurrencyConfigCommandInput extends GetProvisionedConcurrencyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProvisionedConcurrencyConfigCommand}.
  */
 export interface GetProvisionedConcurrencyConfigCommandOutput
@@ -37,6 +41,7 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProvisionedConcurrencyConfigCommandInput - {@link GetProvisionedConcurrencyConfigCommandInput}
+ * @returns {@link GetProvisionedConcurrencyConfigCommandOutput}
  * @see {@link GetProvisionedConcurrencyConfigCommandInput} for command's `input` shape.
  * @see {@link GetProvisionedConcurrencyConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProvisionedConcurrencyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,6 +135,9 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetProvisionedConcurrencyConfigCommandInput,
     context: __SerdeContext
@@ -132,6 +145,9 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
     return serializeAws_restJson1GetProvisionedConcurrencyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

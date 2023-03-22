@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNotificationConfigurationCommand}.
  */
 export interface GetNotificationConfigurationCommandInput extends GetNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNotificationConfigurationCommand}.
  */
 export interface GetNotificationConfigurationCommandOutput
@@ -37,6 +41,7 @@ export interface GetNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the current configuration for anomaly notifications for a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetNotificationConfigurationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNotificationConfigurationCommandInput - {@link GetNotificationConfigurationCommandInput}
+ * @returns {@link GetNotificationConfigurationCommandOutput}
  * @see {@link GetNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNotificationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContinuousDeploymentPolicyCommand}.
  */
 export interface UpdateContinuousDeploymentPolicyCommandInput extends UpdateContinuousDeploymentPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContinuousDeploymentPolicyCommand}.
  */
 export interface UpdateContinuousDeploymentPolicyCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a continuous deployment policy. You can update a continuous deployment policy
  * 			to enable or disable it, to change the percentage of traffic that it sends to the
  * 			staging distribution, or to change the staging distribution that it sends traffic
@@ -69,6 +74,8 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContinuousDeploymentPolicyCommandInput - {@link UpdateContinuousDeploymentPolicyCommandInput}
+ * @returns {@link UpdateContinuousDeploymentPolicyCommandOutput}
  * @see {@link UpdateContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -115,6 +122,9 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,6 +164,9 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateContinuousDeploymentPolicyCommandInput,
     context: __SerdeContext
@@ -161,6 +174,9 @@ export class UpdateContinuousDeploymentPolicyCommand extends $Command<
     return serializeAws_restXmlUpdateContinuousDeploymentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

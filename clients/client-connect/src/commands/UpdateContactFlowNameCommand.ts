@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactFlowNameCommand}.
  */
 export interface UpdateContactFlowNameCommandInput extends UpdateContactFlowNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactFlowNameCommand}.
  */
 export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNameResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The name of the flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -48,6 +53,8 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactFlowNameCommandInput - {@link UpdateContactFlowNameCommandInput}
+ * @returns {@link UpdateContactFlowNameCommandOutput}
  * @see {@link UpdateContactFlowNameCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateContactFlowNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactFlowNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateContactFlowNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactFlowNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateContactFlowNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactFlowNameCommandOutput> {
     return deserializeAws_restJson1UpdateContactFlowNameCommand(output, context);
   }

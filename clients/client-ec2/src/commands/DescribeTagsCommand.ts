@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2DescribeTagsCommand, serializeAws_ec2DescribeTagsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandOutput extends DescribeTagsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified tags for your EC2 resources.</p>
  *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
  *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -45,6 +50,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
+ * @returns {@link DescribeTagsCommandOutput}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -104,6 +111,9 @@ export class DescribeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
     return deserializeAws_ec2DescribeTagsCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteKeyGroupCommand}.
  */
 export interface DeleteKeyGroupCommandInput extends DeleteKeyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteKeyGroupCommand}.
  */
 export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a key group.</p>
  *          <p>You cannot delete a key group that is referenced in a cache behavior. First update
  * 			your distributions to remove the key group from all cache behaviors, then delete the key
@@ -47,6 +52,8 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKeyGroupCommandInput - {@link DeleteKeyGroupCommandInput}
+ * @returns {@link DeleteKeyGroupCommandOutput}
  * @see {@link DeleteKeyGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +90,9 @@ export class DeleteKeyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class DeleteKeyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteKeyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyGroupCommandOutput> {
     return deserializeAws_restXmlDeleteKeyGroupCommand(output, context);
   }

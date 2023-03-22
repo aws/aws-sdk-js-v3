@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLifecyclePolicyCommand}.
  */
 export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLifecyclePolicyCommand}.
  */
 export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the lifecycle policy associated with the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLifecyclePolicyCommandInput - {@link DeleteLifecyclePolicyCommandInput}
+ * @returns {@link DeleteLifecyclePolicyCommandOutput}
  * @see {@link DeleteLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DeleteLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLifecyclePolicyCommandOutput> {
     return deserializeAws_json1_1DeleteLifecyclePolicyCommand(output, context);
   }

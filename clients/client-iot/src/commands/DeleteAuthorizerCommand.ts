@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAuthorizerCommand}.
  */
 export interface DeleteAuthorizerCommandInput extends DeleteAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAuthorizerCommand}.
  */
 export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAuthorizer</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAuthorizerCommandInput - {@link DeleteAuthorizerCommandInput}
+ * @returns {@link DeleteAuthorizerCommandOutput}
  * @see {@link DeleteAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +99,9 @@ export class DeleteAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DeleteAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAuthorizerCommandOutput> {
     return deserializeAws_restJson1DeleteAuthorizerCommand(output, context);
   }

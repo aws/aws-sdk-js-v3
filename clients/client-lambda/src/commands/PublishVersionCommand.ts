@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishVersionCommand}.
  */
 export interface PublishVersionCommandInput extends PublishVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PublishVersionCommand}.
  */
 export interface PublishVersionCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the
  *       current code and configuration of a function. Use versions to create a snapshot of your function code and
  *       configuration that doesn't change.</p>
@@ -52,6 +57,8 @@ export interface PublishVersionCommandOutput extends FunctionConfiguration, __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishVersionCommandInput - {@link PublishVersionCommandInput}
+ * @returns {@link PublishVersionCommandOutput}
  * @see {@link PublishVersionCommandInput} for command's `input` shape.
  * @see {@link PublishVersionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -97,6 +104,9 @@ export class PublishVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class PublishVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PublishVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishVersionCommandOutput> {
     return deserializeAws_restJson1PublishVersionCommand(output, context);
   }

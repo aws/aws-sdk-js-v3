@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReportInstanceStatusCommand}.
  */
 export interface ReportInstanceStatusCommandInput extends ReportInstanceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReportInstanceStatusCommand}.
  */
 export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits feedback about the status of an instance. The instance must be in the
  *                 <code>running</code> state. If your experience with the instance differs from the
  *             instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon
@@ -45,6 +50,8 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param ReportInstanceStatusCommandInput - {@link ReportInstanceStatusCommandInput}
+ * @returns {@link ReportInstanceStatusCommandOutput}
  * @see {@link ReportInstanceStatusCommandInput} for command's `input` shape.
  * @see {@link ReportInstanceStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +75,9 @@ export class ReportInstanceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReportInstanceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,10 +117,16 @@ export class ReportInstanceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReportInstanceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ReportInstanceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReportInstanceStatusCommandOutput> {
     return deserializeAws_ec2ReportInstanceStatusCommand(output, context);
   }

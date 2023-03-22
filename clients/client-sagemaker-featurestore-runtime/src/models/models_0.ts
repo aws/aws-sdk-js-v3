@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SageMakerFeatureStoreRuntimeServiceException as __BaseException } from "./SageMakerFeatureStoreRuntimeServiceException";
 
 /**
+ * @public
  * <p>You do not have permission to perform an action.</p>
  */
 export class AccessForbidden extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessForbidden extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The identifier that identifies the batch of Records you are retrieving in a batch.</p>
  */
 export interface BatchGetRecordIdentifier {
@@ -45,6 +47,9 @@ export interface BatchGetRecordIdentifier {
   FeatureNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetRecordRequest {
   /**
    * <p>A list of <code>FeatureGroup</code> names, with their corresponding <code>RecordIdentifier</code> value, and Feature name
@@ -54,6 +59,7 @@ export interface BatchGetRecordRequest {
 }
 
 /**
+ * @public
  * <p>The error that has occurred when attempting to retrieve a batch of Records.</p>
  */
 export interface BatchGetRecordError {
@@ -81,6 +87,7 @@ export interface BatchGetRecordError {
 }
 
 /**
+ * @public
  * <p>The value associated with a feature.</p>
  */
 export interface FeatureValue {
@@ -97,6 +104,7 @@ export interface FeatureValue {
 }
 
 /**
+ * @public
  * <p>The output of Records that have been retrieved in a batch.</p>
  */
 export interface BatchGetRecordResultDetail {
@@ -116,6 +124,9 @@ export interface BatchGetRecordResultDetail {
   Record: FeatureValue[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetRecordResponse {
   /**
    * <p>A list of Records you requested to be retrieved in batch.</p>
@@ -135,6 +146,7 @@ export interface BatchGetRecordResponse {
 }
 
 /**
+ * @public
  * <p>An internal failure occurred. Try your request again. If the problem
  *          persists, contact Amazon Web Services customer support.</p>
  */
@@ -157,6 +169,7 @@ export class InternalFailure extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
 export class ServiceUnavailable extends __BaseException {
@@ -178,6 +191,7 @@ export class ServiceUnavailable extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was an error validating your request.</p>
  */
 export class ValidationError extends __BaseException {
@@ -198,11 +212,17 @@ export class ValidationError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum TargetStore {
   OFFLINE_STORE = "OfflineStore",
   ONLINE_STORE = "OnlineStore",
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecordRequest {
   /**
    * <p>The name of the feature group to delete the record from. </p>
@@ -227,6 +247,9 @@ export interface DeleteRecordRequest {
   TargetStores?: (TargetStore | string)[];
 }
 
+/**
+ * @public
+ */
 export interface GetRecordRequest {
   /**
    * <p>The name of the feature group from which you want to retrieve a record.</p>
@@ -246,6 +269,9 @@ export interface GetRecordRequest {
   FeatureNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetRecordResponse {
   /**
    * <p>The record you requested. A list of <code>FeatureValues</code>.</p>
@@ -254,6 +280,7 @@ export interface GetRecordResponse {
 }
 
 /**
+ * @public
  * <p>A resource that is required to perform an action was not found.</p>
  */
 export class ResourceNotFound extends __BaseException {
@@ -274,6 +301,9 @@ export class ResourceNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutRecordRequest {
   /**
    * <p>The name of the feature group that you want to insert the record into.</p>

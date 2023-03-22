@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetIpAddressTypeCommand}.
  */
 export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link SetIpAddressTypeCommand}.
  */
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIpAddressTypeCommandInput - {@link SetIpAddressTypeCommandInput}
+ * @returns {@link SetIpAddressTypeCommandOutput}
  * @see {@link SetIpAddressTypeCommandInput} for command's `input` shape.
  * @see {@link SetIpAddressTypeCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -82,6 +89,9 @@ export class SetIpAddressTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIpAddressTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class SetIpAddressTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetIpAddressTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetIpAddressTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetIpAddressTypeCommandOutput> {
     return deserializeAws_querySetIpAddressTypeCommand(output, context);
   }

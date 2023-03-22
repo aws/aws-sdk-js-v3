@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstancesHealthCommand}.
  */
 export interface DescribeInstancesHealthCommandInput extends DescribeInstancesHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstancesHealthCommand}.
  */
 export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesHealthResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves detailed information about the health of instances in your AWS Elastic
  *       Beanstalk. This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
  *       reporting</a>.</p>
@@ -48,6 +53,8 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancesHealthCommandInput - {@link DescribeInstancesHealthCommandInput}
+ * @returns {@link DescribeInstancesHealthCommandOutput}
  * @see {@link DescribeInstancesHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -142,6 +149,9 @@ export class DescribeInstancesHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancesHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,10 +191,16 @@ export class DescribeInstancesHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancesHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeInstancesHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesHealthCommandOutput> {
     return deserializeAws_queryDescribeInstancesHealthCommand(output, context);
   }

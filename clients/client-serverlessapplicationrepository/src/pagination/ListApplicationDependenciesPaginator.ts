@@ -10,7 +10,7 @@ import { ServerlessApplicationRepositoryClient } from "../ServerlessApplicationR
 import { ServerlessApplicationRepositoryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServerlessApplicationRepositoryClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListApplicationDependenciesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListApplicationDependencies(
   config: ServerlessApplicationRepositoryPaginationConfiguration,
   input: ListApplicationDependenciesCommandInput,

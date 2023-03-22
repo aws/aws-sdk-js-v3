@@ -10,7 +10,7 @@ import {
 import { BraketPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BraketClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchQuantumTasksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateSearchQuantumTasks(
   config: BraketPaginationConfiguration,
   input: SearchQuantumTasksCommandInput,

@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountAttributesCommand}.
  */
 export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountAttributesCommand}.
  */
 export interface DescribeAccountAttributesCommandOutput extends AccountAttributesMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p>
  *          <p>This command doesn't take any parameters.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
+ * @returns {@link DescribeAccountAttributesCommandOutput}
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeAccountAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAccountAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

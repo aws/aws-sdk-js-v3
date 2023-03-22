@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopApplicationCommand}.
  */
 export interface StopApplicationCommandInput extends StopApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopApplicationCommand}.
  */
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the application from processing data. You can stop
  *       an application only if it is in the running status, unless you set the <code>Force</code>
  *         parameter to <code>true</code>.</p>
@@ -56,6 +61,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
+ * @returns {@link StopApplicationCommandOutput}
  * @see {@link StopApplicationCommandInput} for command's `input` shape.
  * @see {@link StopApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -99,6 +106,9 @@ export class StopApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class StopApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopApplicationCommandOutput> {
     return deserializeAws_json1_1StopApplicationCommand(output, context);
   }

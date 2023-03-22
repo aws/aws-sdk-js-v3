@@ -26,10 +26,14 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelBiasJobDefinitionsCommand}.
  */
 export interface ListModelBiasJobDefinitionsCommandInput extends ListModelBiasJobDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelBiasJobDefinitionsCommand}.
  */
 export interface ListModelBiasJobDefinitionsCommandOutput
@@ -37,6 +41,7 @@ export interface ListModelBiasJobDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists model bias jobs definitions that satisfy various filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListModelBiasJobDefinitionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelBiasJobDefinitionsCommandInput - {@link ListModelBiasJobDefinitionsCommandInput}
+ * @returns {@link ListModelBiasJobDefinitionsCommandOutput}
  * @see {@link ListModelBiasJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListModelBiasJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListModelBiasJobDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelBiasJobDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class ListModelBiasJobDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelBiasJobDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListModelBiasJobDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,11 +26,15 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverQueryLogConfigAssociationsCommand}.
  */
 export interface ListResolverQueryLogConfigAssociationsCommandInput
   extends ListResolverQueryLogConfigAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverQueryLogConfigAssociationsCommand}.
  */
 export interface ListResolverQueryLogConfigAssociationsCommandOutput
@@ -38,6 +42,7 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverQueryLogConfigAssociationsCommandInput - {@link ListResolverQueryLogConfigAssociationsCommandInput}
+ * @returns {@link ListResolverQueryLogConfigAssociationsCommandOutput}
  * @see {@link ListResolverQueryLogConfigAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListResolverQueryLogConfigAssociationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverQueryLogConfigAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,6 +139,9 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResolverQueryLogConfigAssociationsCommandInput,
     context: __SerdeContext
@@ -136,6 +149,9 @@ export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
     return serializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

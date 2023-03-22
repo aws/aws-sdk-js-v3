@@ -26,9 +26,11 @@ import { deserializeAws_restXmlPutObjectCommand, serializeAws_restXmlPutObjectCo
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectCommand}.
  */
-type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
+export type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
   /**
    * For *`PutObjectRequest["Body"]`*, see {@link PutObjectRequest.Body}.
    */
@@ -39,11 +41,14 @@ type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
  */
 export interface PutObjectCommandInput extends PutObjectCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectCommand}.
  */
 export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an object to a bucket. You must have WRITE permissions on a bucket to add an object
  *          to it.</p>
  *          <p>Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added the
@@ -153,6 +158,8 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectCommandInput - {@link PutObjectCommandInput}
+ * @returns {@link PutObjectCommandOutput}
  * @see {@link PutObjectCommandInput} for command's `input` shape.
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -323,6 +330,9 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -369,10 +379,16 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectCommandOutput> {
     return deserializeAws_restXmlPutObjectCommand(output, context);
   }

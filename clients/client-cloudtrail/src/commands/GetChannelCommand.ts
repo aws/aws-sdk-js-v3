@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelCommand}.
  */
 export interface GetChannelCommandInput extends GetChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelCommand}.
  */
 export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about a specific channel.
  *       </p>
  * @example
@@ -47,6 +52,8 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelCommandInput - {@link GetChannelCommandInput}
+ * @returns {@link GetChannelCommandOutput}
  * @see {@link GetChannelCommandInput} for command's `input` shape.
  * @see {@link GetChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelCommandOutput> {
     return deserializeAws_json1_1GetChannelCommand(output, context);
   }

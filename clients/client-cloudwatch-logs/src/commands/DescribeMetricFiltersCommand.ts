@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMetricFiltersCommand}.
  */
 export interface DescribeMetricFiltersCommandInput extends DescribeMetricFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMetricFiltersCommand}.
  */
 export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified metric filters. You can list all of the metric filters or filter
  *       the results by log name, prefix, metric name, or metric namespace. The results are
  *       ASCII-sorted by filter name.</p>
@@ -48,6 +53,8 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMetricFiltersCommandInput - {@link DescribeMetricFiltersCommandInput}
+ * @returns {@link DescribeMetricFiltersCommandOutput}
  * @see {@link DescribeMetricFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricFiltersCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeMetricFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMetricFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DescribeMetricFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMetricFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMetricFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMetricFiltersCommandOutput> {
     return deserializeAws_json1_1DescribeMetricFiltersCommand(output, context);
   }

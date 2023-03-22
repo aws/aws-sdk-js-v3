@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCodeSigningConfigCommand}.
  */
 export interface GetCodeSigningConfigCommandInput extends GetCodeSigningConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCodeSigningConfigCommand}.
  */
 export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified code signing configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCodeSigningConfigCommandInput - {@link GetCodeSigningConfigCommandInput}
+ * @returns {@link GetCodeSigningConfigCommandOutput}
  * @see {@link GetCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link GetCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCodeSigningConfigCommandOutput> {
     return deserializeAws_restJson1GetCodeSigningConfigCommand(output, context);
   }

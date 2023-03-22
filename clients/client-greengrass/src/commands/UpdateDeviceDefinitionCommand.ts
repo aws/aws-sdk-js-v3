@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDeviceDefinitionCommand}.
  */
 export interface UpdateDeviceDefinitionCommandInput extends UpdateDeviceDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDeviceDefinitionCommand}.
  */
 export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a device definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDeviceDefinitionCommandInput - {@link UpdateDeviceDefinitionCommandInput}
+ * @returns {@link UpdateDeviceDefinitionCommandOutput}
  * @see {@link UpdateDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdateDeviceDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class UpdateDeviceDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDeviceDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceDefinitionCommandOutput> {
     return deserializeAws_restJson1UpdateDeviceDefinitionCommand(output, context);
   }

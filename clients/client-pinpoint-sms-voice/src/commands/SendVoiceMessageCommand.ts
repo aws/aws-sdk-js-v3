@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendVoiceMessageCommand}.
  */
 export interface SendVoiceMessageCommandInput extends SendVoiceMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendVoiceMessageCommand}.
  */
 export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Create a new voice message and send it to a recipient's phone number.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param SendVoiceMessageCommandInput - {@link SendVoiceMessageCommandInput}
+ * @returns {@link SendVoiceMessageCommandOutput}
  * @see {@link SendVoiceMessageCommandInput} for command's `input` shape.
  * @see {@link SendVoiceMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class SendVoiceMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendVoiceMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class SendVoiceMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendVoiceMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendVoiceMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendVoiceMessageCommandOutput> {
     return deserializeAws_restJson1SendVoiceMessageCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveManagedScalingPolicyCommand}.
  */
 export interface RemoveManagedScalingPolicyCommandInput extends RemoveManagedScalingPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveManagedScalingPolicyCommand}.
  */
 export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Removes a managed scaling policy from a specified EMR cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveManagedScalingPolicyCommandInput - {@link RemoveManagedScalingPolicyCommandInput}
+ * @returns {@link RemoveManagedScalingPolicyCommandOutput}
  * @see {@link RemoveManagedScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link RemoveManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -69,6 +76,9 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveManagedScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveManagedScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveManagedScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

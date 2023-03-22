@@ -25,15 +25,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIntentVersionCommand}.
  */
 export interface DeleteIntentVersionCommandInput extends DeleteIntentVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIntentVersionCommand}.
  */
 export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific version of an intent. To delete all versions of
  *       a intent, use the <a>DeleteIntent</a> operation. </p>
  *          <p>This operation requires permissions for the
@@ -48,6 +53,8 @@ export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIntentVersionCommandInput - {@link DeleteIntentVersionCommandInput}
+ * @returns {@link DeleteIntentVersionCommandOutput}
  * @see {@link DeleteIntentVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteIntentVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -108,6 +115,9 @@ export class DeleteIntentVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIntentVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class DeleteIntentVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIntentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteIntentVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIntentVersionCommandOutput> {
     return deserializeAws_restJson1DeleteIntentVersionCommand(output, context);
   }

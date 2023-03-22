@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRouteRequestParameterCommand}.
  */
 export interface DeleteRouteRequestParameterCommandInput extends DeleteRouteRequestParameterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRouteRequestParameterCommand}.
  */
 export interface DeleteRouteRequestParameterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a route request parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteRouteRequestParameterCommandOutput extends __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteRequestParameterCommandInput - {@link DeleteRouteRequestParameterCommandInput}
+ * @returns {@link DeleteRouteRequestParameterCommandOutput}
  * @see {@link DeleteRouteRequestParameterCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteRequestParameterCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteRouteRequestParameterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteRequestParameterCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteRouteRequestParameterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteRequestParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRouteRequestParameterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

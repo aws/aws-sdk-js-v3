@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBProxyCommand}.
  */
 export interface DeleteDBProxyCommandInput extends DeleteDBProxyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBProxyCommand}.
  */
 export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing DB proxy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBProxyCommandInput - {@link DeleteDBProxyCommandInput}
+ * @returns {@link DeleteDBProxyCommandOutput}
  * @see {@link DeleteDBProxyCommandInput} for command's `input` shape.
  * @see {@link DeleteDBProxyCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteDBProxyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBProxyCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class DeleteDBProxyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBProxyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBProxyCommandOutput> {
     return deserializeAws_queryDeleteDBProxyCommand(output, context);
   }

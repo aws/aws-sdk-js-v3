@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopTargetedSentimentDetectionJobCommand}.
  */
 export interface StopTargetedSentimentDetectionJobCommandInput extends StopTargetedSentimentDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopTargetedSentimentDetectionJobCommand}.
  */
 export interface StopTargetedSentimentDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a targeted sentiment detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -57,6 +62,8 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTargetedSentimentDetectionJobCommandInput - {@link StopTargetedSentimentDetectionJobCommandInput}
+ * @returns {@link StopTargetedSentimentDetectionJobCommandOutput}
  * @see {@link StopTargetedSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopTargetedSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -89,6 +96,9 @@ export class StopTargetedSentimentDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTargetedSentimentDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class StopTargetedSentimentDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StopTargetedSentimentDetectionJobCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class StopTargetedSentimentDetectionJobCommand extends $Command<
     return serializeAws_json1_1StopTargetedSentimentDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

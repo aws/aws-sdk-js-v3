@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationConfigurationTemplatesCommand}.
  */
 export interface DescribeReplicationConfigurationTemplatesCommandInput
   extends DescribeReplicationConfigurationTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationConfigurationTemplatesCommand}.
  */
 export interface DescribeReplicationConfigurationTemplatesCommandOutput
@@ -38,6 +42,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationConfigurationTemplatesCommandInput - {@link DescribeReplicationConfigurationTemplatesCommandInput}
+ * @returns {@link DescribeReplicationConfigurationTemplatesCommandOutput}
  * @see {@link DescribeReplicationConfigurationTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationConfigurationTemplatesCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationConfigurationTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationConfigurationTemplatesCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
     return serializeAws_restJson1DescribeReplicationConfigurationTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

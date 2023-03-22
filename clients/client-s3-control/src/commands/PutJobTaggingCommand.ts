@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutJobTaggingCommand}.
  */
 export interface PutJobTaggingCommandInput extends PutJobTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutJobTaggingCommand}.
  */
 export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the supplied tag-set on an S3 Batch Operations job.</p>
  *          <p>A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending
  *          a PUT request against the tagging subresource that is associated with the job. To modify
@@ -113,6 +118,8 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param PutJobTaggingCommandInput - {@link PutJobTaggingCommandInput}
+ * @returns {@link PutJobTaggingCommandOutput}
  * @see {@link PutJobTaggingCommandInput} for command's `input` shape.
  * @see {@link PutJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -151,6 +158,9 @@ export class PutJobTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutJobTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,10 +199,16 @@ export class PutJobTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutJobTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutJobTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutJobTaggingCommandOutput> {
     return deserializeAws_restXmlPutJobTaggingCommand(output, context);
   }

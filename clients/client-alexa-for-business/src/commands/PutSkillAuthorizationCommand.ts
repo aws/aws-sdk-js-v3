@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSkillAuthorizationCommand}.
  */
 export interface PutSkillAuthorizationCommandInput extends PutSkillAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutSkillAuthorizationCommand}.
  */
 export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Links a user's account to a third-party skill provider. If this API operation is
  *          called by an assumed IAM role, the skill being linked must be a private skill. Also, the
  *          skill must be owned by the AWS account that assumed the IAM role.</p>
@@ -48,6 +53,8 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSkillAuthorizationCommandInput - {@link PutSkillAuthorizationCommandInput}
+ * @returns {@link PutSkillAuthorizationCommandOutput}
  * @see {@link PutSkillAuthorizationCommandInput} for command's `input` shape.
  * @see {@link PutSkillAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -77,6 +84,9 @@ export class PutSkillAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSkillAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class PutSkillAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSkillAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutSkillAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSkillAuthorizationCommandOutput> {
     return deserializeAws_json1_1PutSkillAuthorizationCommand(output, context);
   }

@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2BundleInstanceCommand, serializeAws_ec2BundleInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link BundleInstanceCommand}.
  */
 export interface BundleInstanceCommandInput extends BundleInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BundleInstanceCommand}.
  */
 export interface BundleInstanceCommandOutput extends BundleInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Bundles an Amazon instance store-backed Windows instance.</p>
  *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
  *          <note>
@@ -47,6 +52,8 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param BundleInstanceCommandInput - {@link BundleInstanceCommandInput}
+ * @returns {@link BundleInstanceCommandOutput}
  * @see {@link BundleInstanceCommandInput} for command's `input` shape.
  * @see {@link BundleInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +77,9 @@ export class BundleInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BundleInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,10 +119,16 @@ export class BundleInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BundleInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2BundleInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BundleInstanceCommandOutput> {
     return deserializeAws_ec2BundleInstanceCommand(output, context);
   }

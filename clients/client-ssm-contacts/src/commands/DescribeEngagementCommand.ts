@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEngagementCommand}.
  */
 export interface DescribeEngagementCommandInput extends DescribeEngagementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEngagementCommand}.
  */
 export interface DescribeEngagementCommandOutput extends DescribeEngagementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Incident Manager uses engagements to engage contacts and escalation plans during an incident.
  *          Use this command to describe the engagement that occurred during an incident.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngagementCommandInput - {@link DescribeEngagementCommandInput}
+ * @returns {@link DescribeEngagementCommandOutput}
  * @see {@link DescribeEngagementCommandInput} for command's `input` shape.
  * @see {@link DescribeEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -113,6 +120,9 @@ export class DescribeEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class DescribeEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEngagementCommandOutput> {
     return deserializeAws_json1_1DescribeEngagementCommand(output, context);
   }

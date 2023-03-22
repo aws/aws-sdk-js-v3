@@ -26,15 +26,20 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLedgerCommand}.
  */
 export interface UpdateLedgerCommandInput extends UpdateLedgerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLedgerCommand}.
  */
 export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties on a ledger.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLedgerCommandInput - {@link UpdateLedgerCommandInput}
+ * @returns {@link UpdateLedgerCommandOutput}
  * @see {@link UpdateLedgerCommandInput} for command's `input` shape.
  * @see {@link UpdateLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,10 +122,16 @@ export class UpdateLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLedgerCommandOutput> {
     return deserializeAws_restJson1UpdateLedgerCommand(output, context);
   }

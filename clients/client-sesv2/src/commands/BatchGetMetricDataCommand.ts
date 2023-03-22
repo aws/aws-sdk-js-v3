@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetMetricDataCommand}.
  */
 export interface BatchGetMetricDataCommandInput extends BatchGetMetricDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetMetricDataCommand}.
  */
 export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves batches of metric data collected based on your sending activity.</p>
  *          <p>You can execute this operation no more than 16 times per second,
  *             and with at most 160 queries from the batches per second (cumulative).</p>
@@ -48,6 +53,8 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetMetricDataCommandInput - {@link BatchGetMetricDataCommandInput}
+ * @returns {@link BatchGetMetricDataCommandOutput}
  * @see {@link BatchGetMetricDataCommandInput} for command's `input` shape.
  * @see {@link BatchGetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -83,6 +90,9 @@ export class BatchGetMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class BatchGetMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchGetMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetMetricDataCommandOutput> {
     return deserializeAws_restJson1BatchGetMetricDataCommand(output, context);
   }

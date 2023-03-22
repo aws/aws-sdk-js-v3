@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandInput extends ListDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDomainsCommand}.
  */
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the domains for an AWS account that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
+ * @returns {@link ListDomainsCommandOutput}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsCommandOutput> {
     return deserializeAws_restJson1ListDomainsCommand(output, context);
   }

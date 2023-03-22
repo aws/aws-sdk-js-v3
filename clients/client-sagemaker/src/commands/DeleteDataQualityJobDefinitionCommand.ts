@@ -24,15 +24,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataQualityJobDefinitionCommand}.
  */
 export interface DeleteDataQualityJobDefinitionCommandInput extends DeleteDataQualityJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataQualityJobDefinitionCommand}.
  */
 export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a data quality monitoring job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataQualityJobDefinitionCommandInput - {@link DeleteDataQualityJobDefinitionCommandInput}
+ * @returns {@link DeleteDataQualityJobDefinitionCommandOutput}
  * @see {@link DeleteDataQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteDataQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +77,9 @@ export class DeleteDataQualityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataQualityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,6 +119,9 @@ export class DeleteDataQualityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDataQualityJobDefinitionCommandInput,
     context: __SerdeContext
@@ -116,6 +129,9 @@ export class DeleteDataQualityJobDefinitionCommand extends $Command<
     return serializeAws_json1_1DeleteDataQualityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

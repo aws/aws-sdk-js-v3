@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddressesAttributeCommand}.
  */
 export interface DescribeAddressesAttributeCommandInput extends DescribeAddressesAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddressesAttributeCommand}.
  */
 export interface DescribeAddressesAttributeCommandOutput extends DescribeAddressesAttributeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the attributes of the specified Elastic IP addresses. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAddressesAttributeCommandOutput extends DescribeAddress
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddressesAttributeCommandInput - {@link DescribeAddressesAttributeCommandInput}
+ * @returns {@link DescribeAddressesAttributeCommandOutput}
  * @see {@link DescribeAddressesAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressesAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeAddressesAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddressesAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeAddressesAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddressesAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeAddressesAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

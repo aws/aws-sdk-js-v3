@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListIncidentRecordsCommand}.
  */
 export interface ListIncidentRecordsCommandInput extends ListIncidentRecordsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListIncidentRecordsCommand}.
  */
 export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all incident records in your account. Use this command to retrieve the Amazon
  *             Resource Name (ARN) of the incident record you want to update. </p>
  * @example
@@ -47,6 +52,8 @@ export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOut
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIncidentRecordsCommandInput - {@link ListIncidentRecordsCommandInput}
+ * @returns {@link ListIncidentRecordsCommandOutput}
  * @see {@link ListIncidentRecordsCommandInput} for command's `input` shape.
  * @see {@link ListIncidentRecordsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListIncidentRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIncidentRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListIncidentRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIncidentRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIncidentRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIncidentRecordsCommandOutput> {
     return deserializeAws_restJson1ListIncidentRecordsCommand(output, context);
   }

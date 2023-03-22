@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobRunCommand}.
  */
 export interface GetJobRunCommandInput extends GetJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobRunCommand}.
  */
 export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays detailed information about a job run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobRunCommandInput - {@link GetJobRunCommandInput}
+ * @returns {@link GetJobRunCommandOutput}
  * @see {@link GetJobRunCommandInput} for command's `input` shape.
  * @see {@link GetJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobRunCommandOutput> {
     return deserializeAws_restJson1GetJobRunCommand(output, context);
   }

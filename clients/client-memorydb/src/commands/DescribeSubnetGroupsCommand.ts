@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSubnetGroupsCommand}.
  */
 export interface DescribeSubnetGroupsCommandInput extends DescribeSubnetGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSubnetGroupsCommand}.
  */
 export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubnetGroupsCommandInput - {@link DescribeSubnetGroupsCommandInput}
+ * @returns {@link DescribeSubnetGroupsCommandOutput}
  * @see {@link DescribeSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeSubnetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubnetGroupsCommandOutput> {
     return deserializeAws_json1_1DescribeSubnetGroupsCommand(output, context);
   }

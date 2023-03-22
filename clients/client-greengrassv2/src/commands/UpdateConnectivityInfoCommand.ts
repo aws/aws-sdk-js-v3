@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectivityInfoCommand}.
  */
 export interface UpdateConnectivityInfoCommandInput extends UpdateConnectivityInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectivityInfoCommand}.
  */
 export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates connectivity information for a Greengrass core device.</p>
  *          <p>Connectivity information includes endpoints and ports where client devices
  *       can connect to an MQTT broker on the core device. When a client device
@@ -52,6 +57,8 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectivityInfoCommandInput - {@link UpdateConnectivityInfoCommandInput}
+ * @returns {@link UpdateConnectivityInfoCommandOutput}
  * @see {@link UpdateConnectivityInfoCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectivityInfoCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateConnectivityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectivityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UpdateConnectivityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectivityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateConnectivityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectivityInfoCommandOutput> {
     return deserializeAws_restJson1UpdateConnectivityInfoCommand(output, context);
   }

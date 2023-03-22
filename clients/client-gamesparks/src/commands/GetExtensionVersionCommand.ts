@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExtensionVersionCommand}.
  */
 export interface GetExtensionVersionCommandInput extends GetExtensionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExtensionVersionCommand}.
  */
 export interface GetExtensionVersionCommandOutput extends GetExtensionVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a specified extension version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetExtensionVersionCommandOutput extends GetExtensionVersionRes
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExtensionVersionCommandInput - {@link GetExtensionVersionCommandInput}
+ * @returns {@link GetExtensionVersionCommandOutput}
  * @see {@link GetExtensionVersionCommandInput} for command's `input` shape.
  * @see {@link GetExtensionVersionCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetExtensionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExtensionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetExtensionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExtensionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetExtensionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExtensionVersionCommandOutput> {
     return deserializeAws_restJson1GetExtensionVersionCommand(output, context);
   }

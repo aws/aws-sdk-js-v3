@@ -23,15 +23,20 @@ import { deserializeAws_json1_1CancelJobCommand, serializeAws_json1_1CancelJobCo
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelJobCommand}.
  */
 export interface CancelJobCommandInput extends CancelJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelJobCommand}.
  */
 export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified job. You can only cancel a job before its <code>JobState</code>
  *       value changes to <code>PreparingAppliance</code>. Requesting the <code>ListJobs</code> or
  *         <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of the
@@ -46,6 +51,8 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelJobCommandInput - {@link CancelJobCommandInput}
+ * @returns {@link CancelJobCommandOutput}
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -92,6 +99,9 @@ export class CancelJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CancelJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobCommandOutput> {
     return deserializeAws_json1_1CancelJobCommand(output, context);
   }

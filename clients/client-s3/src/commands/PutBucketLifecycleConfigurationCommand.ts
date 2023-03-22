@@ -25,15 +25,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketLifecycleConfigurationCommand}.
  */
 export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketLifecycleConfigurationCommand}.
  */
 export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
  *          configuration. Keep in mind that this will overwrite an existing lifecycle configuration, so if
  *          you want to retain any configuration details, they must be included in the new lifecycle
@@ -132,6 +137,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketLifecycleConfigurationCommandInput - {@link PutBucketLifecycleConfigurationCommandInput}
+ * @returns {@link PutBucketLifecycleConfigurationCommandOutput}
  * @see {@link PutBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -192,6 +199,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -238,6 +248,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
@@ -245,6 +258,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     return serializeAws_restXmlPutBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

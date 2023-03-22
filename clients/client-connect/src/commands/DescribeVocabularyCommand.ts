@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVocabularyCommand}.
  */
 export interface DescribeVocabularyCommandInput extends DescribeVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVocabularyCommand}.
  */
 export interface DescribeVocabularyCommandOutput extends DescribeVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified vocabulary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeVocabularyCommandOutput extends DescribeVocabularyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVocabularyCommandInput - {@link DescribeVocabularyCommandInput}
+ * @returns {@link DescribeVocabularyCommandOutput}
  * @see {@link DescribeVocabularyCommandInput} for command's `input` shape.
  * @see {@link DescribeVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class DescribeVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class DescribeVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVocabularyCommandOutput> {
     return deserializeAws_restJson1DescribeVocabularyCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceTemplateVersionCommand}.
  */
 export interface CreateServiceTemplateVersionCommandInput extends CreateServiceTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceTemplateVersionCommand}.
  */
 export interface CreateServiceTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateServiceTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward
  *       compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
  * @example
@@ -49,6 +54,8 @@ export interface CreateServiceTemplateVersionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceTemplateVersionCommandInput - {@link CreateServiceTemplateVersionCommandInput}
+ * @returns {@link CreateServiceTemplateVersionCommandOutput}
  * @see {@link CreateServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link CreateServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -94,6 +101,9 @@ export class CreateServiceTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class CreateServiceTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateServiceTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

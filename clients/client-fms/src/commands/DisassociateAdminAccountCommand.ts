@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateAdminAccountCommand}.
  */
 export interface DisassociateAdminAccountCommandInput extends DisassociateAdminAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateAdminAccountCommand}.
  */
 export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the account that has been set as the Firewall Manager administrator
  *       account. To set a different account as the administrator account, you must submit an
  *         <code>AssociateAdminAccount</code> request.</p>
@@ -43,6 +48,8 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAdminAccountCommandInput - {@link DisassociateAdminAccountCommandInput}
+ * @returns {@link DisassociateAdminAccountCommandOutput}
  * @see {@link DisassociateAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -80,6 +87,9 @@ export class DisassociateAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DisassociateAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAdminAccountCommandOutput> {
     return deserializeAws_json1_1DisassociateAdminAccountCommand(output, context);
   }

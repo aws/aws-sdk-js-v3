@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDevicePoolCommand}.
  */
 export interface CreateDevicePoolCommandInput extends CreateDevicePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDevicePoolCommand}.
  */
 export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a device pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDevicePoolCommandInput - {@link CreateDevicePoolCommandInput}
+ * @returns {@link CreateDevicePoolCommandOutput}
  * @see {@link CreateDevicePoolCommandInput} for command's `input` shape.
  * @see {@link CreateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -100,6 +107,9 @@ export class CreateDevicePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDevicePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class CreateDevicePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDevicePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDevicePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevicePoolCommandOutput> {
     return deserializeAws_json1_1CreateDevicePoolCommand(output, context);
   }

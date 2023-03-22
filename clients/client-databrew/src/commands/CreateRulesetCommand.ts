@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRulesetCommand}.
  */
 export interface CreateRulesetCommandInput extends CreateRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRulesetCommand}.
  */
 export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new ruleset that can be used in a profile job to validate
  *             the data quality of a dataset.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRulesetCommandInput - {@link CreateRulesetCommandInput}
+ * @returns {@link CreateRulesetCommandOutput}
  * @see {@link CreateRulesetCommandInput} for command's `input` shape.
  * @see {@link CreateRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class CreateRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRulesetCommandOutput> {
     return deserializeAws_restJson1CreateRulesetCommand(output, context);
   }

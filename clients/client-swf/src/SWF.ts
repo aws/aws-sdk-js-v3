@@ -181,6 +181,7 @@ import {
 import { SWFClient } from "./SWFClient";
 
 /**
+ * @public
  * <fullname>Amazon Simple Workflow Service</fullname>
  *
  *          <p>The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that use Amazon's cloud to
@@ -200,6 +201,7 @@ import { SWFClient } from "./SWFClient";
  */
 export class SWF extends SWFClient {
   /**
+   * @public
    * <p>Returns the number of closed workflow executions within the given domain that meet the
    *       specified filtering criteria.</p>
    *          <note>
@@ -278,6 +280,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns the number of open workflow executions within the given domain that meet the
    *       specified filtering criteria.</p>
    *          <note>
@@ -356,6 +359,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns the estimated number of activity tasks in the specified task list. The count
    *       returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
    *       no activity task was ever scheduled in then <code>0</code> is returned.</p>
@@ -415,6 +419,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns the estimated number of decision tasks in the specified task list. The count
    *       returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
    *       no decision task was ever scheduled in then <code>0</code> is returned.</p>
@@ -474,6 +479,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Deprecates the specified <i>activity type</i>. After an activity type has
    *       been deprecated, you cannot create new tasks of that activity type. Tasks of this type that
    *       were scheduled before the type was deprecated continue to run.</p>
@@ -548,6 +554,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Deprecates the specified domain. After a domain has been deprecated it cannot be used
    *       to create new workflow executions or register new types. However, you can still use visibility
    *       actions on this domain. Deprecating a domain also deprecates all activity and workflow types
@@ -611,6 +618,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Deprecates the specified <i>workflow type</i>. After a workflow type has
    *       been deprecated, you cannot create new executions of that type. Executions that were started
    *       before the type was deprecated continues to run. A deprecated workflow type may still be used
@@ -686,6 +694,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified activity type. This includes configuration
    *       settings provided when the type was registered and other general information about the
    *       type.</p>
@@ -756,6 +765,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified domain, including description and
    *       status.</p>
    *          <p>
@@ -812,6 +822,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified workflow execution including its type and some
    *       statistics.</p>
    *          <note>
@@ -872,6 +883,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified <i>workflow type</i>. This
    *       includes configuration settings specified when the type was registered and other information
    *       such as creation date, current status, etc.</p>
@@ -942,6 +954,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns the history of the specified workflow execution. The results may be split into
    *       multiple pages. To retrieve subsequent pages, make the call again using the
    *         <code>nextPageToken</code> returned by the initial call.</p>
@@ -1003,6 +1016,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all activities registered in the specified domain that match
    *       the specified name and registration status. The result includes information like creation
    *       date, current status of the activity, etc. The results may be split into multiple pages. To
@@ -1062,6 +1076,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of closed workflow executions in the specified domain that meet the
    *       filtering criteria. The results may be split into multiple pages. To retrieve subsequent
    *       pages, make the call again using the nextPageToken returned by the initial call.</p>
@@ -1141,6 +1156,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of domains registered in the account. The results may be split into
    *       multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken
    *       returned by the initial call.</p>
@@ -1198,6 +1214,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of open workflow executions in the specified domain that meet the
    *       filtering criteria. The results may be split into multiple pages. To retrieve subsequent
    *       pages, make the call again using the nextPageToken returned by the initial call.</p>
@@ -1277,6 +1294,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>List tags for a given domain.</p>
    */
   public listTagsForResource(
@@ -1309,6 +1327,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Returns information about workflow types in the specified domain. The results may be
    *       split into multiple pages that can be retrieved by making the call repeatedly.</p>
    *          <p>
@@ -1365,6 +1384,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Used by workers to get an <a>ActivityTask</a> from the specified activity
    *         <code>taskList</code>. This initiates a long poll, where the service holds the HTTP
    *       connection open and responds as soon as a task becomes available. The maximum time the service
@@ -1432,6 +1452,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Used by deciders to get a <a>DecisionTask</a> from the specified decision
    *         <code>taskList</code>. A decision task may be returned for any open workflow execution that
    *       is using the specified task list. The task includes a paginated view of the history of the
@@ -1511,6 +1532,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Used by activity workers to report to the service that the <a>ActivityTask</a> represented by the specified <code>taskToken</code> is still making progress. The worker
    *       can also specify details of the progress, for example percent complete, using the
    *         <code>details</code> parameter. This action can also be used by the worker as a mechanism to
@@ -1590,6 +1612,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Registers a new <i>activity type</i> along with its configuration
    *       settings in the specified domain.</p>
    *          <important>
@@ -1668,6 +1691,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Registers a new domain.</p>
    *          <p>
    *             <b>Access Control</b>
@@ -1723,6 +1747,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Registers a new <i>workflow type</i> and its configuration settings in
    *       the specified domain.</p>
    *          <p>The retention period for the workflow history is set by the <a>RegisterDomain</a> action.</p>
@@ -1802,6 +1827,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Records a <code>WorkflowExecutionCancelRequested</code> event in the currently running
    *       workflow execution identified by the given domain, workflowId, and runId. This logically
    *       requests the cancellation of the workflow execution as a whole. It is up to the decider to
@@ -1872,6 +1898,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
    *       by the <code>taskToken</code> was successfully canceled. Additional <code>details</code> can
    *       be provided using the <code>details</code> argument.</p>
@@ -1945,6 +1972,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
    *       by the <code>taskToken</code> completed successfully with a <code>result</code> (if provided).
    *       The <code>result</code> appears in the <code>ActivityTaskCompleted</code> event in the
@@ -2016,6 +2044,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
    *       by the <code>taskToken</code> has failed with <code>reason</code> (if specified). The
    *         <code>reason</code> and <code>details</code> appear in the <code>ActivityTaskFailed</code>
@@ -2080,6 +2109,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Used by deciders to tell the service that the <a>DecisionTask</a> identified
    *       by the <code>taskToken</code> has successfully completed. The <code>decisions</code> argument
    *       specifies the list of decisions made while processing the task.</p>
@@ -2131,6 +2161,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Records a <code>WorkflowExecutionSignaled</code> event in the workflow execution
    *       history and creates a decision task for the workflow execution identified by the given domain,
    *       workflowId and runId. The event is recorded with the specified user defined signalName and
@@ -2201,6 +2232,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Starts an execution of the workflow type in the specified domain using the provided
    *         <code>workflowId</code> and input data.</p>
    *
@@ -2298,6 +2330,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Add a tag to a Amazon SWF domain.</p>
    *          <note>
    *             <p>Amazon SWF supports a maximum of 50 tags per resource.</p>
@@ -2327,6 +2360,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Records a <code>WorkflowExecutionTerminated</code> event and forces closure of the
    *       workflow execution identified by the given domain, runId, and workflowId. The child policy,
    *       registered with the workflow type or specified when starting this execution, is applied to any
@@ -2402,6 +2436,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Undeprecates a previously deprecated <i>activity type</i>. After an activity type has
    *       been undeprecated, you can create new tasks of that activity type.</p>
    *          <note>
@@ -2475,6 +2510,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Undeprecates a previously deprecated domain. After a domain has been undeprecated it can be used
    *       to create new workflow executions or register new types.</p>
    *          <note>
@@ -2535,6 +2571,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Undeprecates a previously deprecated <i>workflow type</i>. After a workflow type has
    *       been undeprecated, you can create new executions of that type. </p>
    *          <note>
@@ -2608,6 +2645,7 @@ export class SWF extends SWFClient {
   }
 
   /**
+   * @public
    * <p>Remove a tag from a Amazon SWF domain.</p>
    */
   public untagResource(

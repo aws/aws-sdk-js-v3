@@ -27,15 +27,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergeDeveloperIdentitiesCommand}.
  */
 export interface MergeDeveloperIdentitiesCommandInput extends MergeDeveloperIdentitiesInput {}
 /**
+ * @public
+ *
  * The output of {@link MergeDeveloperIdentitiesCommand}.
  */
 export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIdentitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Merges two users having different <code>IdentityId</code>s, existing in the same
  *          identity pool, and identified by the same developer provider. You can use this action to
  *          request that discrete users be merged and identified as a single user in the Cognito
@@ -59,6 +64,8 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeDeveloperIdentitiesCommandInput - {@link MergeDeveloperIdentitiesCommandInput}
+ * @returns {@link MergeDeveloperIdentitiesCommandOutput}
  * @see {@link MergeDeveloperIdentitiesCommandInput} for command's `input` shape.
  * @see {@link MergeDeveloperIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -102,6 +109,9 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeDeveloperIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeDeveloperIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MergeDeveloperIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeDeveloperIdentitiesCommandOutput> {
     return deserializeAws_json1_1MergeDeveloperIdentitiesCommand(output, context);
   }

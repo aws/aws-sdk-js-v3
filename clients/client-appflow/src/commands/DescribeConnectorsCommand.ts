@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectorsCommand}.
  */
 export interface DescribeConnectorsCommandInput extends DescribeConnectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectorsCommand}.
  */
 export interface DescribeConnectorsCommandOutput extends DescribeConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Describes the connectors vended by Amazon AppFlow for specified connector types. If
  *       you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow. If there are more connectors than can be returned in one page, the response
  *       contains a <code>nextToken</code> object, which can be be passed in to the next call to the
@@ -49,6 +54,8 @@ export interface DescribeConnectorsCommandOutput extends DescribeConnectorsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectorsCommandInput - {@link DescribeConnectorsCommandInput}
+ * @returns {@link DescribeConnectorsCommandOutput}
  * @see {@link DescribeConnectorsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -79,6 +86,9 @@ export class DescribeConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class DescribeConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorsCommandOutput> {
     return deserializeAws_restJson1DescribeConnectorsCommand(output, context);
   }

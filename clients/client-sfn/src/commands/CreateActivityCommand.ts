@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateActivityCommand}.
  */
 export interface CreateActivityCommandInput extends CreateActivityInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateActivityCommand}.
  */
 export interface CreateActivityCommandOutput extends CreateActivityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an activity. An activity is a task that you write in any programming language and
  *       host on any machine that has access to Step Functions. Activities must poll Step Functions using the
  *         <code>GetActivityTask</code> API action and respond using <code>SendTask*</code> API
@@ -62,6 +67,8 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateActivityCommandInput - {@link CreateActivityCommandInput}
+ * @returns {@link CreateActivityCommandOutput}
  * @see {@link CreateActivityCommandInput} for command's `input` shape.
  * @see {@link CreateActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -96,6 +103,9 @@ export class CreateActivityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateActivityCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class CreateActivityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateActivityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateActivityCommandOutput> {
     return deserializeAws_json1_0CreateActivityCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConformancePackStatusCommand}.
  */
 export interface DescribeConformancePackStatusCommandInput extends DescribeConformancePackStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConformancePackStatusCommand}.
  */
 export interface DescribeConformancePackStatusCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeConformancePackStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides one or more conformance packs deployment status.</p>
  *          <note>
  *             <p>If there are no conformance packs then you will see an empty result.</p>
@@ -51,6 +56,8 @@ export interface DescribeConformancePackStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConformancePackStatusCommandInput - {@link DescribeConformancePackStatusCommandInput}
+ * @returns {@link DescribeConformancePackStatusCommandOutput}
  * @see {@link DescribeConformancePackStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConformancePackStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeConformancePackStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConformancePackStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DescribeConformancePackStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConformancePackStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConformancePackStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSSLPoliciesCommand}.
  */
 export interface DescribeSSLPoliciesCommandInput extends DescribeSSLPoliciesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSSLPoliciesCommand}.
  */
 export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified policies or all policies used for SSL negotiation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
  *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
@@ -52,6 +57,8 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSSLPoliciesCommandInput - {@link DescribeSSLPoliciesCommandInput}
+ * @returns {@link DescribeSSLPoliciesCommandOutput}
  * @see {@link DescribeSSLPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeSSLPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -183,6 +190,9 @@ export class DescribeSSLPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSSLPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -222,10 +232,16 @@ export class DescribeSSLPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSSLPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeSSLPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSSLPoliciesCommandOutput> {
     return deserializeAws_queryDescribeSSLPoliciesCommand(output, context);
   }

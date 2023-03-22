@@ -23,15 +23,20 @@ import {
 import { deserializeAws_ec2CreateFlowLogsCommand, serializeAws_ec2CreateFlowLogsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFlowLogsCommand}.
  */
 export interface CreateFlowLogsCommandInput extends CreateFlowLogsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFlowLogsCommand}.
  */
 export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface,
  *             subnet, or VPC. </p>
  *          <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
@@ -53,6 +58,8 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFlowLogsCommandInput - {@link CreateFlowLogsCommandInput}
+ * @returns {@link CreateFlowLogsCommandOutput}
  * @see {@link CreateFlowLogsCommandInput} for command's `input` shape.
  * @see {@link CreateFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +83,9 @@ export class CreateFlowLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFlowLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateFlowLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFlowLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateFlowLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowLogsCommandOutput> {
     return deserializeAws_ec2CreateFlowLogsCommand(output, context);
   }

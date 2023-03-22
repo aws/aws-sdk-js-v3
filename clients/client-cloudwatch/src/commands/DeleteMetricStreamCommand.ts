@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMetricStreamCommand}.
  */
 export interface DeleteMetricStreamCommandInput extends DeleteMetricStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMetricStreamCommand}.
  */
 export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the metric stream that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMetricStreamCommandInput - {@link DeleteMetricStreamCommandInput}
+ * @returns {@link DeleteMetricStreamCommandOutput}
  * @see {@link DeleteMetricStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteMetricStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMetricStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteMetricStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMetricStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteMetricStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricStreamCommandOutput> {
     return deserializeAws_queryDeleteMetricStreamCommand(output, context);
   }

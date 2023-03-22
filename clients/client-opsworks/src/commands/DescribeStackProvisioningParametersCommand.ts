@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackProvisioningParametersCommand}.
  */
 export interface DescribeStackProvisioningParametersCommandInput extends DescribeStackProvisioningParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackProvisioningParametersCommand}.
  */
 export interface DescribeStackProvisioningParametersCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeStackProvisioningParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a description of a stack's provisioning parameters.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
@@ -53,6 +58,8 @@ export interface DescribeStackProvisioningParametersCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackProvisioningParametersCommandInput - {@link DescribeStackProvisioningParametersCommandInput}
+ * @returns {@link DescribeStackProvisioningParametersCommandOutput}
  * @see {@link DescribeStackProvisioningParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeStackProvisioningParametersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackProvisioningParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,6 +131,9 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeStackProvisioningParametersCommandInput,
     context: __SerdeContext
@@ -128,6 +141,9 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     return serializeAws_json1_1DescribeStackProvisioningParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

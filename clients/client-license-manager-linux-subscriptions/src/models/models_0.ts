@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { LicenseManagerLinuxSubscriptionsServiceException as __BaseException } from "./LicenseManagerLinuxSubscriptionsServiceException";
 
+/**
+ * @public
+ */
 export enum Operator {
   /**
    * Contains operator
@@ -19,6 +22,7 @@ export enum Operator {
 }
 
 /**
+ * @public
  * <p>A filter object that is used to return more specific results from a describe operation.
  *       Filters can be used to match a set of resources by specific criteria.</p>
  */
@@ -39,8 +43,14 @@ export interface Filter {
   Operator?: Operator | string;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceSettingsRequest {}
 
+/**
+ * @public
+ */
 export enum LinuxSubscriptionsDiscovery {
   /**
    * Disabled LinuxSubscriptionsDiscovery
@@ -52,6 +62,9 @@ export enum LinuxSubscriptionsDiscovery {
   Enabled = "Enabled",
 }
 
+/**
+ * @public
+ */
 export enum OrganizationIntegration {
   /**
    * Disabled OrganizationIntegration
@@ -64,6 +77,7 @@ export enum OrganizationIntegration {
 }
 
 /**
+ * @public
  * <p>Lists the settings defined for discovering Linux subscriptions.</p>
  */
 export interface LinuxSubscriptionsDiscoverySettings {
@@ -78,6 +92,9 @@ export interface LinuxSubscriptionsDiscoverySettings {
   OrganizationIntegration: OrganizationIntegration | string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Status {
   /**
    * Completed status
@@ -97,6 +114,9 @@ export enum Status {
   Successful = "Successful",
 }
 
+/**
+ * @public
+ */
 export interface GetServiceSettingsResponse {
   /**
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
@@ -127,6 +147,7 @@ export interface GetServiceSettingsResponse {
 }
 
 /**
+ * @public
  * <p>An exception occurred with the service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -146,6 +167,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -165,6 +187,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided input is not valid. Try your request again.</p>
  */
 export class ValidationException extends __BaseException {
@@ -184,6 +207,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Details discovered information about a running instance using Linux subscriptions.</p>
  */
 export interface Instance {
@@ -242,6 +266,7 @@ export interface Instance {
 }
 
 /**
+ * @public
  * NextToken length limit is half of ddb accepted limit.
  * Increase this limit if parameters in request increases.
  */
@@ -326,6 +351,9 @@ export interface ListLinuxSubscriptionInstancesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLinuxSubscriptionInstancesResponse {
   /**
    * <p>An array that contains instance objects.</p>
@@ -339,6 +367,7 @@ export interface ListLinuxSubscriptionInstancesResponse {
 }
 
 /**
+ * @public
  * NextToken length limit is half of ddb accepted limit.
  * Increase this limit if parameters in request increases.
  */
@@ -389,6 +418,7 @@ export interface ListLinuxSubscriptionsRequest {
 }
 
 /**
+ * @public
  * <p>An object which details a discovered Linux subscription.</p>
  */
 export interface Subscription {
@@ -410,6 +440,9 @@ export interface Subscription {
   InstanceCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListLinuxSubscriptionsResponse {
   /**
    * <p>An array that contains subscription objects.</p>
@@ -422,6 +455,9 @@ export interface ListLinuxSubscriptionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceSettingsRequest {
   /**
    * <p>Describes if the discovery of Linux subscriptions is enabled.</p>
@@ -441,6 +477,9 @@ export interface UpdateServiceSettingsRequest {
   AllowUpdate?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceSettingsResponse {
   /**
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSkillFromUsersCommand}.
  */
 export interface DisassociateSkillFromUsersCommandInput extends DisassociateSkillFromUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSkillFromUsersCommand}.
  */
 export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSkillFromUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it
  *          on their devices.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSkillFromUsersCommandInput - {@link DisassociateSkillFromUsersCommandInput}
+ * @returns {@link DisassociateSkillFromUsersCommandOutput}
  * @see {@link DisassociateSkillFromUsersCommandInput} for command's `input` shape.
  * @see {@link DisassociateSkillFromUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -76,6 +83,9 @@ export class DisassociateSkillFromUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSkillFromUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class DisassociateSkillFromUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateSkillFromUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateSkillFromUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

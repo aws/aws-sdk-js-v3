@@ -133,6 +133,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAccessCommandInput
   | CreateAgreementCommandInput
@@ -193,6 +196,9 @@ export type ServiceInputTypes =
   | UpdateServerCommandInput
   | UpdateUserCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAccessCommandOutput
   | CreateAgreementCommandOutput
@@ -253,6 +259,9 @@ export type ServiceOutputTypes =
   | UpdateServerCommandOutput
   | UpdateUserCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -260,7 +269,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -369,11 +378,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type TransferClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -384,10 +396,15 @@ type TransferClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of TransferClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of TransferClient class constructor that set the region, credentials and other options.
  */
 export interface TransferClientConfig extends TransferClientConfigType {}
 
+/**
+ * @public
+ */
 type TransferClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -398,11 +415,14 @@ type TransferClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of TransferClient class. This is resolved and normalized from the {@link TransferClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of TransferClient class. This is resolved and normalized from the {@link TransferClientConfig | constructor configuration interface}.
  */
 export interface TransferClientResolvedConfig extends TransferClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Transfer Family is a fully managed service that enables the transfer of files over the File
  *       Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
  *       Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS.

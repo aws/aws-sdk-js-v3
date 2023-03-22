@@ -10,7 +10,7 @@ import { SESClient } from "../SESClient";
 import { SESPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SESClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCustomVerificationEmailTemplatesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCustomVerificationEmailTemplates(
   config: SESPaginationConfiguration,
   input: ListCustomVerificationEmailTemplatesCommandInput,

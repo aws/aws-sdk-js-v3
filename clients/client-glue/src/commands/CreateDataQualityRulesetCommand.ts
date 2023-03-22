@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataQualityRulesetCommand}.
  */
 export interface CreateDataQualityRulesetCommandInput extends CreateDataQualityRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataQualityRulesetCommand}.
  */
 export interface CreateDataQualityRulesetCommandOutput extends CreateDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data quality ruleset with DQDL rules applied to a specified Glue table.</p>
  *          <p>You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataQualityRulesetCommandInput - {@link CreateDataQualityRulesetCommandInput}
+ * @returns {@link CreateDataQualityRulesetCommandOutput}
  * @see {@link CreateDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link CreateDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateDataQualityRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataQualityRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateDataQualityRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataQualityRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDataQualityRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataQualityRulesetCommandOutput> {
     return deserializeAws_json1_1CreateDataQualityRulesetCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopPiiEntitiesDetectionJobCommand}.
  */
 export interface StopPiiEntitiesDetectionJobCommandInput extends StopPiiEntitiesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopPiiEntitiesDetectionJobCommand}.
  */
 export interface StopPiiEntitiesDetectionJobCommandOutput
@@ -37,6 +41,7 @@ export interface StopPiiEntitiesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a PII entities detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface StopPiiEntitiesDetectionJobCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StopPiiEntitiesDetectionJobCommandInput - {@link StopPiiEntitiesDetectionJobCommandInput}
+ * @returns {@link StopPiiEntitiesDetectionJobCommandOutput}
  * @see {@link StopPiiEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopPiiEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -80,6 +87,9 @@ export class StopPiiEntitiesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopPiiEntitiesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class StopPiiEntitiesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopPiiEntitiesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopPiiEntitiesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

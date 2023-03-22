@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInputDeviceCommand}.
  */
 export interface UpdateInputDeviceCommandInput extends UpdateInputDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInputDeviceCommand}.
  */
 export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates the parameters for the input device.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInputDeviceCommandInput - {@link UpdateInputDeviceCommandInput}
+ * @returns {@link UpdateInputDeviceCommandOutput}
  * @see {@link UpdateInputDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +100,9 @@ export class UpdateInputDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInputDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class UpdateInputDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateInputDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInputDeviceCommandOutput> {
     return deserializeAws_restJson1UpdateInputDeviceCommand(output, context);
   }

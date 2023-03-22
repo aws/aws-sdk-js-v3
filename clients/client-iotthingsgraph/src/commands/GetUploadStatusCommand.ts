@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUploadStatusCommand}.
  */
 export interface GetUploadStatusCommandInput extends GetUploadStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUploadStatusCommand}.
  */
 export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets the status of the specified upload.</p>
@@ -48,6 +53,8 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUploadStatusCommandInput - {@link GetUploadStatusCommandInput}
+ * @returns {@link GetUploadStatusCommandOutput}
  * @see {@link GetUploadStatusCommandInput} for command's `input` shape.
  * @see {@link GetUploadStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetUploadStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUploadStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetUploadStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUploadStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUploadStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUploadStatusCommandOutput> {
     return deserializeAws_json1_1GetUploadStatusCommand(output, context);
   }

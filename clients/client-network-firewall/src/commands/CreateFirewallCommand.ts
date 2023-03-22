@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFirewallCommand}.
  */
 export interface CreateFirewallCommandInput extends CreateFirewallRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFirewallCommand}.
  */
 export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Network Firewall <a>Firewall</a> and accompanying <a>FirewallStatus</a> for a VPC. </p>
  *          <p>The firewall defines the configuration settings for an Network Firewall firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
  *          <p>After you create a firewall, you can provide additional settings, like the logging configuration. </p>
@@ -52,6 +57,8 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFirewallCommandInput - {@link CreateFirewallCommandInput}
+ * @returns {@link CreateFirewallCommandOutput}
  * @see {@link CreateFirewallCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -109,6 +116,9 @@ export class CreateFirewallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFirewallCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class CreateFirewallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFirewallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateFirewallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallCommandOutput> {
     return deserializeAws_json1_0CreateFirewallCommand(output, context);
   }

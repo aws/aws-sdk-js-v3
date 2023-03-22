@@ -28,11 +28,15 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMultiRegionAccessPointOperationCommand}.
  */
 export interface DescribeMultiRegionAccessPointOperationCommandInput
   extends DescribeMultiRegionAccessPointOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMultiRegionAccessPointOperationCommand}.
  */
 export interface DescribeMultiRegionAccessPointOperationCommandOutput
@@ -40,6 +44,7 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status of an asynchronous request to manage a Multi-Region Access Point. For more information
  *          about managing Multi-Region Access Points and how asynchronous requests work, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
  *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -76,6 +81,8 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMultiRegionAccessPointOperationCommandInput - {@link DescribeMultiRegionAccessPointOperationCommandInput}
+ * @returns {@link DescribeMultiRegionAccessPointOperationCommandOutput}
  * @see {@link DescribeMultiRegionAccessPointOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeMultiRegionAccessPointOperationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -102,6 +109,9 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMultiRegionAccessPointOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,6 +159,9 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMultiRegionAccessPointOperationCommandInput,
     context: __SerdeContext
@@ -156,6 +169,9 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command<
     return serializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

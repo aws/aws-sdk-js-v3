@@ -26,15 +26,20 @@ import {
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetOperationCommand}.
  */
 export interface GetOperationCommandInput extends GetOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOperationCommand}.
  */
 export interface GetOperationCommandOutput extends GetOperationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about any operation that returns an operation ID in the response, such as a
  *     <code>CreateService</code> request.</p>
  *          <note>
@@ -50,6 +55,8 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOperationCommandInput - {@link GetOperationCommandInput}
+ * @returns {@link GetOperationCommandOutput}
  * @see {@link GetOperationCommandInput} for command's `input` shape.
  * @see {@link GetOperationCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -111,6 +118,9 @@ export class GetOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class GetOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationCommandOutput> {
     return deserializeAws_json1_1GetOperationCommand(output, context);
   }

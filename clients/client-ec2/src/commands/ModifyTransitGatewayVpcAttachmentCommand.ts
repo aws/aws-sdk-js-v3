@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTransitGatewayVpcAttachmentCommand}.
  */
 export interface ModifyTransitGatewayVpcAttachmentCommandInput extends ModifyTransitGatewayVpcAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTransitGatewayVpcAttachmentCommand}.
  */
 export interface ModifyTransitGatewayVpcAttachmentCommandOutput
@@ -37,6 +41,7 @@ export interface ModifyTransitGatewayVpcAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified VPC attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ModifyTransitGatewayVpcAttachmentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTransitGatewayVpcAttachmentCommandInput - {@link ModifyTransitGatewayVpcAttachmentCommandInput}
+ * @returns {@link ModifyTransitGatewayVpcAttachmentCommandOutput}
  * @see {@link ModifyTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link ModifyTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +78,9 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTransitGatewayVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,6 +120,9 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
@@ -117,6 +130,9 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
     return serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualMFADeviceCommand}.
  */
 export interface DeleteVirtualMFADeviceCommandInput extends DeleteVirtualMFADeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualMFADeviceCommand}.
  */
 export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a virtual MFA device.</p>
  *          <note>
  *             <p> You must deactivate a user's virtual MFA device before you can delete it. For
@@ -45,6 +50,8 @@ export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualMFADeviceCommandInput - {@link DeleteVirtualMFADeviceCommandInput}
+ * @returns {@link DeleteVirtualMFADeviceCommandOutput}
  * @see {@link DeleteVirtualMFADeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -95,6 +102,9 @@ export class DeleteVirtualMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class DeleteVirtualMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteVirtualMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualMFADeviceCommandOutput> {
     return deserializeAws_queryDeleteVirtualMFADeviceCommand(output, context);
   }

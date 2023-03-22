@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateKeyGroupCommand}.
  */
 export interface UpdateKeyGroupCommandInput extends UpdateKeyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateKeyGroupCommand}.
  */
 export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a key group.</p>
  *          <p>When you update a key group, all the fields are updated with the values provided in
  * 			the request. You cannot update some fields independent of others. To update a key
@@ -63,6 +68,8 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateKeyGroupCommandInput - {@link UpdateKeyGroupCommandInput}
+ * @returns {@link UpdateKeyGroupCommandOutput}
  * @see {@link UpdateKeyGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -108,6 +115,9 @@ export class UpdateKeyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class UpdateKeyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateKeyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKeyGroupCommandOutput> {
     return deserializeAws_restXmlUpdateKeyGroupCommand(output, context);
   }

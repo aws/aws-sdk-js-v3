@@ -10,7 +10,7 @@ import { SyntheticsClient } from "../SyntheticsClient";
 import { SyntheticsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SyntheticsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetCanaryRunsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetCanaryRuns(
   config: SyntheticsPaginationConfiguration,
   input: GetCanaryRunsCommandInput,

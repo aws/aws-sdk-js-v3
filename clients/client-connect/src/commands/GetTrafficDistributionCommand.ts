@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrafficDistributionCommand}.
  */
 export interface GetTrafficDistributionCommandInput extends GetTrafficDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrafficDistributionCommand}.
  */
 export interface GetTrafficDistributionCommandOutput extends GetTrafficDistributionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current traffic distribution for a given traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetTrafficDistributionCommandOutput extends GetTrafficDistribut
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrafficDistributionCommandInput - {@link GetTrafficDistributionCommandInput}
+ * @returns {@link GetTrafficDistributionCommandOutput}
  * @see {@link GetTrafficDistributionCommandInput} for command's `input` shape.
  * @see {@link GetTrafficDistributionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetTrafficDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrafficDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetTrafficDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrafficDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTrafficDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrafficDistributionCommandOutput> {
     return deserializeAws_restJson1GetTrafficDistributionCommand(output, context);
   }

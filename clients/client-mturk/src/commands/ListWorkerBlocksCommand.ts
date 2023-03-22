@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkerBlocksCommand}.
  */
 export interface ListWorkerBlocksCommandInput extends ListWorkerBlocksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkerBlocksCommand}.
  */
 export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>ListWorkersBlocks</code> operation retrieves a list of Workers who are blocked from working on your HITs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkerBlocksCommandInput - {@link ListWorkerBlocksCommandInput}
+ * @returns {@link ListWorkerBlocksCommandOutput}
  * @see {@link ListWorkerBlocksCommandInput} for command's `input` shape.
  * @see {@link ListWorkerBlocksCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListWorkerBlocksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkerBlocksCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListWorkerBlocksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkerBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWorkerBlocksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkerBlocksCommandOutput> {
     return deserializeAws_json1_1ListWorkerBlocksCommand(output, context);
   }

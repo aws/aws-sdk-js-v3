@@ -23,15 +23,20 @@ import {
 import { deserializeAws_queryListRoleTagsCommand, serializeAws_queryListRoleTagsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoleTagsCommand}.
  */
 export interface ListRoleTagsCommandInput extends ListRoleTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRoleTagsCommand}.
  */
 export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified role. The returned list of tags is
  *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -45,6 +50,8 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoleTagsCommandInput - {@link ListRoleTagsCommandInput}
+ * @returns {@link ListRoleTagsCommandOutput}
  * @see {@link ListRoleTagsCommandInput} for command's `input` shape.
  * @see {@link ListRoleTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -102,6 +109,9 @@ export class ListRoleTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoleTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ListRoleTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoleTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListRoleTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoleTagsCommandOutput> {
     return deserializeAws_queryListRoleTagsCommand(output, context);
   }

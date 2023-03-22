@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCorsPolicyCommand}.
  */
 export interface GetCorsPolicyCommandInput extends GetCorsPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetCorsPolicyCommand}.
  */
 export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the cross-origin resource sharing (CORS) configuration information that is
  *          set for the container.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -50,6 +55,8 @@ export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCorsPolicyCommandInput - {@link GetCorsPolicyCommandInput}
+ * @returns {@link GetCorsPolicyCommandOutput}
  * @see {@link GetCorsPolicyCommandInput} for command's `input` shape.
  * @see {@link GetCorsPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -86,6 +93,9 @@ export class GetCorsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCorsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetCorsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCorsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCorsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCorsPolicyCommandOutput> {
     return deserializeAws_json1_1GetCorsPolicyCommand(output, context);
   }

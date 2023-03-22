@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSourceRepositoryBranchesCommand}.
  */
 export interface ListSourceRepositoryBranchesCommandInput extends ListSourceRepositoryBranchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSourceRepositoryBranchesCommand}.
  */
 export interface ListSourceRepositoryBranchesCommandOutput
@@ -37,6 +41,7 @@ export interface ListSourceRepositoryBranchesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of branches in a specified source repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListSourceRepositoryBranchesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSourceRepositoryBranchesCommandInput - {@link ListSourceRepositoryBranchesCommandInput}
+ * @returns {@link ListSourceRepositoryBranchesCommandOutput}
  * @see {@link ListSourceRepositoryBranchesCommandInput} for command's `input` shape.
  * @see {@link ListSourceRepositoryBranchesCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListSourceRepositoryBranchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSourceRepositoryBranchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListSourceRepositoryBranchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSourceRepositoryBranchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSourceRepositoryBranchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

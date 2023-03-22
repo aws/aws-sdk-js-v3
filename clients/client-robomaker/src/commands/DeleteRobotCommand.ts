@@ -26,15 +26,20 @@ import {
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRobotCommand}.
  */
 export interface DeleteRobotCommandInput extends DeleteRobotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRobotCommand}.
  */
 export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes a robot.</p>
@@ -51,6 +56,8 @@ export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRobotCommandInput - {@link DeleteRobotCommandInput}
+ * @returns {@link DeleteRobotCommandOutput}
  * @see {@link DeleteRobotCommandInput} for command's `input` shape.
  * @see {@link DeleteRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteRobotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRobotCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class DeleteRobotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRobotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRobotCommandOutput> {
     return deserializeAws_restJson1DeleteRobotCommand(output, context);
   }

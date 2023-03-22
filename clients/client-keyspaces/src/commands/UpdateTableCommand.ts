@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandInput extends UpdateTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds new columns to the table or updates one of the table's settings, for example
  *          capacity mode, encryption, point-in-time recovery, or ttl settings.
  *       Note that you can only update one specific table setting per update operation.</p>
@@ -48,6 +53,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
+ * @returns {@link UpdateTableCommandOutput}
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
@@ -92,6 +99,9 @@ export class UpdateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableCommandOutput> {
     return deserializeAws_json1_0UpdateTableCommand(output, context);
   }

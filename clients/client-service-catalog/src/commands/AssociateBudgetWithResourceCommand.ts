@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateBudgetWithResourceCommand}.
  */
 export interface AssociateBudgetWithResourceCommandInput extends AssociateBudgetWithResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateBudgetWithResourceCommand}.
  */
 export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudgetWithResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified budget with the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudge
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateBudgetWithResourceCommandInput - {@link AssociateBudgetWithResourceCommandInput}
+ * @returns {@link AssociateBudgetWithResourceCommandOutput}
  * @see {@link AssociateBudgetWithResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateBudgetWithResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -82,6 +89,9 @@ export class AssociateBudgetWithResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateBudgetWithResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class AssociateBudgetWithResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateBudgetWithResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateBudgetWithResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactAttributesCommand}.
  */
 export interface UpdateContactAttributesCommandInput extends UpdateContactAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactAttributesCommand}.
  */
 export interface UpdateContactAttributesCommandOutput extends UpdateContactAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates
  *    user-defined contact attributes
  *    associated with the specified contact.</p>
@@ -59,6 +64,8 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactAttributesCommandInput - {@link UpdateContactAttributesCommandInput}
+ * @returns {@link UpdateContactAttributesCommandOutput}
  * @see {@link UpdateContactAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateContactAttributesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateContactAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateContactAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateContactAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactAttributesCommandOutput> {
     return deserializeAws_restJson1UpdateContactAttributesCommand(output, context);
   }

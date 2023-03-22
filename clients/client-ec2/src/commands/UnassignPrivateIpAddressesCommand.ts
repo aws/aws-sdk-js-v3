@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link UnassignPrivateIpAddressesCommand}.
  */
 export interface UnassignPrivateIpAddressesCommandInput extends UnassignPrivateIpAddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnassignPrivateIpAddressesCommand}.
  */
 export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a
  *         	network interface.</p>
  * @example
@@ -45,6 +50,8 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param UnassignPrivateIpAddressesCommandInput - {@link UnassignPrivateIpAddressesCommandInput}
+ * @returns {@link UnassignPrivateIpAddressesCommandOutput}
  * @see {@link UnassignPrivateIpAddressesCommandInput} for command's `input` shape.
  * @see {@link UnassignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -82,6 +89,9 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnassignPrivateIpAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnassignPrivateIpAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2UnassignPrivateIpAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

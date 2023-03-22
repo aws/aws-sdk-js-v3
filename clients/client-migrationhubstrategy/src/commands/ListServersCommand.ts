@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListServersCommand}.
  */
 export interface ListServersCommandInput extends ListServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServersCommand}.
  */
 export interface ListServersCommandOutput extends ListServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of all the servers. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServersCommandInput - {@link ListServersCommandInput}
+ * @returns {@link ListServersCommandOutput}
  * @see {@link ListServersCommandInput} for command's `input` shape.
  * @see {@link ListServersCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -86,6 +93,9 @@ export class ListServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServersCommandOutput> {
     return deserializeAws_restJson1ListServersCommand(output, context);
   }

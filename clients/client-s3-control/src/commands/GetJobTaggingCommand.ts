@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobTaggingCommand}.
  */
 export interface GetJobTaggingCommandInput extends GetJobTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobTaggingCommand}.
  */
 export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the tags on an S3 Batch Operations job. To use
  *          the
  *             <code>GetJobTagging</code> operation, you must have permission to
@@ -71,6 +76,8 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobTaggingCommandInput - {@link GetJobTaggingCommandInput}
+ * @returns {@link GetJobTaggingCommandOutput}
  * @see {@link GetJobTaggingCommandInput} for command's `input` shape.
  * @see {@link GetJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -106,6 +113,9 @@ export class GetJobTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class GetJobTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetJobTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobTaggingCommandOutput> {
     return deserializeAws_restXmlGetJobTaggingCommand(output, context);
   }

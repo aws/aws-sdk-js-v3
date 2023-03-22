@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCampaignCommand}.
  */
 export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCampaignCommand}.
  */
 export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a campaign by either deploying a new solution or changing the value of the
  *       campaign's <code>minProvisionedTPS</code> parameter.</p>
  *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
@@ -57,6 +62,8 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCampaignCommandInput - {@link UpdateCampaignCommandInput}
+ * @returns {@link UpdateCampaignCommandOutput}
  * @see {@link UpdateCampaignCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCampaignCommandOutput> {
     return deserializeAws_json1_1UpdateCampaignCommand(output, context);
   }

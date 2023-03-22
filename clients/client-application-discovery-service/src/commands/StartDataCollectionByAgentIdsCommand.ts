@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDataCollectionByAgentIdsCommand}.
  */
 export interface StartDataCollectionByAgentIdsCommandInput extends StartDataCollectionByAgentIdsRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDataCollectionByAgentIdsCommand}.
  */
 export interface StartDataCollectionByAgentIdsCommandOutput
@@ -41,6 +45,7 @@ export interface StartDataCollectionByAgentIdsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Instructs the specified agents or connectors to start collecting data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,6 +57,8 @@ export interface StartDataCollectionByAgentIdsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDataCollectionByAgentIdsCommandInput - {@link StartDataCollectionByAgentIdsCommandInput}
+ * @returns {@link StartDataCollectionByAgentIdsCommandOutput}
  * @see {@link StartDataCollectionByAgentIdsCommandInput} for command's `input` shape.
  * @see {@link StartDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -92,6 +99,9 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDataCollectionByAgentIdsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDataCollectionByAgentIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDataCollectionByAgentIdsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportAsProvisionedProductCommand}.
  */
 export interface ImportAsProvisionedProductCommandInput extends ImportAsProvisionedProductInput {}
 /**
+ * @public
+ *
  * The output of {@link ImportAsProvisionedProductCommand}.
  */
 export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisionedProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Requests the import
  *          of a resource
@@ -87,6 +92,8 @@ export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisi
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportAsProvisionedProductCommandInput - {@link ImportAsProvisionedProductCommandInput}
+ * @returns {@link ImportAsProvisionedProductCommandOutput}
  * @see {@link ImportAsProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link ImportAsProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -123,6 +130,9 @@ export class ImportAsProvisionedProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportAsProvisionedProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,10 +172,16 @@ export class ImportAsProvisionedProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportAsProvisionedProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportAsProvisionedProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

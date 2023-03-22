@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackendCommand}.
  */
 export interface GetBackendCommandInput extends GetBackendRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBackendCommand}.
  */
 export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides project-level details for your Amplify UI project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackendCommandInput - {@link GetBackendCommandInput}
+ * @returns {@link GetBackendCommandOutput}
  * @see {@link GetBackendCommandInput} for command's `input` shape.
  * @see {@link GetBackendCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetBackendCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackendCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetBackendCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackendCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackendCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendCommandOutput> {
     return deserializeAws_restJson1GetBackendCommand(output, context);
   }

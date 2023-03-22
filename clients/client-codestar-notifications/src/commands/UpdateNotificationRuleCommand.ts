@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNotificationRuleCommand}.
  */
 export interface UpdateNotificationRuleCommandInput extends UpdateNotificationRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNotificationRuleCommand}.
  */
 export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a notification rule for a resource. You can change the events that trigger the
  *             notification rule, the status of the rule, and the targets that receive the
  *             notifications.</p>
@@ -55,6 +60,8 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotificationRuleCommandInput - {@link UpdateNotificationRuleCommandInput}
+ * @returns {@link UpdateNotificationRuleCommandOutput}
  * @see {@link UpdateNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationRuleCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateNotificationRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotificationRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class UpdateNotificationRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateNotificationRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotificationRuleCommandOutput> {
     return deserializeAws_restJson1UpdateNotificationRuleCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetPublicAccessBlockCommand}.
  */
 export interface GetPublicAccessBlockCommandInput extends GetPublicAccessBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPublicAccessBlockCommand}.
  */
 export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use
  *          this operation, you must have the <code>s3:GetBucketPublicAccessBlock</code> permission.
  *          For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
@@ -82,6 +87,8 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPublicAccessBlockCommandInput - {@link GetPublicAccessBlockCommandInput}
+ * @returns {@link GetPublicAccessBlockCommandOutput}
  * @see {@link GetPublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link GetPublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -111,6 +118,9 @@ export class GetPublicAccessBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPublicAccessBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class GetPublicAccessBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetPublicAccessBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicAccessBlockCommandOutput> {
     return deserializeAws_restXmlGetPublicAccessBlockCommand(output, context);
   }

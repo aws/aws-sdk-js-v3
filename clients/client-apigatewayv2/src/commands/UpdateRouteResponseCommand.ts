@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRouteResponseCommand}.
  */
 export interface UpdateRouteResponseCommandInput extends UpdateRouteResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRouteResponseCommand}.
  */
 export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a RouteResponse.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseRes
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRouteResponseCommandInput - {@link UpdateRouteResponseCommandInput}
+ * @returns {@link UpdateRouteResponseCommandOutput}
  * @see {@link UpdateRouteResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +88,9 @@ export class UpdateRouteResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRouteResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class UpdateRouteResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateRouteResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRouteResponseCommandOutput> {
     return deserializeAws_restJson1UpdateRouteResponseCommand(output, context);
   }

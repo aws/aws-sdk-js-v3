@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopUserImportJobCommand}.
  */
 export interface StopUserImportJobCommandInput extends StopUserImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopUserImportJobCommand}.
  */
 export interface StopUserImportJobCommandOutput extends StopUserImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the user import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,8 @@ export interface StopUserImportJobCommandOutput extends StopUserImportJobRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param StopUserImportJobCommandInput - {@link StopUserImportJobCommandInput}
+ * @returns {@link StopUserImportJobCommandOutput}
  * @see {@link StopUserImportJobCommandInput} for command's `input` shape.
  * @see {@link StopUserImportJobCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -95,6 +102,9 @@ export class StopUserImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopUserImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class StopUserImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopUserImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopUserImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopUserImportJobCommandOutput> {
     return deserializeAws_json1_1StopUserImportJobCommand(output, context);
   }

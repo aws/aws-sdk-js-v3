@@ -26,10 +26,14 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetContactReachabilityStatusCommand}.
  */
 export interface GetContactReachabilityStatusCommandInput extends GetContactReachabilityStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContactReachabilityStatusCommand}.
  */
 export interface GetContactReachabilityStatusCommandOutput
@@ -37,6 +41,7 @@ export interface GetContactReachabilityStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>For operations that require confirmation that the email address for the registrant
  * 			contact is valid, such as registering a new domain, this operation returns information
  * 			about whether the registrant contact has responded.</p>
@@ -52,6 +57,8 @@ export interface GetContactReachabilityStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContactReachabilityStatusCommandInput - {@link GetContactReachabilityStatusCommandInput}
+ * @returns {@link GetContactReachabilityStatusCommandOutput}
  * @see {@link GetContactReachabilityStatusCommandInput} for command's `input` shape.
  * @see {@link GetContactReachabilityStatusCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetContactReachabilityStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContactReachabilityStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetContactReachabilityStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContactReachabilityStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetContactReachabilityStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

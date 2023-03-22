@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorTerminationHealthCommand}.
  */
 export interface GetVoiceConnectorTerminationHealthCommandInput extends GetVoiceConnectorTerminationHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorTerminationHealthCommand}.
  */
 export interface GetVoiceConnectorTerminationHealthCommandOutput
@@ -53,6 +57,9 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorTerminationHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,6 +99,9 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVoiceConnectorTerminationHealthCommandInput,
     context: __SerdeContext
@@ -99,6 +109,9 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     return serializeAws_restJson1GetVoiceConnectorTerminationHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

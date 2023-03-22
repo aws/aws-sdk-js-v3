@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTerminologyCommand}.
  */
 export interface DeleteTerminologyCommandInput extends DeleteTerminologyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTerminologyCommand}.
  */
 export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>A synchronous action that deletes a custom terminology.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTerminologyCommandInput - {@link DeleteTerminologyCommandInput}
+ * @returns {@link DeleteTerminologyCommandOutput}
  * @see {@link DeleteTerminologyCommandInput} for command's `input` shape.
  * @see {@link DeleteTerminologyCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteTerminologyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTerminologyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class DeleteTerminologyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTerminologyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTerminologyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTerminologyCommandOutput> {
     return deserializeAws_json1_1DeleteTerminologyCommand(output, context);
   }

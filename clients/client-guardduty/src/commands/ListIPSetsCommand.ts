@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIPSetsCommand}.
  */
 export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIPSetsCommand}.
  */
 export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this
  *       operation from a member account, the IPSets returned are the IPSets from the associated administrator
  *       account.</p>
@@ -48,6 +53,8 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIPSetsCommandInput - {@link ListIPSetsCommandInput}
+ * @returns {@link ListIPSetsCommandOutput}
  * @see {@link ListIPSetsCommandInput} for command's `input` shape.
  * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListIPSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIPSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListIPSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIPSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIPSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIPSetsCommandOutput> {
     return deserializeAws_restJson1ListIPSetsCommand(output, context);
   }

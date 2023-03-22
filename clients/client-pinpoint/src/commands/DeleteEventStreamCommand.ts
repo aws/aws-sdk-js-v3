@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventStreamCommand}.
  */
 export interface DeleteEventStreamCommandInput extends DeleteEventStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventStreamCommand}.
  */
 export interface DeleteEventStreamCommandOutput extends DeleteEventStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the event stream for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventStreamCommandInput - {@link DeleteEventStreamCommandInput}
+ * @returns {@link DeleteEventStreamCommandOutput}
  * @see {@link DeleteEventStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteEventStreamCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteEventStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteEventStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEventStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventStreamCommandOutput> {
     return deserializeAws_restJson1DeleteEventStreamCommand(output, context);
   }

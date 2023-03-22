@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateShareInvitationCommand}.
  */
 export interface UpdateShareInvitationCommandInput extends UpdateShareInvitationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateShareInvitationCommand}.
  */
 export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a workload or custom lens share invitation.</p>
  *         <note>
  *             <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p>
@@ -49,6 +54,8 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateShareInvitationCommandInput - {@link UpdateShareInvitationCommandInput}
+ * @returns {@link UpdateShareInvitationCommandOutput}
  * @see {@link UpdateShareInvitationCommandInput} for command's `input` shape.
  * @see {@link UpdateShareInvitationCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateShareInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateShareInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class UpdateShareInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateShareInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateShareInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateShareInvitationCommandOutput> {
     return deserializeAws_restJson1UpdateShareInvitationCommand(output, context);
   }

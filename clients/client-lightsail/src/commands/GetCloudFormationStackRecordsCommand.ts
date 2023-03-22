@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCloudFormationStackRecordsCommand}.
  */
 export interface GetCloudFormationStackRecordsCommandInput extends GetCloudFormationStackRecordsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCloudFormationStackRecordsCommand}.
  */
 export interface GetCloudFormationStackRecordsCommandOutput
@@ -37,6 +41,7 @@ export interface GetCloudFormationStackRecordsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the CloudFormation stack record created as a result of the <code>create cloud
  *         formation stack</code> operation.</p>
  *          <p>An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an exported Lightsail
@@ -51,6 +56,8 @@ export interface GetCloudFormationStackRecordsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCloudFormationStackRecordsCommandInput - {@link GetCloudFormationStackRecordsCommandInput}
+ * @returns {@link GetCloudFormationStackRecordsCommandOutput}
  * @see {@link GetCloudFormationStackRecordsCommandInput} for command's `input` shape.
  * @see {@link GetCloudFormationStackRecordsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +111,9 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCloudFormationStackRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,10 +153,16 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCloudFormationStackRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCloudFormationStackRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

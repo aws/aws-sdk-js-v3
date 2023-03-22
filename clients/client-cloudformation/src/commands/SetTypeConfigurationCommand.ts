@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetTypeConfigurationCommand}.
  */
 export interface SetTypeConfigurationCommandInput extends SetTypeConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link SetTypeConfigurationCommand}.
  */
 export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies the configuration data for a registered CloudFormation extension, in
  *          the given account and region.</p>
  *          <p>To view the current configuration data for an extension, refer to the
@@ -58,6 +63,8 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTypeConfigurationCommandInput - {@link SetTypeConfigurationCommandInput}
+ * @returns {@link SetTypeConfigurationCommandOutput}
  * @see {@link SetTypeConfigurationCommandInput} for command's `input` shape.
  * @see {@link SetTypeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -87,6 +94,9 @@ export class SetTypeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTypeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class SetTypeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTypeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetTypeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTypeConfigurationCommandOutput> {
     return deserializeAws_querySetTypeConfigurationCommand(output, context);
   }

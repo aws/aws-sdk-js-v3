@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOriginAccessControlCommand}.
  */
 export interface DeleteOriginAccessControlCommandInput extends DeleteOriginAccessControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOriginAccessControlCommand}.
  */
 export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CloudFront origin access control.</p>
  *          <p>You cannot delete an origin access control if it's in use. First, update all
  * 			distributions to remove the origin access control from all origins, then delete the
@@ -47,6 +52,8 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOriginAccessControlCommandInput - {@link DeleteOriginAccessControlCommandInput}
+ * @returns {@link DeleteOriginAccessControlCommandOutput}
  * @see {@link DeleteOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteOriginAccessControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOriginAccessControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteOriginAccessControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOriginAccessControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteOriginAccessControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

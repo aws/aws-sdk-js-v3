@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkerFleetCommand}.
  */
 export interface CreateWorkerFleetCommandInput extends CreateWorkerFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkerFleetCommand}.
  */
 export interface CreateWorkerFleetCommandOutput extends CreateWorkerFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to create a worker fleet
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateWorkerFleetCommandOutput extends CreateWorkerFleetRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkerFleetCommandInput - {@link CreateWorkerFleetCommandInput}
+ * @returns {@link CreateWorkerFleetCommandOutput}
  * @see {@link CreateWorkerFleetCommandInput} for command's `input` shape.
  * @see {@link CreateWorkerFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateWorkerFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkerFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateWorkerFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkerFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWorkerFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkerFleetCommandOutput> {
     return deserializeAws_restJson1CreateWorkerFleetCommand(output, context);
   }

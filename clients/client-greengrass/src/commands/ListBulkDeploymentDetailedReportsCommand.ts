@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBulkDeploymentDetailedReportsCommand}.
  */
 export interface ListBulkDeploymentDetailedReportsCommandInput extends ListBulkDeploymentDetailedReportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBulkDeploymentDetailedReportsCommand}.
  */
 export interface ListBulkDeploymentDetailedReportsCommandOutput
@@ -37,6 +41,7 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBulkDeploymentDetailedReportsCommandInput - {@link ListBulkDeploymentDetailedReportsCommandInput}
+ * @returns {@link ListBulkDeploymentDetailedReportsCommandOutput}
  * @see {@link ListBulkDeploymentDetailedReportsCommandInput} for command's `input` shape.
  * @see {@link ListBulkDeploymentDetailedReportsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBulkDeploymentDetailedReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,6 +123,9 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListBulkDeploymentDetailedReportsCommandInput,
     context: __SerdeContext
@@ -120,6 +133,9 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     return serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

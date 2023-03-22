@@ -337,6 +337,7 @@ import {
 import { WAFClient } from "./WAFClient";
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -351,6 +352,7 @@ import { WAFClient } from "./WAFClient";
  */
 export class WAF extends WAFClient {
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -414,6 +416,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -474,6 +477,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -533,6 +537,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -658,6 +663,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -721,6 +727,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -780,6 +787,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -857,6 +865,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -911,6 +920,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -974,6 +984,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1035,6 +1046,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1103,6 +1115,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <p>Creates an AWS CloudFormation WAFV2 template for the specified web ACL in the specified Amazon S3 bucket.
    *            Then, in CloudFormation, you create a stack from the template, to create the web ACL and its resources in AWS WAFV2.
    *            Use this to migrate your AWS WAF Classic web ACL to the latest version of AWS WAF.</p>
@@ -1142,6 +1155,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1203,6 +1217,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1258,6 +1273,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1313,6 +1329,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1362,6 +1379,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1403,6 +1421,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1444,6 +1463,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1503,6 +1523,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1558,6 +1579,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1599,6 +1621,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1648,6 +1671,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1703,6 +1727,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1758,6 +1783,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1814,6 +1840,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1864,6 +1891,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1920,6 +1948,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1960,6 +1989,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2006,6 +2036,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2062,6 +2093,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2102,6 +2134,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2136,6 +2169,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2176,6 +2210,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2216,6 +2251,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2258,6 +2294,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2300,6 +2337,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2340,6 +2378,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2380,6 +2419,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2414,6 +2454,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2452,6 +2493,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2496,6 +2538,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2536,6 +2579,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2576,6 +2620,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2610,6 +2655,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2650,6 +2696,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2690,6 +2737,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2730,6 +2778,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2770,6 +2819,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2804,6 +2854,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2844,6 +2895,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2884,6 +2936,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2924,6 +2977,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -2964,6 +3018,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3004,6 +3059,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3038,6 +3094,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3078,6 +3135,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3118,6 +3176,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3158,6 +3217,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3199,6 +3259,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3233,6 +3294,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3273,6 +3335,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3330,6 +3393,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3402,6 +3466,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3437,6 +3502,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3477,6 +3543,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3555,6 +3622,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3625,6 +3693,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3724,6 +3793,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3810,6 +3880,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3884,6 +3955,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -3963,6 +4035,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4038,6 +4111,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4102,6 +4176,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4184,6 +4259,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4265,6 +4341,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -4373,6 +4450,7 @@ export class WAF extends WAFClient {
   }
 
   /**
+   * @public
    * <note>
    *             <p>This is <b>AWS WAF Classic</b> documentation. For
    *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS

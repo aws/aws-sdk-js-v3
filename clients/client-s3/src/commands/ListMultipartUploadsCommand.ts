@@ -26,15 +26,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListMultipartUploadsCommand}.
  */
 export interface ListMultipartUploadsCommandInput extends ListMultipartUploadsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMultipartUploadsCommand}.
  */
 export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action lists in-progress multipart uploads. An in-progress multipart upload is a
  *          multipart upload that has been initiated using the Initiate Multipart Upload request, but
  *          has not yet been completed or aborted.</p>
@@ -91,6 +96,8 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMultipartUploadsCommandInput - {@link ListMultipartUploadsCommandInput}
+ * @returns {@link ListMultipartUploadsCommandOutput}
  * @see {@link ListMultipartUploadsCommandInput} for command's `input` shape.
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -220,6 +227,9 @@ export class ListMultipartUploadsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMultipartUploadsCommandInput) {
     // Start section: command_constructor
     super();
@@ -259,10 +269,16 @@ export class ListMultipartUploadsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMultipartUploadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListMultipartUploadsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultipartUploadsCommandOutput> {
     return deserializeAws_restXmlListMultipartUploadsCommand(output, context);
   }

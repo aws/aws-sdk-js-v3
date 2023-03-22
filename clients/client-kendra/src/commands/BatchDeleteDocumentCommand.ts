@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteDocumentCommand}.
  */
 export interface BatchDeleteDocumentCommandInput extends BatchDeleteDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteDocumentCommand}.
  */
 export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more documents from an index. The documents must have
  *       been added with the <code>BatchPutDocument</code> API.</p>
  *          <p>The documents are deleted asynchronously. You can see the progress of
@@ -50,6 +55,8 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteDocumentCommandInput - {@link BatchDeleteDocumentCommandInput}
+ * @returns {@link BatchDeleteDocumentCommandOutput}
  * @see {@link BatchDeleteDocumentCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDocumentCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -97,6 +104,9 @@ export class BatchDeleteDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class BatchDeleteDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteDocumentCommandOutput> {
     return deserializeAws_json1_1BatchDeleteDocumentCommand(output, context);
   }

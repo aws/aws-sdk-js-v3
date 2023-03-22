@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetUserPasswordCommand}.
  */
 export interface ResetUserPasswordCommandInput extends ResetUserPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetUserPasswordCommand}.
  */
 export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the password for any user in your Managed Microsoft AD or Simple AD
  *       directory.</p>
  *          <p>You can reset the password for any user in your directory with the following
@@ -63,6 +68,8 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetUserPasswordCommandInput - {@link ResetUserPasswordCommandInput}
+ * @returns {@link ResetUserPasswordCommandOutput}
  * @see {@link ResetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -108,6 +115,9 @@ export class ResetUserPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetUserPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class ResetUserPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetUserPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetUserPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetUserPasswordCommandOutput> {
     return deserializeAws_json1_1ResetUserPasswordCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamingImageCommand}.
  */
 export interface GetStreamingImageCommandInput extends GetStreamingImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamingImageCommand}.
  */
 export interface GetStreamingImageCommandOutput extends GetStreamingImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get streaming image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetStreamingImageCommandOutput extends GetStreamingImageRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamingImageCommandInput - {@link GetStreamingImageCommandInput}
+ * @returns {@link GetStreamingImageCommandOutput}
  * @see {@link GetStreamingImageCommandInput} for command's `input` shape.
  * @see {@link GetStreamingImageCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetStreamingImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamingImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetStreamingImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamingImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetStreamingImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamingImageCommandOutput> {
     return deserializeAws_restJson1GetStreamingImageCommand(output, context);
   }

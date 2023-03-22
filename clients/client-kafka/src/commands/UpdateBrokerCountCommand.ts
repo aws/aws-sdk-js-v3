@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBrokerCountCommand}.
  */
 export interface UpdateBrokerCountCommandInput extends UpdateBrokerCountRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBrokerCountCommand}.
  */
 export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the number of broker nodes in the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBrokerCountCommandInput - {@link UpdateBrokerCountCommandInput}
+ * @returns {@link UpdateBrokerCountCommandOutput}
  * @see {@link UpdateBrokerCountCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerCountCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -84,6 +91,9 @@ export class UpdateBrokerCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBrokerCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class UpdateBrokerCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBrokerCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBrokerCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerCountCommandOutput> {
     return deserializeAws_restJson1UpdateBrokerCountCommand(output, context);
   }

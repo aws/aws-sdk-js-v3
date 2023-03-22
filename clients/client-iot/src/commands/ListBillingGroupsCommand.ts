@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBillingGroupsCommand}.
  */
 export interface ListBillingGroupsCommandInput extends ListBillingGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBillingGroupsCommand}.
  */
 export interface ListBillingGroupsCommandOutput extends ListBillingGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the billing groups you have created.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListBillingGroups</a> action.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBillingGroupsCommandInput - {@link ListBillingGroupsCommandInput}
+ * @returns {@link ListBillingGroupsCommandOutput}
  * @see {@link ListBillingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListBillingGroupsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListBillingGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBillingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListBillingGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBillingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListBillingGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBillingGroupsCommandOutput> {
     return deserializeAws_restJson1ListBillingGroupsCommand(output, context);
   }

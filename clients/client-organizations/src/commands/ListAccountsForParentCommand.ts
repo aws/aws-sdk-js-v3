@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountsForParentCommand}.
  */
 export interface ListAccountsForParentCommandInput extends ListAccountsForParentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountsForParentCommand}.
  */
 export interface ListAccountsForParentCommandOutput extends ListAccountsForParentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the accounts in an organization that are contained by the specified target root
  *             or organizational unit (OU). If you specify the root, you get a list of all the accounts
  *             that aren't in any OU. If you specify an OU, you get a list of all the accounts in only
@@ -60,6 +65,8 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountsForParentCommandInput - {@link ListAccountsForParentCommandInput}
+ * @returns {@link ListAccountsForParentCommandOutput}
  * @see {@link ListAccountsForParentCommandInput} for command's `input` shape.
  * @see {@link ListAccountsForParentCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -247,6 +254,9 @@ export class ListAccountsForParentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountsForParentCommandInput) {
     // Start section: command_constructor
     super();
@@ -286,10 +296,16 @@ export class ListAccountsForParentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountsForParentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAccountsForParentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsForParentCommandOutput> {
     return deserializeAws_json1_1ListAccountsForParentCommand(output, context);
   }

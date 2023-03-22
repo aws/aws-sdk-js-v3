@@ -24,16 +24,21 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppInstanceStreamingConfigurationsCommand}.
  */
 export interface DeleteAppInstanceStreamingConfigurationsCommandInput
   extends DeleteAppInstanceStreamingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppInstanceStreamingConfigurationsCommand}.
  */
 export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the streaming configurations of an <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +50,8 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppInstanceStreamingConfigurationsCommandInput - {@link DeleteAppInstanceStreamingConfigurationsCommandInput}
+ * @returns {@link DeleteAppInstanceStreamingConfigurationsCommandOutput}
  * @see {@link DeleteAppInstanceStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInstanceStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppInstanceStreamingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,6 +144,9 @@ export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAppInstanceStreamingConfigurationsCommandInput,
     context: __SerdeContext
@@ -141,6 +154,9 @@ export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<
     return serializeAws_restJson1DeleteAppInstanceStreamingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

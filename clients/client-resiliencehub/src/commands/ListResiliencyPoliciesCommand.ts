@@ -26,15 +26,20 @@ import {
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResiliencyPoliciesCommand}.
  */
 export interface ListResiliencyPoliciesCommandInput extends ListResiliencyPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResiliencyPoliciesCommand}.
  */
 export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resiliency policies for the AWS Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResiliencyPoliciesCommandInput - {@link ListResiliencyPoliciesCommandInput}
+ * @returns {@link ListResiliencyPoliciesCommandOutput}
  * @see {@link ListResiliencyPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListResiliencyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListResiliencyPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResiliencyPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class ListResiliencyPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResiliencyPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListResiliencyPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResiliencyPoliciesCommandOutput> {
     return deserializeAws_restJson1ListResiliencyPoliciesCommand(output, context);
   }

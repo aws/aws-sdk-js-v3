@@ -70,6 +70,7 @@ import {
 } from "./commands/UntagResourceCommand";
 
 /**
+ * @public
  * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a
  *          service that uses program analysis and machine learning to detect potential defects that
  *          are difficult for developers to find and recommends fixes in your Java and Python
@@ -90,6 +91,7 @@ import {
  */
 export class CodeGuruReviewer extends CodeGuruReviewerClient {
   /**
+   * @public
    * <p>Use to associate an Amazon Web Services CodeCommit repository or a repository managed by Amazon Web Services
    *          CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru Reviewer reviews
    *          source code changes in the repository's pull requests and provides automatic
@@ -144,6 +146,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">CodeReviewType</a> of
    *             <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a
    *          specified branch in an associated repository. <code>PullRequest</code> code reviews are
@@ -179,6 +182,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Returns the metadata associated with the code review along with its status.</p>
    */
   public describeCodeReview(
@@ -211,6 +215,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Describes the customer feedback for a CodeGuru Reviewer recommendation.</p>
    */
   public describeRecommendationFeedback(
@@ -243,6 +248,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object that contains information about the requested
    *          repository association.</p>
    */
@@ -276,6 +282,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
    */
   public disassociateRepository(
@@ -308,6 +315,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Lists all the code reviews that the customer has created in the past 90 days.</p>
    */
   public listCodeReviews(
@@ -340,6 +348,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">RecommendationFeedbackSummary</a> objects that contain customer recommendation
    *          feedback for all CodeGuru Reviewer users.</p>
    */
@@ -373,6 +382,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of all recommendations for a completed code review.</p>
    */
   public listRecommendations(
@@ -405,6 +415,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html">RepositoryAssociationSummary</a> objects that contain summary information about a
    *          repository association. You can filter the returned list by <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType">ProviderType</a>, <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name">Name</a>, <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State">State</a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner">Owner</a>.</p>
    */
@@ -438,6 +449,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of tags associated with an associated repository resource.</p>
    */
   public listTagsForResource(
@@ -470,6 +482,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with
    *          different reactions the previous feedback is overwritten.</p>
    */
@@ -503,6 +516,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to an associated repository.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -529,6 +543,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
+   * @public
    * <p>Removes a tag from an associated repository.</p>
    */
   public untagResource(

@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcEndpointServiceConfigurationsCommand}.
  */
 export interface DeleteVpcEndpointServiceConfigurationsCommandInput
   extends DeleteVpcEndpointServiceConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcEndpointServiceConfigurationsCommand}.
  */
 export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
  *             an endpoint service configuration, you must reject any <code>Available</code> or
  *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
@@ -52,6 +57,8 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcEndpointServiceConfigurationsCommandInput - {@link DeleteVpcEndpointServiceConfigurationsCommandInput}
+ * @returns {@link DeleteVpcEndpointServiceConfigurationsCommandOutput}
  * @see {@link DeleteVpcEndpointServiceConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointServiceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcEndpointServiceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,6 +124,9 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVpcEndpointServiceConfigurationsCommandInput,
     context: __SerdeContext
@@ -121,6 +134,9 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     return serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

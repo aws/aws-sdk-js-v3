@@ -27,15 +27,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyDBSnapshotCommand}.
  */
 export interface CopyDBSnapshotCommandInput extends CopyDBSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CopyDBSnapshotCommand}.
  */
 export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>
  *          <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the
  *             Amazon Web Services Region where you call the <code>CopyDBSnapshot</code> operation is the destination
@@ -53,6 +58,8 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBSnapshotCommandInput - {@link CopyDBSnapshotCommandInput}
+ * @returns {@link CopyDBSnapshotCommandOutput}
  * @see {@link CopyDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -116,6 +123,9 @@ export class CopyDBSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class CopyDBSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCopyDBSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBSnapshotCommandOutput> {
     return deserializeAws_queryCopyDBSnapshotCommand(output, context);
   }

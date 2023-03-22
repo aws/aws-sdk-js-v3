@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssessmentFrameworkCommand}.
  */
 export interface CreateAssessmentFrameworkCommandInput extends CreateAssessmentFrameworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssessmentFrameworkCommand}.
  */
 export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessment
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssessmentFrameworkCommandInput - {@link CreateAssessmentFrameworkCommandInput}
+ * @returns {@link CreateAssessmentFrameworkCommandOutput}
  * @see {@link CreateAssessmentFrameworkCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentFrameworkCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateAssessmentFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssessmentFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateAssessmentFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssessmentFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAssessmentFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

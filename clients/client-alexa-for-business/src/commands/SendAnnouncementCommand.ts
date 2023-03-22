@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SendAnnouncementCommand}.
  */
 export interface SendAnnouncementCommandInput extends SendAnnouncementRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendAnnouncementCommand}.
  */
 export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that
  *          are identified by a search or filter. </p>
  * @example
@@ -47,6 +52,8 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param SendAnnouncementCommandInput - {@link SendAnnouncementCommandInput}
+ * @returns {@link SendAnnouncementCommandOutput}
  * @see {@link SendAnnouncementCommandInput} for command's `input` shape.
  * @see {@link SendAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -76,6 +83,9 @@ export class SendAnnouncementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendAnnouncementCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class SendAnnouncementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendAnnouncementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendAnnouncementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAnnouncementCommandOutput> {
     return deserializeAws_json1_1SendAnnouncementCommand(output, context);
   }

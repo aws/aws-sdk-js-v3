@@ -27,15 +27,20 @@ import {
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ChangeCidrCollectionCommand}.
  */
 export interface ChangeCidrCollectionCommandInput extends ChangeCidrCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangeCidrCollectionCommand}.
  */
 export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative
  * 			IP information mapping blocks to one or multiple locations.</p>
  *          <p>A change request can update multiple locations in a collection at a time, which is
@@ -71,6 +76,8 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangeCidrCollectionCommandInput - {@link ChangeCidrCollectionCommandInput}
+ * @returns {@link ChangeCidrCollectionCommandOutput}
  * @see {@link ChangeCidrCollectionCommandInput} for command's `input` shape.
  * @see {@link ChangeCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -116,6 +123,9 @@ export class ChangeCidrCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangeCidrCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class ChangeCidrCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangeCidrCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlChangeCidrCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeCidrCollectionCommandOutput> {
     return deserializeAws_restXmlChangeCidrCollectionCommand(output, context);
   }

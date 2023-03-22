@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFirewallPolicyCommand}.
  */
 export interface DeleteFirewallPolicyCommandInput extends DeleteFirewallPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFirewallPolicyCommand}.
  */
 export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified <a>FirewallPolicy</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallPolicyCommandInput - {@link DeleteFirewallPolicyCommandInput}
+ * @returns {@link DeleteFirewallPolicyCommandOutput}
  * @see {@link DeleteFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -102,6 +109,9 @@ export class DeleteFirewallPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class DeleteFirewallPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFirewallPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteFirewallPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFirewallPolicyCommandOutput> {
     return deserializeAws_json1_0DeleteFirewallPolicyCommand(output, context);
   }

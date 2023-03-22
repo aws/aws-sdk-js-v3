@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSlotCommand}.
  */
 export interface DeleteSlotCommandInput extends DeleteSlotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSlotCommand}.
  */
 export interface DeleteSlotCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified slot from an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteSlotCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSlotCommandInput - {@link DeleteSlotCommandInput}
+ * @returns {@link DeleteSlotCommandOutput}
  * @see {@link DeleteSlotCommandInput} for command's `input` shape.
  * @see {@link DeleteSlotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteSlotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSlotCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteSlotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSlotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteSlotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSlotCommandOutput> {
     return deserializeAws_restJson1DeleteSlotCommand(output, context);
   }

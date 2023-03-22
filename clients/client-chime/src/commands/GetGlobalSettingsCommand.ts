@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGlobalSettingsCommand}.
  */
 export interface GetGlobalSettingsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetGlobalSettingsCommand}.
  */
 export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves global settings for the administrator's AWS account, such as Amazon Chime Business
  *             Calling and Amazon Chime Voice Connector settings.</p>
  * @example
@@ -42,6 +47,8 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGlobalSettingsCommandInput - {@link GetGlobalSettingsCommandInput}
+ * @returns {@link GetGlobalSettingsCommandOutput}
  * @see {@link GetGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link GetGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGlobalSettingsCommandOutput> {
     return deserializeAws_restJson1GetGlobalSettingsCommand(output, context);
   }

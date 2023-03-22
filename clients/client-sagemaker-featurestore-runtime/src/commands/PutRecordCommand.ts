@@ -25,15 +25,20 @@ import {
 } from "../SageMakerFeatureStoreRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutRecordCommand}.
  */
 export interface PutRecordCommandInput extends PutRecordRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRecordCommand}.
  */
 export interface PutRecordCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used for data ingestion into the <code>FeatureStore</code>. The <code>PutRecord</code>
  *          API writes to both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the
  *          record is the latest record for the <code>recordIdentifier</code>, the record is written to
@@ -49,6 +54,8 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecordCommandInput - {@link PutRecordCommandInput}
+ * @returns {@link PutRecordCommandOutput}
  * @see {@link PutRecordCommandInput} for command's `input` shape.
  * @see {@link PutRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
@@ -85,6 +92,9 @@ export class PutRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class PutRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordCommandOutput> {
     return deserializeAws_restJson1PutRecordCommand(output, context);
   }

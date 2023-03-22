@@ -22,15 +22,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetIdentityPoolRolesCommand}.
  */
 export interface SetIdentityPoolRolesCommandInput extends SetIdentityPoolRolesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetIdentityPoolRolesCommand}.
  */
 export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
@@ -43,6 +48,8 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIdentityPoolRolesCommandInput - {@link SetIdentityPoolRolesCommandInput}
+ * @returns {@link SetIdentityPoolRolesCommandOutput}
  * @see {@link SetIdentityPoolRolesCommandInput} for command's `input` shape.
  * @see {@link SetIdentityPoolRolesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -89,6 +96,9 @@ export class SetIdentityPoolRolesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIdentityPoolRolesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class SetIdentityPoolRolesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetIdentityPoolRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetIdentityPoolRolesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetIdentityPoolRolesCommandOutput> {
     return deserializeAws_json1_1SetIdentityPoolRolesCommand(output, context);
   }

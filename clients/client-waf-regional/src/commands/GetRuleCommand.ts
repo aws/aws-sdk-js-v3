@@ -23,15 +23,20 @@ import { deserializeAws_json1_1GetRuleCommand, serializeAws_json1_1GetRuleComman
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRuleCommand}.
  */
 export interface GetRuleCommandInput extends GetRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRuleCommand}.
  */
 export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -51,6 +56,8 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRuleCommandInput - {@link GetRuleCommandInput}
+ * @returns {@link GetRuleCommandOutput}
  * @see {@link GetRuleCommandInput} for command's `input` shape.
  * @see {@link GetRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -110,6 +117,9 @@ export class GetRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class GetRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRuleCommandOutput> {
     return deserializeAws_json1_1GetRuleCommand(output, context);
   }

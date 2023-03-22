@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasetsCommand}.
  */
 export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasetsCommand}.
  */
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of datasets created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a> operation. For each
  *       dataset, a summary of its properties, including its Amazon Resource Name (ARN), is returned.
  *       To retrieve the complete set of properties, use the ARN with the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation.</p>
@@ -48,6 +53,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
+ * @returns {@link ListDatasetsCommandOutput}
  * @see {@link ListDatasetsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListDatasetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,10 +121,16 @@ export class ListDatasetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatasetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetsCommandOutput> {
     return deserializeAws_json1_1ListDatasetsCommand(output, context);
   }

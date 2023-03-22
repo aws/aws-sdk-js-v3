@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDetectorCommand}.
  */
 export interface CreateDetectorCommandInput extends CreateDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDetectorCommand}.
  */
 export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a single Amazon GuardDuty detector. A detector is a resource that represents the
  *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
  *       you enable the service. You can have only one detector per account per Region. All data
@@ -52,6 +57,8 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDetectorCommandInput - {@link CreateDetectorCommandInput}
+ * @returns {@link CreateDetectorCommandOutput}
  * @see {@link CreateDetectorCommandInput} for command's `input` shape.
  * @see {@link CreateDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDetectorCommandOutput> {
     return deserializeAws_restJson1CreateDetectorCommand(output, context);
   }

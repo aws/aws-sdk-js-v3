@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEntitlementCommand}.
  */
 export interface CreateEntitlementCommandInput extends CreateEntitlementRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEntitlementCommand}.
  */
 export interface CreateEntitlementCommandOutput extends CreateEntitlementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new entitlement. Entitlements control access to specific applications within
  *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
  *             identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
@@ -51,6 +56,8 @@ export interface CreateEntitlementCommandOutput extends CreateEntitlementResult,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEntitlementCommandInput - {@link CreateEntitlementCommandInput}
+ * @returns {@link CreateEntitlementCommandOutput}
  * @see {@link CreateEntitlementCommandInput} for command's `input` shape.
  * @see {@link CreateEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -86,6 +93,9 @@ export class CreateEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class CreateEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEntitlementCommandOutput> {
     return deserializeAws_json1_1CreateEntitlementCommand(output, context);
   }

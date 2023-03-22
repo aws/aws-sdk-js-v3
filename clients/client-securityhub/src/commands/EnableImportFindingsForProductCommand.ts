@@ -26,10 +26,14 @@ import {
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableImportFindingsForProductCommand}.
  */
 export interface EnableImportFindingsForProductCommandInput extends EnableImportFindingsForProductRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableImportFindingsForProductCommand}.
  */
 export interface EnableImportFindingsForProductCommandOutput
@@ -37,6 +41,7 @@ export interface EnableImportFindingsForProductCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the integration of a partner product with Security Hub. Integrated products send
  *          findings to Security Hub.</p>
  *          <p>When you enable a product integration, a permissions policy that grants permission for
@@ -51,6 +56,8 @@ export interface EnableImportFindingsForProductCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableImportFindingsForProductCommandInput - {@link EnableImportFindingsForProductCommandInput}
+ * @returns {@link EnableImportFindingsForProductCommandOutput}
  * @see {@link EnableImportFindingsForProductCommandInput} for command's `input` shape.
  * @see {@link EnableImportFindingsForProductCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -91,6 +98,9 @@ export class EnableImportFindingsForProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableImportFindingsForProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,6 +140,9 @@ export class EnableImportFindingsForProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableImportFindingsForProductCommandInput,
     context: __SerdeContext
@@ -137,6 +150,9 @@ export class EnableImportFindingsForProductCommand extends $Command<
     return serializeAws_restJson1EnableImportFindingsForProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

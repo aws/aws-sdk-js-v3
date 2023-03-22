@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveProfilePermissionCommand}.
  */
 export interface RemoveProfilePermissionCommandInput extends RemoveProfilePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveProfilePermissionCommand}.
  */
 export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes cross-account permissions from a signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveProfilePermissionCommandInput - {@link RemoveProfilePermissionCommandInput}
+ * @returns {@link RemoveProfilePermissionCommandOutput}
  * @see {@link RemoveProfilePermissionCommandInput} for command's `input` shape.
  * @see {@link RemoveProfilePermissionCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -88,6 +95,9 @@ export class RemoveProfilePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveProfilePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class RemoveProfilePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveProfilePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RemoveProfilePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveProfilePermissionCommandOutput> {
     return deserializeAws_restJson1RemoveProfilePermissionCommand(output, context);
   }

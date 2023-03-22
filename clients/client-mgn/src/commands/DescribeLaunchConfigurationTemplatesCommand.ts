@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLaunchConfigurationTemplatesCommand}.
  */
 export interface DescribeLaunchConfigurationTemplatesCommandInput extends DescribeLaunchConfigurationTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLaunchConfigurationTemplatesCommand}.
  */
 export interface DescribeLaunchConfigurationTemplatesCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLaunchConfigurationTemplatesCommandInput - {@link DescribeLaunchConfigurationTemplatesCommandInput}
+ * @returns {@link DescribeLaunchConfigurationTemplatesCommandOutput}
  * @see {@link DescribeLaunchConfigurationTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchConfigurationTemplatesCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLaunchConfigurationTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,6 +129,9 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLaunchConfigurationTemplatesCommandInput,
     context: __SerdeContext
@@ -126,6 +139,9 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command<
     return serializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

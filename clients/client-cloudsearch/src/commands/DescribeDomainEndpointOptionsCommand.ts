@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainEndpointOptionsCommand}.
  */
 export interface DescribeDomainEndpointOptionsCommandInput extends DescribeDomainEndpointOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainEndpointOptionsCommand}.
  */
 export interface DescribeDomainEndpointOptionsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeDomainEndpointOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html" target="_blank">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainEndpointOptionsCommandInput - {@link DescribeDomainEndpointOptionsCommandInput}
+ * @returns {@link DescribeDomainEndpointOptionsCommandOutput}
  * @see {@link DescribeDomainEndpointOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainEndpointOptionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -87,6 +94,9 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainEndpointOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainEndpointOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDomainEndpointOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

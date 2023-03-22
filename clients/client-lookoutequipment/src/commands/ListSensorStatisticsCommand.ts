@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListSensorStatisticsCommand}.
  */
 export interface ListSensorStatisticsCommandInput extends ListSensorStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSensorStatisticsCommand}.
  */
 export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists statistics about the data collected for each of the sensors that have been
  *          successfully ingested in the particular dataset. Can also be used to retreive Sensor
  *          Statistics for a previous ingestion job. </p>
@@ -48,6 +53,8 @@ export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSensorStatisticsCommandInput - {@link ListSensorStatisticsCommandInput}
+ * @returns {@link ListSensorStatisticsCommandOutput}
  * @see {@link ListSensorStatisticsCommandInput} for command's `input` shape.
  * @see {@link ListSensorStatisticsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListSensorStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSensorStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListSensorStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSensorStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListSensorStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSensorStatisticsCommandOutput> {
     return deserializeAws_json1_0ListSensorStatisticsCommand(output, context);
   }

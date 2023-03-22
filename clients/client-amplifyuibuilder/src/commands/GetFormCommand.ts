@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFormCommand}.
  */
 export interface GetFormCommandInput extends GetFormRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFormCommand}.
  */
 export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an existing form for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFormCommandInput - {@link GetFormCommandInput}
+ * @returns {@link GetFormCommandOutput}
  * @see {@link GetFormCommandInput} for command's `input` shape.
  * @see {@link GetFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetFormCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFormCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetFormCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetFormCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFormCommandOutput> {
     return deserializeAws_restJson1GetFormCommand(output, context);
   }

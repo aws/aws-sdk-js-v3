@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchPlaceIndexForSuggestionsCommand}.
  */
 export interface SearchPlaceIndexForSuggestionsCommandInput extends SearchPlaceIndexForSuggestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchPlaceIndexForSuggestionsCommand}.
  */
 export interface SearchPlaceIndexForSuggestionsCommandOutput
@@ -37,6 +41,7 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates suggestions for addresses and points of interest based on partial or
  *             misspelled free-form text. This operation is also known as autocomplete, autosuggest, or
  *             fuzzy matching.</p>
@@ -59,6 +64,8 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchPlaceIndexForSuggestionsCommandInput - {@link SearchPlaceIndexForSuggestionsCommandInput}
+ * @returns {@link SearchPlaceIndexForSuggestionsCommandOutput}
  * @see {@link SearchPlaceIndexForSuggestionsCommandInput} for command's `input` shape.
  * @see {@link SearchPlaceIndexForSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -98,6 +105,9 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchPlaceIndexForSuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,6 +147,9 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SearchPlaceIndexForSuggestionsCommandInput,
     context: __SerdeContext
@@ -144,6 +157,9 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
     return serializeAws_restJson1SearchPlaceIndexForSuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

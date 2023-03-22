@@ -10,7 +10,7 @@ import { SNSClient } from "../SNSClient";
 import { SNSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SNSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOriginationNumbersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListOriginationNumbers(
   config: SNSPaginationConfiguration,
   input: ListOriginationNumbersCommandInput,

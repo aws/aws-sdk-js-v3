@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ReadJobCommand}.
  */
 export interface ReadJobCommandInput extends ReadJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReadJobCommand}.
  */
 export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ReadJob operation returns detailed information about a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param ReadJobCommandInput - {@link ReadJobCommandInput}
+ * @returns {@link ReadJobCommandOutput}
  * @see {@link ReadJobCommandInput} for command's `input` shape.
  * @see {@link ReadJobCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -88,6 +95,9 @@ export class ReadJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReadJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class ReadJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReadJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ReadJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadJobCommandOutput> {
     return deserializeAws_restJson1ReadJobCommand(output, context);
   }

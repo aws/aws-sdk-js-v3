@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentInstanceCommand}.
  */
 export interface GetDeploymentInstanceCommandInput extends GetDeploymentInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentInstanceCommand}.
  */
 export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets information about an instance as part of a deployment.</p>
@@ -48,6 +53,8 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentInstanceCommandInput - {@link GetDeploymentInstanceCommandInput}
+ * @returns {@link GetDeploymentInstanceCommandOutput}
  * @see {@link GetDeploymentInstanceCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -93,6 +100,9 @@ export class GetDeploymentInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class GetDeploymentInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDeploymentInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentInstanceCommandOutput> {
     return deserializeAws_json1_1GetDeploymentInstanceCommand(output, context);
   }

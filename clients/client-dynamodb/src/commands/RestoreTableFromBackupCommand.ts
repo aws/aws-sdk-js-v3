@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreTableFromBackupCommand}.
  */
 export interface RestoreTableFromBackupCommandInput extends RestoreTableFromBackupInput {}
 /**
+ * @public
+ *
  * The output of {@link RestoreTableFromBackupCommand}.
  */
 export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBackupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new table from an existing backup. Any number of users can execute up to 4
  *             concurrent restores (any type of restore) in a given account. </p>
  *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
@@ -70,6 +75,8 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreTableFromBackupCommandInput - {@link RestoreTableFromBackupCommandInput}
+ * @returns {@link RestoreTableFromBackupCommandOutput}
  * @see {@link RestoreTableFromBackupCommandInput} for command's `input` shape.
  * @see {@link RestoreTableFromBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -125,6 +132,9 @@ export class RestoreTableFromBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreTableFromBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,10 +174,16 @@ export class RestoreTableFromBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreTableFromBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RestoreTableFromBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreTableFromBackupCommandOutput> {
     return deserializeAws_json1_0RestoreTableFromBackupCommand(output, context);
   }

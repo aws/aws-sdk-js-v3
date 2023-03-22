@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReferenceCommand}.
  */
 export interface DeleteReferenceCommandInput extends DeleteReferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReferenceCommand}.
  */
 export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a genome reference.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReferenceCommandInput - {@link DeleteReferenceCommandInput}
+ * @returns {@link DeleteReferenceCommandOutput}
  * @see {@link DeleteReferenceCommandInput} for command's `input` shape.
  * @see {@link DeleteReferenceCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -90,6 +97,9 @@ export class DeleteReferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class DeleteReferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteReferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReferenceCommandOutput> {
     return deserializeAws_restJson1DeleteReferenceCommand(output, context);
   }

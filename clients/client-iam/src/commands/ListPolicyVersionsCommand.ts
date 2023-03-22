@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListPolicyVersionsCommand}.
  */
 export interface ListPolicyVersionsCommandInput extends ListPolicyVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPolicyVersionsCommand}.
  */
 export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the versions of the specified managed policy, including the
  *             version that is currently set as the policy's default version.</p>
  *          <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
@@ -49,6 +54,8 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPolicyVersionsCommandInput - {@link ListPolicyVersionsCommandInput}
+ * @returns {@link ListPolicyVersionsCommandOutput}
  * @see {@link ListPolicyVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyVersionsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListPolicyVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPolicyVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class ListPolicyVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPolicyVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListPolicyVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyVersionsCommandOutput> {
     return deserializeAws_queryListPolicyVersionsCommand(output, context);
   }

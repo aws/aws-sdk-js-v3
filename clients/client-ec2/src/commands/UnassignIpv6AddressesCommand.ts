@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link UnassignIpv6AddressesCommand}.
  */
 export interface UnassignIpv6AddressesCommandInput extends UnassignIpv6AddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnassignIpv6AddressesCommand}.
  */
 export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6AddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * const response = await client.send(command);
  * ```
  *
+ * @param UnassignIpv6AddressesCommandInput - {@link UnassignIpv6AddressesCommandInput}
+ * @returns {@link UnassignIpv6AddressesCommandOutput}
  * @see {@link UnassignIpv6AddressesCommandInput} for command's `input` shape.
  * @see {@link UnassignIpv6AddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +76,9 @@ export class UnassignIpv6AddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnassignIpv6AddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class UnassignIpv6AddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnassignIpv6AddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2UnassignIpv6AddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnassignIpv6AddressesCommandOutput> {
     return deserializeAws_ec2UnassignIpv6AddressesCommand(output, context);
   }

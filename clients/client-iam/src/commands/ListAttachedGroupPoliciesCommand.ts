@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttachedGroupPoliciesCommand}.
  */
 export interface ListAttachedGroupPoliciesCommandInput extends ListAttachedGroupPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttachedGroupPoliciesCommand}.
  */
 export interface ListAttachedGroupPoliciesCommandOutput extends ListAttachedGroupPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all managed policies that are attached to the specified IAM group.</p>
  *          <p>An IAM group can also have inline policies embedded with it. To list the inline
  *             policies for a group, use <a>ListGroupPolicies</a>. For information about
@@ -55,6 +60,8 @@ export interface ListAttachedGroupPoliciesCommandOutput extends ListAttachedGrou
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttachedGroupPoliciesCommandInput - {@link ListAttachedGroupPoliciesCommandInput}
+ * @returns {@link ListAttachedGroupPoliciesCommandOutput}
  * @see {@link ListAttachedGroupPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedGroupPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -90,6 +97,9 @@ export class ListAttachedGroupPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttachedGroupPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class ListAttachedGroupPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttachedGroupPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListAttachedGroupPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUsageReportSubscriptionCommand}.
  */
 export interface CreateUsageReportSubscriptionCommandInput extends CreateUsageReportSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUsageReportSubscriptionCommand}.
  */
 export interface CreateUsageReportSubscriptionCommandOutput
@@ -37,6 +41,7 @@ export interface CreateUsageReportSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a usage report subscription. Usage reports are generated daily.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface CreateUsageReportSubscriptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUsageReportSubscriptionCommandInput - {@link CreateUsageReportSubscriptionCommandInput}
+ * @returns {@link CreateUsageReportSubscriptionCommandOutput}
  * @see {@link CreateUsageReportSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateUsageReportSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateUsageReportSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUsageReportSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class CreateUsageReportSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUsageReportSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUsageReportSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

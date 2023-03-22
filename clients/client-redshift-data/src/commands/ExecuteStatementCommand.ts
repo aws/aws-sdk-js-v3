@@ -26,15 +26,20 @@ import {
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteStatementCommand}.
  */
 export interface ExecuteStatementCommandInput extends ExecuteStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteStatementCommand}.
  */
 export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs an SQL statement, which can be data manipulation language (DML) or data definition
  *       language (DDL). This statement must be a single SQL statement.
  *       Depending on the authorization
@@ -63,6 +68,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
+ * @returns {@link ExecuteStatementCommandOutput}
  * @see {@link ExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
@@ -95,6 +102,9 @@ export class ExecuteStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ExecuteStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExecuteStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteStatementCommandOutput> {
     return deserializeAws_json1_1ExecuteStatementCommand(output, context);
   }

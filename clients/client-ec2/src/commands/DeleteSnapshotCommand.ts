@@ -18,15 +18,20 @@ import { DeleteSnapshotRequest, DeleteSnapshotRequestFilterSensitiveLog } from "
 import { deserializeAws_ec2DeleteSnapshotCommand, serializeAws_ec2DeleteSnapshotCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSnapshotCommand}.
  */
 export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSnapshotCommand}.
  */
 export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified snapshot.</p>
  *          <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the
  *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
@@ -47,6 +52,8 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
+ * @returns {@link DeleteSnapshotCommandOutput}
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotCommandOutput> {
     return deserializeAws_ec2DeleteSnapshotCommand(output, context);
   }

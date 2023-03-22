@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateExportCommand}.
  */
 export interface UpdateExportCommandInput extends UpdateExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateExportCommand}.
  */
 export interface UpdateExportCommandOutput extends UpdateExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the password used to protect an export zip archive.</p>
  *          <p>The password is not required. If you don't supply a password, Amazon Lex
  *          generates a zip file that is not protected by a password. This is the
@@ -50,6 +55,8 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExportCommandInput - {@link UpdateExportCommandInput}
+ * @returns {@link UpdateExportCommandOutput}
  * @see {@link UpdateExportCommandInput} for command's `input` shape.
  * @see {@link UpdateExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class UpdateExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExportCommandOutput> {
     return deserializeAws_restJson1UpdateExportCommand(output, context);
   }

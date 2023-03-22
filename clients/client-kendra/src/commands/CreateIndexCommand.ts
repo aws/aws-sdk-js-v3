@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIndexCommand}.
  */
 export interface CreateIndexCommandInput extends CreateIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIndexCommand}.
  */
 export interface CreateIndexCommandOutput extends CreateIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Kendra index. Index creation is an asynchronous API. To determine
  *       if index creation has completed, check the <code>Status</code> field returned from a call to
  *         <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code> when
@@ -55,6 +60,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
+ * @returns {@link CreateIndexCommandOutput}
  * @see {@link CreateIndexCommandInput} for command's `input` shape.
  * @see {@link CreateIndexCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -107,6 +114,9 @@ export class CreateIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,10 +154,16 @@ export class CreateIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIndexCommandOutput> {
     return deserializeAws_json1_1CreateIndexCommand(output, context);
   }

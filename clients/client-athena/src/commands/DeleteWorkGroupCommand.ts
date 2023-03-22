@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkGroupCommand}.
  */
 export interface DeleteWorkGroupCommandInput extends DeleteWorkGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkGroupCommand}.
  */
 export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be
  *             deleted.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkGroupCommandInput - {@link DeleteWorkGroupCommandInput}
+ * @returns {@link DeleteWorkGroupCommandOutput}
  * @see {@link DeleteWorkGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkGroupCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteWorkGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteWorkGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteWorkGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkGroupCommandOutput> {
     return deserializeAws_json1_1DeleteWorkGroupCommand(output, context);
   }

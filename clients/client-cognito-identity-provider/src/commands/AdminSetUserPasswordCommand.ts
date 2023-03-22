@@ -31,15 +31,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminSetUserPasswordCommand}.
  */
 export interface AdminSetUserPasswordCommandInput extends AdminSetUserPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminSetUserPasswordCommand}.
  */
 export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified user's password in a user pool as an administrator. Works on any
  *             user. </p>
  *         <p>The password can be temporary or permanent. If it is temporary, the user status enters
@@ -60,6 +65,8 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminSetUserPasswordCommandInput - {@link AdminSetUserPasswordCommandInput}
+ * @returns {@link AdminSetUserPasswordCommandOutput}
  * @see {@link AdminSetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link AdminSetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -107,6 +114,9 @@ export class AdminSetUserPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminSetUserPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class AdminSetUserPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminSetUserPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminSetUserPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminSetUserPasswordCommandOutput> {
     return deserializeAws_json1_1AdminSetUserPasswordCommand(output, context);
   }

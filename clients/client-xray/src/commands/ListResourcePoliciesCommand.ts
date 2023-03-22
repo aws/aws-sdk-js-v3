@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcePoliciesCommand}.
  */
 export interface ListResourcePoliciesCommandInput extends ListResourcePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcePoliciesCommand}.
  */
 export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of resource policies in the target Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcePoliciesCommandInput - {@link ListResourcePoliciesCommandInput}
+ * @returns {@link ListResourcePoliciesCommandOutput}
  * @see {@link ListResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListResourcePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class ListResourcePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListResourcePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcePoliciesCommandOutput> {
     return deserializeAws_restJson1ListResourcePoliciesCommand(output, context);
   }

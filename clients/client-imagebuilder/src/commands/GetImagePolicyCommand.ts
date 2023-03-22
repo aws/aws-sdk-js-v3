@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetImagePolicyCommand}.
  */
 export interface GetImagePolicyCommandInput extends GetImagePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetImagePolicyCommand}.
  */
 export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Gets an image policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImagePolicyCommandInput - {@link GetImagePolicyCommandInput}
+ * @returns {@link GetImagePolicyCommandOutput}
  * @see {@link GetImagePolicyCommandInput} for command's `input` shape.
  * @see {@link GetImagePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -87,6 +94,9 @@ export class GetImagePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImagePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class GetImagePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImagePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetImagePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImagePolicyCommandOutput> {
     return deserializeAws_restJson1GetImagePolicyCommand(output, context);
   }

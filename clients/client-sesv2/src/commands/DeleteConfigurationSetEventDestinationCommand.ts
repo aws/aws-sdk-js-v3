@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationSetEventDestinationCommand}.
  */
 export interface DeleteConfigurationSetEventDestinationCommandInput
   extends DeleteConfigurationSetEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationSetEventDestinationCommand}.
  */
 export interface DeleteConfigurationSetEventDestinationCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an event destination.</p>
  *          <p>
  *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
@@ -55,6 +60,8 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetEventDestinationCommandInput - {@link DeleteConfigurationSetEventDestinationCommandInput}
+ * @returns {@link DeleteConfigurationSetEventDestinationCommandOutput}
  * @see {@link DeleteConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     return serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

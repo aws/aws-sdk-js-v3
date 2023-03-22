@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFHIRDatastoreCommand}.
  */
 export interface CreateFHIRDatastoreCommandInput extends CreateFHIRDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFHIRDatastoreCommand}.
  */
 export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Data Store that can ingest and export FHIR formatted data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFHIRDatastoreCommandInput - {@link CreateFHIRDatastoreCommandInput}
+ * @returns {@link CreateFHIRDatastoreCommandOutput}
  * @see {@link CreateFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link CreateFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateFHIRDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFHIRDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class CreateFHIRDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFHIRDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateFHIRDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFHIRDatastoreCommandOutput> {
     return deserializeAws_json1_0CreateFHIRDatastoreCommand(output, context);
   }

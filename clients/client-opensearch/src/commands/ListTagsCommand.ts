@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsCommand}.
  */
 export interface ListTagsCommandInput extends ListTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsCommand}.
  */
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all resource tags for an Amazon OpenSearch Service domain. For more information, see
  *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsCommandInput - {@link ListTagsCommandInput}
+ * @returns {@link ListTagsCommandOutput}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class ListTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
     return deserializeAws_restJson1ListTagsCommand(output, context);
   }

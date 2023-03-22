@@ -24,15 +24,20 @@ import {
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketInventoryConfigurationCommand}.
  */
 export interface PutBucketInventoryConfigurationCommandInput extends PutBucketInventoryConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketInventoryConfigurationCommand}.
  */
 export interface PutBucketInventoryConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the <code>PUT</code> action adds an inventory configuration
  *          (identified by the inventory ID) to the bucket. You can have up to 1,000 inventory
  *          configurations per bucket. </p>
@@ -142,6 +147,8 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketInventoryConfigurationCommandInput - {@link PutBucketInventoryConfigurationCommandInput}
+ * @returns {@link PutBucketInventoryConfigurationCommandOutput}
  * @see {@link PutBucketInventoryConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -171,6 +178,9 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketInventoryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -210,6 +220,9 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketInventoryConfigurationCommandInput,
     context: __SerdeContext
@@ -217,6 +230,9 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
     return serializeAws_restXmlPutBucketInventoryConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

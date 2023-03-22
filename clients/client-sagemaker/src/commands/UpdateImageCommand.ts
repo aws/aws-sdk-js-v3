@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateImageCommand}.
  */
 export interface UpdateImageCommandInput extends UpdateImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateImageCommand}.
  */
 export interface UpdateImageCommandOutput extends UpdateImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of a SageMaker image. To change the image's tags, use the
  *         <a>AddTags</a> and <a>DeleteTags</a> APIs.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateImageCommandInput - {@link UpdateImageCommandInput}
+ * @returns {@link UpdateImageCommandOutput}
  * @see {@link UpdateImageCommandInput} for command's `input` shape.
  * @see {@link UpdateImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class UpdateImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class UpdateImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImageCommandOutput> {
     return deserializeAws_json1_1UpdateImageCommand(output, context);
   }

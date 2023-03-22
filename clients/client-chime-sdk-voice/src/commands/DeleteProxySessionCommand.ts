@@ -21,10 +21,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProxySessionCommand}.
  */
 export interface DeleteProxySessionCommandInput extends DeleteProxySessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProxySessionCommand}.
  */
 export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
@@ -46,6 +50,9 @@ export class DeleteProxySessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProxySessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,10 +92,16 @@ export class DeleteProxySessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProxySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteProxySessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProxySessionCommandOutput> {
     return deserializeAws_restJson1DeleteProxySessionCommand(output, context);
   }

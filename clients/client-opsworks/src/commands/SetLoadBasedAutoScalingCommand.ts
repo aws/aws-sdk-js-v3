@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetLoadBasedAutoScalingCommand}.
  */
 export interface SetLoadBasedAutoScalingCommandInput extends SetLoadBasedAutoScalingRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetLoadBasedAutoScalingCommand}.
  */
 export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the load-based auto scaling configuration for a specified layer. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
  *         Load with Time-based and Load-based Instances</a>.</p>
@@ -51,6 +56,8 @@ export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {
  * const response = await client.send(command);
  * ```
  *
+ * @param SetLoadBasedAutoScalingCommandInput - {@link SetLoadBasedAutoScalingCommandInput}
+ * @returns {@link SetLoadBasedAutoScalingCommandOutput}
  * @see {@link SetLoadBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link SetLoadBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -80,6 +87,9 @@ export class SetLoadBasedAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetLoadBasedAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,10 +129,16 @@ export class SetLoadBasedAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetLoadBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetLoadBasedAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetLoadBasedAutoScalingCommandOutput> {
     return deserializeAws_json1_1SetLoadBasedAutoScalingCommand(output, context);
   }

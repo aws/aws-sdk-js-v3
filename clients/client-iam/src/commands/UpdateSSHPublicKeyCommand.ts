@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSSHPublicKeyCommand}.
  */
 export interface UpdateSSHPublicKeyCommandInput extends UpdateSSHPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSSHPublicKeyCommand}.
  */
 export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public
  *             keys that are inactive cannot be used for authentication. This operation can be used to
  *             disable a user's SSH public key as part of a key rotation work flow.</p>
@@ -47,6 +52,8 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSSHPublicKeyCommandInput - {@link UpdateSSHPublicKeyCommandInput}
+ * @returns {@link UpdateSSHPublicKeyCommandOutput}
  * @see {@link UpdateSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -74,6 +81,9 @@ export class UpdateSSHPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,10 +123,16 @@ export class UpdateSSHPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateSSHPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSSHPublicKeyCommandOutput> {
     return deserializeAws_queryUpdateSSHPublicKeyCommand(output, context);
   }

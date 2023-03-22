@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOfferingsCommand}.
  */
 export interface ListOfferingsCommandInput extends ListOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOfferingsCommand}.
  */
 export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Displays a list of all offerings that are available to this account in the current AWS Region. If you have an active reservation (which means you've purchased an offering that has already started and hasn't expired yet), your account isn't eligible for other offerings.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOfferingsCommandInput - {@link ListOfferingsCommandInput}
+ * @returns {@link ListOfferingsCommandOutput}
  * @see {@link ListOfferingsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -81,6 +88,9 @@ export class ListOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class ListOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingsCommandOutput> {
     return deserializeAws_restJson1ListOfferingsCommand(output, context);
   }

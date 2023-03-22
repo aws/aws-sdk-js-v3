@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandInput extends CreateStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamCommand}.
  */
 export interface CreateStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Kinesis data stream. A stream captures and transports data records that are
  *             continuously emitted from different data sources or <i>producers</i>.
  *             Scale-out within a stream is explicitly supported by means of shards, which are uniquely
@@ -84,6 +89,8 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
+ * @returns {@link CreateStreamCommandOutput}
  * @see {@link CreateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -119,6 +126,9 @@ export class CreateStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,10 +166,16 @@ export class CreateStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamCommandOutput> {
     return deserializeAws_json1_1CreateStreamCommand(output, context);
   }

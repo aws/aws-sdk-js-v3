@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRegexPatternSetsCommand}.
  */
 export interface ListRegexPatternSetsCommandInput extends ListRegexPatternSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRegexPatternSetsCommand}.
  */
 export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,6 +59,8 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRegexPatternSetsCommandInput - {@link ListRegexPatternSetsCommandInput}
+ * @returns {@link ListRegexPatternSetsCommandOutput}
  * @see {@link ListRegexPatternSetsCommandInput} for command's `input` shape.
  * @see {@link ListRegexPatternSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListRegexPatternSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRegexPatternSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListRegexPatternSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRegexPatternSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRegexPatternSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegexPatternSetsCommandOutput> {
     return deserializeAws_json1_1ListRegexPatternSetsCommand(output, context);
   }

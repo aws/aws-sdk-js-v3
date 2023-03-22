@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateInstanceInAutoScalingGroupCommand}.
  */
 export interface TerminateInstanceInAutoScalingGroupCommandInput extends TerminateInstanceInAutoScalingGroupType {}
 /**
+ * @public
+ *
  * The output of {@link TerminateInstanceInAutoScalingGroupCommand}.
  */
 export interface TerminateInstanceInAutoScalingGroupCommandOutput extends ActivityType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the specified instance and optionally adjusts the desired group size. This
  *             operation cannot be called on instances in a warm pool.</p>
  *          <p>This call simply makes a termination request. The instance is not terminated
@@ -57,6 +62,8 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateInstanceInAutoScalingGroupCommandInput - {@link TerminateInstanceInAutoScalingGroupCommandInput}
+ * @returns {@link TerminateInstanceInAutoScalingGroupCommandOutput}
  * @see {@link TerminateInstanceInAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link TerminateInstanceInAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -100,6 +107,9 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateInstanceInAutoScalingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,6 +149,9 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: TerminateInstanceInAutoScalingGroupCommandInput,
     context: __SerdeContext
@@ -146,6 +159,9 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     return serializeAws_queryTerminateInstanceInAutoScalingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

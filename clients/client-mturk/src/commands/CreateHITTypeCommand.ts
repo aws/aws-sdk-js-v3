@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHITTypeCommand}.
  */
 export interface CreateHITTypeCommandInput extends CreateHITTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHITTypeCommand}.
  */
 export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>CreateHITType</code> operation creates a new HIT type. This operation
  *             allows you to define a standard set of HIT properties to use when creating HITs.
@@ -51,6 +56,8 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHITTypeCommandInput - {@link CreateHITTypeCommandInput}
+ * @returns {@link CreateHITTypeCommandOutput}
  * @see {@link CreateHITTypeCommandInput} for command's `input` shape.
  * @see {@link CreateHITTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateHITTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHITTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class CreateHITTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHITTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHITTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHITTypeCommandOutput> {
     return deserializeAws_json1_1CreateHITTypeCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupCertificateAuthoritiesCommand}.
  */
 export interface ListGroupCertificateAuthoritiesCommandInput extends ListGroupCertificateAuthoritiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupCertificateAuthoritiesCommand}.
  */
 export interface ListGroupCertificateAuthoritiesCommandOutput
@@ -37,6 +41,7 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves the current CAs for a group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupCertificateAuthoritiesCommandInput - {@link ListGroupCertificateAuthoritiesCommandInput}
+ * @returns {@link ListGroupCertificateAuthoritiesCommandOutput}
  * @see {@link ListGroupCertificateAuthoritiesCommandInput} for command's `input` shape.
  * @see {@link ListGroupCertificateAuthoritiesCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupCertificateAuthoritiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListGroupCertificateAuthoritiesCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     return serializeAws_restJson1ListGroupCertificateAuthoritiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

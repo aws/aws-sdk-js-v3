@@ -23,15 +23,20 @@ import {
 import { deserializeAws_json1_1PutLabelCommand, serializeAws_json1_1PutLabelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLabelCommand}.
  */
 export interface PutLabelCommandInput extends PutLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLabelCommand}.
  */
 export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +48,8 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLabelCommandInput - {@link PutLabelCommandInput}
+ * @returns {@link PutLabelCommandOutput}
  * @see {@link PutLabelCommandInput} for command's `input` shape.
  * @see {@link PutLabelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -81,6 +88,9 @@ export class PutLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class PutLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLabelCommandOutput> {
     return deserializeAws_json1_1PutLabelCommand(output, context);
   }

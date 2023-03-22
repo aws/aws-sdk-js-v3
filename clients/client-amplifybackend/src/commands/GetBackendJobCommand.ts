@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackendJobCommand}.
  */
 export interface GetBackendJobCommandInput extends GetBackendJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBackendJobCommand}.
  */
 export interface GetBackendJobCommandOutput extends GetBackendJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetBackendJobCommandOutput extends GetBackendJobResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackendJobCommandInput - {@link GetBackendJobCommandInput}
+ * @returns {@link GetBackendJobCommandOutput}
  * @see {@link GetBackendJobCommandInput} for command's `input` shape.
  * @see {@link GetBackendJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetBackendJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackendJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class GetBackendJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackendJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackendJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendJobCommandOutput> {
     return deserializeAws_restJson1GetBackendJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackendEnvironmentCommand}.
  */
 export interface CreateBackendEnvironmentCommandInput extends CreateBackendEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackendEnvironmentCommand}.
  */
 export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvironmentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new backend environment for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackendEnvironmentCommandInput - {@link CreateBackendEnvironmentCommandInput}
+ * @returns {@link CreateBackendEnvironmentCommandOutput}
  * @see {@link CreateBackendEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateBackendEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateBackendEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackendEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateBackendEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackendEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateBackendEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackendEnvironmentCommandOutput> {
     return deserializeAws_restJson1CreateBackendEnvironmentCommand(output, context);
   }

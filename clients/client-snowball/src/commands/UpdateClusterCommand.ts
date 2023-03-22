@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterCommand}.
  */
 export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterCommand}.
  */
 export interface UpdateClusterCommandOutput extends UpdateClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>While a cluster's <code>ClusterState</code> value is in the <code>AwaitingQuorum</code>
  *       state, you can update some of the information associated with a cluster. Once the cluster
  *       changes to a different job state, usually 60 minutes after the cluster being created, this
@@ -49,6 +54,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
+ * @returns {@link UpdateClusterCommandOutput}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -104,6 +111,9 @@ export class UpdateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
     return deserializeAws_json1_1UpdateClusterCommand(output, context);
   }

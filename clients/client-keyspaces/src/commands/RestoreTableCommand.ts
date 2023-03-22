@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreTableCommand}.
  */
 export interface RestoreTableCommandInput extends RestoreTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreTableCommand}.
  */
 export interface RestoreTableCommandOutput extends RestoreTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores the specified table to the specified point in time within the
  *          <code>earliest_restorable_timestamp</code> and the current time. For more information about restore points, see
  *          <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_window">
@@ -92,6 +97,8 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreTableCommandInput - {@link RestoreTableCommandInput}
+ * @returns {@link RestoreTableCommandOutput}
  * @see {@link RestoreTableCommandInput} for command's `input` shape.
  * @see {@link RestoreTableCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
@@ -136,6 +143,9 @@ export class RestoreTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,10 +183,16 @@ export class RestoreTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0RestoreTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreTableCommandOutput> {
     return deserializeAws_json1_0RestoreTableCommand(output, context);
   }

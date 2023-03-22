@@ -26,15 +26,20 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetOperationDetailCommand}.
  */
 export interface GetOperationDetailCommandInput extends GetOperationDetailRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOperationDetailCommand}.
  */
 export interface GetOperationDetailCommandOutput extends GetOperationDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns the current status of an operation that is not
  * 			completed.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetOperationDetailCommandOutput extends GetOperationDetailRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOperationDetailCommandInput - {@link GetOperationDetailCommandInput}
+ * @returns {@link GetOperationDetailCommandOutput}
  * @see {@link GetOperationDetailCommandInput} for command's `input` shape.
  * @see {@link GetOperationDetailCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -76,6 +83,9 @@ export class GetOperationDetailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOperationDetailCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class GetOperationDetailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOperationDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOperationDetailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationDetailCommandOutput> {
     return deserializeAws_json1_1GetOperationDetailCommand(output, context);
   }

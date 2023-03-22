@@ -26,11 +26,15 @@ import {
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link RejectDomainTransferFromAnotherAwsAccountCommand}.
  */
 export interface RejectDomainTransferFromAnotherAwsAccountCommandInput
   extends RejectDomainTransferFromAnotherAwsAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectDomainTransferFromAnotherAwsAccountCommand}.
  */
 export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
@@ -38,6 +42,7 @@ export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects the transfer of a domain from another Amazon Web Services account to the
  * 			current Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>. </p>
  *          <p>Use either <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> to determine whether the operation succeeded. <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> provides additional information, for example,
@@ -52,6 +57,8 @@ export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectDomainTransferFromAnotherAwsAccountCommandInput - {@link RejectDomainTransferFromAnotherAwsAccountCommandInput}
+ * @returns {@link RejectDomainTransferFromAnotherAwsAccountCommandOutput}
  * @see {@link RejectDomainTransferFromAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link RejectDomainTransferFromAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -88,6 +95,9 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectDomainTransferFromAnotherAwsAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,6 +143,9 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RejectDomainTransferFromAnotherAwsAccountCommandInput,
     context: __SerdeContext
@@ -140,6 +153,9 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
     return serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

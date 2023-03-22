@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationVersionsCommand}.
  */
 export interface ListApplicationVersionsCommandInput extends ListApplicationVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationVersionsCommand}.
  */
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration
  *       associated with each version.</p>
  *
@@ -56,6 +61,8 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
+ * @returns {@link ListApplicationVersionsCommandOutput}
  * @see {@link ListApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -89,6 +96,9 @@ export class ListApplicationVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class ListApplicationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApplicationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationVersionsCommandOutput> {
     return deserializeAws_json1_1ListApplicationVersionsCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStudioMembersCommand}.
  */
 export interface ListStudioMembersCommandInput extends ListStudioMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStudioMembersCommand}.
  */
 export interface ListStudioMembersCommandOutput extends ListStudioMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get all users in a given studio membership.</p>
  *         <note>
  *             <p>
@@ -50,6 +55,8 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudioMembersCommandInput - {@link ListStudioMembersCommandInput}
+ * @returns {@link ListStudioMembersCommandOutput}
  * @see {@link ListStudioMembersCommandInput} for command's `input` shape.
  * @see {@link ListStudioMembersCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListStudioMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudioMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class ListStudioMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudioMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListStudioMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudioMembersCommandOutput> {
     return deserializeAws_restJson1ListStudioMembersCommand(output, context);
   }

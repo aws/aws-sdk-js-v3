@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcEndpointConnectionNotificationsCommand}.
  */
 export interface DeleteVpcEndpointConnectionNotificationsCommandInput
   extends DeleteVpcEndpointConnectionNotificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcEndpointConnectionNotificationsCommand}.
  */
 export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
@@ -38,6 +42,7 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPC endpoint connection notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcEndpointConnectionNotificationsCommandInput - {@link DeleteVpcEndpointConnectionNotificationsCommandInput}
+ * @returns {@link DeleteVpcEndpointConnectionNotificationsCommandOutput}
  * @see {@link DeleteVpcEndpointConnectionNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointConnectionNotificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcEndpointConnectionNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVpcEndpointConnectionNotificationsCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     return serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

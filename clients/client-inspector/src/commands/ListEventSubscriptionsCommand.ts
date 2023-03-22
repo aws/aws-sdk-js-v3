@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventSubscriptionsCommand}.
  */
 export interface ListEventSubscriptionsCommandInput extends ListEventSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventSubscriptionsCommand}.
  */
 export interface ListEventSubscriptionsCommandOutput extends ListEventSubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the event subscriptions for the assessment template that is specified by
  *          the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.</p>
  * @example
@@ -47,6 +52,8 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventSubscriptionsCommandInput - {@link ListEventSubscriptionsCommandInput}
+ * @returns {@link ListEventSubscriptionsCommandOutput}
  * @see {@link ListEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -113,6 +120,9 @@ export class ListEventSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,10 +162,16 @@ export class ListEventSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEventSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventSubscriptionsCommandOutput> {
     return deserializeAws_json1_1ListEventSubscriptionsCommand(output, context);
   }

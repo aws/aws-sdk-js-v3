@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpotFleetInstancesCommand}.
  */
 export interface DescribeSpotFleetInstancesCommandInput extends DescribeSpotFleetInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpotFleetInstancesCommand}.
  */
 export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFleetInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the running instances for the specified Spot Fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotFleetInstancesCommandInput - {@link DescribeSpotFleetInstancesCommandInput}
+ * @returns {@link DescribeSpotFleetInstancesCommandOutput}
  * @see {@link DescribeSpotFleetInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -92,6 +99,9 @@ export class DescribeSpotFleetInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotFleetInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,10 +141,16 @@ export class DescribeSpotFleetInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpotFleetInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSpotFleetInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

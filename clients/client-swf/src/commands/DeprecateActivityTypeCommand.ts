@@ -21,15 +21,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateActivityTypeCommand}.
  */
 export interface DeprecateActivityTypeCommandInput extends DeprecateActivityTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateActivityTypeCommand}.
  */
 export interface DeprecateActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecates the specified <i>activity type</i>. After an activity type has
  *       been deprecated, you cannot create new tasks of that activity type. Tasks of this type that
  *       were scheduled before the type was deprecated continue to run.</p>
@@ -83,6 +88,8 @@ export interface DeprecateActivityTypeCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateActivityTypeCommandInput - {@link DeprecateActivityTypeCommandInput}
+ * @returns {@link DeprecateActivityTypeCommandOutput}
  * @see {@link DeprecateActivityTypeCommandInput} for command's `input` shape.
  * @see {@link DeprecateActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -115,6 +122,9 @@ export class DeprecateActivityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateActivityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class DeprecateActivityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeprecateActivityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateActivityTypeCommandOutput> {
     return deserializeAws_json1_0DeprecateActivityTypeCommand(output, context);
   }

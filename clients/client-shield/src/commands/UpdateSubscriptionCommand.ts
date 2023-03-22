@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubscriptionCommand}.
  */
 export interface UpdateSubscriptionCommandInput extends UpdateSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubscriptionCommand}.
  */
 export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>
  *          <note>
  *             <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,
@@ -50,6 +55,8 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubscriptionCommandInput - {@link UpdateSubscriptionCommandInput}
+ * @returns {@link UpdateSubscriptionCommandOutput}
  * @see {@link UpdateSubscriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class UpdateSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubscriptionCommandOutput> {
     return deserializeAws_json1_1UpdateSubscriptionCommand(output, context);
   }

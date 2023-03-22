@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEndpointAccessCommand}.
  */
 export interface CreateEndpointAccessCommandInput extends CreateEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEndpointAccessCommand}.
  */
 export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Redshift Serverless managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEndpointAccessCommandInput - {@link CreateEndpointAccessCommandInput}
+ * @returns {@link CreateEndpointAccessCommandOutput}
  * @see {@link CreateEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -91,6 +98,9 @@ export class CreateEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointAccessCommandOutput> {
     return deserializeAws_json1_1CreateEndpointAccessCommand(output, context);
   }

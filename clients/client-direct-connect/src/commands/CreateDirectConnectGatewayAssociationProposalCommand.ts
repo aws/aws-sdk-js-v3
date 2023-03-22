@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDirectConnectGatewayAssociationProposalCommand}.
  */
 export interface CreateDirectConnectGatewayAssociationProposalCommandInput
   extends CreateDirectConnectGatewayAssociationProposalRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDirectConnectGatewayAssociationProposalCommand}.
  */
 export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
@@ -38,6 +42,7 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>
  *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any Amazon Web Services account. </p>
  * @example
@@ -50,6 +55,8 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectConnectGatewayAssociationProposalCommandInput - {@link CreateDirectConnectGatewayAssociationProposalCommandInput}
+ * @returns {@link CreateDirectConnectGatewayAssociationProposalCommandOutput}
  * @see {@link CreateDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
  * @see {@link CreateDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectConnectGatewayAssociationProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,6 +134,9 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
@@ -131,6 +144,9 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     return serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

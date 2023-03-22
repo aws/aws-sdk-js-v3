@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutNotificationConfigurationCommand}.
  */
 export interface PutNotificationConfigurationCommandInput extends PutNotificationConfigurationType {}
 /**
+ * @public
+ *
  * The output of {@link PutNotificationConfigurationCommand}.
  */
 export interface PutNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures an Auto Scaling group to send notifications when specified events take place.
  *             Subscribers to the specified topic can have messages delivered to an endpoint such as a
  *             web server or an email address.</p>
@@ -52,6 +57,8 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param PutNotificationConfigurationCommandInput - {@link PutNotificationConfigurationCommandInput}
+ * @returns {@link PutNotificationConfigurationCommandOutput}
  * @see {@link PutNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -103,6 +110,9 @@ export class PutNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class PutNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutNotificationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

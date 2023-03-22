@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutTraceSegmentsCommand}.
  */
 export interface PutTraceSegmentsCommandInput extends PutTraceSegmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutTraceSegmentsCommand}.
  */
 export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads segment documents to Amazon Web Services X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
  *       batches. A segment document can be a completed segment, an in-progress segment, or an array of
  *       subsegments.</p>
@@ -108,6 +113,8 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * const response = await client.send(command);
  * ```
  *
+ * @param PutTraceSegmentsCommandInput - {@link PutTraceSegmentsCommandInput}
+ * @returns {@link PutTraceSegmentsCommandOutput}
  * @see {@link PutTraceSegmentsCommandInput} for command's `input` shape.
  * @see {@link PutTraceSegmentsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -137,6 +144,9 @@ export class PutTraceSegmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutTraceSegmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,10 +186,16 @@ export class PutTraceSegmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutTraceSegmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutTraceSegmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTraceSegmentsCommandOutput> {
     return deserializeAws_restJson1PutTraceSegmentsCommand(output, context);
   }

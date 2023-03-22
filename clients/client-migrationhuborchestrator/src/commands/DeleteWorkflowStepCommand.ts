@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkflowStepCommand}.
  */
 export interface DeleteWorkflowStepCommandInput extends DeleteWorkflowStepRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkflowStepCommand}.
  */
 export interface DeleteWorkflowStepCommandOutput extends DeleteWorkflowStepResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a step in a migration workflow. Pause the workflow to delete a running
  *             step.</p>
  * @example
@@ -51,6 +56,8 @@ export interface DeleteWorkflowStepCommandOutput extends DeleteWorkflowStepRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkflowStepCommandInput - {@link DeleteWorkflowStepCommandInput}
+ * @returns {@link DeleteWorkflowStepCommandOutput}
  * @see {@link DeleteWorkflowStepCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteWorkflowStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkflowStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteWorkflowStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkflowStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteWorkflowStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowStepCommandOutput> {
     return deserializeAws_restJson1DeleteWorkflowStepCommand(output, context);
   }

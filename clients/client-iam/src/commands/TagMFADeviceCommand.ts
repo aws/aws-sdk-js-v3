@@ -18,15 +18,20 @@ import { TagMFADeviceRequest, TagMFADeviceRequestFilterSensitiveLog } from "../m
 import { deserializeAws_queryTagMFADeviceCommand, serializeAws_queryTagMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagMFADeviceCommand}.
  */
 export interface TagMFADeviceCommandInput extends TagMFADeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagMFADeviceCommand}.
  */
 export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM virtual multi-factor authentication (MFA) device. If
  *       a tag with the same key name already exists, then that tag is overwritten with the new
  *       value.</p>
@@ -74,6 +79,8 @@ export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param TagMFADeviceCommandInput - {@link TagMFADeviceCommandInput}
+ * @returns {@link TagMFADeviceCommandOutput}
  * @see {@link TagMFADeviceCommandInput} for command's `input` shape.
  * @see {@link TagMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -117,6 +124,9 @@ export class TagMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class TagMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagMFADeviceCommandOutput> {
     return deserializeAws_queryTagMFADeviceCommand(output, context);
   }

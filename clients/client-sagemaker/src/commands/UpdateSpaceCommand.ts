@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSpaceCommand}.
  */
 export interface UpdateSpaceCommandInput extends UpdateSpaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSpaceCommand}.
  */
 export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings of a space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSpaceCommandInput - {@link UpdateSpaceCommandInput}
+ * @returns {@link UpdateSpaceCommandOutput}
  * @see {@link UpdateSpaceCommandInput} for command's `input` shape.
  * @see {@link UpdateSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +86,9 @@ export class UpdateSpaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSpaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class UpdateSpaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSpaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSpaceCommandOutput> {
     return deserializeAws_json1_1UpdateSpaceCommand(output, context);
   }

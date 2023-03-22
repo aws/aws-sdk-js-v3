@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnswersCommand}.
  */
 export interface ListAnswersCommandInput extends ListAnswersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAnswersCommand}.
  */
 export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List of answers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnswersCommandInput - {@link ListAnswersCommandInput}
+ * @returns {@link ListAnswersCommandOutput}
  * @see {@link ListAnswersCommandInput} for command's `input` shape.
  * @see {@link ListAnswersCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAnswersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnswersCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListAnswersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnswersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAnswersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnswersCommandOutput> {
     return deserializeAws_restJson1ListAnswersCommand(output, context);
   }

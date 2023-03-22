@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDeliverabilityDashboardOptionCommand}.
  */
 export interface PutDeliverabilityDashboardOptionCommandInput extends PutDeliverabilityDashboardOptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDeliverabilityDashboardOptionCommand}.
  */
 export interface PutDeliverabilityDashboardOptionCommandOutput
@@ -37,6 +41,7 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the
  *             Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for
  *             the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform
@@ -54,6 +59,8 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDeliverabilityDashboardOptionCommandInput - {@link PutDeliverabilityDashboardOptionCommandInput}
+ * @returns {@link PutDeliverabilityDashboardOptionCommandOutput}
  * @see {@link PutDeliverabilityDashboardOptionCommandInput} for command's `input` shape.
  * @see {@link PutDeliverabilityDashboardOptionCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -92,6 +99,9 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDeliverabilityDashboardOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutDeliverabilityDashboardOptionCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     return serializeAws_restJson1PutDeliverabilityDashboardOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

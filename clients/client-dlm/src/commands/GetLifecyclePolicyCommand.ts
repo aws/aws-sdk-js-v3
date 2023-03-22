@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLifecyclePolicyCommand}.
  */
 export interface GetLifecyclePolicyCommandInput extends GetLifecyclePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLifecyclePolicyCommand}.
  */
 export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets detailed information about the specified lifecycle policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLifecyclePolicyCommandInput - {@link GetLifecyclePolicyCommandInput}
+ * @returns {@link GetLifecyclePolicyCommandOutput}
  * @see {@link GetLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class GetLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLifecyclePolicyCommandOutput> {
     return deserializeAws_restJson1GetLifecyclePolicyCommand(output, context);
   }

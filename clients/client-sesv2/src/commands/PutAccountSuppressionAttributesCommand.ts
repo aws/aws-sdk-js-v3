@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountSuppressionAttributesCommand}.
  */
 export interface PutAccountSuppressionAttributesCommandInput extends PutAccountSuppressionAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountSuppressionAttributesCommand}.
  */
 export interface PutAccountSuppressionAttributesCommandOutput
@@ -37,6 +41,7 @@ export interface PutAccountSuppressionAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Change the settings for the account-level suppression list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface PutAccountSuppressionAttributesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountSuppressionAttributesCommandInput - {@link PutAccountSuppressionAttributesCommandInput}
+ * @returns {@link PutAccountSuppressionAttributesCommandOutput}
  * @see {@link PutAccountSuppressionAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountSuppressionAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -77,6 +84,9 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountSuppressionAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAccountSuppressionAttributesCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     return serializeAws_restJson1PutAccountSuppressionAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

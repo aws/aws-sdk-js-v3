@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOperationsCommand}.
  */
 export interface GetOperationsCommandInput extends GetOperationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOperationsCommand}.
  */
 export interface GetOperationsCommandOutput extends GetOperationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all operations.</p>
  *          <p>Results are returned from oldest to newest, up to a maximum of 200. Results can be paged
  *       by making each subsequent call to <code>GetOperations</code> use the maximum (last)
@@ -49,6 +54,8 @@ export interface GetOperationsCommandOutput extends GetOperationsResult, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOperationsCommandInput - {@link GetOperationsCommandInput}
+ * @returns {@link GetOperationsCommandOutput}
  * @see {@link GetOperationsCommandInput} for command's `input` shape.
  * @see {@link GetOperationsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +109,9 @@ export class GetOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class GetOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationsCommandOutput> {
     return deserializeAws_json1_1GetOperationsCommand(output, context);
   }

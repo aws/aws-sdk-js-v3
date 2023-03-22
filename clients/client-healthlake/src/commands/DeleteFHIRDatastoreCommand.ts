@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFHIRDatastoreCommand}.
  */
 export interface DeleteFHIRDatastoreCommandInput extends DeleteFHIRDatastoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFHIRDatastoreCommand}.
  */
 export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Data Store. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFHIRDatastoreCommandInput - {@link DeleteFHIRDatastoreCommandInput}
+ * @returns {@link DeleteFHIRDatastoreCommandOutput}
  * @see {@link DeleteFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link DeleteFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteFHIRDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFHIRDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class DeleteFHIRDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFHIRDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteFHIRDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFHIRDatastoreCommandOutput> {
     return deserializeAws_json1_0DeleteFHIRDatastoreCommand(output, context);
   }

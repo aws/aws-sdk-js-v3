@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutAnomalyDetectorCommand}.
  */
 export interface PutAnomalyDetectorCommandInput extends PutAnomalyDetectorInput {}
 /**
+ * @public
+ *
  * The output of {@link PutAnomalyDetectorCommand}.
  */
 export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an anomaly detection model for a CloudWatch metric. You can use the model
  * 			to display a band of expected normal values when the metric is graphed.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html">CloudWatch Anomaly Detection</a>.</p>
@@ -48,6 +53,8 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAnomalyDetectorCommandInput - {@link PutAnomalyDetectorCommandInput}
+ * @returns {@link PutAnomalyDetectorCommandOutput}
  * @see {@link PutAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link PutAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -86,6 +93,9 @@ export class PutAnomalyDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class PutAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAnomalyDetectorCommandOutput> {
     return deserializeAws_queryPutAnomalyDetectorCommand(output, context);
   }

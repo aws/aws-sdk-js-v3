@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRuntimeManagementConfigCommand}.
  */
 export interface GetRuntimeManagementConfigCommandInput extends GetRuntimeManagementConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRuntimeManagementConfigCommand}.
  */
 export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManagementConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the runtime management configuration for a function's version. If the runtime update mode is <b>Manual</b>, this includes the ARN of the
  *       runtime version and the runtime update mode. If the runtime update mode is <b>Auto</b> or <b>Function update</b>,
  *       this includes the runtime update mode and <code>null</code> is returned for the ARN. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
@@ -48,6 +53,8 @@ export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManag
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRuntimeManagementConfigCommandInput - {@link GetRuntimeManagementConfigCommandInput}
+ * @returns {@link GetRuntimeManagementConfigCommandOutput}
  * @see {@link GetRuntimeManagementConfigCommandInput} for command's `input` shape.
  * @see {@link GetRuntimeManagementConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetRuntimeManagementConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRuntimeManagementConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class GetRuntimeManagementConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRuntimeManagementConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRuntimeManagementConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

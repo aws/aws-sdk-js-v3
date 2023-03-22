@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssumeImpersonationRoleCommand}.
  */
 export interface AssumeImpersonationRoleCommandInput extends AssumeImpersonationRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssumeImpersonationRoleCommand}.
  */
 export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonationRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assumes an impersonation role for the given WorkMail organization. This method returns an
  *          authentication token you can use to make impersonated calls.</p>
  * @example
@@ -47,6 +52,8 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeImpersonationRoleCommandInput - {@link AssumeImpersonationRoleCommandInput}
+ * @returns {@link AssumeImpersonationRoleCommandOutput}
  * @see {@link AssumeImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link AssumeImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -84,6 +91,9 @@ export class AssumeImpersonationRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeImpersonationRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class AssumeImpersonationRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssumeImpersonationRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeImpersonationRoleCommandOutput> {
     return deserializeAws_json1_1AssumeImpersonationRoleCommand(output, context);
   }

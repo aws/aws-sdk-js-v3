@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoggingOptionsCommand}.
  */
 export interface GetLoggingOptionsCommandInput extends GetLoggingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoggingOptionsCommand}.
  */
 export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the logging options.</p>
  *          <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
  *          instead.</p>
@@ -49,6 +54,8 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoggingOptionsCommandInput - {@link GetLoggingOptionsCommandInput}
+ * @returns {@link GetLoggingOptionsCommandOutput}
  * @see {@link GetLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link GetLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetLoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetLoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingOptionsCommandOutput> {
     return deserializeAws_restJson1GetLoggingOptionsCommand(output, context);
   }

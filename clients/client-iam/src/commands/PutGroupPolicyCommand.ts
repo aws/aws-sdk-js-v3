@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutGroupPolicyCommand}.
  */
 export interface PutGroupPolicyCommandInput extends PutGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutGroupPolicyCommand}.
  */
 export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM
  *             group.</p>
  *          <p>A user can also have managed policies attached to it. To attach a managed policy to a
@@ -55,6 +60,8 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param PutGroupPolicyCommandInput - {@link PutGroupPolicyCommandInput}
+ * @returns {@link PutGroupPolicyCommandOutput}
  * @see {@link PutGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -107,6 +114,9 @@ export class PutGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,10 +156,16 @@ export class PutGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutGroupPolicyCommandOutput> {
     return deserializeAws_queryPutGroupPolicyCommand(output, context);
   }

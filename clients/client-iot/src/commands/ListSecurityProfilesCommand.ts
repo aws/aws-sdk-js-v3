@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityProfilesCommand}.
  */
 export interface ListSecurityProfilesCommandInput extends ListSecurityProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityProfilesCommand}.
  */
 export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Device Defender security profiles
  *       you've
  *       created. You can filter security profiles by dimension or custom metric.</p>
@@ -53,6 +58,8 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityProfilesCommandInput - {@link ListSecurityProfilesCommandInput}
+ * @returns {@link ListSecurityProfilesCommandOutput}
  * @see {@link ListSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +95,9 @@ export class ListSecurityProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class ListSecurityProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSecurityProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityProfilesCommandOutput> {
     return deserializeAws_restJson1ListSecurityProfilesCommand(output, context);
   }

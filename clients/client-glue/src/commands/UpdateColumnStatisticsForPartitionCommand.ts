@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateColumnStatisticsForPartitionCommand}.
  */
 export interface UpdateColumnStatisticsForPartitionCommandInput extends UpdateColumnStatisticsForPartitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateColumnStatisticsForPartitionCommand}.
  */
 export interface UpdateColumnStatisticsForPartitionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates partition statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdatePartition</code>.</p>
  * @example
@@ -49,6 +54,8 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateColumnStatisticsForPartitionCommandInput - {@link UpdateColumnStatisticsForPartitionCommandInput}
+ * @returns {@link UpdateColumnStatisticsForPartitionCommandOutput}
  * @see {@link UpdateColumnStatisticsForPartitionCommandInput} for command's `input` shape.
  * @see {@link UpdateColumnStatisticsForPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateColumnStatisticsForPartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,6 +136,9 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateColumnStatisticsForPartitionCommandInput,
     context: __SerdeContext
@@ -133,6 +146,9 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command<
     return serializeAws_json1_1UpdateColumnStatisticsForPartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

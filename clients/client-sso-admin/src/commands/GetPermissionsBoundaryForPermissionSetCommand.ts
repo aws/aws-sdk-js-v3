@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPermissionsBoundaryForPermissionSetCommand}.
  */
 export interface GetPermissionsBoundaryForPermissionSetCommandInput
   extends GetPermissionsBoundaryForPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPermissionsBoundaryForPermissionSetCommand}.
  */
 export interface GetPermissionsBoundaryForPermissionSetCommandOutput
@@ -38,6 +42,7 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains the permissions boundary for a specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPermissionsBoundaryForPermissionSetCommandInput - {@link GetPermissionsBoundaryForPermissionSetCommandInput}
+ * @returns {@link GetPermissionsBoundaryForPermissionSetCommandOutput}
  * @see {@link GetPermissionsBoundaryForPermissionSetCommandInput} for command's `input` shape.
  * @see {@link GetPermissionsBoundaryForPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPermissionsBoundaryForPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetPermissionsBoundaryForPermissionSetCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<
     return serializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

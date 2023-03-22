@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartGameSessionPlacementCommand}.
  */
 export interface StartGameSessionPlacementCommandInput extends StartGameSessionPlacementInput {}
 /**
+ * @public
+ *
  * The output of {@link StartGameSessionPlacementCommand}.
  */
 export interface StartGameSessionPlacementCommandOutput extends StartGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Places a request for a new game session in a queue. When processing a placement
  *             request, Amazon GameLift searches for available resources on the queue's destinations, scanning
  *             each until it finds resources or the placement request times out.</p>
@@ -85,6 +90,8 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  * const response = await client.send(command);
  * ```
  *
+ * @param StartGameSessionPlacementCommandInput - {@link StartGameSessionPlacementCommandInput}
+ * @returns {@link StartGameSessionPlacementCommandOutput}
  * @see {@link StartGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link StartGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -122,6 +129,9 @@ export class StartGameSessionPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartGameSessionPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,10 +171,16 @@ export class StartGameSessionPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartGameSessionPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartGameSessionPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

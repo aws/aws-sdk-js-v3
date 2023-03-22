@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomKeyStoreCommand}.
  */
 export interface CreateCustomKeyStoreCommandInput extends CreateCustomKeyStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomKeyStoreCommand}.
  */
 export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> backed by a key store that you own and manage. When you use a
  *       KMS key in a custom key store for a cryptographic operation, the cryptographic operation is
  *       actually performed in your key store using your keys. KMS supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>
@@ -133,6 +138,8 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomKeyStoreCommandInput - {@link CreateCustomKeyStoreCommandInput}
+ * @returns {@link CreateCustomKeyStoreCommandOutput}
  * @see {@link CreateCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link CreateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -348,6 +355,9 @@ export class CreateCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -387,10 +397,16 @@ export class CreateCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomKeyStoreCommandOutput> {
     return deserializeAws_json1_1CreateCustomKeyStoreCommand(output, context);
   }

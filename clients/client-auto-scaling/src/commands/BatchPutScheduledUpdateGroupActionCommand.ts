@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link BatchPutScheduledUpdateGroupActionCommand}.
  */
 export interface BatchPutScheduledUpdateGroupActionCommandInput extends BatchPutScheduledUpdateGroupActionType {}
 /**
+ * @public
+ *
  * The output of {@link BatchPutScheduledUpdateGroupActionCommand}.
  */
 export interface BatchPutScheduledUpdateGroupActionCommandOutput
@@ -37,6 +41,7 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchPutScheduledUpdateGroupActionCommandInput - {@link BatchPutScheduledUpdateGroupActionCommandInput}
+ * @returns {@link BatchPutScheduledUpdateGroupActionCommandOutput}
  * @see {@link BatchPutScheduledUpdateGroupActionCommandInput} for command's `input` shape.
  * @see {@link BatchPutScheduledUpdateGroupActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -84,6 +91,9 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutScheduledUpdateGroupActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +133,9 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchPutScheduledUpdateGroupActionCommandInput,
     context: __SerdeContext
@@ -130,6 +143,9 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     return serializeAws_queryBatchPutScheduledUpdateGroupActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

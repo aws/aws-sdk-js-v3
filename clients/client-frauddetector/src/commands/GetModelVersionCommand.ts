@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetModelVersionCommand}.
  */
 export interface GetModelVersionCommandInput extends GetModelVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetModelVersionCommand}.
  */
 export interface GetModelVersionCommandOutput extends GetModelVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of the specified model version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelVersionCommandInput - {@link GetModelVersionCommandInput}
+ * @returns {@link GetModelVersionCommandOutput}
  * @see {@link GetModelVersionCommandInput} for command's `input` shape.
  * @see {@link GetModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetModelVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetModelVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetModelVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelVersionCommandOutput> {
     return deserializeAws_json1_1GetModelVersionCommand(output, context);
   }

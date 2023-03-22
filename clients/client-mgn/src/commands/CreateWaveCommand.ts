@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWaveCommand}.
  */
 export interface CreateWaveCommandInput extends CreateWaveRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWaveCommand}.
  */
 export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWaveCommandInput - {@link CreateWaveCommandInput}
+ * @returns {@link CreateWaveCommandOutput}
  * @see {@link CreateWaveCommandInput} for command's `input` shape.
  * @see {@link CreateWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateWaveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWaveCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateWaveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateWaveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWaveCommandOutput> {
     return deserializeAws_restJson1CreateWaveCommand(output, context);
   }

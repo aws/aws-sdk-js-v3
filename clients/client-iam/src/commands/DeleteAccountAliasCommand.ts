@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountAliasCommand}.
  */
 export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountAliasCommand}.
  */
 export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes the specified Amazon Web Services account alias. For information about using an Amazon Web Services
  *             account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your Amazon Web Services account ID</a> in the
  *                 <i>IAM User Guide</i>.</p>
@@ -43,6 +48,8 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountAliasCommandInput - {@link DeleteAccountAliasCommandInput}
+ * @returns {@link DeleteAccountAliasCommandOutput}
  * @see {@link DeleteAccountAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteAccountAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class DeleteAccountAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAccountAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountAliasCommandOutput> {
     return deserializeAws_queryDeleteAccountAliasCommand(output, context);
   }

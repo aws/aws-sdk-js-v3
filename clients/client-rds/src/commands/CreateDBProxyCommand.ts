@@ -26,15 +26,20 @@ import {
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBProxyCommand}.
  */
 export interface CreateDBProxyCommandInput extends CreateDBProxyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBProxyCommand}.
  */
 export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB proxy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBProxyCommandInput - {@link CreateDBProxyCommandInput}
+ * @returns {@link CreateDBProxyCommandOutput}
  * @see {@link CreateDBProxyCommandInput} for command's `input` shape.
  * @see {@link CreateDBProxyCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -78,6 +85,9 @@ export class CreateDBProxyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBProxyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class CreateDBProxyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBProxyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBProxyCommandOutput> {
     return deserializeAws_queryCreateDBProxyCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceServerCommand}.
  */
 export interface DeleteResourceServerCommandInput extends DeleteResourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceServerCommand}.
  */
 export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a resource server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceServerCommandInput - {@link DeleteResourceServerCommandInput}
+ * @returns {@link DeleteResourceServerCommandOutput}
  * @see {@link DeleteResourceServerCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteResourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeleteResourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceServerCommandOutput> {
     return deserializeAws_json1_1DeleteResourceServerCommand(output, context);
   }

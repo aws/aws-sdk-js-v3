@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalableTargetsCommand}.
  */
 export interface DescribeScalableTargetsCommandInput extends DescribeScalableTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalableTargetsCommand}.
  */
 export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the scalable targets in the specified namespace.</p>
  *          <p>You can filter the results using <code>ResourceIds</code> and
  *             <code>ScalableDimension</code>.</p>
@@ -52,6 +57,8 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalableTargetsCommandInput - {@link DescribeScalableTargetsCommandInput}
+ * @returns {@link DescribeScalableTargetsCommandOutput}
  * @see {@link DescribeScalableTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeScalableTargetsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -120,6 +127,9 @@ export class DescribeScalableTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalableTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,10 +169,16 @@ export class DescribeScalableTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalableTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeScalableTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScalableTargetsCommandOutput> {
     return deserializeAws_json1_1DescribeScalableTargetsCommand(output, context);
   }

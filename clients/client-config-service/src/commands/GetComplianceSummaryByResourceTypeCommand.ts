@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComplianceSummaryByResourceTypeCommand}.
  */
 export interface GetComplianceSummaryByResourceTypeCommandInput extends GetComplianceSummaryByResourceTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetComplianceSummaryByResourceTypeCommand}.
  */
 export interface GetComplianceSummaryByResourceTypeCommandOutput
@@ -37,6 +41,7 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of resources that are compliant and the
  * 			number that are noncompliant. You can specify one or more resource
  * 			types to get these numbers for each resource type. The maximum
@@ -51,6 +56,8 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceSummaryByResourceTypeCommandInput - {@link GetComplianceSummaryByResourceTypeCommandInput}
+ * @returns {@link GetComplianceSummaryByResourceTypeCommandOutput}
  * @see {@link GetComplianceSummaryByResourceTypeCommandInput} for command's `input` shape.
  * @see {@link GetComplianceSummaryByResourceTypeCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -78,6 +85,9 @@ export class GetComplianceSummaryByResourceTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceSummaryByResourceTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class GetComplianceSummaryByResourceTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetComplianceSummaryByResourceTypeCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class GetComplianceSummaryByResourceTypeCommand extends $Command<
     return serializeAws_json1_1GetComplianceSummaryByResourceTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

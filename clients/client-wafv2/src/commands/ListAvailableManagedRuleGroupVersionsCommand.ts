@@ -26,11 +26,15 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListAvailableManagedRuleGroupVersionsCommand}.
  */
 export interface ListAvailableManagedRuleGroupVersionsCommandInput
   extends ListAvailableManagedRuleGroupVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAvailableManagedRuleGroupVersionsCommand}.
  */
 export interface ListAvailableManagedRuleGroupVersionsCommandOutput
@@ -38,6 +42,7 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available versions for the specified managed rule group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAvailableManagedRuleGroupVersionsCommandInput - {@link ListAvailableManagedRuleGroupVersionsCommandInput}
+ * @returns {@link ListAvailableManagedRuleGroupVersionsCommandOutput}
  * @see {@link ListAvailableManagedRuleGroupVersionsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableManagedRuleGroupVersionsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -106,6 +113,9 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAvailableManagedRuleGroupVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,6 +155,9 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAvailableManagedRuleGroupVersionsCommandInput,
     context: __SerdeContext
@@ -152,6 +165,9 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
     return serializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

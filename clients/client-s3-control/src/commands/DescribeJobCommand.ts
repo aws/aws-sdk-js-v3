@@ -27,15 +27,20 @@ import {
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandInput extends DescribeJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobCommand}.
  */
 export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
@@ -72,6 +77,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
+ * @returns {@link DescribeJobCommandOutput}
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -110,6 +117,9 @@ export class DescribeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class DescribeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDescribeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobCommandOutput> {
     return deserializeAws_restXmlDescribeJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDocumentVersionsCommand}.
  */
 export interface DescribeDocumentVersionsCommandInput extends DescribeDocumentVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDocumentVersionsCommand}.
  */
 export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the document versions for the specified document.</p>
  *          <p>By default, only active versions are returned.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDocumentVersionsCommandInput - {@link DescribeDocumentVersionsCommandInput}
+ * @returns {@link DescribeDocumentVersionsCommandOutput}
  * @see {@link DescribeDocumentVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentVersionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -96,6 +103,9 @@ export class DescribeDocumentVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDocumentVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,10 +145,16 @@ export class DescribeDocumentVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDocumentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDocumentVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDocumentVersionsCommandOutput> {
     return deserializeAws_restJson1DescribeDocumentVersionsCommand(output, context);
   }

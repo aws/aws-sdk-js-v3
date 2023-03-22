@@ -26,15 +26,20 @@ import {
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopInferenceExperimentCommand}.
  */
 export interface StopInferenceExperimentCommandInput extends StopInferenceExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopInferenceExperimentCommand}.
  */
 export interface StopInferenceExperimentCommandOutput extends StopInferenceExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an inference experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopInferenceExperimentCommandOutput extends StopInferenceExper
  * const response = await client.send(command);
  * ```
  *
+ * @param StopInferenceExperimentCommandInput - {@link StopInferenceExperimentCommandInput}
+ * @returns {@link StopInferenceExperimentCommandOutput}
  * @see {@link StopInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link StopInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +83,9 @@ export class StopInferenceExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopInferenceExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,10 +125,16 @@ export class StopInferenceExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopInferenceExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInferenceExperimentCommandOutput> {
     return deserializeAws_json1_1StopInferenceExperimentCommand(output, context);
   }

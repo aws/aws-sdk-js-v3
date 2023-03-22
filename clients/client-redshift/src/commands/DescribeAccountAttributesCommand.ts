@@ -26,15 +26,20 @@ import {
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountAttributesCommand}.
  */
 export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountAttributesCommand}.
  */
 export interface DescribeAccountAttributesCommandOutput extends AccountAttributeList, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of attributes attached to an account</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
+ * @returns {@link DescribeAccountAttributesCommandOutput}
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -69,6 +76,9 @@ export class DescribeAccountAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,10 +118,16 @@ export class DescribeAccountAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAccountAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

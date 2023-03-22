@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReceivedLicensesForOrganizationCommand}.
  */
 export interface ListReceivedLicensesForOrganizationCommandInput extends ListReceivedLicensesForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReceivedLicensesForOrganizationCommand}.
  */
 export interface ListReceivedLicensesForOrganizationCommandOutput
@@ -37,6 +41,7 @@ export interface ListReceivedLicensesForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the licenses received for all accounts in the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListReceivedLicensesForOrganizationCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceivedLicensesForOrganizationCommandInput - {@link ListReceivedLicensesForOrganizationCommandInput}
+ * @returns {@link ListReceivedLicensesForOrganizationCommandOutput}
  * @see {@link ListReceivedLicensesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListReceivedLicensesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -93,6 +100,9 @@ export class ListReceivedLicensesForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceivedLicensesForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +142,9 @@ export class ListReceivedLicensesForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListReceivedLicensesForOrganizationCommandInput,
     context: __SerdeContext
@@ -139,6 +152,9 @@ export class ListReceivedLicensesForOrganizationCommand extends $Command<
     return serializeAws_json1_1ListReceivedLicensesForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

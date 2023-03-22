@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableUserCommand}.
  */
 export interface DisableUserCommandInput extends DisableUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableUserCommand}.
  */
 export interface DisableUserCommandOutput extends DisableUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Denies access to the FinSpace web application and API for the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableUserCommandInput - {@link DisableUserCommandInput}
+ * @returns {@link DisableUserCommandOutput}
  * @see {@link DisableUserCommandInput} for command's `input` shape.
  * @see {@link DisableUserCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +95,9 @@ export class DisableUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class DisableUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisableUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableUserCommandOutput> {
     return deserializeAws_restJson1DisableUserCommand(output, context);
   }

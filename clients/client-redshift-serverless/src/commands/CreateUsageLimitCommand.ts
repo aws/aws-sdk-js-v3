@@ -30,15 +30,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUsageLimitCommand}.
  */
 export interface CreateUsageLimitCommandInput extends CreateUsageLimitRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUsageLimitCommand}.
  */
 export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a usage limit for a specified Amazon Redshift Serverless usage type. The usage limit is identified by the returned usage limit identifier.
  *       </p>
  * @example
@@ -51,6 +56,8 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUsageLimitCommandInput - {@link CreateUsageLimitCommandInput}
+ * @returns {@link CreateUsageLimitCommandOutput}
  * @see {@link CreateUsageLimitCommandInput} for command's `input` shape.
  * @see {@link CreateUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateUsageLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUsageLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateUsageLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUsageLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUsageLimitCommandOutput> {
     return deserializeAws_json1_1CreateUsageLimitCommand(output, context);
   }

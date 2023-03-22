@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScheduleCommand}.
  */
 export interface CreateScheduleCommandInput extends CreateScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateScheduleCommand}.
  */
 export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific
  *             date and time, or at regular intervals.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScheduleCommandInput - {@link CreateScheduleCommandInput}
+ * @returns {@link CreateScheduleCommandOutput}
  * @see {@link CreateScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateScheduleCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreateScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduleCommandOutput> {
     return deserializeAws_restJson1CreateScheduleCommand(output, context);
   }

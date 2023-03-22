@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateComponentCommand}.
  */
 export interface CreateComponentCommandInput extends CreateComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateComponentCommand}.
  */
 export interface CreateComponentCommandOutput extends CreateComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new component that can be used to build, validate, test, and assess your
  * 			image. The component is based on a YAML document that you specify using exactly one
  * 			of the following methods:</p>
@@ -57,6 +62,8 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
+ * @returns {@link CreateComponentCommandOutput}
  * @see {@link CreateComponentCommandInput} for command's `input` shape.
  * @see {@link CreateComponentCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -118,6 +125,9 @@ export class CreateComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,10 +167,16 @@ export class CreateComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentCommandOutput> {
     return deserializeAws_restJson1CreateComponentCommand(output, context);
   }

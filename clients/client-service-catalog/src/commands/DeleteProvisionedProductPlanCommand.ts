@@ -26,10 +26,14 @@ import {
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProvisionedProductPlanCommand}.
  */
 export interface DeleteProvisionedProductPlanCommandInput extends DeleteProvisionedProductPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProvisionedProductPlanCommand}.
  */
 export interface DeleteProvisionedProductPlanCommandOutput
@@ -37,6 +41,7 @@ export interface DeleteProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface DeleteProvisionedProductPlanCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProvisionedProductPlanCommandInput - {@link DeleteProvisionedProductPlanCommandInput}
+ * @returns {@link DeleteProvisionedProductPlanCommandOutput}
  * @see {@link DeleteProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProvisionedProductPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,10 +126,16 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProvisionedProductPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteProvisionedProductPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

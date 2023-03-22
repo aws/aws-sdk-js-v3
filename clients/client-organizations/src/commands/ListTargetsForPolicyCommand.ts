@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetsForPolicyCommand}.
  */
 export interface ListTargetsForPolicyCommandInput extends ListTargetsForPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetsForPolicyCommand}.
  */
 export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the roots, organizational units (OUs), and accounts that the specified
  *             policy is attached to.</p>
  *          <note>
@@ -57,6 +62,8 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsForPolicyCommandInput - {@link ListTargetsForPolicyCommandInput}
+ * @returns {@link ListTargetsForPolicyCommandOutput}
  * @see {@link ListTargetsForPolicyCommandInput} for command's `input` shape.
  * @see {@link ListTargetsForPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -247,6 +254,9 @@ export class ListTargetsForPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsForPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -286,10 +296,16 @@ export class ListTargetsForPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTargetsForPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsForPolicyCommandOutput> {
     return deserializeAws_json1_1ListTargetsForPolicyCommand(output, context);
   }

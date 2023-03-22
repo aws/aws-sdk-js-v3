@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopBuildBatchCommand}.
  */
 export interface StopBuildBatchCommandInput extends StopBuildBatchInput {}
 /**
+ * @public
+ *
  * The output of {@link StopBuildBatchCommand}.
  */
 export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running batch build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBuildBatchCommandInput - {@link StopBuildBatchCommandInput}
+ * @returns {@link StopBuildBatchCommandOutput}
  * @see {@link StopBuildBatchCommandInput} for command's `input` shape.
  * @see {@link StopBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +82,9 @@ export class StopBuildBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBuildBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class StopBuildBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBuildBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopBuildBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBuildBatchCommandOutput> {
     return deserializeAws_json1_1StopBuildBatchCommand(output, context);
   }

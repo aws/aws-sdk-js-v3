@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopFleetActionsCommand}.
  */
 export interface StopFleetActionsCommandInput extends StopFleetActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link StopFleetActionsCommand}.
  */
 export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends certain types of activity in a fleet location. Currently, this operation is
  *             used to stop auto-scaling activity. For multi-location fleets, fleet actions are managed
  *             separately for each location. </p>
@@ -72,6 +77,8 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param StopFleetActionsCommandInput - {@link StopFleetActionsCommandInput}
+ * @returns {@link StopFleetActionsCommandOutput}
  * @see {@link StopFleetActionsCommandInput} for command's `input` shape.
  * @see {@link StopFleetActionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -112,6 +119,9 @@ export class StopFleetActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopFleetActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,10 +161,16 @@ export class StopFleetActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopFleetActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopFleetActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFleetActionsCommandOutput> {
     return deserializeAws_json1_1StopFleetActionsCommand(output, context);
   }

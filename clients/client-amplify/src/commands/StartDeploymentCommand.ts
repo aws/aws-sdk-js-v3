@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDeploymentCommand}.
  */
 export interface StartDeploymentCommandInput extends StartDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDeploymentCommand}.
  */
 export interface StartDeploymentCommandOutput extends StartDeploymentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts a deployment for a manually deployed app. Manually deployed apps are not
  *             connected to a repository. </p>
  * @example
@@ -47,6 +52,8 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResult, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
+ * @returns {@link StartDeploymentCommandOutput}
  * @see {@link StartDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -85,6 +92,9 @@ export class StartDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class StartDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeploymentCommandOutput> {
     return deserializeAws_restJson1StartDeploymentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrailsCommand}.
  */
 export interface DescribeTrailsCommandInput extends DescribeTrailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrailsCommand}.
  */
 export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves settings for one or more trails associated with the current region for your
  *          account.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrailsCommandInput - {@link DescribeTrailsCommandInput}
+ * @returns {@link DescribeTrailsCommandOutput}
  * @see {@link DescribeTrailsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrailsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -103,6 +110,9 @@ export class DescribeTrailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class DescribeTrailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTrailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrailsCommandOutput> {
     return deserializeAws_json1_1DescribeTrailsCommand(output, context);
   }

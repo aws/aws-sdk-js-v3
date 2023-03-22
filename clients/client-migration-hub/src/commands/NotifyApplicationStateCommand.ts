@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyApplicationStateCommand}.
  */
 export interface NotifyApplicationStateCommandInput extends NotifyApplicationStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link NotifyApplicationStateCommand}.
  */
 export interface NotifyApplicationStateCommandOutput extends NotifyApplicationStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the migration state of an application. For a given application identified by the
  *          value passed to <code>ApplicationId</code>, its status is set or updated by passing one of
  *          three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS |
@@ -49,6 +54,8 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyApplicationStateCommandInput - {@link NotifyApplicationStateCommandInput}
+ * @returns {@link NotifyApplicationStateCommandOutput}
  * @see {@link NotifyApplicationStateCommandInput} for command's `input` shape.
  * @see {@link NotifyApplicationStateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -111,6 +118,9 @@ export class NotifyApplicationStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyApplicationStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class NotifyApplicationStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyApplicationStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1NotifyApplicationStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyApplicationStateCommandOutput> {
     return deserializeAws_json1_1NotifyApplicationStateCommand(output, context);
   }

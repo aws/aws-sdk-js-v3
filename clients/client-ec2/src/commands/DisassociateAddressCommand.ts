@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateAddressCommand}.
  */
 export interface DisassociateAddressCommandInput extends DisassociateAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateAddressCommand}.
  */
 export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
  *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
@@ -48,6 +53,8 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAddressCommandInput - {@link DisassociateAddressCommandInput}
+ * @returns {@link DisassociateAddressCommandOutput}
  * @see {@link DisassociateAddressCommandInput} for command's `input` shape.
  * @see {@link DisassociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -93,6 +100,9 @@ export class DisassociateAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,10 +142,16 @@ export class DisassociateAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAddressCommandOutput> {
     return deserializeAws_ec2DisassociateAddressCommand(output, context);
   }

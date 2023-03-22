@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstancePatchStatesCommand}.
  */
 export interface DescribeInstancePatchStatesCommandInput extends DescribeInstancePatchStatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstancePatchStatesCommand}.
  */
 export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstancePatchStatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the high-level patch state of one or more managed nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancePatchStatesCommandInput - {@link DescribeInstancePatchStatesCommandInput}
+ * @returns {@link DescribeInstancePatchStatesCommandOutput}
  * @see {@link DescribeInstancePatchStatesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchStatesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -75,6 +82,9 @@ export class DescribeInstancePatchStatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancePatchStatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class DescribeInstancePatchStatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancePatchStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeInstancePatchStatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

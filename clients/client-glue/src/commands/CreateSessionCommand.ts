@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSessionCommand}.
  */
 export interface CreateSessionCommandInput extends CreateSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSessionCommand}.
  */
 export interface CreateSessionCommandOutput extends CreateSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSessionCommandInput - {@link CreateSessionCommandInput}
+ * @returns {@link CreateSessionCommandOutput}
  * @see {@link CreateSessionCommandInput} for command's `input` shape.
  * @see {@link CreateSessionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -93,6 +100,9 @@ export class CreateSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class CreateSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSessionCommandOutput> {
     return deserializeAws_json1_1CreateSessionCommand(output, context);
   }

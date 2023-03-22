@@ -26,10 +26,14 @@ import {
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJournalKinesisStreamCommand}.
  */
 export interface DescribeJournalKinesisStreamCommandInput extends DescribeJournalKinesisStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJournalKinesisStreamCommand}.
  */
 export interface DescribeJournalKinesisStreamCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeJournalKinesisStreamCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about a given Amazon QLDB journal stream. The output
  *          includes the Amazon Resource Name (ARN), stream name, current status, creation time, and
  *          the parameters of the original stream creation request.</p>
@@ -53,6 +58,8 @@ export interface DescribeJournalKinesisStreamCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJournalKinesisStreamCommandInput - {@link DescribeJournalKinesisStreamCommandInput}
+ * @returns {@link DescribeJournalKinesisStreamCommandOutput}
  * @see {@link DescribeJournalKinesisStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeJournalKinesisStreamCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -85,6 +92,9 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJournalKinesisStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJournalKinesisStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJournalKinesisStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

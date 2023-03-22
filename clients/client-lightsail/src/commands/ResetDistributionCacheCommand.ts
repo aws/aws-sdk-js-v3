@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetDistributionCacheCommand}.
  */
 export interface ResetDistributionCacheCommandInput extends ResetDistributionCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetDistributionCacheCommand}.
  */
 export interface ResetDistributionCacheCommandOutput extends ResetDistributionCacheResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes currently cached content from your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>After resetting the cache, the next time a content request is made, your distribution
@@ -49,6 +54,8 @@ export interface ResetDistributionCacheCommandOutput extends ResetDistributionCa
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetDistributionCacheCommandInput - {@link ResetDistributionCacheCommandInput}
+ * @returns {@link ResetDistributionCacheCommandOutput}
  * @see {@link ResetDistributionCacheCommandInput} for command's `input` shape.
  * @see {@link ResetDistributionCacheCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -98,6 +105,9 @@ export class ResetDistributionCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetDistributionCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,10 +147,16 @@ export class ResetDistributionCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetDistributionCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetDistributionCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetDistributionCacheCommandOutput> {
     return deserializeAws_json1_1ResetDistributionCacheCommand(output, context);
   }

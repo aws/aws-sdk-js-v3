@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkspaceBundleCommand}.
  */
 export interface CreateWorkspaceBundleCommandInput extends CreateWorkspaceBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkspaceBundleCommand}.
  */
 export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified WorkSpace bundle. For more information about creating WorkSpace bundles, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html">
  *             Create a Custom WorkSpaces Image and Bundle</a>.</p>
@@ -48,6 +53,8 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkspaceBundleCommandInput - {@link CreateWorkspaceBundleCommandInput}
+ * @returns {@link CreateWorkspaceBundleCommandOutput}
  * @see {@link CreateWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceBundleCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -89,6 +96,9 @@ export class CreateWorkspaceBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkspaceBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,10 +138,16 @@ export class CreateWorkspaceBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkspaceBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWorkspaceBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceBundleCommandOutput> {
     return deserializeAws_json1_1CreateWorkspaceBundleCommand(output, context);
   }

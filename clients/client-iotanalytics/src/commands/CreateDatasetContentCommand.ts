@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetContentCommand}.
  */
 export interface CreateDatasetContentCommandInput extends CreateDatasetContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetContentCommand}.
  */
 export interface CreateDatasetContentCommandOutput extends CreateDatasetContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the content of a dataset by applying a <code>queryAction</code> (a SQL query) or a
  *         <code>containerAction</code> (executing a containerized application).</p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetContentCommandInput - {@link CreateDatasetContentCommandInput}
+ * @returns {@link CreateDatasetContentCommandOutput}
  * @see {@link CreateDatasetContentCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetContentCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -85,6 +92,9 @@ export class CreateDatasetContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,10 +134,16 @@ export class CreateDatasetContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateDatasetContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetContentCommandOutput> {
     return deserializeAws_restJson1CreateDatasetContentCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePublicVirtualInterfaceCommand}.
  */
 export interface CreatePublicVirtualInterfaceCommandInput extends CreatePublicVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePublicVirtualInterfaceCommand}.
  */
 export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a public virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
  *       A public virtual interface supports sending traffic to public services of Amazon Web Services such as Amazon S3.</p>
  *          <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code>
@@ -49,6 +54,8 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePublicVirtualInterfaceCommandInput - {@link CreatePublicVirtualInterfaceCommandInput}
+ * @returns {@link CreatePublicVirtualInterfaceCommandOutput}
  * @see {@link CreatePublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreatePublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreatePublicVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePublicVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreatePublicVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePublicVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePublicVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceOnboardingJobStatusCommand}.
  */
 export interface GetInstanceOnboardingJobStatusCommandInput extends GetInstanceOnboardingJobStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceOnboardingJobStatusCommand}.
  */
 export interface GetInstanceOnboardingJobStatusCommandOutput
@@ -37,6 +41,7 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Get the specific instance onboarding job status.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceOnboardingJobStatusCommandInput - {@link GetInstanceOnboardingJobStatusCommandInput}
+ * @returns {@link GetInstanceOnboardingJobStatusCommandOutput}
  * @see {@link GetInstanceOnboardingJobStatusCommandInput} for command's `input` shape.
  * @see {@link GetInstanceOnboardingJobStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -83,6 +90,9 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceOnboardingJobStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,6 +132,9 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetInstanceOnboardingJobStatusCommandInput,
     context: __SerdeContext
@@ -129,6 +142,9 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command<
     return serializeAws_restJson1GetInstanceOnboardingJobStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

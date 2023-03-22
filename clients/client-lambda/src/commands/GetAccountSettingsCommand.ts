@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountSettingsCommand}.
  */
 export interface GetAccountSettingsCommandInput extends GetAccountSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountSettingsCommand}.
  */
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
+ * @returns {@link GetAccountSettingsCommandOutput}
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSettingsCommandOutput> {
     return deserializeAws_restJson1GetAccountSettingsCommand(output, context);
   }

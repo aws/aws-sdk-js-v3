@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterSnapshotCommand}.
  */
 export interface CreateClusterSnapshotCommandInput extends CreateClusterSnapshotInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterSnapshotCommand}.
  */
 export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapshotOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterSnapshotCommandInput - {@link CreateClusterSnapshotCommandInput}
+ * @returns {@link CreateClusterSnapshotCommandOutput}
  * @see {@link CreateClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterSnapshotCommandOutput> {
     return deserializeAws_restJson1CreateClusterSnapshotCommand(output, context);
   }

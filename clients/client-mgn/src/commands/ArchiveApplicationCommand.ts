@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ArchiveApplicationCommand}.
  */
 export interface ArchiveApplicationCommandInput extends ArchiveApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ArchiveApplicationCommand}.
  */
 export interface ArchiveApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Archive application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ArchiveApplicationCommandOutput extends Application, __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param ArchiveApplicationCommandInput - {@link ArchiveApplicationCommandInput}
+ * @returns {@link ArchiveApplicationCommandOutput}
  * @see {@link ArchiveApplicationCommandInput} for command's `input` shape.
  * @see {@link ArchiveApplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -81,6 +88,9 @@ export class ArchiveApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ArchiveApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class ArchiveApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ArchiveApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ArchiveApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveApplicationCommandOutput> {
     return deserializeAws_restJson1ArchiveApplicationCommand(output, context);
   }

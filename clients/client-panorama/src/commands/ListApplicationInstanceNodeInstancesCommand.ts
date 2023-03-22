@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationInstanceNodeInstancesCommand}.
  */
 export interface ListApplicationInstanceNodeInstancesCommandInput extends ListApplicationInstanceNodeInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationInstanceNodeInstancesCommand}.
  */
 export interface ListApplicationInstanceNodeInstancesCommandOutput
@@ -37,6 +41,7 @@ export interface ListApplicationInstanceNodeInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of application node instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListApplicationInstanceNodeInstancesCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationInstanceNodeInstancesCommandInput - {@link ListApplicationInstanceNodeInstancesCommandInput}
+ * @returns {@link ListApplicationInstanceNodeInstancesCommandOutput}
  * @see {@link ListApplicationInstanceNodeInstancesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationInstanceNodeInstancesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListApplicationInstanceNodeInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationInstanceNodeInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class ListApplicationInstanceNodeInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListApplicationInstanceNodeInstancesCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class ListApplicationInstanceNodeInstancesCommand extends $Command<
     return serializeAws_restJson1ListApplicationInstanceNodeInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

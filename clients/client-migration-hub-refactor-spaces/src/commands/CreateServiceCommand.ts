@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandInput extends CreateServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces service. The account owner of the service is always the
  *       environment owner, regardless of which account in the environment creates the service.
  *       Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda
@@ -59,6 +64,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
+ * @returns {@link CreateServiceCommandOutput}
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
@@ -104,6 +111,9 @@ export class CreateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class CreateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
     return deserializeAws_restJson1CreateServiceCommand(output, context);
   }

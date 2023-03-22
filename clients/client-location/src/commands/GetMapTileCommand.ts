@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMapTileCommand}.
  */
 export interface GetMapTileCommandInput extends GetMapTileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMapTileCommand}.
  */
 export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a vector data tile from the map resource. Map tiles are used by clients to
  *             render a map. they're addressed using a grid arrangement with an X coordinate, Y
  *             coordinate, and Z (zoom) level. </p>
@@ -51,6 +56,8 @@ export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMapTileCommandInput - {@link GetMapTileCommandInput}
+ * @returns {@link GetMapTileCommandOutput}
  * @see {@link GetMapTileCommandInput} for command's `input` shape.
  * @see {@link GetMapTileCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetMapTileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMapTileCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class GetMapTileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMapTileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMapTileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMapTileCommandOutput> {
     return deserializeAws_restJson1GetMapTileCommand(output, context);
   }

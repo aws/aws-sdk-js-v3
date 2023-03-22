@@ -79,6 +79,7 @@ import {
 import { TimestreamWriteClient } from "./TimestreamWriteClient";
 
 /**
+ * @public
  * <fullname>Amazon Timestream Write</fullname>
  *          <p>Amazon Timestream is a fast, scalable, fully managed time-series database service
  *          that makes it easy to store and analyze trillions of time-series data points per day. With
@@ -95,6 +96,7 @@ import { TimestreamWriteClient } from "./TimestreamWriteClient";
  */
 export class TimestreamWrite extends TimestreamWriteClient {
   /**
+   * @public
    * <p>Creates a new Timestream batch load task. A batch load task processes data from
    *          a CSV source in an S3 location and writes to a Timestream table. A mapping from
    *          source to target is defined in a batch load task. Errors and events are written to a report
@@ -135,6 +137,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Timestream database. If the KMS key is not
    *          specified, the database will be encrypted with a Timestream managed KMS key located in your account. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed keys</a>. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. For
    *          details, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html">code sample</a>.
@@ -170,6 +173,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Adds a new table to an existing database in your account. In an Amazon Web Services account, table names must be at least unique within each Region if they are in the same
    *          database. You might have identical table names in the same Region if the tables are in
    *          separate databases. While creating the table, you must specify the table name, database
@@ -201,6 +205,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Deletes a given Timestream database. <i>This is an irreversible
    *             operation. After a database is deleted, the time-series data from its tables cannot be
    *             recovered.</i>
@@ -244,6 +249,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Deletes a given Timestream table. This is an irreversible operation. After a
    *             Timestream database table is deleted, the time-series data stored in the table
    *          cannot be recovered. </p>
@@ -278,6 +284,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the batch load task, including configurations, mappings,
    *          progress, and other details. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
    *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-batch-load.html">code
@@ -313,6 +320,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the database, including the database name, time that the
    *          database was created, and the total number of tables found within the database. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
    *             quotas apply</a>. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-db.html">code sample</a>
@@ -348,6 +356,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of available endpoints to make Timestream API calls against.
    *          This API operation is available through both the Write and Query APIs.</p>
    *          <p>Because the Timestream SDKs are designed to transparently work with the
@@ -400,6 +409,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the table, including the table name, database name, retention
    *          duration of the memory store and the magnetic store. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
    *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-table.html">code
@@ -435,6 +445,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of batch load tasks, along with the name, status, when the task is
    *          resumable until, and other details. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-batch-load-tasks.html">code
    *             sample</a> for details.</p>
@@ -469,6 +480,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of your Timestream databases. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
    *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-db.html">code sample</a> for
    *          details. </p>
@@ -503,6 +515,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of tables, along with the name, status, and retention properties of each
    *          table. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html">code sample</a>
    *          for details. </p>
@@ -531,6 +544,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p> Lists all tags on a Timestream resource. </p>
    */
   public listTagsForResource(
@@ -563,6 +577,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>
    *       </p>
    */
@@ -596,6 +611,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p> Associates a set of tags with a Timestream resource. You can then activate
    *          these user-defined tags so that they appear on the Billing and Cost Management console for
    *          cost allocation tracking. </p>
@@ -624,6 +640,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p> Removes the association of tags from a Timestream resource. </p>
    */
   public untagResource(
@@ -656,6 +673,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p> Modifies the KMS key for an existing database. While updating the
    *          database, you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>). If there are any concurrent
    *             <code>UpdateDatabase</code> requests, first writer wins. </p>
@@ -692,6 +710,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Modifies the retention duration of the memory store and magnetic store for your Timestream table. Note that the change in retention duration takes effect immediately.
    *          For example, if the retention period of the memory store was initially set to 2 hours and
    *          then changed to 24 hours, the memory store will be capable of holding 24 hours of data, but
@@ -723,6 +742,7 @@ export class TimestreamWrite extends TimestreamWriteClient {
   }
 
   /**
+   * @public
    * <p>Enables you to write your time-series data into Timestream. You can specify a
    *          single data point or a batch of data points to be inserted into the system. Timestream offers you a flexible schema that auto detects the column names and data
    *          types for your Timestream tables based on the dimension names and data types of

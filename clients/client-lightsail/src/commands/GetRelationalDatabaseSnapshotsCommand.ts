@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseSnapshotsCommand}.
  */
 export interface GetRelationalDatabaseSnapshotsCommandInput extends GetRelationalDatabaseSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseSnapshotsCommand}.
  */
 export interface GetRelationalDatabaseSnapshotsCommandOutput
@@ -37,6 +41,7 @@ export interface GetRelationalDatabaseSnapshotsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all of your database snapshots in Amazon Lightsail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface GetRelationalDatabaseSnapshotsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseSnapshotsCommandInput - {@link GetRelationalDatabaseSnapshotsCommandInput}
+ * @returns {@link GetRelationalDatabaseSnapshotsCommandOutput}
  * @see {@link GetRelationalDatabaseSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +108,9 @@ export class GetRelationalDatabaseSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,6 +150,9 @@ export class GetRelationalDatabaseSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseSnapshotsCommandInput,
     context: __SerdeContext
@@ -147,6 +160,9 @@ export class GetRelationalDatabaseSnapshotsCommand extends $Command<
     return serializeAws_json1_1GetRelationalDatabaseSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

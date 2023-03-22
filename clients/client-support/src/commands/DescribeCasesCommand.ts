@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCasesCommand}.
  */
 export interface DescribeCasesCommandInput extends DescribeCasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCasesCommand}.
  */
 export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of cases that you specify by passing one or more case IDs. You can use
  *             the <code>afterTime</code> and <code>beforeTime</code> parameters to filter the cases by
  *             date. You can set values for the <code>includeResolvedCases</code> and
@@ -76,6 +81,8 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCasesCommandInput - {@link DescribeCasesCommandInput}
+ * @returns {@link DescribeCasesCommandOutput}
  * @see {@link DescribeCasesCommandInput} for command's `input` shape.
  * @see {@link DescribeCasesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -105,6 +112,9 @@ export class DescribeCasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,10 +152,16 @@ export class DescribeCasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCasesCommandOutput> {
     return deserializeAws_json1_1DescribeCasesCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterJobDefinitionCommand}.
  */
 export interface DeregisterJobDefinitionCommandInput extends DeregisterJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterJobDefinitionCommand}.
  */
 export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an Batch job definition. Job definitions are permanently deleted after 180 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterJobDefinitionCommandInput - {@link DeregisterJobDefinitionCommandInput}
+ * @returns {@link DeregisterJobDefinitionCommandOutput}
  * @see {@link DeregisterJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeregisterJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeregisterJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,10 +137,16 @@ export class DeregisterJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterJobDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeregisterJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterJobDefinitionCommandOutput> {
     return deserializeAws_restJson1DeregisterJobDefinitionCommand(output, context);
   }

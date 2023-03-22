@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportFirewallDomainsCommand}.
  */
 export interface ImportFirewallDomainsCommandInput extends ImportFirewallDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportFirewallDomainsCommand}.
  */
 export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports domain names from a file into a domain list, for use in a DNS firewall rule group. </p>
  *          <p>Each domain specification in your domain list must satisfy the following
  * 	requirements: </p>
@@ -61,6 +66,8 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportFirewallDomainsCommandInput - {@link ImportFirewallDomainsCommandInput}
+ * @returns {@link ImportFirewallDomainsCommandOutput}
  * @see {@link ImportFirewallDomainsCommandInput} for command's `input` shape.
  * @see {@link ImportFirewallDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -108,6 +115,9 @@ export class ImportFirewallDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportFirewallDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,10 +157,16 @@ export class ImportFirewallDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportFirewallDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportFirewallDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportFirewallDomainsCommandOutput> {
     return deserializeAws_json1_1ImportFirewallDomainsCommand(output, context);
   }

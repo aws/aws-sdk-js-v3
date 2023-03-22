@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMonitorEvaluationsCommand}.
  */
 export interface ListMonitorEvaluationsCommandInput extends ListMonitorEvaluationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMonitorEvaluationsCommand}.
  */
 export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the monitoring evaluation results and predictor events collected by
  *          the monitor resource during different windows of time.</p>
  *          <p>For information about monitoring see <a>predictor-monitoring</a>. For
@@ -49,6 +54,8 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMonitorEvaluationsCommandInput - {@link ListMonitorEvaluationsCommandInput}
+ * @returns {@link ListMonitorEvaluationsCommandOutput}
  * @see {@link ListMonitorEvaluationsCommandInput} for command's `input` shape.
  * @see {@link ListMonitorEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -83,6 +90,9 @@ export class ListMonitorEvaluationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMonitorEvaluationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,10 +132,16 @@ export class ListMonitorEvaluationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMonitorEvaluationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMonitorEvaluationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitorEvaluationsCommandOutput> {
     return deserializeAws_json1_1ListMonitorEvaluationsCommand(output, context);
   }

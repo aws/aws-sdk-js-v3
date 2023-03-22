@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkSettingsCommand}.
  */
 export interface GetNetworkSettingsCommandInput extends GetNetworkSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkSettingsCommand}.
  */
 export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the network settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkSettingsCommandInput - {@link GetNetworkSettingsCommandInput}
+ * @returns {@link GetNetworkSettingsCommandOutput}
  * @see {@link GetNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkSettingsCommandOutput> {
     return deserializeAws_restJson1GetNetworkSettingsCommand(output, context);
   }

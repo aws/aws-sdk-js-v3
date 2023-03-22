@@ -6,7 +6,7 @@ import { GetApiKeysCommand, GetApiKeysCommandInput, GetApiKeysCommandOutput } fr
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: APIGatewayClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetApiKeysCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetApiKeys(
   config: APIGatewayPaginationConfiguration,
   input: GetApiKeysCommandInput,

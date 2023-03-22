@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLogEventsCommand}.
  */
 export interface PutLogEventsCommandInput extends PutLogEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLogEventsCommand}.
  */
 export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a batch of log events to the specified log stream.</p>
  *          <important>
  *             <p>The sequence token is now ignored in <code>PutLogEvents</code>
@@ -91,6 +96,8 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLogEventsCommandInput - {@link PutLogEventsCommandInput}
+ * @returns {@link PutLogEventsCommandOutput}
  * @see {@link PutLogEventsCommandInput} for command's `input` shape.
  * @see {@link PutLogEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -148,6 +155,9 @@ export class PutLogEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLogEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,10 +195,16 @@ export class PutLogEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutLogEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLogEventsCommandOutput> {
     return deserializeAws_json1_1PutLogEventsCommand(output, context);
   }

@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateUserAccessLoggingSettingsCommand}.
  */
 export interface AssociateUserAccessLoggingSettingsCommandInput extends AssociateUserAccessLoggingSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateUserAccessLoggingSettingsCommand}.
  */
 export interface AssociateUserAccessLoggingSettingsCommandOutput
@@ -37,6 +41,7 @@ export interface AssociateUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a user access logging settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface AssociateUserAccessLoggingSettingsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateUserAccessLoggingSettingsCommandInput - {@link AssociateUserAccessLoggingSettingsCommandInput}
+ * @returns {@link AssociateUserAccessLoggingSettingsCommandOutput}
  * @see {@link AssociateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -89,6 +96,9 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command<
     return serializeAws_restJson1AssociateUserAccessLoggingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

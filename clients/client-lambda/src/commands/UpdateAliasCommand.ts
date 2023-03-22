@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAliasCommand}.
  */
 export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAliasCommand}.
  */
 export interface UpdateAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface UpdateAliasCommandOutput extends AliasConfiguration, __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
+ * @returns {@link UpdateAliasCommandOutput}
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpdateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,10 +135,16 @@ export class UpdateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAliasCommandOutput> {
     return deserializeAws_restJson1UpdateAliasCommand(output, context);
   }

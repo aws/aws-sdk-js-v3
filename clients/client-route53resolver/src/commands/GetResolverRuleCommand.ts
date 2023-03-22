@@ -26,15 +26,20 @@ import {
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverRuleCommand}.
  */
 export interface GetResolverRuleCommandInput extends GetResolverRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverRuleCommand}.
  */
 export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the
  * 			outbound Resolver endpoint that the rule is associated with.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverRuleCommandInput - {@link GetResolverRuleCommandInput}
+ * @returns {@link GetResolverRuleCommandOutput}
  * @see {@link GetResolverRuleCommandInput} for command's `input` shape.
  * @see {@link GetResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -82,6 +89,9 @@ export class GetResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class GetResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResolverRuleCommandOutput> {
     return deserializeAws_json1_1GetResolverRuleCommand(output, context);
   }

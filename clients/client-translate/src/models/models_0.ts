@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TranslateServiceException as __BaseException } from "./TranslateServiceException";
 
 /**
+ * @public
  * <p>The term being translated by the custom terminology.</p>
  */
 export interface Term {
@@ -19,6 +20,7 @@ export interface Term {
 }
 
 /**
+ * @public
  * <p>The custom terminology applied to the input text by Amazon Translate for the translated text
  *       response. This is optional in the response and will only be present if you specified
  *       terminology input in the request. Currently, only one terminology can be applied per
@@ -40,6 +42,7 @@ export interface AppliedTerminology {
 }
 
 /**
+ * @public
  * <p>Another modification is being made. That modification must complete before you can make
  *       your change.</p>
  */
@@ -62,6 +65,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a conflict processing the request. Try your request again.</p>
  */
 export class ConflictException extends __BaseException {
@@ -82,11 +86,15 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export enum EncryptionKeyType {
   KMS = "KMS",
 }
 
 /**
+ * @public
  * <p>The encryption key used to encrypt this object.</p>
  */
 export interface EncryptionKey {
@@ -101,6 +109,9 @@ export interface EncryptionKey {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum ParallelDataFormat {
   CSV = "CSV",
   TMX = "TMX",
@@ -108,6 +119,7 @@ export enum ParallelDataFormat {
 }
 
 /**
+ * @public
  * <p>Specifies the format and S3 location of the parallel data input file.</p>
  */
 export interface ParallelDataConfig {
@@ -124,6 +136,7 @@ export interface ParallelDataConfig {
 }
 
 /**
+ * @public
  * <p>A key-value pair that adds as a metadata to a resource used by Amazon Translate. </p>
  */
 export interface Tag {
@@ -139,6 +152,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateParallelDataRequest {
   /**
    * <p>A custom name for the parallel data resource in Amazon Translate. You must assign a name
@@ -176,6 +192,9 @@ export interface CreateParallelDataRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export enum ParallelDataStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -184,6 +203,9 @@ export enum ParallelDataStatus {
   UPDATING = "UPDATING",
 }
 
+/**
+ * @public
+ */
 export interface CreateParallelDataResponse {
   /**
    * <p>The custom name that you assigned to the parallel data resource.</p>
@@ -198,6 +220,7 @@ export interface CreateParallelDataResponse {
 }
 
 /**
+ * @public
  * <p>An internal server error occurred. Retry your request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -219,6 +242,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value of the parameter is not valid. Review the value of the parameter you are using
  *       to correct it, and then retry your operation.</p>
  */
@@ -241,6 +265,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The request that you made is not valid. Check your request to determine why it's not
  *       valid and then retry the request. </p>
  */
@@ -263,6 +288,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
  *       below the stated limit.</p>
  */
@@ -285,6 +311,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  */
@@ -307,6 +334,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -327,6 +355,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteParallelDataRequest {
   /**
    * <p>The name of the parallel data resource that is being deleted.</p>
@@ -334,6 +365,9 @@ export interface DeleteParallelDataRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteParallelDataResponse {
   /**
    * <p>The name of the parallel data resource that is being deleted.</p>
@@ -347,6 +381,7 @@ export interface DeleteParallelDataResponse {
 }
 
 /**
+ * @public
  * <p>The resource you are looking for has not been found. Review the resource you're looking
  *       for and see if a different resource will accomplish your needs before retrying the revised
  *       request.</p>
@@ -369,6 +404,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteTerminologyRequest {
   /**
    * <p>The name of the custom terminology being deleted. </p>
@@ -376,6 +414,9 @@ export interface DeleteTerminologyRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTextTranslationJobRequest {
   /**
    * <p>The identifier that Amazon Translate generated for the job. The <a>StartTextTranslationJob</a> operation returns this identifier in its
@@ -385,6 +426,7 @@ export interface DescribeTextTranslationJobRequest {
 }
 
 /**
+ * @public
  * <p>The input configuration properties for requesting a batch translation job.</p>
  */
 export interface InputDataConfig {
@@ -443,6 +485,7 @@ export interface InputDataConfig {
 }
 
 /**
+ * @public
  * <p>The number of documents successfully and unsuccessfully processed during a translation
  *       job.</p>
  */
@@ -463,6 +506,9 @@ export interface JobDetails {
   InputDocumentsCount?: number;
 }
 
+/**
+ * @public
+ */
 export enum JobStatus {
   COMPLETED = "COMPLETED",
   COMPLETED_WITH_ERROR = "COMPLETED_WITH_ERROR",
@@ -474,6 +520,7 @@ export enum JobStatus {
 }
 
 /**
+ * @public
  * <p>The output configuration properties for a batch translation job.</p>
  */
 export interface OutputDataConfig {
@@ -489,16 +536,23 @@ export interface OutputDataConfig {
   EncryptionKey?: EncryptionKey;
 }
 
+/**
+ * @public
+ */
 export enum Formality {
   FORMAL = "FORMAL",
   INFORMAL = "INFORMAL",
 }
 
+/**
+ * @public
+ */
 export enum Profanity {
   MASK = "MASK",
 }
 
 /**
+ * @public
  * <p>Optional settings that configure the translation output. Use these settings for
  *       real time translations and asynchronous translation jobs.</p>
  */
@@ -535,6 +589,7 @@ export interface TranslationSettings {
 }
 
 /**
+ * @public
  * <p>Provides information about a translation job.</p>
  */
 export interface TextTranslationJobProperties {
@@ -621,6 +676,9 @@ export interface TextTranslationJobProperties {
   Settings?: TranslationSettings;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTextTranslationJobResponse {
   /**
    * <p>An object that contains the properties associated with an asynchronous batch translation
@@ -629,6 +687,9 @@ export interface DescribeTextTranslationJobResponse {
   TextTranslationJobProperties?: TextTranslationJobProperties;
 }
 
+/**
+ * @public
+ */
 export interface GetParallelDataRequest {
   /**
    * <p>The name of the parallel data resource that is being retrieved.</p>
@@ -637,6 +698,7 @@ export interface GetParallelDataRequest {
 }
 
 /**
+ * @public
  * <p>The location of the most recent parallel data input file that was successfully imported
  *       into Amazon Translate.</p>
  */
@@ -664,6 +726,7 @@ export interface ParallelDataDataLocation {
 }
 
 /**
+ * @public
  * <p>The properties of a parallel data resource.</p>
  */
 export interface ParallelDataProperties {
@@ -760,6 +823,9 @@ export interface ParallelDataProperties {
   LatestUpdateAttemptAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetParallelDataResponse {
   /**
    * <p>The properties of the parallel data resource that is being retrieved.</p>
@@ -800,12 +866,18 @@ export interface GetParallelDataResponse {
   LatestUpdateAttemptAuxiliaryDataLocation?: ParallelDataDataLocation;
 }
 
+/**
+ * @public
+ */
 export enum TerminologyDataFormat {
   CSV = "CSV",
   TMX = "TMX",
   TSV = "TSV",
 }
 
+/**
+ * @public
+ */
 export interface GetTerminologyRequest {
   /**
    * <p>The name of the custom terminology being retrieved.</p>
@@ -824,6 +896,7 @@ export interface GetTerminologyRequest {
 }
 
 /**
+ * @public
  * <p>The location of the custom terminology data.</p>
  */
 export interface TerminologyDataLocation {
@@ -850,12 +923,16 @@ export interface TerminologyDataLocation {
   Location: string | undefined;
 }
 
+/**
+ * @public
+ */
 export enum Directionality {
   MULTI = "MULTI",
   UNI = "UNI",
 }
 
 /**
+ * @public
  * <p>The properties of the custom terminology.</p>
  */
 export interface TerminologyProperties {
@@ -945,6 +1022,9 @@ export interface TerminologyProperties {
   Format?: TerminologyDataFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface GetTerminologyResponse {
   /**
    * <p>The properties of the custom terminology being retrieved.</p>
@@ -977,11 +1057,15 @@ export interface GetTerminologyResponse {
   AuxiliaryDataLocation?: TerminologyDataLocation;
 }
 
+/**
+ * @public
+ */
 export enum MergeStrategy {
   OVERWRITE = "OVERWRITE",
 }
 
 /**
+ * @public
  * <p>The data associated with the custom terminology. For information about the custom terminology file, see
  *       <a href="https://docs.aws.amazon.com/translate/latest/dg/creating-custom-terminology.html">
  *       Creating a Custom Terminology</a>.</p>
@@ -1023,6 +1107,9 @@ export interface TerminologyData {
   Directionality?: Directionality | string;
 }
 
+/**
+ * @public
+ */
 export interface ImportTerminologyRequest {
   /**
    * <p>The name of the custom terminology being imported.</p>
@@ -1060,6 +1147,9 @@ export interface ImportTerminologyRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportTerminologyResponse {
   /**
    * <p>The properties of the custom terminology being imported.</p>
@@ -1075,6 +1165,9 @@ export interface ImportTerminologyResponse {
   AuxiliaryDataLocation?: TerminologyDataLocation;
 }
 
+/**
+ * @public
+ */
 export enum DisplayLanguageCode {
   DE = "de",
   EN = "en",
@@ -1088,6 +1181,9 @@ export enum DisplayLanguageCode {
   ZH_TW = "zh-TW",
 }
 
+/**
+ * @public
+ */
 export interface ListLanguagesRequest {
   /**
    * <p>The language code for the language to use to display the language names in the response.
@@ -1107,6 +1203,7 @@ export interface ListLanguagesRequest {
 }
 
 /**
+ * @public
  * <p>A supported language.</p>
  */
 export interface Language {
@@ -1121,6 +1218,9 @@ export interface Language {
   LanguageCode: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListLanguagesResponse {
   /**
    * <p>The list of supported languages.</p>
@@ -1140,6 +1240,7 @@ export interface ListLanguagesResponse {
 }
 
 /**
+ * @public
  * <p>Requested display language code is not supported.</p>
  */
 export class UnsupportedDisplayLanguageCodeException extends __BaseException {
@@ -1165,6 +1266,9 @@ export class UnsupportedDisplayLanguageCodeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListParallelDataRequest {
   /**
    * <p>A string that specifies the next page of results to return in a paginated response.</p>
@@ -1177,6 +1281,9 @@ export interface ListParallelDataRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListParallelDataResponse {
   /**
    * <p>The properties of the parallel data resources returned by this request.</p>
@@ -1190,6 +1297,9 @@ export interface ListParallelDataResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource you are querying.
@@ -1198,6 +1308,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Tags associated with the Amazon Translate resource being queried. A tag is a key-value
@@ -1208,6 +1321,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListTerminologiesRequest {
   /**
    * <p>If the result of the request to ListTerminologies was truncated, include the NextToken to
@@ -1221,6 +1337,9 @@ export interface ListTerminologiesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTerminologiesResponse {
   /**
    * <p>The properties list of the custom terminologies returned on the list request.</p>
@@ -1235,6 +1354,7 @@ export interface ListTerminologiesResponse {
 }
 
 /**
+ * @public
  * <p>The filter specified for the operation is not valid. Specify a different filter.</p>
  */
 export class InvalidFilterException extends __BaseException {
@@ -1256,6 +1376,7 @@ export class InvalidFilterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information for filtering a list of translation jobs. For more information, see
  *         <a>ListTextTranslationJobs</a>.</p>
  */
@@ -1285,6 +1406,9 @@ export interface TextTranslationJobFilter {
   SubmittedAfterTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTextTranslationJobsRequest {
   /**
    * <p>The parameters that specify which batch translation jobs to retrieve. Filters include job
@@ -1303,6 +1427,9 @@ export interface ListTextTranslationJobsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTextTranslationJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -1316,6 +1443,9 @@ export interface ListTextTranslationJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartTextTranslationJobRequest {
   /**
    * <p>The name of the batch translation job to be performed.</p>
@@ -1401,6 +1531,9 @@ export interface StartTextTranslationJobRequest {
   Settings?: TranslationSettings;
 }
 
+/**
+ * @public
+ */
 export interface StartTextTranslationJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this ID with the
@@ -1449,6 +1582,7 @@ export interface StartTextTranslationJobResponse {
 }
 
 /**
+ * @public
  * <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error messages</a>. </p>
  */
@@ -1481,6 +1615,9 @@ export class UnsupportedLanguagePairException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StopTextTranslationJobRequest {
   /**
    * <p>The job ID of the job to be stopped.</p>
@@ -1488,6 +1625,9 @@ export interface StopTextTranslationJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopTextTranslationJobResponse {
   /**
    * <p>The job ID of the stopped batch translation job.</p>
@@ -1501,6 +1641,9 @@ export interface StopTextTranslationJobResponse {
   JobStatus?: JobStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource to which you want
@@ -1515,9 +1658,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The confidence that Amazon Comprehend accurately detected the source language is low. If a
  *       low confidence level is acceptable for your application, you can use the language in the
  *       exception to call Amazon Translate again. For more information, see the <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer
@@ -1547,6 +1694,7 @@ export class DetectedLanguageLowConfidenceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your
  *       request.</p>
  */
@@ -1569,6 +1717,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *       use a smaller document and then retry your request. </p>
  */
@@ -1590,6 +1739,9 @@ export class TextSizeLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface TranslateTextRequest {
   /**
    * <p>The text to translate. The text string can be a maximum of 10,000 bytes long. Depending on
@@ -1631,6 +1783,9 @@ export interface TranslateTextRequest {
   Settings?: TranslationSettings;
 }
 
+/**
+ * @public
+ */
 export interface TranslateTextResponse {
   /**
    * <p>The translated text.</p>
@@ -1659,6 +1814,9 @@ export interface TranslateTextResponse {
   AppliedSettings?: TranslationSettings;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the given Amazon Translate resource from which you
@@ -1674,8 +1832,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateParallelDataRequest {
   /**
    * <p>The name of the parallel data resource being updated.</p>
@@ -1699,6 +1863,9 @@ export interface UpdateParallelDataRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateParallelDataResponse {
   /**
    * <p>The name of the parallel data resource being updated.</p>

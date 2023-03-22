@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelLegalHoldCommand}.
  */
 export interface CancelLegalHoldCommandInput extends CancelLegalHoldInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelLegalHoldCommand}.
  */
 export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action removes the specified legal hold on a recovery point.
  *          This action can only be performed by a user with sufficient permissions.</p>
  * @example
@@ -47,6 +52,8 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelLegalHoldCommandInput - {@link CancelLegalHoldCommandInput}
+ * @returns {@link CancelLegalHoldCommandOutput}
  * @see {@link CancelLegalHoldCommandInput} for command's `input` shape.
  * @see {@link CancelLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -87,6 +94,9 @@ export class CancelLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,10 +136,16 @@ export class CancelLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CancelLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelLegalHoldCommandOutput> {
     return deserializeAws_restJson1CancelLegalHoldCommand(output, context);
   }

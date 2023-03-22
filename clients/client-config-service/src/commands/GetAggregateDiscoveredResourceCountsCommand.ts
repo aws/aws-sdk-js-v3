@@ -26,10 +26,14 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAggregateDiscoveredResourceCountsCommand}.
  */
 export interface GetAggregateDiscoveredResourceCountsCommandInput extends GetAggregateDiscoveredResourceCountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAggregateDiscoveredResourceCountsCommand}.
  */
 export interface GetAggregateDiscoveredResourceCountsCommandOutput
@@ -37,6 +41,7 @@ export interface GetAggregateDiscoveredResourceCountsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the resource counts across accounts and regions that are present in your Config aggregator. You can request the resource counts by providing filters and GroupByKey.</p>
  *          <p>For example, if the input contains accountID 12345678910 and region us-east-1 in filters, the API returns the count of resources in account ID 12345678910 and region us-east-1.
  * 			If the input contains ACCOUNT_ID as a GroupByKey, the API returns resource counts for all source accounts that are present in your aggregator.</p>
@@ -50,6 +55,8 @@ export interface GetAggregateDiscoveredResourceCountsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAggregateDiscoveredResourceCountsCommandInput - {@link GetAggregateDiscoveredResourceCountsCommandInput}
+ * @returns {@link GetAggregateDiscoveredResourceCountsCommandOutput}
  * @see {@link GetAggregateDiscoveredResourceCountsCommandInput} for command's `input` shape.
  * @see {@link GetAggregateDiscoveredResourceCountsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -89,6 +96,9 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAggregateDiscoveredResourceCountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,6 +138,9 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAggregateDiscoveredResourceCountsCommandInput,
     context: __SerdeContext
@@ -135,6 +148,9 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
     return serializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

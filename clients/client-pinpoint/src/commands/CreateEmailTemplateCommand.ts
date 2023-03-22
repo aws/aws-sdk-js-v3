@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEmailTemplateCommand}.
  */
 export interface CreateEmailTemplateCommandInput extends CreateEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEmailTemplateCommand}.
  */
 export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a message template for messages that are sent through the email channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEmailTemplateCommandInput - {@link CreateEmailTemplateCommandInput}
+ * @returns {@link CreateEmailTemplateCommandOutput}
  * @see {@link CreateEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class CreateEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEmailTemplateCommandOutput> {
     return deserializeAws_restJson1CreateEmailTemplateCommand(output, context);
   }

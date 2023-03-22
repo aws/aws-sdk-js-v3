@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartMailboxExportJobCommand}.
  */
 export interface StartMailboxExportJobCommandInput extends StartMailboxExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMailboxExportJobCommand}.
  */
 export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a mailbox export job to export MIME-format email messages and calendar items
  *          from the specified mailbox to the specified Amazon Simple Storage Service (Amazon S3)
  *          bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting mailbox content</a> in
@@ -49,6 +54,8 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMailboxExportJobCommandInput - {@link StartMailboxExportJobCommandInput}
+ * @returns {@link StartMailboxExportJobCommandOutput}
  * @see {@link StartMailboxExportJobCommandInput} for command's `input` shape.
  * @see {@link StartMailboxExportJobCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -90,6 +97,9 @@ export class StartMailboxExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMailboxExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class StartMailboxExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMailboxExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartMailboxExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMailboxExportJobCommandOutput> {
     return deserializeAws_json1_1StartMailboxExportJobCommand(output, context);
   }

@@ -26,15 +26,20 @@ import {
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueuedSavingsPlanCommand}.
  */
 export interface DeleteQueuedSavingsPlanCommandInput extends DeleteQueuedSavingsPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueuedSavingsPlanCommand}.
  */
 export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSavingsPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the queued purchase for the specified Savings Plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueuedSavingsPlanCommandInput - {@link DeleteQueuedSavingsPlanCommandInput}
+ * @returns {@link DeleteQueuedSavingsPlanCommandOutput}
  * @see {@link DeleteQueuedSavingsPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteQueuedSavingsPlanCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteQueuedSavingsPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueuedSavingsPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class DeleteQueuedSavingsPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueuedSavingsPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteQueuedSavingsPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueuedSavingsPlanCommandOutput> {
     return deserializeAws_restJson1DeleteQueuedSavingsPlanCommand(output, context);
   }

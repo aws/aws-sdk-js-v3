@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWebACLCommand}.
  */
 export interface AssociateWebACLCommandInput extends AssociateWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWebACLCommand}.
  */
 export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a web ACL with a regional application resource, to protect the resource.
  *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
@@ -51,6 +56,8 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWebACLCommandInput - {@link AssociateWebACLCommandInput}
+ * @returns {@link AssociateWebACLCommandOutput}
  * @see {@link AssociateWebACLCommandInput} for command's `input` shape.
  * @see {@link AssociateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -115,6 +122,9 @@ export class AssociateWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,10 +164,16 @@ export class AssociateWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateWebACLCommandOutput> {
     return deserializeAws_json1_1AssociateWebACLCommand(output, context);
   }

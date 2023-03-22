@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLifecyclePolicyPreviewCommand}.
  */
 export interface GetLifecyclePolicyPreviewCommandInput extends GetLifecyclePolicyPreviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLifecyclePolicyPreviewCommand}.
  */
 export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePolicyPreviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the results of the lifecycle policy preview request for the specified
  *             repository.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLifecyclePolicyPreviewCommandInput - {@link GetLifecyclePolicyPreviewCommandInput}
+ * @returns {@link GetLifecyclePolicyPreviewCommandOutput}
  * @see {@link GetLifecyclePolicyPreviewCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePolicyPreviewCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetLifecyclePolicyPreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLifecyclePolicyPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,10 +133,16 @@ export class GetLifecyclePolicyPreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLifecyclePolicyPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLifecyclePolicyPreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

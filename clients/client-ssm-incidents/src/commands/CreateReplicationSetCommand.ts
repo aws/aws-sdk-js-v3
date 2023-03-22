@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationSetCommand}.
  */
 export interface CreateReplicationSetCommandInput extends CreateReplicationSetInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationSetCommand}.
  */
 export interface CreateReplicationSetCommandOutput extends CreateReplicationSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A replication set replicates and encrypts your data to the provided Regions with the
  *             provided KMS key. </p>
  * @example
@@ -47,6 +52,8 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationSetCommandInput - {@link CreateReplicationSetCommandInput}
+ * @returns {@link CreateReplicationSetCommandOutput}
  * @see {@link CreateReplicationSetCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationSetCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateReplicationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,10 +139,16 @@ export class CreateReplicationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateReplicationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationSetCommandOutput> {
     return deserializeAws_restJson1CreateReplicationSetCommand(output, context);
   }

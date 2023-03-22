@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterCACertificateCommand}.
  */
 export interface RegisterCACertificateCommandInput extends RegisterCACertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterCACertificateCommand}.
  */
 export interface RegisterCACertificateCommandOutput extends RegisterCACertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a CA certificate with Amazon Web Services IoT Core. There is no limit to the number of CA
  *          certificates you can register in your Amazon Web Services account. You can register up to 10 CA
  *          certificates with the same <code>CA subject field</code> per Amazon Web Services account.</p>
@@ -49,6 +54,8 @@ export interface RegisterCACertificateCommandOutput extends RegisterCACertificat
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterCACertificateCommandInput - {@link RegisterCACertificateCommandInput}
+ * @returns {@link RegisterCACertificateCommandOutput}
  * @see {@link RegisterCACertificateCommandInput} for command's `input` shape.
  * @see {@link RegisterCACertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -102,6 +109,9 @@ export class RegisterCACertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterCACertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class RegisterCACertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterCACertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RegisterCACertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterCACertificateCommandOutput> {
     return deserializeAws_restJson1RegisterCACertificateCommand(output, context);
   }

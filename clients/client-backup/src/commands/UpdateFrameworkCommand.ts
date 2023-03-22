@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFrameworkCommand}.
  */
 export interface UpdateFrameworkCommandInput extends UpdateFrameworkInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFrameworkCommand}.
  */
 export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing framework identified by its <code>FrameworkName</code> with the
  *          input document in JSON format.</p>
  * @example
@@ -47,6 +52,8 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFrameworkCommandInput - {@link UpdateFrameworkCommandInput}
+ * @returns {@link UpdateFrameworkCommandOutput}
  * @see {@link UpdateFrameworkCommandInput} for command's `input` shape.
  * @see {@link UpdateFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -94,6 +101,9 @@ export class UpdateFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class UpdateFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFrameworkCommandOutput> {
     return deserializeAws_restJson1UpdateFrameworkCommand(output, context);
   }

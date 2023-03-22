@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStackInstancesCommand}.
  */
 export interface UpdateStackInstancesCommandInput extends UpdateStackInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStackInstancesCommand}.
  */
 export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the parameter values for stack instances for the specified accounts, within the
  *          specified Amazon Web Services Regions. A stack instance refers to a stack in a specific
  *          account and Region.</p>
@@ -59,6 +64,8 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStackInstancesCommandInput - {@link UpdateStackInstancesCommandInput}
+ * @returns {@link UpdateStackInstancesCommandOutput}
  * @see {@link UpdateStackInstancesCommandInput} for command's `input` shape.
  * @see {@link UpdateStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdateStackInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStackInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,10 +151,16 @@ export class UpdateStackInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStackInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateStackInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStackInstancesCommandOutput> {
     return deserializeAws_queryUpdateStackInstancesCommand(output, context);
   }

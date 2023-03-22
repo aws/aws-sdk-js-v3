@@ -26,15 +26,20 @@ import {
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrustAnchorCommand}.
  */
 export interface CreateTrustAnchorCommandInput extends CreateTrustAnchorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrustAnchorCommand}.
  */
 export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a trust anchor. You establish trust between IAM Roles Anywhere and your certificate authority (CA) by configuring a trust anchor. A Trust Anchor is defined either as a reference to a AWS Certificate Manager Private Certificate Authority (ACM PCA), or by uploading a Certificate Authority (CA) certificate. Your AWS workloads can authenticate with the trust anchor using certificates issued by the trusted Certificate Authority (CA) in exchange for temporary AWS credentials.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -50,6 +55,8 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrustAnchorCommandInput - {@link CreateTrustAnchorCommandInput}
+ * @returns {@link CreateTrustAnchorCommandOutput}
  * @see {@link CreateTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link CreateTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +86,9 @@ export class CreateTrustAnchorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrustAnchorCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,10 +128,16 @@ export class CreateTrustAnchorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateTrustAnchorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrustAnchorCommandOutput> {
     return deserializeAws_restJson1CreateTrustAnchorCommand(output, context);
   }

@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePermissionCommand}.
  */
 export interface CreatePermissionCommandInput extends CreatePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePermissionCommand}.
  */
 export interface CreatePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants one or more permissions on a private CA to the Certificate Manager (ACM) service
  * 			principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to issue and
  * 			renew ACM certificates that reside in the same Amazon Web Services account as the CA.</p>
@@ -67,6 +72,8 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePermissionCommandInput - {@link CreatePermissionCommandInput}
+ * @returns {@link CreatePermissionCommandOutput}
  * @see {@link CreatePermissionCommandInput} for command's `input` shape.
  * @see {@link CreatePermissionCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -111,6 +118,9 @@ export class CreatePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,10 +160,16 @@ export class CreatePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionCommandOutput> {
     return deserializeAws_json1_1CreatePermissionCommand(output, context);
   }

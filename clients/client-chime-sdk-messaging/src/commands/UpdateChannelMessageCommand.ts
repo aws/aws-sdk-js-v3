@@ -30,15 +30,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChannelMessageCommand}.
  */
 export interface UpdateChannelMessageCommandInput extends UpdateChannelMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChannelMessageCommand}.
  */
 export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the content of a message.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -55,6 +60,8 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelMessageCommandInput - {@link UpdateChannelMessageCommandInput}
+ * @returns {@link UpdateChannelMessageCommandOutput}
  * @see {@link UpdateChannelMessageCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -100,6 +107,9 @@ export class UpdateChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class UpdateChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelMessageCommandOutput> {
     return deserializeAws_restJson1UpdateChannelMessageCommand(output, context);
   }

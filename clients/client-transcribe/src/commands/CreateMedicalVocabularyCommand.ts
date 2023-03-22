@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMedicalVocabularyCommand}.
  */
 export interface CreateMedicalVocabularyCommandInput extends CreateMedicalVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMedicalVocabularyCommand}.
  */
 export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom medical vocabulary.</p>
  *          <p>Before creating a new custom medical vocabulary, you must first upload a text file
  *             that contains your vocabulary table into an Amazon S3 bucket.
@@ -58,6 +63,8 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMedicalVocabularyCommandInput - {@link CreateMedicalVocabularyCommandInput}
+ * @returns {@link CreateMedicalVocabularyCommandOutput}
  * @see {@link CreateMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link CreateMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -99,6 +106,9 @@ export class CreateMedicalVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMedicalVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,10 +148,16 @@ export class CreateMedicalVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMedicalVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMedicalVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMedicalVocabularyCommandOutput> {
     return deserializeAws_json1_1CreateMedicalVocabularyCommand(output, context);
   }

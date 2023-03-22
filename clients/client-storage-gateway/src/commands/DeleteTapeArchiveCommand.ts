@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTapeArchiveCommand}.
  */
 export interface DeleteTapeArchiveCommandInput extends DeleteTapeArchiveInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTapeArchiveCommand}.
  */
 export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified virtual tape from the virtual tape shelf (VTS). This operation is
  *          only supported in the tape gateway type.</p>
  * @example
@@ -47,6 +52,8 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTapeArchiveCommandInput - {@link DeleteTapeArchiveCommandInput}
+ * @returns {@link DeleteTapeArchiveCommandOutput}
  * @see {@link DeleteTapeArchiveCommandInput} for command's `input` shape.
  * @see {@link DeleteTapeArchiveCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteTapeArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTapeArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,10 +143,16 @@ export class DeleteTapeArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTapeArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTapeArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTapeArchiveCommandOutput> {
     return deserializeAws_json1_1DeleteTapeArchiveCommand(output, context);
   }

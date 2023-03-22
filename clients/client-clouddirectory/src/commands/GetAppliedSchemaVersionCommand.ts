@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppliedSchemaVersionCommand}.
  */
 export interface GetAppliedSchemaVersionCommandInput extends GetAppliedSchemaVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppliedSchemaVersionCommand}.
  */
 export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns current applied schema version ARN, including the minor version in use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppliedSchemaVersionCommandInput - {@link GetAppliedSchemaVersionCommandInput}
+ * @returns {@link GetAppliedSchemaVersionCommandOutput}
  * @see {@link GetAppliedSchemaVersionCommandInput} for command's `input` shape.
  * @see {@link GetAppliedSchemaVersionCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -91,6 +98,9 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppliedSchemaVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,10 +140,16 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppliedSchemaVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAppliedSchemaVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppliedSchemaVersionCommandOutput> {
     return deserializeAws_restJson1GetAppliedSchemaVersionCommand(output, context);
   }

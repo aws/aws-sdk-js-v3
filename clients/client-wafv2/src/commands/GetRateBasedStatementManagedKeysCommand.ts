@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetRateBasedStatementManagedKeysCommand}.
  */
 export interface GetRateBasedStatementManagedKeysCommandInput extends GetRateBasedStatementManagedKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRateBasedStatementManagedKeysCommand}.
  */
 export interface GetRateBasedStatementManagedKeysCommandOutput
@@ -37,6 +41,7 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the keys that are currently blocked by a rate-based rule instance. The maximum
  *          number of managed keys that can be blocked for a single rate-based rule instance is 10,000.
  *          If more than 10,000 addresses exceed the rate limit, those with the highest rates are
@@ -61,6 +66,8 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRateBasedStatementManagedKeysCommandInput - {@link GetRateBasedStatementManagedKeysCommandInput}
+ * @returns {@link GetRateBasedStatementManagedKeysCommandOutput}
  * @see {@link GetRateBasedStatementManagedKeysCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedStatementManagedKeysCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -118,6 +125,9 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRateBasedStatementManagedKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,6 +167,9 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRateBasedStatementManagedKeysCommandInput,
     context: __SerdeContext
@@ -164,6 +177,9 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     return serializeAws_json1_1GetRateBasedStatementManagedKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

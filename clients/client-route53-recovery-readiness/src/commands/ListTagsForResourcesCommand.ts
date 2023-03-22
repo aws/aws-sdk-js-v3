@@ -30,15 +30,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForResourcesCommand}.
  */
 export interface ListTagsForResourcesCommandInput extends ListTagsForResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForResourcesCommand}.
  */
 export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +55,8 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForResourcesCommandInput - {@link ListTagsForResourcesCommandInput}
+ * @returns {@link ListTagsForResourcesCommandOutput}
  * @see {@link ListTagsForResourcesCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourcesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListTagsForResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListTagsForResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListTagsForResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourcesCommandOutput> {
     return deserializeAws_restJson1ListTagsForResourcesCommand(output, context);
   }

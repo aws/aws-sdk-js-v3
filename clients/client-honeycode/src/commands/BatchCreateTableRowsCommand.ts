@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateTableRowsCommand}.
  */
 export interface BatchCreateTableRowsCommandInput extends BatchCreateTableRowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateTableRowsCommand}.
  */
 export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The BatchCreateTableRows API allows you to create one or more rows at the end of a table in a workbook.
  *             The API allows you to specify the values to set in some or all of the columns in the new rows.
@@ -55,6 +60,8 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateTableRowsCommandInput - {@link BatchCreateTableRowsCommandInput}
+ * @returns {@link BatchCreateTableRowsCommandOutput}
  * @see {@link BatchCreateTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchCreateTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -109,6 +116,9 @@ export class BatchCreateTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,10 +158,16 @@ export class BatchCreateTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCreateTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchCreateTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchCreateTableRowsCommandOutput> {
     return deserializeAws_restJson1BatchCreateTableRowsCommand(output, context);
   }

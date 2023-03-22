@@ -30,10 +30,14 @@ import {
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SetVoiceMessageSpendLimitOverrideCommand}.
  */
 export interface SetVoiceMessageSpendLimitOverrideCommandInput extends SetVoiceMessageSpendLimitOverrideRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetVoiceMessageSpendLimitOverrideCommand}.
  */
 export interface SetVoiceMessageSpendLimitOverrideCommandOutput
@@ -41,6 +45,7 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets an account level monthly spend limit override for sending voice messages. The
  *             requested spend limit must be less than or equal to the <code>MaxLimit</code>, which is
  *             set by Amazon Web Services. </p>
@@ -54,6 +59,8 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param SetVoiceMessageSpendLimitOverrideCommandInput - {@link SetVoiceMessageSpendLimitOverrideCommandInput}
+ * @returns {@link SetVoiceMessageSpendLimitOverrideCommandOutput}
  * @see {@link SetVoiceMessageSpendLimitOverrideCommandInput} for command's `input` shape.
  * @see {@link SetVoiceMessageSpendLimitOverrideCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -92,6 +99,9 @@ export class SetVoiceMessageSpendLimitOverrideCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetVoiceMessageSpendLimitOverrideCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,6 +141,9 @@ export class SetVoiceMessageSpendLimitOverrideCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetVoiceMessageSpendLimitOverrideCommandInput,
     context: __SerdeContext
@@ -138,6 +151,9 @@ export class SetVoiceMessageSpendLimitOverrideCommand extends $Command<
     return serializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

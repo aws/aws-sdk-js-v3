@@ -26,15 +26,20 @@ import {
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppMonitorCommand}.
  */
 export interface UpdateAppMonitorCommandInput extends UpdateAppMonitorRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppMonitorCommand}.
  */
 export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing app monitor. When you use this operation, only the parts of the app monitor
  *          configuration that you specify in this operation are changed. For any parameters that you omit, the existing
  *          values are kept.</p>
@@ -56,6 +61,8 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppMonitorCommandInput - {@link UpdateAppMonitorCommandInput}
+ * @returns {@link UpdateAppMonitorCommandOutput}
  * @see {@link UpdateAppMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -97,6 +104,9 @@ export class UpdateAppMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,10 +146,16 @@ export class UpdateAppMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAppMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppMonitorCommandOutput> {
     return deserializeAws_restJson1UpdateAppMonitorCommand(output, context);
   }

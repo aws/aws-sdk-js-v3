@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitledApplicationsCommand}.
  */
 export interface ListEntitledApplicationsCommandInput extends ListEntitledApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitledApplicationsCommand}.
  */
 export interface ListEntitledApplicationsCommandOutput extends ListEntitledApplicationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of entitled applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListEntitledApplicationsCommandOutput extends ListEntitledAppli
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitledApplicationsCommandInput - {@link ListEntitledApplicationsCommandInput}
+ * @returns {@link ListEntitledApplicationsCommandOutput}
  * @see {@link ListEntitledApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListEntitledApplicationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListEntitledApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitledApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class ListEntitledApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitledApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEntitledApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitledApplicationsCommandOutput> {
     return deserializeAws_json1_1ListEntitledApplicationsCommand(output, context);
   }

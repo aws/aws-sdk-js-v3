@@ -64,6 +64,7 @@ import {
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
+ * @public
  * <p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>
  */
 export interface GetDashboardEmbedUrlResponse {
@@ -87,6 +88,7 @@ export interface GetDashboardEmbedUrlResponse {
 }
 
 /**
+ * @public
  * <p>The identity type specified isn't supported. Supported identity types include
  * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
  */
@@ -113,6 +115,9 @@ export class IdentityTypeNotSupportedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetSessionEmbedUrlRequest {
   /**
    * <p>The ID for the Amazon Web Services account associated with your Amazon QuickSight subscription.</p>
@@ -185,6 +190,9 @@ export interface GetSessionEmbedUrlRequest {
   UserArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionEmbedUrlResponse {
   /**
    * <p>A single-use URL that you can put into your server-side web page to embed your
@@ -205,15 +213,22 @@ export interface GetSessionEmbedUrlResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export enum GroupFilterAttribute {
   GROUP_NAME = "GROUP_NAME",
 }
 
+/**
+ * @public
+ */
 export enum GroupFilterOperator {
   StartsWith = "StartsWith",
 }
 
 /**
+ * @public
  * <p>A <code>GroupSearchFilter</code> object that you want to apply to your search.</p>
  */
 export interface GroupSearchFilter {
@@ -238,6 +253,7 @@ export interface GroupSearchFilter {
 }
 
 /**
+ * @public
  * <p>IAM policy assignment summary.</p>
  */
 export interface IAMPolicyAssignmentSummary {
@@ -253,6 +269,7 @@ export interface IAMPolicyAssignmentSummary {
 }
 
 /**
+ * @public
  * <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -278,6 +295,9 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListAnalysesRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analyses.</p>
@@ -295,6 +315,9 @@ export interface ListAnalysesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAnalysesResponse {
   /**
    * <p>Metadata describing each of the analyses that are listed.</p>
@@ -317,6 +340,9 @@ export interface ListAnalysesResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDashboardsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
@@ -335,6 +361,9 @@ export interface ListDashboardsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDashboardsResponse {
   /**
    * <p>A structure that contains all of the dashboards in your Amazon Web Services account. This structure
@@ -358,6 +387,9 @@ export interface ListDashboardsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDashboardVersionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're listing versions
@@ -381,6 +413,9 @@ export interface ListDashboardVersionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDashboardVersionsResponse {
   /**
    * <p>A structure that contains information about each version of the dashboard.</p>
@@ -403,6 +438,9 @@ export interface ListDashboardVersionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -420,6 +458,9 @@ export interface ListDataSetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSetsResponse {
   /**
    * <p>The list of dataset summaries.</p>
@@ -442,6 +483,9 @@ export interface ListDataSetsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSourcesRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -459,6 +503,9 @@ export interface ListDataSourcesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDataSourcesResponse {
   /**
    * <p>A list of data sources.</p>
@@ -481,6 +528,9 @@ export interface ListDataSourcesResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFolderMembersRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -503,6 +553,9 @@ export interface ListFolderMembersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFolderMembersResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -525,6 +578,9 @@ export interface ListFolderMembersResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFoldersRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -542,6 +598,9 @@ export interface ListFoldersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFoldersResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -564,6 +623,9 @@ export interface ListFoldersResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupMembershipsRequest {
   /**
    * <p>The name of the group that you want to see a membership list of.</p>
@@ -592,6 +654,9 @@ export interface ListGroupMembershipsRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupMembershipsResponse {
   /**
    * <p>The list of the members of the group.</p>
@@ -614,6 +679,9 @@ export interface ListGroupMembershipsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
@@ -637,6 +705,9 @@ export interface ListGroupsRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGroupsResponse {
   /**
    * <p>The list of the groups.</p>
@@ -659,6 +730,9 @@ export interface ListGroupsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListIAMPolicyAssignmentsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains these IAM policy assignments.</p>
@@ -686,6 +760,9 @@ export interface ListIAMPolicyAssignmentsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListIAMPolicyAssignmentsResponse {
   /**
    * <p>Information describing the IAM policy assignments.</p>
@@ -708,6 +785,9 @@ export interface ListIAMPolicyAssignmentsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListIAMPolicyAssignmentsForUserRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the assignments.</p>
@@ -735,6 +815,9 @@ export interface ListIAMPolicyAssignmentsForUserRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListIAMPolicyAssignmentsForUserResponse {
   /**
    * <p>The active assignments for this user.</p>
@@ -757,6 +840,9 @@ export interface ListIAMPolicyAssignmentsForUserResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListIngestionsRequest {
   /**
    * <p>The ID of the dataset used in the ingestion.</p>
@@ -779,6 +865,9 @@ export interface ListIngestionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListIngestionsResponse {
   /**
    * <p>A list of the ingestions.</p>
@@ -801,6 +890,9 @@ export interface ListIngestionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNamespacesRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespaces that you want to list.</p>
@@ -818,6 +910,9 @@ export interface ListNamespacesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListNamespacesResponse {
   /**
    * <p>The information about the namespaces in this Amazon Web Services account. The response includes
@@ -842,6 +937,9 @@ export interface ListNamespacesResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
@@ -849,6 +947,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
@@ -867,6 +968,9 @@ export interface ListTagsForResourceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateAliasesRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
@@ -889,6 +993,9 @@ export interface ListTemplateAliasesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateAliasesResponse {
   /**
    * <p>A structure containing the list of the template's aliases.</p>
@@ -911,6 +1018,9 @@ export interface ListTemplateAliasesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
@@ -929,6 +1039,7 @@ export interface ListTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>The template summary.</p>
  */
 export interface TemplateSummary {
@@ -963,6 +1074,9 @@ export interface TemplateSummary {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesResponse {
   /**
    * <p>A structure containing information about the templates in the list.</p>
@@ -985,6 +1099,9 @@ export interface ListTemplatesResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateVersionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
@@ -1008,6 +1125,7 @@ export interface ListTemplateVersionsRequest {
 }
 
 /**
+ * @public
  * <p>The template version.</p>
  */
 export interface TemplateVersionSummary {
@@ -1037,6 +1155,9 @@ export interface TemplateVersionSummary {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateVersionsResponse {
   /**
    * <p>A structure containing a list of all the versions of the specified template.</p>
@@ -1059,6 +1180,9 @@ export interface ListTemplateVersionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThemeAliasesRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme aliases that you're listing.</p>
@@ -1081,6 +1205,9 @@ export interface ListThemeAliasesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListThemeAliasesResponse {
   /**
    * <p>A structure containing the list of the theme's aliases.</p>
@@ -1103,6 +1230,9 @@ export interface ListThemeAliasesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThemesRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
@@ -1140,6 +1270,7 @@ export interface ListThemesRequest {
 }
 
 /**
+ * @public
  * <p>The theme summary.</p>
  */
 export interface ThemeSummary {
@@ -1174,6 +1305,9 @@ export interface ThemeSummary {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListThemesResponse {
   /**
    * <p>Information about the themes in the list.</p>
@@ -1196,6 +1330,9 @@ export interface ListThemesResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListThemeVersionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
@@ -1219,6 +1356,7 @@ export interface ListThemeVersionsRequest {
 }
 
 /**
+ * @public
  * <p>The theme version.</p>
  */
 export interface ThemeVersionSummary {
@@ -1248,6 +1386,9 @@ export interface ThemeVersionSummary {
   Status?: ResourceStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListThemeVersionsResponse {
   /**
    * <p>A structure containing a list of all the versions of the specified theme.</p>
@@ -1270,6 +1411,9 @@ export interface ListThemeVersionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListUserGroupsRequest {
   /**
    * <p>The Amazon QuickSight user name that you want to list group memberships for.</p>
@@ -1298,6 +1442,9 @@ export interface ListUserGroupsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListUserGroupsResponse {
   /**
    * <p>The list of groups the user is a member of.</p>
@@ -1320,6 +1467,9 @@ export interface ListUserGroupsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
@@ -1343,6 +1493,9 @@ export interface ListUsersRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListUsersResponse {
   /**
    * <p>The list of users.</p>
@@ -1365,6 +1518,9 @@ export interface ListUsersResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface RegisterUserRequest {
   /**
    * <p>Amazon QuickSight supports several ways of managing the identity of users. This
@@ -1515,6 +1671,9 @@ export interface RegisterUserRequest {
   ExternalLoginId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterUserResponse {
   /**
    * <p>The user's user name.</p>
@@ -1538,6 +1697,9 @@ export interface RegisterUserResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface RestoreAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis.</p>
@@ -1550,6 +1712,9 @@ export interface RestoreAnalysisRequest {
   AnalysisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreAnalysisResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -1573,6 +1738,9 @@ export interface RestoreAnalysisResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchAnalysesRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analyses that you're searching
@@ -1596,6 +1764,9 @@ export interface SearchAnalysesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchAnalysesResponse {
   /**
    * <p>Metadata describing the analyses that you searched for.</p>
@@ -1619,6 +1790,9 @@ export interface SearchAnalysesResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchDashboardsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the user whose dashboards you're searching
@@ -1628,8 +1802,8 @@ export interface SearchDashboardsRequest {
 
   /**
    * <p>The filters to apply to the search. Currently, you can search only by user name, for
-   *             example, <code>"Filters": [ { "Name": "QUICKSIGHT_USER", "Operator": "StringEquals",
-   *             "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1" } ]</code>
+   *             example, <code>"Filters": [ \{ "Name": "QUICKSIGHT_USER", "Operator": "StringEquals",
+   *             "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1" \} ]</code>
    *          </p>
    */
   Filters: DashboardSearchFilter[] | undefined;
@@ -1645,6 +1819,9 @@ export interface SearchDashboardsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchDashboardsResponse {
   /**
    * <p>The list of dashboards owned by the user specified in <code>Filters</code> in your
@@ -1668,6 +1845,9 @@ export interface SearchDashboardsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchDataSetsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -1690,6 +1870,9 @@ export interface SearchDataSetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchDataSetsResponse {
   /**
    * <p>A <code>DataSetSummaries</code> object that returns a summary of a dataset.</p>
@@ -1712,6 +1895,9 @@ export interface SearchDataSetsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchDataSourcesRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -1734,6 +1920,9 @@ export interface SearchDataSourcesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchDataSourcesResponse {
   /**
    * <p>A <code>DataSourceSummaries</code> object that returns a summary of a data source.</p>
@@ -1756,6 +1945,9 @@ export interface SearchDataSourcesResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchFoldersRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -1763,7 +1955,7 @@ export interface SearchFoldersRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The filters to apply to the search. Currently, you can search only by the parent folder ARN. For example, <code>"Filters": [ { "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" } ]</code>.</p>
+   * <p>The filters to apply to the search. Currently, you can search only by the parent folder ARN. For example, <code>"Filters": [ \{ "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" \} ]</code>.</p>
    */
   Filters: FolderSearchFilter[] | undefined;
 
@@ -1778,6 +1970,9 @@ export interface SearchFoldersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchFoldersResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -1800,6 +1995,9 @@ export interface SearchFoldersResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchGroupsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
@@ -1828,6 +2026,9 @@ export interface SearchGroupsRequest {
   Filters: GroupSearchFilter[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchGroupsResponse {
   /**
    * <p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>
@@ -1850,6 +2051,9 @@ export interface SearchGroupsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
@@ -1862,6 +2066,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -1874,6 +2081,9 @@ export interface TagResourceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
@@ -1886,6 +2096,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -1898,6 +2111,9 @@ export interface UntagResourceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
@@ -1916,6 +2132,9 @@ export interface UpdateAccountCustomizationRequest {
   AccountCustomization: AccountCustomization | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountCustomizationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the updated customization for this Amazon Web Services account.</p>
@@ -1949,6 +2168,9 @@ export interface UpdateAccountCustomizationResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountSettingsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight settings that you want to
@@ -1977,6 +2199,9 @@ export interface UpdateAccountSettingsRequest {
   TerminationProtectionEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAccountSettingsResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -1989,6 +2214,9 @@ export interface UpdateAccountSettingsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis that you're updating.</p>
@@ -2033,6 +2261,9 @@ export interface UpdateAnalysisRequest {
   Definition?: AnalysisDefinition;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAnalysisResponse {
   /**
    * <p>The ARN of the analysis that you're updating.</p>
@@ -2060,6 +2291,9 @@ export interface UpdateAnalysisResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAnalysisPermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
@@ -2086,6 +2320,9 @@ export interface UpdateAnalysisPermissionsRequest {
   RevokePermissions?: ResourcePermission[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateAnalysisPermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the analysis that you updated.</p>
@@ -2114,6 +2351,9 @@ export interface UpdateAnalysisPermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -2203,6 +2443,9 @@ export interface UpdateDashboardRequest {
   Definition?: DashboardVersionDefinition;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDashboardResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2235,6 +2478,9 @@ export interface UpdateDashboardResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDashboardPermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard whose permissions you're
@@ -2268,6 +2514,9 @@ export interface UpdateDashboardPermissionsRequest {
   RevokeLinkPermissions?: ResourcePermission[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDashboardPermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
@@ -2300,6 +2549,9 @@ export interface UpdateDashboardPermissionsResponse {
   LinkSharingConfiguration?: LinkSharingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDashboardPublishedVersionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -2318,6 +2570,9 @@ export interface UpdateDashboardPublishedVersionRequest {
   VersionNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDashboardPublishedVersionResponse {
   /**
    * <p>The ID for the dashboard.</p>
@@ -2340,6 +2595,9 @@ export interface UpdateDashboardPublishedVersionResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSetRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -2405,6 +2663,9 @@ export interface UpdateDataSetRequest {
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -2439,6 +2700,9 @@ export interface UpdateDataSetResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSetPermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -2462,6 +2726,9 @@ export interface UpdateDataSetPermissionsRequest {
   RevokePermissions?: ResourcePermission[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSetPermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -2485,6 +2752,9 @@ export interface UpdateDataSetPermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSourceRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -2525,6 +2795,9 @@ export interface UpdateDataSourceRequest {
   SslProperties?: SslProperties;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -2552,6 +2825,9 @@ export interface UpdateDataSourceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSourcePermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -2574,6 +2850,9 @@ export interface UpdateDataSourcePermissionsRequest {
   RevokePermissions?: ResourcePermission[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSourcePermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -2596,6 +2875,9 @@ export interface UpdateDataSourcePermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
@@ -2613,6 +2895,9 @@ export interface UpdateFolderRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -2635,6 +2920,9 @@ export interface UpdateFolderResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFolderPermissionsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
@@ -2657,6 +2945,9 @@ export interface UpdateFolderPermissionsRequest {
   RevokePermissions?: ResourcePermission[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFolderPermissionsResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -2684,6 +2975,9 @@ export interface UpdateFolderPermissionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGroupRequest {
   /**
    * <p>The name of the group that you want to update.</p>
@@ -2707,6 +3001,9 @@ export interface UpdateGroupRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGroupResponse {
   /**
    * <p>The name of the group.</p>
@@ -2724,6 +3021,9 @@ export interface UpdateGroupResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIAMPolicyAssignmentRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the IAM policy assignment. </p>
@@ -2773,6 +3073,9 @@ export interface UpdateIAMPolicyAssignmentRequest {
   Identities?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIAMPolicyAssignmentResponse {
   /**
    * <p>The name of the assignment or rule.</p>
@@ -2827,6 +3130,9 @@ export interface UpdateIAMPolicyAssignmentResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIpRestrictionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
@@ -2844,6 +3150,9 @@ export interface UpdateIpRestrictionRequest {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateIpRestrictionResponse {
   /**
    * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
@@ -2861,6 +3170,9 @@ export interface UpdateIpRestrictionResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePublicSharingSettingsRequest {
   /**
    * <p>The Amazon Web Services account ID associated with your Amazon QuickSight subscription.</p>
@@ -2873,6 +3185,9 @@ export interface UpdatePublicSharingSettingsRequest {
   PublicSharingEnabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePublicSharingSettingsResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -2885,6 +3200,9 @@ export interface UpdatePublicSharingSettingsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you're updating.</p>
@@ -2930,6 +3248,9 @@ export interface UpdateTemplateRequest {
   Definition?: TemplateVersionDefinition;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateResponse {
   /**
    * <p>The ID for the template.</p>
@@ -2962,6 +3283,9 @@ export interface UpdateTemplateResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template alias that you're updating.</p>
@@ -2987,6 +3311,9 @@ export interface UpdateTemplateAliasRequest {
   TemplateVersionNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateAliasResponse {
   /**
    * <p>The template alias.</p>
@@ -3004,6 +3331,9 @@ export interface UpdateTemplateAliasResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplatePermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template.</p>
@@ -3026,6 +3356,9 @@ export interface UpdateTemplatePermissionsRequest {
   RevokePermissions?: ResourcePermission[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplatePermissionsResponse {
   /**
    * <p>The ID for the template.</p>
@@ -3053,6 +3386,9 @@ export interface UpdateTemplatePermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThemeRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're updating.</p>
@@ -3088,6 +3424,9 @@ export interface UpdateThemeRequest {
   Configuration?: ThemeConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThemeResponse {
   /**
    * <p>The ID for the theme.</p>
@@ -3120,6 +3459,9 @@ export interface UpdateThemeResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme alias that you're updating.</p>
@@ -3142,6 +3484,9 @@ export interface UpdateThemeAliasRequest {
   ThemeVersionNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThemeAliasResponse {
   /**
    * <p>Information about the theme alias.</p>
@@ -3159,6 +3504,9 @@ export interface UpdateThemeAliasResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateThemePermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme.</p>
@@ -3181,6 +3529,9 @@ export interface UpdateThemePermissionsRequest {
   RevokePermissions?: ResourcePermission[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateThemePermissionsResponse {
   /**
    * <p>The ID for the theme.</p>
@@ -3208,6 +3559,9 @@ export interface UpdateThemePermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserRequest {
   /**
    * <p>The Amazon QuickSight user name that you want to update.</p>
@@ -3327,6 +3681,9 @@ export interface UpdateUserRequest {
   ExternalLoginId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserResponse {
   /**
    * <p>The Amazon QuickSight user.</p>

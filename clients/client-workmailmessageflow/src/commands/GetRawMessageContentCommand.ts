@@ -33,10 +33,14 @@ import {
 } from "../WorkMailMessageFlowClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRawMessageContentCommand}.
  */
 export interface GetRawMessageContentCommandInput extends GetRawMessageContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRawMessageContentCommand}.
  */
 export interface GetRawMessageContentCommandOutput
@@ -44,6 +48,7 @@ export interface GetRawMessageContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +60,8 @@ export interface GetRawMessageContentCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRawMessageContentCommandInput - {@link GetRawMessageContentCommandInput}
+ * @returns {@link GetRawMessageContentCommandOutput}
  * @see {@link GetRawMessageContentCommandInput} for command's `input` shape.
  * @see {@link GetRawMessageContentCommandOutput} for command's `response` shape.
  * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.
@@ -81,6 +88,9 @@ export class GetRawMessageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRawMessageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,10 +130,16 @@ export class GetRawMessageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRawMessageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRawMessageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

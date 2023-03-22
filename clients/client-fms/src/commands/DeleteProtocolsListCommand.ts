@@ -21,15 +21,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProtocolsListCommand}.
  */
 export interface DeleteProtocolsListCommandInput extends DeleteProtocolsListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProtocolsListCommand}.
  */
 export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes an Firewall Manager protocols list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProtocolsListCommandInput - {@link DeleteProtocolsListCommandInput}
+ * @returns {@link DeleteProtocolsListCommandOutput}
  * @see {@link DeleteProtocolsListCommandInput} for command's `input` shape.
  * @see {@link DeleteProtocolsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteProtocolsListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProtocolsListCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,10 +127,16 @@ export class DeleteProtocolsListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProtocolsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteProtocolsListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProtocolsListCommandOutput> {
     return deserializeAws_json1_1DeleteProtocolsListCommand(output, context);
   }

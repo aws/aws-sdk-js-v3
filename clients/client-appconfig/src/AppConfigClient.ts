@@ -163,6 +163,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateApplicationCommandInput
   | CreateConfigurationProfileCommandInput
@@ -208,6 +211,9 @@ export type ServiceInputTypes =
   | UpdateExtensionCommandInput
   | ValidateConfigurationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateApplicationCommandOutput
   | CreateConfigurationProfileCommandOutput
@@ -253,6 +259,9 @@ export type ServiceOutputTypes =
   | UpdateExtensionCommandOutput
   | ValidateConfigurationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -260,7 +269,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -369,11 +378,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AppConfigClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -384,10 +396,15 @@ type AppConfigClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AppConfigClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AppConfigClient class constructor that set the region, credentials and other options.
  */
 export interface AppConfigClientConfig extends AppConfigClientConfigType {}
 
+/**
+ * @public
+ */
 type AppConfigClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -398,11 +415,14 @@ type AppConfigClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AppConfigClient class. This is resolved and normalized from the {@link AppConfigClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AppConfigClient class. This is resolved and normalized from the {@link AppConfigClientConfig | constructor configuration interface}.
  */
 export interface AppConfigClientResolvedConfig extends AppConfigClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Use AppConfig, a capability of Amazon Web Services Systems Manager, to create, manage, and quickly
  *          deploy application configurations. AppConfig supports controlled deployments to
  *          applications of any size and includes built-in validation checks and monitoring. You can

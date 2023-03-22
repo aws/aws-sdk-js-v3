@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSampledRequestsCommand}.
  */
 export interface GetSampledRequestsCommandInput extends GetSampledRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSampledRequestsCommand}.
  */
 export interface GetSampledRequestsCommandOutput extends GetSampledRequestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -58,6 +63,8 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSampledRequestsCommandInput - {@link GetSampledRequestsCommandInput}
+ * @returns {@link GetSampledRequestsCommandOutput}
  * @see {@link GetSampledRequestsCommandInput} for command's `input` shape.
  * @see {@link GetSampledRequestsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -132,6 +139,9 @@ export class GetSampledRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSampledRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,10 +181,16 @@ export class GetSampledRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSampledRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSampledRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampledRequestsCommandOutput> {
     return deserializeAws_json1_1GetSampledRequestsCommand(output, context);
   }

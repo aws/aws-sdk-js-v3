@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatasourcePackagesCommand}.
  */
 export interface ListDatasourcePackagesCommandInput extends ListDatasourcePackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatasourcePackagesCommand}.
  */
 export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists data source packages in the behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasourcePackagesCommandInput - {@link ListDatasourcePackagesCommandInput}
+ * @returns {@link ListDatasourcePackagesCommandOutput}
  * @see {@link ListDatasourcePackagesCommandInput} for command's `input` shape.
  * @see {@link ListDatasourcePackagesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListDatasourcePackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasourcePackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,10 +131,16 @@ export class ListDatasourcePackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasourcePackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDatasourcePackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasourcePackagesCommandOutput> {
     return deserializeAws_restJson1ListDatasourcePackagesCommand(output, context);
   }

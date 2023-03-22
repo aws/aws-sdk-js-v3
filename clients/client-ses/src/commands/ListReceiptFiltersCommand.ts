@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListReceiptFiltersCommand}.
  */
 export interface ListReceiptFiltersCommandInput extends ListReceiptFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReceiptFiltersCommand}.
  */
 export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IP address filters associated with your AWS account in the current AWS
  *             Region.</p>
  *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
@@ -50,6 +55,8 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceiptFiltersCommandInput - {@link ListReceiptFiltersCommandInput}
+ * @returns {@link ListReceiptFiltersCommandOutput}
  * @see {@link ListReceiptFiltersCommandInput} for command's `input` shape.
  * @see {@link ListReceiptFiltersCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListReceiptFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceiptFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,10 +144,16 @@ export class ListReceiptFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReceiptFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListReceiptFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceiptFiltersCommandOutput> {
     return deserializeAws_queryListReceiptFiltersCommand(output, context);
   }

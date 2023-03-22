@@ -16,6 +16,7 @@ import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from 
 import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
 
 /**
+ * @public
  * <p>Contains all data plane API operations and data types for the Amazon SageMaker Feature
  *          Store. Use this API to put, delete, and retrieve (get) features from a feature
  *          store.</p>
@@ -46,6 +47,7 @@ import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRunti
  */
 export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeClient {
   /**
+   * @public
    * <p>Retrieves a batch of <code>Records</code> from a <code>FeatureGroup</code>.</p>
    */
   public batchGetRecord(
@@ -78,6 +80,7 @@ export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeCl
   }
 
   /**
+   * @public
    * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code>. When the <code>DeleteRecord</code> API is called a new record will be added to the <code>OfflineStore</code> and the <code>Record</code> will be removed from the <code>OnlineStore</code>. This
    *          record will have a value of <code>True</code> in the <code>is_deleted</code> column.</p>
    */
@@ -108,6 +111,7 @@ export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeCl
   }
 
   /**
+   * @public
    * <p>Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>. Only the
    *          latest records stored in the <code>OnlineStore</code> can be retrieved. If no Record with
    *             <code>RecordIdentifierValue</code> is found, then an empty result is returned. </p>
@@ -136,6 +140,7 @@ export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeCl
   }
 
   /**
+   * @public
    * <p>Used for data ingestion into the <code>FeatureStore</code>. The <code>PutRecord</code>
    *          API writes to both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the
    *          record is the latest record for the <code>recordIdentifier</code>, the record is written to

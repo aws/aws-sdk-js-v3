@@ -26,11 +26,15 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTransitGatewayMulticastDomainCommand}.
  */
 export interface DisassociateTransitGatewayMulticastDomainCommandInput
   extends DisassociateTransitGatewayMulticastDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTransitGatewayMulticastDomainCommand}.
  */
 export interface DisassociateTransitGatewayMulticastDomainCommandOutput
@@ -38,6 +42,7 @@ export interface DisassociateTransitGatewayMulticastDomainCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified subnets from the transit gateway multicast domain. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +54,8 @@ export interface DisassociateTransitGatewayMulticastDomainCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTransitGatewayMulticastDomainCommandInput - {@link DisassociateTransitGatewayMulticastDomainCommandInput}
+ * @returns {@link DisassociateTransitGatewayMulticastDomainCommandOutput}
  * @see {@link DisassociateTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +79,9 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTransitGatewayMulticastDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,6 +127,9 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
@@ -124,6 +137,9 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
     return serializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

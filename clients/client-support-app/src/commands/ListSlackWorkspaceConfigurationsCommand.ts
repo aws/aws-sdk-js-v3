@@ -26,10 +26,14 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSlackWorkspaceConfigurationsCommand}.
  */
 export interface ListSlackWorkspaceConfigurationsCommandInput extends ListSlackWorkspaceConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSlackWorkspaceConfigurationsCommand}.
  */
 export interface ListSlackWorkspaceConfigurationsCommandOutput
@@ -37,6 +41,7 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Slack workspace configurations for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +53,8 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSlackWorkspaceConfigurationsCommandInput - {@link ListSlackWorkspaceConfigurationsCommandInput}
+ * @returns {@link ListSlackWorkspaceConfigurationsCommandOutput}
  * @see {@link ListSlackWorkspaceConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListSlackWorkspaceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSlackWorkspaceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +126,9 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSlackWorkspaceConfigurationsCommandInput,
     context: __SerdeContext
@@ -123,6 +136,9 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command<
     return serializeAws_restJson1ListSlackWorkspaceConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCatalogImportStatusCommand}.
  */
 export interface GetCatalogImportStatusCommandInput extends GetCatalogImportStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCatalogImportStatusCommand}.
  */
 export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status of a migration operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,6 +51,8 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCatalogImportStatusCommandInput - {@link GetCatalogImportStatusCommandInput}
+ * @returns {@link GetCatalogImportStatusCommandOutput}
  * @see {@link GetCatalogImportStatusCommandInput} for command's `input` shape.
  * @see {@link GetCatalogImportStatusCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -75,6 +82,9 @@ export class GetCatalogImportStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCatalogImportStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,10 +124,16 @@ export class GetCatalogImportStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCatalogImportStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCatalogImportStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCatalogImportStatusCommandOutput> {
     return deserializeAws_json1_1GetCatalogImportStatusCommand(output, context);
   }

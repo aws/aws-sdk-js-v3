@@ -26,15 +26,20 @@ import {
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyWorkspacePropertiesCommand}.
  */
 export interface ModifyWorkspacePropertiesCommandInput extends ModifyWorkspacePropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyWorkspacePropertiesCommand}.
  */
 export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspacePropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified WorkSpace properties. For important information about how to
  *          modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html"> Modify a WorkSpace</a>.
  *       </p>
@@ -54,6 +59,8 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyWorkspacePropertiesCommandInput - {@link ModifyWorkspacePropertiesCommandInput}
+ * @returns {@link ModifyWorkspacePropertiesCommandOutput}
  * @see {@link ModifyWorkspacePropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspacePropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -100,6 +107,9 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyWorkspacePropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,10 +149,16 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyWorkspacePropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyWorkspacePropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -24,15 +24,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePullRequestApprovalStateCommand}.
  */
 export interface UpdatePullRequestApprovalStateCommandInput extends UpdatePullRequestApprovalStateInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePullRequestApprovalStateCommand}.
  */
 export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the state of a user's approval on a pull request. The user is derived from the signed-in account when the request is made.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,6 +49,8 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePullRequestApprovalStateCommandInput - {@link UpdatePullRequestApprovalStateCommandInput}
+ * @returns {@link UpdatePullRequestApprovalStateCommandOutput}
  * @see {@link UpdatePullRequestApprovalStateCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestApprovalStateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -116,6 +123,9 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePullRequestApprovalStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,6 +165,9 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdatePullRequestApprovalStateCommandInput,
     context: __SerdeContext
@@ -162,6 +175,9 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     return serializeAws_json1_1UpdatePullRequestApprovalStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

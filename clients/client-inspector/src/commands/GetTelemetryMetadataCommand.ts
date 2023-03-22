@@ -26,15 +26,20 @@ import {
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTelemetryMetadataCommand}.
  */
 export interface GetTelemetryMetadataCommandInput extends GetTelemetryMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTelemetryMetadataCommand}.
  */
 export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about the data that is collected for the specified assessment
  *          run.</p>
  * @example
@@ -47,6 +52,8 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTelemetryMetadataCommandInput - {@link GetTelemetryMetadataCommandInput}
+ * @returns {@link GetTelemetryMetadataCommandOutput}
  * @see {@link GetTelemetryMetadataCommandInput} for command's `input` shape.
  * @see {@link GetTelemetryMetadataCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -246,6 +253,9 @@ export class GetTelemetryMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTelemetryMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -285,10 +295,16 @@ export class GetTelemetryMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTelemetryMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTelemetryMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTelemetryMetadataCommandOutput> {
     return deserializeAws_json1_1GetTelemetryMetadataCommand(output, context);
   }
